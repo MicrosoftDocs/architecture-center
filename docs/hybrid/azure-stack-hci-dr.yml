@@ -2,10 +2,10 @@
 metadata:
   title: Use Azure Stack HCI stretched clusters for disaster recovery
   description: This reference architecture illustrates how to design and implement disaster recovery of Azure Stack HCI by using stretched clustering.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/26/2022
-  ms.topic: conceptual
+  ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.category:

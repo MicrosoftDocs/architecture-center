@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: High availability for multitier AKS applications
+  description: Read about high availability for multitier application deployment in AKS clusters, including a checklist to identify and eliminate points of failure.
+  author: akanso
+  ms.author: alkanso
+  ms.date: 04/20/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - containers
+products:
+  - azure-cosmos-db
+  - azure-disk-storage
+  - azure-files
+  - azure-kubernetes-service
+  - azure-load-balancer
+name: High availability for multitier AKS applications
+summary: High availability for multitier application deployment in AKS clusters, including a checklist to identify and eliminate points of failure.
+thumbnailUrl: /azure/architecture/browse/thumbs/replicas.png
+content: |
+  [!include[](aks-high-availability-content.md)]

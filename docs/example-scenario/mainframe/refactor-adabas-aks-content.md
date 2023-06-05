@@ -102,6 +102,16 @@ Kubernetes provides a cluster autoscaler. The autoscaler adjusts the number of n
 
 This architecture is primarily built on Kubernetes, which includes security components like pod security standards and secrets. Azure provides additional features like Azure Active Directory, Microsoft Defender for Containers, Azure Policy, Azure Key Vault, network security groups, and orchestrated cluster upgrades. 
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - Marlon Johnson | Senior TPM
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps  
 
 For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).

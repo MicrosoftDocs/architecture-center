@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Use deployment scripts to check resource properties
+  description: Use Bicep and a deployment script to pause a deployment in order to wait for a resource property to return a specific value.
+  author: jtracey93
+  ms.author: jatracey
+  ms.date: 05/16/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+  ms.custom:
+    - devx-track-bicep
+azureCategories:
+  - devops
+  - networking
+products:
+  - azure-resource-manager
+  - azure-virtual-network
+  - azure-virtual-wan
+name: Use deployment scripts to check resource properties
+summary: Use Bicep and a deployment script to pause a deployment in order to wait for a resource property to return a specific value.
+thumbnailUrl: /azure/architecture/browse/thumbs/deployment-scripts-property-check.png
+content: |
+  [!include[](deployment-scripts-property-check-content.md)]

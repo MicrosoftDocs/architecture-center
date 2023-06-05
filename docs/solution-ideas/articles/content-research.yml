@@ -3,10 +3,10 @@ metadata:
   title: Knowledge mining for content research
   titleSuffix: Azure Architecture Center
   description: Use knowledge mining technologies such as key phrase extraction and entity recognition to quickly review dense technical material.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
-  ms.date: 07/22/2022
-  ms.topic: conceptual
+  ms.date: 11/21/2022
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -15,7 +15,6 @@ metadata:
     - acom-architecture
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/knowledge-mining-content-research.png
 name: Knowledge mining for content research
 azureCategories:
   - ai-machine-learning
@@ -25,6 +24,6 @@ products:
   - azure-form-recognizer
   - azure-text-analytics
   - azure-translator
-thumbnailUrl: /azure/architecture/browse/thumbs/knowledge-mining-content-research.png
+thumbnailUrl: /azure/architecture/browse/thumbs/knowledge-mining-content-research-thumbnail.png
 content: |
   [!include[](content-research-content.md)]

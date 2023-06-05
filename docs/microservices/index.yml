@@ -2,7 +2,7 @@
 metadata:
   title: Microservices architecture design
   description: Learn about microservices on Azure, an architectural style for applications that are resilient, highly scalable, and independently deployable.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/26/2022
   ms.topic: conceptual

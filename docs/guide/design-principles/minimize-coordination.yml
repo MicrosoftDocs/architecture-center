@@ -2,7 +2,7 @@
 metadata:
   title: Minimize coordination
   description: Follow these recommendations to improve scalability by minimizing coordination between application services.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.date: 01/30/2022
   ms.topic: conceptual
   ms.service: architecture-center

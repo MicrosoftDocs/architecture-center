@@ -1,7 +1,7 @@
 ---
 title: Microsoft machine learning products
 description: Compare options for building, deploying, and managing your machine learning models. Decide which Microsoft products to choose for your solution.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
 categories: azure
 ms.date: 07/25/2022
@@ -182,3 +182,11 @@ Principal author:
 
 - To learn about all the Artificial Intelligence (AI) development products available from Microsoft, see [Microsoft AI platform](https://www.microsoft.com/ai).
 - For training in developing AI and Machine Learning solutions with Microsoft, see [Microsoft Learn training](/training/browse/?resource_type=learning+path&roles=ai-engineer%2cdata-scientist).
+
+## Related resources
+
+- [Azure Machine Learning decision guide for optimal tool selection](../../example-scenario/mlops/aml-decision-tree.yml)
+- [Choose a Microsoft cognitive services technology](../../data-guide/technology-choices/cognitive-services.md)
+- [Artificial intelligence (AI) architecture design](../../data-guide/big-data/ai-overview.md)
+- [How Azure Machine Learning works: resources and assets](/azure/machine-learning/concept-azure-machine-learning-v2)
+- [Machine learning at scale](../../data-guide/big-data/machine-learning-at-scale.md)

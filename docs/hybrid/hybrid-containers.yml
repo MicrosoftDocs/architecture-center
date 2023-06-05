@@ -4,8 +4,8 @@ metadata:
   description: This reference architecture illustrates how developers can create, manage, and monitor deployed containers in the public cloud, across multiple clouds, and on-premises.
   author: pdebruin
   ms.author: pidebrui
-  ms.date: 05/12/2022
-  ms.topic: conceptual
+  ms.date: 11/21/2022
+  ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.category:
@@ -27,6 +27,7 @@ products:
   - azure-container-instances
   - azure-cosmos-db
   - azure-kubernetes-service
+  - azure-monitor
 thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-containers.png
 content: |
    [!include[](hybrid-containers-content.md)]

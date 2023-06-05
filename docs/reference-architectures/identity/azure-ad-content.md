@@ -2,27 +2,19 @@
 
 Azure Active Directory (Azure AD) is a cloud-based multi-tenant directory and identity service. This reference architecture shows best practices for integrating on-premises Active Directory domains with Azure AD to provide cloud-based identity authentication.
 
-:::image type="content" source="./images/azure-ad.png" alt-text="Diagram of hybrid cloud identity architecture using Azure Active Directory" lightbox="./images/azure-ad.png" border="false" :::
+## Architecture
 
-*Download a [Visio file][visio-download] of this architecture (see Visio tab "Azure AD").*
+:::image type="content" source="./images/azure-ad.png" alt-text="Diagram of a hybrid cloud identity architecture that uses Azure Active Directory." lightbox="./images/azure-ad.png" border="false" :::
+
+*Access the [Visio diagram](https://office.live.com/start/Visio.aspx?omkt=en-us&templatetitle=Integrating%20On-Prem%20AD%20domains%20with%20Azure%20AD&templateid=TM11735520) online, through Microsoft 365. Note that you must have a Visio license to access this diagram. Or, download a [Visio file][visio-download] of this architecture (see Visio tab "Azure AD").*
 
 > [!NOTE]
 > For simplicity, this diagram only shows the connections directly related to Azure AD, and not protocol-related traffic that may occur as part of authentication and identity federation. For example, a web application may redirect the web browser to authenticate the request through Azure AD. Once authenticated, the request can be passed back to the web application, with the appropriate identity information.
 >
 
-Typical uses for this reference architecture include:
-
-- Web applications deployed in Azure that provide access to remote users who belong to your organization.
-- Implementing self-service capabilities for end-users, such as resetting their passwords, and delegating group management. This requires Azure AD Premium edition.
-- Architectures in which the on-premises network and the application's Azure VNet aren't connected using a VPN tunnel or ExpressRoute circuit.
-
-> [!NOTE]
-> Azure AD can authenticate the identity of users and applications that exist in an organization's directory. Some applications and services, such as SQL Server, may require computer authentication, in which case this solution is not appropriate.
->
-
 For additional considerations, see [Choose a solution for integrating on-premises Active Directory with Azure][considerations].
 
-## Architecture
+### Components
 
 The architecture has the following components.
 
@@ -36,6 +28,20 @@ The architecture has the following components.
   >
 
 - **VMs for N-tier application**. For more information about these resources, see [Run VMs for an N-tier architecture][implementing-a-multi-tier-architecture-on-Azure].
+
+## Scenario details
+
+### Potential use cases
+
+Typical uses for this reference architecture include:
+
+- Web applications deployed in Azure that provide access to remote users who belong to your organization.
+- Implementing self-service capabilities for end-users, such as resetting their passwords, and delegating group management. This requires Azure AD Premium edition.
+- Architectures in which the on-premises network and the application's Azure VNet aren't connected using a VPN tunnel or ExpressRoute circuit.
+
+> [!NOTE]
+> Azure AD can authenticate the identity of users and applications that exist in an organization's directory. Some applications and services, such as SQL Server, may require computer authentication, in which case this solution is not appropriate.
+>
 
 ## Recommendations
 
@@ -222,7 +228,7 @@ For more information and tips for managing Azure AD Connect, see [Azure AD Conne
 
 #### DevOps
 
-For DevOps considerations, see [DevOps: Extending Active Directory Domain Services (AD DS) to Azure](adds-extend-domain.yml#devops-considerations).
+For DevOps considerations, see Operational excellence in [Extending Active Directory Domain Services (AD DS) to Azure](adds-extend-domain.yml#operational-excellence).
 
 ### Performance efficiency
 
@@ -231,6 +237,16 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 The Azure AD service supports scalability based on replicas, with a single primary replica that handles write operations plus multiple read-only secondary replicas. Azure AD transparently redirects attempted writes made against secondary replicas to the primary replica and provides eventual consistency. All changes made to the primary replica are propagated to the secondary replicas. This architecture scales well because most operations against Azure AD are reads rather than writes. For more information, see [What is the Azure Active Directory architecture?][aad-scalability]
 
 For the Azure AD Connect sync server, determine how many objects you're likely to synchronize from your local directory. If you have less than 100,000 objects, you can use the default SQL Server Express LocalDB software provided with Azure AD Connect. If you have a larger number of objects, you should install a production version of SQL Server and perform a custom installation of Azure AD Connect, specifying that it should use an existing instance of SQL Server.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+- [Eric Woodruff](https://www.linkedin.com/in/msfthiker) | Product Technical Specialist 
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

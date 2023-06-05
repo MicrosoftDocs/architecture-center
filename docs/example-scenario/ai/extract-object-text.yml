@@ -3,10 +3,10 @@ metadata:
   title: Extract text from objects using Power Automate and AI Builder
   titleSuffix: Azure Architecture Center
   description: Use AI Builder and Azure Form Recognizer in a Power Automate workflow to extract text from images, for indexing and retrieval.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: Steve.Pucelik
-  ms.date: 07/28/2022
-  ms.topic: conceptual
+  ms.date: 05/02/2023
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom: fcp

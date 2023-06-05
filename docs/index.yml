@@ -5,7 +5,7 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/07/2022
   ms.collection: collection
-  ms.author: edprice
+  ms.author: martinek
   google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
 
 title: Azure Architecture Center # < 60 chars
@@ -152,7 +152,7 @@ conceptualContent:
         url: ./data-guide/big-data/ai-overview.md
       - text: Training of Python scikit-learn models
         itemType: architecture
-        url: ./reference-architectures/ai/training-python-models.yml
+        url: /azure/architecture/example-scenario/ai/training-python-models
       - text: Distributed training of deep learning models
         itemType: architecture
         url: ./reference-architectures/ai/training-deep-learning.yml
@@ -225,7 +225,7 @@ conceptualContent:
           url: ./solution-ideas/articles/monitor-mining-equipment.yml
         - text: Predict the length of stay in hospitals
           itemType: architecture
-          url: ./solution-ideas/articles/predicting-length-of-stay-in-hospitals.yml
+          url: /azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay
           
     - title: Databases
       links:
@@ -280,10 +280,10 @@ conceptualContent:
           itemType: how-to-guide
         - text: DevOps with Azure DevOps
           itemType: get-started
-          url:  example-scenario/apps/devops-dotnet-webapp.yml
+          url:  example-scenario/apps/devops-dotnet-baseline.yml
         - text: DevOps with containers
           itemType: get-started
-          url:  example-scenario/apps/devops-with-aks.yml
+          url:  guide/aks/aks-cicd-github-actions-and-gitops.yml
         - text: Jenkins server
           itemType: get-started
           url:  example-scenario/apps/jenkins.yml
@@ -295,10 +295,10 @@ conceptualContent:
           url: reference-architectures/enterprise-integration/basic-enterprise-integration.yml
         - text: Enterprise BI with SQL Data Warehouse
           itemType: architecture
-          url: ./reference-architectures/data/enterprise-bi-synapse.yml
+          url: /azure/architecture/example-scenario/analytics/enterprise-bi-synapse
         - text: Enterprise integration with queues and events
           itemType: architecture
-          url: reference-architectures/enterprise-integration/queues-events.yml
+          url: example-scenario/integration/queues-events.yml
 
     - title: High performance computing (HPC)
       links:

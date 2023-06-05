@@ -1,7 +1,7 @@
 ---
 title: Azure Application Architecture Fundamentals
 description: A structured approach for designing applications on Azure that are scalable, resilient, and highly available
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
 ms.date: 08/29/2022
 ms.topic: conceptual

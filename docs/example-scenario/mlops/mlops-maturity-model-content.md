@@ -54,7 +54,17 @@ The tables that follow identify the detailed characteristics for that level of p
 | ------ | -------------- | ------------- | ----------------------- |
 | <ul><li>Data scientists: Working directly with data engineers to convert experimentation code into repeatable scripts/jobs. Working with software engineers to identify markers for data engineers<li>Data engineers: Working with data scientists and software engineers to manage inputs/outputs<li>Software engineers: Working with data engineers to automate model integration into application code. Implementing post-deployment metrics gathering</ul> | <ul><li>Data pipeline gathers data automatically<li>Retraining triggered automatically based on production metrics<li>Compute managed<li>Experiment results tracked<li>Both training code and resulting models are version controlled</ul> | <ul><li>Automatic Release<li>Scoring Script is version controlled with tests<li>Release managed by continuous integration and CI/CD pipeline</ul> | <ul><li>Unit and Integration tests for each model release<li>Less reliant on data scientist expertise to implement model<li>Application code has unit/integration tests</ul> |
 
+## Next steps
+
+- [Learning path: Introduction to machine learning operations (MLOps)](/training/paths/introduction-machine-learn-operations)
+- [Training module: Start the machine learning lifecycle with MLOps](/training/modules/start-ml-lifecycle-mlops)
+- [MLOps: Model management, deployment, and monitoring with Azure Machine Learning](/azure/machine-learning/concept-model-management-and-deployment)
+- [What are Azure Machine Learning pipelines?](/azure/machine-learning/concept-ml-pipelines)
+
 ## Related resources
 
-* [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](mlops-technical-paper.yml)
-* [Azure Machine Learning decision guide for optimal tool selection](aml-decision-tree.yml)
+- [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](mlops-technical-paper.yml)
+- [Azure Machine Learning decision guide for optimal tool selection](aml-decision-tree.yml)
+- [Orchestrate MLOps by using Azure Databricks](../../reference-architectures/ai/orchestrate-mlops-azure-databricks.yml)
+- [Secure MLOps solutions with Azure network security](../../example-scenario/ai/network-security-mlops.yml)
+- [MLOps for Python models using Azure Machine Learning](../../reference-architectures/ai/mlops-python.yml)

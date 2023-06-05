@@ -1,12 +1,12 @@
 ### YamlMime:Architecture
 metadata:
-  title: Blue/green app deployments 
+  title: Blue/green deployments on Azure Spring Apps 
   titleSuffix: Azure Architecture Center
   description: This article describes a high-availability blue/green deployment solution for applications on Azure Spring Apps.
   author: vermegi
   ms.author: givermei
-  ms.date: 08/26/2022
-  ms.topic: conceptual
+  ms.date: 02/09/2023
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom:
@@ -21,6 +21,6 @@ products:
   - azure-devops
 name: Blue/green deployments for applications on Azure Spring Apps 
 summary: This article describes a high-availability blue/green deployment solution for applications on Azure Spring Apps.
-thumbnailUrl: /azure/architecture/browse/thumbs/blue-green-deployment.png
+thumbnailUrl: /azure/architecture/browse/thumbs/blue-green-deployment-thumbnail.png
 content: |
   [!include[](blue-green-spring-content.md)]

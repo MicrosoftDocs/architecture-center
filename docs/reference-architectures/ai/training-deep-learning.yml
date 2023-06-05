@@ -2,10 +2,10 @@
 metadata:
   title: Distributed training, deep learning models
   description: Conduct distributed training of deep learning models across clusters of GPU-enabled VMs by using Azure Machine Learning.
-  author: msalvaris
+  author: martinekuan
   ms.author: architectures
-  ms.date: 07/28/2022
-  ms.topic: conceptual
+  ms.date: 11/04/2022
+  ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.category:
@@ -25,6 +25,6 @@ products:
   - azure-blob-storage
   - azure-container-registry
   - azure-machine-learning
-thumbnailUrl: /azure/architecture/browse/thumbs/distributed_dl_architecture.png
+thumbnailUrl: /azure/architecture/browse/thumbs/distributed-dl-architecture-thumbnail.png
 content: |
   [!include[](training-deep-learning-content.md)]

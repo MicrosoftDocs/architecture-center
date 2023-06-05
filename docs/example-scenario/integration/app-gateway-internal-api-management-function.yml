@@ -6,7 +6,7 @@ metadata:
   author: cykreng
   ms.author: cykreng, petermessina, anevico
   ms.date: 08/04/2022
-  ms.topic: conceptual
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
 azureCategories:
@@ -15,7 +15,6 @@ azureCategories:
 products:
   - azure-api-management
   - azure-application-gateway
-  - azure-dev-tool-integrations
   - azure-functions
   - dotnet-core
 name: Azure API Management landing zone accelerator

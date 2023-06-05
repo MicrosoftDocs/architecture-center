@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Refactor mainframe architecture by using CloudFrame Renovate
+  titleSuffix: Azure Architecture Center
+  description: Refactor your mainframe architecture to Azure by using the CloudFrame Renovate code migration tool. Renovate migrates COBOL to Java.
+  author: jimthesqlguy
+  ms.author: jdugan
+  ms.date: 10/25/2022
+  ms.topic: example-scenario
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom:
+    - devx-track-extended-java
+azureCategories:
+  - migration
+products:
+  - azure-virtual-machines
+  - azure-kubernetes-service
+  - azure-virtual-network
+  - azure-sql-database
+  - azure-site-recovery
+name: Refactor mainframe architecture by using CloudFrame Renovate
+summary: Refactor your mainframe architecture to Azure by using the CloudFrame Renovate code migration tool. Renovate migrates COBOL to Java.
+thumbnailUrl: /azure/architecture/browse/thumbs/cloudframe-renovate-thumb.png
+content: |
+  [!include[](cloudframe-renovate-mainframe-refactor-content.md)]

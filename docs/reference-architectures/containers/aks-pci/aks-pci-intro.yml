@@ -5,7 +5,7 @@ metadata:
   author: PageWriter-MSFT
   ms.author: prwilk
   ms.date: 11/11/2021
-  ms.topic: conceptual
+  ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
 name: Introduction of an AKS regulated cluster for PCI-DSS 3.2.1 (Part 1 of 9)

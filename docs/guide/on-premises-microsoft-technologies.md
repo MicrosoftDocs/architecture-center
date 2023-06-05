@@ -1,7 +1,7 @@
 ---
 title: Scenarios that feature Microsoft on-premises technologies on Azure
 description: Review a list of architectures and solutions that use Microsoft on-premises technologies on Microsoft Azure.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
 ms.date: 07/26/2022
 ms.topic: conceptual
@@ -52,7 +52,6 @@ For information about solutions in which Azure services integrate with the other
 |[Deploy AD DS in an Azure virtual network](../reference-architectures/identity/adds-extend-domain.yml)|Use this reference architecture to extend an on-premises Active Directory domain to Azure to provide distributed authentication services.| Identity|
 |[Disaster recovery for Azure Stack Hub VMs](../hybrid/azure-stack-vm-disaster-recovery.yml) |Learn about an optimized approach to disaster recovery of VM-based user workloads that are hosted on Azure Stack Hub. Azure Site Recovery integrates with Windows Server-based apps and roles, including Active Directory Domain Services.|Hybrid|
 |[Extend on-premises AD FS to Azure](../reference-architectures/identity/adfs.yml) |Implement a highly secure hybrid network architecture by using Active Directory Federation Services (AD FS) authorization on Azure.|Identity|
-|[Federate with a customer's AD FS](../multitenant-identity/adfs.yml) |Learn how a multitenant SaaS application can federate with a customer's AD FS.|Identity|
 |[Hybrid SharePoint farm with Microsoft 365](../solution-ideas/articles/sharepoint-farm-microsoft-365.yml)|Deliver highly available intranet capability and share hybrid workloads with Microsoft 365 by using SharePoint servers, Azure Active Directory (Azure AD), and SQL Server. Windows Server hosts Active Directory services for service and machine accounts.| Hybrid|
 |[Integrate on-premises Active Directory with Azure](../reference-architectures/identity/index.yml) |Compare options for integrating your on-premises Active Directory environment with an Azure network.|Identity|
 |[Multiple forests with AD DS and Azure AD](../example-scenario/wvd/multi-forest.yml)|Create multiple Active Directory forests by using Azure Virtual Desktop.|Virtual Desktop|
@@ -98,7 +97,7 @@ For information about solutions in which Azure services integrate with the other
 |[Campaign optimization with SQL Server](../solution-ideas/articles/campaign-optimization-with-sql-server.yml)|Use machine learning and SQL Server 2016 with R Services to optimize when and how to contact potential customers to improve success rates for marketing campaigns.| Databases|
 |[Data integration with Logic Apps and SQL Server](../example-scenario/integration/logic-apps-data-integration.yml) |Automate data integration tasks by using Azure Logic Apps. Configure API calls to trigger tasks like storing data in an on-premises SQL Server database.|Integration|
 |[Disaster recovery for Azure Stack Hub VMs](../hybrid/azure-stack-vm-disaster-recovery.yml) |Learn about an optimized approach to disaster recovery of VM-based user workloads that are hosted on Azure Stack Hub. Includes information about disaster recovery for SQL Server workloads.|Hybrid|
-|[Enterprise business intelligence](../reference-architectures/data/enterprise-bi-synapse.yml) |Learn how to implement an ELT pipeline that moves data from an on-premises SQL Server database into Azure Synapse Analytics and transforms the data for analysis.|Integration|
+|[Enterprise business intelligence](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse) |Learn how to implement an ELT pipeline that moves data from an on-premises SQL Server database into Azure Synapse Analytics and transforms the data for analysis.|Integration|
 |[Hybrid ETL with Azure Data Factory](../example-scenario/data/hybrid-etl-with-adf.yml) |Use Azure Data Factory to create a hybrid ETL for existing on-premises SQL Server Integration Services (SSIS) deployments.|Databases|
 |[Hybrid SharePoint farm with Microsoft 365](../solution-ideas/articles/sharepoint-farm-microsoft-365.yml) |Deliver highly available intranet capability and share hybrid workloads with Microsoft 365 by using SharePoint servers, Azure AD, and SQL Server.|Hybrid|
 |[IaaS: Web app with relational database](../high-availability/ref-arch-iaas-web-and-db.yml) |Learn best practices for applying availability zones to a web application and SQL Server database that are hosted on VMs.|Databases|

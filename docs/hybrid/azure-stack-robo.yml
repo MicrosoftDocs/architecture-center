@@ -2,10 +2,10 @@
 metadata:
   title: Azure Stack remote offices and branches
   description: Learn how to design infrastructure for highly available virtualized and containerized workloads in remote office/branch office (ROBO) scenarios.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/26/2022
-  ms.topic: conceptual
+  ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.category:
@@ -25,6 +25,6 @@ products:
   - azure-policy
   - azure-security-center
   - azure-stack-hci
-thumbnailUrl: /azure/architecture/browse/thumbs/azure_stack_robo.png
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-stack-robo.png
 content: |
    [!include[](azure-stack-robo-content.md)]

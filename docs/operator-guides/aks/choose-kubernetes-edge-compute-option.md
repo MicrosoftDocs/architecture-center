@@ -2,9 +2,9 @@
 title: Choose a Kubernetes at the edge compute option
 titleSuffix: Azure Architecture Center
 description: Learn about trade-offs for various options available for extending compute on the edge.
-author: edprice-msft
+author: martinekuan
 ms.author: prkau
-ms.date: 03/21/2022
+ms.date: 11/11/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -41,7 +41,7 @@ After reading this document, you'll be in a better position to identify which op
 |---------------------------------|----------------------|---------------------------|-----------------|----------------|-------------------------------------------------------------------------------------------------------------------------------------------|
 | **Bare-metal Kubernetes**       | High\*\*             | Difficult\*\*             | High\*\*        | Yes            | A ground-up configuration on any available infrastructure at location with the option to use Azure Arc for added Azure capabilities. |
 | **K8s on Azure Stack Edge Pro** | Low                  | Easy                      | Low             | Linux only     | Kubernetes deployed on Azure Stack Edge appliance deployed at location.                                                                   |
-| **AKS on HCI**                  | Low                  | Easy                      | Medium          | Yes            | AKS deployed on Azure Stack HCI or Windows Server 2019.                                                                                   |
+| **AKS hybrid**                  | Low                  | Easy                      | Medium          | Yes            | AKS deployed on Azure Stack HCI or Windows Server 2019.                                                                                   |
 
 \*Other managed edge platforms (OpenShift, Tanzu, and so on) aren't in scope for this document.
 
@@ -133,19 +133,15 @@ Flexibility:
 
 - Configuration is already set, and Admin permissions aren't granted by default. Product group involvement may be required beyond basic configuration, and the underlying infrastructure must be an Azure Stack Edge Pro device, making this a less flexible option.
 
-## AKS on HCI
+## AKS hybrid
 
-Note: This option is currently in **preview**.
-
-AKS-HCI is a set of predefined settings and configurations that is used to deploy one or more Kubernetes clusters (with Windows Admin Center or PowerShell modules) on a multi-node cluster running either Windows Server 2019 Datacenter or Azure Stack HCI 20H2.
+AKS hybrid is a set of predefined settings and configurations that is used to deploy one or more Kubernetes clusters (with Windows Admin Center or PowerShell modules) on a multi-node cluster running either Windows Server or Azure Stack HCI 20H2 or later.
 
 ### Scenario
 
-Ideal for those who want a simplified and streamlined way to get a Microsoft-supported cluster on compatible devices (Azure Stack HCI or Windows Server 2019 Datacenter). Operations and configuration complexity are reduced at the expense of the flexibility when compared to the bare-metal Kubernetes option.
+Ideal for those who want a simplified and streamlined way to get a Microsoft-supported cluster on compatible devices (Azure Stack HCI or Windows Server). Operations and configuration complexity are reduced at the expense of the flexibility when compared to the bare-metal Kubernetes option.
 
 ### Considerations
-
-At the time of this writing, the preview comes with many limitations (permissions, networking limitations, large compute requirements, and documentation gaps). Purposes other than evaluation and development are discouraged that this time.
 
 Operational cost:
 
@@ -157,8 +153,18 @@ Ease of configuration:
 
 Flexibility:
 
-- Cluster configuration itself is set, but Admin permissions are granted. The underlying infrastructure must either be Azure Stack HCI or Windows Server
+- Cluster configuration itself is set, but Admin permissions are granted. The underlying infrastructure must either be Azure Stack HCI or Windows Server.
     2019. This option is more flexible than Kubernetes on Azure Stack Edge and less flexible than bare-metal Kubernetes.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Prabhjot Kaur](https://www.linkedin.com/in/kaur-profile/) | Principal Cloud Solution Architect
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

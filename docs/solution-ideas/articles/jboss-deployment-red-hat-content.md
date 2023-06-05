@@ -44,13 +44,12 @@ JBoss EAP is suitable for these uses:
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry) can build, store, and manage container images and artifacts for all types of container deployments.
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a globally distributed, multi-model database that enables your solutions to elastically and independently scale throughput and storage across any number of geographic regions. It offers comprehensive service level agreements (SLAs) to guarantee throughput, latency, availability, and consistency.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault) safeguards cryptographic keys, passwords, and other secrets that Azure and third-party apps and services use.
-- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. You can use it to implement a microservices architecture whose components scale independently on demand.
 - [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer) is a layer 4 (TCP, UDP) load balancer. For more information, see [What is Azure Load Balancer?](/azure/load-balancer/load-balancer-overview)
 - [Azure Monitor](https://azure.microsoft.com/services/monitor) collects, analyzes, and acts on telemetry from your Azure and on-premises environments.
 - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) automatically builds and tests code projects. It combines continuous integration (CI) and continuous delivery (CD). By using these practices, Azure Pipelines constantly and consistently tests and builds code and ships it to any target. For more information, see [What is Azure Pipelines?](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) VMs are on-demand, scalable computing resources that give you the flexibility of virtualization but eliminate the maintenance demands of physical hardware. The operating system choices include Windows and Linux.
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is a secure private network in the cloud. It connects VMs to one another, to the internet, and to on-premises networks.
-- [Red Hat on Azure](https://azure.microsoft.com/overview/linux-on-azure/red-hat) is a set of secure, reliable, flexible hybrid cloud environments on Azure, supported by a global user support service from Azure and Red Hat. The environments include [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift), [Red Hat Enterprise Linux 8.0](https://azuremarketplace.microsoft.com/marketplace/apps/RedHat.RedHatEnterpriseLinux80-ARM), and [Red Hat JBoss Enterprise Application Platform (JBoss EAP)](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.jboss-eap-rhel).
+- [Red Hat on Azure](https://azure.microsoft.com/overview/linux-on-azure/red-hat) is a set of secure, reliable, flexible hybrid cloud environments on Azure, supported by a global user support service from Azure and Red Hat. The environments include [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift) and [Red Hat JBoss Enterprise Application Platform (JBoss EAP)](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.jboss-eap-rhel).
 - [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift) provides highly available, fully managed OpenShift clusters on demand, monitored and operated jointly by Microsoft and Red Hat. Kubernetes is at the core of Red Hat OpenShift. OpenShift brings added-value features to complement Kubernetes, making it a turnkey container platform as a service (PaaS) with a significantly improved developer and operator experience.
 - [Red Hat JBoss Enterprise Application Platform (JBoss EAP)](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.jboss-eap-rhel) is an application platform that delivers enterprise-grade security, performance, and scalability. It can run on-premises, virtual, or in private, public, or hybrid clouds.
 
@@ -73,12 +72,11 @@ Principal author:
 ### Red Hat on Azure
 
 - [CDEPLOYING A RED HAT ENTERPRISE LINUX 8 IMAGE AS A VIRTUAL MACHINE ON MICROSOFT AZURE](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/deploying_red_hat_enterprise_linux_8_on_public_cloud_platforms/index)
-- [Red Hat Enterprise Linux 8.0](https://azuremarketplace.microsoft.com/marketplace/apps/RedHat.RedHatEnterpriseLinux80-ARM?tab=Overview)
 - [Azure Red Hat OpenShift documentation](/azure/openshift)
 
 ### JBoss
 
-- [Deploy enterprise Java applications to Azure with JBoss EAP on Red Hat Enterprise Linux](/azure/virtual-machines/workloads/redhat/jboss-eap-on-rhel)
+- [Red Hat JBoss EAP on Azure](/azure/developer/java/ee/jboss-on-azure)
 - [USING JBOSS EAP IN MICROSOFT AZURE](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html/using_jboss_eap_in_microsoft_azure/index)
 - [Monoliths to microservices: App Transformation](https://github.com/SpektraSystems/Red-Hat-Modernize-Apps/tree/master/docs) (GitHub)
 

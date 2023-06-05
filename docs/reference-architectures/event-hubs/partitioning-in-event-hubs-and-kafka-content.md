@@ -1,22 +1,8 @@
 This reference architecture provides strategies for the [partitioning model][Partitions] that event ingestion services use. Because event ingestion services provide solutions for high-scale event streaming, they need to process events in parallel and be able to maintain event order. They also need to balance loads and offer scalability. Partitioning models meet all of these requirements.
 
-Specifically, this document discusses the following strategies:
-
-- How to assign events to partitions.
-- How many partitions to use.
-- How to assign partitions to subscribers when rebalancing.
-
-Many event ingestion technologies exist, including:
-
-- [Azure Event Hubs][Azure Event Hubs]: A fully managed big data streaming platform.
-- [Apache Kafka][Apache Kafka]: An open-source stream-processing platform.
-- [Event Hubs with Kafka][Use Azure Event Hubs from Apache Kafka applications]: An alternative to running your own Kafka cluster. This Event Hubs feature provides an endpoint that is compatible with Kafka APIs.
-
-Besides offering partitioning strategies, this document also points out differences between partitioning in Event Hubs and Kafka.
-
 ## Architecture
 
-:::image type="complex" source="./images/event-processing-service-new.png" alt-text="Architecture diagram showing the flow of events in an ingestion pipeline. Events flow from producers to a cluster or namespace and then to consumers." border="false":::
+:::image type="complex" source="./images/event-processing-service-new.svg" alt-text="Architecture diagram showing the flow of events in an ingestion pipeline. Events flow from producers to a cluster or namespace and then to consumers." border="false":::
    At the center of the diagram is a box labeled Kafka Cluster or Event Hub Namespace. Three smaller boxes sit inside that box. Each is labeled Topic or Event Hub, and each contains multiple rectangles labeled Partition. Above the main box are rectangles labeled Producer. Arrows point from the producers to the main box. Below the main box are rectangles labeled Consumer. Arrows point from the main box to the consumers and are labeled with various offset values. A single blue frame labeled Consumer Group surrounds two of the consumers, grouping them together.
 :::image-end:::
 
@@ -36,6 +22,22 @@ Besides offering partitioning strategies, this document also points out differen
 
 - Consumers process the feed of published events that they subscribe to. Consumers also engage in *checkpointing*. Through this process, subscribers use *offsets* to mark their position within a partition event sequence. An offset is a placeholder that works like a bookmark to identify the last event that the consumer read.
 
+## Scenario details
+
+Specifically, this document discusses the following strategies:
+
+- How to assign events to partitions.
+- How many partitions to use.
+- How to assign partitions to subscribers when rebalancing.
+
+Many event ingestion technologies exist, including:
+
+- [Azure Event Hubs][Azure Event Hubs]: A fully managed big data streaming platform.
+- [Apache Kafka][Apache Kafka]: An open-source stream-processing platform.
+- [Event Hubs with Kafka][Use Azure Event Hubs from Apache Kafka applications]: An alternative to running your own Kafka cluster. This Event Hubs feature provides an endpoint that is compatible with Kafka APIs.
+
+Besides offering partitioning strategies, this document also points out differences between partitioning in Event Hubs and Kafka.
+
 ## Recommendations
 
 Keep the following recommendations in mind when developing a partitioning strategy.
@@ -46,7 +48,7 @@ One aspect of the partitioning strategy is the assignment policy. An event that 
 
 Each event stores its content in its *value*. Besides the value, each event also contains a *key*, as the following diagram shows:
 
-:::image type="complex" source="./images/pipeline-event-parts-new.png" alt-text="Architecture diagram showing the parts of an event. Each event, or message, consists of a key and a value. Together, multiple events form a stream." border="false":::
+:::image type="complex" source="./images/pipeline-event-parts-new.svg" alt-text="Architecture diagram showing the parts of an event. Each event, or message, consists of a key and a value. Together, multiple events form a stream." border="false":::
    At the center of the diagram are multiple pairs of boxes. A label below the boxes indicates that each pair represents a message. Each message contains a blue box labeled Key and a black box labeled Value. The messages are arranged horizontally. Arrows between messages that point from left to right indicate that the messages form a sequence. Above the messages is the label Stream. Brackets indicate that the sequence forms a stream.
 :::image-end:::
 
@@ -153,7 +155,7 @@ In Kafka, events are *committed* after the pipeline has replicated them across a
 
 In Event Hubs, publishers use a [Shared Access Signature (SAS)][Shared Access Signatures] token to identify themselves. Consumers connect via an [AMQP 1.0 session][AMQP 1.0]. This state-aware bidirectional communication channel provides a secure way to transfer messages. Kafka also offers encryption, authorization, and authentication features, but you have to implement them yourself.
 
-## Examples
+## Deploy this scenario
 
 The following code examples demonstrate how to maintain throughput, distribute to a specific partition, and preserve event order.
 
@@ -313,6 +315,16 @@ This code produces the following results:
 :::image type="content" source="./images/event-processing-results-specify-key.png" alt-text="Screenshot showing producer and consumer logs. Events had keys that determined the partition they went to. Within partitions, events arrived in order." border="false":::
 
 As these results show, the producer only used two unique keys. The messages then went to only two partitions instead of all four. The pipeline guarantees that messages with the same key go to the same partition.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Rajasa Savant](https://www.linkedin.com/in/rajasa-savant-72645728/) | Senior Software Engineer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

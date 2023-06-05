@@ -6,7 +6,7 @@ metadata:
   author: aadimanchanda
   ms.author: amanchanda
   ms.date: 05/27/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -19,7 +19,6 @@ metadata:
     - ExpressRoute
     - e2e-hybrid
     - "https://azure.microsoft.com/solutions/architecture/extend-your-on-premises-big-data-investments-with-hdinsight"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/extend-your-on-premises-big-data-investments-with-hdinsight.png
 name: Extend your on-premises big data investments with HDInsight
 azureCategories:
   - analytics

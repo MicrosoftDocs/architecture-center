@@ -3,12 +3,9 @@ AcuSolve](https://www.altair.com/altair-cfd-capabilities) on a virtual
 machine (VM) that's deployed on Azure. It also presents the performance
 results of running AcuSolve on Azure.
 
-AcuSolve is a computational fluid dynamics (CFD) analyzer. It provides
-comprehensive software and tools to solve fluid mechanics problems like
-thermal analysis, aerodynamics, and noise reduction. 
+AcuSolve is a computational fluid dynamics (CFD) analyzer. It provides comprehensive software and tools to solve fluid mechanics problems like thermal analysis, aerodynamics, and noise reduction. 
 
-AcuSolve is finite-element based and uses distinct methods to solve all fluid problems: Navier-Stokes, smoothed-particle hydrodynamic, and Lattice Boltzmann. It enables simulations that involve flow, heat transfer, turbulence,
-    and non-Newtonian materials.
+AcuSolve is finite-element based and uses distinct methods to solve all fluid problems: Navier-Stokes, smoothed-particle hydrodynamic, and Lattice Boltzmann. It enables simulations that involve flow, heat transfer, turbulence, and non-Newtonian materials. Engineers and scientists use AcuSolve for the automotive, aerospace, and energy industries, including for chemical processing and electronics cooling.
 
 ## Why deploy AcuSolve on Azure?
 

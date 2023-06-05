@@ -1,22 +1,12 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Almost every business needs to predict the future to make better decisions and allocate resources more effectively. As an example, accurately forecasting spikes in demand for products and services can give a company a competitive advantage. The better the forecasting, the more they can scale as demand increases, and the less they risk holding onto unneeded inventory. Use cases include predicting demand for a product in a retail/online store, forecasting hospital visits, and anticipating power consumption.
-
-This article focuses on presenting useful links to the forecasting best practices and an example of detailed architecture for an end-to-end implementation in Azure.
-
-## Potential use cases
-
-The following scenarios are ways an organization can utilize demand forecasting:
-
-- Inventory planning for retail
-- Network capacity planning (telecommunications)
-- Workforce planning
-- Increased customer satisfaction
+Almost every business needs to predict the future to make better decisions and allocate resources more effectively. This article provides an architecture for an end-to-end demand-forecasting implementation on Azure.
 
 ## Architecture
 
-![Architecture diagram showing the flow of sample data to Power B I: demand forecasting](../media/demand-forecasting.png)
-*Download an [SVG](../media/demand-forecasting.svg) of this architecture.*
+![Architecture diagram showing the flow of sample data to Power BI: demand forecasting.](../media/demand-forecasting.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/demand-forecasting.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -41,7 +31,30 @@ Key technologies used to implement this architecture:
 * [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning): Build, deploy, and manage predictive analytics solutions
 * [Power BI](https://azure.microsoft.com/services/developer-tools/power-bi): Realize the value of your data and bring the insights discovered in Azure data and analytics tools to the organization.
 
+## Scenario details
+
+This solution idea provides an architecture for forecasting demand. Accurately forecasting spikes in demand for products and services, for example, can give a company a competitive advantage. The better the forecasting, the more they can scale as demand increases, and the less they risk holding onto unneeded inventory. Use cases include predicting demand for a product in a retail/online store, forecasting hospital visits, and anticipating power consumption.
+
+### Potential use cases
+
+The following scenarios are ways an organization can utilize demand forecasting:
+
+- Inventory planning for retail
+- Network capacity planning (telecommunications)
+- Workforce planning
+- Increased customer satisfaction
+
 ## Next steps
 
-  * [Forecasting Best Practices (on GitHub)](https://github.com/microsoft/forecasting)
-  * [AutoML For Forecasting (on GitHub)](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
+  - [Forecasting Best Practices (on GitHub)](https://github.com/microsoft/forecasting)
+  - [AutoML For Forecasting (on GitHub)](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
+  - [Azure Machine Learning documentation](/azure/machine-learning)
+  - [Training: Get started with Azure Stream Analytics](/training/modules/introduction-to-data-streaming)
+  - [Welcome to Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)
+  
+## Related resources
+
+- [Use a demand forecasting model for price optimization](../../solution-ideas/articles/demand-forecasting-price-optimization-marketing.yml)
+- [Demand forecasting for shipping and distribution](../../solution-ideas/articles/demand-forecasting-for-shipping-and-distribution.yml)
+- [Analytics architecture design](../../solution-ideas/articles/analytics-start-here.yml)
+- [Choose a real-time analytics and streaming processing technology on Azure](/azure/stream-analytics/streaming-technologies)

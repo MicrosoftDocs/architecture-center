@@ -456,3 +456,9 @@ Here is the summary of best practices:
 Get the latest version of the tools you need for containerizing, such as [Visual Studio](https://visualstudio.microsoft.com) and [Docker for Windows](https://www.docker.com/docker-windows).
 
 Customize these templates to meet your requirements. [Sample: Modernization templates and scripts](https://github.com/Azure-Samples/Service-fabric-dotnet-modernization).
+
+## Related resources
+
+- [Migration architecture design](../guide/migration/migration-start-here.md)
+- [Build migration plan with Azure Migrate](/azure/migrate/concepts-migration-planning)
+- [Modernize .NET applications](../solution-ideas/articles/net-app-modernization.yml)

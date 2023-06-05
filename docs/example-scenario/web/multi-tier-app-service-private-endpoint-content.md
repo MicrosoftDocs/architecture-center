@@ -96,6 +96,16 @@ The cost of your implementation is affected by:
 - Whether the solution runs continuously or intermittently.
 - The service tiers that you use.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - Dixit Arora | Senior Customer Engineer
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [App Service documentation](/azure/app-service)

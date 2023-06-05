@@ -22,12 +22,12 @@ Azure load balancing services can be categorized along two dimensions: global ve
 
 The following table summarizes the Azure load balancing services by these categories:
 
-| Service | Global/regional | Recommended traffic |
-| ------- | --------------- | ------- |
-| Azure Front Door | Global | HTTP(S) |
-| Traffic Manager | Global | non-HTTP(S) |
-| Application Gateway | Regional | HTTP(S) |
-| Azure Load Balancer | Regional | non-HTTP(S) |
+| Service             | Global/regional | Recommended traffic |
+| ------------------- | --------------- | ------------------- |
+| Azure Front Door    | Global          | HTTP(S)             |
+| Traffic Manager     | Global          | non-HTTP(S)         |
+| Application Gateway | Regional        | HTTP(S)             |
+| Azure Load Balancer | Regional        | non-HTTP(S)         |
 
 ## Azure load balancing services
 
@@ -44,24 +44,29 @@ Here are the main load-balancing services currently available in Azure:
 
 [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) is a high-performance, ultra low-latency Layer 4 load-balancing service (inbound and outbound) for all UDP and TCP protocols. It is built to handle millions of requests per second while ensuring your solution is highly available. Azure Load Balancer is zone-redundant, ensuring high availability across Availability Zones.
 
+> [!NOTE]
+> Azure Load Balancer support for cross-region load balancing is in preview. For more information, see [Cross-region load balancer](/azure/load-balancer/cross-region-overview).
+
 ## Choose a load balancing solution using Azure portal
 
-You can use the Azure Load Balancing page in the Azure portal to help you guide to the right load-balancing solution for your business need. Azure Load Balancing includes the decision making queries described in the workflow of the following section and can be accessed as follows:
+You can use the Azure Load Balancing page in the Azure portal to help guide you to the right load-balancing solution for your business need. Azure Load Balancing includes the decision making queries described in the workflow of the following section and can be accessed as follows:
 
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 1. In the *Search resources, services, and docs* box at the top of the portal, type *load balancing*. When **Load balancing** appears in the search results, select it.
 
-    [ ![Search for load balancing - Azure portal screenshot](./images/load-balancing-search-1.png) ](./images/load-balancing-search-1.png#lightbox)
-    > [!NOTE]
-    > To learn about some of the factors considered in selecting a load-balancing solution, see [Decision tree for load-balancing in Azure](#decision-tree-for-load-balancing-in-azure) in this article.
+   [ ![Search for load balancing - Azure portal screenshot](./images/load-balancing-search-1.png) ](./images/load-balancing-search-1.png#lightbox)
+
+   > [!NOTE]
+   > To learn about some of the factors considered in selecting a load-balancing solution, see [Decision tree for load-balancing in Azure](#decision-tree-for-load-balancing-in-azure) in this article.
 
 1. In the **Load balancing - help me choose (Preview)** page, do one of the following:
-    - To find the appropriate load-balancing solution for your business, follow instructions in the default **Help me choose** tab.
 
-        [ ![Choose an Azure load balancing solution - Azure portal screenshot](./images/load-balancing-help-me-choose.png) ](./images/load-balancing-help-me-choose.png#lightbox)
+   - To find the appropriate load-balancing solution for your business, follow instructions in the default **Help me choose** tab.
 
-    - To learn about the supported protocols and service capabilities of each load balancing service, select the **Service comparisons** tab.
-    - To access free training on load balancing services, select the **Tutorial** tab.
+     [ ![Choose an Azure load balancing solution - Azure portal screenshot](./images/load-balancing-help-me-choose.png) ](./images/load-balancing-help-me-choose.png#lightbox)
+
+   - To learn about the supported protocols and service capabilities of each load balancing service, select the **Service comparisons** tab.
+   - To access free training on load balancing services, select the **Tutorial** tab.
 
 ## Reference architecture examples
 
@@ -109,7 +114,10 @@ If your application consists of multiple workloads, evaluate each workload separ
 
 - **Application-layer processing** refers to special routing within a virtual network. For example, path-based routing within the virtual network across VMs or virtual machine scale sets. For more information, see [When should we deploy an Application Gateway behind Front Door?](/azure/frontdoor/front-door-faq#when-should-we-deploy-an-application-gateway-behind-front-door).
 
+- **Performance acceleration** refers to features that accelerate web access. This can be achieved through the use of Content Delivery Networks (CDN) or optimized point of presence (POP) ingress for accelerated client onboarding into the destination network. Azure Front Door supports both [CDN](/azure/frontdoor/front-door-caching?pivots=front-door-standard-premium) and [Anycast traffic acceleration](/azure/frontdoor/front-door-traffic-acceleration?pivots=front-door-standard-premium). The benefits of both features can be gained with or without Application Gateway in the architecture.
+
 ## Next steps
+
 - [Create a public load balancer to load balance VMs](/azure/load-balancer/quickstart-load-balancer-standard-public-portal)
 - [Direct web traffic with Application Gateway](/azure/application-gateway/quick-create-portal)
 - [Configure Traffic Manager for global DNS-based load balancing](/azure/traffic-manager/quickstart-create-traffic-manager-profile)

@@ -3,10 +3,10 @@ metadata:
   title: Product recommendations for retail using Azure
   titleSuffix: Azure Architecture Center
   description: Aggregate customer data into complete profiles. Use advanced Azure machine learning models to provide predictive insights on simulated customers.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/27/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -19,7 +19,6 @@ metadata:
     - ai gallery
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/customer-360"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/product-recommendations.png
 name: Product recommendations for retail using Azure
 azureCategories:
   - analytics

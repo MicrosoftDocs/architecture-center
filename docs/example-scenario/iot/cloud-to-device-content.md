@@ -71,7 +71,10 @@ Sending unnecessary wakeup messages through SMS gateways is costly. Before sendi
         methodInvocation1.SetPayloadJson(CommandPayload);
 
         var response = await serviceClient.InvokeDeviceMethodAsync(deviceId, method);
-        if (var == [DeviceNotConnected] && connTimeOut == 0) {
+
+        // [DeviceNotConnected] represents a return value from the CloudToDeviceMethod
+        // method. That method is not implemented in this sample.
+        if (response == [DeviceNotConnected] && connTimeOut == 0) {
             // The device is not currently connected and needs an SMS wakeup. This
             // device should wake up within a period of < 30 seconds. Send the wakeup
             // and retry the method request with a 30 second timeout on waiting for

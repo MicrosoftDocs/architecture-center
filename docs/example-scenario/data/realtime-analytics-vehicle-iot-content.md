@@ -45,8 +45,8 @@ The data flows through the solution as follows:
 
 - [Azure Stream Analytics (ASA)](https://azure.microsoft.com/services/stream-analytics) provides real-time, serverless stream processing that can run the same queries in the cloud and on the edge. ASA on Azure IoT Edge can filter or aggregate data locally, enabling intelligent decisions about which data needs to be sent to the cloud for further processing or storage.
 
-- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db), [Azure SQL Database and Azure Synapse Analytics](https://azure.microsoft.com/services/azure-sql/) are in the Serving storage layer. Azure Stream Analytics can write messages directly to Cosmos DB using an
-    [output](/azure/stream-analytics/stream-analytics-define-outputs). Data can be aggregated and moved from Cosmos DB and Azure SQL to Azure Synapse using [Azure Data Factory](/azure/data-factory/).
+- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db), [Azure SQL Database and Azure Synapse Analytics](https://azure.microsoft.com/services/azure-sql/) are in the Serving storage layer. Azure Stream Analytics can write messages directly to Azure Cosmos DB using an
+    [output](/azure/stream-analytics/stream-analytics-define-outputs). Data can be aggregated and moved from Azure Cosmos DB and Azure SQL to Azure Synapse using [Azure Data Factory](/azure/data-factory/).
 
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) is a distributed system for storing and analyzing large datasets. Its use of massive parallel processing (MPP) makes it suitable for running high-performance analytics.
 
@@ -60,7 +60,7 @@ The data flows through the solution as follows:
 
 ### Alternatives
 
-- [Synapse Link](/azure/cosmos-db/synapse-link) is the Microsoft preferred solution for analytics on top of Cosmos DB data.
+- [Synapse Link](/azure/cosmos-db/synapse-link) is the Microsoft preferred solution for analytics on top of Azure Cosmos DB data.
 
 ## Scenario details
 

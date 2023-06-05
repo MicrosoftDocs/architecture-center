@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: Considerations for multitenant control planes
+  description: Learn about the responsibilities of control planes in multitenant solutions and how to design a control plane that meets your needs.
+  author: johndowns
+  ms.author: jodowns
+  ms.date: 05/08/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - management-and-governance
+products:
+  - azure
+name: Considerations for multitenant control planes
+summary: This article describes the considerations for planning a control plane for a multitenant solution.
+thumbnailUrl: /azure/architecture/browse/thumbs/control-planes-thumb.png
+content: |
+   [!include[](control-planes-content.md)]
+  

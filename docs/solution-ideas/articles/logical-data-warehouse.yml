@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Logical data warehouse with Azure Synapse serverless SQL pools
+  titleSuffix: Azure Architecture Center
+  description: See how a logical data warehouse uses Azure Synapse serverless SQL pools to query data lake and online transactional data without requiring data movement.
+  author: jondobrzeniecki
+  ms.author: jodobrze
+  ms.date: 11/07/2022
+  ms.topic: solution-idea
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+  - analytics
+  - databases
+  - integration
+  - storage
+products:
+  - azure-cosmos-db
+  - azure-data-factory
+  - azure-data-lake
+  - azure-synapse-analytics
+  - power-bi
+name: Logical data warehouse with Azure Synapse serverless SQL pools
+summary: See how a logical data warehouse uses Azure Synapse serverless SQL pools to query data lake and online transactional data without requiring data movement.
+thumbnailUrl: /azure/architecture/browse/thumbs/logical-data-warehouse-architecture-dataflow.png
+content: |
+  [!include[](logical-data-warehouse-content.md)]

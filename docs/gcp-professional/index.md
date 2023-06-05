@@ -3,8 +3,8 @@ title: Azure for Google Cloud professionals
 description: Learn the basics of Microsoft Azure accounts, platform, and services, and key similarities and differences between the Google Cloud and Azure platforms.
 author: cjnova
 ms.author: petuton
-ms.date: 12/13/2021
-ms.topic: reference
+ms.date: 11/30/2022
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ms.custom:
@@ -177,5 +177,4 @@ Not all Azure products and services are available in all regions. Consult the [P
 ## Next steps
 
 - [Get started with Azure](https://azure.microsoft.com/get-started)
-- [Azure solution architectures](https://azure.microsoft.com/solutions/architecture)
 - [Azure Reference Architectures](../browse/index.yml)

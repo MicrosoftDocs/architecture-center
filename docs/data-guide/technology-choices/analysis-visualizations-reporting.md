@@ -1,7 +1,7 @@
 ---
 title: Choose a data analytics and reporting technology
 description: Evaluate big data analytics technology options for Azure, including key selection criteria and a capability matrix.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
 categories: azure
 ms.date: 07/25/2022
@@ -30,13 +30,13 @@ There are several options for analysis, visualizations, and reporting in Azure, 
 - [Power BI](/power-bi/)
 - [Jupyter Notebooks](https://jupyter.readthedocs.io/en/latest/index.html)
 - [Zeppelin Notebooks](https://zeppelin.apache.org/)
-- [Microsoft Azure Notebooks](https://notebooks.azure.com/)
+- [Jupyter Notebooks in VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)
 
 ### Power BI
 
 [Power BI](/power-bi/) is a suite of business analytics tools. It can connect to hundreds of data sources, and can be used for ad hoc analysis. See [this list](/power-bi/desktop-data-sources) of the currently available data sources. Use [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/) to integrate Power BI within your own applications without requiring any additional licensing.
 
-Organizations can use Power BI to produce reports and publish them to the organization. Everyone can create personalized dashboards, with governance and [security built in](/power-bi/service-admin-power-bi-security). Power BI uses [Azure Active Directory](/azure/active-directory/) (Azure AD) to authenticate users who log in to the Power BI service, and uses the Power BI login credentials whenever a user attempts to access resources that require authentication.
+Organizations can use Power BI to produce reports and publish them to the organization. Everyone can create personalized dashboards, with governance and [security built in](/power-bi/service-admin-power-bi-security). Power BI uses [Azure Active Directory (Azure AD)](/azure/active-directory/) to authenticate users who log in to the Power BI service, and uses the Power BI login credentials whenever a user attempts to access resources that require authentication.
 
 ### Jupyter Notebooks
 
@@ -50,23 +50,12 @@ Jupyter notebooks provide a great environment for analyzing, visualizing, and pr
 
 [Zeppelin Notebooks](https://zeppelin.apache.org/) are another option for a browser-based shell, similar to Jupyter in functionality. Some HDInsight clusters come [preconfigured with Zeppelin notebooks](/azure/hdinsight/spark/apache-spark-zeppelin-notebook). However, if you are using an [HDInsight Interactive Query](/azure/hdinsight/interactive-query/apache-interactive-query-get-started) (Hive LLAP) cluster, [Zeppelin](/azure/hdinsight/hdinsight-connect-hive-zeppelin) is currently your only choice of notebook that you can use to run interactive Hive queries. Also, if you are using a [domain-joined HDInsight cluster](/azure/hdinsight/domain-joined/apache-domain-joined-introduction), Zeppelin notebooks are the only type that enables you to assign different user logins to control access to notebooks and the underlying Hive tables.
 
-### Microsoft Azure Notebooks
+### Jupyter Notebooks in VS Code
 
-[Azure Notebooks](https://notebooks.azure.com/) is an online Jupyter Notebooks-based service that enables data scientists to create, run, and share Jupyter Notebooks in cloud-based libraries. Azure Notebooks provides execution environments for Python 2, Python 3, F#, and R, and provides several charting libraries for visualizing your data, such as ggplot, matplotlib, bokeh, and seaborn.
+VS Code is a free code editor and development platform that you can use locally or connected to remote compute. Combined with the Jupyter extension, it offers a full environment for Jupyter development that can be enhanced with additional language extensions. If you want a best-in-class, free Jupyter experience with the ability to leverage your compute of choice, this is a great option.
+Using VS Code, you can develop and run notebooks against remotes and containers. To make the transition easier from Azure Notebooks, we have made the container image available so it can be used with VS Code too.
 
-Unlike Jupyter notebooks running on an HDInsight cluster, which are connected to the cluster's default storage account, Azure Notebooks does not provide any data. You must [load data](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/) in a variety of ways, such downloading data from an online source, interacting with Azure Blobs or Table Storage, connecting to a SQL database, or loading data with the Copy Wizard for Azure Data Factory.
-
-Key benefits:
-
-- Free service&mdash;no Azure subscription required.
-- No need to install Jupyter and the supporting R or Python distributions locally&mdash;just use a browser.
-- Manage your own online libraries and access them from any device.
-- Share your notebooks with collaborators.
-
-Considerations:
-
-- You will be unable to access your notebooks when offline.
-- Limited processing capabilities of the free notebook service may not be enough to train large or complex models.
+Jupyter (formerly IPython Notebook) is an open-source project that lets you easily combine Markdown text and executable Python source code on one canvas called a notebook. Visual Studio Code supports working with Jupyter Notebooks natively, and through Python code files.
 
 ## Key selection criteria
 
@@ -86,7 +75,7 @@ The following tables summarize the key differences in capabilities.
 
 ### General capabilities
 
-| Capability | Power BI | Jupyter Notebooks | Zeppelin Notebooks | Microsoft Azure Notebooks |
+| Capability | Power BI | Jupyter Notebooks | Zeppelin Notebooks | Jupyter Notebooks in VS Code |
 | --- | --- | --- | --- | --- |
 | Connect to big data cluster for advanced processing | Yes | Yes | Yes | No |
 | Managed service | Yes | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes |
@@ -114,3 +103,17 @@ The following tables summarize the key differences in capabilities.
 Principal author:
 
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+
+## Next steps
+
+- [Get started with Jupyter notebooks for Python](/training/modules/python-create-run-jupyter-notebook)
+- [Notebooks](/azure/databricks/notebooks)
+- [Run Azure Databricks Notebooks with Azure Data Factory](/training/modules/run-azure-databricks-notebooks-azure-data-factory)
+- [Run Jupyter notebooks in your workspace](/azure/machine-learning/how-to-run-jupyter-notebooks)
+- [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
+
+## Related resources
+
+- [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)
+- [Data analysis and visualization in an Azure industrial IoT analytics solution](../../guide/iiot-guidance/iiot-data.yml)
+- [Technology choices for Azure solutions](../../guide/technology-choices/technology-choices-overview.md)

@@ -2,7 +2,7 @@
 metadata:
   title: Build solutions with availability zones
   description: Learn about the Azure availability zones construct, a software and networking solution for high availability (HA) that protects against datacenter failures.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/26/2022
   ms.topic: conceptual

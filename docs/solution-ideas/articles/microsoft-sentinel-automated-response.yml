@@ -3,10 +3,10 @@ metadata:
   title: Microsoft Sentinel automated responses
   titleSuffix: Azure Architecture Center
   description: Use Microsoft Sentinel playbooks to generate automated responses and deliver intelligent security analytics for enterprises.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: ruolivei
   ms.date: 10/10/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.custom:

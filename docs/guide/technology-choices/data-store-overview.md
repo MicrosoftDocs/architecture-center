@@ -2,8 +2,8 @@
 title: Understand data store models
 titleSuffix: Azure Application Architecture Guide
 description: Learn about the high-level differences between the various data storage models found in Azure data services.
-author: dsk-2015
-ms.author: architectures
+author: PageWriter-MSFT
+ms.author: prwilk
 ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -81,7 +81,7 @@ A single key/value store can be extremely scalable, as the data store can easily
 
 ### Azure services
 
-- [Azure Cosmos DB Table API][cosmos-table] and [SQL API][cosmos-sql-key-value] | [(Cosmos DB Security Baseline)](/azure/cosmos-db/security-baseline)
+- [Azure Cosmos DB for Table][cosmos-table] and [Azure Cosmos DB for NoSQL][cosmos-sql-key-value] | [(Azure Cosmos DB Security Baseline)](/azure/cosmos-db/security-baseline)
 - [Azure Cache for Redis][redis] | [(Security Baseline)](/azure/azure-cache-for-redis/security-baseline)
 - [Azure Table Storage][table-storage-classic] | [(Security Baseline)](/azure/storage/common/security-baseline)
 
@@ -115,7 +115,7 @@ Typically, a document contains the data for single entity, such as a customer or
 
 ### Azure service
 
-- [Azure Cosmos DB SQL API][cosmos-db] | [(Cosmos DB Security Baseline)](/azure/cosmos-db/security-baseline)
+- [Azure Cosmos DB for NoSQL][cosmos-db] | [(Azure Cosmos DB Security Baseline)](/azure/cosmos-db/security-baseline)
 
 ### Workload
 
@@ -150,7 +150,7 @@ This structure makes it straightforward to perform queries such as "Find all emp
 
 ### Azure services
 
-- [Azure Cosmos DB Gremlin API][cosmos-gremlin] | [(Security Baseline)](/azure/cosmos-db/security-baseline)
+- [Azure Cosmos DB for Apache Gremlin][cosmos-gremlin] | [(Security Baseline)](/azure/cosmos-db/security-baseline)
 - [SQL Server][sqlserver] | [(Security Baseline)](/security/benchmark/azure/baselines/sql-database-security-baseline)
 
 ### Workload
@@ -218,7 +218,7 @@ Read and write operations for a row are usually atomic with a single column-fami
 
 ### Azure services
 
-- [Azure Cosmos DB Cassandra API][cassandra] | [(Security Baseline)](/azure/cosmos-db/security-baseline)
+- [Azure Cosmos DB for Apache Cassandra][cassandra] | [(Security Baseline)](/azure/cosmos-db/security-baseline)
 - [HBase in HDInsight][hbase] | [(Security Baseline)](/azure/hdinsight/security-baseline)
 
 ### Workload
@@ -355,6 +355,20 @@ Sometimes, using simple flat files can be the most effective means of storing an
 - Shared content accessible among a number of VMs or app instances
 
 Aided with this understanding of different data storage models, the next step is to evaluate your workload and application, and decide which data store will meet your specific needs. Use the [data storage decision tree](./data-store-decision-tree.md) to help with this process.
+
+## Next steps
+
+- [Azure Cloud Storage Solutions and Services](https://azure.microsoft.com/products/category/storage)
+- [Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options)
+- [Introduction to Azure Storage](/azure/storage/common/storage-introduction)
+- [Introduction to Azure Data Explorer](/training/modules/intro-to-azure-data-explorer)
+
+## Related resources
+
+- [Databases architecture design](../../data-guide/databases-architecture-design.yml)
+- [Big data architectures](../../data-guide/big-data/index.yml)
+- [Choose a data storage technology](../../data-guide/technology-choices/data-storage.md)
+- [Data store decision tree](data-store-decision-tree.md)
 
 <!-- links -->
 

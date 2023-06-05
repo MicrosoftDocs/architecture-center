@@ -3,10 +3,10 @@ metadata:
   title: Predictive maintenance for industrial IoT
   titleSuffix: Azure Solution Ideas
   description: Connect devices that use the Open Platform Communication Unified Architecture standard to the cloud, and use predictive maintenance to optimize production.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 05/31/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -15,7 +15,6 @@ metadata:
     - containers
   ms.custom:
     - acom-architecture
-  social_image_url: /azure/architecture/solution-ideas/media/iot-predictive-maintenance.png
 name: Predictive maintenance for industrial IoT
 azureCategories:
   - iot

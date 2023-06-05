@@ -2,10 +2,10 @@
 metadata:
   title: Implement a secure hybrid network
   description: Learn how to deploy a secure hybrid network that extends an on-premises network to Azure by implementing a perimeter network called a DMZ.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 09/12/2022
-  ms.topic: conceptual
+  ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.category:

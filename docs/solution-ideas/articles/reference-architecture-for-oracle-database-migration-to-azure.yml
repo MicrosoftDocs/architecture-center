@@ -3,10 +3,10 @@ metadata:
   title: Oracle database migration to Azure
   titleSuffix: Azure Architecture
   description: Migrate an Oracle database and its applications to Azure. Use Oracle Active Data Guard for the database, and use Azure Load Balancer for the application tier.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/13/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -22,7 +22,6 @@ metadata:
     - Oracle DB architecture
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/reference-architecture-for-oracle-database-migration-to-azure"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/reference-architecture-for-oracle-database-migration-to-azure.png
 name: Oracle database migration to Azure
 azureCategories:
   - databases

@@ -1,8 +1,8 @@
-This example scenario helps users collaborate with other organizations, by providing identity and governance controls for external users.
+This example scenario helps users collaborate with other organizations, by providing identity and governance controls for external users when using Azure Active Directory (Azure AD) B2B collaboration.
 
 ## Architecture
 
-:::image type="content" source="media/governance-teams-guest-users.png" alt-text="Architecture for governance of Teams guest users." lightbox="media/governance-teams-guest-users.png" border="false" :::
+:::image type="content" source="media/governance-teams-guest-users.svg" alt-text="Architecture for governance of Teams guest users." lightbox="media/governance-teams-guest-users.svg" border="false" :::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1897068-governance-teams-guest-users.vsdx) of this architecture.*
 
@@ -25,7 +25,7 @@ This example scenario helps users collaborate with other organizations, by provi
 
 Here is a high-level workflow that shows how access to the Microsoft 365 group or team is granted to external users. It includes the removal of a guest account when access is no longer required or a time limit is reached.
 
-:::image type="content" source="media/governance-teams-guest-users-access.png" alt-text="Flow diagram with steps that shows how access works for external users." lightbox="media/governance-teams-guest-users-access.png" border="false" :::
+:::image type="content" source="media/governance-teams-guest-users-access.svg" alt-text="Flow diagram with steps that shows how access works for external users." lightbox="media/governance-teams-guest-users-access.svg" border="false" :::
 
 ### Components
 
@@ -103,7 +103,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 An important implementation step is configuring tenant settings to allow for external users.
 
-:::image type="content" source="media/governance-teams-guest-users-settings.png" alt-text="A list of seven settings that require verification." lightbox="media/governance-teams-guest-users-settings.png" border="false" :::
+:::image type="content" source="media/governance-teams-guest-users-settings.svg" alt-text="A list of seven settings that require verification." lightbox="media/governance-teams-guest-users-settings.svg" border="false" :::
 
 1. **Enable catalog for external users** - Make sure the catalog has **Enabled for external users** set to **Yes**. By default, when you create a new catalog in Azure AD entitlement management, it's enabled to allow external users to request access to packages in the catalog.
 1. **Azure AD B2B external collaboration settings** - The Azure B2B external collaboration settings can affect whether you can use Azure AD entitlement management to invite external users to resources. Verify these settings:

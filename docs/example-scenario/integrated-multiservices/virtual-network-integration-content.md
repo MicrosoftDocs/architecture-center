@@ -89,7 +89,9 @@ Due to the sensitivity of the data, security is paramount in this solution. The 
 - Key Vault key rotation
 - Managed service identities
 
-For more details about the security pattern for this solution, see [Security pattern for communication between API Management, Functions apps, and Cosmos DB](https://github.com/mspnp/vnet-integrated-serverless-microservices/blob/main/docs/security_pattern.md).
+You can protect your Azure API Management instance against distributed denial of service (DDoS) attacks using [Azure DDoS protection](/azure/api-management/protect-with-ddos-protection). Azure DDoS Protection provides enhanced DDoS mitigation features to defend against volumetric and protocol DDoS attacks.
+
+For more details about the security pattern for this solution, see [Security pattern for communication between API Management, Functions apps, and Azure Cosmos DB](https://github.com/mspnp/vnet-integrated-serverless-microservices/blob/main/docs/security_pattern.md).
 
 #### API gateway management
 The system is publicly accessible only through the single managed APIM endpoint. The APIM subnet restricts incoming traffic to specified gateway node IP addresses.
@@ -119,7 +121,7 @@ You can call APIM and function apps without using access keys. However, disablin
 - Accessing APIM requires a subscription key, so users need to include `Ocp-Apim-Subscription-Key` in HTTP headers.
 - All functions in the Patient API function app require an API access key, so APIM must include `x-functions-key` in the HTTP header when calling the Patient API.
 - Calling `CreateAuditRecord` in the Audit API function app requires an API access key, so Patient API needs to include `x-functions-key` in the HTTP header when calling the `CreateAuditRecord` function.
-- Both Functions apps use Cosmos DB as their data store, so they must use connection strings to access the Cosmos DB databases.
+- Both Functions apps use Azure Cosmos DB as their data store, so they must use connection strings to access the Azure Cosmos DB databases.
 
 #### Key Vault storage
 
@@ -146,8 +148,8 @@ The current solution uses Terraform for most of the key rotation tasks. For more
 In this solution, APIM and the function apps use Azure [system-assigned managed service identities (MSIs)](/azure/active-directory/managed-identities-azure-resources) to access the Key Vault secrets. Key Vault has the following individual access policies for each service's managed identity:
 
 - APIM can get the host key of the Patient API function app.
-- The Patient API function app can get the Audit API host key and the Cosmos DB connection string for its data store.
-- The Audit API function app can get the Cosmos DB connection string for its data store.
+- The Patient API function app can get the Audit API host key and the Azure Cosmos DB connection string for its data store.
+- The Audit API function app can get the Azure Cosmos DB connection string for its data store.
 
 ### Cost optimization
 

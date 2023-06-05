@@ -3,10 +3,10 @@ metadata:
   title: Virtual health on Microsoft Cloud for Healthcare
   titleSuffix: Azure Architecture Center
   description: This article describes an architecture to develop a virtual health solution using Microsoft Cloud for Healthcare.
-  author: dsk-2015
-  ms.author: dkshir
+  author: martinekuan
+  ms.author: martinek
   ms.date: 08/23/2022
-  ms.topic: conceptual
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
 azureCategories:

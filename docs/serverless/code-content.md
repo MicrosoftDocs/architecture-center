@@ -28,7 +28,7 @@ You don't need to be an expert in Functions or Event Hubs, but you should unders
 
 Fabrikam manages a fleet of drones for a drone delivery service. The application consists of two main functional areas:
 
-- **Event ingestion**. During flight, drones send status messages to a cloud endpoint. The application ingests and processes these messages, and writes the results to a back-end database (Cosmos DB). The devices send messages in [protocol buffer](https://developers.google.com/protocol-buffers) (protobuf) format. Protobuf is an efficient, self-describing serialization format.
+- **Event ingestion**. During flight, drones send status messages to a cloud endpoint. The application ingests and processes these messages, and writes the results to a back-end database (Azure Cosmos DB). The devices send messages in [protocol buffer](https://developers.google.com/protocol-buffers) (protobuf) format. Protobuf is an efficient, self-describing serialization format.
 
     These messages contain partial updates. At a fixed interval, each drone sends a "key frame" message that contains all of the status fields. Between key frames, the status messages only include fields that changed since the last message. This behavior is typical of many IoT devices that need to conserve bandwidth and power.
 
@@ -66,14 +66,14 @@ Event ingestion:
 1. Drone messages are ingested by Azure Event Hubs.
 1. Event Hubs produces a stream of events that contain the message data.
 1. These events trigger an Azure Functions app to process them.
-1. The results are stored in Cosmos DB.
+1. The results are stored in Azure Cosmos DB.
 
 Web app:
 
 1. Static files are served by CDN from Blob storage.
 1. A user signs into the web app using Azure AD.
 1. Azure API Management acts as a gateway that exposes a REST API endpoint.
-1. HTTP requests from the client trigger an Azure Functions app that reads from Cosmos DB and returns the result.
+1. HTTP requests from the client trigger an Azure Functions app that reads from Azure Cosmos DB and returns the result.
 
 This application is based on two reference architectures, corresponding to the two functional blocks described above:
 
@@ -262,7 +262,7 @@ namespace Serverless.Serialization
 
 ### UpdateState method
 
-The `StateChangeProcessor.UpdateState` method applies the state changes. The last-known state for each drone is stored as a JSON document in Cosmos DB. Because the drones send partial updates, the application can't simply overwrite the document when it gets an update. Instead, it needs to fetch the previous state, merge the fields, and then perform an upsert operation.
+The `StateChangeProcessor.UpdateState` method applies the state changes. The last-known state for each drone is stored as a JSON document in Azure Cosmos DB. Because the drones send partial updates, the application can't simply overwrite the document when it gets an update. Instead, it needs to fetch the previous state, merge the fields, and then perform an upsert operation.
 
 ```csharp
 public class StateChangeProcessor : IStateChangeProcessor
@@ -315,14 +315,14 @@ public class StateChangeProcessor : IStateChangeProcessor
 }
 ```
 
-This code uses the `IDocumentClient` interface to fetch a document from Cosmos DB. If the document exists, the new state values are merged into the existing document. Otherwise, a new document is created. Both cases are handled by the `UpsertDocumentAsync` method.
+This code uses the `IDocumentClient` interface to fetch a document from Azure Cosmos DB. If the document exists, the new state values are merged into the existing document. Otherwise, a new document is created. Both cases are handled by the `UpsertDocumentAsync` method.
 
 This code is optimized for the case where the document already exists and can be merged. On the first telemetry message from a given drone, the `ReadDocumentAsync` method will throw an exception, because there is no document for that drone. After the first message, the document will be available.
 
-Notice that this class uses dependency injection to inject the `IDocumentClient` for Cosmos DB and an `IOptions<T>` with configuration settings. We'll see how to set up the dependency injection later.
+Notice that this class uses dependency injection to inject the `IDocumentClient` for Azure Cosmos DB and an `IOptions<T>` with configuration settings. We'll see how to set up the dependency injection later.
 
 > [!NOTE]
-> Azure Functions supports an output binding for Cosmos DB. This binding lets the function app write documents in Cosmos DB without any code. However, the output binding won't work for this particular scenario, because of the custom upsert logic that's needed.
+> Azure Functions supports an output binding for Azure Cosmos DB. This binding lets the function app write documents in Azure Cosmos DB without any code. However, the output binding won't work for this particular scenario, because of the custom upsert logic that's needed.
 
 ## Error handling
 
@@ -451,7 +451,7 @@ For more information about DI in Azure Functions, see the following articles:
 
 Sometimes an object must be initialized with some configuration values. Generally, these settings should come from app settings or (in the case of secrets) from Azure Key Vault.
 
-There are two examples in this application. First, the `DocumentClient` class takes a Cosmos DB service endpoint and key. For this object, the application registers a lambda that will be invoked by the DI container. This lambda uses the `IConfiguration` interface to read the configuration values:
+There are two examples in this application. First, the `DocumentClient` class takes an Azure Cosmos DB service endpoint and key. For this object, the application registers a lambda that will be invoked by the DI container. This lambda uses the `IConfiguration` interface to read the configuration values:
 
 ```csharp
 builder.Services.AddSingleton<IDocumentClient>(ctx => {
@@ -464,7 +464,7 @@ builder.Services.AddSingleton<IDocumentClient>(ctx => {
 
 The second example is the `StateChangeProcessor` class. For this object, we use an approach called the [options pattern](/aspnet/core/fundamentals/configuration/options). Here's how it works:
 
-1. Define a class `T` that contains your configuration settings. In this case, the Cosmos DB database name and collection name.
+1. Define a class `T` that contains your configuration settings. In this case, the Azure Cosmos DB database name and collection name.
 
     ```csharp
     public class StateChangeProcessorOptions
@@ -558,7 +558,7 @@ namespace DroneStatusFunctionApp
 }
 ```
 
-This function uses an HTTP trigger to process an HTTP GET request. The function uses a Cosmos DB input binding to fetch the requested document. One consideration is that this binding will run before the authorization logic is performed inside the function. If an unauthorized user requests a document, the function binding will still fetch the document. Then the authorization code will return a 401, so the user won't see the document. Whether this behavior is acceptable may depend on your requirements. For example, this approach might make it harder to audit data access for sensitive data.
+This function uses an HTTP trigger to process an HTTP GET request. The function uses an Azure Cosmos DB input binding to fetch the requested document. One consideration is that this binding will run before the authorization logic is performed inside the function. If an unauthorized user requests a document, the function binding will still fetch the document. Then the authorization code will return a 401, so the user won't see the document. Whether this behavior is acceptable may depend on your requirements. For example, this approach might make it harder to audit data access for sensitive data.
 
 ## Authentication and authorization
 

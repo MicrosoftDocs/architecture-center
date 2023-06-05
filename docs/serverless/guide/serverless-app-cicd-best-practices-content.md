@@ -1,4 +1,4 @@
-<!-- cSpell:ignore dkshir cicd brotli iname fabrikamdronestatus Jamstack setvariable CDNS -->
+<!-- cSpell:ignore PageWriter-MSFT cicd brotli iname fabrikamdronestatus Jamstack setvariable CDNS -->
 Serverless computing abstracts the servers, infrastructure, and operating systems, allowing developers to focus on application development. A robust *CI/CD* or *Continuous Integration*/*Continuous Delivery* of such applications allows companies to ship fully tested and integrated software versions within minutes of development. It provides a backbone of modern DevOps environment.
 
 What does CI/CD actually stand for?
@@ -210,6 +210,16 @@ A better approach is to invalidate this cache by [using versioning during deploy
 1. Except for the index.html and 404.html, all other website files are fingerprinted and cached for a year. This is based on the assumption that resources such as images and videos, do not need frequent changes. If these files are updated and rebuilt, their names are updated by a new fingerprint GUID. This results in an update to the index.html with an updated reference to the changed resource file. The CDN then retrieves the updated index.html, and since it does not find the reference resource file in its cache, it also retrieves the changed resource files.
 
 This ensures that the CDN always gets new updated files, and removes the need to purge the cache for a new build.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Dhanashri Kshirsagar](https://www.linkedin.com/in/dhanashrikr/) | Senior Content PM
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

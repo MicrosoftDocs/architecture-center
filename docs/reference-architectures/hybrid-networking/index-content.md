@@ -8,12 +8,14 @@ A [VPN gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a type of v
 
 This architecture is suitable for hybrid applications where the traffic between on-premises hardware and the cloud is likely to be light, or you're willing to trade slightly extended latency for the flexibility and processing power of the cloud.
 
-:::image type="content" source="./images/vpn-gateway-multisite-connection-diagram.png" alt-text="Diagram of a VPN gateway." lightbox="./images/vpn-gateway-multisite-connection-diagram.png" :::
+:::image type="content" source="./images/vpn-gateway-multisite-connection-diagram.svg" alt-text="Diagram of a VPN gateway." lightbox="./images/vpn-gateway-multisite-connection-diagram.svg" :::
+
+*Download a [Visio file](https://arch-center.azureedge.net/hybrid-networking-connect-to-azure.vsdx) of this diagram.*
 
 ### Benefits
 
 - Simple to configure.
-- Much higher bandwidth available; up to 10 Gbps depending on the VPN Gateway SKU.
+- High aggregate bandwidth available; up to 10 Gbps depending on the VPN Gateway SKU.
 
 ### Challenges
 
@@ -32,15 +34,17 @@ This architecture is suitable for hybrid applications where the traffic between 
 
 This architecture is suitable for hybrid applications running large-scale, mission-critical workloads that require a high degree of scalability.
 
-:::image type="content" source="./images/expressroute-connection-overview.png" alt-text="Diagram of a VPN gateway." lightbox="./images/expressroute-connection-overview.png" :::
+:::image type="content" source="./images/expressroute-connection-overview.svg" alt-text="Diagram of a VPN gateway." lightbox="./images/expressroute-connection-overview.svg" :::
+
+*Download a [Visio file](https://arch-center.azureedge.net/hybrid-networking-connect-to-azure.vsdx) of this diagram.*
 
 > [!NOTE]
-> In the context of ExpressRoute, the Microsoft Edge describes the edge routers on the Microsoft side of the ExpressRoute circuit. This is the ExpressRoute circuit's point of entry into Microsoft's network.
+> In the context of ExpressRoute, the Microsoft edge describes the edge routers on the Microsoft side of the ExpressRoute circuit. This is the ExpressRoute circuit's point of entry into Microsoft's network.
 > 
 
 ### Benefits
 
-- Much higher bandwidth available; up to 10 Gbps depending on the connectivity provider.
+- High bandwidth available; up to 10 Gbps depending on the connectivity provider.
 - Lower and more consistent latencies compared to typical connections over the Internet.
 - Supports dynamic scaling of bandwidth to help reduce costs during periods of lower demand. However, not all connectivity providers have this option.
 - May allow your organization direct access to national clouds, depending on the connectivity provider.
@@ -59,7 +63,7 @@ This architecture is suitable for hybrid applications running large-scale, missi
 
 This option combines the previous two, using ExpressRoute in normal conditions, but failing over to a VPN connection if there's a loss of connectivity in the ExpressRoute circuit.
 
-This architecture is suitable for hybrid applications that need the higher bandwidth of ExpressRoute, and also require highly available network connectivity.
+This architecture is suitable for hybrid applications that need the high bandwidth of ExpressRoute, and also require highly available network connectivity.
 
 ### Benefits
 

@@ -1,17 +1,12 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution idea demonstrates low-latency high throughput ingestion for large volumes of Content Delivery Network (CDN) logs for building near real-time analytics dashboards.
-
-## Potential use cases
-
-* Log analytics
-* Time series analytics
-* IoT
-* General-purpose exploratory analytics
+This solution idea demonstrates low-latency, high-throughput ingestion of large volumes of Content Delivery Network (CDN) logs. You can use this data to create near real-time analytics dashboards.
 
 ## Architecture
 
-:::image type="content" source="../media/content-delivery-network-azure-data-explorer.png" alt-text="Content delivery network analytics with Azure Data Explorer" lightbox="../media/content-delivery-network-azure-data-explorer.png":::
+:::image type="content" source="../media/content-delivery-network-azure-data-explorer.svg" alt-text="Content delivery network analytics with Azure Data Explorer." lightbox="../media/content-delivery-network-azure-data-explorer.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/content-delivery-network-analytics-azure-data-explorer.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -27,6 +22,17 @@ This solution idea demonstrates low-latency high throughput ingestion for large 
 - [Azure Data Explorer Dashboards](/azure/data-explorer/azure-data-explorer-dashboards): Natively export Kusto queries that were explored in the Web UI to optimized dashboards.
 - [Azure Logic Apps Azure Data Explorer connector](/azure/data-explorer/kusto/tools/logicapps): Run Kusto queries and commands automatically as part of a scheduled or triggered task.
 
+## Scenario details
+
+You can use this solution to ingest large volumes of CDN logs for the purpose of creating near real-time analytics dashboards.
+
+### Potential use cases
+
+* Log analytics
+* Time series analytics
+* IoT
+* General-purpose exploratory analytics
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
@@ -38,3 +44,10 @@ Principal author:
 ## Next steps
 
 For more information, see [Azure Data Explorer documentation](/azure/data-explorer).
+
+## Related resources
+
+- [Analytics architecture design](analytics-start-here.yml)
+- [Choose an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
+- [Big data analytics with Azure Data Explorer](big-data-azure-data-explorer.yml)
+- [Azure Data Explorer monitoring](monitor-azure-data-explorer.yml)

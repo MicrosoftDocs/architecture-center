@@ -87,7 +87,7 @@ Consider these points when implementing this solution:
 
 - Route Server establishes connections and exchanges routes. It doesn't transfer data packets. As a result, the VMs that Route Server runs in its back end don't require significant CPU power or computational power.
 
-- When you deploy Route Server, create a subnet called `Route Server Subnet` that uses an IPv4 subnet mask of `/27`. Place Route Server in that subnet.
+- When you deploy Route Server, create a subnet called `RouteServerSubnet` that uses an IPv4 subnet mask of `/27`. Place Route Server in that subnet.
 
 - In Azure gateways, the Basic pricing tier doesn't support coexisting ExpressRoute and VPN Gateway connections. For other limitations with coexisting configurations, see [Limits and limitations][Configure ExpressRoute and Site-to-Site coexisting connections using PowerShell - Limits and limitations].
 

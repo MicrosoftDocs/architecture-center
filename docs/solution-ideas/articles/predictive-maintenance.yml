@@ -3,10 +3,10 @@ metadata:
   title: Predictive maintenance
   titleSuffix: Azure Solution Ideas
   description: Build a predictive maintenance solution that monitors aircraft parts in real time and uses analytics to predict the remaining useful life of engine components.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 06/06/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -21,7 +21,6 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/predictive-maintenance"
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/predictive-maintenance.png
 name: Predictive maintenance
 azureCategories:
   - ai-machine-learning

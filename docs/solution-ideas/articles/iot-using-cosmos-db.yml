@@ -3,16 +3,16 @@ metadata:
   title: Azure Cosmos DB in IoT workloads
   titleSuffix: Azure Solution Ideas
   description: See how Azure Cosmos DB uses features like change feed and time-to-live (TTL) to support diverse IoT workloads without sacrificing performance.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 05/31/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.custom:
     - acom-architecture
     - iot
-    - Azure Cosmos DB
+    - Cosmos DB
     - "https://azure.microsoft.com/solutions/architecture/iot-using-cosmos-db"
 name: Azure Cosmos DB in IoT workloads
 azureCategories:

@@ -2,10 +2,10 @@
 metadata:
   title: Choose an Internet of Things (IoT) solution in Azure
   description: Use Azure IoT Central or individual Azure platform-as-a-service (PaaS) components to build, deploy, and manage internet-of-things (IoT) solutions.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/26/2022
-  ms.topic: conceptual
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom: fcp

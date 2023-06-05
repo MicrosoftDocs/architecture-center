@@ -4,8 +4,9 @@ This solution is built on the Azure managed service: [Media Services](/azure/med
 
 ## Architecture
 
-![Architecture diagram shows the flow from the live source through Azure live encoder to the streaming endpoint.](../media/digital-media-live-stream.png)
-*Download an [SVG](../media/digital-media-live-stream.svg) of this architecture.*
+[ ![Architecture diagram shows the flow from the live source through Azure live encoder to the streaming endpoint.](../media/digital-media-live-stream.svg)](../media/digital-media-live-stream.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/digital-media-live-stream.vsdx) of this architecture.*
 
 ### Components
 
@@ -15,7 +16,7 @@ This solution is built on the Azure managed service: [Media Services](/azure/med
 * [Media Services Streaming Endpoint](/azure/media-services/latest/stream-streaming-endpoint-concept): Represents a streaming service that can deliver content directly to a client player application, or to a content delivery network (CDN) for further distribution.
 * [Content Delivery Network](https://azure.microsoft.com/services/cdn): Provides secure, reliable content delivery with broad global reach and a rich feature set.
 * [Azure Media Player](https://azure.microsoft.com/services/media-services/media-player): Uses industry standards such as HTML5 (MSE/EME) to provide an enriched adaptive streaming experience. Regardless of the playback technology used, developers have a unified JavaScript interface to access APIs.
-* [Preview monitoring](/azure/media-services/latest/live-event-outputs-concept#live-event-preview-url): Preview and validate a live stream before further processing and delivery.
+* [Preview monitoring](/azure/media-services/latest/live-event-concept#live-event-preview-url): Preview and validate a live stream before further processing and delivery.
 * [Multi-DRM content protection](/azure/media-services/previous/media-services-content-protection-overview): Delivers content securely using multi-DRM (PlayReady, Widevine, FairPlay Streaming) or AES clear key encryption.
 
 ## Solution details

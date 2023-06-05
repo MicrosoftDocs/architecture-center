@@ -6,7 +6,7 @@ metadata:
   author: miguelangelopereira
   ms.author: v-mpereirado
   ms.date: 06/16/2012
-  ms.topic: conceptual
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.category:
@@ -16,7 +16,6 @@ metadata:
     - Linux
     - hpc
     - example-scenario
-  social_image_url: /azure/architecture/example-scenario/infrastructure/media/azure-citrix-sample-diagram.png
 name: Linux virtual desktops with Citrix
 azureCategories:
   - compute

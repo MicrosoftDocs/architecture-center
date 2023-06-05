@@ -4,7 +4,7 @@ Mining companies can have Azure continually monitor the performance data from th
 
 ## Architecture
 
-:::image type="content" source="../media/monitor-mining-equipment.png" alt-text="Diagram showing the architecture for monitoring mining equipment." lightbox="../media/monitor-mining-equipment.png":::
+:::image type="content" source="../media/monitor-mining-equipment.svg" alt-text="Diagram showing the architecture for monitoring mining equipment." lightbox="../media/monitor-mining-equipment.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1816419-PR-2777-monitor-mining-equipment.vsdx) of this architecture.*
 
@@ -80,7 +80,7 @@ See the following related database architectural guidance:
 - [Choosing a batch processing technology in Azure](../../data-guide/technology-choices/batch-processing.md)
 - [Data lakes](../../data-guide/scenarios/data-lake.md)
 - [Choosing a big data storage technology in Azure](../../data-guide/technology-choices/data-storage.md)
-- [Modernize mainframe & midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)
+- [Modernize mainframe & midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
 - [Master data management with Profisee and Azure Data Factory](../../reference-architectures/data/profisee-master-data-management-data-factory.yml)
 - [Master Data Management powered by CluedIn](../../reference-architectures/data/cluedin.yml)
 - [DataOps for the modern data warehouse](../../example-scenario/data-warehouse/dataops-mdw.yml)

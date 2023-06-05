@@ -74,9 +74,9 @@ The blueprint provides exceptional guidance and instructions for technical staff
 
 - The [HITRUST customer responsibility matrix](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=eab85244-b9ab-490a-9e2a-611153f7d3af&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics&WT.mc_id=ms-docs-dastarr) is an Excel workbook. This resource shows what you (the customer) must provide, versus what Microsoft provides, for each requirement in the matrix. More information about this responsibility matrix is included in this article, in the "Security and Compliance" > Blueprint responsibility matrix section of this document.
 
-- The [HITRUST health data and AI review](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=ffc32e44-665e-46c5-b753-163d55a17d27&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics&WT.mc_id=ms-docs-dastarr) whitepaper examines the blueprint through the lens of requirements to be met for HITRUST certification.
+- The [HITRUST health data and AI review](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=ffc32e44-665e-46c5-b753-163d55a17d27&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics&WT.mc_id=ms-docs-dastarr) technical paper examines the blueprint through the lens of requirements to be met for HITRUST certification.
 
-- The [HIPAA health data and AI review](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=d5ce675c-3e83-45db-98a6-ae77fc439436&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics&WT.mc_id=ms-docs-dastarr) whitepaper reviews the architecture with HIPAA regulations in mind.
+- The [HIPAA health data and AI review](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=d5ce675c-3e83-45db-98a6-ae77fc439436&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics&WT.mc_id=ms-docs-dastarr) technical paper reviews the architecture with HIPAA regulations in mind.
 
 These resources are [here on GitHub](https://github.com/Azure/Health-Data-and-AI-Blueprint).
 
@@ -149,7 +149,7 @@ Further, the install isn't designed to work with MSDN subscriptions, due to the 
 
 The Azure blueprint installation doesn’t include more services than those needed to implement the AI and machine learning use case. However, more resources or services can be added to the Azure environment. This capability makes it a good test bed for additional initiatives, or a starting point for a production system. For instance, you could add other PaaS services or IaaS resources in the same subscription and Azure AD.
 
-New resources, like [Cosmos DB](/azure/cosmos-db/introduction?WT.mc_id=ms-docs-dastarr) or a new [Azure Functions](/azure/azure-functions/functions-overview?WT.mc_id=ms-docs-dastarr), can be added to the solution as more Azure capabilities are needed. When adding new resources or services, ensure they're configured to meet security and privacy policies to remain compliant with regulations and policy.
+New resources, like [Azure Cosmos DB](/azure/cosmos-db/introduction?WT.mc_id=ms-docs-dastarr) or a new [Azure Functions](/azure/azure-functions/functions-overview?WT.mc_id=ms-docs-dastarr), can be added to the solution as more Azure capabilities are needed. When adding new resources or services, ensure they're configured to meet security and privacy policies to remain compliant with regulations and policy.
 
 New resources and services can be created with [Azure REST APIs](/rest/api/?view=Azure&WT.mc_id=ms-docs-dastarr), [Azure PowerShell scripting](/powershell/azure/get-started-azureps?view=azurermps-6.6.0&WT.mc_id=ms-docs-dastarr), or by using the [Azure portal](https://portal.azure.com/?WT.mc_id=ms-docs-dastarr).
 
@@ -219,7 +219,7 @@ Healthcare organizations often have mission and life-critical systems that must 
 
 For example, an application can have a memory leak. Application Insights can help find and diagnose issues like this through the rich reporting and KPIs it monitors. Application Insights is a robust APM service for application developers.
 
-This [interactive demo](https://analytics.applicationinsights.io/demo#/discover/home?WT.mc_id=ms-docs-dastarr) shows key features and capabilities of Application Insights, including a comprehensive monitoring dashboard which can be used by technologists in the health organization to monitor application state and health.
+This interactive demo shows key features and capabilities of Application Insights, including a comprehensive monitoring dashboard which can be used by technologists in the health organization to monitor application state and health.
 
 #### Microsoft Defender for Cloud
 
@@ -229,7 +229,7 @@ Defender for Cloud standard provides the following services.
 
 - **Hybrid security** – Get a unified view of security across all your on-premises and cloud workloads. This is especially helpful in hybrid cloud networks used by healthcare organizations with Azure.
 - **Advanced threat detection** – Defender for Cloud uses advanced analytics to get an edge over evolving cyber-attacks and mitigate them right away.
-- **Access and application controls** - Block malware and other unwanted applications by applying whitelisting recommendations for your specific workloads and powered by machine learning.
+- **Access and application controls** - Block malware and other unwanted applications by applying allow list recommendations for your specific workloads and powered by machine learning.
 
 In the context of the Health AI blueprint, Defender for Cloud analyzes the system components and provides a dashboard showing vulnerabilities in services and resources in the subscription. Distinct dashboard elements provide visibility into a solution’s concerns as follows.
 
@@ -344,7 +344,7 @@ Principal author:
 - Download the supporting collateral to gain a better understanding of the blueprint implementation beyond the installation and machine learning experiment. This collateral includes the following.
   - [HITRUST customer responsibility matrix](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=eab85244-b9ab-490a-9e2a-611153f7d3af&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics&WT.mc_id=ms-docs-dastarr)
   - [The comprehensive threat model](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=01828de2-9555-4bac-a2a0-44e9ed2eeeaf&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics&WT.mc_id=ms-docs-dastarr)
-  - [HITRUST health data and AI review whitepaper](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=ffc32e44-665e-46c5-b753-163d55a17d27&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics&WT.mc_id=ms-docs-dastarr)
+  - [HITRUST health data and AI review technical paper](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=ffc32e44-665e-46c5-b753-163d55a17d27&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics&WT.mc_id=ms-docs-dastarr)
   - [HIPAA health data and AI review](https://servicetrust.microsoft.com/ViewPage/HIPAABlueprint?command=Download&downloadType=Document&downloadId=d5ce675c-3e83-45db-98a6-ae77fc439436&docTab=d7c399a0-2b92-11e8-9910-13dc07d708f7_Data_Analytics?WT.mc_id=ms-docs-dastarr)
 
 ## Related resources
@@ -352,5 +352,5 @@ Principal author:
 - [Solutions for the healthcare industry](../../industries/healthcare.md)
 - [Clinical insights with Microsoft Cloud for Healthcare](../../example-scenario/mch-health/medical-data-insights.yml)
 - [Predict hospital readmissions by using traditional and automated machine learning techniques](../../example-scenario/ai/predict-hospital-readmissions-machine-learning.yml)
-- [Predict the length of stay in hospitals](../../solution-ideas/articles/predicting-length-of-stay-in-hospitals.yml)
+- [Predict the length of stay in hospitals](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)
 - [Precision medicine pipeline with genomics](../../example-scenario/precision-medicine/genomic-analysis-reporting.yml)

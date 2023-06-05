@@ -1,7 +1,7 @@
 ---
 title: Choose a batch processing technology
 description: Compare technology choices for big data batch processing in Azure, including key selection criteria and a capability matrix.
-author: EdPrice-MSFT
+author: martinekuan
 categories: azure
 ms.author: architectures
 ms.reviewer: tozimmergren
@@ -115,9 +115,20 @@ Principal author:
 
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
 
+## Next steps
+
+- [Create a lake database in Azure Synapse Analytics](/training/modules/create-metadata-objects-azure-synapse-serverless-sql-pools)
+- [Create an Azure Databricks workspace](/azure/databricks/getting-started)
+- [Explore Azure Databricks](/training/modules/explore-azure-databricks)
+- [Get started with Azure Data Lake Analytics using the Azure portal](/azure/data-lake-analytics/data-lake-analytics-get-started-portal)
+- [Introduction to Azure Synapse Analytics](/training/modules/introduction-azure-synapse-analytics)
+- [What is Azure Databricks?](/azure/databricks/introduction)
+- [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
+
 ## Related resources
 
-- [Analytics architecture design](/azure/architecture/solution-ideas/articles/analytics-start-here)
-- [Choose an analytical data store in Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores)
-- [Choose a data analytics technology in Azure](/azure/architecture/data-guide/technology-choices/analysis-visualizations-reporting)
-- [Analytics end-to-end with Azure Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end)
+- [Analytics architecture design](../../solution-ideas/articles/analytics-start-here.yml)
+- [Choose an analytical data store in Azure](analytical-data-stores.md)
+- [Choose a data analytics technology in Azure](analysis-visualizations-reporting.md)
+- [Analytics end-to-end with Azure Synapse](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
+- [Batch processing](../big-data/batch-processing.yml)

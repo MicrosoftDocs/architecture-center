@@ -7,7 +7,7 @@ editor: marktab
 services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/18/2022
 ms.author: tdsp
 ms.custom:
@@ -49,6 +49,16 @@ Here is a simple example dashboard that tracks the sprint activities of an Agile
 - The **burnup chart** shows completed work compared to total amount of work in the sprint.
 
 ![Screenshot shows an Azure DevOps dashboard example.](./media/track-progress/dashboard.png)
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

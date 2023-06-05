@@ -2,22 +2,11 @@
 
 This article presents a solution for real-time inferencing on [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes).
 
-AKS is useful when you need high-scale production deployments of your machine learning models. A high-scale deployment involves a fast response time, autoscaling of the deployed service, and logging. For more information, see [Deploy a model to an Azure Kubernetes Service cluster](/azure/machine-learning/how-to-deploy-azure-kubernetes-service).
-
-This solution uses [Kubeflow](https://www.kubeflow.org/docs/about/kubeflow) to manage the deployment to AKS. The machine learning models run on AKS clusters that are backed by GPU-enabled virtual machines (VMs).
-
-## Potential use cases
-
-This solution applies to scenarios that use AKS and GPU-enabled VMs for machine learning. Examples include:
-
-- Image classification systems.
-- Natural language processing algorithms.
-- Predictive maintenance systems.
-
 ## Architecture
 
-![Architecture diagram that shows how machine learning models are deployed to Azure Kubernetes Services (AKS).](../media/machine-learning-model-deployment-to-aks.png)
-*Download an [SVG](../media/machine-learning-model-deployment-to-aks.svg) of this architecture.*
+[ ![Architecture diagram that shows how machine learning models are deployed to Azure Kubernetes Services (AKS).](../media/machine-learning-model-deployment-to-aks.svg)](../media/machine-learning-model-deployment-to-aks.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/machine-learning-model-deployment-to-aks.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -35,6 +24,20 @@ This solution applies to scenarios that use AKS and GPU-enabled VMs for machine 
 - [AKS](https://azure.microsoft.com/services/container-registry) is a highly available, secure, and fully managed Kubernetes service. AKS makes it easy to deploy and manage containerized applications.
 - [Machine Learning](https://azure.microsoft.com/services/machine-learning) is a cloud-based environment that you can use to train, deploy, automate, manage, and track machine learning models. You can use the models to forecast future behavior, outcomes, and trends.
 
+## Scenario details
+
+AKS is useful when you need high-scale production deployments of your machine learning models. A high-scale deployment involves a fast response time, autoscaling of the deployed service, and logging. For more information, see [Deploy a model to an Azure Kubernetes Service cluster](/azure/machine-learning/how-to-deploy-azure-kubernetes-service).
+
+This solution uses [Kubeflow](https://www.kubeflow.org/docs/about/kubeflow) to manage the deployment to AKS. The machine learning models run on AKS clusters that are backed by GPU-enabled virtual machines (VMs).
+
+### Potential use cases
+
+This solution applies to scenarios that use AKS and GPU-enabled VMs for machine learning. Examples include:
+
+- Image classification systems.
+- Natural language processing algorithms.
+- Predictive maintenance systems.
+
 ## Next steps
 
 - [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-ml)
@@ -48,4 +51,4 @@ This solution applies to scenarios that use AKS and GPU-enabled VMs for machine 
 
 - [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
 - [Distributed training of deep learning models on Azure](../../reference-architectures/ai/training-deep-learning.yml)
-- [Training Python models on Azure](../../reference-architectures/ai/training-python-models.yml)
+- [Training Python models on Azure](/azure/architecture/example-scenario/ai/training-python-models)

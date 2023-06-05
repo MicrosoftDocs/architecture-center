@@ -1,7 +1,7 @@
 ---
 title: Mobile architecture design
 description: Review resources to help you learn about mobile development and back-end infrastructure on Azure. Includes solution ideas and reference architectures.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
 ms.date: 08/15/2022
 ms.topic: conceptual

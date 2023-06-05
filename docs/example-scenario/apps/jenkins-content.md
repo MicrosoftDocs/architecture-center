@@ -1,21 +1,18 @@
+---
+ms.custom:
+  - devx-track-jenkins
+---
 This scenario explains the architecture and considerations to take into account when [installing and configuring Jenkins][install-jenkins-section].
-
-![Jenkins server running on Azure][0]
-
-*Access the [Visio diagram](https://office.live.com/start/Visio.aspx?omkt=en-us&templatetitle=Jenkins%20Server%20on%20Azure&templateid=TM66956692) online, through Microsoft 365. Note that you must have a Visio license to access this diagram. Or, download a [Visio file](https://arch-center.azureedge.net/Jenkins-architecture.vsdx) that contains a version of this architecture diagram.*
-
-This architecture supports disaster recovery with Azure services but does not cover more advanced scale-out scenarios involving multiple primaries or high availability (HA) with no downtime. For general insights about the various Azure components, including a step-by-step tutorial about building out a CI/CD pipeline on Azure, see [Jenkins on Azure][jenkins-on-azure].
-
-The focus of this document is on the core Azure operations needed to support Jenkins, including the use of Azure Storage to maintain build artifacts, the security items needed for SSO, other services that can be integrated, and scalability for the pipeline. The architecture is designed to work with an existing source control repository. For example, a common scenario is to start Jenkins jobs based on GitHub commits.
-
-## Potential use cases
-
-- Automate CI/CD pipelines
-- Ensure high availability (HA) for mission-critical services
 
 ## Architecture
 
-The architecture consists of the following components:
+[ ![Architectural diagram that demonstrates a Jenkins server running on Azure.](./media/architecture-jenkins.svg)](./media/architecture-jenkins.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/jenkins-architecture.vsdx) of this architecture.*
+
+### Workflow
+
+The architecture consists of the following aspects:
 
 - **Resource group.** A [resource group][rg] is used to group Azure assets so they can be managed by lifetime, owner, and other criteria. Use resource groups to deploy and monitor Azure assets as a group and track billing costs by resource group. You can also delete resources as a set, which is useful for test deployments.
 
@@ -41,11 +38,22 @@ The architecture consists of the following components:
 
 - **Azure monitoring services**. This service [monitors][monitor] the Azure virtual machine hosting Jenkins. This deployment monitors the virtual machine status and CPU utilization and sends alerts.
 
-## Recommendations
+## Scenario details
 
-The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
+This architecture supports disaster recovery with Azure services but does not cover more advanced scale-out scenarios involving multiple primaries or high availability (HA) with no downtime. For general insights about the various Azure components, including a step-by-step tutorial about building out a CI/CD pipeline on Azure, see [Jenkins on Azure][jenkins-on-azure].
 
-## Scalability considerations
+The focus of this document is on the core Azure operations needed to support Jenkins, including the use of Azure Storage to maintain build artifacts, the security items needed for SSO, other services that can be integrated, and scalability for the pipeline. The architecture is designed to work with an existing source control repository. For example, a common scenario is to start Jenkins jobs based on GitHub commits.
+
+### Potential use cases
+
+- Automate CI/CD pipelines
+- Ensure high availability (HA) for mission-critical services
+
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Scalability
 
 Jenkins can dynamically scale to support workloads as needed. For elastic builds, do not run builds on the Jenkins primary server. Instead, offload build tasks to Jenkins agents, which can be elastically scaled in and out as need. Consider two options for scaling agents:
 
@@ -57,11 +65,11 @@ Virtual machines generally cost more to scale than containers. To use containers
 
 Also, use Azure Storage to share build artifacts that may be used in the next stage of the pipeline by other build agents.
 
-### Scaling the Jenkins server
+#### Scale the Jenkins server
 
 When you [create a VM and install Jenkins][install-jenkins-section], you can specify the size of the VM. Selecting the correct VM server size depends on the size of the expected workload. The Jenkins community maintains a [selection guide][selection-guide] to help identify the configuration that best meets your requirements. Azure offers many [sizes for Linux VMs][sizes-linux] to meet any requirements. For more information about scaling the Jenkins primary, see the Jenkins community of [best practices][best-practices], which also includes details about scaling Jenkins.
 
-## Availability considerations
+### Availability
 
 Availability in the context of a Jenkins server means being able to recover any state information associated with your workflow, such as test results, libraries you have created, or other artifacts. Critical workflow state or artifacts must be maintained to recover the workflow if the Jenkins server goes down. To assess your availability requirements, consider two common metrics:
 
@@ -73,7 +81,9 @@ In practice, RTO, and RPO imply redundancy and backup. Availability is not a que
 
 Consider using the disaster recovery [scripts][disaster] in step 7 of the deployment to create an Azure Storage account with managed disks to store the Jenkins server state. If Jenkins goes down, it can be restored to the state stored in this separate storage account.
 
-## Security considerations
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 Use the following approaches to help lock down security on a basic Jenkins server, since in its basic state, it is not secure.
 
@@ -94,27 +104,29 @@ To get a central view of the security state of your Azure resources, use [Micros
 
 The Jenkins server has its own user management system, and the Jenkins community provides best practices for [securing a Jenkins instance on Azure][secure-jenkins].
 
-## Manageability considerations
+### Manageability
 
 Use resource groups to organize the Azure resources that are deployed. Deploy production environments and development/test environments in separate resource groups, so that you can monitor each environment's resources and roll up billing costs by resource group. You can also delete resources as a set, which is useful for test deployments.
 
 Azure provides several features for [monitoring and diagnostics][monitoring-diag] of the overall infrastructure. To monitor CPU usage, this architecture deploys Azure Monitor. For example, you can use Azure Monitor to monitor CPU utilization, and send a notification if CPU usage exceeds 80 percent. (High CPU usage indicates that you might want to scale up the Jenkins server VM.) You can also notify a designated user if the VM fails or becomes unavailable.
 
-## Communities
+## Deploy this solution
 
-The following online communities can answer questions and help you configure a successful deployment:
-
-- [Jenkins Community Blog](https://jenkins.io/node/)
-- [Azure Forum](https://azure.microsoft.com/support/forums/)
-- [Stack Overflow Jenkins](https://stackoverflow.com/tags/jenkins/info)
-
-## Install and configure Jenkins
+### Install and configure Jenkins
 
 To create a VM and install Jenkins, follow the instructions in the article, [Quickstart: Configure Jenkins using Azure CLI](/azure/developer/jenkins/configure-on-linux-vm).
 
 ## Next steps
 
-- [Design a CI/CD pipeline using Azure DevOps](./devops-dotnet-webapp.yml)
+The following online communities can answer questions and help you configure a successful deployment:
+
+- [Jenkins Community Blog](https://jenkins.io/node)
+- [Azure Forum](https://azure.microsoft.com/support/forums)
+- [Stack Overflow Jenkins](https://stackoverflow.com/tags/jenkins/info)
+
+## Related resources
+
+- [Design a CI/CD pipeline using Azure DevOps](./devops-dotnet-baseline.yml)
 - [Container CI/CD using Jenkins and Kubernetes on Azure Kubernetes Service](../../solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.yml)
 - [Immutable Infrastructure CI/CD using Jenkins and Terraform on Azure Virtual Architecture overview](../../solution-ideas/articles/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.yml)
 - [Java CI/CD using Jenkins and Azure Web Apps](../../solution-ideas/articles/java-cicd-using-jenkins-and-azure-web-apps.yml)
@@ -161,4 +173,3 @@ To create a VM and install Jenkins, follow the instructions in the article, [Qui
 [subnet]: /azure/virtual-network/virtual-network-manage-subnet
 [vm-agent]: https://plugins.jenkins.io/azure-vm-agents/
 [vnet]: /azure/virtual-network/virtual-networks-overview
-[0]: ./media/architecture-jenkins.png

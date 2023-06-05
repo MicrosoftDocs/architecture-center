@@ -1,12 +1,12 @@
 ### YamlMime:Architecture
 metadata:
   title: Cost savings through HTAP with Azure SQL
-  titleSuffix: Azure Example Scenarios
+  titleSuffix: Azure Architecture Center
   description: Use a scalable HTAP architecture with Azure SQL Database to combine transaction processing with analytics. Reduce latencies and costs with in-memory databases.
   author: paakos
   ms.author: pahumada
   ms.date: 06/03/2022
-  ms.topic: conceptual
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom:

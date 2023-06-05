@@ -196,7 +196,7 @@ For an overview of responsible AI and detailed implementation information, see [
 
 Principal author:
 
-- [Manasa Ramalinga](https://www.linkedin.com/in/trmanasa) | Senior Cloud Solution Architect, US National CSA Team
+- [Manasa Ramalinga](https://www.linkedin.com/in/trmanasa) | Principal Cloud Solution Architect, US National CSA Team
 
 Other contributors:
 

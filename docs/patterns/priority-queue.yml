@@ -2,7 +2,7 @@
 metadata:
   title: Priority Queue pattern
   description: Prioritize requests sent to services so that requests with a higher priority are received and processed more quickly than those with a lower priority.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/28/2022
   ms.topic: conceptual

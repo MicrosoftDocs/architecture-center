@@ -115,6 +115,16 @@ The template card for each persona provides input for creating the specific Cond
 
 Review a [Conditional Access framework](/azure/architecture/guide/security/conditional-access-framework) that includes a structured approach for grouping policies based on the personas created.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Claus Jespersen](https://www.linkedin.com/in/claus-jespersen-25b0422/) | Principal Consultant ID&Sec
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Learning path: Implement and manage identity and access](/training/paths/implement-manage-identity-access)

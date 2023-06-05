@@ -1,14 +1,13 @@
 ---
 title: Deploy a highly available MongoDB solution to Azure and Azure Stack Hub
 description: Learn how to deploy a highly available MongoDB solution to Azure and Azure Stack Hub
-author: BryanLa
+author: ronmiab
+ms.author: robess
 categories: azure
 ms.service: azure-stack
 ms.subservice: azure-stack-hub
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/05/2019
-ms.author: bryanla
-ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
 azureCategories:
   - databases
@@ -38,7 +37,9 @@ In this solution, you'll create a sample environment to:
 
 ## Architecture for MongoDB with Azure Stack Hub
 
-![The diagram shows a highly available MongoDB architecture in Azure Stack Hub.](media/solution-deployment-guide-mongodb-ha/image1.png)
+![The diagram shows a highly available MongoDB architecture in Azure Stack Hub.](media/solution-deployment-guide-mongodb-ha/solution-deployment-guide-mongodb-ha.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/solution-deployment-guide-mongodb-ha.vsdx) of this architecture.*
 
 ## Prerequisites for MongoDB with Azure Stack Hub
 

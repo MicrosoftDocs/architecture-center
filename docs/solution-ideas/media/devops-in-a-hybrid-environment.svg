@@ -1,3 +1,1302 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="974px" height="605px" viewBox="-0.5 -0.5 974 605" style="background-color: rgb(255, 255, 255);"><defs/><g><rect x="390.5" y="9.9" width="572" height="572" fill="#f5f5f5" stroke="#666666" stroke-width="1.1" stroke-dasharray="3.3000000000000003 3.3000000000000003" pointer-events="all"/><rect x="489.5" y="339.9" width="440" height="220" fill="#ffffff" stroke="#000000" stroke-width="1.1" pointer-events="all"/><g transform="translate(-0.5 -0.5)scale(1.1)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 398px; height: 1px; padding-top: 502px; margin-left: 446px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; "><p style="line-height: 120%">On Premises</p></div></div></div></foreignObject><text x="645" y="514" fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle">On Premises</text></switch></g><rect x="489.5" y="31.9" width="440" height="275" fill="#ffffff" stroke="#000000" stroke-width="1.1" pointer-events="all"/><g transform="translate(-0.5 -0.5)scale(1.1)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-end; justify-content: unsafe center; width: 398px; height: 1px; padding-top: 26px; margin-left: 446px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Azure Environment</div></div></div></foreignObject><text x="645" y="26" fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle">Azure Environment</text></switch></g><path d="M 549.45 394.35 L 549.45 438.9 L 569.95 438.9" fill="none" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" stroke-dasharray="3.3000000000000003 3.3000000000000003" pointer-events="stroke"/><path d="M 575.72 438.9 L 568.02 442.75 L 569.95 438.9 L 568.02 435.05 Z" fill="#000000" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" pointer-events="all"/><image x="17.1" y="408.15" width="66" height="66" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiIHhtbG5zOnNvZGlwb2RpPSJodHRwOi8vc29kaXBvZGkuc291cmNlZm9yZ2UubmV0L0RURC9zb2RpcG9kaS0wLmR0ZCIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0ic3ZnMTc1NjcxIiBpbmtzY2FwZTp2ZXJzaW9uPSIwLjkyLjMgKDI0MDU1NDYsIDIwMTgtMDMtMTEpIiBzb2RpcG9kaTpkb2NuYW1lPSJnaXRodWIuc3ZnIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQ1LjI3IDQ1LjI5IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA0NS4yNyA0NS4yOTsiIHhtbDpzcGFjZT0icHJlc2VydmUiPiYjeGE7PHNvZGlwb2RpOm5hbWVkdmlldyBib3JkZXJjb2xvcj0iIzY2NjY2NiIgYm9yZGVyb3BhY2l0eT0iMSIgZml0LW1hcmdpbi1ib3R0b209IjAiIGZpdC1tYXJnaW4tbGVmdD0iMCIgZml0LW1hcmdpbi1yaWdodD0iMCIgZml0LW1hcmdpbi10b3A9IjAiIGdyaWR0b2xlcmFuY2U9IjEwIiBndWlkZXRvbGVyYW5jZT0iMTAiIGlkPSJuYW1lZHZpZXcxNzU2NzMiIGlua3NjYXBlOmN1cnJlbnQtbGF5ZXI9InN2ZzE3NTY3MSIgaW5rc2NhcGU6Y3g9IjMwLjE3ODAyNSIgaW5rc2NhcGU6Y3k9IjMwLjE5NDMxOSIgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAiIGlua3NjYXBlOnBhZ2VzaGFkb3c9IjIiIGlua3NjYXBlOndpbmRvdy1oZWlnaHQ9IjEwMTciIGlua3NjYXBlOndpbmRvdy1tYXhpbWl6ZWQ9IjEiIGlua3NjYXBlOndpbmRvdy13aWR0aD0iMTkyMCIgaW5rc2NhcGU6d2luZG93LXg9Ii04IiBpbmtzY2FwZTp3aW5kb3cteT0iLTgiIGlua3NjYXBlOnpvb209IjEwLjA5NTE1OCIgb2JqZWN0dG9sZXJhbmNlPSIxMCIgcGFnZWNvbG9yPSIjZmZmZmZmIiBzaG93Z3JpZD0iZmFsc2UiPiYjeGE7CTwvc29kaXBvZGk6bmFtZWR2aWV3PiYjeGE7PGcgaWQ9ImcxNzU2NjkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC05LjU2MjU0MTcsLTkuNTYxMzEpIj4mI3hhOwk8dGl0bGUgaWQ9InRpdGxlMTc1NjU5Ij5QYWdlLTE8L3RpdGxlPiYjeGE7CTxnIGlkPSJncm91cDIyNTAtMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOS41NjMwOCwtOS4zNzg2OSkiPiYjeGE7CQk8dGl0bGUgaWQ9InRpdGxlMTc1NjYxIj5HaXRIdWI8L3RpdGxlPiYjeGE7CQk8ZyBpZD0ic2hhcGUyMjUxLTIiPiYjeGE7CQkJPHRpdGxlIGlkPSJ0aXRsZTE3NTY2MyI+U2hlZXQuMjI1MTwvdGl0bGU+JiN4YTsJCQk8cGF0aCBpZD0icGF0aDE3NTY2NSIgaW5rc2NhcGU6Y29ubmVjdG9yLWN1cnZhdHVyZT0iMCIgZD0iTTIyLjYzLDE4Ljk0QzEwLjE0LDE4Ljk0LDAsMjkuMzMsMCw0Mi4xNSAgICAgYy0wLjA3LDkuODksNi4xNSwxOC43MywxNS40OCwyMi4wMWMxLjEzLDAuMjIsMS41NC0wLjUsMS41NC0xLjExYzAtMC42MiwwLTIuMDEsMC0zLjk1Yy02LjI5LDEuNDEtNy42Mi0zLjExLTcuNjItMy4xMSAgICAgYy0xLjAzLTIuNjgtMi41MS0zLjQtMi41MS0zLjRjLTIuMDYtMS40MSwwLjE1LTEuNDEsMC4xNS0xLjQxYzIuMjcsMC4xNiwzLjQ3LDIuMzksMy40NywyLjM5YzIuMDIsMy41NCw1LjMsMi41Miw2LjU4LDEuOTMgICAgIGMwLjEtMS4xNywwLjYtMi4yNiwxLjQyLTMuMUMxMy40OCw1MS44MSw4LjIsNDkuODIsOC4yLDQwLjkyYy0wLjA0LTIuMjksMC43OS00LjUxLDIuMzItNi4yMmMtMC42OS0yLTAuNjEtNC4xOSwwLjIyLTYuMTQgICAgIGMwLDAsMS45MS0wLjYyLDYuMjMsMi40YzMuNy0xLjA0LDcuNjItMS4wNCwxMS4zMiwwYzQuMzItMyw2LjIyLTIuMzcsNi4yMi0yLjM3YzAuODMsMS45NSwwLjkxLDQuMTQsMC4yMiw2LjE0ICAgICBjMS41MywxLjcsMi4zNywzLjkzLDIuMzMsNi4yMmMwLDguOTEtNS4yOSwxMC44OC0xMC4zMywxMS40NWMwLjgxLDAuNzEsMS41MywyLjEyLDEuNTMsNC4zYzAsMy4xMSwwLDUuNjEsMCw2LjM3ICAgICBjMCwwLjYyLDAuNDEsMS4zNCwxLjU2LDEuMTJjOS4zMy0zLjMsMTUuNTMtMTIuMTUsMTUuNDUtMjIuMDRDNDUuMjcsMjkuMzMsMzUuMTMsMTguOTQsMjIuNjMsMTguOTR6Ii8+JiN4YTsJCTwvZz4mI3hhOwk8L2c+JiN4YTs8L2c+JiN4YTs8L3N2Zz4=" preserveAspectRatio="none"/><g fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="13.200000000000001px"><text x="50.1" y="498.35">GitHub</text></g><image x="412" y="479.1" width="55" height="61.88" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiIHhtbG5zOnNvZGlwb2RpPSJodHRwOi8vc29kaXBvZGkuc291cmNlZm9yZ2UubmV0L0RURC9zb2RpcG9kaS0wLmR0ZCIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0ic3ZnNDA4ODAiIGlua3NjYXBlOnZlcnNpb249IjAuOTIuMyAoMjQwNTU0NiwgMjAxOC0wMy0xMSkiIHNvZGlwb2RpOmRvY25hbWU9InRlcnJhZm9ybS5zdmciIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMzkuNiA0NSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMzkuNiA0NTsiIHhtbDpzcGFjZT0icHJlc2VydmUiPiYjeGE7PHNvZGlwb2RpOm5hbWVkdmlldyBib3JkZXJjb2xvcj0iIzY2NjY2NiIgYm9yZGVyb3BhY2l0eT0iMSIgZml0LW1hcmdpbi1ib3R0b209IjAiIGZpdC1tYXJnaW4tbGVmdD0iMCIgZml0LW1hcmdpbi1yaWdodD0iMCIgZml0LW1hcmdpbi10b3A9IjAiIGdyaWR0b2xlcmFuY2U9IjEwIiBndWlkZXRvbGVyYW5jZT0iMTAiIGlkPSJuYW1lZHZpZXc0MDg4MiIgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0ic3ZnNDA4ODAiIGlua3NjYXBlOmN4PSIyNi4zOTk5ODYiIGlua3NjYXBlOmN5PSIyOS45OTk5ODUiIGlua3NjYXBlOnBhZ2VvcGFjaXR5PSIwIiBpbmtzY2FwZTpwYWdlc2hhZG93PSIyIiBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDE3IiBpbmtzY2FwZTp3aW5kb3ctbWF4aW1pemVkPSIxIiBpbmtzY2FwZTp3aW5kb3ctd2lkdGg9IjE5MjAiIGlua3NjYXBlOndpbmRvdy14PSItOCIgaW5rc2NhcGU6d2luZG93LXk9Ii04IiBpbmtzY2FwZTp6b29tPSIxMy45ODM4NzgiIG9iamVjdHRvbGVyYW5jZT0iMTAiIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIgc2hvd2dyaWQ9ImZhbHNlIj4mI3hhOwk8L3NvZGlwb2RpOm5hbWVkdmlldz4mI3hhOzxnIGlkPSJnNDA4NzgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0wLjc1LC0wLjc0NzUpIj4mI3hhOwk8dGl0bGUgaWQ9InRpdGxlNDA4NDQiPlBhZ2UtMTwvdGl0bGU+JiN4YTsJPGcgaWQ9Imdyb3VwMTU3MC0xIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjc1LC0wLjc1KSI+JiN4YTsJCTx0aXRsZSBpZD0idGl0bGU0MDg0NiI+VGVycmFmb3JtPC90aXRsZT4mI3hhOwkJPGcgaWQ9Imdyb3VwMTU3MS0yIj4mI3hhOwkJCTx0aXRsZSBpZD0idGl0bGU0MDg0OCI+TG9nbzwvdGl0bGU+JiN4YTsJCQk8ZyBpZD0ic2hhcGUxNTcyLTMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEzLjY1LC0xNS43NjUpIj4mI3hhOwkJCQk8dGl0bGUgaWQ9InRpdGxlNDA4NTAiPnBvbHlnb24zNzA2PC90aXRsZT4mI3hhOwkJCQk8cGF0aCBpZD0icGF0aDQwODUyIiBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIiBzdHlsZT0iZmlsbDojNUM0RUU1OyIgZD0iTTEyLjMsNDYuNUwwLDM5LjRWMjUuMTlsMTIuMyw3LjExVjQ2LjV6Ii8+JiN4YTsJCQk8L2c+JiN4YTsJCQk8ZyBpZD0ic2hhcGUxNTczLTUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI3LjMsLTE1Ljc2NSkiPiYjeGE7CQkJCTx0aXRsZSBpZD0idGl0bGU0MDg1NSI+cG9seWdvbjM3MDg8L3RpdGxlPiYjeGE7CQkJCTxwYXRoIGlkPSJwYXRoNDA4NTciIGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiIHN0eWxlPSJmaWxsOiM0MDQwQjI7IiBkPSJNMTIuMywzOS40MVYyNS4xOUwwLDMyLjN2MTQuMkwxMi4zLDM5LjQxeiIvPiYjeGE7CQkJPC9nPiYjeGE7CQkJPGcgaWQ9InNoYXBlMTU3NC03IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLC0yMy42OTI1KSI+JiN4YTsJCQkJPHRpdGxlIGlkPSJ0aXRsZTQwODYwIj5wb2x5Z29uMzcxMDwvdGl0bGU+JiN4YTsJCQkJPHBhdGggaWQ9InBhdGg0MDg2MiIgaW5rc2NhcGU6Y29ubmVjdG9yLWN1cnZhdHVyZT0iMCIgc3R5bGU9ImZpbGw6IzVDNEVFNTsiIGQ9Ik0xMi4zLDQ2LjVWMzIuM0wwLDI1LjE5VjM5LjRMMTIuMyw0Ni41eiIvPiYjeGE7CQkJPC9nPiYjeGE7CQkJPGcgaWQ9InNoYXBlMTU3NS05IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMy42NSkiPiYjeGE7CQkJCTx0aXRsZSBpZD0idGl0bGU0MDg2NSI+cG9seWdvbjM3MTI8L3RpdGxlPiYjeGE7CQkJCTxwYXRoIGlkPSJwYXRoNDA4NjciIGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiIHN0eWxlPSJmaWxsOiM1QzRFRTU7IiBkPSJNMTIuMywzMi4zOVYzMi4zTDAsMjUuMTlWMzkuNGwxMi4zLDcuMVYzMi4zOXogICAgICAiLz4mI3hhOwkJCTwvZz4mI3hhOwkJCTxnIGlkPSJzaGFwZTE1NzYtMTEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM0LjQwMjUsLTkuMzIyNSkiPiYjeGE7CQkJCTx0aXRsZSBpZD0idGl0bGU0MDg3MCI+cGF0aDM3MTQ8L3RpdGxlPiYjeGE7CQkJPC9nPiYjeGE7CQkJPGcgaWQ9InNoYXBlMTU3Ny0xMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTMuNjUsLTIxLjMwNzUpIj4mI3hhOwkJCQk8dGl0bGUgaWQ9InRpdGxlNDA4NzMiPnBhdGgzNzE2PC90aXRsZT4mI3hhOwkJCTwvZz4mI3hhOwkJPC9nPiYjeGE7CTwvZz4mI3hhOzwvZz4mI3hhOzwvc3ZnPg==" preserveAspectRatio="none"/><g fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="13.200000000000001px"><text x="439.5" y="560.78">Terraform</text></g><path d="M 50.6 345.95 L 50.6 401.65" fill="none" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 50.6 407.42 L 46.75 399.72 L 50.6 401.65 L 54.45 399.72 Z" fill="#000000" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" pointer-events="all"/><ellipse cx="173.25" cy="447.15" rx="12.65" ry="12.65" fill="#4d9900" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)scale(1.1)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 21px; height: 1px; padding-top: 407px; margin-left: 147px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">2</div></div></div></foreignObject><text x="158" y="410" fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle">2</text></switch></g><path d="M 83.6 447.7 L 160.6 447.7 L 160.6 447.15" fill="none" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" pointer-events="stroke"/><ellipse cx="50.6" cy="333.3" rx="12.65" ry="12.65" fill="#4d9900" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)scale(1.1)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 21px; height: 1px; padding-top: 303px; margin-left: 36px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">1</div></div></div></foreignObject><text x="46" y="307" fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle">1</text></switch></g><path d="M 50.6 288.2 L 50.6 320.65" fill="none" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" pointer-events="stroke"/><image x="23.15" y="208.5" width="53.9" height="53.9" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIiB3aWR0aD0iNDkiIGhlaWdodD0iNDkiIHZpZXdCb3g9IjAgMCA0OSA0OSIgZmlsbD0ibm9uZSIgdmVyc2lvbj0iMS4xIiBpZD0ic3ZnNjAwOSIgc29kaXBvZGk6ZG9jbmFtZT0iQXp1cmUgYm9hcmRzLnN2ZyIgaW5rc2NhcGU6dmVyc2lvbj0iMC45Mi4zICgyNDA1NTQ2LCAyMDE4LTAzLTExKSI+JiN4YTsgIDxtZXRhZGF0YSBpZD0ibWV0YWRhdGE2MDE1Ij4mI3hhOyAgICA8cmRmOlJERj4mI3hhOyAgICAgIDxjYzpXb3JrIHJkZjphYm91dD0iIj4mI3hhOyAgICAgICAgPGRjOmZvcm1hdD5pbWFnZS9zdmcreG1sPC9kYzpmb3JtYXQ+JiN4YTsgICAgICAgIDxkYzp0eXBlIHJkZjpyZXNvdXJjZT0iaHR0cDovL3B1cmwub3JnL2RjL2RjbWl0eXBlL1N0aWxsSW1hZ2UiLz4mI3hhOyAgICAgICAgPGRjOnRpdGxlLz4mI3hhOyAgICAgIDwvY2M6V29yaz4mI3hhOyAgICA8L3JkZjpSREY+JiN4YTsgIDwvbWV0YWRhdGE+JiN4YTsgIDxkZWZzIGlkPSJkZWZzNjAxMyIvPiYjeGE7ICA8c29kaXBvZGk6bmFtZWR2aWV3IHBhZ2Vjb2xvcj0iI2ZmZmZmZiIgYm9yZGVyY29sb3I9IiM2NjY2NjYiIGJvcmRlcm9wYWNpdHk9IjEiIG9iamVjdHRvbGVyYW5jZT0iMTAiIGdyaWR0b2xlcmFuY2U9IjEwIiBndWlkZXRvbGVyYW5jZT0iMTAiIGlua3NjYXBlOnBhZ2VvcGFjaXR5PSIwIiBpbmtzY2FwZTpwYWdlc2hhZG93PSIyIiBpbmtzY2FwZTp3aW5kb3ctd2lkdGg9IjY0MCIgaW5rc2NhcGU6d2luZG93LWhlaWdodD0iNDgwIiBpZD0ibmFtZWR2aWV3NjAxMSIgc2hvd2dyaWQ9ImZhbHNlIiBpbmtzY2FwZTp6b29tPSI2LjM4Nzc1NTEiIGlua3NjYXBlOmN4PSIyNC41IiBpbmtzY2FwZTpjeT0iMjQuNSIgaW5rc2NhcGU6d2luZG93LXg9IjAiIGlua3NjYXBlOndpbmRvdy15PSIwIiBpbmtzY2FwZTp3aW5kb3ctbWF4aW1pemVkPSIxIiBpbmtzY2FwZTpjdXJyZW50LWxheWVyPSJzdmc2MDA5Ii8+JiN4YTsgIDxwYXRoIGQ9Ik0zNC4zMDM5IDIwLjg0NjFDMzcuODYwMSAyMC44NDYxIDQxLjA5NiAyMi4xODMxIDQzLjU1NTQgMjQuMzc5NlYyLjgwMzQyQzQzLjU1NTQgMS43MTIgNDIuNjc2NSAwLjgzMjAzMSA0MS41ODY1IDAuODMyMDMxSDIuNDY4ODNDMS4zNzg4MiAwLjgzMjAzMSAwLjUgMS43MTIgMC41IDIuODAzNDJWMzQuODc3OEMwLjUgMzUuOTY5MiAxLjM3ODgyIDM2Ljg0OTIgMi40Njg4MyAzNi44NDkySDIwLjU4MzRDMjAuNDgxMiAzNi4xNjcgMjAuNDI2NyAzNS40NjQ0IDIwLjQyNjcgMzQuNzQ4MkMyMC40MTk5IDI3LjA3NDEgMjYuNjM5OCAyMC44NDYxIDM0LjMwMzkgMjAuODQ2MVoiIGZpbGw9IiMwMDk0N0QiIGlkPSJwYXRoNTk4OSIvPiYjeGE7ICA8cGF0aCBkPSJNMTMuNjIxNCA0LjQ0NTMxSDQuMDQyOTdWMTAuNTE2NEgxMy42MjE0VjQuNDQ1MzFaIiBmaWxsPSIjMUZDMUE3IiBpZD0icGF0aDU5OTEiLz4mI3hhOyAgPHBhdGggZD0iTTI2Ljc4OTQgNC40NDUzMUgxNy4yMTA5VjEwLjUxNjRIMjYuNzg5NFY0LjQ0NTMxWiIgZmlsbD0iIzYxRERDOSIgaWQ9InBhdGg1OTkzIi8+JiN4YTsgIDxwYXRoIGQ9Ik0xMy42MjE0IDE0LjA2NDVINC4wNDI5N1YyMC4xMzU1SDEzLjYyMTRWMTQuMDY0NVoiIGZpbGw9IiM5QkZERUMiIGlkPSJwYXRoNTk5NSIvPiYjeGE7ICA8cGF0aCBkPSJNMTMuNjIxNCAyMy42ODM2SDQuMDQyOTdWMjkuNjY2SDEzLjYyMTRWMjMuNjgzNloiIGZpbGw9IiMwMEI5OUQiIGlkPSJwYXRoNTk5NyIvPiYjeGE7ICA8cGF0aCBkPSJNMjYuNzg5NCAxNC4wNjQ1SDE3LjIxMDlWMjAuMTM1NUgyNi43ODk0VjE0LjA2NDVaIiBmaWxsPSIjMDRCQ0ExIiBpZD0icGF0aDU5OTkiLz4mI3hhOyAgPHBhdGggZD0iTTM5Ljk4NDcgNC40NDUzMUgzMC40MDYyVjEwLjUxNjRIMzkuOTg0N1Y0LjQ0NTMxWiIgZmlsbD0iIzFEQzBBNyIgaWQ9InBhdGg2MDAxIi8+JiN4YTsgIDxwYXRoIGQ9Ik00My41NTM0IDM0Ljg3NjRWMjQuMzg1MUM0MS4xMDA5IDIyLjE4ODYgMzcuODU4MSAyMC44NTE2IDM0LjMwMiAyMC44NTE2QzI2LjYzNzggMjAuODUxNiAyMC40MTggMjcuMDcyNyAyMC40MTggMzQuNzUzNkMyMC40MTggMzUuNDY5OSAyMC40NzI1IDM2LjE2NTcgMjAuNTc0NyAzNi44NTQ2SDQxLjU4NDZDNDIuNjc0NiAzNi44NDc4IDQzLjU1MzQgMzUuOTY3OSA0My41NTM0IDM0Ljg3NjRaIiBmaWxsPSIjMDBCQTlEIiBpZD0icGF0aDYwMDMiLz4mI3hhOyAgPHBhdGggZD0iTTQzLjU1NjkgMjQuMzg0OFYzNC44ODI5QzQzLjU1NjkgMzUuOTY3NiA0Mi42NzgxIDM2Ljg1NDMgNDEuNTg4MSAzNi44NTQzSDIwLjU3ODFDMjEuNTg2NCA0My41MzI1IDI3LjM0OTggNDguNjU1NCAzNC4zMDU0IDQ4LjY1NTRDNDEuOTc2NCA0OC42NDg2IDQ4LjE4OTQgNDIuNDI3NCA0OC4xODk0IDM0Ljc0NjVDNDguMTg5NCAzMC42MjY0IDQ2LjM5NzcgMjYuOTI5MiA0My41NTY5IDI0LjM4NDhaIiBmaWxsPSIjMjdDRkIyIiBpZD0icGF0aDYwMDUiLz4mI3hhOyAgPHBhdGggZD0iTTQxLjQzNjkgMjcuOTA2MkwzMi43MzcyIDM2LjYxMDRMMjguMjY4MiAzMi4xMzU1TDI1LjU5NzcgMzQuODE2NEwzMC4wNjY3IDM5LjI5MTJMMzIuOTA3NSA0Mi4xMzU4TDM1LjU3ODEgMzkuNDU0OUw0NC4yNzc3IDMwLjc1MDhMNDEuNDM2OSAyNy45MDYyWiIgZmlsbD0iI0M1RkRGNCIgaWQ9InBhdGg2MDA3Ii8+JiN4YTs8L3N2Zz4=" preserveAspectRatio="none"/><g fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="13.200000000000001px"><text x="50.1" y="282.2">Azure Boards</text></g><image x="797" y="166.15" width="41.8" height="55" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNy40ODYiIGhlaWdodD0iNDkuNjg4IiB2aWV3Qm94PSItMC41IDAuNSAzNy40ODYgNDkuNjg4Ij48ZyBmaWxsPSIjMDA3MmM2Ij48cGF0aCBkPSJNLS41IDcuMjg4VjQzLjRjMCAzLjc1IDguMzkyIDYuNzkgMTguNzQzIDYuNzl2LTQyLjlILS41eiIvPjxwYXRoIGQ9Ik0xNy45ODYgNTAuMTg3aC4yNTdjMTAuMzUgMCAxOC43NDMtMy4wMzggMTguNzQzLTYuNzg4VjcuMjg4aC0xOXY0Mi45eiIvPjwvZz48ZyBmaWxsPSIjZmZmIj48cGF0aCBkPSJNMTcuOTg2IDUwLjE4N2guMjU3YzEwLjM1IDAgMTguNzQzLTMuMDM4IDE4Ljc0My02Ljc4OFY3LjI4OGgtMTl2NDIuOXoiIG9wYWNpdHk9Ii4xNSIvPjxwYXRoIGQ9Ik0zNi45ODYgNy4yODhjMCAzLjc1LTguMzkyIDYuNzg4LTE4Ljc0MyA2Ljc4OFMtLjUgMTEuMDM3LS41IDcuMjg4IDcuODkyLjUgMTguMjQzLjVzMTguNzQzIDMuMDQgMTguNzQzIDYuNzg4Ii8+PC9nPjxwYXRoIGQ9Ik0zMy4xNTQgNi44OTdjMCAyLjQ3NS02LjY3NiA0LjQ4LTE0LjkxIDQuNDhTMy4zMyA5LjM3MiAzLjMzIDYuODk3czYuNjc3LTQuNDggMTQuOTEyLTQuNDggMTQuOTEgMi4wMDUgMTQuOTEgNC40OCIgZmlsbD0iIzdmYmEwMCIvPjxwYXRoIGQ9Ik0zMC4wMyA5LjYzNGMxLjk1Mi0uNzU3IDMuMTI1LTEuNzA1IDMuMTI1LTIuNzM1IDAtMi40NzUtNi42NzYtNC40OC0xNC45MTItNC40OFMzLjMzMiA0LjQyNCAzLjMzMiA2LjljMCAxLjAzIDEuMTczIDEuOTc4IDMuMTI1IDIuNzM1IDIuNzI2LTEuMDU4IDYuOTg2LTEuNzQgMTEuNzg2LTEuNzRzOS4wNi42ODMgMTEuNzg3IDEuNzQiIGZpbGw9IiNiOGQ0MzIiLz48cGF0aCBkPSJNMTIuMyAzMi4zNTRjMCAxLjEyMi0uNDA3IDItMS4yMiAyLjYwN3MtMS45MzguOTI0LTMuMzczLjkyNGMtMS4yMiAwLTIuMjQtLjIyLTMuMDYtLjY2di0yLjY0Yy45NDYuODAzIDEuOTg4IDEuMjA1IDMuMTI2IDEuMjA1LjU1IDAgLjk3NS0uMSAxLjI3NS0uMzNhMS4wMyAxLjAzIDAgMCAwIC40NS0uODc1YzAtLjM1Ny0uMTQ0LS42NjgtLjQzMy0uOTMycy0uODc2LS42MDUtMS43Ni0xLjAyM0M1LjUgMjkuNzg0IDQuNiAyOC42MjggNC42IDI3LjE2NmMwLTEuMDYuMzkzLTEuOTEyIDEuMTgtMi41NTNzMS44My0uOTYgMy4xMzQtLjk2YzEuMTU1IDAgMi4xLjE1MiAyLjg3LjQ1NHYyLjQ2NmMtLjc5Ny0uNTUtMS43MDUtLjgyNS0yLjcyMi0uODI1LS41IDAtLjkxNS4xMDgtMS4yMTIuMzI1cy0uNDQ1LjUwOC0uNDQ1Ljg3YzAgLjM3NC4xMi42OC4zNi45MnMuNzMuNTM1IDEuNDcyLjg4N2MxLjEwNi41MjMgMS44OTMgMS4wNTMgMi4zNjQgMS41OTJzLjcwMyAxLjIuNzAzIDIuMDEzem0xMi43MTctMi42NzJjMCAxLjQtLjMxNyAyLjYtLjk1IDMuNjJzLTEuNTIzIDEuNzQtMi42NzIgMi4xNTNsMy40MyAzLjE3NkgyMS4zNmwtMi40NS0yLjc0N2MtMS4wNS0uMDM4LTEuOTk4LS4zMTYtMi44NDItLjgzM2E1LjIyIDUuMjIgMCAwIDEtMS45NTUtMi4xMjRjLS40Ni0uOS0uNy0xLjkwMi0uNy0zLjAwNyAwLTEuMjI2LjI1LTIuMzIuNzQ2LTMuMjhzMS4xOTctMS42OTggMi4xLTIuMjE1IDEuOTM1LS43NzUgMy4xMDItLjc3NWMxLjA4OCAwIDIuMDYzLjI1IDIuOTI0Ljc1czEuNTI4IDEuMjEyIDIuMDA0IDIuMTM2LjcxNSAxLjk3Mi43MTUgMy4xNDN6bS0yLjgwNC4xNWMwLTEuMi0uMjYtMi4xNDYtLjc4NC0yLjg0MnMtMS4yMzctMS4wNDQtMi4xNDUtMS4wNDRhMi42OSAyLjY5IDAgMCAwLTIuMjE5IDEuMDQ3Yy0uNTU1LjctLjgzMyAxLjYyOC0uODMzIDIuNzg4cy4yNzIgMi4wNzcuODE2IDIuNzY3IDEuMjY3IDEuMDM1IDIuMTcgMS4wMzVjLjkyIDAgMS42NDctLjMzNCAyLjE4Ni0xLjAwMnMuOC0xLjU4NC44LTIuNzV6bTcuNDIzLTUuOTgydjkuNjY3aDQuMzh2Mi4xNmgtNy4wNDRWMjMuODV6IiBmaWxsPSIjZmZmIi8+PC9zdmc+"/><g transform="translate(-0.5 -0.5)scale(1.1)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 209px; margin-left: 744px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: nowrap; ">Azure<br />SQL Database</div></div></div></foreignObject><text x="744" y="221" fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle">Azure...</text></switch></g><image x="797" y="419.15" width="55" height="55" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0wLjUgMC41IDUwIDUwIiB3aWR0aD0iNTAiIGhlaWdodD0iNTAiPjxnIGZpbGw9IiMwMDcyYzYiPjxwYXRoIGQ9Ik0tLjUgNy4yODhWNDMuNGMwIDMuNzUgOC4zOTIgNi43OSAxOC43NDMgNi43OXYtNDIuOXoiLz48cGF0aCBkPSJNMTcuOTg2IDUwLjE4N2guMjU3YzEwLjM1IDAgMTguNzQzLTMuMDM4IDE4Ljc0My02Ljc4OFY3LjI4OGgtMTl6Ii8+PC9nPjxnIGZpbGw9IiNmZmYiPjxwYXRoIGQ9Ik0xNy45ODYgNTAuMTg3aC4yNTdjMTAuMzUgMCAxOC43NDMtMy4wMzggMTguNzQzLTYuNzg4VjcuMjg4aC0xOXoiIG9wYWNpdHk9Ii4xNSIvPjxwYXRoIGQ9Ik0zNi45ODYgNy4yODhjMCAzLjc1LTguMzkyIDYuNzg4LTE4Ljc0MyA2Ljc4OFMtLjUgMTEuMDM3LS41IDcuMjg4IDcuODkyLjUgMTguMjQzLjVzMTguNzQzIDMuMDQgMTguNzQzIDYuNzg4Ii8+PC9nPjxwYXRoIGQ9Ik0zMy4xNTQgNi44OTdjMCAyLjQ3NS02LjY3NiA0LjQ4LTE0LjkxIDQuNDhTMy4zMyA5LjM3MiAzLjMzIDYuODk3czYuNjc3LTQuNDggMTQuOTEyLTQuNDggMTQuOTEgMi4wMDUgMTQuOTEgNC40OCIgZmlsbD0iIzdmYmEwMCIvPjxwYXRoIGQ9Ik0zMC4wMyA5LjYzNGMxLjk1Mi0uNzU3IDMuMTI1LTEuNzA1IDMuMTI1LTIuNzM1IDAtMi40NzUtNi42NzYtNC40OC0xNC45MTItNC40OFMzLjMzMiA0LjQyNCAzLjMzMiA2LjljMCAxLjAzIDEuMTczIDEuOTc4IDMuMTI1IDIuNzM1IDIuNzI2LTEuMDU4IDYuOTg2LTEuNzQgMTEuNzg2LTEuNzRzOS4wNi42ODMgMTEuNzg3IDEuNzQiIGZpbGw9IiNiOGQ0MzIiLz48cGF0aCBkPSJNMTIuMyAzMS4zNTRjMCAxLjEyMi0uNDA3IDEuOTktMS4yMiAyLjYwN3MtMS45MzguOTI0LTMuMzczLjkyNGMtMS4yMiAwLTIuMjQtLjIyLTMuMDYtLjY2di0yLjY0Yy45NDYuODAzIDEuOTg4IDEuMjA1IDMuMTI2IDEuMjA1LjU1IDAgLjk3NS0uMSAxLjI3NS0uMzNhMS4wMyAxLjAzIDAgMCAwIC40NS0uODc1YzAtLjM1Ny0uMTQ0LS42NjgtLjQzMy0uOTMycy0uODc2LS42MDUtMS43Ni0xLjAyM2MtMS44MDQtLjg0Ni0yLjcwNi0yLjAwMi0yLjcwNi0zLjQ2NCAwLTEuMDYuMzkzLTEuOTEyIDEuMTgtMi41NTNzMS44My0uOTYgMy4xMzQtLjk2YzEuMTU1IDAgMi4xMS4xNTIgMi44Ny40NTR2Mi40NjZjLS43OTctLjU1LTEuNzA1LS44MjUtMi43MjItLjgyNS0uNTEgMC0uOTE1LjEwOC0xLjIxMi4zMjVhMS4wMjYgMS4wMjYgMCAwIDAtLjQ0NS44N2MwIC4zNzQuMTIuNjguMzYuOTJzLjczLjUzNSAxLjQ3Mi44ODdjMS4xMDYuNTIzIDEuODkzIDEuMDUzIDIuMzY0IDEuNTkycy43MDMgMS4yMS43MDMgMi4wMTN6bTEyLjcyNy0yLjY3MmMwIDEuMzktLjMxNyAyLjYtLjk1IDMuNjJzLTEuNTIzIDEuNzQtMi42NzIgMi4xNTNsMy40MyAzLjE3NmgtMy40NjRsLTIuNDUtMi43NDdjLTEuMDUtLjAzOC0xLjk5OC0uMzE2LTIuODQyLS44MzNhNS4yMiA1LjIyIDAgMCAxLTEuOTU1LTIuMTI0Yy0uNDYtLjktLjY5LTEuOTAyLS42OS0zLjAwNyAwLTEuMjI2LjI1LTIuMzIuNzQ2LTMuMjhzMS4xOTctMS42OTggMi4xLTIuMjE1IDEuOTM1LS43NzUgMy4xMDItLjc3NWMxLjA4OCAwIDIuMDYzLjI1IDIuOTI0Ljc1czEuNTI4IDEuMjEyIDIuMDA0IDIuMTM2LjcxNSAxLjk3Mi43MTUgMy4xNDN6bS0yLjgwNC4xNWMwLTEuMi0uMjYtMi4xNDYtLjc4NC0yLjg0MnMtMS4yMzctMS4wNDQtMi4xNDUtMS4wNDRhMi42OSAyLjY5IDAgMCAwLTIuMjE5IDEuMDQ3Yy0uNTU1LjctLjgzMyAxLjYyOC0uODMzIDIuNzg4IDAgMS4xNTUuMjcyIDIuMDc3LjgxNiAyLjc2N3MxLjI2NyAxLjAzNSAyLjE3IDEuMDM1Yy45MiAwIDEuNjQ3LS4zMzQgMi4xODYtMS4wMDJzLjgtMS41ODQuOC0yLjc1em0xMS44MDMgNS44NDhoLTcuMDQ0VjIyLjg1aDIuNjY0djkuNjY3aDQuMzh6IiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTM0Ljc1NSA0OS41ODRsMi4xMjMuOTE2LjIyNC0uMjY1IDEuNy0yIDEuNzIuMDEgMS45NzMgMi4yNTQgMi4xMzUtLjg4Ny0uMDIzLS4zNDctLjE4NS0yLjY0MyAxLjIyNS0xLjIzNCAyLjk1Ny4xNjguODk3LTIuMTY3LTIuMjE4LTEuOTY3LjAxMi0xLjc1Nkw0OS41IDM3LjY1bC0uODY2LTIuMTgtLjM0Mi4wMjUtMi41ODguMTg2LTEuMjA2LTEuMjUuMTY0LTMuMDItMi4xMjQtLjkxNC0uMjI0LjI2NS0xLjcwMiAyLTEuNzItLjAxLTEuOTc1LTIuMjUtMi4xMzQuODg0LjAyNi4zNS4xOCAyLjY0LTEuMjI0IDEuMjM0LTIuOTU1LS4xNjgtLjg5NiAyLjE2Ny4yNi4yMyAxLjk2IDEuNzM2LS4wMTIgMS43NTYtMi4yMDcgMi4wMTYuODY3IDIuMTguMzQzLS4wMjUgMi41ODctLjE4NiAxLjIwOCAxLjI1em0uNjA4LTEwLjk1NmMxLjAxMi0yLjQ1MiAzLjc3OC0zLjYgNi4xNzctMi41NjVzMy41MjUgMy44NTggMi41MTMgNi4zMDgtMy43OCAzLjU5OC02LjE4IDIuNTY1LTMuNTI0LTMuODU3LTIuNTEtNi4zMDgiIGZpbGw9IiNhMGExYTIiLz48L3N2Zz4="/><g transform="translate(-0.5 -0.5)scale(1.1)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 439px; margin-left: 750px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: nowrap; ">SQL Server</div></div></div></foreignObject><text x="750" y="451" fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle">SQL Serv...</text></switch></g><path d="M 631.95 447.7 L 775.5 447.7 L 790.5 447.7" fill="none" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 796.27 447.7 L 788.57 451.55 L 790.5 447.7 L 788.57 443.85 Z" fill="#000000" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" pointer-events="all"/><image x="576.45" y="421.9" width="55" height="50.6" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iNDYuMSIgd2lkdGg9IjUwIj48cGF0aCBkPSJNMzIuNCAzNi41SDE4LjhjMS42IDUuOC0uNiA2LjYtMTAuMiA2LjZ2M2gzMi42di0zYy05LjUgMC0xMC40LS44LTguOC02LjYiIGZpbGw9IiM3YTdhN2EiLz48cGF0aCBkPSJNNDcgMEgyLjdDMS4yIDAgMCAxLjMgMCAyLjh2MzAuOWMwIDEuNSAxLjIgMi44IDIuNyAyLjhINDdjMS41IDAgMy0xLjMgMy0yLjhWMi44QzUwIDEuMyA0OC41IDAgNDcgMG0tLjggMy44djI4LjhIMy44VjMuOGw0Mi40LS4xeiIgZmlsbD0iI2EwYTFhMiIvPjxwYXRoIGQ9Ik0zLjggMzIuN1YzLjhoNDIuM3YyOC45eiIgZmlsbD0iIzU5YjRkOSIvPjxwYXRoIGQ9Ik0zLjggMzIuN1YzLjhsMzguNy0uMUw0NyAwSDIuN0MxLjIgMCAwIDEuMyAwIDIuOHYzMC45YzAgMS41IDEuMiAyLjggMi43IDIuOGgxLjFsNC42LTMuOHoiIG9wYWNpdHk9Ii4yIiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTMuOCAzLjh2MjguOXoiIGZpbGw9IiM1OWI0ZDkiLz48cGF0aCBkPSJNMjUuNSAyLjFhLjY4LjY4IDAgMCAxLS43LjcuNjguNjggMCAwIDEtLjctLjcuNjguNjggMCAwIDEgLjctLjcuNjguNjggMCAwIDEgLjcuNyIgZmlsbD0iI2I4ZDQzMiIvPjxwYXRoIGQ9Ik0zNS43IDcuM0wyNS45IDl2OGg5Ljh6bS0yMiAzLjFWMTdoOS44VjkuMXptMCAxNS44bDkuOCAxLjN2LThoLTkuOHptMjIgMy4xdi05LjhoLTkuOHY4LjF6IiBmaWxsPSIjZmZmIi8+PC9zdmc+"/><g transform="translate(-0.5 -0.5)scale(1.1)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 437px; margin-left: 550px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; background-color: white; white-space: nowrap; ">VM<br />(Release)</div></div></div></foreignObject><text x="550" y="449" fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle">VM...</text></switch></g><path d="M 374 294.25 L 412.5 294.25 L 438.5 294.68" fill="none" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 444.27 294.78 L 436.51 298.5 L 438.5 294.68 L 436.64 290.8 Z" fill="#000000" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" pointer-events="all"/><path d="M 481.8 447.7 L 569.95 447.7" fill="none" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 575.72 447.7 L 568.02 451.55 L 569.95 447.7 L 568.02 443.85 Z" fill="#000000" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" pointer-events="all"/><path d="M 709.5 190.85 L 709.5 438.9 L 638.95 438.9" fill="none" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" stroke-dasharray="3.3000000000000003 3.3000000000000003" pointer-events="stroke"/><path d="M 633.18 438.9 L 640.88 435.05 L 638.95 438.9 L 640.88 442.75 Z" fill="#000000" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" pointer-events="all"/><image x="576.45" y="166.7" width="55" height="55" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI0OS45OSI+PHBhdGggZD0iTTQwLjE5MyA0NC44NGEyNC44OTggMjQuODk4IDAgMCAxLTE1LjE2NyA1LjE1MWMtNy41MiAwLTE0Ljk1Ni0zLjM3Ni0xOS44Ny05LjgwMy04LjM5Ni0xMC45NjItNi4zMjQtMjYuNjQgNC42NTgtMzUuMDRDMTQuMzQzIDEuNjYzIDE5LjY4NiAwIDI0Ljk4IDBjNy41MiAwIDE0Ljk1OCAzLjM3NiAxOS44NyA5LjgxIDguMzk4IDEwLjk2IDYuMzA1IDI2LjY0LTQuNjU2IDM1LjAzIiBmaWxsPSIjNTliNGQ5Ii8+PHBhdGggZD0iTTM1LjYgMjkuMzc4YTUuMzg1IDUuMzg1IDAgMCAwIDcuNTQxIDEuMDA0Yy4xMjMtLjA5NC4yMTgtLjIwOC4zMy0uMzFsNS4wMjUgMy40NmMuMjgtLjcyMy40NzItMS40MTcuNjctMi4xNDJhMTMwLjg1NyAxMzAuODU3IDAgMCAxLTQuMjktMy4zNTZjLjY0LTEuNjguNDM3LTMuNjQtLjczLTUuMTdhNS4zNiA1LjM2IDAgMCAwLTYuOTM2LTEuMzc3IDIyNC4zMTcgMjI0LjMxNyAwIDAgMS04LjI5My03LjgzM2M5LjE2NS00LjkzIDE1LjY3Ni00LjIwNyAxNS42NzYtNC4yMDctMS4wODctMS4zODYtMi4zMDUtMi42LTMuNjA2LTMuNjk3LTMuODY1LS41OTctOS44Ny0uNTMtMTYuNzMgMy4xMmwtLjAwMi0uMDAzaC0uMDAxYTIwMC4zMjIgMjAwLjMyMiAwIDAgMS02Ljk4My03LjcxMkEyMy4yNjQgMjMuMjY0IDAgMCAwIDEzLjk2IDIuNWMxLjc1IDIuODYyIDQuMTAyIDUuNzUgNi43NTQgOC41NjVsLjAxNy4wMTdhNDYuMjkzIDQ2LjI5MyAwIDAgMC02Ljk0NCA2LjAxNWMtLjMuMzEtLjU3LjYyLS44NDIuOTNhNy41NDYgNy41NDYgMCAwIDAtNC4xMTcuMjgyQzYuNTY0IDEzLjQyNSA2Ljc0NiA5LjUgNy4xMDQgNy40NzhjLS45ODMgMS4wMy0xLjkgMi4xMTMtMi42OTIgMy4yNjctLjU5IDIuNDE1LS43NiA1Ljg5OC45ODUgMTAuMDk1YTcuNTM4IDcuNTM4IDAgMCAwLS4wMDUgOS4xNTNjLjE3Ni4yMy4zNjQuNDQyLjU2LjY0NWEzNy44NyAzNy44NyAwIDAgMC0xLjQ2IDguNzYxYy4yMzcuMzIyLjIzNy41ODIuNDcyLjg5NiAxLjIgMS41MzggMi43MDUgMi44MzQgNC4xNiA0LjAwOC0uMTgtMi43NS4wMTQtNi44MDYgMS43MTQtMTEuMzcyYTcuNTA3IDcuNTA3IDAgMCAwIDMuNDgzLS41NjYgNjQuNzMgNjQuNzMgMCAwIDAgMi4wMjUgMS43MTEgNDEuNjcyIDQxLjY3MiAwIDAgMCA3LjI4NSA0LjY0MyA0Ljk3NCA0Ljk3NCAwIDAgMCAuOTY4IDMuNTE4IDQuOTk4IDQuOTk4IDAgMCAwIDYuOTgzLjkxOSA0LjkxOCA0LjkxOCAwIDAgMCAxLjEwOC0xLjIxNmMzLjg5Ljg2NiA3LjI4NyAxLjAyIDkuODA2IDEuMDIuMzg2IDAgMi4xNzctMi40MzYgMy4yMDMtMy45NDYtMS41MzQuMzItNi4wODMuOTQ2LTEyLjMtLjg0YTQuOTUyIDQuOTUyIDAgMCAwLS44OTgtMS45OGMtMS41OC0yLjA3LTQuNDY2LTIuNTE4LTYuNjE4LTEuMTMzYTQ2Ljg1MyA0Ni44NTMgMCAwIDEtNi43NTgtNC40OSA0Ni40MjIgNDYuNDIyIDAgMCAxLTEuMzU5LTEuMTE4IDcuNTc4IDcuNTc4IDAgMCAwIC4zMTgtNy41NWwuODctLjg1N2MyLjMxLTIuMTYgNC40ODUtMy44ODcgNi41Mi01LjI3NC0uMDgyLS4wNzYtLjE1Ni0uMTU2LS4yMzYtLjIzM2wuMjQuMjI3LS4wMDIuMDAxYzMuMTIgMi44ODYgNi40MyA1LjYyIDkuNTY0IDguMDY1LS44MyAxLjc1OC0uNyAzLjkuNTYyIDUuNTQ3eiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg=="/><g transform="translate(-0.5 -0.5)scale(1.1)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 209px; margin-left: 550px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; background-color: #ffffff; white-space: nowrap; ">App Services<br />(CD)</div></div></div></foreignObject><text x="550" y="221" fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle">App Serv...</text></switch></g><path d="M 631.95 194.7 L 753.5 194.7 L 790.5 194.7" fill="none" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 796.27 194.7 L 788.57 198.55 L 790.5 194.7 L 788.57 190.85 Z" fill="#000000" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" pointer-events="all"/><path d="M 49.83 118.8 L 49.83 181.5 L 49.83 202" fill="none" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 49.83 207.77 L 45.98 200.07 L 49.83 202 L 53.68 200.07 Z" fill="#000000" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" pointer-events="all"/><path d="M 38.59 79.62 C 38.51 75.47 39.91 71.45 42.47 68.48 C 45.03 65.5 48.54 63.82 52.21 63.8 C 60.39 63.89 67.07 70.93 67.36 79.79 C 67.67 83.87 66.44 87.9 63.94 90.96 C 61.45 94.01 57.92 95.81 54.18 95.95 C 45.89 96.12 38.99 88.89 38.59 79.62 Z M 23.65 118.8 C 23.98 111.07 26.86 103.86 31.58 98.94 C 35.33 95.22 40.56 94.99 44.5 98.38 C 46.74 100.05 49.21 101.39 51.83 102.37 C 54.52 103.54 57.46 103.34 60.03 101.81 C 61.44 101.13 62.69 100.15 63.7 98.94 C 64.69 97.74 66.42 97.5 67.69 98.38 C 69.94 99.89 71.96 102.56 73.55 106.13 C 75.08 110.17 75.88 114.46 75.9 118.79 Z" fill="#00bef2" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)scale(1.1)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 115px; margin-left: 45px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; background-color: #ffffff; white-space: nowrap; ">Developer</div></div></div></foreignObject><text x="45" y="127" fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle">Developer</text></switch></g><path d="M 348.15 523.19 L 348.15 510.51 L 405.5 510.53" fill="none" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 411.27 510.54 L 403.57 514.38 L 405.5 510.53 L 403.57 506.68 Z" fill="#000000" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" pointer-events="all"/><ellipse cx="348.15" cy="510.54" rx="12.65" ry="12.65" fill="#4d9900" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)scale(1.1)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 21px; height: 1px; padding-top: 464px; margin-left: 306px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">4</div></div></div></foreignObject><text x="317" y="468" fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle">4</text></switch></g><path d="M 286.55 474.65 L 286.55 510.51 L 335.5 510.54" fill="none" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" pointer-events="stroke"/><image x="259.1" y="420.25" width="53.9" height="53.9" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIiB3aWR0aD0iNDkiIGhlaWdodD0iNDkiIHZpZXdCb3g9IjAgMCA0OSA0OSIgZmlsbD0ibm9uZSIgdmVyc2lvbj0iMS4xIiBpZD0ic3ZnNjE0NSIgc29kaXBvZGk6ZG9jbmFtZT0iQXp1cmUgUGlwZWxpbmVzLnN2ZyIgaW5rc2NhcGU6dmVyc2lvbj0iMC45Mi4zICgyNDA1NTQ2LCAyMDE4LTAzLTExKSI+JiN4YTsgIDxtZXRhZGF0YSBpZD0ibWV0YWRhdGE2MTUxIj4mI3hhOyAgICA8cmRmOlJERj4mI3hhOyAgICAgIDxjYzpXb3JrIHJkZjphYm91dD0iIj4mI3hhOyAgICAgICAgPGRjOmZvcm1hdD5pbWFnZS9zdmcreG1sPC9kYzpmb3JtYXQ+JiN4YTsgICAgICAgIDxkYzp0eXBlIHJkZjpyZXNvdXJjZT0iaHR0cDovL3B1cmwub3JnL2RjL2RjbWl0eXBlL1N0aWxsSW1hZ2UiLz4mI3hhOyAgICAgICAgPGRjOnRpdGxlLz4mI3hhOyAgICAgIDwvY2M6V29yaz4mI3hhOyAgICA8L3JkZjpSREY+JiN4YTsgIDwvbWV0YWRhdGE+JiN4YTsgIDxkZWZzIGlkPSJkZWZzNjE0OSIvPiYjeGE7ICA8c29kaXBvZGk6bmFtZWR2aWV3IHBhZ2Vjb2xvcj0iI2ZmZmZmZiIgYm9yZGVyY29sb3I9IiM2NjY2NjYiIGJvcmRlcm9wYWNpdHk9IjEiIG9iamVjdHRvbGVyYW5jZT0iMTAiIGdyaWR0b2xlcmFuY2U9IjEwIiBndWlkZXRvbGVyYW5jZT0iMTAiIGlua3NjYXBlOnBhZ2VvcGFjaXR5PSIwIiBpbmtzY2FwZTpwYWdlc2hhZG93PSIyIiBpbmtzY2FwZTp3aW5kb3ctd2lkdGg9IjY0MCIgaW5rc2NhcGU6d2luZG93LWhlaWdodD0iNDgwIiBpZD0ibmFtZWR2aWV3NjE0NyIgc2hvd2dyaWQ9ImZhbHNlIiBpbmtzY2FwZTp6b29tPSI2LjM4Nzc1NTEiIGlua3NjYXBlOmN4PSIyNC41IiBpbmtzY2FwZTpjeT0iMjQuNSIgaW5rc2NhcGU6d2luZG93LXg9IjAiIGlua3NjYXBlOndpbmRvdy15PSIwIiBpbmtzY2FwZTp3aW5kb3ctbWF4aW1pemVkPSIxIiBpbmtzY2FwZTpjdXJyZW50LWxheWVyPSJzdmc2MTQ1Ii8+JiN4YTsgIDxwYXRoIGQ9Ik0xNy4xNjcxIDQxLjk1ODhMMjMuNjU5MSA0OC40NTA4SDM0LjE5NTFDMzUuNDc5MSA0OC40NTA4IDM2LjUxMTEgNDcuNDA2OCAzNi41MTExIDQ2LjEzNDhWMjEuNzk4OEwxNy4xNjcxIDQxLjE1NDhDMTYuOTM5MSA0MS4zNzA4IDE2LjkzOTEgNDEuNzMwOCAxNy4xNjcxIDQxLjk1ODhaIiBmaWxsPSIjMjM1REMxIiBpZD0icGF0aDYxMzEiLz4mI3hhOyAgPHBhdGggZD0iTTAuNjQ0NTMxIDE0LjkwMjJWMjUuNDM4Mkw3LjEzNjUyIDMxLjkzMDJDNy4zNjQ1MiAzMi4xNTgyIDcuNzI0NTIgMzIuMTU4MiA3Ljk0MDUyIDMxLjkzMDJMMjcuMjk2NSAxMi41NzQySDIuOTYwNTNDMS42ODg1MyAxMi41NzQyIDAuNjQ0NTMxIDEzLjYxODIgMC42NDQ1MzEgMTQuOTAyMloiIGZpbGw9IiMzQjZFQzYiIGlkPSJwYXRoNjEzMyIvPiYjeGE7ICA8cGF0aCBkPSJNMjUuMDA0IDMuMTA0MjVMOS4zODAwNSAyNy4wMDgyQzguODUyMDUgMjcuODI0MiA4Ljk2MDA1IDI4Ljg5MjIgOS42NDQwNSAyOS41NzYyTDE5LjY1MiAzOS41ODQyQzIwLjMzNiA0MC4yNjgyIDIxLjQxNiA0MC4zNzYyIDIyLjIyIDM5Ljg0ODJMNDYuMTI0IDI0LjIxMjJDNDcuNjQ4IDIzLjIxNjIgNDguNTYgMjEuNTEyMiA0OC41NiAxOS43MDAyVjMuMDMyMjVDNDguNTYgMS43MjQyNSA0Ny40OTIgMC42NTYyNSA0Ni4xODQgMC42NTYyNUgyOS41MjhDMjcuNzA0IDAuNjU2MjUgMjYuMDEyIDEuNTgwMjUgMjUuMDA0IDMuMTA0MjVaIiBmaWxsPSIjNUQ4REU0IiBpZD0icGF0aDYxMzUiLz4mI3hhOyAgPHBhdGggZD0iTTQuMTYwNTIgNDUuMTY0OFYzNi43MTY4SDAuNjQ0NTMxVjQ4LjUwMDhIMTIuNjA4NVY0NS4xNjQ4SDQuMTYwNTJaIiBmaWxsPSIjOUZCQkYwIiBpZD0icGF0aDYxMzciLz4mI3hhOyAgPHBhdGggZD0iTTM2LjU2OTIgMTguMzY2OUMzOS44NTY0IDE4LjM2NjkgNDIuNTIxMiAxNS43MDIxIDQyLjUyMTIgMTIuNDE0OUM0Mi41MjEyIDkuMTI3NjkgMzkuODU2NCA2LjQ2Mjg5IDM2LjU2OTIgNi40NjI4OUMzMy4yODIgNi40NjI4OSAzMC42MTcyIDkuMTI3NjkgMzAuNjE3MiAxMi40MTQ5QzMwLjYxNzIgMTUuNzAyMSAzMy4yODIgMTguMzY2OSAzNi41NjkyIDE4LjM2NjlaIiBmaWxsPSIjQURDNUYyIiBpZD0icGF0aDYxMzkiLz4mI3hhOyAgPHBhdGggZD0iTTI1LjkxNTMgMjAuMzg5NEwxMy4xODc1IDMzLjExNzJMMTYuMTIzNCAzNi4wNTMxTDI4Ljg1MTEgMjMuMzI1M0wyNS45MTUzIDIwLjM4OTRaIiBmaWxsPSIjNkM5QUVFIiBpZD0icGF0aDYxNDEiLz4mI3hhOyAgPHBhdGggZD0iTTEzLjU4ODYgMzguNTg1MkwxNi4xMTcyIDM2LjA1NjZMMTMuMTgxMyAzMy4xMjA4TDEwLjY1MjcgMzUuNjQ5NEwxMy41ODg2IDM4LjU4NTJaIiBmaWxsPSIjODhBQ0VGIiBpZD0icGF0aDYxNDMiLz4mI3hhOzwvc3ZnPg==" preserveAspectRatio="none"/><g fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="13.200000000000001px"><rect fill="#ffffff" stroke="none" x="259" y="483" width="56" height="32" stroke-width="0"/><text x="286.05" y="493.95">Azure</text><text x="286.05" y="509.35">Pipelines</text></g><path d="M 185.9 447.15 L 185.9 447.7 L 252.6 447.7" fill="none" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 258.37 447.7 L 250.67 451.55 L 252.6 447.7 L 250.67 443.85 Z" fill="#000000" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" pointer-events="all"/><path d="M 286.55 420.75 L 286.55 329.3" fill="none" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 286.55 323.53 L 290.4 331.23 L 286.55 329.3 L 282.7 331.23 Z" fill="#000000" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" pointer-events="all"/><ellipse cx="446.05" cy="131.45" rx="12.65" ry="12.65" fill="#4d9900" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)scale(1.1)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 21px; height: 1px; padding-top: 120px; margin-left: 395px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">3</div></div></div></foreignObject><text x="406" y="123" fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle">3</text></switch></g><path d="M 313.5 447.7 L 446.05 447.7 L 446.05 144.1" fill="none" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" pointer-events="stroke"/><ellipse cx="361.35" cy="294.25" rx="12.65" ry="12.65" fill="#4d9900" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)scale(1.1)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 21px; height: 1px; padding-top: 268px; margin-left: 318px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">6</div></div></div></foreignObject><text x="329" y="271" fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle">6</text></switch></g><path d="M 313.5 294.8 L 335.5 294.8 L 335.5 294.25 L 341.7 294.25" fill="none" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 347.47 294.25 L 339.77 298.1 L 341.7 294.25 L 339.77 290.4 Z" fill="#000000" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" pointer-events="all"/><path d="M 549.45 111.65 L 549.45 240.9 L 550 427.9" fill="none" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" stroke-dasharray="3.3000000000000003 3.3000000000000003" pointer-events="stroke"/><path d="M 562.1 178.2 L 569.95 178.2" fill="none" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" stroke-dasharray="3.3000000000000003 3.3000000000000003" pointer-events="stroke"/><path d="M 575.72 178.2 L 568.02 182.05 L 569.95 178.2 L 568.02 174.35 Z" fill="#000000" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" pointer-events="all"/><path d="M 481.8 194.15 L 445.5 194.15 L 569.95 194.67" fill="none" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 575.72 194.69 L 568 198.51 L 569.95 194.67 L 568.04 190.81 Z" fill="#000000" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" pointer-events="all"/><path d="M 313.5 447.7 L 445.5 447.7 L 445.5 194.15 L 456.5 194.15" fill="none" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" pointer-events="stroke"/><ellipse cx="469.15" cy="447.7" rx="12.65" ry="12.65" fill="#4d9900" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)scale(1.1)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 21px; height: 1px; padding-top: 407px; margin-left: 416px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">5</div></div></div></foreignObject><text x="427" y="411" fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle">5</text></switch></g><path d="M 313.5 447.7 L 456.5 447.7" fill="none" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" pointer-events="stroke"/><ellipse cx="709.5" cy="178.2" rx="12.65" ry="12.65" fill="#4d9900" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)scale(1.1)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 21px; height: 1px; padding-top: 162px; margin-left: 635px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">8</div></div></div></foreignObject><text x="645" y="166" fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle">8</text></switch></g><path d="M 709.5 111.65 L 709.5 152.9 L 709.5 152.9 L 709.5 165.55" fill="none" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" stroke-dasharray="3.3000000000000003 3.3000000000000003" pointer-events="stroke"/><ellipse cx="549.45" cy="178.2" rx="12.65" ry="12.65" fill="#4d9900" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)scale(1.1)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 21px; height: 1px; padding-top: 162px; margin-left: 489px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">7</div></div></div></foreignObject><text x="500" y="166" fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle">7</text></switch></g><path d="M 549.45 111.65 L 549.45 138.6 L 549.45 138.6 L 549.45 165.55" fill="none" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" stroke-dasharray="3.3000000000000003 3.3000000000000003" pointer-events="stroke"/><image x="521.45" y="56.15" width="55" height="55" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iNDkuOTUiIGhlaWdodD0iNTAuMDE5Ij48c3R5bGU+PCFbQ0RBVEFbLkp7ZW5hYmxlLWJhY2tncm91bmQ6bmV3fV1dPjwvc3R5bGU+PHBhdGggZD0iTTIyLjgwNSA0LjRjLTExLjQgMS4yLTE5LjYgMTEuNC0xOC40IDIyLjhzMTEuNCAxOS43IDIyLjggMTguNSAxOS43LTExLjQgMTguNS0yMi44Yy0uNi01LjUtMy40LTEwLjYtNy43LTE0LjEtMy44LTMtOC4zLTQuNi0xMy00LjUtLjcgMC0xLjQgMC0yLjIuMSIgZmlsbD0iI2ZmZiIvPjxnIGZpbGw9IiM3ZmJhMDAiIGNsYXNzPSJKIj48cGF0aCBkPSJNMTYuNDA1IDE5LjVsLTUtNC4xYy0yLjEgMy0zLjEgNi42LTMgMTAuMmw2LjQtLjdjLjEtMS45LjYtMy44IDEuNi01LjQiIG9wYWNpdHk9Ii40Ii8+PHBhdGggZD0iTTMwLjYwNSAxNi4zbDQuMS01Yy0zLTIuMS02LjYtMy4xLTEwLjItM2wuNyA2LjVjMS44LS4xIDMuNy40IDUuNCAxLjUiIG9wYWNpdHk9Ii44Ii8+PHBhdGggZD0iTTIyLjgwNSAxNWwtLjctNi41Yy0zLjYuNi02LjkgMi40LTkuMyA1LjFsNSA0LjFjMS40LTEuNCAzLjItMi4zIDUtMi43IiBvcGFjaXR5PSIuNiIvPjxwYXRoIGQ9Ik0xNS4xMDUgMjcuMmwtNi41LjdjLjYgMy42IDIuNCA2LjkgNS4xIDkuNGw0LjEtNWMtMS4zLTEuNS0yLjMtMy4yLTIuNy01LjEiIG9wYWNpdHk9Ii4yNSIvPjwvZz48ZyBmaWxsPSIjYTBhMWEyIj48cGF0aCBkPSJNNDkuODA1IDIyLjRhMjQuNjcgMjQuNjcgMCAwIDAtOS4zLTE2LjljLTEtLjgtMi0xLjUtMy4xLTIuMWwtMiAzLjggMi40IDEuNmM5IDcuMSAxMC41IDIwLjIgMy4zIDI5LjItMy41IDQuNC04LjUgNy4xLTE0LjEgNy43LTMuNy40LTcuNC0uMi0xMC43LTEuOGwtMiAzLjhjMTIuNSA1LjggMjcuMy40IDMzLjItMTIuMSAyLTQuMSAyLjgtOC43IDIuMy0xMy4yIi8+PHVzZSB4bGluazpocmVmPSIjQiIvPjwvZz48dXNlIHhsaW5rOmhyZWY9IiNCIiBvcGFjaXR5PSIuMiIgZmlsbD0iI2ZmZiIgY2xhc3M9IkoiLz48cGF0aCBkPSJNMzYuNDA1IDEyLjZsLTQuMSA1YzEgMSAxLjggMi4yIDIuMyAzLjRoNi44Yy0uOC0zLjEtMi41LTYuMS01LTguNHoiIGZpbGw9IiM3ZmJhMDAiLz48cGF0aCBkPSJNMjMuMTA1IDI3Yy0xLjEtMS4xLTEuMi0zIDAtNC4xLjYtLjYgMS4zLS45IDIuMS0uOXMxLjUuMyAyLjEuOGgxNC45YzEuMiAwIDIuMS45IDIuMSAyLjFzLS45IDIuMS0yLjEgMi4xaC0xNS4yYy0uNS41LTEuMi44LTEuOS44LS44LjEtMS41LS4yLTItLjgiIGZpbGw9IiNkZDU5MDAiLz48ZGVmcyA+PHBhdGggaWQ9IkIiIGQ9Ik0xMS45MDUgNDEuMWMtOC45LTcuMi0xMC4yLTIwLjItMy0yOS4xIDYuNS04IDE3LjgtMTAgMjYuNi00LjhsMi0zLjhjLTEwLjctNi4yLTI0LjItMy43LTMxLjkgNS45LTguNyAxMC43LTcuMSAyNi40IDMuNiAzNS4xIDEuNiAxLjMgMy40IDIuNCA1LjMgMy4zbDItMy44Yy0xLjctLjctMy4yLTEuNy00LjYtMi44Ii8+PC9kZWZzPjwvc3ZnPg=="/><g transform="translate(-0.5 -0.5)scale(1.1)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 109px; margin-left: 500px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; background-color: #ffffff; white-space: nowrap; ">Azure Monitor</div></div></div></foreignObject><text x="500" y="121" fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle">Azure Mo...</text></switch></g><path d="M 709.92 56.65 L 735.63 88.48 L 709.92 111.65 L 683.38 88.48 Z M 712.43 77.87 C 713.89 76.36 713.9 73.98 712.46 72.46 C 711.02 70.94 708.63 70.83 707.05 72.2 C 705.47 73.58 705.26 75.95 706.57 77.59 L 701.26 84.29 C 699.39 83.6 697.3 84.43 696.41 86.21 C 695.52 87.99 696.11 90.16 697.78 91.24 C 699.45 92.32 701.67 91.97 702.93 90.43 L 706.57 93.78 C 705.3 95.38 705.49 97.69 706.99 99.07 C 708.48 100.45 710.8 100.45 712.29 99.07 C 713.79 97.69 713.98 95.38 712.71 93.78 L 717.74 90.15 C 719.25 91.61 721.64 91.62 723.16 90.18 C 724.68 88.74 724.79 86.36 723.41 84.78 C 722.04 83.2 719.66 82.98 718.02 84.29 Z M 711.6 78.71 L 717.18 85.13 C 716.4 86.29 716.29 87.78 716.9 89.04 L 711.88 92.67 C 710.53 91.73 708.75 91.73 707.4 92.67 L 703.77 89.31 C 704.35 87.68 703.78 85.86 702.38 84.85 L 707.4 78.57 C 708.66 79.42 710.29 79.47 711.6 78.71 Z" fill="#00bef2" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)scale(1.1)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 109px; margin-left: 645px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; background-color: #ffffff; white-space: nowrap; ">Azure AD</div></div></div></foreignObject><text x="645" y="121" fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle">Azure AD</text></switch></g><path d="M 697.04 180.4 L 663.3 180.4 L 638.95 180.4" fill="none" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" stroke-dasharray="3.3000000000000003 3.3000000000000003" pointer-events="stroke"/><path d="M 633.18 180.4 L 640.88 176.55 L 638.95 180.4 L 640.88 184.25 Z" fill="#000000" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" pointer-events="all"/><path d="M 446.05 118.8 L 446.05 85.8 L 511.65 84.81" fill="none" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 517.42 84.72 L 509.78 88.68 L 511.65 84.81 L 509.66 80.99 Z" fill="#000000" stroke="#000000" stroke-width="1.1" stroke-miterlimit="10" pointer-events="all"/><image x="260.2" y="266.8" width="52.8" height="55" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMSIgaGVpZ2h0PSIyMiI+PHBhdGggZD0iTTEwLjUgMEM3LjUgMCA1IDIuNSA1IDUuNSA1IDggNi42IDEwIDguNyAxMC43TDcuNSAxMiA5IDEzLjNsLTEuNSAxLjRMOSAxNmwtMS41IDEuNSAzIDIuOCAyLjUtMi42di03LjNjMS44LTEgMy0yLjggMy01IDAtMy0yLjUtNS40LTUuNS01LjR6bTEgNHMtLjIgMC0uMy4yLS4yLjItLjMuMkgxMGwtLjItLjItLjItLjNWM2wuMi0uMi4zLS4yaC45bC4yLjIuMi4zVjR6IiBmaWxsPSIjZmNkMTE2Ii8+PHBhdGggZD0iTTExIDExdjcuMmwxLTF2LTYuNGE1LjUgNS41IDAgMCAxLTEgLjJ6IiBvcGFjaXR5PSIuNCIgZmlsbD0iI2ZmOGMwMCIvPjxwYXRoIGQ9Ik0xMC41IDlBMy41IDMuNSAwIDAgMCAxNCA2SDdhMy41IDMuNSAwIDAgMCAzLjUgM3oiIG9wYWNpdHk9Ii40IiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTE2LjQgMi44Yy4zLjYuNCAxIC41IDEuN2E5LjUgOS41IDAgMCAxIDMgN2MwIDUuMi00LjMgOS41LTkuNSA5LjVTMSAxNi43IDEgMTEuNWE5LjUgOS41IDAgMCAxIDMtN2wuNi0xLjdBMTAuNSAxMC41IDAgMCAwIDAgMTEuNWExMC41IDEwLjUgMCAxIDAgMjEgMGMwLTMuNi0xLjgtNi44LTQuNi04Ljd6IiBmaWxsPSIjN2ZiYTAwIi8+PC9zdmc+"/><g transform="translate(-0.5 -0.5)scale(1.1)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 305px; margin-left: 261px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; background-color: #ffffff; white-space: nowrap; ">Key Vault</div></div></div></foreignObject><text x="261" y="317" fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle">Key Vault</text></switch></g><ellipse cx="469.15" cy="194.15" rx="12.65" ry="12.65" fill="#4d9900" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)scale(1.1)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 21px; height: 1px; padding-top: 177px; margin-left: 416px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">5</div></div></div></foreignObject><text x="427" y="180" fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle">5</text></switch></g></g><switch><g requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"/><a transform="translate(0,-5)" xlink:href="https://desk.draw.io/support/solutions/articles/16000042487" target="_blank"><text text-anchor="middle" font-size="10px" x="50%" y="100%">Viewer does not support full SVG 1.1</text></a></switch></svg>
+<!-- Generated by Microsoft Visio, SVG Export devops-in-a-hybrid-environment.svg devops-in-a-hybrid-environment -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="10.875in" height="7.625in" viewBox="0 0 783 549"
+		xml:space="preserve" color-interpolation-filters="sRGB" class="st75">
+	<v:documentProperties v:langID="1033" v:viewMarkup="false">
+		<v:userDefs>
+			<v:ud v:nameU="msvNoAutoConnect" v:val="VT0(1):26"/>
+			<v:ud v:nameU="msvWarnOnPersonalInfo" v:val="VT0(1):5"/>
+		</v:userDefs>
+	</v:documentProperties>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#ffffff;stroke:none;stroke-width:0.25}
+		.st2 {fill:#f2f2f2;stroke:#000000;stroke-dasharray:0.01,2.25;stroke-width:0.75}
+		.st3 {fill:#ffffff;stroke:#000000;stroke-width:0.75}
+		.st4 {fill:url(#grad1-11);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st5 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st6 {fill:#9cebff;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st7 {fill:#32bedd;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st8 {fill:#50e6ff;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st9 {fill:#f04049;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st10 {fill:url(#grad7-25);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st11 {fill:url(#grad0-36);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st12 {fill:#53b1e0;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st13 {fill:url(#grad0-44);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st14 {fill:url(#grad0-49);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st15 {fill:#e8e8e8;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st16 {fill:#198ab3;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st17 {fill:url(#grad3-59);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st18 {fill:url(#grad7-65);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st19 {fill:#ffffff;fill-opacity:0.6;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st20 {fill:#f2f2f2;fill-opacity:0.55;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st21 {fill:url(#grad0-73);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st22 {fill:url(#grad0-79);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st23 {fill:#f2f2f2;fill-opacity:0.7;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st24 {fill:#7b42bc;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st25 {fill:#00947d;stroke:none;stroke-linecap:butt;stroke-width:12.4898}
+		.st26 {fill:#1fc1a7;stroke:none;stroke-linecap:butt;stroke-width:12.4898}
+		.st27 {fill:#61ddc9;stroke:none;stroke-linecap:butt;stroke-width:12.4898}
+		.st28 {fill:#9bfdec;stroke:none;stroke-linecap:butt;stroke-width:12.4898}
+		.st29 {fill:#00b99d;stroke:none;stroke-linecap:butt;stroke-width:12.4898}
+		.st30 {fill:#04bca1;stroke:none;stroke-linecap:butt;stroke-width:12.4898}
+		.st31 {fill:#1dc0a7;stroke:none;stroke-linecap:butt;stroke-width:12.4898}
+		.st32 {fill:#00ba9d;stroke:none;stroke-linecap:butt;stroke-width:12.4898}
+		.st33 {fill:#27cfb2;stroke:none;stroke-linecap:butt;stroke-width:12.4898}
+		.st34 {fill:#c5fdf4;stroke:none;stroke-linecap:butt;stroke-width:12.4898}
+		.st35 {fill:#235dc1;stroke:none;stroke-linecap:butt;stroke-width:12.4898}
+		.st36 {fill:#3b6ec6;stroke:none;stroke-linecap:butt;stroke-width:12.4898}
+		.st37 {fill:#5d8de4;stroke:none;stroke-linecap:butt;stroke-width:12.4898}
+		.st38 {fill:#9fbbf0;stroke:none;stroke-linecap:butt;stroke-width:12.4898}
+		.st39 {fill:#adc5f2;stroke:none;stroke-linecap:butt;stroke-width:12.4898}
+		.st40 {fill:#6c9aee;stroke:none;stroke-linecap:butt;stroke-width:12.4898}
+		.st41 {fill:#88acef;stroke:none;stroke-linecap:butt;stroke-width:12.4898}
+		.st42 {fill:url(#grad0-136);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st43 {fill:#ffffff;fill-opacity:0.8;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st44 {fill:url(#grad0-142);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st45 {fill:#000000;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st46 {fill:none;stroke:none;stroke-width:0.25}
+		.st47 {fill:#000000;font-family:Segoe UI;font-size:0.916672em}
+		.st48 {font-size:1em}
+		.st49 {fill:url(#grad0-49);stroke:none;stroke-linecap:butt;stroke-width:17}
+		.st50 {fill:#e8e8e8;stroke:none;stroke-linecap:butt;stroke-width:17}
+		.st51 {fill:#50e6ff;stroke:none;stroke-linecap:butt;stroke-width:17}
+		.st52 {fill:#198ab3;stroke:none;stroke-linecap:butt;stroke-width:17}
+		.st53 {fill:#f2f2f2;stroke:none;stroke-linecap:butt;stroke-width:17}
+		.st54 {fill:#949494;stroke:none;stroke-linecap:butt;stroke-width:17}
+		.st55 {fill:url(#grad0-180);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st56 {fill:url(#grad0-184);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st57 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:0.298828}
+		.st58 {marker-end:url(#mrkr4-218);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
+		.st59 {fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:0.37313432835821}
+		.st60 {stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
+		.st61 {marker-end:url(#mrkr4-218);stroke:#000000;stroke-dasharray:0,4.5;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
+		.st62 {stroke:#000000;stroke-dasharray:0,4.5;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
+		.st63 {fill:#000000;font-family:Segoe UI;font-size:0.916672em;font-weight:bold}
+		.st64 {fill:#107c10;stroke:none;stroke-width:0.75}
+		.st65 {fill:#ffffff;font-family:Segoe UI;font-size:0.916672em;font-weight:bold}
+		.st66 {fill:url(#grad0-339);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st67 {fill:#0078d4;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st68 {fill:#000000;fill-opacity:0.5;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st69 {fill:#000000;fill-opacity:0.25;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st70 {fill:url(#grad0-355);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st71 {fill:#7f7f7f;font-family:Segoe UI Semibold;font-size:1.16666em}
+		.st72 {fill:url(#grad4-365);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st73 {fill:url(#grad7-371);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st74 {fill:#ff9300;fill-opacity:0.75;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st75 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<defs id="Patterns_And_Gradients">
+		<radialGradient id="grad1-11" cx="1" cy="1" r="1.4">
+			<stop offset="0.18" stop-color="#5ea0ef" stop-opacity="1"/>
+			<stop offset="0.56" stop-color="#5c9fee" stop-opacity="1"/>
+			<stop offset="0.69" stop-color="#559ced" stop-opacity="1"/>
+			<stop offset="0.78" stop-color="#4a97e9" stop-opacity="1"/>
+			<stop offset="0.86" stop-color="#3990e4" stop-opacity="1"/>
+			<stop offset="0.93" stop-color="#2387de" stop-opacity="1"/>
+			<stop offset="0.99" stop-color="#087bd6" stop-opacity="1"/>
+			<stop offset="1" stop-color="#0078d4" stop-opacity="1"/>
+		</radialGradient>
+		<radialGradient id="grad7-25" cx="0" cy="0" r="1.4">
+			<stop offset="0.19" stop-color="#8c8e90" stop-opacity="1"/>
+			<stop offset="0.35" stop-color="#848688" stop-opacity="1"/>
+			<stop offset="0.6" stop-color="#6e7071" stop-opacity="1"/>
+			<stop offset="0.91" stop-color="#4a4b4c" stop-opacity="1"/>
+			<stop offset="1" stop-color="#3e3f3f" stop-opacity="1"/>
+		</radialGradient>
+		<linearGradient id="grad0-36" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-133.54829310906 0.5 0.5)">
+			<stop offset="0" stop-color="#1988d9" stop-opacity="1"/>
+			<stop offset="0.9" stop-color="#54aef0" stop-opacity="1"/>
+		</linearGradient>
+		<linearGradient id="grad0-44" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(65.834982258294 0.5 0.5)">
+			<stop offset="0.1" stop-color="#54aef0" stop-opacity="1"/>
+			<stop offset="0.29" stop-color="#4fabee" stop-opacity="1"/>
+			<stop offset="0.51" stop-color="#41a2e9" stop-opacity="1"/>
+			<stop offset="0.74" stop-color="#2a93e0" stop-opacity="1"/>
+			<stop offset="0.88" stop-color="#1988d9" stop-opacity="1"/>
+		</linearGradient>
+		<linearGradient id="grad0-49" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(0 0.5 0.5)">
+			<stop offset="0" stop-color="#005ba1" stop-opacity="1"/>
+			<stop offset="0.07" stop-color="#0060a9" stop-opacity="1"/>
+			<stop offset="0.36" stop-color="#0071c8" stop-opacity="1"/>
+			<stop offset="0.52" stop-color="#0078d4" stop-opacity="1"/>
+			<stop offset="0.64" stop-color="#0074cd" stop-opacity="1"/>
+			<stop offset="0.82" stop-color="#006abb" stop-opacity="1"/>
+			<stop offset="1" stop-color="#005ba1" stop-opacity="1"/>
+		</linearGradient>
+		<radialGradient id="grad3-59" cx="0.5" cy="0.5" r="0.73">
+			<stop offset="0" stop-color="#f2f2f2" stop-opacity="1"/>
+			<stop offset="0.58" stop-color="#eeeeee" stop-opacity="1"/>
+			<stop offset="1" stop-color="#e6e6e6" stop-opacity="1"/>
+		</radialGradient>
+		<radialGradient id="grad7-65" cx="0" cy="0" r="1.4">
+			<stop offset="0.18" stop-color="#5ea0ef" stop-opacity="1"/>
+			<stop offset="1" stop-color="#0078d4" stop-opacity="1"/>
+		</radialGradient>
+		<linearGradient id="grad0-73" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-90.435226578092 0.5 0.5)">
+			<stop offset="0" stop-color="#cccccc" stop-opacity="1"/>
+			<stop offset="1" stop-color="#fcfcfc" stop-opacity="1"/>
+		</linearGradient>
+		<linearGradient id="grad0-79" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-90 0.5 0.5)">
+			<stop offset="0" stop-color="#cccccc" stop-opacity="1"/>
+			<stop offset="1" stop-color="#fcfcfc" stop-opacity="1"/>
+		</linearGradient>
+		<linearGradient id="grad0-136" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(90 0.5 0.5)">
+			<stop offset="0.22" stop-color="#32d4f5" stop-opacity="1"/>
+			<stop offset="1" stop-color="#198ab3" stop-opacity="1"/>
+		</linearGradient>
+		<linearGradient id="grad0-142" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(85.405746668733 0.5 0.5)">
+			<stop offset="0.22" stop-color="#32d4f5" stop-opacity="1"/>
+			<stop offset="1" stop-color="#198ab3" stop-opacity="1"/>
+		</linearGradient>
+		<linearGradient id="grad0-180" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-90 0.5 0.5)">
+			<stop offset="0" stop-color="#0078d4" stop-opacity="1"/>
+			<stop offset="0.82" stop-color="#5ea0ef" stop-opacity="1"/>
+		</linearGradient>
+		<linearGradient id="grad0-184" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-90 0.5 0.5)">
+			<stop offset="0.15" stop-color="#cccccc" stop-opacity="1"/>
+			<stop offset="1" stop-color="#707070" stop-opacity="1"/>
+		</linearGradient>
+		<linearGradient id="grad0-339" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(116.95960434515 0.5 0.5)">
+			<stop offset="0" stop-color="#114a8b" stop-opacity="1"/>
+			<stop offset="1" stop-color="#0669bc" stop-opacity="1"/>
+		</linearGradient>
+		<linearGradient id="grad0-355" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(61.849084498542 0.5 0.5)">
+			<stop offset="0" stop-color="#3ccbf4" stop-opacity="1"/>
+			<stop offset="1" stop-color="#2892df" stop-opacity="1"/>
+		</linearGradient>
+		<radialGradient id="grad4-365" cx="0.5" cy="0" r="1.1">
+			<stop offset="0.18" stop-color="#5ea0ef" stop-opacity="1"/>
+			<stop offset="0.56" stop-color="#5c9fee" stop-opacity="1"/>
+			<stop offset="0.69" stop-color="#559ced" stop-opacity="1"/>
+			<stop offset="0.78" stop-color="#4a97e9" stop-opacity="1"/>
+			<stop offset="0.86" stop-color="#3990e4" stop-opacity="1"/>
+			<stop offset="0.93" stop-color="#2387de" stop-opacity="1"/>
+			<stop offset="0.99" stop-color="#087bd6" stop-opacity="1"/>
+			<stop offset="1" stop-color="#0078d4" stop-opacity="1"/>
+		</radialGradient>
+		<radialGradient id="grad7-371" cx="0" cy="0" r="1.4">
+			<stop offset="0.27" stop-color="#ffd70f" stop-opacity="1"/>
+			<stop offset="0.49" stop-color="#ffcb12" stop-opacity="1"/>
+			<stop offset="0.88" stop-color="#feac19" stop-opacity="1"/>
+			<stop offset="1" stop-color="#fea11b" stop-opacity="1"/>
+		</radialGradient>
+	</defs>
+	<defs id="Markers">
+		<g id="lend4">
+			<path d="M 2 1 L 0 0 L 2 -1 L 2 1 " style="stroke:none"/>
+		</g>
+		<marker id="mrkr4-218" class="st59" v:arrowType="4" v:arrowSize="2" v:setback="5.36" refX="-5.36" orient="auto"
+				markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend4" transform="scale(-2.68,-2.68) "/>
+		</marker>
+	</defs>
+	<g v:mID="12" v:index="1" v:groupContext="backgroundPage">
+		<v:userDefs>
+			<v:ud v:nameU="msvThemeOrder" v:val="VT0(0):26"/>
+			<v:ud v:nameU="msvVisioCreated" v:prompt="" v:val="VT0(0):26"/>
+		</v:userDefs>
+		<title>VBackground-1</title>
+		<v:pageProperties width="10.875" height="7.625" v:drawingScale="1" v:pageScale="1" v:drawingUnits="19" v:shadowOffsetX="9"
+				v:shadowOffsetY="-9"/>
+		<g id="shape1000-1" v:mID="1000" v:groupContext="shape">
+			<title>Solid.1000</title>
+			<v:userDefs>
+				<v:ud v:nameU="Background" v:val="VT0(0):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="msvShapeCategories" v:prompt="" v:val="VT4(DoNotContain)"/>
+				<v:ud v:nameU="msvVisioCreated" v:prompt="" v:val="VT0(0):26"/>
+			</v:userDefs>
+			<rect x="0" y="0" width="783" height="549" class="st1"/>
+		</g>
+	</g>
+	<g v:mID="8" v:index="2" v:groupContext="foregroundPage">
+		<v:userDefs>
+			<v:ud v:nameU="msvThemeOrder" v:val="VT0(0):26"/>
+			<v:ud v:nameU="visNavType" v:val="VT0(1):26"/>
+		</v:userDefs>
+		<title>devops-in-a-hybrid-environment</title>
+		<v:pageProperties v:drawingScale="1" v:pageScale="1" v:drawingUnits="19" v:shadowOffsetX="9" v:shadowOffsetY="-9"/>
+		<v:layer v:name="Electrical" v:index="0"/>
+		<v:layer v:name="Common Icons" v:index="1"/>
+		<g id="shape1097-3" v:mID="1097" v:groupContext="shape" transform="translate(324.006,-99)">
+			<title>Sheet.1097</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(26000):26"/>
+			</v:userDefs>
+			<path d="M0 549 L454.5 549 L454.5 117 L0 117 L0 549 Z" class="st2"/>
+		</g>
+		<g id="shape1096-5" v:mID="1096" v:groupContext="shape" transform="translate(409.506,-279)">
+			<title>Sheet.1096</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(25000):26"/>
+			</v:userDefs>
+			<rect x="0" y="333" width="333.72" height="216" class="st3"/>
+		</g>
+		<g id="group1000-7" transform="translate(444.722,-441.656)" v:mID="1000" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(1000):26"/>
+			</v:userDefs>
+			<title>Monitor.1226.1000</title>
+			<g id="shape1001-8" v:mID="1001" v:groupContext="shape">
+				<title>Sheet.1001</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<ellipse cx="18.0642" cy="530.936" rx="18.0642" ry="18.0642" class="st4"/>
+			</g>
+			<g id="shape1002-12" v:mID="1002" v:groupContext="shape" transform="translate(2.33772,-2.346)">
+				<title>Sheet.1002</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<ellipse cx="15.7265" cy="533.282" rx="15.7265" ry="15.7182" class="st5"/>
+			</g>
+			<g id="shape1003-14" v:mID="1003" v:groupContext="shape" transform="translate(4.71795,-8.5949)">
+				<title>Sheet.1003</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M-0 540.47 A13.2613 13.3082 -180 0 0 3.87 549 L8.12 544.73 A7.50196 7.52853 0 0 1 5.99 540.47 L0 540.47 Z"
+						class="st6"/>
+			</g>
+			<g id="shape1004-16" v:mID="1004" v:groupContext="shape" transform="translate(9.28713,-19.0026)">
+				<title>Sheet.1004</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M17.55 539.85 A13.2825 13.3296 -180 0 0 9.71 536.59 L9.71 542.54 A7.24694 7.2726 0 0 1 13.35 544.03 L17.55
+							 539.85 ZM0 539.85 L4.25 544.12 A7.24694 7.2726 0 0 1 7.88 542.62 L7.88 536.59 A13.2825 13.3296 -180
+							 0 0 0 539.85 ZM14.69 545.35 A7.65073 7.67782 0 0 1 16.19 549 L22.12 549 A13.0912 13.1376 -180 0 0 18.87
+							 541.17 L14.69 545.35 Z" class="st7"/>
+			</g>
+			<g id="shape1005-18" v:mID="1005" v:groupContext="shape" transform="translate(4.71795,-19.0026)">
+				<title>Sheet.1005</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M7.44 545.35 L3.19 541.09 A13.0912 13.1376 -180 0 0 -0 549 L5.93 549 A7.65073 7.67782 0 0 1 7.44 545.35 Z"
+						class="st8"/>
+			</g>
+			<g id="shape1006-20" v:mID="1006" v:groupContext="shape" transform="translate(19.0206,-17.595)">
+				<title>Sheet.1006</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M9.97 544.27 a0.956341 0.959728 -180 0 0 -1.21136 -0.533182 L0 547.27 L0.68 549 L9.44 545.52 a0.935089 0.938401
+							 -180 0 0 0.5313 -1.25831 Z" class="st9"/>
+			</g>
+			<g id="shape1007-22" v:mID="1007" v:groupContext="shape" transform="translate(15.514,-15.5049)">
+				<title>Sheet.1007</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<ellipse cx="2.55024" cy="546.441" rx="2.55024" ry="2.55927" class="st10"/>
+			</g>
+		</g>
+		<g id="group1008-26" transform="translate(571.532,-440.014)" v:mID="1008" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(2000):26"/>
+			</v:userDefs>
+			<title>Azure Active Directory.1008</title>
+			<g id="shape1009-27" v:mID="1009" v:groupContext="shape">
+				<title>Sheet.1009</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M2.03 532.16 L17.92 544.52 L34.1 532.11 L36.13 534.95 L17.92 549 L0 534.95 L2.03 532.16 Z" class="st8"/>
+			</g>
+			<g id="shape1010-29" v:mID="1010" v:groupContext="shape" transform="translate(3.23149,-7.05004)">
+				<title>Sheet.1010</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M0 537.62 L14.69 516.64 L29.69 537.64 L14.69 549 L0 537.62 Z" class="st5"/>
+			</g>
+			<g id="shape1011-31" v:mID="1011" v:groupContext="shape" transform="translate(3.23149,-7.05004)">
+				<title>Sheet.1011</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M14.69 516.64 L14.69 549 L0 537.62 L14.69 516.64 Z" class="st8"/>
+			</g>
+			<g id="shape1012-33" v:mID="1012" v:groupContext="shape" transform="translate(17.9237,-7.05004)">
+				<title>Sheet.1012</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M0 516.64 L0 549 L14.99 537.64 L0 516.64 Z" class="st11"/>
+			</g>
+			<g id="shape1013-37" v:mID="1013" v:groupContext="shape" transform="translate(17.9237,-7.05004)">
+				<title>Sheet.1013</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M0 533.36 L14.99 537.64 L0 549 L0 533.36 Z" class="st12"/>
+			</g>
+			<g id="shape1014-39" v:mID="1014" v:groupContext="shape" transform="translate(3.23149,-7.05004)">
+				<title>Sheet.1014</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M14.69 549 L0 537.62 L14.69 533.36 L14.69 549 Z" class="st6"/>
+			</g>
+			<g id="shape1015-41" v:mID="1015" v:groupContext="shape" transform="translate(17.9237,2.27374E-13)">
+				<title>Sheet.1015</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M0 549 L18.2 534.95 L16.18 532.11 L0 544.52 L0 549 Z" class="st13"/>
+			</g>
+		</g>
+		<g id="group1016-45" transform="translate(656.826,-327.78)" v:mID="1016" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(3000):26"/>
+			</v:userDefs>
+			<title>SQL Database.1016</title>
+			<g id="shape1017-46" v:mID="1017" v:groupContext="shape">
+				<title>Sheet.1017</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M15.84 522.83 C7.09 522.83 0 520.71 0 517.91 L0 544.09 C0 546.78 6.97 548.96 15.62 549 L15.84 549 C24.59
+							 549 31.68 546.88 31.68 544.09 L31.68 517.91 C31.68 520.64 24.59 522.83 15.84 522.83 Z" class="st14"/>
+			</g>
+			<g id="shape1018-50" v:mID="1018" v:groupContext="shape" transform="translate(0,-26.1741)">
+				<title>Sheet.1018</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M31.68 544.09 C31.68 546.82 24.59 549 15.84 549 C7.09 549 0 546.88 0 544.09 C0 541.29 7.09 539.17 15.84
+							 539.17 C24.59 539.17 31.68 541.29 31.68 544.09 Z" class="st15"/>
+			</g>
+			<g id="shape1019-52" v:mID="1019" v:groupContext="shape" transform="translate(3.682,-28.3553)">
+				<title>Sheet.1019</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M24.32 545.87 C24.32 547.6 18.85 549 12.16 549 C5.46 549 0 547.6 0 545.87 C0 544.13 5.46 542.75 12.16 542.75
+							 C18.85 542.75 24.32 544.15 24.32 545.87 Z" class="st8"/>
+			</g>
+			<g id="shape1020-54" v:mID="1020" v:groupContext="shape" transform="translate(6.22727,-28.3553)">
+				<title>Sheet.1020</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M9.61 546.65 A28.5417 24.4588 -180 0 0 -0 547.86 A28.2204 24.1835 -180 0 0 9.61 549 A27.5532 23.6118 -180
+							 0 0 19.23 547.77 A29.2583 25.0729 -180 0 0 9.61 546.65 Z" class="st16"/>
+			</g>
+			<g id="shape1021-56" v:mID="1021" v:groupContext="shape" transform="translate(3.95382,-9.14824)">
+				<title>Sheet.1021</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M21.52 545.23 L21.52 538.03 L19.3 538.03 L19.3 546.78 L25.38 546.78 L25.38 545.23 L21.52 545.23 ZM3.88 541.69
+							 A4.52218 3.87529 0 0 1 2.62 541.04 a1.0873 0.931765 0 0 1 -0.296537 -0.677647 a0.840187 0.72 0 0 1 0.370671
+							 -0.635294 A1.68037 1.44 0 0 1 3.73 539.47 A4.00324 3.43059 0 0 1 6.2 540.08 L6.2 538.26 A6.37554 5.46353
+							 -180 0 0 3.73 537.92 A4.05267 3.47294 -180 0 0 1.04 538.64 A2.66883 2.28706 -180 0 0 0 540.53 C0 541.61
+							 0.79 542.46 2.47 543.09 A7.11688 6.09882 0 0 1 4 543.85 a1.03788 0.889412 0 0 1 0.370671 0.677647 a0.939033
+							 0.804706 0 0 1 -0.395382 0.656471 A2.00162 1.71529 0 0 1 2.87 545.42 A4.10209 3.51529 0 0 1 0.17 544.53
+							 L0.17 546.5 A5.36237 4.59529 -180 0 0 2.82 547.01 A4.64574 3.98118 -180 0 0 5.73 546.31 A2.66883 2.28706
+							 -180 0 0 6.55 544.38 A2.5947 2.22353 -180 0 0 5.93 542.9 A5.98016 5.12471 -180 0 0 3.88 541.69 ZM16.83
+							 545.06 A5.78246 4.95529 -180 0 0 17.64 542.39 A5.73304 4.91294 -180 0 0 16.83 540.15 A4.47276 3.83294
+							 -180 0 0 15.1 538.56 A4.94228 4.23529 -180 0 0 12.63 538.01 A5.2141 4.46824 -180 0 0 9.96 538.58 A4.59632
+							 3.93882 -180 0 0 8.15 540.15 A6.079 5.20941 -180 0 0 7.51 542.56 A5.58477 4.78588 -180 0 0 8.11 544.68
+							 A4.3492 3.72706 -180 0 0 9.81 546.25 A5.09055 4.36235 -180 0 0 12.28 546.88 L14.41 549 L17.4 549 L14.36
+							 546.67 A4.42334 3.79059 -180 0 0 16.83 545.06 ZM14.36 544.53 A2.32287 1.99059 0 0 1 12.48 545.27 A2.27345
+							 1.94824 0 0 1 10.6 544.51 A3.75613 3.21882 0 0 1 9.88 542.39 A3.78084 3.24 0 0 1 10.6 540.28 A2.47114
+							 2.11765 0 0 1 12.53 539.49 A2.14989 1.84235 0 0 1 14.38 540.28 A4.00324 3.43059 0 0 1 15.05 542.39 A3.60786
+							 3.09176 0 0 1 14.36 544.53 Z" class="st17"/>
+			</g>
+		</g>
+		<g id="group1022-60" transform="translate(498.722,-327.716)" v:mID="1022" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(4000):26"/>
+			</v:userDefs>
+			<title>App Services.1280.1022</title>
+			<g id="group1023-61" v:mID="1023" v:groupContext="group">
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<title>Sheet.1023</title>
+				<g id="shape1024-62" v:mID="1024" v:groupContext="shape">
+					<title>Sheet.1024</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<path d="M27.96 543.58 C20.95 549 10.87 547.73 5.43 540.74 C0 533.75 1.28 523.69 8.28 518.27 L8.45 518.16 C15.56
+								 512.87 25.61 514.33 30.91 521.41 C36.13 528.38 34.81 538.22 27.96 543.58 Z" class="st18"/>
+				</g>
+				<g id="shape1025-66" v:mID="1025" v:groupContext="shape" transform="translate(4.24441,-7.07994)">
+					<title>Sheet.1025</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<path d="M9.52 534.67 C14.05 530.37 20.07 527.96 26.34 527.93 C25.51 526.92 24.57 526.01 23.53 525.22 C20.48
+								 525.41 17.49 526.11 14.67 527.29 C11.77 528.53 9.16 530.34 6.97 532.6 C8.02 533 8.91 533.73 9.52
+								 534.67 ZM1.57 541.11 C0.92 542.72 0.39 544.37 0 546.04 C0.35 546.65 0.74 547.23 1.17 547.78 C1.51
+								 548.21 1.83 548.6 2.21 549 C2.67 546.76 3.35 544.57 4.25 542.47 C3.24 542.29 2.31 541.82 1.57 541.11
+								 Z" class="st19"/>
+				</g>
+				<g id="shape1026-68" v:mID="1026" v:groupContext="shape" transform="translate(4.28217,-21.8386)">
+					<title>Sheet.1026</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<path d="M3.38 547.32 C2.71 545.54 2.28 543.68 2.08 541.79 C1.29 542.62 0.59 543.53 0 544.52 C0.21 546.04 0.57
+								 547.54 1.08 549 C1.67 548.23 2.47 547.65 3.38 547.32 Z" class="st20"/>
+				</g>
+				<g id="shape1027-70" v:mID="1027" v:groupContext="shape" transform="translate(4.24441,-13.5347)">
+					<title>Sheet.1027</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<ellipse cx="5.15446" cy="543.86" rx="5.15446" ry="5.14049" class="st21"/>
+				</g>
+				<g id="shape1028-74" v:mID="1028" v:groupContext="shape" transform="translate(10.3429,-6.37195)">
+					<title>Sheet.1028</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<path d="M6.57 546.09 C6.57 545.19 6.94 544.33 7.59 543.7 C5.85 542.75 4.24 541.57 2.81 540.2 C2.07 541.01 1.08
+								 541.55 0 541.76 C0.85 542.63 1.77 543.44 2.74 544.17 C3.95 545.08 5.24 545.87 6.61 546.52 C6.59
+								 546.38 6.57 546.24 6.57 546.09 ZM18.47 546.49 C16.71 546.49 14.96 546.29 13.25 545.89 C13.26 545.96
+								 13.26 546.02 13.25 546.09 C13.26 546.97 12.91 547.81 12.29 548.43 C14.42 548.85 16.58 549 18.75
+								 548.88 C19.59 548.12 20.34 547.27 20.99 546.35 C20.16 546.45 19.31 546.49 18.47 546.49 Z"
+							class="st20"/>
+				</g>
+				<g id="shape1029-76" v:mID="1029" v:groupContext="shape" transform="translate(16.8945,-5.92757)">
+					<title>Sheet.1029</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<ellipse cx="3.36078" cy="545.648" rx="3.36078" ry="3.35168" class="st22"/>
+				</g>
+				<g id="shape1030-80" v:mID="1030" v:groupContext="shape" transform="translate(11.2869,-18.2045)">
+					<title>Sheet.1030</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<path d="M13.1 549 C13.27 548.26 13.68 547.6 14.25 547.12 C11.15 544.86 8.32 542.25 5.83 539.32 C4.39 537.63
+								 3.12 535.78 2.06 533.82 C1.35 534.03 0.66 534.3 0 534.61 C1.14 536.75 2.5 538.75 4.06 540.6 C6.71
+								 543.76 9.75 546.58 13.1 549 Z" class="st23"/>
+				</g>
+				<g id="shape1031-82" v:mID="1031" v:groupContext="shape" transform="translate(24.3336,-14.0055)">
+					<title>Sheet.1031</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<ellipse cx="3.56847" cy="545.441" rx="3.56847" ry="3.5588" class="st22"/>
+				</g>
+				<g id="shape1032-85" v:mID="1032" v:groupContext="shape" transform="translate(30.1243,-13.1205)">
+					<title>Sheet.1032</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<path d="M3.76 546.95 L3.1 546.63 L2.54 546.33 L2.42 546.33 L1.93 545.93 L1.8 545.93 L1.21 545.55 C1.01 546.25
+								 0.58 546.86 0 547.29 C0.23 547.44 0.47 547.57 0.72 547.7 L0.87 547.8 L1.53 548.15 L3.15 549 C3.38
+								 548.32 3.57 547.62 3.7 546.91 L3.76 546.95 Z" class="st20"/>
+				</g>
+				<g id="shape1033-87" v:mID="1033" v:groupContext="shape" transform="translate(4.24441,-13.5347)">
+					<title>Sheet.1033</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<ellipse cx="5.15446" cy="543.86" rx="5.15446" ry="5.14049" class="st21"/>
+				</g>
+				<g id="shape1034-90" v:mID="1034" v:groupContext="shape" transform="translate(16.8945,-5.92757)">
+					<title>Sheet.1034</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<ellipse cx="3.36078" cy="545.648" rx="3.36078" ry="3.35168" class="st22"/>
+				</g>
+			</g>
+		</g>
+		<g id="group1043-93" transform="translate(342.006,-144.927)" v:mID="1043" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(6000):26"/>
+			</v:userDefs>
+			<title>Sheet.1043</title>
+			<g id="shape1044-94" v:mID="1044" v:groupContext="shape">
+				<title>Sheet.1044</title>
+				<path d="M15.9 505.82 L30.22 514.09 L30.22 530.64 L15.9 522.37 L15.9 505.82 ZM31.79 514.09 L31.79 530.64 L46.12 522.37
+							 L46.12 505.82 L31.79 514.09 ZM0 496.59 L0 513.13 L14.32 521.41 L14.32 504.86 L0 496.59 ZM15.9 540.73
+							 L30.22 549 L30.22 532.46 L15.9 524.18 L15.9 540.73 Z" class="st24"/>
+			</g>
+		</g>
+		<g id="group1045-96" transform="translate(35.0295,-327.664)" v:mID="1045" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(7000):26"/>
+			</v:userDefs>
+			<title>Sheet.1045</title>
+			<g id="shape1046-97" v:mID="1046" v:groupContext="shape" transform="translate(-1.79856E-13,-8.94563)">
+				<title>Sheet.1046</title>
+				<path d="M25.61 536.88 C28.3 536.88 30.75 537.89 32.62 539.55 L32.62 523.21 C32.62 522.38 31.95 521.71 31.13 521.71
+							 L1.49 521.71 C0.67 521.71 0 522.38 0 523.21 L0 547.51 C0 548.33 0.67 549 1.49 549 L15.21 549 C15.14
+							 548.48 15.1 547.95 15.1 547.41 C15.09 541.59 19.8 536.88 25.61 536.88 Z" class="st25"/>
+			</g>
+			<g id="shape1047-99" v:mID="1047" v:groupContext="shape" transform="translate(2.68407,-28.8948)">
+				<title>Sheet.1047</title>
+				<path d="M7.26 544.4 L0 544.4 L0 549 L7.26 549 L7.26 544.4 Z" class="st26"/>
+			</g>
+			<g id="shape1048-101" v:mID="1048" v:groupContext="shape" transform="translate(12.6598,-28.8948)">
+				<title>Sheet.1048</title>
+				<path d="M7.26 544.4 L0 544.4 L0 549 L7.26 549 L7.26 544.4 Z" class="st27"/>
+			</g>
+			<g id="shape1049-103" v:mID="1049" v:groupContext="shape" transform="translate(2.68407,-21.606)">
+				<title>Sheet.1049</title>
+				<path d="M7.26 544.4 L0 544.4 L0 549 L7.26 549 L7.26 544.4 Z" class="st28"/>
+			</g>
+			<g id="shape1050-105" v:mID="1050" v:groupContext="shape" transform="translate(2.68407,-14.3875)">
+				<title>Sheet.1050</title>
+				<path d="M7.26 544.47 L0 544.47 L0 549 L7.26 549 L7.26 544.47 Z" class="st29"/>
+			</g>
+			<g id="shape1051-107" v:mID="1051" v:groupContext="shape" transform="translate(12.6598,-21.606)">
+				<title>Sheet.1051</title>
+				<path d="M7.26 544.4 L0 544.4 L0 549 L7.26 549 L7.26 544.4 Z" class="st30"/>
+			</g>
+			<g id="shape1052-109" v:mID="1052" v:groupContext="shape" transform="translate(22.6563,-28.8948)">
+				<title>Sheet.1052</title>
+				<path d="M7.26 544.4 L0 544.4 L0 549 L7.26 549 L7.26 544.4 Z" class="st31"/>
+			</g>
+			<g id="shape1053-111" v:mID="1053" v:groupContext="shape" transform="translate(15.0894,-8.94146)">
+				<title>Sheet.1053</title>
+				<path d="M17.53 547.5 L17.53 539.55 C15.67 537.89 13.21 536.88 10.52 536.88 C4.71 536.88 0 541.59 0 547.41 C0 547.95
+							 0.04 548.48 0.12 549 L16.04 549 C16.86 548.99 17.53 548.33 17.53 547.5 Z" class="st32"/>
+			</g>
+			<g id="shape1054-113" v:mID="1054" v:groupContext="shape" transform="translate(15.2107,0)">
+				<title>Sheet.1054</title>
+				<path d="M17.41 530.61 L17.41 538.57 C17.41 539.39 16.74 540.06 15.92 540.06 L0 540.06 C0.76 545.12 5.13 549 10.4
+							 549 C16.21 548.99 20.92 544.28 20.92 538.46 C20.92 535.34 19.56 532.54 17.41 530.61 Z" class="st33"/>
+			</g>
+			<g id="shape1055-115" v:mID="1055" v:groupContext="shape" transform="translate(19.0135,-4.94062)">
+				<title>Sheet.1055</title>
+				<path d="M12 538.22 L5.41 544.81 L2.02 541.42 L0 543.45 L3.39 546.84 L5.54 549 L7.56 546.97 L14.15 540.37 L12 538.22
+							 Z" class="st34"/>
+			</g>
+		</g>
+		<g id="group1056-117" transform="translate(162.309,-190.427)" v:mID="1056" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(8000):26"/>
+			</v:userDefs>
+			<title>Sheet.1056</title>
+			<g id="shape1057-118" v:mID="1057" v:groupContext="shape" transform="translate(12.2862,-0.0377002)">
+				<title>Sheet.1057</title>
+				<path d="M0.17 544.11 L5.07 549 L13.01 549 C13.98 549 14.76 548.21 14.76 547.25 L14.76 528.9 L0.17 543.5 C0 543.66
+							 0 543.93 0.17 544.11 Z" class="st35"/>
+			</g>
+			<g id="shape1058-120" v:mID="1058" v:groupContext="shape" transform="translate(0,-12.3209)">
+				<title>Sheet.1058</title>
+				<path d="M0 535.99 L0 543.93 L4.89 548.83 C5.07 549 5.34 549 5.5 548.83 L20.1 534.23 L1.75 534.23 C0.79 534.23 0
+							 535.02 0 535.99 Z" class="st36"/>
+			</g>
+			<g id="shape1059-122" v:mID="1059" v:groupContext="shape" transform="translate(6.18851,-6.12448)">
+				<title>Sheet.1059</title>
+				<path d="M12.18 520.9 L0.4 538.92 C0 539.54 0.08 540.34 0.6 540.86 L8.14 548.4 C8.66 548.92 9.47 549 10.08 548.6
+							 L28.1 536.81 C29.25 536.06 29.94 534.78 29.94 533.41 L29.94 520.84 C29.94 519.86 29.13 519.05 28.15
+							 519.05 L15.59 519.05 C14.21 519.05 12.94 519.75 12.18 520.9 Z" class="st37"/>
+			</g>
+			<g id="shape1060-124" v:mID="1060" v:groupContext="shape">
+				<title>Sheet.1060</title>
+				<path d="M2.65 546.48 L2.65 540.11 L0 540.11 L0 549 L9.02 549 L9.02 546.48 L2.65 546.48 Z" class="st38"/>
+			</g>
+			<g id="shape1061-126" v:mID="1061" v:groupContext="shape" transform="translate(22.5996,-22.7211)">
+				<title>Sheet.1061</title>
+				<path d="M4.49 549 C6.97 549 8.98 546.99 8.98 544.51 C8.98 542.03 6.97 540.02 4.49 540.02 C2.01 540.02 0 542.03 0
+							 544.51 C0 546.99 2.01 549 4.49 549 Z" class="st39"/>
+			</g>
+			<g id="shape1062-128" v:mID="1062" v:groupContext="shape" transform="translate(9.45748,-9.38411)">
+				<title>Sheet.1062</title>
+				<path d="M9.6 537.19 L0 546.79 L2.21 549 L11.81 539.4 L9.6 537.19 Z" class="st40"/>
+			</g>
+			<g id="shape1063-130" v:mID="1063" v:groupContext="shape" transform="translate(7.54623,-7.47339)">
+				<title>Sheet.1063</title>
+				<path d="M2.21 549 L4.12 547.09 L1.91 544.88 L0 546.79 L2.21 549 Z" class="st41"/>
+			</g>
+		</g>
+		<g id="group1071-132" transform="translate(35.0295,-440.014)" v:mID="1071" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(10000):26"/>
+			</v:userDefs>
+			<title>Users.1071</title>
+			<g id="shape1072-133" v:mID="1072" v:groupContext="shape">
+				<title>Sheet.1072</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M32.91 549 A3.20449 3.17492 -180 0 0 36.11 545.83 A1.0387 1.02911 -180 0 0 36.11 545.45 C34.83 535.45 29.11
+							 527.3 18.06 527.3 C7.01 527.3 1.13 534.2 0 545.47 A3.22659 3.19682 -180 0 0 2.9 549 L32.91 549 Z"
+						class="st42"/>
+			</g>
+			<g id="shape1073-137" v:mID="1073" v:groupContext="shape" transform="translate(12.5749,-6.87535)">
+				<title>Sheet.1073</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M5.48 536.54 A10.1439 10.0503 0 0 1 -0 534.94 L5.48 549 L10.87 535.03 A10.0113 9.91889 0 0 1 5.48 536.54
+							 Z" class="st43"/>
+			</g>
+			<g id="shape1074-139" v:mID="1074" v:groupContext="shape" transform="translate(7.95598,-19.3561)">
+				<title>Sheet.1074</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<ellipse cx="10.1218" cy="538.972" rx="10.1218" ry="10.0284" class="st44"/>
+			</g>
+		</g>
+		<g id="group1083-143" transform="translate(35.0295,-190.4)" v:mID="1083" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(14000):26"/>
+			</v:userDefs>
+			<title>Sheet.1083</title>
+			<g id="shape1084-144" v:mID="1084" v:groupContext="shape">
+				<title>Sheet.1084</title>
+				<path d="M18.06 512.87 A18.0642 18.0642 -180 1 0 18.06 549 A18.0642 18.0642 -180 0 0 18.06 512.87 ZM22.83 545.66
+							 L22.69 545.66 a0.772245 0.772245 0 0 1 -0.575044 -0.210749 a0.772245 0.772245 0 0 1 -0.210749 -0.559991
+							 L21.9 542.78 C21.91 542.07 21.91 541.36 21.91 540.64 A5.55926 5.55926 -180 0 0 21.69 539.1 A2.7578 2.7578
+							 -180 0 0 20.87 537.78 A12.0639 12.0639 -180 0 0 23.94 537.07 A6.09818 6.09818 -180 0 0 26.15 535.62
+							 C26.76 534.98 27.22 534.2 27.48 533.35 A10.1912 10.1912 -180 0 0 27.93 530.15 A6.22914 6.22914 -180
+							 0 0 27.54 527.92 A5.85883 5.85883 -180 0 0 26.34 525.99 A4.23004 4.23004 -180 0 0 26.59 525.11 C26.64
+							 524.81 26.66 524.51 26.66 524.21 C26.66 523.81 26.62 523.42 26.53 523.04 A7.99191 7.99191 -180 0 0 26.19
+							 521.89 a0.441068 0.441068 -180 0 0 -0.167094 -0.030107 L25.86 521.86 C25.51 521.87 25.17 521.92 24.85
+							 522.03 A8.03857 8.03857 -180 0 0 23.79 522.42 A9.7893 9.7893 -180 0 0 22.79 522.94 C22.47 523.13 22.18
+							 523.31 21.93 523.48 A14.4183 14.4183 -180 0 0 14.19 523.48 A20.3328 20.3328 -180 0 0 13.33 522.94 A9.06522
+							 9.06522 -180 0 0 12.32 522.42 A6.79817 6.79817 -180 0 0 11.25 522.03 A3.31629 3.31629 -180 0 0 10.26
+							 521.86 L10.09 521.86 a0.436552 0.436552 -180 0 0 -0.165589 0.030107 A8.79727 8.79727 -180 0 0 9.58 523.04
+							 C9.5 523.42 9.46 523.81 9.46 524.21 C9.46 524.51 9.48 524.81 9.53 525.11 C9.58 525.41 9.66 525.71 9.78
+							 525.99 A5.8528 5.8528 -180 0 0 8.58 527.93 A6.23516 6.23516 -180 0 0 8.19 530.15 A10.3433 10.3433 -180
+							 0 0 8.63 533.34 C8.9 534.19 9.35 534.96 9.96 535.62 C10.58 536.26 11.34 536.75 12.16 537.07 C13.15 537.45
+							 14.18 537.69 15.23 537.79 A2.75178 2.75178 -180 0 0 14.54 538.74 A4.501 4.501 -180 0 0 14.24 539.86
+							 A4.14574 4.14574 0 0 1 12.47 540.27 A2.69157 2.69157 0 0 1 10.87 539.82 A4.37154 4.37154 0 0 1 9.74
+							 538.58 A4.66659 4.66659 -180 0 0 9.3 538 A4.05391 4.05391 -180 0 0 8.74 537.48 A2.77135 2.77135 -180
+							 0 0 8.09 537.12 A1.80642 1.80642 -180 0 0 7.37 536.97 C7.31 536.97 7.25 536.98 7.19 536.99 a0.976973
+							 0.976973 -180 0 0 -0.243867 0.030107 a0.614183 0.614183 -180 0 0 -0.195696 0.0903211 a0.174621 0.174621
+							 -180 0 0 -0.0903211 0.150535 a0.496766 0.496766 -180 0 0 0.210749 0.364295 C7.01 537.73 7.12 537.82
+							 7.22 537.88 L7.26 537.91 C7.46 538.07 7.65 538.23 7.84 538.41 C8 538.56 8.16 538.73 8.29 538.91 C8.42
+							 539.09 8.54 539.28 8.63 539.48 C8.74 539.68 8.86 539.92 8.98 540.18 C9.27 540.89 9.77 541.5 10.42 541.9
+							 C11.1 542.27 11.87 542.45 12.64 542.43 C12.9 542.43 13.17 542.42 13.43 542.39 C13.69 542.34 13.94 542.3
+							 14.2 542.25 L14.2 544.87 a0.752676 0.752676 0 0 1 -0.802352 0.784288 L13.31 545.66 A15.484 15.484 0
+							 1 1 22.83 545.66 L22.83 545.66 L22.83 545.66 Z" class="st45"/>
+			</g>
+		</g>
+		<g id="shape1088-146" v:mID="1088" v:groupContext="shape" transform="translate(416.443,-417.5)">
+			<title>Sheet.1088</title>
+			<desc>Azure Monitor</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(17000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="46.3438" cy="539" width="92.69" height="20"/>
+			<rect x="0" y="529" width="92.6875" height="20" class="st46"/>
+			<text x="11.3" y="542.3" class="st47" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Monitor</text>		</g>
+		<g id="shape1089-149" v:mID="1089" v:groupContext="shape" transform="translate(528.444,-417.5)">
+			<title>Sheet.1089</title>
+			<desc>Azure Active Directory</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(18000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="61.1519" cy="539" width="122.31" height="20"/>
+			<rect x="0" y="529" width="122.304" height="20" class="st46"/>
+			<text x="7.23" y="542.3" class="st47" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Active Directory</text>		</g>
+		<g id="shape1090-152" v:mID="1090" v:groupContext="shape" transform="translate(470.443,-303.75)">
+			<title>Sheet.1090</title>
+			<desc>App Services (CD)</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(19000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="46.3438" cy="539" width="92.69" height="20"/>
+			<rect x="0" y="529" width="92.6875" height="20" class="st46"/>
+			<text x="15.4" y="535.7" class="st47" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>App Services<v:newlineChar/><tspan
+						x="35.76" dy="1.2em" class="st48">(CD)</tspan></text>		</g>
+		<g id="shape1091-156" v:mID="1091" v:groupContext="shape" transform="translate(626.323,-303.75)">
+			<title>Sheet.1091</title>
+			<desc>Azure SQL Database</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(20000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="46.3438" cy="539" width="92.69" height="20"/>
+			<rect x="0" y="529" width="92.6875" height="20" class="st46"/>
+			<text x="32.41" y="535.7" class="st47" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure <v:newlineChar/><tspan
+						x="12.62" dy="1.2em" class="st48">SQL Database</tspan></text>		</g>
+		<g id="shape1094-160" v:mID="1094" v:groupContext="shape" transform="translate(409.506,-130.764)">
+			<title>Sheet.1094</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(23000):26"/>
+			</v:userDefs>
+			<rect x="0" y="423" width="333.72" height="126" class="st3"/>
+		</g>
+		<g id="group1064-162" transform="translate(654.602,-190.464)" v:mID="1064" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(9000):26"/>
+			</v:userDefs>
+			<title>Sheet.1064</title>
+			<g id="shape1065-163" v:mID="1065" v:groupContext="shape" transform="translate(0,-0.486679)">
+				<title>Sheet.1065</title>
+				<path d="M13.4 523.2 C6 523.2 0 521.09 0 518.34 L0 544.14 C0 546.8 5.89 548.96 13.2 549 L13.4 549 C20.79 549 26.79
+							 546.89 26.79 544.14 L26.79 518.34 C26.79 521.03 20.79 523.2 13.4 523.2 Z" class="st49"/>
+			</g>
+			<g id="shape1066-166" v:mID="1066" v:groupContext="shape" transform="translate(0,-26.2812)">
+				<title>Sheet.1066</title>
+				<path d="M26.79 544.14 C26.79 546.82 20.79 549 13.4 549 C6 549 0 546.82 0 544.14 C0 541.46 6 539.28 13.4 539.28 C20.79
+							 539.28 26.79 541.39 26.79 544.14 Z" class="st50"/>
+			</g>
+			<g id="shape1067-168" v:mID="1067" v:groupContext="shape" transform="translate(3.16917,-28.4566)">
+				<title>Sheet.1067</title>
+				<path d="M20.49 545.92 C20.49 547.63 15.89 549 10.23 549 C4.56 549 0 547.63 0 545.92 C0 544.2 4.56 542.83 10.23 542.83
+							 C15.89 542.83 20.49 544.23 20.49 545.92 Z" class="st51"/>
+			</g>
+			<g id="shape1068-170" v:mID="1068" v:groupContext="shape" transform="translate(5.28195,-28.383)">
+				<title>Sheet.1068</title>
+				<path d="M8.11 546.56 C5.36 546.5 2.62 546.9 0 547.72 C2.62 548.59 5.37 549 8.13 548.93 C10.89 549 13.65 548.59 16.27
+							 547.72 C13.63 546.89 10.88 546.5 8.11 546.56 Z" class="st52"/>
+			</g>
+			<g id="shape1069-172" v:mID="1069" v:groupContext="shape" transform="translate(3.09651,-9.78196)">
+				<title>Sheet.1069</title>
+				<path d="M18.54 545.2 L18.54 538.06 L16.57 538.06 L16.57 546.8 L21.77 546.8 L21.77 545.2 L18.54 545.2 ZM3.43 541.67
+							 C3.04 541.51 2.68 541.29 2.35 541.01 C2.21 540.82 2.15 540.58 2.19 540.34 C2.19 540.21 2.22 540.08 2.27
+							 539.97 C2.33 539.86 2.42 539.76 2.52 539.68 C2.79 539.52 3.1 539.43 3.41 539.45 C4.16 539.42 4.9 539.64
+							 5.52 540.06 L5.52 538.25 C4.85 538 4.13 537.88 3.41 537.91 C2.5 537.83 1.6 538.1 0.88 538.65 C0.6 538.88
+							 0.37 539.17 0.22 539.5 C0.07 539.83 0 540.19 0.01 540.55 C0.01 541.63 0.69 542.47 2.12 543.11 C2.58
+							 543.31 3.01 543.56 3.41 543.87 C3.52 543.94 3.6 544.05 3.66 544.16 C3.72 544.28 3.75 544.41 3.75 544.54
+							 C3.75 544.67 3.72 544.8 3.66 544.91 C3.6 545.02 3.52 545.12 3.41 545.2 C3.13 545.38 2.8 545.47 2.46
+							 545.45 C1.57 545.46 0.71 545.12 0.07 544.5 L0.07 546.46 C0.78 546.81 1.55 546.97 2.33 546.95 C3.21 546.99
+							 4.09 546.75 4.83 546.27 C5.12 546.05 5.36 545.75 5.52 545.41 C5.68 545.08 5.75 544.7 5.73 544.33 C5.76
+							 543.79 5.57 543.26 5.21 542.85 C4.7 542.34 4.1 541.93 3.43 541.67 ZM14.42 544.99 C14.9 544.17 15.14
+							 543.24 15.12 542.3 C15.13 541.5 14.95 540.7 14.59 539.98 C14.26 539.32 13.74 538.77 13.11 538.39 C12.46
+							 538.03 11.74 537.84 11 537.84 C10.19 537.83 9.4 538.03 8.69 538.41 C8.03 538.8 7.5 539.36 7.15 540.04
+							 C6.77 540.79 6.58 541.63 6.6 542.47 C6.59 543.24 6.76 544 7.11 544.69 C7.43 545.34 7.93 545.89 8.54
+							 546.27 C9.18 546.66 9.91 546.87 10.66 546.89 L12.45 549 L14.97 549 L12.43 546.65 C13.27 546.35 13.97
+							 545.76 14.42 544.99 ZM12.45 544.44 C12.26 544.67 12.01 544.86 11.73 544.99 C11.45 545.12 11.15 545.19
+							 10.84 545.19 C10.53 545.19 10.23 545.12 9.95 544.99 C9.67 544.86 9.42 544.67 9.22 544.44 C8.78 543.82
+							 8.57 543.08 8.63 542.32 C8.57 541.57 8.79 540.82 9.24 540.21 C9.43 539.96 9.68 539.75 9.97 539.61 C10.26
+							 539.48 10.57 539.41 10.89 539.43 C11.2 539.42 11.5 539.49 11.78 539.62 C12.06 539.76 12.29 539.96 12.47
+							 540.21 C12.89 540.83 13.09 541.58 13.05 542.32 C13.13 543.1 12.92 543.88 12.45 544.5 L12.45 544.44 Z"
+						class="st53"/>
+			</g>
+			<g id="shape1070-174" v:mID="1070" v:groupContext="shape" transform="translate(22.3955,-2.27374E-13)">
+				<title>Sheet.1070</title>
+				<path d="M7.84 548.92 L8.35 547.25 L9.34 546.68 L11.05 547.44 L12.15 546.32 L12.15 546.19 L11.37 544.69 L11.83 543.63
+							 L13.54 543.02 L13.73 543.02 L13.73 541.48 L13.52 541.48 L11.83 540.97 L11.28 540 L12.02 538.27 L10.9
+							 537.19 L10.78 537.19 L9.27 537.95 L8.24 537.32 L7.56 535.44 L6 535.44 L6 535.67 L5.49 537.34 L4.42 537.8
+							 L2.58 536.96 L1.5 538.08 L1.61 538.29 L2.41 539.85 L1.99 540.93 L0 541.54 L0 543.11 L0.23 543.11 L1.9
+							 543.61 L2.37 544.69 L1.54 546.51 L2.66 547.61 L2.85 547.5 L4.42 546.7 L5.49 547.12 L6.21 549 L7.75 549
+							 L7.84 548.92 ZM5.3 543.93 C4.88 543.51 4.63 542.94 4.63 542.35 C4.62 541.75 4.85 541.18 5.27 540.75
+							 C5.69 540.32 6.26 540.08 6.85 540.08 C7.45 540.07 8.03 540.3 8.45 540.72 C8.66 540.92 8.83 541.17 8.95
+							 541.44 C9.06 541.71 9.12 542.01 9.13 542.3 C9.13 542.6 9.07 542.89 8.96 543.16 C8.85 543.44 8.69 543.69
+							 8.48 543.9 C8.28 544.11 8.03 544.28 7.76 544.39 C7.49 544.51 7.19 544.57 6.9 544.57 C6.6 544.57 6.31
+							 544.52 6.04 544.41 C5.76 544.3 5.51 544.14 5.3 543.93 Z" class="st54"/>
+			</g>
+		</g>
+		<g id="group1087-176" transform="translate(498.722,-190.4)" v:mID="1087" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(16000):26"/>
+			</v:userDefs>
+			<title>Sheet.1087</title>
+			<g id="shape1076-177" v:mID="1076" v:groupContext="shape" transform="translate(0,-10.0586)">
+				<title>Sheet.1076</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(12000):26"/>
+				</v:userDefs>
+				<path d="M0 547.7 A1.20431 1.30352 -180 0 0 1.2 549 L34.92 549 A1.20431 1.30352 -180 0 0 36.13 547.7 L36.13 524.23
+							 A1.20431 1.30352 -180 0 0 34.92 522.93 L1.2 522.93 A1.20431 1.30352 -180 0 0 -0 524.23 L0 547.7 Z"
+						class="st55"/>
+			</g>
+			<g id="shape1082-181" v:mID="1082" v:groupContext="shape" transform="translate(9.03211,0)">
+				<title>Sheet.1082</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(13000):26"/>
+				</v:userDefs>
+				<path d="M16.28 546.83 C12.71 546.22 12.56 543.44 12.56 538.94 L5.48 538.94 C5.48 543.44 5.36 546.22 1.79 546.83
+							 A2.00713 2.17248 -180 0 0 0 549 L18.06 549 A2.00713 2.17248 -180 0 0 16.28 546.83 Z" class="st56"/>
+			</g>
+			<g id="group1085-185" transform="translate(10.116,-15.1453)" v:mID="1085" v:groupContext="group">
+				<v:userDefs>
+					<v:ud v:nameU="visNavOrder" v:val="VT0(15000):26"/>
+				</v:userDefs>
+				<title>Sheet.1085</title>
+				<g id="shape1086-186" v:mID="1086" v:groupContext="shape">
+					<title>Sheet.1086</title>
+					<path d="M0 535.32 L6.36 534.44 L6.36 540.52 L0 540.52 L0 535.32 ZM15.9 533.1 L15.9 540.52 L7.42 540.52 L7.42
+								 534.29 L15.9 533.1 ZM7.42 541.58 L15.9 541.58 L15.9 549 L7.42 547.82 L7.42 541.58 ZM0 541.58 L6.36
+								 541.58 L6.36 547.67 L0 546.78 L0 541.58 Z" class="st57"/>
+				</g>
+			</g>
+		</g>
+		<g id="shape1092-188" v:mID="1092" v:groupContext="shape" transform="translate(470.443,-161)">
+			<title>Sheet.1092</title>
+			<desc>Virtual machine (Release)</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(21000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="46.3438" cy="539" width="92.69" height="20"/>
+			<rect x="0" y="529" width="92.6875" height="20" class="st46"/>
+			<text x="8.56" y="535.7" class="st47" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Virtual machine<v:newlineChar/><tspan
+						x="24.64" dy="1.2em" class="st48">(Release)</tspan></text>		</g>
+		<g id="shape1093-192" v:mID="1093" v:groupContext="shape" transform="translate(626.323,-161)">
+			<title>Sheet.1093</title>
+			<desc>SQL Server</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(22000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="46.3438" cy="539" width="92.69" height="20"/>
+			<rect x="0" y="529" width="92.6875" height="20" class="st46"/>
+			<text x="20.05" y="542.3" class="st47" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>SQL Server</text>		</g>
+		<g id="shape1098-195" v:mID="1098" v:groupContext="shape" transform="translate(318.725,-122.163)">
+			<title>Sheet.1098</title>
+			<desc>Terraform</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(27000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="46.3438" cy="539" width="92.69" height="20"/>
+			<rect x="0" y="529" width="92.6875" height="20" class="st46"/>
+			<text x="22.37" y="542.3" class="st47" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Terraform</text>		</g>
+		<g id="shape1099-198" v:mID="1099" v:groupContext="shape" transform="translate(134.03,-164.25)">
+			<title>Sheet.1099</title>
+			<desc>Azure Pipelines</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(28000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="46.3438" cy="539" width="92.69" height="20"/>
+			<rect x="0" y="529" width="92.6875" height="20" class="st46"/>
+			<text x="9.39" y="542.3" class="st47" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Pipelines</text>		</g>
+		<g id="shape1100-201" v:mID="1100" v:groupContext="shape" transform="translate(134.03,-258.75)">
+			<title>Sheet.1100</title>
+			<desc>Key Vault</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(29000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="46.3438" cy="539" width="92.69" height="20"/>
+			<rect x="0" y="529" width="92.6875" height="20" class="st46"/>
+			<text x="23.59" y="542.3" class="st47" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Key Vault</text>		</g>
+		<g id="shape1101-204" v:mID="1101" v:groupContext="shape" transform="translate(6.75,-164.25)">
+			<title>Sheet.1101</title>
+			<desc>GitHub</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(30000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="46.3438" cy="539" width="92.69" height="20"/>
+			<rect x="0" y="529" width="92.6875" height="20" class="st46"/>
+			<text x="29.12" y="542.3" class="st47" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>GitHub</text>		</g>
+		<g id="shape1102-207" v:mID="1102" v:groupContext="shape" transform="translate(6.75,-306)">
+			<title>Sheet.1102</title>
+			<desc>Azure Boards</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(31000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="46.3438" cy="539" width="92.69" height="20"/>
+			<rect x="0" y="529" width="92.6875" height="20" class="st46"/>
+			<text x="14.24" y="542.3" class="st47" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Boards</text>		</g>
+		<g id="shape1103-210" v:mID="1103" v:groupContext="shape" transform="translate(6.75,-418.5)">
+			<title>Sheet.1103</title>
+			<desc>Developer</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(32000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="46.3438" cy="539" width="92.69" height="20"/>
+			<rect x="0" y="529" width="92.6875" height="20" class="st46"/>
+			<text x="21.52" y="542.3" class="st47" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Developer</text>		</g>
+		<g id="shape1104-213" v:mID="1104" v:groupContext="shape" transform="translate(602.094,240.75) rotate(90)">
+			<title>Sheet.1104</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(33000):26"/>
+			</v:userDefs>
+			<path d="M0 549 L71.43 549" class="st58"/>
+		</g>
+		<g id="shape1105-219" v:mID="1105" v:groupContext="shape" transform="translate(602.094,130.5) rotate(90)">
+			<title>Sheet.1105</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(34000):26"/>
+			</v:userDefs>
+			<path d="M0 549 L43.17 549" class="st58"/>
+		</g>
+		<g id="shape1106-224" v:mID="1106" v:groupContext="shape" transform="translate(73.2795,-207.815)">
+			<title>Sheet.1106</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(35000):26"/>
+			</v:userDefs>
+			<path d="M0 549 L73.71 549" class="st58"/>
+		</g>
+		<g id="shape1107-229" v:mID="1107" v:groupContext="shape" transform="translate(-368.627,319.028) rotate(-90)">
+			<title>Sheet.1107</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(36000):26"/>
+			</v:userDefs>
+			<path d="M0 549 L20.74 549" class="st58"/>
+		</g>
+		<g id="shape1108-234" v:mID="1108" v:groupContext="shape" transform="translate(226.717,-174.25)">
+			<title>Sheet.1108</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(37000):26"/>
+			</v:userDefs>
+			<path d="M0 549 L110.77 549" class="st58"/>
+		</g>
+		<g id="shape1109-239" v:mID="1109" v:groupContext="shape" transform="translate(210.53,-208.464)">
+			<title>Sheet.1109</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(38000):26"/>
+			</v:userDefs>
+			<path d="M0 549 L270.96 549" class="st58"/>
+		</g>
+		<g id="shape1110-244" v:mID="1110" v:groupContext="shape" transform="translate(538.194,-208.464)">
+			<title>Sheet.1110</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(39000):26"/>
+			</v:userDefs>
+			<path d="M0 549 L104.02 549" class="st58"/>
+		</g>
+		<g id="shape1111-249" v:mID="1111" v:groupContext="shape" transform="translate(-183.931,340.536) rotate(-90)">
+			<title>Sheet.1111</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(40000):26"/>
+			</v:userDefs>
+			<path d="M0 549 L251.26 549" class="st60"/>
+		</g>
+		<g id="shape1112-252" v:mID="1112" v:groupContext="shape" transform="translate(365.069,-459.72)">
+			<title>Sheet.1112</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(41000):26"/>
+			</v:userDefs>
+			<path d="M0 549 L59.65 549" class="st58"/>
+		</g>
+		<g id="shape1113-257" v:mID="1113" v:groupContext="shape" transform="translate(365.069,-345.78)">
+			<title>Sheet.1113</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(42000):26"/>
+			</v:userDefs>
+			<path d="M0 549 L125.61 549" class="st58"/>
+		</g>
+		<g id="shape1114-262" v:mID="1114" v:groupContext="shape" transform="translate(534.85,-345.78)">
+			<title>Sheet.1114</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(43000):26"/>
+			</v:userDefs>
+			<path d="M0 549 L113.94 549" class="st58"/>
+		</g>
+		<g id="shape1115-267" v:mID="1115" v:groupContext="shape" transform="translate(599.381,877.5) rotate(180)">
+			<title>Sheet.1115</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(44000):26"/>
+			</v:userDefs>
+			<path d="M0 549 L53.15 549" class="st61"/>
+		</g>
+		<g id="shape1116-272" v:mID="1116" v:groupContext="shape" transform="translate(50.3812,328.5) rotate(-90)">
+			<title>Sheet.1116</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(45000):26"/>
+			</v:userDefs>
+			<path d="M0 549 L197 549" class="st62"/>
+		</g>
+		<g id="shape1117-275" v:mID="1117" v:groupContext="shape" transform="translate(599.381,738) rotate(180)">
+			<title>Sheet.1117</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(46000):26"/>
+			</v:userDefs>
+			<path d="M0 549 L53.15 549" class="st61"/>
+		</g>
+		<g id="shape1118-280" v:mID="1118" v:groupContext="shape" transform="translate(-86.2137,328.5) rotate(-90)">
+			<title>Sheet.1118</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(47000):26"/>
+			</v:userDefs>
+			<path d="M0 549 L197 549" class="st62"/>
+		</g>
+		<g id="shape1119-283" v:mID="1119" v:groupContext="shape" transform="translate(462.786,-220.5)">
+			<title>Sheet.1119</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(48000):26"/>
+			</v:userDefs>
+			<path d="M0 549 L14.74 549" class="st61"/>
+		</g>
+		<g id="shape1120-288" v:mID="1120" v:groupContext="shape" transform="translate(462.786,-360)">
+			<title>Sheet.1120</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(49000):26"/>
+			</v:userDefs>
+			<path d="M0 549 L28.68 549" class="st61"/>
+		</g>
+		<g id="shape1121-293" v:mID="1121" v:groupContext="shape" transform="translate(496.739,-501.75)">
+			<title>Sheet.1121</title>
+			<desc>Azure Environment</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(50000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="54.5173" cy="539" width="109.04" height="20"/>
+			<rect x="0" y="529" width="109.035" height="20" class="st46"/>
+			<text x="4.85" y="542.3" class="st63" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Environment</text>		</g>
+		<g id="shape1122-296" v:mID="1122" v:groupContext="shape" transform="translate(496.739,-103.75)">
+			<title>Sheet.1122</title>
+			<desc>On-premises</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(51000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="54.5173" cy="539" width="109.04" height="20"/>
+			<rect x="0" y="529" width="109.035" height="20" class="st46"/>
+			<text x="21.8" y="542.3" class="st63" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>On-premises</text>		</g>
+		<g id="shape1123-299" v:mID="1123" v:groupContext="shape" transform="translate(101.555,-195.215)">
+			<title>Circle.1070</title>
+			<desc>2</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(53000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="12.6" cy="536.4" width="22.05" height="18.9"/>
+			<path d="M0 536.4 A12.6 12.6 0 0 1 25.2 536.4 A12.6 12.6 0 1 1 0 536.4 Z" class="st64"/>
+			<text x="9.44" y="539.7" class="st65" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>2</text>		</g>
+		<g id="shape1124-302" v:mID="1124" v:groupContext="shape" transform="translate(40.4938,-255.914)">
+			<title>Circle.1272</title>
+			<desc>1</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(52000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="12.6" cy="536.4" width="22.05" height="18.9"/>
+			<path d="M0 536.4 A12.6 12.6 0 0 1 25.2 536.4 A12.6 12.6 0 1 1 0 536.4 Z" class="st64"/>
+			<text x="9.44" y="539.7" class="st65" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>1</text>		</g>
+		<g id="shape1125-305" v:mID="1125" v:groupContext="shape" transform="translate(352.469,-414.9)">
+			<title>Circle.1071</title>
+			<desc>3</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(54000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="12.6" cy="536.4" width="22.05" height="18.9"/>
+			<path d="M0 536.4 A12.6 12.6 0 0 1 25.2 536.4 A12.6 12.6 0 1 1 0 536.4 Z" class="st64"/>
+			<text x="9.44" y="539.7" class="st65" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>3</text>		</g>
+		<g id="shape1126-308" v:mID="1126" v:groupContext="shape" transform="translate(270,-161.65)">
+			<title>Circle.1150</title>
+			<desc>4</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(55000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="12.6" cy="536.4" width="22.05" height="18.9"/>
+			<path d="M0 536.4 A12.6 12.6 0 0 1 25.2 536.4 A12.6 12.6 0 1 1 0 536.4 Z" class="st64"/>
+			<text x="9.44" y="539.7" class="st65" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>4</text>		</g>
+		<g id="shape1127-311" v:mID="1127" v:groupContext="shape" transform="translate(453.227,-348.3)">
+			<title>Circle.1153</title>
+			<desc>7</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(56000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="12.6" cy="536.4" width="22.05" height="18.9"/>
+			<path d="M0 536.4 A12.6 12.6 0 0 1 25.2 536.4 A12.6 12.6 0 1 1 0 536.4 Z" class="st64"/>
+			<text x="9.44" y="539.7" class="st65" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>7</text>		</g>
+		<g id="shape1129-314" v:mID="1129" v:groupContext="shape" transform="translate(372.227,-195.864)">
+			<title>Circle.1158</title>
+			<desc>5</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(58000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="12.6" cy="536.4" width="22.05" height="18.9"/>
+			<path d="M0 536.4 A12.6 12.6 0 0 1 25.2 536.4 A12.6 12.6 0 1 1 0 536.4 Z" class="st64"/>
+			<text x="9.44" y="539.7" class="st65" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>5</text>		</g>
+		<g id="shape1130-317" v:mID="1130" v:groupContext="shape" transform="translate(587.777,-348.3)">
+			<title>Circle.1130</title>
+			<desc>8</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(59000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="12.6" cy="536.4" width="22.05" height="18.9"/>
+			<path d="M0 536.4 A12.6 12.6 0 0 1 25.2 536.4 A12.6 12.6 0 1 1 0 536.4 Z" class="st64"/>
+			<text x="9.44" y="539.7" class="st65" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>8</text>		</g>
+		<g id="shape1131-320" v:mID="1131" v:groupContext="shape" transform="translate(297.381,-297.064)">
+			<title>Sheet.1131</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(60000):26"/>
+			</v:userDefs>
+			<path d="M0 549 L59.65 549" class="st58"/>
+		</g>
+		<g id="shape1128-325" v:mID="1128" v:groupContext="shape" transform="translate(271.877,-284.464)">
+			<title>Circle.1157</title>
+			<desc>6</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(57000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="12.6" cy="536.4" width="22.05" height="18.9"/>
+			<path d="M0 536.4 A12.6 12.6 0 0 1 25.2 536.4 A12.6 12.6 0 1 1 0 536.4 Z" class="st64"/>
+			<text x="9.44" y="539.7" class="st65" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>6</text>		</g>
+		<g id="shape1132-328" v:mID="1132" v:groupContext="shape" transform="translate(198.438,-297.064)">
+			<title>Sheet.1132</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(61000):26"/>
+			</v:userDefs>
+			<path d="M0 549 L65.4 549" class="st58"/>
+		</g>
+		<g id="group1133-333" transform="translate(8.18617,-6.74999)" v:mID="1133" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(62000):26"/>
+			</v:userDefs>
+			<title>logo.1025</title>
+			<g id="group1134-334" transform="translate(0,-4.5)" v:mID="1134" v:groupContext="group">
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT4(True)"/>
+				</v:userDefs>
+				<title>Azure.1002</title>
+				<g id="group1135-335" v:mID="1135" v:groupContext="group">
+					<title>Sheet.1135</title>
+					<g id="shape1136-336" v:mID="1136" v:groupContext="shape">
+						<title>Sheet.1136</title>
+						<path d="M11.96 513 L22.69 513 L11.57 547.79 A1.67987 1.77404 0 0 1 9.98 549 L1.59 549 A1.67905 1.77317 0
+									 0 1 0 546.66 L10.37 514.21 A1.6774 1.77143 0 0 1 11.96 513 Z" class="st66"/>
+					</g>
+					<g id="shape1137-340" v:mID="1137" v:groupContext="shape" transform="translate(9.14148,0)">
+						<title>Sheet.1137</title>
+						<path d="M17.63 535.67 L0.73 535.67 a0.781965 0.8258 -180 0 0 -0.533644 1.42843 L11.79 548.52 A1.67987 1.77404
+									 -180 0 0 12.93 549 L22.51 549 L17.63 535.67 Z" class="st67"/>
+					</g>
+					<g id="group1138-342" transform="translate(12.9538,0)" v:mID="1138" v:groupContext="group">
+						<title>Sheet.1138</title>
+						<g id="shape1139-343" v:mID="1139" v:groupContext="shape" transform="translate(7.38139,0)">
+							<title>Sheet.1139</title>
+							<path d="M3.43 549 L11.31 549 L6.43 535.67 L0 535.67 L3.72 547.29 A1.69796 1.79314 0 0 1 3.43 549 Z"
+									class="st68"/>
+						</g>
+						<g id="shape1140-345" v:mID="1140" v:groupContext="shape" transform="translate(9.29257E-14,-20.9906)">
+							<title>Sheet.1140</title>
+							<path d="M4.94 549 L9.73 533.99 L0 533.99 A1.70042 1.79575 0 0 1 0.33 534.59 L4.94 549 Z" class="st68"/>
+						</g>
+					</g>
+					<g id="group1141-347" transform="translate(12.3462,0)" v:mID="1141" v:groupContext="group">
+						<title>Sheet.1141</title>
+						<g id="shape1142-348" v:mID="1142" v:groupContext="shape" transform="translate(0,-20.0024)">
+							<title>Sheet.1142</title>
+							<path d="M0 533 L5.23 549 L5.95 546.72 L1.58 533 L0 533 Z" class="st69"/>
+						</g>
+						<g id="shape1143-350" v:mID="1143" v:groupContext="shape" transform="translate(7.32219,0)">
+							<title>Sheet.1143</title>
+							<path d="M2.59 549 L4.85 549 A2.31876 2.44874 -180 0 0 4.98 547.07 L1.33 535.67 L0 535.67 L3.79 547.5
+										 A1.07469 1.13493 0 0 1 2.77 549 L2.59 549 Z" class="st69"/>
+						</g>
+					</g>
+					<g id="shape1144-352" v:mID="1144" v:groupContext="shape" transform="translate(12.088,0)">
+						<title>Sheet.1144</title>
+						<path d="M13.54 514.21 A1.6774 1.77143 -180 0 0 11.95 513 L0 513 A1.70454 1.80009 0 0 1 1.61 514.22 L11.97
+									 546.63 A1.70371 1.79922 0 0 1 10.35 549 L22.32 549 A1.67905 1.77317 -180 0 0 23.91 546.66 L13.54
+									 514.21 Z" class="st70"/>
+					</g>
+				</g>
+			</g>
+			<g id="shape1145-356" v:mID="1145" v:groupContext="shape" transform="translate(28.6277,0)">
+				<title>Sheet.1145</title>
+				<desc>Microsoft Azure</desc>
+				<v:textBlock v:margins="rect(4,4,4,4)"/>
+				<v:textRect cx="36" cy="526.5" width="72" height="45"/>
+				<rect x="0" y="504" width="72" height="45" class="st46"/>
+				<text x="5.5" y="522.3" class="st71" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft<v:newlineChar/><tspan
+							x="17.66" dy="1.2em" class="st48">Azure</tspan></text>			</g>
+		</g>
+		<g id="group1035-360" transform="translate(162.309,-279)" v:mID="1035" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(5000):26"/>
+			</v:userDefs>
+			<title>Key Vaults.1035</title>
+			<g id="group1036-361" v:mID="1036" v:groupContext="group">
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<title>Sheet.1036</title>
+				<g id="shape1037-362" v:mID="1037" v:groupContext="shape">
+					<title>Sheet.1037</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<path d="M18.06 512.87 C8.09 512.87 0 520.96 0 530.94 C0 540.91 8.09 549 18.06 549 C28.04 549 36.13 540.91 36.13
+								 530.94 C36.12 520.96 28.03 512.88 18.06 512.87 ZM18.06 546.53 C9.45 546.53 2.47 539.55 2.47 530.94
+								 C2.47 522.32 9.45 515.34 18.06 515.34 C26.68 515.34 33.66 522.32 33.66 530.94 C33.66 539.55 26.68
+								 546.53 18.06 546.53 Z" class="st72"/>
+				</g>
+				<g id="shape1038-366" v:mID="1038" v:groupContext="shape" transform="translate(2.46523,-2.46523)">
+					<title>Sheet.1038</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<ellipse cx="15.599" cy="533.401" rx="15.599" ry="15.599" class="st5"/>
+				</g>
+				<g id="shape1039-368" v:mID="1039" v:groupContext="shape" transform="translate(7.11942,-0.981843)">
+					<title>Sheet.1039</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<path d="M20.38 528.37 C21.89 526.84 21.89 524.39 20.38 522.86 L13.69 516.15 C12.17 514.64 9.72 514.64 8.2 516.15
+								 L1.51 522.86 C0 524.39 0 526.84 1.51 528.37 L7.08 534.04 C7.28 534.25 7.39 534.52 7.4 534.81 L7.4
+								 545.18 C7.4 545.53 7.53 545.86 7.78 546.11 L10.33 548.66 C10.67 549 11.22 549 11.56 548.66 C11.56
+								 548.66 11.56 548.66 11.56 548.66 L14.03 546.19 L15.47 544.75 C15.66 544.55 15.66 544.23 15.47 544.03
+								 L14.43 542.99 C14.22 542.76 14.22 542.42 14.43 542.2 L15.47 541.16 C15.66 540.95 15.66 540.64 15.47
+								 540.44 L14.43 539.4 C14.22 539.18 14.22 538.83 14.43 538.61 L15.47 537.57 C15.66 537.37 15.66 537.05
+								 15.47 536.85 L14.03 535.38 L14.03 534.85 L20.38 528.37 ZM10.94 517.79 C12.16 517.79 13.14 518.77
+								 13.14 519.98 C13.14 521.2 12.16 522.18 10.94 522.18 C9.73 522.18 8.75 521.2 8.75 519.98 C8.74 518.77
+								 9.73 517.79 10.94 517.79 Z" class="st73"/>
+				</g>
+				<g id="shape1040-372" v:mID="1040" v:groupContext="shape" transform="translate(16.1643,-4.49905)">
+					<title>Sheet.1040</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<path d="M0.16 548.82 C0.36 549 0.67 548.98 0.85 548.77 C0.92 548.69 0.96 548.58 0.96 548.46 L0.96 539.96 C0.96
+								 539.79 0.88 539.63 0.73 539.54 C0.51 539.4 0.23 539.46 0.08 539.67 C0.03 539.76 0 539.86 0.01 539.96
+								 L0.01 548.46 C0.01 548.6 0.07 548.72 0.16 548.82 Z" class="st74"/>
+				</g>
+				<g id="shape1041-374" v:mID="1041" v:groupContext="shape" transform="translate(12.7066,-23.5897)">
+					<title>Sheet.1041</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<path d="M0.6 547.7 L10.39 547.7 C10.72 547.7 10.99 547.97 10.99 548.3 L10.99 548.4 C10.99 548.73 10.72 549 10.39
+								 549 L0.6 549 C0.27 549 0 548.73 0 548.4 L0 548.3 C0 547.97 0.27 547.7 0.6 547.7 Z" class="st74"/>
+				</g>
+				<g id="shape1042-376" v:mID="1042" v:groupContext="shape" transform="translate(12.7066,-21.4858)">
+					<title>Sheet.1042</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<path d="M0.6 547.7 L10.39 547.7 C10.72 547.7 10.99 547.97 10.99 548.3 L10.99 548.4 C10.99 548.73 10.72 549 10.39
+								 549 L0.6 549 C0.27 549 0 548.73 0 548.4 L0 548.3 C0 547.97 0.27 547.7 0.6 547.7 Z" class="st74"/>
+				</g>
+			</g>
+		</g>
+		<g id="shape1146-378" v:mID="1146" v:groupContext="shape" transform="translate(375.3,-333)">
+			<title>Circle.1146</title>
+			<desc>5</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(63000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="12.6" cy="536.4" width="22.05" height="18.9"/>
+			<path d="M0 536.4 A12.6 12.6 0 0 1 25.2 536.4 A12.6 12.6 0 1 1 0 536.4 Z" class="st64"/>
+			<text x="9.44" y="539.7" class="st65" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>5</text>		</g>
+	</g>
+</svg>

@@ -2,7 +2,7 @@ This reference architecture describes how to build an enterprise-grade conversat
 
 ## Architecture
 
-[![Diagram of the architecture][0]][0]
+[![Diagram showing the architecture of a conversational bot.][0]](./_images/conversational-bot.svg#lightbox)
 
 *Download a [Visio file][visio-download] of this architecture.*
 
@@ -28,13 +28,13 @@ The bot will rely on raw data that must be ingested and prepared. Consider any o
 
 - **[Azure Data Factory][data-factory]**. Data Factory orchestrates and automates data movement and data transformation.
 - **[Logic Apps][logic-apps]**. Logic Apps is a serverless platform for building workflows that integrate applications, data, and services. Logic Apps provides data connectors for many applications, including Office 365.
-- **[Azure Functions][functions]**. You can use Azure Functions to write custom serverless code that is invoked by a [trigger][functions-triggers] &mdash; for example, whenever a document is added to blob storage or Cosmos DB.
+- **[Azure Functions][functions]**. You can use Azure Functions to write custom serverless code that is invoked by a [trigger][functions-triggers] &mdash; for example, whenever a document is added to blob storage or Azure Cosmos DB.
 
 #### Logging and monitoring
 
 - **[Application Insights][app-insights]**. Use Application Insights to log the bot's application metrics for monitoring, diagnostic, and analytical purposes.
 - **[Azure Blob Storage][blob]**. Blob storage is optimized for storing massive amounts of unstructured data.
-- **[Cosmos DB][cosmosdb]**. Cosmos DB is well-suited for storing semi-structured log data such as conversations.
+- **[Azure Cosmos DB][cosmosdb]**. Azure Cosmos DB is well-suited for storing semi-structured log data such as conversations.
 - **[Power BI][power-bi]**. Use Power BI to create monitoring dashboards for your bot.
 
 #### Security and governance
@@ -94,7 +94,7 @@ Before getting into the specifics of this architecture, let's start with the dat
 
 ### System Data Flow
 
-**ETL**. The bot relies on information and knowledge extracted from the raw data by an ETL process in the backend. This data might be structured (SQL database), semi-structured (CRM system, FAQs), or unstructured (Word documents, PDFs, web logs). An ETL subsystem extracts the data on a fixed schedule. The content is transformed and enriched, then loaded into an intermediary data store, such as Cosmos DB or Azure Blob Storage.
+**ETL**. The bot relies on information and knowledge extracted from the raw data by an ETL process in the backend. This data might be structured (SQL database), semi-structured (CRM system, FAQs), or unstructured (Word documents, PDFs, web logs). An ETL subsystem extracts the data on a fixed schedule. The content is transformed and enriched, then loaded into an intermediary data store, such as Azure Cosmos DB or Azure Blob Storage.
 
 Data in the intermediary store is then indexed into Azure Search for document retrieval, loaded into QnA Maker to create question and answer pairs, or loaded into a custom web app for unstructured text processing. The data is also used to train a LUIS model for intent and entity extraction.
 
@@ -106,7 +106,7 @@ Before you even write a single line of code, it's important to write a functiona
 
 #### Ingest data
 
-Next, identify the data sources that will enable the bot to interact intelligently with users. As mentioned earlier, these data sources could contain structured, semi-structured, or unstructured data sets. When you're getting started, a good approach is to make a one-off copy of the data to a central store, such as Cosmos DB or Azure Storage. As you progress, you should create an automated data ingestion pipeline to keep this data current. Options for an automated ingestion pipeline include Data Factory, Functions, and Logic Apps. Depending on the data stores and the schemas, you might use a combination of these approaches.
+Next, identify the data sources that will enable the bot to interact intelligently with users. As mentioned earlier, these data sources could contain structured, semi-structured, or unstructured data sets. When you're getting started, a good approach is to make a one-off copy of the data to a central store, such as Azure Cosmos DB or Azure Storage. As you progress, you should create an automated data ingestion pipeline to keep this data current. Options for an automated ingestion pipeline include Data Factory, Functions, and Logic Apps. Depending on the data stores and the schemas, you might use a combination of these approaches.
 
 As you get started, it's reasonable to use the Azure portal to manually create Azure resources. Later on, you should put more thought into automating the deployment of these resources.
 
@@ -150,7 +150,7 @@ Another option is to integrate your own custom AI service. This approach is more
 
 ### Quality assurance and enhancement
 
-**Logging**. Log user conversations with the bot, including the underlying performance metrics and any errors. These logs will prove invaluable for debugging issues, understanding user interactions, and improving the system. Different data stores might be appropriate for different types of logs. For example, consider Application Insights for web logs, Cosmos DB for conversations, and Azure Storage for large payloads. See [Write directly to Azure Storage][transcript-storage].
+**Logging**. Log user conversations with the bot, including the underlying performance metrics and any errors. These logs will prove invaluable for debugging issues, understanding user interactions, and improving the system. Different data stores might be appropriate for different types of logs. For example, consider Application Insights for web logs, Azure Cosmos DB for conversations, and Azure Storage for large payloads. See [Write directly to Azure Storage][transcript-storage].
 
 **Feedback**. It's also important to understand how satisfied users are with their bot interactions. If you have a record of user feedback, you can use this data to focus your efforts on improving certain interactions and retraining the AI models for improved performance. Use the feedback to retrain the models, such as LUIS, in your system.
 
@@ -159,7 +159,7 @@ Another option is to integrate your own custom AI service. This approach is more
 > [!NOTE]
 > To jump-start your development in these areas, look at the [Botbuilder Utils for JavaScript][git-repo-base]. This repo contains sample utility code for bots built with [Microsoft Bot Framework v4][bot-framework] and running Node.js. It includes the following packages:
 >
-> - [Cosmos DB Logging Store][cosmosdb-logger]. Shows how to store and query bot logs in Azure Cosmos DB.
+> - [Azure Cosmos DB Logging Store][cosmosdb-logger]. Shows how to store and query bot logs in Azure Cosmos DB.
 > - [Application Insights Logging Store][appinsights-logger]. Shows how to store and query bot logs in Application Insights.
 > - [Feedback Collection Middleware][feedback-util]. Sample middleware that provides a bot user feedback-request mechanism.
 > - [Http Test Recorder][testing util]. Records HTTP traffic from services external to the bot. It comes pre-built with support for LUIS, Azure Search, and QnAMaker, but extensions are available to support any service. This helps you automate bot testing.
@@ -184,11 +184,11 @@ As with any other application, the bot can be designed to handle sensitive data.
 
 #### Monitoring and reporting
 
-Once your bot is running in production, you will need a DevOps team to keep it that way. Continually monitor the system to ensure the bot operates at peak performance. Use the logs sent to Application Insights or Cosmos DB to create monitoring dashboards, either using Application Insights itself, Power BI, or a custom web app dashboard. Send alerts to the DevOps team if critical errors occur or performance falls below an acceptable threshold.
+Once your bot is running in production, you will need a DevOps team to keep it that way. Continually monitor the system to ensure the bot operates at peak performance. Use the logs sent to Application Insights or Azure Cosmos DB to create monitoring dashboards, either using Application Insights itself, Power BI, or a custom web app dashboard. Send alerts to the DevOps team if critical errors occur or performance falls below an acceptable threshold.
 
 #### Automated resource deployment
 
-The bot itself is only part of a larger system that provides it with the latest data and ensures its proper operation. All of these other Azure resources &mdash; data orchestration services such as Data Factory, storage services such as Cosmos DB, and so forth &mdash; must be deployed. Azure Resource Manager provides a consistent management layer that you can access through the Azure portal, PowerShell, or the Azure CLI. For speed and consistency, it's best to automate your deployment using one of these approaches.
+The bot itself is only part of a larger system that provides it with the latest data and ensures its proper operation. All of these other Azure resources &mdash; data orchestration services such as Data Factory, storage services such as Azure Cosmos DB, and so forth &mdash; must be deployed. Azure Resource Manager provides a consistent management layer that you can access through the Azure portal, PowerShell, or the Azure CLI. For speed and consistency, it's best to automate your deployment using one of these approaches.
 
 #### Continuous bot deployment
 
@@ -239,9 +239,12 @@ For other cost considerations, see the Cost section in [Microsoft Azure Well-Arc
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author:
+Principal authors:
 
- * Robert Alexander | Senior Software Engineer
+- Robert Alexander | Senior Software Engineer
+- [Abhinav Mithal](https://www.linkedin.com/in/abhinav-mithal-02200734) | Principal Software Engineer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
@@ -256,7 +259,7 @@ Product documentation:
 - [What is Azure Logic Apps?][logic-apps]
 - [Azure Functions][functions]
 
-Microsoft Learn modules:
+Microsoft Learn Training modules:
 
 - [Create Intelligent Bots with the Azure Bot Service](/training/paths/create-bots-with-the-azure-bot-service)
 - [Build a bot with QnA Maker and Azure Bot Service](/training/modules/build-faq-chatbot-qna-maker-azure-bot-service)
@@ -268,7 +271,7 @@ Microsoft Learn modules:
 
 <!-- links -->
 
-[0]: ./_images/conversational-bot.png
+[0]: ./_images/conversational-bot.svg
 [aad]: /azure/active-directory
 [aaf-cost]: /azure/architecture/framework/cost/overview
 [activities]: /azure/bot-service/rest-api/bot-framework-rest-connector-concepts#activity

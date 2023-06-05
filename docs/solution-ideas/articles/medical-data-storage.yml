@@ -3,10 +3,10 @@ metadata:
   title: Medical data storage solutions
   titleSuffix: Azure Solution Ideas
   description: Store healthcare data effectively and affordably with cloud-based solutions from Azure. Manage medical records with the highest level of built-in security.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 05/30/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -22,7 +22,6 @@ metadata:
     - medical data storage
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/medical-data-storage"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/medical-data-storage.png
 name: Medical data storage solutions
 azureCategories:
   - storage

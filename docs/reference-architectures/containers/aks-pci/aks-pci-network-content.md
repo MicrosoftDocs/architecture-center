@@ -4,7 +4,7 @@ This article describes the networking considerations for an Azure Kubernetes Ser
 
 The main theme of the PCI-DSS 3.2.1 standard is security. The hub-spoke topology is a natural choice for setting up a regulated environment. It's easier to create an infrastructure that allows secure communications. Network controls are placed in both hub-spoke networks and follow the Microsoft zero-trust model. The controls can be tuned with least-privilege to secure traffic, giving access on a need-to-know basis. In addition, you can apply several defense-in-depth approaches by adding controls at each network hop.
 
-When you're hosting a workload in a Kubernetes, it's not sufficient to rely on traditional network constructs, such as firewall rules. There are also Kubernetes-native constructs that control the flow of traffic in the cluster, such as the  `NetworkPolicy` resource. We highly recommend that you refer to the Kubernetes documentation to understand the core concepts about isolated pods, and ingress and egress policies.
+When you're hosting a workload in a Kubernetes, it's not sufficient to rely on traditional network constructs, such as firewall rules. There are also Kubernetes-native constructs that control the flow of traffic within the cluster, such as the  `NetworkPolicy` resource. We highly recommend that you refer to the Kubernetes documentation to understand the core concepts about isolated pods, and ingress and egress policies.
 
 > [!IMPORTANT]
 >
@@ -22,9 +22,9 @@ AKS supports deploying a cluster in a private virtual network as a private clust
 
 Azure Firewall can be integrated with AKS and can limit outbound traffic from the cluster, which is a key component of the CDE. The configuration is made easy with an AKS FQDN Tag. The recommended process is provided in [Use Azure Firewall to protect Azure Kubernetes Service (AKS) Deployments](/azure/firewall/protect-azure-kubernetes-service).
 
-AKS clusters require some public internet access to reach the managed control plane. Limit outbound traffic to the internet using Azure Firewall and NSGs on the cluster subnet. For information, see [Control egress traffic for cluster nodes in Azure Kubernetes Service (AKS)](/azure/aks/limit-egress-traffic).
+AKS clusters require some public internet access. Limit outbound traffic to the internet using Azure Firewall and NSGs on the cluster subnet. For information, see [Control egress traffic for cluster nodes in Azure Kubernetes Service (AKS)](/azure/aks/limit-egress-traffic).
 
-AKS optionally supports the ability to define an [HTTP proxy](/azure/aks/http-proxy), which can be utilized for additional outbound traffic monitoring and security options for the cluster. The cluster nodes use the specified HTTP proxy configuration for routing outbound traffic. Also, a MutatingWebhook is registered to inject the proxy information into the pods at creation time, so that workloads can inherit the same proxy information. Pods can override proxy information, so using a HTTP proxy is in addition to having an Azure Firewall.
+AKS optionally supports the ability to define an [HTTP proxy](/azure/aks/http-proxy), which can be utilized for additional outbound traffic control and monitoring for the cluster. The cluster nodes use the specified HTTP proxy configuration for routing outbound traffic. Also, a MutatingWebhook is registered to inject the proxy information into the pods at creation time, so it is recommended that workloads can inherit the same proxy information. Pods can override proxy information, so it is recommended to use an HTTP proxy in addition to an Azure Firewall.
 
 AKS clusters should be created with the NetworkPolicy plugin. In AKS, you have the option between Azure or Calico, as your Network Policy plugin. With Calico Network Policy, you could either use Kubenet or Azure CNI. For the Azure Network Policy, you can only use Azure CNI (not Kubenet). Network Policies for Windows nodes are supported with Calico only. Both Azure and [Calico](https://www.tigera.io/project-calico/) Network Policy plugins are open source. For further information about Project Calico, see the [comprehensive PCI solution whitepaper](https://www.tigera.io/lp/kubernetes-pci-compliance/?utm_campaign=calicocloud&utm_medium=digital&utm_source=microsoft_aks_pciwhitepaper), which addresses many of the firewall requirements below.
 
@@ -37,19 +37,6 @@ AKS clusters should be created with the NetworkPolicy plugin. In AKS, you have t
 |[Requirement 1.3](#requirement-13)|Prohibit direct public access between the Internet and any system component in the cardholder data environment.|
 |[Requirement 1.4](#requirement-14)|Install personal firewall software or equivalent functionality on any portable computing devices (including company and/or employee-owned) that connect to the Internet when outside the network (for example, laptops used by employees), and which are also used to access the CDE. |
 |[Requirement 1.5](#requirement-15)|Ensure that security policies and operational procedures for managing firewalls are documented, in use, and known to all affected parties.|
-
-### **Requirement 2**&mdash;Do not use vendor-supplied defaults for system passwords and other security parameters.
-
-#### Your responsibilities
-
-|Requirement|Responsibility|
-|---|---|
-|[Requirement 2.1](#requirement-21)|Always change vendor-supplied defaults and remove or disable unnecessary default accounts before installing a system on the network.|
-|[Requirement 2.2](#requirement-22)|Develop configuration standards for all system components. Assure that these standards address all known security vulnerabilities and are consistent with industry-accepted system hardening standards.|
-|[Requirement 2.3](#requirement-23)|Encrypt all non-console administrative access using strong cryptography.|
-|[Requirement 2.4](#requirement-24)|Maintain an inventory of system components that are in scope for PCI DSS.|
-|[Requirement 2.5](#requirement-25)|Ensure that security policies and operational procedures for managing vendor defaults and other security parameters are documented, in use, and known to all affected parties.|
-|[Requirement 2.6](#requirement-26)|Shared hosting providers must protect each entity's hosted environment and cardholder data.|
 
 ### Requirement 1.1
 
@@ -77,7 +64,9 @@ As part of your documentation, maintain a network flow diagram that shows the in
 
 This image shows the network diagram of the reference implementation.
 
-:::image type="content" source="./images/network-topology-small.png" alt-text="Diagram of the network topology." lightbox="./images/network-topology.png":::
+:::image type="content" source="./images/network-topology-small.svg" alt-text="Diagram of the network topology." lightbox="./images/network-topology-small.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/aks-pci-network.vsdx) of this diagram.*
 
 **Figure 1.1.2 - Network flow**
 
@@ -156,8 +145,6 @@ Have detailed documentation that describes the services, protocols, and ports us
 |Allow secure communication between the nodes and the control plane.|HTTPS:443|Authorized IP address ranges assigned to the cluster node pools| List of FQDN targets in the AKS control plane. This is specified with the `AzureKubernetesService` FQDN tag.|The nodes need access to the control plane for management tools, state and configuration information, and information about which nodes can be scaled.|
 |Allow secure communication between Flux and GitHub.|HTTPS:443|AKS node pools|github.com,api.github.com|Flux is a third-party integration that runs on the nodes. It synchronizes cluster configuration with a private GitHub repository.|
 
-For information about the required ports, see the official documentation for the Azure service.
-
 #### Requirement 1.1.7
 
 Requirement to review firewall and router rule sets at least every six months.
@@ -181,9 +168,9 @@ Build firewall and router configurations that restrict connections between untru
 
 In this architecture, the AKS cluster is a key component of the cardholder data environment (CDE). We strongly recommend that the cluster is deployed as a private cluster for enhanced security. In a private cluster, network traffic between the AKS-managed Kubernetes API server and your node pools is private. The API server is exposed via a Private Endpoint in the cluster's network.
 
-You can also choose a public cluster, but be aware of potential challenges with this option. The API server will be exposed to the internet. The DNS record will always be discoverable. So, you need to have controls to keep the cluster API protected from public access. An approach is to have tight controls through Kubernetes role-based access controls (RBAC), paired with the authorized IP ranges feature of AKS. However, this solution isn't recommended for clusters containing regulated workloads.
+You can also choose a public cluster, but however, this design isn't recommended for clusters containing regulated workloads. The API server will be exposed to the internet. The DNS record will always be discoverable. So, you need to have controls to keep the cluster API protected from public access. If using a public cluster is required, then the recommended approach is to have tight controls through Kubernetes role-based access controls (RBAC), paired with the AKS Authorized IP ranges feature to restrict who can access the AKS API Server. However, this solution isn't recommended for clusters containing regulated workloads.
 
-When processing card holder data (CHD), the cluster will need to interact with networks that are considered to be trusted and untrusted. In this architecture, both the hub-spoke networks within the perimeter of PCI-DSS 3.2.1 workload are considered to be trusted networks.
+When processing card holder data (CHD), the cluster needs to interact with networks that are considered to be trusted and untrusted. In this architecture, both the hub-spoke networks within the perimeter of PCI-DSS 3.2.1 workload are considered to be trusted networks.
 
 Untrusted networks are networks outside that perimeter. This category includes the other hubs and spokes that might be on the same infrastructure, but are outside the workload perimeter, public internet, the corporate network, or virtual networks in Azure or another cloud platform. In this architecture, the virtual network that hosts the image builder is untrusted because it has no part to play in CHD handling. The CDE's interaction with such networks should be secured as per the requirements. With this private cluster, you can use Azure Virtual Network, an NSG, and other built-in features to secure the entire environment.
 
@@ -212,13 +199,13 @@ By design, Azure Virtual Network cannot be directly reached by the public intern
 
 - Optionally, it's possible to use an HTTP proxy for monitoring and securing outbound (egress) traffic, from the cluster to external resources.
 
-   In addition to a firewall, some organizations might want to use an HTTP proxy to have additional controls on egress. We recommend you to still have the user-defined routes go to the firewall and to limit egress traffic to just go to the HTTP proxy. With this setup, if a pod tries to override the proxy, then the firewall can still block egress traffic. 
+   In addition to a firewall, some organizations might want to use an HTTP proxy to have additional controls on egress. We recommend you to still have the user-defined routes go to the firewall and to limit egress traffic to just go to the HTTP proxy. With this setup, if a pod tries to override the proxy, then the firewall can still block egress traffic.
    
    For more information, see [HTTP proxy support in Azure Kubernetes Service](/azure/aks/http-proxy).
 
-The cluster will need to access other services over the public internet. If you use a third-party antimalware software, it will need to get the virus definitions from a server over the public internet.
+The cluster might require access other services over the public internet. If you use a third-party antimalware software, it will need to get the virus definitions from a server over the public internet.
 
-Interactions with endpoints of other Azure services are over the internet. Make sure those interactions are secure. For example, as part of the regular operations, the cluster will need to get certificates from the managed key store, pull images from a container registry, and so on. You can use private links for other services, such as Azure Key Vault and Azure Container Registry, to do the preceding tasks.
+Interactions with endpoints of other Azure services are over the Azure backbone. For example, as part of the regular operations, the cluster will need to get certificates from the managed key store, pull images from a container registry, and so on. Ensure those interactions are private and secure using [Azure Private Link](/azure/private-link/private-link-overview).
 
 In addition to firewall rules and private networks, NSG flows are also secured through rules. Here some examples from this architecture where the CDE is protected by denying traffic:
 - The NSGs, on subnets that have node pools, deny any SSH access to its nodes. Have a process in place for just-in-time emergency access while still maintaining the deny-all principle.
@@ -270,7 +257,7 @@ Implement a DMZ to limit inbound traffic to only system components that provide 
 Here are some best practices:
 
 - Do not configure public IP addresses on the node pool nodes.
-- Do not have a public load balancer in front of the nodes. Traffic within the cluster must be routed through internal load balancers.
+- Use Azure Policy to ensure Kubernetes don't expose a public load balancer. Traffic within the cluster must be routed through internal load balancers.
 - Only expose internal load balancers to Azure Application Gateway integrated with WAF.
 - All network controls should specify source, destination, port, and protocol restrictions, where applicable.
 - Do not expose the API server to the internet. When you run the cluster in private mode, the endpoint is not exposed and communication between the node pools and the API server is over a private network.
@@ -301,18 +288,16 @@ Do not allow unauthorized outbound traffic from the cardholder data environment 
 
 Here are ways in which you can block unauthorized outbound traffic:
 
-- Enforce all outbound (egress) traffic from the AKS cluster to go through Azure Firewall. Have user-defined routes (UDRs) on cluster subnets. This includes subnets with system and user node pools.
+- Enforce all outbound (egress) traffic from the AKS cluster to go through Azure Firewall by using user-defined routes (UDRs) on all cluster subnets. This includes subnets with system and user node pools.
 - Limit outbound traffic by adding NSGs on subnets with node pools.
 - Use Kubernetes `NetworkPolicies` to restrict egress traffic from the pods.
 - Use a service mesh to handle additional policies. For example, if you only allow TLS-encrypted traffic between pods, the service mesh proxy can handle the TLS verification. That example is demonstrated in this implementation. Envoy is deployed as the proxy.
 - Prevent addition of public IP addresses to the networks within the CDE unless by subnets explicitly authorized, such as the Firewall subnets.
 - Use an HTTP proxy, in addition to Azure Firewall, to limit outbound (egress) traffic from the AKS cluster to the internet.
+- Use [Azure Monitor Private Link Service](/azure/azure-monitor/logs/private-link-security) (AMPLS) to have logs from Container insights sent over a secure, private connection to Azure Monitor. Understand the impact of [enabling AMPLS](/azure/azure-monitor/logs/private-link-security#private-link-access-modes-private-only-vs-open).
 
 > [!NOTE]
->
 > You can use Kubernetes `NetworkPolicies` to restrict ingress and egress traffic to and from the pods.
-
-AKS requires some public internet access to access the Azure-managed control plane. For example, the cluster wants to send metrics and logs to Azure Monitor. You can set scoped rules by specifying the source and destination FQDN targets or FQDN tags. Although using tags makes it easier to set the rules, some tags might include more targets than you need, making the rule overly permissive. Review the tags to make sure it has just the right targets you need. Consider using explicit rules for added control. Understand that that involves a tradeoff of management and complexity, including removing rules that are no longer necessary.
 
 For details, see [Control egress traffic for cluster nodes in Azure Kubernetes Service (AKS)](/azure/aks/limit-egress-traffic).
 
@@ -338,11 +323,11 @@ Do not disclose private IP addresses and routing information to unauthorized par
 
 ##### Your responsibilities
 
-To meet this requirement, a public AKS cluster is not an option. A private cluster keeps DNS records off the public internet by using a private DNS zone. However, it's still possible to [Create a private AKS cluster with a Public DNS address](/azure/aks/private-clusters#create-a-private-aks-cluster-with-a-public-dns-address). So, it's recommended to *explicitly* disable this feature by setting `enablePrivateClusterPublicFQDN` to `false` to prevent disclosure of your control plane's private IP address. Consider adding Azure Policy to enforce the use of private clusters without public DNS records.
+To meet this requirement, a public AKS cluster is not an option. A private cluster keeps DNS records off the public internet by using a private DNS zone. However, it's still possible to [Create a private AKS cluster with a Public DNS address](/azure/aks/private-clusters#create-a-private-aks-cluster-with-a-public-dns-address). So, it's recommended to *explicitly* disable this feature by setting `enablePrivateClusterPublicFQDN` to `false` to prevent disclosure of your control plane's private IP address. Consider using Azure Policy to enforce the use of private clusters without public DNS records.
 
 Also, use a private DNS zone for routing between the subnet that has Azure Application Gateway integrated with WAF, and the subnet that has the internal load balancer. Ensure that no HTTP responses include any private IP information in the headers or body. Ensure that logs that might contain IP and DNS records are not exposed outside of operational needs.
 
-An Azure service that's connected through Private Link doesn't have a public DNS record exposing your IPs. Your infrastructure should make use of Private Link optimally.
+An Azure service that's connected through Private Link doesn't have a public DNS record exposing your IP addresses. Your infrastructure should make optimal use of Private Link.
 
 ### Requirement 1.4
 
@@ -364,7 +349,18 @@ Ensure that security policies and operational procedures for managing firewalls 
 
 It's critical that you maintain thorough documentation about the process and policies. This is especially true when you're managing Azure Firewall rules that segment the AKS cluster. People operating regulated environments must be educated, informed, and incentivized to support the security assurances. This is particularly important for people with accounts that are granted broad administrative privileges.
 
-## Requirement 2
+### **Requirement 2**&mdash;Do not use vendor-supplied defaults for system passwords and other security parameters.
+
+#### Your responsibilities
+
+|Requirement|Responsibility|
+|---|---|
+|[Requirement 2.1](#requirement-21)|Always change vendor-supplied defaults and remove or disable unnecessary default accounts before installing a system on the network.|
+|[Requirement 2.2](#requirement-22)|Develop configuration standards for all system components. Assure that these standards address all known security vulnerabilities and are consistent with industry-accepted system hardening standards.|
+|[Requirement 2.3](#requirement-23)|Encrypt all non-console administrative access using strong cryptography.|
+|[Requirement 2.4](#requirement-24)|Maintain an inventory of system components that are in scope for PCI DSS.|
+|[Requirement 2.5](#requirement-25)|Ensure that security policies and operational procedures for managing vendor defaults and other security parameters are documented, in use, and known to all affected parties.|
+|[Requirement 2.6](#requirement-26)|Shared hosting providers must protect each entity's hosted environment and cardholder data.|
 
 Do not use vendor-supplied defaults for system passwords and other security parameters
 
@@ -461,7 +457,7 @@ The Open Policy Agent admission controller works in conjunction with Azure Polic
 
 At the infrastructure level, you can apply restrictions on the type and configuration of Azure resources. Use Azure Policy to prevent those cases. In this reference implementation, there's a policy that denies the creation of AKS clusters that aren't private.
 
-Make sure all exceptions are documented.
+Routinely ensure all exceptions are documented and reviewed.
 
 ##### Azure responsibilities
 
@@ -515,7 +511,9 @@ Shared hosting providers must protect each entity's hosted environment and cardh
 
 #### Your responsibilities
 
-Azure provides security assurances for the hosted environment that are shared. It's highly recommended that you use dedicated hosts for AKS nodes. That is, the compute should be in a single tenant model.
+Azure provides security assurances for any hosted environment components that are shared. It's highly recommended that you treat your AKS nodes as a dedicated host for this workload. That is, all compute should be in a single tenant model and not shared with other workloads you may operate.
+
+If complete compute isolation is desired at the Azure infrastructure level, you can [Add Azure Dedicated Host to an Azure Kubernetes Service (AKS) cluster](/azure/aks/use-azure-dedicated-hosts). This offering provides _physical_ servers dedicated to your workload, allowing you to place AKS nodes directly into these provisioned hosts. This architectural choice has significant cost & capacity planning impact and is not typical for most scenarios.
 
 ## Next steps
 

@@ -3,10 +3,10 @@ metadata:
   title: Disconnected AI at the edge with Azure Stack Hub
   titleSuffix: Azure Architecture Center
   description: Harness the power of edge AI when disconnected from the internet and move your AI models to the edge with a solution architecture that includes Azure Stack Hub.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
-  ms.date: 07/14/2022
-  ms.topic: conceptual
+  ms.date: 11/29/2022
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -23,7 +23,6 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/ai-at-the-edge-disconnected"
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/ai-at-the-edge-disconnected.png
 name: Disconnected AI at the edge with Azure Stack Hub
 azureCategories:
   - ai-machine-learning
@@ -35,6 +34,6 @@ products:
   - azure-kubernetes-service
   - azure-machine-learning
   - azure-stack-hub
-thumbnailUrl: /azure/architecture/browse/thumbs/ai-at-the-edge-disconnected.png
+thumbnailUrl: /azure/architecture/browse/thumbs/ai-at-the-edge-disconnected-thumbnail.png
 content: |
   [!include[](ai-at-the-edge-disconnected-content.md)]

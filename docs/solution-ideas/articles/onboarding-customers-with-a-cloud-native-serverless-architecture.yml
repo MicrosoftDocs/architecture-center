@@ -3,10 +3,10 @@ metadata:
   title: Serverless computing solution for LOB apps
   titleSuffix: Azure Solution Ideas
   description: Build and run customer onboarding applications without managing or maintaining infrastructure. Improve developer productivity with this serverless architecture.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 06/06/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -23,7 +23,6 @@ metadata:
     - lift and shift strategy
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/onboarding-customers-with-a-cloud-native-serverless-architecture"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/onboarding-customers-with-a-cloud-native-serverless-architecture.png
 name: Serverless computing solution for LOB apps
 azureCategories:
   - migration

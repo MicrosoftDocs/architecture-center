@@ -1,10 +1,10 @@
-Advanced's Automated COBOL Refactoring solution refactors COBOL applications to deliver cloud-enabled applications and databases that are functionally equivalent to their legacy counterparts. This reduces costs, allows for deeper integration, and enables customization to meet business requirements. In addition, it unlocks a whole new world of quality and scalability, from automated testing to quality assurance, and the ability to benefit from containerized deployments and orchestration with Docker and Kubernetes.
+Advanced's Automated COBOL Refactoring solution refactors COBOL applications, as well those written in CA-Gen, CA-Telon, Natural, ADSO and other legacy languages, to deliver cloud-enabled applications and databases that are functionally equivalent to their legacy counterparts. This reduces costs, allows for deeper integration, and enables customization to meet business requirements. In addition, it unlocks a whole new world of quality and scalability, from automated testing to quality assurance, and the ability to benefit from containerized deployments and orchestration with Docker and Kubernetes.
 
 ## Mainframe architecture
 
 Here's an example system where automated factoring can be used:
 
-:::image type="content" source="media/refactor-mainframe-applications-advanced-pre.png" alt-text="System architecture on the mainframe" lightbox="media/refactor-mainframe-applications-advanced-pre.png":::
+:::image type="content" source="media/refactor-mainframe-applications-advanced-pre.png" alt-text="Architecture diagram that shows a mainframe system that includes legacy-language applications." lightbox="media/refactor-mainframe-applications-advanced-pre.png":::
 
 ### Workflow
 
@@ -30,9 +30,9 @@ I. Partitions run separate workloads, or segregate work types within the environ
 
 This is the architecture of the example system shown above when refactored for Azure. Note that the letter callouts in the diagrams reveal where the refactored solution handles the corresponding mainframe functionality.
 
-:::image type="content" source="media/refactor-mainframe-applications-advanced-post.png" alt-text="The system architecture on Azure after refactoring" lightbox="media/refactor-mainframe-applications-advanced-post.png":::
+:::image type="content" source="media/refactor-mainframe-applications-advanced-post.png" alt-text="Architecture diagram that shows the system on Azure after refactoring." lightbox="media/refactor-mainframe-applications-advanced-post.png":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-1885559-refactor-mainframe-applications-advanced.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/refactor-mainframe-applications-advanced.vsdx) of this architecture.*
 
 ## Workflow
 
@@ -79,7 +79,7 @@ This example features the following Azure components. Several of these component
 - [Azure Storage](https://azure.microsoft.com/product-categories/storage) is scalable, secure cloud storage for all your data, applications, and workloads.
   - [Azure Disk Storage](https://azure.microsoft.com/services/storage/disks) is high-performance, durable block storage for business-critical applications. Azure managed disks are block-level storage volumes that are managed by Azure on Azure VMs. The available types of disk storage are Ultra Disk Storage, Premium SSD, Standard SSD, and Standard HDD. This architecture uses either Premium SSD or Ultra Disk Storage.
   - [Azure Files](https://azure.microsoft.com/services/storage/files) offers fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. Cloud and on-premises Windows, Linux, and macOS deployments can mount file shares concurrently.
-  - [Azure NetApp Files](https://azure.microsoft.com/services/netapp) provides enterprise-grade Azure file shares that are powered by NetApp. NetApp Files makes it easy for enterprises to migrate and run complex, file-based applications with no code changes.
+  - [Azure NetApp Files](https://azure.microsoft.com/services/netapp) provides enterprise-grade Azure file shares that are powered by NetApp. Azure NetApp Files makes it easy for enterprises to migrate and run complex, file-based applications with no code changes.
   - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) is scalable and secure object storage for archives, data lakes, high-performance computing, machine learning, and cloud-native workloads.
 - [Azure databases](https://azure.microsoft.com/product-categories/databases) offer a choice of fully managed relational and NoSQL databases to fit modern application needs. Automated infrastructure management provides scalability, availability, and security.
   - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed PaaS database engine. SQL Database always runs on the latest stable version of SQL Server and a patched OS with high availability. Built-in PaaS database management capabilities include upgrading, patching, backups, and monitoring. You can focus on domain-specific, business-critical database administration and optimization.
@@ -92,11 +92,11 @@ This example features the following Azure components. Several of these component
 
 There are many reasons to look for alternatives to the COBOL-based mainframe applications that are still common:
 
-- COBOL developers are retiring and no one is trained to replace them, resulting in a steadily diminishing talent pool. As the talent shortage grows, the costs and risks of relying on COBOL increase.
+- COBOL and CA-Gen/Natural/Telon/ASDO developers are retiring and no one is trained to replace them, resulting in a steadily diminishing talent pool. As the talent shortage grows, the costs and risks of relying on COBOL and other legacy languages increase.
 - The applications weren't designed for modern IT, resulting in difficult integrations and limited flexibility.
 - IBM mainframe hardware and software are expensive, and licensing and maintenance fees for ancillary mainframe applications and databases are rising.
 
-Advanced's Automated COBOL Refactoring solution refactors COBOL applications to deliver cloud-enabled applications and databases that are functionally equivalent to their legacy counterparts. This reduces costs, allows for deeper integration, and enables customization to meet business requirements. In addition, it unlocks a whole new world of quality and scalability, from automated testing to quality assurance, and the ability to benefit from containerized deployments and orchestration with Docker and Kubernetes.
+Advanced's Automated COBOL Refactoring solution refactors COBOL applications, as well those written other legacy languages, to deliver cloud-enabled applications and databases that are functionally equivalent to their legacy counterparts. This reduces costs, allows for deeper integration, and enables customization to meet business requirements. In addition, it unlocks a whole new world of quality and scalability, from automated testing to quality assurance, and the ability to benefit from containerized deployments and orchestration with Docker and Kubernetes.
 
 The refactored applications:
 
@@ -158,6 +158,16 @@ Azure avoids unnecessary costs by identifying the correct number of resource typ
 - SQL Database optimizes costs with serverless compute and Hyperscale storage resources that automatically scale. For more information about SQL Database options and pricing, see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/azure-sql-database/single).
 - Use the [Pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your implementation of this solution.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Bhaskar Bandam](https://www.linkedin.com/in/bhaskar-bandam-75202a9/) | Senior TPM
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - For more information, please contact legacy2azure@microsoft.com.
@@ -168,5 +178,5 @@ Azure avoids unnecessary costs by identifying the correct number of resource typ
 ## Related resources
 
 - [Azure mainframe and midrange architecture concepts and patterns](/azure/architecture/mainframe/mainframe-midrange-architecture)
-- [IBM z/OS mainframe migration with Asysco AMT](../../example-scenario/mainframe/asysco-zos-migration.yml)
-- [Refactor mainframe applications to Azure with Raincode compilers](../../reference-architectures/app-modernization/raincode-reference-architecture.yml)
+- [IBM z/OS mainframe migration with Avanade AMT](../../example-scenario/mainframe/asysco-zos-migration.yml)
+- [Rehost mainframe applications to Azure with Raincode compilers](../../reference-architectures/app-modernization/raincode-reference-architecture.yml)

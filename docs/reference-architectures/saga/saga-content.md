@@ -74,7 +74,7 @@ Consider the following points when implementing the Saga pattern:
 - The Saga pattern may initially be challenging, as it requires a new way of thinking on how to coordinate a transaction and maintain data consistency for a business process spanning multiple microservices.
 - The Saga pattern is particularly hard to debug, and the complexity grows as participants increase.
 - Data can't be rolled back, because saga participants commit changes to their local databases.
-- The implementation must be capable of handling a set of potential transient failures, and provide *idempotence* for reducing side-effects and ensuring data consistency. Idempotence means that the same operation can be repeated multiple times without changing the initial result.
+- The implementation must be capable of handling a set of potential transient failures, and provide *idempotence* for reducing side-effects and ensuring data consistency. Idempotence means that the same operation can be repeated multiple times without changing the initial result. For more information, see the [guidance on ensuring idempotence when processing messages and updating state together](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing).
 - It's best to implement observability to monitor and track the saga workflow.
 - The lack of participant data isolation imposes durability challenges. The saga implementation must include countermeasures to reduce anomalies.
 

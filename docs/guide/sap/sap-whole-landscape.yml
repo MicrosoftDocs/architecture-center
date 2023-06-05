@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: SAP landscape architecture
+  description: Best practices and recommendations for architecting an entire SAP landscape on Azure. 
+  author: msftrobiro
+  ms.author: ssumner
+  ms.reviewer: ssumner
+  ms.date: 04/03/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - databases
+  - compute
+products:
+  - azure-virtual-machines
+  - azure-linux-vm
+  - azure-virtual-network
+  - azure-files
+  - azure-load-balancer
+name: SAP landscape architecture
+summary: Best practices and recommendations for architecting an entire SAP landscape on Azure. 
+thumbnailUrl: /azure/architecture/browse/thumbs/sap-whole-landscape.png
+content: |
+  [!include[](sap-whole-landscape-content.md)]

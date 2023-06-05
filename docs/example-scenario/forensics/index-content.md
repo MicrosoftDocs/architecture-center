@@ -181,6 +181,14 @@ The Copy-VmDigitalEvidence runbook performs the following actions:
 1. Repeats the disk snapshots, snapshot and key copying, and hash generation and copying for each data disk attached to the VM
 1. Removes all the source snapshots generated during the process
 
+### Deployment without a Hybrid Runbook Worker node
+
+You can execute the code within a VM with the following configuration:
+
+- The VM must be hosted in the same subnet that grants access to the Storage account.
+- The VM must have a managed identity to which must be given access to target VM's subscription.
+- Inside this VM, you can run the code without the associated 'if' statement.
+
 ### Evidence retrieval
 
 After the execution of the Copy-VmDigitalEvidence runbook, the evidence is stored on the SOC Blob Storage account as a file with .vhd extension.
@@ -262,9 +270,11 @@ After the script execution, you will be prompted for the encryption passphrase. 
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 * [Simone Savi](https://www.linkedin.com/in/simone-savi-3b50aa7) | Senior Consultant
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

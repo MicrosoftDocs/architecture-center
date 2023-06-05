@@ -3,10 +3,10 @@ metadata:
   title: Demand forecasting for shipping and distribution
   titleSuffix: Azure Solution Ideas
   description: Use historical demand data to train a demand forecasting model for shipping and distribution solutions on Microsoft AI Platform.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 05/24/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -21,7 +21,6 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/demand-forecasting-for-shipping-and-distribution"
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/demand-forecasting-for-shipping-and-distribution.png
 name: Demand forecasting for shipping and distribution
 azureCategories:
   - analytics

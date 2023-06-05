@@ -3,10 +3,10 @@ metadata:
   title: Visual assistant
   titleSuffix: Azure Architecture Center
   description: Visual assistant identifies image content and delivers related information. It can read business cards and barcodes and recognize people, places, and objects.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/27/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -21,7 +21,6 @@ metadata:
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/visual-assistant"
     - ai-machine-learning
-  social_image_url: /azure/architecture/solution-ideas/articles/media/visual-assistant.png
 name: Visual assistant
 azureCategories:
   - ai-machine-learning

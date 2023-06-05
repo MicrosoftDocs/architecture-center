@@ -1,12 +1,12 @@
 ### YamlMime:Architecture
 metadata:
-  title: Scalable apps using Azure DB for MySQL
+  title: Scalable apps using Azure Database for MySQL
   titleSuffix: Azure Solution Ideas
   description: Use Azure Database for MySQL to rapidly build engaging, performant, and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.
   author: mootpointer
   ms.author: anharvey
   ms.date: 06/13/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -22,7 +22,6 @@ metadata:
     - azure
     - solutions
     - "https://azure.microsoft.com/solutions/architecture/scalable-web-and-mobile-applications-using-azure-database-for-mysql"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/scalable-web-and-mobile-applications-using-azure-database-for-mysql.png
 name: Scalable web and mobile applications using Azure Database for MySQL
 azureCategories:
   - mobile

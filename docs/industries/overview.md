@@ -1,9 +1,9 @@
 ---
 title: Industry solutions with Azure
 description: Get an overview of opportunities that Azure provides, organized to various industries, including retail, financial, healthcare, manufacturing, and many more.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
-ms.date: 08/26/2022
+ms.date: 11/01/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -47,7 +47,7 @@ The digital landscape is being transformed by unprecedented amounts of data acro
 |[Facilities and real estate](facilities-real-estate.md)     |   IoT, AI, machine learning, and other Azure technologies can help building owners, operators, and occupants save money and live better lives.      |
 |[Aerospace](aerospace.md)     |     Intelligent cloud analytics, AI and machine learning, speech capabilities, and improved security are just some of the benefits that aerospace enterprises gain by using Azure.    |
 |[Agriculture](/azure/industry/agriculture/overview-azure-farmbeats?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |    Agriculture businesses can use Azure FarmBeats, a business-to-business technology, to build AI or machine learning models that are based on aggregated data sets.     |
-|[Sports](../example-scenario/analytics/sports-analytics-architecture-azure.yml)     |    There's been an explosion of data in recent years that sports teams can use to improve the performance of an individual athlete or an entire team. This article presents a practical architecture that uses Azure services to process and maintain data used by sports analytics solutions.     |
+|[Sports](../industries/sports.md)     |    There's been an explosion of data in recent years that sports teams can use to improve the performance of an individual athlete or an entire team.     |
 
 ## Related resources
 

@@ -1,10 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Store, manage, and analyze HIPAA-compliant and HITRUST-compliant health data and medical records with the highest level of built-in security.
-
-## Potential use cases
-
-This solution is ideal for the medical and healthcare industry.
+This article describes how you can store, manage, and analyze HIPAA-compliant and HITRUST-compliant health data and medical records with a high level of built-in security.
 
 ## Architecture
 
@@ -35,6 +31,14 @@ This solution is ideal for the medical and healthcare industry.
 - [Azure Monitor](https://azure.microsoft.com/services/monitor): Full observability into your applications, infrastructure, and network
 - [Operation Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite): A collection of management services that were designed in the cloud from the start
 - [Azure RBAC and built-in roles](/azure/role-based-access-control/built-in-roles): Azure role-based access control (Azure RBAC) has several built-in role definitions that you can assign to users, groups, and service principals.
+
+## Scenario details
+
+This solution demonstrates how you can store, manage, and analyze HIPAA-compliant and HITRUST-compliant health data and medical records with a high level of built-in security.
+
+### Potential use cases
+
+This solution is ideal for the medical and healthcare industry.
 
 ## Next steps
 

@@ -7,7 +7,7 @@ editor: marktab
 services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/16/2021
 ms.author: tdsp
 ms.custom:
@@ -257,3 +257,13 @@ It is safe to drop the *\<external text file table name\>* when using the follow
 ```
 
 After following this procedure, you should have a table with data in the ORC format ready to use.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*

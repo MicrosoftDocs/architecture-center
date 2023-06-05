@@ -3,10 +3,10 @@ metadata:
   title: COVID-19 safe solutions with IoT Edge
   titleSuffix: Azure Architecture Center
   description: Create a COVID-19 safe environment that monitors social distance, mask/PPE use, and occupancy requirements with CCTVs and Azure IoT Edge, Stream Analytics, and Machine Learning.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/14/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -28,6 +28,7 @@ products:
   - azure-kubernetes-service
   - azure-service-bus
   - azure-stream-analytics
+  - azure-monitor
 thumbnailUrl: /azure/architecture/browse/thumbs/bosch-cctv-iot-edge-covid-19-safe-environment-mask-detection.png
 content: |
   [!include[](cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection-content.md)]

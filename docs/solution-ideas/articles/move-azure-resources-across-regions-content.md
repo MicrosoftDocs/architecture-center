@@ -1,21 +1,12 @@
-With the growth of Microsoft Azure and its evolving set of regions worldwide, customers have a need to move deployments from one region to another. Moving applications across regions is an activity that demands a well thought-out plan, to ensure you move all resources seamlessly, and that applications are up and running in the new region with minimal downtime.
-
-The recommendations and architecture in this example provide guidance on efficiently, securely, and seamlessly moving Azure resources across regions.
-
-## Potential use cases
-
-Some of the top reasons for moving resources to a different region include the following cases:
-
-* Align to a region launch: Move resources to a newly introduced Azure region that wasn't previously available.
-* Align for services or features: Move resources to take advantage of services or features that are available in a specific region.
-* Respond to business developments: Move resources to a region in response to business changes, such as mergers or acquisitions.
-* Align for proximity: Move resources to a region local to your business.
+This solution moves Azure resources across regions efficiently, securely, and seamlessly. See key steps, considerations, and strategies for planning and carrying out a move.
 
 ## Architecture
 
-![Diagram architecture configuration.](../media/move-azure-resources-architecture-diagram.png)
+:::image type="content" border="false" source="../media/move-azure-resources-architecture-diagram.svg" alt-text="Diagram that shows the dataflow of moving Azure resources across regions solution." lightbox="../media/move-azure-resources-architecture-diagram.svg":::
 
-## Dataflow
+*Download a [Visio file](https://arch-center.azureedge.net/move-azure-resources-across-regions.vsdx) of this architecture.*
+
+### Dataflow
 
 - **On-premises data center network**: A private local-area network running within an organization to support the on-premises resources.
 - **ExpressRoute circuit**: ExpressRoute connections use a private, dedicated connection through a third-party connectivity provider. The private connection extends an on-premises network into Azure.
@@ -46,7 +37,22 @@ The example architecture uses the following components:
 * [Cognitive services](https://azure.microsoft.com/services/cognitive-services)
 * [Azure Automation](https://azure.microsoft.com/services/automation)
 
-## Steps to move resources across regions
+## Scenario details
+
+With the growth of Microsoft Azure and its evolving set of regions worldwide, customers have a need to move deployments from one region to another. Moving applications across regions is an activity that demands a well thought-out plan, to ensure you move all resources seamlessly, and that applications are up and running in the new region with minimal downtime.
+
+The recommendations and architecture in this example provide guidance on efficiently, securely, and seamlessly moving Azure resources across regions.
+
+### Potential use cases
+
+Some of the top reasons for moving resources to a different region include the following cases:
+
+* Align to a region launch: Move resources to a newly introduced Azure region that wasn't previously available.
+* Align for services or features: Move resources to take advantage of services or features that are available in a specific region.
+* Respond to business developments: Move resources to a region in response to business changes, such as mergers or acquisitions.
+* Align for proximity: Move resources to a region local to your business.
+
+### Steps to move resources across regions
 
 Since your requirements might differ from the example architecture, use the following recommendations as a starting point:
 
@@ -82,9 +88,11 @@ Since your requirements might differ from the example architecture, use the foll
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 Consider the following points when making a cross-regional move:
 
-* Your plan for migrating across regions must take into account complex infrastructure. Modern infrastructure environments often span across on-premises infrastructure to the cloud. Some even have an extra level of complexity, with a multi-cloud strategy containing private or public deployments.
+* Your plan for migrating across regions must take into account complex infrastructure. Modern infrastructure environments often span across on-premises infrastructure to the cloud. Some even have an extra level of complexity, with a multicloud strategy containing private or public deployments.
 
 * Move resource types together. By combining the move of similar resource types (for example, 50 virtual machines or 20 SQL databases), you can plan the preparation step of your move more easily and ensure that long-running operations complete together, which helps reduce downtime.
 
@@ -108,9 +116,12 @@ Consider the following points when making a cross-regional move:
 ## Next steps
 
 * [Moving Azure resources across regions](/azure/azure-resource-manager/management/move-region)
-
-## Related resources
-
 * [Support for moving Azure resources across regions](/azure/azure-resource-manager/management/region-move-support)
 * [Move Azure VMs to another region](/azure/site-recovery/azure-to-azure-tutorial-migrate)
 * [Move resources to new region - Azure SQL Database & Azure SQL Managed Instance](/azure/azure-sql/database/move-resources-across-regions)
+
+## Related resources
+
+- [Azure resource organization in multitenant solutions](../../guide/multitenant/approaches/resource-organization.yml)
+- [Multi-region N-tier application](../../reference-architectures/n-tier/multi-region-sql-server.yml)
+- [Multi-region load balancing with Traffic Manager and Application Gateway](../../high-availability/reference-architecture-traffic-manager-application-gateway.yml)

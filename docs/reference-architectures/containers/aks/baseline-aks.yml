@@ -4,8 +4,8 @@ metadata:
   description: Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.
   author: PageWriter-MSFT
   ms.author: prwilk
-  ms.date: 07/14/2022
-  ms.topic: conceptual
+  ms.date: 10/14/2022
+  ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.category:
@@ -28,6 +28,6 @@ products:
   - azure-firewall
   - azure-kubernetes-service
   - azure-rbac
-thumbnailUrl: /azure/architecture/browse/thumbs/secure-baseline-architecture.png
+thumbnailUrl: /azure/architecture/browse/thumbs/aks-baseline-architecture.png
 content: |
    [!include[](baseline-aks-content.md)]

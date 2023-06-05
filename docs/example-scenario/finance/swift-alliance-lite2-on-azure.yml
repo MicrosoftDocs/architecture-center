@@ -5,8 +5,8 @@ metadata:
   description: Deploy SWIFT Alliance Lite2 on Azure. Migrate an existing deployment from on-premises or create a new deployment. 
   author: ehaslett
   ms.author: ethaslet
-  ms.date: 06/09/2022
-  ms.topic: conceptual
+  ms.date: 03/23/2023
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom: fcp
@@ -20,6 +20,6 @@ products:
   - azure-expressroute
 name: SWIFT Alliance Lite2 on Azure
 summary: Deploy Azure infrastructure for SWIFT Alliance Lite2.
-thumbnailUrl: /azure/architecture/browse/thumbs/swift-lite2.png
+thumbnailUrl: /azure/architecture/browse/thumbs/diagrams-swift-alliance-lite2-azure.png
 content: |
   [!include[](swift-alliance-lite2-on-azure-content.md)]

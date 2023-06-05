@@ -7,7 +7,7 @@ editor: marktab
 services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/18/2022
 ms.author: tdsp
 categories:
@@ -20,6 +20,7 @@ ms.custom:
   - previous-author=deguhath
   - previous-ms.author=deguhath
   - azure-machine-learning
+  - devx-track-python
 ---
 
 # Scalable data science with Azure Data Lake
@@ -762,6 +763,16 @@ The web service dashboard displays shortly:
 
 ## Summary
 By completing this walkthrough, you've created a data science environment for building scalable end-to-end solutions in Azure Data Lake. This environment was used to analyze a large public dataset, taking it through the canonical steps of the Data Science Process, from data acquisition through model training, and then to the deployment of the model as a web service. U-SQL was used to process, explore, and sample the data. Python and Hive were used with Azure Machine Learning studio (classic) to build and deploy predictive models.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

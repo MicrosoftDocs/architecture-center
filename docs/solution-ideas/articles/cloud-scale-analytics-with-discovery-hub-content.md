@@ -1,17 +1,12 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Use TimeXtender to define a data estate using a graphical user interface, with definitions stored in a metadata repository. Code for building the data estate is generated automatically while remaining fully customizable. The results are a modern data warehouse that is ready to support cloud scale analytics and AI.
-
-## Potential use cases
-
-* No infrastructure issues or maintenance
-* Consistent performance
-* Deploy and manage both the architecture and the data pipelines, data models and semantic models
+This solution idea describes how to use the TimeXtender graphical interface to define a data estate. 
 
 ## Architecture
 
-![Architecture Diagram](../media/cloud-scale-analytics-with-discovery-hub.png)
-*Download an [SVG](../media/cloud-scale-analytics-with-discovery-hub.svg) of this architecture.*
+![Diagram showing the dataflow for TimeXtender with cloud scale analytics solution.](../media/cloud-scale-analytics-with-discovery-hub.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/cloud-scale-analytics-with-discovery-hub.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -29,6 +24,16 @@ Use TimeXtender to define a data estate using a graphical user interface, with d
 * [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services): Enterprise-grade analytics engine as a service
 * [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded): Embed fully interactive, stunning data visualizations in your applications
 
+## Scenario details
+
+You can use TimeXtender to define a data estate via a graphical user interface. Definitions are stored in a metadata repository. Code for building the data estate is generated automatically while remaining fully customizable. The results are a modern data warehouse that is ready to support cloud scale analytics and AI.
+
+### Potential use cases
+
+* No infrastructure issues or maintenance
+* Consistent performance
+* Deploy and manage both the architecture and the data pipelines, data models and semantic models
+
 ## Next steps
 
 * [Azure Data Lake Storage documentation](https://azure.microsoft.com/services/storage/data-lake-storage)
@@ -36,3 +41,9 @@ Use TimeXtender to define a data estate using a graphical user interface, with d
 * [Azure Synapse Analytics documentation](https://azure.microsoft.com/services/sql-data-warehouse)
 * [Azure Analysis Services documentation](https://azure.microsoft.com/services/analysis-services)
 * [Power BI Embedded documentation](https://azure.microsoft.com/services/power-bi-embedded)
+
+## Related resources
+
+- [Modern data warehouse for small and medium business](../../example-scenario/data/small-medium-data-warehouse.yml)
+- [Data warehousing and analytics](../../example-scenario/data/data-warehouse.yml)
+- [Modern analytics architecture with Azure Databricks](../../solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml)

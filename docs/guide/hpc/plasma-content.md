@@ -8,7 +8,7 @@ Samadii Plasma:
 - Uses the finite element method to analyze the Maxwell equation.
 - Calculates various reactions based on collision theory by freely inputting collision cross section and chemical reaction equations.
 
-Organizations that use Samadii Plasma include manufacturers of flat panel and OLED displays and manufacturers of semiconductors.
+Organizations that use Samadii Plasma include manufacturers of flat panel and OLED displays and manufacturers of semiconductors. This solution is ideal for the manufacturing and electronics industries.
 
 ## Why deploy Samadii Plasma on Azure?
 

@@ -5,8 +5,8 @@ metadata:
   description: See how to achieve enterprise-grade logging with a common logging method that enables end-to-end traceability across different applications.
   author: yemrea
   ms.author: yemrea
-  ms.date: 10/05/2022
-  ms.topic: conceptual
+  ms.date: 04/12/2023
+  ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
 azureCategories:

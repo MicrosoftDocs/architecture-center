@@ -2,7 +2,7 @@
 metadata:
   title: Data considerations for microservices
   description: Learn about managing data in a microservices architecture. Data integrity and data consistency are critical challenges for microservices.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/26/2022
   ms.topic: conceptual

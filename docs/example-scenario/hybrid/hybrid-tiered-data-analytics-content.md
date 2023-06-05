@@ -1,30 +1,8 @@
 This solution shows how to use Azure Stack Hub and cloud-based Azure to stage, analyze, process, sanitize, and store data across multiple on-premises and cloud locations.
 
-When you design a solution for secure data storage, processing, and analysis, you need to take these considerations into account:
-
-- Data content
-- Location
-- Security and privacy requirements
-- Access permissions
-- Maintenance
-- Storage warehousing
-
-Azure, together with Azure Stack Hub, addresses data concerns and provides low-cost solutions.
-
-The architecture described here is best exemplified by a distributed manufacturing or logistics company. Using both on-premises and public cloud environments meets the demands of multi-facility enterprises. Azure Stack Hub offers a rapid, secure, and flexible solution for collecting, processing, storing, and distributing local and remote data.
-
-This solution is especially useful when security, confidentiality, corporate policy, and regulatory requirements differ among locations and users.
-
-## Potential use cases
-
-This solution applies to large multi-branch manufacturing and logistics organizations that require:
-
-- Rapid and secure data storage, processing, and distribution between global remote locations and central headquarters.
-- Security of employee and machinery activity, facility information, and business reporting data. The data must be distributed appropriately and meet regional compliance policies and industry regulations.
-
 ## Architecture
 
-![Diagram that shows an architecture for staging, analyzing, processing, sanitizing, and storing data across multiple on-premises and cloud locations.](../hybrid/media/hybrid-tiered-data-analytics.png)  
+![Diagram that shows an architecture for staging, analyzing, processing, sanitizing, and storing data across multiple on-premises and cloud locations.](../hybrid/media/hybrid-tiered-data-analytics.svg)  
 _Download a [Visio file](https://arch-center.azureedge.net/hybrid-tiered-data-analytics.vsdx) of this architecture._
 
 ### Dataflow
@@ -53,18 +31,49 @@ _Download a [Visio file](https://arch-center.azureedge.net/hybrid-tiered-data-an
 - You can use other storage solutions. For example, [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is an intelligent, scalable relational database service that's built for the cloud. You can [use SQL databases on Azure Stack Hub](/azure-stack/operator/azure-stack-sql-resource-provider).
 - [Event Hubs on Azure Stack Hub](/azure-stack/operator/event-hubs-rp-overview) can be used instead of Queue Storage for cloud messaging. Streaming and event-based solutions are supported for both on-premises and Azure cloud processing.
 
+## Scenario details
+
+When you design a solution for secure data storage, processing, and analysis, you need to take these considerations into account:
+
+- Data content
+- Location
+- Security and privacy requirements
+- Access permissions
+- Maintenance
+- Storage warehousing
+
+Azure, together with Azure Stack Hub, addresses data concerns and provides low-cost solutions.
+
+The architecture described here is best exemplified by a distributed manufacturing or logistics company. Using both on-premises and public cloud environments meets the demands of multi-facility enterprises. Azure Stack Hub offers a rapid, highly secure, and flexible solution for collecting, processing, storing, and distributing local and remote data.
+
+This solution is especially useful when security, confidentiality, corporate policy, and regulatory requirements differ among locations and users.
+
+### Potential use cases
+
+This solution applies to large multi-branch manufacturing and logistics organizations that require:
+
+- Rapid and secure data storage, processing, and distribution between global remote locations and central headquarters.
+- Security of employee and machinery activity, facility information, and business reporting data. The data must be distributed appropriately and meet regional compliance policies and industry regulations.
+
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Storage
+
 Blob Storage can hold any type of text or binary data, like documents, media files, and app installers. Every blob is organized in a container. Containers provide a useful way to assign security policies to groups of objects. A storage account can have any number of containers. A container can contain any number of blobs, up to the 500-TB capacity limit of the storage account.
 
 You can use low-cost Blob Storage to archive cool data. Examples of cool data include backups, media content, scientific data, compliance data, and archival data. In general, any data that you access infrequently is considered cool storage. Data tiering is based on attributes like frequency of access and retention period. Customer data is infrequently accessed, but it requires latency and performance that's similar to what's required for hot data.
 
 ### Reliability
 
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+
 Storage is the primary availability consideration for this solution. For large data volume processing and distribution, connection via fast links is required. Azure Storage always stores multiple copies of your data so that it's protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. Redundancy ensures that your storage account meets its availability and durability targets even if there's a failure. For more information, see [Azure Storage redundancy](/azure/storage/common/storage-redundancy).
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 Because this solution captures customer data, security is an important consideration. Use [data protection](/azure/architecture/framework/security/design-storage) guidance from the Azure Well-Architected Framework to secure the storage accounts. Recommendations include configuring proper access policies and rotating keys regularly. Ensure that storage accounts and event hubs have retention policies that meet corporate and government privacy regulations.
 
@@ -74,10 +83,15 @@ For guidance about security for serverless applications with functions, see [Ser
 
 ### Operational excellence
 
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+
 The manageability of this solution depends on the authoring tools that you're using and the use of source control.
-[Azure Arc](/azure/azure-arc/overview) simplifies governance and management by providing a consistent multi-cloud and on-premises management platform. Manage your entire environment, with a single pane of glass, by projecting your non-Azure and on-premises resources into Azure Resource Manager.
+
+[Azure Arc](/azure/azure-arc/overview) simplifies governance and management by providing a consistent multicloud and on-premises management platform. Manage your entire environment, with a single pane of glass, by projecting your non-Azure and on-premises resources into Azure Resource Manager.
 
 ### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
 Azure functions and storage solutions scale to meet data volume and processing demands. For Azure Storage scalability information and targets, see the [Azure Storage scalability documentation](/azure/storage/common/scalability-targets-standard-account).
 

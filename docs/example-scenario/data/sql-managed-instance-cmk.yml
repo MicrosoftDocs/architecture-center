@@ -3,10 +3,10 @@ metadata:
   title: SQL Managed Instance with CMK
   titleSuffix: Azure Example Scenarios
   description: Create a highly available SQL Managed Instance design by using customer-managed keys stored in Azure Key Vault.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: aharsan
-  ms.date: 09/28/2022
-  ms.topic: conceptual
+  ms.date: 03/27/2023
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom: fcp

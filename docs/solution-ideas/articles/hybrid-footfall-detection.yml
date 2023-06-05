@@ -3,10 +3,10 @@ metadata:
   title: AI-based footfall detection 
   titleSuffix: Azure Architecture Center
   description: The article provides an overview for implementing an AI-based footfall detection solution, which analyzes visitor traffic in retail stores. The solution generates insights from real-world actions, by using Azure, Azure Stack Hub, and the Custom Vision AI Dev Kit.
-  author: EdPrice-MSFT
-  ms.author: bryanla
+  author: ronmiab
+  ms.author: robess
   ms.date: 08/16/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:

@@ -157,9 +157,5 @@ Medium/pragmatist               =\> All other responses
 Explore the following references for detailed information on this method:
 
 - Jefferson center: creator of the Citizen's Jury method [https://jefferson-center.org/about-us/how-we-work/](https://jefferson-center.org/about-us/how-we-work/)
-- Case study: Connected Health Cities (UK)
-  - [Project page](https://www.connectedhealthcities.org/chc-hub/public-engagement/citizens-juries-chc/citizens-jury-2018/)
-  - [Final report](https://www.connectedhealthcities.org/wp-content/uploads/2018/08/Reasonable-expectations-jury-report-v1.0-FINAL-09.08.18.pdf)
-  - [Jury specification](https://www.connectedhealthcities.org/wp-content/uploads/2018/06/A1-Reasonable-expectations-citizens-jury-specification-v1.pdf)
-  - [Juror's report](https://www.connectedhealthcities.org/wp-content/uploads/2018/06/C1-NDG-CJ-jurors-report-final.pdf)
+- Case study: [Connected Health Cities (UK)](https://connectedhealthcities.github.io/hub/ppi/connected-health-cities-citizens-juries-report.html)
 - Case study: [Community Jury at Microsoft](https://hits.microsoft.com/Study/6014413)

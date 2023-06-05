@@ -1,10 +1,10 @@
 ---
 title: Hybrid architecture design
 description: Get an introductory overview of hybrid cloud technologies and how you can connect an on-premises environment to Azure in a way that works best for your organization.
-author: EdPrice-MSFT
+author: martinekuan
 ms.service: architecture-center
 ms.subservice: reference-architecture
-ms.topic: conceptual
+ms.topic: reference-architecture
 ms.date: 07/26/2022
 ms.author: architectures
 categories:

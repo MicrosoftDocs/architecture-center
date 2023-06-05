@@ -4,7 +4,7 @@ This example will show you how Azure services such as virtual machine scale sets
 
 ![Architecture diagram showing back-end components for a private enterprise blockchain network.](./media/architecture-decentralized-trust.png)
 
-*Download a [Visio file](https://arch-center.azureedge.net/architecture-decentralized-trust.vsdx) of this architecture.*
+*Access the [Visio diagram](https://office.live.com/start/Visio.aspx?omkt=en-us&templatetitle=Decentralized%20trust%20between%20banks%20on%20Azure&templateid=TM45269685) online, through Microsoft 365. Note that you must have a Visio license to access this diagram. Or, download a [Visio file](https://arch-center.azureedge.net/architecture-decentralized-trust.vsdx) of this architecture.*
 
 This scenario covers the back-end components that are necessary to create a scalable, secure, and monitored private, enterprise distributed ledger technology (DLT) network within a consortium of two or more members. Details of how these components are provisioned (that is, within different subscriptions and resource groups), as well as the connectivity requirements (that is, VPN or ExpressRoute), that are left for your consideration, are based on your organization's policy requirements.
 
@@ -99,6 +99,8 @@ To deploy a pre-configured network of Corda nodes, review the [guide that is ava
 Principal author:
 
 * [Vito Chin](https://www.linkedin.com/in/vitochin) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

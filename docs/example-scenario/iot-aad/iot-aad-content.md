@@ -45,7 +45,7 @@ When the app is registered, two objects are created in the tenant:
 
 ### Direct user sign-ins to the common endpoint
 
-For multi-tenant apps, sign-in requests for AAD accounts should be sent to the [common endpoint](/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant#update-your-code-to-send-requests-to-common): `https://login.microsoftonline.com/common`. When the Microsoft identity platform receives a request on the common endpoint, it signs the user in and identifies which tenant the user belongs to. It sends this information back to the app, which can then determine the resources this user should have access to based on tenant membership. In this way, the developer can maintaining separation of proprietary information between companies.
+For multi-tenant apps, sign-in requests for Azure AD accounts should be sent to the [common endpoint](/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant#update-your-code-to-send-requests-to-common): `https://login.microsoftonline.com/common`. When the Microsoft identity platform receives a request on the common endpoint, it signs the user in and identifies which tenant the user belongs to. It sends this information back to the app, which can then determine the resources this user should have access to based on tenant membership. In this way, the developer can maintaining separation of proprietary information between companies.
 
 > [!NOTE]
 > Guest users' sign-in attempts must be directed to a tenant-specific endpoint (i.e. the developer's tenant) `https://login.microsoftonline.com/{TenantId_or_Name}`. This is required when users are signing in with social accounts, and we provide an example of this in the Woodgrove Bank scenario below.

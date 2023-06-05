@@ -4,9 +4,9 @@ metadata:
   titleSuffix: Azure Reference Architectures
   description: Build a scalable solution for batch scoring models on a schedule in parallel using Azure Machine Learning.
   author: carlosasantos
-  ms.author: cfernandesdo
-  ms.date: 09/13/2022
-  ms.topic: conceptual
+  ms.author: cfernandesdo, bleik
+  ms.date: 02/03/2023
+  ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.category:
@@ -17,6 +17,7 @@ metadata:
     - AI
     - reference-architecture
     - ai-machine-learning
+    - devx-track-python
 azureCategories:
   - ai-machine-learning
   - developer-tools
@@ -27,7 +28,7 @@ products:
   - azure-sql-database
   - azure-stream-analytics
 name: Batch scoring of Python models on Azure
-summary: Build a scalable solution for batch scoring models on a schedule in parallel using Azure Machine Learning.  
-thumbnailUrl: /azure/architecture/browse/thumbs/batch-scoring-python.png
+summary: Build a scalable solution for batch scoring models on a schedule in parallel using Azure Machine Learning.
+thumbnailUrl: /azure/architecture/browse/thumbs/batch-scoring-python-thumbnail.png
 content: |
   [!include[](batch-scoring-python-content.md)]

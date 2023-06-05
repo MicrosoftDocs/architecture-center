@@ -20,9 +20,9 @@ This solution has the following benefits:
 
 - It doesn't require complex coordination between the consumers, or between the producer and the consumer instances. The message queue ensures that each message is delivered at least once.
 
-- It's scalable. The system can dynamically increase or decrease the number of instances of the consumer service as the volume of messages fluctuates.
+- It's scalable. When you apply [auto-scaling](/azure/architecture/best-practices/auto-scaling), the system can dynamically increase or decrease the number of instances of the consumer service as the volume of messages fluctuates.
 
-- It can improve resiliency if the message queue provides transactional read operations. If a consumer service instance reads and processes the message as part of a transactional operation, and the consumer service instance fails, this pattern can ensure that the message will be returned to the queue to be picked up and handled by another instance of the consumer service.
+- It can improve resiliency if the message queue provides transactional read operations. If a consumer service instance reads and processes the message as part of a transactional operation, and the consumer service instance fails, this pattern can ensure that the message will be returned to the queue to be picked up and handled by another instance of the consumer service. In order to mitigate the risk of a message continuously failing, we recommend you make use of [dead-letter queues](/azure/service-bus-messaging/service-bus-dead-letter-queues).
 
 ## Issues and considerations
 
@@ -132,13 +132,15 @@ public static void Run(
 }
 ```
 
-## Related resources
-
-The following patterns and guidance might be relevant when implementing this pattern:
+## Next steps
 
 - [Asynchronous Messaging Primer](/previous-versions/msp-n-p/dn589781(v=pandp.10)). Message queues are an asynchronous communications mechanism. If a consumer service needs to send a reply to an application, it might be necessary to implement some form of response messaging. The Asynchronous Messaging Primer provides information on how to implement request/reply messaging using message queues.
 
 - [Autoscaling Guidance](/previous-versions/msp-n-p/dn589774(v=pandp.10)). It might be possible to start and stop instances of a consumer service since the length of the queue applications post messages on varies. Autoscaling can help to maintain throughput during times of peak processing.
+
+## Related resources
+
+The following patterns and guidance might be relevant when implementing this pattern:
 
 - [Compute Resource Consolidation pattern](./compute-resource-consolidation.yml). It might be possible to consolidate multiple instances of a consumer service into a single process to reduce costs and management overhead. The Compute Resource Consolidation pattern describes the benefits and tradeoffs of following this approach.
 

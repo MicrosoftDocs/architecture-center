@@ -2,7 +2,7 @@ This reference architecture illustrates how Azure Arc enables you to manage, gov
 
 ## Architecture
 
-:::image type="content" source="./images/azure-arc-hybrid-config.png" alt-text="An Azure Arc hybrid server topology diagram with Arc-enabled servers connected to Azure." lightbox="./images/azure-arc-hybrid-config.png" :::
+:::image type="content" alt-text="An Azure Arc hybrid server topology diagram with Arc-enabled servers connected to Azure." source="./images/azure-arc-hybrid-config.svg" lightbox="./images/azure-arc-hybrid-config.svg":::
 
 *Download a [PowerPoint file][architectural-diagram-ppt-source] of this architecture.*
 
@@ -185,7 +185,6 @@ Explore related architectures:
 [Arc Jumpstart unifiedops scenarios]: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/day2/
 [ArcBox for IT Pros]: https://azurearcjumpstart.io/azure_jumpstart_arcbox/itpro
 [ArcBox workbook]: https://azurearcjumpstart.io/azure_jumpstart_arcbox/workbook/flavors/itpro/
-[architectural-diagram]: ./images/azure-arc-hybrid-config.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-arc-hybrid-config.vsdx
 [architectural-diagram-ppt-source]: https://arch-center.azureedge.net/azure-arc-hybrid-config.pptx
 [Azure Arc docs]: /azure/azure-arc/

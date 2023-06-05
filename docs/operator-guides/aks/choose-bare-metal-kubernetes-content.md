@@ -8,7 +8,9 @@ solutions aren't quite meeting your requirements, you may be [exploring bare-met
 
 Reference the following tree when deciding between the options presented below for bare-metal Kubernetes at the edge.
 
-![A flowchart for deciding what bare-metal options to use.](media/choose-bare-metal-kubernetes.png)
+![Diagram showing a flowchart for deciding what bare-metal options to use.](media/choose-bare-metal-kubernetes.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/choose-bare-metal-kubernetes.vsdx) of this flowchart*
 
 -   [MicroK8s](https://microk8s.io/docs): Conformant "Low Ops" Kubernetes by Canonical
 

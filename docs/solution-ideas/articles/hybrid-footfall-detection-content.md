@@ -2,7 +2,7 @@ Gain insights on how customers receive their current products, in relation to st
 
 ## Architecture
 
-![A diagram that displays the hybrid footfall detection architecture.](../media/hybrid-footfall-detection.png)
+[ ![Architecture diagram that displays the hybrid footfall detection architecture.](../media/hybrid-footfall-detection.svg)](../media/hybrid-footfall-detection.svg#lightbox)
 
 _Download a [Visio file](https://arch-center.azureedge.net/hybrid-footfall-detection.vsdx) of this architecture._
 
@@ -87,6 +87,10 @@ To enable this solution to scale across multiple cameras and locations, you'll n
 * In extreme cases, you might need to migrate from Azure Functions to a virtual machine.
 
 Use the [Performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency) to review your design from a scalability standpoint.
+
+## Deploy this scenario
+
+Deploy an AI-based footfall-detection solution that generates insights from real-world actions by using Azure, Azure Stack Hub, and the Custom Vision AI Dev Kit. This solution analyzes visitor traffic in retail stores. See [Deploy an AI-based footfall detection solution using Azure and Azure Stack Hub](/azure/architecture/hybrid/deployments/solution-deployment-guide-retail-footfall-detection).
 
 ## Contributors
 

@@ -1,45 +1,10 @@
-There's exponential growth of datasets, which has resulted in growing scrutiny of how data is exposed from the perspectives of both consumer data privacy and compliance. In this context, confidential computing becomes an important tool to help organizations meet their privacy and security needs for business and consumer data. Organizations can gain new insights from regulated data if the data is processed in a compliant manner. Confidential computing is especially helpful in scenarios where the scale that's provided by cloud computing is needed to process the data confidentially.
-
-Confidential computing technology encrypts data in memory and only processes it after the cloud environment is verified, or _attested_. Confidential computing prevents data access by cloud operators, malicious admins, and privileged software, such as the hypervisor. It also helps to keep data protected throughout its lifecycle—while the data is at rest, in transit, and also now while it's in use.
-
-[Confidential containers](/azure/confidential-computing/confidential-nodes-aks-overview) on Azure Kubernetes Service (AKS) provide the necessary infrastructure for customers to use popular applications, such as [Apache Spark](https://spark.apache.org), to perform data cleansing and machine learning training. This article presents a solution that Azure confidential computing offers for running an Apache Spark application on an AKS cluster by using node pools with Intel Software Guard Extensions (Intel SGX). The data from that processing is safely stored in Azure SQL Database by using [Always Encrypted with secure enclaves](/sql/relational-databases/security/encryption/always-encrypted-enclaves?view=sql-server-ver15).
-
-> [!NOTE]
-> Confidential data analytics in this context is meant to imply _run analytics on sensitive data with peace of mind against data exfiltration_. This includes a potential container access breach at the root level, both internally (for example, by a rogue admin) or externally (by system compromise).
-> 
-> Confidential data analytics helps to meet the highest needs of security and confidentiality by removing from computation the untrusted parties, such as the cloud operator and service or guest admins. This method helps to meet data compliance needs through hardware-backed guarantees.
+This solution uses confidential computing on Kubernetes to run big data analytics with Apache Spark inside confidential containers that are protected by Intel Software Guard Extensions with data from Azure Data Lake and Azure SQL Database.
 
 _Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks._
 
-## Potential use cases
-
-Many industries, especially financial services, protect their data by using confidential computing for these purposes:
-
-- Extending data confidentiality to cross-organization datasets (that is, multi-party computation):
-
-  :::image type="complex" source="./media/data-analytics-containers-data-sharing-use-case.png" alt-text="Diagram of several banks sharing data and encryption keys for analytics in enclave." lightbox="./media/data-analytics-containers-data-sharing-use-case.png":::
-  Diagram that shows how multiple financial institutions can share sensitive, encrypted information about banking transactions in a secured enclave for analytics to detect fraudulent patterns that wouldn't be possible with a single bank's dataset and compute.
-  :::image-end:::
-
-- Providing collective insights across organizational boundaries by using a virtual clean room:
-
-  :::image type="complex" source="./media/data-analytics-containers-vcr-use-case.png" alt-text="Diagram of a traditional physical clean room, contrasted with a virtual clean room." lightbox="./media/data-analytics-containers-vcr-use-case.png":::
-  Diagram that shows how you can achieve virtually the traditional concept of a physical clean room by using Confidential computing enclave technology.
-  :::image-end:::
-
-- Securing financial data or regulated data from a cloud operator.
-
-- Meeting high requirements for data privacy and protection.
-
-- Running ML model training and inferencing on sensitive data.
-
-- Refining datasets by using familiar data preparation tools.
-
-- Protecting container data and code integrity.
-
 ## Architecture
 
-:::image type="complex" source="./media/data-analytics-containers-confidential-data-processing.png" alt-text="Diagram of confidential big data analytics with Apache Spark, Azure SQL Always Encrypted, AKS, and Secure Container Environment." lightbox="./media/data-analytics-containers-confidential-data-processing.png":::
+:::image type="complex" source="./media/data-analytics-containers-confidential-data-processing.svg" alt-text="Diagram of confidential big data analytics with Apache Spark, Azure SQL Always Encrypted, AKS, and Secure Container Environment." lightbox="./media/data-analytics-containers-confidential-data-processing.svg":::
 Diagram that shows how sensitive data flows securely from ingestion phase to analytics within the bounds of a confidential computing environment. The problems that this architecture aims to solve are: ingestion and storage of sensitive data in the Azure cloud, gathering business insights by processing and storing the data at scale, and ensuring confidentiality through hardware-enforced means.
 :::image-end:::
 
@@ -91,11 +56,54 @@ You can easily extend this pattern to include any data sources that Spark's larg
 
 The SCONE engineering team maintains an [Apache Spark](https://sconedocs.github.io/sconeapps_spark) container image that runs the latest version of Spark. An alternative that isn't specific to Apache Spark is [Fortanix](https://www.fortanix.com), with which you can deploy confidential containers to use with your containerized application. Fortanix provides the flexibility required to run and manage the broadest set of applications: existing applications, new enclave-native applications, and pre-packaged applications.
 
+## Scenario details
+
+There's exponential growth of datasets, which has resulted in growing scrutiny of how data is exposed from the perspectives of both consumer data privacy and compliance. In this context, confidential computing becomes an important tool to help organizations meet their privacy and security needs for business and consumer data. Organizations can gain new insights from regulated data if the data is processed in a compliant manner. Confidential computing is especially helpful in scenarios where the scale that's provided by cloud computing is needed to process the data confidentially.
+
+Confidential computing technology encrypts data in memory and only processes it after the cloud environment is verified, or _attested_. Confidential computing prevents data access by cloud operators, malicious admins, and privileged software, such as the hypervisor. It also helps to keep data protected throughout its lifecycle—while the data is at rest, in transit, and also now while it's in use.
+
+[Confidential containers](/azure/confidential-computing/confidential-nodes-aks-overview) on Azure Kubernetes Service (AKS) provide the necessary infrastructure for customers to use popular applications, such as [Apache Spark](https://spark.apache.org), to perform data cleansing and machine learning training. This article presents a solution that Azure confidential computing offers for running an Apache Spark application on an AKS cluster by using node pools with Intel Software Guard Extensions (Intel SGX). The data from that processing is safely stored in Azure SQL Database by using [Always Encrypted with secure enclaves](/sql/relational-databases/security/encryption/always-encrypted-enclaves?view=sql-server-ver15).
+
+> [!NOTE]
+> Confidential data analytics in this context is meant to imply _run analytics on sensitive data with peace of mind against data exfiltration_. This includes a potential container access breach at the root level, both internally (for example, by a rogue admin) or externally (by system compromise).
+> 
+> Confidential data analytics helps to meet the highest needs of security and confidentiality by removing from computation the untrusted parties, such as the cloud operator and service or guest admins. This method helps to meet data compliance needs through hardware-backed guarantees.
+
+### Potential use cases
+
+Many industries, especially financial services, protect their data by using confidential computing for these purposes:
+
+- Extending data confidentiality to cross-organization datasets (that is, multi-party computation):
+
+  :::image type="complex" source="./media/data-analytics-containers-data-sharing-use-case.png" alt-text="Diagram of several banks sharing data and encryption keys for analytics in enclave." lightbox="./media/data-analytics-containers-data-sharing-use-case.png":::
+  Diagram that shows how multiple financial institutions can share sensitive, encrypted information about banking transactions in a secured enclave for analytics to detect fraudulent patterns that wouldn't be possible with a single bank's dataset and compute.
+  :::image-end:::
+
+- Providing collective insights across organizational boundaries by using a virtual clean room:
+
+  :::image type="complex" source="./media/data-analytics-containers-vcr-use-case.png" alt-text="Diagram of a traditional physical clean room, contrasted with a virtual clean room." lightbox="./media/data-analytics-containers-vcr-use-case.png":::
+  Diagram that shows how you can achieve virtually the traditional concept of a physical clean room by using Confidential computing enclave technology.
+  :::image-end:::
+
+- Securing financial data or regulated data from a cloud operator.
+
+- Meeting high requirements for data privacy and protection.
+
+- Running ML model training and inferencing on sensitive data.
+
+- Refining datasets by using familiar data preparation tools.
+
+- Protecting container data and code integrity.
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 Azure confidential enclaves that use [DCsv3 and DCdsv3-series](/azure/virtual-machines/dcv3-series) VMs offer large memory sizes to help run memory-intensive applications like analytics. This scenario uses Intel SGX-enabled DCsv3-series VMs. You can only deploy certain sizes in certain regions. For more information, see [Quickstart: Deploy an Azure Confidential Computing VM in the Marketplace](/azure/confidential-computing/quick-create-marketplace) and [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 Two primary factors in security for this scenario are secure enclaves and attestation.
 
@@ -115,6 +123,12 @@ To perform remote attestation on a SCONE application (such as Spark Driver and E
 
 This scenario uses a [public CAS](https://sconedocs.github.io/public-CAS) provided by SCONE for demonstration and simplicity, and it deploys the [LAS](https://sconedocs.github.io/LASIntro) to run as a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset) on each AKS node.
 
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+To explore the cost of running this scenario, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator), which preconfigures all Azure services. Please note the additional licenses that are required by the partner to run production workloads.
+
 ## Deploy this scenario
 
 Deploying this scenario involves the following high-level steps:
@@ -123,7 +137,7 @@ Deploying this scenario involves the following high-level steps:
 
 - Clone the demo project on GitHub, [Confidential Data Analytics with Apache Spark on Intel SGX Confidential Containers](https://github.com/Azure-Samples/confidential-container-samples/tree/main/confidential-big-data-spark). This project contains all the needed resources, deployment steps, and source-code to reproduce the demo.
   
-- Deploy [Always Encrypted with secure enclaves in Azure SQL Database - Demos](https://github.com/microsoft/sql-server-samples/blob/master/samples/features/security/always-encrypted-with-secure-enclaves/azure-sql-database/README.md). These demos use a confidential dataset, ContosoHR, which is included. This scenario decrypts confidential data into plaintext inside the Spark containers enclave.
+- Deploy [Always Encrypted with secure enclaves in Azure SQL Database - Demos](https://github.com/microsoft/sql-server-samples/blob/master/samples/features/security/always-encrypted-with-secure-enclaves/azure-sql-database-sgx/README.md). These demos use a confidential dataset, ContosoHR, which is included. This scenario decrypts confidential data into plaintext inside the Spark containers enclave.
 
 - Deploy an Intel SGX-enabled AKS cluster node pool. For instructions, see [Quickstart: Deploy an AKS cluster with confidential computing nodes by using the Azure CLI](/azure/confidential-computing/confidential-enclave-nodes-aks-get-started).
 
@@ -135,15 +149,11 @@ Deploying this scenario involves the following high-level steps:
 
 Alternatively, SCONE Confidential PySpark on Kubernetes, a VM, includes the same demo that you can reproduce in a local [minikube](https://minikube.sigs.k8s.io/docs/start) cluster. For more information, see the official documentation: [SCONE PySpark virtual machine](https://sconedocs.github.io/azure/scone-pyspark).
 
-## Pricing
-
-To explore the cost of running this scenario, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator), which preconfigures all Azure services. Please note the additional licenses that are required by the partner to run production workloads.
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 * [Amar Gowda](https://www.linkedin.com/in/nramar) | Principal Program Manager
 

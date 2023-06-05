@@ -5,10 +5,10 @@ metadata:
   description: Use the proven practices in this reference architecture to improve scalability and performance in an Azure App Service web application.
   author: ckittel
   ms.author: chkittel
-  ms.date: 07/05/2022
-  ms.topic: conceptual
+  ms.date: 11/15/2022
+  ms.topic: example-scenario
   ms.service: architecture-center
-  ms.subservice: reference-architecture
+  ms.subservice: example-scenario
   ms.category:
     - web
   ms.custom:
@@ -18,7 +18,6 @@ azureCategories:
   - web
 summary: Use the proven practices in this reference architecture to improve scalability and performance in an Azure App Service web application.
 products:
-  - azure-cdn
   - azure-front-door
   - azure-functions
   - azure-service-bus

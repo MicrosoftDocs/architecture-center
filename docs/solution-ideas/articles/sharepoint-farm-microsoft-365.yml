@@ -3,10 +3,10 @@ metadata:
   title: Hybrid SharePoint farm with Microsoft 365
   titleSuffix: Azure Architecture Center
   description: Deliver highly available intranet capability and share hybrid workloads with Microsoft 365 by using SharePoint servers, Azure Active Directory, and SQL Server.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 08/05/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -23,7 +23,6 @@ metadata:
     - interactive-diagram
     - e2e-hybrid
     - "https://azure.microsoft.com/solutions/architecture/sharepoint-farm-microsoft-365"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/sharepoint-farm-microsoft-365.png
 name: Hybrid SharePoint farm with Microsoft 365
 azureCategories:
   - web

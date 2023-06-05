@@ -3,10 +3,10 @@ metadata:
   title: Efficient Docker image deployment for low-bandwidth connectivity
   titleSuffix: Azure Example Workloads
   description: See an example solution for reliable and resilient Docker image deployment over limited, intermittent, or low bandwidth.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: kadimitr
-  ms.date: 06/17/2022
-  ms.topic: conceptual
+  ms.date: 03/21/2023
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
 name: Efficient Docker image deployment for low-bandwidth connectivity

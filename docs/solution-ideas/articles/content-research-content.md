@@ -2,26 +2,15 @@
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This architecture describes how you can use [knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining) for content research.
-
-## Potential use cases
-
-When organizations task employees to review and research technical data, it can be tedious to read page after page of dense text. Knowledge mining helps employees quickly review these dense materials. In industries where bidding competition is fierce, or when the diagnosis of a problem must be quick or in near real-time, companies can use knowledge mining to avoid costly mistakes and gain faster insights during content research.
-
-Industries that rely on knowledge mining include:
-
-- Education
-- Marketing
-- Banking (finance)
-- Service providers
-- Retail
-- News and media
+This article describes how to use [knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining) technologies like key phrase extraction and entity recognition to quickly review dense technical material.
 
 ## Architecture
 
 There are three steps in knowledge mining: ingest, enrich, and explore.
 
-![Architecture diagram: knowledge mining in content research, with three steps: ingest, enrich, and explore.](../media/knowledge-mining-content-research.png)
+[ ![Architecture diagram: knowledge mining in content research, with three steps: ingest, enrich, and explore.](../media/knowledge-mining-content-research.png)](../media/knowledge-mining-content-research.png#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/knowledge-mining-content-research.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -47,6 +36,23 @@ The following key technologies are used to implement tools for technical content
 - [Text analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics) is a collection of APIs and other features from Azure Cognitive Service for Language that you can use to extract, classify, and understand text within documents.
 - [Azure Cognitive Services Translator](https://azure.microsoft.com/services/cognitive-services/translator) is part of the Cognitive Services family of REST APIs. You can use Translator for real-time document and text translation.
 - [Azure Form Recognizer](https://azure.microsoft.com/services/cognitive-services/form-recognizer) is part of Azure Applied AI Services. Form Recognizer uses machine-learning models to extract key-value pairs, text, and tables from documents such as invoices, receipts, ID cards, and business cards.
+
+## Scenario details
+
+This architecture shows how to use knowledge mining for content research.
+
+### Potential use cases
+
+When organizations task employees to review and research technical data, it can be tedious to read page after page of dense text. Knowledge mining helps employees quickly review these dense materials. In industries where bidding competition is fierce, or when the diagnosis of a problem must be quick or in near real-time, companies can use knowledge mining to avoid costly mistakes and gain faster insights during content research.
+
+Industries that rely on knowledge mining include:
+
+- Education
+- Marketing
+- Banking (finance)
+- Service providers
+- Retail
+- News and media
 
 ## Next steps
 

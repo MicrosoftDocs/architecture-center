@@ -1,14 +1,12 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Extract, transform, and load your big data clusters on demand with Hadoop MapReduce and Apache Spark.
-
-## Potential use cases
-
-Azure HDInsight can be used for various scenarios in big data processing. It can be historical data (data that's already collected and stored) or real-time data (data that's directly streamed from the source). The scenarios for processing such data can be summarized in the following doc, [Scenarios for using HDInsight](/azure/hdinsight/hdinsight-overview#scenarios-for-using-hdinsight). This solution idea covers the data flow for an ETL use case.
+This solution idea illustrates how to extract, transform, and load your big data clusters on demand by using Hadoop MapReduce and Apache Spark.
 
 ## Architecture
 
-![Architecture diagram](../media/extract-transform-and-load-using-hdinsight.png)
+![Diagram showing the dataflow for extract, transform, and load big data clusters by using Azure HDInsight, Hadoop MapReduce, and Apache Spark.](../media/extract-transform-and-load-using-hdinsight.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/extract-transform-and-load-using-hdinsight.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -30,6 +28,14 @@ The data flows through the architecture as follows:
 - [Apache Spark](http://spark.apache.org) - Big data distributed processing framework that supports in-memory processing to boost performance for big data applications.
 - [Azure HDInsight](https://azure.microsoft.com/services/hdinsight) - Cloud distribution of Hadoop components.
 
+## Scenario details
+
+This solution idea describes the data flow for an ETL use case.
+
+### Potential use cases
+
+You can use Azure HDInsight for various scenarios in big data processing. It can be historical data (data that's already collected and stored) or real-time data (data that's directly streamed from the source). For more information about processing such data, see [Scenarios for using HDInsight](/azure/hdinsight/hdinsight-overview#scenarios-for-using-hdinsight). 
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
@@ -37,6 +43,8 @@ The data flows through the architecture as follows:
 Principal author:
 
  * [Jon Dobrzeniecki](https://www.linkedin.com/in/jonathan-dobrzeniecki) | Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

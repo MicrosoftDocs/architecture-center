@@ -1,15 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Easily tier data and applications on-premises and in Azure, with architecture that supports greater efficiency in applications. Filter unnecessary data early in the process, easily bring cloud applications close to the data on-premises, and analyze large scale aggregate data from multiple locations in Azure, for fleet-level insights.
-
-## Potential use cases
-
-Organizations utilize tiered applications because they provide:
-
-- The ability to update the technology stack of one tier, without impacting other areas of the application.
-- Development teams work on their own areas of expertise.
-- Able to scale the application.
-- Adds reliability and more independence of the underlying servers or services.
+This solution idea describes how to tier data and applications on-premises and on Azure. As data flows into a storage account, you can use Azure Stack to analyze the data for anomalies or compliance and to display insights in apps. 
 
 ## Architecture
 
@@ -32,8 +23,27 @@ Organizations utilize tiered applications because they provide:
 * [Azure Functions](https://azure.microsoft.com/services/functions): Process events with serverless code
 * [Azure Stack](https://azure.microsoft.com/overview/azure-stack): Build and run innovative hybrid applications across cloud boundaries
 
+## Scenario details
+
+This scenario can help you tier data and applications on-premises and on Azure. Filter unnecessary data early in the process, bring cloud applications close to the data on-premises, and analyze large-scale aggregate data from multiple locations on Azure.
+
+### Potential use cases
+
+Tiered applications provide the following benefits:
+
+- The ability to update the technology stack of one tier without affecting other areas of the application.
+- Development teams work on their own areas of expertise.
+- Able to scale the application.
+- Adds reliability and more independence of the underlying servers or services.
+
 ## Next steps
 
 * [Storage documentation](/azure/storage)
 * [Azure Functions documentation](/azure/azure-functions)
 * [Azure Stack documentation](/azure/azure-stack/user/azure-stack-solution-staged-data-analytics)
+
+## Related resources
+
+- [Analytics architecture design](../../solution-ideas/articles/analytics-start-here.yml)
+- [Data analysis workloads for regulated industries](/azure/architecture/example-scenario/data/data-warehouse)
+- [Tiered data for analytics](../../example-scenario/hybrid/hybrid-tiered-data-analytics.yml)

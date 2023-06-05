@@ -2,13 +2,15 @@
 metadata:
   title: Load-balancing options
   description: Learn about Azure load-balancing services and how you can use them to distribute your workloads across multiple computing resources.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/25/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
-  ms.custom: fcp
+  ms.custom:
+    - fcp
+    - engagement-fy23
 azureCategories:
   - web
   - compute

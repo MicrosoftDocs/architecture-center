@@ -16,7 +16,9 @@ This solution architecture models a development and deployment environment that 
 
 ## Architecture
 
-![Diagram showing the configuration of DevTest and DevOps for a microservice application.](../media/dev-test-microservice.png)
+![Diagram showing the configuration of DevTest and DevOps for a microservice application.](../media/dev-test-microservice.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/dev-test-microservice.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -60,7 +62,7 @@ In this solution, a single [Azure Active Directory (Azure AD)](https://azure.mic
 
 - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) is a fully featured CI/CD service that can automatically deploy updated Container Registry images to Kubernetes clusters.
 
-- [Azure Key Vault](/azure/key-vault/general/basic-concepts) securely stores and tightly controls access to secrets like API keys, passwords, and certificates. For more information about Key Vault in DevOps scenarios, see [DevSecOps in Azure](devsecops-in-azure.yml) and [DevSecOps in GitHub](devsecops-in-github.yml).
+- [Azure Key Vault](/azure/key-vault/general/basic-concepts) securely stores and tightly controls access to secrets like API keys, passwords, and certificates. For more information about Key Vault in DevOps scenarios, see [DevSecOps on AKS](../../guide/devsecops/devsecops-on-aks.yml) and [DevSecOps in GitHub](devsecops-in-github.yml).
 
 - [Azure Container Registry](/azure/container-registry) supports building, storing, and managing container images and artifacts in private registries for all types of container deployments.
 
@@ -68,7 +70,7 @@ In this solution, a single [Azure Active Directory (Azure AD)](https://azure.mic
 
 - [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) enterprise identity platform provides single sign-on and multifactor authentication to govern user access. A single Azure AD can manage identity for all environments across subscriptions. [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) restricts access to protected resources, preventing unauthorized or inadvertent modification of production resources.
 
-- [Azure Cosmos DB](/azure/cosmos-db/optimize-dev-test) is a fully managed, widely distributed database-as-a-service that supports high availability, multi-region applications, and both SQL and NoSQL APIs. Azure Cosmos DB includes DevTest features like a local Cosmos DB emulator that integrates with Azure DevOps, and low-cost tiers for managing costs in DevTest sandboxes.
+- [Azure Cosmos DB](/azure/cosmos-db/optimize-dev-test) is a fully managed, widely distributed database-as-a-service that supports high availability, multi-region applications, and both SQL and NoSQL APIs. Azure Cosmos DB includes DevTest features like a local Azure Cosmos DB emulator that integrates with Azure DevOps, and low-cost tiers for managing costs in DevTest sandboxes.
 
 - [Azure Monitor](/azure/devtest-labs/security-baseline) can monitor both Production and DevTest environments. Azure Monitor collects log data from VM operating systems and crash dump files, and aggregates them for viewing in [Microsoft Defender for Cloud](/azure/security-center/security-center-enable-data-collection).
 
@@ -88,7 +90,7 @@ In this solution, a single [Azure Active Directory (Azure AD)](https://azure.mic
 
 ## Related resources
 
-- [CI/CD pipeline for container-based workloads](../../example-scenario/apps/devops-with-aks.yml)
-- [DevSecOps in Azure](./devsecops-in-azure.yml)
+- [CI/CD pipeline for container-based workloads](../../guide/aks/aks-cicd-github-actions-and-gitops.yml)
+- [DevSecOps on AKS](../../guide/devsecops/devsecops-on-aks.yml)
 - [DevTest and DevOps for IaaS solutions](dev-test-iaas.yml)
 - [DevTest and DevOps for PaaS solutions](dev-test-paas.yml)

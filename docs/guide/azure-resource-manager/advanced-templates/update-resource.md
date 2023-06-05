@@ -1,9 +1,9 @@
 ---
 title: Update a resource in an ARM template
 description: Learn about how to extend the functionality of Azure Resource Manager templates to update a resource.
-author: EdPrice-MSFT
-ms.author: architectures
-ms.date: 07/25/2022
+author: martinekuan
+ms.author: martinek
+ms.date: 01/05/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -17,21 +17,22 @@ products:
   - azure-resource-manager
 ms.custom:
   - article
+  - devx-track-arm-template
 ---
 
 <!-- cSpell:ignore subtemplate ipconfig -->
 
 # Update a resource in an Azure Resource Manager template
 
-There are some scenarios in which you need to update a resource during a deployment. You might encounter this scenario when you cannot specify all the properties for a resource until other, dependent resources are created. For example, if you create a backend pool for a load balancer, you might update the network interfaces (NICs) on your virtual machines (VMs) to include them in the backend pool. And while Resource Manager supports updating resources during deployment, you must design your template correctly to avoid errors and to ensure the deployment is handled as an update.
+There can be times when you need to update a resource during a deployment, such as when you can't specify all the properties for a resource until other, dependent resources are created. For example, if you create a backend pool for a load balancer, you might update the network interfaces (NICs) on your virtual machines (VMs) to include them in the backend pool. Resource Manager does support updating of resources during deployment, but you must design your template correctly to avoid errors and to ensure that the deployment is handled as an update.
 
-First, you must reference the resource once in the template to create it and then reference the resource by the same name to update it later. However, if two resources have the same name in a template, Resource Manager throws an exception. To avoid this error, specify the updated resource in a second template that's either linked or included as a subtemplate using the `Microsoft.Resources/deployments` resource type.
+When you create a resource and update it later, you reference it twice. You reference it first in the template that creates it. Later, when you update the resource, you reference it by the same name. However, if two resources have the same name in a template, Resource Manager throws an exception. To avoid this error, specify the updated resource in a second template that's either linked or included as a subtemplate that uses the `Microsoft.Resources/deployments` resource type.
 
-Second, you must either specify the name of the existing property to change or a new name for a property to add in the nested template. You must also specify the original properties and their original values. If you fail to provide the original properties and values, Resource Manager assumes you want to create a new resource and deletes the original resource.
+In the second template, you must either specify the name of the property to change or a new name for a property to add. You must also specify the names and original values of the properties that don't change. If you fail to specify one or more of the original properties, Resource Manager assumes that you want to create a new resource and deletes the original one.
 
 ## Example template
 
-Let's look at an example template that demonstrates this. Our template deploys a virtual network named `firstVNet` that has one subnet named `firstSubnet`. It then deploys a virtual network interface (NIC) named `nic1` and associates it with our subnet. Then, a deployment resource named `updateVNet` includes a nested template that updates our `firstVNet` resource by adding a second subnet named `secondSubnet`.
+Let's look at an example template that demonstrates the technique. The template deploys a virtual network named `firstVNet` that has one subnet named `firstSubnet`. It then deploys a virtual network interface (NIC) named `nic1` and associates the NIC with the subnet. A deployment resource named `updateVNet` includes a nested template that updates `firstVNet` by adding a second subnet named `secondSubnet`.
 
 ```json
 {
@@ -131,7 +132,7 @@ Let's look at an example template that demonstrates this. Our template deploys a
 }
 ```
 
-Let's take a look at the resource object for our `firstVNet` resource first. Notice that we specify again the settings for our `firstVNet` in a nested template&mdash;this is because Resource Manager doesn't allow the same deployment name within the same template and nested templates are considered to be a different template. By again specifying our values for our `firstSubnet` resource, we are telling Resource Manager to update the existing resource instead of deleting it and redeploying it. Finally, our new settings for `secondSubnet` are picked up during this update.
+Consider the resource object for our `firstVNet` resource. Notice that we specify again the settings for our `firstVNet` in a nested template—this is because Resource Manager doesn't allow the same deployment name in the same template, and nested templates are considered to be a different template. By again specifying our values for our `firstSubnet` resource, we tell Resource Manager to update the existing resource instead of deleting it and redeploying it. Finally, our new settings for `secondSubnet` are picked up during this update.
 
 ## Try the template
 
@@ -143,19 +144,31 @@ az deployment group create -g <resource-group-name> \
     --template-uri https://raw.githubusercontent.com/mspnp/template-examples/master/example1-update/deploy.json
 ```
 
-Once deployment has finished, open the resource group you specified in the portal. You see a virtual network named `firstVNet` and a NIC named `nic1`. Click `firstVNet`, then click `subnets`. You see the `firstSubnet` that was originally created, and you see the `secondSubnet` that was added in the `updateVNet` resource.
+After deployment finishes, open the resource group that you specified in the portal. You see a virtual network named `firstVNet` and a NIC named `nic1`. Click `firstVNet`, then click `subnets`. You see the `firstSubnet` that was originally created, and you see the `secondSubnet` that was added in the `updateVNet` resource.
 
 ![Original subnet and updated subnet](../images/vnet-firstsubnet.png)
 
-Then, go back to the resource group and click `nic1` then click `IP configurations`. In the `IP configurations` section, the `subnet` is set to `firstSubnet (10.0.0.0/24)`.
+Then, go back to the resource group and click `nic1`, and then click `IP configurations`. In the `IP configurations` section, the `subnet` is set to `firstSubnet (10.0.0.0/24)`.
 
 ![nic1 IP configurations settings](../images/nic1-ipconfigurations.png)
 
-The original `firstVNet` has been updated instead of re-created. If `firstVNet` had been re-created, `nic1` would not be associated with `firstVNet`.
+The original `firstVNet` was updated instead of re-created. If `firstVNet` had been re-created, `nic1` wouldn't be associated with `firstVNet`.
 
 ## Next steps
 
-- Learn how to [Use an object as a parameter in an Azure Resource Manager template](./objects-as-parameters.md).
+- [Azure Resource Manager](https://azure.microsoft.com/get-started/azure-portal/resource-manager)
+- [What are ARM templates?](/azure/azure-resource-manager/templates/overview)
+- [Tutorial: Create and deploy your first ARM template](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+- [Tutorial: Add a resource to your ARM template](/azure/azure-resource-manager/templates/template-tutorial-add-resource?tabs=azure-powershell)
+- [ARM template best practices](/azure/azure-resource-manager/templates/best-practices)
+- [Azure Resource Manager documentation](/azure/azure-resource-manager)
+- [ARM template documentation](/azure/azure-resource-manager/templates)
+
+## Related resources
+
+- [Update a resource in an Azure Resource Manager template](update-resource.md)
+- [Use objects as parameters in a copy loop in an Azure Resource Manager template](objects-as-parameters.md)
+- [Implement a property transformer and collector in an Azure Resource Manager template](collector.md)
 
 [cli]: /cli/azure/
 [github]: https://github.com/mspnp/template-examples

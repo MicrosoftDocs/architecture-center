@@ -1,12 +1,12 @@
 ### YamlMime:Architecture
 metadata:
-  title: Profisee MDM and Azure Data Factory
+  title: Master data management with Profisee and Azure Data Factory
   titleSuffix: Azure Architectures
-  description: Integrate Profisee master data management with Azure Data Factory to deliver high-quality, trusted data for Azure Synapse, and all analytic applications.
-  author: EdPrice-MSFT
+  description: Integrate Profisee master data management with Azure Data Factory to deliver high-quality, trusted data for Azure Synapse and all analytic applications.
+  author: susabat
   ms.author: Sunil.Sabat
   ms.date: 10/06/2022
-  ms.topic: conceptual
+  ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.custom:
@@ -19,7 +19,7 @@ products:
   - azure-databricks
   - azure-data-lake
 name: Master data management with Profisee and Azure Data Factory
-summary: Integrate Profisee master data management with Azure Data Factory to deliver high-quality, trusted data for Azure Synapse, and all analytic applications.
+summary: Integrate Profisee master data management with Azure Data Factory to deliver high-quality, trusted data for Azure Synapse and all analytic applications.
 thumbnailUrl: /azure/architecture/browse/thumbs/profisee-master-data-management-data-factory.png
 content: |
   [!include[](profisee-master-data-management-data-factory-content.md)]

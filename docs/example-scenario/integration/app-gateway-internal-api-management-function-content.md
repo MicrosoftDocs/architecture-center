@@ -42,11 +42,11 @@ The architecture uses the following components:
 
 - **[Azure Application Gateway](https://azure.microsoft.com/services/application-gateway)** is a managed service that acts as a layer 7 load balancer and [web application firewall](/azure/web-application-firewall/ag/ag-overview). In this scenario, the application gateway protects the internal APIM instance, which allows you to use the internal and external mode.
 
-- **[Azure DNS's](https://azure.microsoft.com/services/dns) [Private DNS zones](/azure/dns/private-dns-privatednszone)** allow you to manage and resolve domain names within a virtual network, without needing to implement a custom DNS solution. A Private DNS zone can be aligned to one or more virtual networks, through [virtual network links](/azure/dns/private-dns-virtual-network-links). Due to the Azure Functions being exposed over a private endpoint that this reference architecture uses, you must use a private DNS zone.
+- **[Azure DNS](https://azure.microsoft.com/services/dns) [Private DNS zones](/azure/dns/private-dns-privatednszone)** allow you to manage and resolve domain names within a virtual network, without needing to implement a custom DNS solution. A Private DNS zone can be aligned to one or more virtual networks, through [virtual network links](/azure/dns/private-dns-virtual-network-links). Due to the Azure Functions being exposed over a private endpoint that this reference architecture uses, you must use a private DNS zone.
 
-- **[Azure Monitor's](https://azure.microsoft.com/services/monitor) [Application Insights](/azure/azure-monitor/app/app-insights-overview)** helps developers detect anomalies, diagnose issues, and understand usage patterns. Application Insights features extensible application performance management and monitoring for live web apps. Various platforms are supported, including .NET, Node.js, Java, and Python. It supports apps that are hosted in Azure, on-premises, in a hybrid environment, or in other public clouds. Application Insights is included as part of this reference architecture, to monitor the behaviors of the deployed application.
+- **[Azure Monitor](https://azure.microsoft.com/services/monitor) [Application Insights](/azure/azure-monitor/app/app-insights-overview)** helps developers detect anomalies, diagnose issues, and understand usage patterns. Application Insights features extensible application performance management and monitoring for live web apps. Various platforms are supported, including .NET, Node.js, Java, and Python. It supports apps that are hosted in Azure, on-premises, in a hybrid environment, or in other public clouds. Application Insights is included as part of this reference architecture, to monitor the behaviors of the deployed application.
 
-- **[Azure Monitor's](https://azure.microsoft.com/services/monitor) [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview)** allows you to edit and run log queries with data in Azure Monitor Logs, optionally from within the Azure portal. Developers can run simple queries for a set of records or use Log Analytics to perform advanced analysis. They can then visualize the results. Log Analytics is configured as part of this reference architecture, to aggregate all the monitoring logs for more analysis and reporting.
+- **[Azure Monitor](https://azure.microsoft.com/services/monitor) [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview)** allows you to edit and run log queries with data in Azure Monitor Logs, optionally from within the Azure portal. Developers can run simple queries for a set of records or use Log Analytics to perform advanced analysis. They can then visualize the results. Log Analytics is configured as part of this reference architecture, to aggregate all the monitoring logs for more analysis and reporting.
 
 - **[Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines)** is a computing resource that can be used to host many different workloads. In this reference architecture, virtual machines are used to provide a management jumpbox server, as well as a host for the DevOps agent or GitHub runner.
 
@@ -111,6 +111,17 @@ Operational excellence covers the operations processes that deploy an applicatio
 ## Deploy this scenario
 
 This architecture is available on [GitHub](https://github.com/Azure/apim-landing-zone-accelerator). It contains all the necessary infrastructure-as-code files and the [deployment instructions](https://github.com/Azure/apim-landing-zone-accelerator/blob/main/docs/README.md).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Pete Messina](https://www.linkedin.com/in/peter-messina-93512414/) | Senior Cloud Solution Architect
+ - [Anthony Nevico](https://www.linkedin.com/in/anthonynevico/) | Senior Cloud Solution Architect
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

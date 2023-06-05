@@ -3,10 +3,10 @@ metadata:
   title: Create personalized marketing solutions
   titleSuffix: Azure Architecture Center
   description: Create personalized marketing offers and improve customer response using big-data insights based on Azure Machine Learning and Stream Analytics.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/13/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -20,7 +20,6 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/personalized-marketing"
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/personalized-marketing.png
 name: Create personalized marketing solutions in near real time
 azureCategories:
   - ai-machine-learning

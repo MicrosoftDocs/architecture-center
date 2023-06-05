@@ -5,7 +5,7 @@ Ansys CFX is computational fluid dynamics (CFD) software for turbomachinery appl
 - Uses transient blade row methods to reduce geometry from a full wheel to a single passage.
 - Integrates with Geolus Shape Search to rapidly find parts that are identical to a specified part, based on geometry.
 
-CFX is used in the aerospace, defense, steam turbine, automotive, construction, and materials/chemical processing industries.
+CFX is used in the aerospace, defense, steam turbine, energy, automotive, construction, facilities, manufacturing, and materials/chemical processing industries.
 
 ## Why deploy Ansys CFX on Azure?
 

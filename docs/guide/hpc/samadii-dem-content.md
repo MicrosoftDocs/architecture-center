@@ -4,7 +4,7 @@ Samadii DEM analyzes and interprets large-scale particles at high speed. It uses
 
 Samadii DEM  supports the use of four friction models: the Constant model, the Coulomb model, the Viscous model, and the Coulomb-Viscous model.
 
-It's used in the mechanical, electronic, chemical, and semiconductor industries.
+It's used in the mechanical, electronic, chemical, semiconductor, manufacturing, automotive, energy, and construction/facilities industries.
 
 ## Why deploy Samadii DEM on Azure?
 

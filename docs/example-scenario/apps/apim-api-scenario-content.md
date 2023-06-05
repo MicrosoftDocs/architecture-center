@@ -31,11 +31,12 @@ The APIM instance will be configured to map the legacy HTTP services to a new AP
 
 ### Alternatives
 
-- If the organization was planning to move their infrastructure entirely to Azure, including the VMs hosting the legacy applications, then APIM would still be a great option since it can act as a facade for any addressable HTTP endpoint.
+- If the organization plans to move their infrastructure entirely to Azure, including the VMs hosting the legacy applications, then APIM would still be a great option since it can act as a facade for any addressable HTTP endpoint.
 - If the customer had decided to keep the existing endpoints private and not expose them publicly, their API Management instance could be linked to an [Azure Virtual Network (VNet)][azure-vnet]:
   - In an [Azure "lift and shift" scenario][azure-vm-lift-shift] linked to their deployed Azure virtual network, the customer could directly address the back-end service through private IP addresses.
   - In the on-premises scenario, the API Management instance could reach back to the internal service privately via an [Azure VPN gateway and site-to-site IPSec VPN connection][azure-vpn] or [ExpressRoute][azure-er] making this a [hybrid Azure and on-premises scenario][azure-hybrid].
 - The API Management instance can be kept private by deploying the API Management instance in Internal mode. The deployment could then be used with an [Azure Application Gateway][azure-appgw] to enable public access for some APIs while others remain internal. For more information, see [Connecting APIM in internal mode to a VNet][apim-vnet-internal].
+- The organization might decide to host their APIs on-premises. One reason for this change might be because downstream database dependencies that are in scope for this project couldn't be moved to the cloud. If that's the case, they could still leverage API Management locally by using a [self-hosted gateway][apim-sh-gw]. The self-hosted gateway is a containerized deployment of the API Management gateway that connects back to Azure on an outbound socket. The first prerequisite is self-hosted gateways cannot be deployed without a parent resource in Azure, which carries an additional charge. Second, the Premium tier of API Management is required.
 
 > [!NOTE]
 > For general information on connecting API Management to a VNet, [see here][apim-vnet].
@@ -102,6 +103,8 @@ Principal author:
 
 * [Ben Gimblett](https://uk.linkedin.com/in/benjamin-gimblett-0414992) | Senior Customer Engineer
 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 Product documentation:
@@ -151,3 +154,4 @@ Learn modules:
 [soap]: https://en.wikipedia.org/wiki/SOAP
 [pricing-calculator]: https://azure.com/e/0e916a861fac464db61342d378cc0bd6
 [visio-download]: https://arch-center.azureedge.net/architecture-apim-api-scenario.vsdx
+[apim-sh-gw]: /azure/api-management/self-hosted-gateway-overview

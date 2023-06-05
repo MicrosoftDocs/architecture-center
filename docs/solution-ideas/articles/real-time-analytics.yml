@@ -3,10 +3,10 @@ metadata:
   title: Real-time analytics on big data architecture
   titleSuffix: Azure Solution Ideas
   description: Get deep-learning analytics and insights from live streaming data. Run advanced analytics on IoT device data and website clickstream logs in near real time.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 06/09/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -21,7 +21,6 @@ metadata:
     - pricing-calculator
     - "https://azure.microsoft.com/solutions/architecture/real-time-analytics"
     - internal-intro
-  social_image_url: /azure/architecture/solution-ideas/articles/media/real-time-analytics.png
 name: Real-time analytics on big data architecture
 azureCategories:
   - analytics

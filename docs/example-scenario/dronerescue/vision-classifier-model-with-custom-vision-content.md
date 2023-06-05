@@ -35,7 +35,7 @@ Azure Cognitive Services offers many possibilities for Artificial Intelligence (
 
 ### Potential use case
 
-This solution is ideal for the rescue, simulation, robotics, aircraft, and aviation industries.
+This solution is ideal for the rescue, simulation, robotics, aircraft, aerospace, and aviation industries.
 
 Microsoft [Search and Rescue Lab](https://github.com/microsoft/DroneRescue) suggests a hypothetical use case for Custom Vision. In the lab, you fly a Microsoft AirSim simulated drone around in a 3D-rendered environment. You use the simulated drone to capture synthetic images of the animals in that environment. After creating a dataset of images, you use the dataset to train a Custom Vision classifier model. To train the model, you tag the images with the names of the animals. When you fly the drone again, take new images of the animals. This solution identifies the name of the animal in each new image.
 

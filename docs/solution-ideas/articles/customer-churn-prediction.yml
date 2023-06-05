@@ -3,10 +3,10 @@ metadata:
   title: Customer churn prediction using real-time analytics
   titleSuffix: Azure Solution Ideas
   description: Predict customer churn and find patterns in existing data associated with the predicted churn rate using Azure AI Platform.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
-  ms.date: 05/24/2022
-  ms.topic: conceptual
+  ms.date: 11/22/2022
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -20,13 +20,12 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/customer-churn-prediction"
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/customer-churn-prediction.png
 name: Customer churn prediction using real-time analytics
 azureCategories:
   - ai-machine-learning
 summary: Predict customer churn and find patterns in existing data associated with the predicted churn rate using Azure AI Platform.
 products:
   - azure-machine-learning
-thumbnailUrl: /azure/architecture/browse/thumbs/customer-churn-prediction.png
+thumbnailUrl: /azure/architecture/browse/thumbs/customer-churn-prediction-thumbnail.png
 content: |
   [!include[](customer-churn-prediction-content.md)]

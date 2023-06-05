@@ -7,13 +7,14 @@ editor: marktab
 services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/16/2021
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
   - previous-ms.author=deguhath
   - fcp
+  - devx-track-python
 products:
   - azure-machine-learning
 categories:
@@ -105,3 +106,13 @@ You can use the following sample code to down-sample the data and use it directl
     ```
 
 3. Make a datastore in Azure Machine Learning which points to the Azure Blob Storage.  [This link describes the concept of datastores and how to subsequently make a dataset for use with Azure Machine Learning](/azure/machine-learning/concept-data).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*

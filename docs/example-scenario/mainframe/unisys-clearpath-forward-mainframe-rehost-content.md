@@ -1,4 +1,4 @@
-<!-- cSpell:ignore Unisys ClearPath postmigration HDDs Asysco Tmax tmaxsoft openframe replatforming replatformed -->
+<!-- cSpell:ignore Unisys ClearPath postmigration HDDs Tmax tmaxsoft openframe replatforming replatformed -->
 
 The Unisys mainframe systems trace their heritage to the first commercially available mainframes. The Unisys ClearPath Forward (CPF) Dorado (legacy Sperry 1100/2200) and Libra (legacy Burroughs A Series/Master Control Program) systems are full-featured mainframe operating environments. They can scale vertically to handle mission-critical workloads. These systems can be emulated, converted, or modernized into Azure. Azure offers similar or even improved performance characteristics and service-level agreement (SLA) metrics.
 
@@ -82,6 +82,16 @@ To estimate the cost of Azure products and configurations, visit the [Azure pric
 
 To learn more about Unisys CPF offerings and pricing, visit the [Unisys ClearPath Forward Products webpage](https://www.unisys.com/offerings/clearpath-forward/clearpath-forward-products).
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Philip Brooks](https://www.linkedin.com/in/philipbbrooks/) | Senior TPM
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 For more information, please contact **legacy2azure@microsoft.com**, or check out the following resources:
@@ -102,7 +112,7 @@ For more information, please contact **legacy2azure@microsoft.com**, or check ou
 
 - [Mainframe file replication and sync on Azure](../../solution-ideas/articles/mainframe-azure-file-replication.yml)
 - [Azure Database Migration Guides](https://datamigration.microsoft.com)
-- [Unisys mainframe migration to Azure using Asysco](../../reference-architectures/migration/unisys-mainframe-migration.yml)
+- [Unisys mainframe migration to Azure using Avanade AMT](../../reference-architectures/migration/unisys-mainframe-migration.yml)
 - [Micro Focus Enterprise Server on Azure VMs](./micro-focus-server.yml)
-- [Modernize mainframe & midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)
+- [Modernize mainframe & midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
 - [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](../../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml)

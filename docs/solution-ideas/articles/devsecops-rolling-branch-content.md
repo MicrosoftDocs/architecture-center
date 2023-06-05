@@ -8,13 +8,15 @@ This solution is for organizations that use automation and security tools like [
 
 ## Architecture
 
-[![Architecture diagram for DevSecOps with GitHub.](../media/devsecops-architecture.png)](../media/devsecops-architecture.png#lightbox)
-**Diagram 1: DevSecOps with GitHub.** *Download a [PowerPoint file](https://arch-center.azureedge.net/devsecops-architecture.pptx) of this architecture.*
+[![Architecture diagram for DevSecOps with GitHub.](../media/devsecops-architecture.svg)](../media/devsecops-architecture.svg#lightbox)
+**Diagram 1: DevSecOps with GitHub.**
 
 <BR>
 
-[![Architecture diagram for DevSecOps with a rolling main branching strategy.](../media/devsecops-with-rolling-branch.png)](../media/devsecops-with-rolling-branch.png#lightbox)
-**Diagram 2: DevSecOps with rolling main branch strategy.** *Download a [PowerPoint file](https://arch-center.azureedge.net/devsecops-with-rolling-branch.pptx) of this architecture.*
+[![Architecture diagram for DevSecOps with a rolling main branching strategy.](../media/devsecops-with-rolling-branch.svg)](../media/devsecops-with-rolling-branch.svg#lightbox)
+**Diagram 2: DevSecOps with rolling main branch strategy.**
+
+*Download a [Visio file](https://arch-center.azureedge.net/devsecops-rolling-branch.vsdx) of all diagrams in this article.*
 
 ### Dataflow
 
@@ -66,7 +68,6 @@ Principal author:
 
 * [Secure DevOps](https://www.microsoft.com/securityengineering/devsecops)
 * [Security strategy essentials](https://github.com/githubtraining/security-strategy-essentials)
-* [CodeQL U-Boot Challenge (C/C++)](https://lab.github.com/githubtraining/codeql-u-boot-challenge-(cc++))
 * [Learn GitHub Actions](https://docs.github.com/actions/learn-github-actions)
 * [Azure Boards documentation](/azure/devops/boards)
 * [Azure Container Registry documentation](/azure/container-registry)
@@ -74,5 +75,5 @@ Principal author:
 
 ## Related resources
 
-* [DevSecOps in Azure](/azure/architecture/solution-ideas/articles/devsecops-in-azure)
+* [DevSecOps on AKS](../../guide/devsecops/devsecops-on-aks.yml)
 * [DevSecOps in GitHub](/azure/architecture/solution-ideas/articles/devsecops-in-github)

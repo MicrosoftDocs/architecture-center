@@ -3,10 +3,10 @@ metadata:
   title: Connected factory signal processing pipeline
   titleSuffix: Azure Example Scenarios
   description: See a connected factory signal processing pipeline with a common configuration interface to connect brownfield and modern IoT devices through an OPC UA gateway.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: Francisco.beltrao, martin.weber
-  ms.date: 09/16/2022
-  ms.topic: conceptual
+  ms.date: 02/28/2023
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
 azureCategories:

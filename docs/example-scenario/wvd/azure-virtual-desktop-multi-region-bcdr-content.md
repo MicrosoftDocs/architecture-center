@@ -110,12 +110,16 @@ For specific circumstances, you can create a single host pool with a mix of sess
 
 ### General
 
-This approach is based on an active-passive model with another Virtual Desktop host pool that you create in the secondary region. You can create this host pool inside the same workspace or a different one, depending on the model.
-
-This approach requires you to maintain the alignment and updates, keeping both host pools in sync and at the same configuration level. In addition to a new host pool for the secondary disaster recovery region, you need:
+In order to deploy either an active-active or active-passive configuration using multiple host pools and an FSLogix cloud cache mechanism, you can create the host pool inside the same workspace or a different one, depending on the model. This approach requires you to maintain the alignment and updates, keeping both host pools in sync and at the same configuration level. In addition to a new host pool for the secondary disaster recovery region, you need:
 
 - To create new distinct application groups and related applications for the new host pool.
 - To revoke user assignments to the primary host pool, and then manually reassign them to the new host pool during the failover.
+
+Review the [Business continuity and disaster recovery options for FSLogix](/fslogix/concepts-container-recovery-business-continuity).
+
+- [No profile recovery](/fslogix/concepts-container-recovery-business-continuity#option-1-no-profile-recovery) is not covered in this document. 
+- [Cloud cache (active/passive)](/fslogix/concepts-container-recovery-business-continuity#option-2-cloud-cache-primary--failover) is included in this document but is implemented it using the same host pool.
+- [Cloud cache (active/active)](/fslogix/concepts-container-recovery-business-continuity#option-3-cloud-cache-active--active) is covered in the remaining part of this document. 
 
 There are some limits for Virtual Desktop resources. For more information, see [Azure Virtual Desktop service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-virtual-desktop-service-limits).
 
@@ -163,12 +167,13 @@ In this guide, you use at least two separate storage accounts for each Virtual D
   - You're using the premium tier.
 - RPO and RTO are higher compared to FSLogix Cloud Cache mechanism.
 - It isn't easy to test failover and failback in a production environment.
-- Azure NetApp Files has some important limitations that you should consider:
-  - It doesn't provide zone-resiliency. If the resiliency requirement is more important than performance, use Azure Files share.
-  - Azure NetApp Files isn't *zonal*, meaning the user can't specify which zone to deploy in.
-  - You can't use Azure NetApp Files with zone-redundant VPN and ExpressRoute gateways, which you might use for networking resiliency. For more information, see [Supported network topologies](/azure/azure-netapp-files/azure-netapp-files-network-topologies#supported-network-topologies).
-  - You can't use Azure NetApp Files with Azure Virtual WAN. For more information, see [Supported network topologies](/azure/azure-netapp-files/azure-netapp-files-network-topologies#supported-network-topologies).
-- Azure NetApp Files has a [cross-region replication mechanism](/azure/azure-netapp-files/cross-region-replication-introduction), with the following limitations:
+- Azure NetApp Files requires additional considerations:
+  - Zone redundancy is not yet available. If the resiliency requirement is more important than performance, use Azure Files share.
+  - Azure NetApp Files can be [zonal](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement), that is customers can decide in which (single) Azure Availability Zone to allocate.
+  - Cross-Zone replication can be established at the volume level. Replication is async (RPO>0) and requires manual failover (RTO>0). Before using this feature is recommended to review the requirements and considerations from this [article](https://learn.microsoft.com/azure/azure-netapp-files/create-cross-zone-replication). 
+  - You can now use Azure NetApp Files with zone-redundant VPN and ExpressRoute gateways, if [Standard Networking](https://learn.microsoft.com/azure/azure-netapp-files/configure-network-features) feature is used, which you might use for networking resiliency. For more information, see [Supported network topologies](/azure/azure-netapp-files/azure-netapp-files-network-topologies#supported-network-topologies).
+  - Azure Virtual WAN is now supported but requires Azure NetApp Files [Standard Networking](https://learn.microsoft.com/azure/azure-netapp-files/configure-network-features) feature. For more information, see [Supported network topologies](/azure/azure-netapp-files/azure-netapp-files-network-topologies#supported-network-topologies).
+- Azure NetApp Files has a [cross-region replication mechanism](/azure/azure-netapp-files/cross-region-replication-introduction), the following considerations apply:
   - It's not available in all regions.
   - Region pairs are fixed.
   - Failover isn't transparent, and failback requires storage reconfiguration.
@@ -218,7 +223,7 @@ The following example shows a Cloud Cache configuration and related registry key
     :::image type="content" source="images/fslogix-cloud-cache-registry-keys-office-hires.png" alt-text="Screenshot that shows the Cloud Cache registry keys for Office Container." lightbox="images/fslogix-cloud-cache-registry-keys-office-hires.png":::
 
 > [!NOTE]
-> In the screenshots above, not all the recommended registry keys for FSLogix and Cloud Cache are reported, for brevity and simplicity. For more information, see [FSLogix for the enterprise](/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix).
+> In the screenshots above, not all the recommended registry keys for FSLogix and Cloud Cache are reported, for brevity and simplicity. For more information, see [FSLogix configuration examples](/fslogix/concepts-configuration-examples).
 
 **Secondary Region = West Europe**
 
@@ -250,7 +255,7 @@ The Cloud Cache configuration and replication mechanisms guarantee profile data 
 
 ### Identity
 
-One of the most important dependencies for Virtual Desktop is the availability of user identity. To access virtual desktops and remote apps from your session hosts, your users need to be able to authenticate. [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) is Microsoft's centralized cloud identity service that enables this capability. Azure AD is always used to authenticate users for Azure Virtual Desktop. Session hosts can be joined to the same Azure AD tenant, or to an Active Directory domain using [Active Directory Domain Services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) or Azure Active Directory Domain Services (Azure AD DS), providing you with a choice of flexible configuration options.
+One of the most important dependencies for Virtual Desktop is the availability of user identity. To access virtual desktops and remote apps from your session hosts, your users need to be able to authenticate. [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) is Microsoft's centralized cloud identity service that enables this capability. Azure AD is always used to authenticate users for Azure Virtual Desktop. Session hosts can be joined to the same Azure AD tenant, or to an Active Directory domain using [Active Directory Domain Services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) or Azure Active Directory Domain Services (Azure AD DS), providing you with a choice of flexible configuration options.
 
 - **Azure Active Directory**
   - It's a global multi-region and resilient service with [high-availability](https://azure.microsoft.com/support/legal/sla/active-directory/v1_1). No other action is required in this context as part of a Virtual Desktop BCDR plan.
@@ -393,8 +398,8 @@ Other contributors:
 
 ## Related resources
 
-- [Architecting Azure applications for resiliency and availability](../../reliability/architect.md)
+- [Design reliable Azure applications](/azure/well-architected/resiliency/app-design)
 - [Azure files accessed on-premises and secured by AD DS](../hybrid/azure-files-on-premises-authentication.yml)
 - [Azure Virtual Desktop for the enterprise](windows-virtual-desktop.yml)
 - [Enterprise file shares with disaster recovery](../file-storage/enterprise-file-shares-disaster-recovery.yml)
-- [FSLogix for the enterprise](../wvd/windows-virtual-desktop-fslogix.yml)
+- [FSLogix configuration examples](/fslogix/concepts-configuration-examples)

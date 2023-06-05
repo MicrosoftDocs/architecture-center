@@ -1,12 +1,12 @@
 ### YamlMime:Architecture
 metadata:
-  title: Gaming using Cosmos DB
+  title: Gaming using Azure Cosmos DB
   titleSuffix: Azure Solution Ideas
   description: Elastically scale your database to accommodate unpredictable bursts of traffic and deliver low-latency, multi-player experiences on a global scale.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 05/27/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -18,8 +18,7 @@ metadata:
     - Cosmos DB
     - mode-api
     - "https://azure.microsoft.com/solutions/architecture/gaming-using-cosmos-db"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/gaming-using-cosmos-db.png
-name: Gaming using Cosmos DB
+name: Gaming using Azure Cosmos DB
 azureCategories:
   - databases
 summary: Elastically scale your database to accommodate unpredictable bursts of traffic and deliver low-latency, multi-player experiences on a global scale.

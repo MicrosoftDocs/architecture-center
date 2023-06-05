@@ -2,7 +2,7 @@ The following reference architecture illustrates how to design and implement dis
 
 ## Architecture
 
-![Diagram illustrating an active-active and an active-passive Azure Stack HCI stretched cluster, with storage volumes and cluster performance history replicating via Storage Replica. In the active-active mode, there is replication traffic in each direction, with both sites hosting Azure Stack HCI VMs. In the active-passive mode, replication is unidirectional, with the active site hosting Azure Stack HCI VMs.][architectural-diagram]
+[ ![Diagram illustrating an active-active and an active-passive Azure Stack HCI stretched cluster, with storage volumes and cluster performance history replicating via Storage Replica. In the active-active mode, there is replication traffic in each direction, with both sites hosting Azure Stack HCI VMs. In the active-passive mode, replication is unidirectional, with the active site hosting Azure Stack HCI VMs.](images/azure-stack-hci-dr.svg)](images/azure-stack-hci-dr.svg#lightbox)
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
@@ -27,7 +27,7 @@ The following recommendation applies for most scenarios. Follow the recommendati
 
 To enhance the built-in resiliency of Azure Stack HCI, implement a stretched Azure Stack HCI cluster that consists of two groups of nodes, with one group per site. Each group must contain a minimum of two nodes. The total number of nodes in a cluster cannot exceed the maximum number of nodes supported by an Azure Stack HCI cluster. The nodes must satisfy the standard [HCI hardware requirements][hci-hardware-requirements].
 
-A stretched Azure Stack HCI cluster relies on Storage Replica to perform synchronous storage replication between storage volumes hosted by the two groups of nodes in their respective physical sites. If a failure affects the availability of the primary site, the cluster automatically transitions its workloads to nodes in the surviving site to minimize potential downtime. For planned or expected downtimes at the primary site, you can use Hyper-V Live Migration to seamlessly transition workloads to the other site, avoiding downtime altogether.
+A stretched Azure Stack HCI cluster relies on Storage Replica to perform synchronous storage replication between storage volumes hosted by the two groups of nodes in their respective physical sites. If a failure affects the availability of the primary site, the cluster automatically transitions its workloads to nodes in the surviving site to minimize potential downtime. For planned or expected downtimes at the primary site, you can use Hyper-V Live Migration to seamlessly transition workloads to the other site, avoiding downtime altogether. For this scenario you should be mindful of the storage location. You should first reverse the replication direction for the Storage Replica, then perform the Live Migration of the VMs. There will be a performance impact until the Live Migration completes.
 
 > [!NOTE]
 > Synchronous replication ensures crash consistency with zero data loss at the file-system level during a failover.
@@ -55,7 +55,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 - **Improved Storage Spaces Direct volume repair speed.** Storage Spaces Direct provides automatic resync following events that affect availability of disks within its storage pool, such as shutting down one of the cluster nodes or a localized hardware failure. Azure Stack HCI implements an [enhanced resync process][sr-resync] that operates at a much finer granularity than Windows Server 2019. This process significantly reduces the duration of the resync operation and minimizes the potential impact of multiple, overlapping hardware failures.
 
-- **Resiliency limits.** Azure Stack HCI provides multiple levels of resiliency, but because of its hyper-converged architecture, that resiliency is subject to limits imposed not only by the [cluster quorum][cluster-quorum], but also by the [pool quorum][pool-quorum]. You can eliminate this limit by implementing [cluster sets][cluster-sets] in which you combine multiple Azure Stack HCI clusters to create an HCI platform consisting of hundreds of nodes.
+- **Resiliency limits.** Azure Stack HCI provides multiple levels of resiliency, but because of its hyper-converged architecture, that resiliency is subject to limits imposed not only by the [cluster quorum][cluster-quorum], but also by the [pool quorum][pool-quorum].
 
 - **Integration with a range of Azure services that provide additional resiliency advantages.** You can integrate virtualized workloads running on Azure Stack HCI clusters with such Azure services as [Azure Backup][azure-backup] and [Azure Site Recovery][azure-site-recovery].
 
@@ -143,8 +143,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 - [Azure Automation in a hybrid environment](azure-automation-hybrid.yml)
 - [Azure Automation State Configuration](../example-scenario/state-configuration/state-configuration.yml)
 
-[architectural-diagram]: images/azure_stack_hci_dr.png
-[architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure_stack_hci_dr.vsdx
+[architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-stack-hci-dr.vsdx
 [azure-well-architected-framework]: /azure/architecture/framework
 [microsoft-component]: /
 [azs-hci]: /azure-stack/hci/overview

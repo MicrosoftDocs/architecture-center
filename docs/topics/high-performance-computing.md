@@ -4,7 +4,7 @@ description: Learn about high-performance computing (HPC) on Azure, which uses m
 author: SMBrook
 ms.author: sibrook
 ms.date: 08/08/2022
-ms.topic: guide
+ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
 products: azure
@@ -16,7 +16,6 @@ ms.category:
   - storage
 ms.custom:
   - fcp
-social_image_url: /azure/architecture/topics/media/architecture-hpc-saas.png
 ---
 
 <!-- cSpell:ignore fullheight neuro milliman hymans netapp gluster tibco cyclecloud hpcpack radioss ansys axioma alces slurm mdcs cntk -->
@@ -162,7 +161,7 @@ For more information comparing Lustre, GlusterFS, and BeeGFS on Azure, review th
 
 ### Networking
 
-H16r, H16mr, A8, and A9 VMs can connect to a high throughput back-end RDMA network. This network can improve the performance of tightly coupled parallel applications running under Microsoft MPI or Intel MPI.
+H16r, H16mr, A8, and A9 VMs can connect to a high throughput back-end RDMA network. This network can improve the performance of tightly coupled parallel applications running under Microsoft Message Passing Interface better known as MPI or Intel MPI.
 
 - [RDMA Capable Instances](/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances)
 - [Virtual Network](/azure/virtual-network/virtual-networks-overview)
@@ -174,7 +173,7 @@ H16r, H16mr, A8, and A9 VMs can connect to a high throughput back-end RDMA netwo
 
 Building an HPC system from scratch on Azure offers a significant amount of flexibility, but it is often very maintenance intensive.
 
-1. Set up your own cluster environment in Azure virtual machines or [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview).
+1. Set up your own cluster environment in Azure virtual machines or [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview).
 2. Use Azure Resource Manager templates to deploy leading [workload managers](#workload-managers), infrastructure, and [applications](#hpc-applications).
 3. Choose HPC and GPU [VM sizes](#compute) that include specialized hardware and network connections for MPI or GPU workloads.
 4. Add [high-performance storage](#storage) for I/O-intensive workloads.
@@ -183,7 +182,7 @@ Building an HPC system from scratch on Azure offers a significant amount of flex
 
 If you have an existing on-premises HPC system that you'd like to connect to Azure, there are several resources to help get you started.
 
-First, review the [Options for connecting an on-premises network to Azure](../reference-architectures/hybrid-networking/index.yml) article in the documentation.  From there, you may want information on these connectivity options:
+First, review the [Options for connecting an on-premises network to Azure](../reference-architectures/hybrid-networking/index.yml) article in the documentation.  From there, you can find additional information on these connectivity options:
 
 <ul class="columns is-multiline has-margin-left-none has-margin-bottom-none has-padding-top-medium">
     <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
@@ -250,16 +249,21 @@ There are many workload managers offered in the [Azure Marketplace](https://azur
 
 - [RogueWave CentOS-based HPC](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc)
 - [SUSE Linux Enterprise Server for HPC](https://www.suse.com/products/server/hpc/)
-- [TIBCO Datasynapse GridServer](https://azuremarketplace.microsoft.com/marketplace/apps/tibco-software.tibco_datasynapse_gridserver)
+- [TIBCO DataSynapse GridServer](https://azuremarketplace.microsoft.com/marketplace/apps/tibco-software.tibco_datasynapse_gridserver)
 - [Azure Data Science VM for Windows and Linux](/azure/machine-learning/data-science-virtual-machine/overview)
 - [D3View](https://azuremarketplace.microsoft.com/marketplace/apps/xfinityinc.d3view-v5?tab=Overview)
 - [UberCloud](https://azuremarketplace.microsoft.com/marketplace/apps/ubercloud.ansys_182_test)
 
 ### Azure Batch
 
-[Azure Batch](/azure/batch/batch-technical-overview) is a platform service for running large-scale parallel and high-performance computing (HPC) applications efficiently in the cloud. Azure Batch schedules compute-intensive work to run on a managed pool of virtual machines, and can automatically scale compute resources to meet the needs of your jobs.
+[Azure Batch](/azure/batch/batch-technical-overview) is a platform service for running large-scale parallel and HPC applications efficiently in the cloud. Azure Batch schedules compute-intensive work to run on a managed pool of virtual machines, and can automatically scale compute resources to meet the needs of your jobs.
 
 SaaS providers or developers can use the Batch SDKs and tools to integrate HPC applications or container workloads with Azure, stage data to Azure, and build job execution pipelines.
+
+In Azure Batch all the services are running on the Cloud, the image below shows how the architecture looks with Azure Batch, having the scalability and job schedule configurations running in the Cloud while the results and reports can be sent to your on-premises environment.
+
+![Diagram shows example HPC architecture for Azure Batch.](images/cloud-native-job-scheduler-azure-batch.jpg)
+
 
 ### Azure CycleCloud
 
@@ -274,6 +278,29 @@ CycleCloud allows you to:
 - Use your current job scheduler and applications without modification
 - Take advantage of built-in autoscaling and battle-tested reference architectures for a wide range of HPC workloads and industries
 
+##### Hybrid / cloud bursting model
+In this Hybrid example diagram, we can see clearly how these services are distributed between the cloud and the on-premises environment. Having the opportunity to run jobs in both workloads.
+![Diagram shows example HPC architecture for CycleCloud on Azure in a Hybrid.](images/industry-standard-high-performance-computing-job-scheduler-hybrid-cloudbursting-model-azure-cyclecloud.jpg)
+
+##### Cloud native model
+The cloud native model example diagram below, shows how the workload in the cloud will handle everything while still conserving the connection to the on-premises environment.
+
+![Diagram shows example HPC architecture for CycleCloud on Azure in Cloud native model
+.](images/industry-standard-high-performance-computing-job-scheduler-cloud-native-model-azure-cyclecloud.jpg)
+
+### Comparison chart
+
+|Feature              |Azure Batch             |Azure CycleCloud     |
+|---------------|------------------------|------------------------|
+|Scheduler |Batch APIs and tools and command-line scripts in the Azure portal (Cloud Native).  |Use standard HPC schedulers such as Slurm, PBS Pro, LSF, Grid Engine, and HTCondor, or extend CycleCloud autoscaling plugins to work with your own scheduler.|
+|Compute Resources |Software as a Service Nodes – Platform as a Service |Platform as a Service Software – Platform as a Service |
+|Monitor Tools |Azure Monitor |Azure Monitor, Grafana |
+|Customization |Custom image pools, Third Party images, Batch API access. |Use the comprehensive RESTful API to customize and extend functionality, deploy your own scheduler, and support into existing workload managers |
+|Integration | Synapse Pipelines, Azure Data Factory, Azure CLI |Built-In CLI for Windows and Linux |
+|User type |Developers |Classic HPC administrators and users |
+|Work Type |Batch, Workflows |Tightly coupled (Message Passing Interface/MPI).|
+|Windows Support |Yes |Varies, depending on scheduler choice |
+
 ### Workload managers
 
 The following are examples of cluster and workload managers that can run in Azure infrastructure. Create stand-alone clusters in Azure VMs or burst to Azure VMs from an on-premises cluster.
@@ -284,7 +311,7 @@ The following are examples of cluster and workload managers that can run in Azur
 - [IBM Spectrum Symphony and Symphony LSF](https://azure.microsoft.com/blog/ibm-and-microsoft-azure-support-spectrum-symphony-and-spectrum-lsf)
 - [Altair PBS Works](https://www.altair.com/pbs-works)
 - [Rescale](https://www.rescale.com/azure)
-- [Univa Grid Engine](https://www.altair.com/grid-engine)
+- [Altair Grid Engine](https://www.altair.com/grid-engine)
 - [Microsoft HPC Pack](/powershell/high-performance-computing/overview?view=hpc19-ps&preserve-view=true)
   - [HPC Pack for Windows](/azure/virtual-machines/windows/hpcpack-cluster-options)
   - [HPC Pack for Linux](/azure/virtual-machines/linux/hpcpack-cluster-options)
@@ -304,7 +331,7 @@ Managing your HPC cost on Azure can be done through a few different ways.  Ensur
 
 For an overview of security best practices on Azure, review the [Azure Security Documentation](/azure/security/azure-security).
 
-In addition to the network configurations available in the [Cloud Bursting](#hybrid-and-cloud-bursting) section, you may want to implement a hub/spoke configuration to isolate your compute resources:
+In addition to the network configurations available in the [Cloud Bursting](#hybrid-and-cloud-bursting) section, you can implement a hub/spoke configuration to isolate your compute resources:
 
 <ul class="columns is-multiline has-margin-left-none has-margin-bottom-none has-padding-top-medium">
     <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
@@ -460,3 +487,9 @@ These tutorials will provide you with details on running applications on Microso
 - [Run containerized HPC workloads with Batch Shipyard](https://github.com/Azure/batch-shipyard)
 - [Run on-demand Spark jobs on Batch](https://github.com/Azure/aztk)
 - [Use compute-intensive VMs in Batch pools](/azure/batch/batch-pool-compute-intensive-sizes)
+
+## Related resources
+
+- [Big compute architecture style](../guide/architecture-styles/big-compute.yml)
+- [Hybrid HPC in Azure with HPC Pack](../solution-ideas/articles/hybrid-hpc-in-azure-with-hpc-pack.yml)
+- [HPC cluster deployed in the cloud](../solution-ideas/articles/hpc-cluster.yml)

@@ -1,16 +1,16 @@
 
-
-This article describes how to set up a local Gridwich development environment in either Visual Studio 2019 or above, or Visual Studio Code.
+This article describes how to set up a local Gridwich development environment in either Visual Studio 2022 or above, or Visual Studio Code.
 
 ## Prerequisites
 
-- Up-to-date [Visual Studio Code](https://code.visualstudio.com/) or [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
+- Up-to-date [Visual Studio Code](https://code.visualstudio.com/) or [Visual Studio 2022](https://visualstudio.microsoft.com/downloads/).
 - [Azure CLI](/cli/azure/install-azure-cli)
-- [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)
+- [.NET 6.0](https://dotnet.microsoft.com/download/dotnet/6.0)
 - [PowerShell](/powershell/scripting/overview)
 - [Git](https://git-scm.com/downloads) installed, and your organization's Azure DevOps Gridwich repository cloned to your local machine. If you're using Windows [GitHub Desktop](https://desktop.github.com/), avoid cloning into user directories.
 
 Optional:
+
 - [curl](https://curl.haxx.se/)
 - [Postman](https://www.postman.com/)
 
@@ -73,7 +73,7 @@ If you need an Azure PowerShell CLI environment, you can use [Azure Cloud Shell]
    $settingsList.AddRange($appSettings)
    echo "{""IsEncrypted"": false,""Values"": {" > local.settings.$targetEnv.json
    $settingsList.ForEach({echo """$($_.name)"":""$($_.value)"","}) >> local.settings.$targetEnv.json
-   echo """AzureWebJobsStorage"": ""UseDevelopmentStorage=true"",""FUNCTIONS_WORKER_RUNTIME"": ""dotnet"",""AZURE_TENANT_ID"": ""$targetTenant"",""AZURE_SUBSCRIPTION_ID"": ""$targetSub""}}" >> local.settings.$targetEnv.json
+   echo """AzureWebJobsStorage"": ""UseDevelopmentStorage=true"",""FUNCTIONS_WORKER_RUNTIME"": ""dotnet"",""FUNCTIONS_EXTENSION_VERSION"": ""~4"",""AZURE_TENANT_ID"": ""$targetTenant"",""AZURE_SUBSCRIPTION_ID"": ""$targetSub""}}" >> local.settings.$targetEnv.json
    type local.settings.$targetEnv.json
    ```
 
@@ -118,14 +118,12 @@ To replace the `@Microsoft.KeyVault` secrets in *local.settings.sb.json* with ac
 $keyVaultName="$appname-kv-$targetEnv"
 $targetUserPrincipalName = (az ad signed-in-user show | ConvertFrom-Json).userPrincipalName
 az keyvault set-policy --name $keyVaultName --secret-permissions list get --upn $targetUserPrincipalName
-$AmsAadClientId=$((az keyvault secret show --vault-name $keyVaultName --name ams-sp-client-id | ConvertFrom-Json).value)
-$AmsAadClientSecret=$((az keyvault secret show --vault-name $keyVaultName --name ams-sp-client-secret  | ConvertFrom-Json).value)
-$APPINSIGHTS_INSTRUMENTATIONKEY=$((az keyvault secret show --vault-name $keyVaultName --name appinsights-instrumentationkey  | ConvertFrom-Json).value)
+$APPLICATIONINSIGHTS_CONNECTION_STRING=$((az keyvault secret show --vault-name $keyVaultName --name appinsights-connectionstring  | ConvertFrom-Json).value)
 $TELESTREAMCLOUD_API_KEY=$((az keyvault secret show --vault-name $keyVaultName --name telestream-cloud-api-key  | ConvertFrom-Json).value)
 $GRW_TOPIC_END_POINT=$((az keyvault secret show --vault-name $keyVaultName --name grw-topic-end-point  | ConvertFrom-Json).value)
 $GRW_TOPIC_KEY=$((az keyvault secret show --vault-name $keyVaultName --name grw-topic-key   | ConvertFrom-Json).value)
 $AmsDrmFairPlayAskHex=$((az keyvault secret show --vault-name $keyVaultName --name ams-fairplay-ask-hex   | ConvertFrom-Json).value)
-echo $('"AmsAadClientId":"'+$AmsAadClientId+'",') $('"AmsAadClientSecret":"'+$AmsAadClientSecret+'",') $('"APPINSIGHTS_INSTRUMENTATIONKEY":"'+$APPINSIGHTS_INSTRUMENTATIONKEY+'",') $('"TELESTREAMCLOUD_API_KEY":"'+$TELESTREAMCLOUD_API_KEY+'",') $('"GRW_TOPIC_END_POINT":"'+$GRW_TOPIC_END_POINT+'",') $('"GRW_TOPIC_KEY":"'+$GRW_TOPIC_KEY+'",') $('"AmsDrmFairPlayAskHex":"'+$AmsDrmFairPlayAskHex+'",')
+echo $('"APPLICATIONINSIGHTS_CONNECTION_STRING":"'+$APPLICATIONINSIGHTS_CONNECTION_STRING+'",') $('"TELESTREAMCLOUD_API_KEY":"'+$TELESTREAMCLOUD_API_KEY+'",') $('"GRW_TOPIC_END_POINT":"'+$GRW_TOPIC_END_POINT+'",') $('"GRW_TOPIC_KEY":"'+$GRW_TOPIC_KEY+'",') $('"AmsDrmFairPlayAskHex":"'+$AmsDrmFairPlayAskHex+'",')
 ```
 
 ### Replace the local file
@@ -140,5 +138,6 @@ Manually add the following two values to *local.settings.json*:
 - `AmsDrmFairPlayPfxPassword`. Use the dummy password from [FakeFairPlayCert/password.txt](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Publication.MediaServicesV3/tests/FakeFairPlayCert/password.txt).
 
 ## Next steps
+
 - [Create or delete a Gridwich cloud sandbox or test environment](create-delete-cloud-environment.yml)
 - [Test a deployed Gridwich app locally](test-encoding.yml#how-to-test-gridwich-projects-locally)

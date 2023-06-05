@@ -1,6 +1,6 @@
 This article provides best practices for an Azure NAT gateway. The guidance is based on the five pillars of architecture excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
 
-We assume that you have a working knowledge of Azure Virtual Network NAT (NAT gateway) and that you are well-versed with the respective features. As a refresher, review the full set of [Azure Virtual Network NAT](/azure/virtual-network/nat-gateway) documentation.
+We assume that you have a working knowledge of Azure NAT Gateway) and that you are well-versed with the respective features. As a refresher, review the full set of [Azure NAT Gateway](/azure/virtual-network/nat-gateway) documentation.
 
 NAT stands for *network address translation*. See [An introduction to Network Address Translation](/azure/rtos/netx-duo/netx-duo-nat/chapter1).
 
@@ -16,7 +16,7 @@ Each NAT gateway public IP address provides 64,512 SNAT ports. Up to 16 IP addre
 
 ### SNAT exhaustion
 
-- NAT gateway resources have a default TCP idle timeout of 4 minutes that can be configured up to 120 minutes. If this setting is changed to a higher value than the default, NAT will hold on to flows longer and can cause unnecessary pressure on SNAT port inventory.
+- NAT gateway resources have a default TCP idle timeout of 4 minutes that can be configured up to 120 minutes. If this setting is changed to a higher value than the default, NAT gateway will hold on to flows longer and can cause unnecessary pressure on SNAT port inventory.
 - Atomic requests (one request per connection) are a poor design choice, because it limits scale, reduces performance, and reduces reliability. Instead, reuse HTTP/S connections, to reduce the numbers of connections and associated SNAT ports. Connection reuse will better allow the application to scale. Application performance will improve, due to reduced handshakes, overhead, and cryptographic operation costs when using TLS.
 - DNS can introduce many individual flows at volume, when the client isn't caching the DNS resolvers result. Use DNS caching to reduce the volume of flows and reduce the number of SNAT ports. DNS typically stands for *Domain Name System*, the naming system for the resources that are connected to the Internet or to a private network.
 - UDP flows, such as DNS lookups, use SNAT ports during the idle timeout. The UDP idle timeout timer is fixed at 4 minutes and cannot be changed.
@@ -52,6 +52,8 @@ Availability zone isolation cannot be provided, unless each subnet only has reso
 
 ![Diagram that demonstrates the directional flow of a zonal stack.](./images/az-directions.png)
 
+Virtual networks and subnets [span all availability zones in a region](/azure/virtual-network/virtual-networks-overview#virtual-networks-and-availability-zone). You don't need to divide them by availability zones to accommodate zonal resources.
+
 ## Security
 
 With NAT gateway, individual virtual machines (or other compute resources) don't need public IP addresses and can remain fully private. Resources without a public IP address can still reach external sources outside the virtual network. You can associate a public IP prefix to ensure that a contiguous set of IPs will be used for outbound. Destination firewall rules can be configured based on this predictable IP list.
@@ -61,6 +63,16 @@ A common approach is to design an outbound-only network virtual appliance (NVA) 
 ![Diagram that shows firewalls with a load balancer sandwich and NAT gateway.](./images/natgw-fw-vmss.svg)
 
 Microsoft Defender for Cloud can monitor for any suspicious outbound connectivity through a NAT gateway. This is an alert feature in [Microsoft Defender for Cloud](/azure/security-center).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Ethan Haslett](https://www.linkedin.com/in/ethan-haslett-1502841/) | Senior Cloud Solution Architect
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

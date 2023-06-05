@@ -20,7 +20,7 @@ The architecture consists of the following components:
 
 **Azure Databricks**. [Databricks](/azure/azure-databricks) is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. Databricks is used to correlate of the taxi ride and fare data, and also to enrich the correlated data with neighborhood data stored in the Databricks file system.
 
-**Cosmos DB**. The output from Azure Databricks job is a series of records, which are written to [Cosmos DB](/azure/cosmos-db) using the Cassandra API. The Cassandra API is used because it supports time series data modeling.
+**Azure Cosmos DB**. The output of an Azure Databricks job is a series of records, which are written to [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db). Azure Cosmos DB for Apache Cassandra is used because it supports time series data modeling.
 
 - [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link) enables you to run near real-time analytics over operational data in Azure Cosmos DB, **without any performance or cost impact on your transactional workload**, by using the two analytics engines available from your Azure Synapse workspace: [SQL Serverless](/azure/synapse-analytics/sql/on-demand-workspace-overview) and [Spark Pools](/azure/synapse-analytics/spark/apache-spark-overview).
 
@@ -28,7 +28,7 @@ The architecture consists of the following components:
 
 ### Alternatives
 
-- [Synapse Link](/azure/cosmos-db/synapse-link) is the Microsoft preferred solution for analytics on top of Cosmos DB data.
+- [Synapse Link](/azure/cosmos-db/synapse-link) is the Microsoft preferred solution for analytics on top of Azure Cosmos DB data.
 
 ## Scenario details
 
@@ -183,7 +183,7 @@ And then the ride data is joined with the fare data:
 val mergedTaxiTrip = rides.join(fares, Seq("medallion", "hackLicense", "vendorId", "pickupTime"))
 ```
 
-#### Processing the data and inserting into Cosmos DB
+#### Processing the data and inserting into Azure Cosmos DB
 
 The average fare amount for each neighborhood is calculated for a given time interval:
 
@@ -200,7 +200,7 @@ val maxAvgFarePerNeighborhood = mergedTaxiTrip.selectExpr("medallion", "hackLice
       .select($"window.start", $"window.end", $"pickupNeighborhood", $"rideCount", $"totalFareAmount", $"totalTipAmount", $"averageFareAmount", $"averageTipAmount")
 ```
 
-Which is then inserted into Cosmos DB:
+Which is then inserted into Azure Cosmos DB:
 
 ```scala
 maxAvgFarePerNeighborhood
@@ -302,7 +302,7 @@ For more information, see [Monitoring Azure Databricks](../../databricks-monitor
 
 - Put each workload in a separate deployment template and store the resources in source control systems. You can deploy the templates together or individually as part of a CI/CD process, making the automation process easier.
 
-  In this architecture, Azure Event Hubs, Log Analytics, and Cosmos DB are identified as a single workload. These resources are included in a single ARM template.
+  In this architecture, Azure Event Hubs, Log Analytics, and Azure Cosmos DB are identified as a single workload. These resources are included in a single ARM template.
 
 - Consider staging your workloads. Deploy to various stages and run validation checks at each stage before moving to the next stage. That way you can push updates to your production environments in a highly controlled way and minimize unanticipated deployment issues.
 
@@ -357,7 +357,7 @@ For more information, see [Azure Databricks Pricing][azure-databricks-pricing].
 
 #### Azure Cosmos DB
 
-In this architecture, a series of records are written to Cosmos DB by the Azure Databricks job. You are charged for the capacity that you reserve, expressed in Request Units per second (RU/s), used to perform insert operations. The unit for billing is 100 RU/sec per hour. For example, the cost of writing 100-KB items is 50 RU/s.
+In this architecture, a series of records are written to Azure Cosmos DB by the Azure Databricks job. You are charged for the capacity that you reserve, expressed in Request Units per second (RU/s), used to perform insert operations. The unit for billing is 100 RU/sec per hour. For example, the cost of writing 100-KB items is 50 RU/s.
 
 For write operations, provision enough capacity to support the number of writes needed per second. You can increase the provisioned throughput by using the portal or Azure CLI before performing write operations and then reduce the throughput after those operations are complete. Your throughput for the write period is the minimum throughput needed for the given data plus the throughput required for the insert operation assuming no other workload is running.
 
@@ -369,9 +369,9 @@ The container is billed at 10 units of 100 RU/sec per hour for each hour. 10 uni
 
 For 720 hours or 7,200 units (of 100 RUs), you are billed $57.60 for the month.
 
-Storage is also billed, for each GB used for your stored data and index. For more information, see [Cosmos DB pricing model][cosmosdb-pricing].
+Storage is also billed, for each GB used for your stored data and index. For more information, see [Azure Cosmos DB pricing model][cosmosdb-pricing].
 
-Use the [Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estimate of the workload cost.
+Use the [Azure Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estimate of the workload cost.
 
 For more information, see the cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 

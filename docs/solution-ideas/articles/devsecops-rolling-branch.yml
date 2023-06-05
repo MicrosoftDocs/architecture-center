@@ -3,10 +3,10 @@ metadata:
   title: DevSecOps with a rolling main branching strategy
   titleSuffix: Azure Solution Ideas
   description: Improve developer velocity and security with DevSecOps and GitHub during the entire development process using a shift-left strategy.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: fdeliva
   ms.date: 05/26/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.custom: fcp

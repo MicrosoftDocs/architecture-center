@@ -2,10 +2,10 @@
 metadata:
   title: Build a chatbot for hotel booking
   description: Build a conversational chatbot for common business scenarios with Azure Bot Service. This example scenario shows a chatbot for hotel booking.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/25/2022
-  ms.topic: conceptual
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.category:
@@ -15,7 +15,6 @@ metadata:
     - example-scenario
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/example-scenario/ai/media/architecture-commerce-chatbot.png
 name: Build a chatbot for hotel booking
 azureCategories:
   - ai-machine-learning

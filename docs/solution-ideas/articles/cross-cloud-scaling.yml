@@ -3,10 +3,10 @@ metadata:
   title: Cross-cloud scaling with Azure Functions
   titleSuffix: Azure Architecture Center
   description: Understand how to improve cross-cloud scalability with solution architecture that includes Azure Stack.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/14/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -22,7 +22,6 @@ metadata:
     - interactive-diagram
     - e2e-hybrid
     - "https://azure.microsoft.com/solutions/architecture/cross-cloud-scaling"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/cross-cloud-scaling.png
 name: Cross-cloud scaling with Azure Functions 
 azureCategories:
   - hybrid

@@ -6,12 +6,12 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db"><img src="/azure/architecture/browse/thumbs/globally-distributed-mission-critical-applications-using-cosmos-db.png" class="diagram" alt="Thumbnail of Globally distributed applications using Cosmos DB Architectural Diagram." data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db"><img src="/azure/architecture/browse/thumbs/globally-distributed-mission-critical-applications-using-cosmos-db.png" class="diagram" alt="Thumbnail of Globally distributed applications using Azure Cosmos DB Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
         <a class="card-content-title has-margin-top-none" href="/azure/architecture/solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db">
-            <p>Globally distributed applications using Cosmos DB</p>
+            <p>Globally distributed applications using Azure Cosmos DB</p>
         </a>
         <ul class="card-content-metadata">
             <li>12/16/2019</li>

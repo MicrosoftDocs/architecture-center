@@ -7,7 +7,7 @@ editor: marktab
 services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.category:
@@ -155,6 +155,16 @@ If alerts are set up correctly, you'll be notified in email when the build is fi
 ![Email notification of build success](./media/code-test/email-build-succeed.png)
 
 ![Azure DevOps notification of build success](./media/code-test/vs-online-build-succeed.png)
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

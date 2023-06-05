@@ -6,7 +6,7 @@ metadata:
   author: hanuk
   ms.author: hanuk
   ms.date: 07/01/2022
-  ms.topic: conceptual
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom:
@@ -16,6 +16,7 @@ name: IoT monitor and manage loops
 summary: Learn how an IoT monitor and manage loop is a supervisory system that continually monitors a physical system controlled by a set of networked IoT devices.
 products:
   - azure-iot
+  - azure-monitor
 thumbnailUrl: /azure/architecture/browse/thumbs/monitor-and-manage.png
 content: |
    [!include[](monitor-manage-loop-content.md)]

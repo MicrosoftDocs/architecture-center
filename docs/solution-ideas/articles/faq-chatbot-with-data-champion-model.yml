@@ -3,10 +3,10 @@ metadata:
   title: Create an FAQ bot from existing data
   titleSuffix: Azure Solution Ideas
   description: Use QnA Maker to create a FAQ bot that extracts questions and answers from existing knowledge base (kb) data to answer employee questions and actively learn to improve quality.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 05/27/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -22,7 +22,6 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/faq-chatbot-with-data-champion-model"
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/faq-chatbot-with-data-champion-model.png
 name: Create an FAQ bot from existing data with continuous improvement guided by data champions
 azureCategories:
   - ai-machine-learning
@@ -33,6 +32,6 @@ products:
   - azure-language-understanding
   - azure-qna-maker
   - azure-application-insights
-thumbnailUrl: /azure/architecture/browse/thumbs/faq-chatbot-with-data-champion-model.png
+thumbnailUrl: /azure/architecture/browse/thumbs/faq-chatbot-with-data-champion-model-thumbnail.png
 content: |
   [!include[](faq-chatbot-with-data-champion-model-content.md)]

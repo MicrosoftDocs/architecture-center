@@ -3,10 +3,10 @@ metadata:
   title: Azure Database for PostgreSQL intelligent apps
   titleSuffix: Azure Architecture Center
   description: Use Azure Database for PostgreSQL to develop sophisticated machine learning and visualization apps that provide analytics and information that you can act on.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 05/27/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -21,7 +21,6 @@ metadata:
     - app-dev
     - "https://azure.microsoft.com/solutions/architecture/intelligent-apps-using-azure-database-for-postgresql"
     - ai-machine-learning
-  social_image_url: /azure/architecture/solution-ideas/articles/media/intelligent-apps-using-azure-database-for-postgresql.png
 name: Intelligent apps using Azure Database for PostgreSQL
 azureCategories:
   - databases

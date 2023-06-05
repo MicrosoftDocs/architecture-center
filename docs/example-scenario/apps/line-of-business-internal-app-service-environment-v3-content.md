@@ -78,7 +78,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 - Although there's no stamp fee for an ASEv3 instance, there's a charge that's levied when no App Service Plans are configured within the ASEv3 instance. This charge is levied at the same rate as one instance of a Windows I1v2 instance, for the region in which the ASEv3 instance is deployed.
 - When configured to be zone redundant, the charging model is adjusted to account for the underlying infrastructure that's deployed in this configuration. You might be liable for additional instances, as per [ASEv3 Pricing](/azure/app-service/environment/overview#pricing).
-- Consider the option of reserved instance pricing for ASEv3 App Service Plans (known as Isolated v2 App Service Plans), which is explained in [How reservation discounts apply to Isolated v2 instances](/azure/cost-management-billing/reservations/reservation-discount-app-service#how-reservation-discounts-apply-to-isolated-v2-instances).
+- For ASEv3 App Service plans (known as Isolated v2 App Service plans), use [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) and [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute/#benefits-and-features) with a one-year or three-year contract and receive significant savings off pay-as-you-go prices. For more information, see [How reservation discounts apply to Isolated v2 instances](/azure/cost-management-billing/reservations/reservation-discount-app-service#how-reservation-discounts-apply-to-isolated-v2-instances).
 
 ### Operational excellence
 
@@ -101,6 +101,17 @@ To get started and better understand the specifics of this implementation, revie
 - Before deploying, ensure that the service principal that's used to deploy the solution has the required permissions to create the resource types that we listed above.
 - Consider the CI/CD service that you'll use to deploy the reference implementation. As this reference implementation is an internal ASE, you'll need a self-hosted agent to execute the deployment pipelines. You have the choice to use either a DevOps agent or a GitHub runner. Refer to the [user guide](https://github.com/Azure/appservice-landing-zone-accelerator/tree/docs-update/docs) on the specific configuration values that are required.
 - Consider the region(s) to which you intend to deploy this reference implementation. Consult the [ASEv3 Regions list](/azure/app-service/environment/overview#regions) to ensure the selected region(s) are enabled for deployment.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Pete Messina](https://www.linkedin.com/in/peter-messina-93512414/) | Senoir Cloud Solution Architect
+ - [Nabeel Prior](https://www.linkedin.com/in/nabeelprior/) | Senior Cloud Solution Architect
+
+ *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

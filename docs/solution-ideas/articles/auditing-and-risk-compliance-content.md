@@ -9,7 +9,9 @@ This architecture demonstrates how to use [knowledge mining](https://azure.micro
 
 There are three steps in knowledge mining: ingest, enrich, and explore.
 
-![Architecture Diagram: knowledge mining in auditing, risk, and compliance management.](../media/knowledge-mining-auditing-and-risk-compliance.png)
+:::image type="content" alt-text="Architecture Diagram: knowledge mining in auditing, risk, and compliance management." source="../media/knowledge-mining-auditing-and-risk-compliance.png" lightbox="../media/knowledge-mining-auditing-and-risk-compliance.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/knowledge-mining-auditing-and-risk-compliance.vsdx) of this architecture.*
 
 ### Dataflow
 

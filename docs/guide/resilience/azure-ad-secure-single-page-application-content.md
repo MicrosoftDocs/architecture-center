@@ -296,6 +296,16 @@ The API is configured using the policy builder under **Configure Services**.
 
 The protected route uses the authorization policy to make sure that the authenticated user is in the relevant role before authorizing the request.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Lavan Nallainathan](https://www.linkedin.com/in/lavan-nallainathan-8771b05b/) | Senior Cloud Solution Architect
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Integrate on-premises AD domains with Azure AD](../../reference-architectures/identity/azure-ad.yml)

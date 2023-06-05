@@ -1,9 +1,9 @@
 ---
 title: Choose an analytical data store
 description: Evaluate analytical data store options for big data in Azure, including key selection criteria and a capability matrix.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
-ms.date: 07/25/2022
+ms.date: 03/07/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -43,7 +43,7 @@ These options provide various database models that are optimized for different t
 
 - [Key/value](../big-data/non-relational-data.yml#keyvalue-data-stores) databases hold a single serialized object for each key value. They're good for storing large volumes of data where you want to get one item for a given key value and you don't have to query based on other properties of the item.
 - [Document](../big-data/non-relational-data.yml#document-data-stores) databases are key/value databases in which the values are *documents*. A "document" in this context is a collection of named fields and values. The database typically stores the data in a format such as XML, YAML, JSON, or BSON, but may use plain text. Document databases can query on non-key fields and define secondary indexes to make querying more efficient. This makes a document database more suitable for applications that need to retrieve data based on criteria more complex than the value of the document key. For example, you could query on fields such as product ID, customer ID, or customer name.
-- [Column-family](../big-data/non-relational-data.yml#columnar-data-stores) databases are key/value data stores that structure data storage into collections of related columns called column families. For example, a census database might have one group of columns for a person's name (first, middle, last), one group for the person's address, and one group for the person's profile information (data of birth, gender). The database can store each column family in a separate partition, while keeping all of the data for one person related to the same key. An application can read a single column family without reading through all of the data for an entity.
+- [Column store](../big-data/non-relational-data.yml#columnar-data-stores) databases are key/value data stores that store each column separately on disk. A *wide column store* database is a type of column store database that stores *column families*, not just single columns. For example, a census database might have a column family for a person's name (first, middle, last), a family for the person's address, and a family for the person's profile information (date of birth, gender). The database can store each column family in a separate partition, while keeping all the data for one person related to the same key. An application can read a single column family without reading through all of the data for an entity.
 - [Graph](../big-data/non-relational-data.yml#graph-data-stores) databases store information as a collection of objects and relationships. A graph database can efficiently perform queries that traverse the network of objects and the relationships between them. For example, the objects might be employees in a human resources database, and you might want to facilitate queries such as "find all employees who directly or indirectly work for Scott."
 - Telemetry and time series databases are an append-only collection of objects. Telemetry databases efficiently index data in a variety of column stores and in-memory structures, making them the optimal choice for storing and analyzing vast quantities of telemetry and time series data.
 
@@ -53,7 +53,7 @@ To narrow the choices, start by answering these questions:
 
 - Do you need serving storage that can serve as a hot path for your data? If yes, narrow your options to those that are optimized for a speed serving layer.
 
-- Do you need massively parallel processing (MPP) support, where queries are automatically distributed across several processes or nodes? If yes, select an option that supports query scale out.
+- Do you need massively parallel processing (MPP) support, where queries are automatically distributed across several processes or nodes? If yes, select an option that supports query scale-out.
 
 - Do you prefer to use a relational data store? If so, narrow your options to those with a relational database model. However, note that some non-relational stores support SQL syntax for querying, and tools such as PolyBase can be used to query non-relational data stores.
 
@@ -65,10 +65,10 @@ The following tables summarize the key differences in capabilities.
 
 ### General capabilities
 
-| Capability | SQL Database | Azure Synapse SQL pool | Azure Synapse Spark pool | Azure Data Explorer | HBase/Phoenix on HDInsight | Hive LLAP on HDInsight | Azure Analysis Services | Cosmos DB |
+| Capability | SQL Database | Azure Synapse SQL pool | Azure Synapse Spark pool | Azure Data Explorer | HBase/Phoenix on HDInsight | Hive LLAP on HDInsight | Azure Analysis Services | Azure Cosmos DB |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Is managed service | Yes | Yes |Yes |  Yes | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes | Yes |
-| Primary database model | Relational (columnar format when using columnstore indexes) | Relational tables with columnar storage | Wide column store | Relational (column store), telemetry, and time series store | Wide column store | Hive/In-Memory | Tabular semantic models | Document store, graph, key-value store, wide column store |
+| Primary database model | Relational (column store format when using columnstore indexes) | Relational tables with column storage | Wide column store | Relational (column store), telemetry, and time series store | Wide column store | Hive/In-Memory | Tabular semantic models | Document store, graph, key-value store, wide column store |
 | SQL language support | Yes | Yes | Yes | Yes | Yes (using [Phoenix](https://phoenix.apache.org/) JDBC driver) | Yes | No | Yes |
 | Optimized for speed serving layer | Yes <sup>2</sup> | Yes <sup>3</sup> |Yes | Yes | Yes | Yes | No | Yes |
 
@@ -80,20 +80,20 @@ The following tables summarize the key differences in capabilities.
 
 ### Scalability capabilities
 
-| Capability | SQL Database | Azure Synapse SQL pool | Azure Synapse Spark pool | Azure Data Explorer | HBase/Phoenix on HDInsight | Hive LLAP on HDInsight | Azure Analysis Services | Cosmos DB |
+| Capability | SQL Database | Azure Synapse SQL pool | Azure Synapse Spark pool | Azure Data Explorer | HBase/Phoenix on HDInsight | Hive LLAP on HDInsight | Azure Analysis Services | Azure Cosmos DB |
 |--------------------------------------------------|--------------|--------------------|---------------------------|----------------------------|------------------------|-------------------------|-----------|-----------|
 | Redundant regional servers for high availability |     Yes      |        No         |        No         |       Yes   |            Yes             |           No           |           Yes            |    Yes    |
-|             Supports query scale out             |      No      |        Yes         |        Yes         |         Yes         |         Yes             |          Yes           |           Yes           |    Yes    |
+|             Supports query scale-out             |      No      |        Yes         |        Yes         |         Yes         |         Yes             |          Yes           |           Yes           |    Yes    |
 |          Dynamic scalability (scale up)          |     Yes      |        Yes       |        Yes         |        Yes           |             No             |           No           |           Yes           |    Yes    |
 |        Supports in-memory caching of data        |     Yes      |        Yes         |        Yes         |            Yes         |        No             |          Yes           |           Yes           |    No     |
 
 ### Security capabilities
 
-| Capability | SQL Database | Azure Synapse | Azure Data Explorer | HBase/Phoenix on HDInsight | Hive LLAP on HDInsight | Azure Analysis Services | Cosmos DB |
+| Capability | SQL Database | Azure Synapse | Azure Data Explorer | HBase/Phoenix on HDInsight | Hive LLAP on HDInsight | Azure Analysis Services | Azure Cosmos DB |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Authentication  | SQL / Azure Active Directory (Azure AD) | SQL / Azure AD | Azure AD | local / Azure AD <sup>1</sup> | local / Azure AD <sup>1</sup> | Azure AD | database users / Azure AD via access control (IAM) |
 | Data encryption at rest | Yes <sup>2</sup> | Yes <sup>2</sup> | Yes | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes | Yes |
-| Row-level security | Yes | Yes <sup>3</sup> | No | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes | No |
+| Row-level security | Yes | Yes <sup>3</sup> | Yes | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes | No |
 | Supports firewalls | Yes | Yes | Yes | Yes <sup>4</sup> | Yes <sup>4</sup> | Yes | Yes |
 | Dynamic data masking | Yes | Yes | Yes | Yes <sup>1</sup> | Yes | No | No |
 
@@ -112,3 +112,21 @@ The following tables summarize the key differences in capabilities.
 Principal author:
 
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+
+## Next steps
+
+- [Analyze data in a relational data warehouse](/training/modules/design-multidimensional-schema-to-optimize-analytical-workloads)
+- [Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart)
+- [Create an Azure Databricks workspace](/azure/databricks/getting-started)
+- [Create Apache Spark cluster in Azure HDInsight using Azure portal](/azure/hdinsight/spark/apache-spark-jupyter-spark-sql-use-portal)
+- [Creating a Synapse workspace](/azure/synapse-analytics/get-started-create-workspace)
+- [Explore Azure data services for modern analytics](/training/modules/explore-azure-data-services-for-modern-analytics)
+- [Explore Azure database and analytics services](/training/modules/azure-database-fundamentals)
+- [Query Azure Cosmos DB by using the API for NoSQL](/azure/cosmos-db/nosql/tutorial-query)
+
+## Related resources
+
+- [Technology choices for Azure solutions](../../guide/technology-choices/technology-choices-overview.md)
+- [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)
+- [Analyze operational data on MongoDB Atlas using Azure Synapse Analytics](../../example-scenario/analytics/azure-synapse-analytics-integrate-mongodb-atlas.yml)
+- [Non-relational data and NoSQL](../../data-guide/big-data/non-relational-data.yml)

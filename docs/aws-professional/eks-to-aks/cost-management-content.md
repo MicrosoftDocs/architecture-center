@@ -1,7 +1,6 @@
 This guide explains how pricing and cost management work in Azure Kubernetes Service (AKS) compared to Amazon Elastic Kubernetes Service (Amazon EKS). The article describes how to optimize costs and implement cost governance solutions for your AKS cluster.
 
-> [!NOTE]
-> This article is part of a [series of articles](index.md) that helps professionals who are familiar with Amazon Elastic Kubernetes Service (Amazon EKS) to understand Azure Kubernetes Service (AKS).
+[!INCLUDE [eks-aks](includes/eks-aks-include.md)]
 
 ## Amazon EKS cost basics
 
@@ -35,19 +34,19 @@ The following diagram shows the relationship between the control plane and nodes
 
 ### Control plane
 
-Azure automatically provisions and configures the control plane layer when you create an AKS cluster. For the AKS free tier, the control plane is free.
+Azure automatically provisions and configures the control plane layer when you create an AKS cluster. For the AKS Free tier, the control plane is free.
 
-For a higher control plane service-level agreement (SLA), you can create an AKS cluster with [Uptime SLA](/azure/aks/uptime-sla). Uptime SLA is a paid feature that you enable per cluster. Uptime SLA pricing is determined by the number of clusters, not by cluster size.
+For a higher control plane service-level agreement (SLA), you can create an AKS cluster in the [Standard tier](/azure/aks/free-standard-pricing-tiers). Uptime SLA is included by default in the Standard tier and is enabled per cluster. The pricing is $0.10 per cluster per hour. For more information, see [AKS pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/).
 
-Uptime SLA clusters have more control plane resources and automatically scale to meet cluster load. AKS uses master node replicas across update and fault domains to meet availability requirements. AKS REST APIs regard Uptime SLA clusters as a Paid tier.
+Clusters in the Standard tier have more control plane resources, such as the number of API server instances, Etcd resource limits, [scalability up to 5,000 nodes](https://azure.microsoft.com/updates/generally-available-5000-node-scale-in-aks/), and the existing financially-backed Uptime SLA support. AKS uses main node replicas across update and fault domains to meet availability requirements.
 
-It's best to use Uptime SLA in production workloads to provide higher control plane component availability. Free tier clusters have fewer replicas and limited control plane resources, and aren't suitable for production workloads.
+It's best to use the Standard tier in production workloads to provide higher control plane component availability. Free tier clusters have fewer replicas and limited control plane resources and aren't recommended for production workloads.
 
 ### Nodes
 
 In AKS, you create agent or worker nodes in one or more node pools, which can use many Azure core capabilities within the Kubernetes environment. AKS charges only for the nodes attached to the AKS cluster.
 
-AKS nodes use several Azure infrastructure resources, including virtual machine scale sets, virtual networks, and managed disks. For example, you can use most Azure virtual machine (VM) types directly within AKS. You can use [Azure Reservations](https://azure.microsoft.com/reservations) to get automatic discounts on these resources.
+AKS nodes use several Azure infrastructure resources, including virtual machine scale sets, virtual networks, and managed disks. For example, you can use most Azure virtual machine (VM) types directly within AKS. You can use [Azure Reservations](https://azure.microsoft.com/reservations) and [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute/) to get significant discounts on these resources.
 
 AKS cluster pricing is based on the class, number, and size of the VMs in the node pools. VM cost depends on size, CPU type, number of vCPUs, memory, family, and storage type available, such as high-performance SSD or standard HDD. For more information, see [Virtual Machine Series](https://azure.microsoft.com/pricing/details/virtual-machines/series). Plan node size according to application requirements, number of nodes, and cluster scalability needs.
 
@@ -95,7 +94,7 @@ If you run workloads that use CSI persistent volumes on your AKS cluster, consid
 
   - Service: Blob, File, Queue, Table or unmanaged disks
   - Storage account type: GPv1, GPv2, Blob, or Premium Blob
-  - Resiliency: Locally-redundant storage (LRS), zone-redundant storage (ZRS), geo-redundant storage (GRS), or read-access geo-redundant storage (RA-GRS)
+  - Resiliency: Locally redundant storage (LRS), zone-redundant storage (ZRS), geo-redundant storage (GRS), or read-access geo-redundant storage (RA-GRS)
   - Access tier: Hot, cool, or archive
   - Operations and data transfers
   - Used capacity in GB
@@ -117,7 +116,7 @@ Several Azure networking services can provide access to your applications that r
   - Rules: The number of configured load-balancing and outbound rules. Inbound network address translation (NAT) rules don't count in the total number of rules.
   - Data processed: The amount of data processed inbound and outbound, independent of rules. There's no hourly charge for Standard Load Balancer with no rules configured.
 
-- [Azure Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway). AKS often uses Application Gateway through [Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview), or by fronting a different ingress controller with manually-managed Application Gateway. Application Gateway supports gateway routing, transport-layer security (TLS) termination, and Web Application Firewall (WAF) functionality. Application Gateway charges are based on:
+- [Azure Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway). AKS often uses Application Gateway through [Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview), or by fronting a different ingress controller with manually managed Application Gateway. Application Gateway supports gateway routing, transport-layer security (TLS) termination, and Web Application Firewall (WAF) functionality. Application Gateway charges are based on:
 
   - Fixed price set by hour or partial hour.
   - Capacity unit price, an added consumption-based cost. Each capacity unit has at most one compute unit, 2,500 persistent connections, and 2.22-Mbps throughput.
@@ -198,7 +197,7 @@ The following recommendations help you optimize your AKS cluster costs:
 
 - Use [ResourceQuota](https://kubernetes.io/docs/reference/kubernetes-api/policy-resources/resource-quota-v1) objects to set quotas for the total amount of memory and CPU for all pods that are running in a given [namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces). The systematic use of resource quotas avoids noisy neighbor issues, improves application density, and reduces the number of agent nodes and total costs. Also use [LimitRange](https://kubernetes.io/docs/concepts/policy/limit-range) objects to configure the default CPU and memory requests for pods in a namespace.
 
-- Use Container Instances for bursting. For more information, see [Bursting from AKS with Azure Container Instances](/azure/architecture/solution-ideas/articles/scale-using-aks-with-aci).
+- Use Container Instances for bursting.
 
 - Your AKS workloads might not need to run continuously, such as specific workloads in development cluster node pools. To optimize costs, you can completely turn off an AKS cluster or stop one or more node pools in your AKS cluster. For more information, see [Stop and start an Azure Kubernetes Service (AKS) cluster](/azure/aks/start-stop-cluster) and [Start and stop a node pool on Azure Kubernetes Service (AKS)](/azure/aks/start-stop-nodepools).
 - Azure Policy integrates with AKS through built-in policies to apply centralized, consistent, at-scale enforcements and safeguards. Enable the Azure Policy add-on on your cluster, and apply the default CPU requests and limits and [memory resource limits](https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace), which ensure that CPU and memory resource limits are defined on cluster containers.
@@ -232,6 +231,9 @@ Other contributors:
 
 - [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
 - [Ed Price](https://www.linkedin.com/in/priceed) | Senior Content Program Manager
+- [Theano Petersen](https://www.linkedin.com/in/theanop) | Technical Writer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
@@ -241,6 +243,7 @@ Other contributors:
 - [Secure network access to Kubernetes](private-clusters.yml)
 - [Storage options for a Kubernetes cluster](storage.md)
 - [Kubernetes node and node pool management](node-pools.yml)
+- [Cluster governance](governance.md)
 
 ## Related resources
 

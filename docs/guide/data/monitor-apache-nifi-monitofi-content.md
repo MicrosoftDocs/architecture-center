@@ -1,15 +1,13 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-[MonitoFi][MonitoFi] is a tool that monitors the health and performance of [Apache NiFi][Apache NiFi] clusters. When you run [NiFi on Azure][Apache NiFi on Azure] and use MonitoFi:
-
-- MonitoFi dashboards display historic information on the state of NiFi clusters.
-- Real-time notifications alert users when anomalies are detected in clusters.
+This solution monitors deployments of Apache NiFi on Azure by using MonitoFi. The tool sends alerts and displays health and performance information in dashboards.
 
 *Apache®, Apache NiFi®, and NiFi® are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 ## Architecture
 
-:::image type="content" source="./media/monitor-apache-nifi-monitofi-architecture.png" alt-text="Diagram showing the flow of data between a NiFi cluster and MonitoFi. Other architecture components include Application Insights, InfluxDB, and Grafana." border="false":::
+:::image type="content" source="./media/monitor-apache-nifi-monitofi-architecture.svg" alt-text="Diagram showing the flow of data between a NiFi cluster and MonitoFi. Other architecture components include Application Insights, InfluxDB, and Grafana." border="false" lightbox="./media/monitor-apache-nifi-monitofi-architecture.svg":::
+*Download a [Visio file](https://arch-center.azureedge.net/monitor-apache-nifi-monitofi.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -53,6 +51,11 @@ Other architecture components include:
 - [InfluxDB][InfluxDB]. This platform stores data locally.
 
 ## Scenario details
+
+[MonitoFi][MonitoFi] is a tool that monitors the health and performance of [Apache NiFi][Apache NiFi] clusters. When you run [NiFi on Azure][Apache NiFi on Azure] and use MonitoFi:
+
+- MonitoFi dashboards display historic information on the state of NiFi clusters.
+- Real-time notifications alert users when anomalies are detected in clusters.
 
 ### Key benefits
 
@@ -116,6 +119,16 @@ When you deploy this solution, keep in mind the following prerequisites and limi
 
   - Place the Docker container in the same network as the MonitoFi container.
   - Make the Docker container publicly available.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Muazma Zahid](https://www.linkedin.com/in/muazmazahid/) | Principal PM Manager
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

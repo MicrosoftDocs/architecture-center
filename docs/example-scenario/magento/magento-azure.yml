@@ -3,15 +3,17 @@ metadata:
   title: Magento e-commerce platform in Azure Kubernetes Service
   titleSuffix: Azure Example Scenarios
   description: Deploy the Magento e-commerce platform to Azure Kubernetes Service (AKS), and learn about considerations for hosting Magento on Azure.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
-  ms.date: 09/27/2022
-  ms.topic: conceptual
+  ms.reviewer: tozimmergren
+  ms.date: 11/01/2022
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom:
     - fcp
     - example-scenario
+    - engagement-fy23
 name: Magento e-commerce platform in Azure Kubernetes Service
 summary: Deploy the Magento e-commerce platform to Azure Kubernetes Service (AKS), and learn about considerations for hosting Magento on Azure.
 products:
@@ -20,6 +22,7 @@ products:
   - azure-database-mysql
   - azure-files
   - azure-kubernetes-service
+  - azure-monitor
 thumbnailUrl: /azure/architecture/browse/thumbs/magento-architecture-thumbnail.png
 content: |
    [!include[](magento-azure-content.md)]

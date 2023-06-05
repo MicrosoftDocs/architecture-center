@@ -2,17 +2,11 @@
 
 This solution idea shows how to architect an interactive voice response (IVR) application with a bot and custom machine-learning intelligence.
 
-## Potential use cases
-
-This particular IVR app processes customer order requests for bicycles and bicycle accessories. However, this IVR architecture can be applied to a wide range of scenarios. Businesses with no existing IVR solution can easily get started automating requests. Or, businesses with human-operated systems can use this solution to extend their existing functionality and workflows.
-
-This solution is optimized for the retail industry.
-
 ## Architecture
 
-![Architectural diagram: interactive voice response (IVR) application with bot built in Azure.](../media/interactive-voice-response-app-bot.png)
+[ ![Architectural diagram: interactive voice response (IVR) application with bot built in Azure.](../media/interactive-voice-response-app-bot.svg)](../media/interactive-voice-response-app-bot.svg#lightbox)
 
-*Download an [SVG file](../media/interactive-voice-response-app-bot.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/interactive-voice-response-app-bot.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -40,9 +34,9 @@ This solution is optimized for the retail industry.
 - [SQL Database](https://azure.microsoft.com/services/sql-database) is a relational database service that's part of the Azure SQL family. As a fully managed service, SQL Database handles database management functions and provides AI-powered, automated features that optimize performance and durability.
 - [Azure App Service](https://azure.microsoft.com/services/app-service) provides a framework for building, deploying, and scaling web apps. The [Web Apps](https://azure.microsoft.com/services/app-service/web) feature is a service for hosting web applications, REST APIs, and mobile back ends.
 
-## Description of the IVR app
+## Scenario details
 
-For more details about this solution, including source code and data customization, fork or explore the [Call-Center Solution project](https://github.com/ujjwalmsft/cortana-intelligence-call-center-solution) on GitHub.
+This solution idea shows how to architect an IVR application with a bot and custom machine-learning intelligence. 
 
 Automated customer interaction is essential to a business of any size. In fact, [61 percent](https://www.talkdesk.com/blog/10-customer-services-statistics-for-call-center-supervisors) of consumers prefer to communicate via speech, and most of them prefer self-service. Because customer satisfaction is a priority for all businesses, self-service is a critical facet of any customer-facing communications strategy.
 
@@ -53,6 +47,12 @@ The Azure AI Platform is backed by Microsoft Azure cloud platform and provides a
 This solution deploys a fully integrated service stack that manages speech requests via Skype and the [Microsoft Bot Framework](https://dev.botframework.com).
 
 The target use case of this solution is a fictitious company, Contoso LLC, which sells bicycles and bicycle equipment to its customers. Contoso currently processes new product orders and queries through human operators. This automated solution allows Contoso to seamlessly scale up to handle large call volumes while maintaining zero wait times and freeing up staff to manage other tasks.
+
+### Potential use cases
+
+This particular IVR app processes customer order requests for bicycles and bicycle accessories. However, this IVR architecture can be applied to a wide range of scenarios. Businesses with no existing IVR solution can easily get started automating requests. Or, businesses with human-operated systems can use this solution to extend their existing functionality and workflows.
+
+This solution is optimized for the retail industry.
 
 ## Deploy this scenario
 

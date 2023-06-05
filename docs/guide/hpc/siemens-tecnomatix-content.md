@@ -7,7 +7,7 @@ Siemens Tecnomatix is a comprehensive portfolio of digital manufacturing solutio
 -	Includes an integrated energy analyzer that dynamically visualizes energy and that shows current, maximum, and total energy consumption.
 -	Provides assembly simulation for virtual verification of all process details before the start of production.
 
-Tecnomatix is used in the automotive, electronics, and aerospace industries. 
+Tecnomatix is used in the automotive, electronics, manufacturing, and aerospace industries. 
 
 ## Why deploy Tecnomatix on Azure?
 

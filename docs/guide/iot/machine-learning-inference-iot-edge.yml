@@ -1,0 +1,22 @@
+### YamlMime:Architecture
+metadata:
+  title: Enable machine learning inference on an Azure IoT Edge device
+  description: Enable machine learning inference on an IoT Edge device. Scenarios include image classification, object detection, and body, face, and gesture analysis.
+  author: bwang482
+  ms.author: bwa 
+  ms.date: 04/11/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - iot
+  - ai-machine-learning
+products:
+  - azure-iot-edge
+  - azure-iot-hub
+name: Enable machine learning inference on an Azure IoT Edge device
+summary: Enable machine learning inference on an IoT Edge device.
+thumbnailUrl: /azure/architecture/browse/thumbs/inference-iot-edge-thumb.png
+content: |
+  [!include[](machine-learning-inference-iot-edge-content.md)]
+

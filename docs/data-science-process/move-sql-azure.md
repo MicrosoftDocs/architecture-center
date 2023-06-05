@@ -7,7 +7,7 @@ editor: marktab
 services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/02/2022
 ms.author: tdsp
 ms.custom:
@@ -73,3 +73,13 @@ The steps for using database backup and restore are similar to those directions 
 Learn how to move data to an Azure SQL Database with Azure Data Factory (ADF) in this topic, [Move data from a SQL Server to SQL Azure with Azure Data Factory](move-sql-azure-adf.md). This topic shows how to use ADF to move data from a SQL Server database to an Azure SQL Database via Azure Blob Storage.
 
 Consider using ADF when data needs to be continually migrated with hybrid on-premises and cloud sources.  ADF also helps when the data needs transformations, or needs new business logic during migration. ADF allows for the scheduling and monitoring of jobs using simple JSON scripts that manage the movement of data on a periodic basis. ADF also has other capabilities such as support for complex operations.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*

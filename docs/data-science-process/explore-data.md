@@ -7,7 +7,7 @@ editor: marktab
 services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/16/2021
 ms.author: tdsp
 ms.custom:
@@ -29,3 +29,13 @@ The following articles describe how to explore data in three different storage e
 * Explore [Hive table](explore-data-hive-tables.md) data using Hive queries.
 
 The [Azure Machine Learning Resources](https://www.aka.ms/AMLservice) provide documentation and videos on getting started with Azure Machine Learning.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*

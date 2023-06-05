@@ -1,10 +1,18 @@
+---
+ms.custom:
+  - devx-track-jenkins
+---
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Containers make it easy for you to continuously build and deploy applications. By orchestrating the deployment of those containers using Azure Kubernetes Service (AKS), you can achieve replicable, manageable clusters of containers.
 
 By setting up a continuous build to produce your container images and orchestration, you can increase the speed and reliability of your deployment.
 
-*[Jenkins](https://www.jenkins.io) and [Grafana](https://grafana.com/os) are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
+*[Jenkins](https://www.jenkins.io) and [Grafana](https://grafana.com/oss/) are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
+
+Jenkins can be deployed on an [Azure Virtual Machine](/azure/virtual-machines). Alternately, [Jenkins X](https://jenkins-x.io/) can be deployed on Azure Kubernetes Service. Jenkins X is Jenkins sub project that can be deployed directly to cloud native platforms.
+
+Dynamic build agents for Jenkins can be provisioned on Azure Kubernetes Service. [The Jenkins agent](https://www.jenkins.io/doc/book/using/using-agents/) connects to the Jenkins controller. The Jenkins controller can provision tasks to run on Jenkins agents.
 
 ## Potential use cases
 
@@ -20,15 +28,14 @@ By setting up a continuous build to produce your container images and orchestrat
 
 ### Dataflow
 
-1. Change application source code.
-1. Commit code to GitHub.
-1. Continuous Integration Trigger to Jenkins.
-1. Jenkins triggers a build job using Azure Kubernetes Service (AKS) for a dynamic build agent.
+1. Developer makes changes to the application source code.
+1. Developer commits the code changes to GitHub.
+1. Continuous integration triggers Jenkins.
+1. Jenkins launches the build job using Azure Kubernetes Service (AKS) for a dynamic build agent.
 1. Jenkins builds and pushes Docker container to Azure Container Registry.
 1. Jenkins deploys your new containerized app to Kubernetes on Azure.
-1. Container Service (AKS), backed by Azure Cosmos DB.
+1. The app connects to Azure Cosmos DB.
 1. Grafana displays visualization of infrastructure and application metrics via Azure Monitor.
-1. Monitor application and make improvements.
 
 ### Components
 
@@ -46,6 +53,6 @@ By setting up a continuous build to produce your container images and orchestrat
 
 * [Integrating Jenkins with Azure Container Service and Kubernetes](/azure/container-service/kubernetes/container-service-kubernetes-jenkins)
 * [Pushing Docker images to Azure Container Registry](/azure/container-registry/container-registry-get-started-docker-cli)
-* [Connect existing Node.js to Cosmos DB using the MongoDB connector](/azure/cosmos-db/create-mongodb-nodejs)
+* [Connect existing Node.js to Azure Cosmos DB using the MongoDB connector](/azure/cosmos-db/create-mongodb-nodejs)
 * [Monitor your Azure services using Grafana](/azure/monitoring-and-diagnostics/monitor-send-to-grafana)
 * [Get the Azure Extension Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)

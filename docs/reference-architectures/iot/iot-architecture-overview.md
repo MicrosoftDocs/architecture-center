@@ -6,15 +6,14 @@ author: falloutxay
 manager: lizross
 ms.service: architecture-center
 ms.subservice: reference-architecture
-ms.topic: conceptual
-ms.date: 08/19/2022
+ms.topic: reference-architecture
+ms.date: 11/21/2022
 ms.author: ansyeo
 ms.custom:
   - internal-intro
 categories:
   - iot
 products:
-  - azure-iot-central
   - azure-iot-hub
 ---
 
@@ -45,28 +44,6 @@ A standard IoT solution architecture consists of five basic elements.
 
 > [!div class="nextstepaction"]
 > [Azure IoT reference architecture](../iot.yml)
-
-### Compare PaaS and aPaaS solution approaches
-
-You can create Azure IoT solutions by using individual platform as a service (PaaS) components, or [Azure IoT Central](https://azure.microsoft.com/services/iot-central), an application platform as a service (aPaaS).
-
-- The PaaS cloud computing model delivers hardware and software tools that are tailored to specific tasks or job functions. The PaaS provides the underlying infrastructure as a service (IaaS), but you're responsible for scaling and configuration.
-
-- An aPaaS provides a cloud environment to build, manage, and deliver applications. The aPaaS handles scaling and most configuration, but still requires developer input to build a finished solution.
-
-Compare IoT Central (aPaaS) and Azure PaaS approaches for building and deploying IoT cloud solutions. The technologies and services you choose depend on your scenario's development, deployment, and management needs.
-
-> [!div class="nextstepaction"]
-> [Compare solution approaches](/azure/architecture/example-scenario/iot/iot-central-iot-hub-cheat-sheet)
-
-## Start with Azure IoT Central
-
-[Azure IoT Central](/azure/iot-central/core/overview-iot-central) is an aPaaS for IoT workloads, recommended as a starting point for all IoT solutions. IoT Central accelerates IoT solution assembly and operations by preassembling the PaaS services that enterprise level solutions need. The platform has all the necessary capabilities to connect, manage, and operate fleets of devices at scale.
-
-IoT Central provides an out-of-the-box, ready-to-use user interface and API surface area. Iot Central simplifies device connectivity, operations, and management so businesses can spend their time, effort, and budget creating business value with IoT data.
-
-> [!div class="nextstepaction"]
-> [Azure IoT Central architecture](/azure/iot-central/core/concepts-architecture)
 
 ## IoT architecture patterns and guides
 
@@ -105,7 +82,6 @@ IoT architectural guides provide insights into IoT concepts, architectures, and 
 Azure IoT documentation:
 
 - [Azure IoT](/azure/iot-fundamentals)
-- [Azure IoT Central](/azure/iot-central)
 - [Azure IoT Hub](/azure/iot-hub)
 - [Azure IoT Hub Device Provisioning Service](/azure/iot-dps)
 - [Azure IoT Edge](/azure/iot-edge)

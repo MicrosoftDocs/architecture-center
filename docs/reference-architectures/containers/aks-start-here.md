@@ -3,9 +3,9 @@ title: Azure Kubernetes Service (AKS) design
 titleSuffix: Azure Architecture Center
 description: An overview of Microsoft Azure Kubernetes Service (AKS) guidance offerings ranging from &quot;just starting out&quot;, to production, and through sustained operations.
 author: ckittel
-ms.author: architectures
+ms.author: chkittel
 ms.date: 07/28/2022
-ms.topic: conceptual
+ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
 categories:
@@ -23,7 +23,7 @@ Kubernetes is an open-source system for automating deployment, scaling, and mana
 
 Organizations are at various points in their understanding, rationalizing, and adoption of Kubernetes on Azure. Your organization's journey will likely follow a similar path to many other technologies you've adopted; learning, aligning your organization around roles &amp; responsibilities, and deploying production-ready workloads. From there, you'll iterate; growing your product as your customer and business demands change.
 
-:::image type="content" source="images/aks-journey.svg" alt-text="Visualizes your journey through learn, align, baseline, workload, and then into a loop of operate, best practices, iterate.":::
+:::image type="content" alt-text="Visualizes your journey through learn, align, baseline, workload, and then into a loop of operate, best practices, iterate." source="images/aks-journey.svg" lightbox="images/aks-journey.svg":::
 
 ## Introduction to Azure Kubernetes Service (AKS)
 
@@ -75,7 +75,7 @@ As organizations such as yours have adopted Azure, the [Cloud Adoption Framework
 > [!div class="nextstepaction"]
 > [Kubernetes in the Cloud Adoption Framework](/azure/cloud-adoption-framework/innovate/kubernetes/)
 
-As part of ongoing operations, you might want to spot check your cluster against current recommended best practices. Start by aligning your cluster with Microsoft's [AKS Baseline Cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml).
+As part of ongoing operations, you might want to spot check your cluster against current recommended best practices. Start by aligning your cluster with Microsoft's [AKS Baseline Cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks).
 
 See [Best Practices for Cluster Operations](/azure/aks/best-practices) and [Best Practices for AKS Workloads](/azure/aks/best-practices#developer-best-practices).
 
@@ -106,9 +106,8 @@ The typical AKS solution journey shown ranges from learning about AKS to growing
 If you're seeking additional references that use AKS as their foundation, here are a few to consider.
 
 * [Microservices architecture on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
-* [Secure DevOps for AKS](../../solution-ideas/articles/secure-devops-for-kubernetes.yml)
 * [Building a telehealth system](../../example-scenario/apps/telehealth-system.yml)
-* [CI/CD pipeline for container-based workloads](../../example-scenario/apps/devops-with-aks.yml)
+* [CI/CD pipeline for container-based workloads](../../guide/aks/aks-cicd-github-actions-and-gitops.yml)
 
 ### Azure Arc-enabled Kubernetes
 

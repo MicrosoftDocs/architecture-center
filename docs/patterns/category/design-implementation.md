@@ -2,10 +2,10 @@
 title: Design and implementation patterns
 titleSuffix: Cloud Design Patterns
 description: Use these design and implementation patterns to simplify administration, development, and reusability for your cloud application.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
 ms.date: 07/28/2022
-ms.topic: conceptual
+ms.topic: design-pattern
 ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:
@@ -27,6 +27,7 @@ Good design encompasses factors such as consistency and coherence in component d
 |         [Backends for Frontends](../backends-for-frontends.yml)         |                                                          Create separate backend services to be consumed by specific frontend applications or interfaces.                                                          |
 |                           [CQRS](../cqrs.yml)                           |                                                         Segregate operations that read data from operations that update data by using separate interfaces.                                                         |
 | [Compute Resource Consolidation](../compute-resource-consolidation.yml) |                                                                     Consolidate multiple tasks or operations into a single computational unit                                                                      |
+| [Edge Workload Configuration](../edge-workload-configuration.md) | The great variety of systems and devices on the shop floor can make workload configuration a difficult problem. |
 |   [External Configuration Store](../external-configuration-store.yml)   |                                                        Move configuration information out of the application deployment package to a centralized location.                                                         |
 |            [Gateway Aggregation](../gateway-aggregation.yml)            |                                                                   Use a gateway to aggregate multiple individual requests into a single request.                                                                   |
 |             [Gateway Offloading](../gateway-offloading.yml)             |                                                                      Offload shared or specialized service functionality to a gateway proxy.                                                                       |

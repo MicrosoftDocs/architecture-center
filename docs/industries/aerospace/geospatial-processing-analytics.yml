@@ -1,12 +1,12 @@
 ### YamlMime:Architecture
 metadata:
   title: Spaceborne data analysis with Azure Synapse Analytics
-  titleSuffix: Azure Architectue Center
+  titleSuffix: Azure Architecture Center
   description: View a reference architecture to enable geospatial workloads on Azure by using Azure Synapse.
   author: karthick-rn
   ms.author: kanarend, kunachim, suskuma, mandari
-  ms.date: 09/20/2022
-  ms.topic: conceptual
+  ms.date: 03/16/2023
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom: fcp

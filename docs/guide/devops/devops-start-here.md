@@ -2,10 +2,10 @@
 title: DevOps architecture design
 titleSuffix: Azure Architecture Center
 description: Learn about DevOps and how to implements DevOps solutions on Azure by using services such as Azure DevOps, Azure Pipelines, Azure Monitor, and Azure DevTest Labs.
-author: EdPrice-MSFT
-ms.author: architectures
+author: martinekuan
+ms.author: martinek
 ms.date: 07/25/2022
-ms.topic: conceptual
+ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
 categories:
@@ -96,7 +96,7 @@ Here are some example architectures. For each one there's a list of the key Azur
 |--------------|-------------|----------------|
 | [Automate multistage DevOps pipelines with Azure Pipelines](../../example-scenario/devops/automate-azure-pipelines.yml) | Use Azure DevOps REST APIs to build CI/CD pipelines. | Azure DevOps, Logic Apps, Azure Pipelines |
 | [Automated API deployments with APIOps](../../example-scenario/devops/automated-api-deployments-apiops.yml) | Apply GitOps and DevOps techniques to ensure quality APIs. | Azure Repos, API Management, Azure DevOps, Azure Pipelines, Azure Repos |
-| [Design a CI/CD pipeline using Azure DevOps](../../example-scenario/apps/devops-dotnet-webapp.yml) | Build a CI/CD pipeline by using Azure DevOps and other services. | Azure Repos, Azure Test Plans, Azure Pipelines |
+| [Design a CI/CD pipeline using Azure DevOps](../../example-scenario/apps/devops-dotnet-baseline.yml) | Build a CI/CD pipeline by using Azure DevOps and other services. | Azure Repos, Azure Test Plans, Azure Pipelines |
 | [Teacher-provisioned virtual labs in Azure](../../example-scenario/devops/teacher-provisioned-virtual-labs-azure.yml) | Teachers can easily set up virtual machines for students to work on class exercises. | Lab Services |
 | [Enterprise monitoring with Azure Monitor](../../example-scenario/monitoring/enterprise-monitoring.yml) | Use Azure Monitor to achieve enterprise-level monitoring and centralized monitoring management. | Azure Monitor |
 
@@ -148,7 +148,7 @@ Stay current with Azure DevOps by monitoring these articles:
 
 ### Example solutions
 
-- [Design a CI/CD pipeline using Azure DevOps](../../example-scenario/apps/devops-dotnet-webapp.yml)
+- [Design a CI/CD pipeline using Azure DevOps](../../example-scenario/apps/devops-dotnet-baseline.yml)
 - [Manage Microsoft 365 tenant configuration by using Microsoft365DSC and Azure DevOps](../../example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml)
 - [Run containers in a hybrid environment](../../hybrid/hybrid-containers.yml)
 

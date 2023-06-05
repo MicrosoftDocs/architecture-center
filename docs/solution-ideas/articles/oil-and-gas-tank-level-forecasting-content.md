@@ -4,8 +4,9 @@ Today, most facilities operate reactively to problems in tank levels. This react
 
 ## Architecture
 
-![Architecture diagram shows data into Azure Event Hubs / Azure Synapse. Azure Stream Analytics analyzes data while Power B I monitors oil tank level.](../media/oil-and-gas-tank-level-forecasting.png)
-*Download an [SVG](../media/oil-and-gas-tank-level-forecasting.svg) of this architecture.*
+![Architecture diagram shows data into Azure Event Hubs / Azure Synapse. Azure Stream Analytics analyzes data while Power BI monitors oil tank level.](../media/oil-and-gas-tank-level-forecasting.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/oil-and-gas-tank-level-forecasting.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -32,6 +33,8 @@ The tank level forecasting process starts at the well input. Oil is measured as 
 Azure Cognitive Services is adaptable and can be customized to meet different requirements that facilities and corporations have.
 
 ### Potential use cases
+
+This solution is ideal for the energy, automotive, and aerospace industries.
 
 Forecasts are created by harnessing the power of real-time and historical data readily available from sensors, meters, and records, which help with the following scenarios:
 
@@ -75,5 +78,5 @@ Microsoft Learn modules:
 * [Stream processing with Azure Stream Analytics](../../reference-architectures/data/stream-processing-stream-analytics.yml)
 * [Anomaly Detector Process](./anomaly-detector-process.yml)
 * [Demand Forecasting](./demand-forecasting.yml)
-* [Predicting Length of Stay in Hospitals](./predicting-length-of-stay-in-hospitals.yml)
+* [Predicting Length of Stay in Hospitals](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)
 * [Predictive Aircraft Engine Monitoring](./aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)

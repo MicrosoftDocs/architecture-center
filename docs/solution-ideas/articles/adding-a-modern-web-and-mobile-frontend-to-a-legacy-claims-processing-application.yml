@@ -3,10 +3,10 @@ metadata:
   title: Add a mobile front end to a legacy app
   titleSuffix: Azure Solution Ideas
   description: This solution consolidates data from multiple business systems and then surfaces the data through web and mobile front ends. This consolidation helps improve employee productivity and helps speed up decision making.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/14/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -23,7 +23,6 @@ metadata:
     - lift and shift strategy
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.png
 name: Add a mobile front end to a legacy app
 azureCategories:
   - migration

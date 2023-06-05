@@ -1,15 +1,12 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution idea shows how to deploy an e-commerce web site on Azure. The e-commerce web site is hosted on Azure Web App and uses Azure Cosmos DB as data store for  product information and session state. Azure Search provides search functionality over diverse product catalogs, traffic spikes, and rapidly changing inventory.
-
-## Potential use cases
-
-This solution is ideal for the retail industry.
+This solution idea shows how to deploy an e-commerce web site on Azure.
 
 ## Architecture
 
-![Architecture diagram shows data into Azure App Services, through Azure Storage and Cosmos D B, to Azure Search.](../media/retail-and-e-commerce-using-cosmos-db.png)
-*Download an [SVG](../media/retail-and-e-commerce-using-cosmos-db.svg) of this architecture.*
+![Architecture diagram shows data into Azure App Service, through Azure Storage and Azure Cosmos DB, to Azure Search.](../media/retail-and-e-commerce-using-cosmos-db.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/retail-e-commerce-cosmos-db.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -27,13 +24,23 @@ This architecture includes the following components:
 * [Azure Storage](https://azure.microsoft.com/services/storage): Static product images and other static contents are stored in an Azure Storage account.
 * [Azure Cognitive Search](https://azure.microsoft.com/services/search) provides a search capability over all the products.
 
+## Scenario details
+
+The e-commerce web site is hosted on Azure Web App and uses Azure Cosmos DB as data store for  product information and session state. Azure Search provides search functionality over diverse product catalogs, traffic spikes, and rapidly changing inventory.
+
+### Potential use cases
+
+This solution is ideal for the retail industry.
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
- * [Prabhjot Kaur](https://www.linkedin.com/in/kaur-profile) | Senior Cloud Solution Architect
+* [Prabhjot Kaur](https://www.linkedin.com/in/kaur-profile) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

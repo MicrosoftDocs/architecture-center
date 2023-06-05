@@ -54,7 +54,7 @@ Older applications might require extensive changes to get to the cloud.
 | There are technology blockers for migration. | ✔ | |
 | There are business blockers for migration. | ✔ | |
 | This application has compliance requirements. | | ✔ |
-| The application is subject to country-specific data requirements.| | ✔ |
+| The application is subject to data requirements that are specific to the country/region.| | ✔ |
 | The application is publicly accessible.| ✔ | ✔ |
 
 ### Technology
@@ -87,7 +87,7 @@ You can reduce deployment risk by storing code under source control in a version
 
 | Factor | Complexity | Risk |
 |------------------------------------------------------------------|---|---|
-| Leveraging existing code and data is a #1 priority.| ✔ | ✔ |
+| Using existing code and data is a #1 priority.| ✔ | ✔ |
 | The application code isn't under source control.| | ✔ |
 | There's no automated build process like Azure DevOps Server or Jenkins.| | ✔ |
 | There's no automated release process to deploy the application.| ✔ | ✔ |
@@ -112,7 +112,7 @@ You can reduce deployment risk by storing code under source control in a version
 | The organization hasn't yet configured Azure Active Directory (Azure AD), or hasn't configured Azure AD Connect to synchronize on-premises AD with Azure AD.| ✔ | |
 | The application requires access to on-premises resources, which will require VPN connectivity from Azure.| ✔ | |
 | The organization hasn't yet configured a VPN connection between Azure and their on-premises environment.| ✔ | ✔ |
-| The application requires a SSL certificate to run.| ✔ | ✔ |
+| The application requires an SSL certificate to run.| ✔ | ✔ |
 
 ### Results
 Count your application's **Complexity** and **Risk** checkmarks.
@@ -132,7 +132,7 @@ If the app does need code changes, determine the complexity and extent of the ne
 
 ### Rehost or refactor
 
-- If leveraging existing code and data is a top priority, consider a refactor strategy rather than rearchitecting or rebuilding.
+- If using existing code and data is a top priority, consider a refactor strategy rather than rearchitecting or rebuilding.
 
 - If you have pressing timelines like datacenter shutdown or contract expiration, end-of-life licensing, or mergers or acquisitions, the fastest way to get the application to Azure might be to rehost, followed by refactoring to take advantage of cloud capabilities.
 
@@ -151,7 +151,7 @@ To decide between rearchitecting or rebuilding, assess the following factors. Th
 | There are other applications serving similar needs in your portfolio.| ✔ | ✔ |
 | The application needs minor code changes to run in Azure.| ✔ | |
 | The application needs major, complex code changes to run in Azure.| | ✔ |
-| It's important to leverage existing code.| ✔ | |
+| It's important to use existing code.| ✔ | |
 | You want to move a monolithic application to multi-tier architecture.| ✔| |
 | You want to move a monolithic application to a microservices architecture.| ✔ | ✔ |
 | You expect this app to add breakthrough capabilities like AI, IoT, or bots.| | ✔ |
@@ -165,3 +165,16 @@ To decide between rearchitecting or rebuilding, assess the following factors. Th
 | A web application saves its session state in process, rather than to an external data store.| ✔ | |
 | The app has peak and variable usage times and loads.| ✔ | ✔ |
 | You expect the application to handle high traffic.| ✔ | ✔ |
+
+## Next steps
+
+- [What is a digital estate?](/azure/cloud-adoption-framework/digital-estate)
+- [Approaches to digital estate planning](/azure/cloud-adoption-framework/digital-estate/approach)
+- [Rationalize the digital estate](/azure/cloud-adoption-framework/digital-estate/rationalize)
+
+## Related resources
+
+- [Migration architecture design](../guide/migration/migration-start-here.md)
+- [Build migration plan with Azure Migrate](/azure/migrate/concepts-migration-planning)
+
+

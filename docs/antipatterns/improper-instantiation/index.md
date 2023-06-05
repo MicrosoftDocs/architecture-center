@@ -2,10 +2,10 @@
 title: Improper Instantiation antipattern
 titleSuffix: Azure Architecture Center
 description: Avoid continually creating new instances of an object that is meant to be created once and then shared.
-author: EdPrice-MSFT
+author: martinekuan
 categories: azure
 ms.date: 06/05/2017
-ms.topic: conceptual
+ms.topic: design-pattern
 ms.service: architecture-center
 ms.subservice: anti-pattern
 azureCategories: 
@@ -38,7 +38,7 @@ Many libraries provide abstractions of external resources. Internally, these cla
 
 - `System.Net.Http.HttpClient`. Communicates with a web service using HTTP.
 - `Microsoft.ServiceBus.Messaging.QueueClient`. Posts and receives messages to a Service Bus queue.
-- `Microsoft.Azure.Documents.Client.DocumentClient`. Connects to a Cosmos DB instance.
+- `Microsoft.Azure.Documents.Client.DocumentClient`. Connects to an Azure Cosmos DB instance.
 - `StackExchange.Redis.ConnectionMultiplexer`. Connects to Redis, including Azure Cache for Redis.
 
 These classes are intended to be instantiated once and reused throughout the lifetime of an application. However, it's a common misunderstanding that these classes should be acquired only as necessary and released quickly. (The ones listed here happen to be .NET libraries, but the pattern is not unique to .NET.) The following ASP.NET example creates an instance of `HttpClient` to communicate with a remote service. You can find the complete sample [here][sample-app].

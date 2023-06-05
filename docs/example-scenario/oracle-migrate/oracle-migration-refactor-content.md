@@ -96,6 +96,16 @@ Below you'll find a workaround list. It's useful when you're migrating Oracle da
 | Reverse Index | Functional Index |
 |Index Organized Table (IOT) | Cluster the table according to an Index |
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Amber Zhao](https://www.linkedin.com/in/amberzhao/) | Principal Customer Engineer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 To begin migrating your Oracle database to Azure Database for PostgreSQL, see [Tutorial: Migrate Oracle to Azure Database for PostgreSQL online using DMS](/azure/dms/tutorial-oracle-azure-postgresql-online).

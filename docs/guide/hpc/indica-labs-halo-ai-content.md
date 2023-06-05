@@ -10,7 +10,7 @@ HALO AI has the following capabilities.
 - Provides pretrained networks for H&E, single IHC, or DAPI stained-images. You can also train your own nuclei segmentation network for a specific application.
 - Uses a type of deep learning algorithm called a convolutional neural network (CNN), which is ideally suited for tissue classification in digital pathology.
 
-HALO AI is used across the healthcare industry, in clinical, pharmaceutical, biotech, and central research organizations.
+HALO AI is used across the healthcare industry, in clinical, pharmaceutical, biotech, and central research (education) organizations.
 
 ## Why deploy HALO AI on Azure?
 

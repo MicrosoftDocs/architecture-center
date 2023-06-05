@@ -105,6 +105,16 @@ You pay no extra costs for this scenario if you meet the following conditions:
 
 Otherwise, you need to purchase premium licenses, per user or per flow plan, for the central flows only. Pricing may vary depending on how many central flows you need in each geographic region. You don't have to assign premium licenses to the init flows, which are higher in number.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Srinivas Varukala](https://www.linkedin.com/in/svarukala/) | Senior Technical Program Manager
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Use Child Flows in Power Automate](/power-automate/create-child-flows)

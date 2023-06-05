@@ -2,7 +2,7 @@
 title: Make all things redundant
 titleSuffix: Azure Application Architecture Guide
 description: Use these recommendations to avoid having single points of failure, by building redundancy into your application.
-author: EdPrice-MSFT
+author: martinekuan
 categories: azure
 ms.date: 08/30/2018
 ms.topic: conceptual
@@ -30,9 +30,9 @@ A resilient application routes around failure. Identify the critical paths in yo
 
 ![Diagram of load-balanced VMs](./images/load-balancing.svg)
 
-**Replicate databases**. Azure SQL Database and Cosmos DB automatically replicate the data within a region, and you can enable geo-replication across regions. If you are using an IaaS database solution, choose one that supports replication and failover, such as [SQL Server Always On availability groups][sql-always-on].
+**Replicate databases**. Azure SQL Database and Azure Cosmos DB automatically replicate the data within a region, and you can enable geo-replication across regions. If you are using an IaaS database solution, choose one that supports replication and failover, such as [SQL Server Always On availability groups][sql-always-on].
 
-**Enable geo-replication**. Geo-replication for [Azure SQL Database][sql-geo-replication] and [Cosmos DB][cosmos-db-geo-replication] creates secondary readable replicas of your data in one or more secondary regions. In the event of an outage, the database can fail over to the secondary region for writes.
+**Enable geo-replication**. Geo-replication for [Azure SQL Database][sql-geo-replication] and [Azure Cosmos DB][cosmos-db-geo-replication] creates secondary readable replicas of your data in one or more secondary regions. In the event of an outage, the database can fail over to the secondary region for writes.
 
 **Partition for availability**. Database partitioning is often used to improve scalability, but it can also improve availability. If one shard goes down, the other shards can still be reached. A failure in one shard will only disrupt a subset of the total transactions.
 
@@ -44,6 +44,8 @@ A resilient application routes around failure. Identify the critical paths in yo
 
 **Use automatic failover but manual failback**. Use Traffic Manager for automatic failover, but not for automatic failback. Automatic failback carries a risk that you might switch to the primary region before the region is completely healthy. Instead, verify that all application subsystems are healthy before manually failing back. Also, depending on the database, you might need to check data consistency before failing back.
 
+To achieve this, disable the primary endpoint of Traffic Manager after failover. Note that if the monitoring interval of probes is short and the tolerated number of failures is small, failover as well as failback will take place in a short time. In some cases, disabling will not be completed in time. To avoid unconfirmed failback, consider also implementing a health endpoint that can verify that all subsystems are healthy. See the [Health Endpoint Monitoring pattern].
+
 **Include redundancy for Traffic Manager**. Traffic Manager is a possible failure point. Review the Traffic Manager SLA, and determine whether using Traffic Manager alone meets your business requirements for high availability. If not, consider adding another traffic management solution as a failback. If the Azure Traffic Manager service fails, change your CNAME records in DNS to point to the other traffic management service.
 
 <!-- links -->
@@ -53,3 +55,4 @@ A resilient application routes around failure. Identify the critical paths in yo
 [cosmos-db-geo-replication]: /azure/cosmos-db/distribute-data-globally
 [sql-always-on]: /sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15&preserve-view=true
 [sql-geo-replication]: /azure/sql-database/sql-database-geo-replication-overview
+[Health Endpoint Monitoring pattern]: ../../patterns/health-endpoint-monitoring.yml

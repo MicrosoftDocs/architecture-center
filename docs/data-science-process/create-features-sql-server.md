@@ -7,18 +7,20 @@ editor: marktab
 services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/16/2021
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
   - previous-ms.author=deguhath
+  - devx-track-python
 products:
   - azure-machine-learning
 categories:
   - ai-machine-learning
 ---
 # Create features for data in SQL Server using SQL and Python
+
 This document shows how to generate features for data stored in a SQL Server VM on Azure that help algorithms learn more efficiently from the data. You can use SQL or a programming language like Python to accomplish this task. Both approaches are demonstrated here.
 
 This task is a step in the [Team Data Science Process (TDSP)](/azure/machine-learning/team-data-science-process/).
@@ -29,12 +31,14 @@ This task is a step in the [Team Data Science Process (TDSP)](/azure/machine-lea
 >
 
 ## Prerequisites
+
 This article assumes that you have:
 
 * Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](/azure/storage/common/storage-account-create)
 * Stored your data in SQL Server. If you have not, see [Move data to an Azure SQL Database for Azure Machine Learning](move-sql-azure.md) for instructions on how to move the data there.
 
 ## <a name="sql-featuregen"></a>Feature generation with SQL
+
 In this section, we describe ways of generating features using SQL:
 
 * [Count based Feature Generation](#sql-countfeature)
@@ -47,7 +51,8 @@ In this section, we describe ways of generating features using SQL:
 >
 
 ### <a name="sql-countfeature"></a>Count based feature generation
-This document demonstrates two ways of generating count features. The first method uses conditional sum and the second method uses the 'where` clause. These new features can then be joined with the original table (using primary key columns) to have count features alongside the original data.
+
+This document demonstrates two ways of generating count features. The first method uses conditional sum and the second method uses the `where` clause. These new features can then be joined with the original table (using primary key columns) to have count features alongside the original data.
 
 ```sql
 select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3>
@@ -57,6 +62,7 @@ where <column_name3> = '<some_value>' group by <column_name1>,<column_name2>
 ```
 
 ### <a name="sql-binningfeature"></a>Binning Feature Generation
+
 The following example shows how to generate binned features by binning (using five bins) a numerical column that can be used as a feature instead:
 
 ```sql
@@ -64,9 +70,10 @@ SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <
 ```
 
 ### <a name="sql-featurerollout"></a>Rolling out the features from a single column
+
 In this section, we demonstrate how to roll out a single column in a table to generate additional features. The example assumes that there is a latitude or longitude column in the table from which you are trying to generate features.
 
-Here is a brief primer on latitude/longitude location data (resourced from stackoverflow `https://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). Here are some useful things to understand about location data before creating features from the field:
+Here is a [brief primer on latitude and longitude location data from Stack Overflow](https://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude). Here are some useful things to understand about location data before creating features from the field:
 
 * The sign indicates whether we are north or south, east or west on the globe.
 * A nonzero hundreds digit indicates longitude, not latitude is being used.
@@ -126,3 +133,13 @@ data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablena
 ```
 
 Now you may work with the Pandas data frame as covered in topics [Create features for Azure blob storage data using Panda](./explore-data-blob.md).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*

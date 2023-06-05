@@ -31,6 +31,16 @@ Day-2 operations help you:
 
 The Day-2 operations guide assumes that you've deployed the [Azure Kubernetes Service (AKS) baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks) as an example of a production cluster.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Kevin Harris](https://www.linkedin.com/in/kevbhar/) | Principal Solution Spec GBB
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 > [!div class="nextstepaction"]

@@ -2,9 +2,9 @@ Skytap on Azure simplifies cloud migration for applications that run on IBM Powe
 
 ## Architecture
 
-![Diagram of a self-service lift-and-shift of AIX workloads to Skytap on Azure.](media/aix-skytap-architecture-800.png)
+:::image type="content" border="false" source="media/aix-skytap-architecture.svg" alt-text="Diagram of a self-service lift-and-shift of AIX workloads to Skytap on Azure." lightbox="media/aix-skytap-architecture-large.png":::
 
- [View a larger version of the image](media/aix-skytap-architecture-large.png)
+*Download a [Visio file](https://arch-center.azureedge.net/migrate-aix-workloads-to-azure-with-skytap.vsdx) of this architecture.*
  
 ### Workflow
 
@@ -126,4 +126,4 @@ To learn more about Skytap on Azure, contact <legacy2azure@microsoft.com> or che
 ## Related resources
 
 - [Mainframe file replication and sync on Azure](../../solution-ideas/articles/mainframe-azure-file-replication.yml)
-- [Modernize mainframe & midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)
+- [Modernize mainframe & midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)

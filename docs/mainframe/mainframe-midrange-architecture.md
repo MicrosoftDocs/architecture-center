@@ -5,7 +5,7 @@ description: An overview of Microsoft's Azure mainframe and midrange architectur
 author: bhbandam
 ms.author: bhbandam
 ms.date: 08/19/2022
-ms.topic: conceptual
+ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.category:
@@ -147,15 +147,15 @@ Refactoring requires minimal changes to applications. This often enables the app
 <ul class="grid">
 
 [!INCLUDE [Unisys Dorado mainframe migration to Azure with Astadia & Micro Focus](../../includes/cards/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus-card.md)]  
-[!INCLUDE [Unisys mainframe migration with Asysco](../../includes/cards/unisys-mainframe-migration-card.md)]
+[!INCLUDE [Unisys mainframe migration with Avanade AMT](../../includes/cards/unisys-mainframe-migration-card.md)]
 [!INCLUDE [IBM System i to Azure using Infinite i](../../includes/cards/ibm-system-i-azure-infinite-i-card.md)]
 
 </ul>
 
 <ul class="grid">
 
-[!INCLUDE [IBM z/OS mainframe migration with Asysco AMT](../../includes/cards/asysco-zos-migration-card.md)] 
-[!INCLUDE [Refactor mainframe applications to Azure with Raincode compilers](../../includes/cards/raincode-reference-architecture-card.md)]  
+[!INCLUDE [IBM z/OS mainframe migration with Avanade AMT](../../includes/cards/asysco-zos-migration-card.md)] 
+[!INCLUDE [Rehost mainframe applications to Azure with Raincode compilers](../../includes/cards/raincode-reference-architecture-card.md)]  
 [!INCLUDE [IBM z/OS online transaction processing on Azure](../../includes/cards/ibm-zos-online-transaction-processing-azure-card.md)]
 
 </ul>

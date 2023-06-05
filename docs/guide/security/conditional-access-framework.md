@@ -3,7 +3,7 @@ title: Conditional Access framework and policies
 description: Get a detailed description of a recommended Conditional Access framework and a starting point for policies. 
 author: clajes
 ms.author: clajes
-ms.date: 10/10/2022
+ms.date: 04/11/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -51,8 +51,8 @@ To make administration easy, we suggest this numbering scheme:
 |Persona group|Number allocation|
 |-------------|-----------------|
 |CA-Persona-Global|CA001-CA099|
-|CA-Persona-Internals|CA100-CA199|
-|CA-Persona-Admins|CA200-CA299|
+|CA-Persona-Admins|CA100-CA199|
+|CA-Persona-Internals|CA200-CA299|
 |CA-Persona-Externals|CA300-CA399|
 |CA-Persona-GuestUsers|CA400-CA499|
 |CA-Persona-GuestAdmins|CA500-CA599|
@@ -93,6 +93,8 @@ The following table describes the Platform component of a policy name:
 |AnyPlatform|The policy targets any platform. You typically configure this by selecting **Any Device**. (In Conditional Access policies, both the word *platform* and the word *device* are used.)|
 |iOS|The policy targets Apple iOS platforms.|
 |Android|The policy targets Google Android platforms.|
+|Windows|This policy targets Windows platform.|
+|Linux|This policy targets the Linux platforms.|
 |WindowsPhone|The policy targets Windows Phone platforms.|
 |macOS|The policy targets the macOS platforms|
 |iOSAndroid|The policy targets both iOS and Android platforms.|
@@ -104,7 +106,8 @@ The following table describes the Grant Control component of a policy name:
 
 |Grant type|Description/Examples|
 |----------|--------------------|
-|Multi-factor authentication|The policy requires multi-factor authentication.|
+|Block|The policy blocks sign-in|
+|MFA|The policy requires multi-factor authentication.|
 |Compliant|The policy requires a compliant device, as determined by Endpoint Manager, so the device needs to be managed by Endpoint Manager.|
 |CompliantorAADHJ|The policy requires a compliant device OR a Hybrid Azure AD joined device. A standard company computer that's domain joined is also Hybrid Azure AD  joined. Mobile phones and Windows 10 computers that are co-managed or Azure AD joined can be compliant.|
 |CompliantandAADHJ|The policy requires a device that's compliant AND Hybrid Azure AD joined.|
@@ -112,6 +115,8 @@ The following table describes the Grant Control component of a policy name:
 |MFAandCompliant|The policy requires a compliant device AND multi-factor authentication.|
 |MFAorAADHJ|The policy requires a Hybrid Azure AD joined computer OR multi-factor authentication if it's not a Hybrid Azure AD joined computer.|
 |MFAandAADHJ|The policy requires a Hybrid Azure AD joined computer AND multi-factor authentication.|
+|RequireApprovedClient|The policy requires approved client app.|
+|AppProtection|The policy requires app protection|
 |Unmanaged|The policy targets devices that aren't known by Azure AD. For example, you can use this grant type to allow access to Exchange Online from any device.|
 
 ## Named locations
@@ -121,14 +126,14 @@ We recommend that you define these standard locations for use in Conditional Acc
 - **Trusted IPs / Internal networks.** These IP subnets represent locations and networks that have physical access restrictions or other controls in place, like computer system management, network-level authentication, or intrusion detection. These locations are more secure, so Conditional Access enforcement can be relaxed. Consider whether Azure or other datacenter locations (IPs) should be included in this location or have their own named locations.
 - **Citrix-trusted IPs.** If you have Citrix on-premises, it might be useful to configure separate outgoing IPv4 addresses for the Citrix farms, if you need to be able to connect to cloud services from Citrix sessions. In that case, you can exclude those locations from Conditional Access policies if you need to.
 - **Zscaler locations, if applicable.** Computers have a ZPA agent installed and forward all traffic to the internet to or through Zscaler cloud. So it's worth defining Zscaler source IPs in Conditional Access and requiring all requests from non-mobile devices to go through Zscaler.
-- **Countries with which to allow business.** It can be useful to divide countries into two location groups: one that represents areas of the world where employees typically work and one that represents other locations. This allows you to apply additional controls to requests that originate from outside the areas where your organization normally operates.
+- **Countries/regions with which to allow business.** It can be useful to divide countries/regions into two location groups: one that represents areas of the world where employees typically work and one that represents other locations. This allows you to apply additional controls to requests that originate from outside the areas where your organization normally operates.
 - **Locations where multi-factor authentication might be difficult or impossible.** In some scenarios, requiring multi-factor authentication could make it difficult for employees to do their work. For example, staff might not have the time or opportunity to respond to frequent multi-factor authentication challenges. Or, in some locations, RF screening or electrical interference can make the use of mobile devices difficult. Typically, you'd use other controls in these locations, or they might be trusted.
 
 Location-based access controls rely on the source IP of a request to determine the location of the user at the time of the request. It's not easy to perform spoofing on the public internet, but protection afforded by network boundaries might be considered less relevant than it once was. We don't recommend relying solely on location as a condition for access. But for some scenarios it might be the best control that you can use, like if you're securing access from a service account from on-premises that's used in a non-interactive scenario.
 
 ## Recommended Conditional Access policies
 
-We've created a spreadsheet that contains recommended Conditional Access policies. You can [download the spreadsheet here](https://arch-center.azureedge.net/Conditional-Access-policies-for-personas-2.xlsx). 
+We've created a spreadsheet that contains recommended Conditional Access policies. You can [download the spreadsheet here](https://github.com/microsoft/ConditionalAccessforZeroTrustResources/raw/main/ConditionalAccessSamplePolicies/Microsoft%20Conditional%20Access%20for%20Zero%20trust%20persona%20based%20policies.xlsx).
 
 Use the suggested policies as a starting point.
 
@@ -159,6 +164,16 @@ The use of rings as part of a deployment model isn't just for initial deployment
 With a finished deployment, you should also design and implement the monitoring controls that were discussed in the [Conditional Access principles](/azure/architecture/guide/security/conditional-access-design#principles-of-conditional-access).
 
 In addition to automating the initial deployment, you might want to automate changes to policies by using CI/CD pipelines. You could use Microsoft365DSC for this automation.
+  
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Claus Jespersen](https://www.linkedin.com/in/claus-jespersen-25b0422/) | Principal Consultant ID&Sec
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 - [Learning path: Implement and manage identity and access](/training/paths/implement-manage-identity-access)

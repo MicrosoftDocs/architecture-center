@@ -2,7 +2,7 @@
 title: Solutions for the facilities and real estate industries
 titleSuffix: Azure Architecture Center
 description: Get an overview  of architectures and ideas for using Azure services to build solutions for the facilities and real estate industries.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
 ms.date: 07/26/2022
 ms.topic: conceptual
@@ -66,4 +66,4 @@ The following are other ideas that you can use as a starting point for your faci
 - [IoT Connected Platform for COVID-19 detection and prevention](../solution-ideas/articles/iot-connected-platform.yml) 
 - [IoT monitor and manage loops](../example-scenario/iot/monitor-manage-loop.yml)
 - [Low-latency network connections for industry](../solution-ideas/articles/low-latency-network.yml)
-- [Predict length of stay and patient flow](../solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml)
+- [Predict length of stay and patient flow](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)

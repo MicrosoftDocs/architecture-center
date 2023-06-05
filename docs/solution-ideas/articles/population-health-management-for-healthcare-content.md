@@ -4,8 +4,9 @@ In this solution, we'll use the clinical and socioeconomic in-patient data gener
 
 ## Architecture
 
-![Architecture diagram shows how data is ingested, stored, processed through machine learning and published.](../media/population-health-management-for-healthcare.png)
-*Download an [SVG](../media/population-health-management-for-healthcare.svg) of this architecture.*
+[ ![Architecture diagram shows how data is ingested, stored, processed through machine learning and published.](../media/population-health-management-for-healthcare.svg)](../media/population-health-management-for-healthcare.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/population-health-management-for-healthcare.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -91,5 +92,5 @@ Product documentation:
 
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
 * [Business process management](./business-process-management.yml)
-* [Predict length of stay and patient flow](./predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml)
-* [Remote patient monitoring solutions](./remote-patient-monitoring.yml)
+* [Predict length of stay and patient flow](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)
+* [Remote patient monitoring solutions](/azure/architecture/example-scenario/digital-health/remote-patient-monitoring)

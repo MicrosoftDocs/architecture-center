@@ -12,6 +12,8 @@ To manage an AKS cluster, you interact with its API server. It's critical to loc
 > [!NOTE]
 > You can further lock down your AKS cluster by allowing only authorized IP address ranges to communicate with the API server. For more information, see [Secure access to the API server using authorized IP address ranges in Azure Kubernetes Service (AKS)](/azure/aks/api-server-authorized-ip-ranges).
 
+[Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+
 ## Access the AKS cluster over the internet
 
 When you create a non-private cluster that resolves to the API server's fully qualified domain name (FQDN), the API server is assigned a public IP address by default. You can then use the Azure portal to connect to your cluster, or you can use a shell like the Azure CLI, PowerShell, or Command Prompt.

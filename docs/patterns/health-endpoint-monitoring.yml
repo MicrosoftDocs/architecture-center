@@ -1,20 +1,25 @@
 ### YamlMime:Architecture
 metadata:
   title: Health Endpoint Monitoring pattern
-  description: Implement functional checks in an application that external tools can access through exposed endpoints at regular intervals.
-  author: EdPrice-MSFT
+  description: Implement the functional checks of the Health Endpoint Monitoring pattern. Use external tools to check apps at regular intervals through exposed endpoints.
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/28/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
 azureCategories:
+  - developer-tools
   - devops
+  - management-and-governance
 products:
-  - azure-traffic-manager
+  - azure-app-service
+  - azure-application-insights
+  - azure-front-door
   - azure-monitor
+  - azure-traffic-manager
 name: Health Endpoint Monitoring pattern
-summary: Implement functional checks in an application that external tools can access through exposed endpoints at regular intervals.
+summary: Implement the functional checks of the Health Endpoint Monitoring pattern. Use external tools to check apps at regular intervals through exposed endpoints.
 thumbnailUrl: /azure/architecture/browse/thumbs/health-endpoint-monitoring-pattern.png
 content: |
   [!include[](health-endpoint-monitoring-content.md)]

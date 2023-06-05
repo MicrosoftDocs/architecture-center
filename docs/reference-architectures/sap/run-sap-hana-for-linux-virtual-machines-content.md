@@ -6,15 +6,15 @@ This reference architecture describes a common production system. You can choose
 
 The first diagram shows a reference architecture for SAP HANA in Azure, which utilizes availability sets.
 
-[![Reference architecture for SAP HANA ScaleUp](./images/sap-hana-scale-up-avset.png)](./images/sap-hana-scale-up-avset.png#lightbox)
+[![Diagram that shows an architecture that uses availabity sets.](./images/sap-hana-scale-up-availability-set.svg)](./images/sap-hana-scale-up-availability-set.svg#lightbox)
 *Figure - The architecture of a production HANA environment, in Azure with availability set.*
 
 The second diagram shows a reference architecture for SAP HANA in Azure, which utilizes availability zones.
 
-[![Reference architecture for SAP HANA ScaleUp](./images/sap-hana-scale-up-avzone.png)](./images/sap-hana-scale-up-avzone.png#lightbox)
+[![Diagram that shows an architecture that uses availabity zones.](./images/sap-hana-scale-up-availability-zone.svg)](./images/sap-hana-scale-up-availability-zone.svg#lightbox)
 *Figure - The architecture of a production HANA environment, in Azure with availability zone.*
 
-_Download a [Visio file](https://arch-center.azureedge.net/sap-hana-architecture.vsdx) of this architecture, containing all versions including disaster recovery._
+*Download a [Visio file](https://arch-center.azureedge.net/sap-hana-architecture.vsdx) of all diagrams in this article.*
 
 > [!NOTE]
 > To deploy this reference architecture, you need the appropriate licensing of SAP products and other non-Microsoft technologies.
@@ -25,19 +25,19 @@ This reference architecture describes a typical SAP HANA database running in Azu
 
 #### Networking
 
-**Virtual networks (vnet)** The [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) service connects Azure resources to each other with enhanced security. In this architecture, the virtual network connects to an on-premises environment via a virtual private network (VPN) gateway deployed in the hub of a [hub-spoke topology](../../reference-architectures/hybrid-networking/hub-spoke.yml). SAP HANA database is contained in own spoke virtual network. The spoke virtual networks contains one subnet for the database virtual machines (VMs).
+**Virtual networks** The [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) service connects Azure resources to each other with enhanced security. In this architecture, the virtual network connects to an on-premises environment via an ExpressRoute gateway deployed in the hub of a [hub-spoke topology](../../reference-architectures/hybrid-networking/hub-spoke.yml). SAP HANA database is contained in own spoke virtual network. The spoke virtual networks contains one subnet for the database virtual machines (VMs).
 
-If applications connecting to SAP HANA are running on VMs, the application VMs should be located in same vnet but within a dedicated application subnet. Alternatively, if SAP HANA connection isn't the primary database, the application VMs can be located in other vnets. Separating into subnets by workload allows easier enablement of network security groups (NSG) to set security rules applicable to SAP HANA VMs only.
+If applications connecting to SAP HANA are running on VMs, the application VMs should be located in same virtual network but within a dedicated application subnet. Alternatively, if SAP HANA connection isn't the primary database, the application VMs can be located in other virtual networks. Separating into subnets by workload allows easier enablement of network security groups (NSG) to set security rules applicable to SAP HANA VMs only.
 
 **Zone-redundant gateway** A gateway connects distinct networks, extending your on-premises network to the Azure virtual network. We recommend that you use [ExpressRoute](../../reference-architectures/hybrid-networking/expressroute.yml) to create private connections that don't go over the public internet. You can also use a [site-to-site](../../reference-architectures/hybrid-networking/expressroute.yml) connection. Azure ExpressRoute or VPN gateways can be deployed across zones to guard against zone failures. See [Zone-redundant virtual network gateways](/azure/vpn-gateway/about-zone-redundant-vnet-gateways) to understand the differences between a zonal deployment and a zone-redundant deployment.  The IP addresses used need to be of Standard SKU for a zone deployment of the gateways.
 
 **Network security groups (NSG)**  To restrict incoming and outgoing network traffic of the virtual network, create [network security groups](/azure/virtual-network/tutorial-filter-network-traffic-cli) which are in turn assigned to specific subnets. DB and application subnets are secured with workload specific NSGs.
 
-**Application security groups (ASG)** To define fine-grained network security policies inside your NSGs based on workloads that are centered on applications, use [application security groups](/azure/virtual-network/security-overview) instead of explicit IP addresses. They let you group VMs by name and help you secure applications by filtering traffic from trusted segments of your network.
+**Application security groups (ASG)** To define fine-grained network security policies inside your NSGs based on workloads that are centered on applications, use [application security groups](/azure/virtual-network/security-overview) instead of explicit IP addresses. They let you group network interfaces of VMs by name and help you secure applications by filtering traffic from trusted segments of your network.
 
 **Network interface cards (NICs)** Network interface cards enable all communication among virtual machines on a virtual network. Traditional on-premises SAP deployments implement multiple NICs per machine to segregate administrative traffic from business traffic.
 
-On Azure, the virtual network is a software-defined network that sends all traffic through the same network fabric. So it's not necessary to use multiple NICs for performance reasons. But if your organization needs to segregate traffic, you can deploy multiple NICs per VM and connect each NIC to a different subnet. You can then use network security groups to enforce different access control policies on each subnet.
+On Azure it's not necessary to use multiple NICs for performance reasons. Multiple NICs share the same network throughput limit of a VM. But if your organization needs to segregate traffic, you can deploy multiple NICs per VM and connect each NIC to a different subnet. You can then use network security groups to enforce different access control policies on each subnet.
 
 Azure NICs support multiple IPs. This support conforms with the SAP recommended practice of using virtual host names for installations. For a complete outline, see [SAP note 962955](https://launchpad.support.sap.com/#/notes/962955). (To access SAP notes, you need an SAP Service Marketplace account.)
 
@@ -46,7 +46,7 @@ Azure NICs support multiple IPs. This support conforms with the SAP recommended 
 
 #### Virtual Machines
 
-This architecture uses virtual machines (VM). Azure offers single-node scale up to 11.5 Tebibyte (TiB) memory on virtual machines and single-node scale up to 24 TB on [Azure Large Instances](./hana-large-instances.yml). The [SAP Certified and Supported SAP HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?id=s:2494&filters=ve:24) lists the virtual machines that are certified for the SAP HANA database. For details about SAP support for virtual machine types and throughput metrics (SAPS), see [SAP Note 1928533 - SAP Applications on Microsoft Azure: Supported Products and Azure VM types](https://launchpad.support.sap.com/#/notes/1928533). (To access this and other SAP notes, an SAP Service Marketplace account is required.)
+This architecture uses virtual machines (VM). Azure offers single-node scale up to 23.5 Tebibyte (TiB) memory on virtual machines. The [SAP Certified and Supported SAP HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?id=s:2494&filters=ve:24) lists the virtual machines that are certified for the SAP HANA database. For details about SAP support for virtual machine types and throughput metrics (SAPS), see [SAP Note 1928533 - SAP Applications on Microsoft Azure: Supported Products and Azure VM types](https://launchpad.support.sap.com/#/notes/1928533). (To access this and other SAP notes, an SAP Service Marketplace account is required.)
 
 Microsoft and SAP jointly certify a range of virtual machine sizes for SAP HANA workloads. For example, smaller deployments can run on an [Edsv4](/azure/virtual-machines/edv4-edsv4-series) and [E(d)sv5](/azure/virtual-machines/edv5-edsv5-series) virtual machine starting with 160 GiB of RAM. To support the largest SAP HANA memory sizes on virtual machines—up to 11.5 TB—you can use the [Azure M-series v2](/azure/virtual-machines/mv2-series) (Mv2) virtual machines. The M208 virtual machine types achieve approximately 260,000 SAPS, and the M416 virtual machine types achieve approximately 488,000 SAPS.
 
@@ -85,8 +85,7 @@ For details about SAP HANA performance requirements, see [SAP Note 1943937 - Har
 
 - **Cost-conscious storage design for non-productive systems** SAP HANA environments, which do not require maximum storage performance in all situations, can use a storage architecture more optimized on cost. This can apply to little used production systems or some non-productive SAP HANA environments. The cost optimized storage uses a combination of Standard SSDs instead of all Premium or Ultra SSDs used for production, and also combining /hana/data and /hana/log filesystems onto same set of disks. [Guideline and best practices](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#cost-conscious-solution-with-azure-premium-storage) for most VM sizes are available. If using Azure NetApp Files for SAP HANA, size-reduced volumes could be used to achieve the same goal.
 - **Resizing storage when scaling-up** When resizing the virtual machine due to changed business demands, or due to a growing database size, the storage configuration can change. Azure supports online disk expansion, without any interruption to service. With a striped disk setup, as used for SAP HANA, a resize operation should be done equally to all disks in the volume group. The addition of more disks to a volume group can potentially unbalance the striped data. If adding more disks to a storage configuration, it's far preferable to create a new storage volume on new disks. Next copy the contents during downtime and modify mountpoints. Lastly discard the no longer needed old volume group and underlying disks.
-- **NetApp application volume group (preview)** For deployments with SAP HANA files contained on Azure NetApp Files NFS volumes, application volume groups enable you to deploy all volumes according to best practices. This process also ensures optimal performance for your SAP HANA database. [Details are available](/azure/azure-netapp-files/application-volume-group-introduction) about how to proceed with this process as it does require manual intervention allow some time for the creation.
-
+- **Azure NetApp Files application volume group** For deployments with SAP HANA files contained on Azure NetApp Files NFS volumes, application volume groups enable you to deploy all volumes according to best practices. This process also ensures optimal performance for your SAP HANA database. [Details are available](/azure/azure-netapp-files/application-volume-group-introduction) about how to proceed with this process as it does require manual intervention allow some time for the creation.
 
 ### High Availability
 
@@ -122,7 +121,7 @@ Alternatively to using SBD VMs, [Azure shared disk](/azure/virtual-machines/disk
 
 ### Disaster recovery
 
-[![Reference architecture for SAP HANA ScaleUp](./images/sap-hana-scale-up-avzone-dr.png)](./images/sap-hana-scale-up-avzone-dr.png#lightbox)
+[![Diagram that shows an architecture with disaster recovery.](./images/sap-hana-scale-up-availability-zone-dr.svg)](./images/sap-hana-scale-up-availability-zone-dr.svg#lightbox)
 *Figure - The architecture of a production HANA environment, in Azure with availability zone, with disaster recovery.*
 
 In this architecture, HSR is used for database replication to a database instance in the secondary region. It's optional to use a cluster in the secondary region, but doing so can improve SAP HANA availability after a disaster recovery failover.
@@ -151,7 +150,7 @@ Azure Backup offers a simple, enterprise-grade solution for workloads running on
 
 To monitor your workloads on Azure, [Azure Monitor](/azure/azure-monitor/overview) lets you comprehensively collect, analyze, and act on telemetry from your cloud and on-premises environments.
 
-To provide SAP-based monitoring of supported Azure infrastructure and databases, Azure Monitor for SAP Solutions (preview) is being used. [Azure Monitor for SAP Solutions](/azure/virtual-machines/workloads/sap/azure-monitor-overview) provides a simple setup experience. The customer can collect telemetry data from Azure resources. They can then correlate data to various monitoring KPIs and use data to help with troubleshooting.
+To provide SAP-based monitoring of supported Azure infrastructure and databases, Azure Monitor for SAP Solutions is being used. [Azure Monitor for SAP Solutions](/azure/virtual-machines/workloads/sap/azure-monitor-overview) provides a simple setup experience. The customer can collect telemetry data from Azure resources. They can then correlate data to various monitoring KPIs and use data to help with troubleshooting.
 
 To provide SAP-based monitoring of resources and service performance of the SAP infrastructure, the [Azure SAP Enhanced Monitoring](/azure/virtual-machines/workloads/sap/vm-extension-for-sap) Extension is used. This extension feeds Azure monitoring statistics into the SAP application for operating system monitoring and DBA Cockpit functions. SAP enhanced monitoring is a mandatory prerequisite for running SAP on Azure. For details, see [SAP Note 2191498](https://launchpad.support.sap.com/#/notes/2191498), "SAP on Linux with Azure: Enhanced Monitoring."
 
@@ -193,6 +192,16 @@ Communities can answer questions and help you set up a successful deployment. Co
 - [SAP Community](https://www.sap.com/community.html)
 - [Stack Overflow SAP](http://stackoverflow.com/tags/sap/info)
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Robert Biro](https://www.linkedin.com/in/robert-biro-38991927/) | Senior Architect
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 Learn more about the component technologies:
@@ -220,7 +229,5 @@ Explore related architectures:
 
 - [Run a Linux VM on Azure](../n-tier/linux-vm.yml)
 - [Run SAP BW/4HANA with Linux virtual machines on Azure](./run-sap-bw4hana-with-linux-virtual-machines.yml)
-- [Run SAP HANA on Azure (large instances)](./hana-large-instances.yml)
 - [SAP S/4HANA in Linux on Azure](/azure/architecture/guide/sap/sap-s4hana)
-- [SAP S/4 HANA for large instances](../../solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml)
 - [SAP on Azure Architecture Guide](./sap-overview.yml)

@@ -5,8 +5,8 @@ metadata:
   description: Build an end-to-end Customer 360 solution by using Azure Synapse Analytics and Dynamics 360 Customer Insights.
   author: nchandhi 
   ms.author: nachandh 
-  ms.date: 07/28/2022
-  ms.topic: conceptual
+  ms.date: 01/30/2023
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
 azureCategories:

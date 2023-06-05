@@ -1,3 +1,7 @@
+---
+ms.custom:
+  - devx-track-terraform
+---
 This article describes how Azure Pipelines *variable group* variables flow into Terraform modules, which deploy them to Azure Key Vault and finally to the Gridwich Functions App settings as Key Vault secret references.
 
 The example is a deep dive into how the **amsDrmFairPlayAskHex** variable, located in the Azure Pipelines **gridwich-cicd-variables.global** variable group, flows throughout the continuous integration and continuous delivery (CI/CD) process.
@@ -101,9 +105,11 @@ Gridwich automatically stores the variable as a CI/CD server environment variabl
          ]
          }
 
-         resource "local_file" "media_services_app_settings_json" {
-         sensitive_content = jsonencode(local.media_services_app_settings)
-         filename          = "./app_settings/media_services_app_settings.json"
+         resource "local_sensitive_file" "media_services_app_settings_json" {
+         content  = jsonencode(local.media_services_app_settings)
+         filename = "./app_settings/media_services_app_settings.json"
+         lifecycle {
+           ignore_changes = all
          }
      ```
 
@@ -120,7 +126,7 @@ Gridwich automatically stores the variable as a CI/CD server environment variabl
 1. The [functions-deploy-steps-template.yml](https://github.com/mspnp/gridwich/blob/main/infrastructure/azure-pipelines/templates/steps/functions-deploy-steps-template.yml) template loops through each generated *media_services_app_settings.json* and other similar JSON files, and uses the Azure command-line interface (Azure CLI) to set the Function App app settings:
 
    ```yaml
-       - task: AzureCLI@1
+       - task: AzureCLI@2
        displayName: 'Update app settings with terraform values'
        inputs:
            azureSubscription: ${{ parameters.serviceConnection }}
@@ -129,7 +135,7 @@ Gridwich automatically stores the variable as a CI/CD server environment variabl
            set -eu
            for filename in $(Pipeline.Workspace)/variables_${{ parameters.environment }}_top/app_settings/*.json ; do
                echo "Applying settings from $(basename ${filename}) into ${{parameters.functionAppName}}/source-slot with rg ${{parameters.functionAppResourceGroup}}"
-               az functionapp config appsettings set -g "${{parameters.functionAppResourceGroup}}" -s "source-slot" -n "${{parameters.functionAppName}}" --settings @"$(echo ${filename})" > /dev/null
+               az functionapp config appsettings set -g "${{parameters.functionAppResourceGroup}}" -s "source-slot" -n "${{parameters.functionAppName}}" --settings @"$(echo ${filename})"  > /dev/null
                echo "Settings applied for $(basename ${filename})"
            done
            addSpnToEnvironment: true

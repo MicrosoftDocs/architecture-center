@@ -1,12 +1,12 @@
 ### YamlMime:Architecture
 metadata:
-  title: Retail and e-commerce using Cosmos DB
+  title: Retail and e-commerce using Azure Cosmos DB
   titleSuffix: Azure Solution Ideas
   description: Use Azure Cosmos DB for retail and e-commerce apps to support in-depth queries over diverse product catalogs, traffic spikes, and rapidly changing inventory.
   author: prabhkaur1977
   ms.author: prkau
   ms.date: 06/13/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -18,8 +18,7 @@ metadata:
     - Cosmos DB
     - ecommerce
     - "https://azure.microsoft.com/solutions/architecture/retail-and-e-commerce-using-cosmos-db"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/retail-and-e-commerce-using-cosmos-db.png
-name: Retail and e-commerce using Cosmos DB
+name: Retail and e-commerce using Azure Cosmos DB
 azureCategories:
   - databases
   - web

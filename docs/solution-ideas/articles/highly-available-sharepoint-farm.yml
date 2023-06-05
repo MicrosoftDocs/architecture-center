@@ -3,10 +3,10 @@ metadata:
   title: Highly available SharePoint farm
   titleSuffix: Azure Solution Ideas
   description: Deploy a highly available SharePoint farm for intranet capabilities that uses Azure Active Directory, a SQL always on instance, and SharePoint resources.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 05/27/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -21,7 +21,6 @@ metadata:
     - sharepoint farm solution
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/highly-available-sharepoint-farm"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/highly-available-sharepoint-farm.png
 name: Highly available SharePoint farm
 azureCategories:
   - web

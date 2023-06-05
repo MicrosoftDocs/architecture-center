@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: Deploy Samadii EM on an Azure virtual machine
+  description: Find out how the Samadii EM, software that analyzes electromagnetic fields, performs on an Azure virtual machine (VM).
+  author: gauharjunnarkar
+  ms.author: gajunnar
+  ms.date: 10/13/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - compute
+products:
+  - azure-virtual-machines
+  - azure-virtual-network
+name: Deploy Samadii EM on a virtual machine
+summary: Find out how Samadii EM performs on an Azure VM.
+thumbnailUrl: /azure/architecture/browse/thumbs/samadii-em-thumbnail.png
+content: |
+  [!include[](samadii-em-content.md)]

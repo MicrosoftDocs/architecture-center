@@ -1,5 +1,4 @@
 
-
 Follow the procedures in this article to set up an Azure DevOps project, repo, and pipelines for Gridwich. These DevOps procedures and settings use a placeholder Azure DevOps organization called `myorganization`, a new Azure DevOps project called `gridwich-clone`, service connection name `gridwich-connection`, and application name `cl1grw`. Replace these placeholders with your own values as appropriate.
 
 ## How to set up the Azure DevOps project and repo
@@ -103,7 +102,7 @@ Update some of the installed files.
 
    - In [terraform-destroy-stages-template.yml](https://github.com/mspnp/gridwich/blob/main/infrastructure/azure-pipelines/templates/stages/terraform-destroy-stages-template.yml), update two instances of `serviceConnection: gridwich-*` to `serviceConnection: gridwich-connection` or your service connection name.
 
-   - In [terraform-init-steps-template.yml](https://github.com/mspnp/gridwich/blob/main/infrastructure/azure-pipelines/templates/steps/terraform-init-steps-template.yml), update `TerraformBackendStorageAccount: gridwichtfstate` to `TerraformBackendStorageAccount: <your unique Gridwich storage account name>`.
+   - In [terraform-init-steps-template.yml](https://github.com/mspnp/gridwich/blob/main/infrastructure/azure-pipelines/templates/steps/terraform-init-steps-template.yml), update `TerraformBackendStorageAccount: gridwichtfstate` to `TerraformBackendStorageAccount: <your unique Gridwich storage account name>`. You can also update  `TerraformBackendLocation` to change the Azure region for Terraform.
 
 1. In [terraform/variables.tf](https://github.com/mspnp/gridwich/blob/main/infrastructure/terraform/variables.tf), to avoid name collisions with `gridwich`, update the default application name from `gridwich` to `cl1grw` or your application name.
 
@@ -112,6 +111,16 @@ Update some of the installed files.
      type        = string
      description = "Application name. Use only lowercase letters and numbers"
      default     = "cl1grw"
+   }
+   ```
+
+   You can also update the default Azure region by changing this variable:
+
+   ```terraform
+   variable "location" {
+     type        = string
+     description = "Azure region where to create resources."
+     default     = "West US"
    }
    ```
 

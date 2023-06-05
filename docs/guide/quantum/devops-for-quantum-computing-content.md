@@ -51,7 +51,7 @@ The last three steps are specific to quantum computing. For running and testing 
 
 To verify the simulation results, especially for tests that exhibit the probabilistic behavior of quantum systems, run your code on [quantum hardware](/azure/quantum/qc-target-list). Doing so gives you real-time performance insights about your job's runtime behavior. Because quantum hardware is a scarce resource, developers typically don't have their own, or don't have exclusive access. Instead, they use centrally operated environments. They usually access production hardware to test their development artifacts. The jobs are queued until previously submitted jobs complete, which might delay the testing cycle.
 
-The **inner loop for classical components** includes typical development steps for building, running, and debugging code in a development environment. In the context of hybrid quantum applications, there's an extra step: integrating the quantum components into the classical components. The complexity of this step depends on whether the quantum components are [tightly coupled](../../example-scenario/quantum/tightly-coupled-quantum-computing-job.yml) or [loosely coupled](../../example-scenario/quantum/loosely-coupled-quantum-computing-job.yml) with the classical ones. Developers don't need special quantum computing skills. The integration can typically be implemented with classical programming skills.
+The **inner loop for classical components** includes typical development steps for building, running, and debugging code in a development environment. In the context of hybrid quantum applications, there's an extra step: integrating the quantum components into the classical components. The complexity of this step depends on whether the quantum components are [tightly coupled](/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps) or [loosely coupled](/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps) with the classical ones. Developers don't need special quantum computing skills. The integration can typically be implemented with classical programming skills.
 
 ## Infrastructure as Code (IaC)
 
@@ -62,7 +62,7 @@ As with any other Azure environment, you can use [Azure Resource Manager templat
 
 :::image type="content" source="media/iac-in-quantum-devops.png" alt-text="Diagram that shows deployment of Infrastructure as Code in DevOps for quantum applications.":::
 
-If you use the [loosely coupled integration model](../../example-scenario/quantum/loosely-coupled-quantum-computing-job.yml), the classical environment includes all the resources that you need to expose the quantum functionality via API. If you use the [tightly coupled approach](../../example-scenario/quantum/tightly-coupled-quantum-computing-job.yml), the resources that you need vary depending on the [compute model](../technology-choices/compute-decision-tree.yml).
+If you use the [loosely coupled integration model](/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps), the classical environment includes all the resources that you need to expose the quantum functionality via API. If you use the [tightly coupled approach](/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps), the resources that you need vary depending on the [compute model](../technology-choices/compute-decision-tree.yml).
 
 ## Continuous integration (CI) and automated testing
 
@@ -116,6 +116,6 @@ After the classical component submits a quantum job, it must [monitor the status
 ## Related resources
 
 * [DevOps Checklist](../../checklist/dev-ops.md)
-* [CI/CD for quantum computing jobs](../../solution-ideas/articles/cicd-for-quantum-computing-jobs.yml)
-* [Tightly coupled quantum computing job](../../example-scenario/quantum/tightly-coupled-quantum-computing-job.yml)
-* [Loosely coupled quantum computing job](../../example-scenario/quantum/loosely-coupled-quantum-computing-job.yml)
+* [CI/CD for quantum computing jobs](/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps)
+* [Tightly coupled quantum computing job](/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps)
+* [Loosely coupled quantum computing job](/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps)

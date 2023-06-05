@@ -1,11 +1,14 @@
+---
+ms.custom:
+  - devx-track-azurecli
+---
 Kubernetes architecture is based on two layers: The [control plane](/azure/aks/concepts-clusters-workloads#control-plane) and one or more [nodes in node pools](/azure/aks/concepts-clusters-workloads#nodes-and-node-pools). This article describes and compares how Amazon Elastic Kubernetes Service (Amazon EKS) and Azure Kubernetes Service (AKS) manage agent or worker nodes.
+
+[!INCLUDE [eks-aks](includes/eks-aks-include.md)]
 
 In both Amazon EKS and AKS, the cloud platform provides and manages the control plane layer, and the customer manages the node layer. The following diagram shows the relationship between the control plane and nodes in AKS Kubernetes architecture.
 
 ![Diagram that shows the control plane and nodes in AKS architecture.](./media/control-plane-and-nodes.png)
-
-> [!NOTE]
-> This article is part of a [series of articles](index.md) that helps professionals who are familiar with Amazon Elastic Kubernetes Service (Amazon EKS) to understand Azure Kubernetes Service (AKS).
 
 ## Amazon EKS managed node groups
 
@@ -373,7 +376,7 @@ Pods that use [Azure CNI](/azure/aks/configure-azure-cni) get private IP address
 
 - Because pods have virtual network private IPs, they have direct connectivity to other cluster pods and resources in the virtual network. This ability supports better performance for very large clusters.
 
-- If pods have a separate subnet, you can configure virtual network policies for pods that are different from node policies. Separate policies allow many useful scenarios, such as allowing internet connectivity only for pods and not for nodes, fixing the source IP for a pod in a node pool by using virtual network NAT, and using [Network Security Groups (NSGs)](/azure/virtual-network/network-security-groups-overview) to filter traffic between node pools.
+- If pods have a separate subnet, you can configure virtual network policies for pods that are different from node policies. Separate policies allow many useful scenarios, such as allowing internet connectivity only for pods and not for nodes, fixing the source IP for a pod in a node pool by using NAT Gateway, and using [Network Security Groups (NSGs)](/azure/virtual-network/network-security-groups-overview) to filter traffic between node pools.
 
 - Both *Network Policy* and *Calico* Kubernetes network policies work with dynamic IP allocation.
 
@@ -390,6 +393,9 @@ Other contributors:
 - [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Senior Software Engineer
 - [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
 - [Ed Price](https://www.linkedin.com/in/priceed) | Senior Content Program Manager
+- [Theano Petersen](https://www.linkedin.com/in/theanop) | Technical Writer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
@@ -399,6 +405,7 @@ Other contributors:
 - [Secure network access to Kubernetes](private-clusters.yml)
 - [Storage options for a Kubernetes cluster](storage.md)
 - [Cost management for Kubernetes](cost-management.yml)
+- [Cluster governance](governance.md)
 - [Azure Kubernetes Service (AKS) solution journey](../../reference-architectures/containers/aks-start-here.md)
 - [Azure Kubernetes Services (AKS) day-2 operations guide](../../operator-guides/aks/day-2-operations-guide.md)
 - [Choose a Kubernetes at the edge compute option](../../operator-guides/aks/choose-kubernetes-edge-compute-option.md)
@@ -417,4 +424,3 @@ Other contributors:
 - [Implement Azure Kubernetes Service (AKS)](/learn/modules/implement-azure-kubernetes-service/)
 - [Develop and deploy applications on Kubernetes](/learn/paths/develop-deploy-applications-kubernetes/)
 - [Optimize compute costs on Azure Kubernetes Service (AKS)](/learn/modules/aks-optimize-compute-costs/)
-

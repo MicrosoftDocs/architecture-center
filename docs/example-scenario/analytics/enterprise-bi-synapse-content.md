@@ -12,7 +12,7 @@ The following steps build on the [Azure Synapse Analytics end-to-end][e2e-analyt
 
 #### Data source
 
-- The source data is located in an Azure SQL Server database. To simulate the on-premises environment, deployment scripts for this scenario provision an Azure SQL database. The [AdventureWorks sample database][adventureworksdw-sample-link] is used as the source data schema and sample data. For information on how to copy data from an on-premises database, see [copy and transform data to and from SQL Server](/azure/data-factory/connector-sql-server?tabs=data-factory).
+- The source data is located in an SQL Server database in Azure. To simulate the on-premises environment, deployment scripts for this scenario provision an Azure SQL database. The [AdventureWorks sample database][adventureworksdw-sample-link] is used as the source data schema and sample data. For information on how to copy data from an on-premises database, see [copy and transform data to and from SQL Server](/azure/data-factory/connector-sql-server?tabs=data-factory).
 
 #### Ingestion and data storage
 
@@ -34,7 +34,7 @@ This scenario uses the following components:
 - [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake)
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics)
 - [Power BI Premium](https://powerbi.microsoft.com/power-bi-premium)
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory) (Azure AD)
+- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory)
 
 ### Simplified architecture
 
@@ -290,7 +290,7 @@ Other contributors:
 ## Related resources
 
 - [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf)
-- [Analytics end-to-end with Azure Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end-experiment)
+- [Analytics end-to-end with Azure Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end)
 - [Big data analytics with enterprise-grade security using Azure Synapse](/azure/architecture/solution-ideas/articles/big-data-analytics-enterprise-grade-security)
 - [Hybrid ETL with existing on-premises SSIS and Azure Data Factory](/azure/architecture/example-scenario/data/hybrid-etl-with-adf)
 

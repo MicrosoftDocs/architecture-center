@@ -91,6 +91,8 @@
         "failback",
         "failover",
         "failovers",
+        "filegroup",
+        "filegroups",
         "gamification",
         "gamify",
         "geofencing",
@@ -139,7 +141,10 @@
         "microservice",
         "microservices",
         "minification",
+        "misallocate",
         "misallocated",
+        "misconfigure",
+        "misconfiguring",
         "mitigations",
         "multicloud",
         "multicontainer",
@@ -347,6 +352,7 @@
         "ruleset",
         "seccomp",
         "southeastasia",
+        "spaceborne",
         "stderr",
         "stdout",
         "subresource",
@@ -396,8 +402,8 @@
         "OpenBlade\\[.*\\]"
     ],
     "import": [
-        "./cspell-docset.json",
-        "./cspell-docset-names.json",
-        "./cspell-docutune.json"
+        "cspell-docset.json",
+        "cspell-docset-names.json",
+        "cspell-docutune.json"
     ]
 }

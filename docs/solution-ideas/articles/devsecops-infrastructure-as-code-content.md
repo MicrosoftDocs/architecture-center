@@ -6,7 +6,7 @@ This solution idea illustrates the DevSecOps pipeline using GitHub for IaC and h
 
 ## Architecture
 
-:::image type="content" source="../media/devsecops-for-iac.png" alt-text="Diagram that shows the architecture for DevSecOps for IaC." lightbox="../media/devsecops-for-iac.png":::
+:::image type="content" source="../media/devsecops-for-iac.svg" alt-text="Diagram that shows the architecture for DevSecOps for IaC." lightbox="../media/devsecops-for-iac.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/devsecops-for-iac.vsdx) of this architecture.*
 
@@ -35,7 +35,7 @@ This solution idea illustrates the DevSecOps pipeline using GitHub for IaC and h
 
 ## Scenario details
 
-Conceptually, the DevSecOps for infrastructure as code (IaC) is similar to [DevSecOps for application code on Azure](/azure/architecture/solution-ideas/articles/devsecops-in-azure). But you need a different set of pipelines and tools to manage and automate continuous integration and continuous delivery (CI/CD) for IaC.
+Conceptually, the DevSecOps for infrastructure as code (IaC) is similar to [DevSecOps for application code on AKS](../../guide/devsecops/devsecops-on-aks.yml). But you need a different set of pipelines and tools to manage and automate continuous integration and continuous delivery (CI/CD) for IaC.
 
 When you adopt IaC, it's important to create automation tests as you develop the code. These tests reduce the complexity of testing IaC when your workload scales. You can use local infrastructure configuration states like Terraform states and plans to develop [test-driven development (TDD) for IaC](/azure/cloud-adoption-framework/ready/considerations/test-driven-development). These configuration states emulate the actual deployments. You can run integration tests for IaC on actual infrastructure deployments using the [Azure Resource Graph REST API](/rest/api/azure-resourcegraph/).
 

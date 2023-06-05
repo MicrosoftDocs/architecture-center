@@ -5,7 +5,7 @@ metadata:
   author: PageWriter-MSFT
   ms.author: prwilk
   ms.date: 07/03/2022
-  ms.topic: conceptual
+  ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
 name: Access management of an AKS baseline cluster for a PCI-DSS 3.2.1 (Part 6 of 9)

@@ -1,14 +1,13 @@
 ---
 title: Direct traffic with a geo-distributed app using Azure and Azure Stack Hub
 description: Learn how to direct traffic to specific endpoints with a geo-distributed app solution using Azure and Azure Stack Hub.
-author: BryanLa
+author: ronmiab
+ms.author: robess
 categories: azure
 ms.service: azure-stack
 ms.subservice: azure-stack-hub
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/05/2019
-ms.author: bryanla
-ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
 azureCategories:
   - web
@@ -596,7 +595,7 @@ The app allows [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 by
 
 8. Under Geo-mapping, select a region/continent where the resource is located. For example, **Europe.**
 
-9. Under the Country/Region drop-down that appears, select the country that applies to this endpoint. For example, **Germany**.
+9. Under the Country/Region drop-down that appears, select the country/region that applies to this endpoint. For example, **Germany**.
 
 10. Keep **Add as disabled** unchecked.
 

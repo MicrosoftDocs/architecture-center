@@ -1,5 +1,4 @@
-
-Implementing reliable messaging in distributed systems can be challenging. This article describes how to use the Transactional Outbox pattern for reliable messaging and guaranteed delivery of events. To accomplish this, you'll use Azure Cosmos DB transactional batches and change feed in combination with Azure Service Bus.
+Implementing reliable messaging in distributed systems can be challenging. This article describes how to use the Transactional Outbox pattern for reliable messaging and guaranteed delivery of events, an important part of supporting [idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing). To accomplish this, you'll use Azure Cosmos DB transactional batches and change feed in combination with Azure Service Bus.
 
 ## Overview 
 
@@ -551,20 +550,34 @@ The advantages of this solution are:
 
 The sample application discussed in this article demonstrates how you can implement the Transactional Outbox pattern on Azure with Azure Cosmos DB and Service Bus. There are also other approaches that use NoSQL databases. To guarantee that the business object and events will be reliably saved in the database, you can embed the list of events in the business object document. The downside of this approach is that the cleanup process will need to update each document that contains events. That's not ideal, especially in terms of Request Unit cost, as compared to using TTL.
 
-Keep in mind that you shouldn't consider the sample code provided here production-ready code. It has some limitations regarding multithreading, especially the way events are handled in the `DomainEntity` class and how objects are tracked in the `CosmosContainerContext` implementations. Use it as a starting point for your own implementations.
+Keep in mind that you shouldn't consider the sample code provided here production-ready code. It has some limitations regarding multithreading, especially the way events are handled in the `DomainEntity` class and how objects are tracked in the `CosmosContainerContext` implementations. Use it as a starting point for your own implementations. Alternatively, consider using existing libraries that already have this functionality built into them like [NServiceBus](https://docs.particular.net/nservicebus/outbox) or [MassTransit](https://masstransit-project.com/advanced/transactional-outbox.html).
 
 ### Deploy this scenario
 
 You can find the source code, deployment files, and instructions to test this scenario on GitHub: <https://github.com/mspnp/transactional-outbox-pattern>.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author: 
+
+ - [Christian Dennig](https://www.linkedin.com/in/christian-dennig/) | Senior Software Engineer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
 Review these articles to learn more:
 
 - [Domain-driven design](/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns)
-- [Use tactical DDD to design microservices](/azure/architecture/microservices/model/tactical-ddd)
-- [CQRS pattern](/azure/architecture/patterns/cqrs)
-- [Materialized View pattern](/azure/architecture/patterns/materialized-view)
 - [Azure Service Bus: Message de-duplication](/azure/service-bus-messaging/duplicate-detection)
 - [Change feed processor library](/azure/cosmos-db/sql/change-feed-processor)
 - [Jimmy Bogard: A better domain events pattern](https://lostechies.com/jimmybogard/2014/05/13/a-better-domain-events-pattern)
+
+## Related resources
+
+- [Idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing)
+- [Use tactical DDD to design microservices](/azure/architecture/microservices/model/tactical-ddd)
+- [CQRS pattern](/azure/architecture/patterns/cqrs)
+- [Materialized View pattern](/azure/architecture/patterns/materialized-view)

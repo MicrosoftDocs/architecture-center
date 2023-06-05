@@ -7,7 +7,7 @@ editor: marktab
 services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2021
 ms.author: tdsp
 ms.custom:
@@ -56,6 +56,16 @@ There are various approaches and platforms to put models into production.  We re
 
 ### A/B testing
 When multiple models are in production, it can be useful to perform [A/B testing](https://wikipedia.org/wiki/A/B_testing) to compare performance of the models.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

@@ -2,11 +2,11 @@
 metadata:
   title: GitOps for Azure Kubernetes Service
   titleSuffix: Azure Example Scenarios
-  description: See a GitOps solution for an Azure Kubernetes Services (AKS) cluster. This solution provides full audit capabilities, policy enforcement, and early feedback.
-  author: EdPrice-MSFT
-  ms.author: makor
-  ms.date: 06/10/2022
-  ms.topic: conceptual
+  description: Learn techniques for using GitOps principles to operate and manage an Azure Kubernetes Services (AKS) cluster. The solutions use Flux v2 and Argo CD.
+  author: francisnazareth
+  ms.author: fnazaret
+  ms.date: 03/11/2023
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom:
@@ -18,7 +18,7 @@ products:
   - azure-kubernetes-service
   - github
 name: GitOps for Azure Kubernetes Service
-summary: See a GitOps solution for an Azure Kubernetes Services (AKS) cluster. This solution provides full audit capabilities, policy enforcement, and early feedback.
-thumbnailUrl: /azure/architecture/browse/thumbs/gitops-blueprint-aks-thumbnail-new.png
+summary: Learn techniques for using GitOps principles to operate and manage an Azure Kubernetes Services (AKS) cluster. The solutions use Flux v2 and Argo CD.
+thumbnailUrl: /azure/architecture/browse/thumbs/gitops-flux.png
 content: |
   [!include[](gitops-blueprint-aks-content.md)]

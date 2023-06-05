@@ -6,9 +6,9 @@ The focus of this article is to showcase a practical architecture that uses Azur
 
 ## Architecture
 
-:::image type="content" border="false" source="media/geospatial-analysis-telecommunications-industry.png" alt-text="Diagram for an architecture that uses Azure Cloud Services to process large volumes of geospatial data." lightbox="media/geospatial-analysis-telecommunications-industry.png":::
+:::image type="content" border="false" source="media/geospatial-analysis-telecommunications-industry.svg" alt-text="Diagram for an architecture that uses Azure Cloud Services to process large volumes of geospatial data." lightbox="media/geospatial-analysis-telecommunications-industry.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-1925417-geospatial-analysis-telecommunications-industry.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/geospatial-analysis-telecommunications-industry.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -70,7 +70,7 @@ Consider following the [Microsoft Azure Well-Architected Framework](/azure/archi
 
 ### Performance
 
-- Follow [Apache Sedona programming guides](https://sedona.apache.org/tutorial/rdd) on design patterns and performance tuning best practices.
+- Follow [Apache Sedona programming guides](https://sedona.apache.org/1.3.1-incubating/tutorial/sql/) on design patterns and performance tuning best practices.
 - Geospatial indexing is crucial for processing large-scale geospatial data. Apache Sedona and other open-source indexing frameworks such as [H3](https://h3geo.org/docs/core-library/overview) provide this capability.
 - The GeoPandas framework doesn't have the distributed features of GeoSpark / Apache Sedona. Therefore, as much as possible, use Sedona framework for geospatial processing.
 - Consider using Sedona’s built-in functions to validate geometry formatting before processing.
@@ -117,12 +117,12 @@ Principal author:
 - [Azure Monitor overview](/azure/azure-monitor/overview)
 - [Azure Maps samples](https://samples.azuremaps.com)
 - [Azure Data Factory tutorials](/azure/data-factory/data-factory-tutorials)
-- [Apache Sedona programming guides](https://sedona.apache.org/tutorial/core-python)
+- [Apache Sedona programming guides](https://sedona.apache.org/1.3.1-incubating/tutorial/sql/)
 - [Getting Started](https://geopandas.org/en/stable/getting_started.html) with GeoPandas
 - [Getting started](https://www.geomesa.org/documentation/stable/user/getting_started) with GeoMesa
 - [Processing Geospatial Data at Scale With Databricks](https://www.databricks.com/blog/2019/12/05/processing-geospatial-data-at-scale-with-databricks.html)
 - [GIS file formats](https://en.wikipedia.org/wiki/GIS_file_formats)
-- [Apache Sedona reference](https://sedona.apache.org/archive/api/sql/GeoSparkSQL-Function)
+- [Apache Sedona reference](https://sedona.apache.org/)
 - [Overview of the H3 Geospatial Indexing System](https://h3geo.org/docs/core-library/overview)
 - [Power BI and Esri ArcGIS](https://powerbi.microsoft.com/power-bi-esri-arcgis)
 - [QGIS](https://www.qgis.org/en/site)

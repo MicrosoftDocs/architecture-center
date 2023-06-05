@@ -6,9 +6,11 @@ The recommendations and examples are extracted from this accompanying reference 
 
 ![GitHub logo.](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates the regulated infrastructure. This implementation provides a microservices application. It's included to help you experience the infrastructure and illustrate the network and security controls. The application does *not* represent or implement an actual PCI DSS workload.
 
-![Architecture of an AKS PCI infrastructure.](images/regulated-architecture.svg)
+:::image type="content" border="false" source="./images/regulated-architecture.svg" alt-text="Architecture of an AKS PCI infrastructure." lightbox="./images/regulated-architecture.svg":::
 
-That network architecture is based on a hub-spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for SRE cluster access. There are two spoke virtual networks. One spoke contains the AKS cluster that is a component of the card-holder environment (CDE), and hosts the PCI DSS workload. The other spoke builds virtual machine images used for controlled SRE access to the environment.
+*Download a [Visio file](https://arch-center.azureedge.net/aks-pci-ra-code-assets.vsdx) of this architecture.*
+
+That network architecture is based on a hub-spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for SRE (site reliability engineer) cluster access. There are two spoke virtual networks. One spoke contains the AKS cluster that is a component of the card-holder environment (CDE), and hosts the PCI DSS workload. The other spoke builds virtual machine images used for controlled SRE access to the environment.
 
 > [!IMPORTANT]
 >
@@ -24,11 +26,11 @@ The firewall instance secures outbound network traffic. Without this layer of se
 
 **Azure Bastion**
 
-The baseline architecture provided a subnet for Azure Bastion, but didn't provision the resource. This architecture adds Azure Bastion in the subnet. It provides secure access to a jump box.
+The baseline architecture provided a subnet for Azure Bastion, but didn't provision the resource. This architecture adds Azure Bastion in the subnet and it provides secure access to a jump box.
 
 **Azure Image Builder**
 
-Provisioned in a separate virtual network. Creates VM images with base security and configuration. In this architecture, it's customized to build secure node images with management tools such as the Azure CLI, `kubectl`, and Flux CLI pre-installed.
+Provisioned in a separate virtual network, it creates VM images with base security and configuration. In this architecture, it's customized to build secure node images with management tools such as the Azure CLI, `kubectl`, and Flux CLI pre-installed.
 
 **Azure Virtual Machine Scale Sets for jump box instances**
 
@@ -67,7 +69,7 @@ The PCI-DSS 3.2.1 requires isolation of the PCI workload from other workloads in
 
 - **In-scope:** The PCI workload, the environment in which it resides, and operations.
 
-- **Out-of-scope:** Other workloads that may share services but are isolated from the in-scope components.
+- **Out-of-scope:** Other workloads that might share services, but are isolated from the in-scope components.
 
 The key strategy is to provide the required level of separation. The preferred way is to deploy in-scope and out-of-scope components in separate clusters. The down side is increased costs for the added infrastructure and the maintenance overhead. This implementation co-locates all components in a shared cluster for simplicity. If you choose to follow that model, use a  rigorous in-cluster segmentation strategy. No matter how you choose to maintain separation, be aware that as your solution evolves, some out-of-scope components might become in-scope.
 
@@ -93,7 +95,7 @@ The hub-spokes are all deployed in separate virtual networks, each in their priv
 
 A combination of various Azure services and features and native Kubernetes constructs provide the required level of control. Here are some options used in this architecture.
 
-![Network configuration](./images/network-topology.svg)
+:::image type="content" border="false" source="./images/network-topology.svg" alt-text="Diagram of the network configuration." lightbox="./images/network-topology.svg":::
 
 ### Subnet security through network security groups (NSGs)
 
@@ -142,15 +144,15 @@ Azure Application Gateway doesn't support sourcing TLS certificates for the HTTP
 
 ### DDoS protection
 
-Enable [Azure DDoS Protection Standard](/azure/ddos-protection/manage-ddos-protection) for virtual networks with a subnet that contains Application Gateway with a public IP. Doing so protects the infrastructure and workload from mass fraudulent requests. Such requests can cause service disruption or mask another concurrent attack. Azure DDoS comes at a significant cost, and is typically amortized across many workloads that span many IP addresses. Work with your networking team to coordinate coverage for your workload.
+Enable [Azure DDoS Network Protection](/azure/ddos-protection/manage-ddos-protection) for virtual networks with a subnet that contains Application Gateway with a public IP. Doing so protects the infrastructure and workload from mass fraudulent requests. Such requests can cause service disruption or mask another concurrent attack. Azure DDoS comes at a significant cost, and is typically amortized across many workloads that span many IP addresses. Work with your networking team to coordinate coverage for your workload.
 
 ## Identity access management
 
-Define roles and set access policies according to the requirements of the role. Map roles to Kubernetes actions scoped as narrowly as practical. Avoid roles that span multiple functions. If multiple roles are filled by one person, assign that person all roles that are relevant to the equivalent job functions. So, even if one person is directly responsible for both the cluster and the workload, create your Kubernetes `ClusterRoles` as if there were separate individuals. Then assign that single individual all relevant roles.
+Define roles and set access control according to the requirements of the role. Map roles to Kubernetes actions scoped as narrowly as practical. Avoid roles that span multiple functions. If multiple roles are filled by one person, assign that person all roles that are relevant to the equivalent job functions. So, even if one person is directly responsible for both the cluster and the workload, create your Kubernetes `ClusterRoles` as if there were separate individuals. Then assign that single individual all relevant roles.
 
-Minimize standing access, especially for high-impact accounts, such as SRE/Ops interactions with your cluster. The AKS control plane supports both [Azure AD Privileged Access Management (PAM) just-in-time (JIT)](/azure/aks/managed-aad#configure-just-in-time-cluster-access-with-azure-ad-and-aks). [Conditional Access Policies](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks) can provide additional layers of required authentication validation for privileged access, based on the rules you build.
+Minimize standing access, especially for high-impact accounts, such as SRE/Ops interactions with your cluster. The AKS control plane supports both [Azure AD Privileged Access Management (PAM) just-in-time (JIT)](/azure/aks/managed-aad#configure-just-in-time-cluster-access-with-azure-ad-and-aks) and [Conditional Access Policies](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks), which provides an additional layers of required authentication validation for privileged access, based on the rules you build.
 
-For more details on using PowerShell to configure conditional access, see [Azure AD Conditional Access](https://github.com/mspnp/aks-baseline-regulated/blob/main/docs/conditional-access.md).
+For more details on using PowerShell to configure conditional access, see [New-AzureADMSConditionalAccessPolicy](/powershell/module/azuread/new-azureadmsconditionalaccesspolicy), [Get-AzureADMSConditionalAccessPolicy](/powershell/module/azuread/get-azureadmsconditionalaccesspolicy), and [Remove-AzureADMSConditionalAccessPolicy](/powershell/module/azuread/remove-azureadmsconditionalaccesspolicy).
 
 ## Disk encryption
 
@@ -198,7 +200,7 @@ Protect container images and other OCI artifacts because they contain the organi
 
 ## Kubernetes API Server operational access
 
-![Diagram of Kubernetes API Server operational access with a jump box.](./images/aks-jumpbox.svg)
+:::image type="content" border="false" source="./images/aks-jumpbox.svg" alt-text="Diagram of Kubernetes API Server operational access with a jump box." lightbox="./images/aks-jumpbox.svg":::
 
 You can limit commands executed against the cluster, without necessarily building an operational process based around jump boxes. If you have an IAM-gated IT automation platform, make use of the predefined actions to control and audit the type of actions.
 
@@ -216,9 +218,9 @@ The in-cluster `omsagent` pods running in `kube-system` are the Log Analytics co
 
 Use [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) in Microsoft Defender for Cloud to view and remediate security recommendations and to view security alerts on your container resources. Enable Microsoft Defender plans as they apply to various components of the cardholder data environment.
 
-Integrate logs so that you're able to review, analyze, and query data efficiently. Azure provides several technology options. You can use Azure Monitor to write logs into a Log Analytics workspace. Another option is to integrate data into security information and event management (SIEM) solutions, such as Microsoft Sentinel.
+Integrate logs so that you're able to review, analyze, and query data efficiently. Azure provides several options. You can turn on AKS diagnostic logs and send them to a Log Analytics workspace that is part of [Azure Monitor](/azure/azure-monitor/overview). Another option is to integrate data into security information and event management (SIEM) solutions, such as [Microsoft Sentinel](/azure/sentinel/overview).
 
-As required by the standard, all Log Analytics workspaces are set to a 90-day retention period. Consider setting up continuous export for longer-term storage. Don't store sensitive information in log data. Make sure access to archived log data is subject to the same levels of access controls as recent log data.
+As required by the standard, all Log Analytics workspaces are set to a 90-day retention period. Consider setting up continuous export for longer-term storage. Don't store sensitive information in log data, and make sure access to archived log data is subject to the same levels of access controls as recent log data.
 
 For a complete perspective, see [Microsoft Defender for Cloud Enterprise Onboarding Guide](https://aka.ms/MDfCOnboarding). This guide addresses enrollment, data exports to your SIEM solutions, responding to alerts, and building workflow automation.
 
@@ -235,7 +237,7 @@ Here are links to feature documentation of some key components of this architect
 - [Azure Container Registry tasks](/azure/container-registry/container-registry-tasks-overview)
 - [Azure Key Vault](/azure/key-vault/general/basic-concepts)
 
-## Next
+## Next steps
 
 Install and maintain a firewall configuration to protect cardholder data. Do not use vendor-supplied defaults for system passwords and other security parameters.
 

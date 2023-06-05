@@ -38,9 +38,26 @@ The following diagram and steps describe the CI/CD pipeline architecture:
 10. User requests for the app go through the DNS server.
 11. The DNS server passes the requests to a load balancer, and sends responses back to the users.
 
-## See also
+## Contributors
 
-- [Team Data Science Process (TDSP)](/azure/machine-learning/team-data-science-process/)
-- [Azure Machine Learning (AML)](/azure/machine-learning/)
-- [Azure DevOps](https://azure.microsoft.com/services/devops/)
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab) | Senior Cloud Solution Architect
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
+
+- [Team Data Science Process (TDSP)](/azure/machine-learning/team-data-science-process)
+- [Azure Machine Learning (AML)](/azure/machine-learning)
+- [Azure DevOps](https://azure.microsoft.com/services/devops)
 - [Azure Kubernetes Services (AKS)](/azure/aks/intro-kubernetes)
+
+## Related resources
+
+- [What are Azure Machine Learning pipelines?](/azure/machine-learning/concept-ml-pipelines)
+- [Compare Microsoft machine learning products and technologies](../data-guide/technology-choices/data-science-and-machine-learning.md)
+- [Machine learning operations (MLOps) v2](../data-guide/technology-choices/machine-learning-operations-v2.md)
+- [Azure Machine Learning decision guide for optimal tool selection](../example-scenario/mlops/aml-decision-tree.yml)

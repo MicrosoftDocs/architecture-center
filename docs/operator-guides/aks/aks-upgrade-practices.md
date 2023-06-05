@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn about day-2 patching and upgrading practices for Azure Kubernetes Service (AKS) worker nodes and Kubernetes (K8S) versions.
 author: rishabhsaha
 ms.date: 09/16/2022
-ms.topic: conceptual
+ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
 azureCategories: compute
@@ -13,6 +13,7 @@ products:
   - azure-kubernetes-service
 ms.custom:
   - e2e-aks
+  - devx-track-azurecli
 ---
 
 # Patch and upgrade AKS worker nodes
@@ -21,9 +22,9 @@ This section of the Azure Kubernetes Service (AKS) day-2 operations guide descri
 
 ## Node image upgrades
 
-Microsoft provides patches and new images for image nodes weekly, but doesn't automatically patch them by default. Because AKS isn't a platform-as-a-service (PaaS), components like agent nodes have shared responsibility, and users must help maintain the AKS cluster. For example, applying an agent node operating system (OS) security patch requires user input.
+Microsoft provides patches and new images for image nodes weekly. For AKS Linux nodes, we have two mechanisms to patch the nodes: unattended updates and node image upgrade. **Unattended updates** are automatic, but they don’t account for kernel level patches. You're required to use something like KURED or node image upgrade to reboot the node and complete the cycle. For node image upgrade, we create a patched node every week for customers to use, which would require applying that patched virtual hard disk (VHD). Auto-upgrade with the node image update SKU can automate the process. 
 
-AKS supports upgrading node images by using [az aks nodepool upgrade](/cli/azure/aks/nodepool#az-aks-nodepool-upgrade), so you can keep up with the newest OS and runtime updates. To keep your agent node OS and runtime components patched, consider checking and applying node image upgrades bi-weekly, or automating the node image upgrade process. For more information about automating node image upgrades, see [Node upgrade GitHub Actions](/azure/aks/node-upgrade-github-actions).
+AKS supports upgrading node images by using [az aks nodepool upgrade](/cli/azure/aks/nodepool#az-aks-nodepool-upgrade), so you can keep up with the newest OS and runtime updates. To keep your agent node OS and runtime components patched, consider checking and applying node image upgrades every two weeks, or automating the node image upgrade process. For more information about automating node image upgrades, see [Node upgrade GitHub Actions](/azure/aks/node-upgrade-github-actions).
 
 An updated node image contains up-to-date OS security patches, kernel updates, Kubernetes security updates, newer versions of binaries like `kubelet`, and component version updates listed in the [release notes](https://github.com/Azure/AKS/releases). Node image updates have all relevant and validated security updates and feature updates. Using the node image upgrade method ensures you get only tested kernels and components that are compatible with those kernels.
 
@@ -201,7 +202,7 @@ The following table describes characteristics of various AKS upgrade and patchin
 
 Principal author:
 
-*[Rishabh Saha](https://www.linkedin.com/in/rishabhsaha/) | ("Principal Solution Architect")
+[Rishabh Saha](https://www.linkedin.com/in/rishabhsaha/) | Principal Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

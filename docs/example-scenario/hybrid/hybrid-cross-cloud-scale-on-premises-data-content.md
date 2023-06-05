@@ -1,33 +1,18 @@
-This solution demonstrates how to build a hybrid app that spans Azure and Azure Stack Hub. It uses a single on-premises data source, which is a compliance requirement for some organizations.
 
-Many organizations collect and store massive amounts of sensitive customer data.  They're frequently prevented from storing sensitive data in the public cloud because of corporate regulations or government policy, but they might want to take advantage of the scalability of the public cloud. The public cloud can handle seasonal peaks in traffic, allowing organizations to pay for exactly the hardware they need, when they need it.
+This solution demonstrates how to build a hybrid app that takes advantage of:
 
-The solution takes advantage of the compliance benefits of the private cloud and combines them with the scalability of the public cloud. The Azure and Azure Stack Hub hybrid cloud provides a consistent experience for developers. This consistency lets them apply their skills to both public cloud and on-premises environments.
-
-This solution allows you to deploy an identical web app to a public and private cloud. You can also access a non-internet routable network that's hosted on the private cloud.
-
-## Potential use cases
-
-This solution is applicable in scenarios like these:
-
-- Your organization uses a DevOps approach or plans to use one soon.
-- You want to implement continuous integration and continuous delivery (CI/CD) practices across an Azure Stack Hub implementation and the public cloud.
-- You want to consolidate the CI/CD pipeline across cloud and on-premises environments.
-- You want to develop apps by using both cloud and on-premises services.
-- You want skills required by developers to be consistent across cloud and on-premises apps.
-- You're using Azure but have developers who are working in an on-premises Azure Stack Hub cloud.
-- Your on-premises apps experience spikes in demand during seasonal, cyclical, or unpredictable fluctuations.
-- You have on-premises components and want to use the cloud to scale them.
-- You want cloud scalability but want your app to run on-premises as much as possible.
+- The scalability of the Azure public cloud platform.
+- The compliance benefits of the Azure Stack Hub private cloud platform.
 
 ## Architecture
 
-![Diagram that shows an architecture for a hybrid app that spans Azure and Azure Stack Hub.](../hybrid/media/hybrid-cross-cloud-scale-on-premises-data.png)  
-_Download a [Visio file](https://arch-center.azureedge.net/hybrid-cross-cloud-scale-onprem-data.vsdx) of this architecture._
+![Diagram that shows an architecture for a hybrid app that spans Azure and Azure Stack Hub.](../hybrid/media/hybrid-cross-cloud-scale-on-premises-data.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/hybrid-cross-cloud-scale-onprem-data.vsdx) of this architecture.*
 
 ### Dataflow
 
-1. The Azure Pipelines build servers in the Azure Stack Hub on-premises environment and the cloud deploy the same version of the app to their respective environments. The cloud environment doesn't include a data store. Both instances of the app are configured to connect to the same on-premises data store.
+1. The Azure Pipelines build servers that are in the Azure Stack Hub on-premises environment and in the cloud deploy the same version of the app to their respective environments. The cloud environment doesn't include a data store. Both instances of the app are configured to connect to the same on-premises data store.
 1. The web apps are monitored for load. When there's a significant increase in traffic, an application manipulates DNS records to redirect traffic to the public cloud. When the traffic is no longer high, the DNS records are updated to direct traffic back to the private cloud.
 1. A client sends a request to the application. Azure Traffic Manager processes the request and routes it to one of the app environments.
 1. Under normal load, the client request is routed to the instance of the app that's hosted on-premises in Azure Stack Hub.
@@ -37,35 +22,63 @@ _Download a [Visio file](https://arch-center.azureedge.net/hybrid-cross-cloud-sc
 
 ### Components
 
-- [Azure App Service](https://azure.microsoft.com/services/app-service) allows you to build and host web apps, RESTful API apps, and Azure functions. 
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for private networks in Azure. Virtual Network enables multiple Azure resource types, like virtual machines (VM), to communicate with each other, the internet, and on-premises networks, all with improved security. This solution also demonstrates the use of additional networking components:
+- [Azure App Service](https://azure.microsoft.com/products/app-service) makes it possible for  you to build and host web apps, RESTful API apps, and Azure functions.
+- [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) is the fundamental building block for private networks in Azure. Virtual Network makes it possible for multiple Azure resource types, like virtual machines (VM), to communicate with each other, the internet, and on-premises networks, all with improved security. This solution also demonstrates the use of additional networking components:
 
   - App and gateway subnets.
   - A local on-premises network gateway.
-  - A virtual network gateway, which acts as a site-to-site VPN gateway connection.
+  - A virtual network gateway that acts as a site-to-site VPN gateway connection.
   - A public IP address.
   - A point-to-site VPN connection.
-  - Azure DNS to host DNS domains and provide name resolution.
+  - Azure DNS to host DNS domains and to provide name resolution.
 
-- [Traffic Manager](https://azure.microsoft.com/services/traffic-manager) is a DNS-based traffic load balancer. You can use it to control the distribution of user traffic to service endpoints in different datacenters.
-- [Application Insights](https://azure.microsoft.com/services/monitor) is an extensible application performance management service for web developers who build and manage apps on multiple platforms.
-- [Azure Functions](https://azure.microsoft.com/services/functions) enables you to run code in a serverless environment without having to first create a VM or publish a web app.
-- [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub) is an extension of Azure that can run workloads in an on-premises environment by providing Azure services in your datacenter.
-  - With Azure Stack Hub, you can use the same app model, self-service portal, and APIs enabled by Azure. Azure Stack Hub IaaS supports a broad range of open-source technologies for consistent hybrid cloud deployments. This solution uses a Windows Server VM to host SQL Server, for example.
+- [Traffic Manager](https://azure.microsoft.com/products/traffic-manager) is a DNS-based traffic load balancer. You can use it to control the distribution of user traffic to service endpoints in different datacenters.
+- [Application Insights](https://azure.microsoft.com/products/monitor) is an extensible application performance management service for web developers who build and manage apps on multiple platforms.
+- [Azure Functions](https://azure.microsoft.com/products/functions) makes it possible for you to run code in a serverless environment without having to first create a VM or publish a web app.
+- [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub) is an extension of Azure that can run workloads in an on-premises environment by providing Azure services there.
+  - You can use Azure Stack Hub to provide the same app model, self-service portal, and APIs that Azure provides. Azure Stack Hub IaaS supports a broad range of open-source technologies for consistent hybrid cloud deployments. This solution uses a Windows Server VM to host SQL Server, for example.
   - The solution uses [Azure App Service on Azure Stack Hub](/azure-stack/operator/azure-stack-app-service-overview) to host the web app in both environments.
-  - The Azure Stack Hub virtual network works exactly like the Azure virtual network. It uses many of the same networking components, including custom hostnames.
-- [Azure DevOps](https://azure.microsoft.com/services/devops) is a set of developer services that provides comprehensive application and infrastructure lifecycle management. Azure DevOps includes work tracking, source control, build and CI/CD, package management, and testing solutions.
-- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) is a service that provides CI/CD. You can use it to manage hosted build and release agents and definitions. You can use various code repositories with your development pipeline, including GitHub, Bitbucket, Dropbox, OneDrive, and [Azure Repos](https://azure.microsoft.com/services/devops/repos).
+  - The Azure Stack Hub virtual network works exactly like the Azure virtual network. It uses many of the same networking components, including custom host names.
+- [Azure DevOps](https://azure.microsoft.com/products/devops) is a set of developer services that provides comprehensive application and infrastructure lifecycle management. Azure DevOps includes work tracking, source control, build and CI/CD, package management, and testing solutions.
+- [Azure Pipelines](https://azure.microsoft.com/products/devops/pipelines) is a service that provides CI/CD. You can use it to manage hosted build and release agents and definitions. Your development pipeline can use various code repositories, including GitHub, Bitbucket, Dropbox, OneDrive, and [Azure Repos](https://azure.microsoft.com/products/devops/repos).
 
 ### Alternatives
 
-- For web applications, you can use [Azure Front Door](/azure/frontdoor/front-door-overview) instead of [Traffic Manager](https://azure.microsoft.com/services/traffic-manager). Azure Front Door works at Layer 7, the HTTP/HTTPS layer, using the anycast protocol with split TCP and the Microsoft global network to improve global connectivity. Your routing method can ensure that Azure Front Door will route your client requests to the fastest and most available application back end.
-- You can use [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) instead of Azure VPN Gateway. You can use ExpressRoute to connect your local network directly to Azure resources by using a dedicated private network connection.
+- For web applications, you can use [Azure Front Door](https://azure.microsoft.com/products/frontdoor). Azure Front Door works at Layer 7, the HTTP/HTTPS layer. It uses the anycast protocol with split TCP, and the Microsoft global network, to improve global connectivity. Your routing method can ensure that Azure Front Door routes your client requests to the fastest and most available application back end.
+- You can use [Azure ExpressRoute](https://azure.microsoft.com/products/expressroute) instead of Azure VPN Gateway. You can use ExpressRoute to connect your local network directly to Azure resources by using a dedicated private network connection.
 - If your repo is in GitHub, you can use [GitHub Actions](https://github.com/features/actions) instead of Azure Pipelines.
+
+## Scenario details
+
+This solution demonstrates how to build a hybrid app that spans Azure and Azure Stack Hub. It uses a single on-premises data source, which is a compliance requirement for some organizations.
+
+Many organizations collect and store massive amounts of sensitive customer data.  They're frequently prevented from storing sensitive data in the public cloud because of corporate regulations or government policy, but they might want to take advantage of the scalability of the public cloud. The public cloud can handle seasonal peaks in traffic, allowing organizations to pay for exactly the hardware they need, when they need it.
+
+The solution takes advantage of the compliance benefits of the private cloud and combines them with the scalability of the public cloud. The combination of the Azure cloud and the Azure Stack Hub hybrid cloud provides a consistent experience for developers. This consistency lets them apply their skills to both public cloud and on-premises environments.
+
+This solution allows you to deploy an identical web app to a public and private cloud. You can also access a non-internet routable network that's hosted on the private cloud.
+
+### Potential use cases
+
+This solution is applicable in scenarios like these:
+
+- Your organization uses a DevOps approach or plans to use one soon.
+- You want to implement continuous integration and continuous delivery (CI/CD) practices across an Azure Stack Hub implementation and the public cloud.
+- You want to consolidate the CI/CD pipeline across cloud and on-premises environments.
+- You want to develop apps by using both cloud and on-premises services.
+- You want the skills that are required for developers to be the same across cloud and on-premises apps.
+- You're using Azure but have developers who are working in an on-premises Azure Stack Hub cloud.
+- Your on-premises apps experience spikes in demand during seasonal, cyclical, or unpredictable fluctuations.
+- You have on-premises components and want to use the cloud to scale them.
+- You want cloud scalability but also want your app to run on-premises as much as possible.
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
 Global deployment has challenges, like variable connectivity and government regulations that differ by region. Developers can create just one app and deploy it across various regions with different requirements. Deploy your app to the Azure public cloud, and then deploy additional instances or components locally. You can manage traffic among all instances by using Azure.
 
@@ -73,7 +86,9 @@ It's important to think about how to handle networking or power failures. For in
 
 ### Security
 
-- **Compliance and data sovereignty.** With Azure Stack Hub, you can run the same service across multiple countries as you would when using a public cloud. Deploying the same app in datacenters in each country allows you to meet data sovereignty requirements. This capability ensures that personal data is kept within each country's borders. For more guidance, see [Regulatory compliance](/azure/architecture/framework/security/design-governance) in the Well-Architected Framework.
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
+- **Compliance and data sovereignty.** With Azure Stack Hub, you can run the same service across multiple countries/regions as you would when using a public cloud. Deploying the same app in datacenters in each country/region allows you to meet data sovereignty requirements. This capability ensures that personal data is kept within the borders of each country/region. See [Regulatory compliance](/azure/architecture/framework/security/design-governance) in the Well-Architected Framework for more guidance.
 
 - **Azure Stack Hub security posture.** Security requires a solid, continuous servicing process. That's why Microsoft invested in an orchestration engine that applies patches and updates across the entire infrastructure. Thanks to partnerships with Azure Stack Hub original equipment manufacturer (OEM) partners, Microsoft extends the same security posture to OEM-specific components, like the Hardware Lifecycle Host and the software running on it. These partnerships ensure that Azure Stack Hub has a uniform, solid security posture across the entire infrastructure. In turn, you can build and secure your app workloads.
 
@@ -87,7 +102,10 @@ It's important to think about how to handle networking or power failures. For in
 
 ### Operational excellence
 
-- **A single, consistent development approach.** With Azure and Azure Stack Hub, you can use a consistent set of development tools across your organization. This consistency makes it easier to implement CI/CD. Many apps and services deployed in Azure or Azure Stack Hub are interchangeable and can run in either location. 
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+
+- **A single, consistent development approach.** With Azure and Azure Stack Hub, you can use a consistent set of development tools across your organization. This consistency makes it easier to implement CI/CD. Many apps and services that are deployed in Azure or Azure Stack Hub are interchangeable and can run in either location.
+
   A hybrid CI/CD pipeline can help you:
 
   - Initiate a new build based on commits to your code repository.
@@ -98,6 +116,8 @@ See additional guidance in the [Release engineering](/azure/architecture/framewo
 
 ### Performance efficiency
 
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+
 Azure and Azure Stack Hub support the needs of globally distributed businesses.
 
 - **Easy-to-manage hybrid cloud.** Microsoft provides integration of on-premises assets with Azure Stack Hub and Azure in one unified solution. This integration eliminates the challenge of managing multiple point solutions and a mix of cloud providers. With cross-cloud scaling, just connect your Azure Stack Hub to Azure with [cloud bursting](https://azure.microsoft.com/overview/what-is-cloud-bursting) to make your data and apps available in Azure.
@@ -106,7 +126,7 @@ Azure and Azure Stack Hub support the needs of globally distributed businesses.
   - Save time and money by eliminating tape backup. Store up to 99 years of backup data in Azure.
   - Migrate running Hyper-V, Physical (in preview), and VMware (in preview) workloads to Azure to benefit from the economics and elasticity of the cloud.
   - Run compute-intensive reports or analytics on a replicated copy of your on-premises asset in Azure without separation from your production workloads.
-  - Burst into the cloud and run on-premises workloads in Azure, with larger compute templates when needed. 
+  - Burst into the cloud and run on-premises workloads in Azure, with larger compute templates when needed.
   - Create multitier development environments. Replicate live production data to your dev/test environment to keep it in near real-time sync.
 - **Cross-cloud scaling with Azure Stack Hub.** The key advantage to cloud bursting is that it saves you money. You pay for additional resources only when there's a demand for them. You don't need to spend money on unnecessary extra capacity or try to predict demand peaks and fluctuations.
 - **Processing in the cloud.** You can use cross-cloud scaling to reduce processing burdens. Moving basic apps to the public cloud distributes loads, freeing up local resources for business-critical apps. You can deploy an app to the private cloud and burst it to the public cloud as needed to meet demand.
@@ -117,8 +137,9 @@ Azure and Azure Stack Hub support the needs of globally distributed businesses.
 
 Principal author:
 
-* [Bryan Lamos](https://www.linkedin.com/in/bryanlamos) | Senior Content Developer
+- [Bryan Lamos](https://www.linkedin.com/in/bryanlamos) | Senior Content Developer
 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 ## Next steps
 

@@ -1,28 +1,12 @@
-The problem of employee attrition has grown in prominence since the COVID-19 pandemic. This trend, in which employees voluntarily resign from their jobs en masse, is popularly known as _the Great Resignation_. The problem can also be magnified for certain departments in an organization that might lack dedicated teams that perform advanced analytics, such as Human Resources.
-
-This example scenario illustrates an operating model of centralized machine learning. This  comprises a central team that's responsible for building and deploying machine-learning models for external teams across departments within an organization. This approach is useful when departments are too small to maintain a team that's dedicated to machine learning while the organization aims to infuse advanced analytics into all products and processes.
-
 This solution demonstrates how a machine-learning team can use Azure Databricks and Azure Kubernetes Service to develop and deploy machine learning, as an API, to predict the likelihood of employee attrition. The API can be integrated with external applications that are used by the Human Resources team to provide additional insights into the likelihood of attrition for a given employee within the organization. This information can be used to retain high-impact employees who are likely to leave the organization by providing Human Resources with the ability to proactively incentivize such employees to stay.
 
 _Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks._
 
-## Potential use cases
-
-This scenario is focused on building a machine-learning model of employee attrition and integrating it with external applications that are used by Human Resources teams. However, the design can be generalized to many machine-learning workloads that are built by centralized and decentralized teams alike.
-
-This generalized approach is best suited for:
-
-- Machine-learning teams that have standardized on Databricks for data engineering or machine-learning applications.
-
-- Machine-learning teams that have experience deploying and managing Kubernetes workloads and a preference for applying these skills for operationalizing machine-learning workloads.
-
-- Integrating machine-learning workloads with external applications that require low latency and interactive model predictions (for example, real-time inference).
-
 ## Architecture
 
-:::image type="content" alt-text="Diagram of the architecture in this article, showing development, deployment, exposure of the API, and monitoring of metrics and logs." source="media/employee-retention-databricks-kubernetes-design.png" lightbox="media/employee-retention-databricks-kubernetes-design.png":::
+:::image type="content" alt-text="Diagram of the architecture in this article, showing development, deployment, exposure of the API, and monitoring of metrics and logs." source="media/employee-retention-databricks-kubernetes-design.svg" lightbox="media/employee-retention-databricks-kubernetes-design.svg":::
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/employee-retention-databricks-kubernetes.pptx) of this architecture and its deployment.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/employee-retention-databricks-kubernetes.pptx) for all architectures.*
 
 ### Workflow
 
@@ -66,7 +50,27 @@ The following components are used as part of this design:
 
 - [Azure DevOps](https://azure.microsoft.com/services/devops) or [GitHub](https://azure.microsoft.com/products/github): Solutions for implementing DevOps practices to enforce automation and compliance with your workload development and deployment pipelines.
 
+## Scenario details
+
+The problem of employee attrition has grown in prominence since the COVID-19 pandemic. This trend, in which employees voluntarily resign from their jobs en masse, is popularly known as _the Great Resignation_. The problem can also be magnified for certain departments in an organization that might lack dedicated teams that perform advanced analytics, such as Human Resources.
+
+This example scenario illustrates an operating model of centralized machine learning. This  comprises a central team that's responsible for building and deploying machine-learning models for external teams across departments within an organization. This approach is useful when departments are too small to maintain a team that's dedicated to machine learning while the organization aims to infuse advanced analytics into all products and processes.
+
+### Potential use cases
+
+This scenario is focused on building a machine-learning model of employee attrition and integrating it with external applications that are used by Human Resources teams. However, the design can be generalized to many machine-learning workloads that are built by centralized and decentralized teams alike.
+
+This generalized approach is best suited for:
+
+- Machine-learning teams that have standardized on Databricks for data engineering or machine-learning applications.
+
+- Machine-learning teams that have experience deploying and managing Kubernetes workloads and a preference for applying these skills for operationalizing machine-learning workloads.
+
+- Integrating machine-learning workloads with external applications that require low latency and interactive model predictions (for example, real-time inference).
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 Before you implement this solution, some factors you might want to consider include:
 
@@ -80,13 +84,17 @@ Before you implement this solution, some factors you might want to consider incl
 
 - Specific business requirements for your analytics use case could require the use of services or features that aren't considered in this design.
 
+### Cost optimization
+
+All services deployed in this solution use a consumption-based pricing model. You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for a specific scenario. For other considerations, see [Cost optimization](/azure/architecture/framework/cost) in the Well-Architected Framework.
+
 ## Deploy this scenario
 
 A proof-of-concept implementation of this scenario is available on GitHub at [employee-retention-databricks-kubernetes-poc](https://github.com/Azure/employee-retention-databricks-kubernetes-poc), a repository.
 
-:::image type="content" alt-text="Diagram of the deployment of the architecture in this article, showing develop, build, deploy, and monitor." source="media/employee-retention-databricks-kubernetes-workflow.png" lightbox="media/employee-retention-databricks-kubernetes-workflow.png":::
+:::image type="content" alt-text="Diagram of the deployment of the architecture in this article, showing develop, build, deploy, and monitor." source="media/employee-retention-databricks-kubernetes-workflow.svg" lightbox="media/employee-retention-databricks-kubernetes-workflow.svg":::
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/employee-retention-databricks-kubernetes.pptx) of this deployment and its architecture.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/employee-retention-databricks-kubernetes.pptx) for all architecture.*
 
 This proof-of-concept illustrates:
 
@@ -94,10 +102,6 @@ This proof-of-concept illustrates:
 - How to package models as a web service by using open-source tools.
 - How to deploy to Kubernetes via CI/CD by using GitHub Actions.
 - How to monitor API performance and model data drift within Azure Monitor and Azure Log Analytics workspaces.
-
-## Pricing
-
-All services deployed in this solution use a consumption-based pricing model. You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for a specific scenario. For other considerations, see [Cost optimization](/azure/architecture/framework/cost) in the Well-Architected Framework.
 
 ## Contributors
 

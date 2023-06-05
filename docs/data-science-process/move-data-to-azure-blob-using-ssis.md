@@ -7,7 +7,7 @@ editor: marktab
 services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/02/2022
 ms.author: tdsp
 ms.custom:
@@ -71,7 +71,7 @@ The parameters that the task uses are described here:
 | --- | --- |
 | **AzureStorageConnection** |Specifies an existing Azure Storage Connection Manager or creates a new one that refers to an Azure Storage account that points to where the blob files are hosted. |
 | **BlobContainer** |Specifies the name of the blob container that holds the uploaded files as blobs. |
-| **BlobDirectory** |Specifies the blob directory where the uploaded file is stored as a block blob. The blob directory is a virtual hierarchical structure. If the blob already exists, it ia replaced. |
+| **BlobDirectory** |Specifies the blob directory where the uploaded file is stored as a block blob. The blob directory is a virtual hierarchical structure. If the blob already exists, it is replaced. |
 | **LocalDirectory** |Specifies the local directory that contains the files to be uploaded. |
 | **FileName** |Specifies a name filter to select files with the specified name pattern. For example, MySheet\*.xls\* includes files such as MySheet001.xls and MySheetABC.xlsx |
 | **TimeRangeFrom/TimeRangeTo** |Specifies a time range filter. Files modified after *TimeRangeFrom* and before *TimeRangeTo* are included. |
@@ -89,3 +89,27 @@ The SSIS feature pack allows for more complex flows to be handled by packaging t
 
 * To run a Hive script on an Azure HDInsight cluster with SSIS, use [Azure HDInsight Hive Task](/sql/integration-services/control-flow/azure-hdinsight-hive-task).
 * To run a Pig script on an Azure HDInsight cluster with SSIS, use [Azure HDInsight Pig Task](/sql/integration-services/control-flow/azure-hdinsight-pig-task).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+- [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
+
+- [Introduction to Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
+- [Copy and move blobs from one container or storage account to another](/training/modules/copy-blobs-from-command-line-and-code/)
+- [Execute existing SSIS packages in Azure Data Factory or Azure Synapse Pipeline](/training/modules/execute-existing-ssis-packages-azure-data-factory/)
+- [What is the Team Data Science Process (TDSP)?](overview.yml)
+
+## Related resources
+
+- [Explore data in Azure Blob storage](explore-data-blob.md)
+- [Process Azure Blob Storage data with advanced analytics](data-blob.md)
+- [Move data to and from Azure Blob Storage using Azure Storage Explorer](move-data-to-azure-blob-using-azure-storage-explorer.md)
+- [Load data into storage environments for analytics](ingest-data.md)

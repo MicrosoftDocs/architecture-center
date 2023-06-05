@@ -2,7 +2,7 @@
 metadata:
   title: Sharding pattern
   description: Use the Sharding design pattern to divide a data store into a set of horizontal partitions or shards.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/28/2022
   ms.topic: conceptual

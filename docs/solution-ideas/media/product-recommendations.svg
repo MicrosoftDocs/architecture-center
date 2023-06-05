@@ -1,1621 +1,1571 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="1142.924"
-   height="755.349"
-   viewBox="0 0 1142.924 755.349"
-   version="1.1"
-   id="svg631"
-   sodipodi:docname="customer-360.svg"
-   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
-  <metadata
-     id="metadata637">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <defs
-     id="defs635" />
-  <sodipodi:namedview
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="2560"
-     inkscape:window-height="1017"
-     id="namedview633"
-     showgrid="false"
-     inkscape:zoom="0.77706493"
-     inkscape:cx="611.9365"
-     inkscape:cy="303.10402"
-     inkscape:window-x="1072"
-     inkscape:window-y="195"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg631" />
-  <linearGradient
-     id="linear-gradient"
-     x1="5353.716"
-     y1="-9365.146"
-     x2="5391.541"
-     y2="-9397.689"
-     gradientTransform="matrix(0.563, 0, 0, -0.568, -2295.912, -5004.079)"
-     gradientUnits="userSpaceOnUse">
-    <stop
-       offset="0"
-       stop-color="#5a9fd4"
-       id="stop2" />
-    <stop
-       offset="1"
-       stop-color="#306998"
-       id="stop4" />
-  </linearGradient>
-  <linearGradient
-     id="linear-gradient-2"
-     x1="5406.165"
-     y1="-9417.386"
-     x2="5392.657"
-     y2="-9398.275"
-     gradientTransform="matrix(0.563, 0, 0, -0.568, -2295.912, -5004.079)"
-     gradientUnits="userSpaceOnUse">
-    <stop
-       offset="0"
-       stop-color="#ffd43b"
-       id="stop7" />
-    <stop
-       offset="1"
-       stop-color="#ffe873"
-       id="stop9" />
-  </linearGradient>
-  <radialGradient
-     id="radial-gradient"
-     cx="-19521.836"
-     cy="-8858.52"
-     r="10.075"
-     gradientTransform="matrix(0, -0.24, -1.055, 0, -8606.712, -4325.949)"
-     gradientUnits="userSpaceOnUse">
-    <stop
-       offset="0"
-       stop-color="#b8b8b8"
-       stop-opacity="0.498"
-       id="stop12" />
-    <stop
-       offset="1"
-       stop-color="#7f7f7f"
-       stop-opacity="0"
-       id="stop14" />
-  </radialGradient>
-  <image
-     id="image"
-     width=".1"
-     height=".1"
-     xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfoAAACXCAYAAAD9CJl5AAAACXBIWXMAAAsSAAALEgHS3X78AAAF6UlEQVR4Xu3aMYpeVRjG8ZuZhBASAjYiklRaWdhZhKhb0FrSBaILcA2p06iryAZSDdpkB+kUreyEWAgGHd9nvvupk5mIhXDHh9/Ar5jh3jPl/9z3nOX4+Hg5z/xcAgD+H17Z81cE/mB1OC4DABdWWr3v9pngn/cFnxeujKvj2ri+ugEAXBj7PqfVaXbanYaf+sJ/OfSH68NZ4LXx+nhz3FrdBgA2t+9yGp1Wp9lpdxp+EvtToV9OR/7meGO8Nd4d74074+54HwDYXJqcNqfRaXWanXan4adivw995vr55L+xPvjO+GB8NO6N++PB+HR8BgBsJi1Ok9PmNDqtTrPT7jQ8LU/TD9bG/3n5LjuAfPq/PT4cn4zPx8PxaHwxvgIANpcmp81pdFqdZqfdaXhanqafXM5blr/G9jnMz5w/I4CP1xez0OPxZByNr8c3AMBm0uKjZdfmNDqtTrPT7jQ8LU/TD5e/hT7X83NzL4f6mfdnFPBwXeDpeDa+G9+PHwCAzaTFaXLanEan1Wl22p2Gp+Vpetp+JvS3lt3h/v1lNxJ4si704/hpPB8/AwCbSYvT5LQ5jU6r0+y0Ow1Py88NfQ7vc2U/N/lyyJ9RwNH4dl3wl/HreAEAbCYtTpPT5jT6aNk1O+2+u+xanqa/MvS5tp9bfV8uu3OAjAierwv/Nn4HADaTFqfJaXManVan2Wl3Gv6vQ59bfTn0z3lARgUv1n9wDABsJi1Ok9PmNDqtTrOFHgAKCD0AFBN6ACgm9ABQTOgBoJjQA0AxoQeAYkIPAMWEHgCKCT0AFBN6ACgm9ABQTOgBoJjQA0AxoQeAYkIPAMWEHgCKCT0AFBN6ACgm9ABQTOgBoJjQA0AxoQeAYkIPAMWEHgCKCT0AFBN6ACgm9ABQTOgBoJjQA0AxoQeAYkIPAMWEHgCKCT0AFBN6ACgm9ABQTOgBoJjQA0AxoQeAYkIPAMWEHgCKCT0AFBN6ACgm9ABQTOgBoJjQA0AxoQeAYkIPAMWEHgCKCT0AFBN6ACgm9ABQTOgBoJjQA0AxoQeAYkIPAMWEHgCKCT0AFBN6ACgm9ABQTOgBoJjQA0AxoQeAYkIPAMWEHgCKCT0AFBN6ACgm9ABQTOgBoJjQA0AxoQeAYkIPAMWEHgCKCT0AFBN6ACgm9ABQTOgBoJjQA0AxoQeAYkIPAMWEHgCKCT0AFBN6ACgm9ABQTOgBoJjQA0AxoQeAYkIPAMWEHgCKCT0AFBN6ACgm9ABQTOgBoJjQA0AxoQeAYkIPAMWEHgCKCT0AFBN6ACgm9ABQTOgBoJjQA0AxoQeAYkIPAMWEHgCKCT0AFBN6ACgm9ABQTOgBoJjQA0AxoQeAYkIPAMWEHgCKCT0AFBN6ACgm9ABQTOgBoJjQA0AxoQeAYkIPAMWEHgCKCT0AFBN6ACgm9ABQTOgBoJjQA0Cx/yz0X46vx/fj+fh1/Lb+AwBgG2lxmpw2p9FpdZr9r0N/dzwYX4yj8e34afyyLvwCANhMWpwmp81p9NGya3bafXf5h9BfH7fGnXF/PBpPxrPx47pgdg8/AwCbSYvT5LQ5jU6r0+y0Ow1Py9P0c0P/5nhv3BsPx+PxdF3ou2U3IvgBANhMWpwmp81pdFqdZqfdaXhafib0h+PaeH28Oz4eny+7UUAWyG7haNmdA3wDAGwmLT5adm1Oo9PqNDvtTsPT8jT9cPlb6A/G1fHaeHt8OD5ZX8wu4dG60FcAwObS5LQ5jU6r0+y0Ow1Py9P0tP3Scnycm/onv1xZdof3b4x3xgfjo2U3Cri/7A75P112t/oAgG2kxWly2pxGp9VpdtqdhqflafrBSePX0O/H99kB3FwffGvZjQAy78/hfm7yvQ8AbC5NTpvT6LQ6zU670/C0/GRs/2foz4l9dgP59M+cP4f6t1a3AYDN7bucRqfVaXbafSry54V+H/sr68M5zL++ugEAXBj7PqfVaXbavb+Adzb0LwX/YJUXLgMAF1Zave/2pTNdf/kP53zhAwAX3Kt6/gfH6fysNyO48QAAAABJRU5ErkJggg=="
-     x="-37.328503"
-     y="-204.40616"
-     transform="scale(1,-1)"
-     style="fill:#ffffff" />
-  <g
-     style="isolation: isolate"
-     id="g629">
-    <g
-       id="Layer_2"
-       data-name="Layer 2">
-      <g
-         id="Layer_1-2"
-         data-name="Layer 1">
-        <g
-           id="g22">
-          <use
-             transform="translate(638.08986,184.73138)"
-             xlink:href="#image"
-             style="opacity:0.25;mix-blend-mode:multiply"
-             id="use18"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <rect
-             x="490.389"
-             y="287.993"
-             width="493.143"
-             height="138.4"
-             id="rect20"
-             fill="#f4f4f4" />
-        </g>
-        <text
-           transform="translate(0 68.458)"
-           font-size="14"
-           id="text32"
-           font-family="SegoeUI, Segoe UI"
-           fill="#5b5b5b">P<tspan
-   x="7.841"
-   y="0"
-   letter-spacing="0.003em"
-   id="tspan24">y</tspan>
-<tspan
-   x="14.656"
-   y="0"
-   id="tspan26">thon </tspan>
-<tspan
-   x="47.284"
-   y="0"
-   letter-spacing="-0.024em"
-   id="tspan28">W</tspan>
-<tspan
-   x="60.026"
-   y="0"
-   id="tspan30">eb Job</tspan>
-</text>
-        <g
-           id="g38">
-          <use
-             transform="translate(638.08986,23.731381)"
-             xlink:href="#image"
-             style="opacity:0.25;mix-blend-mode:multiply"
-             id="use34"
-             x="0"
-             y="0"
-             width="100%"
-             height="100%" />
-          <rect
-             x="490.389"
-             y="126.993"
-             width="493.143"
-             height="138.4"
-             id="rect36"
-             fill="#f4f4f4" />
-        </g>
-        <text
-           transform="translate(190.611 68.458)"
-           font-size="14"
-           id="text44"
-           font-family="SegoeUI, Segoe UI"
-           fill="#5b5b5b">E<tspan
-   x="7.082"
-   y="0"
-   letter-spacing="-0.006em"
-   id="tspan40">v</tspan>
-<tspan
-   x="13.706"
-   y="0"
-   id="tspan42">ent Hub</tspan>
-</text>
-        <text
-           transform="translate(698.162 388.458)"
-           font-size="14"
-           id="text54"
-           font-family="SegoeUI, Segoe UI"
-           fill="#5b5b5b">
-          <tspan
-             letter-spacing="0.002em"
-             id="tspan46">E</tspan>
-          <tspan
-             x="7.109"
-             y="0"
-             id="tspan48">TL (P</tspan>
-          <tspan
-             x="36.935"
-             y="0"
-             letter-spacing="0.003em"
-             id="tspan50">y</tspan>
-          <tspan
-             x="43.75"
-             y="0"
-             id="tspan52">thon)</tspan>
-        </text>
-        <text
-           transform="translate(851.091 388.458)"
-           font-size="14"
-           id="text64"
-           font-family="SegoeUI, Segoe UI"
-           fill="#5b5b5b">Machine Lea<tspan
-   x="77.588"
-   y="0"
-   letter-spacing="-0.002em"
-   id="tspan56">r</tspan>
-<tspan
-   x="82.428"
-   y="0"
-   id="tspan58">ning</tspan>
-<tspan
-   x="10.934"
-   y="16.8"
-   letter-spacing="-0.087em"
-   id="tspan60">T</tspan>
-<tspan
-   x="17.052"
-   y="16.8"
-   id="tspan62">rained model</tspan>
-</text>
-        <text
-           transform="translate(341.303 68.458)"
-           font-size="14"
-           id="text78"
-           font-family="SegoeUI, Segoe UI"
-           fill="#5b5b5b">
-          <tspan
-             letter-spacing="-0.032em"
-             id="tspan66">S</tspan>
-          <tspan
-             x="6.986"
-             y="0"
-             id="tspan68">t</tspan>
-          <tspan
-             x="11.73"
-             y="0"
-             letter-spacing="-0.013em"
-             id="tspan70">r</tspan>
-          <tspan
-             x="16.413"
-             y="0"
-             id="tspan72">eam Anal</tspan>
-          <tspan
-             x="74.218"
-             y="0"
-             letter-spacing="0.003em"
-             id="tspan74">y</tspan>
-          <tspan
-             x="81.033"
-             y="0"
-             id="tspan76">tics</tspan>
-        </text>
-        <text
-           transform="translate(351.839 230.458)"
-           font-size="14"
-           id="text90"
-           font-family="SegoeUI, Segoe UI"
-           fill="#5b5b5b">Azu<tspan
-   x="23.283"
-   y="0"
-   letter-spacing="-0.013em"
-   id="tspan80">r</tspan>
-<tspan
-   x="27.966"
-   y="0"
-   id="tspan82">e </tspan>
-<tspan
-   x="39.122"
-   y="0"
-   letter-spacing="-0.032em"
-   id="tspan84">S</tspan>
-<tspan
-   x="46.108"
-   y="0"
-   letter-spacing="-0.008em"
-   id="tspan86">t</tspan>
-<tspan
-   x="50.743"
-   y="0"
-   id="tspan88">orage</tspan>
-</text>
-        <text
-           transform="translate(520.006 224.458)"
-           font-size="14"
-           id="text96"
-           font-family="SegoeUI, Segoe UI"
-           fill="#5b5b5b">B<tspan
-   x="8.025"
-   y="0"
-   letter-spacing="-0.013em"
-   id="tspan92">r</tspan>
-<tspan
-   x="12.708"
-   y="0"
-   id="tspan94">owsing Data</tspan>
-</text>
-        <text
-           transform="translate(641.292 582.458)"
-           font-size="14"
-           id="text114"
-           font-family="SegoeUI, Segoe UI"
-           fill="#5b5b5b">Ba<tspan
-   x="15.148"
-   y="0"
-   letter-spacing="-0.013em"
-   id="tspan98">t</tspan>
-<tspan
-   x="19.708"
-   y="0"
-   id="tspan100">ch </tspan>
-<tspan
-   x="37.933"
-   y="0"
-   letter-spacing="0.002em"
-   id="tspan102">E</tspan>
-<tspan
-   x="45.042"
-   y="0"
-   id="tspan104">TL and P</tspan>
-<tspan
-   x="97.768"
-   y="0"
-   letter-spacing="-0.013em"
-   id="tspan106">r</tspan>
-<tspan
-   x="102.45"
-   y="0"
-   id="tspan108">edicti</tspan>
-<tspan
-   x="136.008"
-   y="0"
-   letter-spacing="-0.006em"
-   id="tspan110">v</tspan>
-<tspan
-   x="142.632"
-   y="0"
-   id="tspan112">e Pipeline</tspan>
-</text>
-        <g
-           id="g120">
-          <rect
-             x="393.66"
-             y="95.763"
-             width="1.5"
-             height="45.266"
-             id="rect116"
-             fill="#969696" />
-          <polygon
-             points="399.645 139.496 394.41 148.563 389.174 139.496 399.645 139.496"
-             id="polygon118"
-             fill="#969696" />
-        </g>
-        <path
-           d="M410.912,30.634l1.381-3.567,6.328-2.186V19.819l-.69-.23-5.638-1.611-1.381-3.567,2.876-5.868h0l-3.567-3.567-.69.345-5.177,2.646-3.682-1.5-2.3-6.1h-5.177l-.23.69-1.726,5.407-3.567,1.381-6.1-2.646-3.682,3.567.345.69,1.611,2.991a18.108,18.108,0,0,1,9.089-2.3,18.558,18.558,0,0,1,11.85,4.832,26.633,26.633,0,0,1,2.186,1.841,8.781,8.781,0,0,1,.92,1.266,8.973,8.973,0,0,1-2.3,11.505,8.811,8.811,0,0,1-9.089,1.266c-.345-.23-.575-.23-.69-.345h0a11.944,11.944,0,0,1-1.956-1.381c-.23,0-.345-.23-.69-.23a2.836,2.836,0,0,0-1.956.92l-.23.23h0a17.3,17.3,0,0,1-7.363,4.6l-1.035,2.186,3.452,3.452.23.23.69-.345,5.177-2.646,3.567,1.381,1.956,6.1h5.177l.23-.69,1.841-5.407,3.567-1.381,6.1,2.646,3.452-3.8-.345-.69Z"
-           id="path122"
-           fill="#7a7a7a" />
-        <path
-           d="M380.078,21.66h0a9.184,9.184,0,0,1-13.921-.23.967.967,0,0,0-1.611,0,1.306,1.306,0,0,0-.345.92,2.2,2.2,0,0,0,.345.92,11.614,11.614,0,0,0,17.258.23h0a9.228,9.228,0,0,1,13.806.345c.575.575,1.266.575,1.611,0a1.306,1.306,0,0,0,.345-.92,2.2,2.2,0,0,0-.345-.92A11.575,11.575,0,0,0,380.078,21.66Z"
-           id="path124"
-           fill="#48c8ef" />
-        <path
-           d="M388.707,23.846a7.3,7.3,0,0,0-5.522,2.3l-.23.23-.23.23a12.969,12.969,0,0,1-10.009,4.142c-3.8,0-7.133-1.841-9.894-4.6-.575-.575-1.266-.575-1.611,0-.115,0-.115.23-.115.575a1.549,1.549,0,0,0,.575,1.035,15.21,15.21,0,0,0,11.505,5.407A14.832,14.832,0,0,0,384.8,28.1l.23-.23.23-.23a5.217,5.217,0,0,1,3.8-1.611,5.425,5.425,0,0,1,3.8,1.841c.575.575,1.266.575,1.611,0a1.306,1.306,0,0,0,.345-.92,2.2,2.2,0,0,0-.345-.92A9.358,9.358,0,0,0,388.707,23.846Z"
-           id="path126"
-           fill="#00abec" />
-        <path
-           d="M379.043,19.129a13.492,13.492,0,0,1,10.009-4.257,13.342,13.342,0,0,1,9.664,4.6c.575.575,1.266.575,1.611,0a1.306,1.306,0,0,0,.345-.92,2.2,2.2,0,0,0-.345-.92,15.21,15.21,0,0,0-11.505-5.407,15.452,15.452,0,0,0-11.62,5.062l-.23.23-.23.23a5.044,5.044,0,0,1-7.593-.23c-.575-.575-1.266-.575-1.611,0a1.306,1.306,0,0,0-.345.92,2.2,2.2,0,0,0,.345.92,7.39,7.39,0,0,0,10.93.23l.23-.23Z"
-           id="path128"
-           fill="#84d6ef" />
-        <g
-           style="isolation: isolate"
-           id="g134"
-           opacity="0.2">
-          <path
-             d="M389.742,29.023c-.23,0-.345-.23-.69-.23a2.836,2.836,0,0,0-1.956.92l-.23.23a17.3,17.3,0,0,1-7.363,4.6l-1.035,2.186,1.841,1.841,9.434-9.549Z"
-             id="path130"
-             fill="#f1f1f1" />
-          <path
-             d="M379.963,12.571a18.108,18.108,0,0,1,9.089-2.3A18.558,18.558,0,0,1,400.9,15.1c.575.46,1.035.805,1.611,1.266l9.549-9.549-1.956-1.956-.69.345-5.177,2.646-3.567-1.381-2.3-6.1h-5.177l-.23.69-1.726,5.407-3.567,1.381-6.1-2.646-3.682,3.567.345.69Z"
-             id="path132"
-             fill="#f1f1f1" />
-        </g>
-        <g
-           id="g140">
-          <rect
-             x="102.688"
-             y="24.747"
-             width="66.266"
-             height="1.5"
-             id="rect136"
-             fill="#969696" />
-          <polygon
-             points="167.421 20.261 176.487 25.497 167.421 30.732 167.421 20.261"
-             id="polygon138"
-             fill="#969696" />
-        </g>
-        <g
-           id="g146">
-          <rect
-             x="439.688"
-             y="189.747"
-             width="66.266"
-             height="1.5"
-             id="rect142"
-             fill="#969696" />
-          <polygon
-             points="504.421 185.261 513.487 190.497 504.421 195.732 504.421 185.261"
-             id="polygon144"
-             fill="#969696" />
-        </g>
-        <g
-           id="g152">
-          <rect
-             x="439.688"
-             y="346.747"
-             width="66.266"
-             height="1.5"
-             id="rect148"
-             fill="#969696" />
-          <polygon
-             points="504.421 342.261 513.487 347.497 504.421 352.732 504.421 342.261"
-             id="polygon150"
-             fill="#969696" />
-        </g>
-        <g
-           id="g158">
-          <rect
-             x="610.354"
-             y="189.747"
-             width="66.266"
-             height="1.5"
-             id="rect154"
-             fill="#969696" />
-          <polygon
-             points="675.087 185.261 684.154 190.497 675.087 195.732 675.087 185.261"
-             id="polygon156"
-             fill="#969696" />
-        </g>
-        <g
-           id="g164">
-          <rect
-             x="785.021"
-             y="189.747"
-             width="66.266"
-             height="1.5"
-             id="rect160"
-             fill="#969696" />
-          <polygon
-             points="849.754 185.261 858.821 190.497 849.754 195.732 849.754 185.261"
-             id="polygon162"
-             fill="#969696" />
-        </g>
-        <g
-           id="g170">
-          <rect
-             x="949.021"
-             y="189.747"
-             width="78.266"
-             height="1.5"
-             id="rect166"
-             fill="#969696" />
-          <polygon
-             points="1025.754 185.261 1034.82 190.497 1025.754 195.732 1025.754 185.261"
-             id="polygon168"
-             fill="#969696" />
-        </g>
-        <g
-           id="g176">
-          <rect
-             x="268.688"
-             y="24.747"
-             width="66.266"
-             height="1.5"
-             id="rect172"
-             fill="#969696" />
-          <polygon
-             points="333.421 20.261 342.487 25.497 333.421 30.732 333.421 20.261"
-             id="polygon174"
-             fill="#969696" />
-        </g>
-        <a
-           class="architecture-tooltip-trigger"
-           href="#"
-           id="a182">
-          <circle
-             cx="135.196"
-             cy="25.324"
-             r="14"
-             id="circle178"
-             fill="#a5ce00" />
-          <text
-             transform="translate(131.149 31.027)"
-             font-size="15"
-             id="text180"
-             font-family="SegoeUI, Segoe UI"
-             fill="#303030">1</text>
-        </a>
-        <a
-           class="architecture-tooltip-trigger"
-           href="#"
-           id="a188">
-          <circle
-             cx="307.196"
-             cy="25.324"
-             r="14"
-             id="circle184"
-             fill="#a5ce00" />
-          <text
-             transform="translate(303.149 31.027)"
-             font-size="15"
-             id="text186"
-             font-family="SegoeUI, Segoe UI"
-             fill="#303030">2</text>
-        </a>
-        <path
-           d="M369.858,208.5a1.837,1.837,0,0,0,1.9,1.9h46.2a1.837,1.837,0,0,0,1.9-1.9V175.4h-50Z"
-           id="path190"
-           fill="#a0a1a2" />
-        <path
-           d="M417.958,167.8h-46.2a1.837,1.837,0,0,0-1.9,1.9v5.7h50v-5.7a1.837,1.837,0,0,0-1.9-1.9"
-           id="path192"
-           fill="#7a7a7a" />
-        <rect
-           x="388.658"
-           y="178.695"
-           width="12.6"
-           height="7.6"
-           id="rect194"
-           fill="#fff" />
-        <rect
-           x="388.658"
-           y="188.995"
-           width="12.6"
-           height="7.6"
-           id="rect196"
-           fill="#fcd116" />
-        <rect
-           x="403.658"
-           y="188.995"
-           width="12.6"
-           height="7.6"
-           id="rect198"
-           fill="#fcd116" />
-        <rect
-           x="403.658"
-           y="178.695"
-           width="12.6"
-           height="7.6"
-           id="rect200"
-           fill="#fff" />
-        <rect
-           x="373.658"
-           y="178.695"
-           width="12.6"
-           height="7.6"
-           id="rect202"
-           fill="#fff" />
-        <rect
-           x="373.658"
-           y="188.995"
-           width="12.6"
-           height="7.6"
-           id="rect204"
-           fill="#fff" />
-        <rect
-           x="373.658"
-           y="199.195"
-           width="12.6"
-           height="7.6"
-           id="rect206"
-           fill="#fcd116" />
-        <rect
-           x="388.658"
-           y="199.195"
-           width="12.6"
-           height="7.6"
-           id="rect208"
-           fill="#fcd116" />
-        <rect
-           x="403.658"
-           y="199.195"
-           width="12.6"
-           height="7.6"
-           id="rect210"
-           fill="#fcd116" />
-        <path
-           d="M371.758,167.8a2.043,2.043,0,0,0-1.9,1.9v38.8a2.043,2.043,0,0,0,1.9,1.9h2.1l39.6-42.6Z"
-           style="isolation: isolate"
-           id="path212"
-           fill="#fff"
-           opacity="0.2" />
-        <g
-           id="g218">
-          <image
-             width="162"
-             height="309"
-             transform="translate(314.195 446.349)"
-             xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKIAAAE1CAYAAABk5jtUAAAACXBIWXMAAAsSAAALEgHS3X78AAAGp0lEQVR4Xu3XsY5VVRiG4c2MxBAIiY0xBiqpKOgsCOotaG3sSMAL8BqoaYSr4AaoJtpwB3QarexMsDCR6Ph/c/ZBhxn0jJmYr3hO8hTnZO91mjf/Wms5PDxcTjOfC3De3tjbGwLcW+2Pt+AcpKVtVyeCPG0C5oWL4+1xaVxeXYH/YNtPWkpTaSuNHZuQr4e4vz6cBd4Z7473x7XVdTiDbTdpKC2lqbSVxo5iPBbicjzCq+O98cG4NT4ct8ed8RGcQZpJO2koLaWptJXGjsW4DTH7dkbmlfXBm+Pj8en4Ytwd98b98SXsIK2kmbSThtJSmkpbaSytpbm9tcFXl5MUmtF5Y3wyPh9fjQfj4fh6PIYzSDNpJw2lpTSVttJYWktzR5eXZflrW85hMvt4Ruhn64tZ6Ml4Og7GN+Nb2EFaOVg27aShtJSm0lYaS2tpbn/5W4i5Xudmk0Nl9vOM0gfrAs/G8/H9+GH8CDtIK2km7aShtJSm0lYaS2tpLu2dCPHasjlc3l02I/XputBP4+fxYvwCO0graSbtpKG0lKbSVhpLa6eGmMNjrty56eSQmVF6ML5bF/x1/DZewg7SSppJO2noYNk0lbbuLJvW0twbQ8y1O7eeR8tmn8+IfbEu/Pv4A3aQVtJM2klDaSlNpa00tnOIufXk0Jn9PqP25foHh7CDtJJm0k4aSktpSoj8r4RIBSFSQYhUECIVhEgFIVJBiFQQIhWESAUhUkGIVBAiFYRIBSFSQYhUECIVhEgFIVJBiFQQIhWESAUhUkGIVBAiFYRIBSFSQYhUECIVhEgFIVJBiFQQIhWESAUhUkGIVBAiFYRIBSFSQYhUECIVhEgFIVJBiFQQIhWESAUhUkGIVBAiFYRIBSFSQYhUECIVhEgFIVJBiFQQIhWESAUhUkGIVBAiFYRIBSFSQYhUECIVhEgFIVJBiFQQIhWESAUhUkGIVBAiFYRIBSFSQYhUECIVhEgFIVJBiFQQIhWESAUhUkGIVBAiFYRIBSFSQYhUECIVhEgFIVJBiFQQIhWESAUhUkGIVBAiFYRIBSFSQYhUECIVhEgFIVJBiFQQIhWESAUhUkGIVBAiFYRIBSFSQYhUECIVhEgFIVJBiFQQIhWESAUhUkGIVBAiFYRIBSFSQYhUECIVhEgFIVJBiFQQIhWESAUhUkGIVBAiFYRIBSFSQYhUECIVhEgFIVJBiFQQIhWESAUhUkGIVBAiFYRIBSFSQYhUECIVhEgFIVJBiFQQIhWESAUhUkGIVBAiFYRIBSFSQYhUECIVhEgFIVJBiFQQIhWESAUhUkGIVBAiFYRIBSFSQYhUECIVhEgFIVJBiFQQIhWESAUhUkGIVBAiFYRIBSFSQYhUECIVhEgFIVJBiFQQIhWESAUhUkGIVBAiFYRIBSFSQYhUECIVhEgFIVJBiFQQIhWESAUhUkGIVBAiFYRIBSFSQYhUECIVhEgFIVJBiFQQIhWESAUhUkGIVBAiFYRIBSFSQYhUECIVhEgFIVJBiFQQIhWESAUhUkGIVBAiFYRIBSFSQYhUECIVhEgFIVJBiFQQIhWESAUhUkGIVBAiFYRIBSFSQYhUECIVhEgFIVJBiFQQIhWESAUhUkGIVBAiFYRIBSFSQYhUECIVhEgFIVJBiFQQIhWESAUhUkGIVBAiFYRIBSFSQYhUECIVhEgFIVJBiFQQIhWESAUhUkGIVBAiFYRIBSFSQYhUECIVhEgFIVJBiFQ4txAfjW/GD+PF+G38vv4B/Ju0kmbSThpKS2lq5xDvjHvj63Ewvhs/j1/XhV/CDtJKmkk7aehg2TSVtu4s/xDi5XFt3B53x8PxdDwfP60Lpu5fYAdpJc2knTSUltJU2kpjaS3NnRri++PD8cV4MJ6MZ+tC3y+bEfsj7CCtpJm0k4bSUppKW2ksrZ0IcX9cGu+OW+Oz8dWyGaVZIDUfLJt9/lvYQVo5WDbtpKG0lKbSVhpLa2luf/lbiHvj7fHOuDE+GZ+vL6bih+tCj+EM0kzaSUNpKU2lrTSW1tJc2ruwHB7mpn305eKyOTy+N26Oj8eny2aU3l02h8z7y+bWA/8mraSZtJOG0lKaSltpLK2lub2jBtcQt9tzCr26PvjBshmh2c9zuMxN5yM4gzSTdtJQWkpTaSuNpbWjbflViKfEmFozOrOP51B5bXUdzmDbTRpKS2kqbR2L8LQQtzFeXB/OYfLy6gr8B9t+0lKaSlvbC8rJEF8Lcm+VF96Cc5CWtl1dONHd6z+cMiHh3Lyptz8BF08hbd1r6hwAAAAASUVORK5CYII="
-             style="mix-blend-mode: multiply"
-             id="image214"
-             opacity="0.25" />
-          <rect
-             x="318.961"
-             y="451.127"
-             width="149.714"
-             height="296.003"
-             id="rect216"
-             fill="#f4f4f4" />
-        </g>
-        <g
-           id="Layer_4"
-           data-name="Layer 4">
-          <rect
-             x="378.039"
-             y="333.72"
-             width="5.179"
-             height="5.179"
-             id="rect220"
-             fill="#7fbb42" />
-          <rect
-             x="373.933"
-             y="347.764"
-             width="5.179"
-             height="5.179"
-             id="rect222"
-             fill="#7fbb42" />
-          <rect
-             x="381.303"
-             y="347.764"
-             width="5.179"
-             height="5.179"
-             id="rect224"
-             fill="#7fbb42" />
-          <rect
-             x="388.6"
-             y="347.764"
-             width="5.179"
-             height="5.179"
-             id="rect226"
-             fill="#7fbb42" />
-          <rect
-             x="373.933"
-             y="340.742"
-             width="5.179"
-             height="5.179"
-             id="rect228"
-             fill="#7fbb42" />
-          <rect
-             x="381.303"
-             y="340.742"
-             width="5.179"
-             height="5.179"
-             id="rect230"
-             fill="#7fbb42" />
-          <polygon
-             points="386.409 317.225 365.011 328.062 365.011 331.225 369.174 331.225 369.174 353.118 372.656 353.118 372.656 331.225 398.016 331.225 398.016 351.725 401.846 351.725 401.846 331.225 405.662 331.225 405.662 328.062 386.409 317.225"
-             id="polygon232"
-             fill="#3999c6" />
-          <polygon
-             points="383.218 338.9 382.623 338.9 382.623 334.388 378.039 334.388 378.039 333.72 383.218 333.72 383.218 338.9"
-             style="isolation: isolate"
-             id="polygon234"
-             fill="#b8d433"
-             opacity="0.8" />
-          <polygon
-             points="378.039 333.72 378.633 333.72 378.633 338.247 383.218 338.247 383.218 338.9 378.039 338.9 378.039 333.72"
-             style="isolation: isolate"
-             id="polygon236"
-             fill="#b8d433"
-             opacity="0.5" />
-          <polygon
-             points="379.112 345.922 378.532 345.922 378.532 341.41 373.933 341.41 373.933 340.742 379.112 340.742 379.112 345.922"
-             style="isolation: isolate"
-             id="polygon238"
-             fill="#b8d433"
-             opacity="0.8" />
-          <polygon
-             points="373.933 340.742 374.528 340.742 374.528 345.254 379.112 345.254 379.112 345.922 373.933 345.922 373.933 340.742"
-             style="isolation: isolate"
-             id="polygon240"
-             fill="#b8d433"
-             opacity="0.5" />
-          <polygon
-             points="386.511 345.922 385.887 345.922 385.887 341.41 381.303 341.41 381.303 340.742 386.511 340.742 386.511 345.922"
-             style="isolation: isolate"
-             id="polygon242"
-             fill="#b8d433"
-             opacity="0.8" />
-          <polygon
-             points="381.303 340.742 381.927 340.742 381.927 345.254 386.511 345.254 386.511 345.922 381.303 345.922 381.303 340.742"
-             style="isolation: isolate"
-             id="polygon244"
-             fill="#b8d433"
-             opacity="0.5" />
-          <polygon
-             points="379.112 352.943 378.532 352.943 378.532 348.417 373.933 348.417 373.933 347.764 379.112 347.764 379.112 352.943"
-             style="isolation: isolate"
-             id="polygon246"
-             fill="#b8d433"
-             opacity="0.8" />
-          <polygon
-             points="373.933 347.764 374.528 347.764 374.528 352.276 379.112 352.276 379.112 352.943 373.933 352.943 373.933 347.764"
-             style="isolation: isolate"
-             id="polygon248"
-             fill="#b8d433"
-             opacity="0.5" />
-          <polygon
-             points="386.511 352.943 385.887 352.943 385.887 348.417 381.303 348.417 381.303 347.764 386.511 347.764 386.511 352.943"
-             style="isolation: isolate"
-             id="polygon250"
-             fill="#b8d433"
-             opacity="0.8" />
-          <polygon
-             points="381.303 347.764 381.927 347.764 381.927 352.276 386.511 352.276 386.511 352.943 381.303 352.943 381.303 347.764"
-             style="isolation: isolate"
-             id="polygon252"
-             fill="#b8d433"
-             opacity="0.5" />
-          <polygon
-             points="393.78 352.943 393.185 352.943 393.185 348.417 388.6 348.417 388.6 347.764 393.78 347.764 393.78 352.943"
-             style="isolation: isolate"
-             id="polygon254"
-             fill="#b8d433"
-             opacity="0.8" />
-          <polygon
-             points="388.6 347.764 389.195 347.764 389.195 352.276 393.78 352.276 393.78 352.943 388.6 352.943 388.6 347.764"
-             style="isolation: isolate"
-             id="polygon256"
-             fill="#b8d433"
-             opacity="0.5" />
-          <polygon
-             points="378.808 338.9 378.039 338.9 378.039 338.305 382.522 333.72 383.218 333.72 383.218 334.243 378.808 338.9"
-             style="isolation: isolate"
-             id="polygon258"
-             fill="#b8d433"
-             opacity="0.8" />
-          <polygon
-             points="382.072 345.922 381.303 345.922 381.303 345.327 385.829 340.742 386.511 340.742 386.511 341.265 382.072 345.922"
-             style="isolation: isolate"
-             id="polygon260"
-             fill="#b8d433"
-             opacity="0.8" />
-          <polygon
-             points="374.702 345.922 373.933 345.922 373.933 345.327 378.416 340.742 379.112 340.742 379.112 341.265 374.702 345.922"
-             style="isolation: isolate"
-             id="polygon262"
-             fill="#b8d433"
-             opacity="0.8" />
-          <polygon
-             points="374.702 352.943 373.933 352.943 373.933 352.349 378.416 347.764 379.112 347.764 379.112 348.286 374.702 352.943"
-             style="isolation: isolate"
-             id="polygon264"
-             fill="#b8d433"
-             opacity="0.8" />
-          <polygon
-             points="382.072 352.943 381.303 352.943 381.303 352.349 385.829 347.764 386.511 347.764 386.511 348.286 382.072 352.943"
-             style="isolation: isolate"
-             id="polygon266"
-             fill="#b8d433"
-             opacity="0.8" />
-          <polygon
-             points="389.369 352.943 388.6 352.943 388.6 352.349 393.083 347.764 393.78 347.764 393.78 348.286 389.369 352.943"
-             style="isolation: isolate"
-             id="polygon268"
-             fill="#b8d433"
-             opacity="0.8" />
-          <g
-             id="g288">
-            <path
-               d="M395.695,343.035V365.58c0,2.321,5.252,4.236,11.708,4.236V343.035Z"
-               id="path270"
-               fill="#3999c6" />
-            <path
-               d="M407.229,369.831h.174c6.471,0,11.708-1.915,11.708-4.236v-22.56H407.229v26.8Z"
-               id="path272"
-               fill="#5ab4d9" />
-            <path
-               d="M419.111,343.035c0,2.321-5.252,4.236-11.708,4.236s-11.708-1.9-11.708-4.236,5.252-4.236,11.708-4.236,11.708,1.872,11.708,4.236"
-               id="path274"
-               fill="#fff" />
-            <path
-               d="M416.717,342.788c0,1.523-4.164,2.815-9.314,2.815s-9.314-1.248-9.314-2.815c0-1.523,4.164-2.815,9.314-2.815s9.314,1.262,9.314,2.815"
-               id="path276"
-               fill="#7fbb42" />
-            <path
-               d="M414.773,344.5c1.219-.493,1.944-1.074,1.944-1.7,0-1.523-4.164-2.815-9.314-2.815s-9.314,1.248-9.314,2.815c0,.667.725,1.248,1.944,1.7a21.7,21.7,0,0,1,7.37-1.074,20.72,20.72,0,0,1,7.37,1.074"
-               id="path278"
-               fill="#b8d433" />
-            <g
-               id="g286">
-              <path
-                 d="M398.611,359.2v-1.6a2.933,2.933,0,0,0,.943.551,3.726,3.726,0,0,0,1,.174,1.814,1.814,0,0,0,.522-.073.977.977,0,0,0,.377-.145.47.47,0,0,0,.2-.247.97.97,0,0,0,.073-.276.639.639,0,0,0-.1-.377,1.646,1.646,0,0,0-.319-.319c-.145-.1-.319-.174-.493-.276-.174-.073-.377-.174-.624-.276a3.724,3.724,0,0,1-1.248-.827,1.856,1.856,0,0,1-.421-1.219,2.017,2.017,0,0,1,.2-.943,1.885,1.885,0,0,1,.595-.667,2.192,2.192,0,0,1,.9-.377,5.185,5.185,0,0,1,1.074-.1,6.189,6.189,0,0,1,.972.073,2.932,2.932,0,0,1,.8.2v1.494a2.309,2.309,0,0,0-.377-.2,3.582,3.582,0,0,0-.421-.145c-.145-.029-.319-.073-.45-.1a2.053,2.053,0,0,0-.421-.029,2.655,2.655,0,0,0-.493.029.977.977,0,0,0-.377.145c-.1.073-.174.145-.247.2a.4.4,0,0,0-.073.276.586.586,0,0,0,.1.319,1.234,1.234,0,0,0,.276.276,2.148,2.148,0,0,0,.421.247c.174.073.348.174.551.247a4.742,4.742,0,0,1,.769.377,2.779,2.779,0,0,1,.595.45,1.67,1.67,0,0,1,.377.595,2.2,2.2,0,0,1,.145.769,2.368,2.368,0,0,1-.2,1,1.719,1.719,0,0,1-.624.667,2.38,2.38,0,0,1-.9.348,5.185,5.185,0,0,1-1.074.1,5.615,5.615,0,0,1-1.117-.1A1.934,1.934,0,0,1,398.611,359.2Z"
-                 id="path280"
-                 fill="#fff" />
-              <path
-                 d="M407.606,359.617a3.412,3.412,0,0,1-2.5-1,3.668,3.668,0,0,1-.972-2.611,3.794,3.794,0,0,1,.972-2.713,3.357,3.357,0,0,1,2.568-1.045,3.3,3.3,0,0,1,2.466,1,3.651,3.651,0,0,1,.943,2.64,3.794,3.794,0,0,1-.972,2.713l-.073.073-.073.073,1.813,1.741h-2.263l-.943-.972A4.241,4.241,0,0,1,407.606,359.617Zm.073-5.977a1.664,1.664,0,0,0-1.349.624,2.514,2.514,0,0,0-.493,1.668,2.684,2.684,0,0,0,.493,1.668,1.593,1.593,0,0,0,1.291.624,1.669,1.669,0,0,0,1.32-.595,2.684,2.684,0,0,0,.493-1.668,2.851,2.851,0,0,0-.493-1.741A1.506,1.506,0,0,0,407.678,353.64Z"
-                 id="path282"
-                 fill="#fff" />
-              <path
-                 d="M416.543,359.472h-4.236v-7.123h1.6v5.8h2.64v1.32Z"
-                 id="path284"
-                 fill="#fff" />
-            </g>
-          </g>
-        </g>
-        <text
-           transform="translate(369.166 387.745)"
-           font-size="14"
-           id="text291"
-           font-family="SegoeUI, Segoe UI"
-           fill="#5b5b5b">SQL DW</text>
-        <text
-           transform="translate(346.593 550.245)"
-           font-size="14"
-           id="text303"
-           font-family="SegoeUI, Segoe UI"
-           fill="#5b5b5b">Demographics, <tspan
-   x="-13.2"
-   y="16.8"
-   id="tspan293">p</tspan>
-<tspan
-   x="-4.97"
-   y="16.8"
-   letter-spacing="-0.013em"
-   id="tspan295">r</tspan>
-<tspan
-   x="-0.287"
-   y="16.8"
-   id="tspan297">oducts, pu</tspan>
-<tspan
-   x="64.258"
-   y="16.8"
-   letter-spacing="-0.013em"
-   id="tspan299">r</tspan>
-<tspan
-   x="68.94"
-   y="16.8"
-   id="tspan301">chases</tspan>
-</text>
-        <g
-           id="g327">
-          <path
-             d="M547.12,161.349v40h37v-34.5l-6.75-5.75S546.62,161.349,547.12,161.349Z"
-             id="path305"
-             fill="#59b4d9" />
-          <polygon
-             points="584.034 166.766 578.12 166.766 578.12 161.707 577.46 161.099 576.62 161.099 576.62 168.266 584.12 168.266 584.12 166.84 584.034 166.766"
-             id="polygon307"
-             fill="#1fa1c9" />
-          <g
-             id="g325">
-            <path
-               d="M558.615,180.748h-.758v-5.725a1.744,1.744,0,0,1-.256.2,4.272,4.272,0,0,1-.379.224q-.21.111-.444.208a3.24,3.24,0,0,1-.455.152v-.767a4.382,4.382,0,0,0,.529-.187q.279-.118.55-.263t.511-.3a3.971,3.971,0,0,0,.416-.312h.286Z"
-               id="path309"
-               fill="#fff" />
-            <path
-               d="M565.084,177.407a6.49,6.49,0,0,1-.15,1.474,3.444,3.444,0,0,1-.434,1.084,1.949,1.949,0,0,1-.7.67,1.911,1.911,0,0,1-.94.229,1.779,1.779,0,0,1-.889-.219,1.871,1.871,0,0,1-.658-.64,3.242,3.242,0,0,1-.407-1.033,6.383,6.383,0,0,1-.139-1.4,7.231,7.231,0,0,1,.146-1.534,3.5,3.5,0,0,1,.427-1.116,1.908,1.908,0,0,1,.7-.679,1.965,1.965,0,0,1,.959-.229Q565.085,174.011,565.084,177.407Zm-.776.074q0-2.828-1.345-2.828-1.419,0-1.419,2.879,0,2.684,1.391,2.685Q564.308,180.216,564.308,177.481Z"
-               id="path311"
-               fill="#fff" />
-            <path
-               d="M568.818,180.748h-.758v-5.725a1.744,1.744,0,0,1-.256.2,4.272,4.272,0,0,1-.379.224q-.21.111-.444.208a3.24,3.24,0,0,1-.455.152v-.767a4.382,4.382,0,0,0,.529-.187q.279-.118.55-.263t.511-.3a3.971,3.971,0,0,0,.416-.312h.286Z"
-               id="path313"
-               fill="#fff" />
-            <path
-               d="M575.287,177.407a6.49,6.49,0,0,1-.15,1.474,3.444,3.444,0,0,1-.434,1.084,1.949,1.949,0,0,1-.7.67,1.911,1.911,0,0,1-.94.229,1.779,1.779,0,0,1-.889-.219,1.871,1.871,0,0,1-.658-.64,3.242,3.242,0,0,1-.407-1.033,6.383,6.383,0,0,1-.139-1.4,7.231,7.231,0,0,1,.146-1.534,3.5,3.5,0,0,1,.427-1.116,1.908,1.908,0,0,1,.7-.679,1.965,1.965,0,0,1,.959-.229Q575.288,174.011,575.287,177.407Zm-.776.074q0-2.828-1.345-2.828-1.419,0-1.419,2.879,0,2.684,1.391,2.685Q574.511,180.216,574.511,177.481Z"
-               id="path315"
-               fill="#fff" />
-            <path
-               d="M559.983,186.87a6.49,6.49,0,0,1-.15,1.474,3.444,3.444,0,0,1-.434,1.084,1.949,1.949,0,0,1-.7.67,1.911,1.911,0,0,1-.94.229,1.779,1.779,0,0,1-.889-.219,1.871,1.871,0,0,1-.658-.64,3.242,3.242,0,0,1-.407-1.033,6.383,6.383,0,0,1-.139-1.4,7.231,7.231,0,0,1,.146-1.534,3.5,3.5,0,0,1,.427-1.116,1.908,1.908,0,0,1,.7-.679,1.965,1.965,0,0,1,.959-.229Q559.984,183.474,559.983,186.87Zm-.776.074q0-2.828-1.345-2.828-1.419,0-1.419,2.879,0,2.684,1.391,2.685Q559.207,189.68,559.207,186.944Z"
-               id="path317"
-               fill="#fff" />
-            <path
-               d="M565.084,186.87a6.49,6.49,0,0,1-.15,1.474,3.444,3.444,0,0,1-.434,1.084,1.949,1.949,0,0,1-.7.67,1.911,1.911,0,0,1-.94.229,1.779,1.779,0,0,1-.889-.219,1.871,1.871,0,0,1-.658-.64,3.242,3.242,0,0,1-.407-1.033,6.383,6.383,0,0,1-.139-1.4,7.231,7.231,0,0,1,.146-1.534,3.5,3.5,0,0,1,.427-1.116,1.908,1.908,0,0,1,.7-.679,1.965,1.965,0,0,1,.959-.229Q565.085,183.474,565.084,186.87Zm-.776.074q0-2.828-1.345-2.828-1.419,0-1.419,2.879,0,2.684,1.391,2.685Q564.308,189.68,564.308,186.944Z"
-               id="path319"
-               fill="#fff" />
-            <path
-               d="M568.818,190.211h-.758v-5.725a1.744,1.744,0,0,1-.256.2,4.272,4.272,0,0,1-.379.224q-.21.111-.444.208a3.24,3.24,0,0,1-.455.152V184.5a4.382,4.382,0,0,0,.529-.187q.279-.118.55-.263t.511-.3a3.971,3.971,0,0,0,.416-.312h.286Z"
-               id="path321"
-               fill="#fff" />
-            <path
-               d="M575.287,186.87a6.49,6.49,0,0,1-.15,1.474,3.444,3.444,0,0,1-.434,1.084,1.949,1.949,0,0,1-.7.67,1.911,1.911,0,0,1-.94.229,1.779,1.779,0,0,1-.889-.219,1.871,1.871,0,0,1-.658-.64,3.242,3.242,0,0,1-.407-1.033,6.383,6.383,0,0,1-.139-1.4,7.231,7.231,0,0,1,.146-1.534,3.5,3.5,0,0,1,.427-1.116,1.908,1.908,0,0,1,.7-.679,1.965,1.965,0,0,1,.959-.229Q575.288,183.474,575.287,186.87Zm-.776.074q0-2.828-1.345-2.828-1.419,0-1.419,2.879,0,2.684,1.391,2.685Q574.511,189.68,574.511,186.944Z"
-               id="path323"
-               fill="#fff" />
-          </g>
-        </g>
-        <text
-           transform="translate(660.182 223.458)"
-           font-size="14"
-           id="text353"
-           font-family="SegoeUI, Segoe UI"
-           fill="#5b5b5b">Me<tspan
-   x="19.893"
-   y="0"
-   letter-spacing="-0.013em"
-   id="tspan329">r</tspan>
-<tspan
-   x="24.575"
-   y="0"
-   id="tspan331">ged cus</tspan>
-<tspan
-   x="72.55"
-   y="0"
-   letter-spacing="-0.008em"
-   id="tspan333">t</tspan>
-<tspan
-   x="77.185"
-   y="0"
-   id="tspan335">omer p</tspan>
-<tspan
-   x="121.7"
-   y="0"
-   letter-spacing="-0.013em"
-   id="tspan337">r</tspan>
-<tspan
-   x="126.383"
-   y="0"
-   letter-spacing="-0.018em"
-   id="tspan339">o</tspan>
-<tspan
-   x="134.333"
-   y="0"
-   id="tspan341">file</tspan>
-<tspan
-   x="5.223"
-   y="16.8"
-   id="tspan343">w/ enginee</tspan>
-<tspan
-   x="74.074"
-   y="16.8"
-   letter-spacing="-0.013em"
-   id="tspan345">r</tspan>
-<tspan
-   x="78.757"
-   y="16.8"
-   id="tspan347">ed featu</tspan>
-<tspan
-   x="129.65"
-   y="16.8"
-   letter-spacing="-0.013em"
-   id="tspan349">r</tspan>
-<tspan
-   x="134.333"
-   y="16.8"
-   id="tspan351">es</tspan>
-</text>
-        <g
-           id="g377">
-          <path
-             d="M716.12,161.349v40h37v-34.5l-6.75-5.75S715.62,161.349,716.12,161.349Z"
-             id="path355"
-             fill="#59b4d9" />
-          <polygon
-             points="753.034 166.766 747.12 166.766 747.12 161.707 746.46 161.099 745.62 161.099 745.62 168.266 753.12 168.266 753.12 166.84 753.034 166.766"
-             id="polygon357"
-             fill="#1fa1c9" />
-          <g
-             id="g375">
-            <path
-               d="M727.615,180.748h-.758v-5.725a1.744,1.744,0,0,1-.256.2,4.272,4.272,0,0,1-.379.224q-.21.111-.444.208a3.24,3.24,0,0,1-.455.152v-.767a4.382,4.382,0,0,0,.529-.187q.279-.118.55-.263t.511-.3a3.971,3.971,0,0,0,.416-.312h.286Z"
-               id="path359"
-               fill="#fff" />
-            <path
-               d="M734.084,177.407a6.49,6.49,0,0,1-.15,1.474,3.444,3.444,0,0,1-.434,1.084,1.949,1.949,0,0,1-.7.67,1.911,1.911,0,0,1-.94.229,1.779,1.779,0,0,1-.889-.219,1.871,1.871,0,0,1-.658-.64,3.242,3.242,0,0,1-.407-1.033,6.383,6.383,0,0,1-.139-1.4,7.231,7.231,0,0,1,.146-1.534,3.5,3.5,0,0,1,.427-1.116,1.908,1.908,0,0,1,.7-.679,1.965,1.965,0,0,1,.959-.229Q734.085,174.011,734.084,177.407Zm-.776.074q0-2.828-1.345-2.828-1.419,0-1.419,2.879,0,2.684,1.391,2.685Q733.308,180.216,733.308,177.481Z"
-               id="path361"
-               fill="#fff" />
-            <path
-               d="M737.818,180.748h-.758v-5.725a1.744,1.744,0,0,1-.256.2,4.272,4.272,0,0,1-.379.224q-.21.111-.444.208a3.24,3.24,0,0,1-.455.152v-.767a4.382,4.382,0,0,0,.529-.187q.279-.118.55-.263t.511-.3a3.971,3.971,0,0,0,.416-.312h.286Z"
-               id="path363"
-               fill="#fff" />
-            <path
-               d="M744.287,177.407a6.49,6.49,0,0,1-.15,1.474,3.444,3.444,0,0,1-.434,1.084,1.949,1.949,0,0,1-.7.67,1.911,1.911,0,0,1-.94.229,1.779,1.779,0,0,1-.889-.219,1.871,1.871,0,0,1-.658-.64,3.242,3.242,0,0,1-.407-1.033,6.383,6.383,0,0,1-.139-1.4,7.231,7.231,0,0,1,.146-1.534,3.5,3.5,0,0,1,.427-1.116,1.908,1.908,0,0,1,.7-.679,1.965,1.965,0,0,1,.959-.229Q744.288,174.011,744.287,177.407Zm-.776.074q0-2.828-1.345-2.828-1.419,0-1.419,2.879,0,2.684,1.391,2.685Q743.511,180.216,743.511,177.481Z"
-               id="path365"
-               fill="#fff" />
-            <path
-               d="M728.983,186.87a6.49,6.49,0,0,1-.15,1.474,3.444,3.444,0,0,1-.434,1.084,1.949,1.949,0,0,1-.7.67,1.911,1.911,0,0,1-.94.229,1.779,1.779,0,0,1-.889-.219,1.871,1.871,0,0,1-.658-.64,3.242,3.242,0,0,1-.407-1.033,6.383,6.383,0,0,1-.139-1.4,7.231,7.231,0,0,1,.146-1.534,3.5,3.5,0,0,1,.427-1.116,1.908,1.908,0,0,1,.7-.679,1.965,1.965,0,0,1,.959-.229Q728.984,183.474,728.983,186.87Zm-.776.074q0-2.828-1.345-2.828-1.419,0-1.419,2.879,0,2.684,1.391,2.685Q728.207,189.68,728.207,186.944Z"
-               id="path367"
-               fill="#fff" />
-            <path
-               d="M734.084,186.87a6.49,6.49,0,0,1-.15,1.474,3.444,3.444,0,0,1-.434,1.084,1.949,1.949,0,0,1-.7.67,1.911,1.911,0,0,1-.94.229,1.779,1.779,0,0,1-.889-.219,1.871,1.871,0,0,1-.658-.64,3.242,3.242,0,0,1-.407-1.033,6.383,6.383,0,0,1-.139-1.4,7.231,7.231,0,0,1,.146-1.534,3.5,3.5,0,0,1,.427-1.116,1.908,1.908,0,0,1,.7-.679,1.965,1.965,0,0,1,.959-.229Q734.085,183.474,734.084,186.87Zm-.776.074q0-2.828-1.345-2.828-1.419,0-1.419,2.879,0,2.684,1.391,2.685Q733.308,189.68,733.308,186.944Z"
-               id="path369"
-               fill="#fff" />
-            <path
-               d="M737.818,190.211h-.758v-5.725a1.744,1.744,0,0,1-.256.2,4.272,4.272,0,0,1-.379.224q-.21.111-.444.208a3.24,3.24,0,0,1-.455.152V184.5a4.382,4.382,0,0,0,.529-.187q.279-.118.55-.263t.511-.3a3.971,3.971,0,0,0,.416-.312h.286Z"
-               id="path371"
-               fill="#fff" />
-            <path
-               d="M744.287,186.87a6.49,6.49,0,0,1-.15,1.474,3.444,3.444,0,0,1-.434,1.084,1.949,1.949,0,0,1-.7.67,1.911,1.911,0,0,1-.94.229,1.779,1.779,0,0,1-.889-.219,1.871,1.871,0,0,1-.658-.64,3.242,3.242,0,0,1-.407-1.033,6.383,6.383,0,0,1-.139-1.4,7.231,7.231,0,0,1,.146-1.534,3.5,3.5,0,0,1,.427-1.116,1.908,1.908,0,0,1,.7-.679,1.965,1.965,0,0,1,.959-.229Q744.288,183.474,744.287,186.87Zm-.776.074q0-2.828-1.345-2.828-1.419,0-1.419,2.879,0,2.684,1.391,2.685Q743.511,189.68,743.511,186.944Z"
-               id="path373"
-               fill="#fff" />
-          </g>
-        </g>
-        <text
-           transform="translate(850.312 224.458)"
-           font-size="14"
-           id="text395"
-           font-family="SegoeUI, Segoe UI"
-           fill="#5b5b5b">Enriched cus<tspan
-   x="77.383"
-   y="0"
-   letter-spacing="-0.008em"
-   id="tspan379">t</tspan>
-<tspan
-   x="82.018"
-   y="0"
-   id="tspan381">omer </tspan>
-<tspan
-   x="-11.713"
-   y="16.8"
-   id="tspan383">p</tspan>
-<tspan
-   x="-3.483"
-   y="16.8"
-   letter-spacing="-0.013em"
-   id="tspan385">r</tspan>
-<tspan
-   x="1.2"
-   y="16.8"
-   letter-spacing="-0.018em"
-   id="tspan387">o</tspan>
-<tspan
-   x="9.15"
-   y="16.8"
-   id="tspan389">file with p</tspan>
-<tspan
-   x="69.709"
-   y="16.8"
-   letter-spacing="-0.013em"
-   id="tspan391">r</tspan>
-<tspan
-   x="74.392"
-   y="16.8"
-   id="tspan393">edictions</tspan>
-</text>
-        <g
-           id="g419">
-          <path
-             d="M887.993,161.349v40h37v-34.5l-6.75-5.75S887.493,161.349,887.993,161.349Z"
-             id="path397"
-             fill="#59b4d9" />
-          <polygon
-             points="924.907 166.766 918.993 166.766 918.993 161.707 918.333 161.099 917.493 161.099 917.493 168.266 924.993 168.266 924.993 166.84 924.907 166.766"
-             id="polygon399"
-             fill="#1fa1c9" />
-          <g
-             id="g417">
-            <path
-               d="M899.488,180.748h-.758v-5.725a1.744,1.744,0,0,1-.256.2,4.272,4.272,0,0,1-.379.224q-.21.111-.444.208a3.24,3.24,0,0,1-.455.152v-.767a4.382,4.382,0,0,0,.529-.187q.279-.118.55-.263t.511-.3a3.971,3.971,0,0,0,.416-.312h.286Z"
-               id="path401"
-               fill="#fff" />
-            <path
-               d="M905.957,177.407a6.49,6.49,0,0,1-.15,1.474,3.444,3.444,0,0,1-.434,1.084,1.949,1.949,0,0,1-.7.67,1.911,1.911,0,0,1-.94.229,1.779,1.779,0,0,1-.889-.219,1.871,1.871,0,0,1-.658-.64,3.242,3.242,0,0,1-.407-1.033,6.383,6.383,0,0,1-.139-1.4,7.231,7.231,0,0,1,.146-1.534,3.5,3.5,0,0,1,.427-1.116,1.908,1.908,0,0,1,.7-.679,1.965,1.965,0,0,1,.959-.229Q905.958,174.011,905.957,177.407Zm-.776.074q0-2.828-1.345-2.828-1.419,0-1.419,2.879,0,2.684,1.391,2.685Q905.181,180.216,905.181,177.481Z"
-               id="path403"
-               fill="#fff" />
-            <path
-               d="M909.691,180.748h-.758v-5.725a1.744,1.744,0,0,1-.256.2,4.272,4.272,0,0,1-.379.224q-.21.111-.444.208a3.24,3.24,0,0,1-.455.152v-.767a4.382,4.382,0,0,0,.529-.187q.279-.118.55-.263t.511-.3a3.971,3.971,0,0,0,.416-.312h.286Z"
-               id="path405"
-               fill="#fff" />
-            <path
-               d="M916.16,177.407a6.49,6.49,0,0,1-.15,1.474,3.444,3.444,0,0,1-.434,1.084,1.949,1.949,0,0,1-.7.67,1.911,1.911,0,0,1-.94.229,1.779,1.779,0,0,1-.889-.219,1.871,1.871,0,0,1-.658-.64,3.242,3.242,0,0,1-.407-1.033,6.383,6.383,0,0,1-.139-1.4,7.231,7.231,0,0,1,.146-1.534,3.5,3.5,0,0,1,.427-1.116,1.908,1.908,0,0,1,.7-.679,1.965,1.965,0,0,1,.959-.229Q916.16,174.011,916.16,177.407Zm-.776.074q0-2.828-1.345-2.828-1.419,0-1.419,2.879,0,2.684,1.391,2.685Q915.384,180.216,915.384,177.481Z"
-               id="path407"
-               fill="#fff" />
-            <path
-               d="M900.856,186.87a6.49,6.49,0,0,1-.15,1.474,3.444,3.444,0,0,1-.434,1.084,1.949,1.949,0,0,1-.7.67,1.911,1.911,0,0,1-.94.229,1.779,1.779,0,0,1-.889-.219,1.871,1.871,0,0,1-.658-.64,3.242,3.242,0,0,1-.407-1.033,6.383,6.383,0,0,1-.139-1.4,7.231,7.231,0,0,1,.146-1.534,3.5,3.5,0,0,1,.427-1.116,1.908,1.908,0,0,1,.7-.679,1.965,1.965,0,0,1,.959-.229Q900.856,183.474,900.856,186.87Zm-.776.074q0-2.828-1.345-2.828-1.419,0-1.419,2.879,0,2.684,1.391,2.685Q900.08,189.68,900.08,186.944Z"
-               id="path409"
-               fill="#fff" />
-            <path
-               d="M905.957,186.87a6.49,6.49,0,0,1-.15,1.474,3.444,3.444,0,0,1-.434,1.084,1.949,1.949,0,0,1-.7.67,1.911,1.911,0,0,1-.94.229,1.779,1.779,0,0,1-.889-.219,1.871,1.871,0,0,1-.658-.64,3.242,3.242,0,0,1-.407-1.033,6.383,6.383,0,0,1-.139-1.4,7.231,7.231,0,0,1,.146-1.534,3.5,3.5,0,0,1,.427-1.116,1.908,1.908,0,0,1,.7-.679,1.965,1.965,0,0,1,.959-.229Q905.958,183.474,905.957,186.87Zm-.776.074q0-2.828-1.345-2.828-1.419,0-1.419,2.879,0,2.684,1.391,2.685Q905.181,189.68,905.181,186.944Z"
-               id="path411"
-               fill="#fff" />
-            <path
-               d="M909.691,190.211h-.758v-5.725a1.744,1.744,0,0,1-.256.2,4.272,4.272,0,0,1-.379.224q-.21.111-.444.208a3.24,3.24,0,0,1-.455.152V184.5a4.382,4.382,0,0,0,.529-.187q.279-.118.55-.263t.511-.3a3.971,3.971,0,0,0,.416-.312h.286Z"
-               id="path413"
-               fill="#fff" />
-            <path
-               d="M916.16,186.87a6.49,6.49,0,0,1-.15,1.474,3.444,3.444,0,0,1-.434,1.084,1.949,1.949,0,0,1-.7.67,1.911,1.911,0,0,1-.94.229,1.779,1.779,0,0,1-.889-.219,1.871,1.871,0,0,1-.658-.64,3.242,3.242,0,0,1-.407-1.033,6.383,6.383,0,0,1-.139-1.4,7.231,7.231,0,0,1,.146-1.534,3.5,3.5,0,0,1,.427-1.116,1.908,1.908,0,0,1,.7-.679,1.965,1.965,0,0,1,.959-.229Q916.16,183.474,916.16,186.87Zm-.776.074q0-2.828-1.345-2.828-1.419,0-1.419,2.879,0,2.684,1.391,2.685Q915.384,189.68,915.384,186.944Z"
-               id="path415"
-               fill="#fff" />
-          </g>
-        </g>
-        <polygon
-           points="555.303 322.902 550.678 323.695 546.581 325.545 543.013 327.791 539.577 331.888 537.726 333.87 535.876 334.531 535.348 333.342 536.273 332.152 536.405 330.434 537.066 330.434 537.594 330.963 537.462 329.245 536.801 328.716 536.801 328.056 535.216 328.981 533.63 330.699 533.365 332.285 534.026 333.606 534.555 335.721 535.744 336.249 537.066 336.249 538.255 335.456 537.462 339.553 538.255 344.046 537.33 346.161 534.555 349.2 534.951 351.183 536.405 353.297 538.916 355.015 540.37 355.279 541.823 355.279 540.898 359.244 544.334 360.698 548.695 361.226 550.149 360.169 550.281 357.658 551.999 354.883 552.131 352.636 556.096 353.033 559.796 352.636 556.096 354.883 556.757 357.526 559.003 361.226 561.382 362.151 563.1 361.491 563.893 359.905 567.725 356.997 568.518 357.658 574.465 357.923 575.655 356.865 575.787 355.147 575.39 354.487 575.126 349.861 573.144 345.896 573.408 344.046 574.597 344.707 578.034 347.879 579.619 348.011 581.47 347.218 583.32 345.896 584.245 342.857 589.531 343.253 592.835 341.932 595.478 339.553 597.328 335.985 597.857 331.756 597.46 326.998 596.403 322.637 595.346 321.184 593.892 320.787 591.381 323.562 589.134 324.355 587.152 321.051 585.17 319.201 583.98 318.541 579.752 314.84 576.183 312.99 572.747 312.726 568.651 313.387 565.082 314.708 562.704 316.69 560.721 319.069 558.739 319.598 555.303 322.902"
-           id="polygon421"
-           fill="#fcd116" />
-        <polygon
-           points="537.462 338.888 537.991 339.549 538.123 338.756 537.726 338.756 537.462 338.888"
-           id="polygon423"
-           fill="#1e1e1e" />
-        <path
-           d="M598.253,326.734a14.653,14.653,0,0,0-1.586-5.286c-.132-.132-.264-.4-.4-.529a5.457,5.457,0,0,0-1.454-.925,1.96,1.96,0,0,0-1.718,0c-.132.132-.264.132-.4.264a7.33,7.33,0,0,0-.793,1.057,9.318,9.318,0,0,1-.925,1.189,5.128,5.128,0,0,1-1.454.793,5.128,5.128,0,0,0-.793-1.454,12.4,12.4,0,0,0-1.189-1.586l-1.057-1.057-1.189-.793a29.418,29.418,0,0,1-3.172-2.511c-.4-.4-.925-.793-1.322-1.189a11.711,11.711,0,0,0-7-3.04,19.132,19.132,0,0,0-7.929,1.718,13.93,13.93,0,0,0-3.436,2.114,18.967,18.967,0,0,0-2.511,2.907,3.91,3.91,0,0,0-1.322.264,4.69,4.69,0,0,0-1.586,1.057,8.55,8.55,0,0,1-1.189,1.057h0l-1.057,1.057a28.952,28.952,0,0,0-6.872,1.718A19.8,19.8,0,0,0,542.22,327a9.936,9.936,0,0,0-1.982,2.114,21.524,21.524,0,0,0-1.454,2.247l-1.189,1.189a2.742,2.742,0,0,1-1.322.793h0a1.023,1.023,0,0,1-.4.132v-.132a3.389,3.389,0,0,0,.793-2.511c.132.132.132.264.264.4s.132.264.264.4l.264-.264.4.132a5.542,5.542,0,0,0,.132-2.114,1.816,1.816,0,0,0-.661-1.057c0-.132.132-.132.132-.264a1.91,1.91,0,0,0,.264-.925l-.264-.132h0l.264.132.4-.264-.529.132a8.585,8.585,0,0,0-3.568,2.247,5.868,5.868,0,0,0-1.057,1.454,2.949,2.949,0,0,0-.4,1.718,3.97,3.97,0,0,0,.793,1.454,8.422,8.422,0,0,0,.264.925,1.878,1.878,0,0,1,.264.793,2.746,2.746,0,0,0,1.454,1.322,3.221,3.221,0,0,0,1.586,0c-.132.661-.132,1.322-.264,1.982a27.663,27.663,0,0,0,.132,3.172,1.676,1.676,0,0,0,.132.793c0,.264.132.529.132.793a1.878,1.878,0,0,0-.264.793,5.523,5.523,0,0,1-.529,1.322l-1.057,1.057-.925.925-.264.264a1.625,1.625,0,0,0-.661,1.85,18.821,18.821,0,0,0,.661,2.114,8.032,8.032,0,0,0,1.322,1.85,14.113,14.113,0,0,0,3.3,2.114,3.92,3.92,0,0,0,2.114.264c0,.132,0,.264-.132.264a6.443,6.443,0,0,0-.4.925c-.793,1.85,0,2.775,1.322,3.3a12.99,12.99,0,0,0,2.114.661c.132,0,.264.132.529.132a19.751,19.751,0,0,0,3.7.793c1.454.132,2.775-.264,3.172-1.586a5.816,5.816,0,0,0,.264-1.322v-1.189a7.076,7.076,0,0,1,.925-1.586c0-.132.132-.132.132-.264.264-.529.529-.793.529-1.189v-1.586a15.994,15.994,0,0,0,2.511.132h1.322c-.132,0-.264.132-.4.132a.129.129,0,0,0-.132.132c-1.189.529-1.189,1.718-.793,2.775a6.285,6.285,0,0,0,1.454,2.643,10.365,10.365,0,0,0,2.643,3.04c1.057.661,2.247.661,3.832-.132a2.746,2.746,0,0,0,1.322-1.454c.132-.132.264-.4.4-.529a19.778,19.778,0,0,1,1.982-1.586,5.6,5.6,0,0,1,.925-.661,4.4,4.4,0,0,0,.793.4,4.955,4.955,0,0,0,1.454.132h3.436a3.823,3.823,0,0,0,2.247-.4,2.286,2.286,0,0,0,1.057-1.982v-1.057a1.757,1.757,0,0,0-.4-.925v-2.907a6.633,6.633,0,0,0-.264-1.586,6.442,6.442,0,0,0-.529-1.454c-.132-.4-.264-.661-.4-1.057l-.264.132h0l.264-.132h0a8.084,8.084,0,0,0-.661-1.586v-.4l.529.529.793.793a9.1,9.1,0,0,0,1.718,1.454,3.19,3.19,0,0,0,2.247.529,5.239,5.239,0,0,0,2.907-1.057,6.459,6.459,0,0,0,1.85-2.379c.132-.264.132-.529.264-.793,0-.264.132-.4.132-.661a15.132,15.132,0,0,0,4.229.132,11.72,11.72,0,0,0,3.832-1.057,9.717,9.717,0,0,0,3.832-3.832h0a14.938,14.938,0,0,0,1.85-5.947C598.782,331.36,598.65,328.981,598.253,326.734ZM578.43,342.725c-.4,1.322-1.057,3.568.793,3.965a2.354,2.354,0,0,0,1.982-.4,3.724,3.724,0,0,1-1.718,0,1.159,1.159,0,0,1-.925-.793c.132.132.4.132.925.264,1.322.264,2.643-.264,2.907-1.322a13.663,13.663,0,0,1,.4-1.586,8.422,8.422,0,0,0,.925.264c-.132.529-.4,1.057-.529,1.718a3.737,3.737,0,0,1-3.7,2.511c-1.454,0-2.247-.925-3.3-1.718-.661-.529-1.322-1.189-1.982-1.718a14.62,14.62,0,0,1-4.758-2.379,9.045,9.045,0,0,0,3.568,2.775,34.584,34.584,0,0,1-1.718,6.343c-.264,1.057-2.775,5.154-3.568,5.55-.529.264-3.568,2.907-4.229,3.3a5.93,5.93,0,0,1-1.454,1.718c-1.982,1.057-3.3-.925-4.361-2.643-.529-.793-1.85-3.04-.661-3.7,1.057-.529,1.718-1.057,2.907-1.718a4.016,4.016,0,0,0,.661.925c0-.4-.132-.661-.132-1.057a3.772,3.772,0,0,1,0-1.718c0-.529.132-1.189.132-1.718-.132.661-.529,1.189-.661,1.85a1.191,1.191,0,0,0-.132.661,21.353,21.353,0,0,1-7.665.132c-.132-.925-.4-1.982-.529-2.643v4.229a3.008,3.008,0,0,1-.529,2.114c-.4.793-.661.925-1.322,2.247a11.368,11.368,0,0,1-.132,2.114c-.4,1.322-3.965.264-4.89,0-1.189-.264-3.568-.793-3.04-2.379a19.168,19.168,0,0,0,1.189-4.758,25.648,25.648,0,0,1-4.493-11.1,13.782,13.782,0,0,1,.529-6.476,17.58,17.58,0,0,1,4.625-7.268c3.04-2.643,5.815-3.7,10.308-4.361-1.057,1.189-2.114,2.511-3.3,3.832a20.478,20.478,0,0,0-2.643,4.229c-1.057,2.114-1.057,2.907.4,4.625,1.189,1.586,1.85,2.247,2.247,3.832a8.559,8.559,0,0,0-.661,2.775c1.454,1.586,2.511,2.643,3.832,2.907a5.118,5.118,0,0,0,3.7-.4c2.643-1.322,5.154-3.172,8.194-3.3,1.454-3.436,1.322-6.343.529-9.779a58.531,58.531,0,0,1-.793-6.74,17.227,17.227,0,0,0-.264,6.872c.529,2.907.925,6.079-.529,8.59-2.775.264-5.154,1.85-7.665,3.172a4.364,4.364,0,0,1-3.172.264c-.793-.132-1.454-.793-2.643-2.114a6.139,6.139,0,0,1,.793-3.04,57.631,57.631,0,0,1,3.172-5.418c-1.322,1.718-2.643,3.172-3.7,4.758a12.324,12.324,0,0,0-1.982-3.172,2.784,2.784,0,0,1-.4-3.436,14.2,14.2,0,0,1,2.643-4.229c2.114-2.379,4.1-4.89,6.476-7.268a5.035,5.035,0,0,1,3.436-1.454c1.586-.264,3.04-.529,4.625-.925a26.978,26.978,0,0,1-4.493.4h0c1.454-1.85,2.247-2.907,4.625-3.965,5.815-2.511,9.515-2.775,14.008,1.057a31.639,31.639,0,0,0,3.436,2.775,5.816,5.816,0,0,0-1.322.264,5.038,5.038,0,0,1,1.982.132c.132.132.4.264.529.4a5.381,5.381,0,0,1,1.85,1.586,17.5,17.5,0,0,1,1.586,2.643c-.264-.132-.529-.132-.793-.264a.8.8,0,0,0-.529-.132,1.589,1.589,0,0,0-1.057.264h0a4.306,4.306,0,0,1-1.718.529,1.459,1.459,0,0,0,1.057,0h.132c-.132.132-.132.4-.264.661a2.249,2.249,0,0,0,.132.925h0c0,.132.132.132.132.264-.264.132-.4.132-.661.264a12.736,12.736,0,0,1,3.172,0c.132.4.132.661.264,1.057h-.4a1.808,1.808,0,0,0-1.85-.132c-2.247.529-1.718,1.85-2.775,3.832,1.057-1.322,1.057-2.775,2.775-3.172.4-.132.661-.264.925-.132a2.593,2.593,0,0,0-1.189,1.189c-.529,1.454-.132,2.511-.793,3.832.661-1.189.661-2.247,1.322-3.568.264-.4,1.057-1.189,1.454-1.189h.4a12.866,12.866,0,0,1,.132,2.114c-.132,1.189-.4,2.907-.529,3.568a9.474,9.474,0,0,0,1.189-3.568,10,10,0,0,0,0-3.965c-.4-1.85,1.454-1.454,2.511-2.379.793-.661,1.322-1.586,1.982-2.247s1.85.264,2.114,1.057a26.308,26.308,0,0,1,1.454,10.572c-.4,3.3-1.982,7-4.89,8.59-3.7,2.114-8.194.793-11.894-.4a9.44,9.44,0,0,1-1.982-1.057A2.969,2.969,0,0,1,578.43,342.725Zm-3.3,13.348c-.132,1.322-.529,1.454-1.85,1.454a27.623,27.623,0,0,1-3.3-.132,7.179,7.179,0,0,1-1.454-.264c1.189-.925,3.3-4.625,3.7-5.947s.925-2.511,1.189-3.832a7.451,7.451,0,0,0,.529,1.586,7.821,7.821,0,0,1,.661,2.511,25.464,25.464,0,0,0,.132,3.172A2.045,2.045,0,0,1,575.126,356.072Zm-38.589-27.488a2.109,2.109,0,0,0-.4,1.057c-.4,1.454.132,2.775-1.189,3.832.661,1.189.529,1.718,1.982,1.189a5.457,5.457,0,0,0,1.454-.925c-.132.529-.4,1.057-.529,1.586,0,.132,0,.132-.132.264-1.057.4-2.379.661-2.907-.4a6.543,6.543,0,0,1-.529-1.718C532.572,331.756,535.083,329.377,536.537,328.584Zm.132,1.586a.8.8,0,0,1,.132-.529c0-.132,0-.132.132-.264.4.264.4.529.529,1.057C537.2,330.17,536.934,330.038,536.669,330.17Zm1.322,15.462a31.234,31.234,0,0,0,3.568,7.665h0a9.105,9.105,0,0,1-.4,1.057c-1.057,1.454-3.7-.661-4.493-1.454a5.346,5.346,0,0,1-1.586-2.907c-.132-.661,0-.661.529-1.189l1.982-1.982Zm50.351-21.805c0,.132.132.264.132.4l-.132.132c-.132-.132-.264-.4-.4-.529Zm-49.161,8.061Zm-2.114-3.172Zm-3.3,5.022Zm18.5,19.427Zm32.246-9.779Zm11.894-4.493Z"
-           id="path425"
-           fill="#1e1e1e" />
-        <path
-           d="M581.073,327.263a13.744,13.744,0,0,0-1.982.264c0-.264-.132-.4-.132-.661a1.876,1.876,0,0,0-1.189-1.057c.4-.264.925-.529,1.322-.793-1.057.529-2.247.4-3.172.925-.793.529-1.85,2.247-2.643,2.907a11.024,11.024,0,0,0,1.586-1.057,2.45,2.45,0,0,0,.264.925,2.082,2.082,0,0,0,.925.925,4.134,4.134,0,0,0-.661,1.322A11.547,11.547,0,0,1,581.073,327.263Z"
-           id="path427"
-           fill="#1e1e1e" />
-        <path
-           d="M571.558,325.28a5.216,5.216,0,0,1,3.3-4.1C571.69,321.977,571.161,323.3,571.558,325.28Z"
-           id="path429"
-           fill="#1e1e1e" />
-        <path
-           d="M576.712,340.346c-.132.4-.132,1.057-.264,1.454a5.72,5.72,0,0,1,.661-1.586c.264-.529.4-.529.925-.793a12.28,12.28,0,0,0,1.322-.661c-.4,0-1.057.264-1.454.264C576.976,339.157,576.844,339.421,576.712,340.346Z"
-           id="path431"
-           fill="#1e1e1e" />
-        <path
-           d="M559.8,322.505c-1.189,1.189-2.247,5.022-2.643,6.608.529-1.322,1.982-4.89,3.04-5.815a2.765,2.765,0,0,1,.793-.529c-.793,1.322-.661,1.586-.4,3.3a6.977,6.977,0,0,1,1.85-3.832c1.057-.264,2.114-.661,3.3-1.057-1.322.132-2.511.264-3.832.4C560.721,321.844,560.457,321.844,559.8,322.505Z"
-           id="path433"
-           fill="#1e1e1e" />
-        <path
-           d="M575.523,329.245a.887.887,0,0,1,1.586-.793v.132a8.551,8.551,0,0,0-1.189,1.057.422.422,0,0,1-.4-.4"
-           id="path435"
-           fill="#fffacb" />
-        <text
-           transform="translate(531.033 392.084)"
-           font-size="14"
-           id="text449"
-           font-family="SegoeUI, Segoe UI"
-           fill="#5b5b5b">HD Insight<tspan
-   x="-16.222"
-   y="16.8"
-   id="tspan437">(S</tspan>
-<tspan
-   x="-4.56"
-   y="16.8"
-   letter-spacing="-0.013em"
-   id="tspan439">p</tspan>
-<tspan
-   x="3.486"
-   y="16.8"
-   id="tspan441">ark R Se</tspan>
-<tspan
-   x="53.238"
-   y="16.8"
-   letter-spacing="0.04em"
-   id="tspan443">r</tspan>
-<tspan
-   x="58.666"
-   y="16.8"
-   letter-spacing="-0.006em"
-   id="tspan445">v</tspan>
-<tspan
-   x="65.29"
-   y="16.8"
-   id="tspan447">er)</tspan>
-</text>
-        <path
-           d="M928.978,358.342,914.5,333.269v-10.15h.261a3.135,3.135,0,1,0,0-6.27H898.969a3.136,3.136,0,0,0,0,6.271h.261v10.15l-14.476,25.073c-1.588,2.75-.289,5,2.886,5h38.451C929.266,363.342,930.565,361.092,928.978,358.342Z"
-           id="path451"
-           fill="#59b4d9" />
-        <polygon
-           points="896.677 347.55 890.704 357.896 923.028 357.896 917.055 347.55 896.677 347.55"
-           id="polygon453"
-           fill="#b8d432" />
-        <path
-           d="M907.634,351.748a2.915,2.915,0,0,0,2.623-4.2H905.01a2.915,2.915,0,0,0,2.624,4.2Z"
-           id="path455"
-           fill="#7fba00" />
-        <circle
-           cx="911.258"
-           cy="354.002"
-           r="1.433"
-           id="circle457"
-           fill="#7fba00" />
-        <path
-           d="M884.754,358.342l14.476-25.074v-10.15h-.261a3.135,3.135,0,1,1,0-6.27h6.806v16.34l-7.63,30.154h-10.5C884.465,363.342,883.166,361.092,884.754,358.342Z"
-           style="isolation: isolate"
-           id="path459"
-           fill="#fff"
-           opacity="0.25" />
-        <g
-           id="_1180_Grids"
-           data-name=" 1180 Grids">
-          <g
-             id="g481">
-            <rect
-               x="377.281"
-               y="490.878"
-               width="10.483"
-               height="10.483"
-               id="rect461"
-               fill="#0473c4" />
-            <rect
-               x="389.941"
-               y="490.878"
-               width="10.483"
-               height="10.483"
-               id="rect463"
-               fill="#0473c4" />
-            <rect
-               x="402.602"
-               y="490.878"
-               width="10.483"
-               height="10.483"
-               id="rect465"
-               fill="#0473c4" />
-            <rect
-               x="377.281"
-               y="503.516"
-               width="10.483"
-               height="10.483"
-               id="rect467"
-               fill="#0473c4" />
-            <rect
-               x="389.941"
-               y="503.516"
-               width="10.483"
-               height="10.483"
-               id="rect469"
-               fill="#0473c4" />
-            <rect
-               x="402.602"
-               y="503.516"
-               width="10.483"
-               height="10.483"
-               id="rect471"
-               fill="#0473c4" />
-            <rect
-               x="377.281"
-               y="516.153"
-               width="10.483"
-               height="10.483"
-               id="rect473"
-               fill="#0473c4" />
-            <rect
-               x="389.941"
-               y="516.153"
-               width="10.483"
-               height="10.483"
-               id="rect475"
-               fill="#0473c4" />
-            <rect
-               x="402.602"
-               y="516.153"
-               width="10.483"
-               height="10.483"
-               id="rect477"
-               fill="#0473c4" />
-            <polygon
-               points="374.747 529.16 374.827 490.849 372.709 490.849 372.63 531.278 413.023 531.278 413.023 529.16 374.747 529.16"
-               id="polygon479"
-               fill="#0b3261" />
-          </g>
-        </g>
-        <text
-           transform="translate(335.669 712.745)"
-           font-size="14"
-           id="text496"
-           font-family="SegoeUI, Segoe UI"
-           fill="#5b5b5b">Enriched cus<tspan
-   x="77.383"
-   y="0"
-   letter-spacing="-0.008em"
-   id="tspan484">t</tspan>
-<tspan
-   x="82.018"
-   y="0"
-   id="tspan486">omer </tspan>
-<tspan
-   x="36.507"
-   y="16.8"
-   id="tspan488">p</tspan>
-<tspan
-   x="44.738"
-   y="16.8"
-   letter-spacing="-0.013em"
-   id="tspan490">r</tspan>
-<tspan
-   x="49.42"
-   y="16.8"
-   letter-spacing="-0.018em"
-   id="tspan492">o</tspan>
-<tspan
-   x="57.371"
-   y="16.8"
-   id="tspan494">files</tspan>
-</text>
-        <g
-           id="_1180_Grids-2"
-           data-name=" 1180 Grids">
-          <g
-             id="g518">
-            <rect
-               x="377.281"
-               y="653.378"
-               width="10.483"
-               height="10.483"
-               id="rect498"
-               fill="#0473c4" />
-            <rect
-               x="389.941"
-               y="653.378"
-               width="10.483"
-               height="10.483"
-               id="rect500"
-               fill="#0473c4" />
-            <rect
-               x="402.602"
-               y="653.378"
-               width="10.483"
-               height="10.483"
-               id="rect502"
-               fill="#0473c4" />
-            <rect
-               x="377.281"
-               y="666.016"
-               width="10.483"
-               height="10.483"
-               id="rect504"
-               fill="#0473c4" />
-            <rect
-               x="389.941"
-               y="666.016"
-               width="10.483"
-               height="10.483"
-               id="rect506"
-               fill="#0473c4" />
-            <rect
-               x="402.602"
-               y="666.016"
-               width="10.483"
-               height="10.483"
-               id="rect508"
-               fill="#0473c4" />
-            <rect
-               x="377.281"
-               y="678.653"
-               width="10.483"
-               height="10.483"
-               id="rect510"
-               fill="#0473c4" />
-            <rect
-               x="389.941"
-               y="678.653"
-               width="10.483"
-               height="10.483"
-               id="rect512"
-               fill="#0473c4" />
-            <rect
-               x="402.602"
-               y="678.653"
-               width="10.483"
-               height="10.483"
-               id="rect514"
-               fill="#0473c4" />
-            <polygon
-               points="374.747 691.66 374.827 653.349 372.709 653.349 372.63 693.778 413.023 693.778 413.023 691.66 374.747 691.66"
-               id="polygon516"
-               fill="#0b3261" />
-          </g>
-        </g>
-        <text
-           transform="translate(1018.64 231.752)"
-           font-size="14"
-           id="text537"
-           font-family="SegoeUI, Segoe UI"
-           fill="#5b5b5b">
-          <tspan
-             letter-spacing="-0.037em"
-             id="tspan521">P</tspan>
-          <tspan
-             x="7.321"
-             y="0"
-             id="tspan523">o</tspan>
-          <tspan
-             x="15.524"
-             y="0"
-             letter-spacing="-0.005em"
-             id="tspan525">w</tspan>
-          <tspan
-             x="25.573"
-             y="0"
-             id="tspan527">er BI Dashb</tspan>
-          <tspan
-             x="96.216"
-             y="0"
-             letter-spacing="-0.013em"
-             id="tspan529">o</tspan>
-          <tspan
-             x="104.234"
-             y="0"
-             id="tspan531">a</tspan>
-          <tspan
-             x="111.357"
-             y="0"
-             letter-spacing="-0.013em"
-             id="tspan533">r</tspan>
-          <tspan
-             x="116.04"
-             y="0"
-             id="tspan535">d</tspan>
-        </text>
-        <path
-           d="M1102.355,200.867h-1.09v-2.18h1.09a4.2,4.2,0,0,0,4.195-4.195V172.225a4.2,4.2,0,0,0-4.195-4.2h-41.3a4.2,4.2,0,0,0-4.195,4.2v22.269a4.2,4.2,0,0,0,4.195,4.195h1.09v2.18h-1.09a6.382,6.382,0,0,1-6.374-6.375V172.225a6.382,6.382,0,0,1,6.375-6.375h41.3a6.382,6.382,0,0,1,6.375,6.375v22.269a6.382,6.382,0,0,1-6.375,6.375"
-           id="path539" />
-        <path
-           d="M1067.751,193.569h0a2.958,2.958,0,0,1,2.958,2.958v6.821a2.958,2.958,0,0,1-2.958,2.958h0a2.958,2.958,0,0,1-2.959-2.957h0v-6.821a2.958,2.958,0,0,1,2.958-2.958Z"
-           id="path541" />
-        <path
-           d="M1077.055,206.307a2.959,2.959,0,0,1-2.959-2.958V185.84a2.959,2.959,0,0,1,5.917,0v17.509a2.959,2.959,0,0,1-2.958,2.959"
-           id="path543" />
-        <path
-           d="M1095.662,206.221a2.959,2.959,0,0,1-2.959-2.958v-24.8a2.959,2.959,0,1,1,5.917,0h0v24.8a2.959,2.959,0,0,1-2.958,2.959"
-           id="path545" />
-        <path
-           d="M1086.358,206.307a2.959,2.959,0,0,1-2.959-2.958V190.342a2.959,2.959,0,1,1,5.917,0v13.007a2.959,2.959,0,0,1-2.958,2.959"
-           id="path547" />
-        <g
-           id="g553">
-          <polygon
-             points="1010.37 595.099 504.155 595.099 504.155 593.599 1008.87 593.599 1008.87 190.349 1010.37 190.349 1010.37 595.099"
-             id="polygon549"
-             fill="#969696" />
-          <polygon
-             points="505.687 589.113 496.62 594.349 505.687 599.584 505.687 589.113"
-             id="polygon551"
-             fill="#969696" />
-        </g>
-        <g
-           id="g2303">
-          <path
-             id="path1948"
-             d="M735.774,313.951a26.564,26.564,0,0,0-4.446.379c-3.937.7-4.652,2.151-4.652,4.836v3.546h9.3v1.182H723.185a5.809,5.809,0,0,0-5.812,4.717,17.389,17.389,0,0,0,0,9.455c.661,2.754,2.241,4.717,4.944,4.717h3.2v-4.25a5.912,5.912,0,0,1,5.812-5.779h9.292a4.687,4.687,0,0,0,4.652-4.727v-8.858c0-2.521-2.127-4.415-4.652-4.836A29.016,29.016,0,0,0,735.774,313.951Zm-5.031,2.852A1.773,1.773,0,1,1,729,318.581,1.765,1.765,0,0,1,730.743,316.8Z"
-             fill="url(#linear-gradient)" />
-          <path
-             id="path1950"
-             d="M746.432,323.894v4.131a5.967,5.967,0,0,1-5.812,5.9h-9.292a4.746,4.746,0,0,0-4.652,4.727v8.858c0,2.521,2.192,4,4.652,4.727a15.565,15.565,0,0,0,9.292,0c2.342-.678,4.652-2.043,4.652-4.727v-3.546H735.98v-1.182h13.944c2.7,0,3.711-1.886,4.652-4.717.971-2.914.93-5.717,0-9.455-.668-2.692-1.944-4.717-4.652-4.717Zm-5.226,22.434a1.773,1.773,0,1,1-1.746,1.767A1.756,1.756,0,0,1,741.206,346.328Z"
-             fill="url(#linear-gradient-2)" />
-          <path
-             id="path1894"
-             d="M748.552,358.259c0,1.335-5.582,2.417-12.467,2.417s-12.467-1.082-12.467-2.417,5.582-2.417,12.467-2.417S748.552,356.924,748.552,358.259Z"
-             style="isolation: isolate"
-             fill="url(#radial-gradient)"
-             opacity="0.444" />
-        </g>
-        <path
-           d="M997,439.169h-.98v-1H997Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0H745.9v-1h.981Zm-4.9,0H741v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0H633.1v-1h.981Zm-4.9,0H628.2v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1H536Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0H515.4v-1h.981Zm-4.9,0H510.5v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-2.935-1.97h-1v-.981h1Zm690.024-.9h-1v-.981h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.981h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1V425.5h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1V420.6h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.98h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.98h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.98h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.98h1Zm-690.024-4h-1v-.981h1Zm690.024-.905h-1v-.98h1Zm-690.024-4h-1v-.981h1Zm690.024-.905h-1v-.98h1Zm-690.024-4h-1v-.981h1Zm690.024-.9h-1v-.981h1Zm-690.024-4h-1v-.981h1Zm690.024-.9h-1v-.981h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.981h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.981h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.98h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.98h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.98h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.98h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.98h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.98h1Zm-690.024-4h-1v-.981h1Zm690.024-.9h-1v-.981h1Zm-690.024-4h-1v-.981h1Zm690.024-.9h-1v-.981h1Zm-690.024-4h-1v-.981h1Zm690.024-.9h-1v-.981h1Zm-690.024-4h-1v-.981h1Zm690.024-.9h-1v-.981h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.98h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.98h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.98h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.98h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1V298h1Zm-690.024-4h-1V294h1Zm690.024-.9h-1v-.98h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.981h1Zm-690.024-4h-1v-.981h1Zm690.024-.9h-1v-.981h1Zm-690.024-4h-1v-.981h1Zm690.024-.9h-1v-.981h1Zm-690.024-4h-1v-.981h1Zm690.024-.9h-1v-.981h1Zm-690.024-4h-1v-.981h1Zm690.024-.9h-1v-.98h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.98h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.98h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.98h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.98h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.98h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.98h1Zm-690.024-4h-1v-.981h1Zm690.024-.905h-1v-.98h1Zm-690.024-4h-1v-.981h1Zm690.024-.9h-1v-.981h1Zm-690.024-4h-1v-.981h1Zm690.024-.9h-1v-.981h1Zm-690.024-4h-1v-.981h1Zm690.024-.9h-1v-.981h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.981h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.98h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.98h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.98h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.98h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.98h1Zm-690.024-4h-1V186.1h1ZM997.5,186.18h-1v-.98h1Zm-690.024-4h-1V181.2h1Zm690.024-.905h-1v-.98h1Zm-690.024-4h-1v-.981h1Zm690.024-.9h-1v-.981h1Zm-690.024-4h-1v-.981h1Zm690.024-.9h-1v-.981h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.981h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.981h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.98h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.98h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.98h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.98h1Zm-690.024-4h-1v-.98h1Zm690.024-.9h-1v-.98h1Zm-690.024-4h-1v-.981h1Zm690.024-.905h-1v-.98h1Zm-690.024-4h-1v-.981h1Zm690.024-.905h-1v-.98h1Zm-690.024-4h-1v-.981h1Zm690.024-.905h-1v-.98h1Zm-690.024-4h-1v-.981h1Zm690.024-.9h-1v-.981h1Zm-2.179-2.726h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1H858Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0H724.6v-1h.981Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0H606.9v-1h.981Zm-4.9,0H602v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1H397Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.981v-1h.981Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Zm-4.9,0h-.98v-1h.98Z"
-           id="path559"
-           fill="#a0a0a0" />
-        <a
-           class="architecture-tooltip-trigger"
-           href="#"
-           id="a565">
-          <circle
-             cx="395.196"
-             cy="117.324"
-             r="14"
-             id="circle561"
-             fill="#a5ce00" />
-          <text
-             transform="translate(391.149 123.027)"
-             font-size="15"
-             id="text563"
-             font-family="SegoeUI, Segoe UI"
-             fill="#303030">3</text>
-        </a>
-        <g
-           id="g571">
-          <rect
-             x="563.326"
-             y="253.763"
-             width="1.5"
-             height="45.266"
-             id="rect567"
-             fill="#969696" />
-          <polygon
-             points="569.312 297.496 564.076 306.563 558.841 297.496 569.312 297.496"
-             id="polygon569"
-             fill="#969696" />
-        </g>
-        <g
-           id="g577">
-          <rect
-             x="906.326"
-             y="256.298"
-             width="1.5"
-             height="45.266"
-             id="rect573"
-             fill="#969696" />
-          <polygon
-             points="901.841 257.83 907.076 248.763 912.312 257.83 901.841 257.83"
-             id="polygon575"
-             fill="#969696" />
-        </g>
-        <g
-           id="g585">
-          <rect
-             x="735.326"
-             y="256.298"
-             width="1.5"
-             height="41.73"
-             id="rect579"
-             fill="#969696" />
-          <polygon
-             points="741.312 296.496 736.076 305.563 730.841 296.496 741.312 296.496"
-             id="polygon581"
-             fill="#969696" />
-          <polygon
-             points="741.312 257.83 736.076 248.763 730.841 257.83 741.312 257.83"
-             id="polygon583"
-             fill="#969696" />
-        </g>
-        <a
-           class="architecture-tooltip-trigger"
-           href="#"
-           id="a591">
-          <circle
-             cx="564.529"
-             cy="276.657"
-             r="14"
-             id="circle587"
-             fill="#a5ce00" />
-          <text
-             transform="translate(560.483 282.36)"
-             font-size="15"
-             id="text589"
-             font-family="SegoeUI, Segoe UI"
-             fill="#303030">4</text>
-        </a>
-        <a
-           class="architecture-tooltip-trigger"
-           href="#"
-           id="a597">
-          <circle
-             cx="735.529"
-             cy="276.657"
-             r="14"
-             id="circle593"
-             fill="#a5ce00" />
-          <text
-             transform="translate(731.483 282.36)"
-             font-size="15"
-             id="text595"
-             font-family="SegoeUI, Segoe UI"
-             fill="#303030">5</text>
-        </a>
-        <a
-           class="architecture-tooltip-trigger"
-           href="#"
-           id="a603">
-          <circle
-             cx="907.529"
-             cy="276.657"
-             r="14"
-             id="circle599"
-             fill="#a5ce00" />
-          <text
-             transform="translate(903.483 282.36)"
-             font-size="15"
-             id="text601"
-             font-family="SegoeUI, Segoe UI"
-             fill="#303030">6</text>
-        </a>
-        <path
-           d="M226.2,21.021a.653.653,0,0,1-.692.692h-5.394a.653.653,0,0,1-.692-.692V17.01a.653.653,0,0,1,.692-.692h5.394a.653.653,0,0,1,.692.692Z"
-           id="path605"
-           fill="#b8d432" />
-        <path
-           d="M235.88,25.17a.653.653,0,0,1-.692.692h-5.394a.653.653,0,0,1-.692-.692V21.159a.653.653,0,0,1,.692-.692h5.394a.653.653,0,0,1,.692.692Z"
-           id="path607"
-           fill="#b8d432" />
-        <path
-           d="M226.2,29.319a.653.653,0,0,1-.692.692h-5.394a.653.653,0,0,1-.692-.692V25.308a.653.653,0,0,1,.692-.692h5.394a.653.653,0,0,1,.692.692Z"
-           id="path609"
-           fill="#b8d432" />
-        <path
-           d="M216.517,16.871a.653.653,0,0,1-.692.692h-5.532a.653.653,0,0,1-.692-.692V12.722a.653.653,0,0,1,.692-.692h5.394c.553,0,.83.277.83.692Z"
-           id="path611"
-           fill="#b8d432" />
-        <path
-           d="M240.721,2.349H201.994a.653.653,0,0,0-.692.692v8.3a.653.653,0,0,0,.692.692h4.149a.653.653,0,0,0,.692-.692V7.881H235.88v3.458c0,.415.277.692.83.692h4.011a.653.653,0,0,0,.692-.692V3.04A.653.653,0,0,0,240.721,2.349Z"
-           id="path613"
-           fill="#0072c6" />
-        <path
-           d="M240.721,34.3H236.71a.653.653,0,0,0-.692.692V38.31H206.835V34.852c0-.415-.277-.692-.83-.692h-4.011c-.415,0-.692.277-.692.83v8.16a.653.653,0,0,0,.692.692h38.727a.653.653,0,0,0,.692-.692V34.99A.653.653,0,0,0,240.721,34.3Z"
-           id="path615"
-           fill="#0072c6" />
-        <path
-           d="M216.517,25.17a.653.653,0,0,1-.692.692h-5.532a.653.653,0,0,1-.692-.692V21.021a.653.653,0,0,1,.692-.692h5.394c.553,0,.83.277.83.692Z"
-           id="path617"
-           fill="#b8d432" />
-        <path
-           d="M216.517,33.469a.653.653,0,0,1-.692.692h-5.532a.653.653,0,0,1-.692-.692V29.319a.653.653,0,0,1,.692-.692h5.394c.553,0,.83.277.83.692Z"
-           id="path619"
-           fill="#b8d432" />
-        <g
-           id="g625">
-          <path
-             d="M65.337,40.269a22.351,22.351,0,0,1-31.509-4.047,22.3,22.3,0,0,1,4.047-31.51A22.4,22.4,0,0,1,69.384,8.76,22.315,22.315,0,0,1,65.337,40.269Z"
-             id="path621"
-             fill="#59b4d9" />
-          <path
-             d="M61.049,26.538a5.236,5.236,0,0,0,6.986.906c0-.222,0-.222.222-.444,2.255,1.571,3.6,2.7,4.491,3.142.24-.665.462-1.35.684-1.793-.906-.684-2.255-1.812-3.826-3.16a5.909,5.909,0,0,0-.683-4.713,5.152,5.152,0,0,0-6.3-1.127c-2.237-2.032-4.934-4.509-7.411-6.986C63.3,7.873,69.162,8.538,69.162,8.538A14.937,14.937,0,0,0,66,5.174a25.046,25.046,0,0,0-15.08,2.7h0c-2.014-2.033-4.047-4.288-6.3-6.764A17.861,17.861,0,0,0,41.7,2.236,44.984,44.984,0,0,0,47.78,9.887h0a65.984,65.984,0,0,0-6.3,5.415,3.074,3.074,0,0,1-.683.887,7.309,7.309,0,0,0-3.826.24A17.3,17.3,0,0,1,35.4,6.745a14.647,14.647,0,0,0-2.255,2.92,13.235,13.235,0,0,0,.906,9,6.744,6.744,0,0,0,0,8.334c0,.222.222.444.443.665a25.743,25.743,0,0,0-1.349,7.891c.222.222.222.444.462.665a27.515,27.515,0,0,0,3.586,3.6A31.821,31.821,0,0,1,38.78,29.7a7,7,0,0,0,3.142-.683c.683.683,1.349,1.127,1.811,1.589a37.234,37.234,0,0,0,6.745,4.269,3.975,3.975,0,0,0,.665,3.16,4.646,4.646,0,0,0,6.3.887c.462-.443.906-.665,1.127-1.127a45.619,45.619,0,0,0,8.778.906c.462,0,2.033-2.255,2.938-3.6a24.6,24.6,0,0,1-11.033-.665,4.645,4.645,0,0,0-.905-1.811,4.351,4.351,0,0,0-5.858-1.127,28.35,28.35,0,0,1-6.284-4.047,6.125,6.125,0,0,0-1.127-.906,6.6,6.6,0,0,0,.222-6.745c.222-.444.665-.665.905-.906,2.015-1.793,4.047-3.363,5.84-4.712l-.222-.222.222.222a79.678,79.678,0,0,0,8.557,7.189A5.313,5.313,0,0,0,61.049,26.538Z"
-             id="path623"
-             fill="#fff" />
-        </g>
-      </g>
-    </g>
-  </g>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by Microsoft Visio, SVG Export product-recommendations.svg product-recommendations -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="13.5in" height="9.59375in" viewBox="0 0 972 690.75"
+		xml:space="preserve" color-interpolation-filters="sRGB" class="st52">
+	<v:documentProperties v:langID="1033" v:viewMarkup="false">
+		<v:userDefs>
+			<v:ud v:nameU="msvNoAutoConnect" v:val="VT0(1):26"/>
+			<v:ud v:nameU="msvWarnOnPersonalInfo" v:val="VT0(1):5"/>
+		</v:userDefs>
+	</v:documentProperties>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#ffffff;stroke:none;stroke-width:0.25}
+		.st2 {fill:#b7b7b7;stroke:none;stroke-width:0.75}
+		.st3 {fill:#f7f7f7;stroke:none;stroke-width:0.75}
+		.st4 {fill:none;stroke:#385da2;stroke-linecap:butt;stroke-width:1.25}
+		.st5 {fill:#0078d4;stroke:none;stroke-linecap:butt;stroke-width:12.75}
+		.st6 {fill:#50e6ff;stroke:none;stroke-linecap:butt;stroke-width:12.75}
+		.st7 {fill:#76bc2d;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st8 {fill:#86d633;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st9 {fill:#999999;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st10 {fill:#999999;fill-opacity:0.5;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st11 {fill:#949494;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st12 {fill:url(#grad0-84);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st13 {fill:#50e6ff;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st14 {fill:#32bedd;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st15 {fill:url(#grad7-95);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st16 {fill:#ffffff;fill-opacity:0.6;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st17 {fill:#f2f2f2;fill-opacity:0.55;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st18 {fill:url(#grad0-105);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st19 {fill:url(#grad0-113);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st20 {fill:#f2f2f2;fill-opacity:0.7;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st21 {fill:#3a3a38;stroke:none;stroke-linecap:butt;stroke-width:25.5}
+		.st22 {fill:url(#grad0-214);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st23 {fill:url(#grad0-220);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st24 {fill:#e8e8e8}
+		.st25 {stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st26 {fill:#0078d7;stroke:none;stroke-linecap:butt;stroke-width:0.25}
+		.st27 {fill:#fed142;stroke:none;stroke-linecap:butt;stroke-width:12.2207}
+		.st28 {fill:#3571a3;stroke:none;stroke-linecap:butt;stroke-width:12.2207}
+		.st29 {fill:url(#grad0-246);stroke:none;stroke-linecap:butt;stroke-width:34}
+		.st30 {fill:#37c2b1;stroke:none;stroke-linecap:butt;stroke-width:34}
+		.st31 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:34}
+		.st32 {fill:#258277;stroke:none;stroke-linecap:butt;stroke-width:34}
+		.st33 {fill:#59b4d9;stroke:none;stroke-linecap:butt;stroke-width:12.24}
+		.st34 {fill:#0072c6;stroke:none;stroke-linecap:butt;stroke-width:12.24}
+		.st35 {fill:none;stroke:none;stroke-width:0.25}
+		.st36 {fill:#000000;font-family:Segoe UI;font-size:0.916672em}
+		.st37 {font-size:1em}
+		.st38 {fill:none;stroke:#000000;stroke-dasharray:0.01,2.25;stroke-width:0.75}
+		.st39 {marker-end:url(#mrkr4-342);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
+		.st40 {fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:0.37313432835821}
+		.st41 {stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
+		.st42 {fill:#107c10;stroke:none;stroke-width:0.75}
+		.st43 {fill:#ffffff;font-family:Segoe UI;font-size:0.916672em;font-weight:bold}
+		.st44 {marker-end:url(#mrkr4-342);marker-start:url(#mrkr4-419);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
+		.st45 {marker-start:url(#mrkr4-419);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
+		.st46 {fill:url(#grad0-438);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st47 {fill:#0078d4;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st48 {fill:#000000;fill-opacity:0.5;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st49 {fill:#000000;fill-opacity:0.25;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st50 {fill:url(#grad0-454);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st51 {fill:#7f7f7f;font-family:Segoe UI Semibold;font-size:1.16666em}
+		.st52 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<defs id="Patterns_And_Gradients">
+		<linearGradient id="grad0-84" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-90 0.5 0.5)">
+			<stop offset="0" stop-color="#949494" stop-opacity="1"/>
+			<stop offset="0.33" stop-color="#9b9b9b" stop-opacity="1"/>
+			<stop offset="0.82" stop-color="#aeafb0" stop-opacity="1"/>
+			<stop offset="1" stop-color="#b6b8b9" stop-opacity="1"/>
+		</linearGradient>
+		<radialGradient id="grad7-95" cx="0" cy="0" r="1.4">
+			<stop offset="0.18" stop-color="#5ea0ef" stop-opacity="1"/>
+			<stop offset="1" stop-color="#0078d4" stop-opacity="1"/>
+		</radialGradient>
+		<linearGradient id="grad0-105" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-90.435149452297 0.5 0.5)">
+			<stop offset="0" stop-color="#cccccc" stop-opacity="1"/>
+			<stop offset="1" stop-color="#fcfcfc" stop-opacity="1"/>
+		</linearGradient>
+		<linearGradient id="grad0-113" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-90 0.5 0.5)">
+			<stop offset="0" stop-color="#cccccc" stop-opacity="1"/>
+			<stop offset="1" stop-color="#fcfcfc" stop-opacity="1"/>
+		</linearGradient>
+		<linearGradient id="grad0-214" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(90 0.5 0.5)">
+			<stop offset="0" stop-color="#b3b2b3" stop-opacity="1"/>
+			<stop offset="0.38" stop-color="#afaeaf" stop-opacity="1"/>
+			<stop offset="0.76" stop-color="#a2a2a2" stop-opacity="1"/>
+			<stop offset="1" stop-color="#979797" stop-opacity="1"/>
+		</linearGradient>
+		<linearGradient id="grad0-220" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(0 0.5 0.5)">
+			<stop offset="0" stop-color="#005ba1" stop-opacity="1"/>
+			<stop offset="0.07" stop-color="#0060a9" stop-opacity="1"/>
+			<stop offset="0.36" stop-color="#0071c8" stop-opacity="1"/>
+			<stop offset="0.52" stop-color="#0078d4" stop-opacity="1"/>
+			<stop offset="0.64" stop-color="#0074cd" stop-opacity="1"/>
+			<stop offset="0.82" stop-color="#006abb" stop-opacity="1"/>
+			<stop offset="1" stop-color="#005ba1" stop-opacity="1"/>
+		</linearGradient>
+		<linearGradient id="grad0-246" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-90 0.5 0.5)">
+			<stop offset="0" stop-color="#b3b3b3" stop-opacity="1"/>
+			<stop offset="0.26" stop-color="#c1c1c1" stop-opacity="1"/>
+			<stop offset="1" stop-color="#e6e6e6" stop-opacity="1"/>
+		</linearGradient>
+		<linearGradient id="grad0-438" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(116.95960434515 0.5 0.5)">
+			<stop offset="0" stop-color="#114a8b" stop-opacity="1"/>
+			<stop offset="1" stop-color="#0669bc" stop-opacity="1"/>
+		</linearGradient>
+		<linearGradient id="grad0-454" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(61.849084498542 0.5 0.5)">
+			<stop offset="0" stop-color="#3ccbf4" stop-opacity="1"/>
+			<stop offset="1" stop-color="#2892df" stop-opacity="1"/>
+		</linearGradient>
+	</defs>
+	<defs id="Markers">
+		<g id="lend4">
+			<path d="M 2 1 L 0 0 L 2 -1 L 2 1 " style="stroke:none"/>
+		</g>
+		<marker id="mrkr4-342" class="st40" v:arrowType="4" v:arrowSize="2" v:setback="5.36" refX="-5.36" orient="auto"
+				markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend4" transform="scale(-2.68,-2.68) "/>
+		</marker>
+		<marker id="mrkr4-419" class="st40" v:arrowType="4" v:arrowSize="2" v:setback="5.12" refX="5.12" orient="auto"
+				markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend4" transform="scale(2.68) "/>
+		</marker>
+	</defs>
+	<g v:mID="12" v:index="1" v:groupContext="backgroundPage">
+		<v:userDefs>
+			<v:ud v:nameU="msvThemeOrder" v:val="VT0(0):26"/>
+			<v:ud v:nameU="msvVisioCreated" v:prompt="" v:val="VT0(0):26"/>
+		</v:userDefs>
+		<title>VBackground-1</title>
+		<v:pageProperties width="13.5" height="9.59375" v:drawingScale="1" v:pageScale="1" v:drawingUnits="19" v:shadowOffsetX="9"
+				v:shadowOffsetY="-9"/>
+		<g id="shape1000-1" v:mID="1000" v:groupContext="shape">
+			<title>Solid.1000</title>
+			<v:userDefs>
+				<v:ud v:nameU="Background" v:val="VT0(0):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="msvShapeCategories" v:prompt="" v:val="VT4(DoNotContain)"/>
+				<v:ud v:nameU="msvVisioCreated" v:prompt="" v:val="VT0(0):26"/>
+			</v:userDefs>
+			<rect x="0" y="0" width="972" height="690.75" class="st1"/>
+		</g>
+	</g>
+	<g v:mID="8" v:index="2" v:groupContext="foregroundPage">
+		<v:userDefs>
+			<v:ud v:nameU="msvThemeOrder" v:val="VT0(0):26"/>
+			<v:ud v:nameU="visNavType" v:val="VT0(1):26"/>
+			<v:ud v:nameU="ShowU" v:val="VT0(1):5"/>
+		</v:userDefs>
+		<title>product-recommendations</title>
+		<v:pageProperties v:drawingScale="1" v:pageScale="1" v:drawingUnits="19" v:shadowOffsetX="9" v:shadowOffsetY="-9"/>
+		<v:layer v:name="Electrical" v:index="0"/>
+		<v:layer v:name="Common Icons" v:index="1"/>
+		<g id="shape1168-3" v:mID="1168" v:groupContext="shape" transform="translate(272.125,-78.75)">
+			<title>Sheet.1168</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(36000):26"/>
+			</v:userDefs>
+			<rect x="0" y="483.75" width="119.25" height="207" class="st2"/>
+		</g>
+		<g id="shape1160-5" v:mID="1160" v:groupContext="shape" transform="translate(411.75,-312.75)">
+			<title>Sheet.1160</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(28000):26"/>
+			</v:userDefs>
+			<rect x="0" y="582.75" width="405" height="108" class="st3"/>
+		</g>
+		<g id="shape1159-7" v:mID="1159" v:groupContext="shape" transform="translate(411.75,-456.75)">
+			<title>Sheet.1159</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(27000):26"/>
+			</v:userDefs>
+			<rect x="0" y="582.75" width="405" height="108" class="st3"/>
+		</g>
+		<g id="group1000-9" transform="translate(450.335,-516.827)" v:mID="1000" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(1000):26"/>
+			</v:userDefs>
+			<title>Sheet.1000</title>
+			<g id="shape1001-10" v:mID="1001" v:groupContext="shape">
+				<title>Document/ file.1310</title>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<path d="M16.8 657.15 L25.2 665.55 L16.8 665.55 L16.8 657.15 ZM0 657.15 L0 690.75 L25.2 690.75 L25.2 665.55 L16.8
+							 665.55 L16.8 657.15 L0 657.15 Z" class="st4"/>
+			</g>
+			<g id="group1002-12" transform="translate(4.2,-9.55331)" v:mID="1002" v:groupContext="group">
+				<title>Sheet.1002</title>
+				<g id="shape1003-13" v:mID="1003" v:groupContext="shape" transform="translate(8.22122,-8.88373)">
+					<title>Sheet.1003</title>
+					<path d="M2.54 688.41 C2.49 687.73 1.92 687.19 1.25 687.19 C0.56 687.19 0 687.75 0 688.44 L0 689.46 C0 690.12
+								 0.54 690.69 1.25 690.75 C1.95 690.75 2.55 690.16 2.55 689.46 L2.54 688.41 ZM1.76 689.46 C1.76 689.76
+								 1.49 689.97 1.28 689.97 C1.01 689.94 0.78 689.72 0.78 689.46 L0.78 688.44 C0.78 688.19 1 687.97
+								 1.25 687.97 C1.51 687.97 1.74 688.2 1.76 688.44 L1.76 689.46 Z" class="st5"/>
+				</g>
+				<g id="shape1004-15" v:mID="1004" v:groupContext="shape" transform="translate(6.03647,-8.86909)">
+					<title>Sheet.1004</title>
+					<path d="M0.44 690.75 C0.2 690.75 0 690.55 0 690.31 L0 687.64 C0 687.39 0.2 687.2 0.44 687.2 C0.68 687.2 0.88
+								 687.39 0.88 687.64 L0.88 690.31 C0.88 690.55 0.68 690.75 0.44 690.75 Z" class="st6"/>
+				</g>
+				<g id="shape1005-17" v:mID="1005" v:groupContext="shape" transform="translate(2.18768,-8.88373)">
+					<title>Sheet.1005</title>
+					<path d="M2.54 688.41 C2.49 687.73 1.92 687.19 1.25 687.19 C0.56 687.19 0 687.75 0 688.44 L0 689.46 C0 690.12
+								 0.54 690.69 1.25 690.75 C1.95 690.75 2.55 690.16 2.55 689.46 L2.54 688.41 ZM1.76 689.46 C1.76 689.76
+								 1.49 689.97 1.29 689.97 C1.01 689.94 0.78 689.72 0.78 689.46 L0.78 688.44 C0.78 688.19 1 687.97
+								 1.25 687.97 C1.51 687.97 1.74 688.2 1.76 688.44 L1.76 689.46 Z" class="st5"/>
+				</g>
+				<g id="shape1006-19" v:mID="1006" v:groupContext="shape" transform="translate(8.36831E-15,-8.86909)">
+					<title>Sheet.1006</title>
+					<path d="M0.44 690.75 C0.2 690.75 0 690.55 0 690.31 L0 687.64 C0 687.39 0.2 687.2 0.44 687.2 C0.69 687.2 0.88
+								 687.39 0.88 687.64 L0.88 690.31 C0.88 690.55 0.69 690.75 0.44 690.75 Z" class="st6"/>
+				</g>
+				<g id="shape1007-21" v:mID="1007" v:groupContext="shape" transform="translate(14.2548,-8.88373)">
+					<title>Sheet.1007</title>
+					<path d="M2.54 688.41 C2.49 687.73 1.92 687.19 1.25 687.19 C0.56 687.19 0 687.75 0 688.44 L0 689.46 C0 690.12
+								 0.54 690.69 1.25 690.75 C1.95 690.75 2.55 690.16 2.55 689.46 L2.54 688.41 ZM1.76 689.46 C1.76 689.76
+								 1.49 689.97 1.28 689.97 C1.01 689.94 0.78 689.72 0.78 689.46 L0.78 688.44 C0.78 688.19 1 687.97
+								 1.25 687.97 C1.51 687.97 1.74 688.2 1.76 688.44 L1.76 689.46 Z" class="st5"/>
+				</g>
+				<g id="shape1008-23" v:mID="1008" v:groupContext="shape" transform="translate(12.0671,-8.86909)">
+					<title>Sheet.1008</title>
+					<path d="M0.44 690.75 C0.2 690.75 0 690.55 0 690.31 L0 687.64 C0 687.39 0.2 687.2 0.44 687.2 C0.68 687.2 0.88
+								 687.39 0.88 687.64 L0.88 690.31 C0.88 690.55 0.69 690.75 0.44 690.75 Z" class="st6"/>
+				</g>
+				<g id="shape1009-25" v:mID="1009" v:groupContext="shape" transform="translate(8.22122,-0.0142172)">
+					<title>Sheet.1009</title>
+					<path d="M2.54 688.41 C2.49 687.73 1.92 687.19 1.25 687.19 C0.56 687.19 0 687.75 0 688.44 L0 689.46 C0 690.12
+								 0.54 690.69 1.25 690.75 C1.95 690.75 2.55 690.16 2.55 689.46 L2.54 688.41 ZM1.76 689.46 C1.76 689.76
+								 1.49 689.97 1.28 689.97 C1.01 689.94 0.78 689.72 0.78 689.46 L0.78 688.44 C0.78 688.19 1 687.97
+								 1.25 687.97 C1.51 687.97 1.74 688.2 1.76 688.44 L1.76 689.46 Z" class="st5"/>
+				</g>
+				<g id="shape1010-27" v:mID="1010" v:groupContext="shape" transform="translate(6.03647,0)">
+					<title>Sheet.1010</title>
+					<path d="M0.44 690.75 C0.2 690.75 0 690.55 0 690.31 L0 687.64 C0 687.4 0.2 687.2 0.44 687.2 C0.68 687.2 0.88
+								 687.4 0.88 687.64 L0.88 690.31 C0.88 690.55 0.68 690.75 0.44 690.75 Z" class="st6"/>
+				</g>
+				<g id="shape1011-29" v:mID="1011" v:groupContext="shape" transform="translate(2.18768,-0.0142172)">
+					<title>Sheet.1011</title>
+					<path d="M2.54 688.41 C2.49 687.73 1.92 687.19 1.25 687.19 C0.56 687.19 0 687.75 0 688.44 L0 689.46 C0 690.12
+								 0.54 690.69 1.25 690.75 C1.95 690.75 2.55 690.16 2.55 689.46 L2.54 688.41 ZM1.76 689.46 C1.76 689.76
+								 1.49 689.97 1.29 689.97 C1.01 689.94 0.78 689.72 0.78 689.46 L0.78 688.44 C0.78 688.19 1 687.97
+								 1.25 687.97 C1.51 687.97 1.74 688.2 1.76 688.44 L1.76 689.46 Z" class="st5"/>
+				</g>
+				<g id="shape1012-31" v:mID="1012" v:groupContext="shape" transform="translate(0.00309483,0)">
+					<title>Sheet.1012</title>
+					<path d="M0.44 690.75 C0.2 690.75 0 690.55 0 690.31 L0 687.64 C0 687.4 0.2 687.2 0.44 687.2 C0.68 687.2 0.88
+								 687.4 0.88 687.64 L0.88 690.31 C0.88 690.55 0.68 690.75 0.44 690.75 Z" class="st6"/>
+				</g>
+				<g id="shape1013-33" v:mID="1013" v:groupContext="shape" transform="translate(14.2548,-0.0142172)">
+					<title>Sheet.1013</title>
+					<path d="M2.54 688.41 C2.49 687.73 1.92 687.19 1.25 687.19 C0.56 687.19 0 687.75 0 688.44 L0 689.46 C0 690.12
+								 0.54 690.69 1.25 690.75 C1.95 690.75 2.55 690.16 2.55 689.46 L2.54 688.41 ZM1.76 689.46 C1.76 689.76
+								 1.49 689.97 1.28 689.97 C1.01 689.94 0.78 689.72 0.78 689.46 L0.78 688.44 C0.78 688.19 1 687.97
+								 1.25 687.97 C1.51 687.97 1.74 688.2 1.76 688.44 L1.76 689.46 Z" class="st5"/>
+				</g>
+				<g id="shape1014-35" v:mID="1014" v:groupContext="shape" transform="translate(12.0671,0)">
+					<title>Sheet.1014</title>
+					<path d="M0.44 690.75 C0.2 690.75 0 690.55 0 690.31 L0 687.64 C0 687.4 0.2 687.2 0.44 687.2 C0.68 687.2 0.88
+								 687.4 0.88 687.64 L0.88 690.31 C0.88 690.55 0.69 690.75 0.44 690.75 Z" class="st6"/>
+				</g>
+				<g id="shape1015-37" v:mID="1015" v:groupContext="shape" transform="translate(6.03373,-4.40502)">
+					<title>Sheet.1015</title>
+					<path d="M0 689.53 C0.06 690.21 0.63 690.75 1.29 690.75 C1.98 690.75 2.55 690.19 2.55 689.5 L2.55 688.48 C2.55
+								 687.81 2.01 687.25 1.29 687.19 C0.59 687.19 0 687.78 0 688.48 L0 689.53 ZM0.78 688.48 C0.78 688.18
+								 1.05 687.97 1.26 687.97 C1.54 687.99 1.76 688.22 1.76 688.48 L1.76 689.5 C1.76 689.75 1.55 689.97
+								 1.29 689.97 C1.03 689.97 0.8 689.74 0.78 689.5 L0.78 688.48 Z" class="st6"/>
+				</g>
+				<g id="shape1016-39" v:mID="1016" v:groupContext="shape" transform="translate(9.8825,-4.43191)">
+					<title>Sheet.1016</title>
+					<path d="M0.44 687.2 C0.68 687.2 0.88 687.4 0.88 687.64 L0.88 690.31 C0.88 690.55 0.68 690.75 0.44 690.75 C0.2
+								 690.75 0 690.55 0 690.31 L0 687.64 C0 687.4 0.2 687.2 0.44 687.2 Z" class="st5"/>
+				</g>
+				<g id="shape1017-41" v:mID="1017" v:groupContext="shape" transform="translate(12.0671,-4.40502)">
+					<title>Sheet.1017</title>
+					<path d="M0 689.53 C0.06 690.21 0.63 690.75 1.29 690.75 C1.98 690.75 2.55 690.19 2.55 689.5 L2.55 688.48 C2.55
+								 687.81 2.01 687.25 1.29 687.19 C0.59 687.19 0 687.78 0 688.48 L0 689.53 ZM0.78 688.48 C0.78 688.18
+								 1.05 687.97 1.26 687.97 C1.54 687.99 1.76 688.22 1.76 688.48 L1.76 689.5 C1.76 689.75 1.55 689.97
+								 1.29 689.97 C1.03 689.97 0.8 689.74 0.78 689.5 L0.78 688.48 Z" class="st6"/>
+				</g>
+				<g id="shape1018-43" v:mID="1018" v:groupContext="shape" transform="translate(15.916,-4.43191)">
+					<title>Sheet.1018</title>
+					<path d="M0.44 687.2 C0.68 687.2 0.88 687.4 0.88 687.64 L0.88 690.31 C0.88 690.55 0.68 690.75 0.44 690.75 C0.2
+								 690.75 0 690.55 0 690.31 L0 687.64 C0 687.4 0.2 687.2 0.44 687.2 Z" class="st5"/>
+				</g>
+				<g id="shape1019-45" v:mID="1019" v:groupContext="shape" transform="translate(0.000180962,-4.40502)">
+					<title>Sheet.1019</title>
+					<path d="M0 689.53 C0.06 690.21 0.63 690.75 1.29 690.75 C1.98 690.75 2.55 690.19 2.55 689.5 L2.55 688.48 C2.55
+								 687.81 2.01 687.25 1.29 687.19 C0.59 687.19 0 687.78 0 688.48 L0 689.53 ZM0.78 688.48 C0.78 688.18
+								 1.05 687.97 1.26 687.97 C1.54 687.99 1.76 688.22 1.76 688.48 L1.76 689.5 C1.76 689.75 1.55 689.97
+								 1.29 689.97 C1.03 689.97 0.8 689.74 0.78 689.5 L0.78 688.48 Z" class="st6"/>
+				</g>
+				<g id="shape1020-47" v:mID="1020" v:groupContext="shape" transform="translate(3.84895,-4.43191)">
+					<title>Sheet.1020</title>
+					<path d="M0.44 687.2 C0.68 687.2 0.88 687.4 0.88 687.64 L0.88 690.31 C0.88 690.55 0.68 690.75 0.44 690.75 C0.2
+								 690.75 0 690.55 0 690.31 L0 687.64 C0 687.4 0.2 687.2 0.44 687.2 Z" class="st5"/>
+				</g>
+			</g>
+		</g>
+		<g id="group1021-49" transform="translate(196.75,-638.699)" v:mID="1021" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(2000):26"/>
+			</v:userDefs>
+			<title>Event Hubs.1233</title>
+			<g id="shape1022-50" v:mID="1022" v:groupContext="shape" transform="translate(16.3694,-11.3659)">
+				<title>Sheet.1022</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M5.51 682.55 a0.550588 0.61823 0 0 1 -0.508235 0.642008 L0.57 683.19 a0.550588 0.61823 0 0 1 -0.571765 -0.570674
+							 L0 678.91 a0.550588 0.61823 0 0 1 0.508235 -0.642008 L4.93 678.27 a0.550588 0.61823 0 0 1 0.571765 0.570674
+							 L5.51 682.55 ZM13.36 686.3 a0.550588 0.61823 0 0 1 -0.508235 0.642008 L8.43 686.95 a0.550588 0.61823
+							 0 0 1 -0.571765 -0.570674 L7.86 682.69 a0.550588 0.61823 0 0 1 0.508235 -0.642008 L12.79 682.05 a0.550588
+							 0.61823 0 0 1 0.571765 0.570674 L13.36 686.3 ZM5.51 690.11 a0.550588 0.61823 0 0 1 -0.508235 0.642008
+							 L0.57 690.75 a0.550588 0.61823 0 0 1 -0.571765 -0.570674 L0 686.47 a0.550588 0.61823 0 0 1 0.508235
+							 -0.642008 L4.93 685.83 a0.550588 0.61823 0 0 1 0.571765 0.570674 L5.51 690.11 Z" class="st7"/>
+			</g>
+			<g id="shape1023-52" v:mID="1023" v:groupContext="shape" transform="translate(8.40706,-22.7081)">
+				<title>Sheet.1023</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M5.61 690.13 a0.529412 0.594452 0 0 1 -0.487059 0.61823 L0.57 690.75 a0.550588 0.61823 0 0 1 -0.571765 -0.546896
+							 L0 686.35 a0.550588 0.61823 0 0 1 0.508235 -0.594452 L4.93 685.76 C5.4 685.76 5.61 686.02 5.61 686.4
+							 L5.61 690.13 Z" class="st8"/>
+			</g>
+			<g id="shape1024-54" v:mID="1024" v:groupContext="shape" transform="translate(8.40706,-7.5852)">
+				<title>Sheet.1024</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M5.61 682.52 a0.529412 0.594452 0 0 1 -0.487059 0.642008 L0.57 683.16 a0.550588 0.61823 0 0 1 -0.571765
+							 -0.642008 L0 678.77 a0.550588 0.61823 0 0 1 0.508235 -0.61823 L4.93 678.15 C5.4 678.15 5.61 678.41 5.61
+							 678.77 L5.61 682.52 ZM5.61 690.11 a0.529412 0.594452 0 0 1 -0.487059 0.642008 L0.57 690.75 a0.550588
+							 0.61823 0 0 1 -0.571765 -0.570674 L0 686.33 a0.529412 0.594452 0 0 1 0.508235 -0.61823 L4.93 685.71
+							 C5.4 685.71 5.61 685.95 5.61 686.33 L5.61 690.11 Z" class="st7"/>
+			</g>
+			<g id="group1025-56" transform="translate(3.59712E-14,-26.7503)" v:mID="1025" v:groupContext="group">
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<title>Sheet.1025</title>
+				<g id="shape1026-57" v:mID="1026" v:groupContext="shape">
+					<title>Sheet.1026</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<path d="M1.21 681.5 L3.94 681.5 L3.94 690.06 a0.614118 0.689564 0 0 1 -0.614118 0.689564 L0.61 690.75 a0.614118
+								 0.689564 0 0 1 -0.614118 -0.689564 L0 682.93 A1.20706 1.35535 0 0 1 1.21 681.5 Z" class="st9"/>
+				</g>
+				<g id="shape1027-59" v:mID="1027" v:groupContext="shape">
+					<title>Sheet.1027</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<path d="M1.21 681.5 L3.94 681.5 L3.94 690.06 a0.614118 0.689564 0 0 1 -0.614118 0.689564 L0.61 690.75 a0.614118
+								 0.689564 0 0 1 -0.614118 -0.689564 L0 682.93 A1.20706 1.35535 0 0 1 1.21 681.5 Z" class="st10"/>
+				</g>
+			</g>
+			<g id="group1028-61" transform="translate(32.04,-26.8217)" v:mID="1028" v:groupContext="group">
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<title>Sheet.1028</title>
+				<g id="shape1029-62" v:mID="1029" v:groupContext="shape">
+					<title>Sheet.1029</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<path d="M0.02 681.57 L2.75 681.57 A1.20706 1.35535 0 0 1 3.96 682.93 L3.96 690.06 a0.614118 0.689564 0 0 1 -0.614118
+								 0.689564 L0.61 690.75 a0.614118 0.689564 0 0 1 -0.614118 -0.689564 L0 681.57 L0.02 681.57 Z"
+							class="st9"/>
+				</g>
+				<g id="shape1030-64" v:mID="1030" v:groupContext="shape">
+					<title>Sheet.1030</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<path d="M0.02 681.57 L2.75 681.57 A1.20706 1.35535 0 0 1 3.96 682.93 L3.96 690.06 a0.614118 0.689564 0 0 1 -0.614118
+								 0.689564 L0.61 690.75 a0.614118 0.689564 0 0 1 -0.614118 -0.689564 L0 681.57 L0.02 681.57 Z"
+							class="st10"/>
+				</g>
+			</g>
+			<g id="shape1031-66" v:mID="1031" v:groupContext="shape" transform="translate(0,-31.6724)">
+				<title>Sheet.1031</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M36 687.78 L36 690.75 L0 690.75 L0 687.78 A1.20706 1.35535 0 0 1 1.21 686.42 L34.81 686.42 A1.20706 1.35535
+							 0 0 1 36 687.78 Z" class="st11"/>
+			</g>
+			<g id="group1032-68" v:mID="1032" v:groupContext="group">
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<title>Sheet.1032</title>
+				<g id="shape1033-69" v:mID="1033" v:groupContext="shape">
+					<title>Sheet.1033</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<path d="M0.61 681.5 L3.35 681.5 a0.614118 0.689564 0 0 1 0.614118 0.689564 L3.96 690.75 L1.21 690.75 A1.20706
+								 1.35535 0 0 1 0 689.39 L0 682.07 a0.614118 0.689564 0 0 1 0.614118 -0.570674 Z" class="st9"/>
+				</g>
+				<g id="shape1034-71" v:mID="1034" v:groupContext="shape">
+					<title>Sheet.1034</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<path d="M0.61 681.5 L3.35 681.5 a0.614118 0.689564 0 0 1 0.614118 0.689564 L3.96 690.75 L1.21 690.75 A1.20706
+								 1.35535 0 0 1 0 689.39 L0 682.07 a0.614118 0.689564 0 0 1 0.614118 -0.570674 Z" class="st10"/>
+				</g>
+			</g>
+			<g id="group1035-73" transform="translate(32.0612,-0.0713342)" v:mID="1035" v:groupContext="group">
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<title>Sheet.1035</title>
+				<g id="shape1036-74" v:mID="1036" v:groupContext="shape">
+					<title>Sheet.1036</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<path d="M0.59 681.57 L3.32 681.57 a0.614118 0.689564 0 0 1 0.614118 0.689564 L3.94 689.39 A1.20706 1.35535 0
+								 0 1 2.73 690.75 L0 690.75 L0 682.14 a0.614118 0.689564 0 0 1 0.592941 -0.570674 Z" class="st9"/>
+				</g>
+				<g id="shape1037-76" v:mID="1037" v:groupContext="shape">
+					<title>Sheet.1037</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<path d="M0.59 681.57 L3.32 681.57 a0.614118 0.689564 0 0 1 0.614118 0.689564 L3.94 689.39 A1.20706 1.35535 0
+								 0 1 2.73 690.75 L0 690.75 L0 682.14 a0.614118 0.689564 0 0 1 0.592941 -0.570674 Z" class="st10"/>
+				</g>
+			</g>
+			<g id="shape1038-78" v:mID="1038" v:groupContext="shape">
+				<title>Sheet.1038</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M0 689.39 L0 686.42 L36 686.42 L36 689.39 A1.20706 1.35535 0 0 1 34.79 690.75 L1.21 690.75 A1.20706 1.35535
+							 0 0 1 0 689.39 Z" class="st11"/>
+			</g>
+		</g>
+		<g id="group1039-80" transform="translate(313.75,-641.468)" v:mID="1039" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(3000):26"/>
+			</v:userDefs>
+			<title>Stream Analytics Jobs.1251</title>
+			<g id="shape1040-81" v:mID="1040" v:groupContext="shape" transform="translate(8.29348,0)">
+				<title>Sheet.1040</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M27.71 675.66 L27.71 671.79 L27.51 671.59 L23.83 670.25 L22.89 667.68 L24.71 663.62 L24.91 663.16 L23.71
+							 661.84 L22.31 660.35 L21.83 660.61 L18.22 662.58 L15.8 661.84 L14.24 657.52 L10.66 657.52 L10.48 657.71
+							 L9.24 661.67 L6.72 662.69 L2.56 660.52 L0 663.23 L0.24 663.75 L2.16 667.68 A12.0028 12.9723 0 0 1 8.56
+							 665.82 A12.5229 13.5345 0 0 1 15.7 668.29 A6.64156 7.17802 0 0 1 16.42 668.85 A6.50153 7.02668 0 0 1
+							 18.28 671.77 A6.00141 6.48616 0 0 1 18.7 674.17 A6.46152 6.98343 0 0 1 12.2 681.15 A6.54154 7.06992
+							 0 0 1 8.46 679.87 A12.623 13.6426 0 0 1 0.46 683.66 L0.08 684.5 L2.64 687.29 L3.16 687.14 L6.76 684.98
+							 L9.24 686.08 L10.82 690.75 L14.42 690.75 L14.56 690.21 L15.84 686.08 L18.28 684.98 L22.51 687.14 L25.05
+							 684.42 L24.81 683.9 L22.95 680.03 L23.71 677.32 L27.71 675.66 Z" class="st12"/>
+			</g>
+			<g id="shape1041-85" v:mID="1041" v:groupContext="shape" transform="translate(2.72669,-13.0156)">
+				<title>Sheet.1041</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M5.27 690.75 A7.2017 7.78339 0 0 1 0.15 688.48 a0.920217 0.994545 0 1 1 1.30031 -1.29723 A5.30125 5.72944
+							 -180 0 0 5.27 688.76 A5.24123 5.66458 -180 0 0 9.03 687.18 A7.10167 7.67529 0 0 1 14.13 685.02 A7.28171
+							 7.86988 0 0 1 19.27 687.18 a0.920217 0.994545 0 1 1 -1.30031 1.40534 A5.38127 5.81593 -180 0 0 14.19
+							 686.9 A5.22123 5.64296 -180 0 0 10.43 688.59 A7.2217 7.80501 0 0 1 5.27 690.75 Z" class="st13"/>
+			</g>
+			<g id="shape1042-87" v:mID="1042" v:groupContext="shape" transform="translate(5.47281,-16.9721)">
+				<title>Sheet.1042</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M2.52 690.75 A3.58084 3.87008 0 0 1 0 689.63 a0.920217 0.994545 0 0 1 1.30031 -1.40534 A1.6804 1.81613 -180
+							 0 0 2.52 688.76 A2.16051 2.33502 -180 0 0 3.72 688.22 A10.9226 11.8048 0 0 1 19.06 688.22 a0.920217
+							 0.994545 0 0 1 -1.30031 1.40534 A9.10214 9.83735 -180 0 0 4.94 689.63 A3.88091 4.19438 0 0 1 2.52 690.75
+							 Z" class="st13"/>
+			</g>
+			<g id="shape1043-89" v:mID="1043" v:groupContext="shape" transform="translate(0,-9.05901)">
+				<title>Sheet.1043</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M7.99 690.75 A10.8225 11.6967 0 0 1 0.25 687.31 a0.940221 1.01617 0 0 1 -1.15463E-14 -1.38371 a0.940221
+							 1.01617 0 0 1 1.32031 0 A8.94211 9.66438 -180 0 0 7.99 688.78 A9.00212 9.72924 -180 0 0 14.39 685.91
+							 A3.88091 4.19438 0 0 1 16.82 684.85 A3.66086 3.95656 0 0 1 19.32 685.97 a0.920217 0.994545 0 0 1 0 1.40534
+							 a0.940221 1.01617 0 0 1 -1.32031 0 A1.66039 1.7945 -180 0 0 16.82 686.84 A2.00047 2.16205 -180 0 0 15.62
+							 687.4 A10.8225 11.6967 0 0 1 7.99 690.75 Z" class="st14"/>
+			</g>
+		</g>
+		<g id="group1045-91" transform="translate(68.5,-638.699)" v:mID="1045" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(5000):26"/>
+			</v:userDefs>
+			<title>Icon-web-41</title>
+			<g id="shape1046-92" v:mID="1046" v:groupContext="shape" transform="translate(1.44459,1.13687E-13)">
+				<title>ee75dd06-1aca-4f76-9d11-d05a284</title>
+				<path d="M27.36 690.75 A19.4975 19.4975 0 0 1 3.46 659.93 L3.67 659.79 A19.4904 19.4904 0 0 1 27.36 690.75 Z"
+						class="st15"/>
+			</g>
+			<g id="shape1047-96" v:mID="1047" v:groupContext="shape" transform="translate(8.46115,-19.4675)">
+				<title>Sheet.1047</title>
+				<path d="M3.1 690.75 A29.8089 29.8089 0 0 1 23.53 682.54 A19.4217 19.4217 -180 0 0 20.11 679.24 A32.8815 32.8815
+							 -180 0 0 9.36 681.76 A28.7541 28.7541 -180 0 0 -0 688.23 A6.32866 6.32866 0 0 1 3.1 690.75 Z"
+						class="st16"/>
+			</g>
+			<g id="shape1048-98" v:mID="1048" v:groupContext="shape" transform="translate(-3.59712E-14,-2.01783)">
+				<title>Sheet.1048</title>
+				<path d="M1.9 681.14 A40.9529 40.9529 -180 0 0 0 687.15 A17.9312 17.9312 -180 0 0 1.42 689.26 C1.83 689.79 2.22 690.27
+							 2.68 690.75 A41.1363 41.1363 0 0 1 5.16 682.79 A6.32866 6.32866 0 0 1 1.9 681.14 Z" class="st16"/>
+			</g>
+			<g id="shape1049-100" v:mID="1049" v:groupContext="shape" transform="translate(0.0458599,-19.9949)">
+				<title>Sheet.1049</title>
+				<path d="M4.1 688.71 A27.5159 27.5159 0 0 1 2.52 681.97 A18.6879 18.6879 -180 0 0 0 685.29 A29.0981 29.0981 -180
+							 0 0 1.31 690.75 A6.16815 6.16815 0 0 1 4.1 688.71 Z" class="st17"/>
+			</g>
+			<g id="shape1050-102" v:mID="1050" v:groupContext="shape" transform="translate(0,-9.8828)">
+				<title>Sheet.1050</title>
+				<ellipse cx="6.25987" cy="684.49" rx="6.25987" ry="6.25987" class="st18"/>
+			</g>
+			<g id="shape1051-106" v:mID="1051" v:groupContext="shape" transform="translate(7.40637,-4.17325)">
+				<title>Sheet.1051</title>
+				<path d="M7.98 690.22 A4.0586 4.0586 0 0 1 9.22 687.31 A27.2408 27.2408 0 0 1 3.42 683.05 A6.2828 6.2828 0 0 1 0
+							 684.95 A30.0382 30.0382 -180 0 0 3.32 687.88 A27.7911 27.7911 -180 0 0 8.03 690.75 A4.10446 4.10446
+							 0 0 1 7.98 690.22 Z" class="st17"/>
+			</g>
+			<g id="shape1052-108" v:mID="1052" v:groupContext="shape" transform="translate(22.3338,-1.30701)">
+				<title>Sheet.1052</title>
+				<path d="M7.5 687.84 A27.5159 27.5159 0 0 1 1.17 687.1 a0.940127 0.940127 0 0 1 -2.88658E-15 0.252229 A4.01274 4.01274
+							 0 0 1 0 690.2 A31.3911 31.3911 -180 0 0 7.84 690.75 A18.8255 18.8255 -180 0 0 10.57 687.68 A26.3694
+							 26.3694 0 0 1 7.5 687.84 Z" class="st17"/>
+			</g>
+			<g id="shape1053-110" v:mID="1053" v:groupContext="shape" transform="translate(15.3631,-0.619108)">
+				<title>Sheet.1053</title>
+				<ellipse cx="4.08153" cy="686.668" rx="4.08153" ry="4.08153" class="st19"/>
+			</g>
+			<g id="shape1054-114" v:mID="1054" v:groupContext="shape" transform="translate(8.55287,-15.5694)">
+				<title>Sheet.1054</title>
+				<path d="M15.91 690.75 A4.19618 4.19618 0 0 1 17.31 688.46 A58.4713 58.4713 0 0 1 7.09 678.96 A38.7745 38.7745 0
+							 0 1 2.5 672.27 A17.5185 17.5185 -180 0 0 -0 673.23 A41.5949 41.5949 -180 0 0 4.93 680.52 A60.6268 60.6268
+							 -180 0 0 15.91 690.75 Z" class="st20"/>
+			</g>
+			<g id="shape1055-116" v:mID="1055" v:groupContext="shape" transform="translate(24.3975,-10.4561)">
+				<title>Sheet.1055</title>
+				<ellipse cx="4.33376" cy="686.416" rx="4.33376" ry="4.33376" class="st19"/>
+			</g>
+			<g id="shape1056-119" v:mID="1056" v:groupContext="shape" transform="translate(31.4369,-9.37834)">
+				<title>Sheet.1056</title>
+				<path d="M4.56 688.25 L3.76 687.86 L3.07 687.49 L2.94 687.49 L2.34 687.01 L2.18 687.01 L1.47 686.55 A4.03567 4.03567
+							 0 0 1 0 688.66 C0.28 688.85 0.57 689.01 0.87 689.17 L1.05 689.28 L1.86 689.72 L3.83 690.75 A19.7885
+							 19.7885 -180 0 0 4.49 688.2 L4.56 688.25 Z" class="st17"/>
+			</g>
+			<g id="shape1057-121" v:mID="1057" v:groupContext="shape" transform="translate(0,-9.8828)">
+				<title>Sheet.1057</title>
+				<ellipse cx="6.25987" cy="684.49" rx="6.25987" ry="6.25987" class="st18"/>
+			</g>
+			<g id="shape1058-124" v:mID="1058" v:groupContext="shape" transform="translate(15.3631,-0.619108)">
+				<title>Sheet.1058</title>
+				<ellipse cx="4.08153" cy="686.668" rx="4.08153" ry="4.08153" class="st19"/>
+			</g>
+		</g>
+		<g id="group1060-127" transform="translate(911.25,-520.127)" v:mID="1060" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(4000):26"/>
+			</v:userDefs>
+			<title>Sheet.1060</title>
+			<g id="shape1061-128" v:mID="1061" v:groupContext="shape">
+				<title>Sheet.1061</title>
+				<path d="M13.5 672.75 C13.82 672.75 14.11 672.81 14.38 672.93 C14.65 673.04 14.89 673.21 15.1 673.42 C15.3 673.62
+							 15.46 673.85 15.57 674.12 C15.69 674.39 15.75 674.68 15.75 675 L15.75 688.5 C15.75 688.82 15.69 689.11
+							 15.57 689.38 C15.46 689.65 15.3 689.89 15.1 690.1 C14.89 690.3 14.65 690.46 14.38 690.57 C14.11 690.69
+							 13.82 690.75 13.5 690.75 C13.18 690.75 12.89 690.69 12.62 690.57 C12.35 690.46 12.12 690.3 11.92 690.1
+							 C11.71 689.89 11.54 689.65 11.43 689.38 C11.31 689.11 11.25 688.82 11.25 688.5 L11.25 675 C11.25 674.68
+							 11.31 674.39 11.43 674.12 C11.54 673.85 11.71 673.62 11.92 673.42 C12.12 673.21 12.35 673.04 12.62 672.93
+							 C12.89 672.81 13.18 672.75 13.5 672.75 ZM20.25 677.25 C20.57 677.25 20.86 677.31 21.13 677.43 C21.4
+							 677.54 21.64 677.71 21.85 677.92 C22.05 678.12 22.21 678.35 22.32 678.62 C22.44 678.89 22.5 679.18 22.5
+							 679.5 L22.5 688.5 C22.5 688.82 22.44 689.11 22.32 689.38 C22.21 689.65 22.05 689.89 21.85 690.1 C21.64
+							 690.3 21.4 690.46 21.13 690.57 C20.86 690.69 20.57 690.75 20.25 690.75 C19.93 690.75 19.64 690.69 19.37
+							 690.57 C19.1 690.46 18.87 690.3 18.67 690.1 C18.46 689.89 18.29 689.65 18.18 689.38 C18.06 689.11 18
+							 688.82 18 688.5 L18 679.5 C18 679.18 18.06 678.89 18.18 678.62 C18.29 678.35 18.46 678.12 18.67 677.92
+							 C18.87 677.71 19.1 677.54 19.37 677.43 C19.64 677.31 19.93 677.25 20.25 677.25 ZM6.75 679.5 C7.07 679.5
+							 7.36 679.56 7.63 679.68 C7.9 679.79 8.14 679.96 8.35 680.17 C8.55 680.37 8.71 680.6 8.82 680.87 C8.94
+							 681.14 9 681.43 9 681.75 L9 688.5 C9 688.82 8.94 689.11 8.82 689.38 C8.71 689.65 8.55 689.89 8.35 690.1
+							 C8.14 690.3 7.9 690.46 7.63 690.57 C7.36 690.69 7.07 690.75 6.75 690.75 C6.43 690.75 6.14 690.69 5.87
+							 690.57 C5.6 690.46 5.37 690.3 5.17 690.1 C4.96 689.89 4.79 689.65 4.68 689.38 C4.56 689.11 4.5 688.82
+							 4.5 688.5 L4.5 681.75 C4.5 681.43 4.56 681.14 4.68 680.87 C4.79 680.6 4.96 680.37 5.17 680.17 C5.37
+							 679.96 5.6 679.79 5.87 679.68 C6.14 679.56 6.43 679.5 6.75 679.5 ZM27 670.5 C27.32 670.5 27.61 670.56
+							 27.88 670.68 C28.15 670.79 28.39 670.96 28.6 671.17 C28.8 671.37 28.96 671.6 29.07 671.87 C29.19 672.14
+							 29.25 672.43 29.25 672.75 L29.25 688.5 C29.25 688.82 29.19 689.11 29.07 689.38 C28.96 689.65 28.8 689.89
+							 28.6 690.1 C28.39 690.3 28.15 690.46 27.88 690.57 C27.61 690.69 27.32 690.75 27 690.75 C26.68 690.75
+							 26.39 690.69 26.12 690.57 C25.85 690.46 25.62 690.3 25.42 690.1 C25.21 689.89 25.04 689.65 24.93 689.38
+							 C24.81 689.11 24.75 688.82 24.75 688.5 L24.75 672.75 C24.75 672.43 24.81 672.14 24.93 671.87 C25.04
+							 671.6 25.21 671.37 25.42 671.17 C25.62 670.96 25.85 670.79 26.12 670.68 C26.39 670.56 26.68 670.5 27
+							 670.5 ZM31.5 663.75 C32.12 663.75 32.71 663.87 33.26 664.1 C33.8 664.34 34.27 664.66 34.68 665.07 C35.09
+							 665.48 35.41 665.96 35.65 666.51 C35.88 667.05 36 667.63 36 668.25 L36 681.75 C36 682.37 35.88 682.96
+							 35.65 683.51 C35.41 684.05 35.09 684.52 34.68 684.93 C34.27 685.34 33.8 685.66 33.26 685.9 C32.71 686.13
+							 32.12 686.25 31.5 686.25 L31.5 684 C31.82 684 32.11 683.94 32.38 683.82 C32.65 683.71 32.89 683.55 33.1
+							 683.35 C33.3 683.14 33.46 682.9 33.57 682.63 C33.69 682.36 33.75 682.07 33.75 681.75 L33.75 668.25 C33.75
+							 667.93 33.69 667.64 33.57 667.37 C33.46 667.1 33.3 666.87 33.1 666.67 C32.89 666.46 32.65 666.29 32.38
+							 666.18 C32.11 666.06 31.82 666 31.5 666 L4.5 666 C4.18 666 3.89 666.06 3.62 666.18 C3.35 666.29 3.12
+							 666.46 2.92 666.67 C2.71 666.87 2.54 667.1 2.43 667.37 C2.31 667.64 2.25 667.93 2.25 668.25 L2.25 685.65
+							 C1.57 685.27 1.03 684.73 0.62 684.05 C0.21 683.36 0 682.59 0 681.75 L0 668.25 C0 667.63 0.12 667.05
+							 0.35 666.51 C0.59 665.96 0.91 665.48 1.32 665.07 C1.73 664.66 2.21 664.34 2.76 664.1 C3.3 663.87 3.88
+							 663.75 4.5 663.75 L31.5 663.75 Z" class="st21"/>
+			</g>
+		</g>
+		<g id="group1062-130" transform="translate(581.74,-516.827)" v:mID="1062" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(6000):26"/>
+			</v:userDefs>
+			<title>Sheet.1062</title>
+			<g id="shape1063-131" v:mID="1063" v:groupContext="shape">
+				<title>Document/ file.1310</title>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<path d="M16.8 657.15 L25.2 665.55 L16.8 665.55 L16.8 657.15 ZM0 657.15 L0 690.75 L25.2 690.75 L25.2 665.55 L16.8
+							 665.55 L16.8 657.15 L0 657.15 Z" class="st4"/>
+			</g>
+			<g id="group1064-133" transform="translate(4.2,-9.55331)" v:mID="1064" v:groupContext="group">
+				<title>Sheet.1064</title>
+				<g id="shape1065-134" v:mID="1065" v:groupContext="shape" transform="translate(8.22122,-8.88373)">
+					<title>Sheet.1065</title>
+					<path d="M2.54 688.41 C2.49 687.73 1.92 687.19 1.25 687.19 C0.56 687.19 0 687.75 0 688.44 L0 689.46 C0 690.12
+								 0.54 690.69 1.25 690.75 C1.95 690.75 2.55 690.16 2.55 689.46 L2.54 688.41 ZM1.76 689.46 C1.76 689.76
+								 1.49 689.97 1.28 689.97 C1.01 689.94 0.78 689.72 0.78 689.46 L0.78 688.44 C0.78 688.19 1 687.97
+								 1.25 687.97 C1.51 687.97 1.74 688.2 1.76 688.44 L1.76 689.46 Z" class="st5"/>
+				</g>
+				<g id="shape1066-136" v:mID="1066" v:groupContext="shape" transform="translate(6.03647,-8.86909)">
+					<title>Sheet.1066</title>
+					<path d="M0.44 690.75 C0.2 690.75 0 690.55 0 690.31 L0 687.64 C0 687.39 0.2 687.2 0.44 687.2 C0.68 687.2 0.88
+								 687.39 0.88 687.64 L0.88 690.31 C0.88 690.55 0.68 690.75 0.44 690.75 Z" class="st6"/>
+				</g>
+				<g id="shape1067-138" v:mID="1067" v:groupContext="shape" transform="translate(2.18768,-8.88373)">
+					<title>Sheet.1067</title>
+					<path d="M2.54 688.41 C2.49 687.73 1.92 687.19 1.25 687.19 C0.56 687.19 0 687.75 0 688.44 L0 689.46 C0 690.12
+								 0.54 690.69 1.25 690.75 C1.95 690.75 2.55 690.16 2.55 689.46 L2.54 688.41 ZM1.76 689.46 C1.76 689.76
+								 1.49 689.97 1.29 689.97 C1.01 689.94 0.78 689.72 0.78 689.46 L0.78 688.44 C0.78 688.19 1 687.97
+								 1.25 687.97 C1.51 687.97 1.74 688.2 1.76 688.44 L1.76 689.46 Z" class="st5"/>
+				</g>
+				<g id="shape1068-140" v:mID="1068" v:groupContext="shape" transform="translate(8.36831E-15,-8.86909)">
+					<title>Sheet.1068</title>
+					<path d="M0.44 690.75 C0.2 690.75 0 690.55 0 690.31 L0 687.64 C0 687.39 0.2 687.2 0.44 687.2 C0.69 687.2 0.88
+								 687.39 0.88 687.64 L0.88 690.31 C0.88 690.55 0.69 690.75 0.44 690.75 Z" class="st6"/>
+				</g>
+				<g id="shape1069-142" v:mID="1069" v:groupContext="shape" transform="translate(14.2548,-8.88373)">
+					<title>Sheet.1069</title>
+					<path d="M2.54 688.41 C2.49 687.73 1.92 687.19 1.25 687.19 C0.56 687.19 0 687.75 0 688.44 L0 689.46 C0 690.12
+								 0.54 690.69 1.25 690.75 C1.95 690.75 2.55 690.16 2.55 689.46 L2.54 688.41 ZM1.76 689.46 C1.76 689.76
+								 1.49 689.97 1.28 689.97 C1.01 689.94 0.78 689.72 0.78 689.46 L0.78 688.44 C0.78 688.19 1 687.97
+								 1.25 687.97 C1.51 687.97 1.74 688.2 1.76 688.44 L1.76 689.46 Z" class="st5"/>
+				</g>
+				<g id="shape1070-144" v:mID="1070" v:groupContext="shape" transform="translate(12.0671,-8.86909)">
+					<title>Sheet.1070</title>
+					<path d="M0.44 690.75 C0.2 690.75 0 690.55 0 690.31 L0 687.64 C0 687.39 0.2 687.2 0.44 687.2 C0.68 687.2 0.88
+								 687.39 0.88 687.64 L0.88 690.31 C0.88 690.55 0.69 690.75 0.44 690.75 Z" class="st6"/>
+				</g>
+				<g id="shape1071-146" v:mID="1071" v:groupContext="shape" transform="translate(8.22122,-0.0142172)">
+					<title>Sheet.1071</title>
+					<path d="M2.54 688.41 C2.49 687.73 1.92 687.19 1.25 687.19 C0.56 687.19 0 687.75 0 688.44 L0 689.46 C0 690.12
+								 0.54 690.69 1.25 690.75 C1.95 690.75 2.55 690.16 2.55 689.46 L2.54 688.41 ZM1.76 689.46 C1.76 689.76
+								 1.49 689.97 1.28 689.97 C1.01 689.94 0.78 689.72 0.78 689.46 L0.78 688.44 C0.78 688.19 1 687.97
+								 1.25 687.97 C1.51 687.97 1.74 688.2 1.76 688.44 L1.76 689.46 Z" class="st5"/>
+				</g>
+				<g id="shape1072-148" v:mID="1072" v:groupContext="shape" transform="translate(6.03647,0)">
+					<title>Sheet.1072</title>
+					<path d="M0.44 690.75 C0.2 690.75 0 690.55 0 690.31 L0 687.64 C0 687.4 0.2 687.2 0.44 687.2 C0.68 687.2 0.88
+								 687.4 0.88 687.64 L0.88 690.31 C0.88 690.55 0.68 690.75 0.44 690.75 Z" class="st6"/>
+				</g>
+				<g id="shape1073-150" v:mID="1073" v:groupContext="shape" transform="translate(2.18768,-0.0142172)">
+					<title>Sheet.1073</title>
+					<path d="M2.54 688.41 C2.49 687.73 1.92 687.19 1.25 687.19 C0.56 687.19 0 687.75 0 688.44 L0 689.46 C0 690.12
+								 0.54 690.69 1.25 690.75 C1.95 690.75 2.55 690.16 2.55 689.46 L2.54 688.41 ZM1.76 689.46 C1.76 689.76
+								 1.49 689.97 1.29 689.97 C1.01 689.94 0.78 689.72 0.78 689.46 L0.78 688.44 C0.78 688.19 1 687.97
+								 1.25 687.97 C1.51 687.97 1.74 688.2 1.76 688.44 L1.76 689.46 Z" class="st5"/>
+				</g>
+				<g id="shape1074-152" v:mID="1074" v:groupContext="shape" transform="translate(0.00309483,0)">
+					<title>Sheet.1074</title>
+					<path d="M0.44 690.75 C0.2 690.75 0 690.55 0 690.31 L0 687.64 C0 687.4 0.2 687.2 0.44 687.2 C0.68 687.2 0.88
+								 687.4 0.88 687.64 L0.88 690.31 C0.88 690.55 0.68 690.75 0.44 690.75 Z" class="st6"/>
+				</g>
+				<g id="shape1075-154" v:mID="1075" v:groupContext="shape" transform="translate(14.2548,-0.0142172)">
+					<title>Sheet.1075</title>
+					<path d="M2.54 688.41 C2.49 687.73 1.92 687.19 1.25 687.19 C0.56 687.19 0 687.75 0 688.44 L0 689.46 C0 690.12
+								 0.54 690.69 1.25 690.75 C1.95 690.75 2.55 690.16 2.55 689.46 L2.54 688.41 ZM1.76 689.46 C1.76 689.76
+								 1.49 689.97 1.28 689.97 C1.01 689.94 0.78 689.72 0.78 689.46 L0.78 688.44 C0.78 688.19 1 687.97
+								 1.25 687.97 C1.51 687.97 1.74 688.2 1.76 688.44 L1.76 689.46 Z" class="st5"/>
+				</g>
+				<g id="shape1076-156" v:mID="1076" v:groupContext="shape" transform="translate(12.0671,0)">
+					<title>Sheet.1076</title>
+					<path d="M0.44 690.75 C0.2 690.75 0 690.55 0 690.31 L0 687.64 C0 687.4 0.2 687.2 0.44 687.2 C0.68 687.2 0.88
+								 687.4 0.88 687.64 L0.88 690.31 C0.88 690.55 0.69 690.75 0.44 690.75 Z" class="st6"/>
+				</g>
+				<g id="shape1077-158" v:mID="1077" v:groupContext="shape" transform="translate(6.03373,-4.40502)">
+					<title>Sheet.1077</title>
+					<path d="M0 689.53 C0.06 690.21 0.63 690.75 1.29 690.75 C1.98 690.75 2.55 690.19 2.55 689.5 L2.55 688.48 C2.55
+								 687.81 2.01 687.25 1.29 687.19 C0.59 687.19 0 687.78 0 688.48 L0 689.53 ZM0.78 688.48 C0.78 688.18
+								 1.05 687.97 1.26 687.97 C1.54 687.99 1.76 688.22 1.76 688.48 L1.76 689.5 C1.76 689.75 1.55 689.97
+								 1.29 689.97 C1.03 689.97 0.8 689.74 0.78 689.5 L0.78 688.48 Z" class="st6"/>
+				</g>
+				<g id="shape1078-160" v:mID="1078" v:groupContext="shape" transform="translate(9.8825,-4.43191)">
+					<title>Sheet.1078</title>
+					<path d="M0.44 687.2 C0.68 687.2 0.88 687.4 0.88 687.64 L0.88 690.31 C0.88 690.55 0.68 690.75 0.44 690.75 C0.2
+								 690.75 0 690.55 0 690.31 L0 687.64 C0 687.4 0.2 687.2 0.44 687.2 Z" class="st5"/>
+				</g>
+				<g id="shape1079-162" v:mID="1079" v:groupContext="shape" transform="translate(12.0671,-4.40502)">
+					<title>Sheet.1079</title>
+					<path d="M0 689.53 C0.06 690.21 0.63 690.75 1.29 690.75 C1.98 690.75 2.55 690.19 2.55 689.5 L2.55 688.48 C2.55
+								 687.81 2.01 687.25 1.29 687.19 C0.59 687.19 0 687.78 0 688.48 L0 689.53 ZM0.78 688.48 C0.78 688.18
+								 1.05 687.97 1.26 687.97 C1.54 687.99 1.76 688.22 1.76 688.48 L1.76 689.5 C1.76 689.75 1.55 689.97
+								 1.29 689.97 C1.03 689.97 0.8 689.74 0.78 689.5 L0.78 688.48 Z" class="st6"/>
+				</g>
+				<g id="shape1080-164" v:mID="1080" v:groupContext="shape" transform="translate(15.916,-4.43191)">
+					<title>Sheet.1080</title>
+					<path d="M0.44 687.2 C0.68 687.2 0.88 687.4 0.88 687.64 L0.88 690.31 C0.88 690.55 0.68 690.75 0.44 690.75 C0.2
+								 690.75 0 690.55 0 690.31 L0 687.64 C0 687.4 0.2 687.2 0.44 687.2 Z" class="st5"/>
+				</g>
+				<g id="shape1081-166" v:mID="1081" v:groupContext="shape" transform="translate(0.000180962,-4.40502)">
+					<title>Sheet.1081</title>
+					<path d="M0 689.53 C0.06 690.21 0.63 690.75 1.29 690.75 C1.98 690.75 2.55 690.19 2.55 689.5 L2.55 688.48 C2.55
+								 687.81 2.01 687.25 1.29 687.19 C0.59 687.19 0 687.78 0 688.48 L0 689.53 ZM0.78 688.48 C0.78 688.18
+								 1.05 687.97 1.26 687.97 C1.54 687.99 1.76 688.22 1.76 688.48 L1.76 689.5 C1.76 689.75 1.55 689.97
+								 1.29 689.97 C1.03 689.97 0.8 689.74 0.78 689.5 L0.78 688.48 Z" class="st6"/>
+				</g>
+				<g id="shape1082-168" v:mID="1082" v:groupContext="shape" transform="translate(3.84895,-4.43191)">
+					<title>Sheet.1082</title>
+					<path d="M0.44 687.2 C0.68 687.2 0.88 687.4 0.88 687.64 L0.88 690.31 C0.88 690.55 0.68 690.75 0.44 690.75 C0.2
+								 690.75 0 690.55 0 690.31 L0 687.64 C0 687.4 0.2 687.2 0.44 687.2 Z" class="st5"/>
+				</g>
+			</g>
+		</g>
+		<g id="group1083-170" transform="translate(733.695,-516.827)" v:mID="1083" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(7000):26"/>
+			</v:userDefs>
+			<title>Sheet.1083</title>
+			<g id="shape1084-171" v:mID="1084" v:groupContext="shape">
+				<title>Document/ file.1310</title>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<path d="M16.8 657.15 L25.2 665.55 L16.8 665.55 L16.8 657.15 ZM0 657.15 L0 690.75 L25.2 690.75 L25.2 665.55 L16.8
+							 665.55 L16.8 657.15 L0 657.15 Z" class="st4"/>
+			</g>
+			<g id="group1085-173" transform="translate(4.2,-9.55331)" v:mID="1085" v:groupContext="group">
+				<title>Sheet.1085</title>
+				<g id="shape1086-174" v:mID="1086" v:groupContext="shape" transform="translate(8.22122,-8.88373)">
+					<title>Sheet.1086</title>
+					<path d="M2.54 688.41 C2.49 687.73 1.92 687.19 1.25 687.19 C0.56 687.19 0 687.75 0 688.44 L0 689.46 C0 690.12
+								 0.54 690.69 1.25 690.75 C1.95 690.75 2.55 690.16 2.55 689.46 L2.54 688.41 ZM1.76 689.46 C1.76 689.76
+								 1.49 689.97 1.28 689.97 C1.01 689.94 0.78 689.72 0.78 689.46 L0.78 688.44 C0.78 688.19 1 687.97
+								 1.25 687.97 C1.51 687.97 1.74 688.2 1.76 688.44 L1.76 689.46 Z" class="st5"/>
+				</g>
+				<g id="shape1087-176" v:mID="1087" v:groupContext="shape" transform="translate(6.03647,-8.86909)">
+					<title>Sheet.1087</title>
+					<path d="M0.44 690.75 C0.2 690.75 0 690.55 0 690.31 L0 687.64 C0 687.39 0.2 687.2 0.44 687.2 C0.68 687.2 0.88
+								 687.39 0.88 687.64 L0.88 690.31 C0.88 690.55 0.68 690.75 0.44 690.75 Z" class="st6"/>
+				</g>
+				<g id="shape1088-178" v:mID="1088" v:groupContext="shape" transform="translate(2.18768,-8.88373)">
+					<title>Sheet.1088</title>
+					<path d="M2.54 688.41 C2.49 687.73 1.92 687.19 1.25 687.19 C0.56 687.19 0 687.75 0 688.44 L0 689.46 C0 690.12
+								 0.54 690.69 1.25 690.75 C1.95 690.75 2.55 690.16 2.55 689.46 L2.54 688.41 ZM1.76 689.46 C1.76 689.76
+								 1.49 689.97 1.29 689.97 C1.01 689.94 0.78 689.72 0.78 689.46 L0.78 688.44 C0.78 688.19 1 687.97
+								 1.25 687.97 C1.51 687.97 1.74 688.2 1.76 688.44 L1.76 689.46 Z" class="st5"/>
+				</g>
+				<g id="shape1089-180" v:mID="1089" v:groupContext="shape" transform="translate(8.36831E-15,-8.86909)">
+					<title>Sheet.1089</title>
+					<path d="M0.44 690.75 C0.2 690.75 0 690.55 0 690.31 L0 687.64 C0 687.39 0.2 687.2 0.44 687.2 C0.69 687.2 0.88
+								 687.39 0.88 687.64 L0.88 690.31 C0.88 690.55 0.69 690.75 0.44 690.75 Z" class="st6"/>
+				</g>
+				<g id="shape1090-182" v:mID="1090" v:groupContext="shape" transform="translate(14.2548,-8.88373)">
+					<title>Sheet.1090</title>
+					<path d="M2.54 688.41 C2.49 687.73 1.92 687.19 1.25 687.19 C0.56 687.19 0 687.75 0 688.44 L0 689.46 C0 690.12
+								 0.54 690.69 1.25 690.75 C1.95 690.75 2.55 690.16 2.55 689.46 L2.54 688.41 ZM1.76 689.46 C1.76 689.76
+								 1.49 689.97 1.28 689.97 C1.01 689.94 0.78 689.72 0.78 689.46 L0.78 688.44 C0.78 688.19 1 687.97
+								 1.25 687.97 C1.51 687.97 1.74 688.2 1.76 688.44 L1.76 689.46 Z" class="st5"/>
+				</g>
+				<g id="shape1091-184" v:mID="1091" v:groupContext="shape" transform="translate(12.0671,-8.86909)">
+					<title>Sheet.1091</title>
+					<path d="M0.44 690.75 C0.2 690.75 0 690.55 0 690.31 L0 687.64 C0 687.39 0.2 687.2 0.44 687.2 C0.68 687.2 0.88
+								 687.39 0.88 687.64 L0.88 690.31 C0.88 690.55 0.69 690.75 0.44 690.75 Z" class="st6"/>
+				</g>
+				<g id="shape1092-186" v:mID="1092" v:groupContext="shape" transform="translate(8.22122,-0.0142172)">
+					<title>Sheet.1092</title>
+					<path d="M2.54 688.41 C2.49 687.73 1.92 687.19 1.25 687.19 C0.56 687.19 0 687.75 0 688.44 L0 689.46 C0 690.12
+								 0.54 690.69 1.25 690.75 C1.95 690.75 2.55 690.16 2.55 689.46 L2.54 688.41 ZM1.76 689.46 C1.76 689.76
+								 1.49 689.97 1.28 689.97 C1.01 689.94 0.78 689.72 0.78 689.46 L0.78 688.44 C0.78 688.19 1 687.97
+								 1.25 687.97 C1.51 687.97 1.74 688.2 1.76 688.44 L1.76 689.46 Z" class="st5"/>
+				</g>
+				<g id="shape1093-188" v:mID="1093" v:groupContext="shape" transform="translate(6.03647,0)">
+					<title>Sheet.1093</title>
+					<path d="M0.44 690.75 C0.2 690.75 0 690.55 0 690.31 L0 687.64 C0 687.4 0.2 687.2 0.44 687.2 C0.68 687.2 0.88
+								 687.4 0.88 687.64 L0.88 690.31 C0.88 690.55 0.68 690.75 0.44 690.75 Z" class="st6"/>
+				</g>
+				<g id="shape1094-190" v:mID="1094" v:groupContext="shape" transform="translate(2.18768,-0.0142172)">
+					<title>Sheet.1094</title>
+					<path d="M2.54 688.41 C2.49 687.73 1.92 687.19 1.25 687.19 C0.56 687.19 0 687.75 0 688.44 L0 689.46 C0 690.12
+								 0.54 690.69 1.25 690.75 C1.95 690.75 2.55 690.16 2.55 689.46 L2.54 688.41 ZM1.76 689.46 C1.76 689.76
+								 1.49 689.97 1.29 689.97 C1.01 689.94 0.78 689.72 0.78 689.46 L0.78 688.44 C0.78 688.19 1 687.97
+								 1.25 687.97 C1.51 687.97 1.74 688.2 1.76 688.44 L1.76 689.46 Z" class="st5"/>
+				</g>
+				<g id="shape1095-192" v:mID="1095" v:groupContext="shape" transform="translate(0.00309483,0)">
+					<title>Sheet.1095</title>
+					<path d="M0.44 690.75 C0.2 690.75 0 690.55 0 690.31 L0 687.64 C0 687.4 0.2 687.2 0.44 687.2 C0.68 687.2 0.88
+								 687.4 0.88 687.64 L0.88 690.31 C0.88 690.55 0.68 690.75 0.44 690.75 Z" class="st6"/>
+				</g>
+				<g id="shape1096-194" v:mID="1096" v:groupContext="shape" transform="translate(14.2548,-0.0142172)">
+					<title>Sheet.1096</title>
+					<path d="M2.54 688.41 C2.49 687.73 1.92 687.19 1.25 687.19 C0.56 687.19 0 687.75 0 688.44 L0 689.46 C0 690.12
+								 0.54 690.69 1.25 690.75 C1.95 690.75 2.55 690.16 2.55 689.46 L2.54 688.41 ZM1.76 689.46 C1.76 689.76
+								 1.49 689.97 1.28 689.97 C1.01 689.94 0.78 689.72 0.78 689.46 L0.78 688.44 C0.78 688.19 1 687.97
+								 1.25 687.97 C1.51 687.97 1.74 688.2 1.76 688.44 L1.76 689.46 Z" class="st5"/>
+				</g>
+				<g id="shape1097-196" v:mID="1097" v:groupContext="shape" transform="translate(12.0671,0)">
+					<title>Sheet.1097</title>
+					<path d="M0.44 690.75 C0.2 690.75 0 690.55 0 690.31 L0 687.64 C0 687.4 0.2 687.2 0.44 687.2 C0.68 687.2 0.88
+								 687.4 0.88 687.64 L0.88 690.31 C0.88 690.55 0.69 690.75 0.44 690.75 Z" class="st6"/>
+				</g>
+				<g id="shape1098-198" v:mID="1098" v:groupContext="shape" transform="translate(6.03373,-4.40502)">
+					<title>Sheet.1098</title>
+					<path d="M0 689.53 C0.06 690.21 0.63 690.75 1.29 690.75 C1.98 690.75 2.55 690.19 2.55 689.5 L2.55 688.48 C2.55
+								 687.81 2.01 687.25 1.29 687.19 C0.59 687.19 0 687.78 0 688.48 L0 689.53 ZM0.78 688.48 C0.78 688.18
+								 1.05 687.97 1.26 687.97 C1.54 687.99 1.76 688.22 1.76 688.48 L1.76 689.5 C1.76 689.75 1.55 689.97
+								 1.29 689.97 C1.03 689.97 0.8 689.74 0.78 689.5 L0.78 688.48 Z" class="st6"/>
+				</g>
+				<g id="shape1099-200" v:mID="1099" v:groupContext="shape" transform="translate(9.8825,-4.43191)">
+					<title>Sheet.1099</title>
+					<path d="M0.44 687.2 C0.68 687.2 0.88 687.4 0.88 687.64 L0.88 690.31 C0.88 690.55 0.68 690.75 0.44 690.75 C0.2
+								 690.75 0 690.55 0 690.31 L0 687.64 C0 687.4 0.2 687.2 0.44 687.2 Z" class="st5"/>
+				</g>
+				<g id="shape1100-202" v:mID="1100" v:groupContext="shape" transform="translate(12.0671,-4.40502)">
+					<title>Sheet.1100</title>
+					<path d="M0 689.53 C0.06 690.21 0.63 690.75 1.29 690.75 C1.98 690.75 2.55 690.19 2.55 689.5 L2.55 688.48 C2.55
+								 687.81 2.01 687.25 1.29 687.19 C0.59 687.19 0 687.78 0 688.48 L0 689.53 ZM0.78 688.48 C0.78 688.18
+								 1.05 687.97 1.26 687.97 C1.54 687.99 1.76 688.22 1.76 688.48 L1.76 689.5 C1.76 689.75 1.55 689.97
+								 1.29 689.97 C1.03 689.97 0.8 689.74 0.78 689.5 L0.78 688.48 Z" class="st6"/>
+				</g>
+				<g id="shape1101-204" v:mID="1101" v:groupContext="shape" transform="translate(15.916,-4.43191)">
+					<title>Sheet.1101</title>
+					<path d="M0.44 687.2 C0.68 687.2 0.88 687.4 0.88 687.64 L0.88 690.31 C0.88 690.55 0.68 690.75 0.44 690.75 C0.2
+								 690.75 0 690.55 0 690.31 L0 687.64 C0 687.4 0.2 687.2 0.44 687.2 Z" class="st5"/>
+				</g>
+				<g id="shape1102-206" v:mID="1102" v:groupContext="shape" transform="translate(0.000180962,-4.40502)">
+					<title>Sheet.1102</title>
+					<path d="M0 689.53 C0.06 690.21 0.63 690.75 1.29 690.75 C1.98 690.75 2.55 690.19 2.55 689.5 L2.55 688.48 C2.55
+								 687.81 2.01 687.25 1.29 687.19 C0.59 687.19 0 687.78 0 688.48 L0 689.53 ZM0.78 688.48 C0.78 688.18
+								 1.05 687.97 1.26 687.97 C1.54 687.99 1.76 688.22 1.76 688.48 L1.76 689.5 C1.76 689.75 1.55 689.97
+								 1.29 689.97 C1.03 689.97 0.8 689.74 0.78 689.5 L0.78 688.48 Z" class="st6"/>
+				</g>
+				<g id="shape1103-208" v:mID="1103" v:groupContext="shape" transform="translate(3.84895,-4.43191)">
+					<title>Sheet.1103</title>
+					<path d="M0.44 687.2 C0.68 687.2 0.88 687.4 0.88 687.64 L0.88 690.31 C0.88 690.55 0.68 690.75 0.44 690.75 C0.2
+								 690.75 0 690.55 0 690.31 L0 687.64 C0 687.4 0.2 687.2 0.44 687.2 Z" class="st5"/>
+				</g>
+			</g>
+		</g>
+		<g id="group1104-210" transform="translate(314.47,-360.428)" v:mID="1104" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(8000):26"/>
+			</v:userDefs>
+			<title>SQL Data Warehouses.1104</title>
+			<g id="shape1105-211" v:mID="1105" v:groupContext="shape" transform="translate(0,-8.68066)">
+				<title>Sheet.1105</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M13.86 664.87 L0 672.76 L0 674.71 L2.55 674.71 L2.55 689.51 L5.06 689.51 L5.06 674.71 L22.67 674.71 L22.67
+							 690.75 L25.17 690.75 L25.17 674.71 L27.72 674.71 L27.72 672.76 L13.86 664.87 Z" class="st22"/>
+			</g>
+			<g id="shape1106-215" v:mID="1106" v:groupContext="shape" transform="translate(7.56259,-9.92075)">
+				<title>Sheet.1106</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M0 690.75 L5.03 690.75 L5.03 685.83 L0 685.83 L0 690.75 ZM7.54 690.75 L12.58 690.75 L12.58 685.83 L7.6 685.83
+							 L7.54 690.75 ZM0 683.39 L5.03 683.39 L5.03 678.41 L0 678.41 L0 683.39 ZM7.6 678.41 L7.6 683.39 L12.58
+							 683.39 L12.58 678.41 L7.6 678.41 Z" class="st13"/>
+			</g>
+			<g id="shape1107-217" v:mID="1107" v:groupContext="shape" transform="translate(17.2386,0)">
+				<title>Sheet.1107</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M8.58 676.34 C3.79 676.34 0 675.12 0 673.63 L0 688.05 C0 689.53 3.81 690.73 8.54 690.75 L8.66 690.75 C13.45
+							 690.75 17.32 689.53 17.32 688.05 L17.32 673.63 C17.24 675.12 13.36 676.34 8.58 676.34 Z" class="st23"/>
+			</g>
+			<g id="shape1108-221" v:mID="1108" v:groupContext="shape" transform="translate(17.2386,-14.4136)">
+				<title>Sheet.1108</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M17.24 688.05 C17.24 689.53 13.36 690.75 8.58 690.75 C3.79 690.75 0 689.53 0 688.05 C0 686.56 3.87 685.34
+							 8.66 685.34 C13.45 685.34 17.32 686.54 17.32 688.05 L17.24 688.05 Z" class="st24"/>
+				<path d="M17.24 688.05 C17.24 689.53 13.36 690.75 8.58 690.75 C3.79 690.75 0 689.53 0 688.05 C0 686.56 3.87 685.34
+							 8.66 685.34 C13.45 685.34 17.32 686.54 17.32 688.05" class="st25"/>
+			</g>
+			<g id="shape1109-224" v:mID="1109" v:groupContext="shape" transform="translate(19.1862,-15.552)">
+				<title>Sheet.1109</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M13.28 689.02 C13.28 689.98 10.3 690.75 6.63 690.75 C2.96 690.75 0 689.92 0 689.02 C0 688.13 2.96 687.29
+							 6.63 687.29 C10.3 687.29 13.28 688.07 13.28 689.02 Z" class="st13"/>
+			</g>
+			<g id="shape1110-226" v:mID="1110" v:groupContext="shape" transform="translate(20.5537,-15.613)">
+				<title>Sheet.1110</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M5.26 689.43 A17.798 17.463 -180 0 0 -0 690.08 A17.6115 17.28 -180 0 0 5.26 690.75 A17.6115 17.28 -180 0
+							 0 10.53 690.08 A17.798 17.463 -180 0 0 5.26 689.43 Z" class="st14"/>
+			</g>
+		</g>
+		<g id="group1111-228" transform="translate(440.315,-361.093)" v:mID="1111" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(9000):26"/>
+			</v:userDefs>
+			<title>HDInsight.1111</title>
+			<g id="shape1112-229" v:mID="1112" v:groupContext="shape" transform="translate(23.7147,-1.51049)">
+				<title>Sheet.1112</title>
+				<path d="M4.61 686.07 C4.38 685.39 3.63 684.1 3.63 684.1 C3.63 684.1 3.47 685.99 2.19 687.88 C0.91 689.77 0.08 690.07
+							 0.08 690.07 C0.08 690.07 -0 690.67 0.68 690.75 C0.91 690.75 3.78 690.75 4.23 690.75 C4.76 690.75 5.14
+							 690.3 5.14 689.77 C5.14 689.24 4.68 688.64 4.68 688.64 C4.68 688.64 4.76 686.67 4.61 686.07 Z"
+						class="st26"/>
+			</g>
+			<g id="shape1113-231" v:mID="1113" v:groupContext="shape" transform="translate(0.528671,-3.85175)">
+				<title>Sheet.1113</title>
+				<path d="M2.42 684.03 C2.42 684.03 2.42 684.03 2.42 684.03 C2.42 684.03 1.36 685.24 0.68 686.14 C-0 687.05 0.45 687.65
+							 0.45 687.65 C0.45 687.65 2.34 690.75 3.93 690.3 C4.46 690.15 4.91 689.32 4.91 689.32 C4.91 689.32 4.23
+							 688.41 3.7 687.28 C3.1 686.07 2.57 684.25 2.42 684.03 Z" class="st26"/>
+			</g>
+			<g id="shape1114-233" v:mID="1114" v:groupContext="shape">
+				<title>Sheet.1114</title>
+				<path d="M44.94 666.58 C44.71 660.62 43.05 659.03 42.6 659.03 C41.99 659.11 41.77 660.09 41.09 660.54 C40.18 661.22
+							 39.57 661.07 39.05 661.6 C38.52 662.13 39.57 663.49 39.42 667.04 C39.27 670.28 37.16 671.49 37.16 671.49
+							 C37.16 671.49 38.14 670.06 38.29 669.07 C38.44 668.32 37.99 668.17 37.69 667.94 C37.08 667.41 35.87
+							 668.77 35.57 669.07 C36.1 668.47 36.93 667.79 36.63 667.19 C36.03 666.2 34.74 666.88 34.44 666.96 C34.74
+							 666.81 35.35 666.58 35.19 665.98 C34.97 664.92 33.91 665.15 33.76 665.22 C34.21 665 34.44 664.77 35.65
+							 664.85 C36.33 664.85 36.18 664.17 35.72 663.64 C35.04 662.81 34.59 662.5 34.06 662.35 C33.46 662.13
+							 32.25 662.28 32.25 662.28 C32.25 662.28 33.08 661.75 33.53 661.82 C32.93 660.99 30.97 657.97 27.57 657.82
+							 C21.37 657.52 19.56 661.52 19.56 661.52 L22.58 661.37 C22.58 661.37 21.68 661.75 19.86 662.05 C18.43
+							 662.28 18.5 662.28 18.05 662.35 C17.37 662.5 15.63 664.62 14.05 666.43 C12.46 668.24 10.8 670.51 10.8
+							 671.42 C10.8 672.32 11.71 672.93 12.23 673.68 C12.76 674.44 12.91 674.81 12.91 674.81 L15.1 672.25 L12.54
+							 677.53 C12.54 677.53 13.75 679.12 15.03 678.97 C16.01 678.82 18.2 677.08 19.56 676.85 C21 676.55 21.6
+							 676.78 21.6 676.78 C21.6 676.78 22.58 674.21 22.13 672.4 C21.3 669.15 21.9 667.41 22.58 666.36 C22.05
+							 670.66 23.49 670.96 23.41 673.76 C23.34 675.87 22.66 678.14 22.66 678.14 C22.66 678.14 20.62 677.46
+							 19.03 678.29 C17.45 679.12 16.09 680.25 14.58 680.25 C12.99 680.25 10.88 677.53 10.88 677.53 L12.01
+							 675.87 C12.01 675.87 11.86 675.34 11.4 674.81 C10.72 673.98 9.59 672.78 9.52 671.79 C9.44 670.13 11.1
+							 668.32 11.71 667.64 C12.31 666.88 14.12 664.92 14.12 664.92 C14.12 664.92 8.84 665.68 6.65 668.24 C4
+							 671.42 3.63 672.32 2.64 672.47 C1.66 672.62 1.28 671.57 1.28 671.57 C1.28 671.57 2.04 671.49 1.96 670.58
+							 C1.81 669.15 2.19 668.32 2.19 668.32 C2.19 668.32 0.6 669.3 0.3 670.28 C-0 671.26 0.68 671.57 0.68 671.57
+							 C0.68 671.57 0.68 673.38 1.74 673.76 C2.79 674.21 3.63 673.83 3.63 673.83 C3.63 673.83 2.95 677.16 3.85
+							 679.57 C4.76 681.99 6.57 684.63 6.57 684.63 C6.57 684.63 6.42 686.45 6.19 686.9 C6.04 687.35 5.36 688.41
+							 6.42 689.16 C7.48 689.92 10.12 690.22 10.72 689.84 C11.33 689.47 11.18 688.41 11.25 688.03 C11.33 687.65
+							 12.16 686.14 12.31 685.77 C12.39 685.31 12.39 683.05 12.23 682.29 C12.39 682.67 13.07 684.41 15.56 684.48
+							 C17.82 684.56 18.58 683.35 18.58 682.52 C18.58 682.9 18.73 684.56 18.5 684.86 C18.28 685.16 17.6 685.39
+							 16.92 685.77 C16.24 686.22 15.33 686.67 16.84 688.48 C18.5 690.6 18.81 690.75 20.24 689.62 C21.68 688.48
+							 23.19 687.43 24.24 686.07 C25.3 684.71 27.19 679.72 27.19 679.72 C27.19 679.72 26.06 678.97 25.3 677.99
+							 C24.77 677.23 24.62 676.78 24.62 676.78 C24.62 676.78 26.13 678.29 27.72 678.67 C28.32 679.35 29.3 680.33
+							 30.13 680.63 C33.23 681.91 34.21 678.06 34.21 678.06 L33.76 677.99 C33.76 677.99 32.93 679.95 31.57
+							 679.8 C28.85 679.5 29.68 673.91 29.68 673.91 C29.68 673.91 32.4 677.84 37.91 677.68 C41.31 677.76 45.24
+							 673.83 44.94 666.58 ZM25.75 666.36 C25.75 666.36 25.98 663.79 26.51 663.41 C27.19 662.96 29 663.56 29
+							 663.56 C29 663.56 27.87 663.56 27.19 664.17 C26.58 664.69 25.75 666.36 25.75 666.36 ZM30.13 668.62 C29.3
+							 669.3 28.55 670.13 28.55 670.13 C28.55 670.13 28.7 669.75 28.85 669.53 C29 669.23 29.23 668.92 29.23
+							 668.92 C29.23 668.92 28.93 668.85 28.55 668.47 C28.32 668.24 28.25 668.02 28.17 667.87 C28.17 667.87
+							 28.02 667.94 27.79 668.17 C27.57 668.32 27.26 668.7 27.26 668.7 C27.26 668.7 28.02 667.26 29.08 666.51
+							 C30.21 665.75 31.34 665.75 31.34 665.75 C31.34 665.75 31.19 665.75 30.81 665.98 C30.44 666.2 30.44 666.2
+							 30.44 666.2 C30.44 666.2 30.81 666.36 31.12 666.66 C31.42 667.04 31.49 667.49 31.49 667.49 C31.49 667.49
+							 31.57 667.49 31.95 667.34 C32.32 667.19 32.7 667.19 32.7 667.19 C32.7 667.19 31.34 667.64 30.13 668.62
+							 ZM41.54 661.82 C40.63 662.5 39.65 662.58 39.57 662.28 C39.42 661.98 39.65 661.98 39.65 661.98 C39.65
+							 661.98 40.63 661.6 41.16 661.22 C41.84 660.69 42.44 659.48 42.67 659.78 C42.9 660.16 42.29 661.3 41.54
+							 661.82 Z" class="st26"/>
+			</g>
+		</g>
+		<g id="shape1115-235" v:mID="1115" v:groupContext="shape" transform="translate(729.015,-359.381)">
+			<title>Machine Learning.1115</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(10000):26"/>
+			</v:userDefs>
+			<path d="M24.09 664.57 L24.09 658.28 L26.18 658.28 L26.18 654.1 L8.38 654.1 L8.38 658.28 L10.47 658.28 L10.47 664.57
+						 L0 685.51 L3.14 690.75 L31.42 690.75 L34.56 685.51 L24.09 664.57 L24.09 664.57 ZM15.71 669.8 L7.33 686.56
+						 L5.33 686.56 L4.19 685.51 L14.66 665.62 L14.66 658.28 L19.9 658.28 L19.9 665.62 L21.99 669.8 L15.71 669.8
+						 L15.71 669.8 L15.71 669.8 Z" class="st26"/>
+		</g>
+		<g id="group1116-237" transform="translate(577.029,-360.428)" v:mID="1116" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(11000):26"/>
+			</v:userDefs>
+			<title>Sheet.1116</title>
+			<g id="shape1117-238" v:mID="1117" v:groupContext="shape">
+				<title>Sheet.1117</title>
+				<path d="M16.6 690.74 C12.39 690.58 9.8 689.34 9.13 687.15 L9.06 686.91 L9.04 682.63 C9.04 677.75 9.04 677.66 9.31
+							 676.88 C9.79 675.45 10.89 674.53 12.66 674.14 L13.04 674.05 L17.87 674.03 C21.32 674.01 22.76 673.99
+							 22.92 673.96 A4.71147 4.71147 -180 0 0 25.12 673.1 A4.608 4.608 -180 0 0 26.68 670.67 C26.88 669.93
+							 26.87 670.01 26.89 667.41 L26.91 665 L30.39 665 L30.73 665.1 C32.53 665.6 33.84 667.32 34.4 669.9 C34.62
+							 670.89 34.62 670.93 34.62 673.46 C34.62 675.93 34.62 675.95 34.45 676.76 A8.51928 8.51928 0 0 1 33.73
+							 678.87 A5.04949 5.04949 0 0 1 30.83 681.54 C30.12 681.78 30.71 681.76 23.71 681.78 L17.4 681.8 L17.4
+							 682.94 L21.59 682.96 L25.77 682.98 L25.79 685.03 C25.79 686.16 25.79 687.19 25.78 687.31 A2.51784 2.51784
+							 0 0 1 25.45 688.23 A4.53902 4.53902 0 0 1 24.35 689.34 C23.23 690.08 21.52 690.53 19.26 690.68 C18.5
+							 690.74 17.42 690.75 16.61 690.72 L16.6 690.74 ZM22.39 688.07 A1.50381 1.50381 -180 1 0 20.67 686.82
+							 A1.5452 1.5452 -180 0 0 22.14 688.11 A2.17983 2.17983 -180 0 0 22.42 688.08 L22.39 688.07 ZM4.43 681.99
+							 A4.37346 4.37346 0 0 1 1.88 680.4 C0.64 678.85 0 676.26 0.09 673.02 A11.4165 11.4165 0 0 1 1.06 668.23
+							 A4.95291 4.95291 0 0 1 4.62 665.28 C4.97 665.21 4.98 665.21 11.15 665.21 C14.55 665.21 17.36 665.21
+							 17.38 665.19 C17.43 665.18 17.44 665.1 17.44 664.61 C17.44 664.29 17.44 664.03 17.44 664.03 C17.44 664.03
+							 15.54 664.01 13.23 664 L9.06 663.98 L9.04 661.82 C9.04 659.44 9.04 659.47 9.24 659.03 C9.93 657.51 12.03
+							 656.59 15.37 656.33 C15.61 656.3 16.27 656.27 16.82 656.26 C20.51 656.19 23.22 656.87 24.64 658.22 A5.12537
+							 5.12537 0 0 1 25.1 658.7 A4.29758 4.29758 0 0 1 25.67 659.87 L25.75 660.15 L25.75 664.63 C25.75 668.83
+							 25.75 669.14 25.68 669.44 A5.54616 5.54616 0 0 1 25.29 670.67 A4.15962 4.15962 0 0 1 22.6 672.76 C21.79
+							 672.99 22.16 672.98 16.8 673 C11.49 673.02 11.82 673.01 11.08 673.22 A4.25619 4.25619 -180 0 0 8.13
+							 676.34 C7.94 677.04 7.95 676.98 7.93 679.58 L7.91 682.02 L6.29 682.02 A16.0452 16.0452 0 0 1 4.43 681.99
+							 ZM13.27 661.79 A1.50381 1.50381 -180 0 0 13.1 658.98 A1.5176 1.5176 -180 0 0 12.17 661.85 A1.24168 1.24168
+							 -180 0 0 12.7 661.92 A1.08302 1.08302 -180 0 0 13.27 661.79 Z" class="st27"/>
+			</g>
+			<g id="shape1118-240" v:mID="1118" v:groupContext="shape" transform="translate(1.71863E-13,-8.71987)">
+				<title>Sheet.1118</title>
+				<path d="M4.41 690.71 A4.37346 4.37346 0 0 1 1.88 689.12 C0.64 687.57 0 684.98 0.09 681.74 A11.4165 11.4165 0 0 1
+							 1.06 676.95 A4.95291 4.95291 0 0 1 4.62 674 C4.97 673.93 4.98 673.93 11.15 673.93 C14.55 673.93 17.36
+							 673.93 17.38 673.91 C17.43 673.9 17.44 673.82 17.44 673.33 C17.44 673.01 17.44 672.75 17.44 672.75 C17.44
+							 672.75 15.54 672.73 13.23 672.72 L9.06 672.7 L9.04 670.54 C9.04 668.16 9.04 668.19 9.24 667.75 C9.93
+							 666.23 12.03 665.31 15.37 665.05 C15.61 665.02 16.27 664.99 16.82 664.98 C20.51 664.91 23.22 665.59
+							 24.64 666.94 A5.12537 5.12537 0 0 1 25.1 667.42 A4.29758 4.29758 0 0 1 25.67 668.59 L25.75 668.87 L25.75
+							 673.35 C25.75 677.55 25.75 677.86 25.68 678.16 A5.54616 5.54616 0 0 1 25.29 679.39 A4.15962 4.15962
+							 0 0 1 22.6 681.48 C21.79 681.71 22.16 681.7 16.8 681.72 C11.49 681.74 11.82 681.73 11.08 681.94 A4.25619
+							 4.25619 -180 0 0 8.13 685.06 C7.94 685.76 7.95 685.7 7.93 688.3 L7.91 690.74 L6.29 690.74 A16.0452 16.0452
+							 0 0 1 4.43 690.71 L4.41 690.71 ZM13.27 670.51 A1.50381 1.50381 -180 0 0 13.1 667.7 A1.5176 1.5176 -180
+							 0 0 12.17 670.57 A1.24168 1.24168 -180 0 0 12.7 670.64 A1.08302 1.08302 -180 0 0 13.27 670.51 Z"
+						class="st28"/>
+			</g>
+		</g>
+		<g id="group1119-242" transform="translate(314.47,-517.986)" v:mID="1119" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(12000):26"/>
+			</v:userDefs>
+			<title>Sheet.1119</title>
+			<g id="shape1120-243" v:mID="1120" v:groupContext="shape">
+				<title>Sheet.1120</title>
+				<path d="M0.99 670.9 L34.56 670.9 L34.56 689.62 A1.12567 1.12567 0 0 1 33.43 690.75 L2.11 690.75 A1.12567 1.12567
+							 0 0 1 0.99 689.62 L0.99 670.9 Z" class="st29"/>
+			</g>
+			<g id="shape1121-247" v:mID="1121" v:groupContext="shape" transform="translate(0,-19.8473)">
+				<title>Sheet.1121</title>
+				<path d="M2.11 683.6 L33.43 683.6 A1.12567 1.12567 0 0 1 34.56 684.73 L34.56 690.75 L0.99 690.75 L0.99 684.71 A1.12567
+							 1.12567 0 0 1 2.11 683.6 Z" class="st30"/>
+			</g>
+			<g id="shape1122-249" v:mID="1122" v:groupContext="shape" transform="translate(5.03589,-13.8437)">
+				<title>Sheet.1122</title>
+				<path d="M0.51 686.92 L24.94 686.92 a0.533211 0.533211 0 0 1 0.513463 0.533211 L25.46 690.22 a0.533211 0.533211 0
+							 0 1 -0.513463 0.533211 L0.51 690.75 a0.533211 0.533211 0 0 1 -0.513463 -0.533211 L0 687.45 a0.533211
+							 0.533211 0 0 1 0.513463 -0.533211 Z" class="st31"/>
+			</g>
+			<g id="shape1123-251" v:mID="1123" v:groupContext="shape" transform="translate(5.05563,-8.31415)">
+				<title>Sheet.1123</title>
+				<path d="M0.51 686.9 L24.94 686.9 a0.533211 0.533211 0 0 1 0.513463 0.533211 L25.46 690.22 a0.533211 0.533211 0 0
+							 1 -0.513463 0.533211 L0.51 690.75 a0.533211 0.533211 0 0 1 -0.513463 -0.533211 L0 687.53 a0.533211 0.533211
+							 0 0 1 0.513463 -0.631954 Z" class="st30"/>
+			</g>
+			<g id="shape1124-253" v:mID="1124" v:groupContext="shape" transform="translate(5.05563,-2.74505)">
+				<title>Sheet.1124</title>
+				<path d="M0.51 686.9 L24.94 686.9 a0.533211 0.533211 0 0 1 0.513463 0.533211 L25.46 690.22 a0.533211 0.533211 0 0
+							 1 -0.513463 0.533211 L0.51 690.75 a0.533211 0.533211 0 0 1 -0.513463 -0.533211 L0 687.43 a0.533211 0.533211
+							 0 0 1 0.513463 -0.533211 Z" class="st32"/>
+			</g>
+		</g>
+		<g id="group1125-255" transform="translate(310.435,-230.552)" v:mID="1125" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(13000):26"/>
+			</v:userDefs>
+			<title>Sheet.1125</title>
+			<g id="shape1126-256" v:mID="1126" v:groupContext="shape">
+				<title>Sheet.1126</title>
+				<path d="M31.97 653.75 L10.66 653.75 L0 672.25 L10.66 690.75 L31.97 690.75 L42.63 672.25 L31.97 653.75 ZM20.29 663.47
+							 L25.24 663.47 L25.24 668.41 L20.29 668.41 L20.29 663.47 ZM20.29 669.61 L25.24 669.61 L25.24 674.55 L20.29
+							 674.55 L20.29 669.61 ZM20.29 675.83 L25.24 675.83 L25.24 680.77 L20.29 680.77 L20.29 675.83 ZM14.07
+							 663.47 L19.01 663.47 L19.01 668.41 L14.07 668.41 L14.07 663.47 ZM14.07 669.61 L19.01 669.61 L19.01 674.55
+							 L14.07 674.55 L14.07 669.61 ZM14.07 675.83 L19.01 675.83 L19.01 680.77 L14.07 680.77 L14.07 675.83 ZM31.38
+							 683.42 L11.25 683.42 L11.25 663.3 L12.53 663.3 L12.53 682.05 L12.62 682.05 L31.38 682.05 L31.38 683.42
+							 ZM31.38 680.77 L26.43 680.77 L26.43 675.83 L31.38 675.83 L31.38 680.77 ZM31.38 674.55 L26.43 674.55
+							 L26.43 669.61 L31.38 669.61 L31.38 674.55 ZM31.38 668.41 L26.43 668.41 L26.43 663.47 L31.38 663.47 L31.38
+							 668.41 Z" class="st33"/>
+			</g>
+			<g id="shape1127-258" v:mID="1127" v:groupContext="shape" transform="translate(20.2921,-22.3383)">
+				<title>Sheet.1127</title>
+				<rect x="0" y="685.805" width="4.94513" height="4.94513" class="st34"/>
+			</g>
+			<g id="shape1128-260" v:mID="1128" v:groupContext="shape" transform="translate(20.2921,-16.1996)">
+				<title>Sheet.1128</title>
+				<rect x="0" y="685.805" width="4.94513" height="4.94513" class="st34"/>
+			</g>
+			<g id="shape1129-262" v:mID="1129" v:groupContext="shape" transform="translate(20.2921,-9.97552)">
+				<title>Sheet.1129</title>
+				<rect x="0" y="685.805" width="4.94513" height="4.94513" class="st34"/>
+			</g>
+			<g id="shape1130-264" v:mID="1130" v:groupContext="shape" transform="translate(14.068,-22.3383)">
+				<title>Sheet.1130</title>
+				<rect x="0" y="685.805" width="4.94513" height="4.94513" class="st34"/>
+			</g>
+			<g id="shape1131-266" v:mID="1131" v:groupContext="shape" transform="translate(14.068,-16.1996)">
+				<title>Sheet.1131</title>
+				<rect x="0" y="685.805" width="4.94513" height="4.94513" class="st34"/>
+			</g>
+			<g id="shape1132-268" v:mID="1132" v:groupContext="shape" transform="translate(14.068,-9.97552)">
+				<title>Sheet.1132</title>
+				<rect x="0" y="685.805" width="4.94513" height="4.94513" class="st34"/>
+			</g>
+			<g id="shape1133-270" v:mID="1133" v:groupContext="shape" transform="translate(26.4309,-9.97552)">
+				<title>Sheet.1133</title>
+				<rect x="0" y="685.805" width="4.94513" height="4.94513" class="st34"/>
+			</g>
+			<g id="shape1134-272" v:mID="1134" v:groupContext="shape" transform="translate(26.4309,-16.1996)">
+				<title>Sheet.1134</title>
+				<rect x="0" y="685.805" width="4.94513" height="4.94513" class="st34"/>
+			</g>
+			<g id="shape1135-274" v:mID="1135" v:groupContext="shape" transform="translate(26.4309,-22.3383)">
+				<title>Sheet.1135</title>
+				<rect x="0" y="685.805" width="4.94513" height="4.94513" class="st34"/>
+			</g>
+		</g>
+		<g id="group1136-276" transform="translate(310.435,-128.444)" v:mID="1136" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(14000):26"/>
+			</v:userDefs>
+			<title>Sheet.1136</title>
+			<g id="shape1137-277" v:mID="1137" v:groupContext="shape">
+				<title>Sheet.1137</title>
+				<path d="M31.97 653.75 L10.66 653.75 L0 672.25 L10.66 690.75 L31.97 690.75 L42.63 672.25 L31.97 653.75 ZM20.29 663.47
+							 L25.24 663.47 L25.24 668.41 L20.29 668.41 L20.29 663.47 ZM20.29 669.61 L25.24 669.61 L25.24 674.55 L20.29
+							 674.55 L20.29 669.61 ZM20.29 675.83 L25.24 675.83 L25.24 680.77 L20.29 680.77 L20.29 675.83 ZM14.07
+							 663.47 L19.01 663.47 L19.01 668.41 L14.07 668.41 L14.07 663.47 ZM14.07 669.61 L19.01 669.61 L19.01 674.55
+							 L14.07 674.55 L14.07 669.61 ZM14.07 675.83 L19.01 675.83 L19.01 680.77 L14.07 680.77 L14.07 675.83 ZM31.38
+							 683.42 L11.25 683.42 L11.25 663.3 L12.53 663.3 L12.53 682.05 L12.62 682.05 L31.38 682.05 L31.38 683.42
+							 ZM31.38 680.77 L26.43 680.77 L26.43 675.83 L31.38 675.83 L31.38 680.77 ZM31.38 674.55 L26.43 674.55
+							 L26.43 669.61 L31.38 669.61 L31.38 674.55 ZM31.38 668.41 L26.43 668.41 L26.43 663.47 L31.38 663.47 L31.38
+							 668.41 Z" class="st33"/>
+			</g>
+			<g id="shape1138-279" v:mID="1138" v:groupContext="shape" transform="translate(20.2921,-22.3383)">
+				<title>Sheet.1138</title>
+				<rect x="0" y="685.805" width="4.94513" height="4.94513" class="st34"/>
+			</g>
+			<g id="shape1139-281" v:mID="1139" v:groupContext="shape" transform="translate(20.2921,-16.1996)">
+				<title>Sheet.1139</title>
+				<rect x="0" y="685.805" width="4.94513" height="4.94513" class="st34"/>
+			</g>
+			<g id="shape1140-283" v:mID="1140" v:groupContext="shape" transform="translate(20.2921,-9.97552)">
+				<title>Sheet.1140</title>
+				<rect x="0" y="685.805" width="4.94513" height="4.94513" class="st34"/>
+			</g>
+			<g id="shape1141-285" v:mID="1141" v:groupContext="shape" transform="translate(14.068,-22.3383)">
+				<title>Sheet.1141</title>
+				<rect x="0" y="685.805" width="4.94513" height="4.94513" class="st34"/>
+			</g>
+			<g id="shape1142-287" v:mID="1142" v:groupContext="shape" transform="translate(14.068,-16.1996)">
+				<title>Sheet.1142</title>
+				<rect x="0" y="685.805" width="4.94513" height="4.94513" class="st34"/>
+			</g>
+			<g id="shape1143-289" v:mID="1143" v:groupContext="shape" transform="translate(14.068,-9.97552)">
+				<title>Sheet.1143</title>
+				<rect x="0" y="685.805" width="4.94513" height="4.94513" class="st34"/>
+			</g>
+			<g id="shape1144-291" v:mID="1144" v:groupContext="shape" transform="translate(26.4309,-9.97552)">
+				<title>Sheet.1144</title>
+				<rect x="0" y="685.805" width="4.94513" height="4.94513" class="st34"/>
+			</g>
+			<g id="shape1145-293" v:mID="1145" v:groupContext="shape" transform="translate(26.4309,-16.1996)">
+				<title>Sheet.1145</title>
+				<rect x="0" y="685.805" width="4.94513" height="4.94513" class="st34"/>
+			</g>
+			<g id="shape1146-295" v:mID="1146" v:groupContext="shape" transform="translate(26.4309,-22.3383)">
+				<title>Sheet.1146</title>
+				<rect x="0" y="685.805" width="4.94513" height="4.94513" class="st34"/>
+			</g>
+		</g>
+		<g id="shape1147-297" v:mID="1147" v:groupContext="shape" transform="translate(37.25,-608.75)">
+			<title>Sheet.1147</title>
+			<desc>Python Web Job</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(15000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="49.25" cy="680.75" width="98.51" height="20"/>
+			<rect x="0" y="670.75" width="98.5" height="20" class="st35"/>
+			<text x="9.52" y="684.05" class="st36" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Python Web Job</text>		</g>
+		<g id="shape1148-300" v:mID="1148" v:groupContext="shape" transform="translate(165.5,-608.75)">
+			<title>Sheet.1148</title>
+			<desc>Event Hub</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(16000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="49.25" cy="680.75" width="98.51" height="20"/>
+			<rect x="0" y="670.75" width="98.5" height="20" class="st35"/>
+			<text x="24.22" y="684.05" class="st36" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Event Hub</text>		</g>
+		<g id="shape1149-303" v:mID="1149" v:groupContext="shape" transform="translate(282.5,-608.75)">
+			<title>Sheet.1149</title>
+			<desc>Stream Analytics</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(17000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="49.25" cy="680.75" width="98.51" height="20"/>
+			<rect x="0" y="670.75" width="98.5" height="20" class="st35"/>
+			<text x="9.11" y="684.05" class="st36" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Stream Analytics</text>		</g>
+		<g id="shape1150-306" v:mID="1150" v:groupContext="shape" transform="translate(282.5,-495.573)">
+			<title>Sheet.1150</title>
+			<desc>Azure Storage</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(18000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="49.25" cy="680.75" width="98.51" height="20"/>
+			<rect x="0" y="670.75" width="98.5" height="20" class="st35"/>
+			<text x="14.97" y="684.05" class="st36" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Storage</text>		</g>
+		<g id="shape1151-309" v:mID="1151" v:groupContext="shape" transform="translate(282.5,-331.573)">
+			<title>Sheet.1151</title>
+			<desc>SQL Data Warehouse</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(19000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="49.25" cy="680.75" width="98.51" height="20"/>
+			<rect x="0" y="670.75" width="98.5" height="20" class="st35"/>
+			<text x="26.77" y="677.45" class="st36" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>SQL Data <tspan
+						x="21.87" dy="1.2em" class="st37">Warehouse</tspan></text>		</g>
+		<g id="shape1152-313" v:mID="1152" v:groupContext="shape" transform="translate(413.685,-495.573)">
+			<title>Sheet.1152</title>
+			<desc>Browsing data</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(20000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="49.25" cy="680.75" width="98.51" height="20"/>
+			<rect x="0" y="670.75" width="98.5" height="20" class="st35"/>
+			<text x="14.76" y="684.05" class="st36" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Browsing data</text>		</g>
+		<g id="shape1153-316" v:mID="1153" v:groupContext="shape" transform="translate(529.95,-487.823)">
+			<title>Sheet.1153</title>
+			<desc>Merged customer profile w/ engineered features</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(21000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="64.39" cy="680.75" width="128.79" height="20"/>
+			<rect x="0" y="670.75" width="128.78" height="20" class="st35"/>
+			<text x="4.07" y="677.45" class="st36" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Merged customer profile <tspan
+						x="8.31" dy="1.2em" class="st37">w/ engineered features</tspan></text>		</g>
+		<g id="shape1154-320" v:mID="1154" v:groupContext="shape" transform="translate(681.905,-487.823)">
+			<title>Sheet.1154</title>
+			<desc>Enrich customer profile with predictions</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(22000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="64.39" cy="680.75" width="128.79" height="20"/>
+			<rect x="0" y="670.75" width="128.78" height="20" class="st35"/>
+			<text x="8.36" y="677.45" class="st36" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Enrich customer profile <tspan
+						x="25.6" dy="1.2em" class="st37">with predictions</tspan></text>		</g>
+		<g id="shape1155-324" v:mID="1155" v:groupContext="shape" transform="translate(413.685,-331.573)">
+			<title>Sheet.1155</title>
+			<desc>HD Insight (Spark R Server)</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(23000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="49.25" cy="680.75" width="98.51" height="20"/>
+			<rect x="0" y="670.75" width="98.5" height="20" class="st35"/>
+			<text x="23.52" y="677.45" class="st36" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>HD Insight<v:newlineChar/><tspan
+						x="10.89" dy="1.2em" class="st37">(Spark R Server)</tspan></text>		</g>
+		<g id="shape1156-328" v:mID="1156" v:groupContext="shape" transform="translate(545.09,-337.073)">
+			<title>Sheet.1156</title>
+			<desc>ETL Python</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(24000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="49.25" cy="680.75" width="98.51" height="20"/>
+			<rect x="0" y="670.75" width="98.5" height="20" class="st35"/>
+			<text x="22.44" y="684.05" class="st36" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>ETL Python</text>		</g>
+		<g id="shape1157-331" v:mID="1157" v:groupContext="shape" transform="translate(697.045,-331.573)">
+			<title>Sheet.1157</title>
+			<desc>Machine Learning Trained model</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(25000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="49.25" cy="680.75" width="98.51" height="20"/>
+			<rect x="0" y="670.75" width="98.5" height="20" class="st35"/>
+			<text x="6.06" y="677.45" class="st36" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Machine Learning<v:newlineChar/><tspan
+						x="14.18" dy="1.2em" class="st37">Trained model</tspan></text>		</g>
+		<g id="shape1158-335" v:mID="1158" v:groupContext="shape" transform="translate(259.313,-295.875)">
+			<title>Sheet.1158</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(26000):26"/>
+			</v:userDefs>
+			<path d="M0 690.75 L575.44 690.75 L575.44 402.75 L0 402.75 L0 690.75 Z" class="st38"/>
+		</g>
+		<g id="shape1161-337" v:mID="1161" v:groupContext="shape" transform="translate(117,-655.725)">
+			<title>Sheet.1161</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(29000):26"/>
+			</v:userDefs>
+			<path d="M0 690.75 L54.96 690.75" class="st39"/>
+		</g>
+		<g id="shape1162-343" v:mID="1162" v:groupContext="shape" transform="translate(243,-658.084)">
+			<title>Sheet.1162</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(30000):26"/>
+			</v:userDefs>
+			<path d="M0 690.75 L54.96 690.75" class="st39"/>
+		</g>
+		<g id="shape1163-348" v:mID="1163" v:groupContext="shape" transform="translate(1022.5,81) rotate(90)">
+			<title>Sheet.1163</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(31000):26"/>
+			</v:userDefs>
+			<path d="M0 690.75 L49.71 690.75" class="st39"/>
+		</g>
+		<g id="shape1164-353" v:mID="1164" v:groupContext="shape" transform="translate(369,-533.627)">
+			<title>Sheet.1164</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(32000):26"/>
+			</v:userDefs>
+			<path d="M0 690.75 L54.96 690.75" class="st39"/>
+		</g>
+		<g id="shape1165-358" v:mID="1165" v:groupContext="shape" transform="translate(495,-533.627)">
+			<title>Sheet.1165</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(33000):26"/>
+			</v:userDefs>
+			<path d="M0 690.75 L54.96 690.75" class="st39"/>
+		</g>
+		<g id="shape1166-363" v:mID="1166" v:groupContext="shape" transform="translate(639,-533.627)">
+			<title>Sheet.1166</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(34000):26"/>
+			</v:userDefs>
+			<path d="M0 690.75 L54.96 690.75" class="st39"/>
+		</g>
+		<g id="shape1167-368" v:mID="1167" v:groupContext="shape" transform="translate(801,-533.627)">
+			<title>Sheet.1167</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(35000):26"/>
+			</v:userDefs>
+			<path d="M0 690.75 L81.96 690.75" class="st39"/>
+		</g>
+		<g id="shape1169-373" v:mID="1169" v:groupContext="shape" transform="translate(272.125,-201.5)">
+			<title>Sheet.1169</title>
+			<desc>Demographics products, purchases</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(37000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="59.625" cy="680.75" width="119.25" height="20"/>
+			<rect x="0" y="670.75" width="119.25" height="20" class="st35"/>
+			<text x="24.43" y="677.45" class="st36" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Demographics<v:newlineChar/><tspan
+						x="11.21" dy="1.2em" class="st37">products, purchases</tspan></text>		</g>
+		<g id="shape1170-377" v:mID="1170" v:groupContext="shape" transform="translate(282.5,-96.75)">
+			<title>Sheet.1170</title>
+			<desc>Enrich customer profiles</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(38000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="49.25" cy="680.75" width="98.51" height="20"/>
+			<rect x="0" y="670.75" width="98.5" height="20" class="st35"/>
+			<text x="10.35" y="677.45" class="st36" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Enrich customer <tspan
+						x="31.29" dy="1.2em" class="st37">profiles</tspan></text>		</g>
+		<g id="shape1171-381" v:mID="1171" v:groupContext="shape" transform="translate(864,1199.25) rotate(180)">
+			<title>Sheet.1171</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(39000):26"/>
+			</v:userDefs>
+			<path d="M0 690.75 L450.96 690.75" class="st39"/>
+		</g>
+		<g id="shape1172-386" v:mID="1172" v:groupContext="shape" transform="translate(1554.75,157.123) rotate(90)">
+			<title>Sheet.1172</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(40000):26"/>
+			</v:userDefs>
+			<path d="M0 690.75 L351.38 690.75" class="st41"/>
+		</g>
+		<g id="shape1173-389" v:mID="1173" v:groupContext="shape" transform="translate(880,-487.823)">
+			<title>Sheet.1173</title>
+			<desc>Power BI Dashboard</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(41000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="49.25" cy="680.75" width="98.51" height="20"/>
+			<rect x="0" y="670.75" width="98.5" height="20" class="st35"/>
+			<text x="28.06" y="677.45" class="st36" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Power BI <tspan
+						x="22.74" dy="1.2em" class="st37">Dashboard</tspan></text>		</g>
+		<g id="shape1174-393" v:mID="1174" v:groupContext="shape" transform="translate(545.375,-183.5)">
+			<title>Sheet.1174</title>
+			<desc>Batch ETL and Predictive Pipeline</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(42000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="89.125" cy="680.75" width="178.26" height="20"/>
+			<rect x="0" y="670.75" width="178.25" height="20" class="st35"/>
+			<text x="9.37" y="684.05" class="st36" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Batch ETL and Predictive Pipeline</text>		</g>
+		<g id="shape1175-396" v:mID="1175" v:groupContext="shape" transform="translate(135.9,-643.125)">
+			<title>Circle.1094</title>
+			<desc>1</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(43000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="12.6" cy="678.15" width="22.05" height="18.9"/>
+			<path d="M0 678.15 A12.6 12.6 0 0 1 25.2 678.15 A12.6 12.6 0 1 1 0 678.15 Z" class="st42"/>
+			<text x="9.44" y="681.45" class="st43" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>1</text>		</g>
+		<g id="shape1176-399" v:mID="1176" v:groupContext="shape" transform="translate(261.9,-645.484)">
+			<title>Circle.1212</title>
+			<desc>2</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(44000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="12.6" cy="678.15" width="22.05" height="18.9"/>
+			<path d="M0 678.15 A12.6 12.6 0 0 1 25.2 678.15 A12.6 12.6 0 1 1 0 678.15 Z" class="st42"/>
+			<text x="9.44" y="681.45" class="st43" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>2</text>		</g>
+		<g id="shape1177-402" v:mID="1177" v:groupContext="shape" transform="translate(319.15,-568.275)">
+			<title>Circle.1213</title>
+			<desc>3</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(45000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="12.6" cy="678.15" width="22.05" height="18.9"/>
+			<path d="M0 678.15 A12.6 12.6 0 0 1 25.2 678.15 A12.6 12.6 0 1 1 0 678.15 Z" class="st42"/>
+			<text x="9.44" y="681.45" class="st43" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>3</text>		</g>
+		<g id="shape1181-405" v:mID="1181" v:groupContext="shape" transform="translate(1153.68,225) rotate(90)">
+			<title>Sheet.1181</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(49000):26"/>
+			</v:userDefs>
+			<path d="M0 690.75 L49.71 690.75" class="st39"/>
+		</g>
+		<g id="shape1179-410" v:mID="1179" v:groupContext="shape" transform="translate(450.335,-424.275)">
+			<title>Circle.1526</title>
+			<desc>4</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(47000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="12.6" cy="678.15" width="22.05" height="18.9"/>
+			<path d="M0 678.15 A12.6 12.6 0 0 1 25.2 678.15 A12.6 12.6 0 1 1 0 678.15 Z" class="st42"/>
+			<text x="9.44" y="681.45" class="st43" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>4</text>		</g>
+		<g id="shape1182-413" v:mID="1182" v:groupContext="shape" transform="translate(1285.09,225) rotate(90)">
+			<title>Sheet.1182</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(50000):26"/>
+			</v:userDefs>
+			<path d="M7.68 690.75 L8.04 690.75 L49.71 690.75" class="st44"/>
+		</g>
+		<g id="shape1178-421" v:mID="1178" v:groupContext="shape" transform="translate(581.74,-424.275)">
+			<title>Circle.1521</title>
+			<desc>5</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(46000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="12.6" cy="678.15" width="22.05" height="18.9"/>
+			<path d="M0 678.15 A12.6 12.6 0 0 1 25.2 678.15 A12.6 12.6 0 1 1 0 678.15 Z" class="st42"/>
+			<text x="9.44" y="681.45" class="st43" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>5</text>		</g>
+		<g id="shape1183-424" v:mID="1183" v:groupContext="shape" transform="translate(1437.04,225) rotate(90)">
+			<title>Sheet.1183</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(51000):26"/>
+			</v:userDefs>
+			<path d="M7.68 690.75 L8.04 690.75 L57.75 690.75" class="st45"/>
+		</g>
+		<g id="shape1180-429" v:mID="1180" v:groupContext="shape" transform="translate(733.695,-424.275)">
+			<title>Circle.1538</title>
+			<desc>6</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(48000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="12.6" cy="678.15" width="22.05" height="18.9"/>
+			<path d="M0 678.15 A12.6 12.6 0 0 1 25.2 678.15 A12.6 12.6 0 1 1 0 678.15 Z" class="st42"/>
+			<text x="9.44" y="681.45" class="st43" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>6</text>		</g>
+		<g id="group1184-432" transform="translate(17.1862,-6.75)" v:mID="1184" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(52000):26"/>
+			</v:userDefs>
+			<title>logo.1025</title>
+			<g id="group1185-433" transform="translate(0,-4.5)" v:mID="1185" v:groupContext="group">
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT4(True)"/>
+				</v:userDefs>
+				<title>Azure.1002</title>
+				<g id="group1186-434" v:mID="1186" v:groupContext="group">
+					<title>Sheet.1186</title>
+					<g id="shape1187-435" v:mID="1187" v:groupContext="shape">
+						<title>Sheet.1187</title>
+						<path d="M11.96 654.75 L22.69 654.75 L11.57 689.54 A1.67987 1.77404 0 0 1 9.98 690.75 L1.59 690.75 A1.67905
+									 1.77317 0 0 1 0 688.41 L10.37 655.96 A1.6774 1.77143 0 0 1 11.96 654.75 Z" class="st46"/>
+					</g>
+					<g id="shape1188-439" v:mID="1188" v:groupContext="shape" transform="translate(9.14148,0)">
+						<title>Sheet.1188</title>
+						<path d="M17.63 677.42 L0.73 677.42 a0.781965 0.8258 -180 0 0 -0.533644 1.42843 L11.79 690.27 A1.67987 1.77404
+									 -180 0 0 12.93 690.75 L22.51 690.75 L17.63 677.42 Z" class="st47"/>
+					</g>
+					<g id="group1189-441" transform="translate(12.9538,0)" v:mID="1189" v:groupContext="group">
+						<title>Sheet.1189</title>
+						<g id="shape1190-442" v:mID="1190" v:groupContext="shape" transform="translate(7.38139,0)">
+							<title>Sheet.1190</title>
+							<path d="M3.43 690.75 L11.31 690.75 L6.43 677.42 L0 677.42 L3.72 689.04 A1.69796 1.79314 0 0 1 3.43 690.75
+										 Z" class="st48"/>
+						</g>
+						<g id="shape1191-444" v:mID="1191" v:groupContext="shape" transform="translate(9.29257E-14,-20.9906)">
+							<title>Sheet.1191</title>
+							<path d="M4.94 690.75 L9.73 675.74 L0 675.74 A1.70042 1.79575 0 0 1 0.33 676.34 L4.94 690.75 Z"
+									class="st48"/>
+						</g>
+					</g>
+					<g id="group1192-446" transform="translate(12.3462,0)" v:mID="1192" v:groupContext="group">
+						<title>Sheet.1192</title>
+						<g id="shape1193-447" v:mID="1193" v:groupContext="shape" transform="translate(0,-20.0024)">
+							<title>Sheet.1193</title>
+							<path d="M0 674.75 L5.23 690.75 L5.95 688.47 L1.58 674.75 L0 674.75 Z" class="st49"/>
+						</g>
+						<g id="shape1194-449" v:mID="1194" v:groupContext="shape" transform="translate(7.32219,0)">
+							<title>Sheet.1194</title>
+							<path d="M2.59 690.75 L4.85 690.75 A2.31876 2.44874 -180 0 0 4.98 688.82 L1.33 677.42 L0 677.42 L3.79
+										 689.25 A1.07469 1.13493 0 0 1 2.77 690.75 L2.59 690.75 Z" class="st49"/>
+						</g>
+					</g>
+					<g id="shape1195-451" v:mID="1195" v:groupContext="shape" transform="translate(12.088,0)">
+						<title>Sheet.1195</title>
+						<path d="M13.54 655.96 A1.6774 1.77143 -180 0 0 11.95 654.75 L0 654.75 A1.70454 1.80009 0 0 1 1.61 655.97
+									 L11.97 688.38 A1.70371 1.79922 0 0 1 10.35 690.75 L22.32 690.75 A1.67905 1.77317 -180 0 0 23.91
+									 688.41 L13.54 655.96 Z" class="st50"/>
+					</g>
+				</g>
+			</g>
+			<g id="shape1196-455" v:mID="1196" v:groupContext="shape" transform="translate(28.6277,0)">
+				<title>Sheet.1196</title>
+				<desc>Microsoft Azure</desc>
+				<v:textBlock v:margins="rect(4,4,4,4)"/>
+				<v:textRect cx="36" cy="668.25" width="72" height="45"/>
+				<rect x="0" y="645.75" width="72" height="45" class="st35"/>
+				<text x="5.5" y="664.05" class="st51" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft<v:newlineChar/><tspan
+							x="17.66" dy="1.2em" class="st37">Azure</tspan></text>			</g>
+		</g>
+		<g id="shape1197-459" v:mID="1197" v:groupContext="shape" transform="translate(369,-377.708)">
+			<title>Sheet.1197</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(53000):26"/>
+			</v:userDefs>
+			<path d="M0 690.75 L54.96 690.75" class="st39"/>
+		</g>
+	</g>
 </svg>

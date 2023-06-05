@@ -43,6 +43,8 @@ These other use cases have similar design patterns:
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 Here are a couple of things to keep in mind as you develop this scenario, including how to configure parameters in the Azure Service Bus connection string in ServiceBusTrigger:
 
 * **Hubs**: Hubs can be compared to a video streaming service. You can subscribe to a hub to send and receive messages from and to it.
@@ -76,6 +78,8 @@ This architecture can also help if an individual subsystem of the solution fails
 Front Door is a possible failure point in the system. If the service fails, clients can't access your application during the downtime. Review the [Front Door service-level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/frontdoor) and determine whether using Front Door alone meets your business requirements for high availability. If not, consider adding another traffic management solution as a fallback. If the Front Door service fails, change your canonical name (CNAME) records in DNS to point to the other traffic management service. You must perform this step manually, and your application will be unavailable until the DNS changes are propagated.
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 Let's assume that your business has 1,000 orders a day and needs to share location data with all of them concurrently. Your estimated Azure usage for deploying this scenario will be close to USD192 per month, based on pricing at the date of publication.
 

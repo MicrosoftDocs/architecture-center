@@ -1,6 +1,5 @@
 
-
-Gridwich is a .NET Core solution composed of multiple projects. It's important for code projects to have a naming convention to help understand application structure, find relevant code quickly, and reduce [bike-shedding](https://en.wiktionary.org/wiki/bikeshedding) in project naming.
+Gridwich is a .NET 6 solution composed of multiple projects. It's important for code projects to have a naming convention to help understand application structure, find relevant code quickly, and reduce [bike-shedding](https://en.wiktionary.org/wiki/bikeshedding) in project naming.
 
 The Gridwich system has three major components, `Core`, `Host.FunctionApp`, and `SagaParticipants`.
 
@@ -53,8 +52,8 @@ Every project has a `tests` subdirectory, but if there are no unit tests for a p
 
 Each of the two subdirectories contains the C# or other files to build the code, plus a *.csproj* file. The *.csproj* filename follows the package name, for example:
 
-- `Gridwich.Host.FunctionApp/src/Gridwith.Host.FunctionApp.csproj`
-- `Gridwich.Host.FunctionApp/tests/Gridwith.Host.FunctionAppTests.csproj`
+- `Gridwich.Host.FunctionApp/src/Gridwich.Host.FunctionApp.csproj`
+- `Gridwich.Host.FunctionApp/tests/Gridwich.Host.FunctionAppTests.csproj`
 
 The code namespaces that the packages use also follow this convention, for example:
 

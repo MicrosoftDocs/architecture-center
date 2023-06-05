@@ -3,10 +3,10 @@ metadata:
   title: Cloud scale analytics with TimeXtender
   titleSuffix: Azure Architecture Center
   description: Use TimeXtender to build a modern data estate that is ready for cloud scale analytics using a drag-and-drop user interface, with definitions stored in a metadata repository.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/14/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -19,7 +19,6 @@ metadata:
     - data warehouse analytics
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/cloud-scale-analytics-with-discovery-hub"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/cloud-scale-analytics-with-discovery-hub.png
 name: TimeXtender with cloud scale analytics
 azureCategories:
   - analytics

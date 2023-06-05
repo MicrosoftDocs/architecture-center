@@ -17,7 +17,7 @@
             <li>11/17/2020</li>
             <li>7 min read</li>
         </ul>
-        <p class="card-content-description">Learn about options for using the Asysco Automated Migration Technology (AMT) Framework to migrate Unisys mainframe workloads to Azure.</p>
+        <p class="card-content-description">Learn about options for using the Avanade Automated Migration Technology (AMT) Framework to migrate Unisys mainframe workloads to Azure.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

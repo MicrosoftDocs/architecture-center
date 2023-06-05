@@ -3,10 +3,10 @@ metadata:
   title: DevOps with Azure Stack Hub
   titleSuffix: Azure Architecture Center
   description: Code from a single location and deploy to multiple targets in development, test, and production environments that may be in your local datacenter, private clouds, or the public cloud.
-  author: BryanLa
-  ms.author: bryanla
+  author: ronmiab
+  ms.author: robess
   ms.date: 08/16/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -17,7 +17,6 @@ metadata:
     - interactive-diagram
     - hybrid-infrastructure
     - e2e-hybrid
-  social_image_url: /azure/architecture/solution-ideas/articles/media/hybrid-continuous-integration.png
 azureCategories:
   - hybrid
   - devops

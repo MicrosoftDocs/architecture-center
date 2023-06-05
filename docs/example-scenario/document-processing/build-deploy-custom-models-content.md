@@ -2,7 +2,7 @@ This article describes Azure solutions for building, training, deploying, and us
 
 ## Architecture
 
-![Diagram showing several alternatives for a custom document processing model build and deployment process.](images/build-deploy-custom-models.png)
+[ ![Architecture diagram showing several alternatives for a custom document processing model build and deployment process.](images/build-deploy-custom-models.svg)](images/build-deploy-custom-models.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/BuildandDeployCustomModels.vsdx) of this architecture.*
 
@@ -26,7 +26,7 @@ This article describes Azure solutions for building, training, deploying, and us
 
 1. To deploy the custom models and use them for inference:
 
-   - Form Recognizer has built-in model deployment. [Use Form Recognizer SDKs or the REST API](/azure/applied-ai-services/form-recognizer/how-to-guides/try-sdk-rest-api) to apply custom models for inferencing. Include the [model ID](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) or [custom model name](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument) in the Form Recognizer request URL, depending on the API version. Form Recognizer doesn't require any further deployment steps.
+   - Form Recognizer has built-in model deployment. [Use Form Recognizer SDKs or the REST API](/azure/applied-ai-services/form-recognizer/how-to-guides/use-sdk-rest-api) to apply custom models for inferencing. Include the [model ID](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) or [custom model name](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument) in the Form Recognizer request URL, depending on the API version. Form Recognizer doesn't require any further deployment steps.
 
    - Language Studio provides an option to deploy custom language models. Get the REST endpoint [prediction URL](/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/call-api?tabs=language-studio#send-an-entity-recognition-request-to-your-model) by selecting the model to deploy. You can do model inferencing by using either the REST endpoint or the [Azure SDK client libraries](/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/call-api?tabs=client#send-an-entity-recognition-request-to-your-model).
 
@@ -189,7 +189,7 @@ Principal author:
 ## Next steps
 
 - [Get started: Form Recognizer Studio](/azure/applied-ai-services/form-recognizer/quickstarts/try-v3-form-recognizer-studio)
-- [Use Form Recognizer SDKs or REST API](/azure/applied-ai-services/form-recognizer/how-to-guides/try-sdk-rest-api?pivots=programming-language-python)
+- [Use Form Recognizer SDKs or REST API](/azure/applied-ai-services/form-recognizer/how-to-guides/use-sdk-rest-api)
 - [Quickstart: Get started with Language Studio](/azure/cognitive-services/language-service/language-studio)
 - [What is optical character recognition (OCR)?](/azure/cognitive-services/computer-vision/overview-ocr)
 - [How to configure Azure Functions with a virtual network](/azure/azure-functions/configure-networking-how-to)

@@ -1,8 +1,14 @@
+---
+ms.custom:
+  - devx-track-python
+---
 This architecture guide shows how to build a scalable solution for batch scoring models [Azure Machine Learning][amls]. The solution can be used as a template and can generalize to different problems.
 
 ## Architecture
 
-![Diagram that shows the batch scoring of Python models on Azure.](./_images/batch-scoring-python.png)
+:::image type="content" alt-text="Architecture diagram that shows the batch scoring of Python models on Azure" source="./_images/batch-scoring-python.png" lightbox="./_images/batch-scoring-python.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/batch-scoring-python.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -80,9 +86,12 @@ Automatic scaling might not be appropriate for batch jobs that occur too close t
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author:
+Principal authors:
 
 - [Carlos Alexandre Santos](https://www.linkedin.com/in/carlosafsantos) | Senior Specialized AI Cloud Solution Architect
+- [Said Bleik](https://www.linkedin.com/in/said-bleik-34b55156) | Principal Applied Scientist Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
@@ -111,7 +120,7 @@ Microsoft Learn modules:
 - [Batch scoring of Spark models on Azure Databricks](batch-scoring-databricks.yml)
 - [MLOps for Python models using Azure Machine Learning](mlops-python.yml)
 - [Real-time scoring of machine learning models in Python](real-time-scoring-machine-learning-models.yml)
-- [Tune hyperparameters for machine learning models in Python](training-python-models.yml)
+- [Tune hyperparameters for machine learning models in Python](/azure/architecture/example-scenario/ai/training-python-models)
 
 [acr]: /azure/container-registry/container-registry-intro
 [amls]: /azure/machine-learning/overview-what-is-azure-machine-learning

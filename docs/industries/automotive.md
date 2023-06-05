@@ -2,10 +2,10 @@
 title: Solutions for the automotive, mobility, and transportation industries
 titleSuffix: Azure Architecture Center
 description: See architectures and ideas that use Azure services to build efficient, scalable, and reliable solutions in the automotive, mobility, and transportation industries.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures 
 ms.date: 07/26/2022
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.custom: fcp 

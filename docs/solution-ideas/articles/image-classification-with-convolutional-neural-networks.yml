@@ -6,7 +6,7 @@ metadata:
   author: aschauhan22
   ms.author: Ashish.Chauhan
   ms.date: 07/22/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -24,7 +24,6 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/image-classification-with-convolutional-neural-networks"
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/image-classification-with-convolutional-neural-networks.png
 name: Image classification with convolutional neural networks (CNNs)
 azureCategories:
   - ai-machine-learning
@@ -35,6 +34,6 @@ products:
   - azure-data-science-vm
   - azure-kubernetes-service
   - azure-machine-learning
-thumbnailUrl: /azure/architecture/browse/thumbs/image-classification-with-convolutional-neural-networks.png
+thumbnailUrl: /azure/architecture/browse/thumbs/image-classification-with-convolutional-neural-networks-thumbnail.png
 content: |
   [!include[](image-classification-with-convolutional-neural-networks-content.md)]

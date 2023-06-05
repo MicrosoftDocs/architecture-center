@@ -3,10 +3,10 @@ metadata:
   title: Re-engineer IBM z/OS batch applications on Azure
   titleSuffix: Azure Example Scenarios
   description: Use Azure services to re-engineer mainframe batch applications. This architecture change can reduce costs and improve scalability.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: askhande
   ms.date: 07/01/2022
-  ms.topic: conceptual
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
 azureCategories:

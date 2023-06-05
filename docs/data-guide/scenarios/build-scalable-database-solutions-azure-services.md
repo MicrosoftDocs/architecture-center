@@ -72,7 +72,7 @@ Principal author:
 ## Next steps
 
 - [Choose a data storage approach in Azure](/training/modules/choose-storage-approach-in-azure)
-- [Developing with Azure Cosmos DB Table API and Azure Table storage](/azure/cosmos-db/table-support)
+- [Developing with Azure Cosmos DB for Table and Azure Table storage](/azure/cosmos-db/table-support)
 
 ## Related resources
 

@@ -2,7 +2,7 @@
 metadata:
   title: Time series data
   description: Learn about time series measurements and data, and how to use them for real-time alerts, historical or trend analysis, and predictive modeling.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/25/2022
   ms.topic: conceptual

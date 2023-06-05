@@ -97,7 +97,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - You can host infrastructure resources for VDI solutions like Citrix in Azure. The client tier uses VDI solutions to access the application tier and optimize the overall cost and performance of the solution.
-- If the minimum capacity of the VMs is known, you can use the **Reserved Instances** option for all the VMs. This option reduces the costs of the VMs.
+- For compute, use [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) and [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute/#benefits-and-features) and receive significant savings off pay-as-you-go prices.
 
 You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate your costs.
 
@@ -169,11 +169,14 @@ Principal authors:
 
 - [Gansu Adhinarayanan](http://linkedin.com//in/ganapathi-gansu-adhinarayanan-a328b121) | Director - Partner Technology Strategist
 - [Vandana Bagalkot](http://linkedin.com/in/vandana-bagalkot) | Principal Cloud Solution Architect
+- [Marc van Houten](https://www.linkedin.com/in/marcvanhouten) | Senior Cloud Solution Architect
 
 Other contributors:
 
 - [Astha Malik](http://linkedin.com/in/astha-malik8) | Senior Program Manager
 - [Jason Martinez](https://www.linkedin.com/in/jason-martinez-502766123) | Technical Writer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
@@ -183,7 +186,7 @@ Other contributors:
 - [Murex MX.3 architecture](https://www.murex.com/solutions/technology/mx3-architecture)
 - [Recommended Practices for Success with Oracle on Azure IaaS](https://github.com/Azure/Oracle-Workloads-for-Azure/blob/main/Oracle%20on%20Azure%20IaaS%20Recommended%20Practices%20for%20Success.pdf)
 - [Reference architectures for Oracle Database Enterprise Edition on Azure](/azure/virtual-machines/workloads/oracle/oracle-reference-architecture)
-- [Running Oracle workloads on Azure using NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/run-your-most-demanding-oracle-workloads-in-azure-without/ba-p/3264545)
+- [Run Your Most Demanding Oracle Workloads in Azure without Sacrificing Performance or Scalability](https://techcommunity.microsoft.com/t5/azure-architecture-blog/run-your-most-demanding-oracle-workloads-in-azure-without/ba-p/3264545)
 
 ## Related resources
 

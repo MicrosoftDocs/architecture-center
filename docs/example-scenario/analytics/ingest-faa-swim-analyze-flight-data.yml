@@ -5,11 +5,13 @@ metadata:
   description: Learn how to integrate Chef Infra, Chef InSpec, Test Kitchen, Terraform, Terraform Cloud, and GitHub Actions to automate and create data analytics environments.
   author: Chambras
   ms.author: mazambra
-  ms.date: 05/30/2022
-  ms.topic: conceptual
+  ms.date: 03/28/2023
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
-  ms.custom: fcp 
+  ms.custom:
+    - fcp
+    - devx-track-terraform
 azureCategories:
   - analytics
 products:

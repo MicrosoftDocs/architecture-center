@@ -6,7 +6,7 @@ metadata:
   author: mahalaxminanya
   ms.author: msunda
   ms.date: 09/20/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -20,7 +20,6 @@ metadata:
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/personalized-offers"
     - ai-machine-learning
-  social_image_url: /azure/architecture/solution-ideas/articles/media/personalized-offers.png
 name: Personalized offers
 azureCategories:
   - ai-machine-learning

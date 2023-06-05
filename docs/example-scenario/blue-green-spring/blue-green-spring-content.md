@@ -1,24 +1,10 @@
-For some cloud applications, keeping uptime as high as possible is critical. One solution is to use a high availability configuration, which can double costs. Another solution is a disaster recovery plan, which brings up the application again in another region after an outage. The cost for the latter might be lower, but bringing the entire application online again takes time.
-
-This article describes a process for ensuring high availability during the deployment of a new version of an application. In a traditional configuration, the new bits of the application are deployed to the service that's hosting the application. This configuration often leads to a reload and restart of the application. During that process, the application is unavailable.
-
-This article describes the blue/green deployment pattern. In this pattern, the new version of the application is deployed next to the existing version. This deployment allows you to restart, warm up, and test the new version independently. After the new version is running, you can switch to it, redirecting any new incoming traffic to it. For the user of the application, the deployment of the new version happens without any visible downtime.
-
-There's another advantage to blue/green deployment: if a new deployment doesn't work as expected, you can easily abandon it without affecting the live version.
-
-This solution uses Azure Spring Apps to implement blue/green deployment and addresses automating the deployment of applications.
-
-## Potential use cases
-
-This solution can benefit any organization that requires high availability. The solution is especially suitable for industries such as e-commerce and gaming, where downtime can lead to a loss of business and revenue.
-
-You can further improve your availability by implementing zero-downtime deployments. For more information, see the [Alternatives](#alternatives) section of this article.
+This article describes a high-availability blue/green deployment solution for applications on Azure Spring Apps.
 
 ## Architecture
 
-![Diagram that shows an architecture for blue/green deployment. It uses GitHub, GitHub Actions, and Azure Spring Apps.](media/blue-green-deployment.png)
+[ ![Architecture diagram that shows an architecture for blue/green deployment. It uses GitHub, GitHub Actions, and Azure Spring Apps.](media/blue-green-deployment.svg)](media/blue-green-deployment.svg#lightbox)
 
-_Download a [Visio file](https://arch-center.azureedge.net/blue-green-deployment.vsdx) of this architecture._
+*Download a [Visio file](https://arch-center.azureedge.net/blue-green-deployment.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -56,9 +42,27 @@ This architecture uses Azure Spring Apps with Deployments as a target service. Y
 
 As another alternative, you can place any Azure service that hosts web endpoints behind a load-balancing solution. If you use this alternative, you can spin up a second instance of the Azure service, where you can deploy a new version of your application. As a next step, you can create a zero-downtime deployment. To do that, you can switch the traffic at the load-balancing solution to the Azure service that holds the new version of the app. This solution to blue/green deployment does require much more management overhead.
 
+## Scenario details
+
+For some cloud applications, keeping uptime as high as possible is critical. One solution is to use a high availability configuration, which can double costs. Another solution is a disaster recovery plan, which brings up the application again in another region after an outage. The cost for the latter might be lower, but bringing the entire application online again takes time.
+
+This article describes a process for ensuring high availability during the deployment of a new version of an application. In a traditional configuration, the new bits of the application are deployed to the service that's hosting the application. This configuration often leads to a reload and restart of the application. During that process, the application is unavailable.
+
+This article describes the blue/green deployment pattern. In this pattern, the new version of the application is deployed next to the existing version. This deployment allows you to restart, warm up, and test the new version independently. After the new version is running, you can switch to it, redirecting any new incoming traffic to it. For the user of the application, the deployment of the new version happens without any visible downtime.
+
+There's another advantage to blue/green deployment: if a new deployment doesn't work as expected, you can easily abandon it without affecting the live version.
+
+This solution uses Azure Spring Apps to implement blue/green deployment and addresses automating the deployment of applications.
+
+### Potential use cases
+
+This solution can benefit any organization that requires high availability. The solution is especially suitable for industries such as e-commerce and gaming, where downtime can lead to a loss of business and revenue.
+
+You can further improve your availability by implementing zero-downtime deployments. For more information, see the [Alternatives](#alternatives) section of this article.
+
 ## Considerations
 
-The following considerations apply to this solution.
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Availability
 
@@ -73,6 +77,8 @@ This solution works on a per-application basis, so it's well suited for microser
 This solution also works best on a per-application basis, where each application has its own blue/green deployment workflow. If you combine applications in the same workflow, this configuration becomes complex quickly, so we don't recommend that approach.
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 Apart from setting up repository permissions, consider implementing the following security measures in Git repositories that hold code that you want to deploy to Azure Spring Apps:
 
@@ -96,6 +102,8 @@ Teams often manage multiple environments for the same application. It's typical 
 
 ### Cost optimization
 
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
 
 Azure Spring Apps has a Basic tier and a Standard tier. For details, see [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-cloud/). When you use the blue/green deployment strategy, you pay for extra virtual SPU for only a short time, while your deployment runs.
@@ -110,9 +118,11 @@ For a sample of this configuration, see the [Automated blue/green deployment for
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 - [Gitte Vermeiren](https://www.linkedin.com/in/gitte-vermeiren-b1b2221) | Senior Service Engineer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
@@ -127,3 +137,6 @@ Principal authors:
 ## Related resources
 
 - [Azure Spring Apps reference architecture](/azure/spring-cloud/reference-architecture)
+- [Expose Azure Spring Apps through a reverse proxy](../../reference-architectures/microservices/spring-cloud-reverse-proxy.yml)
+- [DevTest and DevOps for microservice solutions](../../solution-ideas/articles/dev-test-microservice.yml)
+- [Deploy Azure Spring Apps to multiple regions](../../reference-architectures/microservices/spring-apps-multi-region.yml)

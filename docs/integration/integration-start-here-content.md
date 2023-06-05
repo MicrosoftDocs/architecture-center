@@ -63,7 +63,7 @@ To explore patterns to incorporate into your design, consult resources in the fo
 #### Mainframe migration
 
 - [Integrate IBM mainframe and midrange message queues with Azure][Integrate IBM mainframe and midrange message queues with Azure]: Use a data-first technique that provides a way for IBM mainframe and midrange message queues to work with Azure services.
-- [Refactor mainframe applications to Azure with Raincode compilers][Refactor mainframe applications to Azure with Raincode compilers]: Use the Raincode COBOL compiler to modernize mainframe legacy applications without changing code.
+- [Rehost mainframe applications to Azure with Raincode compilers][Refactor mainframe applications to Azure with Raincode compilers]: Use the Raincode COBOL compiler to modernize mainframe legacy applications without changing code.
 - [Mainframe access to Azure databases][Mainframe access to Azure databases]: Give IBM mainframe and midrange applications access to remote Azure databases.
 
 ### Service selectors
@@ -94,7 +94,6 @@ To learn about scenario-specific architectures, see the solutions in the followi
 
 #### Finance
 
-- [SWIFT Alliance Connect in Azure][SWIFT Alliance Connect in Azure]: See an article series on connecting to the SWIFT network by using the Alliance Access and Alliance Messaging Hub interfaces.
 - [SWIFT Alliance Connect Virtual in Azure][SWIFT Alliance Connect Virtual in Azure]: See an article series on connecting to the SWIFT network by using the Alliance Connect Virtual component.
 - [Patterns and implementations for a banking cloud transformation][Patterns and implementations for a banking cloud transformation]: Apply patterns that implement a banking system cloud transformation.
 
@@ -144,7 +143,7 @@ These reference architectures provide baseline implementations for various scena
 - [Access to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)][Access to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)]: Build logic apps that run in ISEs and access protected resources.
 - [Publish internal APIs to external users][Publish internal APIs to external users]: Consolidate APIs and then expose them to external users.
 - [Basic enterprise integration on Azure][Basic enterprise integration on Azure]: Orchestrate synchronous calls to enterprise back-end systems.
-- [Enterprise integration using message broker and events][Enterprise integration using message broker and events]: Orchestrate asynchronous calls to enterprise back-end systems by using queues and events.
+- [Enterprise integration using message broker and events](../example-scenario/integration/queues-events.yml): Orchestrate asynchronous calls to enterprise back-end systems by using queues and events.
 - [Enterprise business intelligence][Enterprise business intelligence]: Move data from an on-premises SQL Server database into Azure Synapse Analytics and transform the data for analysis.
 - [Web and mobile front ends][Web and mobile front ends]: Make third-party data available to web users.
 - [Data integration with Logic Apps and SQL Server][Data integration with Logic Apps and SQL Server]: Automate data integration tasks that you perform in response to API calls.
@@ -196,7 +195,7 @@ The following resources provide practical recommendations and information for sp
 [Cross-cloud scaling - on-premises data]: ../example-scenario/hybrid/hybrid-cross-cloud-scale-on-premises-data.yml
 [Cross-cloud scaling with Traffic Manager]: ../example-scenario/hybrid/hybrid-cross-cloud-scaling.yml
 [Custom business processes]: ../solution-ideas/articles/custom-business-processes.yml
-[Data analysis workloads for regulated industries]: ../example-scenario/data/data-analysis-regulated-industries.yml
+[Data analysis workloads for regulated industries]: /azure/architecture/example-scenario/data/data-warehouse
 [Data Factory ACOM page]: https://azure.microsoft.com/services/data-factory
 [Data integration with Logic Apps and SQL Server]: ../example-scenario/integration/logic-apps-data-integration.yml
 [Data integrations with Finance and Operations apps]: /training/modules/data-integrations-finance-operations
@@ -204,8 +203,7 @@ The following resources provide practical recommendations and information for sp
 [Designing interservice communication for microservices]: ../microservices/design/interservice-communication.yml
 [Elastic Workplace Search on Azure]: ../solution-ideas/articles/elastic-workplace-search.yml
 [Energy supply optimization]: ../solution-ideas/articles/energy-supply-optimization.yml
-[Enterprise business intelligence]: ../reference-architectures/data/enterprise-bi-synapse.yml
-[Enterprise integration using message broker and events]: ../reference-architectures/enterprise-integration/queues-events.yml
+[Enterprise business intelligence]: /azure/architecture/example-scenario/analytics/enterprise-bi-synapse
 [Event Grid ACOM page]: https://azure.microsoft.com/services/event-grid
 [Examine business integration for IoT solutions]: /training/modules/examine-business-integration-for-iot-solutions
 [Explore Event Grid integration]: /training/modules/explore-event-grid-integration
@@ -234,8 +232,8 @@ The following resources provide practical recommendations and information for sp
 [Power Automate deployment at scale]: ../example-scenario/power-automate/power-automate.yml
 [Publish internal APIs to external users]: ../example-scenario/apps/publish-internal-apis-externally.yml
 [Quality assurance]: ../solution-ideas/articles/quality-assurance.yml
-[Refactor mainframe applications to Azure with Raincode compilers]: ../reference-architectures/app-modernization/raincode-reference-architecture.yml
-[Remote patient monitoring solutions]: ../solution-ideas/articles/remote-patient-monitoring.yml
+[Rehost mainframe applications to Azure with Raincode compilers]: ../reference-architectures/app-modernization/raincode-reference-architecture.yml
+[Remote patient monitoring solutions]: /azure/architecture/example-scenario/digital-health/remote-patient-monitoring
 [Service Bus ACOM page]: https://azure.microsoft.com/services/service-bus
 [Sharing location in real time using low-cost serverless Azure services]: ../example-scenario/signalr/index.yml
 [SWIFT Alliance Connect in Azure]: ../example-scenario/finance/swift-on-azure-srx.yml

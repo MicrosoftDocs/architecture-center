@@ -3,10 +3,10 @@ metadata:
   title: Enterprise bot for employee productivity
   titleSuffix: Azure Solution Ideas
   description: Use Azure Bot and Cognitive Services to build enterprise bots for internal productivity. Process natural language requests to streamline common employee tasks.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
-  ms.date: 05/26/2022
-  ms.topic: conceptual
+  ms.date: 12/01/2022
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -19,7 +19,6 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/enterprise-productivity-chatbot"
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/enterprise-productivity-chatbot.png
 name: Enterprise bot for employee productivity
 azureCategories:
   - ai-machine-learning
@@ -30,6 +29,6 @@ products:
   - azure-cognitive-services
   - azure-language-understanding
   - azure-monitor
-thumbnailUrl: /azure/architecture/browse/thumbs/enterprise-productivity-chatbot.png
+thumbnailUrl: /azure/architecture/browse/thumbs/enterprise-productivity-chatbot-thumbnail.png
 content: |
   [!include[](enterprise-productivity-chatbot-content.md)]

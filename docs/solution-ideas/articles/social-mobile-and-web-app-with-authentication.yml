@@ -3,10 +3,10 @@ metadata:
   title: Mobile and web social app with authentication
   titleSuffix: Azure Architecture Center
   description: Build and implement a mobile client app architecture that offers authentication abilities and social image sharing with a companion web app, even while offline.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/11/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -23,7 +23,6 @@ metadata:
     - Companion Web App
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/social-mobile-and-web-app-with-authentication"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/social-mobile-and-web-app-with-authentication.png
 name: Social app for mobile and web with authentication
 azureCategories:
   - mobile

@@ -3,10 +3,10 @@ metadata:
   title: Predictive aircraft engine monitoring
   titleSuffix: Azure Architecture Center
   description: Demonstrates how to combine real-time aircraft data with analytics to create a solution for predictive aircraft engine monitoring and health.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/14/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -20,7 +20,6 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace"
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.png
 name: Predictive aircraft engine monitoring
 azureCategories:
   - analytics
@@ -32,6 +31,7 @@ products:
   - azure-hdinsight
   - azure-machine-learning
   - azure-stream-analytics
+  - azure-monitor
 thumbnailUrl: /azure/architecture/browse/thumbs/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.png
 content: |
   [!include[](aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace-content.md)]

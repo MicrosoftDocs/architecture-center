@@ -4,7 +4,7 @@ This solution migrates existing web apps to containers that are deployed in App 
 
 ## Architecture
 
-![Diagram shows existing application migration to containers in Azure Kubernetes Service with Open Service Broker for Azure to access Azure databases.](../media/migrate-existing-applications-to-container-apps.png)
+[ ![Architecture diagram shows existing application migration to containers in Azure Kubernetes Service with Open Service Broker for Azure to access Azure databases.](../media/migrate-existing-applications-to-container-apps.svg)](../media/migrate-existing-applications-to-container-apps.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/migrate-existing-applications-to-container-apps.vsdx) of this architecture.*
 
@@ -12,11 +12,11 @@ This solution migrates existing web apps to containers that are deployed in App 
 
 1. Developer converts existing web application to container.
 2. Developer publishes container image to:
-    1. Azure Container Registry.
-    1. Or, a private registry or Docker Hub.
+    1. A private registry or Docker Hub.
+    1. Or, an Azure Container Registry.
 3. App Service pulls image with:
-    1. Managed identity, which uses an Azure Active Directory security principal to  access to Azure Container Directory.
-    1. Or, credentials for private registry or Docker Hub if necessary.
+    1. Credentials for private registry or Docker Hub, if used.
+    1. Or, managed identity, which uses an Azure Active Directory security principal to access to Azure Container Registry.
 4. Service connectors to access other Azure resources.
 5. Developer pushes new image to the container registry, which triggers App Service updates when continuous deployment is enabled.
 
@@ -26,7 +26,7 @@ This solution migrates existing web apps to containers that are deployed in App 
 
 [Azure Container Registry](https://azure.microsoft.com/services/container-registry/):  A registry of Docker and Open Container Initiative (OCI) images, with support for all OCI artifacts. Use container images in Azure services like App Service, Machine Learning, and Batch. For example, when configuring Web App for Containers for your web app, you can specify a container image from Azure Container Registry.
 
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): A fully managed NoSQL database service for building and modernizing scalable, high-performance applications. Cosmos DB is integrated with key Azure services including Azure Functions, IoT Hub, AKS (Azure Kubernetes Service), App Service, and more. You can choose from multiple database APIs including the native Core (SQL) API, API for MongoDB, Cassandra API, Gremlin API, and Table API.
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): A fully managed NoSQL database service for building and modernizing scalable, high-performance applications. Azure Cosmos DB is integrated with key Azure services including Azure Functions, IoT Hub, AKS (Azure Kubernetes Service), App Service, and more. You can choose from multiple database APIs including the native Azure Cosmos DB for NoSQL, Azure Cosmos DB for MongoDB, Azure Cosmos DB for Apache Cassandra, Azure Cosmos DB for Apache Gremlin, and Azure Cosmos DB for Table.
 
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database): A fully managed relational database with built-in intelligence. Azure SQL Database helps you build applications locally or in the cloud on popular platforms and frameworks with driver support for the most common languages. SQL Database enables you to simplify development with native support for websites running in Azure App Service.
 
@@ -38,7 +38,9 @@ This solution migrates existing web apps to containers that are deployed in App 
 
 ## Scenario details
 
-Easily migrate existing web applications to containers and run the containerized web apps in Web App for Containers in Azure App Service. Web App for Containers allows you to focus on composing your containers without worrying about managing and maintaining an underlying container orchestrator. When you build web apps, Web App for Containers is a good option for taking your first steps with containers. Containers easily other Azure resources like storage and database services.
+Easily migrate existing web applications to containers and run the containerized web apps in Web App for Containers in Azure App Service. Web App for Containers allows you to focus on composing your containers without worrying about managing and maintaining an underlying container orchestrator. When you build web apps, Web App for Containers is a good option for taking your first steps with containers. Your containers can easily integrate other Azure resources like storage and database services.
+
+When you integrate existing web apps with Azure resources, you can also take advantage of [Passwordless connections for Azure services](/azure/developer/intro/passwordless-overview). Passwordless connections is a language-agnostic feature spanning multiple Azure services. When you use passwordless connections, your web apps connect to Azure-based services without any need to rotate passwords. All you need is configuration - no new code is required.
 
 ### Potential use cases
 
@@ -72,11 +74,12 @@ Principal author:
 * [Manage container images in Azure Container Registry](/training/modules/publish-container-image-to-azure-container-registry/)
 * [Overview on Web App for Containers and Azure App Service on Linux](https://azure.microsoft.com/blog/webapp-for-containers-overview/)
 * [Comparing Container Apps with other Azure container options](/azure/container-apps/compare-options)
+* [Passwordless connections for Azure services](/azure/developer/intro/passwordless-overview)
 
 Example language deployments of containers in App Service:
 
 * [Deploy a containerized Python web app on Azure App Service](/azure/developer/python/tutorial-containerize-deploy-python-web-app-azure-01)
-* [Deploy Express.js with VS Code to Azure App Service](/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01)
+* [Deploy Express.js with Visual Studio Code to Azure App Service](/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01)
 * [Deploy an ASP.NET Core container to Azure App Service using Visual Studio](/visualstudio/containers/deploy-app-service)
 
 ## Related resources

@@ -60,7 +60,7 @@ resource "azurerm_role_assignment" "acrpull_role" {
 
 ### Secrets
 
-Each deployment stamp has its dedicated instance of Azure Key Vault. Until the *Azure AD Workload Identity* feature is available, some parts of the workload use **keys** to access Azure resources, such as Cosmos DB. Those keys are created automatically during deployment and stored in Key Vault with Terraform. **No human operator can interact with secrets, except developers in e2e environments.** In addition, Key Vault access policies are configured in a way that **no user accounts are permitted to access** secrets.
+Each deployment stamp has its dedicated instance of Azure Key Vault. Until the *Azure AD Workload Identity* feature is available, some parts of the workload use **keys** to access Azure resources, such as Azure Cosmos DB. Those keys are created automatically during deployment and stored in Key Vault with Terraform. **No human operator can interact with secrets, except developers in e2e environments.** In addition, Key Vault access policies are configured in a way that **no user accounts are permitted to access** secrets.
 
 > [!NOTE]
 > This workload doesn't use custom certificates, but the same principles would apply.
@@ -117,7 +117,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
     });
 ```
 
-The combination of CSI driver's auto reload and `reloadOnChange: true` ensures that when keys change in Key Vault, new values are mounted on the cluster. **This  doesn't guarantee secret rotation in the application**. The implementation uses singleton Cosmos DB client instance that requires the pod to restart to apply the change.
+The combination of CSI driver's auto reload and `reloadOnChange: true` ensures that when keys change in Key Vault, new values are mounted on the cluster. **This  doesn't guarantee secret rotation in the application**. The implementation uses singleton Azure Cosmos DB client instance that requires the pod to restart to apply the change.
 
 ## Custom domains and TLS
 
@@ -270,7 +270,7 @@ Sensitive values for deployment are either generated during the pipeline run (by
 > [!NOTE]
 > GitHub workflows offer [similar concept](https://docs.github.com/en/actions/security-guides/encrypted-secrets) of separate store for secret values. Secrets are encrypted environmental variables that can be used by GitHub Actions.
 
-It's important to **pay attention to any artifacts produced by the pipeline**, because those can potentially contain secret values or information about inner workings of the application. The Azure DevOps deployment of the reference implementation generates two files with Terraform outputs: one for stamp and one for global infrastructure. These files don't contain passwords, which would allow direct compromise of the infrastructure. However they can be considered semi-sensitive, because they reveal information about the infrastructure - cluster IDs, IP addresses, Storage Account names, Key Vault names, Cosmos DB database name, Front Door header ID, and others.
+It's important to **pay attention to any artifacts produced by the pipeline**, because those can potentially contain secret values or information about inner workings of the application. The Azure DevOps deployment of the reference implementation generates two files with Terraform outputs: one for stamp and one for global infrastructure. These files don't contain passwords, which would allow direct compromise of the infrastructure. However they can be considered semi-sensitive, because they reveal information about the infrastructure - cluster IDs, IP addresses, Storage Account names, Key Vault names, Azure Cosmos DB database name, Front Door header ID, and others.
 
 For workloads that utilize **Terraform**, extra effort needs to be put into **protecting the state file**, as it contains full deployment context, **including secrets**. The state file is typically stored in a Storage Account that should have a separate lifecycle from the workload and should be accessible only from a deployment pipeline. Any other access to this file should be logged and alerts sent to appropriate security group.
 

@@ -20,14 +20,13 @@ The Microsoft approach to Zero Trust includes Conditional Access as the main pol
 
 :::image type="content" source="./images/user-access.png" alt-text="Diagram that shows a more detailed view of Conditional Access." lightbox="./images/user-access.png" border="false":::
 
- This diagram shows Conditional Access and related elements that can help protect user access to resources, as opposed to non-interactive or non-human access. The following diagram describes both types of identities: 
+This diagram shows Conditional Access and related elements that can help protect user access to resources, as opposed to non-interactive or non-human access. The following diagram describes both types of identities.
 
  ![Diagram that describes Conditional Access identity types.](./images/conditional-access-identity.svg)
 
-Non-human access to resources must also be protected. Currently, you can't use Conditional Access to protect non-human access to cloud resources. You need to use another method, like grant controls for OAuth-based access.
-
-> [!NOTE] 
-> Functionality for targeting service principals and helping to protect access to resources for machine or workload identities based on location is currently in preview. See [Conditional Access design based on Zero Trust and personas](/azure/architecture/guide/security/conditional-access-architecture) for details.
+Conditional Access has mainly been focusing on protecting access from interactive humans to resources. As the number of non-human identities grow, access from these must be considered as well. Microsoft offers two features related to protecting access to and from workload identities.
+- Protecting access to applications represented by a workload identity that is not selectable in the Azure AD Conditional Access portal. This option is supported by using security attributes. Assigning a security attribute to workload identities and selecting these in the Azure AD Conditional Access portal is part of AAD P1 license.
+- Protecting access to resources initiated by workload identities (service principals). A new feature "Microsoft Entra Workload Identies" is offered in a separate license that supports this scenario. It includes lifecycle management of workload identities including protecting access to resources with Conditional Access.
 
 ### Enterprise access model
 
@@ -118,6 +117,16 @@ The following diagram shows dependencies and related technologies. Some of the t
 ## Conditional Access guidance
 
 For more information, see [Conditional Access design based on Zero Trust and personas](/azure/architecture/guide/security/conditional-access-architecture).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Claus Jespersen](https://www.linkedin.com/in/claus-jespersen-25b0422/) | Principal Consultant ID&Sec
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

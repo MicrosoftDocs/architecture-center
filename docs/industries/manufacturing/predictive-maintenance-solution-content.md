@@ -161,7 +161,7 @@ As mentioned earlier, some manufacturers or third-parties may want to deliver pr
 
 The party providing a service must ensure confidential information from its customers is identified and properly secured or scrubbed out. Microsoft Azure provides capabilities for encrypting the data depending on the storage service used.
 
-The way the devices generate and submit data also needs to be secured, using well known methods such as per-device certificates, per-device enable/disable, TLS security, X.509 support, IP whitelisting/blacklisting, and shared access policies. The party providing a service must ensure confidential information from customers is identified and properly secured or scrubbed out. [Azure Data Lake Store](/azure/data-lake-store/data-lake-store-encryption?WT.mc_id=pdmsolution-docs-ercenk), [Azure Storage](/azure/storage/common/storage-service-encryption?WT.mc_id=pdmsolution-docs-ercenk), [Azure Cosmos DB](/azure/cosmos-db/database-encryption-at-rest?WT.mc_id=pdmsolution-docs-ercenk), and [Azure SQL Database](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?WT.mc_id=pdmsolution-docs-ercenk) are examples of services that can be used for encrypting the data at rest. The solution providers should also consider how to partition the data either within the same resource (e.g. database) or multiple ones.
+The way the devices generate and submit data also needs to be secured, using well known methods such as per-device certificates, per-device enable/disable, TLS security, X.509 support, IP allowlists or blocklists, and shared access policies. The party providing a service must ensure confidential information from customers is identified and properly secured or scrubbed out. [Azure Data Lake Store](/azure/data-lake-store/data-lake-store-encryption?WT.mc_id=pdmsolution-docs-ercenk), [Azure Storage](/azure/storage/common/storage-service-encryption?WT.mc_id=pdmsolution-docs-ercenk), [Azure Cosmos DB](/azure/cosmos-db/database-encryption-at-rest?WT.mc_id=pdmsolution-docs-ercenk), and [Azure SQL Database](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?WT.mc_id=pdmsolution-docs-ercenk) are examples of services that can be used for encrypting the data at rest. The solution providers should also consider how to partition the data either within the same resource (e.g. database) or multiple ones.
 
 ### Geographical considerations
 
@@ -192,6 +192,16 @@ Please see the [Azure Well-Architected Framework pillars of software quality](/a
 ## Conclusion
 
 Predictive maintenance has been a topic of discussion for a long time. Recent developments in cloud platforms like Microsoft Azure enable implementers of predictive maintenance to overcome many challenges that were obstacles in the past when dealing with data. With the elastic scale on the compute and storage capacity, cloud platforms present new opportunities for implementing predictive maintenance, along with new revenue opportunities. Microsoft’s Azure platform provides many services of different capabilities for achieving business goals of a predictive maintenance solution. This article provided a vision for how to collect data and train data models, along with utilizing the trained model to take action on the outcomes predicted in the previous sections.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Ercenk Keresteci](https://www.linkedin.com/in/ercenk/) | Dir Partner Tech Strategist
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

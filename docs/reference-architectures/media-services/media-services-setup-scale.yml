@@ -3,15 +3,16 @@ metadata:
   title: Gridwich Media Services setup and scaling
   titleSuffix: Azure Reference Architectures
   description: Learn how Gridwich uses Azure Media Services v3 SDK to set up authentication and authorization, and how to scale Media Services resources for media processing.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
-  ms.date: 07/28/2022
-  ms.topic: conceptual
+  ms.date: 12/23/2022
+  ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.custom:
     - fcp
     - seo-aac-fy21q3
+    - devx-track-azurecli
   keywords:
     - Media services
     - gridwich

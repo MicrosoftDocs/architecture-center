@@ -48,7 +48,7 @@ An App Service Environment can run regular web apps on Windows or, as in this ex
 
 Other options for the data tier include:
 
-- [Azure Cosmos DB](/azure/cosmos-db/introduction): If most of your data is in non-relational format, Cosmos DB is a good alternative. This service provides a platform to run other data models such as Mongo DB, Cassandra, Graph data, or simple table storage.
+- [Azure Cosmos DB](/azure/cosmos-db/introduction): If most of your data is in non-relational format, Azure Cosmos DB is a good alternative. This service provides a platform to run other data models such as MongoDB, Cassandra, Graph data, or simple table storage.
 
 ## Considerations
 
@@ -97,6 +97,7 @@ Another point to consider is DNS. In order to allow applications within the App 
 - Review the security considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
 - Consider following a [secure development lifecycle][secure-development] process to help developers build more secure software and address security compliance requirements while reducing development cost.
 - Review the blueprint architecture for [Azure PCI DSS compliance][pci-dss-blueprint].
+- [Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
 ### Resiliency
 

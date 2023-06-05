@@ -3,10 +3,10 @@ metadata:
   title: Advanced analytics
   titleSuffix: Azure Architecture Center
   description: This architecture allows you to combine any data at any scale with custom machine learning and get near real-time data analytics on streaming services.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/14/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -21,7 +21,6 @@ metadata:
     - pricing-calculator
     - "https://azure.microsoft.com/solutions/architecture/advanced-analytics-on-big-data"
     - internal-intro
-  social_image_url: /azure/architecture/solution-ideas/articles/media/advanced-analytics-on-big-data.png
 name: Advanced analytics architecture
 azureCategories:
   - analytics

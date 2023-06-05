@@ -2,7 +2,7 @@
 title: Autoscaling guidance
 titleSuffix: Best practices for cloud applications
 description: Review autoscaling guidance. Autoscaling is the process of dynamically allocating resources to match performance requirements.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
 ms.date: 10/11/2022
 ms.topic: conceptual
@@ -143,7 +143,7 @@ Autoscaling isn't an instant solution. Simply adding resources to a system or ru
 
 - The autoscaling mechanism should monitor the autoscaling process, and log the details of each autoscaling event (what triggered it, what resources were added or removed, and when). If you create a custom autoscaling mechanism, ensure that it incorporates this capability. Analyze the information to help measure the effectiveness of the autoscaling strategy, and tune it if necessary. You can tune both in the short term, as the usage patterns become more obvious, and over the long term, as the business expands or the requirements of the application evolve. If an application reaches the upper limit defined for autoscaling, the mechanism might also alert an operator who could manually start additional resources if necessary. Note that under these circumstances the operator may also be responsible for manually removing these resources after the workload eases.
 
-## Related patterns and guidance
+## Related resources
 
 The following patterns and guidance may also be relevant to your scenario when implementing autoscaling:
 

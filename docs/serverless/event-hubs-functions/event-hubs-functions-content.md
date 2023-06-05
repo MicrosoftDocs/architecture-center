@@ -65,6 +65,16 @@ Dynamic, event-based scaling is possible with Consumption and Premium Azure plan
 
 To learn more, see [Azure Event Hubs bindings for Azure Functions](/azure/azure-functions/functions-bindings-event-hubs) and [Azure Event Hubs trigger for Azure Functions](/azure/azure-functions/functions-bindings-event-hubs-trigger).
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [David Barkol](https://www.linkedin.com/in/davidbarkol/) | Principal Solution Specialist GBB
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 > [!div class="nextstepaction"]

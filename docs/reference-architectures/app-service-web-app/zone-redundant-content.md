@@ -43,35 +43,35 @@ For network and subnet topology details, see the [Azure sample template][azure-s
 
 * Either Azure AD or Azure AD B2C can be used as an identity provider in this scenario. Azure AD is designed for internal applications and business-to-business (B2B) scenarios, while Azure AD B2C is designed for business-to-consumer (B2C) scenarios.
 * You can choose to use Azure-managed DNS, which is recommended, or your own DNS provider.
-* [Azure Application Gateway][appgw] can be used instead of Azure Front Door when most users are located close to the Azure region that hosts your workload, and when content caching isn't required. [Azure DDoS Protection Standard][ddos-standard] is recommended for protecting internet-facing Application Gateway services.
+* [Azure Application Gateway][appgw] can be used instead of Azure Front Door when most users are located close to the Azure region that hosts your workload, and when content caching isn't required. [Azure DDoS Network Protection][ddos-network-protection] is recommended for protecting internet-facing Application Gateway services.
 * Azure Static Web Apps provides direct integration with Azure App Service for secure and seamless routing. When Static Web Apps is linked to App Service, only requests made from the static web app resolve, and public access to the App Service is rejected. For more information about Static Web Apps integration with Azure App Service, see [Overview of API support in Azure Static Web Apps][swa-apis].
 * [Static website hosting in Azure Storage][storage-spa] may be considered in place of Azure Static Web Apps, if already using Azure CDN for example. However, static website hosting in Azure Storage does have limitations. For more information, see [Static website hosting in Azure Storage][storage-spa]. Azure Static Web Apps was chosen for its global high availability, and its simple deployment and configuration.
 * A premium [Azure API Manager][apim] instance deployed with zone-redundancy enabled is a good alternative for hosting frontend APIs, backend APIs, or both. For more information about zone-redundancy in API Manager, see [Availability zone support][apim-zr].
 
-### Solution details
+## Scenario details
 
 Traditionally, it's been hard to keep hosting platforms highly available at scale. High availability has historically required complex and expensive multi-region deployments, with tradeoffs between data consistency and high performance.
 
-[Availability zones][azs] resolve these issues. Availability zones are physically separate locations within each Azure region that are tolerant to local failures. Availability zones spread a solution across multiple independent zones within a region, allowing an application to continue functioning when one zone fails.
+[Availability zones][azs] resolve many of these issues. Availability zones are physically separate locations within each Azure region that are tolerant to local failures. Availability zones spread a solution across multiple independent zones within a region, allowing an application to continue functioning when one zone fails.
 
-Zone-redundant Azure services automatically manage and mitigate failures to maintain their [service level agreements (SLAs)](https://azure.microsoft.com/support/legal/sla). Zone-redundancy offers effective recovery times of zero for zone failure. If a single zone within a region becomes unavailable, you shouldn't expect to lose any data, and your workload should continue to run.
+Zone-redundant Azure services automatically manage and mitigate failures to maintain their [service level agreements (SLAs)](https://azure.microsoft.com/support/legal/sla). Zone-redundancy offers effective recovery times of zero for zonal failure. If a single zone within a region becomes unavailable, you shouldn't expect to lose any data, and your workload should continue to run within the remaining available zones. Zone redundancy is configured at deployment time and is automatically managed by services throughout their lifetime, so there is no need to manage zone pinning or zonal deployments.
 
-This architecture shows how to combine zone-redundant services into a solution that provides high availability and is resilient to zone failure. The solution is less complex than multi-region alternatives, offering more cost-optimization opportunities and simplifying operational requirements. There are many more benefits, including:
+This architecture shows how to compose zone-redundant services into a solution that provides high availability and is resilient to zonal failures.
 
-* **No need to manage zone pinning or zonal deployments.** Zone redundancy is configured at deployment time and is automatically managed by services throughout their lifetime.
-* **Recovery time from a zone failure is much shorter than a cross-region failover.** Recovery time from zone-failure for zone-redundant services is practically zero. In a multi-region deployment, you need to carefully manage the failover process, and deal with any data replication delays that might result in data loss.
-* **Simplified networking.** All VNet traffic can remain in the same Azure region.
-
-All of the Azure services in this architecture are either always-available or zone-redundant services. Azure Front Door, Azure AD, Azure DNS, and Static Web Apps are always-available non-regional services that are resilient to zone and region-wide outages. All other services are zone-redundant.
+All of the Azure services in this architecture are either globally available or zone-redundant services. Azure Front Door, Azure AD, Azure DNS, and Static Web Apps are globally available non-regional services that are resilient to zone and region-wide outages. All other services are zone-redundant.
 
 ### Potential use cases
 
-* Business critical systems with high availability requirements
 * Public website hosting
+* Intranet portal
 * Mobile app hosting
 * E-commerce
 * Media streaming
 * Machine learning workloads
+
+> [!IMPORTANT]
+> For mission-critical workloads it is recommended to combine zone-redundancy and regional-redundancy to achieve maximum reliability and availability, with zone-redundant services deployed across multiple Azure regions.
+> For more details please refer to the [global distribution](/azure/architecture/framework/mission-critical/mission-critical-application-design#video---global-distribution ) section of the mission-critical design methodology, and the [mission-critical baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro).
 
 ## Recommendations
 
@@ -84,7 +84,7 @@ Azure Front Door is a global service, always available across all Azure geograph
 * Use [Azure managed certificates][afd-certs] on all front ends to prevent certificate mis-configuration and expiration issues.
 * Enable [caching][afd-cache] on routes where appropriate to improve availability. Front Door's cache distributes your content to the Azure PoP (point of presence) edge nodes. In addition to improving your performance, caching reduces the load on your origin servers.
 * Deploy Azure Front Door Premium and configure a [WAF policy][afd-waf] with a Microsoft-managed ruleset. Apply the policy to all custom domains. Use Prevention mode to mitigate web attacks that might cause an origin service to become unavailable.
-* Use [Private link in Azure Front Door Premium][afd-pep] to secure connectivity to Azure App Service.
+* Deployments with higher security requirements could also use [Private Link in Azure Front Door Premium](/azure/frontdoor/private-link) to secure connectivity to Azure App Service.
 
 For more recommendations and information, see [Best practices for Front Door][afd-best-practices].
 
@@ -181,16 +181,16 @@ Reliability ensures your application can meet the commitments you make to your c
 
 #### Availability
 
-This reference architecture is designed to provide high availability through availability zone infrastructure. When implemented properly this architecture provides excellent availability for lower cost and operational overhead than other solutions. However, improvements can always be made. The risk of a zone failure in an Azure region is mitigated by this design. Zone-redundant services in Azure are designed to withstand a zone failure while still operating within SLA.
+This reference architecture is designed to provide high availability through availability zone infrastructure. When implemented properly this architecture provides excellent availability for lower cost and operational overhead than other solutions. The risk of a zone failure in an Azure region is mitigated by this design, since zone-redundant services are designed to withstand a zonal failure while still operating within the defined SLA.
 
-Region failures are unlikely, but possible. Region failures are where services are unavailable throughout all availability zones in a region. It's important to understand the types of risks that you mitigate by using multi-zone and multi-region architectures.
+Regional failures are unlikely, but are possible. Region failures are where services are unavailable throughout all availability zones within a region. It's important to understand the types of risks that you mitigate by using multi-zone and multi-region architectures.
 
 Mitigate the risk of region failure by combining this zone-redundant architecture with a multi-region architecture. You should understand how to plan your multi-region architecture to reduce your solution's recovery time if an entire region is unavailable.
 
-Multi-region designs are more complex and often more expensive than multi-zone designs within a single region.
+Multi-region designs are more complex and often more expensive than multi-zone designs within a single region, but provide an opportunity to  further optimize availability and overall reliability.
 
 > [!NOTE]
-> You should perform a risk assessment to determine if a multi-region architecture is required for your solution.
+> You should perform a risk assessment to determine if a [multi-region architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro) is required for your solution.
 
 #### Resilience
 
@@ -211,7 +211,7 @@ See also this important guidance for increasing resilience to Azure AD failures 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 * Private endpoints are used on Azure services that don't need to be accessed from the public internet.
-* Deployments with higher security requirements could also use [Private link in Azure Front Door Premium][afd-pep] to secure connectivity to Azure App Service.
+* Deployments with higher security requirements could also use [Private Link in Azure Front Door Premium][afd-pep] to secure connectivity to Azure App Service.
 * Access restrictions on Azure App Service should be configured to only allow Front Door traffic. Access restrictions ensure that requests aren't able to bypass the Azure Front Door WAF.
 * All service-to-service communication in Azure is TLS (transport layer security) encrypted by default. Azure Front Door, Azure App Services, and Azure Static Web Apps should be configured to accept HTTPS traffic only, and the minimum TLS version set.
 * Managed identities are used for authenticating Azure service-to-service communication, where available. For more information about managed identities, see [What are managed identities for Azure resources?][msi].
@@ -241,6 +241,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 All Azure PaaS (platform as a service) services are integrated with [Azure Monitor][azmon]. Follow [Azure monitor best practices][azmon-bp] to:
 
+* Build a [health model](/azure/architecture/framework/mission-critical/mission-critical-health-modeling#video-define-a-health-model-for-your-mission-critical-workload) to quantify application health in the context of business requirements.
 * Configure the right amount of log data collection.
 * Create Azure Dashboards for "single pane of glass" views for operations teams.
 * Create a successful alerting strategy.
@@ -250,7 +251,7 @@ Azure App Services and Azure Functions provide deployment slots. Practice [stage
 
 Automate service deployments with [Bicep][bicep], a template language for deploying Infrastructure as Code. A [sample Bicep file][azure-sample] is provided for this architecture that can be used to automatically deploy the entire solution.
 
-Test the performance and resilience of the entire solution with [Azure Load Testing][load-tests] and [Azure Chaos Studio][chaos].
+[Continuously validate](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#video-continuously-validate-your-mission-critical-workload) the workload to test the performance and resilience of the entire solution using services such as [Azure Load Testing][load-tests] and [Azure Chaos Studio][chaos].
 
 ### Performance efficiency
 
@@ -265,7 +266,7 @@ This architecture can be highly optimized for performance and scale:
 * Use Azure Front Door as a global HTTP load balancer in front of multiple Premium App Service Plans to unlock even greater scale.
 * Review [subscription limits and quotas][quotas] to ensure that services scale to demand.
 * Configure [Azure monitor autoscale][autoscale] rules to scale App Service and Functions instances based on a schedule and/or CPU load.
-* Monitor application performance using [Azure Monitor - Application Insights][insights].
+* Monitor application performance using [Azure Monitor Application Insights][insights].
 * Performance-test workloads to measure latency caused by cross-zone connections, if any.
 
 ## Deploy this scenario
@@ -279,11 +280,11 @@ Deploy this reference architecture using this [Azure sample on GitHub][azure-sam
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
  - [Daniel Larsen](https://www.linkedin.com/in/daniellarsennz) | FastTrack for Azure Customer Engineer
- 
-Other contributors:
+
+Other contributor:
 
  - [John Downs](https://www.linkedin.com/in/john-downs) | FastTrack for Azure Customer Engineer
 
@@ -295,9 +296,12 @@ Other contributors:
 * [Azure regions with availability zones][az-regions]
 * [Find an availability zone region near you][region-roadmap]
 * [Microsoft Azure Well-Architected Framework - Reliability][learn-ha]
+* [Microsoft Azure Well-Architected Framework - Mission-critical workloads](/azure/architecture/framework/mission-critical/mission-critical-overview)
 
 ## Related resources
 
+* [Mission-critical baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro)
+* [Design principles for mission-critical workloads](/azure/architecture/framework/mission-critical/mission-critical-design-principles)
 * [Highly available multi-region web app](./multi-region.yml)
 * [Design principles for Azure applications](/azure/architecture/guide/design-principles)
 * [Basic web application architecture](./basic-web-app.yml)
@@ -321,7 +325,6 @@ Other contributors:
 [akv]:https://azure.microsoft.com/services/key-vault/
 [insights]:/azure/azure-monitor/app/app-insights-overview
 [appgw]:https://azure.microsoft.com/services/application-gateway/
-[cdn]:https://azure.microsoft.com/services/cdn/
 [storage-spa]:/azure/storage/blobs/storage-blob-static-website
 [azs]:https://azure.microsoft.com/global-infrastructure/availability-zones/
 [az-ha-services]:/azure/availability-zones/az-region#highly-available-services
@@ -342,7 +345,6 @@ Other contributors:
 [ise-zr]:/azure/app-service/environment/overview-zone-redundancy
 [sql-gp-zr]:/azure/azure-sql/database/high-availability-sla#general-purpose-service-tier-zone-redundant-availability
 [cosmos-ha]:/azure/cosmos-db/high-availability
-[waf]:/azure/architecture/framework/
 [object-replication]:/azure/storage/blobs/object-replication-overview
 [cosmos-continuous-backup]:/azure/cosmos-db/continuous-backup-restore-introduction
 [afd-certs]:/azure/frontdoor/standard-premium/how-to-configure-https-custom-domain#azure-managed-certificates
@@ -354,7 +356,6 @@ Other contributors:
 [sql-pep]:/azure/azure-sql/database/private-endpoint-overview?view=azuresql
 [cosmos-backup]:/azure/cosmos-db/provision-account-continuous-backup
 [cosmos-pep]:/azure/cosmos-db/how-to-configure-private-endpoints
-[storage-spa]:/azure/storage/blobs/storage-blob-static-website
 [sb-pep]:/azure/service-bus-messaging/private-link-service
 [swa-apis]:/azure/static-web-apps/apis-overview
 [pep-dns]:/azure/key-vault/general/private-link-service
@@ -381,6 +382,6 @@ Other contributors:
 [autoscale]:/azure/architecture/best-practices/auto-scaling
 [appservicehealthchecks]:/azure/app-service/monitor-instances-health-check
 [healthchecksaspnet]:/aspnet/core/host-and-deploy/health-checks
-[ddos-standard]:/azure/ddos-protection/ddos-protection-overview
+[ddos-network-protection]:/azure/ddos-protection/ddos-protection-overview
 [bicep]:/azure/azure-resource-manager/bicep/overview?tabs=bicep
 [afd-best-practices]:/azure/frontdoor/best-practices

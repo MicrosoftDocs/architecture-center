@@ -1,0 +1,29 @@
+### YamlMime:Architecture
+metadata:
+  title: Predict patient length of stay and flow
+  titleSuffix: Azure Architecture Center
+  description: Predict capacity and patient flow for your hospital or healthcare facility so that you can enhance the quality of care and improve operational efficiency.
+  author: BryanLa
+  ms.author: architectures
+  ms.date: 10/20/2022
+  ms.topic: example-scenario
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - ai-machine-learning
+  - analytics
+  - databases
+  - integration
+  - storage
+products:
+  - azure-data-factory
+  - azure-data-lake-gen2
+  - azure-machine-learning
+  - azure-synapse-analytics
+  - power-bi
+
+name: Predict patient length of stay and flow
+summary: Predict capacity and patient flow for your hospital or healthcare facility so that you can enhance the quality of care and improve operational efficiency.
+thumbnailUrl: /azure/architecture/browse/thumbs/predict-length-of-stay-thumbnail.png
+content: |
+  [!include[](predict-patient-length-of-stay-content.md)]

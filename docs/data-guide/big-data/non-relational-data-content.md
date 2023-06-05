@@ -40,7 +40,7 @@ Read and write operations for a row are typically atomic within a single column 
 
 Relevant Azure service:
 
-- [Cosmos DB Cassandra API](/azure/cosmos-db/cassandra-introduction)
+- [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra-introduction)
 - [HBase in HDInsight](/azure/hdinsight/hdinsight-hbase-overview)
 
 ## Key/value data stores
@@ -61,7 +61,7 @@ A single key/value store can be extremely scalable, as the data store can easily
 
 Relevant Azure services:
 
-- [Azure Cosmos DB Table API](/azure/cosmos-db/table-introduction)
+- [Azure Cosmos DB for Table](/azure/cosmos-db/table-introduction)
 - [Azure Cache for Redis](https://azure.microsoft.com/services/cache/)
 - [Azure Table Storage](https://azure.microsoft.com/services/storage/tables/)
 
@@ -169,3 +169,17 @@ The following compares the requirements for each of the non-relational data stor
 Principal author:
 
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+
+## Next steps
+
+- [Relational vs. NoSQL data](/dotnet/architecture/cloud-native/relational-vs-nosql-data)
+- [Understand distributed NoSQL databases](/azure/cosmos-db/distributed-nosql)
+- [Microsoft Azure Data Fundamentals: Explore non-relational data in Azure](/training/paths/azure-data-fundamentals-explore-non-relational-data)
+- [Implement a non-relational data model](/training/modules/implement-non-relational-data-model)
+
+## Related resources
+
+- [Databases architecture design](../databases-architecture-design.yml)
+- [Understand data store models](../../guide/technology-choices/data-store-overview.md)
+- [Scalable order processing](../../example-scenario/data/ecommerce-order-processing.yml)
+- [Near real-time lakehouse data processing](../../example-scenario/data/real-time-lakehouse-data-processing.yml)

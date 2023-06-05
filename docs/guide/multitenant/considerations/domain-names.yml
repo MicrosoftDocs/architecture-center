@@ -2,9 +2,9 @@
 metadata:
   title: Considerations when using domain names in a multitenant solution
   description: This article describes the considerations you need to give to domain names when building multitenant web applications.
-  author: EdPrice-MSFT
-  ms.author: architectures
-  ms.date: 07/25/2022
+  author: johndowns
+  ms.author: jodowns
+  ms.date: 02/28/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide

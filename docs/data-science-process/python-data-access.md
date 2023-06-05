@@ -7,7 +7,7 @@ editor: marktab
 services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom:
@@ -367,3 +367,26 @@ If your data is already serialized, use `update_from_raw_data` instead of `updat
 <!-- Module References -->
 [convert-to-csv]: /azure/machine-learning/studio-module-reference/convert-to-csv
 [split]: /azure/machine-learning/studio-module-reference/split-data
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+- [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
+
+- [Explore and analyze data with Python](/training/modules/explore-analyze-data-with-python/)
+- [Azure ML Package client library for Python - version 1.2.0](/python/api/overview/azure/ai-ml-readme/)
+- [Data collection and manipulation](/training/modules/collect-manipulate-data-python-nasa/)
+
+## Related resources
+
+- [Explore data in the Team Data Science Process](explore-data.md)
+- [Sample data in Azure blob containers, SQL Server, and Hive tables](sample-data.md)
+- [Create features for data in SQL Server using SQL and Python](create-features-sql-server.md)
+- [What is the Team Data Science Process?](overview.yml)

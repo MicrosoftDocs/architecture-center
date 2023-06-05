@@ -2,7 +2,7 @@
 metadata:
   title: Introduction to predictive maintenance in manufacturing
   description: Overview of how to develop predictive maintenance (PdM) for manufacturing customers on Azure.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/26/2022
   ms.topic: conceptual

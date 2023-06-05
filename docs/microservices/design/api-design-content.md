@@ -29,7 +29,7 @@ For a RESTful interface, the most common choice is REST over HTTP using JSON. Fo
 
 **Framework and language support**. HTTP is supported in nearly every framework and language. gRPC, Avro, and Thrift all have libraries for C++, C#, Java, and Python. Thrift and gRPC also support Go.
 
-**Compatibility and interoperability**. If you choose a protocol like gRPC, you may need a protocol translation layer between the public API and the back end. A [gateway](./gateway.yml) can perform that function. If you are using a service mesh, consider which protocols are compatible with the service mesh. For example, linkerd has built-in support for HTTP, Thrift, and gRPC.
+**Compatibility and interoperability**. If you choose a protocol like gRPC, you may need a protocol translation layer between the public API and the back end. A [gateway](./gateway.yml) can perform that function. If you are using a service mesh, consider which protocols are compatible with the service mesh. For example, Linkerd has built-in support for HTTP, Thrift, and gRPC.
 
 Our baseline recommendation is to choose REST over HTTP unless you need the performance benefits of a binary protocol. REST over HTTP requires no special libraries. It creates minimal coupling, because callers don't need a client stub to communicate with the service. There are rich ecosystems of tools to support schema definitions, testing, and monitoring of RESTful HTTP endpoints. Finally, HTTP is compatible with browser clients, so you don't need a protocol translation layer between the client and the backend.
 
@@ -49,7 +49,7 @@ Here are some specific considerations to keep in mind.
 
 - Watch out for APIs that leak internal implementation details or simply mirror an internal database schema. The API should model the domain. It's a contract between services, and ideally should only change when new functionality is added, not just because you refactored some code or normalized a database table.
 
-- Different types of client, such as mobile application and desktop web browser, may require different payload sizes or interaction patterns. Consider using the [Backends for Frontends pattern](../../patterns/backends-for-frontends.yml) to create separate backends for each client, that expose an optimal interface for that client.
+- Different types of client, such as mobile application and desktop web browser, may require different payload sizes or interaction patterns. Consider using the [Backends for Frontends pattern](../../patterns/backends-for-frontends.yml) to create separate backends for each client, which expose an optimal interface for that client.
 
 - For operations with side effects, consider making them idempotent and implementing them as PUT methods. That will enable safe retries and can improve resiliency. The article [Interservice communication](./interservice-communication.yml) discuss this issue in more detail.
 
@@ -81,11 +81,13 @@ These sorts of coding practices are particularly important when building a tradi
 
 Another example is the Repository pattern, which ensures that other parts of the application do not make direct reads or writes to the data store:
 
-![Diagram of a Drone Repository](../images/repository.png)
+![Diagram of a Drone repository.](../images/repository.png)
 
 In a microservices architecture, however, services don't share the same code base and don't share data stores. Instead, they communicate through APIs. Consider the case where the Scheduler service requests information about a drone from the Drone service. The Drone service has its internal model of a drone, expressed through code. But the Scheduler doesn't see that. Instead, it gets back a *representation* of the drone entity &mdash; perhaps a JSON object in an HTTP response.
 
-![Diagram of the Drone Service](../images/ddd-rest.png)
+This example is ideal for the aircraft and aerospace industries.
+
+![Diagram of the Drone service.](../images/ddd-rest.png)
 
 The Scheduler service can't modify the Drone service's internal models, or write to the Drone service's data store. That means the code that implements the Drone service has a smaller exposed surface area, compared with code in a traditional monolith. If the Drone service defines a Location class, the scope of that class is limited &mdash; no other service will directly consume the class.
 
@@ -192,3 +194,10 @@ Learn about using an API gateway at the boundary between client applications and
 
 > [!div class="nextstepaction"]
 > [API gateways](./gateway.yml)
+
+## Related resources
+
+- [RESTful web API design](../../best-practices/api-design.md)
+- [API implementation](../../best-practices/api-implementation.md)
+- [Design a microservices architecture](index.yml)
+- [Using domain analysis to model microservices](../model/domain-analysis.md)

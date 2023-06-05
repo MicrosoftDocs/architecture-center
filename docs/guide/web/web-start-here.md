@@ -1,7 +1,7 @@
 ---
 title: Web architecture design
 description: Get an overview of Azure web app technologies, guidance, solution ideas, and reference architectures.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
 ms.date: 07/25/2022
 ms.topic: conceptual
@@ -134,7 +134,7 @@ Here are some additional implementations to consider:
 
 - [Simple branded website](../../solution-ideas/articles/simple-branded-website.yml)
 - [Build web and mobile applications](../../solution-ideas/articles/webapps.yml)
-- [Eventual consistency between multiple Power Apps instances](../../reference-architectures/power-platform/eventual-consistency.yml)
+- [Eventual consistency between multiple Power Apps instances](/azure/architecture/guide/power-platform/eventual-consistency)
 - [App Service networking features](/azure/app-service/networking-features)
 - [IaaS: Web application with relational database](../../high-availability/ref-arch-iaas-web-and-db.yml)
 - [Migrate a web app using Azure APIM](../../example-scenario/apps/apim-api-scenario.yml)

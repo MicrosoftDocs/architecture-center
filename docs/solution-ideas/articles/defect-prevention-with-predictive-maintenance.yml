@@ -3,10 +3,10 @@ metadata:
   title: Defect prevention with predictive maintenance
   titleSuffix: Azure Solution Ideas
   description: Predict failures before they happen with real-time assembly line data and Azure Machine Learning and Azure Synapse Analytics.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
-  ms.date: 05/24/2022
-  ms.topic: conceptual
+  ms.date: 11/29/2022
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -21,7 +21,6 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/defect-prevention-with-predictive-maintenance"
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/defect-prevention-with-predictive-maintenance.png
 name: Defect prevention with predictive maintenance using analytics and machine learning
 azureCategories:
   - ai-machine-learning
@@ -33,6 +32,6 @@ products:
   - azure-stream-analytics
   - azure-synapse-analytics
   - power-bi
-thumbnailUrl: /azure/architecture/browse/thumbs/defect-prevention-with-predictive-maintenance.png
+thumbnailUrl: /azure/architecture/browse/thumbs/defect-prevention-with-predictive-maintenance-thumbnail.png
 content: |
   [!include[](defect-prevention-with-predictive-maintenance-content.md)]

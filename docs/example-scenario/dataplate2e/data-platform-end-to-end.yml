@@ -6,7 +6,7 @@ metadata:
   author: fabragaMS
   ms.author: fabraga
   ms.date: 08/26/2022
-  ms.topic: conceptual
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.category:
@@ -16,11 +16,6 @@ metadata:
     - fcp
     - data-analytics
     - example-scenario
-  social_image_url: /azure/architecture/example-scenario/dataplate2e/media/azure-analytics-end-to-end.png
-  adobe-target: true
-  adobe-target-activity: DocsExp-450939-A/B-Docs/Architecture-ArchDiagrams-FY22Q4
-  adobe-target-experience: Experience B
-  adobe-target-content: ./data-platform-end-to-end-experiment
 name: Analytics end-to-end with Azure Synapse
 azureCategories:
   - databases

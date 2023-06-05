@@ -1,22 +1,14 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Azure VMware Solution is a native VMware offering that runs on Azure infrastructure. Customers can use Azure VMware Solution as an extension of their on-premises VMware environment. It's also possible to use Azure VMware Solution as a migration destination from an on-premises VMware environment. There are multiple options available to provide network connectivity between a customer's on-premises environment and Azure VMware Solution.
-
-Before an Azure VMware Solution deployment can begin, you must understand how the overall capacity will help you make business and technical decisions. This article covers key design considerations in capacity planning.
-
-## Potential use cases
-
-Capacity planning, or sizing, is desired in the following use cases:
-  - Assess an existing VMware IT landscape: Typical on-premises VMware environments tend to grow organically over a period. Customers would want to understand just how big their on-premises VMware environment is. Complete an objective assessment to remove any guesswork in the decision-making process.
-  - Identify relationships between application components: Customers might want to consider Azure VMware Solution for only some of their workloads. Capacity planning for only a subset of workloads will enable customers to ensure that all the dependencies are factored in.
-  - Identify compatibility between on-premises VMware and the Azure VMware Solution environment: A workload might have a special software or configuration requirement, when running in on-premises VMware environment. If so, you should explore the possibility of meeting that requirement in Azure VMware Solution, to help your customer make appropriate decisions ahead of time.
-  - Understand monthly and yearly costs: Customers would like to understand the costs they'll incur on a monthly and yearly basis. A capacity planning exercise can help provide customers with potential costs.
+Use Azure VMware Solution foundation block capacity planning to size and plan for capacity needed to run workloads.
 
 ## Architecture
 
 This high-level diagram covers Azure VMware Solution capacity planning.
 
-![Diagram showing Azure VMware Solution capacity planning.](../media/azure-vmware-solution-sizing.png)
+![Diagram showing Azure VMware Solution capacity planning.](../media/azure-vmware-solution-sizing.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/azure-vmware-solution-capacity.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -47,8 +39,23 @@ Once an assessment is complete, [reporting](/azure/migrate/tutorial-assess-VMwar
 
 ### Components
 
-* [Azure VMware Solution](https://azure.microsoft.com/services/azure-vmware)
-* [Azure Migrate](https://azure.microsoft.com/services/azure-migrate)
+- [Azure VMware Solution](https://azure.microsoft.com/services/azure-vmware)
+- [Azure Migrate](https://azure.microsoft.com/services/azure-migrate)
+
+## Scenario details
+
+Azure VMware Solution is a native VMware offering that runs on Azure infrastructure. Customers can use Azure VMware Solution as an extension of their on-premises VMware environment. It's also possible to use Azure VMware Solution as a migration destination from an on-premises VMware environment. There are multiple options available to provide network connectivity between a customer's on-premises environment and Azure VMware Solution.
+
+Before an Azure VMware Solution deployment can begin, you must understand how the overall capacity will help you make business and technical decisions. This article covers key design considerations in capacity planning.
+
+### Potential use cases
+
+Capacity planning, or sizing, is desired in the following use cases:
+
+- Assess an existing VMware IT landscape: Typical on-premises VMware environments tend to grow organically over a period. Customers would want to understand just how big their on-premises VMware environment is. Complete an objective assessment to remove any guesswork in the decision-making process.
+- Identify relationships between application components: Customers might want to consider Azure VMware Solution for only some of their workloads. Capacity planning for only a subset of workloads will enable customers to ensure that all the dependencies are factored in.
+- Identify compatibility between on-premises VMware and the Azure VMware Solution environment: A workload might have a special software or configuration requirement, when running in on-premises VMware environment. If so, you should explore the possibility of meeting that requirement in Azure VMware Solution, to help your customer make appropriate decisions ahead of time.
+- Understand monthly and yearly costs: Customers would like to understand the costs they'll incur on a monthly and yearly basis. A capacity planning exercise can help provide customers with potential costs.
 
 ## Contributors
 

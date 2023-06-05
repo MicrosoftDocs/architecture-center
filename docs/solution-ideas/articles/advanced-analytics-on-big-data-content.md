@@ -1,16 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Transform your data into actionable insights using the best-in-class machine learning tools. This solution allows you to combine any data at any scale, and to build and deploy custom machine learning models at scale.
-
-## Potential use cases
-
-Organizations have the ability to access more data than ever before. Advanced analytics help take advantage of data insights. Areas include:
-
-* Customer service.
-* Predictive maintenance.
-* Recommending products or services.
-* System optimization of everything from supply chains to data center operations.
-* Product and services development.
+This architecture allows you to combine any data at any scale with custom machine learning and get near real-time data analytics on streaming services.
 
 ## Architecture
 
@@ -25,7 +15,7 @@ Organizations have the ability to access more data than ever before. Advanced an
 1. Use scalable machine learning/deep learning techniques, to derive deeper insights from this data using Python, Scala, or .NET, with notebook experiences in Apache Spark pool.
 1. Apply  Apache Spark pool and Synapse Pipelines in Azure Synapse Analytics to access and move data at scale.
 1. Query and report on data in [Power BI](/azure/analysis-services/analysis-services-connect-pbi).
-1. Take the insights from Apache Spark pools to Cosmos DB to make them accessible through web and mobile apps.
+1. Take the insights from Apache Spark pools to Azure Cosmos DB to make them accessible through web and mobile apps.
 
 ### Workflow
 
@@ -40,13 +30,36 @@ Organizations have the ability to access more data than ever before. Advanced an
 
 ### Alternatives
 
-- [Synapse Link](/azure/cosmos-db/synapse-link) is the Microsoft preferred solution for analytics on top of Cosmos DB data.
+- [Synapse Link](/azure/cosmos-db/synapse-link) is the Microsoft preferred solution for analytics on top of Azure Cosmos DB data.
 
-## Pricing
+## Scenario details
+
+Transform your data into actionable insights using the best-in-class machine learning tools. This solution allows you to combine any data at any scale, and to build and deploy custom machine learning models at scale. To learn how enterprise-scale data platforms are designed as part of an enterprise landing zone, refer to the [Cloud Adoption Framework Data landing zone](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-landing-zone) documentation.
+
+### Potential use cases
+
+Organizations have the ability to access more data than ever before. Advanced analytics help take advantage of data insights. Areas include:
+
+* Customer service.
+* Predictive maintenance.
+* Recommending products or services.
+* System optimization of everything from supply chains to data center operations.
+* Product and services development.
+
+## Considerations
+
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 * [Customize and get pricing estimates](https://azure.com/e/96162a623bda4911bb8f631e317affc6)
 
 ## Next steps
+
+* Learn about [enterprise-scale data platform](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-landing-zone) design
+* Learn how to design and deploy an [end-to-end data analytics](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end) platform
+
+See the following documentation about the services featured in this architecture:
 
 * [Synapse Analytics Documentation](/azure/sql-data-warehouse)
 * [Synapse Pipelines Documentation](/azure/data-factory/concepts-pipelines-activities)
@@ -55,3 +68,11 @@ Organizations have the ability to access more data than ever before. Advanced an
 * [Azure Cosmos DB Documentation](/azure/cosmos-db)
 * [Analysis Services Documentation](/azure/analysis-services)
 * [Power BI Documentation](/power-bi)
+
+## Related resources
+
+* [Secure a data lakehouse with Azure Synapse Analytics](/azure/architecture/example-scenario/analytics/secure-data-lakehouse-synapse)
+* [Analyze operational data on MongoDB Atlas using Azure Synapse Analytics](/azure/architecture/example-scenario/analytics/azure-synapse-analytics-integrate-mongodb-atlas)
+* [Big data analytics with enterprise-grade security using Azure Synapse](/azure/architecture/solution-ideas/articles/big-data-analytics-enterprise-grade-security)
+* [Spaceborne data analysis with Azure Synapse Analytics](/azure/architecture/industries/aerospace/geospatial-processing-analytics)
+* [Analytics end-to-end with Azure Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end)

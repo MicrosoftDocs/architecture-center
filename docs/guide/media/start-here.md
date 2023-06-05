@@ -1,7 +1,7 @@
 ---
 title: Media architecture design
 description: Get an overview of Azure media technologies, guidance offerings, solution ideas, and reference architectures.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
 ms.date: 08/29/2022
 ms.topic: conceptual
@@ -73,7 +73,7 @@ For more information, see the [Gridwich cloud media system](../../reference-arch
 ### Live streaming
 
 - [Live streaming with Azure Media Services v3](/azure/media-services/latest/stream-live-streaming-concept?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
-- [Instant broadcasting with serverless code](../../solution-ideas/articles/instant-broadcasting-on-serverless-architecture.yml)
+- [Instant broadcasting with serverless code](/azure/architecture/serverless-quest/serverless-overview)
 - [Live stream digital media](../../solution-ideas/articles/digital-media-live-stream.yml)
 
 ### Video on demand

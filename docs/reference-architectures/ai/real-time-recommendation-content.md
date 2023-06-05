@@ -25,7 +25,7 @@ This reference architecture is for training and deploying a real-time recommende
 
 - [Azure Databricks][databricks-service-page]. Databricks is a development environment used to prepare input data and train the recommender model on a Spark cluster. Azure Databricks also provides an interactive workspace to run and collaborate on notebooks for any data processing or machine learning tasks.
 - [Azure Kubernetes Service][aks-service-page] (AKS). AKS is used to deploy and operationalize a machine learning model service API on a Kubernetes cluster. AKS hosts the containerized model, providing scalability that meets your throughput requirements, identity and access management, and logging and health monitoring.
-- [Azure Cosmos DB][cosmosdb-service-page]. Cosmos DB is a globally distributed database service used to store the top 10 recommended movies for each user. Azure Cosmos DB is well-suited for this scenario, because it provides low latency (10 ms at 99th percentile) to read the top recommended items for a given user.
+- [Azure Cosmos DB][cosmosdb-service-page]. Azure Cosmos DB is a globally distributed database service used to store the top 10 recommended movies for each user. Azure Cosmos DB is well-suited for this scenario, because it provides low latency (10 ms at 99th percentile) to read the top recommended items for a given user.
 - [Machine Learning][mls-service-page]. This service is used to track and manage machine learning models, and then package and deploy these models to a scalable AKS environment.
 - [Microsoft Recommenders][github]. This open-source repository contains utility code and samples to help users get started in building, evaluating, and operationalizing a recommender system.
 
@@ -108,6 +108,18 @@ To deploy this architecture, follow the **Azure Databricks** instructions in the
 1. Open the notebook within Azure Databricks and attach the configured cluster.
 1. Run the notebook to create the Azure resources required to create a recommendation API that provides the top-10 movie recommendations for a given user.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+- [Miguel Fierro](https://www.linkedin.com/in/miguelgfierro) | Principal Data Scientist Manager
+- [Nikhil Joglekar](https://www.linkedin.com/in/nrjoglekar) | Product Manager, Azure algorithms and data science
+- [Le Zhang](https://www.linkedin.com/in/yueguoguo1024) | Data Scientist
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Building a Real-time Recommendation API][als-example]
@@ -121,7 +133,6 @@ To deploy this architecture, follow the **Azure Databricks** instructions in the
 - [Batch scoring of Spark models on Azure Databricks][batch-scoring]
 - [Build a content-based recommendation system](/azure/architecture/solution-ideas/articles/build-content-based-recommendation-system-using-recommender)
 - [Build a movie recommendation system using machine learning](../../example-scenario/ai/movie-recommendations-with-machine-learning.yml)
-- [Optimize and reuse an existing recommendation system](../../industries/retail/recommendation-engine-optimization.yml)
 - [Product recommendations for retail using Azure](../../solution-ideas/articles/product-recommendations.yml)
 - [Personalization using Cosmos DB](../../solution-ideas/articles/personalization-using-cosmos-db.yml)
 - [Retail assistant with visual capabilities](../../solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml)

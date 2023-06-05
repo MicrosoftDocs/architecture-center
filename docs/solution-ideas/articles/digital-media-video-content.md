@@ -4,8 +4,9 @@ This solution is built on the Azure managed services: [Blob Storage](https://azu
 
 ## Architecture
 
-![Architecture diagram shows the flow from the video files through Azure Blob Storage and Live Encoder to the streaming endpoint.](../media/digital-media-video.png)
-*Download an [SVG](../media/digital-media-video.svg) of this architecture.*
+![Architecture diagram shows the flow from the video files through Azure Blob Storage and Live Encoder to the streaming endpoint.](../media/digital-media-video.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/digital-media-video.vsdx) of this architecture.*
 
 ### Components
 
@@ -40,7 +41,7 @@ This solution applies to television, movie, and various online streaming service
 * To get started with Azure Media Services, visit the [Azure Media Services](/azure/media-services/latest/media-services-overview) documentation where you will find quickstarts, tutorials, and samples. 
 * [Azure Media Player overview](/azure/media-services/azure-media-player/azure-media-player-overview)
 * [How to use Azure Blob storage](/azure/storage/blobs/storage-quickstart-blobs-portal)
-* [How to encode an asset using Media Encoder](/azure/media-services/latest/stream-files-tutorial-with-api)
+* [How to encode an asset using Media Encoder](/azure/media-services/latest/samples-overview)
 * [How to manage streaming endpoints](/azure/media-services/latest/stream-streaming-endpoint-concept)
 * [Using Azure Content Delivery Network](/azure/cdn/cdn-create-new-endpoint)
 * [Playing your content with existing players](https://github.com/Azure-Samples/media-services-3rdparty-player-samples)

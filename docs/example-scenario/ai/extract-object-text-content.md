@@ -2,9 +2,9 @@ This article presents a solution for extracting text from images so it can be in
 
 ## Architecture
 
-![Architecture diagram for using AI Builder to extract text from objects by using AI.](./media/architecture-extract-object-text.png)
+![Architecture diagram for using AI Builder to extract text from objects by using AI.](./media/architecture-extract-object-text.svg)
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/architecture-extract-object-text.pptx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/architecture-extract-object-text.vsdx) of this architecture.*
 
 ### Workflow
 

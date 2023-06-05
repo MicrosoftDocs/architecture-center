@@ -1,12 +1,12 @@
 ### YamlMime:Architecture
 metadata:
-  title: SWIFT Alliance Cloud in Azure
+  title: SWIFT Alliance Cloud on Azure
   titleSuffix: Azure Example Scenarios
   description: Deploy Azure infrastructure for SWIFT Alliance Cloud.
   author: Mahesh-MSFT
   ms.author: maksh
-  ms.date: 06/09/2022
-  ms.topic: conceptual
+  ms.date: 03/23/2023
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom: fcp
@@ -18,8 +18,8 @@ products:
   - azure-policy
   - azure-bastion
   - azure-expressroute
-name: SWIFT Alliance Cloud in Azure
+name: SWIFT Alliance Cloud on Azure
 summary: Deploy Azure infrastructure for SWIFT Alliance Cloud.
-thumbnailUrl: /azure/architecture/browse/thumbs/swift-alliance-cloud-on-azure.png
+thumbnailUrl: /azure/architecture/browse/thumbs/swift-alliance-cloud-azure.png
 content: |
   [!include[](swift-alliance-cloud-on-azure-content.md)]

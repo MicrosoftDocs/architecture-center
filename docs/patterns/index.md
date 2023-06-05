@@ -2,10 +2,10 @@
 title: Cloud design patterns
 titleSuffix: Azure Architecture Center
 description: Learn about design patterns for building reliable, scalable, secure applications in the cloud by walking through examples based on Microsoft Azure.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
 ms.date: 07/28/2022
-ms.topic: conceptual
+ms.topic: design-pattern
 ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:
@@ -68,6 +68,7 @@ Each pattern describes the problem that the pattern addresses, considerations fo
 | [Compute Resource Consolidation](./compute-resource-consolidation.yml) | Consolidate multiple tasks or operations into a single computational unit | [Design and Implementation](./category/design-implementation.md) |
 | [CQRS](./cqrs.yml) | Segregate operations that read data from operations that update data by using separate interfaces. | [Data Management](./category/data-management.md), <hr> [Design and Implementation](./category/design-implementation.md), <hr> [Performance Efficiency](/azure/architecture/framework/scalability/performance-efficiency-patterns) |
 | [Deployment Stamps](./deployment-stamp.yml) | Deploy multiple independent copies of application components, including data stores. | [Reliability](/azure/architecture/framework/resiliency/reliability-patterns), <hr> [Performance Efficiency](/azure/architecture/framework/scalability/performance-efficiency-patterns) |
+| [Edge Workload Configuration](./edge-workload-configuration.md) | The great variety of systems and devices on the shop floor can make workload configuration a difficult problem. | [Design and Implementation](./category/design-implementation.md) |
 | [Event Sourcing](./event-sourcing.yml) | Use an append-only store to record the full series of events that describe actions taken on data in a domain. | [Data Management](./category/data-management.md), <hr> [Performance Efficiency](/azure/architecture/framework/scalability/performance-efficiency-patterns) |
 | [External Configuration Store](./external-configuration-store.yml) | Move configuration information out of the application deployment package to a centralized location. | [Design and Implementation](./category/design-implementation.md), <hr> [Operational Excellence](/azure/architecture/framework/devops/devops-patterns) |
 | [Federated Identity](./federated-identity.yml) | Delegate authentication to an external identity provider. | [Security](/azure/architecture/framework/security/security-patterns) |
@@ -84,7 +85,9 @@ Each pattern describes the problem that the pattern addresses, considerations fo
 | [Priority Queue](./priority-queue.yml) | Prioritize requests sent to services so that requests with a higher priority are received and processed more quickly than those with a lower priority. | [Messaging](./category/messaging.md), <hr> [Performance Efficiency](/azure/architecture/framework/scalability/performance-efficiency-patterns) |
 | [Publisher/Subscriber](./publisher-subscriber.yml) | Enable an application to announce events to multiple interested consumers asynchronously, without coupling the senders to the receivers. | [Messaging](./category/messaging.md) |
 | [Queue-Based Load Leveling](./queue-based-load-leveling.yml) | Use a queue that acts as a buffer between a task and a service that it invokes in order to smooth intermittent heavy loads. | [Reliability](/azure/architecture/framework/resiliency/reliability-patterns), <hr> [Messaging](./category/messaging.md), <hr> [Resiliency](/azure/architecture/framework/resiliency/reliability-patterns), <hr> [Performance Efficiency](/azure/architecture/framework/scalability/performance-efficiency-patterns) |
+| [Rate Limit Pattern](./rate-limiting-pattern.yml) | Limiting pattern to help you avoid or minimize throttling errors related to these throttling limits and to help you more accurately predict throughput. | [Reliability](/azure/architecture/framework/resiliency/reliability-patterns) |
 | [Retry](./retry.yml) | Enable an application to handle anticipated, temporary failures when it tries to connect to a service or network resource by transparently retrying an operation that's previously failed. | [Reliability](/azure/architecture/framework/resiliency/reliability-patterns) |
+| [Saga](../reference-architectures/saga/saga.yml) | Manage data consistency across microservices in distributed transaction scenarios. A saga is a sequence of transactions that updates each service and publishes a message or event to trigger the next transaction step. |  [Messaging](./category/messaging.md) |
 | [Scheduler Agent Supervisor](./scheduler-agent-supervisor.yml) | Coordinate a set of actions across a distributed set of services and other remote resources. | [Messaging](./category/messaging.md), <hr> [Reliability](/azure/architecture/framework/resiliency/reliability-patterns) |
 | [Sequential Convoy](./sequential-convoy.yml) | Process a set of related messages in a defined order, without blocking processing of other groups of messages. | [Messaging](./category/messaging.md) |
 | [Sharding](./sharding.yml) | Divide a data store into a set of horizontal partitions or shards. | [Data Management](./category/data-management.md), <hr> [Performance Efficiency](/azure/architecture/framework/scalability/performance-efficiency-patterns) |

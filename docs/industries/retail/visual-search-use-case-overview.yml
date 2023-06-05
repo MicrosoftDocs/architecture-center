@@ -2,7 +2,7 @@
 metadata:
   title: Visual search in retail with Azure Cosmos DB
   description: This article explains the phases of migrating ecommerce infrastructure from on premises to Azure.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/26/2022
   ms.topic: conceptual

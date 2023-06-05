@@ -2,7 +2,7 @@
 metadata:
   title: Baseball decision analysis with ML.NET and Blazor
   description: Learn about a web app that provides an interface for non-technical users to use artificial intelligence and machine learning to perform decision analysis.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/25/2022
   ms.topic: conceptual

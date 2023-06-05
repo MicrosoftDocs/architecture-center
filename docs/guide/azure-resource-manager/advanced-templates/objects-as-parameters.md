@@ -1,9 +1,9 @@
 ---
 title: Use objects as parameters in an ARM template
 description: Describes how to extend the functionality of Azure Resource Manager templates to use objects as parameters.
-author: EdPrice-MSFT
-ms.author: architectures
-ms.date: 07/25/2022
+author: martinekuan
+ms.author: martinek
+ms.date: 01/05/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -17,19 +17,18 @@ products:
   - azure-resource-manager
 ms.custom:
   - article
+  - devx-track-arm-template
 ---
 
 <!-- cSpell:ignore subproperties -->
 
 # Use objects as parameters in a copy loop in an Azure Resource Manager template
 
-When [using objects as a parameter in Azure Resource Manager templates](/azure/azure-resource-manager/templates/parameters#objects-as-parameters) you may want to include them in a copy loop, so here is an example that uses them in that way:
+When you use [objects as parameters](/azure/azure-resource-manager/templates/parameters#objects-as-parameters) in Azure Resource Manager templates (ARM templates), you can include them in a copy loop. This technique is very useful when it's combined with a [serial copy loop](/azure/azure-resource-manager/templates/copy-resources#serial-or-parallel), especially for deploying child resources.
 
-This approach becomes very useful when combined with the [serial copy loop](/azure/azure-resource-manager/templates/copy-resources#serial-or-parallel), particularly for deploying child resources.
+To demonstrate this approach, let's look at a template that deploys a [network security group (NSG)][nsg] with two security rules.
 
-To demonstrate this, let's look at a template that deploys a [network security group (NSG)][nsg] with two security rules.
-
-First, let's take a look at our parameters. When we look at our template we'll see that we've defined one parameter named `networkSecurityGroupsSettings` that includes an array named `securityRules`. This array contains two JSON objects that specify a number of settings for a security rule.
+First, let's look at our parameters. When we look at our template we see that we defined one parameter named `networkSecurityGroupsSettings` that includes an array named `securityRules`. This array contains two JSON objects, each of which specifies settings that define a security rule.
 
 ```json
 {
@@ -70,7 +69,7 @@ First, let's take a look at our parameters. When we look at our template we'll s
 }
 ```
 
-Now let's take a look at our template. We have a resource named `NSG1` deploys the NSG, it also leverages [ARM's built-in property iteration feature](/azure/azure-resource-manager/templates/copy-properties); by adding copy loop to the properties section of a resource in your template, you can dynamically set the number of items for a property during deployment. You also avoid having to repeat template syntax.
+Now, let's look at our template. We have a resource named `NSG1` that deploys the NSG. It also uses [ARM's built-in property iteration feature](/azure/azure-resource-manager/templates/copy-properties). By adding copy loop to the properties section of a resource in your template, you can dynamically set the number of items for a property during deployment. You also avoid having to repeat template syntax.
 
 ```json
 {
@@ -123,15 +122,19 @@ Now let's take a look at our template. We have a resource named `NSG1` deploys t
                         "name": "securityRules",
                         "count": "[length(parameters('networkSecurityGroupsSettings').securityRules)]",
                         "input": {
-                            "description": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].description]",
-                            "priority": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].priority]",
-                            "protocol": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].protocol]",
-                            "sourcePortRange": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].sourcePortRange]",
-                            "destinationPortRange": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].destinationPortRange]",
-                            "sourceAddressPrefix": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].sourceAddressPrefix]",
-                            "destinationAddressPrefix": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].destinationAddressPrefix]",
-                            "access": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].access]",
-                            "direction": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].direction]"
+                            "name": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex('securityRules')].name]",
+                            "properties": {
+
+                                "description": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex('securityRules')].description]",
+                                "priority": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex('securityRules')].priority]",
+                                "protocol": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex('securityRules')].protocol]",
+                                "sourcePortRange": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex('securityRules')].sourcePortRange]",
+                                "destinationPortRange": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex('securityRules')].destinationPortRange]",
+                                "sourceAddressPrefix": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex('securityRules')].sourceAddressPrefix]",
+                                "destinationAddressPrefix": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex('securityRules')].destinationAddressPrefix]",
+                                "access": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex('securityRules')].access]",
+                                "direction": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex('securityRules')].direction]"
+                            }
                         }
                     }
                 ]
@@ -141,7 +144,7 @@ Now let's take a look at our template. We have a resource named `NSG1` deploys t
 }
 ```
 
-Let's take a closer look at how we specify our property values in the `securityRules` child resource. All of our properties are referenced using the `parameters()` function, and then we use the dot operator to reference our `securityRules` array, indexed by the current value of the iteration. Finally, we use another dot operator to reference the name of the object.
+Let's take a closer look at how we specify our property values in the `securityRules` child resource. All of our properties are referenced by using the `parameters()` function. Then we use the dot operator to reference our `securityRules` array, and index it by the current value of the iteration. Finally, we use another dot operator to reference the name of the object.
 
 ## Try the template
 
@@ -158,14 +161,20 @@ az deployment group create -g <resource-group-name> \
 
 ## Next steps
 
-- Learn how to create a template that iterates through an object array and transforms it into a JSON schema. See [Implement a property transformer and collector in an Azure Resource Manager template](./collector.md)
+- [Azure Resource Manager](https://azure.microsoft.com/get-started/azure-portal/resource-manager)
+- [What are ARM templates?](/azure/azure-resource-manager/templates/overview)
+- [Tutorial: Create and deploy your first ARM template](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+- [Tutorial: Add a resource to your ARM template](/azure/azure-resource-manager/templates/template-tutorial-add-resource?tabs=azure-powershell)
+- [ARM template best practices](/azure/azure-resource-manager/templates/best-practices)
+- [Azure Resource Manager documentation](/azure/azure-resource-manager)
+- [ARM template documentation](/azure/azure-resource-manager/templates)
 
-<!-- links -->
+## Related resources
 
-[azure-resource-manager-authoring-templates]: /azure/azure-resource-manager/templates/template-syntax
-[azure-resource-manager-create-template]: /azure/azure-resource-manager/templates/template-tutorial-create-first-template
-[azure-resource-manager-create-multiple-instances]: /azure/azure-resource-manager/
-[azure-resource-manager-functions]: /azure/azure-resource-manager/templates/template-functions-deployment#parameters
+- [Update a resource in an Azure Resource Manager template](update-resource.md)
+- [Use objects as parameters in a copy loop in an Azure Resource Manager template](objects-as-parameters.md)
+- [Implement a property transformer and collector in an Azure Resource Manager template](collector.md)
+
 [nsg]: /azure/virtual-network/virtual-networks-nsg
 [cli]: /cli/azure/
 [github]: https://github.com/mspnp/template-examples

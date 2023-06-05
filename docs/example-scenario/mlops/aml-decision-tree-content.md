@@ -1,3 +1,7 @@
+---
+ms.custom:
+  - devx-track-python
+---
 Microsoft Azure offers a myriad of services and capabilities. Building an end-to-end machine learning pipeline from experimentation to deployment often requires bringing together a set of services from across Azure. While it may be possible to have one pipeline do it all, there are tradeoffs when you don't use the services for what they're best at.
 
 So, then you have to ask the question: When is it worth it to adopt each service for your use case? The answer often depends on different details that are not necessarily related to the functional requirements. The main factors are:
@@ -160,7 +164,18 @@ This table adds scheduling options to the triggers.
 | Azure Monitor | Application Insights<br>Azure Dashboards |
 | Power BI | Analytics and Reports |
 
+## Next steps
+
+- [Training: Introduction to machine learning](/training/modules/introduction-to-machine-learning)
+- [Azure Machine Learning documentation](/azure/machine-learning)
+- [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
+- [Tutorial: Azure Machine Learning in a day](/azure/machine-learning/tutorial-azure-ml-in-a-day)
+
 ## Related resources
 
-* [Technical Paper: MLOps framework to upscale machine learning lifecycle with Azure Machine Learning](mlops-technical-paper.yml)
-* [MLOps maturity model](mlops-maturity-model.yml)
+- [Technical Paper: MLOps framework to upscale machine learning lifecycle with Azure Machine Learning](mlops-technical-paper.yml)
+- [MLOps maturity model](mlops-maturity-model.yml)
+- [Compare Microsoft machine learning products and technologies](../../data-guide/technology-choices/data-science-and-machine-learning.md)
+- [MLflow and Azure Machine Learning](/azure/machine-learning/concept-mlflow)
+- [Artificial intelligence (AI) architecture design](../../data-guide/big-data/ai-overview.md)
+- [How Azure Machine Learning works: resources and assets](/azure/machine-learning/concept-azure-machine-learning-v2)

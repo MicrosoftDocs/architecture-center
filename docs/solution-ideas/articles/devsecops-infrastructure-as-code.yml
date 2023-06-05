@@ -3,10 +3,10 @@ metadata:
   title: DevSecOps for infrastructure as code (IaC)
   titleSuffix: Azure Architecture Center
   description: Learn how to use DevSecOps for IaC to securely deploy cloud infrastructure into a new Azure landing zone.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: yeeshianlee
-  ms.date: 07/13/2022
-  ms.topic: conceptual
+  ms.date: 04/17/2023
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.custom: fcp

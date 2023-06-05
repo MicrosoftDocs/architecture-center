@@ -3,10 +3,10 @@ metadata:
   title: Hybrid connections
   titleSuffix: Azure Solution Ideas
   description: Use a hybrid connection for Azure Stack Hub solutions with apps that communicate with the Azure public cloud and on-premises Azure Stack Hub components.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 05/27/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -24,7 +24,6 @@ metadata:
     - e2e-hybrid
     - "https://azure.microsoft.com/solutions/architecture/hybrid-connectivity"
     - internal-intro
-  social_image_url: /azure/architecture/solution-ideas/articles/media/hybrid-connectivity.png
 name: Hybrid connections
 azureCategories:
   - hybrid

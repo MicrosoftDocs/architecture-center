@@ -13,7 +13,7 @@ The second diagram illustrates Windows Admin Center deployed on-premises.
 
 ![Deploy Windows Admin Center to a VM on-premises. Use Azure network adapter to integrate with resources in Azure.][architectural-diagram-onprem]
 
-*Download a [Visio file][architectural-diagram-visio-source] of these architectures.*
+*Download a [Visio file][architectural-diagram-visio-source] of all architectures diagrams in this article.*
 
 ### Workflow
 
@@ -21,12 +21,19 @@ The architecture consists of the following:
 
 - **On-premises corporate network**. A private local area network that runs within an organization.
 - **On-premises corporate firewall**. An organizational firewall configured to allow users access to the Windows Admin Center gateway when the gateway is deployed on-premises.
-- **Windows VM**. A Windows VM installed with the Windows Admin Center gateway that hosts web services with which users can connect.
+- **Windows VM**. A Windows VM installed with the Windows Admin Center gateway that hosts web services that users can connect to.
 - **Azure AD app**. An app used for all points of Azure integration in Windows Admin Center, including Azure Active Directory (Azure AD) authentication to the gateway.
 - **Managed nodes**. Nodes managed by Windows Admin Center, which might include physical servers running Azure Stack, or Windows Server or virtual machines running Windows Server.
 - **VPN or ExpressRoute**. A Site-to-Site (S2S) VPN or ExpressRoute to manage nodes on-premises when Windows Admin Center is deployed in Azure.
 - **Azure network adapter**. An adapter for a Point-to-Site (P2S) VPN to Azure when Windows Admin Center is deployed on-premises. Windows Admin Center can automatically deploy the adapter and also create an Azure gateway.
 - **Domain Name System (DNS)**. A DNS record that users reference to connect to the Windows Admin Center gateway.
+
+### Components
+
+- [Windows Admin Center](/windows-server/manage/windows-admin-center/understand/what-is) is a browser-based management tool set that gives you full control over all aspects of your server infrastructure and is particularly useful for managing servers on private networks that are not connected to the Internet. It accesses servers through the Windows Admin Center gateway that's installed on Windows Server or on domain-joined Windows 10. The gateway can be installed on-premises or on an Azure VM that runs Windows.
+- [Azure ExpressRoute](https://azure.microsoft.com/products/expressroute) creates private connections between Azure datacenters and infrastructure on premises or in a colocation environment.
+- [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) provides secure network infrastructure in the cloud.
+- [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines) provides Linux and Windows virtual machines. In this solution, you can use it to provide a Windows VM to run Windows Admin Center.
 
 ## Scenario details
 
@@ -56,7 +63,7 @@ The on-premises installation types are:
 
 Because Windows Admin Center has no cloud service dependencies, some organizations might choose to deploy Windows Admin Center to an on-premises system for managing on-premises computers and then enable hybrid services over time. However, many organizations prefer to take advantage of service offerings in Azure and other cloud platforms that are integrated with Windows Admin Center.
 
-Deploying Windows Admin Center on an Azure VM provides gateway functionality similar to Windows Server 2016 and Windows Server 2019. However, Azure also enables additional features for Azure VMs. Refer to [Availability considerations](#availability) for more information about the benefits of deploying Windows Admin Center to Azure VMs.
+Deploying Windows Admin Center on an Azure VM provides gateway functionality similar to Windows Server 2016 and Windows Server 2019. However, Azure also enables additional features for Azure VMs. Refer to [Reliability](#reliability) for more information about the benefits of deploying Windows Admin Center to Azure VMs.
 
 ### Automated deployment
 
@@ -97,15 +104,17 @@ Windows Admin Center gateway is a web-based tool that uses a Secure Sockets Laye
 > [!TIP]
 > To learn how other Microsoft customers have used Windows Admin Center to improve their productivity and reduce costs, refer to [Windows Admin Center Case Studies][wac-case-studies].
 
+### Administrative recommendations
+
+Deploying Windows Admin Center on a local Windows 10 client is great for quick-start tests, and ad-hoc or small-scale scenarios. However, for production scenarios with multiple administrators, we recommend Windows Server. When deployed on Windows Server, Windows Admin Center provides a centralized management hub for your server environment with additional capabilities such as smart card authentication, conditional access, and multi-factor authentication. For more information about controlling access to Windows Admin Center, refer to [User Access Options with Windows Admin Center][user-access-options].
+
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-### Administrative considerations
+### Reliability
 
-Deploying Windows Admin Center on a local Windows 10 client is great for quick-start tests, and ad-hoc or small-scale scenarios. However, for production scenarios with multiple administrators, we recommend Windows Server. When deployed on Windows Server, Windows Admin Center provides a centralized management hub for your server environment with additional capabilities such as smart card authentication, conditional access, and multi-factor authentication. For more information about controlling access to Windows Admin Center, refer to [User Access Options with Windows Admin Center][user-access-options].
-
-### Availability
+Reliability ensures that your application can meet the commitments that you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
 - You can help ensure high availability of the Windows Admin Center gateway service by deploying it in an active/passive model on a failover cluster. In this scenario, only one instance of the Windows Admin Center gateway service is active. If one of the nodes in the cluster fails, the Windows Admin Center gateway service seamlessly fails over to another node.
   > [!CAUTION]
@@ -116,7 +125,30 @@ Deploying Windows Admin Center on a local Windows 10 client is great for quick-s
 
 - Deploying Windows Admin Center gateway to an Azure VM provides additional high-availability options. For example, by using availability sets you can provide VM redundancy and availability within an Azure datacenter by distributing the VMs across multiple hardware nodes. You can also use availability zones in Azure, which provide datacenter fault tolerance. Availability zones are unique physical locations that span datacenters within an Azure region. This helps ensure that Azure VMs have independent power, cooling, and networking. For more information on high availability, refer to [Availability options for virtual machines in Azure][azure-vm-availability] and [High availability and disaster recovery for IaaS apps][iaas-ha-dr].
 
-### Manageability
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
+- Deploying Windows Admin Center provides your organization with a centralized management interface for your server environment. By controlling access to Windows Admin Center, you can improve the security of your management landscape.
+- Windows Admin Center provides multiple features to help secure your management platform. For starters, Windows Admin Center gateway authentication can use local groups,  Active Directory Domain Services (AD DS), and cloud-based Azure AD. You can also enforce smart card authentication by specifying an additional required group for smart card-based security groups. And, by requiring Azure AD authentication for the gateway, you can use other Azure AD security features such as conditional access and Azure Active Directory Multi-Factor Authentication.
+- Access to the Windows Admin Center gateway doesn't imply access to the target servers that are made visible by the gateway. To manage a target server, users must connect with credentials that grant administrator privileges on the servers they want to manage. However, some users might not need administrative access to perform their responsibilities. In this scenario, you can use role-based access control (RBAC) in Windows Admin Center to provide these users with limited access to servers rather than granting them full administrative access.
+  > [!NOTE]
+  > If you deployed Local Administrator Password Solution (LAPS) in your environment, use LAPS credentials through Windows Admin Center to authenticate with a target server.
+- In Windows Admin Center, RBAC works by configuring each managed server with a Windows PowerShell *Just Enough Administration* endpoint. This endpoint defines the roles, including which parts of the system each role can manage and which users are assigned to the roles. When a user connects to the endpoint, RBAC creates a temporary local administrator account to manage the system on their behalf and automatically removes the account when the user stops managing the server through the Windows Admin Center. For more information, refer to [Just Enough Administration][azure-jet].
+- Windows Admin Center also provides visibility into the management actions performed in your environment. Windows Admin Center records events by logging actions to the **Microsoft-ServerManagementExperience** event channel in the event log of the managed server. This allows you to audit actions that administrators perform, and helps you troubleshoot Windows Admin Center issues and review usage metrics. For more information on auditing, refer to [Use event logging in Windows Admin Center to gain insight into management activities and track gateway usage][wac-logging].
+
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+- For on-premises deployments, Windows Admin Center costs nothing beyond the cost of the Windows operating system, which requires valid Windows Server or Windows 10 licenses.
+- For Azure deployments, plan for costs associated with deploying Windows Admin Center to an Azure VM. Some of these costs might include the VM, storage, static or public IP addresses (if enabled), and any networking components required for integration with on-premises environments. In addition, you might need to plan for the cost of purchasing non-Microsoft CA certificates.
+
+### Operational excellence
+
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+
+#### Manageability
 
 - Access to the Windows Admin Center management tool set depends on the installation type. For example, in a local client scenario, you would open the Windows Admin Center from the **Start** menu and connect to it from a client web browser by accessing `https://localhost:6516`. In other scenarios where you deploy the Windows Admin Center gateway to a Window Server, you can connect to the Windows Admin Center gateway from a client web browser by accessing the server name URL, such as `https://servername.contoso.com`, or the URL of the cluster name.
 - When deployed on Windows Server, Windows Admin Center provides a centralized point of management for your server environment. Windows Admin Center provides management tools for many common scenarios and tools, including:
@@ -158,35 +190,16 @@ For a complete list of server management capabilities, refer to [Manage Servers 
   > [!IMPORTANT]
   > The Azure AD app requires Azure integration in Windows Admin Center.
 
-### Security
-
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
-
-- Deploying Windows Admin Center provides your organization with a centralized management interface for your server environment. By controlling access to Windows Admin Center, you can improve the security of your management landscape.
-- Windows Admin Center provides multiple features to help secure your management platform. For starters, Windows Admin Center gateway authentication can use local groups,  Active Directory Domain Services (AD DS), and cloud-based Azure AD. You can also enforce smart card authentication by specifying an additional required group for smart card-based security groups. And, by requiring Azure AD authentication for the gateway, you can use other Azure AD security features such as conditional access and Azure Active Directory Multi-Factor Authentication.
-- Access to the Windows Admin Center gateway doesn't imply access to the target servers that are made visible by the gateway. To manage a target server, users must connect with credentials that grant administrator privileges on the servers they want to manage. However, some users might not need administrative access to perform their responsibilities. In this scenario, you can use role-based access control (RBAC) in Windows Admin Center to provide these users with limited access to servers rather than granting them full administrative access.
-  > [!NOTE]
-  > If you deployed Local Administrator Password Solution (LAPS) in your environment, use LAPS credentials through Windows Admin Center to authenticate with a target server.
-- In Windows Admin Center, RBAC works by configuring each managed server with a Windows PowerShell *Just Enough Administration* endpoint. This endpoint defines the roles, including which parts of the system each role can manage and which users are assigned to the roles. When a user connects to the endpoint, RBAC creates a temporary local administrator account to manage the system on their behalf and automatically removes the account when the user stops managing the server through the Windows Admin Center. For more information, refer to [Just Enough Administration][azure-jet].
-- Windows Admin Center also provides visibility into the management actions performed in your environment. Windows Admin Center records events by logging actions to the **Microsoft-ServerManagementExperience** event channel in the event log of the managed server. This allows you to audit actions that administrators perform, and helps you troubleshoot Windows Admin Center issues and review usage metrics. For more information on auditing, refer to [Use event logging in Windows Admin Center to gain insight into management activities and track gateway usage][wac-logging].
-
-### DevOps
+#### DevOps
 
 - Windows Admin Center was built for extensibility so that Microsoft and other developers can build tools and solutions beyond the current offerings. Windows Admin Center provides an extensible platform in which each connection type and tool is an extension that you can install, uninstall, and update individually. Microsoft offers a software development kit (SDK) that enables developers to build their own tools for Windows Admin Center.
 - You can build Windows Admin Center extensions using modern web technologies&mdash;including HTML5, CSS, Angular, TypeScript, and jQuery&mdash;to manage target servers via Windows PowerShell or Windows Management Instrumentation. You can also manage target servers, services, and devices over different protocols such as Representational State Transfer (REST) by building a Windows Admin Center gateway plugin.
   > [!TIP]
   > For more information about using the SDK to develop extensions for Windows Admin Center, refer to [Extensions for Windows Admin Center][wac-sdk].
 
-### Cost optimization
-
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
-
-- For on-premises deployments, Windows Admin Center costs nothing beyond the cost of the Windows operating system, which requires valid Windows Server or Windows 10 licenses.
-- For Azure deployments, plan for costs associated with deploying Windows Admin Center to an Azure VM. Some of these costs might include the VM, storage, static or public IP addresses (if enabled), and any networking components required for integration with on-premises environments. In addition, you might need to plan for the cost of purchasing non-Microsoft CA certificates.
-
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
@@ -210,10 +223,10 @@ More about Azure Automation:
 - [Manage configurations for Azure Arc-enabled servers](/azure/architecture/hybrid/azure-arc-hybrid-config)
 - [Use Azure Stack HCI switchless interconnect and lightweight quorum for remote office or branch office](/azure/architecture/hybrid/azure-stack-robo)
 
-[architectural-diagram-azure]: ./images/hybrid-server-os-mgmt-wac-azure.png
-[architectural-diagram-onprem]: ./images/hybrid-server-os-mgmt-wac-onprem.png
+[architectural-diagram-azure]: ./images/hybrid-server-os-mgmt-wac-azure.svg
+[architectural-diagram-onprem]: ./images/hybrid-server-os-mgmt-wac-onprem.svg
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-server-os-mgmt.vsdx
-[onprem-installation-type]: ./images/hybrid-server-os-mgmt-wac-onprem-install-type.png
+[onprem-installation-type]: ./images/hybrid-server-os-mgmt-wac-onprem-install-type.svg
 [wac-case-studies]: /windows-server/manage/windows-admin-center/understand/case-studies
 [user-access-options]: /windows-server/manage/windows-admin-center/plan/user-access-options
 [wac-deploy-install]: /windows-server/manage/windows-admin-center/deploy/install

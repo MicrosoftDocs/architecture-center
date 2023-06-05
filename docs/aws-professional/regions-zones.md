@@ -1,9 +1,9 @@
 ---
 title: Comparing AWS and Azure regions and zones
 description: Review a comparison of the regions and zones between Azure and AWS. Explore availability sets, availability zones, and paired regions in Azure.
-author: EdPrice-MSFT
+author: martinekuan
 ms.date: 12/13/2021
-ms.topic: reference
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 products:
@@ -12,7 +12,7 @@ categories:
   - management-and-governance
 ---
 
-# Regions and zones on Azure and AWS
+# Regions and zones on Azure
 
 Failures can vary in the scope of their impact. Some hardware failures, such as a failed disk, may affect a single host machine. A failed network switch could affect a whole server rack. Less common are failures that disrupt a whole datacenter, such as loss of power in a datacenter. Rarely, an entire region could become unavailable.
 

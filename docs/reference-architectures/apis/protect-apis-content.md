@@ -1,3 +1,7 @@
+---
+ms.custom:
+  - devx-track-azurepowershell
+---
 With more companies adhering to the [API-first approach](https://swagger.io/resources/articles/adopting-an-api-first-approach/) for their internal applications, and the growing number and severity of threats to web applications over the internet, it's critical to have a security strategy to protect APIs. The first step toward API security is restricting who can access what aspects of an API, and from which locations. This article describes how to use Azure Application Gateway and Azure API Management to protect API access.
 
 ## Architecture
@@ -9,6 +13,8 @@ This article doesn't address the application's underlying services, like App Ser
 *Download a [Visio file](https://arch-center.azureedge.net/protect-apis.vsdx) of this architecture.*
 
 ### Workflow
+
+- The Web Application Firewall (WAF) on Application Gateway checks the request against WAF rules. If the request is valid, the request proceeds.
 
 - Application Gateway sets up a URL redirection mechanism that sends the request to the proper [backend pool](/azure/application-gateway/application-gateway-components#backend-pools), depending on the URL format of the API call:
 
@@ -31,7 +37,7 @@ This article doesn't address the application's underlying services, like App Ser
 
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) enables many types of Azure resources, such as Azure Virtual Machines (VMs), to securely communicate with each other, the internet, and on-premises networks.
 
-- [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) is a web traffic load balancer that manages traffic to web applications. Load balancers operate at the transport layer, OSI layer 4 TCP and UDP, and route traffic based on source IP address and port to a destination IP address and port.
+- [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) is a web traffic load balancer that manages traffic to web applications.This type of routing is known as application layer (OSI layer 7) load balancing.
 
 - [Azure API Management](https://azure.microsoft.com/services/api-management/) is a hybrid, multi-cloud management platform for APIs across all environments. API Management creates consistent, modern API gateways for existing backend services.
 
@@ -66,7 +72,7 @@ This article doesn't address the application's underlying services, like App Ser
 
 - Consider Application Gateway subnet sizing. Application Gateway requests one private address per instance, and another private IP address if a private front-end IP is configured. Application Gateway also takes five IPs per instance from its subnet. To properly deploy Application Gateway for this architecture, make sure its subnet has enough space to grow. For more information, see [Application Gateway infrastructure configuration](/azure/application-gateway/configuration-infrastructure).
 
-- To support highly concurrent scenarios, turn on API Management autoscaling. Autoscaling quickly expands API Management capabilities in response to growing numbers of incoming requests. For more information, see [Automatically scale an Azure API Management instance](/azure/api-management/api-management-howto-autoscale).
+- To support highly concurrent scenarios, turn on API Management autoscaling. Autoscaling expands API Management capabilities in response to growing numbers of incoming requests. For more information, see [Automatically scale an Azure API Management instance](/azure/api-management/api-management-howto-autoscale).
 
 ### Availability
 
@@ -81,6 +87,7 @@ This article doesn't address the application's underlying services, like App Ser
 - For more information about Application Gateway security, see [Azure security baseline for Application Gateway](/security/benchmark/azure/baselines/application-gateway-security-baseline).
 
 - For more information about API Management security, see [Azure security baseline for API Management](/security/benchmark/azure/baselines/api-management-security-baseline).
+- [Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
 ### Cost optimization
 
@@ -109,22 +116,31 @@ The following deployment steps use PowerShell. You could also use the [Azure por
    New-AzResourceGroup -Name $resGroupName -Location $location
    ```
 
-1. Add subnets for API Management and Application Gateway.
+1. Add vnet and subnets for API Management and Application Gateway.
 
    ```powershell
-   # Retrieve virtual network information
-   $vnet = Get-AzVirtualNetwork -Name <vnet-name>  -ResourceGroupName <resource-group-name>
+   $vnetName = "<vnet-name>"
+   $vnetAddressPrefix = "<vnet-address-prefix>"
+   $appGatewaySubnetPrefix = "<app-gtwy-subnet-address-prefix>"
+   $apimSubnetPrefix = "<apim-subnet-address-prefix>"
+
+   # Create virtual network
+   $vnet = New-AzVirtualNetwork `
+   -Name $vnetName `
+   -ResourceGroupName $resGroupName `
+   -Location $location `
+   -AddressPrefix $vnetAddressPrefix
 
    # Add the appgtw-subnet to the existing virtual network 
-   $subnetApplication GatewayConfig = Add-AzVirtualNetworkSubnetConfig `
+   $subnetApplication = Add-AzVirtualNetworkSubnetConfig `
    -Name appgtw-subnet `
-   -AddressPrefix <subnet-prefix-address> `
+   -AddressPrefix $appGatewaySubnetPrefix `
    -VirtualNetwork $vnet
 
    # Add the apim-subnet to the existing virtual network 
    $subnetAPIMConfig = Add-AzVirtualNetworkSubnetConfig `
      -Name apim-subnet `
-     -AddressPrefix <subnet-prefix-address> `
+     -AddressPrefix $apimSubnetPrefix `
      -VirtualNetwork $vnet
 
    # Attach subnets to the virtual network 
@@ -302,7 +318,7 @@ The following deployment steps use PowerShell. You could also use the [Azure por
       ```powershell
       # Step 7 - upload certificate for SSL-enabled backend pool resources
       $authcert = New-AzApplicationGatewayAuthenticationCertificate `
-          -Name "whitelistcert" `
+          -Name "allowlistcert" `
           -CertificateFile $gatewayCertCerPath
       ```
 
@@ -471,7 +487,7 @@ The following deployment steps use the Azure portal to update an existing Azure 
         - If you're using a custom domain and a custom certificate authority that isn't well known, such as a Microsoft public key infrastructure implementation, then follow the instructions to [Create backend certificates](/azure/application-gateway/certificates-for-backend-authentication) to prepare your certificate in advance
     - *Frontend certificates*, which will be configured in the Listener, and used for communication between the client and the Application Gateway.  You have two options:
         - Upload a PFX certificate to the Application Gateway as part of deployment.
-        - Upload ta PFX certificate to a Key Vault as a Secret, accessible by a managed identity, as described in [TLS termination with Key Vault certificates](/azure/application-gateway/key-vault-certs).
+        - Upload a PFX certificate to a Key Vault as a Secret, accessible by a managed identity, as described in [TLS termination with Key Vault certificates](/azure/application-gateway/key-vault-certs).
 
 1. Make sure you have the appropriate DNS setting enabled to direct your domain to your Application Gateway.  
     - Your public domain should match the front end certificate you're using.

@@ -6,7 +6,7 @@ metadata:
   author: IngridAtMicrosoft
   ms.author: johndeu, inhenkel
   ms.date: 09/30/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -17,7 +17,6 @@ metadata:
     - media
     - "https://azure.microsoft.com/solutions/architecture/digital-media-video"
     - internal-intro
-  social_image_url: /azure/architecture/solution-ideas/articles/media-video.png
 name: Video-on-demand digital media
 azureCategories:
   - media

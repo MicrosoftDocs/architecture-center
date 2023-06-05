@@ -1,6 +1,4 @@
-Applications use different tools and technologies that have their own formats and user interfaces to record errors, events, and traces. Merging this log data from different applications is a programming challenge. The challenge becomes more complicated with distributed systems in the cloud and in high-scale environments. Logs from different systems cause similar problems for big data solutions.
-
-This reference architecture describes how to achieve enterprise-grade logging on Azure with a common logging method that enables end-to-end traceability across different applications. You can use these logs for troubleshooting and for finding insights in usage metrics and business events. [Deploy this scenario.](#deploy-this-scenario)
+This reference architecture describes how to achieve enterprise-grade logging on Azure with a common logging method that enables end-to-end traceability across different applications. You can use these logs for troubleshooting and for finding insights in usage metrics and business events. This reference architecture is not a replacement for Azure Monitor. This architecture is mainly targeted for application logs. Infrastructure logs can be achieved with the Log Analytics component of Azure Monitor. Application performance monitoring can be achieved with the Application Insights component for Azure Monitor. [Deploy this scenario](#deploy-this-scenario).
 
 ## Architecture
 
@@ -22,11 +20,14 @@ This reference architecture describes how to achieve enterprise-grade logging on
 
 ### Alternatives
 
-- The Application Insights and Log Analytics features of [Azure Monitor](/azure/azure-monitor) can do end-to-end tracing and troubleshooting. These features use Azure Data Explorer behind the scenes. Azure Monitor has capabilities and benefits that are similar to the current architecture, but consolidating multiple applications into a single workspace is a challenge in Azure Monitor.
-
-- [Microsoft Sentinel](/azure/sentinel) can provide similar capabilities from a security standpoint, but isn't suitable for application troubleshooting or end-to-end application traceability.
+- The Application Insights and Log Analytics features of [Azure Monitor](/azure/azure-monitor) can do end-to-end tracing and troubleshooting. These features use Azure Data Explorer behind the scenes. Azure Monitor has capabilities and benefits that are similar to the current architecture, but it's a challenge for Azure Monitor to consolidate multiple applications into a single workspace. [Workspace-based Application Insights](/azure/azure-monitor/app/create-workspace-resource) provides a capability to centralize logs from Application Insights into a common Log Analytics workspace. Azure Monitor allows you to ingest custom logs and extend the data format for these custom logs. There are two different tradeoffs with this alternative:
+  - Custom logs will be ingested to different tables than the original tables. `trackEvent()` for custom logs will be stored in the `customEvents` table, whereas the original events will be stored in the `Events` table. 
+  - Developers can extend table schema for custom tables as needed, which is a feature of Azure Monitor. Without a strict governance model, the table schema can become complicated over time. With the guidance from this architecture, you can introduce your own governance model and still benefit from [Workspace-based Application Insights](/azure/azure-monitor/app/create-workspace-resource) capabilities by running cross-cluster queries.
+- [Microsoft Sentinel](/azure/sentinel) can provide similar capabilities from a security standpoint, but it isn't suitable for application troubleshooting or end-to-end application traceability.
 
 ## Scenario details
+
+Applications use different tools and technologies that have their own formats and user interfaces to record errors, events, and traces. Merging this log data from different applications is a programming challenge. The challenge becomes more complicated with distributed systems in the cloud and in high-scale environments. Logs from different systems cause similar problems for big data solutions.
 
 For end-to-end traceability, it's important to design tables that share certain columns. Common columns and their data types include:
 

@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Because Dynamics 365 Business Central SaaS isn't available in all countries, this solution shows you how to use Business Central running as a VM in Azure.
+Because Dynamics 365 Business Central SaaS isn't available in all countries/regions, this solution shows you how to use Business Central running as a VM in Azure.
 
 ## Architecture
 
@@ -15,7 +15,7 @@ This scenario demonstrates provisioning an environment ready for adding new tena
 The data flows through the scenario as follows:
 
 1. Customers login using web browser, device (phone or tablet) or through API to access the Dynamics 365 Business Central.
-1. Virtual Machine as a middle-tier, provides Web Server Components and plays roles as a [NST Server](/dynamics365/business-central/dev-itpro/administration/configure-server-instance), connecting customers with databases. One Virtual Machine can be used for multiple customers and the partner just needs to provide different Business Central Server Instance with different ports numbers for each of customers. By using this model, support will be much easier as the partner needs to support only one server at a minimum. With Azure Load balancer, this system will scale applications and create highly available services.
+1. [Virtual Machine](/azure/virtual-machines/windows/overview) as a middle-tier, provides Web Server Components and plays roles as a [NST Server](/dynamics365/business-central/dev-itpro/administration/configure-server-instance), connecting customers with databases. One Virtual Machine can be used for multiple customers and the partner just needs to provide different Business Central Server Instance with different ports numbers for each of customers. By using this model, support will be much easier as the partner needs to support only one server at a minimum. With [Azure Load Balancer](/azure/load-balancer/load-balancer-overview), this system will scale applications and create highly available services.
 1. The application and business data reside in separate databases, both using Azure SQL for its databases. App database will be in one single database (S0 will be enough to run application database). The partner maintains the application centrally without affecting the various tenants that use the application. Tenant databases will be placed in an Azure elastic database pool (for starters, S4 pool with 200 DTU's will be enough). Each tenant database contains the business data for one or more specific companies from one client and doesn't contain all of the application metadata. If customers require more power, it's easy to change service tier on Azure SQL and an elastic database pool.
 1. To provide better sustainability, all resources will be in one resource Group. All external services (Azure Machine Learning, Power Apps, Power Automate and Power BI) will communicate directly with the NST Server through exposed APIs and OData web services.
 
@@ -23,9 +23,9 @@ The data flows through the scenario as follows:
 
 A [resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal) is a container that holds related resources for an Azure solution. The resource group can include all the resources for the solution, or only those resources that you want to manage as a group. You decide how you want to allocate resources to resource groups based on what makes the most sense for your organization. Generally, add resources that share the same lifecycle to the same resource group so you can easily deploy, update, and delete them as a group.
 
-[Azure Virtual Machines](/azure/virtual-machines/windows/overview) is one of several types of on-demand, scalable computing resources that Azure offers. Typically, you choose a virtual machine when you need more control over the computing environment than the other choices offer. A virtual machine is necessary for middle-tier services in Business Central architecture. Partners can choose between many different types of virtual machines with various numbers of CPUs and memory.
+[Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines) is one of several types of on-demand, scalable computing resources that Azure offers. Typically, you choose a virtual machine when you need more control over the computing environment than the other choices offer. A virtual machine is necessary for middle-tier services in Business Central architecture. Partners can choose between many different types of virtual machines with various numbers of CPUs and memory.
 
-[Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) is a fully managed Platform as a Service (PaaS) Database Engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring without user involvement. Azure SQL Database is always running on the latest stable version of SQL Server Database Engine and patched OS with 99.99% availability. PaaS capabilities that are built into Azure SQL Databases enable you to focus on the domain-specific database administration and optimization activities that are critical for your business.
+[Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed Platform as a Service (PaaS) Database Engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring without user involvement. Azure SQL Database is always running on the latest stable version of SQL Server Database Engine and patched OS with 99.99% availability. PaaS capabilities that are built into Azure SQL Databases enable you to focus on the domain-specific database administration and optimization activities that are critical for your business.
 
 To choose the right database option, the best way is to choose one of the service tiers. You can choose Standard or Premium service tier with different numbers of [DTUs](/azure/azure-sql/database/resource-limits-dtu-single-databases#standard-service-tier). If you aren't experienced with deploying Azure SQL databases, you can find more information [here](/dynamics365/business-central/dev-itpro/deployment/deploy-database-azure-sql-database).
 
@@ -33,11 +33,11 @@ To choose the right database option, the best way is to choose one of the servic
 
 Similarly, with standard Azure SQL, you can choose different tiers and different number of DTUs for your elastic database pool.
 
-With [Azure Load Balancer](/azure/load-balancer/load-balancer-overview), you can scale your applications and create highly available services. Load balancer supports both inbound and outbound scenarios. Load balancer provides low latency and high throughput and scales up to millions of flows for all TCP and UDP applications.
+With [Azure Load Balancer](https://azure.microsoft.com/solutions/load-balancing-with-azure), you can scale your applications and create highly available services. Load balancer supports both inbound and outbound scenarios. Load balancer provides low latency and high throughput and scales up to millions of flows for all TCP and UDP applications.
 
 ## Scenario details
 
-Dynamics 365 Business Central SaaS isn't available in all countries. Therefore, it's important to demonstrate a similar model using Business Central running as a VM in Azure.
+Dynamics 365 Business Central SaaS isn't available in all countries/regions. Therefore, it's important to demonstrate a similar model using Business Central running as a VM in Azure.
 
 ### Potential use cases
 
@@ -71,6 +71,7 @@ Principal author:
 - [Creating a new Business Central Server instance](/powershell/module/microsoft.dynamics.nav.management/new-navserverinstance?view=businesscentral-ps-16)
 - [Changing the service state of a Business Central Server instance](/powershell/module/microsoft.dynamics.nav.management/set-navserverinstance?view=businesscentral-ps-16)
 - [Starting a server instance](/powershell/module/microsoft.dynamics.nav.management/start-navserverinstance?view=businesscentral-ps-16)
+- [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
 
 ## Related resources
 

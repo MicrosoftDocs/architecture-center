@@ -135,9 +135,9 @@ Stream Analytics can execute complex analysis at scale, for example, tumbling/sl
 
 ![Diagram showing Event Hubs to analysis to Power BI.](./images/extract-insights-iot-data/event-hubs-to-power-bi.png)
 
-Warm storage can be implemented with various services on the Azure platform, such as Azure SQL Database. We recommend [Azure Cosmos DB](/azure/cosmos-db/introduction?WT.mc_id=iotinsightssoln-docs-ercenk), Microsoft's globally distributed, multi-model database. It's best for datasets that can benefit from flexible, schema-agnostic, automatic indexing, and rich query interfaces. Cosmos DB allows multi-region read/write, and supports manual failover in addition to automatic failover. In addition, Cosmos DB allows the user to set a time-to-live (TTL) on their data, which makes expiring old data automatic. We recommend using the feature to control the time the records stay in the database, thus controlling the database size.
+Warm storage can be implemented with various services on the Azure platform, such as Azure SQL Database. We recommend [Azure Cosmos DB](/azure/cosmos-db/introduction?WT.mc_id=iotinsightssoln-docs-ercenk), Microsoft's globally distributed, multi-model database. It's best for datasets that can benefit from flexible, schema-agnostic, automatic indexing, and rich query interfaces. Azure Cosmos DB allows multi-region read/write, and supports manual failover in addition to automatic failover. In addition, Azure Cosmos DB allows the user to set a time-to-live (TTL) on their data, which makes expiring old data automatic. We recommend using the feature to control the time the records stay in the database, thus controlling the database size.
 
-Pricing for Cosmos DB is based on storage used and [request units](/azure/cosmos-db/request-units) provisioned. Cosmos DB is best for scenarios that don't require queries involving aggregation over large sets of data, as those queries require more request units than a basic query such as the last event for a device.
+Pricing for Azure Cosmos DB is based on storage used and [request units](/azure/cosmos-db/request-units) provisioned. Azure Cosmos DB is best for scenarios that don't require queries involving aggregation over large sets of data, as those queries require more request units than a basic query such as the last event for a device.
 
 [Microsoft Power BI](/power-bi/power-bi-overview?WT.mc_id=iotinsightssoln-docs-ercenk) is a collection of software services, apps, and connectors that work together to turn your unrelated sources of data into coherent, visually immersive, and interactive insights. Power BI helps you stay up to date with the information that matters to you. You can utilize the [real-time streaming in Power BI](/power-bi/service-real-time-streaming?WT.mc_id=iotinsightssoln-docs-ercenk) to push data to the service. This real time stream can act as a real time streaming data source for various visuals on the Power BI dashboard.
 
@@ -245,6 +245,16 @@ Azure Data Factory provides multiple methods for securing data store credentials
 SQL Database provides an extensive set of security features for data access, monitoring, and auditing, as well as encrypting data at rest. For details, see [Security Center for SQL Server Database Engine and Azure SQL Database](/sql/relational-databases/security/security-center-for-sql-server-database-engine-and-azure-sql-database?WT.mc_id=iotinsightssoln-docs-ercenk).
 
 **Cost efficiency**: At the heart of any analytics solution is storage. Analytics engines need speed, efficiency, security, and throughput for processing volumes of data in reasonable times. Devising mechanisms to make the best use of the underlying platform, by aggregating and summarizing data and efficiently using polyglot stores, is the means for efficiently managing costs. As Azure is a cloud platform, there are methods to programmatically decommission, recommission, and resize resources. For example, the [Create or Update operation](/rest/api/sql/databases/createorupdate?WT.mc_id=iotinsightssoln-docs-ercenk) provides a way to change the database size of Azure SQL Database.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Ercenk Keresteci](https://www.linkedin.com/in/ercenk/) | Dir Partner Tech Strategist
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

@@ -1,6 +1,4 @@
-This solution shows how to integrate Chef Infra, Chef InSpec, Test Kitchen, Terraform, Terraform Cloud, and GitHub Actions to fully automate and create data analytics environments. It uses an Azure Databricks cluster to analyze the data.
-
-The solution uses the Federal Aviation Administration (FAA) System Wide Information Management (SWIM) system. It connects to Traffic Flow Management Service (TFMS) via a Kafka server. For information about SWIM and TFMS, see the [FAA SWIM page](https://www.faa.gov/air_traffic/technology/swim).
+This solution shows how to integrate Chef Infra, Chef InSpec, Test Kitchen, Terraform, Terraform Cloud, and GitHub Actions to fully automate and create data analytics environments. It uses an Azure Databricks cluster to analyze the data. The solution uses the Federal Aviation Administration (FAA) System Wide Information Management (SWIM) system. It connects to Traffic Flow Management Service (TFMS) via a Kafka server. For information about SWIM and TFMS, see the [FAA SWIM page](https://www.faa.gov/air_traffic/technology/swim).
 
 *Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
@@ -8,7 +6,7 @@ The solution uses the Federal Aviation Administration (FAA) System Wide Informat
 
 ## Architecture
 
-:::image type="content" border="false" source="media/faa-swim.png" alt-text="Diagram that shows an architecture for automating and creating a data analytics environment." lightbox="media/faa-swim.png":::
+:::image type="content" border="false" source="media/faa-swim.svg" alt-text="Diagram that shows an architecture for automating and creating a data analytics environment." lightbox="media/faa-swim.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/faa-swim.vsdx) of this architecture.*
 

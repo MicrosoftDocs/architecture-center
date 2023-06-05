@@ -11,8 +11,8 @@ The Price Analytics solution utilizes your transactional history data to show yo
 ### Dataflow
 
 1. [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) enables building pricing models.
-1. [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) stores model and any intermediate data that's generated.
-1. [Azure SQL Server](https://azure.microsoft.com/products/azure-sql/database) stores transaction history data and any generated model predictions.
+1. [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs) stores model and any intermediate data that's generated.
+1. [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) stores transaction history data and any generated model predictions.
 1. [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is used to schedule periodic (for example, weekly) model refreshes.
 1. [Power BI](https://powerbi.microsoft.com/what-is-power-bi) enables a visualization of the results.
 1. [Excel](https://www.microsoft.com/microsoft-365/excel) spreadsheets consume predictive web services.

@@ -22,9 +22,9 @@ For one way to migrate Kafka to Azure IaaS, see [Kafka on Ubuntu VMs](https://gi
 
 ### Migrate Kafka to Azure Event Hubs for Kafka
 
-Event Hubs provides an endpoint that's compatible with the Apache Kafka producer and consumer APIs. This endpoint can be used by most Apache Kafka client applications, so it's an alternative to running a Kafka cluster on Azure. The endpoint supports clients that use versions 1.0 and later of the APIs.
+Event Hubs provides an endpoint that's compatible with the Apache Kafka producer and consumer APIs. This endpoint can be used by most Apache Kafka client applications, so it's an alternative to running a Kafka cluster on Azure. The endpoint supports clients that use versions 1.0 and later of the APIs. For more information about this feature, see [Azure Event Hubs for Apache Kafka overview](/azure/event-hubs/azure-event-hubs-kafka-overview). 
 
-For more information, see [Migrate to Azure Event Hubs for Apache Kafka Ecosystems](/azure/event-hubs/apache-kafka-migration-guide).
+To learn how to migrate your Apache Kafka applications to use Azure Event Hubs, see [Migrate to Azure Event Hubs for Apache Kafka Ecosystems](/azure/event-hubs/apache-kafka-migration-guide).
 
 #### Kafka and Event Hubs feature differences
 
@@ -180,4 +180,3 @@ Other contributors:
 - [Apache HDFS migration to Azure](apache-hdfs-migration.yml)
 - [Apache HBase migration to Azure](apache-hbase-migration.yml)
 - [Apache Sqoop migration to Azure](apache-sqoop-migration.yml)
-- [Apache Storm migration to Azure](apache-storm-migration.yml)

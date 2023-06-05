@@ -2,10 +2,10 @@
 metadata:
   title: Bulkhead pattern
   description: Isolate elements of an application into pools so that if one fails, the others will continue to function.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/28/2022
-  ms.topic: conceptual
+  ms.topic: design-pattern
   ms.service: architecture-center
   ms.subservice: design-pattern
   ms.custom: fcp

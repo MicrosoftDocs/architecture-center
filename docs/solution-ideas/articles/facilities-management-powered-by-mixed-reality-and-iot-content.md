@@ -4,13 +4,14 @@ Improve uptime and operations in travel and hospitality, manufacturing, retail, 
 
 ## Architecture
 
-![Architecture diagram](../media/facilities-management-powered-by-mixed-reality-and-iot.png)
-*Download an [SVG](../media/facilities-management-powered-by-mixed-reality-and-iot.svg) of this architecture.*
+![Diagram that shows facilities management powered by mixed reality and I o T.](../media/facilities-management-powered-by-mixed-reality-and-iot.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/facilities-management-powered-by-mixed-reality-and-iot.vsdx) of this architecture.*
 
 ### Dataflow
 
 1. The client authenticates to the facilities management web service and specifies the space's name in the [Azure Digital Twins](/azure/digital-twins) object model.
-1. The client's web service authenticates itself to [Azure Active Directory](/azure/active-directory) (Azure AD).
+1. The client's web service authenticates itself to [Azure Active Directory (Azure AD)](/azure/active-directory).
 1. The Azure AD token is then sent to the [Azure Spatial Anchors](/azure/spatial-anchors) service to retrieve an access token for the client to use later.
 1. Your app service retrieves information about the IoT sensors present in the area specified by the client. It returns IoT sensor IDs and their anchor IDs in Azure Spatial Anchors.
 1. The Azure Spatial Anchors authorization token is returned to the client alongside the anchor IDs of the IoT sensors and other metadata required by the client application.
@@ -38,7 +39,7 @@ This scenario shows how you can visualize a virtual replica of your physical spa
 
 * [Share Spatial Anchors across devices](/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices)
 * [Create a new tenant in Azure Active Directory](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
-* [Build a .NET web app with Azure Cosmos DB using the SQL API and the Azure portal](/azure/cosmos-db/create-sql-api-dotnet)
+* [Build a .NET web app with Azure Cosmos DB for NoSQL and the Azure portal](/azure/cosmos-db/create-sql-api-dotnet)
 * [Authenticate and authorize users end-to-end in Azure App Service](/azure/app-service/app-service-web-tutorial-auth-aad)
 * [Azure Event Hubs - A big data streaming platform and event ingestion service](/azure/event-hubs/event-hubs-about)
 * [Deploy Azure Digital Twins and configure a spatial graph](/azure/digital-twins/tutorial-facilities-setup)

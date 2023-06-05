@@ -3,10 +3,10 @@ metadata:
   title: Archive on-premises data to the cloud
   titleSuffix: Azure Architecture Center
   description: In this architecture, archive your on-premises data to the cloud using StorSimple and Azure Blob Storage.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/14/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -17,7 +17,6 @@ metadata:
     - bcdr
     - e2e-hybrid
     - "https://azure.microsoft.com/solutions/architecture/backup-archive-on-premises"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/backup-archive-cloud-application.png
 name: Archive on-premises data to the cloud
 azureCategories:
   - storage

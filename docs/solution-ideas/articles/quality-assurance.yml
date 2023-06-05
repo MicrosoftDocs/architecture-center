@@ -3,10 +3,10 @@ metadata:
   title: Quality assurance
   titleSuffix: Azure Architecture
   description: Build a quality assurance system that collects data and improves productivity by identifying potential problems in a manufacturing pipeline before they occur.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
-  ms.date: 06/09/2022
-  ms.topic: conceptual
+  ms.date: 11/01/2022
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -21,7 +21,6 @@ metadata:
     - anomaly-detection
     - "https://azure.microsoft.com/solutions/architecture/quality-assurance"
     - ai-machine-learning
-  social_image_url: /azure/architecture/solution-ideas/articles/media/quality-assurance.png
 name: Quality assurance
 azureCategories:
   - ai-machine-learning
@@ -32,6 +31,6 @@ products:
   - azure-machine-learning
   - azure-stream-analytics
   - power-bi
-thumbnailUrl: /azure/architecture/browse/thumbs/quality-assurance.png
+thumbnailUrl: /azure/architecture/browse/thumbs/quality-assurance-thumbnail.png
 content: |
   [!include[](quality-assurance-content.md)]

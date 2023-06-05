@@ -6,7 +6,7 @@ metadata:
   author: frankmigacz
   ms.author: fmigacz
   ms.date: 08/04/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -16,7 +16,6 @@ metadata:
     - acom-architecture
     - hpc
     - "https://azure.microsoft.com/solutions/architecture/hpc-cluster"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/hpc-cluster.png
 name: HPC cluster deployed in the cloud
 azureCategories:
   - compute

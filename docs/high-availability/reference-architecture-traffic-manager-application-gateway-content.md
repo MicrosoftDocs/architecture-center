@@ -149,7 +149,7 @@ For more information, see:
 
 ## Security
 
-*Distributed Denial of Service (DDoS) -* Use [DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview) for greater DDoS protection than the basic protection that Azure provides. For more information, see [security considerations](../reference-architectures/n-tier/n-tier-sql-server.yml#security).
+*Distributed Denial of Service (DDoS) -* Use [Azure DDoS Network Protection](/azure/ddos-protection/ddos-protection-overview) for greater DDoS protection than the basic protection that Azure provides. For more information, see [security considerations](../reference-architectures/n-tier/n-tier-sql-server.yml#security).
 
 *Network security groups (NSGs):* Use [NSGs](/azure/virtual-network/network-security-groups-overview) to restrict network traffic within the virtual network. For example, in the three-tier architecture shown here, the data tier accepts traffic only from the business tier, not from the web front end. Only the business tier can communicate directly with the database tier. To enforce this rule, the database tier should block all incoming traffic except for the business-tier subnet.
 
@@ -177,13 +177,13 @@ For more information, see:
 
 ## Performance efficiency
 
-*Virtual machine scale sets -* Use virtual machine scale sets to automate the scalability of your VMs. Virtual machine scale sets are available on all Windows VM sizes. You're only charged for the VMs deployed and the underlying infrastructure resources consumed. There are no incremental charges. The benefits of virtual machine scale sets are:
+*Virtual machine scale sets -* Use Virtual Machine Scale Sets to automate the scalability of your VMs. Virtual machine scale sets are available on all Windows VM sizes. You're only charged for the VMs deployed and the underlying infrastructure resources consumed. There are no incremental charges. The benefits of Virtual Machine Scale Sets are:
 
 - Create and manage multiple VMs easily
 - High availability and application resiliency
 - Automated scaling as resource demand changes
 
-For more information, see [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview).
+For more information, see [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview).
 
 ## Next steps
 

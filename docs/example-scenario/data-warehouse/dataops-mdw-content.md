@@ -125,7 +125,7 @@ The following list contains the high-level steps required to set up the Parking 
 ### Setup and deployment
 
 1. **Initial setup**: Install any prerequisites, import the Azure Samples GitHub repository into your own repository, and set required environment variables.
-1. **Deploy Azure resources**: The solution comes with an automated deployment script. It deploys all necessary Azure resources and Microsoft Azure Active Directory service principals per environment. The script also deploys Azure pipelines, variable groups, and service connections.
+1. **Deploy Azure resources**: The solution comes with an automated deployment script. It deploys all necessary Azure resources and Microsoft Azure Active Directory service principals per environment. The script also deploys Azure Pipelines, variable groups, and service connections.
 1. **Set up git integration in dev Data Factory**: Configure git integration to work with the imported GitHub repository.
 
 1. **Carry out an initial build and release**: Create a sample change in Data Factory, like enabling a schedule trigger, then watch the change automatically deploy across environments.
@@ -230,4 +230,7 @@ For a detailed walk-through of the solution and key concepts, watch the followin
 
 ## Related resources
 
-* [Monitoring Azure Databricks with Azure Monitor](../../databricks-monitoring/index.md)
+- [Monitoring Azure Databricks with Azure Monitor](../../databricks-monitoring/index.md)
+- [Master data management with Profisee and Azure Data Factory](../../reference-architectures/data/profisee-master-data-management-data-factory.yml)
+- [Hybrid ETL with Azure Data Factory](../../example-scenario/data/hybrid-etl-with-adf.yml)
+- [DevTest and DevOps for PaaS solutions](../../solution-ideas/articles/dev-test-paas.yml)

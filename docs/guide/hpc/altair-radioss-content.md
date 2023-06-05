@@ -6,7 +6,7 @@ Radioss is a multidisciplinary finite-element solver for linear and nonlinear pr
 - Implements extensive material laws and rupture criteria for crack propagation in brittle materials like windshields.
 - Provides a fast solution for airbag deployment that uses finite-volume method technology.
 
-Radioss is used across industry sectors to provide multiphysics solutions to dynamic problems that combine structures, mechanisms, fluids, and thermal and electromagnetic effects.
+Radioss is used across industry sectors to provide multiphysics solutions to dynamic problems that combine structures, mechanisms, fluids, and thermal and electromagnetic effects. It's ideal for the automotive, aerospace, and energy industries.
 
 ## Why deploy Radioss on Azure?
 

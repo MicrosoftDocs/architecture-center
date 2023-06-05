@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Configuration-driven data pipeline
+  titleSuffix: Azure Architecture Center
+  description: Learn how business users and the operations team can create and maintain data pipelines by using configuration files that define the pipelines. 
+  author: maye-msft
+  ms.author: yem, jamostel
+  ms.date: 02/10/2023
+  ms.topic: solution-idea
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+  - devops
+products:
+  - azure-pipelines
+  - azure-event-hubs
+  - azure-data-factory
+  - azure-databricks
+  - azure-data-lake-storage
+name: Configuration-driven data pipeline
+summary: Learn how business users and the operations team can create and maintain data pipelines by using configuration files that define the pipelines. 
+thumbnailUrl: /azure/architecture/browse/thumbs/configuration-driven-data-pipeline-architecture.png
+content: |
+  [!include[](configuration-driven-data-pipeline-content.md)]

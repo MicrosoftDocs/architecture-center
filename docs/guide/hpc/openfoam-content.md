@@ -4,7 +4,7 @@ OpenFOAM is a free, open-source computational fluid dynamics (CFD) application. 
 
 The software is a C++ toolbox for the development of customized numerical solvers. It uses explicit methods for configuring a simulation by selecting numerical schemes, solvers and their parameters, and algorithm controls.
 
-OpenFOAM is used in academia and in industries like transportation, manufacturing, and healthcare.
+OpenFOAM is used in academia/education and in industries like transportation, automotive, manufacturing, and healthcare.
 
 ## Why deploy OpenFOAM on Azure?
 

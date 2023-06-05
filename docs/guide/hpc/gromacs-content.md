@@ -7,7 +7,7 @@ GROMACS (GROningen MAChine for Simulations) is a molecular dynamics package desi
 - Works within an elaborate multi-level parallelism that distributes computational work across ensembles of simulations and multiple program paths.
 - Describes all systems with triclinic unit cells, so complex geometries like rhombic dodecahedron, truncated octahedron, and hexagonal boxes are supported.
 
-GROMACS is used across the healthcare industry by biotechnology organizations, universities and research centers, pharmaceutical organizations, and hospitals and clinics.
+GROMACS is used across the healthcare industry by biotechnology organizations, universities and research centers, education, pharmaceutical organizations, and hospitals and clinics.
 
 ## Why deploy GROMACS on Azure?
 

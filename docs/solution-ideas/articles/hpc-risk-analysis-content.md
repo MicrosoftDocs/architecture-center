@@ -1,13 +1,12 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-## Potential use cases
-
 This templated risk analysis solution uses Azure HPC compute and GPU virtual machines (VMs) to expand on-premises TIBCO GridServer compute to Azure using Azure CycleCloud for auto-scaling integration. The job executes both on-premises and in the cloud by using Avere vFXT fast caching and native NFS access to market data available on-premises.
 
 ## Architecture
 
-![Architecture diagram](../media/hpc-risk-analysis.png)
-*Download an [SVG](../media/hpc-risk-analysis.svg) of this architecture.*
+:::image type="content" border="false" source="../media/hpc-risk-analysis.svg" alt-text="Diagram showing a flowchart of risk analysis solution." lightbox="../media/hpc-risk-analysis.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/hpc-risk-analysis.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -35,3 +34,10 @@ This templated risk analysis solution uses Azure HPC compute and GPU virtual mac
 * [Azure CycleCloud Documentation](/azure/cyclecloud)
 * [Avere vFXT Documentation](/azure/avere-vfxt)
 * [TIBCO GridServer Documentation](https://docs.tibco.com/products/tibco-datasynapse-gridserver-6-2-0)
+
+## Related resources
+
+- [High-performance computing (HPC) on Azure](../../topics/high-performance-computing.md)
+- [Risk grid computing solution](../../industries/finance/risk-grid-banking-solution-guide.yml)
+- [Risk grid computing in banking](../../industries/finance/risk-grid-banking-overview.yml)
+- [Loan credit risk and default modeling](../../solution-ideas/articles/loan-credit-risk-analyzer-and-default-modeling.yml)

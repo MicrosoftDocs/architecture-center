@@ -3,10 +3,10 @@ metadata:
   title: Predictive marketing with machine learning
   titleSuffix: Azure Architecture Center
   description: Optimize big data marketing campaigns with a machine-learning model using Microsoft Machine Learning and Azure HDInsight Spark clusters.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/13/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -22,7 +22,6 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/predictive-marketing-campaigns-with-machine-learning-and-spark"
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/predictive-marketing-campaigns-with-machine-learning-and-spark.png
 name: Predictive marketing with machine learning
 azureCategories:
   - ai-machine-learning

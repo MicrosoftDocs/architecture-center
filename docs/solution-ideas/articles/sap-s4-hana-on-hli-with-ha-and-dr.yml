@@ -3,10 +3,10 @@ metadata:
   title: SAP S/4 HANA for Large Instances
   titleSuffix: Azure Solution Ideas
   description: With large SAP HANA instances, use Azure Virtual Machines, OS clustering, and NFS storage for scalability, performance, high reliability, and disaster recovery.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 06/13/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -22,7 +22,6 @@ metadata:
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/sap-s4-hana-on-hli-with-ha-and-dr"
     - e2e-sap
-  social_image_url: /azure/architecture/solution-ideas/articles/media/sap-s4-hana-on-hli-with-ha-and-dr.png
 name: SAP S/4 HANA for Large Instances
 azureCategories:
   - web

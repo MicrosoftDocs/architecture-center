@@ -1,5 +1,4 @@
 
-
 Gridwich requires multiple resources within and outside Azure to talk to one another securely. This requirement poses continuous integration and continuous delivery (CI/CD) challenges with Azure Active Directory (Azure AD) permissions, gates, resource creation, order of operation, and long-running functions deployment. The following guiding principles address these challenges:
 
 - A single build artifact affects all environments in the same pipeline.

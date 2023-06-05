@@ -1,4 +1,4 @@
-This reference architecture shows a [serverless](https://azure.microsoft.com/solutions/serverless/) web application. The application serves static content from Azure Blob Storage, and implements an API using Azure Functions. The API reads data from Cosmos DB and returns the results to the web app.
+This reference architecture shows a [serverless](https://azure.microsoft.com/solutions/serverless/) web application. The application serves static content from Azure Blob Storage, and implements an API using Azure Functions. The API reads data from Azure Cosmos DB and returns the results to the web app.
 
 ![GitHub logo](../../_images/github.png) Two reference implementations for this architecture are available on GitHub: [Drone Delivery App (ARM & Azure Pipelines)][drone-delivery] and [To Do App (Bicep & GitHub Actions)][todo].
 
@@ -43,7 +43,7 @@ API Management can also be used to implement cross-cutting concerns such as:
 
 If you don't need all of the functionality provided by API Management, another option is to use [Functions Proxies][functions-proxy]. This feature of Azure Functions lets you define a single API surface for multiple function apps, by creating routes to back-end functions. Function proxies can also perform limited transformations on the HTTP request and response. However, they don't provide the same rich policy-based capabilities of API Management.
 
-**Cosmos DB**. [Azure Cosmos DB](https://azure.microsoft.com/free/cosmos-db) is a multi-model database service. For this scenario, the function application fetches documents from Cosmos DB in response to HTTP GET requests from the client.
+**Azure Cosmos DB**. [Azure Cosmos DB](https://azure.microsoft.com/free/cosmos-db) is a multi-model database service. For this scenario, the function application fetches documents from Azure Cosmos DB in response to HTTP GET requests from the client.
 
 **Azure Active Directory** (Azure AD). Users sign into the web application by using their [Azure AD](https://azure.microsoft.com/services/active-directory) credentials. Azure AD returns an access token for the API, which the web application uses to authenticate API requests (see [Authentication](#authentication)).
 
@@ -55,7 +55,9 @@ If you don't need all of the functionality provided by API Management, another o
 
 ## Scenario details
 
-This drone-delivery solution is ideal for the aircraft, aviation, and robotics industries. 
+### Potential use cases
+
+This drone-delivery solution is ideal for the aircraft, aviation, aerospace, and robotics industries. 
 
 ## Recommendations
 
@@ -85,7 +87,7 @@ Consider taking a microservices approach, where each function app represents one
 
 Use Functions [bindings][functions-bindings] when possible. Bindings provide a declarative way to connect your code to data and integrate with other Azure services. An input binding populates an input parameter from an external data source. An output binding sends the function's return value to a data sink, such as a queue or database.
 
-For example, the `GetStatus` function in the reference implementation uses the Cosmos DB [input binding][cosmosdb-input-binding]. This binding is configured to look up a document in Cosmos DB, using query parameters that are taken from the query string in the HTTP request. If the document is found, it is passed to the function as a parameter.
+For example, the `GetStatus` function in the reference implementation uses the Azure Cosmos DB [input binding][cosmosdb-input-binding]. This binding is configured to look up a document in Azure Cosmos DB, using query parameters that are taken from the query string in the HTTP request. If the document is found, it is passed to the function as a parameter.
 
 <!-- cSpell:ignore CosmosDB -->
 
@@ -115,7 +117,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 **Functions**. For the consumption plan, the HTTP trigger scales based on the traffic. There is a limit to the number of concurrent function instances, but each instance can process more than one request at a time. For an App Service plan, the HTTP trigger scales according to the number of VM instances, which can be a fixed value or can autoscale based on a set of autoscaling rules. For information, see [Azure Functions scale and hosting][functions-scale].
 
-**Cosmos DB**. Throughput capacity for Cosmos DB is measured in [Request Units][ru] (RU). A 1-RU throughput corresponds to the throughput need to GET a 1KB document. In order to scale a Cosmos DB container past 10,000 RU, you must specify a [partition key][partition-key] when you create the container and include the partition key in every document that you create. For more information about partition keys, see [Partition and scale in Azure Cosmos DB][cosmosdb-scale].
+**Azure Cosmos DB**. Throughput capacity for Azure Cosmos DB is measured in [Request Units][ru] (RU). A 1-RU throughput corresponds to the throughput need to GET a 1KB document. In order to scale an Azure Cosmos DB container past 10,000 RU, you must specify a [partition key][partition-key] when you create the container and include the partition key in every document that you create. For more information about partition keys, see [Partition and scale in Azure Cosmos DB][cosmosdb-scale].
 
 **API Management**. API Management can scale out and supports rule-based autoscaling. The scaling process takes at least 20 minutes. If your traffic is bursty, you should provision for the maximum burst traffic that you expect. However, autoscaling is useful for handling hourly or daily variations in traffic. For more information, see [Automatically scale an Azure API Management instance][apim-scale].
 
@@ -127,7 +129,7 @@ The deployment shown here resides in a single Azure region. For a more resilient
 
 - Use [Traffic Manager][tm] to route HTTP requests to the primary region. If the Function App running in that region becomes unavailable, Traffic Manager can fail over to a secondary region.
 
-- Cosmos DB supports [multiple write regions][cosmosdb-geo], which enables writes to any region that you add to your Cosmos DB account. If you don't enable multi-write, you can still fail over the primary write region. The Cosmos DB client SDKs and the Azure Function bindings automatically handle the failover, so you don't need to update any application configuration settings.
+- Azure Cosmos DB supports [multiple write regions][cosmosdb-geo], which enables writes to any region that you add to your Azure Cosmos DB account. If you don't enable multi-write, you can still fail over the primary write region. The Azure Cosmos DB client SDKs and the Azure Function bindings automatically handle the failover, so you don't need to update any application configuration settings.
 
 ### Security
 
@@ -291,9 +293,9 @@ Azure Cosmos DB bills for provisioned throughput and consumed storage by hour. P
 
 Storage is billed for each GB used for your stored data and index.
 
-See [Cosmos DB pricing model][cosmosdb-pricing] for more information.
+See [Azure Cosmos DB pricing model][cosmosdb-pricing] for more information.
 
-In this architecture, the function application fetches documents from Cosmos DB in response to HTTP GET requests from the client. Cosmos DB is cost effective in this case because reading operations are significantly cheaper than write operations expressed on RU/s.
+In this architecture, the function application fetches documents from Azure Cosmos DB in response to HTTP GET requests from the client. Azure Cosmos DB is cost effective in this case because reading operations are significantly cheaper than write operations expressed on RU/s.
 
 #### Content Delivery Network
 

@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Cross-tenant secure access to apps with private endpoints
+  titleSuffix: Azure Architecture Center
+  description: Restrict inbound traffic to a web app or function app. Use private endpoints in Azure to give consumer tenants secure access to provider tenant apps.
+  author: rdesutter
+  ms.author: rdesutter
+  ms.date: 05/08/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+name: Cross-tenant secure access to Azure web apps and function apps with private endpoints
+azureCategories:
+  - networking
+  - security
+summary: Restrict inbound traffic to a web app or function app. Use private endpoints in Azure to give consumer tenants secure access to provider tenant apps.
+products:
+  - azure-app-service
+  - azure-dns
+  - azure-functions
+  - azure-private-link
+  - azure-web-apps
+thumbnailUrl: /azure/architecture/browse/thumbs/cross-tenant-secure-access-private-endpoints-thumbnail.png
+content: |
+   [!include[](cross-tenant-secure-access-private-endpoints-content.md)]

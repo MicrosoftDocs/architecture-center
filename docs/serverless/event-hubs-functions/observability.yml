@@ -1,12 +1,12 @@
 ### YamlMime:Architecture
 metadata:
   title: Monitor Azure Functions and Event Hubs
-  titleSuffix: Azure Example Scenarios
+  titleSuffix: Azure Architecture Center
   description: Learn how to monitor an Azure Functions topology that uses Event Hubs.
   author: dbarkol
   ms.author: dabarkol
   ms.topic: conceptual
-  ms.date: 10/04/2021
+  ms.date: 11/04/2022
   ms.service: architecture-center
   ms.subservice: azure-guide
   ms.custom:

@@ -2,10 +2,10 @@
 title: Management and Monitoring patterns
 titleSuffix: Cloud Design Patterns
 description: Use these management and monitoring patterns to support cloud applications, which offer special challenges because the applications run in a remote datacenter.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
 ms.date: 07/28/2022
-ms.topic: conceptual
+ms.topic: design-pattern
 ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:

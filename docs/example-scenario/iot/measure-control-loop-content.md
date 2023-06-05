@@ -2,7 +2,9 @@ This article provides an overview of the measure and control process loop archit
 
 ## Architecture
 
-![Diagram that shows the measure and control loop in the context of a regulatory control.](./media/measure-and-control.svg)
+[ ![Architecture diagram that shows the measure and control loop in the context of a regulatory control.](./media/measure-and-control.svg)](./media/measure-and-control.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/measure-and-control.vsdx) of this architecture.*
 
 A measure and control loop is scoped as a single device abstraction composed of sensors, actuators, and a controller. These loops may integrate with [analyze and optimize loops](analyze-optimize-loop.yml) and [monitor and manage loops](monitor-manage-loop.yml) that operate in a much larger context.
 
@@ -46,6 +48,16 @@ This solution is ideal for the energy and environment industries. Examples of me
 - Home thermostat: Increase the heater gas flow upon sensing the room temperature falling below the setpoint.
 - Wind turbine: Apply brakes to slow down a rotor when it is about to reach the warning RPM threshold.
 - Solar panels: Adjust solar panel angle as the sun moves over the horizon to maximize the power generated.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Hanu Kommalapati](https://www.linkedin.com/in/hanuk/) | Principal Software Engineer
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Related resources
 

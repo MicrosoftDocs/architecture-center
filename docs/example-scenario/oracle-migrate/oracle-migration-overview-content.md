@@ -14,6 +14,8 @@ This flow chart shows you the steps to move an Oracle database to either a Postg
 
 ![Flow chart depicting the steps you have to take to convert your Oracle Database to a SQL or PostgreSQL database in Azure.](media/oracle-migration-process-to-sql-pg.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/oracle-migration-overview.vsdx) of this architecture.*
+
 ### Workflow
 
 1. Use Oracle script artifacts to evaluate Oracle database.
@@ -36,7 +38,7 @@ This flow chart shows you the steps to move an Oracle database to either a Postg
 
 ## Oracle database discoveries
 
-The Microsoft Data Migration Jumpstart Engineering team maintains an inventory of Oracle scripts. You can run the scripts on your Oracle databases to evaluate how many tables, stored procedures, views, packages, etc. exist in the environment. This table shows the assessment principles:
+You can create and run scripts on your Oracle databases to evaluate how many tables, stored procedures, views, and packages exist in the environment. This table shows an example of the assessment principles:
 
 | Category | Simple | Medium | Large | Complex | Custom |
 | ---------| ------ | ------ | ----- | ------- | ------ |
@@ -53,6 +55,16 @@ Use the [Microsoft Assessment and Planning (MAP) Toolkit](https://go.microsoft.c
 The migration decision tree helps you find the appropriate path of your Oracle database migration.
 
 ![A decision tree that lays out the decisions you have to make to figure out what migration path is best for you.](media/oracle-migration-tree.png)
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Amber Zhao](https://www.linkedin.com/in/amberzhao/) | Principal Customer Engineer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Related resources
 

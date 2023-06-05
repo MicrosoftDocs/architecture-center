@@ -12,6 +12,8 @@ categories:
   - devops
   - networking
   - security
+ms.custom:
+  - devx-track-terraform
 azureCategories:
   - devops
   - hybrid
@@ -32,6 +34,10 @@ This article discusses important areas to consider when using the [Azure landing
 
 Terraform is an open-source Infrastructure as Code (IaC) tool, created by HashiCorp, that uses declarative syntax to deploy infrastructure resources. It is extensible, has cross-platform support and enables immutable infrastructure through state tracking. 
 
+<br/>
+
+> [!VIDEO https://www.youtube.com/embed/PqfIeth62Yg]
+
 > [!IMPORTANT]
 > The module is available on the [Terraform Registry: Azure landing zones Terraform module](https://registry.terraform.io/modules/Azure/caf-enterprise-scale/azurerm/latest). You can use it as a starting point and configure it as per your needs.
 
@@ -42,7 +48,7 @@ Terraform is an open-source Infrastructure as Code (IaC) tool, created by HashiC
 
 :::image type="content" border="true" source="images/alz-tf-module-overview.png" alt-text="Diagram showing the Azure landing zones conceptual architecture." lightbox="images/alz-tf-module-overview.png":::
 
-The architecture takes advantage of the configurable nature of Terraform and is composed of a primary orchestration module. This module encapsulates multiple capabilities of the Azure landing zones conceptual architecture. You can deploy each capability individually or in part. For example, you can deploy just a hub network, or just the DDoS protection plan, or just the DNS resources. When doing so, you need to take into account that the capabilities have dependencies.
+The architecture takes advantage of the configurable nature of Terraform and is composed of a primary orchestration module. This module encapsulates multiple capabilities of the Azure landing zones conceptual architecture. You can deploy each capability individually or in part. For example, you can deploy just a hub network, or just the Azure DDoS Protection, or just the DNS resources. When doing so, you need to take into account that the capabilities have dependencies.
 
 The architecture utilizes an orchestrator approach to simplify the deployment experience. You might prefer to implement each capability using one or more dedicated module instances where each is dedicated to a specific part of the architecture. This is all possible with the correct configuration.
 
@@ -123,10 +129,12 @@ This section provides a high-level overview of the resources deployed by this mo
 | Core | Role definitions and role assignments | Role-based access control (RBAC) simplifies the management of user rights within a system. Instead of managing the rights of individuals, you determine the rights required for different roles in your system. Azure RBAC has several [built-in roles](/azure/role-based-access-control/built-in-roles). Custom role definitions allow you to create custom roles for your environment.<br/><br/> Identity and access management (IAM) is the key security boundary in cloud computing. Azure RBAC allows you to perform role assignments of built-in roles or custom role definitions to Service Principals, Managed Identities or security groups across management groups and subscriptions. | <ul><li>[Azure role-based access control - CAF documentation](/azure/cloud-adoption-framework/ready/considerations/roles)</li><li>[Azure identity and access management design area - CAF documentation](/azure/cloud-adoption-framework/ready/landing-zone/design-area/identity-access)</li><li>[Custom policy definitions deployed in reference implementations](https://github.com/Azure/Enterprise-Scale/blob/main/docs/ESLZ-Policies.md)</li></ul> |
 | Management | Azure Monitor, Azure Automation, and Microsoft Sentinel | Azure Monitor, Azure Automation and Microsoft Sentinel allow you to monitor and manage your infrastructure and workloads. Azure Monitor is a solution that allows you to collect, analyze and act on telemetry from your environment.<br/><br/>Microsoft Sentinel is a cloud-native security information and event management (SIEM). It allows you to:<br/><ul><li>Collect - Collect data across your entire infrastructure</li><li>Detect - Detect threats that were previously undetected</li><li>Respond - Respond to legitimate threats with built-in orchestration</li><li>Investigate - Investigate threats with artificial intelligence</li></ul><br/>Azure Automation is a cloud-based automation system. It includes:<br/><ul><li>Configuration management - Inventory and track changes for Linux and Windows virtual machines and manage desired state configuration</li><li>Update management - Assess Windows and Linux system compliance and create scheduled deployments to meet compliance</li><li>Process automation - Automate management tasks</li></ul> | <ul><li>[Workload management and monitoring - CAF documentation](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-workloads)</li></ul> |
 | Connectivity | [Core networking resource types listed here](https://github.com/Azure/terraform-azurerm-caf-enterprise-scale/wiki/%5BUser-Guide%5D-Connectivity-Resources#resource-types) | Network topology is a key consideration in Azure landing zone deployments. [CAF focuses on two core networking approaches](/azure/cloud-adoption-framework/ready/azure-best-practices/define-an-azure-network-topology):<br/><ul><li>Topologies based on Azure Virtual WAN</li><li>Traditional topologies</li></ul> | <ul><li>[Define an Azure network topology - CAF Documentation](/azure/cloud-adoption-framework/ready/azure-best-practices/define-an-azure-network-topology)</li></ul> |
-| Connectivity | DDoS protection plans | Azure landing zone guidance recommends enabling DDoS Protection Standard. This service offers turnkey protection against DDoS attacks. | <ul><li>[Azure DDoS Protection Standard overview](/azure/ddos-protection/ddos-protection-overview)</li></ul> |
+| Connectivity | Azure DDoS Protection | Azure landing zone guidance recommends enabling Azure DDoS Network Protection. This service offers turnkey protection against DDoS attacks. | <ul><li>[Azure DDoS Network Protection](/azure/ddos-protection/ddos-protection-overview)</li></ul> |
 | Connectivity | DNS Zones, Private DNS Zones, and Private DNS Zone Virtual Network Link | Private DNS zones can be deployed to support the use of private endpoints. A private endpoint is a NIC that is assigned a private IP address from your virtual network. You can use the private IP address to securely communicate to services that supports Azure Private Link. Private DNS zones can be configured to resolve the fully qualified domain name (FQDN) of the service to the private endpoint private IP address. | <ul><li>[Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns)</li></ul> |
 
 ## Using the Terraform module
+
+> [!VIDEO https://www.youtube.com/embed/vFO_cyolUW0]
 
 ### Deploying core resources
 
@@ -173,6 +181,8 @@ subscription_id_identity = <identity subscription id>
 ```
 
 ## Customizing the Terraform implementation
+
+> [!VIDEO https://www.youtube.com/embed/ct2KHaA7ekI]
 
 The [Azure landing zone implementations](/azure/cloud-adoption-framework/ready/landing-zone/implementation-options) provided as part of the Cloud Adoption Framework suit a wide variety of requirements and use cases. However, there are often scenarios where customization is required to meet specific business needs.
 

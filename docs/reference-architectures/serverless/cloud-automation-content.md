@@ -1,6 +1,6 @@
 <!-- cSpell:ignore ADAL -->
 
-Automating workflows and repetitive tasks on the cloud using [serverless technologies](https://azure.microsoft.com/solutions/serverless/), can dramatically improve productivity of an organization's DevOps team. A serverless model is best suited for automation scenarios that fit an [event driven approach](../../guide/architecture-styles/event-driven.yml).
+Automating workflows and repetitive tasks on the cloud, by using [serverless technologies](https://azure.microsoft.com/solutions/serverless/), can dramatically improve productivity of an organization's DevOps team. A serverless model is best suited for automation scenarios that fit an [event driven approach](../../guide/architecture-styles/event-driven.yml).
 
 ## Architecture
 
@@ -10,12 +10,12 @@ Automating workflows and repetitive tasks on the cloud using [serverless technol
 
 This article illustrates two key cloud automation scenarios:
 
-1. [**Cost center tagging**](https://github.com/mspnp/serverless-automation/blob/main/src/automation/cost-center/deployment.md): This implementation tracks the cost centers of each Azure resource. The [Azure Policy](/azure/governance/policy/) service [tags all new resources](/azure/azure-resource-manager/resource-group-using-tags) in a group with a default cost center ID. The Event Grid monitors resource creation events, and then calls an [Azure function](/azure/azure-functions/). The function interacts with Azure Active Directory, and validates the cost center ID for the new resource. If different, it updates the tag and sends out an email to the resource owner. The REST queries for Azure Active Directory are mocked out for simplicity. Azure AD can also be integrated using the [Azure AD PowerShell module](/powershell/module/azuread/) or the [MSAL for Python library](https://github.com/AzureAD/microsoft-authentication-library-for-python).
+1. [**Cost center tagging**](https://github.com/mspnp/serverless-automation/blob/main/src/automation/cost-center/deployment.md): This implementation tracks the cost centers of each Azure resource. The [Azure Policy](/azure/governance/policy/) service [tags all new resources](/azure/azure-resource-manager/resource-group-using-tags) in a group with a default cost center ID. The Azure Event Grid monitors resource creation events, and then calls an [Azure function](/azure/azure-functions/). The function interacts with Azure Active Directory, and validates the cost center ID for the new resource. If different, it updates the tag and sends out an email to the resource owner. The REST queries for Azure Active Directory are mocked out for simplicity. Azure AD can also be integrated using the [Azure AD PowerShell module](/powershell/module/azuread/) or the [MSAL for Python library](https://github.com/AzureAD/microsoft-authentication-library-for-python).
 
-1. **Throttling response**: This example monitors a Cosmos DB database for throttling. [Azure Monitor alerts](/azure/azure-monitor/overview#alerts) are triggered when data access requests to CosmosDB exceed the [capacity in Request Units (or RUs)](/azure/cosmos-db/request-units). An [Azure Monitor action group](https://azure.microsoft.com/resources/videos/azure-friday-azure-monitor-action-groups/) is configured to call the automation function in response to these alerts. The function scales the RUs to a higher value, increasing the capacity and in turn stopping the alerts.
+1. **Throttling response**: This example monitors an Azure Cosmos DB database for throttling. [Azure Monitor alerts](/azure/azure-monitor/overview#alerts) are triggered when data access requests to Azure Cosmos DB exceed the [capacity in Request Units (or RUs)](/azure/cosmos-db/request-units). An [Azure Monitor action group](https://azure.microsoft.com/resources/videos/azure-friday-azure-monitor-action-groups/) is configured to call the automation function in response to these alerts. The function scales the RUs to a higher value, increasing the capacity and in turn stopping the alerts.
 
 > [!NOTE]
-> These solutions are not the only away to accomplish these tasks and are shown as illustrative of how serverless technologies can react to environmental signals (events) and influence changes to your environment. Where practical, use platform-native solutions over custom solutions. For example, CosmosDB natively supports [autoscale throughput](/azure/cosmos-db/provision-throughput-autoscale) as a native alternative to the Throttling response scenario.
+> These solutions are not the only away to accomplish these tasks and are shown as illustrative of how serverless technologies can react to environmental signals (events) and influence changes to your environment. Where practical, use platform-native solutions over custom solutions. For example, Azure Cosmos DB natively supports [autoscale throughput](/azure/cosmos-db/provision-throughput-autoscale) as a native alternative to the Throttling response scenario.
 
 ![GitHub logo](../../_images/github.png) The reference implementation for scenario one is available on [GitHub](https://github.com/mspnp/serverless-automation).
 
@@ -34,7 +34,7 @@ Event-based automation scenarios are best implemented using Azure Functions. The
 - **Scheduled tasks**. These are typically maintenance tasks executed using [timer-triggered functions](/azure/azure-functions/functions-create-scheduled-function). Examples of this pattern are:
 
   - stopping a resource at night, and starting in the morning,
-  - reading Blob Storage content at regular intervals, and converting to a Cosmos DB document,
+  - reading Blob Storage content at regular intervals, and converting to an Azure Cosmos DB document,
   - periodically scanning for resources no longer in use, and removing them, and
   - automated backups.
 
@@ -65,21 +65,21 @@ Event-based automation scenarios are best implemented using Azure Functions. The
 
 The architecture consists of the following components:
 
-**Azure Functions**. Azure Functions provide the event-driven, serverless compute capabilities in this architecture. A function performs automation tasks, when triggered by events or alerts. In two scenarios, a function is invoked with an HTTP request. Code complexity should be minimized, by developing the function that is **stateless** and **idempotent**.
+- [Azure Functions](https://azure.microsoft.com/products/functions). Azure Functions provide the event-driven, serverless compute capabilities in this architecture. A function performs automation tasks, when triggered by events or alerts. In two scenarios, a function is invoked with an HTTP request. Code complexity should be minimized, by developing the function that is **stateless** and **idempotent**.
 
-Multiple executions of an idempotent function create the same results. To maintain idempotency, the function scaling in the throttling scenario is kept simplistic. In real world automation, make sure to scale up or down appropriately. Read the [Optimize the performance and reliability of Azure Functions](/azure/azure-functions/functions-best-practices) for best practices when writing your functions.
+   Multiple executions of an idempotent function create the same results. To maintain idempotency, the function scaling in the throttling scenario is kept simplistic. In real world automation, make sure to scale up or down appropriately. Read the [Optimize the performance and reliability of Azure Functions](/azure/azure-functions/functions-best-practices) for best practices when writing your functions.
 
-**Logic Apps**. Logic Apps can be used to perform simpler tasks, easily implemented using [the built-in connectors](/azure/connectors/apis-list). These tasks can range from email notifications, to integrating with external management applications. To learn how to use Logic Apps with third-party applications, read [basic enterprise integration in Azure](../../reference-architectures/enterprise-integration/basic-enterprise-integration.yml).
+- [Azure Logic Apps](https://azure.microsoft.com/products/logic-apps). Logic Apps can be used to perform simpler tasks, easily implemented using [the built-in connectors](/azure/connectors/apis-list). These tasks can range from email notifications, to integrating with external management applications. To learn how to use Logic Apps with third-party applications, read [basic enterprise integration in Azure](../../reference-architectures/enterprise-integration/basic-enterprise-integration.yml).
 
-Logic Apps provides a *no code* or *low code* visual designer, and may be used alone in some automation scenarios. Read [this comparison between Azure Functions and Logic Apps](/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-azure-functions-and-azure-logic-apps) to see which service can fit your scenario.
+   Logic Apps provides a *no code* or *low code* visual designer, and may be used alone in some automation scenarios. Read [this comparison between Azure Functions and Logic Apps](/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-azure-functions-and-azure-logic-apps) to see which service can fit your scenario.
 
-**Event Grid**. Event Grid has built-in support for events from other Azure services, as well as custom events (also called *custom topics*). Operational events such as resource creation can be easily propagated to the automation function, using the Event Grid's built-in mechanism.
+- [Event Grid](https://azure.microsoft.com/products/event-grid). Event Grid has built-in support for events from other Azure services, as well as custom events (also called *custom topics*). Operational events such as resource creation can be easily propagated to the automation function, using the Event Grid's built-in mechanism.
 
-Event Grid simplifies the event-based automation with a [publish-subscribe model](/azure/event-grid/concepts), allowing reliable automation for events delivered over HTTPS.
+   Event Grid simplifies the event-based automation with a [publish-subscribe model](/azure/event-grid/concepts), allowing reliable automation for events delivered over HTTPS.
 
-**Azure Monitor**. Azure Monitor alerts can monitor for critical conditions, and take corrective action using Azure Monitor action groups. These action groups are easily integrated with Azure Functions. This is useful to watch for and fix any error conditions in your infrastructure, such as database throttling.
+- [Azure Monitor](https://azure.microsoft.com/products/monitor). Azure Monitor alerts can monitor for critical conditions, and take corrective action using Azure Monitor action groups. These action groups are easily integrated with Azure Functions. This is useful to watch for and fix any error conditions in your infrastructure, such as database throttling.
 
-**Automation action**. This broad block represents other services that your function can interact with, to provide the automation functionality. For example, Azure Active Directory for tag validation as in the first scenario, or a database to provision as in the second scenario.
+- **Automation action**. This broad block represents other services that your function can interact with, to provide the automation functionality. For example, Azure Active Directory for tag validation as in the first scenario, or a database to provision as in the second scenario.
 
 ## Considerations
 
@@ -91,7 +91,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ##### Handle HTTP timeouts
 
-To avoid HTTP timeouts for a longer automation task, queue this event in a [Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview#queues), and handle the actual automation in another function. The throttling response automation scenario illustrates this pattern, even though the actual Cosmos DB RU provisioning is fast.
+To avoid HTTP timeouts for a longer automation task, queue this event in a [Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview#queues), and handle the actual automation in another function. The throttling response automation scenario illustrates this pattern, even though the actual Azure Cosmos DB RU provisioning is fast.
 
 ![Diagram that shows reliability in an automation function.](./_images/automation-function-reliability.png)
 
@@ -197,7 +197,7 @@ For details, see [Pricing model for Azure Logic Apps][logic-app-pricing].
 
 In this architecture, logic apps are used in the cost center tagging scenario to orchestrate the workflow.
 
-Built-in connectors are used to connect to Azure Functions and send email notification an when an automation task is completed. The functions are exposed as a web hook/API using an HTTP trigger. Logic apps are triggered only when an HTTPS request occurs. This is a cost effective way when compared to a design where functions continuously poll and check for certain criteria. Every polling request is metered as an action.
+Built-in connectors are used to connect to Azure Functions and send email notification a when an automation task is completed. The functions are exposed as a web hook/API using an HTTP trigger. Logic apps are triggered only when an HTTPS request occurs. This is a cost effective way when compared to a design where functions continuously poll and check for certain criteria. Every polling request is metered as an action.
 
 For more information, see [Logic Apps pricing][Logic-Apps-Pricing].
 
@@ -211,15 +211,15 @@ Azure Functions are available with [the following three pricing plans](/azure/az
 
 - **App Service plan**. Hybrid automation scenarios that use the [Azure App Service Hybrid Connections](/azure/app-service/app-service-hybrid-connections), will need to use the App Service plan. The functions created under this plan can run for unlimited duration, similar to a web app.
 
-In these automation scenarios Azure Functions are used for tasks such as updating tags in Azure Active Directory, or changing cosmos DB configuration by scaling up the RUs to a higher value. The **Consumption plan** is the appropriate for this use case because those tasks are interactive and not long-running.
+In these automation scenarios Azure Functions are used for tasks such as updating tags in Azure Active Directory, or changing Azure Cosmos DB configuration by scaling up the RUs to a higher value. The **Consumption plan** is the appropriate for this use case because those tasks are interactive and not long-running.
 
 #### Azure Cosmos DB
 
-Azure Cosmos DB bills for provisioned throughput and consumed storage by hour. Provisioned throughput is expressed in Request Units per second (RU/s), which can be used for typical database operations, such as inserts, reads. Storage is billed for each GB used for your stored data and index. See [Cosmos DB pricing model][cosmosdb-pricing] for more information.
+Azure Cosmos DB bills for provisioned throughput and consumed storage by hour. Provisioned throughput is expressed in Request Units per second (RU/s), which can be used for typical database operations, such as inserts, reads. Storage is billed for each GB used for your stored data and index. See [Azure Cosmos DB pricing model][cosmosdb-pricing] for more information.
 
-In this architecture, when data access requests to Cosmos DB exceed the capacity in Request Units (or RUs), Azure Monitor triggers alerts. In response to those alerts, an Azure Monitor action group is configured to call the automation function. The function scales the RUs to a higher value. This helps to keep the cost down because you only pay for the resources that your workloads need on a per-hour basis.
+In this architecture, when data access requests to Azure Cosmos DB exceed the capacity in Request Units (or RUs), Azure Monitor triggers alerts. In response to those alerts, an Azure Monitor action group is configured to call the automation function. The function scales the RUs to a higher value. This helps to keep the cost down because you only pay for the resources that your workloads need on a per-hour basis.
 
-To get a quick cost estimate of your workload, use the [Cosmos DB capacity calculator][cosmos-calculator].
+To get a quick cost estimate of your workload, use the [Azure Cosmos DB capacity calculator][cosmos-calculator].
 
 For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
@@ -245,7 +245,15 @@ To deploy the cost center scenario, see the [deployment steps on GitHub](https:/
 
 ## Next steps
 
-Learn more about the [serverless implementations](../../serverless/code.yml).
+- [Training: Introduction to Azure Functions](/training/modules/intro-azure-functions)
+- [Documentation: Introduction to Azure Functions](/azure/azure-functions/functions-overview)
+- [What is Azure Event Grid?](/azure/event-grid/overview)
+
+## Related resources
+
+- [Code walkthrough: Serverless application with Functions](../../serverless/code.yml)
+- [Serverless functions architecture design](../../serverless-quest/serverless-overview.md)
+- [Serverless functions reference architectures](../../serverless-quest/reference-architectures.md)
 
 <!-- links -->
 

@@ -21,3 +21,17 @@ The goal of microservices is to increase the velocity of application releases, b
 [**Strangler Fig**](../../patterns/strangler-fig.yml) supports incremental refactoring of an application, by gradually replacing specific pieces of functionality with new services.
 
 For the complete catalog of cloud design patterns on the Azure Architecture Center, see [Cloud Design Patterns](../../patterns/index.md).
+
+## Next steps
+
+- [Training: Decompose a monolithic application into a microservices architecture](/training/modules/microservices-architecture)
+- [What are microservices?](/devops/deliver/what-are-microservices)
+- [Why use a microservices approach to building applications](/azure/service-fabric/service-fabric-overview-microservices)
+- [Microservices architecture](/dotnet/architecture/microservices/architect-microservice-container-applications/microservices-architecture)
+
+## Related resources
+
+- [Microservice architecture style](../../guide/architecture-styles/microservices.yml)
+- [Design a microservices architecture](index.yml)
+- [Using domain analysis to model microservices](../model/domain-analysis.md)
+- [Data considerations for microservices](data-considerations.yml)

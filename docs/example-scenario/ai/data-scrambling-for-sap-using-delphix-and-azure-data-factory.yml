@@ -1,0 +1,18 @@
+### YamlMime:Architecture
+metadata:
+  title: Data scrambling for SAP applications using Delphix and Azure Data Factory or Azure Synapse Analytics
+  titleSuffix: Azure Architecture Center
+  description: Learn about how to perform data scrambling for SAP applications using Delphix and Azure Data Factory or Azure Synapse Analytics.
+  author: nabhishek
+  ms.author: abnarain
+  ms.date: 03/02/2023
+  ms.topic: solution-idea
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories: [databases]
+products: [azure-data-factory, azure-synapse-analytics]
+name: Data scrambling for SAP applications using Delphix and Azure Data Factory
+summary: Learn about how to perform data scrambling for SAP applications using Delphix and Azure Data Factory or Azure Synapse Analytics.
+thumbnailUrl: /azure/architecture/browse/thumbs/delphix-continuous-compliance-architecture-thumb.png
+content: |
+  [!include[](data-scrambling-for-sap-using-delphix-and-azure-data-factory-content.md)]

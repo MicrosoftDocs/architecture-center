@@ -3,10 +3,10 @@ metadata:
   title: Create a Gridwich cloud environment
   titleSuffix: Azure Reference Architectures
   description: Learn how to create cloud environments in Azure DevOps. Use the ci_cd_ext_release or tf_destroy_env pipelines to create or delete cloud development or testing environments.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/28/2022
-  ms.topic: conceptual
+  ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.custom:

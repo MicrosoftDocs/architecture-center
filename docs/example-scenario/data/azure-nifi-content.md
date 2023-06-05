@@ -1,40 +1,14 @@
 This example scenario shows how to run [Apache NiFi][Apache NiFi] on Azure. NiFi provides a system for processing and distributing data.
 
-In this scenario, NiFi runs in a clustered configuration across Azure Virtual Machines in a scale set. But most of this article's recommendations also apply to scenarios that run NiFi in single-instance mode on a single virtual machine (VM). The best practices in this article demonstrate a scalable, high-availability, and secure deployment.
-
 Apache®, Apache NiFi®, and NiFi® are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.
-
-## Potential use cases
-
-NiFi works well for moving data and managing the flow of data:
-
-- Connecting decoupled systems in the cloud
-- Moving data in and out of Azure Storage and other data stores
-- Integrating edge-to-cloud and hybrid-cloud applications with Azure IoT, Azure Stack, and Azure Kubernetes Service (AKS)
-
-As a result, this solution applies to many areas:
-
-- Modern data warehouses (MDWs) bring structured and unstructured data together at scale. They collect and store data from various sources, sinks, and formats. NiFi excels at ingesting data into Azure-based MDWs for the following reasons:
-
-  - Over 200 processors are available for reading, writing, and manipulating data.
-  - The system supports Storage services such as Azure Blob Storage, Azure Data Lake Storage, Azure Event Hubs, Azure Queue Storage, Azure Cosmos DB, and Azure Synapse Analytics.
-  - Robust data provenance capabilities make it possible to implement compliant solutions. For information about capturing data provenance in the Log Analytics feature of Azure Monitor, see [Reporting considerations][Reporting considerations section of this article] later in this article.
-
-- NiFi can run on a standalone basis on small-footprint devices. In such cases, NiFi makes it possible to process edge data and move that data to larger NiFi instances or clusters in the cloud. NiFi helps filter, transform, and prioritize edge data in motion, ensuring reliable and efficient data flows.
-
-- Industrial IoT (IIoT) solutions manage the flow of data from the edge to the data center. That flow starts with data acquisition from industrial control systems and equipment. The data then moves to data management solutions and MDWs. NiFi offers capabilities that make it well suited for data acquisition and movement:
-
-  - Edge data processing functionality
-  - Support for protocols that IoT gateways and devices use
-  - Integration with Event Hubs and Storage services
-
-  IoT applications in the areas of predictive maintenance and supply chain management can make use of this functionality.
 
 ## Architecture
 
-:::image type="content" source="./media/azure-nifi-architecture.svg" alt-text="Architecture diagram showing the automated flow of data through an Azure solution that uses Apache NiFi and Apache ZooKeeper." border="false":::
+:::image type="content" source="./media/azure-nifi-architecture.svg" alt-text="Architecture diagram showing the automated flow of data through an Azure solution that uses Apache NiFi and Apache ZooKeeper." border="false" lightbox="./media/azure-nifi-architecture.svg":::
 
 *Download a [Visio file][Visio file of architecture diagram] of this architecture.*
+
+### Workflow
 
 - The NiFi application runs on VMs in NiFi cluster nodes. The VMs are in a virtual machine scale set that the configuration deploys across availability zones.
 
@@ -70,6 +44,37 @@ As a result, this solution applies to many areas:
 - [Azure Data Factory][Data Factory] provides an alternative to this solution.
 - Instead of Key Vault, you can use a comparable service to store system secrets.
 - [Apache Airflow](https://airflow.apache.org). See [how Airflow and NiFi are different](https://algoscale.com/blog/airflow-and-nifi-data-integration-tools).
+- It is possible to use a supported enterprise NiFi alternative like [Cloudera Apache NiFi](https://www.cloudera.com/products/open-source/apache-hadoop/apache-nifi.html). The Cloudera offering is available through the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/cloudera.cloudera-data-platform-public-cloud-contact).
+
+## Scenario details 
+
+In this scenario, NiFi runs in a clustered configuration across Azure Virtual Machines in a scale set. But most of this article's recommendations also apply to scenarios that run NiFi in single-instance mode on a single virtual machine (VM). The best practices in this article demonstrate a scalable, high-availability, and secure deployment.
+
+### Potential use cases
+
+NiFi works well for moving data and managing the flow of data:
+
+- Connecting decoupled systems in the cloud
+- Moving data in and out of Azure Storage and other data stores
+- Integrating edge-to-cloud and hybrid-cloud applications with Azure IoT, Azure Stack, and Azure Kubernetes Service (AKS)
+
+As a result, this solution applies to many areas:
+
+- Modern data warehouses (MDWs) bring structured and unstructured data together at scale. They collect and store data from various sources, sinks, and formats. NiFi excels at ingesting data into Azure-based MDWs for the following reasons:
+
+  - Over 200 processors are available for reading, writing, and manipulating data.
+  - The system supports Storage services such as Azure Blob Storage, Azure Data Lake Storage, Azure Event Hubs, Azure Queue Storage, Azure Cosmos DB, and Azure Synapse Analytics.
+  - Robust data provenance capabilities make it possible to implement compliant solutions. For information about capturing data provenance in the Log Analytics feature of Azure Monitor, see [Reporting considerations][Reporting considerations section of this article] later in this article.
+
+- NiFi can run on a standalone basis on small-footprint devices. In such cases, NiFi makes it possible to process edge data and move that data to larger NiFi instances or clusters in the cloud. NiFi helps filter, transform, and prioritize edge data in motion, ensuring reliable and efficient data flows.
+
+- Industrial IoT (IIoT) solutions manage the flow of data from the edge to the data center. That flow starts with data acquisition from industrial control systems and equipment. The data then moves to data management solutions and MDWs. NiFi offers capabilities that make it well suited for data acquisition and movement:
+
+  - Edge data processing functionality
+  - Support for protocols that IoT gateways and devices use
+  - Integration with Event Hubs and Storage services
+
+  IoT applications in the areas of predictive maintenance and supply chain management can make use of this functionality.
 
 ## Recommendations
 
@@ -89,9 +94,13 @@ You can install ZooKeeper on Azure VMs by using official convenience binaries or
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 For information on configuring NiFi, see the [Apache NiFi System Administrator's Guide][NiFi System Administrators Guide]. Also keep these considerations in mind when you implement this solution.
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - Use the [Azure Pricing Calculator][Pricing calculator] to estimate the cost of the resources in this architecture.
 - For an estimate that includes all the services in this architecture except the custom alerting solution, see this [sample cost profile][Sample cost profile].
@@ -132,7 +141,7 @@ To meet the specific requirements of your data flow, it's important to adjust se
 
 After you adjust the OS to fit your expected use case, use Azure VM Image Builder to codify the generation of those tuned images. For guidance that's specific to NiFi, see [Configuration Best Practices][NiFi System Administrators Guide - Configuration Best Practices] in the Apache NiFi System Administrator's Guide.
 
-### Storage considerations
+### Storage
 
 Store the various NiFi repositories on data disks and not on the OS disk for three main reasons:
 
@@ -209,7 +218,7 @@ nifi.flowfile.repository.directory=/mnt/disk7/ flowfile_repository
 
 For more information about designing for high-performance storage, see [Azure premium storage: design for high performance][Azure premium storage: design for high performance].
 
-### Reporting considerations
+### Reporting
 
 NiFi includes a provenance reporting task for the [Log Analytics][Log Analytics agent overview] feature.
 
@@ -239,7 +248,9 @@ You can find these values in the Azure portal by navigating to your Log Analytic
 
 Other options are also available for customizing and filtering the provenance events that the system sends.
 
-### Enterprise security considerations
+### Security 
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 You can secure NiFi from an [authentication][NiFi System Administrators Guide - User Authentication] and [authorization][NiFi System Administrators Guide - Multi-Tenant Authorization] point of view. You can also secure NiFi for all network communication including:
 
@@ -527,7 +538,7 @@ The following chart of the query results shows a time view of the health of the 
 
 :::image type="content" source="media/nifi-health-query-chart.png" alt-text="Screenshot of a bar chart. The bars show a constant number of healthy nodes over a 24-hour period and no unhealthy nodes." lightbox="./media/nifi-health-query-chart-lightbox.png":::
 
-### Availability considerations
+### Availability
 
 When you implement this solution, keep in mind the following points about availability:
 
@@ -547,7 +558,7 @@ Deploy both the NiFi virtual machine scale set and the ZooKeeper cluster in a cr
 
 We recommend deploying the NiFi nodes into a single virtual machine scale set that spans availability zones where available. For detailed information on using scale sets in this way, see [Create a virtual machine scale set that uses Availability Zones][Create a virtual machine scale set that uses Availability Zones].
 
-### Monitoring considerations
+### Monitoring
 
 Multiple options are available for monitoring the health and performance of a NiFi cluster:
 
@@ -898,9 +909,11 @@ If you have a large NiFi cluster, you might need to use a greater number of ZooK
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
-* [Muazma Zahid](https://www.linkedin.com/in/muazmazahid) | Principal PM Manager
+- [Muazma Zahid](https://www.linkedin.com/in/muazmazahid) | Principal PM Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
@@ -967,7 +980,7 @@ For more information, see the following resources:
 [Log Analytics tutorial]: /azure/azure-monitor/logs/log-analytics-tutorial
 [Log Analytics virtual machine extension for Linux]: /azure/virtual-machines/extensions/oms-linux
 [Log queries in Azure Monitor]: /azure/azure-monitor/logs/log-query-overview
-[Monitoring considerations section of this article]: #monitoring-considerations
+[Monitoring considerations section of this article]: #monitoring
 [Network security groups]: /azure/virtual-network/network-security-groups-overview
 [Networking for Azure virtual machine scale sets - Accelerated Networking]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking#accelerated-networking
 [NiFi on GitHub]: https://github.com/apache/nifi
@@ -985,7 +998,7 @@ For more information, see the following resources:
 [Overview of alerts in Microsoft Azure]: /azure/azure-monitor/alerts/alerts-overview
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator
 [Querying Azure Log Analytics section in this article]: #log-analytics-queries
-[Reporting considerations section of this article]: #reporting-considerations
+[Reporting considerations section of this article]: #reporting
 [Repository configuration section of this article]: #repository-configuration
 [Sample cost profile]: https://azure.com/e/97e2900e86eb4ce081f01ceedd85acbc
 [Secure your management ports with just-in-time access]: /azure/security-center/security-center-just-in-time?tabs=jit-config-asc%2Cjit-request-asc
@@ -993,7 +1006,7 @@ For more information, see the following resources:
 [Time sync for Linux VMs in Azure]: /azure/virtual-machines/linux/time-sync
 [Troubleshoot Azure virtual machine performance on Linux or Windows]: /troubleshoot/azure/virtual-machines/troubleshoot-performance-virtual-machine-linux-windows
 [Virtual Machines]: https://azure.microsoft.com/services/virtual-machines/#overview
-[Visio file of architecture diagram]: https://arch-center.azureedge.net/US-1875891-azure-nifi-architecture.vsdx
+[Visio file of architecture diagram]: https://arch-center.azureedge.net/azure-nifi-architecture.vsdx
 [What is Azure Application Gateway?]: /azure/application-gateway/overview
 [What is Azure Bastion?]: /azure/bastion/bastion-overview
 [What is Azure Private Link?]: /azure/private-link/private-link-overview

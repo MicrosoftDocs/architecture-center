@@ -111,7 +111,7 @@ For example, the [ChangeBlobTierHandler](https://github.com/mspnp/gridwich/blob/
 
 Some requests are long-running. For example, encoding media files can take hours. In these cases, an *asynchronous request handler* evaluates the request, validates arguments, and initiates the long-running operation. The handler then returns a Scheduled response to confirm that it requested the work activity.
 
-![Diagram showing a asynchronous request-response message flow.](media/request-response-async-flow.png)
+![Diagram showing an asynchronous request-response message flow.](media/request-response-async-flow.png)
 
 On completing the work activity, the request handler is responsible for providing a Success or Failure completed event for the work. While remaining stateless, the handler must retrieve the original [operation context](#operation-context) and place it in the Completed event message payload.
 

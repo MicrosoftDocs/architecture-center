@@ -125,6 +125,16 @@ The distance from the cameras to the servers is too far for Gigabit Ethernet or 
 
 Based on these requirements, the solution uses FPGA processors. The solution could also use ASIC processors, but purpose-built ASIC chips don't meet the requirement for future usability.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Keith Hill](https://www.linkedin.com/in/keith-hill-072060102/) | Senior PM Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 This series of articles described how to build a vision AI workload with Azure IoT Edge. For the other articles in this series, see:

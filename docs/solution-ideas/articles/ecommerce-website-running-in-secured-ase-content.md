@@ -13,8 +13,9 @@ Other relevant use cases include:
 
 ## Architecture
 
-![Architecture diagram shows flow from customer to A S E environment: ecommerce website running in secured A S E.](../media/ecommerce-website-running-in-secured-ase.png)
-*Download an [SVG](../media/ecommerce-website-running-in-secured-ase.svg) of this architecture.*
+![Architecture diagram shows flow from customer to ASE environment: ecommerce website running in secured ASE.](../media/ecommerce-website-running-in-secured-ase.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/ecommerce-website-running-in-secured-ase.vsdx) of this architecture.*
 
 ### Dataflow
 

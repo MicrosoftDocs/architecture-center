@@ -6,11 +6,12 @@ metadata:
   author: ajafry
   ms.author: aljafry
   ms.date: 08/22/2022
-  ms.topic: conceptual
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom:
     - example-scenario
+    - devx-track-azurecli
 azureCategories:
   - security
 products:

@@ -5,8 +5,8 @@ metadata:
   description: A discussion of how best to configure your environment for Windows Server Update Services (WSUS).
   author: vpaulreed
   ms.author: preed
-  ms.date: 10/10/2022
-  ms.topic: conceptual
+  ms.date: 04/18/2023
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.category:

@@ -3,10 +3,10 @@ metadata:
   title: Move archive data from mainframe systems to Azure
   titleSuffix: Azure Architecture Center
   description: Learn about a reference architecture that shows how to move data from mainframe and midrange systems to Azure.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: Pratim.Dasgupta
-  ms.date: 10/04/2022
-  ms.topic: conceptual
+  ms.date: 01/11/2023
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom: fcp 

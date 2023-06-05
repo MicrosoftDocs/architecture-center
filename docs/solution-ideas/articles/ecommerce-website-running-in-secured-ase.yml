@@ -3,10 +3,10 @@ metadata:
   title: E-commerce website running in secured App Service Environment
   titleSuffix: Azure Architecture Center
   description: Keep sensitive user and payment data from an e-commerce website secure by using the Microsoft Azure App Service Environment.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/11/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -20,7 +20,6 @@ metadata:
     - web-apps
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/ecommerce-website-running-in-secured-ase"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/ecommerce-website-running-in-secured-ase.png
 name: E-commerce website running in secured App Service Environment
 azureCategories:
   - web

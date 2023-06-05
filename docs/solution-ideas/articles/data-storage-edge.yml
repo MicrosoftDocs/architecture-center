@@ -3,10 +3,10 @@ metadata:
   title: IoT Edge data storage and processing
   titleSuffix: Azure Solution Ideas
   description: Use edge devices in your IoT implementation to provide quick response, high availability, and high bandwidth.
-  author: EdPrice-MSFT
+  author: falloutxAY
   ms.author: ansyeo
-  ms.date: 09/19/2022
-  ms.topic: conceptual
+  ms.date: 03/15/2023
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:

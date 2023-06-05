@@ -3,10 +3,10 @@ metadata:
   title: Condition monitoring for industrial IoT
   titleSuffix: Azure Architecture Center
   description: This example demonstrates how manufacturers can connect their assets to the cloud using OPC UA and the Industrial Components.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/14/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -15,7 +15,6 @@ metadata:
     - containers
   ms.custom:
     - acom-architecture
-  social_image_url: /azure/architecture/solution-ideas/media/condition-monitoring.svg
 name: Condition monitoring for industrial IoT
 azureCategories:
   - iot
@@ -27,6 +26,7 @@ products:
   - azure-event-hubs
   - azure-iot-edge
   - azure-iot-hub
+  - azure-monitor
 thumbnailUrl: /azure/architecture/browse/thumbs/condition-monitoring-thumbnail-new.png
 content: |
    [!include[](condition-monitoring-content.md)]

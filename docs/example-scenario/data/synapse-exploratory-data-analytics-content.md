@@ -1,18 +1,10 @@
 This article describes an alternative approach to data warehouse projects that's called *exploratory data analysis (EDA)*. This approach can reduce the challenges of extract, transform, load (ETL) operations. It focuses first on generating business insights and then turns to solving the modeling and ETL tasks.
 
-## Potential use cases
-
-Other scenarios that can benefit from this analytics pattern:
-
-- **Prescriptive analytics**. Ask questions of your data, like _Next Best Action_, or _what do we do next?_ Use data to be more _data-driven_ and less _gut-driven_. The data might be unstructured and from many external sources of varying quality. You might want to use the data as fast as possible to evaluate your business strategy without actually loading the data into a data warehouse. You might dispose of the data after you answer your questions.  
-
-- **Self-service ETL**. Do ETL/ELT when you do your data sandboxing (EDA) activities. Transform data and make it valuable. Doing so can improve the scale of your ETL developers.  
-
 ## Architecture
 
-![Diagram that shows a sample EDA architecture.](media/exploratory-data-analytics/exploratory-data-analytics.png)
+[ ![Diagram that shows a sample EDA architecture.](media/exploratory-data-analytics/exploratory-data-analytics.svg)](media/exploratory-data-analytics/exploratory-data-analytics.svg#lightbox)
 
-*Download a [Visio file](https://arch-center.azureedge.net/EDA.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/exploratory-data-analytics.vsdx) of this architecture.*
 
 For EDA, you're concerned only with the right side of the diagram. Azure Synapse SQL serverless is used as the compute engine over the data lake files. 
 
@@ -42,7 +34,19 @@ You can implement the left side of the diagram (data ingestion) by using any ext
 
 - Instead of using a lakehouse model with Synapse SQL serverless pools, you can use [Azure Synapse dedicated SQL pools](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) to store enterprise data. Review the use cases and considerations in this article and related resources to decide which technology to use.
 
-## About exploratory data analysis
+## Scenario details
+
+This solution shows an implementation of the EDA approach to data warehouse projects. This approach can reduce the challenges of ETL operations. It focuses first on generating business insights and then turns to solving modeling and ETL tasks.
+
+### Potential use cases
+
+Other scenarios that can benefit from this analytics pattern:
+
+- **Prescriptive analytics**. Ask questions of your data, like _Next Best Action_, or _what do we do next?_ Use data to be more _data-driven_ and less _gut-driven_. The data might be unstructured and from many external sources of varying quality. You might want to use the data as fast as possible to evaluate your business strategy without actually loading the data into a data warehouse. You might dispose of the data after you answer your questions.  
+
+- **Self-service ETL**. Do ETL/ELT when you do your data sandboxing (EDA) activities. Transform data and make it valuable. Doing so can improve the scale of your ETL developers.  
+
+### About exploratory data analysis
 
 Before we look more closely at how EDA works, it's worth summarizing the traditional approach to data warehouse projects. The traditional approach looks like this:
 
@@ -128,4 +132,4 @@ Principal authors:
   - [Data warehousing and analytics](data-warehouse.yml)
   - [Analytics end-to-end with Azure Synapse](../dataplate2e/data-platform-end-to-end.yml)
   - [Big data analytics with enterprise-grade security by using Azure Synapse](../../solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml)
-  - [Enterprise business intelligence](../../reference-architectures/data/enterprise-bi-synapse.yml)
+  - [Enterprise business intelligence](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse)

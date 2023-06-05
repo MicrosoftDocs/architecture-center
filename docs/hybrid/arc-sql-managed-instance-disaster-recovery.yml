@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure Arc-enabled SQL Managed Instance disaster recovery
+  titleSuffix: Azure Architecture Center
+  description: Use Azure Arc to deploy an Azure Arc-enabled SQL managed instance across two sites that are outside of Azure in a highly available architecture.
+  author: sebassem
+  ms.author: sebassem
+  ms.date: 04/30/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+name: Deploy an Azure Arc-enabled SQL managed instance for disaster recovery
+azureCategories:
+  - hybrid
+  - databases
+summary: Use Azure Arc to deploy an Azure Arc-enabled SQL managed instance across two sites that are outside of Azure in a highly available architecture.
+products:
+  - azure-arc
+  - azure-sql-managed-instance
+
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-arc-sql-managed-instance-dr-thumb.png
+content: |
+   [!include[](arc-sql-managed-instance-disaster-recovery-content.md)]

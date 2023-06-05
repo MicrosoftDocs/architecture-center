@@ -2,7 +2,7 @@
 metadata:
   title: Materialized View pattern
   description: Generate prepopulated views over the data in one or more data stores when the data isn't ideally formatted for required query operations.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/28/2022
   ms.topic: conceptual

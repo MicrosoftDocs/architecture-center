@@ -3,10 +3,10 @@ metadata:
   title: Real-time scoring of machine learning models
   titleSuffix: Azure Architecture Center
   description: Deploy Python machine learning models as web services to make real-time predictions using Azure Machine Learning and Azure Kubernetes Service (AKS).
-  author: msalvaris
-  ms.author: architectures
-  ms.date: 07/28/2022
-  ms.topic: conceptual
+  author: fboylu
+  ms.author: fboylu, zhangya
+  ms.date: 11/03/2022
+  ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.category:
@@ -17,6 +17,7 @@ metadata:
     - reference-architecture
     - ai-machine-learning
     - aml-project-improvement
+    - devx-track-python
 name: Real-time scoring of machine learning models in Python
 azureCategories:
   - ai-machine-learning
@@ -28,6 +29,6 @@ products:
   - azure-machine-learning
   - azure-monitor
   - azure-virtual-machines
-thumbnailUrl: /azure/architecture/browse/thumbs/python-model-architecture.png
+thumbnailUrl: /azure/architecture/browse/thumbs/python-model-architecture-thumbnail.png
 content: |
   [!include[](real-time-scoring-machine-learning-models-content.md)]

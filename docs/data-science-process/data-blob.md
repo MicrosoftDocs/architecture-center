@@ -7,7 +7,7 @@ editor: marktab
 services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/15/2022
 ms.author: tdsp
 ms.custom:
@@ -231,3 +231,13 @@ After you have explored the data and created the necessary features, you can upl
 <!-- Links -->
 
 [import-data]: /azure/machine-learning/studio-module-reference/import-data
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*

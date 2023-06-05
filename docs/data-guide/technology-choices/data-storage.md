@@ -1,7 +1,7 @@
 ---
 title: Choose a data storage technology
 description: Compare big data storage technology options in Azure, including key selection criteria and a capability matrix.
-author: EdPrice-MSFT
+author: martinekuan
 mas.author: architectures
 categories: azure
 ms.date: 07/25/2022
@@ -20,7 +20,12 @@ ms.custom:
 
 # Choose a big data storage technology in Azure
 
-This topic compares options for data storage for big data solutions &mdash; specifically, data storage for bulk data ingestion and batch processing, as opposed to [analytical data stores](./analytical-data-stores.md) or [real-time streaming ingestion](./real-time-ingestion.md).
+> [!NOTE]
+> On **Feb 29, 2024** Azure Data Lake Storage Gen1 will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/). If you use Azure Data Lake Storage Gen1, make sure to migrate to Azure Data Lake Storage Gen2 prior to that date. To learn how, see [Migrate Azure Data Lake Storage from Gen1 to Gen2 by using the Azure portal](/azure/storage/blobs/data-lake-storage-migrate-gen1-to-gen2-azure-portal).
+>
+> Unless you already have an Azure Data Lake Storage Gen1 account, you cannot create new ones.
+
+This topic compares options for data storage for big data solutions—specifically, data storage for bulk data ingestion and batch processing, as opposed to [analytical data stores](./analytical-data-stores.md) or [real-time streaming ingestion](./real-time-ingestion.md).
 
 ## What are your options when choosing data storage in Azure?
 
@@ -29,7 +34,7 @@ There are several options for ingesting data into Azure, depending on your needs
 **File storage:**
 
 - [Azure Storage blobs](/azure/storage/blobs/storage-blobs-introduction)
-- [Azure Data Lake Store](/azure/data-lake-store)
+- [Azure Data Lake Storage Gen1](/azure/data-lake-store)
 
 **NoSQL databases:**
 
@@ -44,7 +49,7 @@ There are several options for ingesting data into Azure, depending on your needs
 
 Azure Storage is a managed storage service that is highly available, secure, durable, scalable, and redundant. Microsoft takes care of maintenance and handles critical problems for you. Azure Storage is the most ubiquitous storage solution Azure provides, due to the number of services and tools that can be used with it.
 
-There are various Azure Storage services you can use to store data. The most flexible option for storing blobs from a number of data sources is [Blob storage](/azure/storage/blobs/storage-blobs-introduction). Blobs are basically files. They store pictures, documents, HTML files, virtual hard disks (VHDs), big data such as logs, database backups &mdash; pretty much anything. Blobs are stored in containers, which are similar to folders. A container provides a grouping of a set of blobs. A storage account can contain an unlimited number of containers, and a container can store an unlimited number of blobs.
+There are various Azure Storage services you can use to store data. The most flexible option for storing blobs from many data sources is [Blob storage](/azure/storage/blobs/storage-blobs-introduction). Blobs are basically files. They store pictures, documents, HTML files, virtual hard disks (VHDs), big data such as logs, database backups—pretty much anything. Blobs are stored in containers, which are similar to folders. A container provides a grouping of a set of blobs. A storage account can contain an unlimited number of containers, and a container can store an unlimited number of blobs.
 
 Azure Storage is a good choice for big data and analytics solutions, because of its flexibility, high availability, and low cost. It provides hot, cool, and archive storage tiers for different use cases. For more information, see [Azure Blob Storage: Hot, cool, and archive storage tiers](/azure/storage/blobs/access-tiers-overview).
 
@@ -57,19 +62,19 @@ Other features that make Azure Storage a good choice are:
 - [Encryption at rest](/azure/storage/common/storage-service-encryption).
 - [Azure role-based access control (Azure RBAC)](/azure/storage/blobs/security-recommendations#data-protection) to control access using Azure Active Directory users and groups.
 
-## Azure Data Lake Store
+## Azure Data Lake Storage Gen1
 
-[Azure Data Lake Store](/azure/data-lake-store) is an enterprise-wide hyperscale repository for big data analytic workloads. Data Lake enables you to capture data of any size, type, and ingestion speed in one single [secure](/azure/data-lake-store/data-lake-store-overview#DataLakeStoreSecurity) location for operational and exploratory analytics.
+[Azure Data Lake Storage Gen1](/azure/data-lake-store) is an enterprise-wide hyperscale repository for big data analytic workloads. Data Lake enables you to capture data of any size, type, and ingestion speed in one single [secure](/azure/data-lake-store/data-lake-store-overview#DataLakeStoreSecurity) location for operational and exploratory analytics.
 
-Data Lake Store does not impose any limits on account sizes, file sizes, or the amount of data that can be stored in a data lake. Data is stored durably by making multiple copies and there is no limit on the duration of time that the data can be stored in the Data Lake. In addition to making multiple copies of files to guard against any unexpected failures, Data lake spreads parts of a file over a number of individual storage servers. This improves the read throughput when reading the file in parallel for performing data analytics.
+Azure Data Lake Storage Gen1 doesn't impose any limits on account sizes, file sizes, or the amount of data that can be stored in a data lake. Data is stored durably by making multiple copies and there's no limit on the duration of time that the data can be stored in the Data Lake. In addition to making multiple copies of files to guard against any unexpected failures, Data lake spreads parts of a file over a number of individual storage servers. This improves the read throughput when reading the file in parallel for performing data analytics.
 
-Data Lake Store can be accessed from Hadoop (available through HDInsight) using the WebHDFS-compatible REST APIs. You may consider using this as an alternative to Azure Storage when your individual or combined file sizes exceed that which is supported by Azure Storage. However, there are [performance tuning guidelines](/azure/data-lake-store/data-lake-store-performance-tuning-guidance#optimize-io-intensive-jobs-on-hadoop-and-spark-workloads-on-hdinsight) you should follow when using Data Lake Store as your primary storage for an HDInsight cluster, with specific guidelines for [Spark](/azure/data-lake-store/data-lake-store-performance-tuning-spark), [Hive](/azure/data-lake-store/data-lake-store-performance-tuning-hive), [MapReduce](/azure/data-lake-store/data-lake-store-performance-tuning-mapreduce), and [Storm](/azure/data-lake-store/data-lake-store-performance-tuning-storm). Also, be sure to check Data Lake Store's [regional availability](https://azure.microsoft.com/regions/#services), because it is not available in as many regions as Azure Storage, and it needs to be located in the same region as your HDInsight cluster.
+Azure Data Lake Storage Gen1 can be accessed from Hadoop (available through HDInsight) using the WebHDFS-compatible REST APIs. You may consider using this as an alternative to Azure Storage when your individual or combined file sizes exceed that which is supported by Azure Storage. However, there are [performance tuning guidelines](/azure/data-lake-store/data-lake-store-performance-tuning-guidance#optimize-io-intensive-jobs-on-hadoop-and-spark-workloads-on-hdinsight) you should follow when using Azure Data Lake Storage Gen1 as your primary storage for an HDInsight cluster, with specific guidelines for [Spark](/azure/data-lake-store/data-lake-store-performance-tuning-spark), [Hive](/azure/data-lake-store/data-lake-store-performance-tuning-hive), and [MapReduce](/azure/data-lake-store/data-lake-store-performance-tuning-mapreduce). Also, be sure to check Azure Data Lake Storage Gen1's [regional availability](https://azure.microsoft.com/regions/#services), because it isn't available in as many regions as Azure Storage, and it needs to be located in the same region as your HDInsight cluster.
 
-Coupled with Azure Data Lake Analytics, Data Lake Store is specifically designed to enable analytics on the stored data and is tuned for performance for data analytics scenarios. Data Lake Store can also be accessed via Azure Synapse using its PolyBase feature.
+Coupled with Azure Data Lake Analytics, Azure Data Lake Storage Gen1 is designed to enable analytics on the stored data and is tuned for performance for data analytics scenarios. Azure Data Lake Storage Gen1 can also be accessed via Azure Synapse using its PolyBase feature.
 
 ## Azure Cosmos DB
 
-[Azure Cosmos DB](/azure/cosmos-db) is Microsoft's globally distributed multi-model database. Cosmos DB guarantees single-digit-millisecond latencies at the 99th percentile anywhere in the world, offers multiple well-defined consistency models to fine-tune performance, and guarantees high availability with multi-homing capabilities.
+[Azure Cosmos DB](/azure/cosmos-db) is Microsoft's globally distributed multi-model database. Azure Cosmos DB guarantees single-digit-millisecond latencies at the 99th percentile anywhere in the world, offers multiple well-defined consistency models to fine-tune performance, and guarantees high availability with multi-homing capabilities.
 
 Azure Cosmos DB is schema-agnostic. It automatically indexes all the data without requiring you to deal with schema and index management. It's also multi-model, natively supporting document, key-value, graph, and column-family data models.
 
@@ -111,7 +116,7 @@ The following tables summarize the key differences in capabilities.
 
 ### File storage capabilities
 
-| Capability | Azure Data Lake Store | Azure Blob Storage containers |
+| Capability | Azure Data Lake Storage Gen1 | Azure Blob Storage containers |
 | --- | --- | --- |
 | Purpose | Optimized storage for big data analytics workloads |General purpose object store for a wide variety of storage scenarios |
 | Use cases | Batch, streaming analytics, and machine learning data such as log files, IoT data, click streams, large datasets | Any type of text or binary data, such as application back end, backup data, media storage for streaming, and general purpose data |
@@ -128,27 +133,27 @@ The following tables summarize the key differences in capabilities.
 
 ### NoSQL database capabilities
 
-| Capability |                                           Azure Cosmos DB                                           |                                                             HBase on HDInsight                                                             |
-|------------------------------------|-----------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-|       Primary database model       |                      Document store, graph, key-value store, wide column store                      |                                                             Wide column store                                                              |
-|         Secondary indexes          |                                                 Yes                                                 |                                                                     No                                                                     |
-|        SQL language support        |                                                 Yes                                                 |                                     Yes (using the [Phoenix](https://phoenix.apache.org) JDBC driver)                                      |
-|            Consistency             |                   Strong, bounded-staleness, session, consistent prefix, eventual                   |                                                                   Strong                                                                   |
-| Native Azure Functions integration |                        [Yes](/azure/cosmos-db/serverless-computing-database)                        |                                                                     No                                                                     |
-|   Automatic global distribution    |                          [Yes](/azure/cosmos-db/distribute-data-globally)                           | No [HBase cluster replication can be configured](/azure/hdinsight/hbase/apache-hbase-replication) across regions with eventual consistency |
-|           Pricing model            | Elastically scalable request units (RUs) charged per-second as needed, elastically scalable storage |                              Per-minute pricing for HDInsight cluster (horizontal scaling of nodes), storage                               |
+|Capability|Azure Cosmos DB|HBase on HDInsight|
+|---|---|---|
+|Primary database model|Document store, graph, key-value store, wide column store|Wide column store|
+|Secondary indexes|Yes|No|
+|SQL language support|Yes|Yes (using the [Phoenix](https://phoenix.apache.org) JDBC driver)|
+|Consistency|Strong, bounded-staleness, session, consistent prefix, eventual|Strong|
+|Native Azure Functions integration|[Yes](/azure/cosmos-db/serverless-computing-database)|No|
+|Automatic global distribution|[Yes](/azure/cosmos-db/distribute-data-globally)|No[HBase cluster replication can be configured](/azure/hdinsight/hbase/apache-hbase-replication) across regions with eventual consistency|
+|Pricing model|Elastically scalable request units (RUs) charged per-second as needed, elastically scalable storage|Per-minute pricing for HDInsight cluster (horizontal scaling of nodes), storage|
 
 ## Analytical database capabilities
 
-| Capability                     | Azure Data Explorer                                                                                                                                                             |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Primary database model         | Relational (column store), telemetry, and time series store                                                                                                                     |
-| SQL language support           | Yes                                                                                                                                                                             |
-| Pricing model                  | Elastically scalable cluster instances                                                                                                                                          |
-| Authentication                 | Based on [Azure Active Directory identities](https://github.com/uglide/azure-content/blob/master/articles/active-directory/active-directory-authentication-scenarios.md) |
-| Encryption at rest             | Supported, customer managed keys                                                                                                                                                |                                                                                                                                            
-| Analytics workload performance | Optimized performance for parallel analytics workloads                                                                                                                         |
-| Size limits                    | Linearly scalable               |
+|Capability|Azure Data Explorer|
+| --- | --- |
+| Primary database model|Relational (column store), telemetry, and time series store|
+| SQL language support|Yes|
+| Pricing model| Elastically scalable cluster instances|
+| Authentication| Based on [Azure Active Directory identities](https://github.com/uglide/azure-content/blob/master/articles/active-directory/active-directory-authentication-scenarios.md)|
+| Encryption at rest| Supported, customer managed keys|
+| Analytics workload performance| Optimized performance for parallel analytics workloads|
+| Size limits| Linearly scalable|
 
 ## Contributors
 
@@ -157,3 +162,17 @@ The following tables summarize the key differences in capabilities.
 Principal author:
 
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+
+## Next steps
+
+- [Azure Cloud Storage Solutions and Services](https://azure.microsoft.com/products/category/storage)
+- [Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options)
+- [Introduction to Azure Storage](/azure/storage/common/storage-introduction)
+- [Introduction to Azure Data Explorer](/training/modules/intro-to-azure-data-explorer)
+
+## Related resources
+
+- [Big data architectures](../big-data/index.yml)
+- [Big data architecture style](../../guide/architecture-styles/big-data.yml)
+- [Understand data store models](../../guide/technology-choices/data-store-overview.md)
+- [Real-time analytics on big data architecture](../../solution-ideas/articles/real-time-analytics.yml)

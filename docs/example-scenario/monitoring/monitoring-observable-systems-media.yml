@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Build real-time monitoring and observable systems for media 
+  titleSuffix: Azure Architecture Center
+  description: Learn how to implement real-time monitoring and observability of systems and end-user device telemetry data. 
+  author: ThePedestrian
+  ms.author: unathaniel
+  ms.date: 03/02/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - media
+  - ai-machine-learning
+  - analytics
+products:
+  - azure-data-explorer
+  - azure-functions
+  - azure-metrics-advisor
+  - azure-blob-storage
+  - azure-event-hubs
+name: Build real-time monitoring and observable systems for media 
+summary:  Learn how to implement real-time monitoring and observability of systems and end-user device telemetry data. 
+thumbnailUrl: /azure/architecture/browse/thumbs/monitoring-media-thumb.png
+content: |
+  [!include[](monitoring-observable-systems-media-content.md)]

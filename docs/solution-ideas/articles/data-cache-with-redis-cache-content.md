@@ -1,12 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Azure Cache for Redis perfectly complements Azure database services such as Cosmos DB. It provides a cost-effective solution to scale read and write throughput of your data tier. Store and share database query results, session states, static contents, and more using a common cache-aside pattern.
-
-## Potential use cases
-
-- Airlines (aircraft)
-- Online vehicle dealers (automotive)
-- Restaurants (travel and hospitality)
+Azure Cache for Redis perfectly complements Azure database services such as Azure Cosmos DB. It provides a cost-effective solution to scale read and write throughput of your data tier. Store and share database query results, session states, static contents, and more using a common cache-aside pattern.
 
 ## Architecture
 
@@ -30,13 +24,21 @@ Key technologies used to implement this architecture:
 * [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is part of the Azure SQL family. Azure SQL Database is an intelligent, scalable, and relational database service built for the cloud. 
 * [Azure Database for PostgreSQL](https://azure.microsoft.com/en-gb/services/postgresql) is also part of the Azure SQL family.
 
+## Scenario details
+
+### Potential use cases
+
+- Airlines (aircraft and aerospace)
+- Online vehicle dealers (automotive)
+- Restaurants (travel and hospitality)
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
- * [Sarah Parkes](https://www.linkedin.com/in/sarah-p-a06370) | Cloud Solution Architect
+* [Sarah Parkes](https://www.linkedin.com/in/sarah-p-a06370) | Cloud Solution Architect
 
 ## Next steps
 
@@ -49,6 +51,5 @@ Principal author:
 
 * [Cache-Aside Pattern](../../patterns/cache-aside.yml)
 * [Caching Best Practice](../../best-practices/caching.yml)
-* [Build cloud native applications](/azure/architecture/solution-ideas/articles/cloud-native-apps)
 * [Data streaming with AKS](/azure/architecture/solution-ideas/articles/data-streaming-scenario)
 * [Messaging](/azure/architecture/solution-ideas/articles/messaging)

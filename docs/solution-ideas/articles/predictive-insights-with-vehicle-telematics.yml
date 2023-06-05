@@ -3,10 +3,10 @@ metadata:
   title: Predictive insights with vehicle telematics
   titleSuffix: Azure Architecture Center
   description: Car dealerships, manufacturers, and insurance companies can use Microsoft Azure to gain predictive insights on vehicle health and driving habits.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 06/06/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -20,7 +20,6 @@ metadata:
     - ai-ml
     - "https://azure.microsoft.com/solutions/architecture/predictive-insights-with-vehicle-telematics"
     - ai-machine-learning
-  social_image_url: /azure/architecture/solution-ideas/articles/media/predictive-insights-with-vehicle-telematics.png
 name: Predictive insights with vehicle telematics
 azureCategories:
   - ai-machine-learning

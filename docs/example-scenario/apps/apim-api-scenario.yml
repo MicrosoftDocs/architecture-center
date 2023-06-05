@@ -4,8 +4,8 @@ metadata:
   description: In this scenario, an e-commerce company in the travel industry migrates a legacy web application with Azure API Management.
   author: begim
   ms.author: begim
-  ms.date: 08/26/2022
-  ms.topic: conceptual
+  ms.date: 12/01/2022
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.category:
@@ -18,7 +18,6 @@ metadata:
     - app-modernization
     - example-scenario
     - internal-intro
-  social_image_url: /azure/architecture/example-scenario/apps/media/architecture-apim-api-scenario.png
 name: Migrate a web app using Azure API Management
 azureCategories:
   - web

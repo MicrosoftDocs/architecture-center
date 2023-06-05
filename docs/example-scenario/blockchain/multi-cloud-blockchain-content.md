@@ -1,24 +1,12 @@
-Blockchain and distributed ledger technology (DLT) networks are multiparty systems. Each party can have its own tools, methodology, and cloud provider. Some providers' public or private blockchain networks might have limited region availability, scalability, or network segregation.
-
-The open-source [Blockchain Automation Framework (BAF)](https://blockchain-automation-framework.readthedocs.io/) is a consistent way to deploy production-ready DLTs across different public and private clouds. But while BAF can manage deployments, it doesn't provide central infrastructure management and monitoring. Although some cloud providers' blockchain services provide infrastructure management, they might require all parties to be in the same cloud or infrastructure.
-
-To join forces and build a blockchain network, parties that use different cloud providers and infrastructures need a common management platform. This platform should offer standard visibility, operations, and compliance across a wide range of resources and locations, regardless of hosting infrastructure.
-
-This article explores how the BAF and [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview) can build a cross-cloud blockchain solution that focuses on portability and control.
-
-## Potential use cases
-
-This approach supports:
-
-- Heterogeneous DLT deployments where separate organizations own and manage each node.
-
-- Centralized DevOps, monitoring, and compliance management across multiparty networks.
+This architecture combines the open-source Blockchain Automation Framework (BAF) and Azure Arc-enabled Kubernetes to work with multiparty DLTs and to build a cross-cloud blockchain solution.
 
 ## Architecture
 
 This solution provides a heterogeneous, multiparty, cloud-agnostic DLT network. Parties can host their nodes anywhere and still be part of the network.
 
 ![Diagram showing a three-party blockchain network with each party using a different cloud provider, managed and monitored through BAF and Azure Arc.](media/multi-cloud-blockchain-network.png)
+
+### Workflow
 
 - [Kubernetes](https://kubernetes.io) is the standard infrastructure that hosts both the ledger and the application. This example assumes three managed Kubernetes clusters.
   - Party A uses [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes).
@@ -71,7 +59,27 @@ This solution provides a heterogeneous, multiparty, cloud-agnostic DLT network. 
 
 - You can get Internet Protocol Security (IPSec) private connections with tools like [Submariner](https://submariner.io).
 
+## Scenario details
+
+Blockchain and distributed ledger technology (DLT) networks are multiparty systems. Each party can have its own tools, methodology, and cloud provider. Some providers' public or private blockchain networks might have limited region availability, scalability, or network segregation.
+
+The open-source [Blockchain Automation Framework (BAF)](https://blockchain-automation-framework.readthedocs.io/) is a consistent way to deploy production-ready DLTs across different public and private clouds. But while BAF can manage deployments, it doesn't provide central infrastructure management and monitoring. Although some cloud providers' blockchain services provide infrastructure management, they might require all parties to be in the same cloud or infrastructure.
+
+To join forces and build a blockchain network, parties that use different cloud providers and infrastructures need a common management platform. This platform should offer standard visibility, operations, and compliance across a wide range of resources and locations, regardless of hosting infrastructure.
+
+This article explores how the BAF and [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview) can build a cross-cloud blockchain solution that focuses on portability and control.
+
+### Potential use cases
+
+This approach supports:
+
+- Heterogeneous DLT deployments where separate organizations own and manage each node.
+
+- Centralized DevOps, monitoring, and compliance management across multiparty networks.
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 For AKS best practices, see [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks). You can find similar guidance for other cloud providers.
 
@@ -81,7 +89,15 @@ Although Azure Arc can manage and monitor Kubernetes clusters, each cluster must
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 BAF uses [HashiCorp Vault](https://www.hashicorp.com/products/vault) for certificate and key storage. To use BAF, you need at least one Vault server. BAF recommends one Vault per organization for production-ready projects.
+
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+To estimate Azure resource costs, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
 ## Deploy this scenario
 
@@ -93,17 +109,15 @@ BAF uses [HashiCorp Vault](https://www.hashicorp.com/products/vault) for certifi
 1. (Optional) [Create an Azure DevOps organization and project](/azure/devops/organizations/accounts/create-organization), and clone the BAF repo into the new Azure DevOps project.
 1. (Optional) Create an [Ansible Controller VM](https://azuredevopslabs.com/labs/vstsextend/ansible) in Azure as the custom build agent to deploy BAF components.
 
-## Pricing
-
-To estimate Azure resource costs, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 * [Safi Ali](https://uk.linkedin.com/in/saffieldin) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
@@ -114,7 +128,7 @@ Principal authors:
 ## Related resources
 
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
-- [Blockchain workflow application](../../solution-ideas/articles/blockchain-workflow-application.yml)
+- [Blockchain workflow application](https://azure.microsoft.com/updates/action-required-migrate-your-azure-blockchain-service-data-by-10-september-2021/)
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](../../hybrid/arc-hybrid-kubernetes.yml)
 - [Containers and container orchestrators for AWS professionals](../../aws-professional/compute.md#containers-and-container-orchestrators)
 - [Containers and container orchestrators for GCP professionals](../../gcp-professional/services.md#containers-and-container-orchestrators)

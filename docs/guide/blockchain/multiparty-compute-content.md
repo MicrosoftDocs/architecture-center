@@ -147,12 +147,12 @@ This diagram summarizes options for the multiparty computing with Azure services
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines)
 - [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database)
-- [Quorum Blockchain Service](https://azuremarketplace.microsoft.com/marketplace/apps/consensys.quorum-blockchain-service?tab=Overview)
+
 
 ## Related resources
 
 - [Supply chain track and trace](../../solution-ideas/articles/supply-chain-track-and-trace.yml)
-- [Blockchain workflow application](../../solution-ideas/articles/blockchain-workflow-application.yml)
+- [Blockchain workflow application](https://azure.microsoft.com/updates/action-required-migrate-your-azure-blockchain-service-data-by-10-september-2021)
 - [Multi-cloud blockchain DLT](../../example-scenario/blockchain/multi-cloud-blockchain.yml)
 - [Decentralized trust between banks](../../example-scenario/apps/decentralized-trust.yml)
 - [Authenticating Azure confidential ledger nodes](/azure/confidential-ledger/authenticate-ledger-nodes)

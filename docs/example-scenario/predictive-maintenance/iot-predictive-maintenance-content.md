@@ -150,7 +150,7 @@ Security and monitoring are considerations for IoT Edge systems. For this exampl
 - [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html)
 - [React to Blob storage events](/azure/storage/blobs/storage-blob-event-overview)
 - [Azure Blob storage bindings for Azure Functions](/azure/azure-functions/functions-bindings-storage-blob)
-- [Serverless Streaming At Scale with Cosmos DB](https://medium.com/streaming-at-scale-in-azure/serverless-streaming-at-scale-with-cosmos-db-e0e26cacd27d)
+- [Serverless Streaming At Scale with Azure Cosmos DB](https://medium.com/streaming-at-scale-in-azure/serverless-streaming-at-scale-with-cosmos-db-e0e26cacd27d)
 - [When to avoid CQRS](http://udidahan.com/2011/04/22/when-to-avoid-cqrs/)
 
 ## Related resources

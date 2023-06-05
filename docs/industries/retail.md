@@ -2,10 +2,10 @@
 title: Solutions for the retail industry
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas to use Azure services for building efficient, scalable, and reliable retail solutions.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
 ms.date: 07/26/2022
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 keywords:
@@ -55,8 +55,7 @@ The following articles provide more details about retail architectural topics. A
 | ------- | ------- | ------- |
 | [Data Management in Retail](/previous-versions/azure/industry-marketing/retail/retail-data-management-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | Primer for how to ingest, prepare, store, analyze, and take action on data, for the retail industry. | Databases |
 | [Migrate your e-commerce solution to Azure](/previous-versions/azure/industry-marketing/retail/migrating-ecommerce-solution-to-azure?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | Learn how to move an existing e-commerce solution to the cloud. The three stages are to rehost, refactor, and rebuild your solution. | Migration |
-| [Optimize and reuse an existing recommendation system](/previous-versions/azure/industry-marketing/retail/recommendation-engine-optimization?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | The process of successfully reusing and improving an existing recommendation system that is written in R. | AI/ML |
-| [Visual search in retail with CosmosDB](/previous-versions/azure/industry-marketing/retail/visual-search-use-case-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | This document focuses on the AI concept of visual search and offers a few key considerations on its implementation. It provides a workflow example and maps its stages to the relevant Azure technologies. | Databases |
+| [Visual search in retail with Azure Cosmos DB](/previous-versions/azure/industry-marketing/retail/visual-search-use-case-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | This document focuses on the AI concept of visual search and offers a few key considerations on its implementation. It provides a workflow example and maps its stages to the relevant Azure technologies. | Databases |
 | [SKU optimization for consumer brands](/previous-versions/azure/industry-marketing/retail/sku-optimization-solution-guide?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | Topics include automating decision making, SKU assortment optimization, descriptive analytics, predictive analytics, parametric models, non-parametric models, implementation details, data output and reporting, and security considerations. | Analytics |
 
 ## Architectures for retail
@@ -76,7 +75,7 @@ The following articles provide detailed analysis of architectures developed and 
 | [Magento e-commerce platform in Azure Kubernetes Service](../example-scenario/magento/magento-azure.yml) | Learn how to deploy and host Magento, an open-source e-commerce platform, on Azure. | Web |
 | [Movie recommendations on Azure](../example-scenario/ai/movie-recommendations-with-machine-learning.yml) | Automate movie and product recommendations by using an Azure Data Science Virtual Machine to train an Azure Machine Learning model. | AI/ML |
 | [Retail - Buy online, pickup in store (BOPIS)](../example-scenario/iot/vertical-buy-online-pickup-in-store.yml) | Develop an efficient and secure curbside pickup process on Azure. | Web |
-| [Scalable order processing](../example-scenario/data/ecommerce-order-processing.yml) | Build a highly scalable and resilient architecture for online order processing, using managed Azure services, such as Cosmos DB and HDInsight. | Web |
+| [Scalable order processing](../example-scenario/data/ecommerce-order-processing.yml) | Build a highly scalable and resilient architecture for online order processing, using managed Azure services, such as Azure Cosmos DB and HDInsight. | Web |
 | [Stream processing with Azure Databricks](../reference-architectures/data/stream-processing-databricks.yml) | Use Azure Databricks to build an end-to-end stream processing pipeline for a taxi company, to collect, and analyze trip and fare data from multiple devices. | Analytics |
 | [Stream processing with Azure Stream Analytics](../reference-architectures/data/stream-processing-stream-analytics.yml) | Use Azure Stream Analytics to build an end-to-end stream processing pipeline for a taxi company, to collect, and analyze trip and fare data from multiple devices. | Analytics |
 
@@ -110,7 +109,7 @@ The following are other ideas that you can use as a starting point for your reta
 
 - [Retail and e-commerce using Azure MySQL](../solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql.yml)
 - [Retail and e-commerce using Azure PostgreSQL](../solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql.yml)
-- [Retail and e-commerce using Cosmos DB](../solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.yml)
+- [Retail and e-commerce using Azure Cosmos DB](../solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.yml)
 
 **Mixed Reality**:
 

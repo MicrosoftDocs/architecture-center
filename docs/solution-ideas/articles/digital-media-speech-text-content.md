@@ -1,23 +1,12 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-A speech-to-text solution provides a way to identify speech in static video files so you can manage it as standard content. For instance, employees can use this technology to search within training videos for spoken words or phrases. Then they can navigate to the specific moment in the video that contains the word or phrase.
-
-When you use this solution, you can upload static videos to an Azure website. The Azure Media Indexer uses the Speech API to index the speech within the videos and stores it in an Azure database. You can search for words or phrases by using the Web Apps feature of Azure App Service. Then you can retrieve a list of results. When you select a result, you can see the place in the video that mentions the word or phrase.
-
-This solution is built on the Azure managed services [Content Delivery Network](https://azure.microsoft.com/services/cdn) and [Azure Cognitive Search](https://azure.microsoft.com/services/search).
-
-## Potential use cases
-
-This solution applies to scenarios that can benefit from the ability to search recorded speech. Examples include:
-
-- Training and educational videos.
-- Crime investigations.
-- Customer service analysis.
+This solution idea identifies speech in static video files to manage speech as standard content.
 
 ## Architecture
 
-![Architecture diagram shows the flow from the source through Azure blob storage and live encoder to the streaming endpoint.](../media/digital-media-speech-text.png)
-*Download an [SVG](../media/digital-media-speech-text.svg) of this architecture.*
+[ ![Architecture diagram shows the flow from the source through Azure blob storage and live encoder to the streaming endpoint.](../media/digital-media-speech-text.svg)](../media/digital-media-speech-text.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/digital-media-speech-text.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -30,7 +19,7 @@ This solution applies to scenarios that can benefit from the ability to search r
 - [Web Apps](/azure/app-service/overview) hosts the website or web application.
 - [Azure Media Indexer](/azure/media-services/previous/media-services-index-content) makes the content of your media files searchable and generates a full-text transcript for closed-captioning and keywords. Media files are processed individually or in batches.
 
-## Components
+### Components
 
 - [Blob Storage](https://azure.microsoft.com/services/storage/blobs) is a service that's part of [Azure Storage](https://azure.microsoft.com/products/category/storage). Blob Storage offers optimized cloud object storage for large amounts of unstructured data.
 - [Azure Media Services](https://azure.microsoft.com/services/media-services) is a cloud-based platform that you can use to stream video, enhance accessibility and distribution, and analyze video content.
@@ -41,6 +30,22 @@ This solution applies to scenarios that can benefit from the ability to search r
 - [Azure Cognitive Search](https://azure.microsoft.com/services/search) is a cloud search service that supplies infrastructure, APIs, and tools for searching. You can use Azure Cognitive Search to build search experiences over private, heterogeneous content in web, mobile, and enterprise applications.
 - [App Service](https://azure.microsoft.com/en-us/services/app-service/) provides a framework for building, deploying, and scaling web apps. The [Web Apps](https://azure.microsoft.com/en-us/services/app-service/web/) feature is a service for hosting web applications, REST APIs, and mobile back ends.
 - [Azure Media Indexer](https://azure.microsoft.com/services/media-services/media-indexer) provides a way to make content of your media files searchable. It can also generate a full-text transcript for closed captioning and keywords.
+
+## Scenario details
+
+A speech-to-text solution provides a way to identify speech in static video files so you can manage it as standard content. For instance, employees can use this technology to search within training videos for spoken words or phrases. Then they can navigate to the specific moment in the video that contains the word or phrase.
+
+When you use this solution, you can upload static videos to an Azure website. The Azure Media Indexer uses the Speech API to index the speech within the videos and stores it in an Azure database. You can search for words or phrases by using the Web Apps feature of Azure App Service. Then you can retrieve a list of results. When you select a result, you can see the place in the video that mentions the word or phrase.
+
+This solution is built on the Azure managed services [Content Delivery Network](https://azure.microsoft.com/services/cdn) and [Azure Cognitive Search](https://azure.microsoft.com/services/search).
+
+### Potential use cases
+
+This solution applies to scenarios that can benefit from the ability to search recorded speech. Examples include:
+
+- Training and educational videos.
+- Crime investigations.
+- Customer service analysis.
 
 ## Next steps
 

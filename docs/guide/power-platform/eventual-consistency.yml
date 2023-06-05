@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Eventual consistency between multiple Power Apps instances
+  titleSuffix: Azure Architecture Center
+  description: Handle dependent data in a resilient way in Power Apps.
+  author: martinekuan
+  ms.author: architectures
+  ms.date: 11/09/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+  ms.category:
+    - web
+name: Eventual consistency between multiple Power Apps instances
+azureCategories:
+  - web
+summary: Learn about proven approaches for data sync when multiple instances are present.
+products:
+  - power-platform
+  - common-data-service
+  - azure-logic-apps
+thumbnailUrl: /azure/architecture/browse/thumbs/solution-thumbnail.png
+content: |
+   [!include[](eventual-consistency-content.md)]

@@ -1,23 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Blockchain technology helps organizations track and trace the product life cycle and meet regulatory, financial, ethical and sustainability requirements.
-
-The need for the blockchain technology started with organizations trying to understand more about the products like:
-
-- Where did the product originate from?
-- How was a product built?
-- What were the processes followed to build a product?
-
-Build and maintain the electronic data interface (EDI) across suppliers to track and trace parts of a product is not a worth for some organizations. Using ConsenSys Quorum Blockchain Service (QBS) with App Services, Azure Key Vault, Service Bus, and Cosmos DB, organizations can track and trace tokenized version of the product's physical assets and relevant metadata to meet requirements.
-
-## Potential use cases
-
-With QBS powered by Azure services, an organization can build solutions that can track and provide an immutable history of the product parts and their metadata such as quality certificates. Through a shared ledger these certificates cover carbon footprint and percentage of recycled component used.
-
-Blockchain technology allows the logical data flow model to use with physical components deployed with each participant. This reduces the need for participants to trust a single partner.
-While this could be built using traditional centralized components, this is usually not the case with supply chain workloads. Supply chain workloads have their own systems that require isolation from others.
-
-This solution is ideal for the sustainability, manufacturing, and energy/environment industries.
+This article describes how to use Quorum Blockchain Service to track and trace physical assets, along with their metadata.
 
 ## Architecture
 
@@ -44,7 +27,6 @@ The following are features of QBS:
 QBS is currently accessible as a Private offering on Azure. You can access QBS using one of the following ways:
 
 - Sign-up directly on the [ConsenSys Quorum Blockchain Service](https://consensys.net/quorum/qbs/#qbs-private-preview) page.
-- Click “Contact Me” on [Microsoft Azure market place](https://azuremarketplace.microsoft.com/marketplace/apps/consensys.quorum-blockchain-service?tab=Overview).
 - Inquire directly with [QBS Support](https://quorum-support.zendesk.com).
 
 The elements of the architectural diagram are explained below:
@@ -59,7 +41,7 @@ Input that is destined to be persisted in the underlying ledger for the solution
 
 - **Output/Analytics**
 
-As data continues to exist in the ledger in QBS, the need for both analytics and triggers for existing non-blockchain based systems is required in most cases. A listener supporting tooling such as Ethlogger can be configured to run in Azure and send data to off-chain data technologies, such as Azure Cosmos Database or Azure SQL Server. The Ethlogger component is run on either [Azure Virtual Machines](/azure/virtual-machines/) or using container in [Azure Container Instances](/azure/container-instances/).
+As data continues to exist in the ledger in QBS, the need for both analytics and triggers for existing non-blockchain based systems is required in most cases. A listener supporting tooling such as Ethlogger can be configured to run in Azure and send data to off-chain data technologies, such as Azure Cosmos DB or Azure SQL. The Ethlogger component is run on either [Azure Virtual Machines](/azure/virtual-machines/) or using container in [Azure Container Instances](/azure/container-instances/).
 
 #### Dataflow in action
 
@@ -83,21 +65,42 @@ The ledger system of the QBS helps organizations get the history of low-level co
 
 ### Components
 
-- [Azure App Service](/azure/app-service/overview) is an HTTP-based service to host web applications, REST APIs, and mobile back ends. The App Service is a web application/API that allows interactive use of the data by users in the supply chain. In this article, App Services are used to read or reference the data in Input/Intake stage and all other stages.
+- [Azure App Service](https://azure.microsoft.com/products/app-service) is an HTTP-based service to host web applications, REST APIs, and mobile back ends. The App Service is a web application/API that allows interactive use of the data by users in the supply chain. In this article, App Services are used to read or reference the data in Input/Intake stage and all other stages.
 
-- [Service bus](https://azure.microsoft.com/services/service-bus) is a fully managed enterprise message broker with message queues and publish-subscribe topics (in a namespace). In this article, Azure Service Bus is used by manufacturers to inject data into the blockchain ledger or off-chain data store.
+- [Azure Service Bus](https://azure.microsoft.com/services/service-bus) is a fully managed enterprise message broker with message queues and publish-subscribe topics (in a namespace). In this article, Azure Service Bus is used by manufacturers to inject data into the blockchain ledger or off-chain data store.
 
 - [Azure Managed Applications](https://azure.microsoft.com/services/managed-applications) enable you to offer cloud solutions that are easy for consumers to deploy and operate.
   - Publish a managed application to the Azure market place to be available for all the customers.
   - Publish a managed application to an internal catalog to be available to only your company's users.
 
-- Event Listener: In this scenario, [Ethloggger](https://github.com/splunk/splunk-connect-for-ethereum/blob/main/docs/cli.md) is utilized to send data to off-chain data technologies, such as Azure Cosmos Database or Azure SQL Server.
+- Event Listener: In this scenario, [Ethloggger](https://github.com/splunk/splunk-connect-for-ethereum/blob/main/docs/cli.md) is utilized to send data to off-chain data technologies, such as Azure Cosmos DB or Azure SQL.
 
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a fully managed NoSQL database for modern app development that provides single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale. In this scenario Azure Cosmos DB is a data store used to house the output of events raised on the blockchain such as state changes that are used by an analytics solution or simple reporting.
 
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed platform as a service (PaaS) database engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring without user involvement. In this scenario Azure SQL Database is a data store used to house the output of events raised on the blockchain such as state changes that will ultimately be used by an analytics solution or simple reporting. Additionally, by utilizing the [ledger](/azure/azure-sql/database/ledger-landing) feature of Azure SQL Database, the integrity of output of events from the blockchain replicated to the SQL database can be maintained.
 
 - [Azure Monitor](https://azure.microsoft.com/services/monitor) provides a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. In this scenario Azure Monitor provides availability and performance data of the architecture components. QBS is integrated with Azure Monitor to provide additional telemetry data on blockchain nodes.
+
+## Scenario details
+
+Blockchain technology helps organizations track and trace the product life cycle and meet regulatory, financial, ethical, and sustainability requirements.
+
+The need for the blockchain technology started with organizations trying to understand more about the products, like:
+
+- Where did the product originate from?
+- How was a product built?
+- What were the processes followed to build a product?
+
+Building and maintaining the electronic data interface (EDI) across suppliers to track and trace parts of a product is not worthwhile for some organizations. By using ConsenSys Quorum Blockchain Service (QBS) with App Services, Azure Key Vault, Service Bus, and Azure Cosmos DB, organizations can track and trace a tokenized version of the product's physical assets and relevant metadata to meet requirements.
+
+### Potential use cases
+
+With QBS powered by Azure services, an organization can build solutions that can track and provide an immutable history of the product parts and their metadata, such as quality certificates. Through a shared ledger these certificates cover carbon footprint and percentage of recycled component used.
+
+Blockchain technology allows the logical data flow model to use with physical components deployed with each participant. This reduces the need for participants to trust a single partner.
+While this could be built using traditional centralized components, this is usually not the case with supply chain workloads. Supply chain workloads have their own systems that require isolation from others.
+
+This solution is ideal for the sustainability, manufacturing, and energy/environment industries.
 
 ## Contributors
 
@@ -112,18 +115,21 @@ Other contributor:
 
 - [Lavanya Kasturi](https://www.linkedin.com/in/lakshmilavanyakasturi) | Technical Writer
 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
-- [Create a network - Quorum Blockchain Service](https://consensys.net/docs/qbs/en/latest/Get-Started/Create-a-Network/)
-- [Monitor nodes - Quorum Blockchain Service](https://consensys.net/docs/qbs/en/latest/HowTo/Metrics/)
-- [Create, build, and deploy smart contracts tutorial](https://consensys.net/docs/qbs/en/latest/Tutorials/Deploy-Smart-Contract/VSCode/)
-- [Using MetaMask - Quorum Blockchain Service](https://consensys.net/docs/qbs/en/latest/HowTo/Connect-to-Network/MetaMask/)
-- [Use Geth to attach to Quorum Blockchain Service](https://consensys.net/docs/qbs/en/latest/HowTo/Connect-to-Network/Geth/)
-- [Using Truffle - Quorum Blockchain Service](https://consensys.net/docs/qbs/en/latest/HowTo/Connect-to-Network/Truffle/)
-- [Migrate - Quorum Blockchain Service](https://consensys.net/docs/qbs/latest/Get-Started/)
+- [Azure App Service overview](/azure/app-service/overview)
+- [Create a network - Quorum Blockchain Service](https://docs.qbs.consensys.net/Get-Started/Create-a-Network/)
+- [Monitor nodes - Quorum Blockchain Service](https://docs.qbs.consensys.net/howto/configure-a-member/metrics)
+- [Create, build, and deploy smart contracts tutorial](https://docs.qbs.consensys.net/Tutorials/Deploy-Smart-Contract/VSCode/)
+- [Using MetaMask - Quorum Blockchain Service](https://docs.qbs.consensys.net/HowTo/Connect-to-Network/MetaMask/)
+- [Use Geth to attach to Quorum Blockchain Service](https://docs.qbs.consensys.net/HowTo/Connect-to-Network/Geth/)
+- [Using Truffle - Quorum Blockchain Service](https://docs.qbs.consensys.net/HowTo/Connect-to-Network/Truffle/)
+- [Migrate - Quorum Blockchain Service](https://docs.qbs.consensys.net/get-started/overview)
 - [Introduction to blockchain on Azure](/training/modules/intro-to-blockchain/)
 
 ## Related resources
 
 - [Multiparty computing architecture design](/azure/architecture/guide/blockchain/multiparty-compute)
-- [Multi-cloud blockchain DLT](/azure/architecture/example-scenario/blockchain/multi-cloud-blockchain)
+- [Multicloud blockchain DLT](/azure/architecture/example-scenario/blockchain/multi-cloud-blockchain)

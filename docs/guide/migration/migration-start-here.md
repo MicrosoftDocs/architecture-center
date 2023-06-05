@@ -1,7 +1,7 @@
 ---
 title: Migration architecture design
 description: Get an overview of Azure migration technologies, guidance offerings, solution ideas, and reference architectures.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
 ms.date: 08/11/2022
 ms.topic: conceptual
@@ -77,7 +77,7 @@ The following sections provide links to reference architectures in a few high-le
 
 ### Mainframe migrations
 
-- [Modernize mainframe and midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)
+- [Modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
 - [General mainframe refactor to Azure](../../example-scenario/mainframe/general-mainframe-refactor.yml)
 - [Rehost a general mainframe on Azure](../../example-scenario/mainframe/mainframe-rehost-architecture-azure.yml)
 - [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](../../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml)
@@ -108,7 +108,7 @@ Following are some additional migration architectures to consider:
 
 - [Modernize .NET applications](../../solution-ideas/articles/net-app-modernization.yml)
 - [Migrate an e-commerce solution to Azure](../../industries/retail/migrate-ecommerce-solution.md)
-- [Lift and shift to containers with AKS](../../solution-ideas/articles/migrate-existing-applications-with-aks.yml)
+- [Lift and shift to containers with AKS](/azure/cloud-adoption-framework/migrate/)
 - [Migrate an Azure Cloud Services application to Azure Service Fabric](../../service-fabric/migrate-from-cloud-services.yml)
 - [Migrate a monolithic application to microservices using domain-driven design](../../microservices/migrate-monolith.yml)
 - [Support matrix for migration of physical servers, AWS VMs, and GCP VMs](/azure/migrate/migrate-support-matrix-physical-migration?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)

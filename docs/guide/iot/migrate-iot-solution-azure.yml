@@ -1,0 +1,22 @@
+### YamlMime:Architecture
+metadata:
+  title: Migrate your IoT solutions to Azure
+  description: Find out about migrating your IoT solutions to Azure, including devices, gateways, ingestion, communications, event processing, and analytics.
+  author: armandoblanco
+  ms.author: armbla
+  ms.date: 11/11/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - iot
+products:
+  - azure-iot
+  - azure-iot-dps
+  - azure-iot-hub
+  - azure-iot-sdk
+name: Migrate your IoT solutions to Azure
+summary: Find out about migrating your IoT solutions to Azure, including devices, gateways, ingestion, communications, event processing, and analytics.
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-iot-reference-architecture.png
+content: |
+  [!include[](migrate-iot-solution-azure-content.md)]

@@ -3,10 +3,10 @@ metadata:
   title: Data streaming with AKS
   titleSuffix: Azure Solution Ideas
   description: Use AKS to easily ingest and process a real-time data stream, with millions of data points collected via sensors.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 05/24/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -17,7 +17,6 @@ metadata:
     - interactive-diagram
     - data
     - "https://azure.microsoft.com/solutions/architecture/data-streaming-scenario"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/data-streaming-scenario.png
 name: Data streaming with AKS
 azureCategories:
   - databases

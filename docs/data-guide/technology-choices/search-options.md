@@ -1,7 +1,7 @@
 ---
 title: Choose a search data store
 description: Learn about the capabilities of search data stores in Azure and the key criteria for choosing one that best matches your needs.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
 categories: azure
 ms.date: 07/25/2022
@@ -22,7 +22,6 @@ In Azure, all of the following data stores will meet the core requirements for s
 
 - [Azure Cognitive Search](/azure/search/search-what-is-azure-search)
 - [Elasticsearch](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.elasticsearch?tab=Overview)
-- [HDInsight with Solr](/azure/hdinsight/hdinsight-hadoop-solr-install-linux)
 - [Azure SQL Database with full text search](/sql/relational-databases/search/full-text-search)
 
 ## Key selection criteria
@@ -47,37 +46,37 @@ The following tables summarize the key differences in capabilities.
 
 ### General capabilities
 
-| Capability | Cognitive Search | Elasticsearch | HDInsight with Solr | SQL Database |
-| --- | --- | --- | --- | --- |
-| Is managed service | Yes | No | Yes | Yes |
-| REST API | Yes | Yes | Yes | No |
-| Programmability | .NET, Java, Python, JavaScript | Java | Java | T-SQL |
-| Document indexers for common file types (PDF, DOCX, TXT, and so on) | Yes | No | Yes | No |
+| Capability | Cognitive Search | Elasticsearch | SQL Database |
+| --- | --- | --- | --- |
+| Is managed service | Yes | No | Yes |
+| REST API | Yes | Yes | No |
+| Programmability | .NET, Java, Python, JavaScript | Java | T-SQL |
+| Document indexers for common file types (PDF, DOCX, TXT, and so on) | Yes | No | No |
 
 ### Manageability capabilities
 
-| Capability | Cognitive Search | Elasticsearch | HDInsight with Solr | SQL Database |
-| --- | --- | --- | --- | --- |
-| Updateable schema | Yes | Yes | Yes | Yes |
-| Supports scale out  | Yes | Yes | Yes | No |
+| Capability | Cognitive Search | Elasticsearch | SQL Database |
+| --- | --- | --- | --- |
+| Updateable schema | Yes | Yes | Yes |
+| Supports scale out  | Yes | Yes | No |
 
 ### Analytic workload capabilities
 
-| Capability | Cognitive Search | Elasticsearch | HDInsight with Solr | SQL Database |
-| --- | --- | --- | --- | --- |
-| Supports analytics beyond full text search | No | Yes | Yes | Yes |
-| Part of a log analytics stack | No | Yes (ELK) |  No | No |
-| Supports semantic search | Yes (find similar documents only) | Yes | Yes | Yes |
+| Capability | Cognitive Search | Elasticsearch | SQL Database |
+| --- | --- | --- | --- |
+| Supports analytics beyond full text search | No | Yes | Yes |
+| Part of a log analytics stack | No | Yes (ELK) | No |
+| Supports semantic search | Yes (find similar documents only) | Yes | Yes |
 
 ### Security capabilities
 
-| Capability | Cognitive Search | Elasticsearch | HDInsight with Solr | SQL Database |
-| --- | --- | --- | --- | --- |
-| Row-level security | Partial (requires application query to filter by group id) | Partial (requires application query to filter by group id) | Yes | Yes |
-| Transparent data encryption | No | No | No | Yes |
-| Restrict access to specific IP addresses | Yes | Yes | Yes | Yes |
-| Restrict access to allow virtual network access only | Yes | Yes | Yes | Yes |
-| Active Directory authentication (integrated authentication) | No | No | No | Yes |
+| Capability | Cognitive Search | Elasticsearch | SQL Database |
+| --- | --- | --- | --- |
+| Row-level security | Partial (requires application query to filter by group ID) | Partial (requires application query to filter by group ID) | Yes |
+| Transparent data encryption | No | No | Yes |
+| Restrict access to specific IP addresses | Yes | Yes | Yes |
+| Restrict access to allow virtual network access only | Yes | Yes | Yes |
+| Active Directory authentication (integrated authentication) | No | No | Yes |
 
 ## Contributors
 
@@ -87,6 +86,14 @@ Principal author:
 
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
 
+## Next steps
+
+- [What is Azure Cognitive Search?](/azure/search/search-what-is-azure-search)
+- [Full-Text Search in SQL Server and Azure SQL Database](/sql/relational-databases/search/full-text-search)
+- [Elastic Cloud (Elasticsearch Service)](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp)
+
 ## Related resources
 
-- [Processing free-form text for search](../scenarios/search.yml)
+- [Process free-form text for search](../scenarios/search.yml)
+- [Choose a search data store in Azure](../technology-choices/search-options.md)
+- [Natural language processing technology](../technology-choices/natural-language-processing.yml)

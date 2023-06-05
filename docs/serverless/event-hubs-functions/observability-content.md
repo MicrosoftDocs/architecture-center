@@ -30,15 +30,15 @@ Azure Functions integrates with Application Insights to provide advanced and det
 
 The following is an example of extra telemetry for Event Hubs triggered functions generated in the **traces** table:
 
-<pre>Trigger Details: PartionId: 6, Offset: 30095894584-30095919248, EnqueueTimeUtc: 2021-05-06T02:02:59.2490000Z-2021-05-06T02:02:59.2490000Z, SequenceNumber: 814940-815019, Count: 80</pre>
+<pre>Trigger Details: PartionId: 6, Offset: 3985758552064-3985758624640, EnqueueTimeUtc: 2022-10-31T12:51:58.1750000+00:00-2022-10-31T12:52:03.8160000+00:00, SequenceNumber: 3712266-3712275, Count: 10</pre>
 
 This information requires that you use Event Hubs extension 4.2.0 or a later version. This data is very useful as it contains information about the message that triggered the function execution and can be used for querying and insights. It includes the following data for each time the function is triggered:
 
 - The **partition ID** (6)
-- The **partition offset** range (30095894584-30095919248)
-- The **Enqueue Time range** in UTC (2021-05-06T02:02:59.2490000Z-2021-05-06T02:02:59.2490000Z)
-- The **sequence number range** 814940-815019
-- And the **count of messages** (80)
+- The **partition offset** range (3985758552064-3985758624640)
+- The **Enqueue Time range** in UTC (2022-10-31T12:51:58.1750000+00:00-2022-10-31T12:52:03.8160000+00:00)
+- The **sequence number range** 3712266-3712275
+- And the **count of messages** (10)
 
 Refer to the [Example Application Insights queries](#example-application-insights-queries) section for examples on how to use this telemetry.
 
@@ -52,7 +52,7 @@ For Event Hubs, the correlation is injected into the event payload, and you see 
 
 ![Diagnostic Id property](images/observability-diagnostic-id.png)
 
-This follows the [W3C Trace Context](https://www.w3.org/TR/trace-context/) format that are also used as **Operation Id** and **Operation Links** in telemetry created by Functions, which allows Application Insights to construct the correlation between event hub events and function executions, even when they're distributed.
+This follows the [W3C Trace Context](https://www.w3.org/TR/trace-context/) format that's also used as **Operation Id** and **Operation Links** in telemetry created by Functions, which allows Application Insights to construct the correlation between event hub events and function executions, even when they're distributed.
 
 ![Batch Events correlation](images/observability-batch-events.png)
 
@@ -64,7 +64,7 @@ When [sampling is enabled](/azure/azure-functions/configure-monitoring?tabs=v2#c
 
 ### Detailed event processing information
 
-The data is only emitted in the correct format when batched dispatch is used. Batch dispatch means that the function accepts multiple events for each execution, which is [recommended for performance](performance-scale.yml#batching). Keep in mind the following considerations:
+The data is only emitted in the correct format when batched dispatch is used. Batch dispatch means that the function accepts multiple events for each execution, which is [recommended for performance](performance-scale.yml#batching-for-triggered-functions). Keep in mind the following considerations:
 
 - The `dispatchTimeMilliseconds` value approximates the length of time between when the event was written to the event hub and when it was picked up by the function app for processing.
 - `dispatchTimeMilliseconds` can be negative or otherwise inaccurate because of clock drift between the event hub server and the function app.
@@ -78,7 +78,7 @@ traces
 | where message startswith "Trigger Details: Parti"
 | parse message with * "tionId: " partitionId:string ", Offset: "
 offsetStart:string "-" offsetEnd:string", EnqueueTimeUtc: "
-enqueueTimeStart:datetime "Z-" enqueueTimeEnd:datetime ", SequenceNumber: "
+enqueueTimeStart:datetime "+00:00-" enqueueTimeEnd:datetime "+00:00, SequenceNumber: "
 sequenceNumberStart:string "-" sequenceNumberEnd:string ", Count: "
 messageCount:int
 | extend dispatchTimeMilliseconds = (timestamp - enqueueTimeStart) / 1ms
@@ -99,7 +99,7 @@ traces
 | where message startswith "Trigger Details: Parti"
 | parse message with * "tionId: " partitionId:string ", Offset: "
 offsetStart:string "-" offsetEnd:string", EnqueueTimeUtc: "
-enqueueTimeStart:datetime "Z-" enqueueTimeEnd:datetime ", SequenceNumber: "
+enqueueTimeStart:datetime "+00:00-" enqueueTimeEnd:datetime "+00:00, SequenceNumber: "
 sequenceNumberStart:string "-" sequenceNumberEnd:string ", Count: "
 messageCount:int
 | extend dispatchTimeMilliseconds = (timestamp - enqueueTimeStart) / 1ms
@@ -118,7 +118,7 @@ traces
 | where message startswith "Trigger Details: Parti"
 | parse message with * "tionId: " partitionId:string ", Offset: "
 offsetStart:string "-" offsetEnd:string", EnqueueTimeUtc: "
-enqueueTimeStart:datetime "Z-" enqueueTimeEnd:datetime ", SequenceNumber: "
+enqueueTimeStart:datetime "+00:00-" enqueueTimeEnd:datetime "+00:00, SequenceNumber: "
 sequenceNumberStart:string "-" sequenceNumberEnd:string ", Count: "
 messageCount:int
 | extend dispatchTimeMilliseconds = (timestamp - enqueueTimeStart) / 1ms
@@ -137,10 +137,11 @@ traces
 | where message startswith "Trigger Details: Parti"
 | parse message with * "tionId: " partitionId:string ", Offset: "
 offsetStart:string "-" offsetEnd:string", EnqueueTimeUtc: "
-enqueueTimeStart:datetime "Z-" enqueueTimeEnd:datetime ", SequenceNumber: "
+enqueueTimeStart:datetime "+00:00-" enqueueTimeEnd:datetime "+00:00, SequenceNumber: "
 sequenceNumberStart:string "-" sequenceNumberEnd:string ", Count: "
 messageCount:int
-| summarize messageCount = sum(messageCount) by partitionId, bin(timestamp, 5m)
+| summarize messageCount = sum(messageCount) by cloud_RoleInstance,
+bin(timestamp, 5m)
 | render areachart kind=stacked
 ```
 
@@ -155,7 +156,7 @@ traces
 | where message startswith "Trigger Details: Parti"
 | parse message with * "tionId: " partitionId:string ", Offset: "
 offsetStart:string "-" offsetEnd:string", EnqueueTimeUtc: "
-enqueueTimeStart:datetime "Z-" enqueueTimeEnd:datetime ", SequenceNumber: "
+enqueueTimeStart:datetime "+00:00-" enqueueTimeEnd:datetime "+00:00, SequenceNumber: "
 sequenceNumberStart:string "-" sequenceNumberEnd:string ", Count: "
 messageCount:int
 | summarize messageCount = sum(messageCount) by cloud_RoleInstance,
@@ -230,6 +231,16 @@ link
 ```
 
 ![End-to-End Latency for an Event](images/observability-end-to-end-latency-for-an-event.png)
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [David Barkol](https://www.linkedin.com/in/davidbarkol/) | Principal Solution Specialist GBB
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

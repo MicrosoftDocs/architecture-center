@@ -141,3 +141,16 @@ The following tables summarize the key differences in capabilities.
 Principal author:
 
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+
+## Next steps
+
+- [Columnstore indexes: Overview](/sql/relational-databases/indexes/columnstore-indexes-overview)
+- [Create an Analysis Services server](/azure/analysis-services/analysis-services-create-server)
+- [What is Azure Data Factory?](/azure/data-factory/introduction)
+- [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
+
+## Related resources
+
+- [Big data architecture style](../../guide/architecture-styles/big-data.yml)
+- [Data warehousing in Microsoft Azure](../../data-guide/relational-data/data-warehousing.yml)
+- [Online analytical processing (OLAP)](../../data-guide/relational-data/online-analytical-processing.yml)

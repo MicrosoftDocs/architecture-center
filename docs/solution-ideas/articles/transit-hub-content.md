@@ -1,16 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-The Transit Hub is a dynamic [publish-subscribe model](../../patterns/publisher-subscriber.yml) for data producers and data consumers to create and consume validated curated content or data. The model is elastic to allow for scale and performance. Data producers can quickly onboard and upload data to a service. The service validates the data against a schema that the data producer provides. The service then makes the validated data available for subscribers to consume data they're interested in.
-
-The service validating the data doesn't need to know about the payload, only whether it's valid against the schema that the producer provides. This flexibility means the service can accept new payload types without having to be redeployed. This solution also lets data consumers get historical data that was published before the consumer subscribed.
-
-## Potential use cases
-
-This model is especially useful in the following scenarios:
-
-- Messaging systems where user volume and status are unknown or vary unpredictably
-- Publishing systems that potentially need to support new or unknown data sources
-- Commerce or ticketing systems that need to continually update data and cache it for fast delivery
+This article describes an elastic, flexible [publish-subscribe model](../../patterns/publisher-subscriber.yml) for data producers and consumers to create and consume validated, curated content or data.
 
 ## Architecture
 
@@ -55,6 +45,20 @@ This model is especially useful in the following scenarios:
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
 - [Azure Cache for Redis](https://azure.microsoft.com/services/cache)
 
+## Scenario details
+
+The Transit Hub is a dynamic [publish-subscribe model](../../patterns/publisher-subscriber.yml) for data producers and data consumers to create and consume validated, curated content or data. The model is elastic to allow for scale and performance. Data producers can quickly onboard and upload data to a service. The service validates the data against a schema that the data producer provides. The service then makes the validated data available for subscribers to consume data they're interested in.
+
+The service validating the data doesn't need to know about the payload, only whether it's valid against the schema that the producer provides. This flexibility means the service can accept new payload types without having to be redeployed. This solution also lets data consumers get historical data that was published before the consumer subscribed.
+
+### Potential use cases
+
+This model is especially useful in the following scenarios:
+
+- Messaging systems where user volume and status are unknown or vary unpredictably
+- Publishing systems that potentially need to support new or unknown data sources
+- Commerce or ticketing systems that need to continually update data and cache it for fast delivery
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
@@ -63,11 +67,14 @@ Principal author:
 
  * [Rick Weyenberg](https://www.linkedin.com/in/rickweyenberg) | Principal Cloud Solution Architect
 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Azure Web PubSub service documentation](/azure/azure-web-pubsub)
 - [Service Bus queues, topics, and subscriptions](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions#topics-and-subscriptions)
 - [Tutorial: Create a serverless notification app with Azure Functions and Azure Web PubSub service](/azure/azure-web-pubsub/tutorial-serverless-notification)
+
 ## Related resources
 
 - [Publisher-Subscriber pattern](../../patterns/publisher-subscriber.yml)

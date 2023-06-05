@@ -3,10 +3,10 @@ metadata:
   title: CI/CD for containers
   titleSuffix: Azure Architecture Center
   description: Learn how to orchestrate CI/CD of containers using Kubernetes in Azure Kubernetes Service, so you can achieve replicable, manageable clusters of containers.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/14/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -22,7 +22,6 @@ metadata:
     - interactive-diagram
     - pricing-calculator
     - "https://azure.microsoft.com/solutions/architecture/cicd-for-containers"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/cicd-for-containers.png
 name: CI/CD for containers
 azureCategories:
   - devops

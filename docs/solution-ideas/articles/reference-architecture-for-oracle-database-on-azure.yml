@@ -3,10 +3,10 @@ metadata:
   title: Run Oracle databases on Azure
   titleSuffix: Azure Solution Ideas
   description: Use a canonical architecture to achieve high availability for Oracle Database Enterprise Edition in Azure.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 06/13/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -22,7 +22,6 @@ metadata:
     - Oracle DB architecture
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/reference-architecture-for-oracle-database-on-azure"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/reference-architecture-for-oracle-database-on-azure.png
 name: Run Oracle databases on Azure
 azureCategories:
   - databases

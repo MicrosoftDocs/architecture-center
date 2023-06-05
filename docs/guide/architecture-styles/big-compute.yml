@@ -2,7 +2,7 @@
 metadata:
   title: Big compute architecture style
   description: Understand the benefits, challenges, and best practices of the Big Compute architecture style on Azure.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/26/2022
   ms.topic: conceptual

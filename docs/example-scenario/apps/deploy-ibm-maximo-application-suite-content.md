@@ -2,7 +2,7 @@ IBM Maximo Application Suite (MAS) 8.*x* runs on OpenShift, and it's beneficial 
 
 ## Architecture
 
-:::image type="content" alt-text="Architecture diagram that shows the components and services that support deployment of IBM Maximo Application Suite on Azure." source="./media/deploy-ibm-maximo-application-suite-architecture.svg" lightbox="./media/deploy-ibm-maximo-application-suite-architecture.svg":::
+[ ![Architecture diagram that shows the components and services that support deployment of IBM Maximo Application Suite on Azure.](./media/deploy-ibm-maximo-application-suite-architecture.svg)](./media/deploy-ibm-maximo-application-suite-architecture.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/deploy-ibm-maximo-application-suite.vsdx) of this architecture.*
 
@@ -108,7 +108,7 @@ You might also choose to run Oracle Exadata on a VM or on Oracle Cloud Infrastru
 > [!NOTE]
 > In some cases, you can't reuse a database for multiple MAS applications because of conflicting database settings. For example, you can't use the same IBM Db2 Warehouse for Health and Manage in combination with Monitor. However, you can mix different database products, such as using SQL Server for one application and IBM Db2 Warehouse for another.
 >
-> For more information about database requirements for the Health application, see [Configuring the database for Maximo Health](https://www.ibm.com/docs/en/mas83/8.3.0?topic=dependencies-configure-database-health).
+> For more information about database requirements for the Health application, see [Configuring the database for Maximo Health](https://www.ibm.com/support/pages/configuring-database-maximo-health).
 
 MAS and some of its applications have dependencies on MongoDB and Kafka. Decide how to deploy these solutions based on considerations of performance and operations. The defaults are to deploy MongoDB Community Edition and Strimzi Kafka inside the clusters. Some of the prerequisites of MAS, for example BAS, use databases that can't be externalized but that require persistent storage to be provided to the OpenShift cluster.
 
@@ -152,9 +152,8 @@ In some cases, such as for regulatory compliance, you might require an air-gappe
 We don't recommend that you do an air-gapped installation unless that's a security requirement. An air gap adds significant complexity to the operations of your solution. Activities such as installing software, mirroring containers, updating a mirror to protect against security vulnerabilities, and managing a firewall can become very time consuming.
 
 For more information about air-gapped installations, see the following OpenShift documentation:
-- [Mirroring images for a disconnected installation](https://docs.openshift.com/container-platform/4.8/installing/installing-mirroring-installation-images.html)
+- [Mirroring images for a disconnected installation](https://docs.openshift.com/container-platform/4.11/installing/disconnected_install/installing-mirroring-installation-images.html)
 - [Installing a private cluster on Azure](https://docs.openshift.com/container-platform/4.8/installing/installing_azure/installing-azure-private.html)
-- [Air-gapped installation](https://examples.openshift.pub/cluster-installation/air-gapped)
 
 After you've installed OpenShift, see the MAS documentation for similar guidance.
 
@@ -162,7 +161,7 @@ After you've installed OpenShift, see the MAS documentation for similar guidance
 
 For all workloads (except visual inspection), we recommend using the latest *Ds* series VMs as your worker nodes. Examples are the [Dsv3](/azure/virtual-machines/dv3-dsv3-series#dsv3-series), [Dasv4](/azure/virtual-machines/dav4-dasv4-series#dasv4-series), [Dsv4](/azure/virtual-machines/dv4-dsv4-series#dsv4-series), [Dasv5](/azure/virtual-machines/dasv5-dadsv5-series#dasv5-series), or [Dsv5](/azure/virtual-machines/dv5-dsv5-series#dsv5-series). We recommend using the latest versions, when possible, because they provide better performance. Only use VMs that have [premium storage](/azure/virtual-machines/premium-storage-performance).
 
-[Maximo Visual Inspection](https://www.ibm.com/docs/maximo-vi/1.3.0?topic=planning) requires GPU nodes to perform its machine learning. The solution uses [CUDA](https://developer.nvidia.com/about-cuda) and only supports NVIDIA GPUs. The recommended types of VMs are [NCv3](/azure/virtual-machines/ncv3-series) and [NCasT4_v3](/azure/virtual-machines/nct4-v3-series). If you need to train by using [YOLOv3](https://pjreddie.com/darknet/yolo), you'll need [Ampere](https://www.nvidia.com/en-us/data-center/ampere-architecture)-based GPUs. Use the [NVadsA10 v5](/azure/virtual-machines/nva10v5-series) or [NC A100 v4](/azure/virtual-machines/nc-a100-v4-series) for larger training tasks.
+[Maximo Visual Inspection](https://www.ibm.com/products/maximo/visual-inspection) requires GPU nodes to perform its machine learning. The solution uses [CUDA](https://developer.nvidia.com/about-cuda) and only supports NVIDIA GPUs. The recommended types of VMs are [NCv3](/azure/virtual-machines/ncv3-series) and [NCasT4_v3](/azure/virtual-machines/nct4-v3-series). If you need to train by using [YOLOv3](https://pjreddie.com/darknet/yolo), you'll need [Ampere](https://www.nvidia.com/en-us/data-center/ampere-architecture)-based GPUs. Use the [NVadsA10 v5](/azure/virtual-machines/nva10v5-series) or [NC A100 v4](/azure/virtual-machines/nc-a100-v4-series) for larger training tasks.
 
 For the GPU machines, we recommend starting with the smallest node and scaling up as your requirements increase. 
 
@@ -244,7 +243,7 @@ MAS currently supports the use of Security Assertion Markup Language (SAML) via 
 
 The [quickstart guide](https://github.com/Azure/maximo) on GitHub has a tutorial on how to set up SAML with MAS. For more information, see [Enabling SAML authentication against Azure AD](https://github.com/Azure/maximo#enabling-saml-authentication-against-azure-ad). 
 
-Before you set up SAML-based authentication, we recommend that you go through the IBM configuration and the Azure configuration. For information about SAML with MAS, see [SAML](https://www.ibm.com/docs/en/mas83/8.3.0?topic=administration-configuring-suite#saml) in the documentation for MAS. For information about SAML with Azure, see [Quickstart: Enable single sign-on for an enterprise application](/azure/active-directory/manage-apps/add-application-portal-setup-sso).
+Before you set up SAML-based authentication, we recommend that you go through the IBM configuration and the Azure configuration. For information about SAML with MAS, see [SAML](https://www.ibm.com/docs/en/tfim/6.2.1?topic=overview-saml-20) in the documentation for MAS. For information about SAML with Azure, see [Quickstart: Enable single sign-on for an enterprise application](/azure/active-directory/manage-apps/add-application-portal-setup-sso).
 
 You should also configure OAuth for OpenShift. For more information, see [Overview of authentication and authorization](https://docs.openshift.com/container-platform/4.8/authentication/index.html) in the OpenShift documentation.
 

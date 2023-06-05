@@ -94,7 +94,17 @@ DataOps is a lifecycle approach to data analytics. It uses agile practices to or
 
 **Statistical process control (SPC)** 
 - SPC is used to monitor and control the data pipelines.  
-- You can use the outputs of pipelines to determine the next step in the data flow.   
+- You can use the outputs of pipelines to determine the next step in the data flow.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Katie Novotny](https://www.linkedin.com/in/katie-novotny/) | Senior Specialist GBB
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*  
 
 ## Next steps
 

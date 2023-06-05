@@ -3,10 +3,10 @@ metadata:
   title: Azure Files secured by AD DS
   titlesuffix: Azure Example Scenarios
   description: Learn how to provide secure Azure Files that are secured by on-premises Windows Server Active Directory domain services (AD DS), and accessed on-premises.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: ruolivei
   ms.date: 06/10/2022
-  ms.topic: conceptual
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom: fcp

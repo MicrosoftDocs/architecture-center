@@ -3,10 +3,10 @@ metadata:
   title: Build a delta lake to support ad hoc queries in online leisure and travel booking
   titleSuffix: Azure Architecture Center
   description: This architecture provides an example delta lake for travel booking, where large amounts of raw documents are generated at a high frequency.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/24/2022
-  ms.topic: conceptual
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-solution
   ms.category:

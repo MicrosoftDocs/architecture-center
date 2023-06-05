@@ -3,10 +3,10 @@ metadata:
   title: Unisys ClearPath Forward MCP mainframe rehost to Azure
   titleSuffix: Azure Example Scenarios
   description: Use virtualization from Unisys and Microsoft Azure to migrate from a Unisys ClearPath Forward Libra mainframe, which allows an accelerated move into Azure.
-  author: bhbandam
-  ms.author: bhbandam
+  author: pbrooks
+  ms.author: pbrooks
   ms.date: 05/27/2022
-  ms.topic: conceptual
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom:

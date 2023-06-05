@@ -2,7 +2,7 @@
 metadata:
   title: Monitoring and diagnostics guidance
   description: Learn how to track how users use your distributed applications and services, trace resource utilization, and monitor the health and performance.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/25/2022
   ms.topic: conceptual

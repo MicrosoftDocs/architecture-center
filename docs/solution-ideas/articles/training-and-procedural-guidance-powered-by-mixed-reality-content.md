@@ -1,14 +1,10 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Enable your team and employees to learn new processes and materials faster, with fewer errors, and greater confidence by providing persistent holographic instructions mapped to precise locations in their physical workspace. Jumpstart employee comprehension with head-up, hands-free experiences using HoloLens devices. And with Azure Spatial Anchors, you can place directions on the procedure's most important objects and return to this content over time.
-
-## Potential use cases
-
-Organizations utilize this to enable employees (new and current) with learning new skills, material and process quicker than traditional training programs. This solution is ideal for the education industry.
+Organizations can use this solution to help employees learn processes and materials effectively by providing persistent holographic instructions mapped to precise locations in physical workspaces.
 
 ## Architecture
 
-![Architecture diagram shows using Azure A D to authenticate with Microsoft Hololens.](../media/training-and-procedural-guidance-powered-by-mixed-reality.png)
+![Architecture diagram shows using Azure AD to authenticate with Microsoft Hololens.](../media/training-and-procedural-guidance-powered-by-mixed-reality.png)
 *Download an [SVG file](../media/training-and-procedural-guidance-powered-by-mixed-reality.svg) of this architecture.*
 
 ### Dataflow
@@ -33,11 +29,25 @@ Organizations utilize this to enable employees (new and current) with learning n
 * [Media Services](https://azure.microsoft.com/services/media-services): Encode, store, and stream video and audio at scale
 * [Video Indexer](https://azure.microsoft.com/services/media-services/video-indexer): Make your media more discoverable and accessible
 
+## Scenario details
+
+This solution can help you enable your team and employees to learn new processes and materials faster, with fewer errors and greater confidence, by providing persistent holographic instructions mapped to precise locations in their physical workspace. Jumpstart employee comprehension with head-up, hands-free experiences using HoloLens devices. And with Azure Spatial Anchors, you can place directions on the procedure's most important objects and return to this content over time.
+
+### Potential use cases
+
+Organizations use this solution to enable employees (new and current) with learning new skills, material and processes quicker than they can with traditional training programs. This solution is ideal for the education industry.
+
 ## Next steps
 
 * [Share Spatial Anchors across devices](/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices)
 * [Create a new tenant in Azure Active Directory](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
-* [Build a .NET web app with Azure Cosmos DB using the SQL API and the Azure portal](/azure/cosmos-db)
+* [Build a .NET web app using Azure Cosmos DB for NoSQL and the Azure portal](/azure/cosmos-db)
 * [Authenticate and authorize users end-to-end in Azure App Service](/azure/app-service/app-service-web-tutorial-auth-aad)
-* [Upload, encode, and stream videos using .NET](/azure/media-services/latest/stream-files-tutorial-with-api)
-* [What is Video Indexer?](/azure/media-services/latest/stream-files-tutorial-with-api)
+* [Upload, encode, and stream videos using .NET](/azure/media-services/latest/samples-overview)
+* [What is Video Indexer?](/azure/azure-video-indexer/video-indexer-overview)
+
+## Related resources
+
+- [Solutions for the education industry](../../industries/education.md)
+- [Immersive education](/windows/mixed-reality/enthusiast-guide/immersive-education)
+- [Training and simulation for enterprises](/windows/mixed-reality/enthusiast-guide/training-simulation)

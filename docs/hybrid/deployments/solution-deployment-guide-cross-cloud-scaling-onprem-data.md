@@ -1,14 +1,13 @@
 ---
-title: Deploy hybrid app with on-premises data that scales cross-cloud
+title: Deploy a hybrid app with on-premises data that scales cross-cloud
 description: Learn how to deploy an app that uses on-premises data and scales cross-cloud using Azure and Azure Stack Hub.
-author: BryanLa
+author: ronmiab
+ms.author: robess
 categories: azure
 ms.service: azure-stack
 ms.subservice: azure-stack-hub
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/05/2019
-ms.author: bryanla
-ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
 azureCategories:
   - web
@@ -22,7 +21,7 @@ products:
 # Keyword: cross-cloud hybrid on-premises app azure stack hub
 ---
 
-# Deploy hybrid app with on-premises data that scales cross-cloud
+# Deploy a hybrid app with on-premises data that scales cross-cloud
 
 This solution guide shows you how to deploy a hybrid app that spans both Azure and Azure Stack Hub and uses a single on-premises data source.
 
@@ -54,7 +53,7 @@ This tutorial covers the following tasks:
 
 This tutorial assumes that you have a basic knowledge of global Azure and Azure Stack Hub. If you want to learn more before starting the tutorial, review these articles:
 
-- [Introduction to Azure](https://azure.microsoft.com/overview/what-is-azure/)
+- [Introduction to Azure](https://azure.microsoft.com/overview/what-is-azure)
 - [Azure Stack Hub Key Concepts](/azure-stack/operator/azure-stack-overview)
 
 This tutorial also assumes that you have an Azure subscription. If you don't have a subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
@@ -82,17 +81,17 @@ Before you start this solution, make sure you meet the following requirements:
 
 2. On the **Dashboard**, select **Marketplace**.
 
-    ![Azure Stack Hub Marketplace](media/solution-deployment-guide-hybrid/image1.png)
+    ![Screenshot that shows you the Azure Stack Hub Marketplace.](media/solution-deployment-guide-hybrid/image1.png)
 
 3. In **Marketplace**, select **Compute**, and then choose **More**. Under **More**, select the **Free SQL Server License: SQL Server 2017 Developer on Windows Server** image.
 
-    ![Select a virtual machine image in Azure Stack Hub user portal](media/solution-deployment-guide-hybrid/image2.png)
+    ![Screenshot that shows you how to select a virtual machine image in the Azure Stack Hub user portal.](media/solution-deployment-guide-hybrid/image2.png)
 
 4. On **Free SQL Server License: SQL Server 2017 Developer on Windows Server**, select **Create**.
 
 5. On **Basics > Configure basic settings**, provide a **Name** for the virtual machine (VM), a **User name** for the SQL Server SA, and a **Password** for the SA.  From the **Subscription** drop-down list, select the subscription that you're deploying to. For **Resource group**, use **Choose existing** and put the VM in the same resource group as your Azure Stack Hub web app.
 
-    ![Configure basic settings for VM in Azure Stack Hub user portal](media/solution-deployment-guide-hybrid/image3.png)
+    ![Screenshot that shows you how to configure the basic settings for a VM in the Azure Stack Hub user portal.](media/solution-deployment-guide-hybrid/image3.png)
 
 6. Under **Size**, pick a size for your VM. For this tutorial, we recommend A2_Standard or a DS2_V2_Standard.
 
@@ -110,7 +109,7 @@ Before you start this solution, make sure you meet the following requirements:
    - **Diagnostics storage account**: Create a new account if you need one.
    - Select **OK** to save your configuration.
 
-     ![Configure optional VM features in Azure Stack Hub user portal](media/solution-deployment-guide-hybrid/image4.png)
+     ![Screenshot that shows you how to configure optional VM features in the Azure Stack Hub user portal.](media/solution-deployment-guide-hybrid/image4.png)
 
 8. Under **SQL Server settings**, configure the following settings:
 
@@ -123,15 +122,15 @@ Before you start this solution, make sure you meet the following requirements:
 
    - For the rest of the settings, keep the defaults. Select **OK**.
 
-     ![Configure SQL Server settings in Azure Stack Hub user portal](media/solution-deployment-guide-hybrid/image5.png)
+     ![Screenshot that shows you how to configure SQL Server settings in the Azure Stack Hub user portal.](media/solution-deployment-guide-hybrid/image5.png)
 
 9. On **Summary**, review the VM configuration and then select **OK** to start the deployment.
 
-    ![Configuration summary in Azure Stack Hub user portal](media/solution-deployment-guide-hybrid/image6.png)
+    ![Screenshot that shows you the configuration summary in the Azure Stack Hub user portal.](media/solution-deployment-guide-hybrid/image6.png)
 
 10. It takes some time to create the new VM. You can view the STATUS of your VMs in **Virtual machines**.
 
-    ![Virtual machines status in Azure Stack Hub user portal](media/solution-deployment-guide-hybrid/image7.png)
+    ![Screenshot that shows the Virtual machines status in the Azure Stack Hub user portal.](media/solution-deployment-guide-hybrid/image7.png)
 
 ## Create web apps in Azure and Azure Stack Hub
 
@@ -163,11 +162,11 @@ The virtual network gateway in the Azure side of the hybrid network must allow p
 
 1. In the Azure portal, go to the virtual network gateway page. Under **Settings**, select **Point-to-site configuration**.
 
-    ![Point-to-site option in Azure virtual network gateway](media/solution-deployment-guide-hybrid/image8.png)
+    ![Screenshot that shows you the point-to-site option in an Azure virtual network gateway.](media/solution-deployment-guide-hybrid/image8.png)
 
 2. Select **Configure now** to configure point-to-site.
 
-    ![Start point-to-site configuration in Azure virtual network gateway](media/solution-deployment-guide-hybrid/image9.png)
+    ![Screenshot that shows you how to start point-to-site configuration in an Azure virtual network gateway.](media/solution-deployment-guide-hybrid/image9.png)
 
 3. On the **Point-to-site** configuration page, enter the private IP address range that you want to use in **Address pool**.
 
@@ -176,7 +175,7 @@ The virtual network gateway in the Azure side of the hybrid network must allow p
 
    Under **Tunnel Type**, uncheck the **IKEv2 VPN**. Select **Save** to finish configuring point-to-site.
 
-   ![Point-to-site settings in Azure virtual network gateway](media/solution-deployment-guide-hybrid/image10.png)
+   ![Screenshot that shows you the point-to-site settings in an Azure virtual network gateway.](media/solution-deployment-guide-hybrid/image10.png)
 
 ### Integrate the Azure App Service app with the hybrid network
 
@@ -184,15 +183,15 @@ The virtual network gateway in the Azure side of the hybrid network must allow p
 
 2. Go to **Settings** for the App Service plan hosting the web app. In **Settings**, select **Networking**.
 
-    ![Configure Networking for the App Service plan](media/solution-deployment-guide-hybrid/image11.png)
+    ![Screenshot that shows you how to configure Networking for the App Service plan.](media/solution-deployment-guide-hybrid/image11.png)
 
 3. In **VNET Integration**, select **Click here to manage**.
 
-    ![Manage VNET integration for the App Service plan](media/solution-deployment-guide-hybrid/image12.png)
+    ![Screenshot that shows you how to manage VNET integration for the App Service plan.](media/solution-deployment-guide-hybrid/image12.png)
 
 4. Select the VNET that you want to configure. Under **IP ADDRESSES ROUTED TO VNET**, enter the IP address range for the Azure VNet, the Azure Stack Hub VNet, and the point-to-site address spaces. Select **Save** to validate and save these settings.
 
-    ![IP address ranges to route in Virtual Network Integration](media/solution-deployment-guide-hybrid/image13.png)
+    ![Screenshot that shows the IP address ranges to route in Virtual Network Integration.](media/solution-deployment-guide-hybrid/image13.png)
 
 To learn more about how App Service integrates with Azure VNets, see [Integrate your app with an Azure Virtual Network](/azure/app-service/web-sites-integrate-with-vnet).
 
@@ -202,11 +201,11 @@ The local network gateway in the Azure Stack Hub virtual network needs to be con
 
 1. In the Azure Stack Hub portal, go to **Local network gateway**. Under **Settings**, select **Configuration**.
 
-    ![Gateway configuration option in Azure Stack Hub local network gateway](media/solution-deployment-guide-hybrid/image14.png)
+    ![Screenshot that shows the Gateway configuration option in an Azure Stack Hub local network gateway.](media/solution-deployment-guide-hybrid/image14.png)
 
 2. In **Address space**, enter the point-to-site address range for the virtual network gateway in Azure.
 
-    ![Point-to-site address space in Azure Stack Hub local network gateway](media/solution-deployment-guide-hybrid/image15.png)
+    ![Screenshot that shows a Point-to-site address space in an Azure Stack Hub local network gateway.](media/solution-deployment-guide-hybrid/image15.png)
 
 3. Select **Save** to validate and save the configuration.
 
@@ -277,14 +276,14 @@ You can use App Service environment variables to pass a different connection str
 
 2. Open Startup.cs and find the following code block:
 
-    ```c#
+    ```csharp
     services.AddDbContext<MyDatabaseContext>(options =>
         options.UseSqlite("Data Source=localdatabase.db"));
     ```
 
 3. Replace the previous code block with the following code, which uses a connection string defined in the *appsettings.json* file:
 
-    ```c#
+    ```csharp
     services.AddDbContext<MyDatabaseContext>(options =>
         options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
      // Automatically perform database migration
@@ -310,15 +309,15 @@ When you create your web app in an App Service environment, it starts with one i
 
 1. In the Azure portal, find the App Service plan for the sites you want to scale out, and then select **Scale-out (App Service plan)**.
 
-    ![Scale out Azure App Service](media/solution-deployment-guide-hybrid/image16.png)
+    ![Screenshot that shows you how to scale out Azure App Service.](media/solution-deployment-guide-hybrid/image16.png)
 
 2. Select **Enable autoscale**.
 
-    ![Enable autoscale in Azure App Service](media/solution-deployment-guide-hybrid/image17.png)
+    ![Screenshot that shows you how to enable autoscale in Azure App Service.](media/solution-deployment-guide-hybrid/image17.png)
 
 3. Enter a name for **Autoscale Setting Name**. For the **Default** auto scale rule, select **Scale based on a metric**. Set the **Instance limits** to **Minimum: 1**, **Maximum: 10**, and **Default: 1**.
 
-    ![Configure autoscale in Azure App Service](media/solution-deployment-guide-hybrid/image18.png)
+    ![Screenshot that shows you how to configure autoscale in Azure App Service.](media/solution-deployment-guide-hybrid/image18.png)
 
 4. Select **+Add a rule**.
 
@@ -396,7 +395,7 @@ Create a Traffic Manager profile using the Azure portal, then configure endpoint
 
 4. Select **Create**.
 
-    ![Create Traffic Manager profile](media/solution-deployment-guide-hybrid/image19.png)
+    ![Screenshot that shows you how to create a Traffic Manager profile.](media/solution-deployment-guide-hybrid/image19.png)
 
    When the global deployment of your Traffic Manager profile is complete, it's shown in the list of resources for the resource group you created it under.
 
@@ -436,7 +435,7 @@ You'll configure the Azure endpoint next.
 
 After both endpoints are configured, they're listed in **Traffic Manager profile** when you select **Endpoints**. The example in the following screen capture shows two endpoints, with status and configuration information for each one.
 
-![Endpoints in Traffic Manager profile](media/solution-deployment-guide-hybrid/image20.png)
+![Screenshot that shows endpoints in the Traffic Manager profile.](media/solution-deployment-guide-hybrid/image20.png)
 
 ## Set up Application Insights monitoring and alerting in Azure
 
@@ -448,7 +447,7 @@ You'll use Azure Application Insights metrics to create alerts. When these alert
 
 In the Azure portal, go to the resource group for this tutorial, and select the Application Insights instance to open **Application Insights**.
 
-![Application Insights](media/solution-deployment-guide-hybrid/image21.png)
+![Screenshot that shows Application Insights.](media/solution-deployment-guide-hybrid/image21.png)
 
 You'll use this view to create a scale-out alert and a scale-in alert.
 
@@ -496,7 +495,7 @@ You'll use this view to create a scale-out alert and a scale-in alert.
 
 The following screenshot shows the alerts for scale-out and scale-in.
 
-   ![Application Insights alerts (classic)](media/solution-deployment-guide-hybrid/image22.png)
+   ![Screenshot that shows Application Insights alerts (classic).](media/solution-deployment-guide-hybrid/image22.png)
 
 ## Redirect traffic between Azure and Azure Stack Hub
 
@@ -508,22 +507,22 @@ When your web site reaches the thresholds that you configure, you'll receive an 
 
 1. In the Azure portal, select your Traffic Manager profile.
 
-    ![Traffic Manager endpoints in Azure portal](media/solution-deployment-guide-hybrid/image20.png)
+    ![Screenshot that shows Traffic Manager endpoints in the Azure portal.](media/solution-deployment-guide-hybrid/image20.png)
 
 2. Select **Endpoints**.
 3. Select the **Azure endpoint**.
 4. Under **Status**, select **Enabled**, and then select **Save**.
 
-    ![Enable Azure endpoint in Azure portal](media/solution-deployment-guide-hybrid/image23.png)
+    ![Screenshot that shows you how to enable an Azure endpoint in the Azure portal.](media/solution-deployment-guide-hybrid/image23.png)
 
 5. On **Endpoints** for the Traffic Manager profile, select **External endpoint**.
 6. Under **Status**, select **Disabled**, and then select **Save**.
 
-    ![Disable Azure Stack Hub endpoint in Azure portal](media/solution-deployment-guide-hybrid/image24.png)
+    ![Screenshot that shows you how to disable Azure Stack Hub endpoint in the Azure portal.](media/solution-deployment-guide-hybrid/image24.png)
 
 After the endpoints are configured, app traffic goes to your Azure scale-out web app instead of the Azure Stack Hub web app.
 
- ![Endpoints changed in Azure web app traffic](media/solution-deployment-guide-hybrid/image25.png)
+ ![Screenshot that shows endpoints changed in Azure web app traffic.](media/solution-deployment-guide-hybrid/image25.png)
 
 To reverse the flow back to Azure Stack Hub, use the previous steps to:
 
@@ -532,7 +531,7 @@ To reverse the flow back to Azure Stack Hub, use the previous steps to:
 
 ### Configure automatic switching between Azure and Azure Stack Hub
 
-You can also use Application Insights monitoring if your app runs in a [serverless](https://azure.microsoft.com/overview/serverless-computing/) environment provided by Azure Functions.
+You can also use Application Insights monitoring if your app runs in a [serverless](https://azure.microsoft.com/overview/serverless-computing) environment provided by Azure Functions.
 
 In this scenario, you can configure Application Insights to use a webhook that calls a function app. This app automatically enables or disables an endpoint in response to an alert.
 
@@ -549,6 +548,19 @@ Use the following steps as a guide to configure automatic traffic switching.
 5. Save your code and add the function app's URL with the appropriate parameters to the **Webhook** section of the Application Insights alert rule settings.
 6. Traffic is automatically redirected when an Application Insights alert fires.
 
-## Next steps
+## Next steps:
+
+- [Serverless computing](https://azure.microsoft.com/overview/serverless-computing)
+- [Configure hybrid cloud identity with Azure and Azure Stack Hub apps](solution-deployment-guide-identity.md)
+- [Bind an existing custom SSL certificate to Azure Web Apps](/azure/app-service/app-service-web-tutorial-custom-ssl)
+
+## Related resources
 
 - To learn more about Azure Cloud Patterns, see [Cloud Design Patterns](../../patterns/index.md).
+
+See these additional hybrid deployment guides:
+
+- [Configure hybrid cloud connectivity using Azure and Azure Stack Hub](/azure/architecture/hybrid/deployments/solution-deployment-guide-connectivity)
+- [Configure hybrid cloud identity for Azure and Azure Stack Hub apps](/azure/architecture/hybrid/deployments/solution-deployment-guide-identity)
+- [Deploy an app that scales cross-cloud using Azure and Azure Stack Hub](/azure/architecture/hybrid/deployments/solution-deployment-guide-cross-cloud-scaling)
+- [Deploy a high availability Kubernetes cluster on Azure Stack Hub](/azure/architecture/hybrid/deployments/solution-deployment-guide-highly-available-kubernetes)

@@ -4,8 +4,8 @@ description: Compare networking options between Azure and AWS. The comparisons c
 author: vaboya
 categories: azure
 ms.author: johanv
-ms.date: 09/17/2021
-ms.topic: reference
+ms.date: 10/31/2022
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 azureCategories:
@@ -54,11 +54,11 @@ In AWS, a VPC peering connection is a networking connection between two VPCs, wh
 
 [Azure virtual network (VNet) peering](/azure/virtual-network/virtual-network-peering-overview) enables you to seamlessly connect two or more Virtual Networks in Azure. The virtual networks appear as one for connectivity purposes. The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. Like traffic between virtual machines in the same network, traffic is routed through Microsoft's private network only.
 
-## Content delivery networks - CloudFront and Azure CDN
+## Content delivery networks - CloudFront and Azure Front Door
 
-In AWS, CloudFront provides CDN services, to globally deliver data, videos, applications, and APIs. This is similar to Azure Content Delivery Network (CDN).
+In AWS, CloudFront provides CDN services, to globally deliver data, videos, applications, and APIs. This is similar to Azure Front Door.
 
-[Azure CDN](https://azure.microsoft.com/services/cdn) is a feature-inclusive content delivery network bundle that is capable of handling most CDN workloads. Customers can choose to use Azure Content Delivery Network Standard from Verizon or Akamai. For a full list of Azure CDN product offerings, see [What are the comparisons between Azure CDN product features?](/azure/cdn/cdn-features)
+[Azure Front Door](https://azure.microsoft.com/services/frontdoor) is a modern cloud content delivery network (CDN) service that delivers high performance, scalability, and secure user experiences for your content and applications. For a full list of Azure Front Door product offerings, see [Overview of Azure Front Door tiers](/azure/frontdoor/standard-premium/tier-comparison).
 
 ## Network service comparison
 

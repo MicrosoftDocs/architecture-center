@@ -2,10 +2,10 @@
 metadata:
   title: Data warehousing and analytics
   description: This example demonstrates a data pipeline that integrates large amounts of data from multiple sources into a unified analytics platform in Azure.
-  author: alexbuckgit
-  ms.author: Alex.Buck
-  ms.date: 06/03/2022
-  ms.topic: conceptual
+  author: martinekuan
+  ms.author: architectures
+  ms.date: 11/17/2022
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.category:
@@ -15,18 +15,17 @@ metadata:
     - data-analytics
     - data-warehouse
     - example-scenario
-  social_image_url: /azure/architecture/example-scenario/data/media/architecture-data-warehouse.png
 name: Data warehousing and analytics
 azureCategories:
   - analytics
   - databases
 summary: This example demonstrates a data pipeline that integrates large amounts of data from multiple sources into a unified analytics platform in Azure.
 products:
-  - azure-blob-storage
+  - azure-data-lake-gen2
   - azure-cosmos-db
   - azure-data-factory
   - azure-sql-database
   - azure-table-storage
-thumbnailUrl: /azure/architecture/browse/thumbs/architecture-data-warehouse.png
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-data-warehousing.png
 content: |
    [!include[](data-warehouse-content.md)]

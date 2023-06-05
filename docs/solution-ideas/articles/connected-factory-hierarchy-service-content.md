@@ -1,16 +1,14 @@
-This article explores a connected factory hierarchy service implementation. 
+This solution uses [Azure Kubernetes Services (AKS)](/azure/aks/intro-kubernetes) to run the microservices that query master data from the various connected services. The hierarchy service is an ASP.NET Core REST API hosted in an AKS cluster.
 
 ## Architecture
 
-This solution uses [Azure Kubernetes Services (AKS)](/azure/aks/intro-kubernetes) to run the microservices that query master data from the various connected services. The hierarchy service is an ASP.NET Core REST API hosted in an AKS cluster.
-
-[Azure Digital Twins](/azure/digital-twins) helps build the hierarchy service by creating a model of nodes, like machines, work centers, and locations, and their relationships. Each node has metadata that includes identifiers from enterprise resource management (ERP) systems. Downstream applications can use this contextual information.
-
-![Infographic of an example hierarchy service.](../media/connected-factory-hierarchy-service-03.png)
+![Infographic of an example hierarchy service.](../media/connected-factory-hierarchy-service-03.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/connected-factory-hierarchy-service.vsdx) of this architecture.*
 
 ### Dataflow
+
+[Azure Digital Twins](/azure/digital-twins) helps build the hierarchy service by creating a model of nodes, like machines, work centers, and locations, and their relationships. Each node has metadata that includes identifiers from enterprise resource management (ERP) systems. Downstream applications can use this contextual information.
 
 1. The **web app** lets users manage the hierarchy through a UI.
 1. **Azure Digital Twins Explorer** allows managing the hierarchy directly against Azure Digital Twins.
@@ -36,7 +34,7 @@ The hierarchy service lets you filter query operations by node types and node at
 |Operation|Filter|Description|
 |---|---|---|
 |`get`|`/api/v0.1/nodes`|Get nodes by their attribute values.|
-|`get`|`/api/v0.1/nodes/{nodeId}`|Get a node by Id.|
+|`get`|`/api/v0.1/nodes/{nodeId}`|Get a node by ID.|
 |`get`|`/api/v0.1/nodes/{nodeId}/subtree`|Get subtree of a hierarchy node.|
 |`get`|`/api/v0.1/nodes/{nodeId}/children`|Get direct children of a hierarchy node.|
 |`get`|`/api/v0.1/nodes/{nodeId}/parent`|Get parent of a hierarchy node.|
@@ -89,6 +87,8 @@ This system design is intentionally simple to avoid the introduction of more ser
 
 ## Scenario details
 
+This article explores a connected factory hierarchy service implementation. 
+
 A hierarchy service centrally defines the organization of production assets like machines within factories, from both an operational and maintenance point of view. Business stakeholders can use this information as a common data source for monitoring plant conditions or overall equipment effectiveness (OEE).
 
 ### Problem
@@ -133,7 +133,7 @@ Consider [deploying AKS in availability zones](/azure/aks/availability-zones). A
 
 ### DevOps
 
-You can use a solution like [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) or [GitHub Actions](https://docs.github.com/actions) to deploy the microservices to the AKS cluster automatically with [CI/CD processes](/azure/architecture/example-scenario/apps/devops-with-aks).
+You can use a solution like [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) or [GitHub Actions](https://docs.github.com/actions) to deploy the microservices to the AKS cluster automatically with [CI/CD processes](/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops).
 
 ### Scalability
 
@@ -175,4 +175,4 @@ Principal author:
 - [Condition monitoring for Industrial IoT](condition-monitoring.yml)
 - [IoT and data analytics](../../example-scenario/data/big-data-with-iot.yml)
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)
-- [Microservices with AKS](microservices-with-aks.yml)
+- [CI/CD for AKS apps with Azure Pipelines](../../guide/aks/aks-cicd-azure-pipelines.yml)

@@ -64,6 +64,16 @@ Once you know the customer's needs and business goals, start asking these questi
 
 The answers to these questions will help you refine your tenancy requirement.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ - [Michael Friedrich](https://www.linkedin.com/in/1michaelfriedrich/) | Senior Partner Tech Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 Read more about application tenancy patterns in [Multi-tenant SaaS database tenancy patterns](/azure/azure-sql/database/saas-tenancy-app-design-patterns).

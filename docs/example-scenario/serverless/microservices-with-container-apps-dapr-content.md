@@ -1,18 +1,10 @@
 This article describes a solution for running an order management system with 10 microservices on Azure Container Apps. The solution also uses microservices best practices through Dapr and event-driven scaling with KEDA.
 
-## Potential use cases
-
-This solution applies to any organization that uses stateless and stateful microservices for distributed systems. The solution is best for consumer packaged goods and manufacturing industries that have an ordering and fulfillment system.
-
-These other solutions have similar designs:
-
-- Microservices architecture on Azure Kubernetes Service (AKS)
-- Microservices architecture on Azure Functions
-- Event-driven architectures
+*Dapr and Traefik are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
 
 ## Architecture
 
-:::image type="content" source="./media/microservices-with-container-apps-dapr.png" alt-text="Diagram that shows an order management system with microservices on Container Apps." lightbox="./media/microservices-with-container-apps-dapr.png":::
+:::image type="content" source="./media/microservices-with-container-apps-dapr.svg" alt-text="Diagram that shows an order management system with microservices on Container Apps." lightbox="./media/microservices-with-container-apps-dapr.svg":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/microservices-with-container-apps-dapr.pptx) of this architecture.*
 
@@ -75,7 +67,7 @@ This solution uses the following components:
 
 In this architecture, you deploy a Traefik proxy to enable path-based routing for the Vue.js API. There are many alternative open-source proxies that you can use for this purpose. Two other popular projects are [NGINX](https://www.nginx.com) and [HAProxy](https://www.haproxy.com).
 
-All Azure infrastructure, except Azure SQL Database, use Dapr components for interoperability. One benefit of Dapr is that you can swap all these components by changing the container apps deployment configuration. In this case, Azure Service Bus, Cosmos DB, Cache for Redis, and Blob Storage were chosen to showcase some of the 70+ Dapr components available. A list of alternative [pub/sub brokers](https://docs.dapr.io/reference/components-reference/supported-pubsub), [state stores](https://docs.dapr.io/reference/components-reference/supported-state-stores) and [output bindings](https://docs.dapr.io/reference/components-reference/supported-bindings) are in the Dapr docs.
+All Azure infrastructure, except Azure SQL Database, use Dapr components for interoperability. One benefit of Dapr is that you can swap all these components by changing the container apps deployment configuration. In this case, Azure Service Bus, Azure Cosmos DB, Cache for Redis, and Blob Storage were chosen to showcase some of the 70+ Dapr components available. A list of alternative [pub/sub brokers](https://docs.dapr.io/reference/components-reference/supported-pubsub), [state stores](https://docs.dapr.io/reference/components-reference/supported-state-stores) and [output bindings](https://docs.dapr.io/reference/components-reference/supported-bindings) are in the Dapr docs.
 
 ## Scenario details
 
@@ -93,7 +85,15 @@ To explore how Azure Container Apps compares to other container hosting platform
 
 This article describes a solution for running an order management system with 10 microservices on Azure Container Apps. The solution also uses microservices best practices through Dapr and event-driven scaling with KEDA.
 
-*Dapr and Traefik are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
+### Potential use cases
+
+This solution applies to any organization that uses stateless and stateful microservices for distributed systems. The solution is best for consumer packaged goods and manufacturing industries that have an ordering and fulfillment system.
+
+These other solutions have similar designs:
+
+- Microservices architecture on Azure Kubernetes Service (AKS)
+- Microservices architecture on Azure Functions
+- Event-driven architectures
 
 ## Considerations
 
@@ -138,6 +138,8 @@ When the virtual customer isn't running, all microservices in this solution scal
 
 For deployment instructions, see the [Red Dog Demo: Azure Container Apps Deployment](https://github.com/Azure/reddog-containerapps/blob/main/README.md) on GitHub.
 
+The [Red Dog Demo: Microservices integration](https://github.com/Azure-Samples/app-templates-microservices-integration) is a packaged [app template](https://github.com/microsoft/App-Templates) that builds on the preceding code assets to demonstrate the integration of Azure Container Apps, App Service, Functions, and API Management and provisions the infra, deploys the code using GitHub Actions.
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
@@ -150,6 +152,8 @@ Other contributors:
 
 - [Kendall Roden](https://www.linkedin.com/in/kendallroden) | Senior Program Manager
 - [Lynn Orrell](https://www.linkedin.com/in/lynn-orrell) | Principal Solution Specialist (GBB)
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
@@ -164,4 +168,4 @@ Other contributors:
 
 - [Microservices architecture on Azure Kubernetes Service](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)
-- [Microservices with AKS and Azure DevOps](../../solution-ideas/articles/microservices-with-aks.yml)
+- [CI/CD for AKS apps with Azure Pipelines](../../guide/aks/aks-cicd-azure-pipelines.yml)

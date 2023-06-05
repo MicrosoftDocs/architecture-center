@@ -3,10 +3,10 @@ metadata:
   title: Supply chain track and trace
   titleSuffix: Azure Solution Ideas
   description: Use Azure Blockchain Workbench to build an application for a supply chain that can track assets and trigger remediating events downstream.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 06/14/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -22,14 +22,12 @@ metadata:
     - interactive-diagram
     - is-deployable
     - "https://azure.microsoft.com/solutions/architecture/supply-chain-track-and-trace"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/supply-chain-track-and-trace.png
 name: Supply chain track and trace
 azureCategories:
   - iot
   - compute
 summary: Use Azure Blockchain Workbench to build an application for a supply chain that can track assets and trigger remediating events downstream.
 products:
-  - azure-blockchain-workbench
   - azure-iot-hub
 thumbnailUrl: /azure/architecture/browse/thumbs/supply-chain-track-and-trace.png
 content: |

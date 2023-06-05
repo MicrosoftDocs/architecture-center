@@ -2,9 +2,9 @@
 title: Run Apache Cassandra on Azure VMs
 description: Examine performance considerations for running Apache Cassandra on Azure virtual machines. Use these recommendations as a baseline to test against your workload.
 author: arsenvlad
-categories: azure
 ms.author: arsenv
-ms.date: 09/29/2022
+categories: azure
+ms.date: 03/31/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
@@ -29,7 +29,7 @@ These recommendations are based on the results of performance tests, which you c
 
 ## Azure Managed Instance for Apache Cassandra
 
-If you're looking for a more automated service for running Apache Cassandra on Azure virtual machines, consider using [Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra/). This service automates the deployment, management (patching and node health), and scaling of nodes within an Apache Cassandra cluster. It also provides the capability for [hybrid clusters](/azure/managed-instance-apache-cassandra/configure-hybrid-cluster), so Apache Cassandra datacenters deployed in Azure can join an existing on-premises or third-party hosted Cassandra ring. The service is deployed by using [Azure virtual machine scale sets](/azure/virtual-machine-scale-sets/overview). The following recommendations were adopted during the development of this service.
+If you're looking for a more automated service for running Apache Cassandra on Azure virtual machines, consider using [Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra/). This service automates the deployment, management (patching and node health), and scaling of nodes within an Apache Cassandra cluster. It also provides the capability for [hybrid clusters](/azure/managed-instance-apache-cassandra/configure-hybrid-cluster), so Apache Cassandra datacenters deployed in Azure can join an existing on-premises or third-party hosted Cassandra ring. The service is deployed by using [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview). The following recommendations were adopted during the development of this service.
 
 ## Azure VM sizes and disk types
 
@@ -37,11 +37,11 @@ Cassandra workloads on Azure commonly use either [Standard_DS14_v2][dsv2], [Stan
 
 For durability, data and commit logs are commonly stored on a stripe set of two to four 1-TB [premium managed disks](/azure/virtual-machines/windows/disks-types#premium-ssd) (P30).
 
-Cassandra nodes should not be too data-dense. We recommend having at most 1 &ndash; 2 TB of data per VM and enough free space for compaction. To achieve the highest possible combined throughput and IOPS using premium managed disks, we recommend creating a stripe set from a few 1-TB disks, instead of using a single 2-TB or 4-TB disk. For example, on a DS14_v2 VM, four 1-TB disks have a maximum IOPS of 4 &times; 5000 = 20 K, versus 7.5 K for a single 4-TB disk.
+Cassandra nodes shouldn't be too data-dense. We recommend having at most 1 &ndash; 2 TB of data per VM and enough free space for compaction. To achieve the highest possible combined throughput and IOPS using premium managed disks, we recommend creating a stripe set from a few 1-TB disks, instead of using a single 2-TB or 4-TB disk. For example, on a DS14_v2 VM, four 1-TB disks have a maximum IOPS of 4 &times; 5000 = 20 K, versus 7.5 K for a single 4-TB disk.
 
 Evaluate [Azure Ultra Disks](/azure/virtual-machines/linux/disks-enable-ultra-ssd) for Cassandra workloads that need smaller disk capacity. They can provide higher IOPS/throughput and lower latency on VM sizes like [Standard_E16s_v5][esv5] and [Standard_D16s_v5][dsv5].
 
-For Cassandra workloads that don't need durable storage &mdash; that is, where data can be easily reconstructed from another storage medium &mdash; consider using [Standard_L16s_v3][lsv3] or [Standard_L16s_v2][lsv2] VMs. These VMs sizes have large and fast local *temporary* NVMe disks.
+For Cassandra workloads that don't need durable storage—that is, where data can be easily reconstructed from another storage medium—consider using [Standard_L16s_v3][lsv3] or [Standard_L16s_v2][lsv2] VMs. These VMs sizes have large and fast local *temporary* NVMe disks.
 
 For more information, see [Comparing performance of Azure local/ephemeral vs attached/persistent disks](https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments/blob/master/docs/cassandra-local-attached-disks.md) (GitHub).
 
@@ -59,9 +59,9 @@ Cassandra read workloads perform best when random-access disk latency is low. We
 
 Read-heavy, random-read workloads like Cassandra benefit from the lower read latency even though cached mode has lower throughput limits than uncached mode. (For example, [DS14_v2](/azure/virtual-machines/dv2-dsv2-series-memory) virtual machines have a maximum cached throughput of 512 MB/s versus uncached of 768 MB/s.)
 
-ReadOnly caching is particularly helpful for Cassandra time-series and other workloads where the working dataset fits in the host cache and data is not constantly overwritten. For example, [DS14_v2](/azure/virtual-machines/dv2-dsv2-series-memory) provides a cache size of 512 GB, which could store up to 50% of the data from a Cassandra node with 1-2 TB data density.
+ReadOnly caching is particularly helpful for Cassandra time-series and other workloads where the working dataset fits in the host cache and data isn't constantly overwritten. For example, [DS14_v2](/azure/virtual-machines/dv2-dsv2-series-memory) provides a cache size of 512 GB, which could store up to 50% of the data from a Cassandra node with 1-2 TB data density.
 
-There is no significant performance penalty from cache-misses when ReadOnly caching is enabled, so cached mode is recommended for all but the most write-heavy workloads.
+There's no significant performance penalty from cache-misses when ReadOnly caching is enabled, so cached mode is recommended for all but the most write-heavy workloads.
 
 For more information, see [Comparing Azure VM data disk caching configurations](https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments/blob/master/docs/cassandra-azure-vm-data-disk-caching.md) (GitHub).
 
@@ -81,7 +81,7 @@ When running Cassandra on Azure, it's common to create an mdadm stripe set (that
 
 Our tests found no significant difference between chunk sizes of 64k, 128k, and 256k for Cassandra read workloads. There seems to be a small, slightly noticeable, advantage to the 128k chunk size. Therefore, we recommend the following:
 
-- If you're already using a chunk size of 64 K or 256 K, it doesn't make sense rebuild the disk array to use 128 K size.
+- If you're already using a chunk size of 64 K or 256 K, it doesn't make sense to rebuild the disk array to use 128-K size.
 
 - For a new configuration, it makes senses to use 128 K from the beginning.
 
@@ -119,7 +119,7 @@ For more information, see [Comparing relative performance of various replication
 
 ### Linux page caching
 
-When reading data files, Cassandra's Java code uses regular file I/O and benefits from Linux page caching. After parts of the file are read one time, the read content is stored in the OS page cache. Subsequent read access to the same data is much faster.
+When Cassandra's Java code reads data files, it uses regular file I/O and benefits from Linux page caching. After parts of the file are read one time, the read content is stored in the OS page cache. Subsequent read access to the same data is much faster.
 
 For this reason, when executing read performance tests against the same data, the second and subsequent reads will appear to be much faster than the original read, which needed to access data on the remote data disk or from the host cache when ReadOnly is enabled. To get similar performance measurements on subsequent runs, clear the Linux page cache and restart the Cassandra service to clear its internal memory. When ReadOnly caching is enabled, the data might be in the host cache, and subsequent reads will be faster even after clearing the OS page cache and restarting the Cassandra service.
 
@@ -133,17 +133,31 @@ For a multiregion deployment, use Azure Global VNet-peering to connect the virtu
 
 It's important to measure the baseline roundtrip latency between regions. Network latency between regions can be 10-100 times higher than latency within a region. Expect a lag between data appearing in the second region when using LOCAL_QUORUM write consistency, or significantly decreased performance of writes when using EACH_QUORUM.
 
-When running Apache Cassandra at scale, and specifically in a multi-DC environment, [node repair](https://cassandra.apache.org/doc/latest/cassandra/operating/repair.html) becomes challenging. Tools such as [Reaper](http://cassandra-reaper.io) can help to coordinate repairs at scale (for example, across all the nodes in a data center, one data center at a time, to limit the load on the whole cluster). However, node repair for large clusters is not yet a fully solved problem and applies in all environments, whether on-premises or in the cloud.
+When you run Apache Cassandra at scale, and specifically in a multi-DC environment, [node repair](https://cassandra.apache.org/doc/latest/cassandra/operating/repair.html) becomes challenging. Tools such as [Reaper](http://cassandra-reaper.io) can help to coordinate repairs at scale (for example, across all the nodes in a data center, one data center at a time, to limit the load on the whole cluster). However, node repair for large clusters isn't yet a fully solved problem and applies in all environments, whether on-premises or in the cloud.
 
-When nodes are added to a secondary region, performance will not scale linearly, because some bandwidth and CPU/disk resources are spent on receiving and sending replication traffic across regions.
+When nodes are added to a secondary region, performance doesn't scale linearly, because some bandwidth and CPU/disk resources are spent on receiving and sending replication traffic across regions.
 
 For more information, see [Measuring impact of multi-dc cross-region replication](https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments/blob/master/docs/cassandra-multi-dc-azure-regions.md) (GitHub).
 
 ### Hinted-handoff configuration
 
-In a multiregion Cassandra ring, write workloads with consistency level of LOCAL_QUORUM may lose data in the secondary region. By default, Cassandra hinted handoff is throttled to a relatively low maximum throughput and three-hour hint lifetime. For workloads with heavy writes, we recommended increasing the hinted handoff throttle and hint window time to ensure hints are not dropped before they are replicated.
+In a multiregion Cassandra ring, write workloads with consistency level of LOCAL_QUORUM may lose data in the secondary region. By default, Cassandra hinted handoff is throttled to a relatively low maximum throughput and three-hour hint lifetime. For workloads with heavy writes, we recommended increasing the hinted handoff throttle and hint window time to ensure hints aren't dropped before they're replicated.
 
 For more information, see [Observations on hinted handoff in cross-region replication](https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments/blob/master/docs/cassandra-hinted-handoff-cross-region.md) (GitHub).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author: 
+
+ - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer
+ 
+ Other contributor:
+
+ - [Theo van Kraay](https://www.linkedin.com/in/theo-van-kraay-3388b130/) | Senior Program Manager
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
@@ -157,9 +171,12 @@ For information on general Cassandra settings, not specific to Azure, see:
 
 - [Apache Cassandra Configuration File](https://cassandra.apache.org/doc/latest/cassandra/configuration/cass_yaml_file.html)
 
-The following reference architecture deploys Cassandra as part of an n-tier configuration:
+## Related resources
 
 - [Linux N-tier application in Azure with Apache Cassandra](../reference-architectures/n-tier/n-tier-cassandra.yml)
+- [N-tier architecture style](../guide/architecture-styles/n-tier.yml)
+- [Data partitioning guidance](./data-partitioning.yml)
+
 
 [dsv2]: /azure/virtual-machines/dv2-dsv2-series-memory
 [dsv3]: /azure/virtual-machines/dv3-dsv3-series
@@ -167,5 +184,4 @@ The following reference architecture deploys Cassandra as part of an n-tier conf
 [esv5]: /azure/virtual-machines/ev5-esv5-series
 [lsv2]: /azure/virtual-machines/lsv2-series
 [lsv3]: /azure/virtual-machines/lsv3-series
-
 [repo]: https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments

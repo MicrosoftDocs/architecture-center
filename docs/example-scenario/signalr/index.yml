@@ -3,10 +3,10 @@ metadata:
   title: Real-time location sharing
   titleSuffix: Azure Architecture Center
   description: Learn how to architect a solution that processes changes to underlying data within a web view, without the need for a page refresh, by using real-time services.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 08/12/2022
-  ms.topic: conceptual
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.category:

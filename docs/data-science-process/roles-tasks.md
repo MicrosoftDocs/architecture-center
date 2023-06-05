@@ -7,7 +7,7 @@ editor: marktab
 services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom:
@@ -125,6 +125,16 @@ For detailed instructions on project execution workflow, see [Agile development 
 
 Use the Microsoft TDSP team's [project template repository](https://github.com/Azure/Azure-TDSP-ProjectTemplate) to support efficient project execution and collaboration. The repository gives you a standardized directory structure and document templates you can use for your own TDSP projects.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 Explore more detailed descriptions of the roles and tasks defined by the Team Data Science Process:
@@ -133,3 +143,10 @@ Explore more detailed descriptions of the roles and tasks defined by the Team Da
 - [Team Lead tasks for a data science team](team-lead-tasks.md)
 - [Project Lead tasks for a data science team](project-lead-tasks.md)
 - [Project Individual Contributor tasks for a data science team](project-ic-tasks.md)
+
+## Related resources 
+
+- [Team Data Science Process group manager tasks](../data-science-process/group-manager-tasks.md)
+- [Tasks for the team lead on a Team Data Science Process team](../data-science-process/team-lead-tasks.md)
+- [Project lead tasks in the Team Data Science Process](../data-science-process/project-lead-tasks.md)
+- [Tasks for an individual contributor in the Team Data Science Process](../data-science-process/project-ic-tasks.md)

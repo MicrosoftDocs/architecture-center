@@ -3,10 +3,10 @@ metadata:
   title: Connected factory hierarchy service
   titleSuffix: Azure Architecture Center
   description: Implement a hierarchy service so business stakeholders can centrally define the organization of production assets like machines within factories.
-  author: EdPrice-MSFT
+  author: zeier
   ms.author: Maxzeier
-  ms.date: 09/19/2022
-  ms.topic: conceptual
+  ms.date: 03/16/2023
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
 name: Connected factory hierarchy service

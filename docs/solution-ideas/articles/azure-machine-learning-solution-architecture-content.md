@@ -1,20 +1,12 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Build, deploy, and manage high-quality models with Azure Machine Learning, a service for the end-to-end ML lifecycle. Use industry-leading MLOps (machine learning operations), open-source interoperability, and integrated tools on a secure, trusted platform designed for responsible machine learning (ML).
-
-## Potential use cases
-
-* Use machine learning as a service.
-* Easy and flexible building interface.
-* Wide range of supported algorithms.
-* Easy implementation of web services.
-* Great documentation for machine learning solutions.
+This architecture shows you the components used to build, deploy, and manage high-quality models with Azure Machine Learning, a service for the end-to-end ML lifecycle.
 
 ## Architecture
 
 ![Diagram of a machine learning solution architecture using Azure Machine Learning with Azure services for storage, data analysis, monitoring, authenticating, and secure deployment.](../media/azure-machine-learning-solution-architecture.svg)
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/azure-machine-learning-solution-architecture.pptx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/azure-machine-learning-solution-architecture.vsdx) of this architecture.*
 
 > [!NOTE]
 > The architecture described in this article is based on Azure Machine Learning's CLI and Python SDK v1. For more information on the new v2 SDK and CLI, see [What is CLI and SDK v2](/azure/machine-learning/concept-v2).
@@ -42,7 +34,25 @@ Build, deploy, and manage high-quality models with Azure Machine Learning, a ser
 * [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer) load-balances internet and private network traffic with high performance and low latency. Load Balancer works across virtual machines, virtual machine scale sets, and IP addresses.
 * [Power BI](https://powerbi.microsoft.com) is a suite of business analytics tools that deliver insights throughout your organization. Connect to hundreds of data sources, simplify data prep, and drive unplanned analysis. Produce beautiful reports, then publish them for your organization to consume on the web and across mobile devices.
 
-## Cost optimization
+## Scenario details
+
+Build, deploy, and manage high-quality models with Azure Machine Learning, a service for the end-to-end ML lifecycle. Use industry-leading MLOps (machine learning operations), open-source interoperability, and integrated tools on a secure, trusted platform designed for responsible machine learning (ML).
+
+### Potential use cases
+
+* Use machine learning as a service.
+* Easy and flexible building interface.
+* Wide range of supported algorithms.
+* Easy implementation of web services.
+* Great documentation for machine learning solutions.
+
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 * [Get pricing estimates](https://azure.microsoft.com/pricing/details/machine-learning)
 
@@ -57,6 +67,7 @@ Principal authors:
 * [Lauryn Gayhardt](https://linkedin.com/in/lgayhardt) | Content Developer
 * [Samantha Salgado](https://linkedin.com/in/sam-s-1978991b4) | Content Developer
 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

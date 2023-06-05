@@ -2,8 +2,8 @@
 title: Background jobs guidance
 titleSuffix: Best practices for cloud applications
 description: Learn about background tasks that run independently of the user interface, such as batch jobs, intensive processing tasks, and long-running processes.
-author: EdPrice-MSFT
-ms.date: 11/05/2018
+author: martinekuan
+ms.date: 10/18/2022
 categories: azure
 ms.topic: conceptual
 ms.service: architecture-center
@@ -48,7 +48,7 @@ Background jobs can be initiated in several different ways. They fall into one o
 
 Event-driven invocation uses a trigger to start the background task. Examples of using event-driven triggers include:
 
-- The UI or another job places a message in a queue. The message contains data about an action that has taken place, such as the user placing an order. The background task listens on this queue and detects the arrival of a new message. It reads the message and uses the data in it as the input to the background job.
+- The UI or another job places a message in a queue. The message contains data about an action that has taken place, such as the user placing an order. The background task listens on this queue and detects the arrival of a new message. It reads the message and uses the data in it as the input to the background job. This pattern is known as [asynchronous message-based communication](/dotnet/architecture/microservices/architect-microservice-container-applications/asynchronous-message-based-communication).
 - The UI or another job saves or updates a value in storage. The background task monitors the storage and detects changes. It reads the data and uses it as the input to the background job.
 - The UI or another job makes a request to an endpoint, such as an HTTPS URI, or an API that is exposed as a web service. It passes the data that is required to complete the background task as part of the request. The endpoint or web service invokes the background task, which uses the data as its input.
 
@@ -66,7 +66,7 @@ Typical examples of tasks that are suited to schedule-driven invocation include 
 
 If you use a schedule-driven task that must run as a single instance, be aware of the following:
 
-- If the compute instance that is running the scheduler (such as a virtual machine using Windows scheduled tasks) is scaled, you will have multiple instances of the scheduler running. These could start multiple instances of the task.
+- If the compute instance that is running the scheduler (such as a virtual machine using Windows scheduled tasks) is scaled, you will have multiple instances of the scheduler running. These could start multiple instances of the task. For more information about this, read this [blog post about idempotence](https://particular.net/blog/what-does-idempotent-mean).
 - If tasks run for longer than the period between scheduler events, the scheduler may start another instance of the task while the previous one is still running.
 
 ## Returning results
@@ -89,6 +89,7 @@ You can host background tasks by using a range of different Azure platform servi
 - [**Azure Virtual Machines**](#azure-virtual-machines). If you have a Windows service or want to use the Windows Task Scheduler, it is common to host your background tasks within a dedicated virtual machine.
 - [**Azure Batch**](#azure-batch). Batch is a platform service that schedules compute-intensive work to run on a managed collection of virtual machines. It can automatically scale compute resources.
 - [**Azure Kubernetes Service**](#azure-kubernetes-service) (AKS). Azure Kubernetes Service provides a managed hosting environment for Kubernetes on Azure.
+- [**Azure Container Apps**](#azure-container-apps). Azure Container Apps enables you to build serverless microservices based on containers.
 
 The following sections describe each of these options in more detail, and include considerations to help you choose the appropriate option.
 
@@ -220,6 +221,27 @@ For more information, see:
 
 - [Introduction to private Docker container registries](/azure/container-registry/container-registry-intro)
 
+### Azure Container Apps
+
+Azure Container Apps enables you to build serverless microservices based on containers. Distinctive features of Container Apps include:
+
+* Optimized for running general purpose containers, especially for applications that span many microservices deployed in containers.
+* Powered by Kubernetes and open-source technologies like [Dapr](https://dapr.io/), [KEDA](https://keda.sh/), and [envoy](https://www.envoyproxy.io/).
+* Supports Kubernetes-style apps and microservices with features like [service discovery](/azure/container-apps/connect-apps) and [traffic splitting](/azure/container-apps/revisions).
+* Enables event-driven application architectures by supporting scale based on traffic and pulling from [event sources like queues](/azure/container-apps/scale-app), including [scale to zero](/azure/container-apps/scale-app).
+* Support of long running processes and can run [background tasks](/azure/container-apps/background-processing).
+
+#### Considerations
+
+Azure Container Apps doesn't provide direct access to the underlying Kubernetes APIs. If you require access to the Kubernetes APIs and control plane, you should use [Azure Kubernetes Service](/azure/aks/intro-kubernetes). However, if you would like to build Kubernetes-style applications and don't require direct access to all the native Kubernetes APIs and cluster management, Container Apps provides a fully managed experience based on best-practices. For these reasons, many teams may prefer to start building container microservices with Azure Container Apps.
+
+
+For more information, see:
+
+- [Overview of Azure Containers App](/azure/container-apps/overview)
+
+You can get started building your first container app [using the quickstarts](/azure/container-apps/get-started).
+
 ## Partitioning
 
 If you decide to include background tasks within an existing compute instance, you must consider how this will affect the quality attributes of the compute instance and the background task itself. These factors will help you to decide whether to colocate the tasks with the existing compute instance or separate them out into a separate compute instance:
@@ -272,9 +294,9 @@ Background tasks must be resilient in order to provide reliable services to the 
 
   - Messages that must be processed in a specific order, such as those that change data based on the existing data value (for example, adding a value to an existing value), might not arrive in the original order in which they were sent. Alternatively, they might be handled by different instances of a background task in a different order due to varying loads on each instance. Messages that must be processed in a specific order should include a sequence number, key, or some other indicator that background tasks can use to ensure that they are processed in the correct order. If you are using Azure Service Bus, you can use message sessions to guarantee the order of delivery. However, it is usually more efficient, where possible, to design the process so that the message order is not important.
 
-  - Typically, a background task will peek at messages in the queue, which temporarily hides them from other message consumers. Then it deletes the messages after they have been successfully processed. If a background task fails when processing a message, that message will reappear on the queue after the peek time-out expires. It will be processed by another instance of the task or during the next processing cycle of this instance. If the message consistently causes an error in the consumer, it will block the task, the queue, and eventually the application itself when the queue becomes full. Therefore, it is vital to detect and remove poison messages from the queue. If you are using Azure Service Bus, messages that cause an error can be moved automatically or manually to an associated dead letter queue.
+  - Typically, a background task will peek at messages in the queue, which temporarily hides them from other message consumers. Then it deletes the messages after they have been successfully processed. If a background task fails when processing a message, that message will reappear on the queue after the peek time-out expires. It will be processed by another instance of the task or during the next processing cycle of this instance. If the message consistently causes an error in the consumer, it will block the task, the queue, and eventually the application itself when the queue becomes full. Therefore, it is vital to detect and remove poison messages from the queue. If you are using Azure Service Bus, messages that cause an error can be moved automatically or manually to an associated [dead letter queue](/azure/service-bus-messaging/service-bus-dead-letter-queues).
 
-  - Queues are guaranteed at *least once* delivery mechanisms, but they might deliver the same message more than once. In addition, if a background task fails after processing a message but before deleting it from the queue, the message will become available for processing again. Background tasks should be idempotent, which means that processing the same message more than once does not cause an error or inconsistency in the application's data. Some operations are naturally idempotent, such as setting a stored value to a specific new value. However, operations such as adding a value to an existing stored value without checking that the stored value is still the same as when the message was originally sent will cause inconsistencies. Azure Service Bus queues can be configured to automatically remove duplicated messages.
+  - Queues are guaranteed at *least once* delivery mechanisms, but they might deliver the same message more than once. In addition, if a background task fails after processing a message but before deleting it from the queue, the message will become available for processing again. Background tasks should be idempotent, which means that processing the same message more than once does not cause an error or inconsistency in the application's data. Some operations are naturally idempotent, such as setting a stored value to a specific new value. However, operations such as adding a value to an existing stored value without checking that the stored value is still the same as when the message was originally sent will cause inconsistencies. Azure Service Bus queues can be configured to automatically remove duplicated messages. For more information on the challenges with at-least-once message delivery, see [the guidance on idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing).
 
   - Some messaging systems, such as Azure storage queues and Azure Service Bus queues, support a de-queue count property that indicates the number of times a message has been read from the queue. This can be useful in handling repeated and poison messages. For more information, see [Asynchronous Messaging Primer](/previous-versions/msp-n-p/dn589781(v=pandp.10)) and [Idempotency Patterns](https://blog.jonathanoliver.com/idempotency-patterns).
 
@@ -292,6 +314,18 @@ Background tasks must offer sufficient performance to ensure they do not block t
 
 - By default, WebJobs scale with their associated Azure Web Apps instance. However, if you want a WebJob to run as only a single instance, you can create a Settings.job file that contains the JSON data **{ "is_singleton": true }**. This forces Azure to only run one instance of the WebJob, even if there are multiple instances of the associated web app. This can be a useful technique for scheduled jobs that must run as only a single instance.
 
-## Related patterns
+## Next steps
 
 - [Compute Partitioning Guidance](/previous-versions/msp-n-p/dn589773(v=pandp.10))
+- [Asynchronous Messaging Primer](/previous-versions/msp-n-p/dn589781(v=pandp.10))
+- [Idempotency Patterns](https://blog.jonathanoliver.com/idempotency-patterns)
+
+## Related resources
+
+- [Queue-Based Load Leveling pattern](../patterns/queue-based-load-leveling.yml)
+- [Priority Queue pattern](../patterns/priority-queue.yml)
+- [Pipes and Filters pattern](../patterns/pipes-and-filters.yml)
+- [Scheduler Agent Supervisor pattern](../patterns/scheduler-agent-supervisor.yml)
+- [Compensating Transaction pattern](../patterns/compensating-transaction.yml)
+- [Leader Election pattern](../patterns/leader-election.yml)
+- [Competing Consumers pattern](../patterns/competing-consumers.yml)

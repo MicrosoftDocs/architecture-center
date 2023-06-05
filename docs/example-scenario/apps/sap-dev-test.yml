@@ -3,20 +3,20 @@ metadata:
   title: SAP workload development and test settings
   titleSuffix: Azure Example Scenarios
   description: Learn how to establish non-production development and test environments for SAP NetWeaver in a Windows or Linux environment on Azure.
-  author: AndrewDibbins
-  ms.author: architectures
+  author: bqtrinh
+  ms.author: bentrin
   ms.date: 07/26/2022
-  ms.topic: conceptual
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.category:
     - databases
+    - devops
   ms.custom:
     - fasttrack
     - SAP
     - example-scenario
     - e2e-sap
-  social_image_url: /azure/architecture/example-scenario/apps/media/architecture-sap-dev-test.png
 name: Development and test environments for SAP workloads on Azure
 azureCategories:
   - databases

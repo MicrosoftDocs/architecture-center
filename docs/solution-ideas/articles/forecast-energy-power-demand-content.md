@@ -1,17 +1,12 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-The energy consumption and energy demand change over time. The monitoring of this change over time, results in time-series that can be utilized to understand patterns, and to forecast future behaviors. Learn how Microsoft Azure can help accurately forecast spikes in demand for energy products and services to give your company a competitive advantage.
-
-## Potential use cases
-
-This solution is ideal for the energy industry.
-
-This solution is built on the Azure managed services: [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics), [Event Hubs](https://azure.microsoft.com/services/event-hubs), [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning), [Azure SQL Database](https://azure.microsoft.com/services/sql-database), [Data Factory](https://azure.microsoft.com/services/data-factory), and [Power BI](https://powerbi.microsoft.com). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
+Learn how Azure Machine Learning can help forecast spikes in demand for energy products and services.
 
 ## Architecture
 
-![Architecture diagram: using Azure services like Machine Learning in a solution that forecasts energy and power demand.](../media/forecast-energy-power-demand.png)
-*Download an [SVG](../media/forecast-energy-power-demand.svg) of this architecture.*
+[ ![Architecture diagram: using Azure services like Machine Learning in a solution that forecasts energy and power demand.](../media/forecast-energy-power-demand.png)](../media/forecast-energy-power-demand.png#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/forecast-energy-power-demand.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -38,6 +33,25 @@ This solution is built on the Azure managed services: [Azure Stream Analytics](h
 * [Azure Automated Machine Learning](https://azure.microsoft.com/services/machine-learning/automatedml): Use Azure ML to forecast the energy demand of a particular region.
 * [MLOps](https://azure.microsoft.com/services/machine-learning/mlops): Design, deploy, and manage production model workflows.
 * [Power BI Azure ML integration](/power-bi/connect-data/service-aml-integrate): Consume model prediction results in Power BI.
+
+## Scenario details
+
+The energy consumption and energy demand change over time. The monitoring of this change over time, results in time-series that can be utilized to understand patterns, and to forecast future behaviors. Azure Machine Learning can help forecast spikes in demand for energy products and services.
+
+This solution is built on the Azure managed services:
+
+- [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics)
+- [Event Hubs](https://azure.microsoft.com/services/event-hubs)
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning)
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database)
+- [Data Factory](https://azure.microsoft.com/services/data-factory)
+- [Power BI](https://powerbi.microsoft.com)
+
+These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
+
+### Potential use cases
+
+This solution is ideal for the energy industry.
 
 ## Contributors
 

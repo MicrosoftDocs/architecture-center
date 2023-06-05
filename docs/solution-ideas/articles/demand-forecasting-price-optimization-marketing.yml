@@ -3,10 +3,10 @@ metadata:
   title: Demand forecasting and price optimization
   titleSuffix: Azure Solution Ideas
   description: Predict future customer demand and optimize pricing to maximize profitability using big-data and advanced-analytics services from Microsoft Azure.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 05/24/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -19,7 +19,6 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/demand-forecasting-price-optimization-marketing"
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/demand-forecasting-price-optimization-marketing.png
 name: Use a demand forecasting model for price optimization
 azureCategories:
   - analytics

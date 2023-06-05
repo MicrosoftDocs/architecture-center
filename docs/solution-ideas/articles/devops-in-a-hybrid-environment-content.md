@@ -13,8 +13,9 @@ Organizations have adopted this solution to:
 
 ## Architecture
 
-![Architecture diagram shows the developer to Azure Boards, GitHub, then to Azure Pipelines into Terraform and Azure A D: devops in a hybrid environment](../media/devops-in-a-hybrid-environment.png)
-*Download an [SVG](../media/devops-in-a-hybrid-environment.svg) of this architecture.*
+[ ![Architecture diagram shows the developer to Azure Boards, GitHub, then to Azure Pipelines into Terraform and Azure A D: devops in a hybrid environment.](../media/devops-in-a-hybrid-environment.svg)](../media/devops-in-a-hybrid-environment.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/devops-in-a-hybrid-environment.vsdx) of this architecture.*
 
 ### Dataflow
 

@@ -135,10 +135,11 @@ For more details, see [Business continuity and disaster recovery (BCDR): Azure P
 
 In IaaS architectures, replicating data between regions is the responsibility of the application. The most common replication scenario uses database replication technologies built into the database server product, such as [SQL Server Always On Availability Groups](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server), [Oracle Data Guard](https://www.oracle.com/database/technologies/high-availability/dataguard.html), or [MySQL Replication](https://dev.mysql.com/doc/refman/8.0/en/replication.html).
 
-Setting up replication between IaaS database servers isn't straightforward, and you need to take business continuity requirements into account. Azure database services such as [Azure SQL Database](/azure/sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery), Azure Database for MySQL, and [Cosmos DB](/azure/cosmos-db/distribute-data-globally) make replication between regions easier, but may not meet security requirements for highly sensitive workloads.
+Setting up replication between IaaS database servers isn't straightforward, and you need to take business continuity requirements into account. Azure database services such as [Azure SQL Database](/azure/sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery), Azure Database for MySQL, and [Azure Cosmos DB](/azure/cosmos-db/distribute-data-globally) make replication between regions easier, but may not meet security requirements for highly sensitive workloads.
 
 For more information and guidance for multi-region SQL Server and Oracle deployments, see:
-- [Configure an availability group on Azure SQL Server virtual machines in different regions](/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-multiple-regions)
+
+- [Configure an availability group on Azure virtual machines running SQL Server in different regions](/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-multiple-regions)
 - [Disaster recovery for an Oracle Database 12c database in an Azure environment](/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery)
 
 ### Cross-region peering

@@ -20,7 +20,7 @@ The diagram's dataflow elements are described here:
 
 - To increase capacity, the customer uses two Azure subscriptions in a hub-spoke architecture and connects them via virtual network peering.
 
-For more information about FSLogix Profile Container - Azure Files and Azure NetApp Files best practices, see [FSLogix for the enterprise](./windows-virtual-desktop-fslogix.yml).
+For more information about FSLogix Profile Container - Azure Files and Azure NetApp Files best practices, see [FSLogix configuration examples](/fslogix/concepts-configuration-examples).
 
 ### Components
 
@@ -30,7 +30,7 @@ For more information about FSLogix Profile Container - Azure Files and Azure Net
 
 Microsoft manages the following Azure Virtual Desktop services, as part of Azure:
 
-- **Web Access**: By using the [Web Access](/azure/virtual-desktop/connect-web) service within Windows Virtual Desktop you can access virtual desktops and remote apps through an HTML5-compatible web browser just as you would with a local PC, from anywhere and on any device. You can secure web access by using multifactor authentication in Azure Active Directory.
+- **Web Access**: By using the [Web Access](/azure/virtual-desktop/connect-web) service within Azure Virtual Desktop you can access virtual desktops and remote apps through an HTML5-compatible web browser just as you would with a local PC, from anywhere and on any device. You can secure web access by using multifactor authentication in Azure Active Directory.
 
 - **Gateway**: The Remote Connection Gateway service connects remote users to Azure Virtual Desktop apps and desktops from any internet-connected device that can run an Azure Virtual Desktop client. The client connects to a gateway, which then orchestrates a connection from a VM back to the same gateway.
 
@@ -48,17 +48,11 @@ You manage the following components of Azure Virtual Desktop solutions:
 
 - **Azure AD**: Azure Virtual Desktop uses [Azure AD](https://azure.microsoft.com/services/active-directory) for identity and access management. Azure AD integration applies Azure AD security features, such as conditional access, multifactor authentication, and [Intelligent Security Graph](https://www.microsoft.com/security/business/intelligence), and it helps maintain app compatibility in domain-joined VMs.
 
-- **Active Directory Domain Services**: Azure Virtual Desktop VMs must domain-join an [AD DS](https://azure.microsoft.com/services/active-directory-ds/) service, and AD DS must be in sync with Azure AD to associate users between the two services. You can use [Azure AD Connect](/azure/active-directory/hybrid/whatis-azure-ad-connect) to associate AD DS with Azure AD.
+- **Active Directory Domain Services (Optional)**: Azure Virtual Desktop VMs can either be domain joined to an [AD DS](https://azure.microsoft.com/services/active-directory-ds/) service or use [Azure AD join for AVD](/azure/architecture/example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join) 
+    - When using an AD DS domain, the domain must be in sync with Azure AD to associate users between the two services. You can use [Azure AD Connect](/azure/active-directory/hybrid/whatis-azure-ad-connect) to associate AD DS with Azure AD.
+    - When using Azure AD join, review the [supported configurations](/azure/virtual-desktop/azure-ad-joined-session-hosts#supported-configurations) to ensure your scenario is supported.
 
-- **Azure Virtual Desktop session hosts**: A host pool can run the following operating systems:
-
-  - Windows 7 Enterprise
-  - Windows 10 Enterprise
-  - Windows 10 Enterprise Multi-session
-  - Windows Server 2012 R2 and later
-  - Custom Windows system images with pre-loaded apps, group policies, or other customizations
-
-  You can choose VM sizes, including GPU-enabled VMs. Each session host has an Azure Virtual Desktop host agent, which registers the VM as part of the Azure Virtual Desktop workspace or tenant. Each host pool can have one or more app groups, which are collections of remote applications or desktop sessions that you can access.
+- **Azure Virtual Desktop session hosts**: Session hosts are VMs that users connect to for their desktops and applications. Several versions of Windows are supported and you can create images with your applications and customizations. You can choose VM sizes, including GPU-enabled VMs. Each session host has an Azure Virtual Desktop host agent, which registers the VM as part of the Azure Virtual Desktop workspace or tenant. Each host pool can have one or more app groups, which are collections of remote applications or desktop sessions that you can access. To see which versions of Windows are supported, see [Operating systems and licenses](/azure/virtual-desktop/prerequisites#operating-systems-and-licenses).
 
 - **Azure Virtual Desktop workspace**: The Azure Virtual Desktop workspace or tenant is a management construct for managing and publishing host pool resources.
 
@@ -103,7 +97,7 @@ The relationships between host pools, workspaces, and other key logical componen
 
 *The numbers in the following descriptions correspond to those in the preceding diagram.*
 
-- *(1)* An application group that contains a published desktop can't contain any other published resources and is called a desktop application group.
+- *(1)* An application group that contains a published desktop can only contain MSIX packages mounted to the host pool (the packages will be available in the *Start* menu of the session host), it can't contain any other published resources and is called a desktop application group.
 - *(2)* Application groups assigned to the same host pool must be members of the same workspace.
 - *(3)* A user account can be assigned to an application group either directly or via an Azure AD group. It's possible to assign no users to an application group, but then it can't service any.
 - *(4)* It's possible to have an empty workspace, but it can't service users.
@@ -154,9 +148,9 @@ Azure Virtual Desktop, much like Azure, has certain service limitations that you
 
 - We recommend that you deploy no more than 5,000 VMs per Azure subscription per region. This recommendation applies to both personal and pooled host pools, based on Windows Enterprise single and multi-session. Most customers use Windows Enterprise multi-session, which allows multiple users to log in to each VM. You can increase the resources of individual session-host VMs to accommodate more user sessions.
 - For automated session-host scaling tools, the limits are around 2,500 VMs per Azure subscription per region, because VM status interaction consumes more resources.
-- To manage enterprise environments with more than 5,000 VMs per Azure subscription in the same region, you can create multiple Azure subscriptions in a hub-spoke architecture and connect them via virtual network peering, as in the preceding example architecture. You could also deploy VMs in a different region in the same subscription to increase the number of VMs.
+- To manage enterprise environments with more than 5,000 VMs per Azure subscription in the same region, you can create multiple Azure subscriptions in a hub-spoke architecture and connect them via virtual network peering (using one subscription per spoke). You could also deploy VMs in a different region in the same subscription to increase the number of VMs.
 - Azure Resource Manager (ARM) subscription API throttling limits don't allow more than 600 Azure VM reboots per hour via the Azure portal. You can reboot all your machines at once via the operating system, which doesn't consume any Azure Resource Manager subscription API calls. For more information about counting and troubleshooting throttling limits based on your Azure subscription, see [Troubleshoot API throttling errors](/azure/virtual-machines/troubleshooting/troubleshooting-throttling-errors).
-- You can currently deploy 399 VMs per Azure Virtual Desktop ARM template deployment without [Availability Sets](/azure/virtual-machines/availability#availability-sets), or 200 VMs per Availability Set. You can increase the number of VMs per deployment by switching off Availability Sets in either the ARM template or the Azure portal host pool enrollment.
+- You can currently deploy up to 132 VMs in a single ARM template deployment in the Azure Virtual Desktop portal. To create more than 132 VMs, run the ARM template deployment in the Azure Virtual Desktop portal multiple times.
 - Azure VM session-host name prefixes can't exceed 11 characters, due to auto-assigning of instance names and the NetBIOS limit of 15 characters per computer account.
 - By default, you can deploy up to 800 instances of most resource types in a resource group. Azure Compute doesn't have this limit.
 
@@ -192,6 +186,10 @@ Principal author:
 
  * [Tom Hickling](https://www.linkedin.com/in/tomhickling) | Senior Product Manager, Azure Virtual Desktop Engineering
 
+ Other contributor:
+
+  * [Nelson Del Villar](https://www.linkedin.com/in/nelsondelvillar/) | Senior Customer Engineer, Azure Core Infrastructure
+
 ## Next steps
 
 - [Azure Virtual Desktop partner integrations](/azure/virtual-desktop/partners) lists approved Azure Virtual Desktop partner providers and independent software vendors.
@@ -202,5 +200,4 @@ Principal author:
 
 ## Related resources
 
-- For best practices documentation, see [FSLogix for the enterprise](./windows-virtual-desktop-fslogix.yml).
 - For more information about multiple Active Directory forests architecture, see [Multiple Active Directory forests architecture in Azure Virtual Desktop](./multi-forest.yml).

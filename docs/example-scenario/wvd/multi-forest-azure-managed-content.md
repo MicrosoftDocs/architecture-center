@@ -8,7 +8,9 @@ This solution idea also applies to mergers and acquisitions, organization rebran
 
 ## Architecture
 
-:::image type="content" source="images/wvd-multi-forest-aadds-edited.png" alt-text="Diagram of Azure Virtual Desktop with Azure AD Domain Services." lightbox="images/wvd-multi-forest-aadds-edited.png":::
+:::image type="content" source="images/wvd-multi-forest-aadds-edited.svg" alt-text="Diagram of Azure Virtual Desktop with Azure AD Domain Services." lightbox="images/wvd-multi-forest-aadds-edited.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/wvd-multi-forest-aadds.vsdx) of this architecture.*
 
 ### Dataflow
 

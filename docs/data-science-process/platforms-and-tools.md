@@ -7,12 +7,13 @@ editor: marktab
 services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/18/2022
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
   - previous-ms.author=deguhath
+  - devx-track-python
 products:
   - azure-machine-learning
 categories:
@@ -23,7 +24,7 @@ categories:
 
 Microsoft provides a full spectrum of analytics resources for both cloud or on-premises platforms. They can be deployed to make the execution of your data science projects efficient and scalable. Guidance for teams implementing data science projects in a trackable, version controlled, and collaborative way is provided by the [Team Data Science Process](overview.yml) (TDSP). See [Team Data Science Process roles and tasks](roles-tasks.md), for an outline of the personnel roles, and their associated tasks that are handled by a data science team standardizing on this process.
 
-The main recommended Azure resource for TDSP is [Azure Machine Learning](/azure/machine-learning).  Examples in this Azure Architecture Center may show Azure Machine Learning used with other Azure resources.  These other analytics resources available to data science teams using the TDSP include:
+The main recommended Azure resource for TDSP is [Azure Machine Learning](/azure/machine-learning). Examples in Azure Architecture Center sometimes show Azure Machine Learning used with other Azure resources. These other analytics resources available to data science teams using the TDSP include:
 
 - Data Science Virtual Machines (both Windows and Linux CentOS)
 - HDInsight Spark Clusters
@@ -34,7 +35,7 @@ The main recommended Azure resource for TDSP is [Azure Machine Learning](/azure/
 - SQL Server 2019 R and Python Services
 - Azure Databricks
 
-In this document, we briefly describe the resources and provide links to the tutorials and walkthroughs the TDSP teams have published. They can help you learn how to use them step by step and start using them to build your intelligent applications. More information on these resources is available on their product pages.
+In this document, we briefly describe the resources and provide links to the tutorials and walkthroughs the TDSP teams have published. The articles will show you how to these resources step by step to build your intelligent applications. More information on these resources is available on their product pages.
 
 ## Data Science Virtual Machine (DSVM)
 
@@ -51,7 +52,7 @@ It also includes **ML and AI tools** like xgboost, mxnet, and Vowpal Wabbit.
 
 Currently DSVM is available in **Windows** and **Linux CentOS** operating systems. Choose the size of your DSVM (number of CPU cores and the amount of memory) based on the needs of the data science projects that you plan to execute on it.
 
-For more information on Windows edition of DSVM, see [Microsoft Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) on the Azure Marketplace. For the Linux edition of the DSVM, see [Linux Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804).
+For more information on Windows edition of DSVM, see [Microsoft Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) on the Azure Marketplace. For the Linux edition of the DSVM, see [Linux Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/ntegralinc1586961136942.ntg_ubuntu_22_10).
 
 To learn how to execute some of the common data science tasks on the DSVM efficiently, see [10 things you can do on the Data science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/vm-do-ten-things)
 
@@ -143,8 +144,25 @@ If you're using Linux (CentOS) machines to run the git commands, you need to add
 
 1. Paste the ssh key copied into the text box and save.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+- [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
-- [What is the Team Data Science Process?](/azure/architecture/data-science-process/overview)
-- [Compare the machine learning products and technologies from Microsoft](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
+- [Understand data science for machine learning](/training/paths/understand-machine-learning/)
 - [Machine learning at scale](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
+- [Introduction to Azure Machine Learning](/training/modules/intro-to-azure-ml/)
+- [Databricks Data Science & Engineering](/azure/databricks/scenarios/what-is-azure-databricks-ws)
+
+## Related resources
+
+- [What is the Team Data Science Process?](overview.yml)
+- [Team Data Science Process roles and tasks](roles-tasks.md)
+- [Compare the machine learning products and technologies from Microsoft](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)

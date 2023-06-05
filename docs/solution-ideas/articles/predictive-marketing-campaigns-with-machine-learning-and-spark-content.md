@@ -4,8 +4,9 @@ Marketing campaigns are about more than the message being delivered; when and ho
 
 ## Architecture
 
-![Architecture diagram that shows predictive marketing with Azure Machine Learning.](../media/predictive-marketing-campaigns-with-machine-learning-and-spark.png)
-*Download an [SVG file](../media/predictive-marketing-campaigns-with-machine-learning-and-spark.svg) of this architecture.*
+![Architecture diagram that shows predictive marketing with Azure Machine Learning.](../media/predictive-marketing-campaigns-with-machine-learning-and-spark.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/predictive-marketing-campaigns-with-machine-learning-and-spark.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -43,4 +44,4 @@ Read other Azure Architecture Center articles about predictive machine learning:
 
 * [Predictive aircraft engine monitoring](./aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)
 * [Predictive maintenance for industrial IoT](./iot-predictive-maintenance.yml)
-* [Predict length of stay and patient flow for healthcare](./predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml)
+* [Predict length of stay and patient flow for healthcare](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)

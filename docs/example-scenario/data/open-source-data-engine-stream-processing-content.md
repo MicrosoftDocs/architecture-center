@@ -1,39 +1,18 @@
-This article presents an example of a streaming solution. Fully managed Azure data services that run open-source engines make up the solution:
-
-- Azure Event Hubs offers a [Kafka][Apache Kafka] implementation for stream ingestion.
-- Azure Cosmos DB supports event storage in [Cassandra][Apache Cassandra].
-- Azure Kubernetes Service (AKS) hosts [Kubernetes][Kubernetes] microservices for stream processing.
-- Azure Database for PostgreSQL manages relational data storage in [PostgreSQL][PostgreSQL].
-- Azure Cache for Redis manages [Redis][Redis] in-memory data stores.
-
-Open-source technologies offer many benefits. For instance, organizations can use open-source technologies to:
-
-- Migrate existing workloads.
-- Tap into the broad open-source community.
-- Limit vendor lock-in.
-
-By making open-source technologies accessible, Azure tools and services help organizations take advantage of these benefits and develop the solutions of their choice.
-
-This solution uses fully managed [platform as a service (PaaS)][What is PaaS?] services. As a result, Microsoft handles patching, service-level agreement (SLA) maintenance, and other management tasks. Another benefit is the native integration with Azure's security infrastructure.
-
-## Potential use cases
-
-This solution applies to various scenarios:
-
-- Using Azure PaaS services to build modern streaming solutions that use open-source technologies
-- Migrating open-source stream processing solutions to Azure
+This article presents an example of a streaming solution that uses fully managed Azure data services. 
 
 ## Architecture
 
-:::image type="content" source="./media/open-source-data-engine-stream-processing-architecture.svg" alt-text="Architecture diagram showing how streaming data flows through a system. Kafka, Kubernetes, Cassandra, PostgreSQL, and Redis components make up the system." border="false":::
+:::image type="content" source="./media/open-source-data-engine-stream-processing-architecture.svg" alt-text="Architecture diagram showing how streaming data flows through a system. Kafka, Kubernetes, Cassandra, PostgreSQL, and Redis components make up the system." border="false" lightbox="./media/open-source-data-engine-stream-processing-architecture.svg":::
 
 Download a [Visio file][Visio version of architecture diagram] of this architecture.
+
+### Workflow
 
 1. The Event Hubs for Apache Kafka feature streams events from Kafka producers.
 
 1. Apache Spark consumes events. AKS provides a managed environment for the Apache Spark jobs.
 
-1. An application that uses the Cassandra API for Azure Cosmos DB writes events to Cassandra. This database serves as a storage platform for events. AKS hosts the microservices that write to Cassandra.
+1. An application that uses Azure Cosmos DB for Apache Cassandra writes events to Cassandra. This database serves as a storage platform for events. AKS hosts the microservices that write to Cassandra.
 
 1. The change feed feature of Azure Cosmos DB processes events in real time.
 
@@ -56,13 +35,13 @@ Download a [Visio file][Visio version of architecture diagram] of this architect
 
 - [Event Hubs][Azure Event Hubs — A big data streaming platform and event ingestion service] is a fully managed streaming platform that can process millions of events per second. Event Hubs provides an [endpoint][Use Azure Event Hubs from Apache Kafka applications] for [Apache Kafka][Apache Kafka], a widely used open-source stream-processing platform. When organizations use the endpoint feature, they don't need to build and maintain Kafka clusters for stream processing. Instead, they can benefit from the fully managed Kafka implementation that Event Hubs offers.
 
-- [Azure Cosmos DB][Welcome to Azure Cosmos DB] is a multi-model NoSQL database that offers multi-master replication. Azure Cosmos DB supports open-source APIs for many databases, languages, and platforms. Examples include:
+- [Azure Cosmos DB][Welcome to Azure Cosmos DB] is a fully managed NoSQL and relational database that offers multi-master replication. Azure Cosmos DB supports open-source APIs for many databases, languages, and platforms. Examples include:
 
   - [Apache Cassandra][Apache Cassandra].
   - [Gremlin][The Gremlin Graph Traversal Machine and Language].
   - [MongoDB][MongoDB].
 
-  Through the [Cassandra API][Introduction to the Azure Cosmos DB Cassandra API], you can access Azure Cosmos DB data by using Apache Cassandra tools, languages, and drivers. Apache Cassandra is an open-source NoSQL database that's well suited for heavy write-intensive workloads.
+  Through the [Azure Cosmos DB for Apache Cassandra][Introduction to Azure Cosmos DB for Apache Cassandra], you can access Azure Cosmos DB data by using Apache Cassandra tools, languages, and drivers. Apache Cassandra is an open-source NoSQL database that's well suited for heavy write-intensive workloads.
 
 - [AKS][Azure Kubernetes Service (AKS) marketing page] is a highly available, secure, and fully managed Kubernetes service. [Kubernetes][Kubernetes] is a rapidly evolving open-source platform for managing containerized workloads. [AKS][Azure Kubernetes Service] hosts open-source big data processing engines such as [Apache Spark][Apache Spark]. By using AKS, you can run large-scale stream processing jobs in a managed environment.
 
@@ -74,15 +53,44 @@ Download a [Visio file][Visio version of architecture diagram] of this architect
 
 You can replace the open-source-compatible products and services in this solution with others. For details on open-source services available in Azure, see [Open source on Azure][Open source on Azure].
 
+## Scenario details
+
+Fully managed Azure data services that run open-source engines make up this streaming solution:
+
+- Azure Event Hubs offers a [Kafka][Apache Kafka] implementation for stream ingestion.
+- Azure Cosmos DB supports event storage in [Cassandra][Apache Cassandra].
+- Azure Kubernetes Service (AKS) hosts [Kubernetes][Kubernetes] microservices for stream processing.
+- Azure Database for PostgreSQL manages relational data storage in [PostgreSQL][PostgreSQL].
+- Azure Cache for Redis manages [Redis][Redis] in-memory data stores.
+
+Open-source technologies offer many benefits. For instance, organizations can use open-source technologies to:
+
+- Migrate existing workloads.
+- Tap into the broad open-source community.
+- Limit vendor lock-in.
+
+By making open-source technologies accessible, Azure tools and services help organizations take advantage of these benefits and develop the solutions of their choice.
+
+This solution uses fully managed [platform as a service (PaaS)][What is PaaS?] services. As a result, Microsoft handles patching, service-level agreement (SLA) maintenance, and other management tasks. Another benefit is the native integration with the Azure security infrastructure.
+
+### Potential use cases
+
+This solution applies to various scenarios:
+
+- Using Azure PaaS services to build modern streaming solutions that use open-source technologies
+- Migrating open-source stream processing solutions to Azure
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 Design and implement each service with best practices in mind. For guidelines on each service, see the [Microsoft documentation site](/). Also review the information in the following sections:
 
 ### Performance
 
-- Implement [connection pooling for Azure Database for PostgreSQL][Performance best practices for using Azure Database for PostgreSQL – Connection Pooling]. You can use a connection pooling library within the application. Or you can use a connection pooler such as [PgBouncer][PgBouncer] or [Pgpool][Pgpool Wiki]. Establishing a connection with PostgreSQL is an expensive operation. With connection pooling, you can avoid degrading application performance.
+- Implement [connection pooling for Azure Database for PostgreSQL][Performance best practices for using Azure Database for PostgreSQL – Connection Pooling]. You can use a connection pooling library within the application. Or you can use a connection pooler such as [PgBouncer][PgBouncer] or [Pgpool][Pgpool Wiki]. Establishing a connection with PostgreSQL is an expensive operation. With connection pooling, you can avoid degrading application performance. PgBouncer is [built-in][PgBouncer in Azure Database for PostgreSQL Flexible Server] in Azure Database for PostgreSQL Flexible Server.
 
-- Configure Azure Cosmos DB Cassandra API for best performance by using an appropriate [partitioning strategy][Partitioning in Azure Cosmos DB Cassandra API]. Decide whether to use a single field primary key, a compound primary key, or a composite partition key when partitioning tables.
+- Configure Azure Cosmos DB for Apache Cassandra for best performance by using an appropriate [partitioning strategy][Partitioning in Azure Cosmos DB for Apache Cassandra]. Decide whether to use a single field primary key, a compound primary key, or a composite partition key when partitioning tables.
 
 ### Scalability
 
@@ -95,16 +103,19 @@ Design and implement each service with best practices in mind. For guidelines on
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 - Use [Azure Private Link][What is Azure Private Link?] to make Azure services part of your virtual network. When you use Private Link, traffic between the services and your network flows over the Azure backbone without traversing the public internet. The Azure services in this solution support Private Link for selected SKUs.
 
-- Check your organization's security policies. With Azure Cosmos DB Cassandra API, keys provide access to resources like key spaces and tables. The Azure Cosmos DB instance stores those keys. Your security policies might require you to [propagate those keys to a key management service][Secure Azure Cosmos keys using Azure Key Vault] such as [Azure Key Vault][About Azure Key Vault]. Also make sure to [rotate keys][Key rotation and regeneration] according to your organization's policies.
+- Check your organization's security policies. With Azure Cosmos DB for Apache Cassandra, keys provide access to resources like key spaces and tables. The Azure Cosmos DB instance stores those keys. Your security policies might require you to [propagate those keys to a key management service][Secure Azure Cosmos keys using Azure Key Vault] such as [Azure Key Vault][About Azure Key Vault]. Also make sure to [rotate keys][Key rotation and regeneration] according to your organization's policies.
 
 ### Resiliency
 
 Consider using [Availability zones][Availability Zones] to protect business-critical applications from datacenter failures. This solution's services support availability zones for selected SKUs in [availability zone–enabled regions][Azure regions with Availability Zones]. For up-to-date information, review the [list of services that support availability zones][Azure Services that support Availability Zones].
 
-
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 To estimate the cost of this solution, use the [Azure pricing calculator][Azure pricing calculator]. Also keep these points in mind:
 
@@ -116,7 +127,7 @@ To estimate the cost of this solution, use the [Azure pricing calculator][Azure 
 
 - An [AKS][Azure Kubernetes Service (AKS) pricing] cluster consists of a set of nodes, or virtual machines (VMs), that run in Azure. The cost of the compute, storage, and networking components make up a cluster's primary costs.
 
-- [Azure Database for PostgreSQL][Azure Database for PostgreSQL pricing] is available in Single Server, Flexible Server, and Hyperscale (Citus) tiers. Different tiers cater to different scenarios, such as predicable, burstable, and high-performance workloads. The costs mainly depend on the choice of compute nodes and storage capacity.
+- [Azure Database for PostgreSQL][Azure Database for PostgreSQL pricing] is available in Single Server and Flexible Server tiers. Different tiers cater to different scenarios, such as predicable, burstable, and high-performance workloads. The costs mainly depend on the choice of compute nodes and storage capacity. For new workloads, consider choosing the Flexible Server tier since it has a wider range of [supported capabilities][Comparison between Single Server and Flexible Server] over the Single Server tier. 
 
 - [Azure Cache for Redis][Azure Cache for Redis pricing] is available in multiple tiers. These tiers accommodate caches that range from 250 megabytes to several terabytes. Besides size, other requirements also affect the choice of tier:
 
@@ -139,14 +150,14 @@ Keep these points in mind when you deploy this solution:
   - For information on building a basic Spark application, see [Connect your Apache Spark application with Azure Event Hubs][Connect your Apache Spark application with Azure Event Hubs].
   - To host the Spark application on AKS, see [Running Apache Spark jobs on AKS][Running Apache Spark jobs on AKS].
 
-- Consider using a Java application to write events to Cassandra. For more information, see [Quickstart: Build a Java app to manage Azure Cosmos DB Cassandra API data (v4 Driver)][Quickstart: Build a Java app to manage Azure Cosmos DB Cassandra API data (v4 Driver)].
+- Consider using a Java application to write events to Cassandra. For more information, see [Quickstart: Build a Java app to manage Azure Cosmos DB for Apache Cassandra data (v4 Driver)][Quickstart: Build a Java app to manage Azure Cosmos DB for Apache Cassandra data (v4 Driver)].
 
-- When you use the [Azure Cosmos DB change feed][Change feed in Azure Cosmos DB], refer to [Change feed in the Azure Cosmos DB API for Cassandra][Change feed in the Azure Cosmos DB API for Cassandra] for this information:
+- When you use the [Azure Cosmos DB change feed][Change feed in Azure Cosmos DB], refer to [Change feed in Azure Cosmos DB for Apache Cassandra][Change feed in Azure Cosmos DB for Apache Cassandra] for this information:
 
   - How to use query predicates in [Cassandra Query Language (CQL)][The Cassandra Query Language (CQL)] to query the change feed API
   - Sample code for a Java application
 
-- For information on processing the events that you've stored in Cassandra, refer to [Tutorial: Query data from a Cassandra API account in Azure Cosmos DB][Tutorial: Query data from a Cassandra API account in Azure Cosmos DB]. This article also contains sample Java code for using CQL commands to retrieve data from tables.
+- For information on processing the events that you've stored in Cassandra, refer to [Tutorial: Query data from Azure Cosmos DB for Apache Cassandra][Tutorial: Query data from Azure Cosmos DB for Apache Cassandra]. This article also contains sample Java code for using CQL commands to retrieve data from tables.
 
 - For information on writing data to Azure Database for PostgreSQL with a batch-oriented application, see [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL][Quickstart: Use Java and JDBC with Azure Database for PostgreSQL]. This article also contains sample Java code for storing data.
 
@@ -158,12 +169,12 @@ Keep these points in mind when you deploy this solution:
 
 Principal author:
 
-* [Ajit Ananthram](https://www.linkedin.com/in/ajit-ananthram) | Cloud Solution Architect
+- [Ajit Ananthram](https://www.linkedin.com/in/ajit-ananthram) | Cloud Solution Architect
 
 ## Next steps
 
 - [Apache Kafka developer guide for Azure Event Hubs][Apache Kafka developer guide for Azure Event Hubs]
-- [Frequently asked questions about the Cassandra API in Azure Cosmos DB][Frequently asked questions about the Cassandra API in Azure Cosmos DB]
+- [Frequently asked questions about Azure Cosmos DB for Apache Cassandra][Frequently asked questions about Azure Cosmos DB for Apache Cassandra]
 - [Best practices for building an application with Azure Database for PostgreSQL][Best practices for building an application with Azure Database for PostgreSQL]
 - [Azure Cache for Redis FAQ][Azure Cache for Redis FAQ]
 
@@ -205,16 +216,16 @@ To learn about related solutions, see the following information:
 [Cache-Aside pattern]: ../../patterns/cache-aside.yml
 [The Cassandra Query Language (CQL)]: https://cassandra.apache.org/doc/latest/cassandra/cql/index.html
 [Change feed in Azure Cosmos DB]: /azure/cosmos-db/change-feed
-[Change feed in the Azure Cosmos DB API for Cassandra]: /azure/cosmos-db/cassandra/cassandra-change-feed?tabs=java
+[Change feed in Azure Cosmos DB for Apache Cassandra]: /azure/cosmos-db/cassandra/cassandra-change-feed?tabs=java
 [Choose an analytical data store in Azure]: ../../data-guide/technology-choices/analytical-data-stores.md
 [Choose a data analytics technology in Azure]: ../../data-guide/technology-choices/analysis-visualizations-reporting.md
 [Connect your Apache Spark application with Azure Event Hubs]: /azure/event-hubs/event-hubs-kafka-spark-tutorial
 [Create Azure Cosmos containers and databases with autoscale throughput]: /azure/cosmos-db/provision-throughput-autoscale
 [Data streaming with AKS]: ../../solution-ideas/articles/data-streaming-scenario.yml
 [Event Hubs pricing]: https://azure.microsoft.com/pricing/details/event-hubs
-[Frequently asked questions about the Cassandra API in Azure Cosmos DB]: /azure/cosmos-db/cassandra/cassandra-faq
+[Frequently asked questions about Azure Cosmos DB for Apache Cassandra]: /azure/cosmos-db/cassandra/cassandra-faq
 [The Gremlin Graph Traversal Machine and Language]: https://tinkerpop.apache.org/gremlin.html
-[Introduction to the Azure Cosmos DB Cassandra API]: /azure/cosmos-db/cassandra/cassandra-introduction
+[Introduction to Azure Cosmos DB for Apache Cassandra]: /azure/cosmos-db/cassandra/cassandra-introduction
 [Introduction to Azure Data Lake Storage Gen2]: /azure/storage/blobs/data-lake-storage-introduction
 [Key rotation and regeneration]: /azure/cosmos-db/secure-access-to-data?tabs=using-primary-key#key-rotation
 [Kubernetes]: https://kubernetes.io
@@ -223,19 +234,19 @@ To learn about related solutions, see the following information:
 [Overview of Event Hubs Dedicated]: /azure/event-hubs/event-hubs-dedicated-overview
 [Overview of Event Hubs Premium (Preview)]: /azure/event-hubs/event-hubs-premium-overview
 [Parquet]: https://parquet.apache.org
-[Partitioning in Azure Cosmos DB Cassandra API]: /azure/cosmos-db/cassandra/cassandra-partitioning
+[Partitioning in Azure Cosmos DB for Apache Cassandra]: /azure/cosmos-db/cassandra/cassandra-partitioning
 [Performance best practices for using Azure Database for PostgreSQL – Connection Pooling]: https://azure.microsoft.com/blog/performance-best-practices-for-using-azure-database-for-postgresql-connection-pooling
 [PgBouncer]: https://www.pgbouncer.org
 [Pgpool Wiki]: https://www.pgpool.net/mediawiki/index.php/Main_Page
 [PostgreSQL]: https://www.postgresql.org
-[Quickstart: Build a Java app to manage Azure Cosmos DB Cassandra API data (v4 Driver)]: /azure/cosmos-db/cassandra/manage-data-java-v4-sdk
+[Quickstart: Build a Java app to manage Azure Cosmos DB for Apache Cassandra data (v4 Driver)]: /azure/cosmos-db/cassandra/manage-data-java-v4-sdk
 [Quickstart: Data streaming with Event Hubs using the Kafka protocol]: /azure/event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs
 [Quickstart: Use Azure Cache for Redis in Java]: /azure/azure-cache-for-redis/cache-java-get-started
-[Quickstart: Use Java and JDBC with Azure Database for PostgreSQL]: /azure/postgresql/connect-java
+[Quickstart: Use Java and JDBC with Azure Database for PostgreSQL]: /azure/postgresql/flexible-server/connect-java?tabs=passwordless
 [Redis]: https://redis.io
 [Running Apache Spark jobs on AKS]: /azure/aks/spark-job
 [Secure Azure Cosmos keys using Azure Key Vault]: /azure/cosmos-db/access-secrets-from-keyvault
-[Tutorial: Query data from a Cassandra API account in Azure Cosmos DB]: /azure/cosmos-db/cassandra/query-data
+[Tutorial: Query data from Azure Cosmos DB for Apache Cassandra]: /azure/cosmos-db/cassandra/query-data
 [Use Azure Event Hubs from Apache Kafka applications]: /azure/event-hubs/event-hubs-for-kafka-ecosystem-overview
 [Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1874059-open-source-data-engine-stream-processing-architecture.vsdx
 [Welcome to Azure Cosmos DB]: /azure/cosmos-db/introduction
@@ -244,3 +255,5 @@ To learn about related solutions, see the following information:
 [What is Azure Private Link?]: /azure/private-link/private-link-overview
 [What is PaaS?]: https://azure.microsoft.com/overview/what-is-paas/
 [What is Power BI?]: /power-bi/fundamentals/power-bi-overview
+[Comparison between Single Server and Flexible Server]: /azure/postgresql/flexible-server/concepts-compare-single-server-flexible-server#comparison-table
+[PgBouncer in Azure Database for PostgreSQL Flexible Server]: /azure/postgresql/flexible-server/concepts-pgbouncer

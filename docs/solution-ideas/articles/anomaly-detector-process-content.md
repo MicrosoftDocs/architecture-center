@@ -8,7 +8,7 @@ This article presents an architecture for a near real-time implementation of an
 
 ### Dataflow
 
-1. Time-series data can come from multiple sources, such as Azure Database for MySQL, Blob storage, Event Hubs, Cosmos DB, SQL Database, and Azure Database for PostgreSQL.
+1. Time-series data can come from multiple sources, such as Azure Database for MySQL, Blob storage, Event Hubs, Azure Cosmos DB, SQL Database, and Azure Database for PostgreSQL.
 1. Data is ingested into compute from various storage sources to be monitored by Anomaly Detector.
 1. Databricks helps aggregate, sample, and compute the raw data to generate the time with the detected results. Databricks is capable of processing stream and static data. Stream analytics and Azure Synapse can be alternatives based on the requirements.
 1. The anomaly detector API detects anomalies and returns the results to compute.
@@ -81,6 +81,16 @@ To explore the cost of running this scenario, see the pre-filled calculator with
 We've provided three sample cost profiles based on the amount of traffic (we assume all images are 100 kb in size):
 
 * [Example calculator][example-pricing]: this pricing example is a calculator with all services in this architecture, except Power BI and custom alerting solution.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Ashish Chauhan](https://www.linkedin.com/in/a69171115/) | Senior Cloud Solution Architect
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

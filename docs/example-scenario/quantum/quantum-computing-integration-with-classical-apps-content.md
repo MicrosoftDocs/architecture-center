@@ -28,7 +28,7 @@ The tightly coupled approach is preferred in these cases:
 
 ### Architecture
 
-:::image type="content" border="false" source="media/tightly-coupled-quantum-computing-job-architecture.png" alt-text="Architecture diagram that shows a hybrid app that contains a tightly coupled quantum computing job.":::
+:::image type="content" alt-text="Architecture diagram that shows a hybrid app that contains a tightly coupled quantum computing job." source="media/tightly-coupled-quantum-computing-job-architecture.svg" lightbox="media/tightly-coupled-quantum-computing-job-architecture.svg":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/tightly-coupled-quantum.pptx) of this architecture.*
 
@@ -61,7 +61,7 @@ For the surrounding Azure services, the usual availability considerations apply:
 
 ### Security
 
-Unlike the architecture for the [loosely coupled alternative](loosely-coupled-quantum-computing-job.yml), the architecture presented here is based on the assumption that only one client accesses the Azure Quantum workspace. This scenario leads to the following configurations:
+Unlike the architecture for the [loosely coupled alternative](/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps), the architecture presented here is based on the assumption that only one client accesses the Azure Quantum workspace. This scenario leads to the following configurations:
 
 * Because the client is known, you can implement authentication via [managed identity](/azure/active-directory/managed-identities-azure-resources/overview), associated to the application.
 * You can implement throttling of requests and caching of results in the client itself.
@@ -79,9 +79,10 @@ The loosely coupled approach is preferred in these cases:
 
 ### Architecture
 
-:::image type="content" border="false" source="media/loosely-coupled-quantum-computing-job-architecture.png" alt-text="Architecture diagram that shows a hybrid app that contains a loosely coupled quantum computing job.":::
+:::image type="content" alt-text="Architecture diagram that shows a hybrid app that contains a loosely coupled quantum computing job." source="media/loosely-coupled-quantum-computing-job-architecture.svg" lightbox="media/loosely-coupled-quantum-computing-job-architecture.svg":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/loosely-coupled-quantum.pptx) of this architecture.*
+
 ### Dataflow
 1. A signed-in user triggers quantum job execution via a classical application.
 1. The classical application calls the custom job API to submit the job.
@@ -121,7 +122,7 @@ Application performance depends on the availability and performance of the under
 
 ### Security
 
-Unlike the architecture for the [tightly coupled alternative](tightly-coupled-quantum-computing-job.yml), the architecture presented here is based on the assumption that multiple clients access the Azure Quantum workspace via the API. This scenario leads to the following configurations:
+Unlike the architecture for the [tightly coupled alternative](/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps), the architecture presented here is based on the assumption that multiple clients access the Azure Quantum workspace via the API. This scenario leads to the following configurations:
 
 * Clients must authenticate to the API. You can implement this authentication by using [authentication policies](/azure/api-management/api-management-authentication-policies).
 * You can implement authentication of the Azure functions via [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) associated with the functions. You can use these identities to authenticate to the Azure Quantum workspace.
@@ -160,7 +161,7 @@ In-depth guidance for DevOps and quantum computing can be found at [DevOps for q
 
 #### Architecture
 
-:::image type="content" border="false" source="media/cicd-for-quantum-computing-jobs.png" alt-text="Architecture diagram that shows a classical CI/CD pipeline with Azure Quantum incorporated into it.":::
+:::image type="content" alt-text="Architecture diagram that shows a classical CI/CD pipeline with Azure Quantum incorporated into it." source="media/cicd-for-quantum-computing-jobs.svg" lightbox="media/cicd-for-quantum-computing-jobs.svg":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/cicd-quantum.pptx) of this architecture.*
 
@@ -188,7 +189,7 @@ As an alternative, you can use GitHub repositories and GitHub actions to impleme
 
 The solution uses the following other components:
 
-* A client application orchestrates the quantum job. You can implement integration by using a [tightly coupled](../../example-scenario/quantum/tightly-coupled-quantum-computing-job.yml) or a [loosely coupled](../../example-scenario/quantum/loosely-coupled-quantum-computing-job.yml) approach.
+* A client application orchestrates the quantum job. You can implement integration by using a [tightly coupled](/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps) or a [loosely coupled](/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps) approach.
 * [Azure Quantum](https://azure.microsoft.com/services/quantum) provides a [workspace](/azure/quantum/how-to-create-workspace) for assets that are associated with running quantum computing applications. Jobs are run on quantum simulators, quantum hardware, or optimization solvers, depending on the provider that you choose.
 * [Azure Active Directory](https://azure.microsoft.com/services/active-directory) coordinates user authentication and protects access to the Azure Quantum workspace.
 * [Azure Key Vault](https://azure.microsoft.com/services/key-vault) safeguards and maintains control of keys and other secrets, like the quantum workspace name.
@@ -205,6 +206,16 @@ For the Azure Quantum service, consider these points:
 * Other optimization providers are available on Azure Marketplace. For pricing details, see the applicable reference page listed in [Optimization providers on Azure Quantum](/azure/quantum/qio-target-list).
 * Quantum computing providers can be consumed via an Azure Marketplace offering. Pricing depends on the type of resource (simulator or hardware), the SKU, and your usage. For details, see the reference page for the provider needed for your scenario. These reference pages are listed in [Quantum computing providers on Azure Quantum](/azure/quantum/qc-target-list).
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributor.* 
+
+Principal author: 
+
+ - [Holger Sirtl](https://www.linkedin.com/in/hsirtl) | Senior Cloud Solution Architect
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.* 
+
 ## Next steps
 
 * For an overview of Microsoft Quantum, a full-stack, open-cloud quantum computing ecosystem, see [Microsoft Quantum](https://azure.microsoft.com/solutions/quantum-computing) and complete the [Quantum computing foundations](/learn/paths/quantum-computing-fundamentals) learning path.
@@ -216,4 +227,4 @@ For the Azure Quantum service, consider these points:
 
 * [Operational excellence principles](/azure/architecture/framework/devops/principles)
 * [Asynchronous Request-Reply pattern](../../patterns/async-request-reply.yml)
-* [Loosely coupled quantum computing](loosely-coupled-quantum-computing-job.yml)
+* [Loosely coupled quantum computing](/azure/architecture/example-scenario/quantum/quantum-computing-integration-with-classical-apps)

@@ -4,7 +4,7 @@ Learn how to create a CI/CD pipeline to manage your Power Platform Application l
 
 ## Architecture
 
-![Diagram showing continuous integration and continuous deployment pipeline to manage your Power Platform Application.](../media/azure-devops-continuous-integration-and-continuous-deployment-for-power-apps.png)
+[ ![Diagram showing continuous integration and continuous deployment pipeline to manage your Power Platform Application.](../media/devops-cicd-for-power-apps.svg)](../media/devops-cicd-for-power-apps.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/devops-cicd-for-power-apps.vsdx) of this architecture.*
 
@@ -75,10 +75,10 @@ Additional CI/CD architectures:
 * [CI/CD for Azure VMs](/azure/architecture/solution-ideas/articles/cicd-for-azure-vms)
 * [Immutable infrastructure CI/CD using Jenkins and Terraform on Azure virtual architecture](/azure/architecture/solution-ideas/articles/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview)
 * [Gridwich CI/CD pipeline](/azure/architecture/reference-architectures/media-services/gridwich-cicd)
-* [CI/CD pipeline for container-based workloads](/azure/architecture/example-scenario/apps/devops-with-aks)
+* [CI/CD pipeline for container-based workloads](/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops)
 * [CI/CD for containers](/azure/architecture/solution-ideas/articles/cicd-for-containers)
 * [Container CI/CD using Jenkins and Kubernetes on Azure Kubernetes Service (AKS)](/azure/architecture/solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service)
-* [Design a CI/CD pipeline using Azure DevOps](/azure/architecture/example-scenario/apps/devops-dotnet-webapp)
+* [Design a CI/CD pipeline using Azure DevOps](/azure/architecture/example-scenario/apps/devops-dotnet-baseline)
 * [CI/CD for Azure Web Apps](/azure/architecture/solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps)
 * [Java CI/CD using Jenkins and Azure Web Apps](/azure/architecture/solution-ideas/articles/java-cicd-using-jenkins-and-azure-web-apps)
 * [Build a CI/CD pipeline for chatbots with ARM templates](/azure/architecture/example-scenario/apps/devops-cicd-chatbot)

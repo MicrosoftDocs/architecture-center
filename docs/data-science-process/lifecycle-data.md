@@ -4,7 +4,7 @@ description: The goals, tasks, and deliverables for the data acquisition and und
 author: marktab
 manager: marktab
 editor: marktab
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/31/2022
 ms.author: tdsp
 ms.custom:
@@ -63,6 +63,16 @@ The following are the deliverables in this stage:
    * [Data quality report](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md): This report includes data summaries, the relationships between each attribute and target, variable ranking, and more.
    * **Solution architecture**: The solution architecture can be a diagram or description of your data pipeline that you use to run scoring or predictions on new data after you have built a model. It also contains the pipeline to retrain your model based on new data. Store the document in the [Project](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) directory when you use the TDSP directory structure template.
    * **Checkpoint decision**: Before you begin full-feature engineering and model building, you can reevaluate the project to determine whether the value expected is sufficient to continue pursuing it. You might, for example, be ready to proceed, need to collect more data, or abandon the project as the data does not exist to answer the question.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

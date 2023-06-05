@@ -3,10 +3,10 @@ metadata:
   title: Master data management with Azure and CluedIn
   titleSuffix: Azure Architectures
   description: Use CluedIn eventual connectivity data integration to blend data from many siloed data sources and prepare it for analytics and business operations.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: Oliver.Kaae
   ms.date: 07/06/2022
-  ms.topic: conceptual
+  ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.custom:
@@ -22,6 +22,7 @@ products:
   - azure-data-factory
   - azure-sql-database
   - azure-synapse-analytics
+  - azure-monitor
 name: Master data management with Azure and CluedIn
 summary: Use the CluedIn eventual connectivity data integration technique to seamlessly blend data from many siloed data sources into Azure data management and analytics services.
 thumbnailUrl: /azure/architecture/browse/thumbs/cluedin-architecture-thumb.png

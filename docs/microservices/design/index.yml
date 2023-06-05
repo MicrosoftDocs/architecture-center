@@ -2,7 +2,7 @@
 metadata:
   title: Design a microservices architecture
   description: Learn how to design and build a microservices architecture on Azure by following a reference implementation that illustrates best practices.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/26/2022
   ms.topic: conceptual

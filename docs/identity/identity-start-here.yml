@@ -3,10 +3,10 @@ metadata:
   title: Identity architecture design
   titleSuffix: Azure Architecture Center
   description: Control access to your apps and data by designing and implementing an identity solution. See resources with guidelines, best practices, and recommendations.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/26/2022
-  ms.topic: conceptual 
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
   ms.custom: fcp

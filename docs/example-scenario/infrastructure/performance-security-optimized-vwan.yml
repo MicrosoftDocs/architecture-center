@@ -3,10 +3,10 @@ metadata:
   title: Virtual WAN architecture optimized for department-specific requirements
   titleSuffix: Azure Example Scenarios
   description: Learn how to design a single network that has varying security and performance requirements.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: jopoetzi 
   ms.date: 06/17/2022
-  ms.topic: conceptual
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom: fcp

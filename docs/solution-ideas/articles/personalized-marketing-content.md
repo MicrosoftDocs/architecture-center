@@ -4,8 +4,9 @@ This architecture shows how you can create a solution personalizing offers with 
 
 ## Architecture
 
-![Architecture diagram: personalizing offers with machine learning and near real time analytics.](../media/personalized-marketing.png)
-*Download an [SVG](../media/personalized-marketing.svg) of this architecture.*
+[ ![Architecture diagram: personalizing offers with machine learning and near real time analytics.](../media/personalized-marketing.svg)](../media/personalized-marketing.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/personalized-marketing.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -16,7 +17,7 @@ This architecture shows how you can create a solution personalizing offers with 
 * [Azure Functions](https://azure.microsoft.com/services/functions) takes in user clickstream data from websites and reads existing user history from Azure Cosmos DB. These data are then run through the Machine Learning web service or used along with the cold-start data in Azure Cache for Redis to obtain product-affinity scores. Product-affinity scores are used with the personalized-offer logic to determine the most relevant offer to present to the user.
 * [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) helps you design, test, operationalize, and manage predictive analytics solutions in the cloud.
 * [Azure Cache for Redis](https://azure.microsoft.com/services/cache) stores pre-computed cold-start product affinity scores for users without history.
-* [Power BI](https://powerbi.microsoft.com) enables visualization of user activity data and offers presented by reading in data from Cosmos DB.
+* [Power BI](https://powerbi.microsoft.com) enables visualization of user activity data and offers presented by reading in data from Azure Cosmos DB.
 
 ### Components
 

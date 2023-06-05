@@ -1,0 +1,29 @@
+### YamlMime:Architecture
+metadata:
+  title: Enterprise integration with message broker and events
+  description: This example architecture integrates enterprise backend systems, using message broker and events to decouple services for greater scalability and reliability.
+  author: mattfarm
+  ms.author: mattfarm
+  ms.reviewer: jonfan, estfan, LADocs
+  ms.date: 11/18/2022
+  ms.topic: example-scenario
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - integration
+    - developer-tools
+  ms.custom:
+    - integration-services
+    - example-scenario
+    - internal-intro
+name: Enterprise integration using message broker and events
+azureCategories:
+  - integration
+  - developer-tools
+summary: This example architecture integrates enterprise backend systems, using message broker and events to decouple services for greater scalability and reliability.
+products:
+  - azure-event-grid
+  - azure-service-bus
+thumbnailUrl: /azure/architecture/browse/thumbs/enterprise-integration-message-broker-events.png
+content: |
+   [!include[](queues-events-content.md)]

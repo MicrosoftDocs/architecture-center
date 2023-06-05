@@ -50,6 +50,16 @@ The following steps describe a typical workflow that uses an IoT Edge blob stora
    - Optionally, the model also stores this metadata in the local database for the edge user interface.
    - The images themselves continue to store in the IoT Edge blob module and sync to Azure Blob Storage.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Keith Hill](https://www.linkedin.com/in/keith-hill-072060102/) | Senior PM Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 > [!div class="nextstepaction"]

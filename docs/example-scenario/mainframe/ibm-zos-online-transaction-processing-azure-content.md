@@ -117,6 +117,16 @@ This architecture is ideal for OLTP workloads that have these characteristics:
 
 - Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your implementation.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3/) | Principal Engineering Architecture Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - For more information, please contact datasqlninja@microsoft.com.
@@ -127,7 +137,7 @@ This architecture is ideal for OLTP workloads that have these characteristics:
 ### Related architectures
 
 - [High-volume batch transaction processing](./process-batch-transactions.yml)
-- [IBM z/OS mainframe migration with Asysco AMT](./asysco-zos-migration.yml)
+- [IBM z/OS mainframe migration with Avanade AMT](./asysco-zos-migration.yml)
 - [Micro Focus Enterprise Server on Azure VMs](./micro-focus-server.yml)
 - [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](../../reference-architectures/zos/refactor-zos-coupling-facility.yml)
 - [Mainframe access to Azure databases](../../solution-ideas/articles/mainframe-access-azure-databases.yml)

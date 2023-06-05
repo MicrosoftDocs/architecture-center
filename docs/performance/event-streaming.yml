@@ -2,7 +2,7 @@
 metadata:
   title: Performance tuning - Event streaming
   description: Use load testing to tune the performance of an event streaming application. Fix partitioning issues and do parallel writes.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/28/2022
   ms.topic: conceptual

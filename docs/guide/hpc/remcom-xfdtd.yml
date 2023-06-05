@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: Deploy Remcom XFdtd on an Azure virtual machine
+  description: Find out how the Remcom XFdtd electromagnetic simulation tool performs on an Azure virtual machine (VM).
+  author: gauharjunnarkar
+  ms.author: gajunnar
+  ms.date: 10/18/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - compute
+products:
+  - azure-virtual-machines
+  - azure-virtual-network
+name: Deploy Remcom XFdtd on a virtual machine
+summary: Find out how Remcom XFdtd performs on an Azure VM.
+thumbnailUrl: /azure/architecture/browse/thumbs/xfdtd-thumb.png
+content: |
+  [!include[](remcom-xfdtd-content.md)]

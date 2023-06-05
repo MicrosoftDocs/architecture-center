@@ -3,10 +3,10 @@ metadata:
   title: DevTest Image Factory
   titleSuffix: Azure Solution Ideas
   description: Create, maintain, and distribute custom images with the DevTest Image Factory, an automated image development and management solution from Azure DevTest Labs.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 05/26/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -21,7 +21,6 @@ metadata:
     - Create Custom Image
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/dev-test-image-factory"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/dev-test-image-factory.png
 name: DevTest Image Factory
 azureCategories:
   - devops

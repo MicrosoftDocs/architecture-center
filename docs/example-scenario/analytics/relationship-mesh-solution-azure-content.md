@@ -1,18 +1,10 @@
-Building strong relationships with customers is key to improving customer retention, attracting loyalty, and increasing revenue. Companies rely heavily on platforms like customer relationship management (CRM) systems and Microsoft 365 to help them maintain customer relationships. This solution brings data on the customer and seller relationship from various systems into a user-friendly dashboard. The dashboard provides actionable data about customer relationships at the level of both the seller account portfolio and individual account. You can use these insights to manage and improve interactions at different stages in a customer-engagement life cycle.
+This solution brings data on the customer and seller relationship from various systems into a user-friendly dashboard. The dashboard provides actionable data about customer relationships at the level of both the seller account portfolio and individual account. You can use these insights to manage and improve interactions at different stages in a customer-engagement life cycle.
 
 *Apache®, [Apache Spark](https://spark.apache.org/), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
-## Potential use cases
-
-You can use this solution to ingest data from Microsoft 365 and other systems to obtain actionable information on the relationship between sellers and their accounts. Then you can create plans to strengthen these relationships. Correlating this data provides insights on:
-
-- The strength of multiple sellers’ relationships within an account.
-- The strength of a seller’s relationship with individual external contacts within an account.
-- The frequency and method of communication between seller and external contact for high-priority accounts.
-
 ## Architecture
 
-:::image type="content" source="./media/relationship-mesh-saa-architecture.png" alt-text="Diagram that shows a relationship mesh architecture in Azure." lightbox="./media/relationship-mesh-saa-architecture.png":::
+:::image type="content" source="./media/relationship-mesh-saa-architecture.svg" alt-text="Diagram that shows a relationship mesh architecture in Azure." lightbox="./media/relationship-mesh-saa-architecture.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/relationship-mesh-saa-architecture.vsdx) of this architecture.*
 
@@ -32,6 +24,18 @@ You can use this solution to ingest data from Microsoft 365 and other systems to
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) provides a scalable and secure data lake for your high-performance analytics workloads.
 - [Microsoft Graph Data Connect](https://azure.microsoft.com/services/graph-data-connect) enables you to copy selected Microsoft 365 datasets into Azure data stores in a secure and scalable way.
 - [Microsoft Power BI](https://azure.microsoft.com/en-us/services/developer-tools/power-bi) can help you turn your data into coherent, visually immersive, and interactive insights. You'll use it to visualize customer profiles and metrics.
+
+## Scenario details
+
+Building strong relationships with customers is key to improving customer retention, attracting loyalty, and increasing revenue. Companies rely heavily on platforms like customer relationship management (CRM) systems and Microsoft 365 to help them maintain customer relationships. This solution brings data on the customer and seller relationship from various systems into a user-friendly dashboard. 
+
+### Potential use cases
+
+You can use this solution to ingest data from Microsoft 365 and other systems to obtain actionable information on the relationship between sellers and their accounts. Then you can create plans to strengthen these relationships. Correlating this data provides insights on:
+
+- The strength of multiple sellers’ relationships within an account.
+- The strength of a seller’s relationship with individual external contacts within an account.
+- The frequency and method of communication between seller and external contact for high-priority accounts.
 
 ## Considerations
 

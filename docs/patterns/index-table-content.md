@@ -12,7 +12,7 @@ Many relational database management systems support secondary indexes. A seconda
 
 You can create as many secondary indexes as you need to support the different queries that your application performs. For example, in a Customers table in a relational database where the Customer ID is the primary key, it's beneficial to add a secondary index over the town field if the application frequently looks up customers by the town where they reside.
 
-However, although secondary indexes are common in relational systems, most NoSQL data stores used by cloud applications don't provide an equivalent feature.
+However, although secondary indexes are common in relational systems, some NoSQL data stores used by cloud applications don't provide an equivalent feature.
 
 ## Solution
 

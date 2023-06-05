@@ -3,10 +3,10 @@ metadata:
   title: Customer support and feedback analysis
   titleSuffix: Azure Solution Ideas
   description: Use knowledge mining to help customer support teams quickly find answers to customer questions or assess customer sentiment at scale.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
-  ms.date: 07/22/2022
-  ms.topic: conceptual
+  ms.date: 11/23/2022
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -15,7 +15,6 @@ metadata:
     - acom-architecture
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/knowledge-mining-customer-feedback-and-analytics.png
 name: Knowledge mining for customer support and feedback analysis
 azureCategories:
   - ai-machine-learning
@@ -24,6 +23,6 @@ products:
   - azure-cognitive-search
   - azure-text-analytics
   - azure-translator
-thumbnailUrl: /azure/architecture/browse/thumbs/knowledge-mining-customer-feedback-and-analytics.png
+thumbnailUrl: /azure/architecture/browse/thumbs/knowledge-mining-customer-feedback-and-analytics-thumbnail.png
 content: |
   [!include[](customer-feedback-and-analytics-content.md)]

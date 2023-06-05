@@ -3,10 +3,10 @@ metadata:
   title: 3D video rendering
   titleSuffix: Azure Architecture Center
   description: Use Azure Batch to manage existing Windows or Linux applications, including Autodesk Maya and Blender, to run large-scale 3D video render jobs.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures 
   ms.date: 08/22/2022
-  ms.topic: conceptual
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.category:
@@ -16,7 +16,6 @@ metadata:
     - hpc
     - media
     - example-scenario
-  social_image_url: /azure/architecture/example-scenario/infrastructure/media/architecture-video-rendering.png
 name: 3D video rendering
 azureCategories:
   - compute

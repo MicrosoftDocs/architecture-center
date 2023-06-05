@@ -3,10 +3,10 @@ metadata:
   title: "IaaS: Web app with relational database"
   titleSuffix: Azure Architecture Center
   description: Learn about the best practices for applying Availability Zones to a web application and Microsoft SQL Server database hosted on virtual machines (VMs).
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/11/2022
-  ms.topic: conceptual
+  ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
 azureCategories:
@@ -18,7 +18,7 @@ products:
   - azure-load-balancer
   - azure-traffic-manager
 name: "IaaS: Web application with relational database"
-summary: This reference architecture shows best practices for applying Availability Zones to a web application and Microsoft SQL Server database hosted on virtual machines (VMs) known as a zonal deployment.
+summary: This reference architecture shows best practices for applying availability zones to a web application and Microsoft SQL Server database hosted on virtual machines (VMs) known as a zonal deployment.
 thumbnailUrl: /azure/architecture/browse/thumbs/ref-arch-iaas.png
 content: |
   [!include[](ref-arch-iaas-web-and-db-content.md)]

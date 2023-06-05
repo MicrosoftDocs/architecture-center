@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: High-availability Kubernetes with Azure Stack Hub
+  titleSuffix: Azure Architecture Center
+  description: Learn how to use Azure Stack Hub to create a high-availability Kubernetes cluster solution on Azure.
+  author: ronmiab
+  ms.author: robess
+  ms.date: 12/01/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - hybrid
+  - containers
+products:
+  - azure-stack-hub
+  - azure-kubernetes-service
+  - azure-virtual-network
+  - azure-container-registry
+  - azure-pipelines
+name: Build a high-availability Kubernetes cluster
+summary: Learn how to use Azure Stack Hub to create a high-availability Kubernetes cluster solution on Azure.
+thumbnailUrl: /azure/architecture/browse/thumbs/high-availability-kubernetes-thumb.png
+content: |
+  [!include[](high-availability-kubernetes-content.md)]

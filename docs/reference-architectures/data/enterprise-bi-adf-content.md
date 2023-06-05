@@ -8,7 +8,7 @@ This reference architecture shows how to perform incremental loading in an [extr
 
 *Download a [Visio file](https://arch-center.azureedge.net/enterprise-bi-adf.vsdx) of this architecture.*
 
-This architecture builds on the one shown in [Enterprise BI with Azure Synapse](./enterprise-bi-synapse.yml), but adds some features that are important for enterprise data warehousing scenarios.
+This architecture builds on the one shown in [Enterprise BI with Azure Synapse](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse), but adds some features that are important for enterprise data warehousing scenarios.
 
 - Automation of the pipeline using Data Factory.
 - Incremental loading.
@@ -45,13 +45,24 @@ The architecture consists of the following services and components.
 
 Data Factory can also use Azure AD to authenticate to Azure Synapse, by using a service principal or Managed Service Identity (MSI). For simplicity, the example deployment uses SQL Server authentication.
 
+### Components
+
+- [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs)
+- [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics/#overview)
+- [Azure Data Factory](https://azure.microsoft.com/products/data-factory)
+- [Azure Analysis Services](https://azure.microsoft.com/products/analysis-services)
+- [Power BI](https://powerbi.microsoft.com)
+- [Azure Active Directory](https://azure.microsoft.com/products/active-directory)
+
+## Scenario details
+
 ### Data pipeline
 
 In [Azure Data Factory][adf], a pipeline is a logical grouping of activities used to coordinate a task &mdash; in this case, loading and transforming data into Azure Synapse.
 
 This reference architecture defines a parent pipeline that runs a sequence of child pipelines. Each child pipeline loads data into one or more data warehouse tables.
 
-![Screenshot of the pipeline in Azure Data Factory](./images/adf-pipeline.png)
+![Screenshot of the pipeline in Azure Data Factory.](./images/adf-pipeline.png)
 
 ## Recommendations
 
@@ -268,13 +279,21 @@ To the deploy and run the reference implementation, follow the steps in the [Git
 - An Azure Analysis Services instance.
 - Azure Data Factory and the Data Factory pipeline for the ELT job.
 
+## Next steps
+
+- [Introduction to Azure Synapse Analytics](/training/modules/introduction-azure-synapse-analytics)
+- [Get Started with Azure Synapse Analytics](/azure/synapse-analytics/get-started)
+- [Introduction to Azure Data Factory](/training/modules/intro-to-azure-data-factory)
+- [What is Azure Data Factory?](/azure/data-factory/introduction)
+- [Azure Data Factory tutorials](/azure/data-factory/data-factory-tutorials)
+
 ## Related resources
 
 You may want to review the following [Azure example scenarios](/azure/architecture/example-scenario) that demonstrate specific solutions using some of the same technologies:
 
 - [Data warehousing and analytics for sales and marketing](../../example-scenario/data/data-warehouse.yml)
 - [Hybrid ETL with existing on-premises SSIS and Azure Data Factory](../../example-scenario/data/hybrid-etl-with-adf.yml)
-- [Enterprise BI in Azure with Azure Synapse](./enterprise-bi-synapse.yml).
+- [Enterprise BI in Azure with Azure Synapse](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse).
 
 <!-- links -->
 

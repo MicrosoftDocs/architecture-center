@@ -3,10 +3,10 @@ metadata:
   title: Retail and e-commerce using Azure Database for PostgreSQL
   titleSuffix: Azure Architecture Center
   description: Build secure and scalable e-commerce solutions that meet customer and business demands by using Azure Database for PostgreSQL.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 08/24/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -21,7 +21,6 @@ metadata:
     - azure
     - solutions
     - "https://azure.microsoft.com/solutions/architecture/retail-and-ecommerce-using-azure-database-for-postgresql"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/retail-and-ecommerce-using-azure-database-for-postgresql.svg
 name: Retail and e-commerce using Azure Database for PostgreSQL
 azureCategories:
   - databases
@@ -33,6 +32,6 @@ products:
   - azure-hdinsight
   - azure-search
   - azure-storage
-thumbnailUrl: /azure/architecture/browse/thumbs/retail-and-ecommerce-using-azure-database-for-postgresql.svg
+thumbnailUrl: /azure/architecture/browse/thumbs/retail-and-ecommerce-using-azure-database-for-postgresql.png
 content: |
    [!include[](retail-and-ecommerce-using-azure-database-for-postgresql-content.md)]

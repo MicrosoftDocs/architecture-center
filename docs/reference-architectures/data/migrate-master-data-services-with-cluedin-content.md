@@ -1,14 +1,12 @@
-Master Data has been given the task to solve data quality, data governance, and mastering of the most important business data within a company. If you are currently using an on-premises or cloud-hosted SQL master data services (MDS) instance or instances, then the following scenario simplifies the experience of moving to a native Azure master data management solution by CluedIn.
-
 The architecture encapsulates many pillars of master data management (MDM) into a coherent, consistent, end-to-end MDM solution. CluedIn has introduced a *zero-modeling* MDM approach that has been proven to accelerate MDM projects and increase success rates of the MDM initiatives.
-
-CluedIn provides a side-by-side feature parity to SQL MDS that provides user-familiarity for data stewards and MDM teams to easily migrate their daily workloads from MDS to CluedIn. In addition, CluedIn provides many more valuable data master functionalities, including a foundation of ready-for-insight data into your business.
 
 ## Architecture
 
 The following diagram demonstrates the CluedIn architectural structure and data flow.
 
-[![Diagram showing CluedIn architectural structure.](images/migrate-mds-to-azure-with-cluedin.png)](images/migrate-mds-to-azure-with-cluedin.png#lightbox)
+[![Diagram showing CluedIn architectural structure.](images/migrate-mds-to-azure-with-cluedin.svg)](images/migrate-mds-to-azure-with-cluedin.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/migrate-mds-to-azure-with-cluedin.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -50,7 +48,13 @@ You can also extend the platform to alternative scenarios to the core features o
 
 In this version of CluedIn, extending the platform is all done with native Azure Services. All events are exposed on the Event Hub, for your developers to interact with them in any way that they want. Azure Data Factory can be used to push data to CluedIn, which offers support to bring in data across all of the different Azure Services into CluedIn. Azure Functions can be used to subscribe to the Event Hubs, in which you can create your customizations in any of the supported languages in Azure Functions.
 
-## CluedIn features
+## Scenario details
+
+Master Data has been given the task to solve data quality, data governance, and mastering of the most important business data within a company. If you are currently using an on-premises or cloud-hosted SQL master data services (MDS) instance or instances, then the following scenario simplifies the experience of moving to a native Azure master data management solution by CluedIn.
+
+CluedIn provides a side-by-side feature parity to SQL MDS that provides user-familiarity for data stewards and MDM teams to easily migrate their daily workloads from MDS to CluedIn. In addition, CluedIn provides many more valuable data master functionalities, including a foundation of ready-for-insight data into your business.
+
+### CluedIn features
 
 Master data services traditionally contain the following main functionality:
 
@@ -74,7 +78,7 @@ CluedIn also supports migrating data change history, and it can automatically bu
 
 CluedIn natively supports the Common Data Model / Dataverse. In other words,  Power Apps, Power Automate, Power BI, virtual chatbots, and Microsoft Dynamics users can all natively utilize data from CluedIn, without the need for any extra setup or integration.
 
-### CluedIn natively integrates with Azure Purview
+#### CluedIn natively integrates with Azure Purview
 
 Azure Purview brings data governance capabilities to the Microsoft Azure cloud, and CluedIn provides native integration to its functionality.
 
@@ -89,7 +93,7 @@ The following image demonstrates the Lineage feature set.
 
 ![Screenshot showing the CluedIn Lineage feature set.](images/cluedin-customer-orders.png)
 
-### Azure Data Factory support
+#### Azure Data Factory support
 
 Azure Data Factory (ADF) brings support for connecting to over 100+ services. This data can be directly delivered into CluedIn using live streams of push data from ADF. CluedIn not only allows you to connect to your Master Data Service (MDS) instances, but it also connects to hundreds of data sources from across SAAS, databases, data lakes, and more.
 
@@ -100,6 +104,8 @@ The following are key ADF support features:
 - You can easily utilize existing ADF pipelines with a new target sink.
 
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Modeling
 
@@ -119,6 +125,8 @@ CluedIn natively integrates into [Azure Service Health](https://azure.microsoft.
 
 ### Performance efficiency
 
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+
 CluedIn separates storage from compute, so the processing of data is completely *stateless*. Because it is backed by a streaming service bus, this means that CluedIn can scale up and down, as much or as little as you need, dependent upon your workloads. CluedIn supports the Azure autoscale features inside of [Azure Kubernetes Service](https://azure.microsoft.com/overview/kubernetes-on-azure) (AKS), so that scaling can be automated. To increase performance in the processing of data, you will simply allocate more processing pods to your Kubernetes cluster, which can all be automated.
 
 ### Scalability
@@ -131,17 +139,21 @@ With native support for autoscaling, CluedIn uses the power of Azure to provide 
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 CluedIn security grants permissions and controls access to different services through Azure RBAC, with Azure Key Vault security key control and Azure Monitor access tracking and logging. In addition to authenticated user accounts, CluedIn also supports single sign-on (SSO) and identity frameworks. Requests to the CluedIn application use encrypted access tokens that have no correlation with user identity. With Native Azure Active Directory support, simply plugin your SAML 2.0 information into CluedIn and it can immediately be used to manage user and role access to your new MDM solution.
 
 ### Resiliency
 
 CluedIn runs in a high-availability mode at the data store and application level. Due to the separation of storage and processing, CluedIn has built-in resistance and fault tolerance. Different parts of the CluedIn application can be scaled up and down independently, to cater for a diverse array of workloads.
 
-### DevOps
+### Operational excellence
 
 CluedIn uses Azure Pipelines' continuous integration and continuous delivery (CI/CD) pipelines to handle deployments and rolling updates to the AKS environment. Customers can also utilize this infrastructure to deploy their own customizations to CluedIn itself.
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 CluedIn costs start low and, based off your usage, will scale up pricing to match the usage. Budgets can be set directly within the Azure portal so you can keep control of your operational costs.
 
@@ -149,11 +161,21 @@ CluedIn costs start low and, based off your usage, will scale up pricing to matc
 
 You can start a trial of CluedIn on their website, which can also help you scope your Azure hosting costs with prebuilt Azure estimates for different-sized environments.
 
-### Deploy this scenario
+## Deploy this scenario
 
 To deploy CluedIn for development and evaluation purposes using Docker, see [CluedIn with Docker](https://documentation.cluedin.net/versions/3.2.3/docs/00-gettingStarted/30-docker-local.html).
 
 To install CluedIn in production, CluedIn instances can be directly installed from the Azure Marketplace in your own Azure tenant.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+- [Oliver Kaae Vinter](https://www.linkedin.com/in/oliverkaaevinter) | Senior Partner Development Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

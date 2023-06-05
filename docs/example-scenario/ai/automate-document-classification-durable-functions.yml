@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Automate document classification in Azure
+  titleSuffix: Azure Architecture Center
+  description: Use Durable Functions, a feature of Azure Functions, as an automated document processing pipeline to classify documents by type.
+  author: kwkraus
+  ms.author: kkraus, amartini
+  ms.date: 03/23/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - ai-machine-learning
+products:
+  - azure-functions
+  - azure-app-service
+  - azure-cognitive-services
+  - azure-cognitive-search
+  - azure-kubernetes-service
+name: Automate document identification, classification, and search by using Durable Functions
+summary: Use Durable Functions, a feature of Azure Functions, as an automated document processing pipeline to classify documents by type.
+thumbnailUrl: /azure/architecture/browse/thumbs/automate-document-classification-durable-functions-thumb.png
+content: |
+  [!include[](automate-document-classification-durable-functions-content.md)]

@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Deploy a custom speech-to-text solution that uses AI
+  titleSuffix: Azure Architecture Center
+  description: Deploy high-quality speech-aware applications that use AI. This article provides details about how to deploy the solution described in part one of this guide.
+  author: mishrapratyush
+  ms.author: pmishra
+  ms.date: 04/12/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+  - ai-machine-learning
+products:
+   - azure-cognitive-services
+   - azure-speech
+   - azure-speech-text
+   - azure-machine-learning
+name: Deploy a custom speech-to-text solution
+summary: Deploy high-quality speech-aware applications that use AI. This article provides details about how to deploy the solution described in part one of this guide.
+thumbnailUrl: /azure/architecture/browse/thumbs/custom-speech-text-deploy-thumb.png
+content: |
+  [!include[](custom-speech-text-deploy-content.md)]

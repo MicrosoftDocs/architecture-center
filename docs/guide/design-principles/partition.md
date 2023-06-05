@@ -2,7 +2,7 @@
 title: Partition around limits
 titleSuffix: Azure Application Architecture Guide
 description: Use partitioning to address limits to the ability to scale up. Limits include number of cores, database size, query throughput, and network throughput.
-author: EdPrice-MSFT
+author: martinekuan
 categories: azure
 ms.date: 08/30/2018
 ms.topic: conceptual

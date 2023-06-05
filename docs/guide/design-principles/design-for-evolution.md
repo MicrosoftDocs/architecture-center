@@ -2,7 +2,7 @@
 title: Design for change
 titleSuffix: Azure Application Architecture Guide
 description: Use these recommendations to implement evolutionary design, which is key for continuous innovation. Microservices helps achieve an evolutionary design.
-author: EdPrice-MSFT
+author: martinekuan
 categories: azure
 ms.date: 08/30/2018
 ms.topic: conceptual
@@ -27,7 +27,7 @@ Microservices are becoming a popular way to achieve an evolutionary design, beca
 
 ## Recommendations
 
-**Enforce high cohesion and loose coupling**. A service is *cohesive* if it provides functionality that logically belongs together. Services are *loosely coupled* if you can change one service without changing the other. High cohesion generally means that changes in one function will require changes in other related functions. If you find that updating a service requires coordinated updates to other services, it may be a sign that your services are not cohesive. One of the goals of domain-driven design (DDD) is to identify those boundaries.
+**Enforce high cohesion and loose coupling**. A service is *cohesive* if it provides functionality that logically belongs together. Services are *loosely coupled* if you can change one service without changing the other. High cohesion generally means that changes in one function will require changes in other related functions, where all the related functions reside in one service. If you find that updating a service requires coordinated updates to other services, it may be a sign that your services are not cohesive. One of the goals of domain-driven design (DDD) is to identify those boundaries.
 
 **Encapsulate domain knowledge**. When a client consumes a service, the responsibility for enforcing the business rules of the domain should not fall on the client. Instead, the service should encapsulate all of the domain knowledge that falls under its responsibility. Otherwise, every client has to enforce the business rules, and you end up with domain knowledge spread across different parts of the application.
 

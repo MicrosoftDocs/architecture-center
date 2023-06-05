@@ -1,32 +1,12 @@
 This article outlines a solution for a hybrid transaction/analytical processing (HTAP) architecture. To process transactions, most systems use low-latency, high-volume operational workloads. For analytics, higher-latency, lower-volume workloads are more typical. HTAP architectures offer a solution for both workload types. By using in-memory databases, HTAP consolidates technologies to optimize queries on large volumes of data.
 
-Azure SQL Database forms the core of this HTAP solution. The approach divides the data into horizontally distributed databases, or shards. Other main components include:
-
-- Azure Event Hubs for data ingestion.
-- Azure Stream Analytics for data processing.
-- Azure Functions for partitioning.
-- Azure Blob Storage for event storage.
-
-Together, these services provide an HTAP solution that:
-
-- Reduces costs by providing fast access to insights on archived data. Latencies on the cool path  drop from hours to less than seconds with this solution.
-- Simplifies archiving by automatically adding data to long-term storage.
-- Maximizes scalability by sharding data and using an elastic database.
-
-## Potential use cases
-
-This solution applies to organizations that need low-latency access to large volumes of historical data. Examples include:
-
-- Online retailers that access customer history and demographic information to provide personalized experiences.
-- Energy providers that combine device data with analytics to manage smart power grids.
-- Businesses that engage in fraud prevention by identifying patterns in historical and real-time data.
-- Manufacturers that rely on real-time event processing to identify problems.
-
 ## Architecture
 
-:::image type="content" source="./media/azure-sql-htap.png" alt-text="Architecture diagram showing how data flows through an H T A P solution with Azure SQL Database at its center." border="false":::
+:::image type="content" alt-text="Architecture diagram showing how data flows through an HTAP solution with Azure SQL Database at its center." source="./media/azure-sql-htap.svg" lightbox="./media/azure-sql-htap.svg":::
 
-*Download an [SVG file][SVG file of architecture diagram] of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/azure-sql-htap.vsdx) of this architecture.*
+
+### Dataflow
 
 1. Event Hubs ingests telemetry from on-premises facilities.
 1. Blob Storage captures the Event Hubs data and stores it for future analysis.
@@ -55,7 +35,33 @@ This solution applies to organizations that need low-latency access to large vol
 
 - [Power BI][Power BI] is a collection of analytics services and apps. You can use Power BI to connect and display unrelated sources of data.
 
+## Scenario details
+
+Azure SQL Database forms the core of this HTAP solution. The approach divides the data into horizontally distributed databases, or shards. Other main components include:
+
+- Azure Event Hubs for data ingestion.
+- Azure Stream Analytics for data processing.
+- Azure Functions for partitioning.
+- Azure Blob Storage for event storage.
+
+Together, these services provide an HTAP solution that:
+
+- Reduces costs by providing fast access to insights on archived data. Latencies on the cool path  drop from hours to less than seconds with this solution.
+- Simplifies archiving by automatically adding data to long-term storage.
+- Maximizes scalability by sharding data and using an elastic database.
+
+### Potential use cases
+
+This solution applies to organizations that need low-latency access to large volumes of historical data. Examples include:
+
+- Online retailers that access customer history and demographic information to provide personalized experiences.
+- Energy providers that combine device data with analytics to manage smart power grids.
+- Businesses that engage in fraud prevention by identifying patterns in historical and real-time data. This scenario applies to the finance and financial services industries.
+- Manufacturers that rely on real-time event processing to identify problems. This scenario applies to the manufacturing industry.
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 This solution makes the following assumptions:
 
@@ -64,7 +70,9 @@ This solution makes the following assumptions:
 
 Keep the following considerations in mind when implementing this solution:
 
-### Performance considerations
+### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
 - To optimize performance:
 
@@ -82,18 +90,20 @@ Keep the following considerations in mind when implementing this solution:
 - For best performance during insert operations, use [table-valued parameters with stored procedures][Use Table-Valued Parameters (Database Engine)].
 - When you use the CREATE COLUMNSTORE INDEX statement, use the [COLUMNSTORE_ARCHIVE][CREATE COLUMNSTORE INDEX - DATA_COMPRESSION option] option. This option provides the highest possible level of compression. A high compression level increases the time you need to store and retrieve data. But the resulting I/O performance should still be satisfactory.
 
-### Scalability considerations
+### Scalability
 
 - Use shards so that you can expand your system to meet demanding workloads. When you use sharded databases, you can add or remove shards to scale out or in. The split-merge tool helps you [split and merge partitions][Deploy a split-merge service to move data between sharded databases].
 - Take advantage of the scaling functionality in Functions. Create functions that scale based on CPU and memory usage. Configure the functions to start new instances to accommodate unexpected workloads.
 - Increase the size of your Azure Databricks cluster to scale up Avro file reprocessing. The solution uses Azure Databricks to reprocess Avro files that Blob Storage has captured. Spark clusters in Azure Databricks can process all or part of the Avro file's path. By increasing the Azure Databricks cluster size, you can reprocess all the data within a required time frame. To handle increased volume from Azure Databricks, add instances of Event Hubs to the namespace as needed.
 
-### Resiliency considerations
+### Resiliency
 
 - All of the components in this scenario are managed. At a regional level, they offer built-in resiliency.
 - For general guidance on designing resilient solutions, see [Overview of the reliability pillar][Overview of the reliability pillar].
 
-## Pricing
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 To explore the cost of running this scenario, use the [Azure pricing calculator][Azure pricing calculator], which preconfigures all Azure services. Adjust the parameters to match the traffic that you expect to receive.
 
@@ -109,7 +119,7 @@ The following table lists sample cost profiles for varying amounts of 1-kilobyte
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 * [Pablo Ahumada Koschitzky](https://es.linkedin.com/in/pahumadakoschitzky/es) | Sr Cloud Solution Architect
 

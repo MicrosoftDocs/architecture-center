@@ -3,10 +3,10 @@ metadata:
   title: Knowledge mining in auditing, risk, and compliance management
   titleSuffix: Azure Architecture Center
   description: Learn how to use knowledge mining to help attorneys quickly find information from discovery documents and flag important ideas across documents.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: pracjain
-  ms.date: 08/24/2022
-  ms.topic: conceptual
+  ms.date: 11/17/2022
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -15,7 +15,6 @@ metadata:
     - acom-architecture
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/knowledge-mining-auditing-and-risk-compliance.png
 name: Knowledge mining in auditing, risk, and compliance management
 azureCategories:
   - ai-machine-learning
@@ -24,6 +23,6 @@ products:
   - azure-cognitive-search
   - azure-text-analytics
   - azure-translator
-thumbnailUrl: /azure/architecture/browse/thumbs/knowledge-mining-auditing-and-risk-compliance.png
+thumbnailUrl: /azure/architecture/browse/thumbs/knowledge-mining-auditing-and-risk-compliance-thumbnail.png
 content: |
   [!include[](auditing-and-risk-compliance-content.md)]

@@ -87,7 +87,7 @@ Throughout the process:
 
 ### Alternatives
 
-- Instead of developing your own APIs, consider using [Martin][Urbica Martin]. This open-source tile server makes vector tiles available to web apps. Written in [Rust][Rust], Martin connects to PostgreSQL tables. You can deploy it as a container.
+- Instead of developing your own APIs, consider using [Martin](https://github.com/maplibre/martin). This open-source tile server makes vector tiles available to web apps. Written in [Rust][Rust], Martin connects to PostgreSQL tables. You can deploy it as a container.
 
 - If your goal is to provide a standardized interface for GIS data, consider using [GeoServer][GeoServer]. This open framework implements industry-standard [Open Geospatial Consortium (OGC)][Open Geospatial Consortium] protocols such as [Web Feature Service (WFS)][Web Feature Service]. It also integrates with common spatial data sources. You can deploy GeoServer as a container on a virtual machine. When customized web apps and exploratory queries are secondary, GeoServer provides a straightforward way to publish geospatial data.
 
@@ -257,6 +257,9 @@ To start implementing this solution, see this information:
 - [Health data consortium on Azure][Health data consortium on Azure]
 - [DataOps for the modern data warehouse][DataOps for the modern data warehouse]
 - [Azure Data Explorer interactive analytics][Azure Data Explorer interactive analytics]
+- [Geospatial reference architecture - Azure Orbital][Geospatial reference architecture - Azure Orbital]
+- [Geospatial analysis for telecom][Geospatial analysis for telecom]
+- [Spaceborne data analysis with Azure Synapse Analytics][Spaceborne data analysis with Azure Synapse Analytics]
 
 ### Related guides
 

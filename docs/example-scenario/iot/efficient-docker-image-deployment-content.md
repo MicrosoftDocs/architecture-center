@@ -379,6 +379,6 @@ Principal author:
 
 - [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)
 - [Azure IoT Edge for Azure Industrial IoT](/azure/architecture/guide/iiot-guidance/iiot-architecture#azure-iot-edge)
-- [Design a CI/CD pipeline using Azure DevOps](/azure/architecture/example-scenario/apps/devops-dotnet-webapp)
+- [Design a CI/CD pipeline using Azure DevOps](/azure/architecture/example-scenario/apps/devops-dotnet-baseline)
 - [Architectural considerations in an IoT analytics solution](/azure/architecture/guide/iiot-guidance/iiot-considerations)
 - [Low-latency network connections for industry](/azure/architecture/solution-ideas/articles/low-latency-network)

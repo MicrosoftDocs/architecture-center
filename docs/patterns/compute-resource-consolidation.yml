@@ -2,7 +2,7 @@
 metadata:
   title: Compute Resource Consolidation pattern
   description: Use the Compute Resource Consolidation design pattern to consolidate multiple tasks or operations into a single computational unit.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/28/2022
   ms.topic: conceptual

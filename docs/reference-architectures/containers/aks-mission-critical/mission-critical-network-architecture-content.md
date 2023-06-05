@@ -34,6 +34,8 @@ The [design strategies for mission-critical baseline](/azure/architecture/refere
 
 :::image type="content" source="./images/mission-critical-architecture-network.svg" alt-text="Diagram showing private endpoint subnet in the regional stamp virtual network." lightbox="./images/mission-critical-architecture-network-highres.png":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/mission-critical-network-architecture.vsdx) of this architecture.*
+
 The components of this architecture can be broadly categorized in this manner. For product documentation about Azure services, see [Related resources](#related-resources).
 
 ### Global resources
@@ -44,7 +46,7 @@ The global resources are long living and share the lifetime of the system. They 
 
 > Refer to [Well-architected mission critical workloads: Global traffic routing](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity#global-traffic-routing).
 
-**Azure Cosmos DB with SQL API** is still used to store state outside the compute cluster and has baseline configuration settings for reliability. Access is limited to authorized private endpoint connections.
+**Azure Cosmos DB for NoSQL** is still used to store state outside the compute cluster and has baseline configuration settings for reliability. Access is limited to authorized private endpoint connections.
 
 > Refer to [Well-architected mission critical workloads: Globally distributed multi-write datastore](/azure/architecture/framework/mission-critical/mission-critical-data-platform#globally-distributed-multi-write-datastore).
 
@@ -118,7 +120,7 @@ To connect over a private endpoint, you need a DNS record. It's recommended that
 
 :::image type="content" source="./images/mission-critical-private-endpoint-snet.png" alt-text="Diagram showing private endpoint subnet in the regional stamp virtual network." lightbox="./images/mission-critical-private-endpoint-snet.png":::
 
-In this architecture, private endpoints have been configured for Azure Container Registry, Cosmos DB, Key Vault, Storage resources, and Event Hubs. Also, the AKS cluster is deployed as a private cluster, which creates a private endpoint for the Kubernetes API service in the cluster's network.
+In this architecture, private endpoints have been configured for Azure Container Registry, Azure Cosmos DB, Key Vault, Storage resources, and Event Hubs. Also, the AKS cluster is deployed as a private cluster, which creates a private endpoint for the Kubernetes API service in the cluster's network.
 
 There are two virtual networks provisioned in this design and both have dedicated subnets to hold private endpoints for all those services. The network layout is described in [Virtual network layout](#virtual-network-layout).
 
@@ -219,7 +221,7 @@ You can further restrict access to the jump box subnet by using an NSG that only
 
 To build deployment pipelines, you need to provision additional compute to run build agents. These resources won't directly impact the runtime availability of the workload but a reliability failure can jeopardize the ability to deploy or service your mission critical environment. So, reliability features should be extended to these resources.
 
-This architecture uses virtual machine scale sets for both build agents and jump boxes (as opposed to single VMs). Also, network segmentation is provided through the use of subnets. Ingress is restricted to Azure DevOps.
+This architecture uses Virtual Machine Scale Sets for both build agents and jump boxes (as opposed to single VMs). Also, network segmentation is provided through the use of subnets. Ingress is restricted to Azure DevOps.
 
 ## Cost considerations
 

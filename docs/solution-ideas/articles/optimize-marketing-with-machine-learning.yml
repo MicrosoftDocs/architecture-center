@@ -5,8 +5,8 @@ metadata:
   description: Extract insights from social media for your big data marketing campaigns by using Azure Synapse Analytics, Azure Machine Learning, and Azure Cognitive Services.
   author: ChristinaSka
   ms.author: christinas
-  ms.date: 07/26/2022
-  ms.topic: conceptual
+  ms.date: 10/26/2022
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -20,7 +20,6 @@ metadata:
     - machine learning marketing
     - "https://azure.microsoft.com/solutions/architecture/optimize-marketing-with-machine-learning/"
     - ai-machine-learning
-  social_image_url: /azure/architecture/solution-ideas/articles/media/optimize-marketing-with-machine-learning.png
 name: Optimize marketing with machine learning
 azureCategories:
   - ai-machine-learning

@@ -85,3 +85,15 @@ For more information, see [Pipeline orchestration](../technology-choices/pipelin
 Principal author:
 
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+
+# Next steps
+
+- [How to use batching to improve Azure SQL Database and Azure SQL Managed Instance application performance](/azure/azure-sql/performance-improve-use-batching)
+- [Batch Processing (Analysis Services)](/analysis-services/multidimensional-models/batch-processing-analysis-services)
+- [Tutorial: Do batch processing with .NET for Apache Spark](/dotnet/spark/tutorials/batch-processing)
+
+# Related resources
+
+- [Big data architectures](index.yml)
+- [Choose a batch processing technology in Azure](../technology-choices/batch-processing.md)
+- [High-volume batch transaction processing](../../example-scenario/mainframe/process-batch-transactions.yml)

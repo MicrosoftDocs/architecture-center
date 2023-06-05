@@ -9,7 +9,7 @@ This solution for a data consortium uses Azure components. It meets these goals:
 
 ## Architecture
 
-:::image type="complex" source="./media/azure-health-data-consortium-architecture.png" alt-text="Architecture diagram showing how members of a consortium share data." lightbox="./media/azure-health-data-consortium-architecture.png" border="false":::
+:::image type="complex" source="./media/azure-health-data-consortium-architecture.svg" alt-text="Architecture diagram showing how members of a consortium share data." lightbox="./media/azure-health-data-consortium-architecture.svg" border="false":::
    Dotted boxes represent data sources, a member data store, a consortium data store, and shared services. The sources box contains several colored icons that represent data sources. The member and consortium data store boxes contain smaller dotted boxes. In the member box, one smaller box contains icons for Azure components that store and analyze data. The other box contains icons for data share members. The consortium data store box contains a smaller box filled with data storage icons. The consortium box also contains a box with icons for Azure data loading components. Besides those two boxes, the consortium box also contains the same two boxes that the member box contains. Arrows point from left to right between all the boxes. One final arrow loops back from the consortium data share box to the member box. Below those boxes, a dotted box contains icons for shared services.
 :::image-end:::
 
@@ -43,7 +43,7 @@ This solution for a data consortium uses Azure components. It meets these goals:
 
 Throughout the system:
 
-- [Azure Active Directory][What is Azure Active Directory?] (Azure AD), [Azure Key Vault][About Azure Key Vault], and [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) manage access and provide security.
+- [Azure Active Directory (Azure AD)][What is Azure Active Directory?], [Azure Key Vault][About Azure Key Vault], and [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) manage access and provide security.
 - [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines), a service of Azure DevOps, builds, tests, and releases code.
 
 ### Components
@@ -195,9 +195,12 @@ For more information, see [pricing details][Azure pricing calculator].
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author:
+Principal authors:
 
 * [Matt Hansen](https://www.linkedin.com/in/matthansen0) | Senior Cloud Solution Architect
+* [Aruna Ranganathan](https://www.linkedin.com/in/aruna-ranganathan-aa0a2212) | Principal Customer Engineering Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

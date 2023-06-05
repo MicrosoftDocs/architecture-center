@@ -6,7 +6,7 @@ metadata:
   author: gallogiulia
   ms.author: giuliagallo
   ms.date: 05/11/2022
-  ms.topic: conceptual
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.category:
@@ -15,7 +15,6 @@ metadata:
     - example-scenario
     - ai-machine-learning
     - fcp
-  social_image_url: /azure/architecture/example-scenario/ai/media/architecture-customer-lifetime-churn.png
 name: Determine customer lifetime and churn with Azure AI services
 azureCategories:
 - ai-machine-learning

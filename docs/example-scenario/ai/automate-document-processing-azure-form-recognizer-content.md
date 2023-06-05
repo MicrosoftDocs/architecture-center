@@ -2,7 +2,7 @@ This article outlines a scalable and secure solution for building an automated d
 
 ## Architecture
 
-:::image type="content" source="./media/automate-document-processing-azure-form-recognizer-architecture.png" alt-text="Architecture diagram that shows how data flows through the extraction, enrichment, and analytics stages of document processing." border="false" lightbox="./media/automate-document-processing-azure-form-recognizer-architecture-lightbox.svg":::
+:::image type="content" source="./media/automate-document-processing-form-recognizer-architecture.svg" alt-text="Architecture diagram that shows how data flows through the extraction, enrichment, and analytics stages of document processing." border="false" lightbox="./media/automate-document-processing-form-recognizer-architecture.svg":::
 
 *Download a [Visio file][Visio version of architecture diagram] of this architecture.*
 
@@ -44,7 +44,7 @@ The pipeline that's used for data enrichment depends on the use case.
 1. Data enrichment can include the following NLP capabilities:
 
    * Named entity recognition (NER)
-   * The extraction of personally identifiable information (PII), key phrases, health information, and other domain-dependent entities
+   * The extraction of personal information, key phrases, health information, and other domain-dependent entities
 
    To enrich the data, the web app:
 
@@ -52,7 +52,7 @@ The pipeline that's used for data enrichment depends on the use case.
    * Posts requests to these features of the Azure Cognitive Service for Language API:
 
      * [NER][What is Named Entity Recognition (NER) in Azure Cognitive Service for Language?]
-     * [PII][What is Personally Identifiable Information (PII) detection in Azure Cognitive Service for Language?]
+     * [Personal information][What is Personal Information detection in Azure Cognitive Service for Language?]
      * [Key phrase extraction][What is key phrase extraction in Azure Cognitive Service for Language?]
      * [Text analytics for health][What is Text Analytics for health in Azure Cognitive Service for Language?]
      * [Custom NER][What is Custom Named Entity Recognition (NER) (preview)?], which is in preview
@@ -152,7 +152,7 @@ The availability of the architecture depends on the Azure services that make up 
 
 * Azure Cognitive Service for Language is part of Azure Cognitive Services. For the availability guarantee for these services, see [SLA for Azure Cognitive Services][SLA for Azure Cognitive Services].
 
-* Azure Cosmos DB provides high availability by maintaining four replicas of data within each region and by replicating data across regions. The exact availability guarantee depends on whether you replicate within a single region or across multiple regions. For more information, see [Achieve high availability with Cosmos DB][Achieve high availability with Cosmos DB].
+* Azure Cosmos DB provides high availability by maintaining four replicas of data within each region and by replicating data across regions. The exact availability guarantee depends on whether you replicate within a single region or across multiple regions. For more information, see [Achieve high availability with Azure Cosmos DB][Achieve high availability with Azure Cosmos DB].
 
 * Blob Storage offers redundancy options that help ensure high availability. You can use either of these approaches to replicate data three times in a primary region:
 
@@ -181,7 +181,7 @@ The availability of the architecture depends on the Azure services that make up 
 * For Azure Cognitive Service for Language, data and rate limits apply. For more information, see these resources:
 
   * [How to use named entity recognition (NER)][How to use named entity recognition (NER) - Data limits]
-  * [How to detect and redact personally identifying information (PII)][How to detect and redact Personally Identifying Information (PII) - Data limits]
+  * [How to detect and redact personal information][How to detect and redact Personal Information - Data limits]
   * [How to use sentiment analysis and opinion mining][How to: Use Sentiment analysis and Opinion Mining - Data limits]
   * [How to use Text Analytics for health][How to use Text Analytics for health - Data limits]
 
@@ -275,7 +275,7 @@ Principal author:
 * [Knowledge mining in contract management][Knowledge mining in contract management]
 * [Knowledge mining for content research][Knowledge mining for content research]
 
-[Achieve high availability with Cosmos DB]: /azure/cosmos-db/high-availability#slas-for-availability
+[Achieve high availability with Azure Cosmos DB]: /azure/cosmos-db/high-availability#slas-for-availability
 [App Service]: https://azure.microsoft.com/services/app-service
 [App Service pricing]: https://azure.microsoft.com/pricing/details/app-service/windows
 [Application Gateway pricing]: https://azure.microsoft.com/pricing/details/application-gateway
@@ -326,7 +326,7 @@ Principal author:
 [Get started with AzCopy]: /azure/storage/common/storage-use-azcopy-v10
 [How to: Use Sentiment analysis and Opinion Mining - Data limits]: /azure/cognitive-services/language-service/sentiment-opinion-mining/how-to/call-api#data-limits
 [How to configure Azure Functions with a virtual network]: /azure/azure-functions/configure-networking-how-to
-[How to detect and redact Personally Identifying Information (PII) - Data limits]: /azure/cognitive-services/language-service/personally-identifiable-information/how-to-call#data-limits
+[How to detect and redact Personal Information - Data limits]: /azure/cognitive-services/language-service/personally-identifiable-information/how-to-call#data-limits
 [How to use named entity recognition (NER) - Data limits]: /azure/cognitive-services/language-service/named-entity-recognition/how-to-call#data-limits
 [How to use Text Analytics for health - Data limits]: /azure/cognitive-services/language-service/text-analytics-for-health/how-to/call-api?tabs=ner#data-limits
 [Introduction to Azure Functions]: /azure/azure-functions/functions-overview
@@ -357,7 +357,7 @@ Principal author:
 [Use batch endpoints (preview) for batch scoring]: /azure/machine-learning/how-to-use-batch-endpoint
 [Use Form Recognizer SDKs or REST API]: /azure/applied-ai-services/form-recognizer/how-to-guides/v3-0-sdk-rest-api?tabs=windows&pivots=programming-language-python
 [Use TLS to secure a web service through Azure Machine Learning]: /azure/machine-learning/how-to-secure-web-service
-[Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1902078-automate-document-processing-form-recognizer-architecture.vsdx
+[Visio version of architecture diagram]: https://arch-center.azureedge.net/automate-document-processing-form-recognizer-architecture.vsdx
 [Welcome to Azure Cosmos DB]: /azure/cosmos-db/introduction
 [What is Azure Application Gateway?]: /azure/application-gateway/overview
 [What is Azure Cognitive Service for Language?]: /azure/cognitive-services/language-service/overview
@@ -368,5 +368,5 @@ Principal author:
 [What is key phrase extraction in Azure Cognitive Service for Language?]: /azure/cognitive-services/language-service/key-phrase-extraction/overview
 [What is Kubernetes?]: https://azure.microsoft.com/topic/what-is-kubernetes/#overview
 [What is Named Entity Recognition (NER) in Azure Cognitive Service for Language?]: /azure/cognitive-services/language-service/named-entity-recognition/overview
-[What is Personally Identifiable Information (PII) detection in Azure Cognitive Service for Language?]: /azure/cognitive-services/language-service/personally-identifiable-information/overview
+[What is Personal Information detection in Azure Cognitive Service for Language?]: /azure/cognitive-services/language-service/personally-identifiable-information/overview
 [What is Text Analytics for health in Azure Cognitive Service for Language?]: /azure/cognitive-services/language-service/text-analytics-for-health/overview?tabs=ner

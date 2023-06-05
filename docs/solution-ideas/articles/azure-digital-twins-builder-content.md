@@ -2,7 +2,7 @@
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution idea uses Azure Digital Twins and other Azure services to enable the process more effectively, from building information modeling (BIM) to digital twins (DT). Creating a DT for a facility requires extensive data entry that's done by using either Azure native tools or external tools. The data often requires interpretations of drawings, documentation, and data models of other relevant systems of record. Such interpretations risk data fidelity, and cause inefficiencies in the DT implementation process, inefficiencies that hinder the adoption of DTs. The solution in this article uses Autodesk Forge data specifically, but using BIM data from other providers can work also. The idea is broadly applicable to the process of creating a DT from BIM data.
+This solution idea uses Azure Digital Twins and other Azure services to enable the process more effectively, from building information modeling (BIM) to digital twins (DT). The solution in this article uses Autodesk Forge data specifically, but using BIM data from other providers can work also. The idea is broadly applicable to the process of creating a DT from BIM data.
 
 ## Architecture
 
@@ -35,6 +35,8 @@ This solution idea uses Azure Digital Twins and other Azure services to enable t
 - [Azure Storage](https://azure.microsoft.com/product-categories/storage) provides temporary storage for data that will be used to create a DT, but isn't yet ready for publishing by Azure Twins Service.
 
 ## Scenario details
+
+Creating a digital twins (DT) solution for a facility requires extensive data entry that's done by using either Azure native tools or external tools. The data often requires interpretations of drawings, documentation, and data models of other relevant systems of record. Such interpretations risk data fidelity, and cause inefficiencies in the DT implementation process, inefficiencies that hinder the adoption of DTs.
 
 Architecture, engineering, and construction (AEC) professionals use building information modeling (BIM) as a foundation for efficient design and construction processes. BIM is the most effective tool for modeling a facility and its supporting systems, and produces a flexible, parametric, and relational dataset that can comprehensively document a built asset. It's becoming the industry standard tool for planning and managing the built environment.
 

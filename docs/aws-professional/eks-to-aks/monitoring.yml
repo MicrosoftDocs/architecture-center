@@ -4,7 +4,7 @@ metadata:
   description: Understand monitoring and logging for an Azure Kubernetes Service (AKS) cluster and workloads, and compare Amazon EKS and AKS monitoring and logging.
   author:  ketan-chawda-msft
   ms.author: kechaw
-  ms.date: 09/30/2022
+  ms.date: 12/30/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide

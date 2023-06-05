@@ -2,23 +2,27 @@
 title: Azure icons
 titleSuffix: Azure Architecture Center
 description: Icons for use in building architecture diagrams for Azure
-author: EdPrice-MSFT
-ms.author: architectures
-ms.date: 07/26/2022
+author: Zimmergren
+ms.author: tozimmergren
+ms.reviewer: tozimmergren
+ms.date: 04/11/2023
 ms.service: architecture-center
 azureCategories: developer-tools
 categories: developer-tools
 products: azure
+ms.custom: engagement-fy23
 ---
 
 # Azure architecture icons
 
-Helping our customers design and architect new solutions is core to the Azure Architecture Center's mission. Architecture diagrams like those included in our guidance can help communicate design decisions and the relationships between components of a given workload. On this page you will find an official collection of Azure architecture icons including Azure product icons to help you build a custom architecture diagram for your next solution.
+Helping our customers design and architect new solutions is core to the Azure Architecture Center's mission. Architecture diagrams like those included in our guidance can help communicate design decisions and the relationships between components of a given workload. On this page you'll find an official collection of Azure architecture icons including Azure product icons to help you build a custom architecture diagram for your next solution.
+
+## General guidelines
 
 ### Do's
 
 - Use the icon to illustrate how products can work together.
-- In diagrams, we recommend to include the product name somewhere close to the icon.
+- In diagrams, we recommend including the product name somewhere close to the icon.
 - Use the icons as they would appear within Azure.
 
 ### Don'ts
@@ -35,13 +39,14 @@ Helping our customers design and architect new solutions is core to the Azure Ar
 
 ## Icon updates
 
-### November 2020
-
-The folder structure of our collection of Azure architecture icons has changed. The FAQs and Terms of Use PDF files appear in the first level when you download the SVG icons below. The files in the icons folder are the same except there is no longer a CXP folder. If you encounter any issues, let us know.
-
-### January 2021
-
-There are ~26 icons that have been added to the existing set. The download file name has been updated to Azure_Public_Service_Icons_V4.zip
+|Month|Change description|
+|--------------|--------------|
+|April 2023|Added 24  Microsoft Defender for IoT icons.|
+|March 2023|Added 13 icons for various services and components.|
+|January 2023|Added ~106 icons for various services and components.|
+|November 2022|Updated icon names from Azure Security Center to Microsoft Defender for Cloud.|
+|January 2021|There are ~26 icons that have been added to the existing set.|
+|November 2020|The folder structure of our collection of Azure architecture icons has changed. The FAQs and Terms of Use PDF files appear in the first level when you download the SVG icons below. The files in the icons folder are the same except there's no longer a CXP folder.|
 
 ## Icon terms
 
@@ -52,7 +57,7 @@ I agree to the above terms.
 </div>
 
  > [!div class="button"]
- > [Download SVG icons](https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V6.zip)
+ > [Download SVG icons](https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V14.zip)
 
 ## More icon sets from Microsoft
 

@@ -6,12 +6,12 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/iot-using-cosmos-db"><img src="/azure/architecture/browse/thumbs/iot-using-cosmos-db.png" class="diagram" alt="Thumbnail of IoT using Cosmos DB Architectural Diagram." data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/iot-using-cosmos-db"><img src="/azure/architecture/browse/thumbs/iot-using-cosmos-db.png" class="diagram" alt="Thumbnail of IoT using Azure Cosmos DB Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
         <a class="card-content-title has-margin-top-none" href="/azure/architecture/solution-ideas/articles/iot-using-cosmos-db">
-            <p>IoT using Cosmos DB</p>
+            <p>IoT using Azure Cosmos DB</p>
         </a>
         <ul class="card-content-metadata">
             <li>3/23/2020</li>

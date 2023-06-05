@@ -21,6 +21,14 @@ The architecture consists of the following:
 - **[SQL Server][sql-server]**. This is an installation of SQL Server.
 - **[SharePoint Server][sharepoint-server]**. This is an installation of SharePoint Server.
 
+### Components
+
+Key technologies used to implement this architecture:
+
+- [Azure Spring Apps](https://azure.microsoft.com/products/spring-apps) is a fully managed service for Spring developers. Manage the lifecycle of your Spring Boot applications with comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, and blue-green deployments.
+- [Azure Logic Apps](https://azure.microsoft.com/products/logic-apps) is a leading integration platform as a service (iPaaS) built on a containerized runtime. Deploy and run Logic Apps anywhere to increase scale and portability while automating business-critical workflows anywhere.
+- [Azure Queue storage](https://azure.microsoft.com/products/storage/queues) is a simple, cost-effective, durable message queueing for large workloads.
+
 ## Scenario details
 
 ### Potential use cases
@@ -51,6 +59,8 @@ An on-premises data gateway can be used with more than just Logic Apps. It's pos
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Scalability
 
 - As the amount of Logic Apps flows increase, consider the capacity constraints of the on-premises servers. You'll need to determine if the on-premises servers can handle the increased workload.
@@ -74,9 +84,13 @@ An on-premises data gateway can be used with more than just Logic Apps. It's pos
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 - While it's possible to expose your on-premises servers to the public internet, it's preferable to use an on-premises data gateway. This  gateway creates a secure read/write connection between your on-premises data sources and Azure.
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 - This reference assumes that the [consumption plan][azure-logic-app-consumption-plan] is used to create a global Logic Apps resource.
@@ -84,14 +98,20 @@ An on-premises data gateway can be used with more than just Logic Apps. It's pos
 
 ## Next steps
 
-* [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
+- [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
+- [What is an on-premises data gateway?](/data-integration/gateway/service-gateway-onprem)
+- [What is Azure Logic Apps?](/azure/logic-apps/logic-apps-overview)
+- [What is Azure Queue Storage?](/azure/storage/queues/storage-queues-introduction)
+- [What is Azure Spring Apps?](/azure/spring-apps/overview)
 
 ## Related resources
 
-* [Connect an on-premises network to Azure](../reference-architectures/hybrid-networking/index.yml)
-* [Extend an on-premises network using ExpressRoute](../reference-architectures/hybrid-networking/expressroute.yml)
+- [Azure Files accessed on-premises and secured by AD DS](../example-scenario/hybrid/azure-files-on-premises-authentication.yml)
+- [Connect an on-premises network to Azure](../reference-architectures/hybrid-networking/index.yml)
+- [Extend an on-premises network using ExpressRoute](../reference-architectures/hybrid-networking/expressroute.yml)
+- [Manage hybrid Azure workloads using Windows Admin Center](hybrid-server-os-mgmt.yml)
 
-[architectural-diagram]: ./images/gateway-logic-apps.png
+[architectural-diagram]: ./images/gateway-logic-apps.svg
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/gateway-logic-apps.vsdx
 [azure-analysis-services]: /azure/analysis-services/
 [azure-expressroute]: /azure/expressroute/

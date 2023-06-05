@@ -1,7 +1,7 @@
 ---
 title: Processing CSV and JSON files
 description: Learn about CSV and JSON files, the most common formats for ingesting, exchanging, and storing unstructured or semi-structured data.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
 categories: azure
 ms.date: 07/25/2022
@@ -75,3 +75,16 @@ There are some challenges to consider when working with these formats:
 Principal author:
 
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+
+## Next steps
+
+- [Import JSON documents into SQL Server](/sql/relational-databases/json/import-json-documents-into-sql-server)
+- [JSON format in Azure Data Factory and Azure Synapse Analytics](/azure/data-factory/format-json)
+- [Load data from CSV into Azure SQL Database or SQL Managed Instance](/azure/azure-sql/load-from-csv-with-bcp)
+
+## Related resources
+
+- [Azure Data Architecture Guide](../index.md)
+- [Batch processing](../big-data/batch-processing.yml)
+- [Real-time processing](../big-data/real-time-processing.yml)
+

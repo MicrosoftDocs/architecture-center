@@ -1,15 +1,13 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-A deep understanding between customer interests and purchasing patterns is a critical component of any retail business intelligence operation. This article presents a solution for implementing a process of aggregating customer data into a complete profile. Advanced machine learning models are backed by the reliability and processing power of Azure to provide predictive insights on simulated customers.
+This solution idea implements a process of aggregating customer data into a complete profile.
 
-## Potential use cases
-
-This solution is typically employed by retailers.
 
 ## Architecture
 
-![Architecture diagram that shows the flow of data between an event generator and a dashboard. Other stages include analytics and machine learning.](../media/product-recommendations.png)
-*Download an [SVG](../media/product-recommendations.svg) of this architecture.*
+[ ![Architecture diagram that shows the flow of data between an event generator and a dashboard. Other stages include analytics and machine learning.](../media/product-recommendations.svg)](../media/product-recommendations.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/product-recommendations.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -29,6 +27,14 @@ This solution is typically employed by retailers.
 - [Stream Analytics](https://azure.microsoft.com/services/stream-analytics) offers real-time serverless stream processing. This service provides a way to run queries in the cloud and on edge devices.
 - [Power BI](https://powerbi.microsoft.com) is a business analytics service that provides interactive visualizations and business intelligence capabilities. Its easy-to-use interface makes it possible for you to create your own reports and dashboards.
 - [HDInsight](https://azure.microsoft.com/services/hdinsight) is a managed, full-spectrum, open-source, cloud-based analytics service for enterprises.
+
+## Scenario details
+
+A deep understanding between customer interests and purchasing patterns is a critical component of any retail business intelligence operation. This solution idea aggregates customer data into a complete profile. Advanced machine learning models are backed by the reliability and processing power of Azure to provide predictive insights on simulated customers.
+
+### Potential use cases
+
+This solution is typically employed by retailers.
 
 ## Deploy this scenario
 

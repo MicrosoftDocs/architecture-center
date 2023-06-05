@@ -5,7 +5,7 @@ author: bigkangji
 ms.author: architectures
 categories: azure
 ms.date: 07/25/2022
-ms.topic: reference
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 azureCategories: 

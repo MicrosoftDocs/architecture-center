@@ -56,8 +56,8 @@ This architecture works best for:
 
 #### Networking
 
-- [Azure DDoS Protection Standard](https://azure.microsoft.com/services/ddos-protection): Azure DDoS (Basic) Protection is free and enabled on all public IPs. Azure DDoS Protection Standard provides more capabilities, like ingesting logs to other locations and the ability to engage the DDoS Protection Rapid Response team.
-- [Azure Application Gateway](https://azure.microsoft.com/en-us/services/application-gateway): Azure Web Application Firewall provides protection for public-facing applications against exploits like SQL injection and XSS attacks.
+- [Azure DDoS Protection](https://azure.microsoft.com/services/ddos-protection): Azure DDoS (Basic) Protection is free and enabled on all public IPs. Azure DDoS Network Protection provides more capabilities, like ingesting logs to other locations and the ability to engage the DDoS Protection Rapid Response team.
+- [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway): Azure Web Application Firewall provides protection for public-facing applications against exploits like SQL injection and XSS attacks.
 - [Azure Private Link](https://azure.microsoft.com/services/private-link): Azure Private Link provides access to Azure PaaS services via a private endpoint on the Microsoft backbone to further enhance network access security.
 
 #### Application
@@ -136,9 +136,7 @@ Browse our architectures:
 
 Related guidance:
 - [Serverless Functions architecture](/azure/architecture/serverless-quest/serverless-overview)
-- [Serverless batch processing with Durable Functions in Azure Container Instances](/azure/architecture/solution-ideas/articles/durable-functions-containers)
 - [Run containers in a hybrid environment](/azure/architecture/hybrid/hybrid-containers)
-- [Bursting from AKS with ACI](/azure/architecture/solution-ideas/articles/scale-using-aks-with-aci)
 - [Protect APIs with Application Gateway and API Management](/azure/architecture/reference-architectures/apis/protect-apis)
 - [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
 - [Zero-trust network for web applications with Azure Firewall and Application Gateway](/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall)

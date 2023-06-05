@@ -3,10 +3,10 @@ metadata:
   title: Enterprise data warehouse
   titleSuffix: Azure Solution Ideas
   description: Bring all of your data together, via Azure Data Lake (ADLS) Gen-2,  with an Azure Synapse data warehouse that scales easily. Orchestrate and ingest data via Azure Data Factory (ADF) pipelines, optionally enhanced with Azure Databricks, for advanced scalable curation. Build operational reports and analytical dashboards to derive insights from the data.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 05/26/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -21,7 +21,6 @@ metadata:
     - pricing-calculator
     - "https://azure.microsoft.com/solutions/architecture/modern-data-warehouse"
     - internal-intro
-  social_image_url: /azure/architecture/solution-ideas/articles/media/enterprise-data-warehouse.png
 name: Enterprise data warehouse
 azureCategories:
   - databases

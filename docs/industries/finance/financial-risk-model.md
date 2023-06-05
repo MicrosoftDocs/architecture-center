@@ -1,14 +1,14 @@
 ---
 title: Enable the financial services risk lifecycle with Azure and R
 description: Learn about risk calculations, which are pivotal at several stages in the lifecycle of key financial services operations.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: damocelj
 categories: 
   - azure
   - ai-machine-learning
 ms.service: industry
-ms.topic: overview
-ms.date: 06/28/2022
+ms.topic: conceptual
+ms.date: 01/13/2023
 azureCategories:
   - management-and-governance
 products:
@@ -431,7 +431,7 @@ Principal authors:
 - [Data management in banking](data-management-banking-overview.yml)
 - [Risk grid computing in banking](risk-grid-banking-overview.yml)
 - [HPC risk analysis template](../../solution-ideas/articles/hpc-risk-analysis.yml)
-- [A financial institution scenario for data mesh](/azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-data-mesh)
+- [A financial institution scenario for data mesh](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-scenario)
 - [Knowledge mining in auditing, risk, and compliance management](../../solution-ideas/articles/auditing-and-risk-compliance.yml)
 - [Loan credit risk and default modeling](../../solution-ideas/articles/loan-credit-risk-analyzer-and-default-modeling.yml)
 - [Loan credit risk with SQL Server](../../solution-ideas/articles/loan-credit-risk-with-sql-server.yml)

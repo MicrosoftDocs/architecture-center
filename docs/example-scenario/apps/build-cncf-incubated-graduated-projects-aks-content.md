@@ -2,7 +2,7 @@ This article shows how to conceptualize, architect, build, and deploy an applica
 
 ## Architecture
 
-:::image type="content" source="./media/cncf-architecture.png" alt-text="Diagram that shows the reference architecture for building a CNCF project." lightbox="./media/cncf-architecture.png":::
+:::image type="content" source="./media/cncf-architecture.svg" alt-text="Architecture diagram that shows the reference architecture for building a CNCF project." lightbox="./media/cncf-architecture.svg":::
 
 *Download a [Visio](https://arch-center.azureedge.net/cncf-architecture.vsdx) file of this architecture.*
 
@@ -158,5 +158,5 @@ This repo is a community project. It accepts and approves pull requests (PRs) fo
 
 - [AKS architecture design](../../reference-architectures/containers/aks-start-here.md)
 - [Baseline architecture for an AKS cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
-- [CI/CD pipeline for container-based workloads](../../example-scenario/apps/devops-with-aks.yml) 
+- [CI/CD pipeline for container-based workloads](../../guide/aks/aks-cicd-github-actions-and-gitops.yml) 
 - [Basic web application](../../reference-architectures/app-service-web-app/basic-web-app.yml)
