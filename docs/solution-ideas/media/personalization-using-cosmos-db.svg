@@ -818,9 +818,9 @@
 			<title>Sheet.1213</title>
 			<g id="shape1068-163">
 				<title>Sheet.1068</title>
-				<desc>Azure Container Service (Recommended API)</desc>
+				<desc>Azure Container Service (Recommendations API)</desc>
 				<rect x="0" y="374.55" width="148.5" height="30.45" class="st5"/>
-				<text x="16.57" y="386.48" class="st8">Azure Container Service <tspan x="24.59" dy="1.2em" class="st14">(Recommended API)</tspan></text>			</g>
+				<text x="16.57" y="386.48" class="st8">Azure Container Service <tspan x="16.04" dy="1.2em" class="st14">(Recommendations API)</tspan></text>			</g>
 			<g id="group1126-167" transform="translate(52.7143,-34.7143)">
 				<title>Icon-compute-23</title>
 				<g id="shape1127-168" transform="translate(7.60495,-28.0918)">
