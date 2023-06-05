@@ -176,7 +176,8 @@ The baseline App Service architecture focuses on essential security recommendati
 - Use the latest TLS version.
 - [Enable Microsoft Defender for App Service](/azure/defender-for-cloud/enable-enhanced-security).
 - Use the latest versions of supported platforms, programming languages, protocols, and frameworks.
-- [App Service Environment](/azure/app-service/environment/overview) for higher isolation and secure network access
+- Consider [App Service Environment](/azure/app-service/environment/overview) if you require higher isolation or secure network access.
+
 ### Encryption
 
 A production web app needs to encrypt data in transit using HTTPS. HTTPS protocol relies on Transport Layer Security (TLS) and uses public and private keys for encryption. You need to store a certificate (X.509) in Key Vault and give Application Gateway permission to retrieve the private key. For data at rest, some services automatically encrypt data and others allow you to customize.
