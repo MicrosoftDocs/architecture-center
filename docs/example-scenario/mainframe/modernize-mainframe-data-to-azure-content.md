@@ -23,7 +23,7 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
    - Third-party tools perform automated object conversion on non-relational databases, file systems, and other data stores.
 
 1. Data is ingested and transformed. Mainframe and midrange systems store their file system data in EBCDIC encoded format in file formats like:
-   - Indexed [VSAM](/sql/ssma/sql-server-migration-assistant) files
+   - Indexed [VSAM](https://www.ibm.com/docs/cobol-zos/6.3?topic=files-vsam) files
    - Non-indexed [GDG](https://www.ibm.com/support/knowledgecenter/zosbasics/com.ibm.zos.zconcepts/zconcepts_175.htm) files
    - Flat files
    
