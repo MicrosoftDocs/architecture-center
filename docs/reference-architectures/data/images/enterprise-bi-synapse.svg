@@ -298,11 +298,11 @@
 		</g>
 		<g id="shape1032-57" v:mID="1032" v:groupContext="shape" transform="translate(194.475,-239.063)">
 			<title>Sheet.1032</title>
-			<desc>Blog Storage</desc>
+			<desc>Blob Storage</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="37.125" cy="408.375" width="74.25" height="22.5"/>
 			<rect x="0" y="397.125" width="74.25" height="22.5" class="st4"/>
-			<text x="6.43" y="411.98" class="st12" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Blog Storage</text>		</g>
+			<text x="6.11" y="411.98" class="st12" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Blob Storage</text>		</g>
 		<g id="shape1033-60" v:mID="1033" v:groupContext="shape" transform="translate(318.713,-236.813)">
 			<title>Sheet.1033</title>
 			<desc>Azure Synapse Analytics</desc>
