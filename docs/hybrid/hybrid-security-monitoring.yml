@@ -25,7 +25,7 @@ summary: Use Microsoft Defender for Cloud and Microsoft Sentinel to monitor the 
 products:
   - azure-log-analytics
   - azure-monitor
-  - azure-security-center
+  - defender-for-cloud
   - azure-sentinel
   - azure-stack
 thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-security-monitoring.png
