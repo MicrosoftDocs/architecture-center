@@ -23,9 +23,9 @@ TIC 3.0 compliance solutions are commonly used by federal organizations and geve
 
 ## Architecture
 
-:::image type="content" source="media/trusted-internet-connections-architecture.png" alt-text="Diagram that shows a TIC 3.0 compliance architecture." border="false" lightbox="media/trusted-internet-connections-architecture.png":::
+:::image type="content" source="media/tlc-architecture.png" alt-text="Diagram that shows a TIC 3.0 compliance architecture." border="false" lightbox="media/tlc-architecture.png":::
 
-*Download a [Visio file](https://github.com/Azure/trusted-internet-connection/raw/main/Architecture/Visio/TIC_3.0-AzureReferenceArchitecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/TIC_3.0-AzureReferenceArchitecture.vsdx)  of this architecture.*
 
 ### Dataflow
 
@@ -119,7 +119,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 The following solution integrates Azure Firewall to manage the traffic into your Azure application environment. The solution includes all resources to generate, collect, and deliver logs to the CLAW. It also includes an app service to highlight the types of telemetry collected by the firewall.
 
-:::image type="content" source="media/trusted-internet-connections-architecture-AzFw.png" alt-text="Diagram of T I C 3 point 0 compliance architecture with Azure firewall uploading logs to CLAW." border="false" lightbox="media/trusted-internet-connections-architecture-AzFw.png":::
+:::image type="content" source="media/trusted-internet-connection-architecture-firewall.png" alt-text="Diagram of T I C 3 point 0 compliance architecture with Azure firewall uploading logs to CLAW." border="false" lightbox="media/trusted-internet-connection-architecture-firewall.png":::
 
  The solution includes:
 
@@ -136,7 +136,7 @@ All resources are deployed to a single subscription and virtual network for simp
 
 [![Deploy to Azure](media/trusted-internet-connection-deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ftrusted-internet-connection%2Fmain%2FArchitecture%2FAzure-Firewall%2FComplete%2Fazuredeploy.json)
 
-[![Deploy to Azure Gov](media/trusted-internet-connection-deploy-to-azure-gov.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ftrusted-internet-connection%2Fmain%2FArchitecture%2FAzure-Firewall%2FComplete%2Fazuredeploy.json)
+[![Deploy to Azure Gov](media/trusted-internet-connection-deploy-azure-government.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ftrusted-internet-connection%2Fmain%2FArchitecture%2FAzure-Firewall%2FComplete%2Fazuredeploy.json)
 
 ### Post-deployment tasks for all solutions
 
@@ -154,7 +154,7 @@ The following tasks must be performed after deployment is complete. They're manu
 
 The following solution integrates an Application Gateway with Web Application Firewall (WAF) to manage the traffic into your Azure application environment. The solution includes all resources to generate, collect, and deliver logs to the CLAW. It also includes an app service to highlight the types of telemetry collected by the firewall.
 
-:::image type="content" source="media/trusted-internet-connections-architecture-AppGwWAF.png" alt-text="Diagram of T I C 3 point 0 compliance architecture with Azure Application Gateway with Web Application Firewall uploading logs to CLAW." border="false" lightbox="media/trusted-internet-connections-architecture-AppGwWAF.png"::: 
+:::image type="content" source="media/trusted-internet-connection-architecture-application-gateway.png" alt-text="Diagram of T I C 3 point 0 compliance architecture with Azure Application Gateway with Web Application Firewall uploading logs to CLAW." border="false" lightbox="media/trusted-internet-connection-architecture-application-gateway.png"::: 
 
 The solution includes:
 
@@ -188,7 +188,7 @@ The following tasks must be performed after deployment is complete. They're manu
 
 The following solution integrates an Azure Front Door with Web Application Firewall (WAF) to manage the traffic into your Azure application environment. The solution includes all resources to generate, collect, and deliver logs to the CLAW. It also includes an app service to highlight the types of telemetry collected by the firewall.
 
-:::image type="content" source="media/trusted-internet-connections-architecture-AzFrDrWAF.png" alt-text="Diagram of T I C 3 point 0 compliance architecture with Azure Front Door with Web Application Firewall uploading logs to CLAW." border="false" lightbox="media/trusted-internet-connections-architecture-AzFrDrWAF.png":::
+:::image type="content" source="media/trusted-internet-connection-architecture-front-door.png" alt-text="Diagram of T I C 3 point 0 compliance architecture with Azure Front Door with Web Application Firewall uploading logs to CLAW." border="false" lightbox="media/trusted-internet-connection-architecture-front-door.png":::
 
  The solution includes:
 
@@ -225,7 +225,7 @@ The following tasks must be performed after deployment is complete. They're manu
 
 The following solution defines how a Third-party firewall can be used to manage the traffic into your Azure application environment and support TIC 3.0 compliance. Third-party firewalls require use of a Syslog forwarder virtual machine with its agents registered with the Log Analytics workspace. The Third-party firewall is configured to export its logs in syslog format to the Syslog forwarder virtual machine and the agent is configured to send its logs to the Log Analytics workspace. Once the logs are in the Log Analytics workspace, they're sent to the Event Hubs and processed like the other solutions outlined in this article.
 
-:::image type="content" source="media/trusted-internet-connections-architecture-NVA.png" alt-text="Diagram of T I C 3 point 0 compliance architecture with Third-party Firewall uploading logs to CLAW." border="false" lightbox="media/trusted-internet-connections-architecture-NVA.png":::
+:::image type="content" source="media/trusted-internet-connection-architecture-nva.png" alt-text="Diagram of T I C 3 point 0 compliance architecture with Third-party Firewall uploading logs to CLAW." border="false" lightbox="media/trusted-internet-connection-architecture-nva.png":::
 
 ### Post-deployment tasks for all solutions
 
