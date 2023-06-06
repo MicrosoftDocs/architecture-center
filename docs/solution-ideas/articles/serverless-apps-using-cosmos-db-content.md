@@ -4,9 +4,9 @@ You can use Azure Functions and Azure Cosmos DB to build globally distributed, s
 
 ## Architecture
 
-:::image type="content" source="../media/serverless-apps-using-cosmos-db.png" alt-text="Architecture diagram that shows the functions that are triggered by an online order and a database change feed." border="false":::
+:::image type="content" source="../media/serverless-apps-using-cosmos-db.svg" alt-text="Architecture diagram that shows the functions that are triggered by an online order and a database change feed." border="false":::
 
-*Download an [SVG](../media/serverless-apps-using-cosmos-db.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/serverless-apps-using-cosmos-db.vsdx) of this architecture.*
 
 ### Dataflow
 
