@@ -283,6 +283,7 @@ TBD
 - It's up to caller (ie:Load Balancer) to interpret as they want. Can build a dashboard on this too. Ie: could incorporate database response as part of it. 
 - In this design, App Gateway will just be hitting an endpoint to see if healthy. 
 - The load balancer can point to separate VMs, but in our case it’s pointing to the scale set. The scale set tells it which VMs are available (ie: adding a new VM will incorporate it; scale set can also take one out and create a new one – auto healing).   
+
 // Raw notes - end
 
 ##### Managed disks
