@@ -243,10 +243,10 @@ The table below lists the types of data you can currently collect with the Azure
 | Syslog | Log Analytics workspace - [Syslog](/azure/azure-monitor/reference/tables/syslog)<sup>2</sup> table | Information sent to the Linux event logging system |
 |	Text logs and Windows IIS logs	|	Log Analytics workspace - custom table(s) created manually |	[Collect text logs with Azure Monitor Agent](data-collection-text-log.md)	|
 
-//TODO: consider adding details about the data collection rules implemented in the RI. Highlight differences between the frontend and backend DCR definitions
-//    see tutorails:
-//        [Tutorial: Enable monitoring with VM insights for Azure virtual machine](/azure/azure-monitor/vm/tutorial-monitor-vm-enable-insights)
-//        [Tutorial: Collect guest logs and metrics from Azure virtual machine](/azure/azure-monitor/vm/tutorial-monitor-vm-guest)
+//TODO: consider adding details about the data collection rules implemented in the RI. Highlight differences between the frontend and backend DCR definitions  
+//    see tutorails:  
+//        [Tutorial: Enable monitoring with VM insights for Azure virtual machine](/azure/azure-monitor/vm/tutorial-monitor-vm-enable-insights)  
+//        [Tutorial: Collect guest logs and metrics from Azure virtual machine](/azure/azure-monitor/vm/tutorial-monitor-vm-guest)  
 
 ##### VM Boot diagnostics
 
