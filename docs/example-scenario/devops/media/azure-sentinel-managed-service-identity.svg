@@ -150,11 +150,11 @@
 				v:shadowOffsetY="-8.50394"/>
 		<g id="shape78-3" v:mID="78" v:groupContext="shape" transform="translate(36,-319.5)">
 			<title>Sheet.78</title>
-			<desc>Architecture Overview (Azure Sentinel)</desc>
+			<desc>Architecture overview (Azure Sentinel)</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="279" cy="357.75" width="558" height="40.5"/>
 			<rect x="0" y="337.5" width="558" height="40.5" class="st2"/>
-			<text x="136.35" y="363.15" class="st3" v:langID="3082"><v:paragraph v:horizAlign="1"/><v:tabList/>Architecture Overview (Azure Sentinel)</text>		</g>
+			<text x="137.57" y="363.15" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Architecture overview (Azure Sentinel)</text>		</g>
 		<g id="group1011-6" transform="translate(259.941,-175.178)" v:mID="1011" v:groupContext="group">
 			<title>Sheet.1011</title>
 			<g id="group1012-7" transform="translate(13.6464,-24.1731)" v:mID="1012" v:groupContext="group">

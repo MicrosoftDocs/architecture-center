@@ -125,14 +125,14 @@
 			<use xlink:href="#lend4" transform="scale(-2.68,-2.68) "/>
 		</marker>
 	</defs>
-	<g v:mID="24" v:index="5" v:groupContext="backgroundPage">
+	<g v:mID="20" v:index="1" v:groupContext="backgroundPage">
 		<v:userDefs>
 			<v:ud v:nameU="msvVisioCreated" v:prompt="" v:val="VT0(0):26"/>
 		</v:userDefs>
-		<title>VBackground-5</title>
+		<title>VBackground-1</title>
 		<v:pageProperties width="11.75" height="8.5" v:drawingScale="1" v:pageScale="1" v:drawingUnits="19" v:shadowOffsetX="9"
 				v:shadowOffsetY="-9"/>
-		<g id="shape1-1" v:mID="1" v:groupContext="shape">
+		<g id="shape2-1" v:mID="2" v:groupContext="shape">
 			<title>Solid</title>
 			<v:userDefs>
 				<v:ud v:nameU="Background" v:val="VT0(0):26"/>
@@ -1648,11 +1648,11 @@
 		</g>
 		<g id="shape1512-506" v:mID="1512" v:groupContext="shape" transform="translate(136.174,-551.739)">
 			<title>Sheet.1512</title>
-			<desc>Azure Lighthouse for Sentinel – high level architecture</desc>
+			<desc>Azure Lighthouse for Sentinel, high-level architecture</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="277.204" cy="594.18" width="554.41" height="35.64"/>
 			<rect x="0" y="576.36" width="554.408" height="35.64" class="st18"/>
-			<text x="47.61" y="599.58" class="st68" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Lighthouse for Sentinel – high level architecture</text>		</g>
+			<text x="51" y="599.58" class="st68" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Lighthouse for Sentinel, high-level architecture</text>		</g>
 		<g id="shape1-509" v:mID="1" v:groupContext="shape" transform="translate(22.5,-34.7143)">
 			<title>logo png.255</title>
 			<rect v:rectContext="foreign" x="0" y="535.514" width="144.804" height="76.4856" class="st18"/>
