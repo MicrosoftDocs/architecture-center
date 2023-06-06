@@ -30,6 +30,8 @@ By using Azure NetApp Files volume placement and replication capabilities across
 
 ### Potential use cases
 
+**Mechanical design management:** Azure NetApp Files can provide high-speed access to large design files, allowing engineers to quickly iterate on designs and make necessary changes. For electronics and electrical CAD management, Azure NetApp Files can provide a centralized location for storing and managing CAD data.
+
 **Requirements engineering, model-based systems engineering, and PLM process management:** Azure NetApp Files provides high-performance storage with low latency, enabling faster access to critical data and improving overall system performance. These qualities are particularly important for use cases like requirements engineering, model-based systems engineering, and PLM process management, which rely heavily on accessing and processing large volumes of data.
 
 **Bill of materials management and product configuration:** Azure NetApp Files also provides flexible storage options that can scale up or down based on changing business needs. These qualities are useful for use cases like bill of materials management and product configurations, which require significant storage capacity and are subject to frequent changes in data volume.
@@ -37,8 +39,6 @@ By using Azure NetApp Files volume placement and replication capabilities across
 **Product cost management:** Azure NetApp Files provides advanced data protection features, including point-in-time backups and disaster recovery (DR) options. Data protection is important for use cases like product cost management, where accurate and up-to-date data is critical. As the backbone of a manufacturing company's PLM operations, Azure NetApp Files safeguards the integrity of product cost information and provides the necessary measures to mitigate the risks of data loss or system disruptions.  
 
 **Development across departments and domains:** Azure NetApp Files contributes to improving collaboration across departments and domains by providing a high-performance, reliable, and scalable storage service for Teamcenter PLM deployments. 
-
-**Mechanical design management:** Azure NetApp Files can provide high-speed access to large design files, allowing engineers to quickly iterate on designs and make necessary changes. For electronics and electrical CAD management, Azure NetApp Files can provide a centralized location for storing and managing CAD data.
 
 **Software design management:** Azure NetApp Files can provide high-performance storage for build artifacts and development environments, enabling fast build and deployment times. It offers advantages for provisioning dev/test and staging environments, enabling quick cloning and setup. With automation capabilities and seamless integration into existing processes, Azure NetApp Files optimizes software design workflows, enhancing agility and productivity.
 
