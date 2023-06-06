@@ -58,7 +58,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 Azure NetApp Files provides HA with [built-in data replication, failover, and DR capabilities](/azure/azure-netapp-files/snapshots-introduction). These capabilities help ensure that your Teamcenter PLM database and CAD files are always available, even if there's a regional, zonal, or software failure.
 
-Azure NetApp Files provides a high [SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) for all tiers and all supported regions. It supports provisioning volumes in [availability zones](/azure/azure-netapp-files/use-availability-zones) that you choose, and HA deployments across zones. 
+Azure NetApp Files provides an [SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) for all tiers and all supported regions. It supports provisioning volumes in [availability zones](/azure/azure-netapp-files/use-availability-zones) that you choose, and HA deployments across zones. 
 
 Azure NetApp Files provides two data backup options: snapshots and backup. Snapshots provide a point-in-time backup of data. You can use them to quickly recover data in the event of data loss or corruption. Azure NetApp Files also has a fully managed backup solution. It provides long-term retention and recovery options for snapshots. You can combine snapshots and backups to get a comprehensive backup and recovery solution.
 
