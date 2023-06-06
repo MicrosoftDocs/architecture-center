@@ -4,7 +4,8 @@ This solution template demonstrates a solution end to end, to run predictive ana
 
 ## Architecture
 
-![Architecture diagram of building and deploying an ML model to predict a bank loan.](../media/loan-chargeoff-prediction-with-sql-server.png)
+![Diagram that shows an architecture diagram of building and deploying an ML model to predict a bank loan.](../media/loan-chargeoff-prediction-with-sql-server.svg)
+
 *Download a [Visio file](https://arch-center.azureedge.net/loan-chargeoff-prediction.vsdx) for this architecture.*
 
 ### Dataflow
