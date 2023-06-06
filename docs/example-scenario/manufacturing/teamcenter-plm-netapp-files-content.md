@@ -7,8 +7,6 @@ This architecture illustrates a multi-zone deployment of Teamcenter PLM on Azure
 :::image type="content" source="media/teamcenter-plm-netapp-files.png" alt-text="Diagram that shows a Teamcenter PLM architecture that uses Azure NetApp Files." lightbox="media/teamcenter-plm-netapp-files.png" border="false":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/teamcenter-plm-netapp-files.pptx) of this architecture.*
- 
-**Availability zones:** The architecture uses two availability zones and replicates data across zones. This configuration helps to ensure the availability of data and to protect against data loss or corruption. The availability zones also enable scalability. 
 
 **Resource tier:** Teamcenter PLM relies heavily on the resource tier to provide a scalable and reliable platform for managing product data and collaborating across teams and organizations. The resource tier provides access to resources like documents, 3D models, and drawings. This tier includes the primary and failover databases. The databases store database server data and log volumes. The resource tier also contains the Root FSC file server that stores digital assets (metadata) that are associated with the product data. It handles CAD files that are stored on data volumes. 
 
@@ -16,11 +14,15 @@ The architecture centralizes the digital assets and product data in the Root FSC
 
 **Storage subnet:** The architecture deploys Azure NetApp Files volumes to the Storage subnet. Azure NetApp Files provides essential storage for Teamcenter PLM product data and digital assets. 
 
-**Dataflow:** The databases and the Root FSC servers in the resource tier store and retrieve data from Azure NetApp Files volumes. The dataflow between the architecture tiers is efficient and provides enhanced-security access to product data and digital assets because Azure NetApp Files volumes are hosted in the customer virtual network, in availability zones. Azure NetApp Files provides on-demand, non-disruptive scalability and HA across availability zones.
+**Availability zones:** The architecture uses two availability zones and replicates data across zones. This configuration helps to ensure the availability of data and to protect against data loss or corruption. The availability zones also enable scalability. 
 
 **Data replication:** The architecture uses SQL Server Always On availability groups to synchronously replicate the database across availability zones. Azure NetApp Files uses cross-zone replication to asynchronously replicate data across availability zones.
 
+**Dataflow:** The databases [a] and the Root FSC servers [b] in the resource tier store and retrieve data from Azure NetApp Files volumes. The dataflow between the architecture tiers is efficient and provides enhanced-security access to product data and digital assets because Azure NetApp Files volumes are hosted in the customer virtual network, in availability zones. Azure NetApp Files provides on-demand, non-disruptive scalability and HA across availability zones.
+
 ## Scenario details
+
+Azure NetApp Files plays a crucial role in addressing the performance challenges faced by Teamcenter PLM environments and making large-scale cloud deployments feasible. The high-performance storage capabilities of Azure NetApp Files can enable you to significantly mitigate the latency and throughput issues that are associated with accessing data. The advanced architecture of Azure NetApp Files ensures low-latency access to data, resulting in an enhanced user experience in the cloud. With its ability to handle larger file sizes, more overall data volume, and an increased number of users, Azure NetApp Files provides the necessary performance and scalability required for seamless operations of the Siemens PLM system in the cloud.
 
 Using Azure NetApp Files as a storage solution for Teamcenter PLM can help you enhance performance and availability and improve data management and resource utilization of databases and shared file systems. Azure NetApp Files provides key data backup and redundancy features to improve the availability of your Teamcenter PLM data.
 
@@ -32,13 +34,13 @@ By using Azure NetApp Files volume placement and replication capabilities across
 
 **Bill of materials management and product configuration:** Azure NetApp Files also provides flexible storage options that can scale up or down based on changing business needs. These qualities are useful for use cases like bill of materials management and product configurations, which require significant storage capacity and are subject to frequent changes in data volume.
 
-**Product cost management:** Azure NetApp Files provides advanced data protection features, including point-in-time backups and disaster recovery (DR) options. Data protection is important for use cases like product cost management, where accurate and up-to-date data is critical.
+**Product cost management:** Azure NetApp Files provides advanced data protection features, including point-in-time backups and disaster recovery (DR) options. Data protection is important for use cases like product cost management, where accurate and up-to-date data is critical. As the backbone of a manufacturing company's PLM operations, Azure NetApp Files safeguards the integrity of product cost information and provides the necessary measures to mitigate the risks of data loss or system disruptions.  
 
 **Development across departments and domains:** Azure NetApp Files contributes to improving collaboration across departments and domains by providing a high-performance, reliable, and scalable storage service for Teamcenter PLM deployments. 
 
 **Mechanical design management:** Azure NetApp Files can provide high-speed access to large design files, allowing engineers to quickly iterate on designs and make necessary changes. For electronics and electrical CAD management, Azure NetApp Files can provide a centralized location for storing and managing CAD data.
 
-**Software design management:** Azure NetApp Files can provide high-performance storage for build artifacts and development environments, enabling fast build and deployment times. 
+**Software design management:** Azure NetApp Files can provide high-performance storage for build artifacts and development environments, enabling fast build and deployment times. It offers advantages for provisioning dev/test and staging environments, enabling quick cloning and setup. With automation capabilities and seamless integration into existing processes, Azure NetApp Files optimizes software design workflows, enhancing agility and productivity.
 
 **Product document management:** Azure NetApp Files can provide a centralized location for storing and managing product documentation, which makes it easy to access and share information across teams.
 
