@@ -2,7 +2,7 @@ This scenario describes how to use Azure Logic Apps and Power BI to extend the r
 
 ## Architecture
 
-[ ![Diagram of the Project Online extension architecture.](media/extend-reporting-architecture.png) ](media/extend-reporting-architecture.png#lightbox)
+[ ![Diagram of the Project Online extension architecture.](media/extend-reporting-architecture.svg)](media/extend-reporting-architecture.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/extend-reporting-architecture.vsdx) of this architecture.*
 
