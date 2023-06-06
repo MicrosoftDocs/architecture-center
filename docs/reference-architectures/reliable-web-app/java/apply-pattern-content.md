@@ -61,7 +61,7 @@ Architecture refers to the arrangement and distribution of components supporting
 
 **Determine number of regions.** Use the web app service level objective as main factor for determining how many regions to use. If a single region doesn't offer the availability you need, you should consider adding a region to your web app.
 
-**Determine region configuration.** A multi-region web app can have an active-active configuration or active-passive configuration. An active-active configuration distributes (load balances) traffic between regions. An active-passive configuration sends all traffic to one region and uses the other region only for a failover. You should use an active-active configuration if your business can't tolerate a web app downtime. Use an active-passive configuration if you can accept a maximum downtime of two hours. For more information, see [App Service disaster recovery strategies](/azure/app-service/overview-disaster-recovery) and [Storage redundancy](/azure/storage/common/storage-redundancy#summary-of-redundancy-options).
+**Determine region configuration.** A multi-region web app can have an active-active configuration or active-passive configuration. An active-active configuration distributes (load balances) traffic between regions. An active-passive configuration sends all traffic to one region and uses the other region only for a failover. You should use an active-active configuration if you need minimal to no downtime. Use an active-passive configuration if you can accept a maximum downtime of two hours. For more information, see [App Service disaster recovery strategies](/azure/app-service/overview-disaster-recovery) and [Storage redundancy](/azure/storage/common/storage-redundancy#summary-of-redundancy-options).
 
 **Understand data implications.** A multi-region web app requires a different data strategy than a single region web app. A multi-region web app needs to replicate data across regions. A single-region web app doesn't.
 
@@ -91,7 +91,7 @@ A failover plan details the procedure to respond to an outage. The plan should d
 
 **Define failover duration.** The failover process needs to take as much or less time than your RTO. An RTO of four hours means you need to fail over within four hours.
 
-**Determine failover mechanism.** You can automate failover or commit to a manual process. Automating failover makes the results more consistent adds risk that someone could initiate a failover accidentally. Consider a manual process to initiate the failover and automate aspects of the failover to help ensure consistent results.```
+**Determine failover mechanism.** You can automate the failover or use a manual process. Automating the failover makes the results more consistent, but it creates the potential that someone could initiate a failover accidentally. Consider a manual initiation of the failover. You can automate aspects of the failover to help ensure consistent results.
 
 **Outline the return process.** The failover plan needs to define the steps to return to normal operations. Most failover plans revert to the state before the failover.
 
