@@ -23,96 +23,97 @@ TIC 3.0 compliance solutions are commonly used by federal organizations and geve
 
 ## Architecture
 
-:::image type="content" source="media/tlc-architecture.png" alt-text="Diagram that shows a TIC 3.0 compliance architecture." border="false" lightbox="media/tlc-architecture.png":::
+:::image type="content" source="media/trusted-internet-connections.png" alt-text="Diagram that shows a TIC 3.0 compliance architecture." border="false" lightbox="media/trusted-internet-connections.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/TIC_3.0-AzureReferenceArchitecture.vsdx)  of this architecture.*
 
 ### Dataflow
 
 1. Firewall
-   - The firewall can be any Layer 3 or Layer 7 firewall. 
-     - Layer 3 firewalls are Azure Firewall or third-party firewall also known as Network Virtual Appliance (NVA). 
-     - Layer 7 firewalls are Application Gateway with a Web Application Firewall (WAF) or Azure Front Door with WAF. This article covers the Azure Firewall, Application Gateway with WAF, and Azure Front Door with WAF.
+   - The firewall can be any layer 3 or layer 7 firewall. 
+     - Azure Firewall and some third-party firewalls, also known as Network Virtual Appliances (NVAs), are layer 3 firewalls. 
+     - Application Gateway with WAF and Azure Front Door with WAF are layer 7 firewalls. 
+     - This article provides deployment solutions for Azure Firewall, Application Gateway with WAF, and Azure Front Door with WAF deployments.
    - The firewall enforces policies, collects metrics, and logs connection transactions between web services and the users and services that access the web services.
 1. Firewall logs
-   - Azure Firewall, Application Gateway with WAF, and Azure Front Door with WAF sends logs to the Log Analytics workspace.
+   - Azure Firewall, Application Gateway with WAF, and Azure Front Door with WAF send logs to the Log Analytics workspace.
    - Third-party firewalls send logs in syslog format to the Log Analytics workspace via a syslog forwarder virtual machine.
 1. Log Analytics workspace
    - The Log Analytics workspace is a repository for logs.
    - It can host a service that provides custom analysis of the network traffic data from the firewall.
-1. Service Principal (Registered Application)
-1. Event Hubs Standard
+1. Service principal (registered application)
+1. Azure Event Hubs Standard
 1. CISA TALON
 
 ### Components
 
-- Firewall (Select one type)
-  - [Azure Firewall](https://learn.microsoft.com/en-us/azure/firewall/overview) is a cloud-native, intelligent network firewall security service that provides threat protection for cloud workloads that run in Azure. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. There are two performance tiers, Standard, and Premium. Azure Firewall Premium includes all the functionality of Azure Firewall Standard and has other features such as Transport Layer Security (TLS) inspection, and an intrusion detection and protection system (IDPS).
-  - [Application Gateway](https://learn.microsoft.com/en-us/azure/application-gateway/overview) with [Web Application Firewall](https://learn.microsoft.com/en-us/azure/web-application-firewall/overview) is a regional web traffic load balancer that enables you to manage traffic to your web applications. Web Application Firewall (WAF) provides centralized protection of your web applications from common exploits and vulnerabilities. 
-  - [Azure Front Door](https://learn.microsoft.com/en-us/azure/frontdoor/front-door-overview) with [Web Application Firewall](https://learn.microsoft.com/en-us/azure/web-application-firewall/overview) is a global web traffic load balancer that enables you to manage traffic to your web applications. It includes Content Delivery Network (CDN) capabilities to speed up and modernize your applications. Web Application Firewall (WAF) provides centralized protection of your web applications from common exploits and vulnerabilities. 
-  - Third-party Firewall is a Network Virtual Appliance (NVA) that runs on an Azure virtual machine using firewall services from non-Microsoft vendors. Microsoft supports a large ecosystem of third-party vendors running firewall services. 
-- Logging and authentication (All required)
-  - Log Analytics is a tool in the Azure portal that's used to edit and run log queries against Azure Monitor Logs. For more information, see [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview).
+- Firewall. Your architecture will use one or more of the following firewalls. (For more information, see the [Alternatives](#alternatives) section of this article.) 
+  - [Azure Firewall](https://azure.microsoft.com/products/azure-firewall) is a cloud-native, intelligent network firewall security service that provides threat protection for cloud workloads that run on Azure. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. It's available in two performance tiers: Standard, and Premium. Azure Firewall Premium includes all the functionality of Azure Firewall Standard and provides other features like Transport Layer Security (TLS) inspection and an intrusion detection and prevention system (IDPS).
+  - [Application Gateway](https://azure.microsoft.com/products/application-gateway/) with [WAF](/azure/web-application-firewall/overview) is a regional web traffic load balancer that enables you to manage traffic to your web applications. WAF provides enhanced centralized protection of your web applications from common exploits and vulnerabilities. 
+  - [Azure Front Door](https://azure.microsoft.com/products/frontdoor/) with [WAF](/azure/web-application-firewall/overview) is a global web traffic load balancer that enables you to manage traffic to your web applications. It provides content delivery network (CDN) capabilities to speed up and modernize your applications. WAF provides enhanced centralized protection of your web applications from common exploits and vulnerabilities. 
+  - A third-party firewall is an NVA that runs on an Azure virtual machine and uses firewall services from non-Microsoft vendors. Microsoft supports a large ecosystem of third-party vendors that provide firewall services. 
+- Logging and authentication.
+  - Log Analytics is a tool that's available in the Azure portal that you can use to edit and run log queries against Azure Monitor Logs. For more information, see [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview).
   - [Azure Monitor](https://azure.microsoft.com/services/monitor) is a comprehensive solution for collecting, analyzing, and acting on telemetry.
-  - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) provides identity services, single sign-on, and multifactor authentication across Azure workloads.
-  - [Service Principal](https://learn.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals) (Registered Application) is an entity that defines the access policy and permissions for the user/application in the Azure AD tenant.
-  - [Event Hubs](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-about) Standard is a modern big data streaming platform and event ingestion service.
-  - CISA TALON is a CISA operated service running in Azure. TALON connects to the customer's Event Hubs, authenticates using a CISA supplied certificate associated with a customer's Service Principal, and collect the logs on behalf of the customer for CLAW consumption.
+  - [Azure AD](https://azure.microsoft.com/services/active-directory) provides identity services, single sign-on, and multifactor authentication across Azure workloads.
+  - A [service principal](/azure/active-directory/develop/app-objects-and-service-principals) (registered application) is an entity that defines the access policy and permissions for a user or application in an Azure AD tenant.
+  - [Event Hubs Standard](https://azure.microsoft.com/products/event-hubs) is a modern big data streaming platform and event ingestion service.
+  - CISA TALON is a CISA-operated service that runs on Azure. TALON connects to your Event Hubs service, authenticates by using a CISA-supplied certificate that's associated with your service principal, and collects logs for CLAW consumption.
 
 ### Alternatives
 
-A few alternatives exist for this solution:
+There are a few alternatives that you can use in these solutions:
 
-- You can separate log collection into areas of responsibility. For instance, Azure AD logs can be sent to a Log Analytics workspace managed by an identity team, and network logs can be sent to a different Log Analytics workspace managed by the network team.
-- This article defines each example using a single firewall option, but organizational requirements or architectures require two or more is acceptable. Should the architecture have an Azure Firewall then an Application Gateway with a WAF, that is acceptable. However many firewalls are used to secure the cloud perimeter, logs for each firewall must be collected and made available for the CISA TALON to collect.
-- If your environment requires internet egress from Azure-based virtual machines, then you can use a Layer 3 based solution like Azure Firewall or a Third-party firewall to monitor and log the outbound traffic.
+- You can separate log collection into areas of responsibility. For example, you can send Azure AD logs to a Log Analytics workspace that's managed by the identity team, and send network logs to a different Log Analytics workspace that's managed by the network team.
+- The examples in this article each use a single firewall, but some organizational requirements or architectures require two or more. For example, an architecture can include an Azure Firewall instance and an Application Gateway instance with WAF. Logs for each firewall must be collected and made available for CISA TALON to collect.
+- If your environment requires internet egress from Azure-based virtual machines, you can use a layer 3 solution like Azure Firewall or a third-party firewall to monitor and log the outbound traffic.
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](https://learn.microsoft.com/en-us/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-- There are various solutions that you can deploy, depending on your current situation. Evaluate your current architecture to determine which solution provides your best approach to TIC 3.0 compliance.
-- Contact your CISA representative to request CLAW access.
-- Use the **Deploy to Azure** buttons to deploy one or more of the solutions to a test environment. That should help you become familiar with the process and the deployed resources.
-- See [Trusted Internet Connection (TIC) 3.0 compliance for internet-facing applications](https://github.com/Azure/trusted-internet-connection), a complimentary article providing additional detail and dynamic content for TIC 3.0:
+- Evaluate your current architecture to determine which of the solutions presented here provides the best approach to TIC 3.0 compliance.
+- Contact your CISA representative to request access to CLAW.
+- Use the **Deploy to Azure** buttons in this article to deploy one or more of the solutions in a test environment. Doing so should help you become familiar with the process and the deployed resources.
+- See [TIC 3.0 compliance for internet-facing applications](https://github.com/Azure/trusted-internet-connection), a complimentary article that provides more  details and assets for TIC 3.0:
   - Additional information about achieving compliance.
   - ARM templates to simplify deployment.
   - Information to assist with integrating existing resources into the solution.
-  - The types of logs collected per service layer includes Kusto queries to review logs collected by CISA. The queries can be leveraged for your organization's security requirements.
+  - The types of logs collected for each service layer and Kusto queries for reviewing logs collected by CISA. You can use the queries for your organization's security requirements.
 
 ### Operational excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](https://learn.microsoft.com/en-us/azure/architecture/framework/devops/overview).
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-- [Azure Alerts](/azure/azure-monitor/alerts/alerts-overview) is built into the solution to notify you when an upload fails to deliver logs to the CLAW. It's up to you to determine the severity of alerts and how to respond.
-- Use ARM templates to speed up the deployment of TIC 3.0 architectures for new applications.
+- [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-overview) are built into the solutions to notify you when an upload fails to deliver logs to CLAW. You need to determine the severity of the alerts and how to respond.
+- You can use ARM templates to speed up the deployment of TIC 3.0 architectures for new applications.
 
 ### Performance efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](https://learn.microsoft.com/en-us/azure/architecture/framework/scalability/overview).
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
 - [Azure Firewall](/azure/firewall/firewall-performance), [Application Gateway](/azure/application-gateway/application-gateway-faq#performance), [Azure Front Door](/azure/frontdoor/scenarios#performance-efficiency), and [Event Hubs](/azure/architecture/serverless/event-hubs-functions/performance-scale) performance scales as usage increases.
-- Azure Firewall Premium allows more TCP connections than Standard and provides greater bandwidth.
+- Azure Firewall Premium allows more TCP connections than Standard and provides increased bandwidth.
 - Application Gateway v2 automatically ensures that new instances are spread across fault domains and update domains. 
 - Azure Front Door provides caching, compression, traffic acceleration, and TLS termination to improve performance.
-- Event Hub standard and premium provide auto-inflate to scale up as load increases.
+- Event Hubs Standard and Premium provide auto-inflate to scale up as load increases.
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](https://learn.microsoft.com/en-us/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-- Azure Firewall Standard and Premium tiers integrate with availability zones to increase availability.
+- Azure Firewall Standard and Premium integrate with availability zones to increase availability.
 - Application Gateway v2 supports autoscaling and availability zones to increase reliability.
 - Multi-region implementations that include load balancing services like Azure Front Door can improve reliability and resiliency.
-- Event Hubs Standard and Premium provide Geo-disaster recovery pairing that allows the namespace to fail over to a secondary region.
+- Event Hubs Standard and Premium provide Geo-disaster recovery pairing that enables a namespace to fail over to a secondary region.
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](https://learn.microsoft.com/en-us/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- Registering an enterprise application creates a service principal. Use a naming scheme for service principals that indicates their purpose.
+- When you register an enterprise application, a service principal is created. Use a naming scheme for sevice principals that indicates the purpose of each one.
 - Perform audits to determine the activity of service principals and the status of service principal owners.
-- Azure Firewall has standard policies. Web Application Firewalls (WAF) associated with Application Gateway and Azure Front Door has managed rule sets to secure your web service. Start with those and build organizational policies over time based on industry requirements, best practices, and government regulations.
+- Azure Firewall has standard policies. WAFs associated with Application Gateway and Azure Front Door have managed rule sets to help secure your web service. Start with these rule sets and build organizational policies over time based on industry requirements, best practices, and government regulations.
 - Event Hubs access is authorized using Azure Active Directory Managed Identities using a CISA provided certificate.
 
 ## Deploy an Azure Firewall solution
