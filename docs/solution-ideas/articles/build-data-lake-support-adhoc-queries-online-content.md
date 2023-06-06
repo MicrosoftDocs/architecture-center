@@ -1,10 +1,10 @@
 This architecture provides an example delta lake for travel booking, where large amounts of raw documents are generated at a high frequency.
 
-*Apache® and Apache Spark® are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
+*Apache® and Apache Spark™ are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 ## Architecture
 
-:::image type="content" source="../media/build-data-lake-support-adhoc-queries-online-02.svg" alt-text="Diagram of Delta Lake architecture." lightbox="../media/build-data-lake-support-adhoc-queries-online-02.svg" border="false":::
+:::image type="content" source="../media/build-data-lake-support-ad-hoc-queries-online-02.svg" alt-text="Diagram of Delta Lake architecture." lightbox="../media/build-data-lake-support-ad-hoc-queries-online-02.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/build-data-lake-support-adhoc-queries-online.vsdx) of this architecture.*
 
@@ -68,7 +68,7 @@ manage user purchases. For example, leisure and travel booking systems
 disintermediate users and services providers for searching services, aggregating
 meaningful offers from providers, and managing user reservations.
 
-:::image type="content" source="../media/build-data-lake-support-adhoc-queries-online-01.svg" alt-text="Diagram of a marketplace with service providers and B2B and B2C users." border="false":::
+:::image type="content" source="../media/build-data-lake-support-ad-hoc-queries-online-01.svg" alt-text="Diagram of a marketplace with service providers and B2B and B2C users." border="false":::
 
 ### Potential use cases
 
