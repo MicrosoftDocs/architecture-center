@@ -196,8 +196,8 @@ The monitoring processes and components are discussed here primarily from a data
 
 Throughout each section, we assume that 2 types of data will be collected from various layers of the architecture that can be useful for diagnosing and understanding performance, doing debugging, and many other activities:
 
-- metrics - numeric data that provides a snapshot in time of specific values being monitored, such as CPU percent, I/O metrics, etc. This type of data can be also useful for making auto scaling configuration decisions.
-- logs - capture data over time for the purpose of trend analysis, which can be very useful for debugging and understanding performance. For example, web servers create log files which provide the ability to analyze traffic patterns. 
+- Metrics: numerical values that describe an aspect of a system at a particular point in time for specific values being monitored, such as CPU percent, I/O metrics, etc. This type of data can be also useful for making auto scaling configuration decisions.
+- Logs - Logs contain recorded system events that capture data over time for the purpose of trend analysis, which can be very useful for debugging and understanding performance. For example, web servers create log files which provide the ability to analyze traffic patterns. 
 
 Monitoring data is generated at multiple levels, all of which can be sources of important metrics and log files: 
 
@@ -248,12 +248,12 @@ The table below lists the types of data you can currently collect with the Azure
 
 //TODO: guidance for RI. Boot diagnostics in managed storage (and transfer later) or using a custom storage account
 
-### Azure platform data
+### Azure Monitor logs and metrics
 
-Two of the pillars of observability of interest are the metrics and logs collected by Azure Monitor. You define [diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal#activity-log-settings) to send Azure platform metrics and logs to the Log Analytics Workspace:
+As mentioned, the two pillars of observability that are of interest are the metrics and logs, both of which are collected by Azure Monitor. You define [diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal#activity-log-settings) to send Azure platform metrics and logs to the Log Analytics Workspace:
 
-- Metrics are numerical values that describe an aspect of a system at a particular point in time. Azure Monitor Metrics is a time-series database, optimized for analyzing time-stamped data. Azure Monitor collects metrics at regular intervals. Metrics are identified with a timestamp, a name, a value, and one or more defining labels. They can be aggregated using algorithms, compared to other metrics, and analyzed for trends over time. 
-- Logs are recorded system events. Logs can contain different types of data, be structured or free-form text, and they contain a timestamp. Azure Monitor stores structured and unstructured log data of all types in Azure Monitor Logs. 
+- Azure Monitor Metrics is a time-series database, optimized for analyzing time-stamped data. Azure Monitor collects metrics at regular intervals. Metrics are identified with a timestamp, a name, a value, and one or more defining labels. They can be aggregated using algorithms, compared to other metrics, and analyzed for trends over time. 
+- Azure Monitor Logs can contain different types of data, be structured or free-form text, and they contain a timestamp. Azure Monitor stores structured and unstructured log data of all types in Azure Monitor logs. 
 
 More specifically, each Azure resource allows you to proactively capture logs and metrics for that service. Azure resources also support alerts which provide the ability to respond reactively to resolve issues. The table below links to additional details for the Azure resources included in this reference architecture:
 
