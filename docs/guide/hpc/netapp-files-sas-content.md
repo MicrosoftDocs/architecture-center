@@ -48,6 +48,9 @@ SASDATA, the main shared workload of SAS 9.4, has an 80:20 read/write ratio. The
 
 For more information, see [Azure NetApp Files performance benchmarks for Linux](/azure/azure-netapp-files/performance-benchmarks-linux).
 
+> [!NOTE]
+> Azure NetApp Files large volumes feature is now available. This feature provides higher per-volume throughput than regular Azure NetApp Files volumes do. This capability can be considered in case more performance is required for your SASDATA (or SASWORK) volumes. See [this documentation](/azure/azure-netapp-files/large-volumes-requirements-considerations#requirements-and-considerations) for details.
+
 ### Capacity recommendations
 
 The [Azure NetApp Files performance calculator](https://cloud.netapp.com/azure-netapp-files/sizer) can provide guidance for sizing SASDATA volumes. 
@@ -348,6 +351,9 @@ Depending on your requirements for throughput and capacity, keep the following c
 -	The [performance considerations for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-performance-considerations).
 - The required Azure NetApp Files capacity and service levels for SASDATA.
 - The guidance in this article for choosing a storage type for SASWORK.
+
+> [!NOTE]
+> Azure NetApp Files large volumes feature is now available. This feature provides higher per-volume throughput than regular Azure NetApp Files volumes do. This capability can be considered in case more performance is required for your SASDATA (or SASWORK) volumes. See [this documentation](/azure/azure-netapp-files/large-volumes-requirements-considerations#requirements-and-considerations) for details.
 
 #### Scalability
 

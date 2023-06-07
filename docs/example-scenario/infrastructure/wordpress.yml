@@ -15,7 +15,6 @@ metadata:
     - web-apps
     - scalability
     - example-scenario
-  social_image_url: /azure/architecture/example-scenario/infrastructure/media/secure-scalable-wordpress.png
 name: Scalable and secure WordPress on Azure
 azureCategories:
   - web

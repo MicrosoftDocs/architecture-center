@@ -223,8 +223,18 @@ items:
         maintainContext: true
     - name: Choose an AI/ML service
       items:
-      - name: Cognitive services
+      - name: Cognitive Services
         href: data-guide/technology-choices/cognitive-services.md
+      - name: API services  
+        items:
+        - name: Language API services
+          href: data-guide/cognitive-services/language-api.md
+        - name: Speech API services
+          href: data-guide/cognitive-services/speech-api.md
+        - name: Vision API services
+          href: data-guide/cognitive-services/vision-api.md
+        - name: Decision APIs and Applied AI Services
+          href: data-guide/cognitive-services/decision-applied-ai.md
       - name: Natural language processing
         href: data-guide/technology-choices/natural-language-processing.yml
       - name: Machine learning
@@ -1679,8 +1689,6 @@ items:
         href: example-scenario/forensics/index.yml
       - name: Hybrid security monitoring in Azure
         href: hybrid/hybrid-security-monitoring.yml
-      - name: Web app private database connectivity
-        href: example-scenario/private-web-app/private-web-app.yml
     - name: Datasets
       items:
       - name: MNIST handwritten digits
@@ -1908,6 +1916,10 @@ items:
       items:
       - name: All manufacturing architectures
         href: /azure/architecture/browse/?terms=manufacturing
+      - name: Siemens Teamcenter
+        items: 
+        - name: Teamcenter with NetApp Files
+          href: example-scenario/manufacturing/teamcenter-plm-netapp-files.yml 
       - name: Anomaly detection for conveyor belts
         href: example-scenario/ai/real-time-anomaly-detection-conveyor-belt.yml
       - name: Anomaly detector process
@@ -2029,16 +2041,6 @@ items:
           href: industries/telecommunications/deploy-private-mobile-network.md
         - name: Build a private 5G network
           href: industries/telecommunications/build-private-5g-network.md
-      - name: Field and cloud edge gateways
-        href: /azure/architecture/example-scenario/iot/field-cloud-edge-gateways
-      - name: Edge Workload Configuration pattern
-        href: /azure/architecture/patterns/edge-workload-configuration
-      - name: Kubernetes at the edge
-        items:
-        - name: Choose a Kubernetes at the edge option
-          href: /azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option
-        - name: Choose a bare-metal Kubernetes option
-          href: /azure/architecture/operator-guides/aks/choose-bare-metal-kubernetes
       - name: Dynamics 365 telecommunications
         items:
         - name: Overview
@@ -2067,33 +2069,17 @@ items:
     - name: Architectures
       items:
       - name: All telecommunications architectures
-        href: /azure/architecture/browse/?terms=telecommunications
-      - name: Customer churn prediction
-        href: /azure/architecture/solution-ideas/articles/customer-churn-prediction
-      - name: Deploy AI and ML at the edge
-        href: /azure/architecture/hybrid/deploy-ai-ml-azure-stack-edge
-      - name: Determine customer lifetime and churn
-        href: /azure/architecture/example-scenario/ai/customer-lifecycle-churn
-      - name: Enterprise-grade conversational bot
-        href: /azure/architecture/reference-architectures/ai/conversational-bot
+        href: /azure/architecture/browse/?terms=telecommunications      
+      - name: Carrier-grade example solution
+        href: industries/telecommunications/carrier-grade.yml
       - name: Geospatial analysis for telecommunications
         href: example-scenario/data/geospatial-analysis-telecommunications-industry.yml
-      - name: IoT connected light, power, and internet
-        href: /azure/architecture/solution-ideas/articles/iot-power-management
-      - name: IoT device connectivity for industry
-        href: /azure/architecture/solution-ideas/articles/healthcare-network
-      - name: IoT Edge safety and maintenance system
-        href: /azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance
       - name: Low-latency network connections
         href: /azure/architecture/solution-ideas/articles/low-latency-network
       - name: Public MEC deployment
         href: example-scenario/hybrid/public-multi-access-edge-compute-deployment.yml
       - name: Public MEC high availability
         href: example-scenario/hybrid/multi-access-edge-compute-ha.yml
-      - name: Real-time fraud detection
-        href: /azure/architecture/example-scenario/data/fraud-detection
-      - name: Video capture and analytics
-        href: /azure/architecture/solution-ideas/articles/video-analytics
     - name: Compliance solutions
       items:
       - name: GSMA overview
@@ -3336,6 +3322,8 @@ items:
         href: example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml
       - name: Customer 360 with Azure Synapse
         href: example-scenario/analytics/synapse-customer-insights.yml
+      - name: Data contextualization with graph in SQL Database
+        href: example-scenario/data/data-contextualization-based-on-azure-sql-graph.yml
       - name: Data lake queries via Synapse serverless
         href: example-scenario/data/synapse-exploratory-data-analytics.yml
       - name: Data warehouse for small business
@@ -3702,135 +3690,134 @@ items:
         href: solution-ideas/articles/hpc-risk-analysis.yml
       - name: HPC system and big compute
         href: solution-ideas/articles/big-compute-with-azure-batch.yml
-      - name: Hybrid HPC with HPC Pack
+      - name: Hybrid HPC with HPC Packwindows-containers-on-aks
         href: solution-ideas/articles/hybrid-hpc-in-azure-with-hpc-pack.yml
   - name: Containers
     items:
-    - name: Get started
-      href: reference-architectures/containers/aks-start-here.md
-    - name: Guides
+    - name: Kubernetes-based hosting
       items:
-      - name: Access an AKS API server
-        href: guide/security/access-azure-kubernetes-service-cluster-api-server.yml
-      - name: AKS day-2 operations guide
-        items:
-        - name: Introduction
-          href: operator-guides/aks/day-2-operations-guide.md
-        - name: Triage practices
-          items:
-          - name: Overview
-            href: operator-guides/aks/aks-triage-practices.md
-          - name: 1. Cluster health
-            href: operator-guides/aks/aks-triage-cluster-health.md
-          - name: 2. Node and pod health
-            href: operator-guides/aks/aks-triage-node-health.md
-          - name: 3. Workload deployments
-            href: operator-guides/aks/aks-triage-deployment.md
-          - name: 4. Admission controllers
-            href: operator-guides/aks/aks-triage-controllers.md
-          - name: 5. Container registry connectivity
-            href: operator-guides/aks/aks-triage-container-registry.md
-        - name: Patch and upgrade worker nodes
-          href: operator-guides/aks/aks-upgrade-practices.md
-        - name: Troubleshoot networking
-          href: operator-guides/aks/troubleshoot-network-aks.md
-        - name: Troubleshoot virtual nodes
-          href: operator-guides/aks/troubleshoot-virtual-nodes-aks.md
-        - name: Monitor AKS with Azure Monitor
-          href: /azure/aks/monitor-aks?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
-          maintainContext: true
-        - name: Common issues
-          href: /azure/aks/troubleshooting?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
-          maintainContext: true
+      - name: Get started
+        href: reference-architectures/containers/aks-start-here.md
       - name: Choose a Kubernetes option
-        href: guide/security/access-azure-kubernetes-service-cluster-api-server.yml
         items:
         - name: Choose a Kubernetes at the edge option
           href: operator-guides/aks/choose-kubernetes-edge-compute-option.md
         - name: Choose a bare-metal Kubernetes option
           href: operator-guides/aks/choose-bare-metal-kubernetes.yml
-      - name: High availability for multitier AKS apps
-        href: guide/aks/aks-high-availability.yml
-      - name: Overview of migration from Service Fabric to AKS
-        href: guide/aks/service-fabric-azure-kubernetes-service.md
-      - name: Migrate an app from Service Fabric to AKS
-        href: guide/aks/migrate-app-service-fabric-azure-kubernetes-service.md
-    - name: Architectures
-      items:
-      - name: Advanced microservices on AKS
-        href: reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml
-      - name: AKS baseline cluster
-        href: /azure/architecture/reference-architectures/containers/aks/baseline-aks
-      - name: AKS baseline for multi-region clusters
-        href: reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml
-      - name: AKS cluster for a PCI-DSS workload
+      - name: Architectures
         items:
-        - name: Introduction
-          href: reference-architectures/containers/aks-pci/aks-pci-intro.yml
-        - name: Architecture
-          href: reference-architectures/containers/aks-pci/aks-pci-ra-code-assets.yml
-        - name: Network segmentation
-          href: reference-architectures/containers/aks-pci/aks-pci-network.yml
-        - name: Data protection
-          href: reference-architectures/containers/aks-pci/aks-pci-data.yml
-        - name: Vulnerability management
-          href: reference-architectures/containers/aks-pci/aks-pci-malware.yml
-        - name: Access controls
-          href: reference-architectures/containers/aks-pci/aks-pci-identity.yml
-        - name: Monitoring operations
-          href: reference-architectures/containers/aks-pci/aks-pci-monitor.yml
-        - name: Policy management
-          href: reference-architectures/containers/aks-pci/aks-pci-policy.yml
-        - name: Summary
-          href: reference-architectures/containers/aks-pci/aks-pci-summary.yml
-      - name: AKS data protection on Azure NetApp Files
-        href: example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml
-      - name: AKS dual-stack network traffic
-        href: example-scenario/aks-dualstack/aks-dual-stack.yml
-      - name: Autonomous-driving simulation
-        href: industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml
-      - name: Blue-green deployment of AKS clusters
-        href: reference-architectures/containers/blue-green-deployment-for-aks/blue-green-deployment-for-aks.yml
-      - name: Build CNCF projects by using AKS
-        href: example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml
-      - name: Build and deploy apps on AKS
-        href: example-scenario/apps/devops-with-aks.yml
-      - name: Firewall protection for an AKS cluster
-        href: example-scenario/aks-firewall/aks-firewall.yml
-      - name: GitOps for AKS
-        href: example-scenario/gitops-aks/gitops-blueprint-aks.yml
-      - name: Microservices architecture on AKS
-        href: reference-architectures/containers/aks-microservices/aks-microservices.yml
-      - name: Microservices with Container Apps
-        href: example-scenario/serverless/microservices-with-container-apps.yml
-      - name: Microservices with Dapr and KEDA
-        href: example-scenario/serverless/microservices-with-container-apps-dapr.yml
-      - name: Multitenancy with AKS and AGIC
-        href: example-scenario/aks-agic/aks-agic.yml
-    - name: Solution ideas
+        - name: Application
+          items:
+          - name: Microservices architecture on AKS
+            href: reference-architectures/containers/aks-microservices/aks-microservices.yml
+          - name: Advanced microservices on AKS
+            href: reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml
+        - name: Infrastructure
+          items: 
+          - name: AKS baseline cluster
+            href: reference-architectures/containers/aks/baseline-aks.yml
+          - name: AKS baseline for multi-region clusters
+            href: reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml
+          - name: Running Windows containers on AKS
+            href: reference-architectures/containers/aks/windows-containers-on-aks.yml
+          - name: AKS cluster for a PCI-DSS workload
+            items:
+            - name: Introduction
+              href: reference-architectures/containers/aks-pci/aks-pci-intro.yml
+            - name: Architecture
+              href: reference-architectures/containers/aks-pci/aks-pci-ra-code-assets.yml
+            - name: Network segmentation
+              href: reference-architectures/containers/aks-pci/aks-pci-network.yml
+            - name: Data protection
+              href: reference-architectures/containers/aks-pci/aks-pci-data.yml
+            - name: Vulnerability management
+              href: reference-architectures/containers/aks-pci/aks-pci-malware.yml
+            - name: Access controls
+              href: reference-architectures/containers/aks-pci/aks-pci-identity.yml
+            - name: Monitoring operations
+              href: reference-architectures/containers/aks-pci/aks-pci-monitor.yml
+            - name: Policy management
+              href: reference-architectures/containers/aks-pci/aks-pci-policy.yml
+            - name: Summary
+              href: reference-architectures/containers/aks-pci/aks-pci-summary.yml
+      - name: Guides
+        items:
+        - name: Application
+          items:
+          - name: High availability for multitier AKS apps
+            href: guide/aks/aks-high-availability.yml
+          - name: CI/CD for AKS apps (Azure Pipelines)
+            href: guide/aks/aks-cicd-azure-pipelines.yml
+          - name: CI/CD for AKS apps (GitHub Actions and GitOps)
+            href: guide/aks/aks-cicd-github-actions-and-gitops.yml
+          - name: GitOps for AKS
+            href: example-scenario/gitops-aks/gitops-blueprint-aks.yml
+          - name: Migrate an app from Service Fabric to AKS
+            href: guide/aks/migrate-app-service-fabric-azure-kubernetes-service.md
+        - name: Infrastructure
+          items:
+          - name: Access an AKS API server
+            href: guide/security/access-azure-kubernetes-service-cluster-api-server.yml
+          - name: AKS day-2 operations guide
+            items:
+            - name: Introduction
+              href: operator-guides/aks/day-2-operations-guide.md
+            - name: Triage practices
+              items:
+              - name: Overview
+                href: operator-guides/aks/aks-triage-practices.md
+              - name: 1. Cluster health
+                href: operator-guides/aks/aks-triage-cluster-health.md
+              - name: 2. Node and pod health
+                href: operator-guides/aks/aks-triage-node-health.md
+              - name: 3. Workload deployments
+                href: operator-guides/aks/aks-triage-deployment.md
+              - name: 4. Admission controllers
+                href: operator-guides/aks/aks-triage-controllers.md
+              - name: 5. Container registry connectivity
+                href: operator-guides/aks/aks-triage-container-registry.md
+            - name: Patch and upgrade worker nodes
+              href: operator-guides/aks/aks-upgrade-practices.md
+            - name: Troubleshoot networking
+              href: operator-guides/aks/troubleshoot-network-aks.md
+            - name: Troubleshoot virtual nodes
+              href: operator-guides/aks/troubleshoot-virtual-nodes-aks.md
+            - name: Monitor AKS with Azure Monitor
+              href: /azure/aks/monitor-aks?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
+              maintainContext: true
+            - name: Common issues
+              href: /azure/aks/troubleshooting?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
+              maintainContext: true
+          - name: Blue-green deployment of AKS clusters
+            href: guide/aks/blue-green-deployment-for-aks.yml
+          - name: Firewall protection for an AKS cluster
+            href: guide/aks/aks-firewall.yml
+          - name: Overview of migration from Service Fabric to AKS
+            href: guide/aks/service-fabric-azure-kubernetes-service.md
+          - name: Multitenancy with AKS and AGIC
+            href: example-scenario/aks-agic/aks-agic.yml
+          - name: AKS data protection on Azure NetApp Files
+            href: example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml
+          - name: AKS dual-stack network traffic
+            href: guide/aks/aks-dual-stack.yml
+      - name: Solution ideas
+        items:
+        - name: Build CNCF projects by using AKS
+          href: example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml
+        - name: Data streaming with AKS
+          href: solution-ideas/articles/data-streaming-scenario.yml
+        - name: JBoss deployment with Red Hat on Azure
+          href: solution-ideas/articles/jboss-deployment-red-hat.yml         
+        - name: AKS in event stream processing
+          href: solution-ideas/articles/serverless-event-processing-aks.yml          
+    - name: PaaS container hosting
       items:
-      - name: API-first SaaS business model with AKS
-        href: solution-ideas/articles/aks-api-first.yml
-      - name: AKS in event stream processing
-        href: solution-ideas/articles/serverless-event-processing-aks.yml
-      - name: Build cloud native applications
-        href: solution-ideas/articles/cloud-native-apps.yml
-      - name: Bursting from AKS with ACI
-        href: solution-ideas/articles/scale-using-aks-with-aci.yml
-      - name: Data streaming with AKS
-        href: solution-ideas/articles/data-streaming-scenario.yml
-      - name: Elastic demand handling with AKS
-        href: solution-ideas/articles/aks-demand-spikes.yml
-      - name: Instant IoT data streaming with AKS
-        href: solution-ideas/articles/aks-iot-data-streaming.yml
-      - name: JBoss deployment with Red Hat on Azure
-        href: solution-ideas/articles/jboss-deployment-red-hat.yml
-      - name: Lift and shift to containers with App Service
-        href: solution-ideas/articles/migrate-existing-applications-to-container-apps.yml
-      - name: Microservices with AKS and Azure DevOps
-        href: solution-ideas/articles/microservices-with-aks.yml
-      - name: Secure DevOps for AKS
-        href: solution-ideas/articles/secure-devops-for-kubernetes.yml
+      - name: Architectures
+        items:
+        - name: Microservices with Container Apps
+          href: example-scenario/serverless/microservices-with-container-apps.yml
+        - name: Microservices with Dapr and KEDA
+          href: example-scenario/serverless/microservices-with-container-apps-dapr.yml        
   - name: Databases
     items:
     - name: Get started
@@ -4128,16 +4115,12 @@ items:
         maintainContext: true
       - name: SQL Managed Instance with CMK
         href: example-scenario/data/sql-managed-instance-cmk.yml
-      - name: Web app private database connectivity
-        href: example-scenario/private-web-app/private-web-app.yml
       - name: Windows N-tier applications
         href: reference-architectures/n-tier/n-tier-sql-server.yml
     - name: Solution ideas
       items:
       - name: Big data analytics with Azure Data Explorer
         href: solution-ideas/articles/big-data-azure-data-explorer.yml
-      - name: Build cloud native applications
-        href: solution-ideas/articles/cloud-native-apps.yml
       - name: Campaign optimization with SQL Server
         href: solution-ideas/articles/campaign-optimization-with-sql-server.yml
       - name: Data streaming
@@ -4650,6 +4633,8 @@ items:
         href: example-scenario/infrastructure/devtest-labs-reference-architecture.yml
       - name: CI/CD pipeline for chatbots with ARM
         href: example-scenario/apps/devops-cicd-chatbot.yml
+      - name: CI/CD pipeline using Azure DevOps
+        href: example-scenario/apps/devops-dotnet-baseline.yml
       - name: DevSecOps in GitHub
         href: solution-ideas/articles/devsecops-in-github.yml
       - name: Enterprise monitoring with Azure Monitor
@@ -6335,8 +6320,6 @@ items:
         href: example-scenario/data/sql-managed-instance-cmk.yml
       - name: Virtual network integrated microservices
         href: example-scenario/integrated-multiservices/virtual-network-integration.yml
-      - name: Web app private database connectivity
-        href: example-scenario/private-web-app/private-web-app.yml
     - name: Solution ideas
       items:
       - name: Centralize app configuration and security
@@ -6657,6 +6640,8 @@ items:
       items:
       - name: Basic web application
         href: reference-architectures/app-service-web-app/basic-web-app.yml
+      - name: Baseline web application with zone redundancy
+        href: reference-architectures/app-service-web-app/baseline-zone-redundant.yml
       - name: Clinical insights with Cloud for Healthcare
         href: example-scenario/mch-health/medical-data-insights.yml
       - name: Common web app architectures
@@ -6676,8 +6661,6 @@ items:
         href: example-scenario/apps/ecommerce-scenario.yml
       - name: Highly available multi-region web app
         href: reference-architectures/app-service-web-app/multi-region.yml
-      - name: Highly available zone-redundant web app
-        href: reference-architectures/app-service-web-app/zone-redundant.yml
       - name: 'IaaS: Web app with relational database'
         href: high-availability/ref-arch-iaas-web-and-db.yml
       - name: Improved access to multitenant web apps
@@ -6688,8 +6671,6 @@ items:
         href: example-scenario/apps/apim-api-scenario.yml
       - name: Multi-region web app with private database
         href: example-scenario/sql-failover/app-service-private-sql-multi-region.yml
-      - name: Multi-tier app service with private endpoint
-        href: example-scenario/web/multi-tier-app-service-private-endpoint.yml
       - name: Multi-tier app service with service endpoint
         href: reference-architectures/app-service-web-app/multi-tier-app-service-service-endpoint.yml
       - name: Multi-tier web app built for HA/DR
@@ -6706,16 +6687,12 @@ items:
         href: example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml
       - name: Scalable order processing
         href: example-scenario/data/ecommerce-order-processing.yml
-      - name: Scalable web app
-        href: reference-architectures/app-service-web-app/scalable-web-app.yml
       - name: Serverless web app
         href: reference-architectures/serverless/web-app.yml
       - name: Virtual health on Cloud for Healthcare
         href: example-scenario/mch-health/virtual-health-mch.yml
       - name: Web app monitoring on Azure
         href: reference-architectures/app-service-web-app/app-monitoring.yml
-      - name: Web app private database connectivity
-        href: example-scenario/private-web-app/private-web-app.yml
     - name: Solution ideas
       items:
       - name: Dynamics Business Central as a service
@@ -6726,6 +6703,8 @@ items:
         href: solution-ideas/articles/highly-available-sharepoint-farm.yml
       - name: Hybrid SharePoint farm with Microsoft 365
         href: solution-ideas/articles/sharepoint-farm-microsoft-365.yml
+      - name: Lift-and-shift migration to containers with App Service
+        href: solution-ideas/articles/migrate-existing-applications-to-container-apps.yml
       - name: Modern customer support portal
         href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.yml
       - name: Real-time presence with Microsoft 365

@@ -15,7 +15,6 @@ metadata:
     - acom-architecture
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/knowledge-mining-contract-management.png
 name: Knowledge mining in contract management
 azureCategories:
   - ai-machine-learning

@@ -6,15 +6,15 @@ This reference architecture describes a common production system. You can choose
 
 The first diagram shows a reference architecture for SAP HANA in Azure, which utilizes availability sets.
 
-[![Reference architecture for SAP HANA ScaleUp](./images/sap-hana-scale-up-avset.png)](./images/sap-hana-scale-up-avset.png#lightbox)
+[![Diagram that shows an architecture that uses availabity sets.](./images/sap-hana-scale-up-availability-set.svg)](./images/sap-hana-scale-up-availability-set.svg#lightbox)
 *Figure - The architecture of a production HANA environment, in Azure with availability set.*
 
 The second diagram shows a reference architecture for SAP HANA in Azure, which utilizes availability zones.
 
-[![Reference architecture for SAP HANA ScaleUp](./images/sap-hana-scale-up-avzone.png)](./images/sap-hana-scale-up-avzone.png#lightbox)
+[![Diagram that shows an architecture that uses availabity zones.](./images/sap-hana-scale-up-availability-zone.svg)](./images/sap-hana-scale-up-availability-zone.svg#lightbox)
 *Figure - The architecture of a production HANA environment, in Azure with availability zone.*
 
-_Download a [Visio file](https://arch-center.azureedge.net/sap-hana-architecture.vsdx) of this architecture, containing all versions including disaster recovery._
+*Download a [Visio file](https://arch-center.azureedge.net/sap-hana-architecture.vsdx) of all diagrams in this article.*
 
 > [!NOTE]
 > To deploy this reference architecture, you need the appropriate licensing of SAP products and other non-Microsoft technologies.
@@ -85,8 +85,7 @@ For details about SAP HANA performance requirements, see [SAP Note 1943937 - Har
 
 - **Cost-conscious storage design for non-productive systems** SAP HANA environments, which do not require maximum storage performance in all situations, can use a storage architecture more optimized on cost. This can apply to little used production systems or some non-productive SAP HANA environments. The cost optimized storage uses a combination of Standard SSDs instead of all Premium or Ultra SSDs used for production, and also combining /hana/data and /hana/log filesystems onto same set of disks. [Guideline and best practices](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#cost-conscious-solution-with-azure-premium-storage) for most VM sizes are available. If using Azure NetApp Files for SAP HANA, size-reduced volumes could be used to achieve the same goal.
 - **Resizing storage when scaling-up** When resizing the virtual machine due to changed business demands, or due to a growing database size, the storage configuration can change. Azure supports online disk expansion, without any interruption to service. With a striped disk setup, as used for SAP HANA, a resize operation should be done equally to all disks in the volume group. The addition of more disks to a volume group can potentially unbalance the striped data. If adding more disks to a storage configuration, it's far preferable to create a new storage volume on new disks. Next copy the contents during downtime and modify mountpoints. Lastly discard the no longer needed old volume group and underlying disks.
-- **NetApp application volume group (preview)** For deployments with SAP HANA files contained on Azure NetApp Files NFS volumes, application volume groups enable you to deploy all volumes according to best practices. This process also ensures optimal performance for your SAP HANA database. [Details are available](/azure/azure-netapp-files/application-volume-group-introduction) about how to proceed with this process as it does require manual intervention allow some time for the creation.
-
+- **Azure NetApp Files application volume group** For deployments with SAP HANA files contained on Azure NetApp Files NFS volumes, application volume groups enable you to deploy all volumes according to best practices. This process also ensures optimal performance for your SAP HANA database. [Details are available](/azure/azure-netapp-files/application-volume-group-introduction) about how to proceed with this process as it does require manual intervention allow some time for the creation.
 
 ### High Availability
 
@@ -122,7 +121,7 @@ Alternatively to using SBD VMs, [Azure shared disk](/azure/virtual-machines/disk
 
 ### Disaster recovery
 
-[![Reference architecture for SAP HANA ScaleUp](./images/sap-hana-scale-up-avzone-dr.png)](./images/sap-hana-scale-up-avzone-dr.png#lightbox)
+[![Diagram that shows an architecture with disaster recovery.](./images/sap-hana-scale-up-availability-zone-dr.svg)](./images/sap-hana-scale-up-availability-zone-dr.svg#lightbox)
 *Figure - The architecture of a production HANA environment, in Azure with availability zone, with disaster recovery.*
 
 In this architecture, HSR is used for database replication to a database instance in the secondary region. It's optional to use a cluster in the secondary region, but doing so can improve SAP HANA availability after a disaster recovery failover.
@@ -151,7 +150,7 @@ Azure Backup offers a simple, enterprise-grade solution for workloads running on
 
 To monitor your workloads on Azure, [Azure Monitor](/azure/azure-monitor/overview) lets you comprehensively collect, analyze, and act on telemetry from your cloud and on-premises environments.
 
-To provide SAP-based monitoring of supported Azure infrastructure and databases, Azure Monitor for SAP Solutions (preview) is being used. [Azure Monitor for SAP Solutions](/azure/virtual-machines/workloads/sap/azure-monitor-overview) provides a simple setup experience. The customer can collect telemetry data from Azure resources. They can then correlate data to various monitoring KPIs and use data to help with troubleshooting.
+To provide SAP-based monitoring of supported Azure infrastructure and databases, Azure Monitor for SAP Solutions is being used. [Azure Monitor for SAP Solutions](/azure/virtual-machines/workloads/sap/azure-monitor-overview) provides a simple setup experience. The customer can collect telemetry data from Azure resources. They can then correlate data to various monitoring KPIs and use data to help with troubleshooting.
 
 To provide SAP-based monitoring of resources and service performance of the SAP infrastructure, the [Azure SAP Enhanced Monitoring](/azure/virtual-machines/workloads/sap/vm-extension-for-sap) Extension is used. This extension feeds Azure monitoring statistics into the SAP application for operating system monitoring and DBA Cockpit functions. SAP enhanced monitoring is a mandatory prerequisite for running SAP on Azure. For details, see [SAP Note 2191498](https://launchpad.support.sap.com/#/notes/2191498), "SAP on Linux with Azure: Enhanced Monitoring."
 

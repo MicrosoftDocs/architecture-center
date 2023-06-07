@@ -21,7 +21,6 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/predictive-maintenance"
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/predictive-maintenance.png
 name: Predictive maintenance
 azureCategories:
   - ai-machine-learning
