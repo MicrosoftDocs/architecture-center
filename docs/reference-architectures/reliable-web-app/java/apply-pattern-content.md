@@ -26,7 +26,7 @@ A reliable web application is one that's both resilient and available. *Resilien
 
 ### Add reliability design patterns to your code
 
-Reliability design patterns improve the reliability of service to service communication in the cloud. The Retry pattern and Circuit Breaker pattern are design patterns you should add to web apps in the cloud.
+Reliability design patterns improve the reliability of service to service communication your web app. You should add the Retry pattern and Circuit Breaker pattern to your web app.
 
 **Use the Retry pattern.** The Retry pattern is a technique for handling temporary service interruptions. These temporary service interruptions are known as *transient faults* and typically resolve themselves in a few seconds. In the cloud, the leading causes of transient faults are service throttling, dynamic load distribution, and network connectivity. The Retry pattern handles transient faults by resending failed requests to the Azure service. You can configure the amount of time between retries and how many retries to attempt before throwing an exception. If your code already uses the Retry pattern, you should update your code to use the [Retry mechanisms](/azure/architecture/best-practices/retry-service-specific) available for Azure services and client SDKs. If your application doesn't have a Retry pattern, you should add one based on the following guidance. For more information, see:
 
