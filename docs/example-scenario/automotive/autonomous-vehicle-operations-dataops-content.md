@@ -12,7 +12,7 @@ This article presents a solution and guidance for developing offline data operat
 
 1. An Azure Data Factory pipeline is triggered at a scheduled interval to process the data in the Landing storage account. The pipeline handles the following steps:
    - Performs a data quality check such as a checksum. This step removes low-quality data so that only high-quality data passes through to the next stage. Azure App Service is used to run the quality check code. Data that's deemed incomplete is archived for future processing.
-   - For lineage tracking, calls a metadata API by using App Service. This step updates the metadata in Azure Cosmos DB to create a new data stream. For each measurement, there's a raw data stream.
+   - For lineage tracking, calls a metadata API by using App Service. This step updates metadata that's stored in Azure Cosmos DB to create a new data stream. For each measurement, there's a raw data stream.
    - Copies the data to a storage account called *Raw* in Data Lake Storage.
    - Calls the metadata API to mark the data stream as complete so that other components and services can consume the data stream.  
    - Archives the measurements and removes them from the Landing storage account.
@@ -24,7 +24,7 @@ This article presents a solution and guidance for developing offline data operat
 
 1. If data from the vehicle logger isn't synchronized across the various sensors, a Data Factory pipeline is triggered that syncs the data to create a valid dataset. The synchronization algorithm runs on Batch.
 
-1. A Data Factory pipeline is triggered that enriches the data with telemetry, vehicle logger data, or other data, such as weather, map, or object data. Enriched data helps to provide data scientists with insights that they can use in algorithm development, for example. The generated data is kept in Parquet files that are compatible with the synchronized data. Metadata about the enriched data is stored in a metadata store in Azure Cosmos DB.
+1. A Data Factory pipeline runs to enrich the data. Examples of enhancements include telemetry, vehicle logger data, and other data, such as weather, map, or object data. Enriched data helps to provide data scientists with insights that they can use in algorithm development, for example. The generated data is kept in Parquet files that are compatible with the synchronized data. Metadata about the enriched data is stored in a metadata store in Azure Cosmos DB.
 
 1. A Data Factory pipeline performs scene detection. Scene metadata is kept in the metadata store. Scene data is stored as objects in Parquet or Delta files.
 
@@ -91,7 +91,7 @@ The following table provides some ideas for structuring AVOps data domains:
 | Data domain | Published data products | Solution step |
 |--|--|--|
 |Data collection | Uploaded and validated measurement files| Landing and raw |
-|Extracted images| Selected and extracted images or frames, lidar, and radar  | Extracted |
+|Extracted images| Selected and extracted images or frames, lidar, and radar data | Extracted |
 |Extracted radar or lidar| Selected and extracted lidar and radar data | Extracted |
 |Extracted telemetry | Selected and extracted car telemetry data | Extracted |
 |Labeled | Labeled datasets | Labeled |
@@ -147,11 +147,11 @@ By using similar hierarchical structures, you can take advantage of the hierarch
 
 A Data Factory pipeline is triggered based on a schedule. After the pipeline is triggered, the data is copied from the Landing storage account to the Raw storage account.
 
-:::image type="content" source="./images/data-factory-copy-landing-raw.png" alt-text="Architecture diagram that shows how a Data Factory pipeline validates data, creates data streams, copies data to a raw account, and archives the data." border="false" lightbox="./images/data-factory-copy-landing-raw.png":::
+:::image type="content" source="./images/data-factory-copy-landing-raw.png" alt-text="Architecture diagram that shows a Data Factory pipeline. The pipeline validates, copies, and archives data. It also creates data streams." border="false" lightbox="./images/data-factory-copy-landing-raw.png":::
 
 The pipeline retrieves all the measurement folders and iterates through them. With each measurement, the solution performs the following activities:
 
-1. A function validates the measurement. The function retrieves the manifest file from the measurement manifest. Then the function checks whether all the MDF4, TDMS, and rosbag measurement files for the current measurement exist in the measurement folder. If the validation succeeds, the function proceeds to the next activity. If the validation fails, the function skips the current measurement and moves on to the next measurement folder.
+1. A function validates the measurement. The function retrieves the manifest file from the measurement manifest. Then the function checks whether all the MDF4, TDMS, and rosbag measurement files for the current measurement exist in the measurement folder. If the validation succeeds, the function proceeds to the next activity. If the validation fails, the function skips the current measurement and moves to the next measurement folder.
 
 1. A web API call is made to an API that creates a measurement, and the JSON payload from the measurement manifest JSON file is passed to the API. If the call succeeds, the response is parsed to retrieve the measurement ID. If the call fails, the measurement is moved to the on-error activity for error handling.
 
@@ -169,7 +169,7 @@ The pipeline retrieves all the measurement folders and iterates through them. Wi
    - Remove the measurement files from the Landing storage account.
 
    > [!NOTE]
-   > In these tasks, Batch uses an orchestrator pool and the AzCopy tool to copy and remove data. AzCopy uses SAS tokens to perform copy or removal tasks. SAS tokens are stored in a key vault and are referenced by using the values for `landingsaskey`, `archivesaskey`, and `rawsaskey`.
+   > In these tasks, Batch uses an orchestrator pool and the AzCopy tool to copy and remove data. AzCopy uses SAS tokens to perform copy or removal tasks. SAS tokens are stored in a key vault and are referenced by using the terms `landingsaskey`, `archivesaskey`, and `rawsaskey`.
 
 1. A web API call is made to update the state of the data stream to `Copy Complete`. If the call succeeds, the sequence proceeds to the next activity. If the call fails, the measurement is moved to the on-error activity.
 
@@ -181,7 +181,7 @@ Note the following points:
 
 - These pipelines are triggered based on a schedule. This approach helps to improve the traceability of pipeline runs and to avoid unnecessary runs.
 - Each pipeline is configured with a concurrency value of one to make sure any previous runs finish before the next scheduled run starts.
-- Each pipeline is configured to copy measurements in parallel. For instance, if a scheduled run picks up 10 measurements to copy, the pipeline steps can be run concurrently for all the measurements.
+- Each pipeline is configured to copy measurements in parallel. For instance, if a scheduled run picks up 10 measurements to copy, the pipeline steps can be run concurrently for all ten measurements.
 - Each pipeline is configured to generate an alert in Monitor if the pipeline takes longer than the expected time to finish.
 - The on-error activity is implemented in later observability stories.
 - Lifecycle management automatically deletes partial measurements, for example, measurements with missing rosbag files.
@@ -190,12 +190,12 @@ Note the following points:
 
 All extraction logic is packaged in different container images, with one container for each extraction process. Batch runs the container workloads in parallel when it extracts information from measurement files.
 
-:::image type="content" source="images/azure-batch-design.png" alt-text="Diagram that shows how Batch uses an orchestrator pool and an execution pool to access images from a container registry and run extraction jobs." border="false" lightbox="images/azure-batch-design.png":::
+:::image type="content" source="images/azure-batch-design.png" alt-text="Architecture diagram that shows how Batch retrieves images from a container registry and runs extraction jobs." border="false" lightbox="images/azure-batch-design.png":::
 
 Batch uses an orchestrator pool and an execution pool for processing workloads:
 
 - An orchestrator pool has Linux nodes without container runtime support. The pool runs Python code that uses the Batch API to create jobs and tasks for the execution pool. This pool also monitors those tasks. Data Factory invokes the orchestrator pool, which orchestrates the container workloads that extract data.
-- An execution pool has Linux nodes with container run times to support running container workloads. For this pool, jobs and tasks are scheduled via the orchestrator pool. All the container images that are required for processing in the execution pool are pushed to a container registry by using JFrog. The execution pool is configured to connect to this registry and pull the required images.
+- An execution pool has Linux nodes with container runtimes to support running container workloads. For this pool, jobs and tasks are scheduled via the orchestrator pool. All the container images that are required for processing in the execution pool are pushed to a container registry by using JFrog. The execution pool is configured to connect to this registry and pull the required images.
 
 Storage accounts that data is read from and written to are mounted via NFS 3.0 on the batch nodes and the containers that run on the nodes. This approach helps batch nodes and containers process data quickly without the need to download the data files locally to the batch nodes.
 
@@ -204,7 +204,7 @@ Storage accounts that data is read from and written to are mounted via NFS 3.0 o
 
 #### Invoke Batch from Data Factory
 
-In the extraction pipeline, the trigger passes the path of the metadata file and the raw data stream path to the pipeline parameters. Data Factory uses a Lookup activity to parse the JSON from the manifest file. The raw data stream ID can be parsed from the raw data stream path by parsing the pipeline variable.
+In the extraction pipeline, the trigger passes the path of the metadata file and the raw data stream path in the pipeline parameters. Data Factory uses a Lookup activity to parse the JSON from the manifest file. The raw data stream ID can be parsed from the raw data stream path by parsing the pipeline variable.
 
 Data Factory calls an API to create a data stream. The API returns the path for the extracted data stream. The extracted path is added to the current object, and Data Factory invokes Batch via a custom activity by passing the current object, after appending the extracted data stream path:
 
@@ -295,7 +295,7 @@ Principal authors:
 - [Brij Singh](https://www.linkedin.com/in/brijraajsingh) | Principal Software Engineer
 - [Ginette Vellera](https://www.linkedin.com/in/ginette-vellera-35523314) | Senior Software Engineering Lead
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

@@ -19,7 +19,6 @@ products:
   - azure-data-factory
   - azure-data-lake-storage
   - azure-data-share
-
 name: Data operations (DataOps) for autonomous vehicle operations (AVOps)
 summary: Use Azure services to build an offline data operations and data management (DataOps) solution for an automated driving system.
 thumbnailUrl: /azure/architecture/browse/thumbs/autonomous-vehicle-operations-dataops-thumbnail.png
