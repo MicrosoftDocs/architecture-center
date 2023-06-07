@@ -6,9 +6,9 @@ This document builds on top of the ["Azure Red Hat OpenShift landing zone accele
 
 ## Architecture
 
-![Reference architecture for a web application with high availability](./images/zone-redundant-aro-diagram.png)
+:::image type="content" source="./images/openshift-zonal-architecture.svg" alt-text="Reference architecture for a web application with high availability":::
 
-_Download a [Visio file](https://arch-center.azureedge.net/zone-redundant-aro-diagram.vsdx) that contains this architecture diagram. This file must be uploaded to `https://arch-center.azureedge.net/`_
+_Download a [Visio file](https://arch-center.azureedge.net/openshift-zonal-architecture.vsdx) that contains this architecture diagram._
 
 This architecture builds on [Availability zones infrastructure][azs] found in many Azure regions today. For a list of Azure regions that support Availability Zones, see [Azure regions with Availability Zones][az-regions].
 
