@@ -1,20 +1,20 @@
-The reliable web app pattern defines prescriptive implementation guidance for web apps moving to the cloud (re-platforming). The pattern focuses on the minimal changes you need to make to meet your business goals. There are two articles on the reliable web app pattern for Java. This article provides code and architecture guidance. The companion article shows you how to [plan the implementation of the pattern](plan-implementation.yml).
+The reliable web app pattern defines prescriptive implementation guidance for web apps moving to the cloud (re-platforming). The pattern focuses on the minimal changes you need to make to meet your business goals. There are two articles on the reliable web app pattern for Java. This article provides code and architecture guidance. The companion article provides [planning guidance](plan-implementation.yml).
 
-![Diagram showing GitHub icon.](../../../_images/github.png) There's a [reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java) (sample application) with the pattern applied that you can deploy. You should use the reference implementation with the written guidance to get the most out of the pattern.
+![Diagram showing GitHub icon.](../../../_images/github.png) There's a [reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java) (sample application) with the pattern applied that you can deploy. You should use the reference implementation with this written guidance to get the most out of the pattern.
 
 ## Architecture and code
 
 A well-architected web application needs quality code, and quality code needs a well-architected solution. The reliable web app pattern situates code changes within the pillars of the Azure Well-Architected Framework to reinforce the close relationship between code and architecture (*see figure 1*).
 
 [![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-java.svg)](images/reliable-web-app-java.svg)
-*Figure 1. Reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java.vsdx) of this architecture. For the estimated cost of each environment, see:*
+*Figure 1. Target reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java.vsdx) of this architecture. For the estimated cost of each environment, see:*
 
 - [Production environment estimated cost](https://azure.com/e/65354031bc084e539b6c8ccfc1a7b097)
 - [Nonproduction environment estimated cost](https://azure.com/e/af7d105ce24340dab93dfe666909a3e0)
 
-The following table lists the principles of the reliable web app pattern and the Well-Architected Framework principles of all the Enterprise App Patterns. The table also lists the technical details of the pattern implementation.
+The following table lists the principles of the reliable web app pattern and the Well-Architected Framework principles common to all the Enterprise App Patterns. The table also lists the technical details of the pattern implementation.
 
-| Pattern principles | Pattern implementation |
+| Pattern principles | Pattern implementation details |
 | --- | --- |
 | *Reliable web app pattern principles:*<br>▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br><br>*Well Architected Framework principles:*<br>▪ Secure ingress<br>▪ Optimized cost<br>▪ Observable<br>▪ Infrastructure as code<br>▪ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Terraform deployment <br>▪ Telemetry, logging, monitoring |
 
@@ -28,12 +28,12 @@ A reliable web application is one that's both resilient and available. *Resilien
 
 Reliability design patterns improve the reliability of service to service communication in the cloud. The Retry pattern and Circuit Breaker pattern are design patterns you should add to web apps in the cloud.
 
-**Use the Retry pattern.** The Retry pattern is a technique for handling temporary service interruptions. These temporary service interruptions are known as *transient faults* and typically resolve themselves in a few seconds. In the cloud, the leading causes of transient faults are service throttling, dynamic load distribution, and network connectivity. The Retry pattern handles transient faults by resending failed requests to the service. You can configure the amount of time between retries and how many retries to attempt before throwing an exception. If your code already uses the Retry pattern, you should update your code to use the [Retry mechanisms](/azure/architecture/best-practices/retry-service-specific) available in Azure services and client SDKs. If your application doesn't have a Retry pattern, you should add one based on the following guidance. For more information, see:
+**Use the Retry pattern.** The Retry pattern is a technique for handling temporary service interruptions. These temporary service interruptions are known as *transient faults* and typically resolve themselves in a few seconds. In the cloud, the leading causes of transient faults are service throttling, dynamic load distribution, and network connectivity. The Retry pattern handles transient faults by resending failed requests to the Azure service. You can configure the amount of time between retries and how many retries to attempt before throwing an exception. If your code already uses the Retry pattern, you should update your code to use the [Retry mechanisms](/azure/architecture/best-practices/retry-service-specific) available for Azure services and client SDKs. If your application doesn't have a Retry pattern, you should add one based on the following guidance. For more information, see:
 
 - [Transient fault handling](/azure/architecture/best-practices/transient-faults)
 - [Retry pattern](/azure/architecture/patterns/retry)
 
-You should use [Resilience4j](https://github.com/resilience4j/resilience4j) to implement the Retry pattern in Java. Resilience4j is a lightweight fault tolerance library. It provides higher-order functions (decorators) to enhance any functional interface, lambda expression, or method reference with a Circuit Breaker, Rate Limiter, Retry, or Bulkhead.
+You should use [Resilience4j](https://github.com/resilience4j/resilience4j) to implement the Retry pattern in Java. Resilience4j is a lightweight fault tolerance library. It provides higher-order functions (decorators) to enhance any functional interface, lambda expression, or method reference with a Circuit Breaker, Rate Limiter, Retry, or Bulkhead design pattern.
 
 *Reference implementation.* The reference implementation adds the Retry pattern by decorating a lambda expression with the Retry annotations. The code retries the call to get the media file from disk. The following code demonstrates how to use Resilience4j to retry a call to Azure Files to get the last modified time.
 
@@ -51,19 +51,21 @@ The code uses the retry registry to get a `Retry` object. It also uses `Try` fro
 
 *Simulate the Retry pattern:* You can simulate the Retry pattern in the reference implementation. For instructions, see [Simulate the Retry pattern](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/simulate-patterns.md#retry-and-circuit-break-pattern).
   
-**Use the Circuit Breaker pattern.** You should pair the Retry pattern with the Circuit Breaker pattern. The Circuit Breaker pattern handles faults that aren't transient. The goal is to prevent an application from repeatedly invoking a service that is down. The Circuit Breaker pattern releases the application from the task to avoid wasting CPU cycles and improves application performance. For more information, see [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker). For more ways to configure Resilience4j, see [Spring Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbreaker/docs/current/reference/html/#usage-documentation) and [Resilience4j documentation](https://resilience4j.readme.io/v1.7.0/docs/getting-started-3).
+**Use the Circuit Breaker pattern.** You should pair the Retry pattern with the Circuit Breaker pattern. The Retry pattern handles transient fault while the Circuit Breaker pattern handles faults that aren't transient. The Circuit Breaker patterns prevents an application from repeatedly invoking a service that is down.
+
+The Circuit Breaker pattern releases the application from a repeatedly failed request to avoid wasting CPU cycles and improves application performance. For more information, see [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker), [Spring Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbreaker/docs/current/reference/html/#usage-documentation), and [Resilience4j documentation](https://resilience4j.readme.io/v1.7.0/docs/getting-started-3).
 
 *Simulate the Circuit Breaker pattern:* You can simulate the Circuit Breaker pattern in the reference implementation. For instructions, see [Simulate the Circuit Breaker pattern](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/simulate-patterns.md#retry-and-circuit-break-pattern).
 
 ### Design architecture reliability
 
-Architecture refers to the arrangement and distribution of components supporting your web app. Architecture availability is an important metric. The availability of your web app architecture should exceed the service level objective (SLO) for the web app. Use availability metrics when estimating architecture availability, not durability. Durability applies to data storage, and it ensures the integrity of your data. Durability service level agreements are higher than availability service level agreements. For more information, see [service level objective](./plan-implementation-content.md#service-level-objective).
+Architecture refers to the arrangement and distribution of components supporting your web app. Architecture availability is an important metric. The availability of your web app architecture should exceed the service level objective (SLO) for the web app. Use availability metrics when estimating architecture availability, not durability metrics. Durability applies to data storage, and it ensures the integrity of your data. Durability service level agreements are often higher than availability service level agreements. For more information, see [service level objective](./plan-implementation-content.md#service-level-objective).
 
-**Determine number of regions.** Use the web app service level objective as main factor for determining how many regions to use. If a single region doesn't offer the availability you need, you should consider adding a region to your web app.
+**Determine number of regions.** Use the web app service level objective (SLO) as main factor for determining how many regions to use. If a single region doesn't offer the availability you need, you should consider adding a region to your web app.
 
 **Determine region configuration.** A multi-region web app can have an active-active configuration or active-passive configuration. An active-active configuration distributes (load balances) traffic between regions. An active-passive configuration sends all traffic to one region and uses the other region only for a failover. You should use an active-active configuration if you need minimal to no downtime. Use an active-passive configuration if you can accept a maximum downtime of two hours. For more information, see [App Service disaster recovery strategies](/azure/app-service/overview-disaster-recovery) and [Storage redundancy](/azure/storage/common/storage-redundancy#summary-of-redundancy-options).
 
-**Understand data implications.** A multi-region web app requires a different data strategy than a single region web app. A multi-region web app needs to replicate data across regions. A single-region web app doesn't.
+**Understand region effects on data.** A multi-region web app requires a different data strategy than a single region web app. A multi-region web app needs to replicate data across regions. A single-region web app doesn't.
 
 *Reference implementation.* The reference implementation uses two regions in an active-passive configuration. Proseware had a 99.9% SLO and needed to use two regions to meet the SLO. The active-passive configuration aligns with Proseware's goal of minimal code changes for this phase in the cloud journey. The active-passive configuration provides a simple data strategy. It avoids needing to set up event-based data synchronization, data shards, or some other data management strategy. All inbound traffic heads to the active region. If a failure occurs in the active region, Proseware manually initiates its failover plan and routes all traffic to the passive region.
 
@@ -73,19 +75,19 @@ Data reliability relies on replicating data across multiple locations. In genera
 
 **Determine high need data.** Replicating data increases cost. You should only replicate data that you need during a failover.
 
-**Define the recovery point objective.** A recovery point objective (RPO) is the maximum amount of data you're willing to lose during an outage. For example, an RPO of one hour means the web app loses one hour of the most recent data. If that web app goes down at 2PM, the disaster recovery process can only recover data before 1PM. You need to define an RPO for each web app.
+**Define the recovery point objective.** A recovery point objective (RPO) is the maximum amount of data you're willing to lose during an outage. For example, an RPO of one hour means the web app loses up to one hour of the most recent data changes. If the web app goes down at 2PM, the disaster recovery process can only recover data before 1PM. You need to define an RPO for each web app.
 
-**Determine replication frequency.** Your RPO should drive your data replication frequency. The frequency of your data replication needs to be less than or equal to your RPO. An RPO of one hour requires all the data changes replicated to the secondary region within one hour or less.
+**Determine data replication frequency.** The RPO determines how often you need to replicate data. The frequency of your data replication needs to be less than or equal to your RPO. For example, an RPO of one hour requires replicating data changes to secondary region every hour.
 
-**Determine replication configurations.** You need to use your RPO and architecture to apply the right data replication configurations. For a single region web app, you need to determine how many availability zones to use. Many Azure storage services offer native data replication options between availability zones. You should configure the redundancy that meets your needs.
+**Configure data replication.** The web app architecture and RPO determine how you replicate your data. For a single region web app, you need to determine how many availability zones to use to meet your RPO. Many Azure storage services offer native data replication options between availability zones.
 
-For a multi-region web app with an active-passive configuration, you need to replicate data to the passive region for disaster recovery. The replication frequency of your data in an active-passive configuration needs to meet your RPO. For a muti-region active-active configuration, you need to replicate data across regions in near realtime. 
+For a multi-region web app with an active-passive configuration, you need to replicate data to the passive region for disaster recovery. The replication frequency of your data in an active-passive configuration needs to meet your RPO. For a muti-region active-active configuration, you need to replicate data across regions in near real-time.
 
 *Reference implementation.* The reference implementation has two main data stores: Azure Files and PostgreSQL database. The reference implementation uses geo-zone-redundnant storage (GZRS) with Azure Files. GZRS asynchronously creates a copy of Azure Files data in the passive region. Check the [last sync time property](/azure/storage/common/last-sync-time-get) to get an estimated RPO. For the Azure Database for PostgreSQL, the reference implementation uses zone redundant high availability with standby servers in two availability zones. It also asynchronously replicates to the read replica in the passive region. Azure Files GZRS and Azure Database for PostgreSQL read replica are central to Proseware's failover plan.
 
 ### Create a failover plan
 
-A failover plan details the procedure to respond to an outage. The plan should define what an outage means for your web app. For example, you can define outage in terms of downtime or loss of functionality.
+A failover plan details the procedure to respond to an outage. The plan should define what an outage means for your web app. For example, you can define outage in terms of downtime or loss of functionality. For more information, see [App Service disaster recovery](/azure/app-service/overview-disaster-recovery).
 
 **Determine the recovery time objective.** The recovery time objective (RTO) is maximum, acceptable downtime for a web app or feature. For example, an RTO of four hours means the web app or feature should be operational within four hours of a disruption. You can have multiple RTO relating to different features in your web app. Each RTO should tie back to your SLO in support of making the service available to end-users.
 
@@ -97,9 +99,7 @@ A failover plan details the procedure to respond to an outage. The plan should d
 
 **Test failover plan in test environment.** You need to test the failover plan regularly. You should use a test environment to avoid production issues. The test environment should resemble the production environment as closely as possible.
 
-For more information, see [App Service disaster recovery](/azure/app-service/overview-disaster-recovery).
-
-*Reference implementation.* Proseware created a manual failover plan. MORE DETAILS TBD.
+*Reference implementation.* We created a failover plan for Proseware. For more information, see [Proseware's failover plan](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/failover-plan.md#failover-plan).
 
 ## Security
 
@@ -107,7 +107,7 @@ Security is a critical component of any architectural design. The goal is to ens
 
 ### Enforce least privileges
 
-As a fundamental security tenet, you should only grant users and Azure services (workload identities) the permissions they need.
+The principle of least privilege means you should only grant users (user identities) and Azure services (workload identities) the permissions they need.
 
 **Assign permissions to user identities.** Map users to roles and give the appropriate permissions to those roles. The number and type of roles you use depends on the needs of your application.
 
@@ -261,13 +261,15 @@ You should use managed identities when you can because of the security and opera
 - [Azure services that support managed identities](/azure/active-directory/managed-identities-azure-resources/managed-identities-status)
 - [Access Azure Storage from a web app](/azure/active-directory/develop/multi-service-web-app-access-storage)
 
-*Reference implementation.* The reference implementation demonstrates a scenario in which the developer kept the on-premises authentication mechanism (username and password) rather than switching to managed identities. As a result, the reference implementation stores the database secret in Key Vault. The web app uses a managed identity (system-assigned) to retrieve runtime secrets from Key Vault.
+*Reference implementation.* The reference implementation keeps the on-premises authentication mechanism (username and password) rather than switching to managed identities. This scenario is common. As a result, the reference implementation stores the database secret in Key Vault. The web app uses a managed identity (system-assigned) to retrieve runtime secrets from Key Vault.
 
 ### Use a central secrets store (Key Vault)
 
-The term *secret* refers to anything that you don't want exposed in plain text (passwords, keys, certificates). After you migrate your app to the cloud, you might still have secrets that you need to manage. You should store all these secrets in Key Vault. Many on-premises environments don't have a central secrets store. Key rotation is uncommon and auditing who has access to a secret is difficult. In Azure, the central secrets store is Key Vault. You can use Key Vault to store keys and to manage, audit, and monitor access to secrets.
+The term *secret* refers to anything that you don't want exposed in plain text (passwords, keys, certificates). After you migrate your app to the cloud, you might have secrets that you need to manage. You should store all these secrets in Key Vault.
 
-*Reference implementation.* The reference implementation stores the PostgreSQL database username and password, the Redis Cache password, and the client secret for Azure AD that's associated with the MSAL implementation.
+Many on-premises environments don't have a central secrets store. As a result, key rotation is uncommon and auditing access to a secret is difficult. In Azure, the central secrets store is Key Vault. You can use Key Vault to store keys and to manage, audit, and monitor access to secrets.
+
+*Reference implementation.* The reference implementation stores the following secrets in Key Vault: (1) PostgreSQL database username and password, (2) Redis Cache password, and (3) the client secret for Azure AD associated with the MSAL implementation.
 
 **Don't put Key Vault in the HTTP-request flow.** Key Vault has service limitations to safeguard resources and ensure optimal service quality for its clients. The original intent of Key Vault was to store and retrieve sensitive information during deployment. Organizations sometimes use Key Vault for runtime secret management, and many applications and services treat it like a database. However, the Key Vault limitations don't support high throughput rates and might affect performance if Key Vault is in the HTTP-request flow. When a key vault reaches a service threshold, it limits any further requests from the client and returns HTTP status code 429. The web app should load values from Key Vault at application start time. For more information, see [Key Vault transaction limits](/azure/key-vault/general/service-limits#secrets-managed-storage-account-keys-and-vault-transactions).
 

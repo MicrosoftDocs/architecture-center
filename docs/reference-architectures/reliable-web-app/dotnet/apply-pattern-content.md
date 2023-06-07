@@ -3,9 +3,9 @@ ms.custom:
   - devx-track-dotnet
 ---
 
-The reliable web app pattern defines prescriptive implementation guidance for web apps moving to the cloud (re-platforming). The pattern focuses on the minimal changes you need to make to meet your business goals. There are two articles on the reliable web app pattern for .NET. This article provides code and architecture guidance. The companion article shows you how to [plan the implementation of the pattern](plan-implementation.yml).
+The reliable web app pattern defines prescriptive implementation guidance for web apps moving to the cloud (re-platforming). The pattern focuses on the minimal changes you need to make to meet your business goals. There are two articles on the reliable web app pattern for .NET. This article provides code and architecture guidance. The companion article provides [planning guidance](plan-implementation.yml).
 
-![Diagram showing GitHub icon.](../../../_images/github.png) There's a [reference implementation](https://aka.ms/eap/rwa/dotnet) (sample application) with the pattern applied that you can deploy. You should use the reference implementation with the written guidance to get the most out of the pattern.
+![Diagram showing GitHub icon.](../../../_images/github.png) There's a [reference implementation](https://aka.ms/eap/rwa/dotnet) (sample application) with the pattern applied that you can deploy. You should use the reference implementation with this written guidance to get the most out of the pattern.
 
 ## Architecture and code
 
@@ -13,14 +13,14 @@ A well-architected web application needs quality code, and quality code needs a 
 
 [![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-dotnet.png)](images/reliable-web-app-dotnet.png)
 
-*Figure 1. Reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet.vsdx) of this architecture. For the estimated cost of each environment, see:*
+*Figure 1. Target reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet.vsdx) of this architecture. For the estimated cost of each environment, see:*
 
 - [Production environment estimated cost](https://azure.com/e/26f1165c5e9344a4bf814cfe6c85ed8d)
 - [Nonproduction environment estimated cost](https://azure.com/e/8a574d4811a74928b55956838db71093)
 
-The following table lists the principles of the reliable web app pattern and the Well-Architected Framework principles of all the Enterprise App Patterns. The table also lists the technical details of the pattern implementation.
+The following table lists the principles of the reliable web app pattern and the Well-Architected Framework principles common to all the Enterprise App Patterns. The table also lists the technical details of the pattern implementation.
 
-| Pattern principles | Pattern implementation |
+| Pattern principles | Pattern implementation details |
 | --- | --- |
 | *Reliable web app pattern principles:*<br>▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br><br>*Well Architected Framework principles:*<br>▪ Secure ingress<br>▪ Optimized cost<br>▪ Observable<br>▪ Infrastructure as code<br>▪ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Bicep deployment <br>▪ Telemetry, logging, monitoring |
 
