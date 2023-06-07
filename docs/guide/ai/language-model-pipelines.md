@@ -37,36 +37,36 @@ LangChain is an external, open-source framework that you can use to develop appl
 
 ## Memory
 
-By default, language modeling chains (or pipelines) and agents operate in a stateless manner, which means they handle each incoming query independently, just like the underlying language models and chat models they utilize. However, in certain applications, such as chatbots, it becomes crucial to retain information from past interactions, both in the short term and the long term. This is where the concept of "Memory" comes into play.
+By default, language modeling chains (or pipelines) and agents operate in a stateless manner. They handle each incoming query independently, just like the underlying language models and chat models that they use. But in certain applications, such as chatbots, it's crucial to retain information from past interactions in the short term and the long term. This area is where the concept of "memory" comes into play.
 
-LangChain offers memory components in two different forms. Firstly, it provides convenient utility tools for managing and manipulating previous chat messages. These utilities are designed to be modular and valuable regardless of their specific usage. Secondly, LangChain offers seamless methods to integrate these utilities into the memory of Chains using Large Language Models [Memory with Large Language Models](https://python.langchain.com/en/latest/modules/memory/how_to_guides.html).
+LangChain offers memory components in two forms. It provides convenient utility tools to manage and manipulate past chat messages. These utilities are designed to be modular and valuable regardless of their specific usage. LangChain also offers seamless methods to integrate these utilities into the memory of chains by using [large language models](https://python.langchain.com/en/latest/modules/memory/how_to_guides.html).
 
-Microsoft has open-sourced [Semantic Kernel](/semantic-kernel) that helps orchestrate and deploy large language models, and could be useful to explore as a LangChain alternative.
+You can also use the open-source software development kit (SDK), [Semantic Kernel](/semantic-kernel), to orchestrate and deploy large language models and potentially explore it as a LangChain alternative.
 
 ## Architecture
 
 ## How does my product compare to my competitor’s similar products
 
-:::image type="content" source="media/language-model-pipelines-architecture.png" alt-text="{alt-text}" lightbox="https://dev.azure.com/msft-skilling/Content/_workitems/edit/96720" border="false":::
+:::image type="content" source="media/language-model-pipelines-architecture.png" alt-text="{alt-text}" lightbox="media/language-model-pipelines-architecture.png" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/[file-name].vsdx) of this architecture.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/language-model-pipelines-archtecture.pptx) of this architecture.*
 
 ## Workflow
 
-The ***batch pipeline*** is responsible for storing internal company product information in a fast vector search database. To achieve this, the following steps are taken:
+The ***batch pipeline*** stores internal company product information in a fast vector search database. To achieve this, the following steps are taken:
 
-1. The first part of this pipeline involves importing internal company documents around products and converting them into searchable vectors. The process starts by collecting product-related documents from different departments, such as sales, marketing, and product development. These documents are then scanned and converted into text using optical character recognition (OCR) technology.
-1. Next, a LangChain chunking utility is used to chunk the documents into smaller, more manageable pieces. Chunking involves breaking down the text into meaningful phrases or sentences that can be analyzed separately. This is essential for improving the accuracy of the pipeline's search capabilities.
-1. Once the documents are chunked, LLM is used to convert each chunk into a vectorized embedding. Embeddings are a type of representation used to capture the meaning and context of the text. By converting each chunk into a vectorized embedding, we can store and search for documents based on their meaning rather than just their raw text. LangChain also provides several utilities for this text splitting step, including capabilities for sliding windows / specifying text overlap, to prevent loss of context within each document chunk. Further, utilities for tagging chunks with document metadata, for optimizing the document retrieval step, and downstream reference are key features in many use cases.
-1. Create an index in a vector store database to store the doc raw text, embeddings vectors, and metadata - The resulting embeddings are stored in a vector store database, along with the raw text of the document and any relevant metadata, such as the document's title and source.
+1. Internal company documents for products are imported and converted into searchable vectors. Product-related documents are collected from departments, such as sales, marketing, and product development. These documents are then scanned and converted into text by using optical character recognition (OCR) technology.
+1. A LangChain chunking utility is used to chunk the documents into smaller, more manageable pieces. Chunking involves breaking down the text into meaningful phrases or sentences that can be analyzed separately. Chunking improves the accuracy of the pipeline's search capabilities.
+1. LLM converts each chunk into a vectorized embedding. Embeddings are a type of representation that capture the meaning and context of the text. By converting each chunk into a vectorized embedding, you can store and search for documents based on their meaning rather than their raw text. To prevent loss of context within each document chunk, LangChain provides several utilities for this text splitting step, like capabilities for sliding windows or specifying text overlap. Some key features in use cases include utilities for tagging chunks with document metadata, optimizing the document retrieval step, and downstream reference.
+1. Create an index in a vector store database to store the raw document text, embeddings vectors, and metadata. The resulting embeddings are stored in a vector store database along with the raw text of the document and any relevant metadata, such as the document's title and source.
 
-Once the batch pipeline has been completed, the ***real-time, asynchronous*** ***pipeline*** can be used to search for relevant information. The following steps are taken:
+Once the batch pipeline has been completed, the ***real-time, asynchronous*** ***pipeline*** searches for relevant information. The following steps are taken:
 
-5. A user enters their query and relevant metadata, such as their role in the company or business unit they are working in.
+5. You enter your query and relevant metadata, such as your role in the company or business unit that you're working in.
 An embeddings model then converts the user's query into a vectorized embedding.
-6. The *orchestrator LLM* decomposes the query, or main task, into the set of sub-tasks required to answer the user query. Converting the main task into a series of simpler sub-tasks, allows the LLM to address each task more accurately, resulting in a better answers, with less tendency for hallucination
-7. The resulting embedding, and decomposed sub-tasks, are stored in the LangChain model's memory.
-   1. The first designated task is retrieving top internal document chunks from customer internal database, relevant to the user’s query. A fast vector search for top n similar documents, stored as vectors within Cache for Redis will, will be performed.
+6. The *orchestrator LLM* decomposes the query, or main task, into the set of sub-tasks that are required to answer the user query. Converting the main task into a series of simpler sub-tasks allows the LLM to address each task more accurately, which results in better answers with less tendency for hallucination.
+7. The resulting embedding and decomposed sub-tasks are stored in the LangChain model's memory.
+   1. The first designated task is retrieving top internal document chunks that are relevant to the user’s query from the customer's internal database. A fast vector search for top n similar documents, stored as vectors within Cache for Redis will, will be performed.
    1. In parallel, a web search for externally similar products is executed, via LangChain’s Bing Search LLM plugin, with a generated search query composed by the *orchestrator LLM.*
 All results are then stored back into the external model memory component
 8. The vector store database is queried and returns top relevant product information pages (chunks and references) - The system queries the vector store database using the user's query embedding and returns the most relevant product information pages, along with the relevant text chunks and references.
