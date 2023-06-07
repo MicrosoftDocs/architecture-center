@@ -4,7 +4,7 @@ This article presents a solution for a multi-region web app where each region ha
 
 ## Architecture
 
-:::image type="content" source="../media/multi-region-web-app-cosmos-db-replication.svg" lightbox="../media/multi-region-web-app-cosmos-db-replication.png" alt-text="Architecture of a resilient system that uses Azure Cosmos DB. It can have multiple active regions and can fail over to a standby region.":::
+:::image type="content" source="../media/multi-region-web-app-cosmos-db-replication.svg" lightbox="../media/multi-region-web-app-cosmos-db-replication.svg" alt-text="Architecture of a resilient system that uses Azure Cosmos DB. It can have multiple active regions and can fail over to a standby region.":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1857597-PR-3334-multi-region-web-app-cosmos-db-replication.vsdx) of this architecture.*
 

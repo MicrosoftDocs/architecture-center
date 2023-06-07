@@ -16,7 +16,6 @@ metadata:
     - app-dev
     - data
     - "https://azure.microsoft.com/solutions/architecture/messaging"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/messaging.png
 name: Messaging
 azureCategories:
   - databases

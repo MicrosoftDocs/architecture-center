@@ -17,7 +17,6 @@ metadata:
     - serverless
     - Cosmos DB
     - "https://azure.microsoft.com/solutions/architecture/serverless-apps-using-cosmos-db"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/serverless-apps-using-cosmos-db.png
 name: Serverless apps using Azure Cosmos DB
 azureCategories:
   - databases

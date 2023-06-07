@@ -17,7 +17,6 @@ metadata:
     - example-scenario
     - internal-intro
     - e2e-aks
-  social_image_url: /azure/architecture/example-scenario/apps/media/architecture-telehealth-system.png
 name: Build a telehealth system on Azure
 azureCategories:
   - containers

@@ -19,7 +19,6 @@ metadata:
     - Data Lake Storage
     - Data Factory
     - "https://azure.microsoft.com/solutions/architecture/extract-transform-and-load-using-hdinsight"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/extract-transform-and-load-using-hdinsight.svg
 name: 'Extract, transform, and load (ETL) using HDInsight'
 azureCategories:
   - analytics

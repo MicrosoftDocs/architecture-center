@@ -4,7 +4,9 @@ The architecture encapsulates many pillars of master data management (MDM) into 
 
 The following diagram demonstrates the CluedIn architectural structure and data flow.
 
-[![Diagram showing CluedIn architectural structure.](images/migrate-mds-to-azure-with-cluedin.png)](images/migrate-mds-to-azure-with-cluedin.png#lightbox)
+[![Diagram showing CluedIn architectural structure.](images/migrate-mds-to-azure-with-cluedin.svg)](images/migrate-mds-to-azure-with-cluedin.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/migrate-mds-to-azure-with-cluedin.vsdx) of this architecture.*
 
 ### Workflow
 

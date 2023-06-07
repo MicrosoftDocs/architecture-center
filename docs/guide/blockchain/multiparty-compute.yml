@@ -17,7 +17,6 @@ azureCategories:
   - containers
 products:
   - azure-blob-storage
-  - azure-blockchain-service
   - azure-kubernetes-service
   - azure-sql-database
 name: Multiparty computing architecture design

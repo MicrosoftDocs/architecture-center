@@ -2513,6 +2513,36 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/solution-ideas/articles/aks-api-first.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/containers/aks-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/aks-demand-spikes.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/containers/aks-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/aks-iot-data-streaming.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/containers/aks-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/cloud-native-apps.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/containers/aks-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/scale-using-aks-with-aci.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/containers/aks-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/secure-devops-for-kubernetes.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/containers/aks-start-here",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/scalable-web-apps-content.md",
       "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app",
       "redirect_document_id": false
@@ -2751,6 +2781,51 @@
       "source_path": "docs/solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.yml",
       "redirect_url": "/azure/architecture/example-scenario/ai/loan-credit-risk-analyzer-default-modeling",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/app-service-web-app/zone-redundant.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/baseline-zone-redundant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/app-service-web-app/scalable-web-app.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/baseline-zone-redundant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/private-web-app/private-web-app.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/baseline-zone-redundant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/web/multi-tier-app-service-private-endpoint.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/baseline-zone-redundant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/blue-green-deployment-for-aks/blue-green-deployment-for-aks.yml",
+      "redirect_url": "/azure/architecture/guide/aks/blue-green-deployment-for-aks",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/microservices-with-aks.yml",
+      "redirect_url": "/azure/architecture/guide/aks/aks-cicd-azure-pipelines",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/aks-firewall/aks-firewall.yml",
+      "redirect_url": "/azure/architecture/guide/aks/aks-firewall",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/apps/devops-with-aks.yml",
+      "redirect_url": "/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/aks-dualstack/aks-dual-stack.yml",
+      "redirect_url": "/azure/architecture/guide/aks/aks-dual-stack",
+      "redirect_document_id": true
     }
   ]
 }

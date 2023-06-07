@@ -1,3 +1,2103 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="746px" height="698px" viewBox="-0.5 -0.5 746 698" content="&lt;mxfile host=&quot;Electron&quot; modified=&quot;2021-03-09T15:58:11.253Z&quot; agent=&quot;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/14.4.3 Chrome/87.0.4280.141 Electron/11.3.0 Safari/537.36&quot; etag=&quot;jp_4cyiNJnLVUn4F-ZE0&quot; version=&quot;14.4.3&quot; type=&quot;device&quot;&gt;&lt;diagram id=&quot;P4lc2FleS_zxADE72_Mb&quot; name=&quot;Page-1&quot;&gt;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&lt;/diagram&gt;&lt;/mxfile&gt;" style="background-color: rgb(255, 255, 255);"><defs/><g><rect x="585" y="0" width="160" height="400" rx="24" ry="24" fill-opacity="0.5" fill="#ffffff" stroke="#000000" stroke-opacity="0.5" stroke-dasharray="1 1" pointer-events="all"/><path d="M 383.19 322.36 L 480 322.4 L 577.63 322.02" fill="none" stroke="#828282" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 582.88 322 L 575.9 325.53 L 577.63 322.02 L 575.87 318.53 Z" fill="#828282" stroke="#828282" stroke-miterlimit="10" pointer-events="all"/><image x="313.5" y="289.5" width="62" height="62" xlink:href="file:///C:/Program%20Files/draw.io/resources/app.asar/img/lib/azure2/app_services/App_Services.svg"/><path d="M 384 201 L 484 201 L 577.63 201" fill="none" stroke="#828282" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 582.88 201 L 575.88 204.5 L 577.63 201 L 575.88 197.5 Z" fill="#828282" stroke="#828282" stroke-miterlimit="10" pointer-events="all"/><image x="313.5" y="168.5" width="63" height="63" xlink:href="file:///C:/Program%20Files/draw.io/resources/app.asar/img/lib/azure2/app_services/App_Services.svg"/><path d="M 384 82 L 577.63 82" fill="none" stroke="#828282" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 582.88 82 L 575.88 85.5 L 577.63 82 L 575.88 78.5 Z" fill="#828282" stroke="#828282" stroke-miterlimit="10" pointer-events="all"/><image x="313.5" y="49.5" width="62" height="62" xlink:href="file:///C:/Program%20Files/draw.io/resources/app.asar/img/lib/azure2/app_services/App_Services.svg"/><path d="M 212 201 L 287.63 201" fill="none" stroke="#828282" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 292.88 201 L 285.88 204.5 L 287.63 201 L 285.88 197.5 Z" fill="#828282" stroke="#828282" stroke-miterlimit="10" pointer-events="all"/><path d="M 81.99 201.01 L 118 201.01 L 147.63 201" fill="none" stroke="#828282" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 152.88 201 L 145.88 204.5 L 147.63 201 L 145.88 197.5 Z" fill="#828282" stroke="#828282" stroke-miterlimit="10" pointer-events="all"/><path d="M 184 262 L 184 321 L 287.63 321" fill="none" stroke="#828282" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 292.88 321 L 285.88 324.5 L 287.63 321 L 285.88 317.5 Z" fill="#828282" stroke="#828282" stroke-miterlimit="10" pointer-events="all"/><path d="M 184 142 L 184 80 L 287.63 80" fill="none" stroke="#828282" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 292.88 80 L 285.88 83.5 L 287.63 80 L 285.88 76.5 Z" fill="#828282" stroke="#828282" stroke-miterlimit="10" pointer-events="all"/><image x="153.5" y="171.5" width="58" height="58" xlink:href="file:///C:/Program%20Files/draw.io/resources/app.asar/img/lib/azure2/networking/Traffic_Manager_Profiles.svg"/><image x="624.5" y="161.5" width="80" height="80" xlink:href="file:///C:/Program%20Files/draw.io/resources/app.asar/img/lib/azure2/databases/Azure_Cosmos_DB.svg"/><path d="M 384 92 L 578.3 185.24" fill="none" stroke="#828282" stroke-miterlimit="10" stroke-dasharray="3 3" pointer-events="stroke"/><path d="M 583.03 187.52 L 575.21 187.64 L 578.3 185.24 L 578.24 181.33 Z" fill="#828282" stroke="#828282" stroke-miterlimit="10" pointer-events="all"/><path d="M 384 192 L 578.33 92.89" fill="none" stroke="#828282" stroke-miterlimit="10" stroke-dasharray="3 3" pointer-events="stroke"/><path d="M 583 90.51 L 578.36 96.81 L 578.33 92.89 L 575.18 90.57 Z" fill="#828282" stroke="#828282" stroke-miterlimit="10" pointer-events="all"/><path d="M 384 312 L 578.33 212.89" fill="none" stroke="#828282" stroke-miterlimit="10" stroke-dasharray="3 3" pointer-events="stroke"/><path d="M 583 210.51 L 578.36 216.81 L 578.33 212.89 L 575.18 210.57 Z" fill="#828282" stroke="#828282" stroke-miterlimit="10" pointer-events="all"/><path d="M 384 212 L 578.28 307.2" fill="none" stroke="#828282" stroke-miterlimit="10" stroke-dasharray="3 3" pointer-events="stroke"/><path d="M 583 309.51 L 575.17 309.57 L 578.28 307.2 L 578.25 303.28 Z" fill="#828282" stroke="#828282" stroke-miterlimit="10" pointer-events="all"/><path d="M 376 292.45 L 580.32 104.31" fill="none" stroke="#828282" stroke-miterlimit="10" stroke-dasharray="3 3" pointer-events="stroke"/><path d="M 584.18 100.76 L 581.4 108.07 L 580.32 104.31 L 576.66 102.92 Z" fill="#828282" stroke="#828282" stroke-miterlimit="10" pointer-events="all"/><path d="M 371.47 113.18 L 579.22 295.8" fill="none" stroke="#828282" stroke-miterlimit="10" stroke-dasharray="3 3" pointer-events="stroke"/><path d="M 583.16 299.26 L 575.59 297.27 L 579.22 295.8 L 580.21 292.01 Z" fill="#828282" stroke="#828282" stroke-miterlimit="10" pointer-events="all"/><rect x="315" y="122" width="60" height="20" fill="none" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 132px; margin-left: 316px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #828282; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Azure Region A</div></div></div></foreignObject><text x="345" y="136" fill="#828282" font-family="Helvetica" font-size="12px" text-anchor="middle">Azure Regi...</text></switch></g><rect x="315.5" y="242" width="60" height="20" fill="none" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 252px; margin-left: 317px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #828282; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Azure Region B</div></div></div></foreignObject><text x="346" y="256" fill="#828282" font-family="Helvetica" font-size="12px" text-anchor="middle">Azure Regi...</text></switch></g><rect x="314" y="362" width="60" height="20" fill="none" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 372px; margin-left: 315px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #828282; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Azure Region C</div></div></div></foreignObject><text x="344" y="376" fill="#828282" font-family="Helvetica" font-size="12px" text-anchor="middle">Azure Regi...</text></switch></g><rect x="21" y="236" width="60" height="20" fill="none" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 246px; margin-left: 22px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #828282; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Browser</div></div></div></foreignObject><text x="51" y="250" fill="#828282" font-family="Helvetica" font-size="12px" text-anchor="middle">Browser</text></switch></g><rect x="133" y="233" width="100" height="20" fill="none" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 98px; height: 1px; padding-top: 243px; margin-left: 134px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #828282; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Azure<br />Traffic Manager</div></div></div></foreignObject><text x="183" y="247" fill="#828282" font-family="Helvetica" font-size="12px" text-anchor="middle">Azure...</text></switch></g><rect x="594" y="50" width="141" height="20" fill="none" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 139px; height: 1px; padding-top: 60px; margin-left: 595px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #828282; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Azure Cosmos DB<br />(App + Session State) </div></div></div></foreignObject><text x="665" y="64" fill="#828282" font-family="Helvetica" font-size="12px" text-anchor="middle">Azure Cosmos DB...</text></switch></g><rect x="598" y="311" width="141" height="20" fill="none" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 139px; height: 1px; padding-top: 321px; margin-left: 599px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #828282; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Globally distributed across regions</div></div></div></foreignObject><text x="669" y="325" fill="#828282" font-family="Helvetica" font-size="12px" text-anchor="middle">Globally distributed ac...</text></switch></g><ellipse cx="344" cy="331" rx="60" ry="60" fill="none" stroke="#828282" pointer-events="all"/><ellipse cx="189" cy="576" rx="121" ry="121" fill="none" stroke="#828282" pointer-events="all"/><path d="M 103.44 490.44 L 301.57 288.57" fill="none" stroke="#828282" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 304.19 614.24 L 403.16 341.56" fill="none" stroke="#828282" stroke-miterlimit="10" pointer-events="stroke"/><image x="118.5" y="488.5" width="50" height="50" xlink:href="file:///C:/Program%20Files/draw.io/resources/app.asar/img/lib/azure2/compute/App_Services.svg"/><image x="214" y="494.5" width="50" height="44" xlink:href="file:///C:/Program%20Files/draw.io/resources/app.asar/img/lib/azure2/compute/Function_Apps.svg"/><image x="80.5" y="566.5" width="50" height="46.5" xlink:href="file:///C:/Program%20Files/draw.io/resources/app.asar/img/lib/azure2/compute/Virtual_Machine.svg"/><image x="168.5" y="424.5" width="64" height="64" xlink:href="file:///C:/Program%20Files/draw.io/resources/app.asar/img/lib/azure2/networking/Application_Gateways.svg"/><image x="164" y="565" width="50" height="45" xlink:href="file:///C:/Program%20Files/draw.io/resources/app.asar/img/lib/azure2/integration/Event_Grid_Subscriptions.svg"/><image x="241.5" y="568" width="50" height="39" xlink:href="file:///C:/Program%20Files/draw.io/resources/app.asar/img/lib/azure2/integration/Logic_Apps.svg"/><image x="18.5" y="175.5" width="65" height="52" xlink:href="file:///C:/Program%20Files/draw.io/resources/app.asar/img/lib/azure2/general/Browser.svg"/><rect x="119" y="639" width="141" height="20" fill="none" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 139px; height: 1px; padding-top: 649px; margin-left: 120px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; "><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #828282; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">Applications can consist of multiple layers either self-managed or serverless based</div></div></div></foreignObject><text x="190" y="653" fill="#828282" font-family="Helvetica" font-size="12px" text-anchor="middle">Applications can consis...</text></switch></g><ellipse cx="16" cy="153" rx="16" ry="16" fill="#000000" stroke="#000000" pointer-events="all" transform="translate(2,3)" opacity="0.25"/><ellipse cx="16" cy="153" rx="16" ry="16" fill="#008a00" stroke="#005700" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 30px; height: 1px; padding-top: 153px; margin-left: 1px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; "><div style="display: inline-block; font-size: 16px; font-family: Helvetica; color: #ffffff; line-height: 1.2; pointer-events: all; font-weight: bold; white-space: normal; word-wrap: normal; ">1</div></div></div></foreignObject><text x="16" y="158" fill="#ffffff" font-family="Helvetica" font-size="16px" text-anchor="middle" font-weight="bold">1</text></switch></g><ellipse cx="217" cy="153" rx="16" ry="16" fill="#000000" stroke="#000000" pointer-events="all" transform="translate(2,3)" opacity="0.25"/><ellipse cx="217" cy="153" rx="16" ry="16" fill="#008a00" stroke="#005700" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 30px; height: 1px; padding-top: 153px; margin-left: 202px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; "><div style="display: inline-block; font-size: 16px; font-family: Helvetica; color: #ffffff; line-height: 1.2; pointer-events: all; font-weight: bold; white-space: normal; word-wrap: normal; ">2</div></div></div></foreignObject><text x="217" y="158" fill="#ffffff" font-family="Helvetica" font-size="16px" text-anchor="middle" font-weight="bold">2</text></switch></g><ellipse cx="276" cy="283" rx="16" ry="16" fill="#000000" stroke="#000000" pointer-events="all" transform="translate(2,3)" opacity="0.25"/><ellipse cx="276" cy="283" rx="16" ry="16" fill="#008a00" stroke="#005700" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 30px; height: 1px; padding-top: 283px; margin-left: 261px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; "><div style="display: inline-block; font-size: 16px; font-family: Helvetica; color: #ffffff; line-height: 1.2; pointer-events: all; font-weight: bold; white-space: normal; word-wrap: normal; ">3</div></div></div></foreignObject><text x="276" y="288" fill="#ffffff" font-family="Helvetica" font-size="16px" text-anchor="middle" font-weight="bold">3</text></switch></g><ellipse cx="116" cy="423" rx="16" ry="16" fill="#000000" stroke="#000000" pointer-events="all" transform="translate(2,3)" opacity="0.25"/><ellipse cx="116" cy="423" rx="16" ry="16" fill="#008a00" stroke="#005700" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 30px; height: 1px; padding-top: 423px; margin-left: 101px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; "><div style="display: inline-block; font-size: 16px; font-family: Helvetica; color: #ffffff; line-height: 1.2; pointer-events: all; font-weight: bold; white-space: normal; word-wrap: normal; ">4</div></div></div></foreignObject><text x="116" y="428" fill="#ffffff" font-family="Helvetica" font-size="16px" text-anchor="middle" font-weight="bold">4</text></switch></g><ellipse cx="631" cy="255" rx="16" ry="16" fill="#000000" stroke="#000000" pointer-events="all" transform="translate(2,3)" opacity="0.25"/><ellipse cx="631" cy="255" rx="16" ry="16" fill="#008a00" stroke="#005700" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 30px; height: 1px; padding-top: 255px; margin-left: 616px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; "><div style="display: inline-block; font-size: 16px; font-family: Helvetica; color: #ffffff; line-height: 1.2; pointer-events: all; font-weight: bold; white-space: normal; word-wrap: normal; ">6</div></div></div></foreignObject><text x="631" y="260" fill="#ffffff" font-family="Helvetica" font-size="16px" text-anchor="middle" font-weight="bold">6</text></switch></g><path d="M 648.38 578 L 671.75 606.93 L 648.38 628 L 624.25 606.93 Z M 650.67 597.29 C 651.99 595.92 652 593.75 650.69 592.37 C 649.38 590.99 647.21 590.89 645.78 592.14 C 644.34 593.39 644.14 595.55 645.33 597.04 L 640.51 603.13 C 638.81 602.5 636.91 603.25 636.1 604.87 C 635.29 606.49 635.82 608.46 637.35 609.44 C 638.87 610.43 640.88 610.11 642.03 608.71 L 645.33 611.76 C 644.19 613.21 644.35 615.31 645.71 616.56 C 647.08 617.82 649.18 617.82 650.54 616.56 C 651.9 615.31 652.07 613.21 650.92 611.76 L 655.49 608.46 C 656.86 609.78 659.03 609.79 660.41 608.48 C 661.8 607.17 661.9 605.01 660.65 603.57 C 659.4 602.13 657.24 601.94 655.75 603.13 Z M 649.91 598.05 L 654.99 603.89 C 654.27 604.94 654.17 606.3 654.73 607.44 L 650.16 610.74 C 648.94 609.89 647.32 609.89 646.09 610.74 L 642.79 607.7 C 643.32 606.21 642.8 604.56 641.52 603.63 L 646.09 597.92 C 647.23 598.7 648.72 598.75 649.91 598.05 Z" fill="#000000" stroke="none" pointer-events="all" transform="translate(2,3)" opacity="0.25"/><path d="M 648.38 578 L 671.75 606.93 L 648.38 628 L 624.25 606.93 Z M 650.67 597.29 C 651.99 595.92 652 593.75 650.69 592.37 C 649.38 590.99 647.21 590.89 645.78 592.14 C 644.34 593.39 644.14 595.55 645.33 597.04 L 640.51 603.13 C 638.81 602.5 636.91 603.25 636.1 604.87 C 635.29 606.49 635.82 608.46 637.35 609.44 C 638.87 610.43 640.88 610.11 642.03 608.71 L 645.33 611.76 C 644.19 613.21 644.35 615.31 645.71 616.56 C 647.08 617.82 649.18 617.82 650.54 616.56 C 651.9 615.31 652.07 613.21 650.92 611.76 L 655.49 608.46 C 656.86 609.78 659.03 609.79 660.41 608.48 C 661.8 607.17 661.9 605.01 660.65 603.57 C 659.4 602.13 657.24 601.94 655.75 603.13 Z M 649.91 598.05 L 654.99 603.89 C 654.27 604.94 654.17 606.3 654.73 607.44 L 650.16 610.74 C 648.94 609.89 647.32 609.89 646.09 610.74 L 642.79 607.7 C 643.32 606.21 642.8 604.56 641.52 603.63 L 646.09 597.92 C 647.23 598.7 648.72 598.75 649.91 598.05 Z" fill="#00bef2" stroke="none" pointer-events="all"/><path d="M 307.82 605.77 L 617.88 606.98" fill="none" stroke="#828282" stroke-miterlimit="10" stroke-dasharray="3 3" pointer-events="stroke"/><path d="M 623.13 607 L 616.12 610.47 L 617.88 606.98 L 616.15 603.47 Z" fill="#828282" stroke="#828282" stroke-miterlimit="10" pointer-events="all"/><ellipse cx="592.25" cy="571" rx="16" ry="16" fill="#000000" stroke="#000000" pointer-events="all" transform="translate(2,3)" opacity="0.25"/><ellipse cx="592.25" cy="571" rx="16" ry="16" fill="#008a00" stroke="#005700" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 30px; height: 1px; padding-top: 571px; margin-left: 577px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; "><div style="display: inline-block; font-size: 16px; font-family: Helvetica; color: #ffffff; line-height: 1.2; pointer-events: all; font-weight: bold; white-space: normal; word-wrap: normal; ">5</div></div></div></foreignObject><text x="592" y="576" fill="#ffffff" font-family="Helvetica" font-size="16px" text-anchor="middle" font-weight="bold">5</text></switch></g><path d="M 648.47 578 L 648.06 406.37" fill="none" stroke="#828282" stroke-miterlimit="10" stroke-dasharray="3 3" pointer-events="stroke"/><path d="M 648.04 401.12 L 651.56 408.11 L 648.06 406.37 L 644.56 408.13 Z" fill="#828282" stroke="#828282" stroke-miterlimit="10" pointer-events="all"/><image x="575.75" y="623.5" width="38" height="50" xlink:href="file:///C:/Program%20Files/draw.io/resources/app.asar/img/lib/mscae/Managed_Identities.svg"/><path d="M 35.48 111 C 33.63 111 32 109.29 32 107.23 L 32 46.76 C 32 44.6 33.61 43 35.36 43 L 69.01 43 C 70.78 43 72.5 44.55 72.5 46.84 L 72.5 107.29 C 72.5 109.39 70.9 111 69.16 111 Z" fill="#000000" stroke="none" pointer-events="all" transform="translate(2,3)" opacity="0.25"/><path d="M 35.48 111 C 33.63 111 32 109.29 32 107.23 L 32 46.76 C 32 44.6 33.61 43 35.36 43 L 69.01 43 C 70.78 43 72.5 44.55 72.5 46.84 L 72.5 107.29 C 72.5 109.39 70.9 111 69.16 111 Z" fill="#d2d3d3" stroke="none" pointer-events="all"/><path d="M 69.14 107.97 C 70.52 107.97 72.5 106.6 72.5 104.23 L 72.5 107.29 C 72.5 109.37 70.9 111 69.16 111 L 35.48 111 C 33.63 111 32 109.29 32 107.23 L 32 104.16 C 32 106.5 33.72 107.97 35.3 107.97 Z" fill-opacity="0.3" fill="#000000" stroke="none" pointer-events="all"/><rect x="32" y="43" width="0" height="0" fill="none" stroke="#000000" pointer-events="all" transform="translate(2,3)" opacity="0.25"/><rect x="32" y="43" width="0" height="0" fill="none" stroke="#000000" pointer-events="all"/><path d="M 42 51.95 C 40.82 51.95 39.81 50.85 39.81 49.47 C 39.81 47.82 41.14 47.11 42.03 47.11 L 62.26 47.11 C 63.64 47.11 64.47 48.44 64.47 49.5 C 64.47 50.89 63.46 51.95 62.26 51.95 Z M 38.05 94.9 C 37.06 94.9 35.83 94.1 35.83 92.61 L 35.83 58.45 C 35.83 56.82 37.13 56.06 38.11 56.06 L 66.34 56.06 C 67.48 56.06 68.58 56.95 68.58 58.39 L 68.58 92.65 C 68.58 93.79 67.53 94.9 66.33 94.9 Z M 52.12 106.27 C 50.5 106.27 48.16 104.95 48.16 101.87 C 48.16 99.66 49.96 97.81 52.11 97.81 C 54.54 97.81 56.15 99.95 56.15 101.97 C 56.15 103.9 54.52 106.27 52.12 106.27 Z" fill="#ffffff" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 118px; margin-left: 52px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; "><div style="display: inline-block; font-size: 16px; font-family: Helvetica; color: #828282; line-height: 1.2; pointer-events: all; white-space: nowrap; ">mobile</div></div></div></foreignObject><text x="52" y="134" fill="#828282" font-family="Helvetica" font-size="16px" text-anchor="middle">mobile</text></switch></g><rect x="10.5" y="290" width="81" height="61" fill="none" stroke="none" pointer-events="all"/><path d="M 57.33 347.16 C 58.11 347.16 58.65 346.77 58.5 346.47 L 56.95 343.57 C 56.76 343.13 56.48 343.04 56.02 343.04 L 45.98 343.04 C 45.5 343.04 45.24 343.15 45.01 343.59 L 43.57 346.46 C 43.29 346.92 44.13 347.16 44.73 347.16 Z M 80.77 337.74 L 80.77 295.3 L 21.19 295.3 L 21.19 337.74 Z M 14.69 351 C 13.11 350.98 11.68 350.31 11.09 349.27 C 10.5 348.24 10.74 347.22 11.24 346.51 L 17.01 339.07 L 17.01 295.07 C 17.01 292.86 18.57 290 21.16 290 L 80.78 290 C 82.8 290 84.95 292.05 84.95 295.36 L 84.95 339.07 L 90.78 346.58 C 91.26 347.29 91.5 348.22 90.91 349.23 C 90.15 350.5 88.7 350.91 87.33 351 Z" fill="#505050" stroke="none" pointer-events="all"/><g transform="translate(-0.5 -0.5)"><switch><foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 358px; margin-left: 51px;"><div style="box-sizing: border-box; font-size: 0; text-align: center; "><div style="display: inline-block; font-size: 16px; font-family: Helvetica; color: #828282; line-height: 1.2; pointer-events: all; white-space: nowrap; ">client</div></div></div></foreignObject><text x="51" y="374" fill="#828282" font-family="Helvetica" font-size="16px" text-anchor="middle">client</text></switch></g><path d="M 82.91 290 L 148.4 227.4" fill="none" stroke="#828282" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 152.19 223.77 L 149.55 231.14 L 148.4 227.4 L 144.71 226.08 Z" fill="#828282" stroke="#828282" stroke-miterlimit="10" pointer-events="all"/><path d="M 72.5 77 L 147.04 171.64" fill="none" stroke="#828282" stroke-miterlimit="10" pointer-events="stroke"/><path d="M 150.29 175.76 L 143.21 172.43 L 147.04 171.64 L 148.71 168.1 Z" fill="#828282" stroke="#828282" stroke-miterlimit="10" pointer-events="all"/><image x="634.5" y="171.5" width="80" height="80" xlink:href="file:///C:/Program%20Files/draw.io/resources/app.asar/img/lib/azure2/databases/Azure_Cosmos_DB.svg"/></g><switch><g requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"/><a transform="translate(0,-5)" xlink:href="https://www.diagrams.net/doc/faq/svg-export-text-problems" target="_blank"><text text-anchor="middle" font-size="10px" x="50%" y="100%">Viewer does not support full SVG 1.1</text></a></switch></svg>
+<!-- Generated by Microsoft Visio, SVG Export globally-distributed-mission-critical-applications-using-cosmos-db.svg Option-1 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="8.5in" height="8.375in" viewBox="0 0 612 603"
+		xml:space="preserve" color-interpolation-filters="sRGB" class="st62">
+	<v:documentProperties v:langID="1033" v:viewMarkup="false">
+		<v:userDefs>
+			<v:ud v:nameU="msvNoAutoConnect" v:val="VT0(1):26"/>
+			<v:ud v:nameU="msvWarnOnPersonalInfo" v:val="VT0(1):5"/>
+			<v:ud v:nameU="visTLShowProps" v:prompt="" v:val="VT0(0):26"/>
+		</v:userDefs>
+	</v:documentProperties>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#ffffff;stroke:none;stroke-width:0.25}
+		.st2 {fill:none;stroke:#000000;stroke-dasharray:1.5,3;stroke-linecap:butt;stroke-width:1.5}
+		.st3 {fill:none;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st4 {fill:#000000;font-family:Segoe UI;font-size:0.75em}
+		.st5 {font-size:1em}
+		.st6 {fill:#000000;font-family:Segoe UI;font-size:0.833336em}
+		.st7 {fill:none;stroke:#000000;stroke-linecap:butt;stroke-width:0.75}
+		.st8 {fill:none}
+		.st9 {stroke:#000000;stroke-linecap:butt;stroke-width:0.75}
+		.st10 {fill:#000000;font-family:Segoe UI;font-size:1.00001em;font-weight:bold}
+		.st11 {fill:#000000;fill-opacity:0.25;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st12 {fill:#00bef2;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st13 {fill:#0070c0;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st14 {fill:#50e6ff;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st15 {fill:#1490df;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st16 {fill:url(#grad0-107);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st17 {fill:url(#grad0-112);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st18 {fill:#c3f1ff;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st19 {fill:#9cebff;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st20 {fill:url(#grad0-126);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st21 {fill:url(#grad0-131);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st22 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st23 {fill:#0078d4}
+		.st24 {stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st25 {fill:url(#grad0-145);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st26 {fill:#f2f2f2;fill-opacity:0.55;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st27 {fill:#f2f2f2;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st28 {fill:#50e6ff;stroke:none;stroke-linecap:butt;stroke-width:24.7611}
+		.st29 {fill:url(#grad7-183);stroke:none;stroke-linecap:butt;stroke-width:0.599349}
+		.st30 {fill:#f2f2f2;stroke:none;stroke-linecap:butt;stroke-width:24.7611}
+		.st31 {fill:url(#grad0-197);stroke:none;stroke-linecap:butt;stroke-width:12.75}
+		.st32 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:12.75}
+		.st33 {fill:url(#grad0-209);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st34 {fill:#0078d4;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st35 {fill:url(#grad7-218);stroke:none;stroke-linecap:butt;stroke-width:34}
+		.st36 {fill:#ffffff;fill-opacity:0.6;stroke:none;stroke-linecap:butt;stroke-width:34}
+		.st37 {fill:#f2f2f2;fill-opacity:0.55;stroke:none;stroke-linecap:butt;stroke-width:34}
+		.st38 {fill:url(#grad0-228);stroke:none;stroke-linecap:butt;stroke-width:34}
+		.st39 {fill:url(#grad0-236);stroke:none;stroke-linecap:butt;stroke-width:34}
+		.st40 {fill:#f2f2f2;fill-opacity:0.7;stroke:none;stroke-linecap:butt;stroke-width:34}
+		.st41 {fill:#32bedd;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st42 {fill:url(#grad0-267);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st43 {fill:#999999;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st44 {fill:#999999;fill-opacity:0.5;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st45 {fill:#949494;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st46 {fill:#005ba1;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st47 {fill:url(#grad0-306);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st48 {fill:#fcd116;stroke:none;stroke-linecap:butt;stroke-width:12.24}
+		.st49 {fill:#ff8c00;fill-opacity:0.4;stroke:none;stroke-linecap:butt;stroke-width:12.24}
+		.st50 {fill:#ffffff;fill-opacity:0.5;stroke:none;stroke-linecap:butt;stroke-width:12.24}
+		.st51 {fill:#107c10;stroke:none;stroke-width:1.5}
+		.st52 {fill:#ffffff;font-family:Segoe UI;font-size:0.833336em;font-weight:bold}
+		.st53 {fill:url(#grad0-440);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st54 {marker-end:url(#mrkr4-450);stroke:#000000;stroke-dasharray:0,4.5;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
+		.st55 {fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:0.37313432835821}
+		.st56 {marker-end:url(#mrkr4-450);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
+		.st57 {marker-start:url(#mrkr4-486);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
+		.st58 {fill:none;stroke:none;stroke-width:0.75}
+		.st59 {fill:url(#grad0-546);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st60 {fill:#53b1e0;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st61 {fill:url(#grad0-554);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st62 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<defs id="Patterns_And_Gradients">
+		<linearGradient id="grad0-107" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-90 0.5 0.5)">
+			<stop offset="0" stop-color="#fea11b" stop-opacity="1"/>
+			<stop offset="0.285" stop-color="#fea51a" stop-opacity="1"/>
+			<stop offset="0.545" stop-color="#feb018" stop-opacity="1"/>
+			<stop offset="0.8" stop-color="#ffc314" stop-opacity="1"/>
+			<stop offset="1" stop-color="#ffd70f" stop-opacity="1"/>
+		</linearGradient>
+		<linearGradient id="grad0-112" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-90 0.5 0.5)">
+			<stop offset="0" stop-color="#0078d4" stop-opacity="1"/>
+			<stop offset="0.82" stop-color="#5ea0ef" stop-opacity="1"/>
+		</linearGradient>
+		<linearGradient id="grad0-126" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-90 0.5 0.5)">
+			<stop offset="0.15" stop-color="#cccccc" stop-opacity="1"/>
+			<stop offset="1" stop-color="#707070" stop-opacity="1"/>
+		</linearGradient>
+		<linearGradient id="grad0-131" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-45 0.5 0.5)">
+			<stop offset="0" stop-color="#5e9624" stop-opacity="1"/>
+			<stop offset="0.55" stop-color="#6dad2a" stop-opacity="1"/>
+			<stop offset="1" stop-color="#76bc2d" stop-opacity="1"/>
+		</linearGradient>
+		<linearGradient id="grad0-145" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-90.454718861693 0.5 0.5)">
+			<stop offset="0" stop-color="#cccccc" stop-opacity="1"/>
+			<stop offset="0.12" stop-color="#d7d7d7" stop-opacity="1"/>
+			<stop offset="0.42" stop-color="#ebebeb" stop-opacity="1"/>
+			<stop offset="0.72" stop-color="#f8f8f8" stop-opacity="1"/>
+			<stop offset="1" stop-color="#fcfcfc" stop-opacity="1"/>
+		</linearGradient>
+		<radialGradient id="grad7-183" cx="0" cy="0" r="1.4">
+			<stop offset="0.185" stop-color="#5ea0ef" stop-opacity="1"/>
+			<stop offset="1" stop-color="#0078d4" stop-opacity="1"/>
+		</radialGradient>
+		<linearGradient id="grad0-197" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-153.59947509264 0.5 0.5)">
+			<stop offset="0" stop-color="#0078d4" stop-opacity="1"/>
+			<stop offset="0.16" stop-color="#1380da" stop-opacity="1"/>
+			<stop offset="0.53" stop-color="#3c91e5" stop-opacity="1"/>
+			<stop offset="0.82" stop-color="#559cec" stop-opacity="1"/>
+			<stop offset="1" stop-color="#5ea0ef" stop-opacity="1"/>
+		</linearGradient>
+		<linearGradient id="grad0-209" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-90 0.5 0.5)">
+			<stop offset="0" stop-color="#32bedd" stop-opacity="1"/>
+			<stop offset="0.175" stop-color="#32caea" stop-opacity="1"/>
+			<stop offset="0.41" stop-color="#32d2f2" stop-opacity="1"/>
+			<stop offset="0.775" stop-color="#32d4f5" stop-opacity="1"/>
+		</linearGradient>
+		<radialGradient id="grad7-218" cx="0" cy="0" r="1.4">
+			<stop offset="0.18" stop-color="#5ea0ef" stop-opacity="1"/>
+			<stop offset="1" stop-color="#0078d4" stop-opacity="1"/>
+		</radialGradient>
+		<linearGradient id="grad0-228" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-90.435149452297 0.5 0.5)">
+			<stop offset="0" stop-color="#cccccc" stop-opacity="1"/>
+			<stop offset="1" stop-color="#fcfcfc" stop-opacity="1"/>
+		</linearGradient>
+		<linearGradient id="grad0-236" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-90 0.5 0.5)">
+			<stop offset="0" stop-color="#cccccc" stop-opacity="1"/>
+			<stop offset="1" stop-color="#fcfcfc" stop-opacity="1"/>
+		</linearGradient>
+		<linearGradient id="grad0-267" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(90 0.5 0.5)">
+			<stop offset="0" stop-color="#c69aeb" stop-opacity="1"/>
+			<stop offset="1" stop-color="#6f4bb2" stop-opacity="1"/>
+		</linearGradient>
+		<linearGradient id="grad0-306" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(90 0.5 0.5)">
+			<stop offset="0" stop-color="#76bc2d" stop-opacity="1"/>
+			<stop offset="1" stop-color="#5e9624" stop-opacity="1"/>
+		</linearGradient>
+		<linearGradient id="grad0-440" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-90 0.5 0.5)">
+			<stop offset="0.16" stop-color="#6f4bb2" stop-opacity="1"/>
+			<stop offset="0.32" stop-color="#7450b5" stop-opacity="1"/>
+			<stop offset="0.51" stop-color="#825dbf" stop-opacity="1"/>
+			<stop offset="0.72" stop-color="#9a72ce" stop-opacity="1"/>
+			<stop offset="0.94" stop-color="#bb90e4" stop-opacity="1"/>
+			<stop offset="1" stop-color="#c69aeb" stop-opacity="1"/>
+		</linearGradient>
+		<linearGradient id="grad0-546" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-133.54829310906 0.5 0.5)">
+			<stop offset="0" stop-color="#1988d9" stop-opacity="1"/>
+			<stop offset="0.9" stop-color="#54aef0" stop-opacity="1"/>
+		</linearGradient>
+		<linearGradient id="grad0-554" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(65.834982258294 0.5 0.5)">
+			<stop offset="0.1" stop-color="#54aef0" stop-opacity="1"/>
+			<stop offset="0.29" stop-color="#4fabee" stop-opacity="1"/>
+			<stop offset="0.51" stop-color="#41a2e9" stop-opacity="1"/>
+			<stop offset="0.74" stop-color="#2a93e0" stop-opacity="1"/>
+			<stop offset="0.88" stop-color="#1988d9" stop-opacity="1"/>
+		</linearGradient>
+	</defs>
+	<defs id="Markers">
+		<g id="lend4">
+			<path d="M 2 1 L 0 0 L 2 -1 L 2 1 " style="stroke:none"/>
+		</g>
+		<marker id="mrkr4-450" class="st55" v:arrowType="4" v:arrowSize="2" v:setback="5.36" refX="-5.36" orient="auto"
+				markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend4" transform="scale(-2.68,-2.68) "/>
+		</marker>
+		<marker id="mrkr4-486" class="st55" v:arrowType="4" v:arrowSize="2" v:setback="5.12" refX="5.12" orient="auto"
+				markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend4" transform="scale(2.68) "/>
+		</marker>
+	</defs>
+	<g v:mID="24" v:index="1" v:groupContext="backgroundPage">
+		<v:userDefs>
+			<v:ud v:nameU="msvThemeOrder" v:val="VT0(0):26"/>
+			<v:ud v:nameU="msvVisioCreated" v:prompt="" v:val="VT0(0):26"/>
+		</v:userDefs>
+		<title>VBackground-1</title>
+		<v:pageProperties width="8.5" height="8.375" v:drawingScale="1" v:pageScale="1" v:drawingUnits="19" v:shadowOffsetX="9"
+				v:shadowOffsetY="-9"/>
+		<g id="shape1000-1" v:mID="1000" v:groupContext="shape">
+			<title>Solid.1000</title>
+			<v:userDefs>
+				<v:ud v:nameU="Background" v:val="VT0(0):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="msvShapeCategories" v:prompt="" v:val="VT4(DoNotContain)"/>
+				<v:ud v:nameU="msvVisioCreated" v:prompt="" v:val="VT0(0):26"/>
+			</v:userDefs>
+			<rect x="0" y="0" width="612" height="603" class="st1"/>
+		</g>
+	</g>
+	<g v:mID="20" v:index="2" v:groupContext="foregroundPage">
+		<v:userDefs>
+			<v:ud v:nameU="msvThemeOrder" v:val="VT0(0):26"/>
+			<v:ud v:nameU="visNavType" v:val="VT0(1):26"/>
+		</v:userDefs>
+		<title>globally-distributed-mission-critical-applications-using-cosmos-db</title>
+		<v:pageProperties v:drawingScale="1" v:pageScale="1" v:drawingUnits="19" v:shadowOffsetX="9" v:shadowOffsetY="-9"/>
+		<v:layer v:name="Connector" v:index="0"/>
+		<v:layer v:name="Network" v:index="1"/>
+		<v:layer v:name="Flowchart" v:index="2"/>
+		<v:layer v:name="Azure" v:index="3"/>
+		<g id="shape1002-3" v:mID="1002" v:groupContext="shape" transform="translate(461.225,-277.063)">
+			<title>Sheet.1002</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(1000):26"/>
+			</v:userDefs>
+			<path d="M0 585 A18.0004 18.0004 -180 0 0 18 603 L102 603 A18.0004 18.0004 -180 0 0 120 585 L120 321 A18.0004 18.0004
+						 -180 0 0 102 303 L18 303 A18.0004 18.0004 -180 0 0 0 321 L0 585 Z" class="st2"/>
+		</g>
+		<g id="shape1029-5" v:mID="1029" v:groupContext="shape" transform="translate(258.725,-470.563)">
+			<title>Sheet.1029</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(28000):26"/>
+			</v:userDefs>
+			<rect x="0" y="588" width="45" height="15" class="st3"/>
+		</g>
+		<g id="shape1030-7" v:mID="1030" v:groupContext="shape" transform="translate(222.7,-473.113)">
+			<title>Sheet.1030</title>
+			<desc>Azure Region A</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(29000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(0,0,0,0)"/>
+			<v:textRect cx="58.525" cy="597.6" width="117.06" height="10.8"/>
+			<rect x="0" y="592.2" width="117.05" height="10.8" class="st3"/>
+			<text x="47.12" y="594.9" class="st4" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure <v:newlineChar/><tspan
+						x="40.42" dy="1.2em" class="st5">Region A</tspan></text>		</g>
+		<g id="shape1031-11" v:mID="1031" v:groupContext="shape" transform="translate(259.1,-380.563)">
+			<title>Sheet.1031</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(30000):26"/>
+			</v:userDefs>
+			<rect x="0" y="588" width="45" height="15" class="st3"/>
+		</g>
+		<g id="shape1032-13" v:mID="1032" v:groupContext="shape" transform="translate(223.45,-383.113)">
+			<title>Sheet.1032</title>
+			<desc>Azure Region B</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(31000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(0,0,0,0)"/>
+			<v:textRect cx="58.525" cy="597.6" width="117.05" height="10.8"/>
+			<rect x="0" y="592.2" width="117.05" height="10.8" class="st3"/>
+			<text x="47.12" y="594.9" class="st4" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure <v:newlineChar/><tspan
+						x="40.74" dy="1.2em" class="st5">Region B</tspan></text>		</g>
+		<g id="shape1033-17" v:mID="1033" v:groupContext="shape" transform="translate(257.975,-290.563)">
+			<title>Sheet.1033</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(32000):26"/>
+			</v:userDefs>
+			<rect x="0" y="588" width="45" height="15" class="st3"/>
+		</g>
+		<g id="shape1034-19" v:mID="1034" v:groupContext="shape" transform="translate(221.95,-293.113)">
+			<title>Sheet.1034</title>
+			<desc>Azure Region C</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(33000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(0,0,0,0)"/>
+			<v:textRect cx="58.525" cy="597.6" width="117.05" height="10.8"/>
+			<rect x="0" y="592.2" width="117.05" height="10.8" class="st3"/>
+			<text x="47.12" y="594.9" class="st4" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure <v:newlineChar/><tspan
+						x="40.54" dy="1.2em" class="st5">Region C</tspan></text>		</g>
+		<g id="shape1035-23" v:mID="1035" v:groupContext="shape" transform="translate(38.225,-385.063)">
+			<title>Sheet.1035</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(34000):26"/>
+			</v:userDefs>
+			<rect x="0" y="588" width="45" height="15" class="st3"/>
+		</g>
+		<g id="shape1036-25" v:mID="1036" v:groupContext="shape" transform="translate(29.2,-387.613)">
+			<title>Sheet.1036</title>
+			<desc>Browser</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(35000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(0,0,0,0)"/>
+			<v:textRect cx="31.525" cy="597.6" width="63.05" height="10.8"/>
+			<rect x="0" y="592.2" width="63.05" height="10.8" class="st3"/>
+			<text x="13.9" y="600.6" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Browser</text>		</g>
+		<g id="shape1037-28" v:mID="1037" v:groupContext="shape" transform="translate(122.225,-387.313)">
+			<title>Sheet.1037</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(36000):26"/>
+			</v:userDefs>
+			<rect x="0" y="588" width="75" height="15" class="st3"/>
+		</g>
+		<g id="shape1038-30" v:mID="1038" v:groupContext="shape" transform="translate(123.7,-383.888)">
+			<title>Sheet.1038</title>
+			<desc>Azure Traffic Manager</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(37000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(0,0,0,0)"/>
+			<v:textRect cx="36.025" cy="597.6" width="72.06" height="10.8"/>
+			<rect x="0" y="592.2" width="72.05" height="10.8" class="st3"/>
+			<text x="24.62" y="594.9" class="st4" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure<v:newlineChar/><tspan
+						x="4.86" dy="1.2em" class="st5">Traffic Manager</tspan></text>		</g>
+		<g id="shape1039-34" v:mID="1039" v:groupContext="shape" transform="translate(467.975,-524.563)">
+			<title>Sheet.1039</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(38000):26"/>
+			</v:userDefs>
+			<rect x="0" y="588" width="105.75" height="15" class="st3"/>
+		</g>
+		<g id="shape1040-36" v:mID="1040" v:groupContext="shape" transform="translate(440.2,-527.113)">
+			<title>Sheet.1040</title>
+			<desc>Azure Cosmos DB (App and Session State)</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(39000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(0,0,0,0)"/>
+			<v:textRect cx="81.025" cy="597.6" width="162.05" height="10.8"/>
+			<rect x="0" y="592.2" width="162.05" height="10.8" class="st3"/>
+			<text x="45.67" y="594.9" class="st4" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Cosmos DB<v:newlineChar/><tspan
+						x="34.01" dy="1.2em" class="st5">(App and Session State)</tspan></text>		</g>
+		<g id="shape1041-40" v:mID="1041" v:groupContext="shape" transform="translate(470.975,-328.813)">
+			<title>Sheet.1041</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(40000):26"/>
+			</v:userDefs>
+			<rect x="0" y="588" width="105.75" height="15" class="st3"/>
+		</g>
+		<g id="shape1042-42" v:mID="1042" v:groupContext="shape" transform="translate(407.2,-331.363)">
+			<title>Sheet.1042</title>
+			<desc>Globally distributed across regions</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(41000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(0,0,0,0)"/>
+			<v:textRect cx="117.025" cy="597.6" width="234.06" height="10.8"/>
+			<rect x="0" y="592.2" width="234.05" height="10.8" class="st3"/>
+			<text x="78.14" y="594.9" class="st4" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Globally distributed <v:newlineChar/><tspan
+						x="88.65" dy="1.2em" class="st5">across regions</tspan></text>		</g>
+		<g id="shape1043-46" v:mID="1043" v:groupContext="shape" transform="translate(235.475,-283.813)">
+			<title>Sheet.1043</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(42000):26"/>
+			</v:userDefs>
+			<ellipse cx="45" cy="558" rx="45" ry="45" class="st7"/>
+		</g>
+		<g id="shape1044-48" v:mID="1044" v:groupContext="shape" transform="translate(73.475,-54.3127)">
+			<title>Sheet.1044</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(43000):26"/>
+			</v:userDefs>
+			<ellipse cx="90.75" cy="512.25" rx="90.75" ry="90.75" class="st7"/>
+		</g>
+		<g id="shape1045-50" v:mID="1045" v:groupContext="shape" transform="translate(100.055,-209.233)">
+			<title>Sheet.1045</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(44000):26"/>
+			</v:userDefs>
+			<path d="M0 603 L148.6 451.6 L0 603 Z" class="st8"/>
+			<path d="M0 603 L148.6 451.6" class="st9"/>
+		</g>
+		<g id="shape1046-53" v:mID="1046" v:groupContext="shape" transform="translate(250.617,-116.383)">
+			<title>Sheet.1046</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(45000):26"/>
+			</v:userDefs>
+			<path d="M0 603 L74.23 398.49 L0 603 Z" class="st8"/>
+			<path d="M0 603 L74.23 398.49" class="st9"/>
+		</g>
+		<g id="shape1047-56" v:mID="1047" v:groupContext="shape" transform="translate(111.725,-82.8127)">
+			<title>Sheet.1047</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(46000):26"/>
+			</v:userDefs>
+			<rect x="0" y="588" width="105.75" height="15" class="st3"/>
+		</g>
+		<g id="shape1048-58" v:mID="1048" v:groupContext="shape" transform="translate(47.95,-85.3627)">
+			<title>Sheet.1048</title>
+			<desc>Applications can consist of multiple layers, either self-mana...</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(47000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(0,0,0,0)"/>
+			<v:textRect cx="117.025" cy="597.6" width="234.06" height="10.8"/>
+			<rect x="0" y="592.2" width="234.05" height="10.8" class="st3"/>
+			<text x="69.5" y="584.1" class="st4" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Applications can consist<v:newlineChar/><tspan
+						x="69.27" dy="1.2em" class="st5">of multiple layers, either<v:newlineChar/></tspan><tspan x="84.38"
+						dy="1.2em" class="st5">self</tspan>-managed or<v:newlineChar/><tspan x="97.86" dy="1.2em" class="st5">serverless</tspan></text>		</g>
+		<g id="shape1051-64" v:mID="1051" v:groupContext="shape" transform="translate(28.45,-455.713)">
+			<title>Sheet.1051</title>
+			<desc>1</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(50000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(0,0,0,0)"/>
+			<v:textRect cx="6.025" cy="595.8" width="12.05" height="14.4"/>
+			<rect x="0" y="588.6" width="12.05" height="14.4" class="st3"/>
+			<text x="2.57" y="599.4" class="st10" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>1</text>		</g>
+		<g id="shape1057-67" v:mID="1057" v:groupContext="shape" transform="translate(223.45,-358.213)">
+			<title>Sheet.1057</title>
+			<desc>3</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(56000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(0,0,0,0)"/>
+			<v:textRect cx="6.025" cy="595.8" width="12.06" height="14.4"/>
+			<rect x="0" y="588.6" width="12.05" height="14.4" class="st3"/>
+			<text x="2.57" y="599.4" class="st10" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>3</text>		</g>
+		<g id="shape1060-70" v:mID="1060" v:groupContext="shape" transform="translate(103.45,-253.213)">
+			<title>Sheet.1060</title>
+			<desc>4</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(59000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(0,0,0,0)"/>
+			<v:textRect cx="6.025" cy="595.8" width="12.05" height="14.4"/>
+			<rect x="0" y="588.6" width="12.05" height="14.4" class="st3"/>
+			<text x="2.57" y="599.4" class="st10" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>4</text>		</g>
+		<g id="shape1063-73" v:mID="1063" v:groupContext="shape" transform="translate(489.7,-379.213)">
+			<title>Sheet.1063</title>
+			<desc>6</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(62000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(0,0,0,0)"/>
+			<v:textRect cx="6.025" cy="595.8" width="12.05" height="14.4"/>
+			<rect x="0" y="588.6" width="12.05" height="14.4" class="st3"/>
+			<text x="2.57" y="599.4" class="st10" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>6</text>		</g>
+		<g id="shape1064-76" v:mID="1064" v:groupContext="shape" transform="translate(492.163,-103.813)">
+			<title>Sheet.1064</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(63000):26"/>
+			</v:userDefs>
+			<path d="M18.1 565.5 L35.62 587.2 L18.1 603 L0 587.2 L18.1 565.5 ZM19.81 579.97 C20.81 578.94 20.81 577.31 19.83 576.28
+						 C18.85 575.24 17.22 575.17 16.15 576.1 C15.07 577.04 14.92 578.66 15.81 579.78 L12.19 584.35 C10.92 583.87
+						 9.49 584.44 8.89 585.65 C8.28 586.87 8.68 588.34 9.83 589.08 C10.97 589.82 12.47 589.58 13.33 588.53 L15.81
+						 590.82 C14.96 591.91 15.07 593.48 16.1 594.42 C17.12 595.36 18.7 595.36 19.72 594.42 C20.74 593.48 20.87
+						 591.91 20 590.82 L23.43 588.34 C24.46 589.33 26.08 589.34 27.12 588.36 C28.16 587.38 28.24 585.76 27.3 584.68
+						 C26.36 583.6 24.74 583.46 23.63 584.35 L19.81 579.97 ZM19.24 580.54 L23.06 584.92 C22.52 585.71 22.44 586.72
+						 22.86 587.58 L19.43 590.05 C18.52 589.42 17.3 589.42 16.38 590.05 L13.9 587.77 C14.3 586.66 13.91 585.42
+						 12.95 584.72 L16.38 580.44 C17.24 581.02 18.35 581.06 19.24 580.54 Z" class="st11"/>
+		</g>
+		<g id="shape1065-78" v:mID="1065" v:groupContext="shape" transform="translate(490.663,-106.063)">
+			<title>Sheet.1065</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(64000):26"/>
+			</v:userDefs>
+			<path d="M18.1 565.5 L35.62 587.2 L18.1 603 L0 587.2 L18.1 565.5 ZM19.81 579.97 C20.81 578.94 20.81 577.31 19.83 576.28
+						 C18.85 575.24 17.22 575.17 16.15 576.1 C15.07 577.04 14.92 578.66 15.81 579.78 L12.19 584.35 C10.92 583.87
+						 9.49 584.44 8.89 585.65 C8.28 586.87 8.68 588.34 9.83 589.08 C10.97 589.82 12.47 589.58 13.33 588.53 L15.81
+						 590.82 C14.96 591.91 15.07 593.48 16.1 594.42 C17.12 595.36 18.7 595.36 19.72 594.42 C20.74 593.48 20.87
+						 591.91 20 590.82 L23.43 588.34 C24.46 589.33 26.08 589.34 27.12 588.36 C28.16 587.38 28.24 585.76 27.3 584.68
+						 C26.36 583.6 24.74 583.46 23.63 584.35 L19.81 579.97 ZM19.24 580.54 L23.06 584.92 C22.52 585.71 22.44 586.72
+						 22.86 587.58 L19.43 590.05 C18.52 589.42 17.3 589.42 16.38 590.05 L13.9 587.77 C14.3 586.66 13.91 585.42
+						 12.95 584.72 L16.38 580.44 C17.24 581.02 18.35 581.06 19.24 580.54 Z" class="st12"/>
+		</g>
+		<g id="shape1070-80" v:mID="1070" v:groupContext="shape" transform="translate(460.45,-142.213)">
+			<title>Sheet.1070</title>
+			<desc>5</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(69000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(0,0,0,0)"/>
+			<v:textRect cx="6.025" cy="595.8" width="12.05" height="14.4"/>
+			<rect x="0" y="588.6" width="12.05" height="14.4" class="st3"/>
+			<text x="2.57" y="599.4" class="st10" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>5</text>		</g>
+		<g id="shape1077-83" v:mID="1077" v:groupContext="shape" transform="translate(25.45,-473.713)">
+			<title>Sheet.1077</title>
+			<desc>Mobile</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(76000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(0,0,0,0)"/>
+			<v:textRect cx="36.025" cy="595.8" width="72.05" height="14.4"/>
+			<rect x="0" y="588.6" width="72.05" height="14.4" class="st3"/>
+			<text x="20.63" y="598.8" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Mobile</text>		</g>
+		<g id="shape1078-86" v:mID="1078" v:groupContext="shape" transform="translate(30.35,-313.813)">
+			<title>Sheet.1078</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(77000):26"/>
+			</v:userDefs>
+			<rect x="0" y="557.25" width="60.75" height="45.75" class="st3"/>
+		</g>
+		<g id="shape1079-88" v:mID="1079" v:groupContext="shape" transform="translate(30.35,-313.813)">
+			<title>Sheet.1079</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(78000):26"/>
+			</v:userDefs>
+			<path d="M35.12 600.12 C35.71 600.12 36.11 599.83 36 599.6 L34.84 597.43 C34.7 597.1 34.49 597.03 34.14 597.03 L26.61
+						 597.03 C26.25 597.03 26.06 597.11 25.88 597.44 L24.8 599.59 C24.59 599.94 25.22 600.12 25.67 600.12 L35.12
+						 600.12 ZM52.7 593.06 L52.7 561.23 L8.02 561.23 L8.02 593.06 L52.7 593.06 ZM3.14 603 C1.96 602.98 0.89 602.48
+						 0.44 601.7 C0 600.93 0.18 600.17 0.56 599.63 L4.88 594.05 L4.88 561.05 C4.88 559.4 6.05 557.25 8 557.25
+						 L52.71 557.25 C54.23 557.25 55.84 558.79 55.84 561.27 L55.84 594.05 L60.21 599.69 C60.57 600.22 60.75 600.92
+						 60.31 601.67 C59.74 602.62 58.65 602.93 57.62 603 L3.14 603 Z" class="st13"/>
+		</g>
+		<g id="shape1080-90" v:mID="1080" v:groupContext="shape" transform="translate(24.7,-293.713)">
+			<title>Sheet.1080</title>
+			<desc>Client</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(79000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(0,0,0,0)"/>
+			<v:textRect cx="36.025" cy="595.8" width="72.06" height="14.4"/>
+			<rect x="0" y="588.6" width="72.05" height="14.4" class="st3"/>
+			<text x="23.37" y="598.8" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Client</text>		</g>
+		<g id="group1085-93" transform="translate(186.725,-170.386)" v:mID="1085" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(84000):26"/>
+			</v:userDefs>
+			<title>Function Apps.1533.1085</title>
+			<g id="group1086-94" v:mID="1086" v:groupContext="group">
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<title>Sheet.1086</title>
+				<g id="shape1087-95" v:mID="1087" v:groupContext="shape" transform="translate(434.116,1005.76) rotate(134.919)">
+					<title>Sheet.1087</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<path d="M4.32 590.35 L5.83 590.35 a0.486279 0.486279 0 0 1 0.486279 0.486279 L6.31 602.03 a0.970737 0.970737
+								 0 0 1 -0.970737 0.970737 L3.82 603 L3.82 590.83 a0.486279 0.486279 0 0 1 0.486279 -0.486279 L4.32
+								 590.35 Z" class="st14"/>
+				</g>
+				<g id="shape1088-97" v:mID="1088" v:groupContext="shape" transform="translate(425.782,154.801) rotate(44.919)">
+					<title>Sheet.1088</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<path d="M4.23 590.52 L5.75 590.52 a0.486279 0.486279 0 0 1 0.486279 0.486279 L6.24 603 L4.72 603 a0.970737 0.970737
+								 0 0 1 -0.970737 -0.970737 L3.75 591.01 a0.486279 0.486279 0 0 1 0.486279 -0.482636 Z" class="st15"/>
+				</g>
+			</g>
+			<g id="group1089-99" transform="translate(25.5019,-9.80822)" v:mID="1089" v:groupContext="group">
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<title>Sheet.1089</title>
+				<g id="shape1090-100" v:mID="1090" v:groupContext="shape" transform="translate(426.782,175.658) rotate(45.081)">
+					<title>Sheet.1090</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<path d="M0 590.35 L1.52 590.35 a0.970737 0.970737 0 0 1 0.970737 0.970737 L2.49 602.51 a0.486279 0.486279 0
+								 0 1 -0.486279 0.486279 L0.49 603 a0.486279 0.486279 0 0 1 -0.486279 -0.486279 L0.01 590.35 L0 590.35
+								 Z" class="st14"/>
+				</g>
+				<g id="shape1091-102" v:mID="1091" v:groupContext="shape" transform="translate(427.496,1012.39) rotate(135.081)">
+					<title>Sheet.1091</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<path d="M0.97 590.52 L2.49 590.52 L2.49 602.51 a0.486279 0.486279 0 0 1 -0.486279 0.486279 L0.49 603 a0.486279
+								 0.486279 0 0 1 -0.486279 -0.486279 L0 591.49 a0.970737 0.970737 0 0 1 0.970737 -0.970737 L0.97 590.52
+								 Z" class="st15"/>
+				</g>
+			</g>
+			<g id="shape1092-104" v:mID="1092" v:groupContext="shape" transform="translate(11.4554,-3.40942)">
+				<title>Sheet.1092</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M6.9 589.54 L0.36 589.54 a0.351505 0.351505 0 0 1 -0.364254 -0.32965 a0.302331 0.302331 0 0 1 0.0327828
+							 -0.136595 L7.87 573.57 a0.375181 0.375181 0 0 1 0.338756 -0.193055 L15.94 573.38 a0.351505 0.351505
+							 0 0 1 0.364254 0.32965 a0.300509 0.300509 0 0 1 -0.0637444 0.182127 L7.04 586.02 L16.01 586.02 a0.351505
+							 0.351505 0 0 1 0.364254 0.32965 a0.320543 0.320543 0 0 1 -0.094706 0.222195 L1.37 602.09 C1.23 602.17
+							 0.23 603 0.72 601.75 L6.9 589.54 Z" class="st16"/>
+			</g>
+		</g>
+		<g id="group1096-108" transform="translate(90.1625,-123.731)" v:mID="1096" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(86000):26"/>
+			</v:userDefs>
+			<title>Virtual Machine.1498.1096</title>
+			<g id="shape1097-109" v:mID="1097" v:groupContext="shape" transform="translate(0,-9.16354)">
+				<title>Sheet.1097</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M0 601.81 A1.18753 1.18753 -180 0 0 1.19 603 L34.44 603 A1.18753 1.18753 -180 0 0 35.63 601.81 L35.63 580.44
+							 A1.18753 1.18753 -180 0 0 34.44 579.25 L1.19 579.25 A1.18753 1.18753 -180 0 0 -0 580.44 L0 601.81 Z"
+						class="st17"/>
+			</g>
+			<g id="shape1098-113" v:mID="1098" v:groupContext="shape" transform="translate(17.8125,-14.1115)">
+				<title>Sheet.1098</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M5.94 592.61 L5.94 599.52 L0 603 L0 596.07 L5.94 592.61 Z" class="st14"/>
+			</g>
+			<g id="shape1099-115" v:mID="1099" v:groupContext="shape" transform="translate(11.875,-21.0188)">
+				<title>Sheet.1099</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M11.88 599.52 L5.94 603 L0 599.52 L5.94 596.05 L11.88 599.52 Z" class="st18"/>
+			</g>
+			<g id="shape1100-117" v:mID="1100" v:groupContext="shape" transform="translate(11.875,-14.1115)">
+				<title>Sheet.1100</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M5.94 596.09 L5.94 603 L0 599.52 L0 592.61 L5.94 596.09 Z" class="st19"/>
+			</g>
+			<g id="shape1101-119" v:mID="1101" v:groupContext="shape" transform="translate(11.875,-14.1115)">
+				<title>Sheet.1101</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M0 599.52 L5.94 596.07 L5.94 603 L0 599.52 Z" class="st18"/>
+			</g>
+			<g id="shape1102-121" v:mID="1102" v:groupContext="shape" transform="translate(17.8125,-14.1115)">
+				<title>Sheet.1102</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M5.94 599.52 L0 596.07 L0 603 L5.94 599.52 Z" class="st19"/>
+			</g>
+			<g id="shape1103-123" v:mID="1103" v:groupContext="shape" transform="translate(8.90625,0)">
+				<title>Sheet.1103</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M16.05 601.02 C12.53 600.47 12.39 597.93 12.39 593.84 L5.4 593.84 C5.4 597.93 5.28 600.47 1.76 601.02 A1.97917
+							 1.97917 -180 0 0 0 603 L17.81 603 A1.97917 1.97917 -180 0 0 16.05 601.02 Z" class="st20"/>
+			</g>
+		</g>
+		<g id="group1104-127" transform="translate(147.73,-209.081)" v:mID="1104" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(87000):26"/>
+			</v:userDefs>
+			<title>Application Gateways.1104</title>
+			<g id="shape1105-128" v:mID="1105" v:groupContext="shape" transform="translate(-400.779,176.615) rotate(-45)">
+				<title>Sheet.1105</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M0 601.33 A1.67143 1.67143 -180 0 0 1.67 603 L34.54 603 A1.67143 1.67143 -180 0 0 36.21 601.33 L36.21 568.46
+							 A1.67143 1.67143 -180 0 0 34.54 566.79 L1.67 566.79 A1.67143 1.67143 -180 0 0 0 568.46 L0 601.33 Z"
+						class="st21"/>
+			</g>
+			<g id="group1106-132" transform="translate(10.9723,-7.72413)" v:mID="1106" v:groupContext="group">
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<title>Sheet.1106</title>
+				<g id="shape1107-133" v:mID="1107" v:groupContext="shape" transform="translate(12.3462,-13.455)">
+					<title>Sheet.1107</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<path d="M7.86 603 L16.18 603 a0.322549 0.322549 -180 0 0 0.293227 -0.322549 L16.48 594.38 a0.293227 0.293227
+								 -180 0 0 -0.527808 -0.205259 L13.66 596.46 L13.66 596.61 a0.293227 0.293227 0 0 1 -0.410517 0 L3.08
+								 586.58 a0.293227 0.293227 -180 0 0 -0.410517 0 L0.09 589.16 a0.322549 0.322549 -180 0 0 2.85882E-15
+								 0.43984 L10.09 599.6 a0.322549 0.322549 0 0 1 -7.10543E-15 0.43984 L9.94 600.19 L7.65 602.47 a0.322549
+								 0.322549 -180 0 0 0.205259 0.527808 Z" class="st22"/>
+				</g>
+				<g id="shape1108-135" v:mID="1108" v:groupContext="shape" transform="translate(0,-13.455)">
+					<title>Sheet.1108</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<path d="M8.56 603 L0.23 603 a0.322549 0.322549 0 0 1 -0.234581 -0.322549 L0 594.38 a0.293227 0.293227 0 0 1
+								 0.498485 -0.205259 L2.81 596.46 L2.81 596.61 a0.293227 0.293227 -180 0 0 0.410517 0 L13.34 586.58
+								 a0.293227 0.293227 0 0 1 0.410517 0 L16.33 589.16 a0.322549 0.322549 0 0 1 3.90799E-14 0.43984 L6.33
+								 599.6 a0.322549 0.322549 -180 0 0 -1.77636E-15 0.43984 L6.33 600.19 L8.62 602.47 a0.322549 0.322549
+								 0 0 1 -0.0586453 0.527808 Z" class="st22"/>
+				</g>
+				<g id="shape1109-137" v:mID="1109" v:groupContext="shape" transform="translate(8.20723,0)">
+					<title>Sheet.1109</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<path d="M0.06 597.05 L5.93 602.92 a0.293227 0.293227 -180 0 0 0.410517 0 L12.2 597.05 a0.293227 0.293227 -180
+								 0 0 -0.205259 -0.498485 L8.57 596.55 a0.322549 0.322549 0 0 1 -0.293227 -0.293227 L8.27 582.19 a0.293227
+								 0.293227 -180 0 0 -0.293227 -0.322549 L4.34 581.86 a0.322549 0.322549 -180 0 0 -0.322549 0.322549
+								 L4.02 596.26 a0.293227 0.293227 0 0 1 -0.293227 0.293227 L0.27 596.55 a0.293227 0.293227 -180 0
+								 0 -0.205259 0.498485 Z" class="st22"/>
+				</g>
+			</g>
+			<g id="shape1110-139" v:mID="1110" v:groupContext="shape" transform="translate(19.544,-29.1255)">
+				<title>ac0a9c0c-2e8c-4843-b02b-2fadf76</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M10.93 602.94 A7.94644 7.94644 0 0 1 1.19 590.39 A7.94644 7.94644 0 0 1 10.84 603 L10.93 602.94 Z"
+						class="st23"/>
+				<path d="M10.93 602.94 A7.94644 7.94644 0 0 1 1.19 590.39 A7.94644 7.94644 0 0 1 10.84 603" class="st24"/>
+			</g>
+			<g id="shape1111-142" v:mID="1111" v:groupContext="shape" transform="translate(18.7721,-33.1721)">
+				<title>Sheet.1111</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<ellipse cx="2.55107" cy="600.449" rx="2.55107" ry="2.55107" class="st25"/>
+			</g>
+			<g id="group1112-146" transform="translate(18.7721,-29.8)" v:mID="1112" v:groupContext="group">
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<title>Sheet.1112</title>
+				<g id="shape1113-147" v:mID="1113" v:groupContext="shape" transform="translate(0.0293227,-0.205259)">
+					<title>Sheet.1113</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<path d="M0 601.53 L0.56 602.41 L0.97 603 A17.4177 17.4177 0 0 1 1.96 599.77 A2.49243 2.49243 0 0 1 0.65 599.1
+								 A19.6755 19.6755 -180 0 0 0 601.53 Z" class="st26"/>
+				</g>
+				<g id="shape1114-149" v:mID="1114" v:groupContext="shape" transform="translate(-1.36141E-14,-7.53593)">
+					<title>Sheet.1114</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<path d="M1.7 602.21 A11.7291 11.7291 0 0 1 1 599.48 A7.27202 7.27202 -180 0 0 0 600.83 A10.2923 10.2923 -180
+								 0 0 0.59 603 A2.93227 2.93227 0 0 1 1.7 602.21 Z" class="st26"/>
+				</g>
+				<g id="shape1115-151" v:mID="1115" v:groupContext="shape" transform="translate(3.02024,-1.08494)">
+					<title>Sheet.1115</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<path d="M1.41 599.89 A2.55107 2.55107 0 0 1 0 600.65 A13.5471 13.5471 -180 0 0 1.35 601.86 A12.1396 12.1396
+								 -180 0 0 3.25 603 L3.25 602.79 A1.5541 1.5541 0 0 1 3.84 601.62 A10.5562 10.5562 0 0 1 1.41 599.89
+								 Z" class="st26"/>
+				</g>
+				<g id="shape1116-153" v:mID="1116" v:groupContext="shape" transform="translate(9.09003,0)">
+					<title>Sheet.1116</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<path d="M3.02 601.92 A12.1396 12.1396 0 0 1 0.47 601.62 A1.61275 1.61275 0 0 1 0 602.77 A11.2599 11.2599 -180
+								 0 0 3.17 603 A8.59154 8.59154 -180 0 0 4.25 601.77 L3.02 601.92 Z" class="st26"/>
+				</g>
+			</g>
+			<g id="shape1117-155" v:mID="1117" v:groupContext="shape" transform="translate(25.0472,-29.4481)">
+				<title>Sheet.1117</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<ellipse cx="1.64207" cy="601.358" rx="1.64207" ry="1.64207" class="st3"/>
+			</g>
+			<g id="shape1118-157" v:mID="1118" v:groupContext="shape" transform="translate(28.6832,-33.4066)">
+				<title>Sheet.1118</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<ellipse cx="1.75936" cy="601.241" rx="1.75936" ry="1.75936" class="st27"/>
+			</g>
+			<g id="group1119-159" transform="translate(22.2615,-32.6443)" v:mID="1119" v:groupContext="group">
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<title>Sheet.1119</title>
+				<g id="shape1120-160" v:mID="1120" v:groupContext="shape" transform="translate(0,-2.69769)">
+					<title>Sheet.1120</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<path d="M3.99 599.31 A12.5794 12.5794 0 0 1 9.5 598.07 A6.56828 6.56828 -180 0 0 8.12 596.75 A13.1952 13.1952
+								 -180 0 0 3.75 597.78 C3.46 597.78 3.2 598.1 2.9 598.25 A17.1538 17.1538 0 0 1 1.06 595.52 L0.06
+								 595.9 A15.6876 15.6876 -180 0 0 1.96 598.84 A11.4945 11.4945 -180 0 0 -0 600.45 A2.55107 2.55107
+								 0 0 1 1.26 601.48 A9.64716 9.64716 0 0 1 3.05 600.07 A26.8596 26.8596 -180 0 0 6.48 603 A1.67139
+								 1.67139 0 0 1 7.07 602.06 A24.7483 24.7483 0 0 1 3.99 599.31 Z" class="st26"/>
+				</g>
+				<g id="shape1121-162" v:mID="1121" v:groupContext="shape" transform="translate(9.4419,0)">
+					<title>Sheet.1121</title>
+					<v:userDefs>
+						<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+					</v:userDefs>
+					<path d="M1.41 601.5 L1.11 601.5 L0.88 601.5 L0.59 601.33 A1.78868 1.78868 0 0 1 0 602.21 L0.35 602.41 L0.67
+								 602.59 L1.5 603 A10.4975 10.4975 -180 0 0 1.76 601.97 L1.41 601.5 Z" class="st26"/>
+				</g>
+			</g>
+			<g id="shape1122-164" v:mID="1122" v:groupContext="shape" transform="translate(18.7721,-33.1721)">
+				<title>Sheet.1122</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<ellipse cx="2.55107" cy="600.449" rx="2.55107" ry="2.55107" class="st27"/>
+			</g>
+			<g id="shape1123-166" v:mID="1123" v:groupContext="shape" transform="translate(25.0472,-29.4481)">
+				<title>Sheet.1123</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<ellipse cx="1.64207" cy="601.358" rx="1.64207" ry="1.64207" class="st27"/>
+			</g>
+		</g>
+		<g id="group1124-168" transform="translate(484.346,-406.651)" v:mID="1124" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(88000):26"/>
+			</v:userDefs>
+			<title>Sheet.1124</title>
+			<g id="group1125-169" v:mID="1125" v:groupContext="group">
+				<title>Page-1</title>
+				<g id="group1126-170" v:mID="1126" v:groupContext="group">
+					<title>Azure Cosmos DB</title>
+					<g id="group1127-171" v:mID="1127" v:groupContext="group">
+						<title>layer1</title>
+						<g id="group1128-172" transform="translate(1.72538,-50.5064)" v:mID="1128" v:groupContext="group">
+							<title>path14</title>
+							<g id="shape1129-173" v:mID="1129" v:groupContext="shape">
+								<title>path18</title>
+								<path d="M9.87 603 a0.731855 0.725093 180 0 1 -0.73656 -0.729755 A8.41424 8.33651 -0 0 0 0.74 593.94
+											 a0.736037 0.729237 180 0 1 -0.736564 -0.725058 a0.736037 0.729237 180 0 1 0.736564 -0.729768
+											 A8.41424 8.33651 -0 0 0 9.13 584.16 a0.731855 0.725093 180 0 1 0.73656 -0.729755 a0.731855
+											 0.725093 180 0 1 0.736565 0.729755 A8.41424 8.33651 -0 0 0 19 592.49 a0.731855 0.725093
+											 180 0 1 0.736564 0.729755 a0.731855 0.725093 180 0 1 -0.736564 0.729768 A8.41005 8.33236
+											 -0 0 0 10.61 602.27 a0.740218 0.733381 180 0 1 -0.736565 0.729755 L9.87 603 Z"
+										class="st28"/>
+							</g>
+						</g>
+						<g id="group1130-175" transform="translate(56.6234,-3.41061E-13)" v:mID="1130" v:groupContext="group">
+							<title>path16</title>
+							<g id="shape1131-176" v:mID="1131" v:groupContext="shape">
+								<title>path23</title>
+								<path d="M7.9 603 a0.589665 0.584219 180 0 1 -0.589568 -0.584124 A6.72888 6.66672 -0 0 0 0.59 595.75
+											 a0.589665 0.584219 180 0 1 -0.589568 -0.579427 a0.589665 0.584219 180 0 1 0.589568 -0.584111
+											 A6.72469 6.66258 -0 0 0 7.32 587.93 a0.589665 0.584219 180 0 1 0.589568 -0.584124 a0.589665
+											 0.584219 180 0 1 0.589568 0.584124 A6.72469 6.66258 -0 0 0 15.21 594.59 a0.589665 0.584219
+											 180 1 1 5.32907E-15 1.16824 A6.72888 6.66672 -0 0 0 8.49 602.41 a0.589665 0.584219 180
+											 0 1 -0.589568 0.579427 L7.9 603 Z" class="st28"/>
+							</g>
+						</g>
+						<g id="group1132-178" transform="translate(9.95873,-9.67826)" v:mID="1132" v:groupContext="group">
+							<title>g26</title>
+							<g id="group1133-179" transform="translate(1.15144,0)" v:mID="1133" v:groupContext="group">
+								<title>path1554</title>
+								<g id="shape1134-180" v:mID="1134" v:groupContext="shape">
+									<title>ellipse30</title>
+									<ellipse cx="25.7044" cy="577.533" rx="25.7044" ry="25.467" class="st29"/>
+								</g>
+							</g>
+							<g id="group1135-184" transform="translate(-2.65787E-13,-8.13726)" v:mID="1135" v:groupContext="group">
+								<title>path20-2-1-1</title>
+								<g id="shape1136-185" v:mID="1136" v:groupContext="shape">
+									<title>path35</title>
+									<path d="M13.56 602.75 C22.91 603 22.94 588.97 13.57 589.18 C13.6 588.99 13.61 588.81 13.6 588.61
+												 C13.57 584.84 10.46 581.81 6.66 581.83 L1.52 581.83 C0 588.56 2.54 597.11 7.78 602.75
+												 L13.56 602.75 Z" class="st30"/>
+								</g>
+							</g>
+							<g id="group1137-187" transform="translate(27.4619,-21.4105)" v:mID="1137" v:groupContext="group">
+								<title>path22-2-2-2</title>
+								<g id="shape1138-188" v:mID="1138" v:groupContext="shape">
+									<title>path40</title>
+									<path d="M24.71 594.26 C24.71 594.19 24.71 594.13 24.68 594.07 A25.0002 24.7692 -0 0 0 18.8 582.14
+												 A7.63219 7.5617 -0 0 0 17.59 581.77 A7.55273 7.48297 -0 0 0 7.98 588.66 A8.36405
+												 8.28678 -0 0 0 7.13 588.61 A7.26418 7.19708 -0 0 0 4.71 602.58 A6.06812 6.01206
+												 -0 0 0 6.96 603 L15.46 603 A56.2608 55.741 -0 0 0 24.71 594.26 Z" class="st30"/>
+								</g>
+							</g>
+						</g>
+						<g id="group1139-190" transform="translate(0,-10.7495)" v:mID="1139" v:groupContext="group">
+							<title>path28</title>
+							<g id="shape1140-191" v:mID="1140" v:groupContext="shape">
+								<title>path46</title>
+								<path d="M71.13 557.29 C68.5 552.96 62.35 551.27 53.76 552.54 A61.0826 60.5183 -0 0 0 45.06 554.4
+											 A26.9992 26.7497 180 0 1 51.45 557.59 C52.45 557.37 53.46 557.11 54.44 556.97 A31.3233
+											 31.034 180 0 1 59.04 556.59 A9.15027 9.06574 180 0 1 67.24 559.6 C68.84 562.24 67.49
+											 566.76 63.53 572.02 A69.936 69.2899 180 0 1 43.68 588.81 A70.0824 69.435 180 0 1 19.32
+											 598.19 C12.78 599.15 8.09 598.19 6.49 595.54 C4.89 592.92 6.25 588.38 10.2 583.15 C10.69
+											 582.49 10.81 582.17 11.37 581.52 A26.146 25.9044 180 0 1 11.48 574.77 A48.3107 47.8645
+											 -0 0 0 6.58 580.45 C1.41 587.31 0 593.49 2.63 597.82 A13.2361 13.1138 -0 0 0 14.75 603
+											 A35.2712 34.9454 -0 0 0 19.98 602.58 A74.67 73.9803 -0 0 0 45.99 592.64 A74.4734 73.7856
+											 -0 0 0 67.16 574.69 C72.35 567.81 73.76 561.64 71.13 557.29 Z" class="st28"/>
+							</g>
+						</g>
+					</g>
+				</g>
+			</g>
+		</g>
+		<g id="group1141-193" transform="translate(48.5375,-495.826)" v:mID="1141" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(89000):26"/>
+			</v:userDefs>
+			<title>Sheet.1141</title>
+			<g id="shape1142-194" v:mID="1142" v:groupContext="shape">
+				<title>Sheet.1142</title>
+				<path d="M4.27 603 C1.92 603 0 601.08 0 598.74 L0 559.83 C0 557.48 1.92 555.56 4.27 555.56 L21.6 555.56 C23.95 555.56
+							 25.87 557.48 25.87 559.82 L25.87 598.74 C25.87 601.08 23.95 603 21.6 603 L4.27 603 Z" class="st31"/>
+			</g>
+			<g id="shape1143-198" v:mID="1143" v:groupContext="shape" transform="translate(10.0658,-2.62933)">
+				<title>Sheet.1143</title>
+				<path d="M4.79 603 L0.96 603 C0.43 603 0 602.57 0 602.04 C0 601.52 0.43 601.09 0.96 601.09 L4.79 601.09 C5.31 601.09
+							 5.74 601.52 5.74 602.04 C5.74 602.57 5.31 603 4.79 603 Z" class="st32"/>
+			</g>
+			<g id="shape1144-200" v:mID="1144" v:groupContext="shape" transform="translate(11.9821,-42.9)">
+				<title>Sheet.1144</title>
+				<path d="M1.91 602.05 C1.91 602.57 1.49 603 0.96 603 C0.43 603 0 602.57 0 602.05 C0 601.52 0.43 601.09 0.96 601.09
+							 C1.49 601.09 1.91 601.52 1.91 602.05 Z" class="st32"/>
+			</g>
+			<g id="shape1145-202" v:mID="1145" v:groupContext="shape" transform="translate(1.87831,-7.17223)">
+				<title>Sheet.1145</title>
+				<path d="M21.16 603 L0.96 603 C0.43 603 0 602.57 0 602.04 L0 570.86 C0 570.33 0.43 569.9 0.96 569.9 L21.16 569.9
+							 C21.69 569.9 22.12 570.33 22.12 570.86 L22.12 602.04 C22.12 602.57 21.69 603 21.16 603 Z" class="st32"/>
+			</g>
+		</g>
+		<g id="group1146-204" transform="translate(36.4814,-401.188)" v:mID="1146" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(90000):26"/>
+			</v:userDefs>
+			<title>MsPortalFx.base.images-15</title>
+			<g id="group1147-205" v:mID="1147" v:groupContext="group">
+				<title>Sheet.1147</title>
+				<g id="shape1148-206" v:mID="1148" v:groupContext="shape">
+					<title>Sheet.1148</title>
+					<path d="M1.39 575.17 L48.49 575.17 L48.49 601.43 A1.57376 1.57376 0 0 1 46.91 603 L2.96 603 A1.57376 1.57376
+								 0 0 1 1.39 601.43 L1.39 575.17 Z" class="st33"/>
+				</g>
+				<g id="shape1149-210" v:mID="1149" v:groupContext="shape" transform="translate(2.39808E-13,-27.8344)">
+					<title>Sheet.1149</title>
+					<path d="M2.97 592.96 L46.91 592.96 A1.57376 1.57376 0 0 1 48.48 594.54 L48.48 603 L1.39 603 L1.39 594.54 A1.57376
+								 1.57376 0 0 1 2.97 592.96 Z" class="st34"/>
+				</g>
+				<g id="shape1150-212" v:mID="1150" v:groupContext="shape" transform="translate(7.72194,-30.8296)">
+					<title>Sheet.1150</title>
+					<path d="M0 602.21 a0.786897 0.786897 -180 0 0 0.786879 0.786879 L33.64 603 a0.786897 0.786897 -180 0 0 0.786879
+								 -0.786879 L34.43 599.74 a0.786897 0.786897 -180 0 0 -0.786879 -0.786879 L0.79 598.96 a0.786897 0.786897
+								 -180 0 0 -0.786879 0.786879 L0 602.21 Z" class="st27"/>
+				</g>
+			</g>
+		</g>
+		<g id="group1151-214" transform="translate(100.055,-170.882)" v:mID="1151" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(91000):26"/>
+			</v:userDefs>
+			<title>Sheet.1151</title>
+			<g id="shape1152-215" v:mID="1152" v:groupContext="shape" transform="translate(1.42954,1.13687E-13)">
+				<title>Sheet.1152</title>
+				<path d="M27.07 603 A19.2944 19.2944 0 1 1 3.43 572.5 L3.63 572.37 A19.2874 19.2874 0 0 1 27.07 603 Z" class="st35"/>
+			</g>
+			<g id="shape1153-219" v:mID="1153" v:groupContext="shape" transform="translate(8.37301,-19.2647)">
+				<title>Sheet.1153</title>
+				<path d="M3.06 603 A29.4984 29.4984 0 0 1 23.28 594.88 A19.2193 19.2193 -180 0 0 19.9 591.61 A32.539 32.539 -180
+							 0 0 9.26 594.11 A28.4546 28.4546 -180 0 0 -0 600.5 A6.26274 6.26274 0 0 1 3.06 603 Z" class="st36"/>
+			</g>
+			<g id="shape1154-221" v:mID="1154" v:groupContext="shape" transform="translate(-3.59712E-14,-1.99682)">
+				<title>Sheet.1154</title>
+				<path d="M1.88 593.49 A40.5263 40.5263 -180 0 0 0 599.44 A17.7444 17.7444 -180 0 0 1.41 601.53 C1.82 602.05 2.2 602.52
+							 2.65 603 A40.7078 40.7078 0 0 1 5.11 595.13 A6.26274 6.26274 0 0 1 1.88 593.49 Z" class="st36"/>
+			</g>
+			<g id="shape1155-223" v:mID="1155" v:groupContext="shape" transform="translate(0.0453822,-19.7866)">
+				<title>Sheet.1155</title>
+				<path d="M4.06 600.98 A27.2293 27.2293 0 0 1 2.5 594.31 A18.4932 18.4932 -180 0 0 -0 597.6 A28.795 28.795 -180 0
+							 0 1.29 603 A6.1039 6.1039 0 0 1 4.06 600.98 Z" class="st37"/>
+			</g>
+			<g id="shape1156-225" v:mID="1156" v:groupContext="shape" transform="translate(0,-9.77986)">
+				<title>Sheet.1156</title>
+				<ellipse cx="6.19467" cy="596.805" rx="6.19467" ry="6.19467" class="st38"/>
+			</g>
+			<g id="shape1157-229" v:mID="1157" v:groupContext="shape" transform="translate(7.32922,-4.12978)">
+				<title>Sheet.1157</title>
+				<path d="M7.9 602.48 A4.01632 4.01632 0 0 1 9.12 599.6 A26.957 26.957 0 0 1 3.38 595.38 A6.21736 6.21736 0 0 1 -0
+							 597.26 A29.7253 29.7253 -180 0 0 3.29 600.16 A27.5016 27.5016 -180 0 0 7.94 603 A4.0617 4.0617 0 0 1
+							 7.9 602.48 Z" class="st37"/>
+			</g>
+			<g id="shape1158-231" v:mID="1158" v:groupContext="shape" transform="translate(22.1011,-1.29339)">
+				<title>Sheet.1158</title>
+				<path d="M7.42 600.12 A27.2293 27.2293 0 0 1 1.16 599.39 a0.930334 0.930334 0 0 1 1.77636E-15 0.249602 A3.97094 3.97094
+							 0 0 1 0 602.46 A31.0641 31.0641 -180 0 0 7.76 603 A18.6294 18.6294 -180 0 0 10.46 599.96 A26.0947 26.0947
+							 0 0 1 7.42 600.12 Z" class="st37"/>
+			</g>
+			<g id="shape1159-233" v:mID="1159" v:groupContext="shape" transform="translate(15.203,-0.612659)">
+				<title>Sheet.1159</title>
+				<ellipse cx="4.03901" cy="598.961" rx="4.03901" ry="4.03901" class="st39"/>
+			</g>
+			<g id="shape1160-237" v:mID="1160" v:groupContext="shape" transform="translate(8.46377,-15.4072)">
+				<title>Sheet.1160</title>
+				<path d="M15.75 603 A4.15247 4.15247 0 0 1 17.13 600.73 A57.8623 57.8623 0 0 1 7.01 591.34 A38.3706 38.3706 0 0 1
+							 2.47 584.71 A17.336 17.336 -180 0 0 -0 585.66 A41.1616 41.1616 -180 0 0 4.88 592.88 A59.9952 59.9952
+							 -180 0 0 15.75 603 Z" class="st40"/>
+			</g>
+			<g id="shape1161-239" v:mID="1161" v:groupContext="shape" transform="translate(24.1433,-10.3471)">
+				<title>Sheet.1161</title>
+				<ellipse cx="4.28861" cy="598.711" rx="4.28861" ry="4.28861" class="st39"/>
+			</g>
+			<g id="shape1162-242" v:mID="1162" v:groupContext="shape" transform="translate(31.1095,-9.28065)">
+				<title>Sheet.1162</title>
+				<path d="M4.52 600.53 L3.72 600.14 L3.04 599.78 L2.9 599.78 L2.31 599.3 L2.16 599.3 L1.45 598.85 A3.99363 3.99363
+							 0 0 1 -0 600.94 C0.27 601.12 0.57 601.28 0.86 601.43 L1.04 601.55 L1.84 601.98 L3.79 603 A19.5824 19.5824
+							 -180 0 0 4.45 600.48 L4.52 600.53 Z" class="st37"/>
+			</g>
+			<g id="shape1163-244" v:mID="1163" v:groupContext="shape" transform="translate(0,-9.77986)">
+				<title>Sheet.1163</title>
+				<ellipse cx="6.19467" cy="596.805" rx="6.19467" ry="6.19467" class="st38"/>
+			</g>
+			<g id="shape1164-247" v:mID="1164" v:groupContext="shape" transform="translate(15.203,-0.612659)">
+				<title>Sheet.1164</title>
+				<ellipse cx="4.03901" cy="598.961" rx="4.03901" ry="4.03901" class="st39"/>
+			</g>
+		</g>
+		<g id="group1165-250" transform="translate(276.665,33.75)" v:mID="1165" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(92000):26"/>
+			</v:userDefs>
+			<title>Icon-integration-221</title>
+			<g id="group1166-251" transform="translate(-137.729,-145.685)" v:mID="1166" v:groupContext="group">
+				<title>b30b0bd5-e4d2-456b-8d49-c2df202</title>
+				<g id="shape1167-252" v:mID="1167" v:groupContext="shape" transform="translate(18.1215,-22.9365)">
+					<title>b51878b5-8d50-4b8b-bc48-74f5f73</title>
+					<path d="M18.01 595.12 L18.01 594 L9.57 594 L5.62 597.94 L2.71 597.94 L9.46 591.11 L14.07 591.11 L14.07 590.05
+								 L9 590.05 L1.12 597.94 L0 597.94 L0 599.06 L3.38 599.06 L7.37 603 L16.89 603 L16.89 601.88 L7.78
+								 601.88 L4.96 599.06 L11.81 599.06 L11.81 597.94 L7.22 597.94 L10.02 595.12 L18.01 595.12 Z"
+							class="st41"/>
+				</g>
+				<g id="shape1168-254" v:mID="1168" v:groupContext="shape" transform="translate(29.4311,-25.8105)">
+					<title>ad0ed4eb-cd5f-4cc0-bd19-2830d27</title>
+					<ellipse cx="1.62366" cy="601.376" rx="1.62366" ry="1.62366" class="st22"/>
+				</g>
+				<g id="shape1169-256" v:mID="1169" v:groupContext="shape" transform="translate(31.1294,-33.6862)">
+					<title>a2746b4a-0ae4-4308-876e-5b82657</title>
+					<ellipse cx="1.62366" cy="601.376" rx="1.62366" ry="1.62366" class="st22"/>
+				</g>
+				<g id="shape1170-258" v:mID="1170" v:groupContext="shape" transform="translate(35.0672,-29.7484)">
+					<title>fc3316e0-7094-4ce0-99ed-43f1e6e</title>
+					<ellipse cx="1.62366" cy="601.376" rx="1.62366" ry="1.62366" class="st22"/>
+				</g>
+				<g id="shape1171-260" v:mID="1171" v:groupContext="shape" transform="translate(33.3876,-21.8727)">
+					<title>b5d18443-d50e-4590-8e8f-80b6a7f</title>
+					<ellipse cx="1.62366" cy="601.376" rx="1.62366" ry="1.62366" class="st22"/>
+				</g>
+				<g id="shape1172-262" v:mID="1172" v:groupContext="shape" transform="translate(30.7375,-33.3503)">
+					<title>Sheet.1172</title>
+					<ellipse cx="1.95959" cy="601.04" rx="1.95959" ry="1.95959" class="st14"/>
+				</g>
+				<g id="shape1173-264" v:mID="1173" v:groupContext="shape" transform="translate(34.6753,-29.4124)">
+					<title>Sheet.1173</title>
+					<ellipse cx="1.95959" cy="601.04" rx="1.95959" ry="1.95959" class="st42"/>
+				</g>
+				<g id="shape1174-268" v:mID="1174" v:groupContext="shape" transform="translate(33.0517,-21.5368)">
+					<title>Sheet.1174</title>
+					<ellipse cx="1.95959" cy="601.04" rx="1.95959" ry="1.95959" class="st3"/>
+				</g>
+				<g id="shape1175-270" v:mID="1175" v:groupContext="shape" transform="translate(29.0952,-25.4746)">
+					<title>Sheet.1175</title>
+					<ellipse cx="1.95959" cy="601.04" rx="1.95959" ry="1.95959" class="st14"/>
+				</g>
+				<g id="group1176-272" transform="translate(12.4294,-36.1497)" v:mID="1176" v:groupContext="group">
+					<title>Sheet.1176</title>
+					<g id="shape1177-273" v:mID="1177" v:groupContext="shape">
+						<title>Sheet.1177</title>
+						<path d="M2 595.8 L4.4 595.8 L4.4 602.46 a0.541219 0.541219 0 0 1 -0.541219 0.541219 L1.47 603 a0.541219
+									 0.541219 0 0 1 -0.541219 -0.541219 L0.93 596.86 A1.06377 1.06377 0 0 1 2 595.8 Z" class="st43"/>
+					</g>
+					<g id="shape1178-275" v:mID="1178" v:groupContext="shape">
+						<title>Sheet.1178</title>
+						<path d="M2 595.8 L4.4 595.8 L4.4 602.46 a0.541219 0.541219 0 0 1 -0.541219 0.541219 L1.47 603 a0.541219
+									 0.541219 0 0 1 -0.541219 -0.541219 L0.93 596.86 A1.06377 1.06377 0 0 1 2 595.8 Z" class="st44"/>
+					</g>
+				</g>
+				<g id="group1179-277" transform="translate(12.4294,-36.1497)" v:mID="1179" v:groupContext="group">
+					<title>Sheet.1179</title>
+					<g id="shape1180-278" v:mID="1180" v:groupContext="shape">
+						<title>Sheet.1180</title>
+						<path d="M29.19 595.8 L31.6 595.8 A1.06377 1.06377 0 0 1 32.66 596.86 L32.66 602.46 a0.541219 0.541219 0
+									 0 1 -0.541219 0.541219 L29.71 603 a0.541219 0.541219 0 0 1 -0.522556 -0.541219 L29.19 595.8
+									 Z" class="st43"/>
+					</g>
+					<g id="shape1181-280" v:mID="1181" v:groupContext="shape">
+						<title>Sheet.1181</title>
+						<path d="M29.19 595.8 L31.6 595.8 A1.06377 1.06377 0 0 1 32.66 596.86 L32.66 602.46 a0.541219 0.541219 0
+									 0 1 -0.541219 0.541219 L29.71 603 a0.541219 0.541219 0 0 1 -0.522556 -0.541219 L29.19 595.8
+									 Z" class="st44"/>
+					</g>
+				</g>
+				<g id="shape1182-282" v:mID="1182" v:groupContext="shape" transform="translate(616.363,544.548) rotate(90)">
+					<title>Sheet.1182</title>
+					<path d="M16.16 571.27 L18.49 571.27 L18.49 603 L16.16 603 A1.06377 1.06377 0 0 1 15.1 601.94 L15.1 572.32 A1.06377
+								 1.06377 0 0 1 16.16 571.27 Z" class="st45"/>
+				</g>
+				<g id="group1183-284" transform="translate(12.4294,-15.0981)" v:mID="1183" v:groupContext="group">
+					<title>Sheet.1183</title>
+					<g id="shape1184-285" v:mID="1184" v:groupContext="shape">
+						<title>Sheet.1184</title>
+						<path d="M1.47 595.74 L3.88 595.74 a0.541219 0.541219 0 0 1 0.541219 0.541219 L4.42 603 L2 603 A1.06377 1.06377
+									 0 0 1 0.93 601.94 L0.93 596.34 a0.541219 0.541219 0 0 1 0.541219 -0.597207 Z" class="st43"/>
+					</g>
+					<g id="shape1185-287" v:mID="1185" v:groupContext="shape">
+						<title>Sheet.1185</title>
+						<path d="M1.47 595.74 L3.88 595.74 a0.541219 0.541219 0 0 1 0.541219 0.541219 L4.42 603 L2 603 A1.06377 1.06377
+									 0 0 1 0.93 601.94 L0.93 596.34 a0.541219 0.541219 0 0 1 0.541219 -0.597207 Z" class="st44"/>
+					</g>
+				</g>
+				<g id="group1186-289" transform="translate(12.4294,-15.1541)" v:mID="1186" v:groupContext="group">
+					<title>Sheet.1186</title>
+					<g id="shape1187-290" v:mID="1187" v:groupContext="shape">
+						<title>Sheet.1187</title>
+						<path d="M29.71 595.8 L32.12 595.8 a0.541219 0.541219 0 0 1 0.541219 0.541219 L32.66 601.94 A1.06377 1.06377
+									 0 0 1 31.6 603 L29.19 603 L29.19 596.39 a0.541219 0.541219 0 0 1 0.522556 -0.597207 Z"
+								class="st43"/>
+					</g>
+					<g id="shape1188-292" v:mID="1188" v:groupContext="shape">
+						<title>Sheet.1188</title>
+						<path d="M29.71 595.8 L32.12 595.8 a0.541219 0.541219 0 0 1 0.541219 0.541219 L32.66 601.94 A1.06377 1.06377
+									 0 0 1 31.6 603 L29.19 603 L29.19 596.39 a0.541219 0.541219 0 0 1 0.522556 -0.597207 Z"
+								class="st44"/>
+					</g>
+				</g>
+				<g id="shape1189-294" v:mID="1189" v:groupContext="shape" transform="translate(-557.911,603) rotate(-90)">
+					<title>Sheet.1189</title>
+					<path d="M16.16 571.27 L18.49 571.27 L18.49 603 L16.16 603 A1.06377 1.06377 0 0 1 15.1 601.94 L15.1 572.34 A1.06377
+								 1.06377 0 0 1 16.16 571.27 Z" class="st45"/>
+				</g>
+			</g>
+		</g>
+		<g id="group1190-296" transform="translate(204.725,-124.852)" v:mID="1190" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(93000):26"/>
+			</v:userDefs>
+			<title>Sheet.1190</title>
+			<g id="shape1191-297" v:mID="1191" v:groupContext="shape">
+				<title>Sheet.1191</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M5.76 603 A5.3318 5.78562 0 0 1 2.48 602.12 A3.64019 3.95002 0 0 1 1.52 598.96 L1.52 590.75 C1.52 589.41
+							 1.03 588.69 0 588.69 L0 586.64 C1.03 586.64 1.52 585.92 1.52 584.5 L1.52 576.44 A3.8329 4.15914 0 0
+							 1 2.48 573.21 A4.90354 5.32091 0 0 1 5.76 572.33 L5.76 574.4 C4.67 574.4 4.07 575.02 4.07 576.37 L4.07
+							 584.27 C4.07 586.08 3.58 587.2 2.48 587.66 A3.04063 3.29943 0 0 1 4.07 591.06 L4.07 598.89 A2.67661
+							 2.90443 -180 0 0 4.43 600.47 A1.58455 1.71942 -180 0 0 5.67 600.93 L5.67 603 L5.76 603 ZM30.64 572.33
+							 A5.3318 5.78562 0 0 1 33.92 573.21 A3.64019 3.95002 0 0 1 34.88 576.37 L34.88 584.57 C34.88 585.92 35.37
+							 586.64 36.4 586.64 L36.4 588.69 C35.37 588.69 34.88 589.41 34.88 590.82 L34.88 598.79 A3.85431 4.18237
+							 0 0 1 33.92 602.05 A4.88213 5.29767 0 0 1 30.64 603 L30.64 600.93 C31.73 600.93 32.33 600.3 32.33 598.96
+							 L32.33 591.06 C32.33 589.24 32.83 588.13 33.92 587.66 A3.04063 3.29943 0 0 1 32.33 584.27 L32.33 576.44
+							 A2.67661 2.90443 -180 0 0 31.97 574.86 A1.58455 1.71942 -180 0 0 30.73 574.4 L30.64 572.33 Z"
+						class="st45"/>
+			</g>
+			<g id="shape1192-299" v:mID="1192" v:groupContext="shape" transform="translate(8.86492,-11.7106)">
+				<title>Sheet.1192</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M10.21 597.86 L10.21 594.91 L8.29 594.91 L8.29 597.86 a0.385431 0.418237 0 0 1 -0.385431 0.418237 L0.77
+							 598.28 a0.770863 0.836475 -180 0 0 -0.770863 0.836475 L0 602.95 L1.93 602.95 L1.93 600.84 a0.385431
+							 0.418237 0 0 1 0.364019 -0.418237 L16.3 600.42 a0.385431 0.418237 0 0 1 0.385431 0.418237 L16.68 603
+							 L18.59 603 L18.59 599.12 a0.770863 0.836475 -180 0 0 -0.74945 -0.836475 L10.6 598.28 a0.385431 0.418237
+							 0 0 1 -0.385431 -0.418237 Z" class="st46"/>
+			</g>
+			<g id="shape1193-301" v:mID="1193" v:groupContext="shape" transform="translate(13.64,-19.2622)">
+				<title>Sheet.1193</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M8.01 593.47 L0.81 593.47 a0.813689 0.882946 -180 0 0 -0.813689 0.85971 L0 602.14 a0.792276 0.85971 -180
+							 0 0 0.813689 0.85971 L8.01 603 a0.792276 0.85971 -180 0 0 0.835101 -0.85971 L8.84 594.33 a0.813689 0.882946
+							 -180 0 0 -0.835101 -0.85971 ZM7.32 600.84 a0.535321 0.580885 0 0 1 -0.535321 0.55765 L2.01 601.4 a0.535321
+							 0.580885 0 0 1 -0.535321 -0.55765 L1.48 595.66 a0.535321 0.580885 0 0 1 0.535321 -0.580885 L6.7 595.08
+							 a0.535321 0.580885 0 0 1 0.535321 0.580885 L7.32 600.84 Z" class="st34"/>
+			</g>
+			<g id="shape1194-303" v:mID="1194" v:groupContext="shape" transform="translate(6.59516,-4.90267)">
+				<title>Sheet.1194</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M0 602.37 a0.578161 0.627371 -180 0 0 0.578147 0.627356 L5.72 603 a0.578161 0.627371 -180 0 0 0.578147 -0.627356
+							 L6.3 596.8 a0.578161 0.627371 -180 0 0 -0.578147 -0.627356 L0.58 596.17 a0.578161 0.627371 -180 0 0
+							 -0.578147 0.627356 L0 602.37 Z" class="st47"/>
+			</g>
+			<g id="shape1195-307" v:mID="1195" v:groupContext="shape" transform="translate(23.2972,-4.8562)">
+				<title>Sheet.1195</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M0 602.37 a0.578161 0.627371 -180 0 0 0.578147 0.627356 L5.72 603 a0.578161 0.627371 -180 0 0 0.578147 -0.627356
+							 L6.3 596.8 a0.578161 0.627371 -180 0 0 -0.578147 -0.627356 L0.58 596.17 a0.578161 0.627371 -180 0 0
+							 -0.578147 0.627356 L0 602.37 Z" class="st47"/>
+			</g>
+		</g>
+		<g id="group1196-310" transform="translate(262.662,-319.465)" v:mID="1196" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(94000):26"/>
+			</v:userDefs>
+			<title>Sheet.1196</title>
+			<g id="shape1197-311" v:mID="1197" v:groupContext="shape" transform="translate(1.42954,1.13687E-13)">
+				<title>Sheet.1197</title>
+				<path d="M27.07 603 A19.2944 19.2944 0 1 1 3.43 572.5 L3.63 572.37 A19.2874 19.2874 0 0 1 27.07 603 Z" class="st35"/>
+			</g>
+			<g id="shape1198-314" v:mID="1198" v:groupContext="shape" transform="translate(8.37301,-19.2647)">
+				<title>Sheet.1198</title>
+				<path d="M3.06 603 A29.4984 29.4984 0 0 1 23.28 594.88 A19.2193 19.2193 -180 0 0 19.9 591.61 A32.539 32.539 -180
+							 0 0 9.26 594.11 A28.4546 28.4546 -180 0 0 -0 600.5 A6.26274 6.26274 0 0 1 3.06 603 Z" class="st36"/>
+			</g>
+			<g id="shape1199-316" v:mID="1199" v:groupContext="shape" transform="translate(-3.59712E-14,-1.99682)">
+				<title>Sheet.1199</title>
+				<path d="M1.88 593.49 A40.5263 40.5263 -180 0 0 0 599.44 A17.7444 17.7444 -180 0 0 1.41 601.53 C1.82 602.05 2.2 602.52
+							 2.65 603 A40.7078 40.7078 0 0 1 5.11 595.13 A6.26274 6.26274 0 0 1 1.88 593.49 Z" class="st36"/>
+			</g>
+			<g id="shape1200-318" v:mID="1200" v:groupContext="shape" transform="translate(0.0453822,-19.7866)">
+				<title>Sheet.1200</title>
+				<path d="M4.06 600.98 A27.2293 27.2293 0 0 1 2.5 594.31 A18.4932 18.4932 -180 0 0 -0 597.6 A28.795 28.795 -180 0
+							 0 1.29 603 A6.1039 6.1039 0 0 1 4.06 600.98 Z" class="st37"/>
+			</g>
+			<g id="shape1201-320" v:mID="1201" v:groupContext="shape" transform="translate(0,-9.77986)">
+				<title>Sheet.1201</title>
+				<ellipse cx="6.19467" cy="596.805" rx="6.19467" ry="6.19467" class="st38"/>
+			</g>
+			<g id="shape1202-323" v:mID="1202" v:groupContext="shape" transform="translate(7.32922,-4.12978)">
+				<title>Sheet.1202</title>
+				<path d="M7.9 602.48 A4.01632 4.01632 0 0 1 9.12 599.6 A26.957 26.957 0 0 1 3.38 595.38 A6.21736 6.21736 0 0 1 -0
+							 597.26 A29.7253 29.7253 -180 0 0 3.29 600.16 A27.5016 27.5016 -180 0 0 7.94 603 A4.0617 4.0617 0 0 1
+							 7.9 602.48 Z" class="st37"/>
+			</g>
+			<g id="shape1203-325" v:mID="1203" v:groupContext="shape" transform="translate(22.1011,-1.29339)">
+				<title>Sheet.1203</title>
+				<path d="M7.42 600.12 A27.2293 27.2293 0 0 1 1.16 599.39 a0.930334 0.930334 0 0 1 1.77636E-15 0.249602 A3.97094 3.97094
+							 0 0 1 0 602.46 A31.0641 31.0641 -180 0 0 7.76 603 A18.6294 18.6294 -180 0 0 10.46 599.96 A26.0947 26.0947
+							 0 0 1 7.42 600.12 Z" class="st37"/>
+			</g>
+			<g id="shape1204-327" v:mID="1204" v:groupContext="shape" transform="translate(15.203,-0.612659)">
+				<title>Sheet.1204</title>
+				<ellipse cx="4.03901" cy="598.961" rx="4.03901" ry="4.03901" class="st39"/>
+			</g>
+			<g id="shape1205-330" v:mID="1205" v:groupContext="shape" transform="translate(8.46377,-15.4072)">
+				<title>Sheet.1205</title>
+				<path d="M15.75 603 A4.15247 4.15247 0 0 1 17.13 600.73 A57.8623 57.8623 0 0 1 7.01 591.34 A38.3706 38.3706 0 0 1
+							 2.47 584.71 A17.336 17.336 -180 0 0 -0 585.66 A41.1616 41.1616 -180 0 0 4.88 592.88 A59.9952 59.9952
+							 -180 0 0 15.75 603 Z" class="st40"/>
+			</g>
+			<g id="shape1206-332" v:mID="1206" v:groupContext="shape" transform="translate(24.1433,-10.3471)">
+				<title>Sheet.1206</title>
+				<ellipse cx="4.28861" cy="598.711" rx="4.28861" ry="4.28861" class="st39"/>
+			</g>
+			<g id="shape1207-335" v:mID="1207" v:groupContext="shape" transform="translate(31.1095,-9.28065)">
+				<title>Sheet.1207</title>
+				<path d="M4.52 600.53 L3.72 600.14 L3.04 599.78 L2.9 599.78 L2.31 599.3 L2.16 599.3 L1.45 598.85 A3.99363 3.99363
+							 0 0 1 -0 600.94 C0.27 601.12 0.57 601.28 0.86 601.43 L1.04 601.55 L1.84 601.98 L3.79 603 A19.5824 19.5824
+							 -180 0 0 4.45 600.48 L4.52 600.53 Z" class="st37"/>
+			</g>
+			<g id="shape1208-337" v:mID="1208" v:groupContext="shape" transform="translate(0,-9.77986)">
+				<title>Sheet.1208</title>
+				<ellipse cx="6.19467" cy="596.805" rx="6.19467" ry="6.19467" class="st38"/>
+			</g>
+			<g id="shape1209-340" v:mID="1209" v:groupContext="shape" transform="translate(15.203,-0.612659)">
+				<title>Sheet.1209</title>
+				<ellipse cx="4.03901" cy="598.961" rx="4.03901" ry="4.03901" class="st39"/>
+			</g>
+		</g>
+		<g id="group1210-343" transform="translate(264.162,-409.09)" v:mID="1210" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(95000):26"/>
+			</v:userDefs>
+			<title>Sheet.1210</title>
+			<g id="shape1211-344" v:mID="1211" v:groupContext="shape" transform="translate(1.42954,1.13687E-13)">
+				<title>Sheet.1211</title>
+				<path d="M27.07 603 A19.2944 19.2944 0 1 1 3.43 572.5 L3.63 572.37 A19.2874 19.2874 0 0 1 27.07 603 Z" class="st35"/>
+			</g>
+			<g id="shape1212-347" v:mID="1212" v:groupContext="shape" transform="translate(8.37301,-19.2647)">
+				<title>Sheet.1212</title>
+				<path d="M3.06 603 A29.4984 29.4984 0 0 1 23.28 594.88 A19.2193 19.2193 -180 0 0 19.9 591.61 A32.539 32.539 -180
+							 0 0 9.26 594.11 A28.4546 28.4546 -180 0 0 -0 600.5 A6.26274 6.26274 0 0 1 3.06 603 Z" class="st36"/>
+			</g>
+			<g id="shape1213-349" v:mID="1213" v:groupContext="shape" transform="translate(-3.59712E-14,-1.99682)">
+				<title>Sheet.1213</title>
+				<path d="M1.88 593.49 A40.5263 40.5263 -180 0 0 0 599.44 A17.7444 17.7444 -180 0 0 1.41 601.53 C1.82 602.05 2.2 602.52
+							 2.65 603 A40.7078 40.7078 0 0 1 5.11 595.13 A6.26274 6.26274 0 0 1 1.88 593.49 Z" class="st36"/>
+			</g>
+			<g id="shape1214-351" v:mID="1214" v:groupContext="shape" transform="translate(0.0453822,-19.7866)">
+				<title>Sheet.1214</title>
+				<path d="M4.06 600.98 A27.2293 27.2293 0 0 1 2.5 594.31 A18.4932 18.4932 -180 0 0 -0 597.6 A28.795 28.795 -180 0
+							 0 1.29 603 A6.1039 6.1039 0 0 1 4.06 600.98 Z" class="st37"/>
+			</g>
+			<g id="shape1215-353" v:mID="1215" v:groupContext="shape" transform="translate(0,-9.77986)">
+				<title>Sheet.1215</title>
+				<ellipse cx="6.19467" cy="596.805" rx="6.19467" ry="6.19467" class="st38"/>
+			</g>
+			<g id="shape1216-356" v:mID="1216" v:groupContext="shape" transform="translate(7.32922,-4.12978)">
+				<title>Sheet.1216</title>
+				<path d="M7.9 602.48 A4.01632 4.01632 0 0 1 9.12 599.6 A26.957 26.957 0 0 1 3.38 595.38 A6.21736 6.21736 0 0 1 -0
+							 597.26 A29.7253 29.7253 -180 0 0 3.29 600.16 A27.5016 27.5016 -180 0 0 7.94 603 A4.0617 4.0617 0 0 1
+							 7.9 602.48 Z" class="st37"/>
+			</g>
+			<g id="shape1217-358" v:mID="1217" v:groupContext="shape" transform="translate(22.1011,-1.29339)">
+				<title>Sheet.1217</title>
+				<path d="M7.42 600.12 A27.2293 27.2293 0 0 1 1.16 599.39 a0.930334 0.930334 0 0 1 1.77636E-15 0.249602 A3.97094 3.97094
+							 0 0 1 0 602.46 A31.0641 31.0641 -180 0 0 7.76 603 A18.6294 18.6294 -180 0 0 10.46 599.96 A26.0947 26.0947
+							 0 0 1 7.42 600.12 Z" class="st37"/>
+			</g>
+			<g id="shape1218-360" v:mID="1218" v:groupContext="shape" transform="translate(15.203,-0.612659)">
+				<title>Sheet.1218</title>
+				<ellipse cx="4.03901" cy="598.961" rx="4.03901" ry="4.03901" class="st39"/>
+			</g>
+			<g id="shape1219-363" v:mID="1219" v:groupContext="shape" transform="translate(8.46377,-15.4072)">
+				<title>Sheet.1219</title>
+				<path d="M15.75 603 A4.15247 4.15247 0 0 1 17.13 600.73 A57.8623 57.8623 0 0 1 7.01 591.34 A38.3706 38.3706 0 0 1
+							 2.47 584.71 A17.336 17.336 -180 0 0 -0 585.66 A41.1616 41.1616 -180 0 0 4.88 592.88 A59.9952 59.9952
+							 -180 0 0 15.75 603 Z" class="st40"/>
+			</g>
+			<g id="shape1220-365" v:mID="1220" v:groupContext="shape" transform="translate(24.1433,-10.3471)">
+				<title>Sheet.1220</title>
+				<ellipse cx="4.28861" cy="598.711" rx="4.28861" ry="4.28861" class="st39"/>
+			</g>
+			<g id="shape1221-368" v:mID="1221" v:groupContext="shape" transform="translate(31.1095,-9.28065)">
+				<title>Sheet.1221</title>
+				<path d="M4.52 600.53 L3.72 600.14 L3.04 599.78 L2.9 599.78 L2.31 599.3 L2.16 599.3 L1.45 598.85 A3.99363 3.99363
+							 0 0 1 -0 600.94 C0.27 601.12 0.57 601.28 0.86 601.43 L1.04 601.55 L1.84 601.98 L3.79 603 A19.5824 19.5824
+							 -180 0 0 4.45 600.48 L4.52 600.53 Z" class="st37"/>
+			</g>
+			<g id="shape1222-370" v:mID="1222" v:groupContext="shape" transform="translate(0,-9.77986)">
+				<title>Sheet.1222</title>
+				<ellipse cx="6.19467" cy="596.805" rx="6.19467" ry="6.19467" class="st38"/>
+			</g>
+			<g id="shape1223-373" v:mID="1223" v:groupContext="shape" transform="translate(15.203,-0.612659)">
+				<title>Sheet.1223</title>
+				<ellipse cx="4.03901" cy="598.961" rx="4.03901" ry="4.03901" class="st39"/>
+			</g>
+		</g>
+		<g id="group1224-376" transform="translate(264.163,-500.188)" v:mID="1224" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(96000):26"/>
+			</v:userDefs>
+			<title>Sheet.1224</title>
+			<g id="shape1225-377" v:mID="1225" v:groupContext="shape" transform="translate(1.42954,1.13687E-13)">
+				<title>Sheet.1225</title>
+				<path d="M27.07 603 A19.2944 19.2944 0 1 1 3.43 572.5 L3.63 572.37 A19.2874 19.2874 0 0 1 27.07 603 Z" class="st35"/>
+			</g>
+			<g id="shape1226-380" v:mID="1226" v:groupContext="shape" transform="translate(8.37301,-19.2647)">
+				<title>Sheet.1226</title>
+				<path d="M3.06 603 A29.4984 29.4984 0 0 1 23.28 594.88 A19.2193 19.2193 -180 0 0 19.9 591.61 A32.539 32.539 -180
+							 0 0 9.26 594.11 A28.4546 28.4546 -180 0 0 -0 600.5 A6.26274 6.26274 0 0 1 3.06 603 Z" class="st36"/>
+			</g>
+			<g id="shape1227-382" v:mID="1227" v:groupContext="shape" transform="translate(-3.59712E-14,-1.99682)">
+				<title>Sheet.1227</title>
+				<path d="M1.88 593.49 A40.5263 40.5263 -180 0 0 0 599.44 A17.7444 17.7444 -180 0 0 1.41 601.53 C1.82 602.05 2.2 602.52
+							 2.65 603 A40.7078 40.7078 0 0 1 5.11 595.13 A6.26274 6.26274 0 0 1 1.88 593.49 Z" class="st36"/>
+			</g>
+			<g id="shape1228-384" v:mID="1228" v:groupContext="shape" transform="translate(0.0453822,-19.7866)">
+				<title>Sheet.1228</title>
+				<path d="M4.06 600.98 A27.2293 27.2293 0 0 1 2.5 594.31 A18.4932 18.4932 -180 0 0 -0 597.6 A28.795 28.795 -180 0
+							 0 1.29 603 A6.1039 6.1039 0 0 1 4.06 600.98 Z" class="st37"/>
+			</g>
+			<g id="shape1229-386" v:mID="1229" v:groupContext="shape" transform="translate(0,-9.77986)">
+				<title>Sheet.1229</title>
+				<ellipse cx="6.19467" cy="596.805" rx="6.19467" ry="6.19467" class="st38"/>
+			</g>
+			<g id="shape1230-389" v:mID="1230" v:groupContext="shape" transform="translate(7.32922,-4.12978)">
+				<title>Sheet.1230</title>
+				<path d="M7.9 602.48 A4.01632 4.01632 0 0 1 9.12 599.6 A26.957 26.957 0 0 1 3.38 595.38 A6.21736 6.21736 0 0 1 -0
+							 597.26 A29.7253 29.7253 -180 0 0 3.29 600.16 A27.5016 27.5016 -180 0 0 7.94 603 A4.0617 4.0617 0 0 1
+							 7.9 602.48 Z" class="st37"/>
+			</g>
+			<g id="shape1231-391" v:mID="1231" v:groupContext="shape" transform="translate(22.1011,-1.29339)">
+				<title>Sheet.1231</title>
+				<path d="M7.42 600.12 A27.2293 27.2293 0 0 1 1.16 599.39 a0.930334 0.930334 0 0 1 1.77636E-15 0.249602 A3.97094 3.97094
+							 0 0 1 0 602.46 A31.0641 31.0641 -180 0 0 7.76 603 A18.6294 18.6294 -180 0 0 10.46 599.96 A26.0947 26.0947
+							 0 0 1 7.42 600.12 Z" class="st37"/>
+			</g>
+			<g id="shape1232-393" v:mID="1232" v:groupContext="shape" transform="translate(15.203,-0.612659)">
+				<title>Sheet.1232</title>
+				<ellipse cx="4.03901" cy="598.961" rx="4.03901" ry="4.03901" class="st39"/>
+			</g>
+			<g id="shape1233-396" v:mID="1233" v:groupContext="shape" transform="translate(8.46377,-15.4072)">
+				<title>Sheet.1233</title>
+				<path d="M15.75 603 A4.15247 4.15247 0 0 1 17.13 600.73 A57.8623 57.8623 0 0 1 7.01 591.34 A38.3706 38.3706 0 0 1
+							 2.47 584.71 A17.336 17.336 -180 0 0 -0 585.66 A41.1616 41.1616 -180 0 0 4.88 592.88 A59.9952 59.9952
+							 -180 0 0 15.75 603 Z" class="st40"/>
+			</g>
+			<g id="shape1234-398" v:mID="1234" v:groupContext="shape" transform="translate(24.1433,-10.3471)">
+				<title>Sheet.1234</title>
+				<ellipse cx="4.28861" cy="598.711" rx="4.28861" ry="4.28861" class="st39"/>
+			</g>
+			<g id="shape1235-401" v:mID="1235" v:groupContext="shape" transform="translate(31.1095,-9.28065)">
+				<title>Sheet.1235</title>
+				<path d="M4.52 600.53 L3.72 600.14 L3.04 599.78 L2.9 599.78 L2.31 599.3 L2.16 599.3 L1.45 598.85 A3.99363 3.99363
+							 0 0 1 -0 600.94 C0.27 601.12 0.57 601.28 0.86 601.43 L1.04 601.55 L1.84 601.98 L3.79 603 A19.5824 19.5824
+							 -180 0 0 4.45 600.48 L4.52 600.53 Z" class="st37"/>
+			</g>
+			<g id="shape1236-403" v:mID="1236" v:groupContext="shape" transform="translate(0,-9.77986)">
+				<title>Sheet.1236</title>
+				<ellipse cx="6.19467" cy="596.805" rx="6.19467" ry="6.19467" class="st38"/>
+			</g>
+			<g id="shape1237-406" v:mID="1237" v:groupContext="shape" transform="translate(15.203,-0.612659)">
+				<title>Sheet.1237</title>
+				<ellipse cx="4.03901" cy="598.961" rx="4.03901" ry="4.03901" class="st39"/>
+			</g>
+		</g>
+		<g id="group1238-409" transform="translate(447.725,-72.2178)" v:mID="1238" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(97000):26"/>
+			</v:userDefs>
+			<title>Sheet.1238</title>
+			<g id="shape1239-410" v:mID="1239" v:groupContext="shape">
+				<title>Sheet.1239</title>
+				<path d="M22.34 580.22 C24 578.57 24 575.87 22.34 574.21 L15.01 566.88 C13.35 565.22 10.65 565.22 8.99 566.88 L1.66
+							 574.21 C0 575.87 0 578.57 1.66 580.22 L8.11 586.68 L8.11 599.11 L12 603 L15.38 599.62 L15.38 599.6 L17.36
+							 597.62 L15.39 595.65 L17.36 593.69 L15.39 591.72 L17.36 589.76 L15.38 587.77 L15.38 587.19 L22.34 580.22
+							 ZM12 568.65 C13.33 568.65 14.41 569.73 14.41 571.06 C14.41 572.4 13.33 573.48 12 573.48 C10.67 573.48
+							 9.59 572.4 9.59 571.06 C9.59 569.73 10.67 568.65 12 568.65 Z" class="st48"/>
+			</g>
+			<g id="shape1240-412" v:mID="1240" v:groupContext="shape" transform="translate(9.92689,-3.01924)">
+				<title>Sheet.1240</title>
+				<path d="M0 601.51 L1.52 603 L1.52 591.08 L0 590.33 L0 601.51 Z" class="st49"/>
+			</g>
+			<g id="shape1241-414" v:mID="1241" v:groupContext="shape" transform="translate(4.80015,-25.189)">
+				<title>Sheet.1241</title>
+				<rect x="0" y="600.998" width="13.9304" height="2.00212" class="st50"/>
+			</g>
+			<g id="shape1242-416" v:mID="1242" v:groupContext="shape" transform="translate(4.80015,-21.9314)">
+				<title>Sheet.1242</title>
+				<rect x="0" y="600.998" width="13.9304" height="2.00212" class="st50"/>
+			</g>
+		</g>
+		<g id="shape1258-418" v:mID="1258" v:groupContext="shape" v:layerMember="3" transform="translate(21.875,-449.338)">
+			<title>Number.1031</title>
+			<desc>1</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visLegendShape" v:val="VT0(2):26"/>
+				<v:ud v:nameU="visLocToPar" v:val="VT7(PNT(0,4.9960036108132E-16)):40"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(11):26"/>
+				<v:ud v:nameU="visIsConnected" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="visLocToPar" v:prompt="" v:val="VT7(PNT(0.30381944444444IN,6.2408019453643)):40"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(100000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(0,0,0,0)"/>
+			<v:textRect cx="12.4734" cy="590.587" width="37.01" height="25.2"/>
+			<ellipse cx="12.6" cy="590.4" rx="12.6" ry="12.6" class="st51"/>
+			<text x="9.6" y="593.59" class="st52" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>1</text>		</g>
+		<g id="shape1259-421" v:mID="1259" v:groupContext="shape" v:layerMember="3" transform="translate(172.625,-449.338)">
+			<title>Number.1032</title>
+			<desc>2</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visLegendShape" v:val="VT0(2):26"/>
+				<v:ud v:nameU="visLocToPar" v:val="VT7(PNT(0,4.9960036108132E-16)):40"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(11):26"/>
+				<v:ud v:nameU="visIsConnected" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="visLocToPar" v:prompt="" v:val="VT7(PNT(2.3975694444444IN,6.2408019453643)):40"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(101000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(0,0,0,0)"/>
+			<v:textRect cx="12.4734" cy="590.587" width="37.01" height="25.2"/>
+			<ellipse cx="12.6" cy="590.4" rx="12.6" ry="12.6" class="st51"/>
+			<text x="9.6" y="593.59" class="st52" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>2</text>		</g>
+		<g id="shape1260-424" v:mID="1260" v:groupContext="shape" v:layerMember="3" transform="translate(216.875,-351.688)">
+			<title>Number.1033</title>
+			<desc>3</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visLegendShape" v:val="VT0(2):26"/>
+				<v:ud v:nameU="visLocToPar" v:val="VT7(PNT(0,4.9960036108132E-16)):40"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(11):26"/>
+				<v:ud v:nameU="visIsConnected" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="visLocToPar" v:prompt="" v:val="VT7(PNT(3.0121527777778IN,4.8845519453642)):40"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(102000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(0,0,0,0)"/>
+			<v:textRect cx="12.4734" cy="590.587" width="37.01" height="25.2"/>
+			<ellipse cx="12.6" cy="590.4" rx="12.6" ry="12.6" class="st51"/>
+			<text x="9.6" y="593.59" class="st52" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>3</text>		</g>
+		<g id="shape1261-427" v:mID="1261" v:groupContext="shape" v:layerMember="3" transform="translate(482.375,-373.213)">
+			<title>Number.1036</title>
+			<desc>6</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visLegendShape" v:val="VT0(2):26"/>
+				<v:ud v:nameU="visLocToPar" v:val="VT7(PNT(0,4.9960036108132E-16)):40"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(11):26"/>
+				<v:ud v:nameU="visIsConnected" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="visLocToPar" v:prompt="" v:val="VT7(PNT(6.6996527777778IN,5.1835102786976)):40"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(103000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(0,0,0,0)"/>
+			<v:textRect cx="12.4734" cy="590.587" width="37.01" height="25.2"/>
+			<ellipse cx="12.6" cy="590.4" rx="12.6" ry="12.6" class="st51"/>
+			<text x="9.6" y="593.59" class="st52" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>6</text>		</g>
+		<g id="shape1262-430" v:mID="1262" v:groupContext="shape" v:layerMember="3" transform="translate(454.063,-135.688)">
+			<title>Number.1110</title>
+			<desc>5</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visLegendShape" v:val="VT0(2):26"/>
+				<v:ud v:nameU="visLocToPar" v:val="VT7(PNT(0,4.9960036108132E-16)):40"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(11):26"/>
+				<v:ud v:nameU="visIsConnected" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="visLocToPar" v:prompt="" v:val="VT7(PNT(6.3064236111111IN,1.8845519453642)):40"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(104000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(0,0,0,0)"/>
+			<v:textRect cx="12.4734" cy="590.587" width="37.01" height="25.2"/>
+			<ellipse cx="12.6" cy="590.4" rx="12.6" ry="12.6" class="st51"/>
+			<text x="9.6" y="593.59" class="st52" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>5</text>		</g>
+		<g id="shape1263-433" v:mID="1263" v:groupContext="shape" v:layerMember="3" transform="translate(97.625,-247.213)">
+			<title>Number.1034</title>
+			<desc>4</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visLegendShape" v:val="VT0(2):26"/>
+				<v:ud v:nameU="visLocToPar" v:val="VT7(PNT(0,4.9960036108132E-16)):40"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(11):26"/>
+				<v:ud v:nameU="visIsConnected" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="visLocToPar" v:prompt="" v:val="VT7(PNT(1.3559027777778IN,3.4335102786976)):40"/>
+				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(105000):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(0,0,0,0)"/>
+			<v:textRect cx="12.4734" cy="590.587" width="37.01" height="25.2"/>
+			<ellipse cx="12.6" cy="590.4" rx="12.6" ry="12.6" class="st51"/>
+			<text x="9.6" y="593.59" class="st52" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>4</text>		</g>
+		<g id="group1264-436" transform="translate(135.208,-401.071)" v:mID="1264" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(106000):26"/>
+			</v:userDefs>
+			<title>Traffic Manager Profiles.1264</title>
+			<g id="shape1265-437" v:mID="1265" v:groupContext="shape">
+				<title>Sheet.1265</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M30.59 558.9 L13.52 558.9 A1.45287 1.45287 -180 0 0 12.48 559.34 L0.44 571.37 A1.45287 1.45287 -180 0 0
+							 -0 572.41 L0 589.48 A1.45287 1.45287 -180 0 0 0.44 590.52 L12.48 602.56 A1.45287 1.45287 -180 0 0 13.52
+							 603 L30.59 603 A1.45287 1.45287 -180 0 0 31.63 602.56 L43.66 590.52 A1.45287 1.45287 -180 0 0 44.1 589.48
+							 L44.1 572.41 A1.45287 1.45287 -180 0 0 43.66 571.37 L31.63 559.34 A1.45287 1.45287 -180 0 0 30.59 558.9
+							 Z" class="st53"/>
+			</g>
+			<g id="shape1266-441" v:mID="1266" v:groupContext="shape" transform="translate(7.60163,-22.2082)">
+				<title>Sheet.1266</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M6.67 599.63 L6.49 599.81 L3.89 602.4 a0.363218 0.363218 -180 0 0 0.259441 0.596715 L14.01 603 a0.363218
+							 0.363218 -180 0 0 0.363218 -0.363218 L14.37 592.91 a0.432964 0.432964 -180 1 0 -0.856156 -0.129721 L10.92
+							 595.37 L10.74 595.55 a0.389162 0.389162 0 0 1 -0.518882 0 L3.55 588.99 L0 592.57 L6.67 599.11 a0.389162
+							 0.389162 0 0 1 -1.77636E-15 0.518882 Z" class="st27"/>
+			</g>
+			<g id="shape1267-443" v:mID="1267" v:groupContext="shape" transform="translate(3.21707,-3.21707)">
+				<title>Sheet.1267</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M37.46 576.15 L26.85 565.54 a0.726435 0.726435 -180 0 0 -0.518882 -0.207553 L11.34 565.33 a0.726435 0.726435
+							 -180 0 0 -0.518882 0.207553 L0.21 576.15 a0.726435 0.726435 -180 0 0 -0.207553 0.518882 L0 591.66 a0.778324
+							 0.778324 -180 0 0 0.207553 0.518882 L10.82 602.79 a0.726435 0.726435 -180 0 0 0.518882 0.207553 L26.33
+							 603 a0.726435 0.726435 -180 0 0 0.518882 -0.207553 L37.46 592.18 a0.778324 0.778324 -180 0 0 0.207553
+							 -0.518882 L37.67 576.67 a0.726435 0.726435 -180 0 0 -0.207553 -0.518882 ZM36.53 590.29 L28.36 582.11
+							 L30.33 580.12 a0.415106 0.415106 -180 0 0 1.13687E-13 -0.622659 a0.415106 0.415106 -180 0 0 -0.285385
+							 1.13687E-13 L23.01 579.31 a0.44105 0.44105 -180 0 0 -0.44105 0.415106 L22.75 586.76 a0.415106 0.415106
+							 -180 0 0 0.44105 0.415106 a0.337274 0.337274 -180 0 0 0.311329 0 L25.71 584.99 L34.4 593.56 L27.81 600.15
+							 L18.84 591.2 L20.91 589.35 a0.415106 0.415106 -180 0 0 -7.10543E-15 -0.622659 a0.415106 0.415106 -180
+							 0 0 -0.285385 -0.129721 L13.65 588.29 a0.44105 0.44105 -180 0 0 -0.44105 0.415106 L13.39 595.74 a0.415106
+							 0.415106 -180 0 0 0.44105 0.415106 a0.44105 0.44105 -180 0 0 0.311329 -0.129721 L16.24 593.87 L24.23
+							 601.86 L11.49 601.86 L1.12 591.48 L1.12 576.82 L4.38 573.58 L7.94 570 L11.49 566.44 L26.18 566.44 L36.56
+							 576.82 L36.53 590.29 Z" class="st27"/>
+			</g>
+		</g>
+		<g id="shape1268-445" v:mID="1268" v:groupContext="shape" v:layerMember="0" transform="translate(500.975,-140.971)">
+			<title>Dynamic connector.1268</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(107000):26"/>
+			</v:userDefs>
+			<path d="M9 603 L9 474.95" class="st54"/>
+		</g>
+		<g id="shape1269-451" v:mID="1269" v:groupContext="shape" v:layerMember="0" transform="translate(251.96,-112.865)">
+			<title>Dynamic connector.1269</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(108000):26"/>
+			</v:userDefs>
+			<path d="M0 594 L230.66 594" class="st54"/>
+		</g>
+		<g id="shape1270-456" v:mID="1270" v:groupContext="shape" v:layerMember="0" transform="translate(153.725,-378.688)">
+			<title>Dynamic connector.1270</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(109000):26"/>
+			</v:userDefs>
+			<path d="M0 603 L0 652.87 L87.21 652.87" class="st56"/>
+		</g>
+		<g id="shape1271-461" v:mID="1271" v:groupContext="shape" v:layerMember="0" transform="translate(179.313,-414.406)">
+			<title>Dynamic connector.1271</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(110000):26"/>
+			</v:userDefs>
+			<path d="M0 594.28 L71.37 593.77" class="st56"/>
+		</g>
+		<g id="shape1272-466" v:mID="1272" v:groupContext="shape" v:layerMember="0" transform="translate(157.26,-445.176)">
+			<title>Dynamic connector.1272</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(111000):26"/>
+			</v:userDefs>
+			<path d="M0 603 L0 531.21 L96.31 531.21" class="st56"/>
+		</g>
+		<g id="shape1273-471" v:mID="1273" v:groupContext="shape" v:layerMember="0" transform="translate(84.9686,-414.123)">
+			<title>Dynamic connector.1273</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(112000):26"/>
+			</v:userDefs>
+			<path d="M0 594 L42.2 594" class="st56"/>
+		</g>
+		<g id="shape1274-476" v:mID="1274" v:groupContext="shape" transform="translate(540.502,-297.77) rotate(50.6196)">
+			<title>Sheet.1274</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(113000):26"/>
+			</v:userDefs>
+			<path d="M0 603 L96.21 603" class="st56"/>
+		</g>
+		<g id="shape1275-481" v:mID="1275" v:groupContext="shape" transform="translate(559.343,627.073) rotate(135)">
+			<title>Sheet.1275</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(114000):26"/>
+			</v:userDefs>
+			<path d="M7.68 603 L8.04 603 L66.14 603" class="st57"/>
+		</g>
+		<g id="shape1276-487" v:mID="1276" v:groupContext="shape" v:layerMember="0" transform="translate(310.475,-319.813)">
+			<title>Dynamic connector.1276</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(115000):26"/>
+			</v:userDefs>
+			<path d="M0 594 L142.71 594" class="st56"/>
+		</g>
+		<g id="shape1277-492" v:mID="1277" v:groupContext="shape" v:layerMember="0" transform="translate(310.475,-511.438)">
+			<title>Dynamic connector.1277</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(116000):26"/>
+			</v:userDefs>
+			<path d="M0 594 L142.71 594" class="st56"/>
+		</g>
+		<g id="shape1278-497" v:mID="1278" v:groupContext="shape" transform="translate(562.248,-450.639) rotate(24.444)">
+			<title>Sheet.1278</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(117000):26"/>
+			</v:userDefs>
+			<path d="M0 603 L155.08 603" class="st54"/>
+		</g>
+		<g id="shape1279-502" v:mID="1279" v:groupContext="shape" transform="translate(688.45,-352.511) rotate(39.6442)">
+			<title>Sheet.1279</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(118000):26"/>
+			</v:userDefs>
+			<path d="M0 603 L196.5 603" class="st54"/>
+		</g>
+		<g id="shape1280-507" v:mID="1280" v:groupContext="shape" transform="translate(60.0382,-388.244) rotate(-24.3045)">
+			<title>Sheet.1280</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(119000):26"/>
+			</v:userDefs>
+			<path d="M0 603 L155.7 603" class="st54"/>
+		</g>
+		<g id="shape1281-512" v:mID="1281" v:groupContext="shape" v:layerMember="0" transform="translate(310.475,-419.188)">
+			<title>Dynamic connector.1281</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(120000):26"/>
+			</v:userDefs>
+			<path d="M0 594 L142.71 594" class="st56"/>
+		</g>
+		<g id="shape1282-517" v:mID="1282" v:groupContext="shape" transform="translate(545.387,-357.091) rotate(23.1602)">
+			<title>Sheet.1282</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(121000):26"/>
+			</v:userDefs>
+			<path d="M0 603 L153.48 603" class="st54"/>
+		</g>
+		<g id="shape1283-522" v:mID="1283" v:groupContext="shape" transform="translate(-106.587,-188.312) rotate(-42.8789)">
+			<title>Sheet.1283</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(122000):26"/>
+			</v:userDefs>
+			<path d="M0 603 L206.89 603" class="st54"/>
+		</g>
+		<g id="shape1284-527" v:mID="1284" v:groupContext="shape" transform="translate(29.287,-269.793) rotate(-27.554)">
+			<title>Sheet.1284</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(123000):26"/>
+			</v:userDefs>
+			<path d="M0 603 L164.53 603" class="st54"/>
+		</g>
+		<g id="shape1-532" v:mID="1" v:groupContext="shape" transform="translate(-11.25,13.2198)">
+			<title>Sheet.1</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(124000):26"/>
+			</v:userDefs>
+			<rect v:rectContext="foreign" x="0" y="540.56" width="118.212" height="62.4396" class="st58"/>
+			<image x="0" y="540.56" width="118.212" height="62.4396" preserveAspectRatio="none" xlink:href="data:image/png;base64,
+						iVBORw0KGgoAAAANSUhEUgAABqYAAAODCAYAAADetLAsAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7D
+						AcdvqGQAAHBxSURBVHhe7d3NseRG1iboEIEaTFpLkAL0okTI3WwpAs0gQFOEFGAWXIwAuZ1efSJQBGrQtFCg5ngxo75L1Lk3I4DjDg/E
+						s3iMVecG3B2Iv4S/Acfln//8JwAAAAAAAHSXFgEAAAAAAKBaWgQAAAAAAIBqaREAAAAAAACqpUUAAAAAAAColhYBAAAAAACgWloEAAAA
+						AACAamkRAAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAAgGppEQAAAAAAAKqlRQAAAAAAAKiWFgEAAAAAAKBaWgQAAAAAAIBq
+						aREAAAAAAACqpUUAAAAAAAColhYBAAAAAACgWloEAAAAAACAamkRAAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAAgGppEQAA
+						AAAAAKqlRQAAAAAAAKiWFgEAAAAAAKBaWgQAAAAAAIBqaREAAAAAAACqpUUAAAAAAAColhYBAAAAAACgWloEAAAAAACAamkRAAAAAAAA
+						qqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAAgGppEQAAAAAAAKqlRQAAAAAAAKiWFgEAAAAAAKBaWgQAAAAAAIBqaREAAAAAAACqpUUA
+						AAAAAAColhYBAAAAAACgWloEAAAAAACAamkRAAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAAgGppEQAAAAAAAKqlRQAAAAAA
+						AKiWFgEAAAAAAKBaWgQAAAAAAIBqaREAAAAAAACqpUUAAAAAAAColhYBAAAAAACgWloEAAAAAACAamkRAAAAAAAAqqVFAAAAAAAAqJYW
+						AQAAAAAAoFpaBAAAAAAAgGppEQAAAAAAAKqlRQAAAAAAAKiWFgEAAAAAAKBaWgQAAAAAAIBqaREAAAAAAACqpUUAAAAAAAColhYBAAAA
+						AACgWloEAAAAAACAamkRAAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAAgGppEQAAAAAAAKqlRQAAAAAAAKiWFgEAAAAAAKBa
+						WgQAAAAAAIBqaREAAAAAAACqpUUAAAAAAAColhYBAAAAAACgWloEAAAAAACAamkRAAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAA
+						AAAAgGppEQAAAAAAAKqlRQAAAAAAAKiWFgEAAAAAAKBaWgQAAAAAAIBqaREAAAAAAACqpUUAAAAAAAColhYBAAAAAACgWloEAAAAAACA
+						amkRAAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAAgGppEQAAAAAAAKqlRQAAAAAAAKiWFgEAAAAAAKBaWgQAAAAAAIBqaREA
+						AAAAAACqpUUAAAAAAAColhYBAAAAAACgWloEAAAAAACAamkRAAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAAgGppEQAAAAAA
+						AKqlRQAAAAAAAKiWFgEAAAAAAKBaWgQAAAAAAIBqaREAAAAAAACqpUUAAAAAAAColhYBAAAAAACgWloEAAAAAACAamkRAAAAAAAAqqVF
+						AAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAAgGppEQAAAAAAAKqlRQAAAAAAAKiWFgEAAAAAAKBaWgQAAAAAAIBqaREAAAAAAACqpUUAAAAA
+						AAColhYBAAAAAACgWloEAAAAAACAamkRAAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAAgGppEQAAAAAAAKqlRQAAAAAAAKiW
+						FgEAAAAAAKBaWgQAAAAAAIBqaREAAAAAAACqpUUAAAAAAAColhYBAAAAAACgWloEAAAAAACAamkRAAAAAAAAqqVFAAAAAAAAqJYWAQAA
+						AAAAoFpaBAAAAAAAgGppEQAAAAAAAKqlRQAAAAAAAKiWFgEAAAAAAKBaWgQAAAAAAIBqaREAAAAAAACqpUUAAAAAAAColhYBAAAAAACg
+						WloEAAAAAACAamkRAAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAAgGppEQAAAAAAAKqlRQAAAAAAAKiWFgEAAAAAAKBaWgQA
+						AAAAAIBqaREAAAAAAACqpUUAAAAAAAColhYBAAAAAACgWloEAAAAAACAamkRAAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAA
+						gGppEQAAAAAAAKqlRQAAAAAAAKiWFgEAAAAAAKBaWgQAAAAAAIBqaREAAAAAAACqpUUAAAAAAAColhYBAAAAAACgWloEAAAAAACAamkR
+						AAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAAgGppEQAAAAAAAKqlRQAAAAAAAKiWFgEAAAAAAKBaWgQAAAAAAIBqaREAAAAA
+						AACqpUUAAAAAAAColhYBAAAAAACgWloEAAAAAACAamkRAAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAAgGppEQAAAAAAAKql
+						RQAAAAAAAKiWFgEAAAAAAKBaWgQAAAAAAIBqaREAAAAAAACqpUUAAAAAAAColhYBAAAAAACgWloEAAAAAACAamkRAAAAAAAAqqVFAAAA
+						AAAAqJYWAQAAAAAAoFpaBAAAAAAAgGppEQAAAAAAAKqlRQAAAAAAAKiWFgEAAAAAAKBaWgQAAAAAAIBqaREAAAAAAACqpUUAAAAAAACo
+						lhYBAAAAAACgWloEAAAAAACAamkRAAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAAgGppEQAAAAAAAKqlRQAAAAAAAKiWFgEA
+						AAAAAKBaWgQAAAAAAIBqaREAAAAAAACqpUUAAAAAAAColhYBAAAAAACgWloEAAAAAACAamkRAAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAA
+						oFpaBAAAAAAAgGppEQAAAAAAAKqlRQAAAAAAAKiWFgEAAAAAAKBaWgQAAAAAAIBqaREAAAAAAACqpUUAAAAAAAColhYBAAAAAACgWloE
+						AAAAAACAamkRAAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAAgGppEQAAAAAAAKqlRQAAAAAAAKiWFgEAAAAAAKBaWgQAAAAA
+						AIBqaREAAAAAAACqpUUAAAAAAAColhYBAAAAAACgWloEAAAAAACAamkRAAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAAgGpp
+						EQAAAAAAAKqlRQAAAAAAAKiWFgEAAAAAAKBaWgQAAAAAAIBqaREAAAAAAACqpUUAAAAAAAColhYBAAAAAACgWloEAAAAAACAamkRAAAA
+						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
+						L/NUeixn1/Z3tf/Vjr5aqvcyfmVXXvQU4+x51dhDVyrF43u+5p4+WI596LmM36b7Ix4hxtrzqrGypUWjLcHU/Zw3AC8pLQLM6CqYYjvB
+						FKM5wRygncivTuz32vW8xfbVQU/T5X4X0W51kLZrUi+2F0wl/T0i2ui5jN/LfabFPvcOpg69oij67znJ/zSvlxhr76tw7v5xQTy291WP
+						01/F9pEYf8/PuKdZpjTG2vNHCGXLPkZbgqn7OW8AXlJaBJjRVTDFdoIpRnOCOUA7kV+d2O+1N5jqcQVCl3uDRLvVE1ubPmdvYnvBVNLf
+						I5I2K73U1VJN2+fVMajW7WrIe0T/PSf5p18S7a0Yb88rUB76bEy2r/a04VSMveeyi09xhV8TY+0dYJZ8NkU7gqn7OW8AXlJaBJjRVTDF
+						doIpRnOCOUA7kV+d2O+1+3mLNnpMcJZP8kab1feW2bUkWWwvmEr6u1fbftVepZf8PIv97nlMD182LMbQa5K/S5jeU4y559Vjj95nqtdn
+						4Vutj6cJYpoYb8+lJ8uWrxuljXm1D5VK/s0R7Qim7ue8AXhJaRFgRlfBFNsJphjNCeYA7UR+dWK/V0Uw1WOJndJJs2iverJo9/iiDcFU
+						0t+9Yvte42qe6uqXKrHfPYOpo5fx6znJ/3RX5MSYey7n99C9neLxPd/La62vw+5z9ogYZ8/w8Ok+49qYV/tQqST4iXYEU/dz3gC8pLQI
+						MKOrYIrtBFOM5gRzgHYivzqx36simKq+d9NN2a/bo63qe2F9yfp5RLQhmEr6u1ds3+v4tdfyU0xcV4v97hlMHToR3vpfjafSUwaZMe7q
+						q0j/bd3XR+LxX9bbd9be49MHVDG+HvdwvHmqq8eaNubVPlQq+TdstCOYup/zBuAlpUWAGV0FU2wnmGI0J5gDtBP51Yn9XlWTMV9X7Vao
+						+gVz9b0pSpYki3YEU0l/90raq/J0S1xViX3vGUwdOhEe/fe8KufpJvmbGHfPpdEeOibx+J73UnrP1AFVjKvXd8Thy2puFWPv9Tqp+l4X
+						TN3PeQPwktIiwIyugim2E0wxmhPMAdqJ/OrEfq+qYKrHL5mrJoqql0OqCswEU0l/94htey7L9pLL+DWx792CqXVfo8UYer3fnu7+Ujcx
+						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
+						xvvW98dl2++y7mePaE8w9QOxP+0qztleg3u0fWlXhKVX+gEAvIK0CDCji2CK7QRTjCaYKrL0X1bOMn6JOC69j3vzYbCQPJ6PdbtPWrTd
+						rp76NRy9tFoLce7ez++Pz9rZZd3PHtGeYOoOsU+zvAb3aM+1K6QAAEJaBJjRRTDFdoIpRhNMFVn6X7ljGb93xLHpPQH84Wdz8ng+1i2Y
+						uok+WjhwxNUrbTnPh/cvthFMnVDsX3sNPss90No429VRP7zCDwDglaRFgBldBFNsJ5hiNMFUgTaR931iryfL+L0jjk3ve3t9eLVa8ng+
+						1j2Yeiv6+xzaFSw9AoIWirZQugUQm5c7i20FUycW+9leg1/DTMv8tddu++xsr11hFADAO9IiAAAA3GP560qqf4QWVLVJ+Ra23BsWtMe1
+						x7eAoV1ZIizmYe118/310wLNkcv93V67LYjy2gUAuFNaBAAAgCrLX1dAtvDK5D3dvXm9tbC0BUctQNpyddptuxZ4tbZa+NXadTUUAMAO
+						aREAAAAAAACqpUUAAAAAAAColhYBAAAAAACgWloEAAAAAACAamkRAAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAAgGppEQAA
+						AAAAAKqlRQAAAAAAAKiWFgEAAAAAAKBaWgQAAAAAAIBqaREAAAAAAACqpUUAAAAAAAColhYBAAAAAACgWloEAAAAAACAamkRAAAAAAAA
+						qqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAAgGppEQAAAAAAAKqlRQAAAAAAAKiWFgEAAAAAAKBaWgQAAAAAAIBqaREAAAAAAACqpUUA
+						AAAAAAColhYBAAAAAACgWloEAAAAAACAamkRAAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAAgGppEQAAAAAAAKqlRQAAAAAA
+						AKiWFgEAAAAAAKBaWgQAAAAAAIBqaREAAAAAAACqpUUAAAAAAAColhYBAAAAAACgWloEAAAAAACAamkRAAAAAAAAqqVFAAAAAAAAqJYW
+						AQAAAAAAoFpaBAAAAAAAgGppEQAAAAAAAKqlRQAAAAAAAKiWFgEAAAAAAKBaWgQAAAAAAIBqaREAAAAAAACqpUUAAAAAAAColhYBAAAA
+						AACgWloEAAAAAACAamkRAAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAAgGppEQAAAAAAAKqlRQAAAAAAAKiWFgEAAAAAAKBa
+						WgQAAAAAAIBqaREAAAAAAACqpUUAAAAAAAColhYBAAAAAACgWloEAAAAAACAamkRAAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAA
+						AAAAgGppEQAAAAAAAKqlRQAAAAAAAKiWFgEAAAAAAKBaWgQAAAAAAIBqaREAAAAAAACqpUUAAAAAAAColhYBAAAAAACgWloEAAAAAACA
+						amkRAAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAAgGppEQAAAAAAAKqlRQAAAAAAAKiWFgEAAAAAAKBaWgQAAAAAAIBqaREA
+						AAAAAACqpUUAAAAAAAColhYBAAAAAACgWloEAAAAAACAamkRAAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAAgGppEQAAAAAA
+						AKqlRQAAAAAAAKiWFgEAAAAAAKBaWgQAAAAAAIBqaREAAAAAAACqpUUAAAAAAAColhYBAAAAAACgWloEAAAAAACAamkRAAAAAAAAqqVF
+						AAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAAgGppEQAAAAAAAKqlRQAAAAAAAKiWFgEAAAAAAKBaWgQAAAAAAIBqaREAAAAAAACqpUUAAAAA
+						AAColhYBAAAAAACgWloEAAAAAACAamkRAAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAAgGppEQAAAAAAAKqlRQAAAAAAAKiW
+						FgEAAAAAAKBaWgQAAAAAAIBqaREAAAAAAACqpUUAAAAAAAColhYBAAAAAACgWloEAAAAAACAamkRAAAAAAAAqqVFAAAAAAAAqJYWAQAA
+						AAAAoFpaBAAAAAAAgGppEQAAAAAAAKqlRQAAAAAAAKiWFgEAAAAAAKBaWgQAAAAAAIBqaREAAAAAAACqpUUAAAAAAAColhYBAAAAAACg
+						WloEAAAAAACAamkRAAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAAgGppEQAAAAAAAKqlRQAAAAAAAKiWFgEAAAAAAKBaWgQA
+						AAAAAIBqaREAAAAAAACqpUUAAAAAAAColhYBAAAAAACgWloEAAAAAACAamkRAAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAA
+						gGppEQAAAAAAAKqlRQAAAAAAAKiWFgEAAAAAAKBaWgQAAAAAAIBqaREAAAAAAACqpUUAAAAAAAColhYBAAAAAACgWloEAAAAAACAamkR
+						AAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAAgGppEQAAAAAAAKqlRQAAAAAAAKiWFgEAAAAAAKBaWgQAAAAAAIBqaREAAAAA
+						AACqpUUAAAAAAAColhYBAAAAAACgWloEAAAAAACAamkRAAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAAgGppEQAAAAAAAKql
+						RQAAAAAAAKiWFgEAAAAAAKBaWgQAAAAAAIBqaREAAAAAAACqpUUAAAAAAAColhYBAAAAAACgWloEAAAAAACAamkRAAAAAAAAqqVFAAAA
+						AAAAqJYWAQAAAAAAoFpaBAAAAAAAgGppEQAAAAAAAKqlRQAAAAAAAKiWFgEAAAAAAKBaWgQAAAAAAIBqaREAAAAAAACqpUUAAAAAAACo
+						lhYBAAAAAACgWloEAAAAAACAamkRAAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAAgGppEQAAAAAAAKqlRQAAAAAAAKiWFgEA
+						AAAAAKBaWgQAAAAAAIBqaREAAAAAAACqpUUAAAAAAAColhYBAAAAAACgWloEAAAAAACAamkRAAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAA
+						oFpaBAAAAAAAgGppEQAAAAAAAKqlRQAAAAAAAKiWFgEAAAAAAKBaWgQAAAAAAIBqaREAAAAAAACqpUUAAAAAAAColhYBAAAAAACgWloE
+						AAAAAACAamkRAAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAAgGppEQAAAAAAAKqlRQAAAAAAAKiWFgEAAAAAAKBaWgQAAAAA
+						AIBqaREAAAAAAACqpUUAAAAAAAColhYBAAAAAACgWloEAAAAAACAamkRAAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAAgGpp
+						EQAAAAAAAKqlRQAAAAAAAKiWFgEAAAAAAKBaWgQAAAAAAIBqaREAAAAAAACqpUUAAAAAAAColhYBAAAAAACgWloEAAAAAACAamkRAAAA
+						AAAAqqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAAgGppEQAAAAAAAKqlRQAAAAAAAKiWFgEAAAAAAKBaWgQAAAAAAIBqaREAAAAAAACq
+						pUUAAAAAAAColhYBAAAAAACgWloEAAAAAACAamkRAAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAAgGppEQAAAAAAAKqlRQAA
+						AAAAAKiWFgEAAAAAAKBaWgQAAAAAAIBqaREAAAAAAACqpUUAAAAAAAColhYBAAAAAACgWloEAAAAAACAamkRAAAAAAAAqqVFAAAAAAAA
+						qJYWAQAAAAAAoFpaBAAAAAAAgGppEQAAAAAAAKqlRQAAAAAAAKiWFgEAAAAAAKBaWgQAAAAAAIBqaREAAAAAAACqpUUAAAAAAAColhYB
+						AAAAAACgWloEAAAAAACAamkRAAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAAoFpaBAAAAAAAgGppEQAAAAAAAKqlRQAAAAAAAKiWFgEAAAAA
+						AKBaWgQAAAAAAIBqaREAAAAAAACqpUUAAAAAAAColhYBAAAAAACgWloEAAAAAACAamkRAAAAAAAAqqVFAAAAAAAAqJYWAQAAAAAAoFpa
+						BAAAAAAAgFr/vPz/GhoivpSh09AAAAAASUVORK5CYII="/>
+			<rect v:rectContext="foreign" x="0" y="540.56" width="118.212" height="62.4396" class="st58"/>
+		</g>
+		<g id="group1285-536" transform="translate(464.25,-67.1564)" v:mID="1285" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(125000):26"/>
+			</v:userDefs>
+			<title>Azure Active Directory.1541.1285</title>
+			<g id="shape1286-537" v:mID="1286" v:groupContext="shape">
+				<title>Sheet.1286</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M1.35 593.67 L11.91 600.52 L22.65 593.64 L24 595.21 L11.91 603 L0 595.21 L1.35 593.67 Z" class="st14"/>
+			</g>
+			<g id="shape1287-539" v:mID="1287" v:groupContext="shape" transform="translate(2.14667,-3.90667)">
+				<title>Sheet.1287</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M0 596.69 L9.76 585.07 L19.72 596.71 L9.76 603 L0 596.69 Z" class="st22"/>
+			</g>
+			<g id="shape1288-541" v:mID="1288" v:groupContext="shape" transform="translate(2.14667,-3.90667)">
+				<title>Sheet.1288</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M9.76 585.07 L9.76 603 L0 596.69 L9.76 585.07 Z" class="st14"/>
+			</g>
+			<g id="shape1289-543" v:mID="1289" v:groupContext="shape" transform="translate(11.9067,-3.90667)">
+				<title>Sheet.1289</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M0 585.07 L0 603 L9.96 596.71 L0 585.07 Z" class="st59"/>
+			</g>
+			<g id="shape1290-547" v:mID="1290" v:groupContext="shape" transform="translate(11.9067,-3.90667)">
+				<title>Sheet.1290</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M0 594.33 L9.96 596.71 L0 603 L0 594.33 Z" class="st60"/>
+			</g>
+			<g id="shape1291-549" v:mID="1291" v:groupContext="shape" transform="translate(2.14667,-3.90667)">
+				<title>Sheet.1291</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M9.76 603 L0 596.69 L9.76 594.33 L9.76 603 Z" class="st19"/>
+			</g>
+			<g id="shape1292-551" v:mID="1292" v:groupContext="shape" transform="translate(11.9067,1.13687E-13)">
+				<title>Sheet.1292</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M0 603 L12.09 595.21 L10.75 593.64 L0 600.52 L0 603 Z" class="st61"/>
+			</g>
+		</g>
+	</g>
+</svg>

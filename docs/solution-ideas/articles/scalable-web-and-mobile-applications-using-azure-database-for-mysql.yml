@@ -22,7 +22,6 @@ metadata:
     - azure
     - solutions
     - "https://azure.microsoft.com/solutions/architecture/scalable-web-and-mobile-applications-using-azure-database-for-mysql"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/scalable-web-and-mobile-applications-using-azure-database-for-mysql.png
 name: Scalable web and mobile applications using Azure Database for MySQL
 azureCategories:
   - mobile

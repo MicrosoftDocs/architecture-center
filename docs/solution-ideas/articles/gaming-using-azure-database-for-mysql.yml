@@ -20,7 +20,6 @@ metadata:
     - gaming
     - scalability
     - "https://azure.microsoft.com/solutions/architecture/gaming-using-azure-database-for-mysql"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/gaming-using-azure-database-for-mysql.png
 name: Gaming using Azure Database for MySQL
 azureCategories:
   - databases

@@ -21,7 +21,6 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/interactive-voice-response-bot"
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/interactive-voice-response-app-bot.png
 name: Interactive voice response app with bot
 azureCategories:
   - ai-machine-learning
