@@ -120,7 +120,7 @@ For a sample of this configuration, see the [Automated blue/green deployment for
 
 Principal author:
 
-- [Gitte Vermeiren](https://www.linkedin.com/in/gitte-vermeiren-b1b2221) | Senior Service Engineer
+- [Gitte Vermeiren](https://www.linkedin.com/in/gitte-vermeiren-b1b2221) | FastTrack for Azure Engineer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

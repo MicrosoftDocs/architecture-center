@@ -84,7 +84,7 @@ Depending on your database setup, you might incur extra latency when data needs 
 
 The application needs to be protected from unauthorized access from the internet, systems in private networks, other Azure services, and even some tightly coupled dependencies.
 
-[Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) is the fundamental building block for a private network in Azure. This architecture uses a virtual network for each region that you use for deployment. Components are placed in subnets to create further isolation. For example, Azure Spring Apps requires a dedicated subnet for the service runtime and a separate subnet for Spring Boot applications.
+[Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) is the fundamental building block for a private network in Azure. This architecture uses a virtual network for the region that you use for deployment. Components are placed in subnets to create further isolation. For example, Azure Spring Apps requires a dedicated subnet for the service runtime and a separate subnet for Spring Boot applications.
 
 You should also protect your virtual networks with [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview). DDoS Protection, combined with application design best practices, provides enhanced mitigations to defend against distributed denial-of-service (DDoS) attacks.
 
@@ -92,7 +92,7 @@ The design incorporates several PaaS services that participate in processing a u
 
 ##### Private connectivity
 
-Communication from Azure Spring Apps to supporting services, like key vault, is also locked down by using either private endpoints or network integration.
+Communication from Azure Spring Apps to supporting services, like Key Vault and the MySQL database, is also locked down by using either private endpoints or network integration.
 
 You can control access by using private endpoints. These network interfaces use private IP addresses to bring the services into the virtual network. 
 

@@ -76,7 +76,7 @@ The primary region has all the resources and serves traffic. The secondary regio
   - It's easier to keep the data synchronized because failover is expected to take some time.
   - This mode is the most cost effective, because you don't deploy all the resources to both regions.
 
-If your entire solution setup uses templates, you can easily deploy a cold standby secondary region by creating its resources when needed. You can use Bicep/Azure Resource Manager (ARM) or Terraform templates, and automate infrastructure setup in a continuous integration/continuous deployment (CD/CD) pipeline. You should regularly test recreating your secondary region to make sure your templates are deployable in an emergency.
+If your entire solution setup uses templates, you can easily deploy a cold standby secondary region by creating its resources when needed. You can use Bicep/Azure Resource Manager (ARM) or Terraform templates, and automate infrastructure setup in a continuous integration/continuous deployment (CI/CD) pipeline. You should regularly test recreating your secondary region to make sure your templates are deployable in an emergency.
 
 [Deployment Stamps](../../patterns/deployment-stamp.yml) pattern is recommended because multiple independent copies of an application or component can be deployed from a single template to multiple regions.
 
@@ -110,7 +110,7 @@ In this example:
 - Resources hosted in East US are hosted in the `Application-eus` resource group.
 - Resources hosted in Japan East are hosted in the `Application-jae` resource group.
 
-Resources split up in this way share the same lifecycle and can be easily created and deleted together. Each region has its own set of resources, with a naming convention based on the region's name. Azure Front Door is in its own resource group, because it must exist even if regions are added or removed.
+Resources in the same resource group share the same lifecycle and can be easily created and deleted together. Each region has its own set of resources in a dedicated resource group, with a naming convention based on the region's name. Azure Front Door is in its own resource group, because it must exist even if regions are added or removed.
 
 ##### Reverse proxy setup
 
@@ -122,7 +122,7 @@ The current solution uses two reverse proxies to maintain consistency with the b
 
 - Because the Web Application Firewall (WAF) is attached to the Application Gateway, you need to attach WAF to the Azure Front Door service instead.
 
-- You need a way to ensure that incoming calls originate only from the Azure Front Door instance. You can add the X-FDID header check and the Azure Front Door IP ranges check in the Spring Cloud Gateway app. For more information, see [Use Azure Front Door as the reverse proxy](spring-cloud-reverse-proxy.yml#scenario-4-using-azure-front-door-as-the-reverse-proxy).
+- You need a way to ensure that incoming calls originate only from your Azure Front Door instance. You can add the X-Azure-FDID header check and the Azure Front Door IP ranges check in the Spring Cloud Gateway app. For more information, see [Use Azure Front Door as the reverse proxy](spring-cloud-reverse-proxy.yml#scenario-4-using-azure-front-door-as-the-reverse-proxy).
 
 For information about different reverse proxy scenarios, how to set them up, and their security considerations, see [Expose Azure Spring Apps through a reverse proxy](spring-cloud-reverse-proxy.yml).
 
@@ -146,7 +146,7 @@ Another alternative is Azure Cosmos DB. It can [globally distribute](/azure/cosm
 
 Automate your infrastructure deployment and application code deployments, as much as possible. 
 
-Automating infrastructure deployments guarantees that infrastructure is configured identically, avoiding configuration drift (for example, between environments). Infrastructure automation can also test fail over operations.
+Automating infrastructure deployments guarantees that infrastructure is configured identically, avoiding configuration drift (for example, between regions). Infrastructure automation can also test fail over operations.
 
 For application deployment, make sure your deployment systems target the multiple regions they need to deploy to. You can also use multiple regions in a [blue-green](blue-green-spring.yml) or canary deployment strategy. With these deployment strategies, you roll out new versions of applications to one region for testing, and to other regions after testing is successful.
 
