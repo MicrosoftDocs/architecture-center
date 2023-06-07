@@ -242,7 +242,7 @@ You need to complete the following tasks after deployment. You need to perform t
 
 ## Pricing
 
-The cost of each solution scales down as the resources increase. The pricing in [Azure pricing calculator example](https://azure.com/e/2554c32b19c24b3d9f90d2a73683bd6a) scenario is based on the Azure Firewall solution. If you change the configuration, costs might increase. With some plans, costs increase as the number of ingested logs increase.
+The cost of each solution scales down as the resources increase. The pricing in this [Azure pricing calculator example scenario](https://azure.com/e/2554c32b19c24b3d9f90d2a73683bd6a) is based on the Azure Firewall solution. If you change the configuration, costs might increase. With some plans, costs increase as the number of ingested logs increase.
 
 > [!NOTE]
 > Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to get up-to-date pricing that's based on the resources that are deployed for the selected solution.
