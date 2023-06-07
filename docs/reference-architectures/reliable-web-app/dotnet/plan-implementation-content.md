@@ -3,13 +3,13 @@ ms.custom:
   - devx-track-dotnet
 ---
 
-The reliable web app pattern provides prescriptive implementation guidance for web apps moving to the cloud (re-platform). It focuses on the minimal changes you need to make to meet your short and long term business goals. This article walks you through important decisions to plan the implementation of the reliable web app pattern, and a companion article shows you how to [apply the pattern](apply-pattern.yml).
+The reliable web app pattern provides prescriptive implementation guidance for web apps moving to the cloud (re-platforming). It focuses on the minimal changes you need to make to meet your business goals. This article explains important decisions to plan the implementation of the pattern. The companion provides code and architecture guidance to [apply the pattern](apply-pattern.yml).
 
-![Diagram showing GitHub icon.](../../../_images/github.png) There's a [reference implementation](https://aka.ms/eap/rwa/dotnet) that applies the reliable web app pattern to a .NET web app. You should use the reference implementation with the written guidance to get the most out of the pattern.
+![Diagram showing GitHub icon.](../../../_images/github.png) There's a [reference implementation](https://aka.ms/eap/rwa/dotnet) (sample application) with the pattern applied that you can deploy. You should use the reference implementation with the written guidance to get the most out of the pattern.
 
 ## Architecture and pattern
 
-The business context, existing web app, service level objective (SLO), and coding language determine (1) how you apply the reliable web app pattern and (2) the architecture of the web app. The following diagram shows the architecture of the reference implementation.
+The business context, existing web app, service level objective (SLO), and coding language determine (1) how you apply the reliable web app pattern and (2) the architecture of the web app.
 
 [![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-dotnet.png)](images/reliable-web-app-dotnet.png)
 

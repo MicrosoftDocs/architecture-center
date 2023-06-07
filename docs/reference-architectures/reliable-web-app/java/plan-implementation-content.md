@@ -1,6 +1,6 @@
-The reliable web app pattern provides prescriptive implementation guidance for web apps moving to the cloud (re-platform). It focuses on the minimal changes you need to make to meet your short and long term business goals. This article walks you through important decisions to plan the implementation of the reliable web app pattern, and a companion article shows you how to [apply the pattern](apply-pattern.yml).
+The reliable web app pattern provides prescriptive implementation guidance for web apps moving to the cloud (re-platforming). The pattern focuses on the minimal changes you need to make to meet your business goals. There are two articles on the reliable web app pattern for Java. This article explains important decisions to plan the implementation of the pattern. The companion provides code and architecture guidance to [apply the pattern](apply-pattern.yml).
 
-![Diagram showing GitHub icon.](../../../_images/github.png) There's a [reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java) that applies the reliable web app pattern to a .NET web app. You should use the reference implementation with the written guidance to get the most out of the pattern.
+![Diagram showing GitHub icon.](../../../_images/github.png) There's a [reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java) (sample application) with the pattern applied that you can deploy. You should use the reference implementation with the written guidance to get the most out of the pattern.
 
 ## Architecture and pattern
 

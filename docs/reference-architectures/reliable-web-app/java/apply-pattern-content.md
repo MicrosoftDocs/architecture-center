@@ -1,6 +1,6 @@
-The reliable web app pattern provides prescriptive implementation guidance for web apps moving to the cloud (re-platform). It focuses on the minimal changes you need to make to meet your short and long term business goals. This article provides code and architecture implementation details to apply the reliable web app pattern to your web app. The companion article walks you through important decisions to [plan an implementation](plan-implementation.yml).
+The reliable web app pattern defines prescriptive implementation guidance for web apps moving to the cloud (re-platforming). The pattern focuses on the minimal changes you need to make to meet your business goals. There are two articles on the reliable web app pattern for Java. This article provides code and architecture guidance. The companion article shows you how to [plan the implementation of the pattern](plan-implementation.yml).
 
-![Diagram showing GitHub icon.](../../../_images/github.png) There's a [reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java) that applies the reliable web app pattern to a .NET web app. You should use the reference implementation with the written guidance to get the most out of the pattern.
+![Diagram showing GitHub icon.](../../../_images/github.png) There's a [reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java) (sample application) with the pattern applied that you can deploy. You should use the reference implementation with the written guidance to get the most out of the pattern.
 
 ## Architecture and code
 
@@ -69,15 +69,15 @@ Architecture refers to the arrangement and distribution of components supporting
 
 ### Architect data reliability
 
-Data reliability relies on replicating data across multiple locations.  In general, the more isolated those locations are from each other the better your data reliability.
+Data reliability relies on replicating data across multiple locations. In general, the more isolated those locations are from each other the better your data reliability.
 
 **Determine high need data.** Replicating data increases cost. You should only replicate data that you need during a failover.
 
 **Define the recovery point objective.** A recovery point objective (RPO) is the maximum amount of data you're willing to lose during an outage. For example, an RPO of one hour means the web app loses one hour of the most recent data. If that web app goes down at 2PM, the disaster recovery process can only recover data before 1PM. You need to define an RPO for each web app.
 
-**Determine replication frequency.** Your recovery point objective (RPO) should drive your data replication frequency. The frequency of your data replication needs to be less than or equal to your RPO. An RPO of one hour requires all the data changes replicated to the secondary region within one hour or less.
+**Determine replication frequency.** Your RPO should drive your data replication frequency. The frequency of your data replication needs to be less than or equal to your RPO. An RPO of one hour requires all the data changes replicated to the secondary region within one hour or less.
 
-**Determine replication configurations.** You need to use your RPO and architecture to apply the right data replication configurations. For a single region web app, you need to determine how many availability zones to use. Many Azure storage services offer native data replication options between availability zones. You should configure the redundancy that meets your needs. 
+**Determine replication configurations.** You need to use your RPO and architecture to apply the right data replication configurations. For a single region web app, you need to determine how many availability zones to use. Many Azure storage services offer native data replication options between availability zones. You should configure the redundancy that meets your needs.
 
 For a multi-region web app with an active-passive configuration, you need to replicate data to the passive region for disaster recovery. The replication frequency of your data in an active-passive configuration needs to meet your RPO. For a muti-region active-active configuration, you need to replicate data across regions in near realtime. 
 
@@ -107,9 +107,11 @@ Security is a critical component of any architectural design. The goal is to ens
 
 ### Enforce least privileges
 
-As a fundamental security tenet, you should grant users and services (workload identities) only the permissions they need. You should map users to roles and delegate the appropriate permissions to those roles. The number and type of roles you use depends on the needs of your application.
+As a fundamental security tenet, you should only grant users and Azure services (workload identities) the permissions they need.
 
-You should also enforce the principle of least privilege for workload identities across all Azure services. Workload identity permissions are persistent, rather than just-in-time or short-term permissions. You should assign only the necessary permissions to the workload identity so that the underlying Azure service can perform its required functions within the workload. These required functions include create, read, update, and delete (CRUD) operations in a database and reading secrets.
+**Assign permissions to user identities.** Map users to roles and give the appropriate permissions to those roles. The number and type of roles you use depends on the needs of your application.
+
+**Assign permissions to workload identities:** You should also enforce the principle of least privilege for workload identities across all Azure services. Workload identity permissions are persistent, rather than just-in-time or short-term permissions. You should assign only the necessary permissions to the workload identity so that the underlying Azure service can perform its required functions within the workload. These required functions include create, read, update, and delete (CRUD) operations in a database and reading secrets.
 
 There are two ways to manage access for workload identities. You can control access by using Azure Active Directory (Azure AD) role-based access control (RBAC) or at the Azure-service level with access policies. You should prioritize Azure RBAC to manage permissions over Azure-service level access controls. Azure RBAC ensures consistent, granular, and auditable access control with Azure AD that simplifies access management. For example, you need to create an identity for your web app in Azure AD. You should use Azure RBAC to grant the least number of permissions the web app needs to function to the web app identity. For more information, see:
 
@@ -144,7 +146,7 @@ auth_settings_v2 {
 
 The code configures Azure Active Directory as the authentication provider, using a client ID and secret stored in an Azure Key Vault. It specifies the authentication endpoint for the Azure AD tenant and enables the token store functionality for the sign in.
 
-**Integrate with identity provider (code).** You need to integrate the web application with the identity provider (Azure AD) in the code to help ensure secure and seamless authentication and authorization.
+**Integrate with the identity provider.** You need to integrate the web application with the identity provider (Azure AD) in the code to help ensure secure and seamless authentication and authorization.
 
 The Spring Boot Starter for Azure AD is an excellent option for integrating with Azure AD. This starter provides a simple and efficient way to implement enhanced-security authentication at the code level, using Spring Security and Spring Boot frameworks. The Spring Boot Starter for Azure AD provides several benefits, like support for various authentication flows, automatic token management, and customizable authorization policies. Additionally, it enables integration with other Spring Cloud components, like Spring Cloud Config and Spring Cloud Gateway. By using the Spring Boot Starter for Azure AD, you can integrate Azure AD and OAuth 2.0 authentication and authorization into the Spring Boot application without manually configuring the required libraries and settings. For more information, see [Spring Boot Starter for Azure AD](/azure/developer/java/spring-framework/spring-boot-starter-for-azure-active-directory-developer-guide?tabs=SpringCloudAzure4x).
 
@@ -163,7 +165,7 @@ The Spring Boot Starter for Azure AD is an excellent option for integrating with
 
 For more information, see [Spring Cloud Azure support for Spring Security](https://learn.microsoft.com/azure/developer/java/spring-framework/spring-security-support).
 
-**Implement authentication and authorization business rules (code).** Implementing authentication and authorization business rules involves defining the access control policies and permissions for various application functionalities and resources. You need to configure Spring Security to use Spring Boot Starter for Azure AD. This library allows integration with Azure AD and helps you ensure that users are authenticated securely. Additionally, configuring and enabling the Microsoft Authentication Library (MSAL) provides access to more security features, like token caching and automatic token refreshing, and enhances the security of the web application.
+**Implement authentication and authorization business rules.** Implementing authentication and authorization business rules involves defining the access control policies and permissions for various application functionalities and resources. You need to configure Spring Security to use Spring Boot Starter for Azure AD. This library allows integration with Azure AD and helps you ensure that users are authenticated securely. Additionally, configuring and enabling the Microsoft Authentication Library (MSAL) provides access to more security features, like token caching and automatic token refreshing, and enhances the security of the web application.
 
 *Reference implementation* The reference implementation creates two app roles (*User* and *Creator*). Roles translate into permissions during authorization. The *Creator* role has permissions to configure the application settings, upload videos, and create playlists. The *User* Role can view the videos.
 
@@ -303,7 +305,7 @@ spring.datasource.password=${database-app-user-password}
 
 For temporary account access, you should use a shared access signature (SAS). There's a user delegation SAS, a service SAS, and an account SAS. You should use a user delegation SAS when possible. It's the only SAS that uses Azure AD credentials and doesn't require a storage account key.
 
-*Reference implementation.* Sometimes access keys are unavoidable. The reference implementation needs to use an [account access key](/azure/storage/common/storage-account-keys-manage) to mount a directory with Azure Files to App Service. The web app uses the Azure Files integration in App Service to mount an NFS share to the Tomcat app server. The mount allows the web app to access the file share as if it were a local directory. This setup enables the web app to read and write files to the shared file system in the cloud.
+*Reference implementation.* Sometimes access keys are unavoidable. The reference implementation needs to use a [Storage account access key](/azure/storage/common/storage-account-keys-manage) to mount a directory with Azure Files to App Service. The web app uses the Azure Files integration in App Service to mount an NFS share to the Tomcat app server. The mount allows the web app to access the file share as if it were a local directory. This setup enables the web app to read and write files to the shared file system in the cloud.
 
 ### Use private endpoints
 
@@ -312,9 +314,7 @@ Private endpoints provide private connections between resources in an Azure virt
 - [How to create a private endpoint](/azure/architecture/example-scenario/private-web-app/private-web-app#deploy-this-scenario)
 - [Best practices for endpoint security](/azure/architecture/framework/security/design-network-endpoints)
 
-*Reference implementation.* The reference implementation uses private endpoints for Key Vault, Azure Cache for Redis, and Azure Database for PostgreSQL. To make the deployment possible, it doesn't use a private endpoint for Azure Files. The web app loads the user interface with playlists and videos from the local client IP address. It was less efficient to use a private endpoint for Azure.
-
-You don't need to populate data in production, so you should always use a private endpoint to limit the attack surface. To add a layer of security, Azure Files only accepts traffic from the virtual network and the local client IP of the user executing the deployment.
+*Reference implementation.* The reference implementation uses private endpoints for Key Vault, Azure Cache for Redis, and Azure Database for PostgreSQL. The reference implementation doesn't use a private endpoint for Azure Files for deployment purposes. The web app needs to load the user interface with playlists and videos from the local client IP address. A private endpoint would block this deployment step. So we opted for a service firewall. Azure Files only accepts traffic from the virtual network and the local client IP of the user executing the deployment. Since you don't need to populate data like this in production, you should use a private endpoint.
 
 ### Use a web application firewall
 

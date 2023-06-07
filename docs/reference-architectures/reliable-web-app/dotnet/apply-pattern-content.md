@@ -3,17 +3,17 @@ ms.custom:
   - devx-track-dotnet
 ---
 
-The reliable web app pattern provides prescriptive implementation guidance for web apps moving to the cloud (re-platform). It focuses on the minimal changes you need to make to meet your short and long term business goals. This article provides code and architecture implementation details to apply the reliable web app pattern to your web app. The companion article walks you through important decisions to [plan the implementation](plan-implementation.yml).
+The reliable web app pattern provides prescriptive implementation guidance for web apps moving to the cloud (re-platforming). It focuses on the minimal changes you need to make to meet your business goals. This article provides code and architecture guidance to implement the pattern. The companion article explains important decisions to [plan the implementation of the pattern](plan-implementation.yml).
 
-![Diagram showing GitHub icon.](../../../_images/github.png) There's a [reference implementation](https://aka.ms/eap/rwa/dotnet) that applies the reliable web app pattern to a .NET web app. You should use the reference implementation with the written guidance to get the most out of the pattern.
+![Diagram showing GitHub icon.](../../../_images/github.png) There's a [reference implementation](https://aka.ms/eap/rwa/dotnet) (sample application) with the pattern applied that you can deploy. You should use the reference implementation with the written guidance to get the most out of the pattern.
 
 ## Architecture and code
 
-A well-architected web application needs quality code, and quality code needs a well-architected solution. The reliable web app pattern situates code changes within the pillars of the Azure Well-Architected Framework to reinforce the close relationship between code and architecture. The following diagram illustrates the architecture of the reference implementation.
+A well-architected web application needs quality code, and quality code needs a well-architected solution. The reliable web app pattern situates code changes within the pillars of the Azure Well-Architected Framework to reinforce the close relationship between code and architecture.
 
 [![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-dotnet.png)](images/reliable-web-app-dotnet.png)
 
-*Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet.vsdx) of this architecture. For the estimated cost of each environment, see:*
+*Figure 1. Reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet.vsdx) of this architecture. For the estimated cost of each environment, see:*
 
 - [Production environment estimated cost](https://azure.com/e/26f1165c5e9344a4bf814cfe6c85ed8d)
 - [Nonproduction environment estimated cost](https://azure.com/e/8a574d4811a74928b55956838db71093)
