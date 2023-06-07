@@ -6,7 +6,7 @@ This architecture is useful when you want to:
 - Increase the overall resilience and service level objective (SLO) of your application.
 
 > [!TIP]
-> ![GitHub logo](../../_images/github.svg) The architecture is backed by an [**example implementation**](https://github.com/Azure-Samples/azure-spring-apps-multi-zone) that illustrates some of design choices. Consider the implementation as your first step towards production.
+> ![GitHub logo](../../_images/github.svg) The architecture is backed by an [**example implementation**](https://github.com/Azure-Samples/azure-spring-apps-multi-zone) that illustrates some of the design choices. Consider the implementation as your first step towards production.
 
 ## Architecture
 
