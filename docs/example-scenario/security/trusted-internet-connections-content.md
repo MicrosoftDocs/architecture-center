@@ -133,38 +133,38 @@ The following solution uses Azure Firewall to manage the traffic entering your A
 - An event hub.
 - An alert rule that sends an email if a job fails.
 
-All resources are deployed to a single subscription and virtual network for simplicity. Resources could be deployed in any combination of resource groups or across multiple virtual networks.
+For the sake of simplicity, all resources are deployed to a single subscription and virtual network. You can deploy the resources in any combination of resource groups or across multiple virtual networks.
 
 [![Deploy to Azure](media/trusted-internet-connections-deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ftrusted-internet-connection%2Fmain%2FArchitecture%2FAzure-Firewall%2FComplete%2Fazuredeploy.json)
 
 [![Deploy to Azure Government](media/trusted-internet-connections-deploy-azure-government.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ftrusted-internet-connection%2Fmain%2FArchitecture%2FAzure-Firewall%2FComplete%2Fazuredeploy.json)
 
-### Post-deployment tasks for all solutions
+### Post-deployment tasks 
 
-Up to now your environment is performing the firewall capabilities and logging connections. To be TIC 3.0 compliant for Network Telemetry collection, those logs must make it to CISA CLAW. The post-deployment steps finish the tasks towards compliance. These steps require coordination with CISA because you need a certificate from CISA to associate with your Service Principal. For step-by-step details, see [Post Deployment Tasks](https://github.com/Azure/trusted-internet-connections/tree/main/Architecture/Post-Deployment-Tasks).
+After deployment, your environment performs the firewall capabilities and logging connections. To meet compliance with TIC 3.0 policies for network telemetry collection, you need to ensure that the logs make it to CISA CLAW. The post-deployment steps finish the tasks to enable compliance. To complete these steps, you need to coordinate with CISA because CISA needs to supply a certificate to associate with your service principal. For step-by-step details, see [Post-deployment tasks](https://github.com/Azure/trusted-internet-connection/tree/main/Architecture/Post-Deployment-Tasks).
 
-The following tasks must be performed after deployment is complete. They're manual tasks—an ARM template can't do them.
+You need to complete the following tasks after deployment. You need to perform these tasks manually. You can't complete them by using an ARM template.
 
 - Obtain a public key certificate from CISA. 
-- Create a Service Principal (App Registration).
-- Add the CISA-provided certificate to the App Registration.
-- Assign the application with the Azure Event Hubs Data Receiver role to the Event Hubs Namespace.
-- Activate Feed by sharing Azure Tenant ID, Application (client) ID, Event Hubs Namespace name, Event Hubs name, and Consumer group name with your CISA POC
+- Create a service principal (application registration).
+- Add the public key certificate to the appliction registration.
+- Assign the application the Azure Event Hubs Data Receiver role at the Event Hubs namespace scope.
+- Activate the feed by sending the Azure tenant ID, application (client) ID, event hub namespace name, event hub name, and consumer group name to CISA.
 
-## Deploy an Application Gateway with WAF solution
+## Deploy a solution that uses Application Gateway with WAF
 
-The following solution integrates an Application Gateway with Web Application Firewall (WAF) to manage the traffic into your Azure application environment. The solution includes all resources to generate, collect, and deliver logs to the CLAW. It also includes an app service to highlight the types of telemetry collected by the firewall.
+The following solution uses Application Gateway with WAF to manage the traffic entering your Azure application environment. The solution includes all resources for generating, collecting, and delivering logs to CLAW. It also includes an app service to track the types of telemetry collected by the firewall.
 
-:::image type="content" source="media/trusted-internet-connections-architecture-application-gateway.png" alt-text="Diagram of T I C 3 point 0 compliance architecture with Azure Application Gateway with Web Application Firewall uploading logs to CLAW." border="false" lightbox="media/trusted-internet-connections-architecture-application-gateway.png"::: 
+:::image type="content" source="media/trusted-internet-connections-architecture-application-gateway.png" alt-text="Diagram that shows a TIC 3.0 compliance architecture. Application Gateway with WAF uploads logs to CLAW." border="false" lightbox="media/trusted-internet-connections-architecture-application-gateway.png"::: 
 
 The solution includes:
 
-- A virtual network with separate subnets for the firewall and servers.
+- A virtual network that has separate subnets for the firewall and servers.
 - A Log Analytics workspace.
-- An Application Gateway v2 with Web Application Firewall with Bot and Microsoft managed policies.
-- An Application Gateway v2 diagnostic settings that send logs to the Log Analytics workspace.
-- A registered application
-- An Event Hubs
+- An Application Gateway v2 instance with WAF that's configured with bot and Microsoft managed policies.
+- Application Gateway v2 diagnostic settings that send logs to the Log Analytics workspace.
+- A registered application.
+- An event hub.
 - An alert rule that sends an email if a job fails.
 
 All resources are deployed to a single subscription and virtual network for simplicity. Resources could be deployed in any combination of resource groups or across multiple virtual networks.
@@ -173,7 +173,7 @@ All resources are deployed to a single subscription and virtual network for simp
 
 [![Deploy to Azure Gov](media/trusted-internet-connections-deploy-azure-government.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ftrusted-internet-connection%2Fmain%2FArchitecture%2FAzure-Application-Gateway%2FComplete%2Fazuredeploy.json)
 
-### Post-deployment tasks for all solutions
+### Post-deployment tasks  
 
 After deployment, your environment performs the firewall capabilities and logging connections. To meet compliance with TIC 3.0 policies for network telemetry collection, you need to ensure that the logs make it to CISA CLAW. The post-deployment steps finish the tasks to enable compliance. To complete these steps, you need to coordinate with CISA because CISA needs to supply a certificate to associate with your service principal. For step-by-step details, see [Post-deployment tasks](https://github.com/Azure/trusted-internet-connection/tree/main/Architecture/Post-Deployment-Tasks).
 
@@ -207,7 +207,7 @@ All resources are deployed to a single subscription and virtual network for simp
 
 [![Deploy to Azure Gov](media/trusted-internet-connections-deploy-azure-government.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ftrusted-internet-connection%2Fmain%2FArchitecture%2FAzure-Front-Door%2FComplete%2Fazuredeploy.json)
 
-### Post-deployment tasks for all solutions
+### Post-deployment tasks  
 
 Up to now your environment is performing the firewall capabilities and logging connections. To be TIC 3.0 compliant for Network Telemetry collection, those logs must make it to CISA CLAW. The post-deployment steps finish the tasks towards compliance. These steps require coordination with CISA because you need a certificate from CISA to associate with your Service Principal. For step-by-step details, see [Post Deployment Tasks](https://github.com/Azure/trusted-internet-connection/tree/main/Architecture/Post-Deployment-Tasks).
 
@@ -228,7 +228,7 @@ The following solution defines how a Third-party firewall can be used to manage 
 
 :::image type="content" source="media/trusted-internet-connections-architecture-nva.png" alt-text="Diagram of T I C 3 point 0 compliance architecture with Third-party Firewall uploading logs to CLAW." border="false" lightbox="media/trusted-internet-connections-architecture-nva.png":::
 
-### Post-deployment tasks for all solutions
+### Post-deployment tasks  
 
 Up to now your environment is performing the firewall capabilities and logging connections. To be TIC 3.0 compliant for Network Telemetry collection, those logs must make it to CISA CLAW. The post-deployment steps finish the tasks towards compliance. These steps require coordination with CISA because you need a certificate from CISA to associate with your Service Principal. For step-by-step details, see [Post Deployment Tasks](https://github.com/Azure/trusted-internet-connection/tree/main/Architecture/Post-Deployment-Tasks).
 
