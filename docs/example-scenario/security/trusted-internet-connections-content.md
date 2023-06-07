@@ -99,7 +99,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 - When you register an enterprise application, a service principal is created. Use a naming scheme for service principals that indicates the purpose of each one.
 - Perform audits to determine the activity of service principals and the status of service principal owners.
 - Azure Firewall has standard policies. WAFs associated with Application Gateway and Azure Front Door have managed rule sets to help secure your web service. Start with these rule sets and build organizational policies over time based on industry requirements, best practices, and government regulations.
-- Event Hubs access is authorized via Azure AD managed identities with a CISA-provided certificate.
+- Event Hubs access is authorized via Azure AD managed identities and a CISA-provided certificate.
 
 ### Cost optimization
 
