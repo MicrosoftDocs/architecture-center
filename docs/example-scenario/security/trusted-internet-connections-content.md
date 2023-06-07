@@ -52,7 +52,7 @@ There are a few alternatives that you can use in these solutions:
 
 ## Scenario details
 
-TIC 3.0 moves TIC from on-premises data collection to a cloud-based approach that better supports modern applications and systems. It improves performance because you can directly access Azure applications. With TIC 2, you needed to access Azure applications via a TIC 2 Managed Trusted Internet Protocol Service (MTIPS) device, which increases response time.
+TIC 3.0 moves TIC from on-premises data collection to a cloud-based approach that better supports modern applications and systems. It improves performance because you can directly access Azure applications. With TIC 2, you need to access Azure applications via a TIC 2 Managed Trusted Internet Protocol Service (MTIPS) device, which increases response time.
 
 Routing application traffic through a firewall and logging that traffic is the core functionality demonstrated in the solutions presented here. The firewall can be Azure Firewall, Azure Front Door with WAF, Application Gateway with WAF, or a third-party NVA. The firewall helps to secure the cloud perimeter and saves logs of each transaction. Independently of the firewall layer, the log collection and delivery solution requires a Log Analytics workspace, a registered application, and an event hub. The Log Analytics workspace sends logs to the event hub.  
 
