@@ -64,7 +64,7 @@ The following sections present a breakdown of Contoso activity necessary across 
         - Azure Data Center Failure: N/A
         - Availability Zone Failure: N/A
         - Azure Regional Failure: N/A
--
+
 - **Network Watcher**
     - Contoso SKU selection: N/A
     - DR Impact
