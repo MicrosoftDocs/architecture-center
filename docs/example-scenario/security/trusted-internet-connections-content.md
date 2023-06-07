@@ -1,4 +1,4 @@
-Version 3.0 of the Trusted Internet Connections (TIC) takes TIC from on-premises data collection to a cloud-based approach that better supports modern applications and systems. It improves performance because you can directly access Azure applications. With TIC 2.0+, users accessed Azure applications via a TIC 2.0+ Managed Trusted Internet Protocol Service (MTIPS) device, which increased response time.
+Version 3.0 of the Trusted Internet Connections (TIC) takes TIC from on-premises data collection to a cloud-based approach that better supports modern applications and systems. It improves performance because you can directly access Azure applications. With TIC 2, users accessed Azure applications via a TIC 2 Managed Trusted Internet Protocol Service (MTIPS) device, which increased response time.
 
 You can deliver TIC 3.0 compliance for your internet-facing Azure applications and services. This article provides solutions and resources to guide government organizations to TIC 3.0 compliance. It shows how to deploy the required assets and how to incorporate the solutions into existing systems.
 
@@ -114,30 +114,30 @@ Security provides assurances against deliberate attacks and the abuse of your va
 - When you register an enterprise application, a service principal is created. Use a naming scheme for sevice principals that indicates the purpose of each one.
 - Perform audits to determine the activity of service principals and the status of service principal owners.
 - Azure Firewall has standard policies. WAFs associated with Application Gateway and Azure Front Door have managed rule sets to help secure your web service. Start with these rule sets and build organizational policies over time based on industry requirements, best practices, and government regulations.
-- Event Hubs access is authorized using Azure Active Directory Managed Identities using a CISA provided certificate.
+- Event Hubs access is authorized via Azure AD managed identities with a CISA-provided certificate.
 
 ## Deploy an Azure Firewall solution
 
-The following solution integrates Azure Firewall to manage the traffic into your Azure application environment. The solution includes all resources to generate, collect, and deliver logs to the CLAW. It also includes an app service to highlight the types of telemetry collected by the firewall.
+The following solution uses Azure Firewall to manage the traffic entering your Azure application environment. The solution includes all resources for generating, collecting, and delivering logs to CLAW. It also includes an app service to track the types of telemetry collected by the firewall.
 
-:::image type="content" source="media/trusted-internet-connections-architecture-firewall.png" alt-text="Diagram of T I C 3 point 0 compliance architecture with Azure firewall uploading logs to CLAW." border="false" lightbox="media/trusted-internet-connections-architecture-firewall.png":::
+:::image type="content" source="media/trusted-internet-connections-azure-firewall.png" alt-text="Diagram that shows a TIC 3.0 compliance architecture. Azure Firewall uploads logs to CLAW." border="false" lightbox="media/trusted-internet-connections-azure-firewall.png":::
 
  The solution includes:
 
-- A virtual network with separate subnets for the firewall and servers.
+- A virtual network that has separate subnets for the firewall and servers.
 - A Log Analytics workspace.
 - Azure Firewall with a network policy for internet access.
 - Azure Firewall diagnostic settings that send logs to the Log Analytics workspace.
-- A route table associated with AppSubnet to route the app service to the firewall for the logs it generates.
-- A registered application
-- An Event Hubs
+- A route table that's associated with the application resource group to route the app service to the firewall for the logs it generates.
+- A registered application.
+- An event hub.
 - An alert rule that sends an email if a job fails.
 
 All resources are deployed to a single subscription and virtual network for simplicity. Resources could be deployed in any combination of resource groups or across multiple virtual networks.
 
 [![Deploy to Azure](media/trusted-internet-connections-deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ftrusted-internet-connection%2Fmain%2FArchitecture%2FAzure-Firewall%2FComplete%2Fazuredeploy.json)
 
-[![Deploy to Azure Gov](media/trusted-internet-connections-deploy-azure-government.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ftrusted-internet-connection%2Fmain%2FArchitecture%2FAzure-Firewall%2FComplete%2Fazuredeploy.json)
+[![Deploy to Azure Government](media/trusted-internet-connections-deploy-azure-government.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ftrusted-internet-connection%2Fmain%2FArchitecture%2FAzure-Firewall%2FComplete%2Fazuredeploy.json)
 
 ### Post-deployment tasks for all solutions
 
@@ -175,15 +175,15 @@ All resources are deployed to a single subscription and virtual network for simp
 
 ### Post-deployment tasks for all solutions
 
-Up to now your environment is performing the firewall capabilities and logging connections. To be TIC 3.0 compliant for Network Telemetry collection, those logs must make it to CISA CLAW. The post-deployment steps finish the tasks towards compliance. These steps require coordination with CISA because you need a certificate from CISA to associate with your Service Principal. For step-by-step details, see [Post Deployment Tasks](https://github.com/Azure/trusted-internet-connection/tree/main/Architecture/Post-Deployment-Tasks).
+After deployment, your environment performs the firewall capabilities and logging connections. To meet compliance with TIC 3.0 policies for network telemetry collection, you need to ensure that the logs make it to CISA CLAW. The post-deployment steps finish the tasks to enable compliance. To complete these steps, you need to coordinate with CISA because CISA needs to supply a certificate to associate with your service principal. For step-by-step details, see [Post-deployment tasks](https://github.com/Azure/trusted-internet-connection/tree/main/Architecture/Post-Deployment-Tasks).
 
-The following tasks must be performed after deployment is complete. They're manual tasks—an ARM template can't do them.
+You need to complete the following tasks after deployment. You need to perform these tasks manually. You can't complete them by using an ARM template.
 
 - Obtain a public key certificate from CISA. 
-- Create a Service Principal (App Registration).
-- Add the CISA-provided certificate to the App Registration.
-- Assign the application with the Azure Event Hubs Data Receiver role to the Event Hubs Namespace.
-- Activate Feed by sharing Azure Tenant ID, Application (client) ID, Event Hubs Namespace name, Event Hubs name, and Consumer group name with your CISA POC
+- Create a service principal (application registration).
+- Add the public key certificate to the appliction registration.
+- Assign the application the Azure Event Hubs Data Receiver role at the Event Hubs namespace scope.
+- Activate the feed by sending the Azure tenant ID, application (client) ID, event hub namespace name, event hub name, and consumer group name to CISA.
 
 ## Deploy an Azure Front Door with WAF solution
 
