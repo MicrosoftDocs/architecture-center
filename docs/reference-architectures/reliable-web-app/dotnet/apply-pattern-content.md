@@ -3,13 +3,13 @@ ms.custom:
   - devx-track-dotnet
 ---
 
-The reliable web app pattern provides prescriptive implementation guidance for web apps moving to the cloud (re-platforming). It focuses on the minimal changes you need to make to meet your business goals. This article provides code and architecture guidance to implement the pattern. The companion article explains important decisions to [plan the implementation of the pattern](plan-implementation.yml).
+The reliable web app pattern defines prescriptive implementation guidance for web apps moving to the cloud (re-platforming). The pattern focuses on the minimal changes you need to make to meet your business goals. There are two articles on the reliable web app pattern for .NET. This article provides code and architecture guidance. The companion article shows you how to [plan the implementation of the pattern](plan-implementation.yml).
 
 ![Diagram showing GitHub icon.](../../../_images/github.png) There's a [reference implementation](https://aka.ms/eap/rwa/dotnet) (sample application) with the pattern applied that you can deploy. You should use the reference implementation with the written guidance to get the most out of the pattern.
 
 ## Architecture and code
 
-A well-architected web application needs quality code, and quality code needs a well-architected solution. The reliable web app pattern situates code changes within the pillars of the Azure Well-Architected Framework to reinforce the close relationship between code and architecture.
+A well-architected web application needs quality code, and quality code needs a well-architected solution. The reliable web app pattern situates code changes within the pillars of the Azure Well-Architected Framework to reinforce the close relationship between code and architecture (*see figure 1*).
 
 [![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-dotnet.png)](images/reliable-web-app-dotnet.png)
 
@@ -18,7 +18,7 @@ A well-architected web application needs quality code, and quality code needs a 
 - [Production environment estimated cost](https://azure.com/e/26f1165c5e9344a4bf814cfe6c85ed8d)
 - [Nonproduction environment estimated cost](https://azure.com/e/8a574d4811a74928b55956838db71093)
 
-The following table lists the principles of the reliable web app pattern. It includes the foundational Well-Architected Framework principles that form the foundation of all the Enterprise App Patterns. The table also highlights key feature of the pattern implementation.
+The following table lists the principles of the reliable web app pattern and the Well-Architected Framework principles of all the Enterprise App Patterns. The table also lists the technical details of the pattern implementation.
 
 | Pattern principles | Pattern implementation |
 | --- | --- |
