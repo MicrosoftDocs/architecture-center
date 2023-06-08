@@ -11,7 +11,7 @@ Your business context, existing web app, and service level objective (SLO) affec
 
 [![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-dotnet.png)](images/reliable-web-app-dotnet.png)
 
-*Figure 1. Target reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet.vsdx) of this architecture. For the estimated cost of each environment, see [Production environment estimated cost](https://azure.com/e/26f1165c5e9344a4bf814cfe6c85ed8d) and [Nonproduction environment estimated cost](https://azure.com/e/8a574d4811a74928b55956838db71093).*
+*Figure 1. Target reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet.vsdx) of this architecture. See [Production environment](https://azure.com/e/26f1165c5e9344a4bf814cfe6c85ed8d) and [Nonproduction environment](https://azure.com/e/8a574d4811a74928b55956838db71093) estimated cost.*
 
 The following table lists the principles of the reliable web app pattern and implementation details.
 
