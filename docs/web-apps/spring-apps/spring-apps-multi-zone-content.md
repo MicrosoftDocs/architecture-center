@@ -23,7 +23,7 @@ Here are the Azure services used in this architecture. For product documentation
 
     This SKU has integrated Azure Web Application Firewall (WAF) that provides centralized protection of your web applications from common exploits and vulnerabilities. Web Application Firewall on the Application Gateway tracks OWASP exploits.
 
-- **Azure DNS** resolves requests sent to the host name of the application to the public endpoint of Azure Application Gateway.
+- **Azure DNS** resolves requests sent to the host name of the application to the public endpoint of Azure Application Gateway. Azure Private DNS zones resolve requests to the private endpoints used to access the named Private link resources.
 
 - **Azure Database for MySQL** stores state in a backend relational database. 
 
@@ -104,7 +104,7 @@ The database also follows a similar model. The [flexible server deployment mode 
 
 There are other services, such as Azure Key Vault, which are connected to the virtual network through [Azure Private Link](https://azure.microsoft.com/products/private-link). For Private Link, you need to enable a private endpoint so that public network access is disabled. For more information about private endpoints for Azure Key Vault, see [Integrate Key Vault with Azure Private Link](/azure/key-vault/general/private-link-service?tabs=cli).
 
-Private endpoints should be put in a dedicated subnet. Private IP addresses to the private endpoints are assigned from that subnet.
+Private endpoints don't require a dedicated subnet but it's good practice to put them in a separate subnet. Private IP addresses to the private endpoints are assigned from that subnet.
 
 The private endpoint and network-integrated connections use an [Azure private DNS zone](/azure/dns/private-dns-getstarted-cli).
 
@@ -207,6 +207,7 @@ For documentation on the Azure services and features used in this architecture, 
 - [Azure Database for MySQL](/azure/mysql/overview)
 - [Azure Key Vault](/azure/key-vault/)
 - [Azure DNS](/azure/dns/dns-overview)
+- [Azure Private DNS zone](/azure/dns/private-dns-privatednszone)
 - [Azure Web Application Firewall](/azure/web-application-firewall/overview)
 - [Azure Private Link](/azure/private-link/private-link-overview)
 - [Managed identities](/azure/active-directory/managed-identities-azure-resources/overview)

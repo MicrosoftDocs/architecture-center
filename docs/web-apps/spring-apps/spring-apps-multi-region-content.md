@@ -47,13 +47,12 @@ The components of this architecture are same as the [**baseline architecture**](
 
 If you're designing for high availability, you can set up this architecture in an *active-active*, *active-passive with hot standby*, or *active-passive with cold standby* mode.
 
-That choice depends on your business requirements. This architecture uses active-active deployment in two regions because the organization wants to have a global presence with high Uptime SLA (Service Level Agreement). If you're running mission-critical applications and want higher availability, you need to use more than two regions. 
+That choice depends on the availability requirements you have for your application. This architecture uses active-active deployment in two regions because the organization wants to have a global presence with high Uptime SLA (Service Level Agreement). If you're running mission-critical applications and want higher availability, you need to use more than two regions. 
 
 > [!NOTE] 
 > 
-> Multi-region deployment doubles the cost of workload because the full setup is duplicated to a secondary region. For this reason, the choice is often made to provide an active-passive setup, where only one region is active and deployed. In this case, you add a global load balancer to the multi-region setup to provide an easy way of failing over your workloads after a secondary region becomes active. 
->
->Whether active-active or active-passive is the best choice for your workload depends on the availability requirements you have for your application.
+> Multi-region deployment doubles the cost of workload because the full setup is duplicated to a secondary region. 
+
 
 ##### Active-active
 
@@ -83,7 +82,7 @@ If your entire solution setup uses templates, you can easily deploy a cold stand
 > [!IMPORTANT]
 > For mission-critical workloads, we recommend combining zone redundancy and regional redundancy to achieve maximum reliability and availability, with zone-redundant services deployed across multiple Azure regions.
 > For more information, see the [Global distribution](/azure/architecture/framework/mission-critical/mission-critical-application-design#global-distribution) section of the mission-critical design methodology, and the [Mission-critical baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro).
-> You can also use the [Deploy Azure Spring Apps to multiple regions guidance](/azure/architecture/reference-architectures/microservices/spring-apps-multi-region) for an automated setup across regions.
+
 
 ## Routing between regions
 
@@ -150,8 +149,6 @@ Automating infrastructure deployments guarantees that infrastructure is configur
 
 For application deployment, make sure your deployment systems target the multiple regions they need to deploy to. You can also use multiple regions in a [blue-green](blue-green-spring.yml) or canary deployment strategy. With these deployment strategies, you roll out new versions of applications to one region for testing, and to other regions after testing is successful.
 
-You can also use a [blue-green](/azure/architecture/example-scenario/blue-green-spring/blue-green-spring) or canary deployment strategy.
-
 
 ## Performance and scalability
 
@@ -185,7 +182,7 @@ The cost of services was estimated in [Azure pricing calculator](https://azure.c
 
 The design considerations for the [**baseline architecture**](spring-apps-multi-zone.yml) still apply in this use case. Review these points in the context of this architecture: 
 
-- **Network security**. Incoming calls this architecture is locked down to allow incoming calls only from Azure Front Door. These calls are routed to the Application Gateway in each region. From the Application Gateway, the calls route to the backend Azure Spring Apps service. Communication from Azure Spring Apps to supporting services, like the key vault, is also locked down by using private endpoints. The most important guideline when you use a different PaaS service is to properly configure host name preservation for the custom domain in the service.
+- **Network security**. It's important to lock down the communication through the network. Incoming calls this architecture is locked down to allow incoming calls only from Azure Front Door. These calls are routed to the Application Gateway in each region. From the Application Gateway, the calls route to the backend Azure Spring Apps service. Communication from Azure Spring Apps to supporting services, like the Key Vault, is also locked down by using private endpoints. 
 
   > For details, see [Baseline architecture: Network security](/azure/architecture/web-apps/spring-apps/spring-apps-multi-zone#network-security)
 
