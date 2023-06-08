@@ -1,0 +1,2 @@
+
+:::image type="content" source="media/teamcenter-baseline-architecture.svg" alt-text="Diagram that shows a Teamcenter PLM baseline architecture." lightbox="media/teamcenter-baseline-architecture.svg" border="false":::
