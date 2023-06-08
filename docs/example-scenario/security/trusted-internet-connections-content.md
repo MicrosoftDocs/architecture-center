@@ -172,7 +172,7 @@ The solution includes:
 
 - A virtual network that has separate subnets for the firewall and servers.
 - A Log Analytics workspace.
-- An Application Gateway v2 instance with WAF that's configured with bot and Microsoft managed policies.
+- An Application Gateway v2 instance with WAF. The WAF is configured with bot and Microsoft managed policies.
 - Application Gateway v2 diagnostic settings that send logs to the Log Analytics workspace.
 - A registered application.
 - An event hub.
@@ -206,7 +206,7 @@ The following solution uses Azure Front Door with WAF to manage traffic entering
 
 - A virtual network that has separate subnets for the firewall and servers.
 - A Log Analytics workspace.
-- An Azure Front Door instance with WAF that's configured with bot and Microsoft managed policies.
+- An Azure Front Door instance with WAF. The WAF is configured with bot and Microsoft managed policies.
 - Azure Front Door diagnostic settings that send logs to the Log Analytics workspace.
 - A registered application.
 - An event hub.
@@ -233,7 +233,7 @@ You need to complete the following tasks after deployment. You need to perform t
 ## Third-party firewall (NVA) solution
 
 > [!NOTE]
-> Deployment resources aren't provided for this solution. It's intended only to provide guidance.
+> Deployment resources aren't provided for this solution. It's included only to provide guidance.
 
 The following solution illustrates how you can use a third-party firewall to manage traffic entering your Azure application environment and implement TIC 3.0 compliance. Third-party firewalls require the use of a Syslog forwarder virtual machine. Its agents need to be registered with the Log Analytics workspace. The third-party firewall is configured to export its logs in Syslog format to the Syslog forwarder virtual machine. The agent is configured to send its logs to the Log Analytics workspace. After the logs are in the Log Analytics workspace, they're sent to Event Hubs and processed as they are in the other solutions described in this article.
 
@@ -297,5 +297,5 @@ Other contributor:
 
 - [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml)
 - [Securely managed web applications](../apps/fully-managed-secure-apps.yml)
-- [Secure and govern workloads with network level segmentation](../../reference-architectures/hybrid-networking/network-level-segmentation.yml)
+- [Secure and govern workloads with network-level segmentation](../../reference-architectures/hybrid-networking/network-level-segmentation.yml)
 - [Improved-security access to multitenant web apps from an on-premises network](access-multitenant-web-app-from-on-premises.yml)
