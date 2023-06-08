@@ -242,11 +242,12 @@ For more information on the cost of collecting metrics and logs, see [Log Analyt
 
 ### Azure Load Balancer health probes
 
-The Azure Load Balancer resources running in the frontend and backend tiers require a health probe to detect the endpoint status. The configuration of the health probe and probe responses determines which VM instances receive new connections. You use health probes to:
-- detect the failure of an application and allow Azure Load Balancer to remove the VM from rotation
-- generate a custom response to Azure Load Balancer
+The Azure Load Balancer services running in the frontend and backend tiers require a health probe to detect the endpoint status. The configuration of the health probe and probe responses determines which VM instances receive new connections. When a health probe fails, the load balancer stops sending new connections to the respective unhealthy instance. Outbound connectivity isn't affected, only inbound.
+
+You can use health probes to:
+- detect the failure of an application and allow the VM to be removed from rotation
+- generate a custom response to Azure Load Balancer for more advanced scenarios
 - probe for flow control to manage load or planned downtime
-- . When a health probe fails, the load balancer stops sending new connections to the respective unhealthy instance. Outbound connectivity isn't affected, only inbound
 
 In this reference architecture, Azure Load Balancer will be configured to do a simple test for the existence of a file to see if the application is responding. If the request is successful, an HTTP 200 will be returned to Azure Load Balancer.
 
