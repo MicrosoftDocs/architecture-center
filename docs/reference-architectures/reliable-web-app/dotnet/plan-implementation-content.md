@@ -7,7 +7,7 @@ The reliable web app pattern is how you should update web apps moving to the clo
 
 ![Diagram showing GitHub icon.](../../../_images/github.png) There's a [reference implementation](https://aka.ms/eap/rwa/dotnet) (sample application) with the pattern applied that you can deploy. You should use the reference implementation with this written guidance to get the most out of the pattern.
 
-## Architecture and pattern
+## Architecture
 
 Your business context, existing web app, and service level objective (SLO) affect the architecture of your web app. The reference implementation needed a multi-region deployment to meet stated objectives (*see figure 1*).
 

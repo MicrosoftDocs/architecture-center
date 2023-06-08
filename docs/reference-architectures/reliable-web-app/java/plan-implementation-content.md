@@ -1,8 +1,8 @@
 The reliable web app pattern is how you should update web apps moving to the cloud. It defines the implementation guidance to re-platform web apps the right way. There are two articles on the reliable web app pattern for Java. This article explains important decisions to plan the implementation of the pattern. The companion provides code and architecture guidance to [apply the pattern](apply-pattern.yml). There's a [reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java) (sample web app) of the pattern that you can deploy. Use the reference implementation with the written guidance to get the most out of the guidance.
 
-## Architecture and pattern
+## Architecture
 
-Your business context, existing web app, and service level objective (SLO) affect the architecture of your web app. The reference implementation uses a multi-region deployment to meet Proseware's objectives (*see figure 1*).
+Your business context, existing web app, and service level objective (SLO) should determine the architecture of your web app. This guidance uses the reference implementation architecture to illustrate the principles of the reliable web app pattern (*see figure 1*). It's important that your web app adheres to the principles of the pattern, not necessarily this specific architecture.
 
 [![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-java-implementation.svg)](images/reliable-web-app-java-implementation.svg)
 *Figure 1. Target reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java.vsdx) of this architecture. For the estimated cost of each environment, see:*
