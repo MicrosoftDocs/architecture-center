@@ -66,76 +66,87 @@ Follow the steps below to install LAMMPS in single node and cluster VMs.
 
 1. Export the below commands: 
 
-export PATH=$PATH:/opt/openmpi-4.1.0/bin/ 
+   ```
+   export PATH=$PATH:/opt/openmpi-4.1.0/bin/ 
 
-export LD_LIBRARY_PATH=/opt/openmpi-4.1.0/lib 
+   export LD_LIBRARY_PATH=/opt/openmpi-4.1.0/lib 
 
-export CC=gcc 
-export CXX=g++ 
+   export CC=gcc 
 
-export FC=gfortran 
+   export CXX=g++ 
 
-export FCFLAGS=-m64 
+   export FC=gfortran 
 
-export F77=gfortran 
+   export FCFLAGS=-m64 
 
-export F90=ifort 
+   export F77=gfortran 
 
-export CPPFLAGS=-DpggFortran
+   export F90=ifort 
+
+   export CPPFLAGS=-DpggFortran
+   ```
 
 1. Download the source code from [here](https://www.lammps.org/download.html) 
 
 1. Unzip the file using the below command 
-
-tar xvf * 
+   ```
+   tar xvf *
+   ```
 
 1. Locate the LAMMPS folder with following command: 
+   
+   ```
+   cd lammps-<version> 
 
-cd lammps-<version> 
-
-cd src 
+   cd src 
+   ```
 
 1. Execute below commands in src folder to build LAMMPS: 
 
-make yes-rigid 
+   ```
+   make yes-rigid 
 
-make serial 
+   make serial 
 
-make mpi 
+   make mpi 
+   ```
 
 ### Run LAMMPS
 
 1. To execute LAMMPS simulation on Standalone VM use below commands: 
 
-export PATH=$PATH:/opt/openmpi-4.1.0/bin/ 
+   ```
+   export PATH=$PATH:/opt/openmpi-4.1.0/bin/ 
 
-export LD_LIBRARY_PATH=/opt/openmpi-4.1.0/lib 
+   export LD_LIBRARY_PATH=/opt/openmpi-4.1.0/lib 
 
-export LMP_MPI=/path/LAMMPS/lammps-<version>/src/lmp_mpi 
+   export LMP_MPI=/path/LAMMPS/lammps-<version>/src/lmp_mpi 
 
-mpirun -np 16 /path/LAMMPS/lammps-<version>/src/lmp_mpi -in in.lj 
+   mpirun -np 16 /path/LAMMPS/lammps-<version>/src/lmp_mpi -in in.lj 
+   ```
 
 1. To execute LAMMPS simulation on Multi node (Cluster) use below script: 
 
-#!/bin/bash 
+   ```
+   #!/bin/bash 
 
-#SBATCH --job-name=LAMMPS 
+   #SBATCH --job-name=LAMMPS 
 
-#SBATCH --partition=hpc 
+   #SBATCH --partition=hpc 
 
-#SBATCH --nodes=2 
+   #SBATCH --nodes=2 
 
-#SBATCH --ntasks-per-node=64 
+   #SBATCH --ntasks-per-node=64 
 
-#SBATCH --ntasks=128 
+   #SBATCH --ntasks=128 
 
-export PATH=$PATH:/opt/openmpi-4.1.0/bin/ 
+   export PATH=$PATH:/opt/openmpi-4.1.0/bin/ 
 
-export LD_LIBRARY_PATH=/opt/openmpi-4.1.0/lib 
+   export LD_LIBRARY_PATH=/opt/openmpi-4.1.0/lib 
 
-export LMP_MPI=/path/LAMMPS/lammps-<version>/src/lmp_mpi 
+   export LMP_MPI=/path/LAMMPS/lammps-<version>/src/lmp_mpi 
 
-mpirun -np 64 /path/LAMMPS/lammps-<version>/src/lmp_mpi -in benchmark.in 
+   mpirun -np 64 /path/LAMMPS/lammps-<version>/src/lmp_mpi -in benchmark.in 
 
 > [!Note]
 >
