@@ -1,39 +1,44 @@
-Azure DevOps can help customers develop and modernize their z/OS applications using IBM Z and Cloud Modernization stack, resulting in increased speed and agility and greater developer productivity. Customers can modify their existing COBOL, PL/I, Java, or assembler programs using any integrated development environment (IDE) of their choice. Additionally, they can leverage the benefits of new programming languages like Python, Node.js, and Go, which can be executed on z/OS. This approach allows for easy adaptation to new languages while still retaining the flexibility to work with preferred IDEs.
+Azure DevOps can help you develop and modernize your z/OS applications that use IBM Z and Cloud Modernization Stack. Doing so can result in increased agility and enable developers to work faster and more pruductively. You can modify your existing COBOL, PL/I, Java, or assembler programs by using any integrated development environment (IDE). And you can take advantage of the benefits of programming languages like Python, Node.js, and Go, which can run on z/OS. This approach enables you to easily adapt to new languages while still retaining the flexibility to work with preferred IDEs.
 
-Azure DevOps' git-based code repository and agent-based Azure pipelines can integrate with IBM Dependency Based Build (DBB) solutions on IBM zSystems for mainframe application development and build processes. IBM Dependency Based Build, available through Wazi Code component of IBM Z & Cloud Modernization Stack perfectly complements Azure DevOps by providing intelligent build, link, and edit capabilities, enabling developers working on massive and complex applications to develop, build, and deliver in an agile manner.
+The Azure DevOps Git-based code repository and agent-based Azure pipelines can integrate with IBM Dependency Based Build (DBB) solutions on IBM zSystems for mainframe application development and build processes. DBB, available through the Wazi Code component of IBM Z and Cloud Modernization Stack, complements Azure DevOps by providing intelligent build, link, and edit capabilities. The combination enables developers working on large, complex applications to develop, build, and deliver in an agile manner.
 
-## Azure DevOps 
+## Azure DevOps
 
-Azure DevOps provides developer services to support teams to plan work, collaborate on code development, and build and deploy applications. Developers can work in the cloud using Azure DevOps Services or on-premises using Azure DevOps Server. Azure DevOps Server was formerly known as Visual Studio Team Foundation Server (TFS).  
+Azure DevOps provides developer services to help teams plan work, collaborate on code development, and build and deploy applications. Developers can work in the cloud by using Azure DevOps Services or on-premises by using Azure DevOps Server. (Azure DevOps Services was previously known as Visual Studio Team Services.)  
 
-Azure DevOps provides integrated features that you can access through your web browser or IDE client. You can use one or more of the following services based on your business needs: 
+Azure DevOps provides integrated features that you can access through your web browser or IDE client. You can use one or more of the following services, dependig on your business needs: 
 
-- [Azure Repos](https://azure.microsoft.com/products/devops/repos) provide Git repositories or Team Foundation Version Control (TFVC) for source control of your code  
-- [Azure Pipelines](https://azure.microsoft.com/products/devops/pipelines/) provide build and release services to support Continuous integration and Continuous Delivery (CI/CD) of your apps  
-- [Azure Boards](https://azure.microsoft.com/products/devops/boards/) deliver a suite of Agile tools to support planning and tracking of work, code defects, and issues using Kanban and Scrum methods  
-- [Azure Test Plans](https://azure.microsoft.com/products/devops/test-plans/) provide several tools to test your apps, including manual/exploratory testing and continuous testing  
-- [Azure Artifacts](https://azure.microsoft.com/products/devops/artifacts/) allow teams to share Maven, npm, and NuGet packages from public and private sources and integrate package sharing into your CI/CD pipelines. By using Azure Artifacts to manage COBOL files, you can ensure that all developers within your organization have access to the correct versions of the files and their dependencies. 
+- [Azure Repos](https://azure.microsoft.com/products/devops/repos) provides Git repositories or Team Foundation Version Control for source control of your code.
+- [Azure Pipelines](https://azure.microsoft.com/products/devops/pipelines/) provides build and release services to support continuous integration and continuous delivery (CI/CD) of your apps.
+- [Azure Boards](https://azure.microsoft.com/products/devops/boards/) provides a suite of Agile tools to support planning and tracking of work, code defects, and problems by using Kanban and Scrum methods.
+- [Azure Test Plans](https://azure.microsoft.com/products/devops/test-plans/) provides tools to test your apps, including manual/exploratory testing and continuous testing.  
+- [Azure Artifacts](https://azure.microsoft.com/products/devops/artifacts/) enables teams to share Maven, npm, and NuGet packages from public and private sources and integrate package sharing into CI/CD pipelines. By using Azure Artifacts to manage COBOL files, you can ensure that all developers in your organization have access to the correct versions of files and their dependencies.
 
-## Azure DevOps Architecture for z/OS 
+## Azure DevOps architecture for z/OS
 
-The purpose of this architecture is to help get started with building Azure DevOps Pipelines that run Git based IBM Dependency Based Builds (DBB) on z/OS. While Azure’s DevOps is primarily used by distributed applications, customers are looking for consolidated solutions that integrate with modern IBM Mainframe development workflows. Azure Boards, which are independent of platform, can be used to manage Mainframe-based sprints. Azure DevOps provides a crucial benefit of executing CI pipelines that can construct and deploy mainframe applications that run either in batch or online mode, with or without Db2 and MQ. By integrating [IBM's Urban Code Deploy (UCD)](https://www.ibm.com/docs/en/urbancode-deploy/7.1.1?topic=overview-urbancode-deploy) into Azure pipelines, customers can acquire a comprehensive CI/CD pipeline for on-prem, cloud, or hybrid platforms that encompasses z/OS applications. The IBM Z & Cloud Modernization Stack includes various capabilities to modernize mainframe applications, based on the RedHat OpenShift platform. For development and test purposes, this offer includes Wazi Code (IDEs, DBB), Wazi Analyze, and Wazi Sandbox, which together provide mainframe developers with a Cloud-native experience requiring zero install.
+The purpose of this architecture is to help you get started with building Azure DevOps pipelines that run Git-based IBM DBBs on z/OS. Although Azure DevOps is primarily used by distributed applications, many organizations are looking for consolidated solutions that integrate with modern IBM mainframe development workflows. 
 
-image
+You can use Azure Boards, which is independent of platform, to manage mainframe-based sprints. Azure DevOps runs CI pipelines that can construct and deploy mainframe applications that run either in batch or online mode, with or without Db2 and MQ. 
 
-link 
+By integrating [IBM UrbanCode Deploy](https://www.ibm.com/docs/en/urbancode-deploy/7.1.1?topic=overview-urbancode-deploy) into Azure pipelines, you can get a comprehensive CI/CD pipeline for on-premises, cloud, or hybrid platforms that encompasses z/OS applications. The IBM Z and Cloud Modernization Stack includes various capabilities to modernize mainframe applications, based on the Red Hat OpenShift platform. For development and test purposes, IBM Wazi includes Wazi Code (IDEs, DBB), Wazi Analyze, and Wazi Sandbox, which together provide mainframe developers with a cloud-native experience that doesn't require application installation.
 
-### Workflow 
+:::image type="content" source="media/devops-mainframe-ibm-stack.png" alt-text="Diagram that shows an architecture for integrating Azure DevOps into IBM z/OS applications." lightbox="media/devops-mainframe-ibm-stack.png" border="false":::
 
-1. The z/OS application source code is migrated into a Git-based source code management system (SCM). 
-1. Azure Boards streamlines work item creation, assignment, status monitoring, and progress tracking, ensuring efficient project management and effective collaboration.  
-1. Wazi Code is a programming platform that aims to simplify and accelerate the development of mainframe applications.  
-1. Code analysis and dependency resolution can be performed using Wazi Analyze.1. Unit testing of Code changes may be tested manually against a developer owned Wazi Sandbox environment.  
+*Download a [Visio file](https://arch-center.azureedge.net/devops-mainframe-ibm-stack.vsdx) of this architecture.*
+
+### Workflow
+
+1. The z/OS application source code is migrated into a Git-based source code management (SCM) system. 
+1. Azure Boards streamlines work item creation, assignment, status monitoring, and progress tracking.  
+1. Wazi Code simplifies the development of mainframe applications.  
+1. Wazi Analyze can be used for code analysis and dependency resolution.
+1. Unit testing of code changes can be tested manually against a developer-owned Wazi Sandbox environment.  
 1. Code changes are committed back to the Git repository from the web-based IDE. 
-1. Code changes pushed to the repository trigger the execution of build by Azure Pipelines.   
-1. Automated builds, deploy and tests are executed against a containerized z/OS environment within the Wazi Sandbox. 
+1. Code changes pushed to the repository trigger a build via Azure Pipelines.   
+1. Automated builds, deployments, and tests are run against a containerized z/OS environment within the Wazi Sandbox. 
 1. In Azure Artifacts, successful builds are systematically stored to provide a reliable and centralized repository for versioned artifacts.  
 1. Production release scenarios follow a typical Git-based release automation process, starting with branching/tagging Git commits to be used in production.  
-1. When automation is triggered on release branches or tags, it will initiate production deployment based on change management guidelines and approval process in the client's on-premises z/OS environments located within their datacenter. 
+1. When automation is triggered on release branches or tags, it initiates production deployment based on change management guidelines and the approval process in your on-premises z/OS environments located within their datacenter.
 
 ### Components
 
