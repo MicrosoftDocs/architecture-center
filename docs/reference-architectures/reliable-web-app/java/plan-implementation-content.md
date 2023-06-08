@@ -30,7 +30,7 @@ To reach these long term goals, Proseware calculated that moving the web app to 
 
 ## On-premises context
 
-The on-premises starting point is a monolithic Java web application that runs a web based media stream called Airsonic. Airsonic is a well-known open-source project. For this guidance though, we pretend that Proseware developed Airsonic and owns all the code. Code ownership is more common scenario than an upstream dependency. The on-premises web app runs on an Apache Tomcat web server with a PostgreSQL database.
+The on-premises starting point is a monolithic Java web application that runs a web based media stream called Airsonic. Airsonic is a well-known open-source project. For this guidance though, we act as if Proseware developed Airsonic in-house and owns all the code. Code ownership is more common scenario than an upstream dependency. The on-premises web app runs on an Apache Tomcat web server with a PostgreSQL database.
 
 The web app is an employee-facing, LOB, training application. Proseware employees use the application to complete required HR training. The on-premises web application suffers from common challenges. These challenges include extended timelines to build and ship new features and difficulty scaling different application components under higher load.
 
