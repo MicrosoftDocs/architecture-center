@@ -195,10 +195,10 @@ It's also a good idea to use Key Vault for storage of secrets used for database 
 
 The monitoring processes and components are discussed here primarily from a data collection perspective. Where appropriate, the following subsections may provide links to options for data analysis by the respective log and metrics consumption tools. As mentioned previously, Azure Log Analytics is the monitoring data sink used in this architecture to collect logs and metrics from the Azure resources and Application Insights. A Log Analytics workspace is the recommended way to capture all monitoring data in one place, for analyzing and correlation.
 
-Throughout each section, we assume that 2 types of data will be collected from various layers of the architecture that can be useful for diagnosing and understanding performance, doing debugging, and many other activities:
+Throughout each section, we assume that 2 types of data will be collected from various layers of the architecture that can be useful for diagnosing to understand performance, doing debugging, and many other activities:
 
-- Metrics: numerical values that describe an aspect of a system at a particular point in time for specific values being monitored, such as CPU percent, I/O metrics, etc. This type of data can be also useful for making auto scaling configuration decisions.
-- Logs: recorded system events that capture data over time for the purpose of trend analysis, which can be very useful for debugging and understanding performance. For example, web servers create log files which provide the ability to analyze traffic patterns. 
+- **Metrics:** numerical values that describe an aspect of a system at a particular point in time for specific values being monitored, such as CPU percent, I/O metrics, etc. This type of data can be also useful for making auto scaling configuration decisions.
+- **Logs**: recorded system events that capture data over time for the purpose of trend analysis, which can be very useful for debugging and understanding performance. For example, web servers create log files which provide the ability to analyze traffic patterns. 
 
 Monitoring data is generated at multiple levels, all of which can be sources of important metrics and log files: 
 
@@ -221,7 +221,7 @@ Azure Monitor provides two experiences for consuming distributed trace data: the
 
 ### Azure Monitor 
 
-As mentioned, the two pillars of observability of interest are metrics and logs, both of which are collected by Azure Monitor. You define [diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal#activity-log-settings) to send Azure platform metrics and logs to the Log Analytics Workspace:
+As mentioned, the two pillars of observability we are interested in are metrics and logs, both of which are collected by Azure Monitor. You define [diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal#activity-log-settings) to send Azure platform metrics and logs to the Log Analytics Workspace:
 
 - Azure Monitor Metrics is a time-series database, optimized for analyzing time-stamped data. Azure Monitor collects metrics at regular intervals. Metrics are identified with a timestamp, a name, a value, and one or more defining labels. They can be aggregated using algorithms, compared to other metrics, and analyzed for trends over time. 
 - Azure Monitor Logs can contain different types of data, be structured or free-form text, and they contain a timestamp. Azure Monitor stores structured and unstructured log data of all types in Azure Monitor logs. 
@@ -242,19 +242,15 @@ For more information on the cost of collecting metrics and logs, see [Log Analyt
 
 ### Azure Load Balancer health probes
 
-// TBD
+The Azure Load Balancer resources running in the frontend and backend tiers require a health probe to detect the endpoint status. The configuration of the health probe and probe responses determines which VM instances receive new connections. You use health probes to:
+- detect the failure of an application and allow Azure Load Balancer to remove the VM from rotation
+- generate a custom response to Azure Load Balancer
+- probe for flow control to manage load or planned downtime
+- . When a health probe fails, the load balancer stops sending new connections to the respective unhealthy instance. Outbound connectivity isn't affected, only inbound
 
-// Raw notes - start  
-- Specific to load balancers in App Gateway and the one in the backend API tier. 
-- The load balancer needs to know which VM instances are responsive. 
-- This is done in config – give it VM endpoint (every 200ms). 
-- Usually simple, configured as a folder/file to touch (like App Service uses an icon file). Assumes healthy if you return an HTTP 200. 
-- Could also go beyond 200, and send back detailed response- this is more advanced. .NET Core has a probe implementation that you can use to customize. 
-- It's up to caller (ie:Load Balancer) to interpret as they want. Can build a dashboard on this too. Ie: could incorporate database response as part of it. 
-- In this design, App Gateway will just be hitting an endpoint to see if healthy. 
-- The load balancer can point to separate VMs, but in our case it’s pointing to the scale set. The scale set tells it which VMs are available (ie: adding a new VM will incorporate it; scale set can also take one out and create a new one – auto healing).   
+In this reference architecture, Azure Load Balancer will be configured to do a simple test for the existence of a file to see if the application is responding. If the request is successful, an HTTP 200 will be returned to Azure Load Balancer.
 
-// Raw notes - end
+//TODO: do we want to explain that load balancer is actually pinging the VMSS, which in turn determines whether the VM is available (and managing the rotation of healthy/unhealthy VMs for auto-healing)?
 
 ### Managed disks
 
