@@ -1,4 +1,4 @@
-The reliable web app pattern is how you should update web apps moving to the cloud. It defines the implementation guidance to re-platform web apps the right way. There are two articles on the reliable web app pattern for Java. This article provides code and architecture guidance. The companion article provides [planning guidance](plan-implementation.yml). For more information on the pattern, see [Reliable web app pattern overview](../overview.md).
+The reliable web app pattern is how you should update web apps moving to the cloud. It defines the implementation guidance to re-platform web apps the right way. There are two articles on the reliable web app pattern for Java. This article provides code and architecture guidance. The companion article provides [planning guidance](plan-implementation.yml). 
 
 ![Diagram showing GitHub icon.](../../../_images/github.png) There's a [reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java) (sample application) with the pattern applied that you can deploy. You should use the reference implementation with this written guidance to get the most out of the pattern.
 
@@ -12,11 +12,13 @@ A well-architected web application needs quality code, and quality code needs a 
 - [Production environment estimated cost](https://azure.com/e/65354031bc084e539b6c8ccfc1a7b097)
 - [Nonproduction environment estimated cost](https://azure.com/e/af7d105ce24340dab93dfe666909a3e0)
 
-The following table lists the principles of the reliable web app pattern and the Well-Architected Framework principles common to all the Enterprise App Patterns. The table also lists the technical details of the pattern implementation.
+The following table lists the principles of the reliable web app pattern and how the pattern implements those principles in the web app.
 
-| Pattern principles | Pattern implementation details |
+| Reliable web app pattern principles | Implementation details |
 | --- | --- |
 | *Reliable web app pattern principles:*<br>▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br><br>*Well Architected Framework principles:*<br>▪ Cost optimized<br>▪ Observable<br>▪ Ingress secure<br>▪ Infrastructure as code<br>▪ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Terraform deployment <br>▪ Telemetry, logging, monitoring |
+
+For more information on the pattern, see [Reliable web app pattern overview](../overview.md).
 
 ## Reliability
 

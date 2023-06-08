@@ -3,13 +3,13 @@ ms.custom:
   - devx-track-dotnet
 ---
 
-The reliable web app pattern is how you should update web apps moving to the cloud. It defines the implementation guidance to re-platform web apps the right way. There are two articles on the reliable web app pattern for .NET. This article explains important decisions to plan the implementation of the pattern. The companion provides code and architecture guidance to [apply the pattern](apply-pattern.yml). For more information on the pattern, see [Reliable web app pattern overview](../overview.md) and the [Reliable web app pattern videos](https://aka.ms/eap/rwa/dotnet/videos).
+The reliable web app pattern is how you should update web apps moving to the cloud. It defines the implementation guidance to re-platform web apps the right way. There are two articles on the reliable web app pattern for .NET. This article explains important decisions to plan the implementation of the pattern. The companion provides code and architecture guidance to [apply the pattern](apply-pattern.yml).
 
 ![Diagram showing GitHub icon.](../../../_images/github.png) There's a [reference implementation](https://aka.ms/eap/rwa/dotnet) (sample application) with the pattern applied that you can deploy. You should use the reference implementation with this written guidance to get the most out of the pattern.
 
 ## Architecture and pattern
 
-The business context, existing web app, service level objective (SLO), and coding language determine (1) how you apply the reliable web app pattern and (2) the architecture of the web app (*see figure 1*).
+Your business context, existing web app, and service level objective (SLO) affect the architecture of your web app. The reference implementation needed a multi-region deployment to meet stated objectives (*see figure 1*).
 
 [![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-dotnet.png)](images/reliable-web-app-dotnet.png)
 
@@ -18,11 +18,13 @@ The business context, existing web app, service level objective (SLO), and codin
 - [Production environment estimated cost](https://azure.com/e/26f1165c5e9344a4bf814cfe6c85ed8d)
 - [Nonproduction environment estimated cost](https://azure.com/e/8a574d4811a74928b55956838db71093)
 
-The following table lists the principles of the reliable web app pattern and the Well-Architected Framework principles common to all the Enterprise App Patterns. The table also lists the technical details of the pattern implementation.
+The following table lists the principles of the reliable web app pattern and implementation details.
 
-| Pattern principles | Pattern implementation details |
+| Reliable web app pattern principles | Implementation details |
 | --- | --- |
 | *Reliable web app pattern principles:*<br>▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br><br>*Well Architected Framework principles:*<br>▪ Cost optimized<br>▪ Observable<br>▪ Ingress secure<br>▪ Infrastructure as code<br>▪ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Bicep deployment <br>▪ Telemetry, logging, monitoring |
+
+For more information on the pattern, see [Reliable web app pattern overview](../overview.md) and the [Reliable web app pattern videos](https://aka.ms/eap/rwa/dotnet/videos).
 
 ## Business context
 
