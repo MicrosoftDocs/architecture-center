@@ -192,7 +192,7 @@ It's also a good idea to use Key Vault for storage of secrets used for database 
 
 ### Overview
 
-The monitoring processes and components are discussed here primarily from a data collection perspective. Where appropriate, the following subsections may provide links to options for data analysis by the respective log and metrics consumption tools. As mentioned previously, Azure Log Analytics is the monitoring data sink used in this architecture to collect logs and metrics from the Azure resources and Application Insights. A Log Analytics workspace is the recommended way to capture all monitoring data in one place, for analyzing and correlation.
+Monitoring processes and components are discussed here primarily from a data collection perspective. Where appropriate, the following subsections may provide links to options for data analysis by the respective log and metrics consumption tools. As mentioned previously, Azure Log Analytics is the monitoring data sink used in this architecture to collect logs and metrics from the Azure resources and Application Insights. A Log Analytics workspace is the recommended way to capture all monitoring data in one place, for analyzing and correlation.
 
 Throughout each section, we assume that 2 types of data will be collected from various layers of the architecture that can be useful for diagnosing to understand performance, doing debugging, and many other activities:
 
@@ -256,15 +256,17 @@ In this reference architecture, Azure Load Balancer will be configured to do a s
 
 Your workload will dictate your final metrics to monitor on disks, but most IaaS architectures will have some mix of the following common key metrics. Beyond these, you’ll want to bring in items that represent where your application is most sensitive. 
 
-When designing your monitoring solution be aware that there is an Azure platform perspective on managed disks and there is the Guest OS perspective on the managed disks. The Azure-platform perspective represents the type of metrics that a SAN operator would view, regardless of what workloads are connected. The guest-perspective represents the type of metrics that the workload operator would view, regardless of the underlying disk technology. In Azure, workload teams have the responsibility of monitoring both as part of their solution:
+When designing your monitoring solution be aware that there is an Azure platform perspective on managed disks and there is the Guest OS perspective on the managed disks. The Azure-platform perspective represents the type of metrics that a SAN operator would view, regardless of what workloads are connected. The guest-perspective represents the type of metrics that the workload operator would view, regardless of the underlying disk technology. In Azure, workload teams have the responsibility of monitoring both as part of their solution.
 
-- Platform perspective
-  - The data disk performance (IOPS and throughput) metrics can be looked at individually (per disk) or rolled up to all disks attached to a VM. Both perspectives can be critical in troubleshooting a potential performance issue, as both the individual disks and the VM can cap total performance. 
-  - To troubleshoot suspected or alert on pending disk capping, use the *Storage IO utilization* metrics, which provide consumed percentage of the provisioned throughput for both virtual machines and disks.
-  - If your architecture uses bursting for cost optimization, then you’ll want to monitor your *Credits Percentage* metrics. Running out of credits can be expected result, as consistently having left over credits is a sign that further cost optimization could occur on that disk. Meaning if you are using bursting as part of your cost optimization strategy, you should monitor how many credits you're consistently leaving unused and see if you can choose a lower performance tier.
+##### Platform perspective
 
-- Guest OS perspective
-  - VM Insights is how we recommend you get key metrics from an operating system perspective on attached disks. This is where you'll report or alert on disk/drive metrics like *logical disk space used*, and the operating system kernel's own perspective on disk IOPS and throughput. Combining these performance metrics with the platform performance metrics can help isolate OS or even application throughput issues on your disks vs platform bottlenecks.
+The data disk performance (IOPS and throughput) metrics can be looked at individually (per disk) or rolled up to all disks attached to a VM. Both perspectives can be critical in troubleshooting a potential performance issue, as both the individual disks and the VM can cap total performance. 
+
+To troubleshoot suspected or alert on pending disk capping, use the *Storage IO utilization* metrics, which provide consumed percentage of the provisioned throughput for both virtual machines and disks. If your architecture uses bursting for cost optimization, then you’ll want to monitor your *Credits Percentage* metrics. Running out of credits can be expected result, as consistently having left over credits is a sign that further cost optimization could occur on that disk. Meaning if you are using bursting as part of your cost optimization strategy, you should monitor how many credits you're consistently leaving unused and see if you can choose a lower performance tier.
+
+##### Guest OS perspective
+
+VM Insights is recommended for getting key metrics from an operating system perspective on attached disks. This is where you'll report or alert on disk/drive metrics like *logical disk space used*, and the operating system kernel's own perspective on disk IOPS and throughput. Combining these performance metrics with the platform performance metrics can help isolate OS or even application throughput issues on your disks vs platform bottlenecks.
 
 ### Virtual Machines
 
@@ -285,8 +287,7 @@ The table below lists the types of data you can currently collect with the Azure
 | Syslog | Log Analytics workspace - [Syslog](/azure/azure-monitor/reference/tables/syslog)<sup>2</sup> table | Information sent to the Linux event logging system |
 |	Text logs and Windows IIS logs	|	Log Analytics workspace - custom table(s) created manually |	[Collect text logs with Azure Monitor Agent](data-collection-text-log.md)	|
 
-//TODO: consider adding details about the data collection rules implemented in the RI. Highlight differences between the frontend and backend DCR definitions  
-//    see tutorails:  
+//TODO: consider adding details about the data collection rules implemented in the RI. Highlight differences between the frontend and backend DCR definitions. See tutorials:  
 //        [Tutorial: Enable monitoring with VM insights for Azure virtual machine](/azure/azure-monitor/vm/tutorial-monitor-vm-enable-insights)  
 //        [Tutorial: Collect guest logs and metrics from Azure virtual machine](/azure/azure-monitor/vm/tutorial-monitor-vm-guest)  
 
