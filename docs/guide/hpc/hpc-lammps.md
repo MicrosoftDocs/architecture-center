@@ -1,0 +1,1 @@
+This document briefly explains the steps to install and run [LAMMPS] application on a virtual machine (VM) in Azure and presents the performance results of running it on single-node and multi-node VM configurations. 
