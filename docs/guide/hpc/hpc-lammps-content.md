@@ -188,10 +188,6 @@ The following sections provide the performance results of running LAMMPS on sing
 
 Model 1: in.lj (Lennard-Jones) 
 
-This table shows total wall clock time recorded for varying number of CPUs on the Standard HBv3-series VM:
-
-Model 1: in.lj (Lennard-Jones) 
-
 This table shows total wall clock time recorded for varying number of CPUs on the Standard HBv3-series VM: 
 
 
