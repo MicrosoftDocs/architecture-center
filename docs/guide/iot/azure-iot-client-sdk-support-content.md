@@ -86,11 +86,11 @@ SAS token authentication implementation summary for C SDKs:
 
 3.  Implement proactive SAS token lifetime management as part of the device application's operation loop.
 
-### Azure IoT Hub device SDK for .Net
+### Azure IoT Hub device SDK for .NET
 
-The Azure IoT client SDK for .Net implements support for SAS token lifetime management through the abstract DeviceAuthenticationWithTokenRefresh class. A concrete implementation of this class, adding token renewal functionality, can be provided as the authentication method to a DeviceClient.Create method. The transport implementations will automatically renew the token via the authentication method as required. A ConnectionStatusChangesHandler is required to capture connection changes and prevent exceptions being raised by the transports.
+The Azure IoT client SDK for .NET implements support for SAS token lifetime management through the abstract DeviceAuthenticationWithTokenRefresh class. A concrete implementation of this class, adding token renewal functionality, can be provided as the authentication method to a DeviceClient.Create method. The transport implementations will automatically renew the token via the authentication method as required. A ConnectionStatusChangesHandler is required to capture connection changes and prevent exceptions being raised by the transports.
 
-Example implementation based on the DeviceAuthenticationWithTokenRefreash class
+Example implementation based on the DeviceAuthenticationWithTokenRefreash class:
 
 ```c#
 internal class StsDeviceAuthenticationWithTokenRefresh : DeviceAuthenticationWithTokenRefresh
@@ -141,7 +141,7 @@ internal class StsDeviceAuthenticationWithTokenRefresh : DeviceAuthenticationWit
 ```
 
 SAS token authentication implementation summary for Azure IoT Hub device SDK for
-.Net:
+.NET:
 
 1.  Implement a concrete class based on the DeviceAuthenticationWithTokenRefresh abstract class, which implements token renewal functionality.
 
@@ -294,7 +294,7 @@ Use the device client methods fromSharedAccessSignature and updateSharedAccessSi
 A basic SAS token sample is provided in the
 [simple\_sample\_device\_with\_sas.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/javascript/simple_sample_device_with_sas.js) example.
 
-Summary of Azure IoT Hub device SDK for Node.JS/JavaScript
+Summary of Azure IoT Hub device SDK for Node.JS/JavaScript:
 
 1.  Implement SAS token lifetime management and renewal.
 
