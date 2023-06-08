@@ -425,7 +425,7 @@
 			<v:textRect cx="34.2197" cy="481.05" width="68.45" height="27.9008"/>
 			<rect x="0" y="467.099" width="68.4402" height="27.9008" class="st11"/>
 			<text x="9.84" y="477.45" class="st12" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Windows <tspan
-						x="23.29" dy="1.2em" class="st13">App</tspan></text>		</g>
+						x="24.11" dy="1.2em" class="st13">app</tspan></text>		</g>
 		<g id="shape1045-108" v:mID="1045" v:groupContext="shape" transform="translate(519.896,-229.313)">
 			<title>Sheet.1045</title>
 			<desc>Mobile Device</desc>
@@ -436,7 +436,7 @@
 			<v:textRect cx="34.2197" cy="481.05" width="68.45" height="27.9008"/>
 			<rect x="0" y="467.099" width="68.4402" height="27.9008" class="st11"/>
 			<text x="15.75" y="477.45" class="st12" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Mobile <tspan
-						x="16.64" dy="1.2em" class="st13">Device</tspan></text>		</g>
+						x="17.31" dy="1.2em" class="st13">device</tspan></text>		</g>
 		<g id="shape1046-112" v:mID="1046" v:groupContext="shape" transform="translate(216.479,-276.503)">
 			<title>Sheet.1046</title>
 			<v:userDefs>
@@ -596,8 +596,8 @@
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="39.5863" cy="481.05" width="79.19" height="27.9008"/>
 			<rect x="0" y="467.099" width="79.1732" height="27.9008" class="st11"/>
-			<text x="10.47" y="477.45" class="st12" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Web <tspan
-						x="5.09" dy="1.2em" class="st13">App Instance</tspan></text>		</g>
+			<text x="11.74" y="477.45" class="st12" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure web <tspan
+						x="29.48" dy="1.2em" class="st13">app</tspan></text>		</g>
 		<g id="shape1064-156" v:mID="1064" v:groupContext="shape" transform="translate(541.54,-432.025)">
 			<title>Sheet.1064</title>
 			<v:userDefs>
@@ -669,7 +669,7 @@
 			<path d="M20.09 495 L0.91 495 C0.4 495 0 494.6 0 494.09 L0 464.48 C0 463.97 0.4 463.57 0.91 463.57 L20.09 463.57 C20.59
 						 463.57 21 463.97 21 464.48 L21 494.09 C21 494.6 20.59 495 20.09 495 Z" class="st6"/>
 		</g>
-		<g id="shape1073-177" v:mID="1073" v:groupContext="shape" transform="translate(357.091,-229.313)">
+		<g id="shape1073-177" v:mID="1073" v:groupContext="shape" transform="translate(357.652,-229.313)">
 			<title>Sheet.1073</title>
 			<desc>Azure API App Instance</desc>
 			<v:userDefs>
@@ -679,7 +679,7 @@
 			<v:textRect cx="39.5863" cy="481.05" width="79.19" height="27.9008"/>
 			<rect x="0" y="467.099" width="79.1732" height="27.9008" class="st11"/>
 			<text x="13.91" y="477.45" class="st12" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure API <tspan
-						x="5.09" dy="1.2em" class="st13">App Instance</tspan></text>		</g>
+						x="29.48" dy="1.2em" class="st13">app</tspan></text>		</g>
 		<g id="shape1074-181" v:mID="1074" v:groupContext="shape" v:layerMember="0" transform="translate(97.0277,-278.489)">
 			<title>Dynamic connector.1129</title>
 			<v:userDefs>
@@ -735,7 +735,7 @@
 			</v:userDefs>
 			<path d="M0 361.23 L113 361.23 L113 487.02 L113 495" class="st2"/>
 		</g>
-		<g id="shape1081-206" v:mID="1081" v:groupContext="shape" transform="translate(357.091,-78.6486)">
+		<g id="shape1081-206" v:mID="1081" v:groupContext="shape" transform="translate(357.652,-78.6486)">
 			<title>Sheet.1081</title>
 			<desc>Azure API App Instance</desc>
 			<v:userDefs>
@@ -745,7 +745,7 @@
 			<v:textRect cx="39.5863" cy="481.05" width="79.19" height="27.9008"/>
 			<rect x="0" y="467.099" width="79.1732" height="27.9008" class="st11"/>
 			<text x="13.91" y="477.45" class="st12" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure API <tspan
-						x="5.09" dy="1.2em" class="st13">App Instance</tspan></text>		</g>
+						x="29.48" dy="1.2em" class="st13">app</tspan></text>		</g>
 		<g id="shape1082-210" v:mID="1082" v:groupContext="shape" v:layerMember="0" transform="translate(433.93,-276.045)">
 			<title>Dynamic connector.1140</title>
 			<v:userDefs>
@@ -769,7 +769,7 @@
 						 459.23 C14.03 456.44 18.29 455.12 22.52 455.12 C28.51 455.12 34.44 457.81 38.36 462.94 C45.06 471.69 43.4
 						 484.19 34.65 490.88 Z" class="st21"/>
 		</g>
-		<g id="shape1085-222" v:mID="1085" v:groupContext="shape" transform="translate(378.375,-262.601)">
+		<g id="shape1085-222" v:mID="1085" v:groupContext="shape" transform="translate(378.936,-262.601)">
 			<title>Sheet.1085</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(82000):26"/>
@@ -802,7 +802,7 @@
 						 459.23 C14.03 456.44 18.29 455.12 22.52 455.12 C28.51 455.12 34.44 457.81 38.36 462.94 C45.06 471.69 43.4
 						 484.19 34.65 490.88 Z" class="st21"/>
 		</g>
-		<g id="shape1087-226" v:mID="1087" v:groupContext="shape" transform="translate(378.375,-111.938)">
+		<g id="shape1087-226" v:mID="1087" v:groupContext="shape" transform="translate(378.936,-111.938)">
 			<title>Sheet.1087</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(84000):26"/>
