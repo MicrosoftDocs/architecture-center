@@ -6,7 +6,7 @@ The focus of this architecture isn't that application. Instead it provides guida
 On-premises architecture are designed with a Capital Expense (CAPEX) mindset. When migrating to the cloud, take advantage of the elastic nature of the cloud services. Certain configurations that worked on-premises can be cost optimized on Azure. Do rigorous testing to establish a baseline that's inline with the expectation of the on-premises systems but can be easily extended to adapt to the changes in business requirements.
 
 > [!TIP]
-> ![GitHub logo](../_images/github.svg) The best practices described in this architecture is demonstrated by a [**reference implementation**](). Consider the implementation as your first step towards production for a lift-and-shift application.
+> ![GitHub logo](../_images/github.svg) The best practices described in this architecture are demonstrated by a [**reference implementation**](). Consider the implementation as your first step towards production for a lift-and-shift application.
 > The implementation includes an application that's a small test harness that will exercise the infrastructure set up end-to-end. 
 
 
@@ -58,7 +58,7 @@ THIS DIAGRAM IS TEMPORARY FOR REFERENCE ONLY:
 
 1. Workload user browses to the web site via public IP address and connects to Azure Application Gateway. 
 1. Application Gateway receives HTTPS traffic and uses the external certificate to decrypt data for inspection by WAF. If data passes the WAF test, Application Gateway encrypts the data using the internal wildcard certificate for transport to the web tier. 
-1. The zone-redundant Application Gateway balances traffic across the three zones in the frontend, connecting to a VM in the pool of web tier VMs, on behalf of the user session.
+1. The zone-redundant Application Gateway balances traffic across the three zones in the frontend. Application Gateway connects to a VM in the pool of web tier VMs, on behalf of the user session.
 1. The front-end web tier is the first layer of the three-tier application, with VMs hosted in three availability zones. The front-end VM that receives the request uses the internal certificate to decrypt data for inspection, then encrypts the data for transport to the back-end tier based on the request. 
 1. The front-end web app connects to the zone-redundant back-end Azure Load Balancer. Load Balancer connects to a VM in the pool of zone-redundant API tier VMs, forwarding the call to the API app.
 1. The back-end VM that receives the request uses the internal certificate to decrypt data for inspection, then encrypts the data for transport to the data tier based on the request.
@@ -185,7 +185,6 @@ The certificates stored in Key Vault are identified by the following common name
 It's also a good idea to use Key Vault for storage of secrets used for database encryption. For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure). We also recommend that you store application secrets, such as database connection strings, in Key Vault.
 
 ## Monitoring
-//{BRYAN} pulling this above the line for now so we can iterate 
 
 :::image type="content" source="./media/iaas-baseline-monitoring.png" alt-text="IaaS monitoring data flow  diagram" lightbox="./media/iaas-baseline-monitoring.png":::
 
@@ -255,7 +254,9 @@ In this reference architecture, Azure Load Balancer will be configured to do a s
 
 ### Managed disks
 
-Your workload will dictate your final metrics to monitor on disks, but most IaaS architectures will have some mix of the following common key metrics. Beyond these, you’ll want to bring in items that represent where your application is most sensitive. When designing your monitoring solution be aware that there is an Azure platform perspective on managed disks and there is the Guest OS perspective on the managed disks.  The Azure-platform perspective represents the type of metrics that a SAN operator would view, regardless of what workloads are connected.  The guest-perspective represents the type of metrics that the workload operator would view, regardless of the underlying disk technology.  In Azure, workload teams have the responsibility of monitoring both as part of their solution.
+Your workload will dictate your final metrics to monitor on disks, but most IaaS architectures will have some mix of the following common key metrics. Beyond these, you’ll want to bring in items that represent where your application is most sensitive. 
+
+When designing your monitoring solution be aware that there is an Azure platform perspective on managed disks and there is the Guest OS perspective on the managed disks. The Azure-platform perspective represents the type of metrics that a SAN operator would view, regardless of what workloads are connected. The guest-perspective represents the type of metrics that the workload operator would view, regardless of the underlying disk technology. In Azure, workload teams have the responsibility of monitoring both as part of their solution:
 
 - Platform perspective
   - The data disk performance (IOPS and throughput) metrics can be looked at individually (per disk) or rolled up to all disks attached to a VM. Both perspectives can be critical in troubleshooting a potential performance issue, as both the individual disks and the VM can cap total performance. 
