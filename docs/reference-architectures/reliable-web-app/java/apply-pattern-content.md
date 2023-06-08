@@ -2,9 +2,9 @@ The reliable web app pattern is how you should update web apps moving to the clo
 
 ## Architecture and code
 
-A well-architected web application needs quality code, and quality code needs a well-architected solution. The reliable web app pattern situates code changes within the pillars of the Azure Well-Architected Framework to reinforce the close relationship between code and architecture (*see figure 1*).
+The reliable web app pattern situates code changes within the pillars of the Azure Well-Architected Framework to reinforce the close relationship between code and architecture. This guidance uses the reference implementation architecture to illustrate the principles of the reliable web app pattern (*see figure 1*). The architecture and code meets the needs of a specific web app. Your architecture and code will differ depending on your needs. It's important that your web app adheres to the principles of the pattern.
 
-[![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-java.svg)](images/reliable-web-app-java.svg)
+[![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-java-implementation.svg)](images/reliable-web-app-java-implementation.svg)
 *Figure 1. Target reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java.vsdx) of this architecture. For the estimated cost of each environment, see:*
 
 - [Production environment estimated cost](https://azure.com/e/65354031bc084e539b6c8ccfc1a7b097)

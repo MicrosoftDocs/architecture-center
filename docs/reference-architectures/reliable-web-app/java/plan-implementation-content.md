@@ -4,7 +4,7 @@ The reliable web app pattern is how you should update web apps moving to the clo
 
 Your business context, existing web app, and service level objective (SLO) affect the architecture of your web app. The reference implementation uses a multi-region deployment to meet Proseware's objectives (*see figure 1*).
 
-[![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-java.svg)](images/reliable-web-app-java.svg)
+[![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-java-implementation.svg)](images/reliable-web-app-java-implementation.svg)
 *Figure 1. Target reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java.vsdx) of this architecture. For the estimated cost of each environment, see:*
 
 - [Production environment estimated cost](https://azure.com/e/65354031bc084e539b6c8ccfc1a7b097)
