@@ -1,0 +1,16 @@
+### YamlMime:Architecture
+metadata:
+  title: Build language model pipelines with memory 
+  description:
+  ms.author: brandoncowen
+  ms.date: 06/09/2023 
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+products:
+name: Build language model pipelines
+summary: 
+thumbnailUrl: /azure/architecture/browse/thumbs/language-model-architecture.png
+content: |
+  [!include[](language-model-pipelines-content.md)]
