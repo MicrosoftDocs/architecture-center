@@ -1,5 +1,7 @@
 This article presents a solution and guidance for developing offline data operations and data management (DataOps) for an automated driving system. The DataOps solution is built on the framework that's outlined in [Autonomous vehicle operations (AVOps) design guide](../../guide/machine-learning/avops-design-guide.md). DataOps is one of the building blocks of AVOps. Other building blocks include machine learning operations (MLOps), validation operations (ValOps), DevOps, and centralized AVOps functions.
 
+*Apache®, [Apache Spark](https://spark.apache.org/), and [Apache Parquet](https://parquet.apache.org/) are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by the Apache Software Foundation is implied by the use of these marks.*
+
 ## Architecture
 
 :::image type="content" source="./images/autonomous-vehicle-operations-dataops-architecture.png" alt-text="Architecture diagram that shows a solution for ingesting, processing, and enriching autonomous vehicle data." border="false" lightbox="./images/autonomous-vehicle-operations-dataops-architecture.png":::
@@ -24,7 +26,7 @@ This article presents a solution and guidance for developing offline data operat
 
 1. If data from the vehicle logger isn't synchronized across the various sensors, a Data Factory pipeline is triggered that syncs the data to create a valid dataset. The synchronization algorithm runs on Batch.
 
-1. A Data Factory pipeline runs to enrich the data. Examples of enhancements include telemetry, vehicle logger data, and other data, such as weather, map, or object data. Enriched data helps to provide data scientists with insights that they can use in algorithm development, for example. The generated data is kept in Parquet files that are compatible with the synchronized data. Metadata about the enriched data is stored in a metadata store in Azure Cosmos DB.
+1. A Data Factory pipeline runs to enrich the data. Examples of enhancements include telemetry, vehicle logger data, and other data, such as weather, map, or object data. Enriched data helps to provide data scientists with insights that they can use in algorithm development, for example. The generated data is kept in Apache Parquet files that are compatible with the synchronized data. Metadata about the enriched data is stored in a metadata store in Azure Cosmos DB.
 
 1. A Data Factory pipeline performs scene detection. Scene metadata is kept in the metadata store. Scene data is stored as objects in Parquet or Delta files.
 
@@ -50,7 +52,7 @@ This article presents a solution and guidance for developing offline data operat
 - [App Service](https://azure.microsoft.com/products/app-service) provides a serverless-based web app service. In this case, App Service hosts the metadata API.
 - [Microsoft Purview](https://azure.microsoft.com/products/purview) provides data governance across organizations.
 - [Azure Container Registry](https://azure.microsoft.com/products/container-registry) is a service that creates a managed registry of container images. This solution uses Container Registry to store containers for processing topics.
-- [Application Insights](/azure/azure-monitor/app/app-insights-overview?tabs=net) is an extension of [Azure Monitor](https://azure.microsoft.com/products/monitor) that provides application performance monitoring. Application Insights can be integrated to log custom events, custom metrics, and log information while processing a particular measurement for extraction. Application Insights helps in building observability around measurement extraction. You can build queries on log analytics to get detailed information about a measurement.
+- [Application Insights](/azure/azure-monitor/app/app-insights-overview?tabs=net) is an extension of [Azure Monitor](https://azure.microsoft.com/products/monitor) that provides application performance monitoring. In this scenario, Application Insights helps you build observability around measurement extraction: you can use Application Insights to log custom events, custom metrics, and other information while the solution processes each measurement for extraction. You can also build queries on log analytics to get detailed information about each measurement.
 
 ## Scenario details
 
@@ -67,7 +69,7 @@ Typical challenges for data operations in the context of autonomous vehicles inc
 - Traceability and lineage for a safety-critical perception stack that captures versioning and the lineage of measurement data.
 - Metadata and data discovery to improve semantic segmentation, image classification, and object detection models.
 
-This AVOps DataOps solution provides guidance how to address and solve these challenges.
+This AVOps DataOps solution provides guidance on how to address these challenges.
 
 ### Potential use cases
 
@@ -77,14 +79,14 @@ This solution benefits automotive original equipment manufacturers (OEMs), tier 
 
 In an organization that implements AVOps, multiple teams contribute to DataOps due to the complexity that's required for AVOps. For example, one team might be in charge of data collection and data ingestion. Another team might be responsible for data quality management of lidar data. For that reason, the following principles of a [data mesh architecture](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/what-is-data-mesh) are important to consider for DataOps:
 
-- Domain-oriented decentralization of data ownership and architecture: One dedicated team is responsible for one data domain that provides data products for that domain, for example, labeled datasets.
-- Data as a product: Each data domain has various zones on data-lake implemented storage containers. There are zones for internal usage. There's also a zone that contains published data products for other data domains or external usage to avoid data duplication.
+- Domain-oriented decentralization of data ownership and architecture. One dedicated team is responsible for one data domain that provides data products for that domain, for example, labeled datasets.
+- Data as a product. Each data domain has various zones on data-lake implemented storage containers. There are zones for internal usage. There's also a zone that contains published data products for other data domains or external usage to avoid data duplication.
 - Self-serve data as a platform to enable autonomous, domain-oriented data teams.
 - Federated governance to enable interoperability and access between AVOps data domains that requires a centralized metadata store and data catalog. For example, a labeling data domain might need access to a data collection domain.
 
 For more information about data mesh implementations, see [Cloud-scale analytics](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics).
 
-#### AVOps data domains example structure
+#### Example structure for AVOps data domains
 
 The following table provides some ideas for structuring AVOps data domains:
 
@@ -97,7 +99,7 @@ The following table provides some ideas for structuring AVOps data domains:
 |Labeled | Labeled datasets | Labeled |
 |Recompute | Generated KPIs based on repeated simulation runs | Recompute |
 
-Each AVOps data domain is set up based on a blueprint structure. That structure includes Data Factory, Data Lake Storage, databases, Batch, and Spark runtimes via Azure Databricks or Azure Synapse Analytics.
+Each AVOps data domain is set up based on a blueprint structure. That structure includes Data Factory, Data Lake Storage, databases, Batch, and Apache Spark runtimes via Azure Databricks or Azure Synapse Analytics.
 
 #### Metadata and data discovery
 
@@ -121,7 +123,7 @@ Data sharing is a common scenario in an AVOps data loop. Uses include data shari
 
 Recommended formats for label data exchange include [common objects in context (COCO) datasets](https://cocodataset.org/#home) and [Association for Standardization of Automation and Measuring Systems (ASAM) OpenLABEL datasets](https://www.asam.net/standards/detail/openlabel).
 
-In this solution, the labeled datasets are used in [MLOps](../../solution-ideas/articles/avops-architecture.yml#mlops) processes to create specialized algorithms such as perception and sensor fusion models. The algorithms can detect scenes and objects in an environment, such as lane changes, blocked roads, pedestrian traffic, traffic lights, and traffic signs.
+In this solution, the labeled datasets are used in [MLOps](../../solution-ideas/articles/avops-architecture.yml#mlops) processes to create specialized algorithms such as perception and sensor fusion models. The algorithms can detect scenes and objects in an environment, such as the car changing lanes, blocked roads, pedestrian traffic, traffic lights, and traffic signs.
 
 ### Data pipeline
 
@@ -175,7 +177,7 @@ The pipeline retrieves all the measurement folders and iterates through them. Wi
 
 1. The measurement files are moved from the Landing storage account to a landing archive. This activity can rerun a particular measurement by moving it back to the Landing storage account via a hydrate copy pipeline. Lifecycle management is turned on for this zone so that measurements in this zone are automatically deleted or archived.
 
-1. If an error occurs with a measurement, the measurement is moved to an error zone. From there, it can be moved to the Landing storage account to be rerun. Alternatively, lifecycle management can automatically delete or archive the measurement.
+1. If an error occurs with a measurement, the measurement is moved to an error zone. From there, it can be moved to the Landing storage account to be run again. Alternatively, lifecycle management can automatically delete or archive the measurement.
 
 Note the following points:
 
@@ -204,7 +206,7 @@ Storage accounts that data is read from and written to are mounted via NFS 3.0 o
 
 #### Invoke Batch from Data Factory
 
-In the extraction pipeline, the trigger passes the path of the metadata file and the raw data stream path in the pipeline parameters. Data Factory uses a Lookup activity to parse the JSON from the manifest file. The raw data stream ID can be parsed from the raw data stream path by parsing the pipeline variable.
+In the extraction pipeline, the trigger passes the path of the metadata file and the raw data stream path in the pipeline parameters. Data Factory uses a Lookup activity to parse the JSON from the manifest file. The raw data stream ID can be extracted from the raw data stream path by parsing the pipeline variable.
 
 Data Factory calls an API to create a data stream. The API returns the path for the extracted data stream. The extracted path is added to the current object, and Data Factory invokes Batch via a custom activity by passing the current object, after appending the extracted data stream path:
 
@@ -248,7 +250,7 @@ alc8-ebf39767c68b/57472a44-0886-475-865a-ca32{c851207",
 1. The orchestrator exits gracefully.
 
    > [!NOTE]
-   > Each task is a separate container image that has logic that's appropriately defined for its purpose. Tasks accept configuration objects as input. For example, this input specifies where to write the output and which measurement file to process. An array of topic types, such as `sensor_msgs/Image`, is another example of input. Because all other tasks depend on the validation task, a dependent task is created for it. All other tasks can be processed independently and can run in parallel.
+   > Each task is a separate container image that has logic that's appropriately defined for its purpose. Tasks accept configuration objects as input. For example, the input specifies where to write the output and which measurement file to process. An array of topic types, such as `sensor_msgs/Image`, is another example of input. Because all other tasks depend on the validation task, a dependent task is created for it. All other tasks can be processed independently and can run in parallel.
 
 ## Considerations
 
@@ -321,3 +323,4 @@ Principal authors:
 - [Data analytics for automotive test fleets](../../industries/automotive/automotive-telemetry-analytics.yml)
 - [Building blocks for autonomous-driving simulation environments](../../industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml)
 - [Process real-time vehicle data using IoT](../data/realtime-analytics-vehicle-iot.yml)
+- [Automotive messaging, data & analytics reference architecture](/azure/event-grid/mqtt-automotive-connectivity-and-data-solution)

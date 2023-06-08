@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: DataOps for autonomous vehicle operations (AVOps)
+  title: DataOps for autonomous vehicle operations
   titleSuffix: Azure Architecture Center
   description: Use Azure services to build an offline data operations and data management (DataOps) solution for an automated driving system.
   author: rmats808
   ms.author: rmatsumura
-  ms.date: 6/9/2023
+  ms.date: 6/8/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -19,7 +19,7 @@ products:
   - azure-data-factory
   - azure-data-lake-storage
   - azure-data-share
-name: Data operations (DataOps) for autonomous vehicle operations (AVOps)
+name: Data operations for autonomous vehicle operations
 summary: Use Azure services to build an offline data operations and data management (DataOps) solution for an automated driving system.
 thumbnailUrl: /azure/architecture/browse/thumbs/autonomous-vehicle-operations-dataops-thumbnail.png
 content: |
