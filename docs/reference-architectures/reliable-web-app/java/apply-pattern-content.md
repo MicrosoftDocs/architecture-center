@@ -81,7 +81,7 @@ Data reliability relies on replicating data across multiple locations. In genera
 
 A failover plan details the procedure to respond to an outage. The plan should define what an outage means for your web app. For example, you can define outage in terms of downtime or loss of functionality. For more information, see [App Service disaster recovery](/azure/app-service/overview-disaster-recovery).
 
-**Determine the recovery time objective.** The recovery time objective (RTO) is the maximum, acceptable downtime for a web app or feature. For example, an RTO of four hours means the web app or feature should be operational within four hours of a disruption. You can have multiple RTO relating to different features in your web app. Each RTO should tie back to your SLO in support of making the service available to end-users.
+**Determine the recovery time objective.** The recovery time objective (RTO) is the maximum, acceptable downtime for a web app or feature. For example, an RTO of four hours means the web app or feature should be operational within four hours of a disruption. You can have multiple RTOs relating to different features in your web app. Each RTO should tie back to your SLO in support of making the service available to end-users.
 
 **Define failover duration.** The failover process needs to take as much or less time than your RTO. An RTO of four hours means you need to fail over within four hours.
 
