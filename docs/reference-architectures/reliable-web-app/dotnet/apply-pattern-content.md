@@ -3,7 +3,7 @@ ms.custom:
   - devx-track-dotnet
 ---
 
-The reliable web app pattern is how you should update web apps moving to the cloud. The pattern details implementation guidance to re-platform web apps the right way. The guidance focuses on the minimal code changes you need be successful in the cloud. It shows you how to use reliability design patterns (code) and managed services (infrastructure) so that you can rapidly adopt the cloud. There are two articles on the reliable web app pattern for .NET. This article provides code and architecture guidance. The companion article provides [planning guidance](plan-implementation.yml).
+The reliable web app pattern shows you how to update web apps moving to the cloud. It defines the implementation guidance you need to re-platform web apps the right way. The reliable web app pattern focuses on the minimal code changes you need be successful in the cloud. It shows you how to add reliability design patterns to your code and choose managed services so that you can rapidly adopt the cloud. There are two articles on the reliable web app pattern for .NET. This article provides code and architecture guidance. The companion article provides [planning guidance](plan-implementation.yml).
 
 ![Diagram showing GitHub icon.](../../../_images/github.png) There's a [reference implementation](https://aka.ms/eap/rwa/dotnet) (sample application) with the pattern applied that you can deploy. You should use the reference implementation with this written guidance to get the most out of the pattern.
 
