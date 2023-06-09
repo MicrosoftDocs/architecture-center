@@ -11,7 +11,7 @@ This article can help you get started with building Azure DevOps pipelines that 
 1. The z/OS application source code is migrated into a Git-based source code management (SCM) system. 
 1. Azure Boards streamlines work item creation, assignment, status monitoring, and progress tracking.  
 1. Wazi Code simplifies the development of mainframe applications.  
-1. Wazi Analyze can be used for code analysis and dependency resolution.
+1. Wazi Analyze is used for code analysis and dependency resolution.
 1. Unit testing of code changes can be tested manually against a developer-owned Wazi Sandbox environment.  
 1. Code changes are committed back to the Git repository from the web-based IDE. 
 1. Code changes pushed to the repository trigger a build via Azure Pipelines.   
@@ -23,15 +23,15 @@ This article can help you get started with building Azure DevOps pipelines that 
 ### Components
 
 - [Azure DevOps](https://azure.microsoft.com/products/devops) provides developer services to help teams plan work, collaborate on code development, and build and deploy applications. Developers can work in the cloud by using Azure DevOps Services or on-premises by using Azure DevOps Server.  
-- [IBM Z and Cloud Modernization Stack](https://www.ibm.com/products/z-and-cloud-modernization-stack) provides simple and highly secure access to mainframe applications and data via APIs. It provides industry-standard tools that can help you implement DevOps, and supports modern languages.
-- The [Wazi components](https://www.ibm.com/docs/en/cloud-paks/z-modernization-stack/2022.3?topic=overview-whats-in-z-cloud-modernization-stack) that are available in IBM Z and Cloud Modernization Stack provide modern experiences for analyzing, developing, and testing mainframe applications in an isolated way. 
+- [IBM Z and Cloud Modernization Stack](https://www.ibm.com/products/z-and-cloud-modernization-stack) provides highly secure access to mainframe applications and data via APIs. It provides industry-standard tools that can help you implement DevOps, and supports modern languages.
+- The [Wazi components](https://www.ibm.com/docs/en/cloud-paks/z-modernization-stack/2022.3?topic=overview-whats-in-z-cloud-modernization-stack) that are available in IBM Z and Cloud Modernization Stack enable the analysis, development, and testing of mainframe applications in an isolated way. 
 - [Red Hat OpenShift Container Platform](https://www.redhat.com/en/technologies/cloud-computing/openshift) brings together services to reduce the friction of developing, modernizing, deploying, running, and managing applications. Built on Kubernetes, it provides a consistent experience across public cloud, on-premises, hybrid cloud, and edge architectures.
 - [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network/) is the fundamental building block for your private network on Azure. It provides enhanced-security connections that enable Azure resources, like Azure virtual machines, to communicate with each other, the internet, and on-premises networks. Virtual Network is similar to a traditional network that you might operate in your own datacenter, but it provides the additional benefits of the Azure infrastructure, like scale, availability, and isolation. 
-- [Azure ExpressRoute](https://azure.microsoft.com/products/expressroute/) enables you to extend your on-premises networks into the Microsoft cloud over a private connection that's facilitated by a connectivity provider. You can use ExpressRoute to establish connections to Microsoft cloud services, like Azure and Office 365. 
+- [Azure ExpressRoute](https://azure.microsoft.com/products/expressroute/) enables you to extend your on-premises networks into the Microsoft cloud over a private connection that's facilitated by a connectivity provider. You can use ExpressRoute to establish connections to Microsoft cloud services like Azure and Office 365. 
 
 ### Alternatives
 
-You can use [Azure VPN Gateway](https://azure.microsoft.com/products/vpn-gateway) to connect on-premises networks to Azure over the public internet by using an enhanced-security, encrypted connection. It can provide a cost-effective option for organizations that don't require the high bandwidth and low latency of ExpressRoute.
+You can use [Azure VPN Gateway](https://azure.microsoft.com/products/vpn-gateway) to connect on-premises networks to Azure over the public internet by using an enhanced-security, encrypted connection. VPN Gateway can provide a cost-effective option for organizations that don't require the high bandwidth and low latency of ExpressRoute.
 
 ## Scenario details
 
@@ -60,13 +60,11 @@ By integrating [IBM UrbanCode Deploy](https://www.ibm.com/docs/en/urbancode-depl
 Here are some additional benefits of using Azure DevOps together with IBM Z and Cloud Modernization Stack.
 
 - Wazi Code provides an in-browser IDE that you can use to develop, build, and debug Cobol, PL/I, Assembler, Java, Rexx, and JCL applications. By using this approach, you can easily modify mainframe applications and take advantage of programming languages like Python, Node.js, and Go, which can all run on IBM z/OS. This approach enables you to easily adapt to new languages while still retaining the flexibility to work with preferred IDEs.
-- [DevOps for zSystems](https://www.ibm.com/z/devops), integrated with [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops?view=azure-devops) solutions, span Azure services and z/OS environments to orchestrate the development, integration, and deployment of applications across IBM zSystems and Azure. 
-- IBM zSystems development organization tools and processes are no longer siloed. Adopting Azure DevOps and adapting to IBM DBB blends mainframe repositories into a single source code repository across technology stacks, and an integrated change management and approval process with coordination of auditing and reporting across the enterprise.
+- [DevOps for zSystems](https://www.ibm.com/z/devops), integrated with [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops?view=azure-devops) solutions, spans Azure services and z/OS environments to orchestrate the development, integration, and deployment of applications across IBM zSystems and Azure. 
+- IBM zSystems development tools and processes are no longer siloed. Adopting Azure DevOps and adapting to IBM DBB blends mainframe repositories into a single source code repository across technology stacks, and an integrated change management and approval process with coordination of auditing and reporting across the enterprise.
 - Solutions from Azure and IBM enable organizations to free themselves from the restrictions and increasing costs of legacy tools to focus on effective project management. IBM and Azure speed up transformations to the hybrid cloud, so you can deliver solutions quickly and efficiently.
 
 ### Potential use cases  
-
-These use cases demonstrate some specific benefits of using Azure DevOps for mainframe applications:
 
 - Implement an end-to-end CI/CD pipeline for on-premises, cloud, or hybrid platforms that include z/OS applications. 
 - Enable mainframe teams to work in parallel with distributed development teams, implement a single standard, and use common tools for DevOps and SDLC across the enterprise.  
