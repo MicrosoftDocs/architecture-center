@@ -1,4 +1,3 @@
-
 This article can help you get started with building Azure DevOps pipelines that run Git-based IBM Dependency Based Builds (DBBs) on z/OS. Although Azure DevOps is primarily used by distributed applications, many organizations are looking for consolidated solutions that integrate with modern IBM mainframe development workflows.
 
 ## Architecture
@@ -36,13 +35,13 @@ You can use [Azure VPN Gateway](https://azure.microsoft.com/products/vpn-gateway
 
 ## Scenario details
 
-Azure DevOps can help you develop and modernize your z/OS applications that use IBM Z and Cloud Modernization Stack. Doing so can result in increased agility and enable developers to work faster and more pruductively. You can modify your existing COBOL, PL/I, Java, or assembler programs by using any IDE. And you can take advantage of the benefits of programming languages like Python, Node.js, and Go, which can run on z/OS. This approach enables you to easily adapt to new languages while still retaining the flexibility to work with preferred IDEs.
+Azure DevOps can help you develop and modernize your z/OS applications that use IBM Z and Cloud Modernization Stack. Doing so can result in increased agility and enable developers to work faster and more productively. You can modify your existing COBOL, PL/I, Java, or assembler programs by using any IDE. And you can take advantage of the benefits of programming languages like Python, Node.js, and Go, which can run on z/OS. This approach enables you to easily adapt to new languages while still retaining the flexibility to work with preferred IDEs.
 
 ### Azure DevOps
 
 Azure DevOps provides developer services to help teams plan work, collaborate on code development, and build and deploy applications. Developers can work in the cloud by using Azure DevOps Services or on-premises by using Azure DevOps Server. (Azure DevOps Services was previously known as Visual Studio Team Services.)  
 
-Azure DevOps provides integrated features that you can access through your web browser or IDE client. You can use one or more of the following services, dependig on your business needs: 
+Azure DevOps provides integrated features that you can access through your web browser or IDE client. You can use one or more of the following services, depending on your business needs: 
 
 - [Azure Repos](https://azure.microsoft.com/products/devops/repos) provides Git repositories or Team Foundation Version Control for source control of your code.
 - [Azure Pipelines](https://azure.microsoft.com/products/devops/pipelines/) provides build and release services to support continuous integration and continuous delivery (CI/CD) of your apps.
@@ -92,7 +91,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- Azure DevOps allows you to control access to your resources and data by using role-based access control (RBAC). RBAC helps to ensure that only authorized users can access your resources. For more information, see [security best practices](/azure/devops/organizations/security/security-best-practices?view=azure-devops).  
+- Azure DevOps allows you to control access to your resources and data by using role-based access control (RBAC). RBAC helps to ensure that only authorized users can access your resources. For more information, see [Security best practices](/azure/devops/organizations/security/security-best-practices?view=azure-devops).  
 - Azure DevOps integrates with Azure Security Center, which provides additional security insights and recommendations that can help you identify potential security issues and take steps to address them. 
 - You can enhance and extend your current DevSecOps practices by taking advantage of the security capabilities of IBM zSystems. By doing so, you can effectively mitigate business risks, help safeguard application data, and help ensure the long-term security for your systems. 
 
@@ -137,7 +136,7 @@ Other contributors:
 For more information, contact [Legacy Migrations Engineering](mailto:legacy2azure@microsoft.com). 
 
 We also recommend these resources:
-- [Azure DevOps documentation](/azure/devops/user-guide/what-is-azure-devops) 
+- [What is Azure DevOps?](/azure/devops/user-guide/what-is-azure-devops) 
 - [IBM Z and Cloud Modernization Stack](https://www.ibm.com/products/z-and-cloud-modernization-stack) 
 - [White paper on Azure DevOps for zSystems](https://www.ibm.com/support/pages/system/files/inline-files/Azure-DBB%20Integration%20v2g.pdf) 
 
