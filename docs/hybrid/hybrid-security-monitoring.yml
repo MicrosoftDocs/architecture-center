@@ -26,7 +26,7 @@ products:
   - azure-log-analytics
   - azure-monitor
   - azure-security-center
-  - azure-sentinel
+  - microsoft-sentinel
   - azure-stack
 thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-security-monitoring.png
 content: |
