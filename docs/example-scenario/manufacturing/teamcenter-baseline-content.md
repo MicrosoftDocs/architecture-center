@@ -147,11 +147,13 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 |Role of the Server|SKUs|
 | --- | --- |
-|Enterprise server, FMS and ODS|[Standard F16s v2](/azure/virtual-machines/fsv2-series)
-|FSC, Solr server| [Standard D8ds v5,DDv5](/azure/virtual-machines/ddv5-ddsv5-series#ddv5-series)
-|Visualization, CAD workstation| [Standard NV_A10_v5](/azure/virtual-machines/nva10v5-series)
-|Database servers |[Standard E32-16ds_v4](/azure/virtual-machines/constrained-vcpu)
-|Pool manager for 4T and AWC| [Dv4](/azure/virtual-machines/dv4-dsv4-series) and [Ev4](/azure/virtual-machines/ev4-esv4-series)
+|Enterprise server, FMS and ODS|[Standard F16s v2](/azure/virtual-machines/fsv2-series)|
+|FSC, Solr server| [Standard D8ds v5,DDv5](/azure/virtual-machines/ddv5-ddsv5-series#ddv5-series)|
+|Visualization, CAD workstation| [Standard NV_A10_v5](/azure/virtual-machines/nva10v5-series)|
+|Database servers |[Standard E32-16ds_v4](/azure/virtual-machines/constrained-vcpu)|
+|Pool manager for 4T and AWC| [Dv4](/azure/virtual-machines/dv4-dsv4-series) and [Ev4](/azure/virtual-machines/ev4-esv4-series)|
+
+**Use the Azure calculator.** The Azure calculator can help you estimate and optimize cost. For an estimated cost of the baseline architecture, see [estimated cost](https://azure.com/e/625cea91d4aa43bca73e0a8235817ba7). Your estimates might differ based on your Azure Teamcenter implementation.
 
 ### Performance efficiency
 
