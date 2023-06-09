@@ -793,7 +793,7 @@ namespace RetryCodeSamples
                 QueueClientOptions queueClientOptions = new QueueClientOptions()
                 {
                     Retry = {
-                    Delay = TimeSpan.FromSeconds(2),     //The delay between retry attempts for a fixed approach or the delay on which to base 
+                    Delay = TimeSpan.FromSeconds(2),     //The delay between retry attempts for a fixed approach or the delay on which to base
                                                          //calculations for a backoff-based approach
                     MaxRetries = 5,                      //The maximum number of retry attempts before giving up
                     Mode = RetryMode.Exponential,        //The approach to use for calculating retry delays
@@ -824,198 +824,86 @@ namespace RetryCodeSamples
 ### Table Support
 
 > [!NOTE]
-> WindowsAzure.Storage Nuget Package has been deprecated. For Azure table support, see [Microsoft.Azure.Cosmos.Table Nuget Package](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)
+> WindowsAzure.Storage Nuget Package and Microsoft.Azure.Cosmos.Table Nuget Package have been deprecated. For Azure table support, see [Azure.Data.Tables Nuget Package](https://www.nuget.org/packages/Azure.Data.Tables/)
 
 ### Retry mechanism
 
-Retries occur at the individual REST operation level and are an integral part of the client API implementation. The client storage SDK uses classes that implement the [IExtendedRetryPolicy Interface](/dotnet/api/microsoft.azure.storage.retrypolicies.iextendedretrypolicy).
+The client library is based on [Azure Core library](https://azure.github.io/azure-sdk/general_azurecore.html), which is a library that provides cross-cutting services to other client libraries.
 
-The built-in classes provide support for linear (constant delay) and exponential with randomization retry intervals. There's also a no retry policy for use when another process is handling retries at a higher level. However, you can implement your own retry classes if you have specific requirements not provided by the built-in classes.
-
-Alternate retries switch between primary and secondary storage service location if you're using read access geo-redundant storage (RA-GRS) and the result of the request is a retryable error. See [Azure Storage Redundancy Options](/azure/storage/common/storage-redundancy) for more information.
+There are many reasons why failure can occur when a client application attempts to send a network request to a service. Some examples are timeout, network infrastructure failures, service rejecting the request due to throttle/busy, service instance terminating due to service scale-down, service instance going down to be replaced with another version, service crashing due to an unhandled exception, etc. By offering a built-in retry mechanism (with a default configuration the consumer can override), our SDKs and the consumer’s application become resilient to these kinds of failures. Note that some services charge real money for each request and so consumers should be able to disable retries entirely if they prefer to save money over resiliency.
 
 ### Policy configuration
 
-Retry policies are configured programmatically. A typical procedure is to create and populate a **TableRequestOptions**, [**BlobClientOptions**](/azure/storage/blobs/storage-retry-policy#configure-retry-options), **FileRequestOptions**, or **QueueRequestOptions** instance.
+Retry policies are configured programmatically. The configuration is based on the [RetryOption class](/dotnet/api/azure.core.retryoptions). There is an attribute on [TableClientOptions](/dotnet/api/azure.data.tables.tableclientoptions) inherited  from [ClientOptions](/dotnet/api/azure.core.clientoptions)
 
 ```csharp
-TableRequestOptions interactiveRequestOption = new TableRequestOptions()
-{
-  RetryPolicy = new LinearRetry(TimeSpan.FromMilliseconds(500), 3),
-  // For Read-access geo-redundant storage, use PrimaryThenSecondary.
-  // Otherwise set this to PrimaryOnly.
-  LocationMode = LocationMode.PrimaryThenSecondary,
-  // Maximum execution time based on the business use case.
-  MaximumExecutionTime = TimeSpan.FromSeconds(2)
-};
+      var tableClientOptions = new TableClientOptions();
+      tableClientOptions.Retry.Mode = RetryMode.Exponential;
+      tableClientOptions.Retry.MaxRetries = 5;
+      var serviceClient = new TableServiceClient(connectionString, tableClientOptions);
 ```
 
-The request options instance can then be set on the client, and all operations with the client will use the specified request options.
+The following tables show the possibilities for the built-in retry policies.
 
-```csharp
-client.DefaultRequestOptions = interactiveRequestOption;
-var stats = await client.GetServiceStatsAsync();
-```
+**RetryOption**
 
-You can override the client request options by passing a populated instance of the request options class as a parameter to operation methods.
+| **Setting**    | **Meaning**                                                                                                                                                                                                                                                         |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Delay          | The delay between retry attempts for a fixed approach or the delay on which to base calculations for a backoff-based approach. If the service provides a Retry-After response header, the next retry will be delayed by the duration specified by the header value. |
+| MaxDelay       | The maximum permissible delay between retry attempts when the service does not provide a Retry-After response header. If the service provides a Retry-After response header, the next retry will be delayed by the duration specified by the header value.          |
+| Mode           | The approach to use for calculating retry delays.                                                                                                                                                                                                                   |
+| NetworkTimeout | The timeout applied to an individual network operations.                                                                                                                                                                                                            |
 
-```csharp
-var stats = await client.GetServiceStatsAsync(interactiveRequestOption, operationContext: null);
-```
+### [RetryMode](/dotnet/api/azure.core.retrymode)
 
-You use an **OperationContext** instance to specify the code to execute when a retry occurs and when an operation has completed. This code can collect information about the operation for use in logs and telemetry.
-
-```csharp
-// Set up notifications for an operation
-var context = new OperationContext();
-context.ClientRequestID = "some request id";
-context.Retrying += (sender, args) =>
-{
-    // Collect retry information
-};
-context.RequestCompleted += (sender, args) =>
-{
-    // Collect operation completion information
-};
-var stats = await client.GetServiceStatsAsync(null, context);
-```
-
-In addition to indicating whether a failure is suitable for retry, the extended retry policies return a **RetryContext** object that indicates the number of retries, the results of the last request, whether the next retry will happen in the primary or secondary location (see table below for details). The properties of the **RetryContext** object can be used to decide if and when to attempt a retry. For more information, see [IExtendedRetryPolicy.Evaluate Method](/dotnet/api/microsoft.azure.storage.retrypolicies.iextendedretrypolicy.evaluate).
-
-The following tables show the default settings for the built-in retry policies.
-
-**Request options:**
-
-| **Setting** | **Default value** | **Meaning** |
-| --- | --- | --- |
-| MaximumExecutionTime | None | Maximum execution time for the request, including all potential retry attempts. If it isn't specified, then the amount of time that a request is permitted to take is unlimited. In other words, the request might stop responding. |
-| ServerTimeout | None | Server timeout interval for the request (value is rounded to seconds). If not specified, it will use the default value for all requests to the server. Usually, the best option is to omit this setting so that the server default is used. |
-| LocationMode | None | If the storage account is created with the Read access geo-redundant storage (RA-GRS) replication option, you can use the location mode to indicate which location should receive the request. For example, if **PrimaryThenSecondary** is specified, requests are always sent to the primary location first. If a request fails, it's sent to the secondary location. |
-| RetryPolicy | ExponentialPolicy | See below for details of each option. |
-
-**Exponential policy:**
-
-| **Setting** | **Default value** | **Meaning** |
-| --- | --- | --- |
-| maxAttempt | 3 | Number of retry attempts. |
-| deltaBackoff | 4 seconds | Back-off interval between retries. Multiples of this timespan, including a random element, will be used for subsequent retry attempts. |
-| MinBackoff | 3 seconds | Added to all retry intervals computed from deltaBackoff. This value can't be changed.
-| MaxBackoff | 120 seconds | MaxBackoff is used if the computed retry interval is greater than MaxBackoff. This value can't be changed. |
-
-**Linear policy:**
-
-| **Setting** | **Default value** | **Meaning** |
-| --- | --- | --- |
-| maxAttempt | 3 | Number of retry attempts. |
-| deltaBackoff | 30 seconds | Back-off interval between retries. |
-
-### Retry usage guidance
-
-Consider the following guidelines when accessing Azure storage services using the storage client API:
-
-- Use the built-in retry policies from the Microsoft.Azure.Storage.RetryPolicies namespace where they're appropriate for your requirements. In most cases, these policies will be sufficient.
-
-- Use the **ExponentialRetry** policy in batch operations, background tasks, or non-interactive scenarios. In these scenarios, you can typically allow more time for the service to recover&mdash;with a consequently increased chance of the operation eventually succeeding.
-
-- Consider specifying the **MaximumExecutionTime** property of the **RequestOptions** parameter to limit the total execution time, but take into account the type and size of the operation when choosing a timeout value.
-
-- If you need to implement a custom retry, avoid creating wrappers around the storage client classes. Instead, use the capabilities to extend the existing policies through the **IExtendedRetryPolicy** interface.
-
-- If you're using read access geo-redundant storage (RA-GRS) you can use the **LocationMode** to specify that retry attempts will access the secondary read-only copy of the store should the primary access fail. However, when using this option you must ensure that your application can work successfully with data that may be stale if the replication from the primary store hasn't yet completed.
-
-Consider starting with the following settings for retrying operations. These settings are general purpose, and you should monitor the operations and fine-tune the values to suit your own scenario.
-
-| **Context** | **Sample target E2E<br />max latency** | **Retry policy** | **Settings** | **Values** | **How it works** |
-| --- | --- | --- | --- | --- | --- |
-| Interactive, UI,<br />or foreground |2 seconds |Linear |maxAttempt<br />deltaBackoff |3<br />500 ms |Attempt 1 - delay 500 ms<br />Attempt 2 - delay 500 ms<br />Attempt 3 - delay 500 ms |
-| Background<br />or batch |30 seconds |Exponential |maxAttempt<br />deltaBackoff |5<br />4 seconds |Attempt 1 - delay ~3 sec<br />Attempt 2 - delay ~7 sec<br />Attempt 3 - delay ~15 sec |
+| **Setting** | **Meaning**                                                                                                                         |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| Exponential | Retry attempts will delay based on a backoff strategy, where each attempt will increase the duration that it waits before retrying. |
+| MaxDelay    | Retry attempts happen at fixed intervals; each delay is a consistent duration.                                                      |
 
 ### Telemetry
 
-Retry attempts are logged to a **TraceSource**. You must configure a **TraceListener** to capture the events and write them to a suitable destination log. You can use the **TextWriterTraceListener** or **XmlWriterTraceListener** to write the data to a log file, the **EventLogTraceListener** to write to the Windows Event Log, or the **EventProviderTraceListener** to write trace data to the ETW subsystem. You can also configure autoflushing of the buffer, and the verbosity of events that will be logged (for example, Error, Warning, Informational, and Verbose). For more information, see [Client-side Logging with the .NET Storage Client Library](/rest/api/storageservices/Client-side-Logging-with-the-.NET-Storage-Client-Library).
+The simplest way to see the logs is to enable console logging. To create an Azure SDK log listener that outputs messages to console use AzureEventSourceListener.CreateConsoleLogger method.
 
-Operations can receive an **OperationContext** instance, which exposes a **Retrying** event that can be used to attach custom telemetry logic. For more information, see [OperationContext.Retrying Event](/dotnet/api/microsoft.azure.storage.operationcontext.retrying).
+```csharp
+      // Setup a listener to monitor logged events.
+      using AzureEventSourceListener listener = AzureEventSourceListener.CreateConsoleLogger();
+```
 
 ### Examples
 
-The following code example shows how to create two **TableRequestOptions** instances with different retry settings; one for interactive requests and one for background requests. The example then sets these two retry policies on the client so that they apply for all requests, and also sets the interactive strategy on a specific request so that it overrides the default settings applied to the client.
+Executing the following code example with the storage emulator shut down will allow us to see information about retries in the console.
 
 ```csharp
-using System;
-using System.Threading.Tasks;
-using Microsoft.Azure.Cosmos.Table;
+using Azure.Core;
+using Azure.Core.Diagnostics;
+using Azure.Data.Tables;
+using Azure.Data.Tables.Models;
 
 namespace RetryCodeSamples
 {
     class AzureStorageCodeSamples
     {
         private const string connectionString = "UseDevelopmentStorage=true";
+        private const string tableName = "RetryTestTable";
 
-        public async static Task Samples()
+        public async static Task SamplesAsync()
         {
-            var storageAccount = CloudStorageAccount.Parse(connectionString);
+            // Setup a listener to monitor logged events.
+            using AzureEventSourceListener listener = AzureEventSourceListener.CreateConsoleLogger();
 
-            TableRequestOptions interactiveRequestOption = new TableRequestOptions()
-            {
-                RetryPolicy = new LinearRetry(TimeSpan.FromMilliseconds(500), 3),
-                // For Read-access geo-redundant storage, use PrimaryThenSecondary.
-                // Otherwise set this to PrimaryOnly.
-                LocationMode = LocationMode.PrimaryThenSecondary,
-                // Maximum execution time based on the business use case.
-                MaximumExecutionTime = TimeSpan.FromSeconds(2)
-            };
+            var tableClientOptions = new TableClientOptions();
+            tableClientOptions.Retry.Mode = RetryMode.Exponential;
+            tableClientOptions.Retry.MaxRetries = 5;
 
-            TableRequestOptions backgroundRequestOption = new TableRequestOptions()
-            {
-                // Client has a default exponential retry policy with 4 sec delay and 3 retry attempts
-                // Retry delays will be approximately 3 sec, 7 sec, and 15 sec
-                MaximumExecutionTime = TimeSpan.FromSeconds(30),
-                // PrimaryThenSecondary in case of Read-access geo-redundant storage, else set this to PrimaryOnly
-                LocationMode = LocationMode.PrimaryThenSecondary
-            };
+            var serviceClient = new TableServiceClient(connectionString, tableClientOptions);
 
-            var client = storageAccount.CreateCloudTableClient();
-            // Client has a default exponential retry policy with 4 sec delay and 3 retry attempts
-            // Retry delays will be approximately 3 sec, 7 sec, and 15 sec
-            // ServerTimeout and MaximumExecutionTime are not set
-
-            {
-                // Set properties for the client (used on all requests unless overridden)
-                // Different exponential policy parameters for background scenarios
-                client.DefaultRequestOptions = backgroundRequestOption;
-                // Linear policy for interactive scenarios
-                client.DefaultRequestOptions = interactiveRequestOption;
-            }
-
-            {
-                // set properties for a specific request
-                var stats = await client.GetServiceStatsAsync(interactiveRequestOption, operationContext: null);
-            }
-
-            {
-                // Set up notifications for an operation
-                var context = new OperationContext();
-                context.ClientRequestID = "some request id";
-                context.Retrying += (sender, args) =>
-                {
-                    // Collect retry information
-                };
-                context.RequestCompleted += (sender, args) =>
-                {
-                    // Collect operation completion information
-                };
-                var stats = await client.GetServiceStatsAsync(null, context);
-            }
+            TableItem table = await serviceClient.CreateTableIfNotExistsAsync(tableName);
+            Console.WriteLine($"The created table's name is {table.Name}.");
         }
     }
 }
 ```
-
-### Next steps
-
-- [Azure Storage client Library retry policy recommendations](https://azure.microsoft.com/blog/2014/05/22/azure-storage-client-library-retry-policy-recommendations)
-
-- [Storage Client Library 2.0 – Implementing retry policies](https://gauravmantri.com/2012/12/30/storage-client-library-2-0-implementing-retry-policies)
 
 ## General REST and retry guidelines
 

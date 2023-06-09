@@ -70,7 +70,7 @@ Network security groups restrict access to each tier. For example, the database 
 
 For more information about running N-tier applications on Azure:
 
-- [Run Windows VMs for an N-tier application][n-tier-linux]
+- [N-tier application with Apache Cassandra][n-tier-linux]
 - [Windows N-tier application on Azure with SQL Server][n-tier-windows-SQL]
 - [Microsoft Learn module: Tour the N-tier architecture style](/training/modules/n-tier-architecture/)
 - [Azure Bastion](/azure/bastion/bastion-overview)

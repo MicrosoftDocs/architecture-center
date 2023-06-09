@@ -1916,6 +1916,10 @@ items:
       items:
       - name: All manufacturing architectures
         href: /azure/architecture/browse/?terms=manufacturing
+      - name: Siemens Teamcenter
+        items: 
+        - name: Teamcenter with NetApp Files
+          href: example-scenario/manufacturing/teamcenter-plm-netapp-files.yml 
       - name: Anomaly detection for conveyor belts
         href: example-scenario/ai/real-time-anomaly-detection-conveyor-belt.yml
       - name: Anomaly detector process
@@ -2118,6 +2122,8 @@ items:
         href: example-scenario/iot/automated-guided-vehicles-fleet-control.yml
       - name: Automotive test data analytics
         href: industries/automotive/automotive-telemetry-analytics.yml
+      - name: DataOps for autonomous vehicle operations
+        href: example-scenario/automotive/autonomous-vehicle-operations-dataops.yml
       - name: IoT Edge railroad maintenance and safety
         href: /azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance
       - name: Machine teaching for autonomous vehicles
