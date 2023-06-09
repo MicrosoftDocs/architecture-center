@@ -94,7 +94,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 #### Enterprise tier reliability
 
-**Use multiple VMs in the web tier.** You should use multiple instances of the Teamcenter application to enhance the resiliency and scalability. Run these instances on multiple virtual machines and load balance the traffic between them. A Teamcenter HTTP web server cluster provides better performance and resiliency for static web content.
+**Use multiple VMs in the web tier.** You should use multiple instances of the Teamcenter application to enhance the resiliency and scalability. Run these instances on multiple virtual machines and load balance the traffic between them. A single web server Java Virtual Machine (JVM) can support several thousand concurrent sessions when properly tuned. However, you should run multiple parallel web servers for either load balancing and/or increased reliability.
 
 **Use multiple VMs in the Enterprise tier.** You should install the Enterprise tier on multiple Azure virtual machines. This setup ensures fail-over support and enables load balancing to optimize performance. There are two load balancers. Application gateway load balances between VMs in the Web subnet and the Active Workspace Gateway load balances at the application level.
 
