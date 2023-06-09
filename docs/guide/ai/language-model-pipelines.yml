@@ -16,7 +16,7 @@ products:
   - azure-bing-web
   - azure-cache-redis
   - azure-pipelines
-name: Build language model pipelines
+name: Build language model pipelines with memory
 summary: Learn how to use an AI/ML pipeline, LangChain, and language models to create an analysis of how your product compares to competitor's similar products.
 thumbnailUrl: /azure/architecture/browse/thumbs/language-model-architecture.png
 content: |

@@ -3242,7 +3242,7 @@ items:
           href: example-scenario/ai/log-monitor-azure-openai.yml
       - name: Guides
         items:
-        - name: Build language model pipelines with memory
+        - name: Build language model pipelines
           href: guide/ai/language-model-pipelines.yml
   - name: Analytics
     items:
