@@ -1,27 +1,8 @@
----
-title: Build language model pipelines with memory 
-description: Learn how an AI/ML pipeline uses LangChain and language models to provide a comprehensive analysis of how your product compares to competitor's similar products.
-author: brandoncowenms
-ms.author: brandoncowen
-ms.date: 06/10/2023
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-products:
-  - azure-bing-web
-  - azure-cache-redis
-  - azure-pipelines
-categories:
-  - ai-machine-learning
-  - compute
-  - storage
----
-
 # Build language model pipelines with memory
 
 In today's fast-paced market, staying ahead of the competition is essential. A critical aspect of staying up to date is ensuring that you have a deep understanding of your products and competitor products. An AI/ML pipeline helps you quickly and efficiently gather, analyze, and summarize relevant information. This architecture includes several powerful Azure OpenAI models and services. It's paired with the popular open-source LangChain framework that's used to develop applications that are powered by language models.
 
-This article describes an AI/ML pipeline that uses LangChain and language models to provide a comprehensive analysis of how your product compares to competitor's similar products. The pipeline consists of two main components, a batch pipeline and a real-time, asynchronous pipeline. When you send a query to the real-time pipeline, the *orchestrator language model*, often GPT-4 or the most powerful available language model, derives a set of tasks to answer your question. These subtasks invoke other language models and APIs to mine the internal company product database and the public internet to build a report that shows the competitive position of your products versus the competitors. This pipeline is detailed in the following [Architecture section](#architecture).
+This article describes how to use an AI/ML pipeline, LangChain, and language models to create a comprehensive analysis of how your product compares to competitor's similar products. The pipeline consists of two main components, a batch pipeline and a real-time, asynchronous pipeline. When you send a query to the real-time pipeline, the *orchestrator language model*, often GPT-4 or the most powerful available language model, derives a set of tasks to answer your question. These subtasks invoke other language models and APIs to mine the internal company product database and the public internet to build a report that shows the competitive position of your products versus the competitors.
 
 > [!NOTE]
 > Some parts in the introduction, components, and workflow of this article were generated with the help of ChatGPT! [Try it for yourself](https://chat.openai.com) or [try it for your enterprise](/azure/cognitive-services/openai/quickstart?pivots=programming-language-studio&tabs=command-line).
@@ -30,7 +11,7 @@ This article describes an AI/ML pipeline that uses LangChain and language models
 
 :::image type="content" source="media/language-model-pipelines-architecture.png" alt-text="{alt-text}" lightbox="media/language-model-pipelines-architecture.png" border="false":::
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/language-model-pipelines-archtecture.pptx) of this architecture.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/language-model-pipelines-architecture.pptx) of this architecture.*
 
 ## Workflow
 
