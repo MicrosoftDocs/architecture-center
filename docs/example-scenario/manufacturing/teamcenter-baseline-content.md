@@ -1,20 +1,20 @@
 This article provides guidance for implementing Siemens Teamcenter Product Lifecycle Management (PLM) in Azure. It describes a baseline architecture for Siemens Teamcenter PLM deployments in Azure. [Siemens Teamcenter PLM](https://plm.sw.siemens.com/en-US/teamcenter/) is a software suite for managing the entire lifecycle of a product.
 
-Many customers run multiple Teamcenter solutions across the enterprise, mixing multiple instances, multiple ISV vendors, and hybrid cloud and on-premises implementations. This fragmentation reduces the customer’s ability to uniformly access data. Consolidating Teamcenter on Azure can speed the shift to one consistent, harmonized PLM experience across your enterprise.
+Many customers run multiple Teamcenter solutions across the enterprise, mixing multiple instances, multiple ISV vendors, and hybrid cloud and on-premises implementations. This fragmentation reduces the customer’s ability to uniformly access data. Consolidating Teamcenter on Azure provides a consistent and synchronized PLM experience across your enterprise.
 
 | Benefits of Teamcenter on Azure | Details |
 | --- | --- |
-| Engineer Anywhere | Enhances collaboration by eliminating data silos in multiple on-premises PLM instances.|
-| Cost Efficiency | Cuts down IT infrastructure and nonessential maintenance investments. |
-| End-to-End Workflow Enablement | Seamless interaction with core product design, simulation, and more through Azure. Interconnect with CAD/CAM, Simulation Solvers, MES, ERP, and other IT/OT systems.|
-| High Performance Tech & Speed | Offers high-quality compute, storage, and networking capabilities. Delivers consistently maintained performance across all Teamcenter PLM instances on Azure, boosting innovation and market speed.|
-| Scalability & Global Collaboration | Enable expansion across Azure’s global infrastructure with efficient internal and external enterprise collaboration.|
-| Security & compliance | Azure security controls and compliance policies ensure data protection and global standards adherence.|
+| Engineer anywhere | Enhances collaboration by eliminating data silos in multiple on-premises PLM instances.|
+| Cost efficiency | Cuts down IT infrastructure and nonessential maintenance investments. |
+| End-to-end workflow enablement | Seamless interaction with core product design, simulation, and more through Azure. Interconnect with CAD/CAM, Simulation Solvers, MES, ERP, and other IT/OT systems.|
+| High performance tech & speed | Offers high-quality compute, storage, and networking capabilities. Delivers consistently maintained performance across all Teamcenter PLM instances on Azure, boosting innovation and market speed.|
+| Scalability & global collaboration | Enables expansion across Azure’s global infrastructure with efficient internal and external enterprise collaboration.|
+| Security & compliance | Ensure data protection and global standards adherence using Azure security controls and compliance policies.|
 | Simplified management | Consolidation of Teamcenter on Azure simplifies management and accelerates the shift to a consistent, enterprise-wide PLM experience.|
 
 ## Architecture
 
-Siemens Teamcenter PLM baseline architecture has four distributed tiers (client, web, enterprise, and resource) in a single availability zone. Each tier aligns to function and communication flows between these tiers. All four tiers use their own virtual machines in a single virtual network. Teamcenter uses a client-server model. The Teamcenter core business functionality runs on a central server in the enterprise tier, and users access it through a web-based or thick-client interface. You can deploy multiple instances in Dev and Test environments (virtual networks) by adding extra virtual machines and storage.
+Siemens Teamcenter PLM baseline architecture has four distributed tiers (client, web, enterprise, and resource) in a single availability zone. Each tier aligns to function, and communication flows between these tiers. All four tiers use their own virtual machines in a single virtual network. Teamcenter uses a client-server model. The Teamcenter core business functionality runs on a central server in the enterprise tier, and users access it through a web-based or thick-client interface. You can deploy multiple instances in Dev and Test environments (virtual networks) by adding extra virtual machines and storage.
 
 [![Diagram that shows a Teamcenter PLM baseline architecture.](media/teamcenter-baseline-architecture.png)](media/teamcenter-baseline-architecture.png)
 *Download a [Visio file](https://arch-center.azureedge.net/teamcenter-baseline-architecture.vsdx) of this architecture.*
