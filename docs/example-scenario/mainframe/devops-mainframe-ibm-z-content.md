@@ -139,7 +139,7 @@ For more information, contact [Legacy Migrations Engineering](mailto:legacy2azur
 We also recommend these resources:
 - [Azure DevOps documentation](/azure/devops/user-guide/what-is-azure-devops) 
 - [IBM Z and Cloud Modernization Stack](https://www.ibm.com/products/z-and-cloud-modernization-stack) 
-- [White paper on Azure DevOps for zSystems](https://www.ibm.com/support/pages/system/files/inline-files/Azure-DBB%20Integration%20v2g.pdf)
+- [White paper on Azure DevOps for zSystems](https://www.ibm.com/support/pages/system/files/inline-files/Azure-DBB%20Integration%20v2g.pdf) 
 
 ## Related resources
 
