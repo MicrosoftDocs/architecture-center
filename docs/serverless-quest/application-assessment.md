@@ -115,7 +115,7 @@ You can reduce deployment risk by storing code under source control in a version
 | The application requires an SSL certificate to run.| ✔ | ✔ |
 
 ### Results
-Count your application's **Complexity** and **Risk** checkmarks.
+Using the tables above, determine if each factor applies to your application. Count the number of **Complexity** and **Risk** checkmarks for the factors that apply to your application.
 
 - The expected level of complexity to migrate or modernize the application to Azure is: **Matching Complexity Factors/Total Possible Complexity Factors**.
 - The expected risk involved is: **Matching Risk Factors/Total Possible Risk Factors**.
