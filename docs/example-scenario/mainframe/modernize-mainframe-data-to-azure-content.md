@@ -1,6 +1,6 @@
-This article describes an end-to-end modernization plan for mainframe and midrange data sources.
-
 *Apache®, [Spark](https://spark.apache.org), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
+
+This article describes an end-to-end modernization plan for mainframe and midrange data sources.
 
 ## Architecture
 
