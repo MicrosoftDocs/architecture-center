@@ -17,7 +17,7 @@ azureCategories:
   - storage
 products:
   - azure-sql-database
-  - azure-encoding
+  - azure
   - azure-firewall
   - azure-monitor
   - defender-for-cloud

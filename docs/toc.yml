@@ -1916,6 +1916,10 @@ items:
       items:
       - name: All manufacturing architectures
         href: /azure/architecture/browse/?terms=manufacturing
+      - name: Siemens Teamcenter
+        items: 
+        - name: Teamcenter with NetApp Files
+          href: example-scenario/manufacturing/teamcenter-plm-netapp-files.yml 
       - name: Anomaly detection for conveyor belts
         href: example-scenario/ai/real-time-anomaly-detection-conveyor-belt.yml
       - name: Anomaly detector process
@@ -2118,6 +2122,8 @@ items:
         href: example-scenario/iot/automated-guided-vehicles-fleet-control.yml
       - name: Automotive test data analytics
         href: industries/automotive/automotive-telemetry-analytics.yml
+      - name: DataOps for autonomous vehicle operations
+        href: example-scenario/automotive/autonomous-vehicle-operations-dataops.yml
       - name: IoT Edge railroad maintenance and safety
         href: /azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance
       - name: Machine teaching for autonomous vehicles
@@ -4362,8 +4368,6 @@ items:
             href: microservices/design/index.yml
           - name: Choose a compute option
             href: microservices/design/compute-options.md
-          - name: Spring Apps via reverse proxy
-            href: reference-architectures/microservices/spring-cloud-reverse-proxy.yml
           - name: Interservice communication
             href: microservices/design/interservice-communication.yml
           - name: API design
@@ -4408,21 +4412,12 @@ items:
             maintainContext: true
       - name: Architectures
         items:
-        - name: Azure Spring Apps multiregion deployment
-          href: reference-architectures/microservices/spring-apps-multi-region.yml
-        - name: Blue/green on Azure Spring Apps
-          href: example-scenario/blue-green-spring/blue-green-spring.yml
         - name: Decompose apps with Service Fabric
           href: example-scenario/infrastructure/service-fabric-microservices.yml
         - name: Enterprise-grade logging on Azure
           href: reference-architectures/logging/enterprise-grade-logging.yml
-        - name: Highly available zone-redundant Spring Apps
-          href: reference-architectures/microservices/spring-apps-multi-zone.yml
         - name: Microservices on Azure Service Fabric
           href: reference-architectures/microservices/service-fabric.yml
-        - name: Microservices with Azure Spring Apps
-          href: /azure/spring-apps/reference-architecture
-          maintainContext: true
         - name: Microservices with Container Apps
           href: example-scenario/serverless/microservices-with-container-apps.yml
         - name: Microservices with Dapr and KEDA
@@ -6578,7 +6573,7 @@ items:
         href: example-scenario/wvd/multi-forest-azure-managed.yml
   - name: Web
     items:
-    - name: Get started
+    - name: Overview
       href: guide/web/web-start-here.md
     - name: Guides
       items:
@@ -6628,6 +6623,24 @@ items:
         href: guide/web/secure-single-page-application-authorization.yml
     - name: Architectures
       items:
+      - name: Azure Spring Apps
+        items:
+          - name: Get started
+            href: web-apps/spring-apps/index.md
+          - name: Architecture
+            items:              
+            - name: Baseline
+              href: web-apps/spring-apps/spring-apps-multi-zone.yml
+            - name: Baseline in multiple regions
+              href: web-apps/spring-apps/spring-apps-multi-region.yml
+            - name: Baseline in landing zones
+              href: web-apps/spring-apps/spring-apps-landing-zone.yml
+          - name: Guides
+            items:
+              - name: Spring Apps through a reverse Proxy
+                href: web-apps/spring-apps/spring-cloud-reverse-proxy.yml 
+              - name: Blue/green deployments for applications
+                href: web-apps/spring-apps/blue-green-spring.yml                      
       - name: Basic web application
         href: reference-architectures/app-service-web-app/basic-web-app.yml
       - name: Baseline web application with zone redundancy
