@@ -47,7 +47,7 @@ Siemens Teamcenter PLM baseline architecture has four distributed tiers (client,
 
     - *File server cache virtual machine* is a volume server for file management. It's also a server-level performance cache server and provides shared data access for multiple users. All Teamcenter file access/update is via FMS server cache processes. The cache process reads and writes the files in volume servers. It also streams the file(s) to/from clients as required.
 
-    - *Search server SOLR* performs smart searches and supports real-time indexing of data.
+    - *Search server*, Apache Solr performs smart searches and supports real-time indexing of data.
 
     - *License server virtual machine* runs a valid Teamcenter FlexPLM license.
 
@@ -84,7 +84,7 @@ Teamcenter provides a broad and rich depth of many functional solutions for mana
 - Store product data assets in a single, secured, shared source of truth to streamline processes.
 - Manage product complexity combining mechanical, electrical and software.
 - Collaborate to manage product design, configuration (bill of material) and change management across the product lifecycle efficiently.
-- Process connectivity across engineering, design, R&D and manufacturing
+- Process connectivity across engineering, design, R&D and manufacturing.
 - Increase competitive advantage by increasing speed to market for new products.
 - Power digital thread and digital twins.
 
@@ -148,7 +148,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 |Role of the Server|SKUs|
 | --- | --- |
 |Enterprise server, FMS and ODS|[Standard F16s v2](/azure/virtual-machines/fsv2-series)|
-|FSC, Solr server| [Standard D8ds v5,DDv5](/azure/virtual-machines/ddv5-ddsv5-series#ddv5-series)|
+|FSC, Apache Solr server| [Standard D8ds v5,DDv5](/azure/virtual-machines/ddv5-ddsv5-series#ddv5-series)|
 |Visualization, CAD workstation| [Standard NV_A10_v5](/azure/virtual-machines/nva10v5-series)|
 |Database servers |[Standard E32-16ds_v4](/azure/virtual-machines/constrained-vcpu)|
 |Pool manager for 4T and AWC| [Dv4](/azure/virtual-machines/dv4-dsv4-series) and [Ev4](/azure/virtual-machines/ev4-esv4-series)|
@@ -163,7 +163,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 When hosting volumes for the Teamcenter Volume Server, it's recommended to attach multiple premium disks to a Virtual Machine and stripe them together. This configuration enhances the combined I/O operations per second (IOPS) and throughput limit. On a DS series Virtual Machine, you can stripe up to 32 premium disks, and for GS series, up to 64 premium disks can be striped. Ensure that the combined input-output per second (IOPS) doesn't exceed the limit defined by the Virtual Machine SKU. For more information, see [Siemens Support Center](https://support.sw.siemens.com).
 
-**Use asynchronous indexing flow.** For Full Text Search (FTS) indexing via Solr server, you should use an asynchronous file content indexing flow. It's important when indexing contents from CAD files associated with Teamcenter objects. Asynchronous indexing flow uses separate and independent Dispatcher processes to track requests. It reduces the need for resource-intensive processes requiring additional CPU and memory resources. The asynchronous indexing flow separates file content indexing from metadata indexing. Once metadata indexing is completed, your users can search for all indexable objects without waiting for file content indexing. This indexing flow improves search time.
+**Use asynchronous indexing flow.** For Full Text Search (FTS) indexing via the Apache Solr server, you should use an asynchronous file content indexing flow. It's important when indexing contents from CAD files associated with Teamcenter objects. Asynchronous indexing flow uses separate and independent Dispatcher processes to track requests. It reduces the need for resource-intensive processes requiring additional CPU and memory resources. The asynchronous indexing flow separates file content indexing from metadata indexing. Once metadata indexing is completed, your users can search for all indexable objects without waiting for file content indexing. This indexing flow improves search time.
 
 ## Contributors
 
@@ -179,7 +179,7 @@ Other contributors:
 - [Gauhar Junnarkar](https://www.linkedin.com/in/gauharjunnarkar/) | Principal Program Manager
 - [Geert van Teylingen](https://www.linkedin.com/in/geertvanteylingen/) | Azure NetApp Files Group Product Manager
 
-To see nonpublic LinkedIn profiles, sign in to LinkedIn.
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

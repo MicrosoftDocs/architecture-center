@@ -2,7 +2,7 @@
 metadata:
   title: Siemens Teamcenter baseline architecture
   titleSuffix: Azure Architecture Center
-  description: Learn how to architecture Siemens Teamcenter product lifecycle management (PLM) tool in Azure. 
+  description: Learn about the Siemens Teamcenter product lifecycle management (PLM) solution architecture in Azure.
   author: stephen-sumner
   ms.author: sunitaphanse
   ms.reviewer: ssumner
@@ -16,7 +16,7 @@ products:
   - azure-netapp-files
   - azure-sql-database
 name: Siemens Teamcenter baseline architecture
-summary: Learn how to architecture Siemens Teamcenter product lifecycle management (PLM) tool in Azure. 
+summary: Learn about the Siemens Teamcenter product lifecycle management (PLM) solution architecture in Azure.
 thumbnailUrl: /azure/architecture/browse/thumbs/teamcenter-baseline-architecture.png
 content: |
   [!include[](teamcenter-baseline-content.md)]
