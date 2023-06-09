@@ -6,11 +6,11 @@ Many customers run multiple Teamcenter solutions across the enterprise, mixing m
 | --- | --- |
 | Engineer anywhere | Enhances collaboration by eliminating data silos in multiple on-premises PLM instances.|
 | Cost efficiency | Cuts down IT infrastructure and nonessential maintenance investments. |
-| End-to-end workflow enablement | Seamless interaction with core product design, simulation, and more through Azure. Interconnect with CAD/CAM, Simulation Solvers, MES, ERP, and other IT/OT systems.|
+| End-to-end workflow enablement | Interacts with core product design and simulation, and interconnects with CAD/CAM, simulation solvers, MES, ERP, and other IT/OT systems.|
 | High performance tech & speed | Offers high-quality compute, storage, and networking capabilities. Delivers consistently maintained performance across all Teamcenter PLM instances on Azure, boosting innovation and market speed.|
 | Scalability & global collaboration | Enables expansion across Azure’s global infrastructure with efficient internal and external enterprise collaboration.|
-| Security & compliance | Ensure data protection and global standards adherence using Azure security controls and compliance policies.|
-| Simplified management | Consolidation of Teamcenter on Azure simplifies management and accelerates the shift to a consistent, enterprise-wide PLM experience.|
+| Security & compliance | Ensures data protection and global standards adherence using Azure security controls and compliance policies.|
+| Simplified management | Consolidates Teamcenter resources and accelerates the shift to a consistent, enterprise-wide PLM experience.|
 
 ## Architecture
 
