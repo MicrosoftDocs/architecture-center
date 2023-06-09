@@ -1,6 +1,6 @@
-This article provides guidance for implementing Siemens Teamcenter Product Lifecycle Management (PLM) in Azure. It describes a baseline architecture for Siemens Teamcenter PLM deployments in Azure. [Siemens Teamcenter PLM](https://plm.sw.siemens.com/en-US/teamcenter/) is a software suite for managing the entire lifecycle of a product.
+This article provides guidance for implementing Siemens Teamcenter Product Lifecycle Management (PLM) in Azure. It describes a baseline architecture for Siemens Teamcenter PLM deployments in Azure. [Siemens Teamcenter PLM](https://plm.sw.siemens.com/en-US/teamcenter/) is a software suite for managing the entire lifecycle of a product.
 
-Many customers run multiple Teamcenter solutions across the enterprise, mixing multiple instances, multiple ISV vendors, and hybrid cloud/on-prem implementations. This fragmentation reduces the customer’s ability to uniformly access data. Consolidating Teamcenter on Azure can speed the shift to one consistent, harmonized PLM experience, enterprise wide.
+Many customers run multiple Teamcenter solutions across the enterprise, mixing multiple instances, multiple ISV vendors, and hybrid cloud/on-prem implementations. This fragmentation reduces the customer’s ability to uniformly access data. Consolidating Teamcenter on Azure can speed the shift to one consistent, harmonized PLM experience, enterprise wide.
 
 | Benefit of Teamcenter on Azure | Details |
 | --- | --- |
@@ -27,29 +27,29 @@ Siemens Teamcenter PLM baseline architecture has four distributed tiers (client,
 1. Azure Application Gateway routes traffic to the Teamcenter’s web server virtual machines (VMs) in the Web Tier. Azure Application Gateway with Azure Firewall inspects the incoming HTTP traffic to continuously monitor Teamcenter against exploits. For reliable performance of your application, the VM size, disk configuration, and application installs should match across all VMs.  Based on your requirements you can consider the use of Azure Virtual Machines Scale Sets. With Virtual Machine Scale Sets, VM instances are created from the same base OS image and configuration.
 1. The Web subnet in the Web tier runs the following Teamcenter components on Azure VMs:
 
-    *Teamcenter Security services (TCSS)* enable role-based access control (RBAC) for end users and secure access to resources. With TCSS, users can navigate between different Teamcenter applications without encountering multiple authentication challenges.  It offers a unified framework for integration with a site's single sign-on solution and simplifies the authentication process
+    - *Teamcenter Security services (TCSS)* enable role-based access control (RBAC) for end users and secure access to resources. With TCSS, users can navigate between different Teamcenter applications without encountering multiple authentication challenges.  It offers a unified framework for integration with a site's single sign-on solution and simplifies the authentication process
 
-    *Teamcenter HTTP servers (TC HTTP servers)* run third-party HTTP web servers, such as IIS (.NET) or Java-based servers, to support the Rich client or Active Workspace client. These web server VMs also host the Teamcenter servlet container. Network security groups (NSGs) secure inbound and outbound communication between the Application Gateway subnet, web subnet and enterprise subnets. NSGs ensure the necessary connectivity and security measures are in place for data transfer between the subnets.
+    - *Teamcenter HTTP servers (TC HTTP servers)* run third-party HTTP web servers, such as IIS (.NET) or Java-based servers, to support the Rich client or Active Workspace client. These web server VMs also host the Teamcenter servlet container. Network security groups (NSGs) secure inbound and outbound communication between the Application Gateway subnet, web subnet and enterprise subnets. NSGs ensure the necessary connectivity and security measures are in place for data transfer between the subnets.
 
-    *Active Workspace Gateway* provides the functionality for the Teamcenter Active Workspace client. It serves as the routing mechanism for static content, such as HTML, CSS, JavaScript, JSON, and dynamic content such as API routing. It directs these requests to the appropriate back-end services and microservices responsible for tasks such as Service-Oriented Architecture (SOA), File Management Services (FMS), Visualization, and GraphQL. This architecture ensures efficient delivery and processing of content within the Teamcenter Product Lifecycle Management application running on Azure.
+    - *Active Workspace Gateway* provides the functionality for the Teamcenter Active Workspace client. It serves as the routing mechanism for static content, such as HTML, CSS, JavaScript, JSON, and dynamic content such as API routing. It directs these requests to the appropriate back-end services and microservices responsible for tasks such as Service-Oriented Architecture (SOA), File Management Services (FMS), Visualization, and GraphQL. This architecture ensures efficient delivery and processing of content within the Teamcenter Product Lifecycle Management application running on Azure.
 
-    Network security groups (NSGs) secure inbound and outbound communication between the Enterprise subnets, Database subnet & Storage subnet.
+    - Network security groups (NSGs) secure inbound and outbound communication between the Enterprise subnets, Database subnet & Storage subnet.
 
 1. The Enterprise subnet runs the following core Teamcenter components:
 
-    *Enterprise tier VMs* run the business logic components of Teamcenter. These components include Teamcenter Foundation, Server Manager, Dispatcher, and Microservices.
+    - *Enterprise tier VMs* run the business logic components of Teamcenter. These components include Teamcenter Foundation, Server Manager, Dispatcher, and Microservices.
 
-    *Active workspace* serves as the platform where Active Workspace users sign in to access information and perform tasks based on their assigned roles.
+    - *Active workspace* serves as the platform where Active Workspace users sign in to access information and perform tasks based on their assigned roles.
 
-    *Visualization VMs* run Teamcenter lifecycle visualization. This feature empowers every member of your organization to access and view design data that is commonly stored in CAD-data formats.
+    - *Visualization VMs* run Teamcenter lifecycle visualization. This feature empowers every member of your organization to access and view design data that is commonly stored in CAD-data formats.
 
-    *File Management System (FMS) VM* stores and retrieves user files (CAD, PDF) through SMB/NFS access protocols from file storage (ex. managed disks, Azure Files or Azure NetApp Files). It also supports caching and file distribution. FMS requires the installation of an FMS server cache (FSC) and FMS client cache (FCC) components. FCC resides on client desktop.
+    - *File Management System (FMS) VM* stores and retrieves user files (CAD, PDF) through SMB/NFS access protocols from file storage (ex. managed disks, Azure Files or Azure NetApp Files). It also supports caching and file distribution. FMS requires the installation of an FMS server cache (FSC) and FMS client cache (FCC) components. FCC resides on client desktop.
 
-    *File server cache VM* is a volume server for file management. It's also a server-level performance cache server and provides shared data access for multiple users. All Teamcenter file access/update is via FMS server cache processes. The cache process reads and writes the files in volume servers. It also streams the file(s) to/from clients as required.
+    - *File server cache VM* is a volume server for file management. It's also a server-level performance cache server and provides shared data access for multiple users. All Teamcenter file access/update is via FMS server cache processes. The cache process reads and writes the files in volume servers. It also streams the file(s) to/from clients as required.
 
-    *Search server SOLR* performs smart searches and supports real-time indexing of data.
+    - *Search server SOLR* performs smart searches and supports real-time indexing of data.
 
-    *License server VM* runs a valid Teamcenter FlexPLM license.
+    - *License server VM* runs a valid Teamcenter FlexPLM license.
 
 1. *Database subnet* runs a SQL Server database using an infrastructure-as-a-service deployment. It uses SQL Server Always On availability groups for asynchronous replication. The deployment could run an Oracle on this IaaS deployment.
 1. *Storage subnet* uses Azure Files Premium and Azure NetApp Files.
