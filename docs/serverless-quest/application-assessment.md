@@ -118,7 +118,9 @@ You can reduce deployment risk by storing code under source control in a version
 Count your application's **Complexity** and **Risk** checkmarks.
 
 - The expected level of complexity to migrate or modernize the application to Azure is: **Selected Complexity's checkmarks/Total Complexity's checkmarks**.
-- The expected risk involved is: **Selected Risk's checkmarks/Total Risk's checkmarks**.
+- The expected risk involved is: **Matching Risk Factors/Total Possible Risk Factors**.
+
+**Total Possible Complexity Factors = 28, Total Possible Risk Factors = 23**
 
 For both complexity and risk, a score obtained from the calculation above of <0.3 = low, <0.7 = medium, >0.7 = high. These scores provide a relative scale of complexity and risk.
 
