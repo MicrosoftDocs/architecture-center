@@ -235,7 +235,7 @@ Traditionally, DNS records map a DNS name to an IP address. For example, `www.co
 
 Azure DNS Private Resolver has the following limitations:
 
-- Azure DNS Private Resolver can only resolve virtual networks that are within the same geographical region as the resolver.
+- Azure DNS Private Resolver rulesets can only be linked to virtual networks that are within the same geographical region as the resolver.
 - A virtual network can't contain more than one DNS resolver.
 - You need to assign a dedicated subnet to each inbound and outbound endpoint.
 
