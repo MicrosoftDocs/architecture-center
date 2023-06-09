@@ -1,20 +1,20 @@
 This article provides guidance for implementing Siemens Teamcenter Product Lifecycle Management (PLM) in Azure. It describes a baseline architecture for Siemens Teamcenter PLM deployments in Azure. [Siemens Teamcenter PLM](https://plm.sw.siemens.com/en-US/teamcenter/) is a software suite for managing the entire lifecycle of a product.
 
-Many customers run multiple Teamcenter solutions across the enterprise, mixing multiple instances, multiple ISV vendors, and hybrid cloud and on-premises implementations. This fragmentation reduces the customer’s ability to uniformly access data. Consolidating Teamcenter on Azure can speed the shift to one consistent, harmonized PLM experience, enterprise wide.
+Many customers run multiple Teamcenter solutions across the enterprise, mixing multiple instances, multiple ISV vendors, and hybrid cloud and on-premises implementations. This fragmentation reduces the customer’s ability to uniformly access data. Consolidating Teamcenter on Azure can speed the shift to one consistent, harmonized PLM experience across your enterprise.
 
-| Benefit of Teamcenter on Azure | Details |
+| Benefits of Teamcenter on Azure | Details |
 | --- | --- |
-|Engineer Anywhere | Enhances collaboration by eliminating data silos in multiple on-premises PLM instances.|
-|Cost Efficiency | Teamcenter PLM on Azure cuts down IT infrastructure and nonessential maintenance investments.|
-| End-to-End Workflow Enablement| Seamless interaction with core product design, simulation, and more through Azure. Interconnect with CAD/CAM, Simulation Solvers, MES, ERP, and other IT/OT systems.|
+| Engineer Anywhere | Enhances collaboration by eliminating data silos in multiple on-premises PLM instances.|
+| Cost Efficiency | Cuts down IT infrastructure and nonessential maintenance investments. |
+| End-to-End Workflow Enablement | Seamless interaction with core product design, simulation, and more through Azure. Interconnect with CAD/CAM, Simulation Solvers, MES, ERP, and other IT/OT systems.|
 | High Performance Tech & Speed | Offers high-quality compute, storage, and networking capabilities. Delivers consistently maintained performance across all Teamcenter PLM instances on Azure, boosting innovation and market speed.|
 | Scalability & Global Collaboration | Enable expansion across Azure’s global infrastructure with efficient internal and external enterprise collaboration.|
-| Security & Compliance |Azure’s inbuilt security controls and compliance policies ensure data protection and global standards adherence.|
-| Simplified Management | Consolidation of Teamcenter on Azure simplifies management and accelerates the shift to a consistent, enterprise-wide PLM experience.|
+| Security & compliance | Azure security controls and compliance policies ensure data protection and global standards adherence.|
+| Simplified management | Consolidation of Teamcenter on Azure simplifies management and accelerates the shift to a consistent, enterprise-wide PLM experience.|
 
 ## Architecture
 
-Siemens Teamcenter PLM baseline architecture has four distributed tiers (client, web, enterprise, and resource) in a single availability zone. Each tier aligns to function and communication flows between these tiers. All four tiers use their own virtual machines in a single virtual network. Teamcenter uses a client-server model.  The Teamcenter core business functionality runs on a central server in the enterprise tier and users access it through a web-based or thick-client interface. You can deploy multiple instances in Dev and Test environments (virtual networks) by adding extra virtual machines and storage.
+Siemens Teamcenter PLM baseline architecture has four distributed tiers (client, web, enterprise, and resource) in a single availability zone. Each tier aligns to function and communication flows between these tiers. All four tiers use their own virtual machines in a single virtual network. Teamcenter uses a client-server model. The Teamcenter core business functionality runs on a central server in the enterprise tier, and users access it through a web-based or thick-client interface. You can deploy multiple instances in Dev and Test environments (virtual networks) by adding extra virtual machines and storage.
 
 [![Diagram that shows a Teamcenter PLM baseline architecture.](media/teamcenter-baseline-architecture.png)](media/teamcenter-baseline-architecture.png)
 *Download a [Visio file](https://arch-center.azureedge.net/teamcenter-baseline-architecture.vsdx) of this architecture.*
@@ -162,6 +162,8 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 **Use proximity placement groups.**  Use proximity placement groups to achieve optimal network latency, particularly for CAD applications. Employ proximity placement groups when significant network latency between the application layer and the database impacts the workload. Take note of the limitations on VM type availability within the same datacenter. For more information, see [Proximity placement groups.](/azure/virtual-machines/co-location)
 
 When hosting volumes for the Teamcenter Volume Server, it's recommended to attach multiple premium disks to a Virtual Machine and stripe them together. This configuration enhances the combined I/O operations per second (IOPS) and throughput limit. On a DS series Virtual Machine, you can stripe up to 32 premium disks, and for GS series, up to 64 premium disks can be striped. Ensure that the combined input-output per second (IOPS) doesn't exceed the limit defined by the Virtual Machine SKU. For more information, see [Siemens Support Center](https://support.sw.siemens.com).
+
+**Use asynchronous indexing flow.** For Full Text Search (FTS) indexing via Solr server, you should use an asynchronous file content indexing flow. It's important when indexing contents from CAD files associated with Teamcenter objects. Asynchronous indexing flow uses separate and independent Dispatcher processes to track requests. It reduces the need for resource-intensive processes requiring additional CPU and memory resources. The asynchronous indexing flow separates file content indexing from metadata indexing. Once metadata indexing is completed, your users can search for all indexable objects without waiting for file content indexing. This indexing flow improves search time.
 
 ## Contributors
 
