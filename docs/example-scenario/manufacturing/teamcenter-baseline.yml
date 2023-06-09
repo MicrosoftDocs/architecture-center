@@ -13,7 +13,7 @@ metadata:
 azureCategories:
   - storage 
 products:
-  - azure-netapp-files
+  - azure-virtual-machines
   - azure-sql-database
 name: Siemens Teamcenter baseline architecture
 summary: Learn about the Siemens Teamcenter product lifecycle management (PLM) solution architecture in Azure.
