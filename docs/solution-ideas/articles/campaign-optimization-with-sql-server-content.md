@@ -4,7 +4,7 @@ This solution idea describes how to build and deploy a machine-learning model th
 
 ## Architecture
 
-![Architecture diagram that shows you how to develop and deploy models on a Data Science VM with R.](../media/campaign-optimization-with-sql-server.svg)
+![Architecture diagram that shows how to develop and deploy models on an Azure data science virtual machine by using R.](../media/campaign-optimization-with-sql-server.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/campaign-optimization-with-sql-server.vsdx) of this architecture.*
 

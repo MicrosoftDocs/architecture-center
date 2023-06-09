@@ -257,22 +257,22 @@
 			<desc>Azure Data Science Virtual Machine</desc>
 			<rect x="0" y="188.767" width="130.5" height="18.2332" class="st13"/>
 			<text x="14.56" y="194.28" class="st14">Azure Data Science <tspan x="23.81" dy="1.2em" class="st15">Virtual Machine</tspan></text>		</g>
-		<g id="shape1049-91" transform="translate(577.005,-85.2668)">
+		<g id="shape1049-91" transform="translate(586.508,-72)">
 			<title>Sheet.1049</title>
-			<desc>Visualize Power BI</desc>
-			<rect x="0" y="188.767" width="103.5" height="18.2332" class="st13"/>
-			<text x="4.06" y="201.48" class="st14">Visualize Power BI</text>		</g>
-		<g id="shape1050-94" transform="translate(139.5,-143.767)">
+			<desc>Visualize in Power BI</desc>
+			<rect x="0" y="171" width="84.4949" height="36" class="st13"/>
+			<text x="12.82" y="185.4" class="st14">Visualize in <tspan x="19.13" dy="1.2em" class="st15">Power BI</tspan></text>		</g>
+		<g id="shape1050-95" transform="translate(139.5,-143.767)">
 			<title>Sheet.1050</title>
 			<desc>Develop and deploy models</desc>
 			<rect x="0" y="188.767" width="150.51" height="18.2332" class="st13"/>
 			<text x="7.25" y="201.18" class="st16">Develop and deploy models</text>		</g>
-		<g id="shape1051-97" transform="translate(401.745,-143.767)">
+		<g id="shape1051-98" transform="translate(401.745,-143.767)">
 			<title>Sheet.1051</title>
 			<desc>Score</desc>
 			<rect x="0" y="188.767" width="150.51" height="18.2332" class="st13"/>
 			<text x="61.78" y="201.18" class="st16">Score</text>		</g>
-		<g id="shape1-100" transform="translate(9,-7.06198)">
+		<g id="shape1-101" transform="translate(9,-7.06198)">
 			<title>Sheet.1</title>
 			<rect x="0" y="148.356" width="111.026" height="58.6442" class="st13"/>
 			<image x="0" y="148.356" width="111.026" height="58.6442" preserveAspectRatio="none" xlink:href="data:image/png;base64,
