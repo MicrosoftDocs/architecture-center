@@ -1,25 +1,28 @@
-This document briefly explains the steps to install and run [LAMMPS](http://lammps.sandia.gov) application on a virtual machine (VM) in Azure and presents the performance results of running it on single-node and multi-node VM configurations.
+This article briefly describes the steps for installing and running [LAMMPS](http://lammps.sandia.gov) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running LAMMPS on single-node and multi-node VM configurations.
 
-LAMMPS is a large-scale Atomic/Molecular Massively Parallel Simulator written using the classical molecular dynamics code focusing on materials modeling. It has the potential for solid-state materials (metals, semiconductors), soft matter (biomolecules, polymers), and coarse-grained or mesoscopic systems. It can be used to model atoms or, more generically, as a parallel particle simulator at the atomic, meso, or continuum scale. It is designed to run well on parallel machines but also fine on single-processor desktop machines. It is a parallel molecular dynamics code designed for high-performance simulation of large biomolecular systems. LAMMPS has modular code with most functionality in optional packages. LAMMPS supports particle decomposition inside spatial decomposition for OpenMP and GPU parallelism.  
+LAMMPS is a classical molecular dynamics simulator that's used for materials modeling. It can model solid-state materials, soft matter, and coarse-grained or mesoscopic systems. It can be used to model atoms or, more generically, as a parallel particle simulator at the atomic, meso, or continuum scale. 
 
-LAMMPS is used mainly for simulating fluids, metals, and other materials at the molecular level. Typical LAMMPS simulations include all-atom models of liquid, solids, and/or materials and explicit solvents (water and ions).
+LAAMPS is designed to run well on parallel machines, but it also runs on single-processor desktop machines. It's composed of modular code, and most functionality is in optional packages.
+
+Typical LAMMPS simulations include all-atom models of liquids, solids, and explicit solvents.
 
 ## Why deploy LAMMPS on Azure? 
 
 - Modern and diverse compute options to meet your workload's needs. 
 - The flexibility of virtualization without the need to buy and maintain physical hardware. 
 - Rapid provisioning. 
-- Supports MPI and can run large and long-lasting jobs.
+- Support for Message Passing Interface (MPI).
+- Ability to run large and time-consuming jobs.
 
 ## Architecture
 
-Multi-node configuration: 
+This diagram shows a multi-node configuration:
 
 image
 
 link 
 
-Single-node configuration: 
+This diagram shows a single-node configuration:
 
 image 
 
