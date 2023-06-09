@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Highly available zone-redundant Azure Spring Apps
+  title: Azure Spring Apps baseline architecture 
   titleSuffix: Azure Architecture Center
   description: Deploy Azure Spring Apps instances in multiple zones for increased availability, resilience, and performance.
   author: vermegi
-  ms.author: vermegi
-  ms.date: 02/10/2023
+  ms.author: prwilk
+  ms.date: 06/06/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
@@ -17,8 +17,9 @@ products:
   - azure-application-gateway
   - azure-key-vault
   - azure-spring-apps
-name: Highly available zone-redundant Azure Spring Apps
+  - azure-database-mysql
+name:  Azure Spring Apps baseline architecture
 summary: Deploy Azure Spring Apps instances in multiple zones for increased availability, resilience, and performance.
-thumbnailUrl: /azure/architecture/browse/thumbs/spring-apps-reference-architecture.png
+thumbnailUrl: ../../browse/thumbs/spring-apps-reference-architecture-single-region-zone-redundant.svg
 content: |
   [!include[](spring-apps-multi-zone-content.md)]
