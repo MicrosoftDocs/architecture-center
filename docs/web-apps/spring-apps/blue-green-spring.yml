@@ -5,14 +5,10 @@ metadata:
   description: This article describes a high-availability blue/green deployment solution for applications on Azure Spring Apps.
   author: vermegi
   ms.author: givermei
-  ms.date: 02/09/2023
-  ms.topic: example-scenario
+  ms.date: 06/06/2023
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
-  ms.custom:
-    - fcp
-    - fasttrack-new
-    - example-scenario
 azureCategories:
   - devops
 products:
@@ -21,6 +17,6 @@ products:
   - azure-devops
 name: Blue/green deployments for applications on Azure Spring Apps 
 summary: This article describes a high-availability blue/green deployment solution for applications on Azure Spring Apps.
-thumbnailUrl: /azure/architecture/browse/thumbs/blue-green-deployment-thumbnail.png
+thumbnailUrl: ../../browse/thumbs/blue-green-deployment-thumbnail.png
 content: |
   [!include[](blue-green-spring-content.md)]

@@ -2,7 +2,7 @@ This article describes how you can manage your own Transparent Data Encryption (
 
 ## Architecture
 
-:::image type="content" border="false" source="./media/sql-managed-instance-cmk.png" alt-text="Diagram that shows an architecture for managing T D E keys." lightbox="./media/sql-managed-instance-cmk.png":::
+:::image type="content" border="false" source="./media/sql-managed-instance-cmk.svg" alt-text="Diagram that shows an architecture for managing TDE keys." lightbox="./media/sql-managed-instance-cmk.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/sql-mi-cmk.vsdx) of this architecture.*
 
