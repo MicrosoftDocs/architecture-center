@@ -120,7 +120,7 @@ Count your application's **Complexity** and **Risk** checkmarks.
 - The expected level of complexity to migrate or modernize the application to Azure is: **Selected Complexity's checkmarks/Total Complexity's checkmarks**.
 - The expected risk involved is: **Selected Risk's checkmarks/Total Risk's checkmarks**.
 
-For both complexity and risk, a score obtained from the calculation above of <0.3 = low, <0.7 = medium, >0.7 = high.
+For both complexity and risk, a score obtained from the calculation above of <0.3 = low, <0.7 = medium, >0.7 = high. These scores provide a relative scale of complexity and risk.
 
 ## Refactor, rearchitect, or rebuild
 
