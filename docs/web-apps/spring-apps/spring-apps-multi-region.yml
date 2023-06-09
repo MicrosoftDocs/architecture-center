@@ -3,8 +3,8 @@ metadata:
   title: Deploy Azure Spring Apps to multiple regions
   description: Deploy Azure Spring Apps instances in multiple regions for increased availability, resilience, and performance.
   author: vermegi
-  ms.author: vermegi
-  ms.date: 12/12/2022
+  ms.author: prwilk
+  ms.date: 06/06/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
@@ -19,6 +19,6 @@ products:
   - azure-spring-apps
 name: Deploy Azure Spring Apps to multiple regions
 summary: Deploy Azure Spring Apps instances in multiple regions for increased availability, resilience, and performance.
-thumbnailUrl: /azure/architecture/browse/thumbs/spring-apps-reference-architecture.png
+thumbnailUrl: ../../browse/thumbs/spring-apps-reference-architecture-multi-region.svg
 content: |
   [!include[](spring-apps-multi-region-content.md)]
