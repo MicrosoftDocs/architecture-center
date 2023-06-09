@@ -1,6 +1,6 @@
 This article provides guidance for implementing Siemens Teamcenter Product Lifecycle Management (PLM) in Azure. It describes a baseline architecture for Siemens Teamcenter PLM deployments in Azure. [Siemens Teamcenter PLM](https://plm.sw.siemens.com/en-US/teamcenter/) is a software suite for managing the entire lifecycle of a product.
 
-Many customers run multiple Teamcenter solutions across the enterprise, mixing multiple instances, multiple ISV vendors, and hybrid cloud/on-prem implementations. This fragmentation reduces the customer’s ability to uniformly access data. Consolidating Teamcenter on Azure can speed the shift to one consistent, harmonized PLM experience, enterprise wide.
+Many customers run multiple Teamcenter solutions across the enterprise, mixing multiple instances, multiple ISV vendors, and hybrid cloud and on-premises implementations. This fragmentation reduces the customer’s ability to uniformly access data. Consolidating Teamcenter on Azure can speed the shift to one consistent, harmonized PLM experience, enterprise wide.
 
 | Benefit of Teamcenter on Azure | Details |
 | --- | --- |
@@ -24,7 +24,7 @@ Siemens Teamcenter PLM baseline architecture has four distributed tiers (client,
 1. Teamcenter users access the Teamcenter application via an HTTPS-based endpoint Public URL. Users access the application through two user interfaces: (1) a Rich client and (2) an Active workspace client.
 1. User authenticates using a Teamcenter credential that a Teamcenter administrator creates in Teamcenter. Azure Active Directory with SAML configuration allows single sign-on to the Teamcenter application.
 1. Azure Firewall backbone filters traffic and threat intelligence from Microsoft Cyber Security. Https traffic directed to the Azure Application gateway. The Hub virtual network and Spoke virtual network are peered so they can communicate over the Azure backbone network.
-1. Azure Application Gateway routes traffic to the Teamcenter’s web server virtual machines (VMs) in the Web Tier. Azure Application Gateway with Azure Firewall inspects the incoming HTTP traffic to continuously monitor Teamcenter against exploits. For reliable performance of your application, the VM size, disk configuration, and application installs should match across all VMs.  Based on your requirements you can consider the use of Azure Virtual Machines Scale Sets. With Virtual Machine Scale Sets, VM instances are created from the same base OS image and configuration.
+1. Azure Application Gateway routes traffic to the Teamcenter’s web server virtual machines (VMs) in the Web Tier. Azure Application Gateway with Azure Firewall inspects the incoming HTTP traffic to continuously monitor Teamcenter against exploits. For reliable performance of your application, the VM size, disk configuration, and application installs should match across all VMs.  Based on your requirements you can consider the use of Azure Virtual Machines Scale Sets. With Virtual Machine Scale Sets, VM instances have the same base OS image and configuration.
 1. The Web subnet in the Web tier runs the following Teamcenter components on Azure VMs:
 
     - *Teamcenter Security services (TCSS)* enable role-based access control (RBAC) for end users and secure access to resources. With TCSS, users can navigate between different Teamcenter applications without encountering multiple authentication challenges.  It offers a unified framework for integration with a site's single sign-on solution and simplifies the authentication process
@@ -53,7 +53,7 @@ Siemens Teamcenter PLM baseline architecture has four distributed tiers (client,
 
 1. *Database subnet* runs a SQL Server database using an infrastructure-as-a-service deployment. It uses SQL Server Always On availability groups for asynchronous replication. The deployment could run an Oracle on this IaaS deployment.
 1. *Storage subnet* uses Azure Files Premium and Azure NetApp Files.
-1. *On-premises network* allows the customer support team and system administrators can connect to Azure via Azure VPN connection to gain access to any Azure VM instance via Remote Desktop Protocol (RDP) from a Jump Box (Bastion). Monitoring servers on Azure VM can also be deployed to monitor systems, networks, and infrastructure.
+1. *On-premises network* allows the customer support team and system administrators can connect to Azure via Azure VPN connection to gain access to any Azure VM instance via Remote Desktop Protocol (RDP) from a jump box (Bastion).
 
 ### Components
 
@@ -69,7 +69,7 @@ This architecture consists of the following Azure components.
 - [Azure Public IP](/azure/virtual-network/ip-services/public-ip-addresses) is a public IP address connects the internet to the VM.
 - [Azure Monitor](https://azure.microsoft.com/services/monitor) is a granular and real-time monitoring data for any Azure resource.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault) is a service for securely storing and accessing API keys, passwords, certificates, cryptographic keys, or any other secrets used by cloud apps and services.
-- [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) is a web traffic load balancer that manages traffic to web applications. Azure Application Gateway can be alternatively used with Traffic Manager or Azure Front Door.
+- [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) is a web traffic load balancer that manages traffic to web applications.
 - [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop) is a desktop and application virtualization service.
 - [Azure Firewall](https://azure.microsoft.com/products/azure-firewall) Azure Firewall is a cloud-native and intelligent network firewall security service that provides the best of breed threat protection for your cloud workloads running in Azure.
 
@@ -90,15 +90,13 @@ Teamcenter provides a broad and rich depth of many functional solutions for mana
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
-
-**In general, consider Availability zones or Availability sets based on requirements of multisite implementations.** For more information, see [High availability and disaster recovery for IaaS apps](/azure/architecture/example-scenario/infrastructure/iaas-high-availability-disaster-recovery).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview). In general, consider Availability zones or Availability sets based on requirements of multisite implementations. For more information, see [High availability and disaster recovery for IaaS apps](/azure/architecture/example-scenario/infrastructure/iaas-high-availability-disaster-recovery).
 
 #### Enterprise tier reliability
 
-**Use multiple instances of web tier.** You should use multiple instances of the Teamcenter application to enhance the resiliency and scalability. Run these instances on multiple virtual machines and load balance the traffic between them. A web tier cluster provides better performance for static web content.
+**Use multiple VMs in the web tier.** You should use multiple instances of the Teamcenter application to enhance the resiliency and scalability. Run these instances on multiple virtual machines and load balance the traffic between them. A Teamcenter HTTP web server cluster provides better performance and resiliency for static web content.
 
-**Use multiple VMs in Enterprise tier.** You should install the Enterprise tier on multiple Azure virtual machines. This setup ensures fail-over support and enables load balancing to optimize performance. There are two load balancers. Application gateway load balances between VMs in the Web subnet and the Active Workspace Gateway load balances at the application level.
+**Use multiple VMs in the Enterprise tier.** You should install the Enterprise tier on multiple Azure virtual machines. This setup ensures fail-over support and enables load balancing to optimize performance. There are two load balancers. Application gateway load balances between VMs in the Web subnet and the Active Workspace Gateway load balances at the application level.
 
 By distributing software functions over a network, the application can achieve high availability and improve overall system reliability. This configuration is beneficial for production environments where uninterrupted operation and efficient resource utilization are crucial. With multiple VMs, the Teamcenter application can handle increased demand and provide a robust and responsive user experience. It allows you to use the scalability and resilience capabilities of Azure and optimize the performance of Siemens Teamcenter application. It helps ensure uninterrupted access to critical product lifecycle management functionalities.
 
@@ -113,7 +111,7 @@ By distributing software functions over a network, the application can achieve h
 
 **Configure database backups.** For SQL Server, one approach is to use [Azure Backup](/azure/backup/backup-azure-sql-database) using Recovery Services Vault to back up SQL Server databases that run on VMs. With this solution, you can perform most of the key backup management operations without being limited to the scope of an individual vault. For more information on Oracle, see [Oracle Database in Azure Virtual Machines backup strategies](/azure/virtual-machines/workloads/oracle/oracle-database-backup-strategies).
 
-**Use the native backup utility.** It’s recommended to use the native backup utility. When performing server-level backups, you should avoid backing up the active database files directly. The backup might not capture the complete state of the database files at the time of backup. Instead, server-level backups should focus on backing up the backup file generated by using the database backup utility. This approach ensures a more reliable and consistent backup of the application's database. You can protect the integrity and availability of their Teamcenter application data. You can safeguard critical information and enabling efficient recovery for any unforeseen issues or data loss.
+**Use Azure Backup utility.** When performing server-level backups, you should avoid backing up the active database files directly. The backup might not capture the complete state of the database files at the time of backup. Instead, server-level backups should focus on backing up the backup file generated by using the database backup utility. This approach ensures a more reliable and consistent backup of the application's database. You can protect the integrity and availability of their Teamcenter application data. You can safeguard critical information and enabling efficient recovery for any unforeseen issues or data loss.
 
 **Configure volume backups.** Azure Files provides the capability to take snapshots of file shares, creating point-in-time, read-only copies of your data. By using Azure Files or Azure NetApp Files snapshots, establish a general-purpose backup solution that safeguards against accidental deletions or unintended changes to the data. For the Teamcenter volume server, use File volume backups. This configuration effectively backs up the volume server and enables easy recovery if there was data loss or system failures. Implementing these recommendations enhances the data protection and resilience of the Teamcenter application, mitigating the risks associated with data loss or unauthorized modifications.
 
@@ -121,7 +119,7 @@ By distributing software functions over a network, the application can achieve h
 
 **Configure backup frequency.** Determine backup needs based on business requirements, considering the increasing number of users. A daily backup may not be sufficient for optimal protection, so adjust the frequency accordingly.
 
-**Coordinate volume data with database backups.** Ensure that backups for the File Manager volume servers (FMS) are coordinated with database backups. The database contains metadata (pointers) to files within the FMS, making synchronization crucial.
+**Coordinate volume data with database backups.** Ensure that backups for the File Manager volume servers (FMS) are coordinated with database backups. . This configuration allows you to sync the actual files with the file metadata. The database contains metadata (pointers) to files within the FMS, making synchronization crucial.
 
 **Enhance database reliability.** Deploy SQL Server VMs in Availability Sets to improve database reliability. Availability Sets deploy virtual machines across fault domains and update domains, mitigating downtime events within the datacenter. Create an availability set during VM provisioning. Consider replicating Azure storage across different Azure datacenters for extra redundancy.
 
@@ -129,21 +127,13 @@ By distributing software functions over a network, the application can achieve h
 
 ### Security
 
-Azure Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Azure Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 **Configure the Login Service and Identity Service.** Teamcenter provides the Teamcenter Security Services (TCSS) feature. The Login Service and Identity Service are essential components of TCSS and can be built using the Web Application Manager. Deploy these Java EE web applications on a supported Java EE web application server.
 
 *Login Service*: The Login Service serves as a client interface and can be accessed using both IPv4 and IPv6 URLs. It also serves as the repository for active Security Services sessions, storing important state information required for the single sign-on capability of Security Services.
 
 *Identity Service*: The Identity Service can only be accessed using IPv4 addressing. It includes a table that points to the application root URL. As a client interface, it must accept both IPv4 and IPv6 URLs. To utilize the Security Services, ensure the installation of the Security Services Session Agent.
-
-### Performance efficiency
-
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
-
-**Use proximity placement groups.**  Use proximity placement groups to achieve optimal network latency, particularly for CAD applications. Employ proximity placement groups when significant network latency between the application layer and the database impacts the workload. Take note of the limitations on VM type availability within the same datacenter. For more information, see [Proximity placement groups.](/azure/virtual-machines/co-location)
-
-When hosting volumes for the Teamcenter Volume Server, it's recommended to attach multiple premium disks to a Virtual Machine and stripe them together. This configuration enhances the combined I/O operations per second (IOPS) and throughput limit. On a DS series Virtual Machine, you can stripe up to 32 premium disks, and for GS series, up to 64 premium disks can be striped. Ensure that the combined input-output per second (IOPS) doesn't exceed the limit defined by the Virtual Machine SKU. For NetApp file storage performance considerations, refer here. See Siemens GTAC to get more SKU recommendations.
 
 ### Cost optimization
 
@@ -160,6 +150,14 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 |Visualization, CAD workstation| [Standard NV_A10_v5](/azure/virtual-machines/nva10v5-series)
 |Database servers |[Standard E32-16ds_v4](/azure/virtual-machines/constrained-vcpu)
 |Pool manager for 4T and AWC| [Dv4](/azure/virtual-machines/dv4-dsv4-series) and [Ev4](/azure/virtual-machines/ev4-esv4-series)
+
+### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+
+**Use proximity placement groups.**  Use proximity placement groups to achieve optimal network latency, particularly for CAD applications. Employ proximity placement groups when significant network latency between the application layer and the database impacts the workload. Take note of the limitations on VM type availability within the same datacenter. For more information, see [Proximity placement groups.](/azure/virtual-machines/co-location)
+
+When hosting volumes for the Teamcenter Volume Server, it's recommended to attach multiple premium disks to a Virtual Machine and stripe them together. This configuration enhances the combined I/O operations per second (IOPS) and throughput limit. On a DS series Virtual Machine, you can stripe up to 32 premium disks, and for GS series, up to 64 premium disks can be striped. Ensure that the combined input-output per second (IOPS) doesn't exceed the limit defined by the Virtual Machine SKU. For NetApp file storage performance considerations, refer here. See Siemens GTAC to get more SKU recommendations.
 
 ## Contributors
 
