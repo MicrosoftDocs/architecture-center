@@ -4,13 +4,13 @@ Many customers run multiple Teamcenter solutions across the enterprise, mixing m
 
 | Benefit of Teamcenter on Azure | Details |
 | --- | --- |
-|Engineer Anywhere | Enhances collaboration by eliminating data silos in multiple on-premises PLM instances.
-|Cost Efficiency | Teamcenter PLM on Azure cuts down IT infrastructure and nonessential maintenance investments.
-| End-to-End Workflow Enablement| Seamless interaction with core product design, simulation, and more through Azure. Interconnect with CAD/CAM, Simulation Solvers, MES, ERP, and other IT/OT systems.
-| High Performance Tech & Speed | Offers high-quality compute, storage, and networking capabilities. Delivers consistently maintained performance across all Teamcenter PLM instances on Azure, boosting innovation and market speed.
-| Scalability & Global Collaboration | Enable expansion across Azure’s global infrastructure with efficient internal and external enterprise collaboration.
-| Security & Compliance |Azure’s inbuilt security controls and compliance policies ensure data protection and global standards adherence.
-| Simplified Management | Consolidation of Teamcenter on Azure simplifies management and accelerates the shift to a consistent, enterprise-wide PLM experience.
+|Engineer Anywhere | Enhances collaboration by eliminating data silos in multiple on-premises PLM instances.|
+|Cost Efficiency | Teamcenter PLM on Azure cuts down IT infrastructure and nonessential maintenance investments.|
+| End-to-End Workflow Enablement| Seamless interaction with core product design, simulation, and more through Azure. Interconnect with CAD/CAM, Simulation Solvers, MES, ERP, and other IT/OT systems.|
+| High Performance Tech & Speed | Offers high-quality compute, storage, and networking capabilities. Delivers consistently maintained performance across all Teamcenter PLM instances on Azure, boosting innovation and market speed.|
+| Scalability & Global Collaboration | Enable expansion across Azure’s global infrastructure with efficient internal and external enterprise collaboration.|
+| Security & Compliance |Azure’s inbuilt security controls and compliance policies ensure data protection and global standards adherence.|
+| Simplified Management | Consolidation of Teamcenter on Azure simplifies management and accelerates the shift to a consistent, enterprise-wide PLM experience.|
 
 ## Architecture
 
@@ -23,8 +23,8 @@ Siemens Teamcenter PLM baseline architecture has four distributed tiers (client,
 
 1. Teamcenter users access the Teamcenter application via an HTTPS-based endpoint Public URL. Users access the application through two user interfaces: (1) a Rich client and (2) an Active workspace client.
 1. User authenticates using a Teamcenter credential that a Teamcenter administrator creates in Teamcenter. Azure Active Directory with SAML configuration allows single sign-on to the Teamcenter application.
-1. Azure Firewall backbone filters traffic and threat intelligence from Microsoft Cyber Security. Https traffic directed to the Azure Application gateway. The Hub virtual network and Spoke virtual network are peered so they can communicate over the Azure backbone network.
-1. Azure Application Gateway routes traffic to the Teamcenter web server virtual machines (VMs) in the Web Tier. Azure Application Gateway with Azure Firewall inspects the incoming HTTP traffic to continuously monitor Teamcenter against exploits. For reliable performance of your application, the VM size, disk configuration, and application installs should match across all VMs.  Based on your requirements you can consider the use of Azure Virtual Machines Scale Sets. With Virtual Machine Scale Sets, VM instances have the same base OS image and configuration.
+1. Azure Firewall backbone filters traffic and threat intelligence from Microsoft Cyber Security. HTTPS traffic directed to the Azure Application gateway. The Hub virtual network and Spoke virtual network are peered so they can communicate over the Azure backbone network.
+1. Azure Application Gateway routes traffic to the Teamcenter web server virtual machines (VMs) in the Web Tier. Azure Application Gateway with Azure Firewall inspects the incoming HTTP traffic to continuously monitor Teamcenter against exploits. For reliable performance of your application, the VM size, disk configuration, and application installs should match across all VMs.  Based on your requirements, you can consider the use of Azure Virtual Machines Scale Sets. With Virtual Machine Scale Sets, VM instances have the same base OS image and configuration.
 1. The Web subnet in the Web tier runs the following Teamcenter components on Azure VMs:
 
     - *Teamcenter Security services (TCSS)* enable role-based access control (RBAC) for end users and secure access to resources. With TCSS, users can navigate between different Teamcenter applications without encountering multiple authentication challenges.  It offers a unified framework for integration with a site's single sign-on solution and simplifies the authentication process
@@ -53,7 +53,7 @@ Siemens Teamcenter PLM baseline architecture has four distributed tiers (client,
 
 1. *Database subnet* runs a SQL Server database using an infrastructure-as-a-service deployment. It uses SQL Server Always On availability groups for asynchronous replication. The deployment could run an Oracle on this IaaS deployment.
 1. *Storage subnet* uses Azure Files Premium and Azure NetApp Files.
-1. *On-premises network* allows the customer support team and system administrators can connect to Azure via Azure VPN connection to gain access to any Azure VM instance via Remote Desktop Protocol (RDP) from a jump box (Bastion).
+1. *On-premises network* allows the customer support team and system administrators to connect to Azure via Azure VPN connection to gain access to any Azure VM instance via Remote Desktop Protocol (RDP) from a jump box (Bastion).
 
 ### Components
 
@@ -61,11 +61,11 @@ This architecture consists of the following Azure components.
 
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/): Azure Virtual Network is a service that facilitates secure communication between Azure resources, the internet, and on-premises networks. In a Siemens Teamcenter deployment, you can use it to create a secure network infrastructure for the Teamcenter services, allowing safe and reliable communication between them.
 - [Virtual machines](https://azure.microsoft.com/services/virtual-machines/#overview): Azure Virtual Machines is an IaaS that provides on-demand, scalable computing resources without the need for physical hardware maintenance. Virtual machines provide the computing infrastructure that hosts the various Teamcenter services.
-- [Azure File](https://azure.microsoft.com/products/storage/files): Azure File is a service that offers shared storage and allows you to create a hierarchical folder structure to upload files. In a Teamcenter deployment, it provides shared storage space for collaboration, document management, and version control.
+- [Azure Files](https://azure.microsoft.com/products/storage/files): Azure Files is a service that offers shared storage and allows you to create a hierarchical folder structure to upload files. In a Teamcenter deployment, it provides shared storage space for collaboration, document management, and version control.
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp): Azure NetApp Files is a file-storage service developed jointly by Microsoft and NetApp. You can use Azure NetApp Files to host and manage file-based applications of Teamcenter.
 - [Azure Active Directory](https://azure.microsoft.com/products/active-directory): Azure Active Directory provides on-premises directory synchronization and single sign-on features. You can use Azure Active Directory to manage and authenticate users, providing seamless access to Teamcenter services hosted on Azure.
 - [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview): SQL Server on Azure Virtual Machines allows SQL Server workloads to be migrated to the cloud with full code compatibility. You can use this service to host the Teamcenter database, providing reliable, secure, and performant data services.
-- [Network security groups](/azure/virtual-network/network-security-groups-overview): Network Security Groups are used to limit access to subnets within the Azure network. For a Teamcenter deployment, you use Network Security Groups to secure the network infrastructure, ensuring that only authorized traffic can access the Teamcenter resources.
+- [Network security groups](/azure/virtual-network/network-security-groups-overview): Network security groups are used to limit access to subnets within the Azure network. For a Teamcenter deployment, you use network security groups to secure the network infrastructure, ensuring that only authorized traffic can access the Teamcenter resources.
 - [Azure Public IP](/azure/virtual-network/ip-services/public-ip-addresses): Azure Public IP is a service that connects Azure Virtual Machines to the internet via a public IP address. The public IP address provides internet access to the hosted Teamcenter services, facilitating remote access and collaboration.
 - [Azure Monitor](https://azure.microsoft.com/services/monitor) : Azure Monitor provides detailed, real-time monitoring data for any Azure resource. You use it to monitor the performance and usage of Teamcenter services, providing vital information for maintaining and improving the deployment.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault): Azure Key Vault is a service for securely storing and accessing secrets used by cloud apps and services. In a Teamcenter deployment, you use it to store sensitive information such as API keys, passwords, and certificates.
