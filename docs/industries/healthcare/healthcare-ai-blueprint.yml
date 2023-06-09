@@ -13,7 +13,7 @@ azureCategories:
 products:
   - azure-machine-learning-studio
   - azure-key-vault
-  - azure-security-center
+  - defender-for-cloud
 name: Implement the Azure healthcare blueprint for AI
 summary: This article provides guidance for the Microsoft Azure blueprint for AI.
 thumbnailUrl: /azure/architecture/browse/thumbs/component-zones-thumbnail.png

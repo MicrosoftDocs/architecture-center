@@ -20,7 +20,7 @@ products:
   - azure
   - azure-firewall
   - azure-monitor
-  - azure-security-center
+  - defender-for-cloud
 ms.custom:
   - guide
 ---
