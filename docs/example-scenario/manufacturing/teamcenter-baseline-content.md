@@ -14,7 +14,7 @@ Many customers run multiple Teamcenter solutions across the enterprise, mixing m
 
 ## Architecture
 
-Siemens Teamcenter PLM baseline architecture has four distributed tiers (client, web, enterprise, and resource) in a single availability zone. Each tier aligns to function and communication flows between these tiers. All four tiers use their own virtual machines in a single virtual network. Teamcenter uses a client-server model.  The Teamcenter core business functionality runs on a central server in the enterprise tier and users access it through a web-based or thick-client interface. You can deploy multiple instances in Dev and Test environments by adding extra virtual machines and storage on v-net separate from production v-nets.
+Siemens Teamcenter PLM baseline architecture has four distributed tiers (client, web, enterprise, and resource) in a single availability zone. Each tier aligns to function and communication flows between these tiers. All four tiers use their own virtual machines in a single virtual network. Teamcenter uses a client-server model.  The Teamcenter core business functionality runs on a central server in the enterprise tier and users access it through a web-based or thick-client interface. You can deploy multiple instances in Dev and Test environments (virtual networks) by adding extra virtual machines and storage .
 
 :::image type="content" source="media/teamcenter-baseline-architecture.svg" alt-text="Diagram that shows a Teamcenter PLM baseline architecture." lightbox="media/teamcenter-baseline-architecture.svg" border="false":::
 *Download a [Visio file](https://arch-center.azureedge.net/teamcenter-baseline-architecture.vsdx) of this architecture.*
