@@ -52,7 +52,7 @@ There are a few alternatives that you can use in these solutions:
 
 ## Scenario details
 
-TIC 3.0 moves TIC from on-premises data collection to a cloud-based approach that better supports modern applications and systems. It improves performance because you can directly access Azure applications. With TIC 2, you need to access Azure applications via a TIC 2 Managed Trusted Internet Protocol Service (MTIPS) device, which increases response time.
+TIC 3.0 moves TIC from on-premises data collection to a cloud-based approach that better supports modern applications and systems. It improves performance because you can directly access Azure applications. With TIC 2.x, you need to access Azure applications via a TIC 2.x Managed Trusted Internet Protocol Service (MTIPS) device, which slows down the response.
 
 Routing application traffic through a firewall and logging that traffic is the core functionality demonstrated in the solutions presented here. The firewall can be Azure Firewall, Azure Front Door with WAF, Application Gateway with WAF, or a third-party NVA. The firewall helps to secure the cloud perimeter and saves logs of each transaction. Independently of the firewall layer, the log collection and delivery solution requires a Log Analytics workspace, a registered application, and an event hub. The Log Analytics workspace sends logs to the event hub.  
 
@@ -77,7 +77,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 - Evaluate your current architecture to determine which of the solutions presented here provides the best approach to TIC 3.0 compliance.
 - Contact your CISA representative to request access to CLAW.
 - Use the **Deploy to Azure** buttons in this article to deploy one or more of the solutions in a test environment. Doing so should help you become familiar with the process and the deployed resources.
-- See [TIC 3.0 compliance for internet-facing applications](https://github.com/Azure/trusted-internet-connection), a complimentary article that provides more  details and assets for TIC 3.0:
+- See [TIC 3.0 compliance for internet-facing applications](https://github.com/Azure/trusted-internet-connection), a complementary article that provides more  details and assets for TIC 3.0:
   - Additional information about achieving compliance.
   - ARM templates to simplify deployment.
   - Information to assist with integrating existing resources into the solution.
@@ -154,7 +154,7 @@ For the sake of simplicity, all resources are deployed to a single subscription 
 
 After deployment, your environment performs the firewall capabilities and logging connections. To meet compliance with TIC 3.0 policies for network telemetry collection, you need to ensure that the logs make it to CISA CLAW. The post-deployment steps finish the tasks to enable compliance. To complete these steps, you need to coordinate with CISA because CISA needs to supply a certificate to associate with your service principal. For step-by-step details, see [Post-deployment tasks](https://github.com/Azure/trusted-internet-connection/tree/main/Architecture/Post-Deployment-Tasks).
 
-You need to complete the following tasks after deployment. You need to perform these tasks manually. You can't complete them by using an ARM template.
+You need to manually perform the following tasks after deployment. You can't complete them by using an ARM template.
 
 - Obtain a public key certificate from CISA. 
 - Create a service principal (application registration).
@@ -188,7 +188,7 @@ For the sake of simplicity, all resources are deployed to a single subscription 
 
 After deployment, your environment performs the firewall capabilities and logging connections. To meet compliance with TIC 3.0 policies for network telemetry collection, you need to ensure that the logs make it to CISA CLAW. The post-deployment steps finish the tasks to enable compliance. To complete these steps, you need to coordinate with CISA because CISA needs to supply a certificate to associate with your service principal. For step-by-step details, see [Post-deployment tasks](https://github.com/Azure/trusted-internet-connection/tree/main/Architecture/Post-Deployment-Tasks).
 
-You need to complete the following tasks after deployment. You need to perform these tasks manually. You can't complete them by using an ARM template.
+You need to manually perform the following tasks after deployment. You can't complete them by using an ARM template.
 
 - Obtain a public key certificate from CISA. 
 - Create a service principal (application registration).
@@ -222,7 +222,7 @@ For the sake of simplicity, all resources are deployed to a single subscription 
 
 After deployment, your environment performs the firewall capabilities and logging connections. To meet compliance with TIC 3.0 policies for network telemetry collection, you need to ensure that the logs make it to CISA CLAW. The post-deployment steps finish the tasks to enable compliance. To complete these steps, you need to coordinate with CISA because CISA needs to supply a certificate to associate with your service principal. For step-by-step details, see [Post-deployment tasks](https://github.com/Azure/trusted-internet-connection/tree/main/Architecture/Post-Deployment-Tasks).
 
-You need to complete the following tasks after deployment. You need to perform these tasks manually. You can't complete them by using an ARM template.
+You need to manually perform the following tasks after deployment. You can't complete them by using an ARM template.
 
 - Obtain a public key certificate from CISA. 
 - Create a service principal (application registration).
@@ -243,7 +243,7 @@ The following solution illustrates how you can use a third-party firewall to man
 
 After deployment, your environment performs the firewall capabilities and logging connections. To meet compliance with TIC 3.0 policies for network telemetry collection, you need to ensure that the logs make it to CISA CLAW. The post-deployment steps finish the tasks to enable compliance. To complete these steps, you need to coordinate with CISA because CISA needs to supply a certificate to associate with your service principal. For step-by-step details, see [Post-deployment tasks](https://github.com/Azure/trusted-internet-connection/tree/main/Architecture/Post-Deployment-Tasks).
 
-You need to complete the following tasks after deployment. You need to perform these tasks manually. You can't complete them by using an ARM template.
+You need to manually perform the following tasks after deployment. You can't complete them by using an ARM template.
 
 - Obtain a public key certificate from CISA.
 - Create a service principal (application registration).
