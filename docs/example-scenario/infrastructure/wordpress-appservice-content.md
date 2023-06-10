@@ -76,8 +76,9 @@ There are a couple main things to consider:
 
 - **Traffic expectations (GB/month):** The amount of traffic has the biggest effect on your cost, as it determines the number of App Service instances and price for outbound data transfer. Additionally, it directly correlates with the amount of data that is surfaced via the CDN, where are outbound data transfer costs cheaper.
 - **Amount of hosted data:** It's important to consider this since Azure Storage pricing is based on used capacity.
-- How much new data are you going to be writing to your website? New data written to your website correlates with how much data is mirrored across the regions.
-- **Static versus dynamic content:** You should monitor your database storage performance and capacity to see if a cheaper SKU can support your site. the database stores dynamic content and the CDN caches static content. 
+- **Writes percentage:** How much new data are you going to be writing to your website? New data written to your website correlates with how much data is mirrored across the regions.
+- **Static versus dynamic content:** You should monitor your database storage performance and capacity to see if a cheaper SKU can support your site. The database stores dynamic content and the CDN caches static content. 
+- **App Service optimalization:** To optimize App Service costs, follow general tips for App Service. For more information, see [Cost Optimization tips](/azure/well-architected/services/compute/azure-app-service/cost-optimization)
 
 ## Contributors
 

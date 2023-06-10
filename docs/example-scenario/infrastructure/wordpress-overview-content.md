@@ -31,9 +31,9 @@ Another benefit of serving static resources from a CDN service such as [Azure Fr
 
 #### CDN cache invalidation
 
-For large WordPress installations using a CDN, you need to implement cache invalidation logic. Whenever a new event occurs, such as publishing a new article, updating an existing page, or adding a new comment, your need to invalidate the cache in the CDN for the affected page. The invalidation logic needs to discover all the URLs the change affected. The logic needs to discover and invalidate dynamically generated pages, such as categories and archives, in the CDN cache. Depending on the installed theme and plugins, even a minor change may affect every page.
+For large WordPress installations using any CDN (like Azure Front Door or Azure CDN), you need to implement cache invalidation logic. Whenever a new event occurs, such as publishing a new article, updating an existing page, or adding a new comment, your need to invalidate the cache in the CDN for the affected page. The invalidation logic needs to discover all the URLs the change affected. The logic needs to discover and invalidate dynamically generated pages, such as categories and archives, in the CDN cache. Depending on the installed theme and plugins, even a minor change may affect every page.
 
-An easy way to implement some discovery logic could be through a plugin that enables manual triggering of cache invalidation for all URLs. However, this cache purge could cause traffic peaks to WordPress when all URLs are invalidated at once. [Example implementation on GitHub](https://github.com/vjirovsky/pr-crisis-wp-website/blob/master/wordpress/wp-content/plugins/azure-invalidate-cdn/plugin.php)
+An easy way to implement some discovery logic could be through a plugin that enables manual triggering of cache invalidation for all URLs. However, this cache purge could cause traffic peaks to WordPress when all URLs are invalidated at once. [Example implementation for Azure CDN on GitHub](https://github.com/vjirovsky/pr-crisis-wp-website/blob/master/wordpress/wp-content/plugins/azure-invalidate-cdn/plugin.php)
 
 ### Enable Two-Factor Authentication (2FA)
 

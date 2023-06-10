@@ -94,10 +94,11 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 There are a couple main things to consider:
 
-- How much traffic are you expecting in terms of GB/month? The amount of traffic has the biggest effect on your cost, as it determines the number of AKS nodes and price for outbound data transfer. Additionally, it directly correlates with the amount of data that is surfaced via the CDN, where are outbound data transfer costs cheaper.
-- What is the expected amount of hosted data? It's important to consider this since Azure NetApp Files pricing is based on reserved capacity and to optimize costs, you need to reserve the minimum capacity needed for your data.
-- How much new data are you going to be writing to your website? New data written to your website correlates with how much data is mirrored across the regions.
-- How much of your content is dynamic? How much is static? The variance around dynamic and static content influences how much data has to be retrieved from the database tier versus how much is cached in the CDN. By evaluating the usage patterns of your database, you can determine if a lower pricing tier is suitable without compromising performance. Azure offers a range of pricing tiers for databases, allowing you to scale up or down as needed.
+- **Traffic expectations (GB/month):** How much traffic are you expecting in terms of GB/month? The amount of traffic has the biggest effect on your cost, as it determines the number of AKS nodes and price for outbound data transfer. Additionally, it directly correlates with the amount of data that is surfaced via the CDN, where are outbound data transfer costs cheaper.
+- **Amount of hosted data:** It's important to consider this since Azure NetApp Files pricing is based on reserved capacity and to optimize costs, you need to reserve the minimum capacity needed for your data.
+- **Writes percentage:** How much new data are you going to be writing to your website? New data written to your website correlates with how much data is mirrored across the regions.
+- **Static versus dynamic content:** You should monitor your database storage performance and capacity to see if a cheaper SKU can support your site. The database stores dynamic content and the CDN caches static content. 
+- **AKS cluster optimalization:** To optimize your AKS cluster costs follow general tips for AKS (VM size, Reservations and other tips). For more information, see [Cost Optimization tips](/azure/well-architected/services/compute/azure-kubernetes-service/azure-kubernetes-service#cost-optimization)
 
 ## Contributors
 
