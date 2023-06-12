@@ -30,7 +30,7 @@ products:
   - azure-app-service
   - azure-database-mysql
   - azure-hdinsight
-  - azure-search
+  - azure-cognitive-search
   - azure-storage
 thumbnailUrl: /azure/architecture/browse/thumbs/retail-and-ecommerce-using-azure-database-for-mysql.png
 content: |
