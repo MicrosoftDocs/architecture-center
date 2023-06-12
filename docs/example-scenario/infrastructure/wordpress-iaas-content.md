@@ -10,14 +10,14 @@ Use [Azure Front Door](/azure/frontdoor/front-door-overview), [Azure Virtual Mac
 
 ### Dataflow
 
-This scenario covers a scalable and secure installation of WordPress that uses Ubuntu web servers. There are two distinct data flows in this scenario the first is users access the website:
+This scenario covers a scalable and secure installation of WordPress that uses Ubuntu web servers.
 
-1. Users access the front-end website through a CDN (Azure Front Door).
-2. The CDN uses an [internal Azure Load Balancer](/azure/load-balancer/load-balancer-overview) as the origin, and pulls any data that isn't cached from there via Private Endpoint.
-3. The Azure Load Balancer distributes requests to the [Virtual Machine Scale Sets][docs-vmss] of web servers.
-4. Keys or other secrets are stored in [Azure Key Vault](/azure/key-vault/key-vault-overview).
-5. The WordPress application access privately via Private Endpoint of [Azure Database for MySQL - Flexible Server](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/overview) and pulls any dynamic information out.
-6. All static content is hosted in [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) and mounted to VMs via NFS protocol.
+- Users access the front-end website through Azure Front Door with Azure Web Application Firewall enabled.
+- Front Door uses an [internal Azure Load Balancer](/azure/load-balancer/load-balancer-overview) as the origin. Front Door pulls any data that isn't cached.
+- The internal load balancer distributes requests to the [Virtual Machine Scale Sets][docs-vmss] of web servers.
+- Keys or other secrets are stored in [Azure Key Vault](/azure/key-vault/key-vault-overview).
+- The WordPress application use a private endpoint to access [Azure Database for MySQL - Flexible Server](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/overview) and pulls out any dynamic information.
+- All static content is hosted in [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) and mounted to the VMs via the NFS protocol.
 
 ### Components
 
@@ -38,7 +38,7 @@ This example scenario is applicable for any larger installation of WordPress wit
 
 ### Alternatives
 
-- Redis cache - the cache could be self-hosted pod within VM instead of managed product Azure Cache for Redis.
+- Redis cache: the cache could be self-hosted pod within VM instead of managed product Azure Cache for Redis.
 
 ## Considerations
 
@@ -46,15 +46,15 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-The combination of Virtual Machine Scale Sets and load balancing of ingress traffic provides high availability even if there's VM failure.
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview). Consider the following recommendations in your deployment:
 
-This scenario supports use of multiple regions, data replication and auto-scalling. These networking components distribute traffic to the VMs, and include health probes that ensure traffic is only distributed to healthy VMs. All of these networking components are fronted via a CDN. This approach makes the networking resources and application resilient to issues that would otherwise disrupt traffic and affect end-user access.
-
-The CDN (Front Door) is global service and supports origins deployed across multiple regions (Virtual Machine Scale Sets in another regions). In addition, caching all responses on the CDN level can provide a small availability benefit when the origin isn't responding. However, it's important to note that caching shouldn't be considered a complete availability solution.
-
-The NetApp Files storage can be replicated between paired regions. For more information, see [cross-region replication with Azure NetApp Files](/azure/azure-netapp-files/cross-region-replication-requirements-considerations).
-
-For high availability of Azure Database for MySQL, see [High availability concepts in Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/concepts-high-availability).
+- The Virtual Machine Scale Sets and load balancing ingress traffic provides high availability even if there's a failed virtual machine.
+- This architecture supports multiple regions, data replication and auto-scalling. These networking components distribute traffic to the VMs and include health probes that ensure traffic is only distributed to healthy VMs. 
+- All of these networking components are fronted by Azure Front. This approach makes the networking resources and application resilient to issues that would otherwise disrupt traffic and affect end-user access.
+- Front Door is global service and supports Virtual Machine Scale Sets deployed in another regions. 
+- Using Front Door to cache all responses can provide a small availability benefit when the origin isn't responding. However, it's important to note that caching isn't a complete availability solution.
+- For higher availability, you should replicate NetApp Files storage between paired regions. For more information, see [cross-region replication with Azure NetApp Files](/azure/azure-netapp-files/cross-region-replication-requirements-considerations).
+- For higher Azure Database for MySQL availability, you should follow the [high availability options](/azure/mysql/flexible-server/concepts-high-availability) that meet your needs.
 
 ### Performance efficiency
 
@@ -77,22 +77,21 @@ For more performance efficiency guidance, see the [Performance efficiency princi
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview). Consider the following recommendations in your deployment:
 
-All the virtual network traffic into the front-end application tier and protected by [WAF on Azure Front Door](/azure/web-application-firewall/afds/afds-overview). No outbound Internet traffic is allowed from the database tier. No access to private storage is allowed from public. You should disable public access to resources (where applicable) and use Private Endpoints - for components Database for MySQL, Cache for Redis, Key Vault, Container Registry. See the article [Integrate Key Vault with Azure Private Link]( https://aka.ms/akvprivatelink).
+- All the virtual network traffic into the front-end application tier and protected by [WAF on Azure Front Door](/azure/web-application-firewall/afds/afds-overview). 
+- No outbound Internet traffic is allowed from the database tier. 
+- No access to private storage is allowed from public. 
+- You should disable public access to resources (where applicable) and use Private Endpoints for components Database for MySQL, Cache for Redis, Key Vault, Container Registry. 
 
-For more information about WordPress security, see [General WordPress security&performance tips](/azure/wordpress#general-wordpress-securityperformance-tips).
-
-For general guidance on designing secure scenarios, see the [Azure Security Documentation][security].
+For more information about WordPress security, see [General WordPress security](/azure/wordpress#general-wordpress-securityperformance-tips) and [Azure Security Documentation][security].
 
 ### Cost optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
-
-There are a couple main things to consider:
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview). Consider the following recommendations in your deployment:
 
 - **Traffic expectations (GB/month):** The amount of traffic has the biggest effect on your cost, as it determines the number of VMs and price for outbound data transfer. Additionally, it directly correlates with the amount of data that is surfaced via the CDN, where are outbound data transfer costs cheaper.
-- **Amount of hosted data:** It's important to consider this since Azure NetApp Files pricing is based on reserved capacity and to optimize costs, you need to reserve the minimum capacity needed for your data.
+- **Amount of hosted data:** It's important to consider how much data you're hosting since Azure NetApp Files pricing is based on reserved capacity. To optimize costs, you need to reserve the minimum capacity needed for your data.
 - **Writes percentage:** How much new data are you going to be writing to your website? New data written to your website correlates with how much data is mirrored across the regions.
 - **Static versus dynamic content:** You should monitor your database storage performance and capacity to see if a cheaper SKU can support your site. The database stores dynamic content and the CDN caches static content. 
 - **VM optimization:** To optimize VMs costs, follow general tips for VMs. For more information, see [Cost Optimization tips](/azure/well-architected/cost/optimize-checklist)
