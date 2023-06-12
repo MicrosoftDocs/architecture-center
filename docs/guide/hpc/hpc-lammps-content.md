@@ -18,32 +18,32 @@ Typical LAMMPS simulations include all-atom models of liquids, solids, and expli
 
 This diagram shows a multi-node configuration:
 
-image
+:::image type="content" source="media/multi-node-lammps.png" alt-text="Diagram that shows a multi-node architecture for deploying LAMMPS." lightbox="media/multi-node-lammps.png" border="false":::
 
-link 
-
+*Download a [Visio file](https://arch-center.azureedge.net/MULTI-NODE-LAMMPS.vsdx) of this architecture.*
+ 
 This diagram shows a single-node configuration:
 
-image 
+:::image type="content" source="media/single-node-lammps.png" alt-text="Diagram that shows a single-node architecture for deploying LAMMPS." lightbox="media/single-node-lammps.png" border="false":::
 
-link? 
+
+*Download a [Visio file](https://arch-center.azureedge.net/single-node-LAMMPS.vsdx) of this architecture.*
 
 ### Components
 
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is used to create Linux VMs.  
   - For information about deploying the VM and installing the drivers, see [Linux VMs on Azure](../../reference-architectures/n-tier/linux-vm.yml). 
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is used to create a private network infrastructure in the cloud.  
-  - [Network security groups](/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VMs.
+  - [Network security groups](/azure/virtual-network/network-security-groups-overview) restrict access to the VMs.
   - A public IP address connects the internet to the VM.
 - [Azure CycleCloud](https://azuremarketplace.microsoft.com/marketplace/apps/azurecyclecloud.azure-cyclecloud) is used to create the cluster in the multi-node configuration. 
 - A physical SSD is used for storage.
 
 ## Compute sizing
 
-Performance tests of LAMMPS on Azure used [HBv3 AMD EPYC 7V73X]() (Milan-X) VMs running Linux CentOS Operating system. The following table provides details about HBv3-series VMs.
+Performance tests of LAMMPS on Azure used [HBv3 AMD EPYC 7V73X](/azure/virtual-machines/hbv3-series) (Milan-X) VMs running Linux CentOS. The following table provides details about HBv3-series VMs.
 
-
-|VM size|vCPU|Memory (GiB)|Memory bandwidth GBps|Base CPU frequency (Ghz)|All-cores frequency (Ghz, peak)|Single-core frequency (Ghz, peak)|RDMA performance (Gbps) |Maximum data disks|
+|VM size|vCPU|Memory (GiB)|Memory bandwidth (GBps)|Base CPU frequency (GHz)|All-cores frequency (GHz, peak)|Single-core frequency (GHz, peak)|RDMA performance (Gbps) |Maximum data disks|
 |-|-|-|-|-|-|-|-|-| 
 |Standard_HB120rs_v3|120 |448|350|1.9|3.0|3.5|200|32|
 |Standard_HB120-96rs_v3|96|448|350|1.9|3.0|3.5|200|32|
@@ -51,23 +51,23 @@ Performance tests of LAMMPS on Azure used [HBv3 AMD EPYC 7V73X]() (Milan-X) VMs 
 |Standard_HB120-32rs_v3|32|448|350|1.9|3.0|3.5|200|32|
 |Standard_HB120-16rs_v3|16 |448|350|1.9|3.0|3.5|200|32| 
 
-## Install LAMMPS on a VM or HPC Cluster 
+## Install LAMMPS on a VM or HPC cluster 
 
-The software can be downloaded from [LAMMPS](https://docs.lammps.org/Install.html) Official website. A LAMMPS binary distribution need only be untarred or unzipped and can be run directly in the resulting directory and guide for building from source code can be found [here](https://docs.lammps.org/Build.html). 
+You can download the software from the [LAMMPS](https://docs.lammps.org/Install.html) website. You just need to untar or unzip the LAMMPS binary distribution file and you can run directly in the resulting directory. For a guide to building from source code, see [Build LAMMPS](https://docs.lammps.org/Build.html). 
 
-Before you install LAMMPS, you need to deploy and connect to a VM or HPC Cluster. 
+Before you install LAMMPS, you need to deploy and connect to a VM or HPC cluster.
 
-For information about deploying the VM and installing the drivers, see [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml).
+For information about deploying the VM, see [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml).
 
-For information about deploying the Azure CycleCloud and HPC cluster, see below articles: 
+For information about deploying the Azure CycleCloud and HPC cluster, see these resources: 
 - [Install and configure Azure CycleCloud](/training/modules/azure-cyclecloud-high-performance-computing/4-exercise-install-configure/)
 - [Create an HPC cluster](/training/modules/azure-cyclecloud-high-performance-computing/5-exercise-create-cluster/)
 
-### Install LAMMPS 
+### Install LAMMPS
 
-Follow the steps below to install LAMMPS in single node and cluster VMs. 
+Complete the following steps below to install LAMMPS on single-node and cluster VMs. 
 
-1. Export the below commands: 
+1. Run the following commands: 
 
    ```
    export PATH=$PATH:/opt/openmpi-4.1.0/bin/ 
@@ -89,14 +89,14 @@ Follow the steps below to install LAMMPS in single node and cluster VMs.
    export CPPFLAGS=-DpggFortran
    ```
 
-1. Download the source code from [here](https://www.lammps.org/download.html) 
+1. Download the source code from [LAMMPS](https://www.lammps.org/download.html). 
 
-1. Unzip the file using the below command 
+1. Unzip the file: 
    ```
    tar xvf *
    ```
 
-1. Locate the LAMMPS folder with following command: 
+1. Locate the LAMMPS folder: 
    
    ```
    cd lammps-<version> 
@@ -104,7 +104,7 @@ Follow the steps below to install LAMMPS in single node and cluster VMs.
    cd src 
    ```
 
-1. Execute below commands in src folder to build LAMMPS: 
+1. Run these commands in the src folder to build LAMMPS: 
 
    ```
    make yes-rigid 
