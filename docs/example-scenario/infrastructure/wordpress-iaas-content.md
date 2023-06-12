@@ -72,6 +72,7 @@ $ apt-get install -y nfs-common && mkdir -p /var/www/html
 $ echo '<netapp_private_ip>:/<volume_name> /var/www/html nfs rw,hard,rsize=262144,wsize=262144,sec=sys,vers=4.1,tcp 0 0' >> /etc/fstab
 #mount now
 $ mount -a
+```
 
 ### Security
 
