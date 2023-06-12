@@ -11,12 +11,12 @@ This solution is ideal for small to medium-sized WordPress installations. It pro
 
 ### Dataflow
 
-This scenario covers a scalable and secure installation of WordPress that uses managed PaaS service [WordPress on App Service](https://learn.microsoft.com/en-us/azure/app-service/quickstart-wordpress).
+This scenario covers a scalable and secure installation of WordPress that uses a [WordPress on App Service deployment option](https://learn.microsoft.com/en-us/azure/app-service/quickstart-wordpress).
 
-1. Users access the front-end website through a CDN ([Azure Front Door](https://azure.microsoft.com/products/frontdoor) *or* [Azure Content Delivery Network (CDN)](https://azure.microsoft.com/products/cdn).
-2. The CDN load balances requests across Azure App Service instances that WordPress is running on and pulls any data that isn't cached from the WordPress web app.
-3. The WordPress application accesses the [Azure Database for MySQL - Flexible Server](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/overview) via Service Endpoint and pulls any dynamic information out.
-4. All static content is hosted in [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview).
+- Users access the front-end website through [Azure Front Door](https://azure.microsoft.com/products/frontdoor). As an alternative, you can use [Azure Content Delivery Network (CDN)](https://azure.microsoft.com/products/cdn) in the WordPress on App Service deployment.
+- Front Door load balances requests across the Azure App Service instances that WordPress is running on. Front Door pulls any data that isn't cached from the WordPress web app.
+- The WordPress application accesses the [Azure Database for MySQL - Flexible Server](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/overview) through the service endpoint and pulls any dynamic information out.
+- All static content is hosted in [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview).
 
 ### Components
 
@@ -38,7 +38,7 @@ This scenario covers a scalable and secure installation of WordPress that uses m
 
 ### Alternatives
 
-- [Azure Cache for Redis](https://azure.microsoft.com/products/cache/) can be used to host key-value cache for WordPress performance optimization plugins, shared between all App Service instances.
+- [Azure Cache for Redis](https://azure.microsoft.com/products/cache/) can be used to host key-value cache for WordPress performance optimization plugins that all App Service instances share.
 
 ## Considerations
 
@@ -46,43 +46,43 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-App Service provides built-in load balancing and health check features to maintain availability if an App Service instance fails.
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview). Consider the following recommendations for your deployment:
 
+- App Service provides built-in load balancing and health check features to maintain availability if an App Service instance fails.
 Using the CDN to cache all responses can provide a small availability benefit when the origin isn't responding. However, it's important to note that caching shouldn't be considered a complete availability solution.
 
-You can replicate Azure Blob Storage to a paired region for data redundancy across multiple regions. For more information, see [Azure Storage redundancy](/azure/storage/common/storage-disaster-recovery-guidance).
-
-For high availability of Azure Database for MySQL, see [High availability concepts in Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/concepts-high-availability).
+- You can replicate Azure Blob Storage to a paired region for data redundancy across multiple regions. For more information, see [Azure Storage redundancy](/azure/storage/common/storage-disaster-recovery-guidance).
+- For higher Azure Database for MySQL availability, see [high availability options](/azure/mysql/flexible-server/concepts-high-availability) to meet your needs.
 
 ### Performance efficiency
 
-This scenario hosts the WordPress front-end in App Service. You should enable the autoscale feature to automatically scale the number of App Service instances. You can set a trigger to response to customer demand or based on a defined schedule. For more information, see [Get started with autoscale in Azure](/azure/azure-monitor/autoscale/autoscale-get-started).
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-For more performance efficiency guidance, see the [Performance efficiency principles](/azure/well-architected/scalability/principles) in the Azure Architecture Center.
+This scenario hosts the WordPress front-end in App Service. You should enable the autoscale feature to automatically scale the number of App Service instances. You can set a trigger to response to customer demand or based on a defined schedule. For more information, see [Get started with autoscale in Azure](/azure/azure-monitor/autoscale/autoscale-get-started) and [Performance efficiency principles](/azure/well-architected/scalability/principles) in the Azure Architecture Center.
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview). Consider the following recommendations in your deployment:
 
-All the virtual network traffic point into the front-end application tier and should be protected by [WAF on Azure Front Door](/azure/web-application-firewall/afds/afds-overview). No outbound Internet traffic is allowed from the database tier. No access to private storage is allowed from public. For more information about WordPress security, see [General WordPress security&performance tips](/azure/wordpress#general-wordpress-securityperformance-tips).
+- All the virtual network traffic point into the front-end application tier and should be protected by [WAF on Azure Front Door](/azure/web-application-firewall/afds/afds-overview). 
+- No outbound internet traffic from the database tier is allowed. 
+- There's no public access to private storage. 
 
-For general guidance on designing secure scenarios, see the [Azure Security Documentation][security].
+For more information about WordPress security, see [General WordPress security&performance tips](/azure/wordpress#general-wordpress-securityperformance-tips) and [Azure Security Documentation][security].
 
 ### Cost optimization
 
-Cost optimization is about reducing unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
-
-There are a couple main things to consider:
+Cost optimization is about reducing unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview). Consider the following recommendations in your deployment:
 
 - **Traffic expectations (GB/month):** The amount of traffic has the biggest effect on your cost, as it determines the number of App Service instances and price for outbound data transfer. Additionally, it directly correlates with the amount of data that is surfaced via the CDN, where are outbound data transfer costs cheaper.
-- **Amount of hosted data:** It's important to consider this since Azure Storage pricing is based on used capacity.
+- **Amount of hosted data:** It's important to consider how much data you're hosting in Azure Storage. Storage pricing is based on used capacity.
 - **Writes percentage:** How much new data are you going to be writing to your website? New data written to your website correlates with how much data is mirrored across the regions.
 - **Static versus dynamic content:** You should monitor your database storage performance and capacity to see if a cheaper SKU can support your site. The database stores dynamic content and the CDN caches static content. 
-- **App Service optimalization:** To optimize App Service costs, follow general tips for App Service. For more information, see [Cost Optimization tips](/azure/well-architected/services/compute/azure-app-service/cost-optimization)
+- **App Service optimalization:** To optimize App Service costs, follow general tips for [App Service Cost Optimization](/azure/well-architected/services/compute/azure-app-service/cost-optimization).
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*Microsoft maintains this article. The following authors original wrote the article.*
 
 Principal author:
 
