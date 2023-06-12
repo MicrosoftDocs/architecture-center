@@ -58,6 +58,10 @@ Reliability ensures your application can meet the commitments you make to your c
 
 ### Performance efficiency
 
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+
+This scenario uses Virtual Machine Scale Sets for the two front-end web server clusters in each region. With scale sets, the number of VM instances that run the front-end application tier can automatically scale in response to customer demand, or based on a defined schedule. For more information, see [Overview of autoscale with Virtual Machine Scale Sets][docs-vmss-autoscale]. 
+
 > [!IMPORTANT]
 > For the best performance is essential to mount storage via  **NFS protocol version 4.1** - see option *vers* in following bash example for Ubuntu:
 
@@ -68,12 +72,6 @@ $ apt-get install -y nfs-common && mkdir -p /var/www/html
 $ echo '<netapp_private_ip>:/<volume_name> /var/www/html nfs rw,hard,rsize=262144,wsize=262144,sec=sys,vers=4.1,tcp 0 0' >> /etc/fstab
 #mount now
 $ mount -a
-```
-
-
-This scenario uses Virtual Machine Scale Sets for the two front-end web server clusters in each region. With scale sets, the number of VM instances that run the front-end application tier can automatically scale in response to customer demand, or based on a defined schedule. For more information, see [Overview of autoscale with Virtual Machine Scale Sets][docs-vmss-autoscale].
-
-For more performance efficiency guidance, see the [Performance efficiency principles](/azure/well-architected/scalability/principles) in the Azure Architecture Center.
 
 ### Security
 
