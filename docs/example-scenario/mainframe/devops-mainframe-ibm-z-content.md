@@ -1,5 +1,7 @@
 This article can help you get started with building Azure DevOps pipelines that run Git-based IBM Dependency Based Builds (DBBs) on z/OS. Although Azure DevOps is primarily used by distributed applications, many organizations are looking for consolidated solutions that integrate with modern IBM mainframe development workflows.
 
+*Red Hat is a trademark of its respective company. No endorsement is implied by the use of this mark.*
+
 ## Architecture
 
 :::image type="content" source="media/devops-mainframe-ibm-stack.png" alt-text="Diagram that shows an architecture for integrating Azure DevOps into IBM z/OS applications." lightbox="media/devops-mainframe-ibm-stack.png" border="false":::
