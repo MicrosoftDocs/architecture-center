@@ -88,13 +88,11 @@ For more information about WordPress security, see [General WordPress security&p
 
 ### Cost optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
-
-There are a couple main things to consider:
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview). Review the following cost considerations:
 
 - **Traffic expectations (GB/month):** How much traffic are you expecting in terms of GB/month? The amount of traffic has the biggest effect on your cost, as it determines the number of AKS nodes and price for outbound data transfer. Additionally, it directly correlates with the amount of data that is surfaced via the CDN, where are outbound data transfer costs cheaper.
 - **Amount of hosted data:** It's important to consider how much data you're hosting since Azure NetApp Files pricing is based on reserved capacity. To optimize costs, you need to reserve the minimum capacity needed for your data.
-- **Writes percentage:** How much new data are you going to be writing to your website? New data written to your website correlates with how much data is mirrored across the regions.
+- **Writes percentage:** Consider how much new data are you going to be writing to your website and the cost to store it. For multi-region deployments, new data written to your website correlates with how much data is mirrored across the regions.
 - **Static versus dynamic content:** You should monitor your database storage performance and capacity to see if a cheaper SKU can support your site. The database stores dynamic content and the CDN caches static content. 
 - **AKS cluster optimalization:** To optimize your AKS cluster costs, follow the general tips for AKS, such as VM sizes, Azure Reservations, and other tips. For more information, see [AKS Cost Optimization](/azure/well-architected/services/compute/azure-kubernetes-service/azure-kubernetes-service#cost-optimization).
 
