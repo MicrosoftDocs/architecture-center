@@ -215,19 +215,22 @@ As mentioned, the two pillars of observability we are interested in are metrics 
 - Azure Monitor Metrics is a time-series database, optimized for analyzing time-stamped data. Azure Monitor collects metrics at regular intervals. Metrics are identified with a timestamp, a name, a value, and one or more defining labels. They can be aggregated using algorithms, compared to other metrics, and analyzed for trends over time. 
 - Azure Monitor Logs can contain different types of data, be structured or free-form text, and they contain a timestamp. Azure Monitor stores structured and unstructured log data of all types in Azure Monitor logs. 
 
-More specifically, each Azure resource allows you to proactively capture logs and metrics for that service. Azure resources also support alerts which provide the ability to respond reactively to resolve issues. The table below links to additional details for the Azure resources included in this reference architecture:
+See [Azure Monitor metrics and logs overview](/azure/azure-monitor/data-platform#observability-data-in-azure-monitor) for a general discussion on observability data, including metrics and logs. See [Azure Monitor metric and log alerts](/azure/azure-monitor/alerts/alerts-overview) for the data source alerts available in Azure Monitor, which can help you proactively address issues before they impact users.
+
+Azure resources also allow you to proactively capture logs and metrics for that service, and subscribe to alerts. The following table links to additional details for the Azure resources included in this reference architecture:
 
   | Azure resource | Metrics and logs | Alerts |
   | -------------- | ---------------- | ------ |
   |Application Gateway | [Application Gateway metrics and logs descriptions](/azure/application-gateway/monitor-application-gateway-reference) | [Application Gateway alerts](/azure/application-gateway/high-traffic-support#alerts-for-application-gateway-v2-sku-standard_v2waf_v2) |
   | Application Insights | [Application Insights metrics and logging API](/azure/azure-monitor/app/api-custom-events-metrics) | [Application Insights alerts](/azure/azure-monitor/alerts/alerts-smart-detections-migration) |
-  | Azure Monitor | [Azure Monitor metrics and logs overview](/azure/azure-monitor/data-platform#observability-data-in-azure-monitor) | [Azure Monitor metric and log alerts](/azure/azure-monitor/alerts/alerts-overview) |
   | Blob Storage | [Azure Blob Storage metrics and logs descriptions](/azure/storage/blobs/monitor-blob-storage-reference) | [Blob storage alerts](/azure/storage/blobs/monitor-blob-storage?tabs=azure-portal#alerts) |
   | Key Vault | [Key Vault metrics and logs descriptions](/azure/key-vault/general/monitor-key-vault-reference) | [Key vault alerts](/azure/key-vault/general/monitor-key-vault#alerts) |
   | Public IP address | [Public IP address metrics and logs descriptions](/azure/virtual-network/ip-services/monitor-public-ip) | [Public IP address metrics alerts](/azure/virtual-network/ip-services/monitor-public-ip#alerts) |
+  | Virtual networks | [Virtual network metrics and logs reference](/azure/virtual-network/monitor-virtual-network-reference) | [Virtual network alerts](/azure/virtual-network/monitor-virtual-network#alerts) |
+  | VM/VMSS | [VM metrics and logs reference](/azure/virtual-machines/monitor-vm-reference) | [VM alerts and tutorials](/azure/virtual-machines/monitor-vm#alerts) |
   | Web Application Firewall | [Web Application Firewall metrics and logs descriptions](/azure/web-application-firewall/ag/application-gateway-waf-metrics) | [Web Application Firewall alerts](/azure/web-application-firewall/ag/application-gateway-waf-metrics#configure-alerts-in-azure-portal) |
 
-For more information on the cost of collecting metrics and logs, see [Log Analytics cost calculations and options](/azure/azure-monitor/logs/cost-logs) and [Pricing for Log Analytics workspace](https://azure.microsoft.com/pricing/details/monitor/).
+For more information on the cost of collecting metrics and logs, see [Log Analytics cost calculations and options](/azure/azure-monitor/logs/cost-logs) and [Pricing for Log Analytics workspace](https://azure.microsoft.com/pricing/details/monitor/). Note that metric and log collection costs are greatly impacted by the nature of the workload, and the frequency and number of metrics and logs collected.
 
 ##### Application Insights
 
@@ -237,20 +240,20 @@ Application Insights enables [distributed tracing](/azure/azure-monitor/app/dist
 
 Azure Monitor provides two experiences for consuming distributed trace data: the transaction diagnostics view for a single transaction/request and the application map view to show how systems interact.
 
-//TODO: Add app insights guidance specific to this scenario
+##### VM Insights
+
+VM insights is a feature of Azure Monitor that quickly gets you started monitoring your virtual machines. You can view trends of performance data, running processes on individual machines, and dependencies between machines. 
 
 ### Azure Load Balancer health probes
 
-The Azure Load Balancer services running in the frontend and backend tiers require a health probe to detect the endpoint status. The configuration of the health probe and probe responses determines which VM instances receive new connections. When a health probe fails, the load balancer stops sending new connections to the respective unhealthy instance. Outbound connectivity isn't affected, only inbound.
+The Application Gateway and Azure Load Balancer services require a health probe to detect the endpoint status. The probe is configured by specifying a request protocol, port, and probe interval. The configuration of the health probe and probe responses determines which VM instances receive new connections. When a health probe fails, the load balancer stops sending new connections to the respective unhealthy instance. Outbound connectivity isn't affected, only inbound.
 
 You use health probes to:
 - detect the failure of an application and allow the VM to be removed from rotation
 - generate a custom response to Azure Load Balancer for more advanced scenarios
 - probe for flow control to manage load or planned downtime
 
-In the reference implementation, Azure Load Balancer will be configured to do a simple test for the existence of a file to see if the application is responding. If the request is successful, an HTTP 200 will be returned to Azure Load Balancer. The [Application Health extension](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension) is also deployed to the VMSS VMs. The Application Health Extension is used to monitor the health of each VM instance in the scale set, and perform instance repairs using Automatic Instance Repairs.
-
-//TODO: do we need to explain that load balancer is actually pinging the VMSS, which in turn determines whether the VM is available (and managing the rotation of healthy/unhealthy VMs for auto-healing)?
+In the reference implementation, health probes are configured to do a simple HTTP test for the existence of a file to see if the application is responding. If the request is successful, an HTTP 200 will be returned to Application Gateway or Azure Load Balancer. 
 
 ### Managed disks
 
@@ -272,15 +275,11 @@ VM Insights is recommended for getting key metrics from an operating system pers
 
 See [Monitor Azure virtual machines](/azure/virtual-machines/monitor-vm) for description of the monitoring data that's generated by Azure virtual machines (VMs), and a discussion of how to use the features of Azure Monitor to analyze and alert you about this data.
 
-// TODO: Should mentions of AMA and DCR go here and not under the VM Insights subsection? That way we align better with the notion of VM Insights being a consumption tool as explained in the Azure Monitor docs
+##### Azure Monitor Agent
 
-### VM Insights
+The [Azure Monitor Agent (AMA)](/azure/azure-monitor/agents/agents-overview) is deployed to VMs to collect monitoring data from the guest operating system. Azure Monitor agent supports [Data Collection Rules (DCR)](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent), which enables targeted and granular data collection for a machine or subset(s) of machines. DCR allows filtering rules and data transformations to reduce the overall data volume being uploaded, thus lowering ingestion and storage costs significantly.
 
-VM insights is a feature of Azure Monitor that quickly gets you started monitoring your virtual machines. You can view trends of performance data, running processes on individual machines, and dependencies between machines. VM insights installs the [Azure Monitor agent (AMA)](/azure/azure-monitor/agents/agents-overview) to collect monitoring data from the guest operating system. Azure Monitor agent supports [Data Collection Rules (DCR)](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent), which enables targeted and granular data collection for a machine or subset(s) of machines. DCR allows filtering rules and data transformations to reduce the overall data volume being uploaded, thus lowering ingestion and storage costs significantly.
-
-##### Data Collection Rules (DCR)
-
-The table below lists the types of data you can currently collect with the Azure Monitor Agent and where you can send that data.
+The table below lists the types of data you can currently collect with the Azure Monitor Agent and where you can send that data:
 
 | Data source | Destinations | Description |
 |:---|:---|:---|
@@ -292,6 +291,10 @@ The table below lists the types of data you can currently collect with the Azure
 //TODO: consider adding details about the data collection rules implemented in the RI. Highlight differences between the frontend and backend DCR definitions. See tutorials:  
 //        [Tutorial: Enable monitoring with VM insights for Azure virtual machine](/azure/azure-monitor/vm/tutorial-monitor-vm-enable-insights)  
 //        [Tutorial: Collect guest logs and metrics from Azure virtual machine](/azure/azure-monitor/vm/tutorial-monitor-vm-guest)  
+
+##### Application Health extension
+
+The [Application Health extension](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension) is also deployed to the VMs. The Application Health extension is used by VMSS to monitor the binary health state of each VM instance in the scale set, and perform instance repairs if necessary by using Automatic Instance Repairs. The Application Health extension tests for the existence of the same file as the Application Gateway and Azure Load Balancer health probe, to determine if the application is responding.
 
 ### VM Boot diagnostics
 
