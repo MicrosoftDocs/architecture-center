@@ -4,7 +4,7 @@ This article describes how a fictional city planning office could use this solut
 
 The following diagram shows the overall architecture of the solution.
 
-[![Architecture diagram demonstrating DataOps for the modern data warehouse.](./media/architecture-diagram-new.png)](./media/architecture-diagram-new.png#lightbox)
+:::image type="content" source="./media/architecture-diagram-new.svg" lightbox="./media/architecture-diagram-new.svg" alt-text="Architecture diagram demonstrating DataOps for the modern data warehouse.":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/architecture-diagram.vsdx) of this architecture.*
 
@@ -140,7 +140,7 @@ For a detailed list of all resources, see the [Deployed Resources](https://githu
 
 The diagram below demonstrates the CI/CD process and sequence for the build and release pipelines.
 
-[![Figure Process and Sequence for Build and Release.](./media/ci-cd-process-diagram-new.png)](./media/ci-cd-process-diagram-new.png#lightbox)
+:::image type="content" source="./media/ci-cd-process-diagram-new.svg" lightbox="./media/ci-cd-process-diagram-new.svg" alt-text="Figure Process and Sequence for Build and Release.":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ci-cd-process-diagram.vsdx) of this architecture.*
 
