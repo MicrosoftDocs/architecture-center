@@ -87,17 +87,17 @@ For more information about WordPress security, see [General WordPress security](
 
 ### Cost optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview). Consider the following recommendations in your deployment:
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview). Review the following cost considerations:
 
-- **Traffic expectations (GB/month):** The amount of traffic has the biggest effect on your cost, as it determines the number of VMs and price for outbound data transfer. Additionally, it directly correlates with the amount of data that is surfaced via the CDN, where are outbound data transfer costs cheaper.
+- **Traffic expectations (GB/month):** The amount of traffic has the biggest effect on your cost. It determines the number of VMs and price for outbound data transfer. Additionally, it correlates with the amount of data that is surfaced via the CDN, where the outbound data transfer costs are cheaper.
 - **Amount of hosted data:** It's important to consider how much data you're hosting since Azure NetApp Files pricing is based on reserved capacity. To optimize costs, you need to reserve the minimum capacity needed for your data.
-- **Writes percentage:** How much new data are you going to be writing to your website? New data written to your website correlates with how much data is mirrored across the regions.
+- **Writes percentage:** Consider much new data are you going to be writing to your website and the cost to store it. For multi-region deployments, new data written to your website correlates with how much data is mirrored across the regions.
 - **Static versus dynamic content:** You should monitor your database storage performance and capacity to see if a cheaper SKU can support your site. The database stores dynamic content and the CDN caches static content. 
 - **VM optimization:** To optimize VMs costs, follow general tips for VMs. For more information, see [Cost Optimization tips](/azure/well-architected/cost/optimize-checklist)
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*Microsoft maintains this article. The following contributors originally wrote the article.*
 
 Principal author:
 
