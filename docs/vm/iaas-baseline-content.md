@@ -206,7 +206,7 @@ Monitoring data is generated at multiple levels, all of which can be sources of 
 - the underlying infrastructure and components on which your system runs, like virtual machines, virtual networks, and storage services
 - the Azure platform logs 
 
-The following sections will cover the services and considerations for collection monitoring data across all of these levels.
+The following sections will cover the services and considerations for collecting monitoring data across all of these levels.
 
 ### Azure Monitor 
 
@@ -296,7 +296,7 @@ The table below lists the types of data you can currently collect with the Azure
 
 The [Application Health extension](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension) is also deployed to the VMs. The Application Health extension is used by VMSS to monitor the binary health state of each VM instance in the scale set, and perform instance repairs if necessary by using Automatic Instance Repairs. The Application Health extension tests for the existence of the same file as the Application Gateway and Azure Load Balancer health probe, to determine if the application is responding.
 
-### VM Boot diagnostics
+##### VM Boot diagnostics
 
 [Azure boot diagnostics](/azure/virtual-machines/boot-diagnostics) is a debugging feature for Azure virtual machines (VM) that allows diagnosis of VM boot failures. Boot diagnostics enables a user to observe the state of their VM as it is booting up by collecting serial log information and screenshots. The diagnostics data is saved to a storage account.
 
