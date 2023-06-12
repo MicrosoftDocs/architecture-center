@@ -4,7 +4,7 @@ This article presents a solution for using multiple Azure services to optimize s
 
 :::image type="content" source="../media/optimized-storage-time-based-data-lake.svg" lightbox="../media/optimized-storage-time-based-data-lake.svg" alt-text="Architecture of a resilient system that uses two types of storage to reduce costs.":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-1857597-PR-3334-optimized-storage-time-based-data-lake.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/optimized-storage-time-based-data-lake.vsdx) of this architecture.*
 
 ### Dataflow
 
