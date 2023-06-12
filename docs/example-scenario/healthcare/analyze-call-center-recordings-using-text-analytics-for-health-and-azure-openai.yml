@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Analyze Call Center Recordings using Text Analytics for Health and Azure OpenAI
+  titleSuffix: Azure Architecture Center
+  description: Automate transcription of healthcare-specific audio data and serving of that data to end-users.
+  author: djdean, sbhuttan
+  ms.author: dade, sumitbhuttan
+  ms.date: <Publish or major update date - mm/dd/yyyy>
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: healthcare call analytics
+azureCategories:
+  - ai-machine-learning
+  - analytics
+  - popular
+products:
+  - azure-text-analytics
+  - azure-synapse-analytics
+  - azure-cognitive-services
+  - azure-blob-storage
+name: Analyze Call Center Recordings using Text Analytics for Health and Azure OpenAI
+summary: Automate transcription of healthcare-specific audio data and serving of that data to end-users.
+thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
+content: |
+  [!include[](analyze-call-center-recordings-using-text-analytics-for-health-and-azure-openai.md)]
