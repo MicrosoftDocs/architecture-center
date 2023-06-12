@@ -2,12 +2,116 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2023-06-05T16:02:11.185Z</updated>
+    <updated>2023-06-12T16:01:46.746Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Blue/green deployments on Azure Spring Apps]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/spring-apps/blue-green-spring</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/spring-apps/blue-green-spring"/>
+        <updated>2023-06-09T02:54:33.000Z</updated>
+        <summary type="html"><![CDATA[This article describes a high-availability blue/green deployment solution for applications on Azure Spring Apps.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Spring Apps (ASA) architecture design]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/spring-apps</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/spring-apps"/>
+        <updated>2023-06-09T02:54:33.000Z</updated>
+        <summary type="html"><![CDATA[Get started on your Azure Spring Apps journey by reviewing guidance ranging from &quot;just starting out&quot; to production.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Spring Apps integrated with landing zones]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/spring-apps/spring-apps-landing-zone</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/spring-apps/spring-apps-landing-zone"/>
+        <updated>2023-06-09T02:54:33.000Z</updated>
+        <summary type="html"><![CDATA[Reference architecture for Spring Boot applications hosted in Azure Spring Apps. The application is deployed in an Azure landing zone so that the workload can use shared resources managed by central teams of an organization.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Azure Spring Apps to multiple regions]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/spring-apps/spring-apps-multi-region</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/spring-apps/spring-apps-multi-region"/>
+        <updated>2023-06-09T02:54:33.000Z</updated>
+        <summary type="html"><![CDATA[Deploy Azure Spring Apps instances in multiple regions for increased availability, resilience, and performance.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Spring Apps baseline architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/spring-apps/spring-apps-multi-zone</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/spring-apps/spring-apps-multi-zone"/>
+        <updated>2023-06-09T02:54:33.000Z</updated>
+        <summary type="html"><![CDATA[Deploy Azure Spring Apps instances in multiple zones for increased availability, resilience, and performance.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Baseline highly available zone-redundant app services web application]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/baseline-zone-redundant</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/baseline-zone-redundant"/>
+        <updated>2023-06-05T18:39:45.000Z</updated>
+        <summary type="html"><![CDATA[A baseline reference architecture for a network secured, highly available, and zone-redundant App Service web application.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Siemens Teamcenter baseline architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/manufacturing/teamcenter-baseline</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/manufacturing/teamcenter-baseline"/>
+        <updated>2023-06-09T21:20:50.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the Siemens Teamcenter product lifecycle management (PLM) solution architecture in Azure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[DataOps for autonomous vehicle operations]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/automotive/autonomous-vehicle-operations-dataops</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/automotive/autonomous-vehicle-operations-dataops"/>
+        <updated>2023-06-08T16:46:50.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure services to build an offline data operations and data management (DataOps) solution for an automated driving system.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use Teamcenter PLM with Azure NetApp Files]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/manufacturing/teamcenter-plm-netapp-files</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/manufacturing/teamcenter-plm-netapp-files"/>
+        <updated>2023-06-06T19:59:26.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Azure NetApp Files as a storage solution for Siemens Teamcenter product lifecycle management (PLM).]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Carrier-grade voicemail solution on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/industries/telecommunications/carrier-grade</id>
+        <link href="https://learn.microsoft.com/azure/architecture/industries/telecommunications/carrier-grade"/>
+        <updated>2023-06-05T18:38:47.000Z</updated>
+        <summary type="html"><![CDATA[An example of a carrier-grade solution design that focuses on highly reliability using Azure services.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Implement TIC 3.0 compliance]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/security/trusted-internet-connections</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/security/trusted-internet-connections"/>
+        <updated>2023-06-09T17:25:48.000Z</updated>
+        <summary type="html"><![CDATA[Implement Trusted Internet Connection (TIC) 3.0 compliance for your internet-facing Azure applications and services, and improve the user experience.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[DR for Azure Data Platform - Overview]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-overview</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-overview"/>
+        <updated>2023-06-09T03:17:24.000Z</updated>
+        <summary type="html"><![CDATA[First article in a series covering disaster recovery for an Azure data platform]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[DR for Azure Data Platform - Scenario details]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details"/>
+        <updated>2023-06-09T03:17:24.000Z</updated>
+        <summary type="html"><![CDATA[Third article in a series covering disaster recovery for an Azure data platform]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Model loan credit risk and default probability]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/ai/loan-credit-risk-analyzer-default-modeling</id>
