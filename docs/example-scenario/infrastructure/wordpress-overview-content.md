@@ -27,7 +27,7 @@ You should offload static content, such as images, videos, and CSS files, away f
 Another benefit of serving static resources from a CDN service such as [Azure Front Door](/azure/frontdoor/front-door-overview) is that users can access servers closer to their geographic location, further reducing latency and increasing website speed. In summary, offloading static content away from the PHP processor is a crucial step in optimizing website performance and reducing server load.
 
 > [!NOTE]
-> To lock an origin with Azure Front Door via Private Endpoint is required Front Door in SKU Premium. [Learn more about origin via Private Link](/azure/frontdoor/private-link)
+> To secure an origin with Azure Front Door using a Private Endpoint, you need to use the Premium SKU of Front Door. For more information, see [Secure your origin with Private Link](/azure/frontdoor/private-link).
 
 #### CDN cache invalidation
 
