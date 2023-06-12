@@ -104,7 +104,7 @@ Complete the following steps below to install LAMMPS on single-node and cluster 
    cd src 
    ```
 
-1. Run these commands in the src folder to build LAMMPS: 
+1. Run these commands in the *src* folder to build LAMMPS: 
 
    ```
    make yes-rigid 
