@@ -53,11 +53,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
-
-Azure NetApp Files provides HA with [built-in data replication, failover, and DR capabilities](/azure/azure-netapp-files/snapshots-introduction). These capabilities help ensure that your Teamcenter PLM database and CAD files are always available, even if there's a regional, zonal, or software failure.
-
-Azure NetApp Files provides an [SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) for all tiers and all supported regions. It supports provisioning volumes in [availability zones](/azure/azure-netapp-files/use-availability-zones) that you choose, and HA deployments across zones.
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview). Azure NetApp Files provides HA with [built-in data replication, failover, and DR capabilities](/azure/azure-netapp-files/snapshots-introduction). These capabilities help ensure that your Teamcenter PLM database and CAD files are always available, even if there's a regional, zonal, or software failure. Azure NetApp Files provides an [SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) for all tiers and all supported regions. It supports provisioning volumes in [availability zones](/azure/azure-netapp-files/use-availability-zones) that you choose, and HA deployments across zones.
 
 Azure NetApp Files provides two data backup options: snapshots and backup. Snapshots provide a point-in-time backup of data. You can use them to quickly recover data if there's data loss or corruption. Azure NetApp Files also has a fully managed backup solution. It provides long-term retention and recovery options for snapshots. You can combine snapshots and backups to get a comprehensive backup and recovery solution.
 
@@ -83,7 +79,7 @@ You can set up Azure NetApp Files snapshots via scheduled policies or manually i
 
 *Volume restore* lets you recover an entire volume from a snapshot or backup. This option is useful when an entire volume is lost or corrupted, and you need a complete restore. This feature can help you quickly restore an entire volume of Teamcenter PLM data, including CAD files, application and database servers, and other critical data.
 
-- *Take regular snapshots.* If you take regular snapshots of data, you can restore the system to a previous state in a matter of minutes. This feature minimizes potential downtime and ensuring that critical data is always available when you need it. There are three main areas in a Teamcenter PLM architecture where advanced data protection and recoverability are important and where snapshots ensure fast protection and recovery:
+*Take regular snapshots.* If you take regular snapshots of data, you can restore the system to a previous state in a matter of minutes. This feature minimizes potential downtime and ensuring that critical data is always available when you need it. There are three main areas in a Teamcenter PLM architecture where advanced data protection and recoverability are important and where snapshots ensure fast protection and recovery:
 
 - Individual file restores from file shares
 - Database data consistency backups
