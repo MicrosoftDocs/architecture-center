@@ -71,17 +71,17 @@ You should use cross-zone replication when you require data redundancy and HA ac
 
 You can set up Azure NetApp Files snapshots via scheduled policies or manually in the Azure portal or by using Azure SDKs or APIs. Your application consistency requirements can help you determine which method to use:
 
-(1) For applications that require application consistency, such as like Oracle or SQL Server, you should create snapshots manually. Because SQL Server and Oracle databases require application consistency when storage-based snapshots are used, you need to ensure that correct application-to-storage snapshot orchestration occurs. You can achieve this orchestration by implementing an application freeze-snapshot-thaw cycle that enables snapshots to be taken consistently without interrupting database operation. For more information about snapshot consistency with Azure NetApp Files, see [SQL Server snapshot consistency](https://techcommunity.microsoft.com/t5/azure-architecture-blog/managing-sql-server-2022-t-sql-snapshot-backup-with-azure-netapp/ba-p/3654798) or [Oracle snapshot consistency](/azure/azure-netapp-files/azacsnap-introduction).
+- *Create snapshots manually.* For applications that require application consistency, such as like Oracle or SQL Server, you should create snapshots manually. Because SQL Server and Oracle databases require application consistency when storage-based snapshots are used, you need to ensure that correct application-to-storage snapshot orchestration occurs. You can achieve this orchestration by implementing an application freeze-snapshot-thaw cycle that enables snapshots to be taken consistently without interrupting database operation. For more information about snapshot consistency with Azure NetApp Files, see [SQL Server snapshot consistency](https://techcommunity.microsoft.com/t5/azure-architecture-blog/managing-sql-server-2022-t-sql-snapshot-backup-with-azure-netapp/ba-p/3654798) or [Oracle snapshot consistency](/azure/azure-netapp-files/azacsnap-introduction).
 
-(2) Use a snapshot policy for Root FSC file data. The Root FSC file data hosted on Azure NetApp Files volumes doesn't require any application consistency or orchestration because those volumes are general file shares. We recommend that you use an [Azure NetApp Files snapshot policy](/azure/azure-netapp-files/snapshots-manage-policy) to automatically schedule and initiate snapshots at required intervals.
+- *Use a snapshot policy for Root FSC file data.* The Root FSC file data hosted on Azure NetApp Files volumes doesn't require any application consistency or orchestration because those volumes are general file shares. We recommend that you use an [Azure NetApp Files snapshot policy](/azure/azure-netapp-files/snapshots-manage-policy) to automatically schedule and initiate snapshots at required intervals.
 
 **Configure Azure NetApp Files backup.** [Azure NetApp Files backup](/azure/azure-netapp-files/backup-introduction) expands the data protection capabilities of Azure NetApp Files by providing a fully managed backup solution for long-term recovery, archiving, and compliance. The service stores backups in Azure storage. These backups are independent from volume snapshots that are available for near-term recovery or cloning. You can restore backups taken by this service to new Azure NetApp Files volumes within the region. Azure NetApp Files backup supports both policy-based (scheduled) backups and manual (on-demand) backups.  
 
-**Use Azure NetApp Files file/folder and volume restore options.** Azure NetApp Files provides (1) file/folder granular restore and (2) volume restore options. Both options are useful for Teamcenter PLM data recovery.
+**Use Azure NetApp Files file/folder and volume restore options.** Azure NetApp Files provides file/folder granular restore and volume restore options. Both options are useful for Teamcenter PLM data recovery.
 
-(1) You can use *file/folder granular restore* to recover specific files or folders from a snapshot or backup. Because it saves time and storage space, this option is useful when you need to restore only specific data. You can also use the Azure NetApp Files snapshot feature to recover data. By using snapshots, you can recover data from previous points in time without needing to restore it from a backup. This feature can help you quickly restore individual files that have been accidentally deleted or corrupted.
+*File/folder granular restore* lets you recover specific files or folders from a snapshot or backup. Because it saves time and storage space, this option is useful when you need to restore only specific data. You can also use the Azure NetApp Files snapshot feature to recover data. By using snapshots, you can recover data from previous points in time without needing to restore it from a backup. This feature can help you quickly restore individual files that have been accidentally deleted or corrupted.
 
-(2) You can use *volume restore* to recover an entire volume from a snapshot or backup. This option is useful when an entire volume is lost or corrupted, and you need a complete restore. This feature can help you quickly restore an entire volume of Teamcenter PLM data, including CAD files, application and database servers, and other critical data.
+*Volume restore* lets you recover an entire volume from a snapshot or backup. This option is useful when an entire volume is lost or corrupted, and you need a complete restore. This feature can help you quickly restore an entire volume of Teamcenter PLM data, including CAD files, application and database servers, and other critical data.
 
 - *Take regular snapshots.* If you take regular snapshots of data, you can restore the system to a previous state in a matter of minutes. This feature minimizes potential downtime and ensuring that critical data is always available when you need it. There are three main areas in a Teamcenter PLM architecture where advanced data protection and recoverability are important and where snapshots ensure fast protection and recovery:
 
@@ -155,7 +155,7 @@ Azure NetApp Files also optimizes costs for [Oracle](https://techcommunity.micro
 
 - Teamcenter PLM components on Azure
 - Database components on Azure
-- Azure NetApp Files, cross-region replication, and back up
+- Azure NetApp Files, cross-region replication, and backups
 - Managed disks (OS boot disks)
 - Networking components
 
@@ -212,7 +212,7 @@ All these changes are transparent to the Teamcenter components that run on top o
 
 ## Contributors
 
-*Microsoft maintains this article. The following contributors original wrote the article.*
+*Microsoft maintains this article. The following contributors originally wrote the article.*
 
 Principal authors:
 
