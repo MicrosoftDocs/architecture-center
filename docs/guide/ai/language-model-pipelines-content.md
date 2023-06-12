@@ -16,7 +16,7 @@ This article describes how to use an AI/ML pipeline, LangChain, and language mod
 The ***batch pipeline*** stores internal company product information in a fast vector search database. To achieve this result, the following steps are taken:
 
 1. Internal company documents for products are imported and converted into searchable vectors. Product-related documents are collected from departments, such as sales, marketing, and product development. These documents are then scanned and converted into text by using optical character recognition (OCR) technology.
-1. A LangChain chunking utility chunks the documents into smaller, more manageable pieces. Chunking breaks down the text into meaningful phrases or sentences that can be analyzed separately. Chunking improves the accuracy of the pipeline's search capabilities.
+1. A LangChain chunking utility chunks the documents into smaller, more manageable pieces. Chunking breaks down the text into meaningful phrases or sentences that can be analyzed separately and improves the accuracy of the pipeline's search capabilities.
 1. The language model converts each chunk into a vectorized embedding. Embeddings are a type of representation that capture the meaning and context of the text. By converting each chunk into a vectorized embedding, you can store and search for documents based on their meaning rather than their raw text. To prevent loss of context within each document chunk, LangChain provides several utilities for this text splitting step, like capabilities for sliding windows or specifying text overlap. Some key features include utilities for tagging chunks with document metadata, optimizing the document retrieval step, and downstream reference.
 1. Create an index in a vector store database to store the raw document text, embeddings vectors, and metadata. The resulting embeddings are stored in a vector store database along with the raw text of the document and any relevant metadata, such as the document's title and source.
 
@@ -25,7 +25,7 @@ After the batch pipeline is complete, the ***real-time, asynchronous*** ***pipel
 5. A user enters a query and relevant metadata, such as their role in the company or business unit that they work in. An embeddings model then converts the user's query into a vectorized embedding.
 6. The *orchestrator language model* decomposes the query, or main task, into the set of subtasks that are required to answer the user query. Converting the main task into a series of simpler subtasks allows the language model to address each task more accurately, which results in better answers with less tendency for inaccuracies.
 7. The resulting embedding and decomposed subtasks are stored in the LangChain model's memory.
-   1. Top internal document chunks that are relevant to the user’s query are retrieved from the customer's internal database. A fast vector search is performed for top n similar documents, stored as vectors in Azure Cache for Redis.
+   1. Top internal document chunks that are relevant to the user’s query are retrieved from the customer's internal database. A fast vector search is performed for top n similar documents that are stored as vectors in Azure Cache for Redis.
    1. In parallel, a web search for externally similar products is executed via the LangChain Bing Search language model plugin with a generated search query that the *orchestrator language model* composes. Results are stored in the external model memory component.
 8. The vector store database is queried and returns the top relevant product information pages (chunks and references). The system queries the vector store database by using the user's query embedding and returns the most relevant product information pages, along with the relevant text chunks and references. The relevant information is stored in LangChain's model memory.
 9. The system uses the information that’s stored in LangChain's model memory to create a new prompt, which is sent to the *orchestrator language model* to build a summary report that’s based on the user query, company internal knowledge base, and external web results.
@@ -33,9 +33,9 @@ After the batch pipeline is complete, the ***real-time, asynchronous*** ***pipel
 
 ## Components
 
-- [Azure OpenAI Service]() provides REST API access to OpenAI's powerful language models including the GPT-3/3.5/4 and Embeddings model series. You can easily adapt these models to your specific task, such as content generation, summarization, semantic search, converting text to semantically powerful embeddings vectors, and natural language to code translation.
+- [Azure OpenAI Service](/products/cognitive-services/openai-service) provides REST API access to OpenAI's powerful language models including the GPT-3/3.5/4 and embeddings model series. You can easily adapt these models to your specific task, such as content generation, summarization, semantic search, converting text to semantically powerful embeddings vectors, and natural language to code translation.
 
-- [LangChain]() is an external, open-source framework that you can use to develop applications that are powered by language models. LangChain makes the complexities of working and building with AI models easier by providing the pipeline orchestration framework and helper utilities to run powerful, multiple-model pipelines.
+- [LangChain](https://python.langchain.com/latest/index.html) is an external, open-source framework that you can use to develop applications that are powered by language models. LangChain makes the complexities of working and building with AI models easier by providing the pipeline orchestration framework and helper utilities to run powerful, multiple-model pipelines.
 
 - Memory refers to capturing information. By default, language modeling chains (or pipelines) and agents operate in a stateless manner. They handle each incoming query independently, just like the underlying language models and chat models that they use. But in certain applications, such as chatbots, it's crucial to retain information from past interactions in the short term and the long term. This area is where the concept of "memory" comes into play. LangChain offers memory components in two forms. It provides convenient utility tools to manage and manipulate past chat messages. These utilities are designed to be modular and valuable regardless of their specific usage. LangChain also offers seamless methods to integrate these utilities into the memory of chains by using [language models](https://python.langchain.com/en/latest/modules/memory/how_to_guides.html).
 
@@ -82,3 +82,5 @@ Other contributor:
 ## Related resources
 
 - [AI architecture design](/azure/architecture/data-guide/big-data/ai-overview)
+- [Batch processing](/azure/architecture/data-guide/big-data/batch-processing)
+- [Types of language API services](/azure/architecture/data-guide/cognitive-services/language-api)
