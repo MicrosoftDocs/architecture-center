@@ -53,7 +53,7 @@ Reliability ensures your application can meet the commitments you make to your c
 - All of these networking components are fronted by Azure Front Door. This approach makes the networking resources and application resilient to issues that would otherwise disrupt traffic and affect end-user access.
 - Front Door is global service and supports Virtual Machine Scale Sets deployed in another regions. 
 - Using Front Door to cache all responses can provide a small availability benefit when the origin isn't responding. However, it's important to note that caching isn't a complete availability solution.
-- - For higher availability, you should replicate NetApp Files storage between paired regions. For more information, see [cross-region replication with Azure NetApp Files](/azure/azure-netapp-files/cross-region-replication-requirements-considerations).
+- For higher availability, you should replicate NetApp Files storage between paired regions. For more information, see [cross-region replication with Azure NetApp Files](/azure/azure-netapp-files/cross-region-replication-requirements-considerations).
 - For higher Azure Database for MySQL availability, you should follow the [high availability options](/azure/mysql/flexible-server/concepts-high-availability) that meet your needs.
 
 ### Performance efficiency
