@@ -192,7 +192,7 @@ It's also a good idea to use Key Vault for storage of secrets used for database 
 
 ### Overview
 
-Monitoring processes and components are discussed here primarily from a data collection perspective. Where appropriate, the following subsections may provide links to options for data analysis by the respective log and metrics consumption tools. As mentioned previously, Azure Log Analytics is the monitoring data sink used in this architecture to collect logs and metrics from the Azure resources and Application Insights. A Log Analytics workspace is the recommended way to capture all monitoring data in one place, for analyzing and correlation.
+Monitoring processes and components are discussed here primarily from a data collection perspective. Where appropriate, the following subsections may provide links to options for data analysis by the respective log and metrics consumption tools. As mentioned previously, Azure Log Analytics workspace is the monitoring data sink used in this architecture to collect logs and metrics from the Azure resources and Application Insights. A Log Analytics workspace is the recommended way to capture all monitoring data in one place, for analyzing and correlation.
 
 Throughout each section, we assume that 2 types of data will be collected from various layers of the architecture that can be useful for diagnosing to understand performance, doing debugging, and many other activities:
 
@@ -207,16 +207,6 @@ Monitoring data is generated at multiple levels, all of which can be sources of 
 - the Azure platform logs 
 
 The following sections will cover the services and considerations for collection monitoring data across all of these levels.
-
-### Application Insights
-
-[Application Insights](/azure/azure-monitor/app/app-insights-overview) is an extension of Azure Monitor and provides Application Performance Monitoring (also known as "APM") features. APM tools are useful to monitor applications from development, through test, and into production to proactively understand how an application is performing, as well as reactively review application execution data to determine the cause of an incident.
-
-Application Insights enables [distributed tracing](/azure/azure-monitor/app/distributed-tracing-telemetry-correlation#enable-distributed-tracing), providing a performance profiler that works like call stacks for cloud and microservices architectures. Application Insights can monitor each component separately and detect which component is responsible for failures or performance degradation by using distributed telemetry correlation.
-
-Azure Monitor provides two experiences for consuming distributed trace data: the transaction diagnostics view for a single transaction/request and the application map view to show how systems interact.
-
-//TODO: Add app insights guidance specific to this scenario
 
 ### Azure Monitor 
 
@@ -239,18 +229,28 @@ More specifically, each Azure resource allows you to proactively capture logs an
 
 For more information on the cost of collecting metrics and logs, see [Log Analytics cost calculations and options](/azure/azure-monitor/logs/cost-logs) and [Pricing for Log Analytics workspace](https://azure.microsoft.com/pricing/details/monitor/).
 
+##### Application Insights
+
+[Application Insights](/azure/azure-monitor/app/app-insights-overview) is an extension of Azure Monitor and provides Application Performance Monitoring (also known as "APM") features. APM tools are useful to monitor applications from development, through test, and into production to proactively understand how an application is performing, as well as reactively review application execution data to determine the cause of an incident.
+
+Application Insights enables [distributed tracing](/azure/azure-monitor/app/distributed-tracing-telemetry-correlation#enable-distributed-tracing), providing a performance profiler that works like call stacks for cloud and microservices architectures. Application Insights can monitor each component separately and detect which component is responsible for failures or performance degradation by using distributed telemetry correlation.
+
+Azure Monitor provides two experiences for consuming distributed trace data: the transaction diagnostics view for a single transaction/request and the application map view to show how systems interact.
+
+//TODO: Add app insights guidance specific to this scenario
+
 ### Azure Load Balancer health probes
 
 The Azure Load Balancer services running in the frontend and backend tiers require a health probe to detect the endpoint status. The configuration of the health probe and probe responses determines which VM instances receive new connections. When a health probe fails, the load balancer stops sending new connections to the respective unhealthy instance. Outbound connectivity isn't affected, only inbound.
 
-You can use health probes to:
+You use health probes to:
 - detect the failure of an application and allow the VM to be removed from rotation
 - generate a custom response to Azure Load Balancer for more advanced scenarios
 - probe for flow control to manage load or planned downtime
 
-In this reference architecture, Azure Load Balancer will be configured to do a simple test for the existence of a file to see if the application is responding. If the request is successful, an HTTP 200 will be returned to Azure Load Balancer.
+In the reference implementation, Azure Load Balancer will be configured to do a simple test for the existence of a file to see if the application is responding. If the request is successful, an HTTP 200 will be returned to Azure Load Balancer. The [Application Health extension](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension) is also deployed to the VMSS VMs. The Application Health Extension is used to monitor the health of each VM instance in the scale set, and perform instance repairs using Automatic Instance Repairs.
 
-//TODO: do we want to explain that load balancer is actually pinging the VMSS, which in turn determines whether the VM is available (and managing the rotation of healthy/unhealthy VMs for auto-healing)?
+//TODO: do we need to explain that load balancer is actually pinging the VMSS, which in turn determines whether the VM is available (and managing the rotation of healthy/unhealthy VMs for auto-healing)?
 
 ### Managed disks
 
@@ -271,6 +271,8 @@ VM Insights is recommended for getting key metrics from an operating system pers
 ### Virtual Machines
 
 See [Monitor Azure virtual machines](/azure/virtual-machines/monitor-vm) for description of the monitoring data that's generated by Azure virtual machines (VMs), and a discussion of how to use the features of Azure Monitor to analyze and alert you about this data.
+
+// TODO: Should mentions of AMA and DCR go here and not under the VM Insights subsection? That way we align better with the notion of VM Insights being a consumption tool as explained in the Azure Monitor docs
 
 ### VM Insights
 
