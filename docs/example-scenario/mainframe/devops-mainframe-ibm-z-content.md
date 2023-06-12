@@ -27,7 +27,7 @@ This article can help you get started with building Azure DevOps pipelines that 
 - The [Wazi components](https://www.ibm.com/docs/en/cloud-paks/z-modernization-stack/2022.3?topic=overview-whats-in-z-cloud-modernization-stack) that are available in IBM Z and Cloud Modernization Stack enable the analysis, development, and testing of mainframe applications in an isolated way. 
 - [Red Hat OpenShift Container Platform](https://www.redhat.com/en/technologies/cloud-computing/openshift) brings together services to reduce the friction of developing, modernizing, deploying, running, and managing applications. Built on Kubernetes, it provides a consistent experience across public cloud, on-premises, hybrid cloud, and edge architectures.
 - [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network/) is the fundamental building block for your private network on Azure. It provides enhanced-security connections that enable Azure resources, like Azure virtual machines, to communicate with each other, the internet, and on-premises networks. Virtual Network is similar to a traditional network that you might operate in your own datacenter, but it provides the additional benefits of the Azure infrastructure, like scale, availability, and isolation. 
-- [Azure ExpressRoute](https://azure.microsoft.com/products/expressroute/) enables you to extend your on-premises networks into the Microsoft cloud over a private connection that's facilitated by a connectivity provider. You can use ExpressRoute to establish connections to Microsoft cloud services like Azure and Office 365. 
+- [Azure ExpressRoute](https://azure.microsoft.com/products/expressroute/) enables you to extend your on-premises networks into the Microsoft Cloud over a private connection that's facilitated by a connectivity provider. You can use ExpressRoute to establish connections to Microsoft cloud services like Azure and Office 365. 
 
 ### Alternatives
 
@@ -45,7 +45,7 @@ Azure DevOps provides integrated features that you can access through your web b
 
 - [Azure Repos](https://azure.microsoft.com/products/devops/repos) provides Git repositories or Team Foundation Version Control for source control of your code.
 - [Azure Pipelines](https://azure.microsoft.com/products/devops/pipelines/) provides build and release services to support continuous integration and continuous delivery (CI/CD) of your apps.
-- [Azure Boards](https://azure.microsoft.com/products/devops/boards/) provides a suite of Agile tools to the support planning and tracking of work, code defects, and issues by using Kanban and Scrum methods.
+- [Azure Boards](https://azure.microsoft.com/products/devops/boards/) provides a suite of Agile tools to support the planning and tracking of work, code defects, and issues by using Kanban and Scrum methods.
 - [Azure Test Plans](https://azure.microsoft.com/products/devops/test-plans/) provides tools to test your apps, including manual/exploratory testing and continuous testing.  
 - [Azure Artifacts](https://azure.microsoft.com/products/devops/artifacts/) enables teams to share Maven, npm, and NuGet packages from public and private sources and integrate package sharing into CI/CD pipelines. By using Azure Artifacts to manage COBOL files, you can ensure that all developers in your organization have access to the correct versions of files and their dependencies.
 
@@ -113,7 +113,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
 - You can ensure performance and stability of multi-tenant integration test environments by using isolated Wazi Sandbox instances to perform build and test operations earlier in the software development lifecycle.  
-- Azure DevOps can help you improve performance efficiency in several ways. It provides a robust CI/CD pipeline that can help automate the build, test, and deployment process. This pipeline help reduce the time required to deploy new features and bug fixes, improve the quality of the application, and reduce the risk of errors during deployment.
+- Azure DevOps can help you improve performance efficiency in several ways. It provides a robust CI/CD pipeline that can help automate the build, test, and deployment process. This pipeline helps reduce the time required to deploy new features and bug fixes, improve the quality of the application, and reduce the risk of errors during deployment.
 
 ## Contributors
 
