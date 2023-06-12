@@ -49,8 +49,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview). Consider the following recommendations for your deployment:
 
 - App Service provides built-in load balancing and health check features to maintain availability if an App Service instance fails.
-Using the CDN to cache all responses can provide a small availability benefit when the origin isn't responding. However, it's important to note that caching shouldn't be considered a complete availability solution.
-
+- Using a CDN to cache all responses can provide a small availability benefit when the origin isn't responding. However, it's important to note that caching shouldn't be considered a complete availability solution.
 - You can replicate Azure Blob Storage to a paired region for data redundancy across multiple regions. For more information, see [Azure Storage redundancy](/azure/storage/common/storage-disaster-recovery-guidance).
 - For higher Azure Database for MySQL availability, see [high availability options](/azure/mysql/flexible-server/concepts-high-availability) to meet your needs.
 
@@ -72,11 +71,11 @@ For more information about WordPress security, see [General WordPress security&p
 
 ### Cost optimization
 
-Cost optimization is about reducing unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview). Consider the following recommendations in your deployment:
+Cost optimization is about reducing unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview). Review the following considerations for your deployment:
 
-- **Traffic expectations (GB/month):** The amount of traffic has the biggest effect on your cost, as it determines the number of App Service instances and price for outbound data transfer. Additionally, it directly correlates with the amount of data that is surfaced via the CDN, where are outbound data transfer costs cheaper.
+- **Traffic expectations (GB/month):** The amount of traffic has the biggest effect on your cost. It determines the number of App Service instances and price for outbound data transfer. Additionally, it correlates with the amount of data that surfaced via the CDN where the outbound data transfer costs cheaper.
 - **Amount of hosted data:** It's important to consider how much data you're hosting in Azure Storage. Storage pricing is based on used capacity.
-- **Writes percentage:** How much new data are you going to be writing to your website? New data written to your website correlates with how much data is mirrored across the regions.
+- **Writes percentage:** Consider how much new data are you going to be writing to your website and hosting in Azure Storage. Evaluate if it's needed. For multi-region deployments, new data written to your website correlates with how much data is mirrored across the regions.
 - **Static versus dynamic content:** You should monitor your database storage performance and capacity to see if a cheaper SKU can support your site. The database stores dynamic content and the CDN caches static content. 
 - **App Service optimalization:** To optimize App Service costs, follow general tips for [App Service Cost Optimization](/azure/well-architected/services/compute/azure-app-service/cost-optimization).
 
