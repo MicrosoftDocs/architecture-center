@@ -8,7 +8,7 @@ See [Web app private connectivity to Azure SQL Database][Web app private connect
    The diagram contains two vertically aligned boxes, one for a primary region and one for a secondary region. Each box contains a web app icon, a box for a virtual network, and a database icon. Outside the boxes on the left, a cloud represents the internet. Arrows point from that cloud through a Front Door and then into the web app in each box. The arrow leading into the secondary region box is dashed. Inside each box, arrows connect the web app, the virtual network, and the database. More arrows cross from the virtual network in each region into the database in the other region. All arrows that end in the secondary database are dashed. Outside each box on the right, a cloud represents the internet. A red arrow that is marked with a letter x points from each cloud to the database in its region. An arrow with points on both ends that is labeled Database Geo-replication connects the two databases. An arrow with points on both ends that is labeled Virtual Network Peering connects the two networks. An icon for a private DNS zone is located at the top of the diagram.
 :::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-1808238-app-service-private-sql-multi-region-solution-architecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/app-service-private-sql-multi-region-solution-architecture.vsdx) of this architecture.*
 
 ### General case
 
