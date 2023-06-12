@@ -25,8 +25,6 @@ Organizations are at various points in their understanding, rationalizing, and a
 
 :::image type="content" alt-text="Visualizes your journey through learn, align, baseline, workload, and then into a loop of operate, best practices, iterate." source="images/aks-journey.svg" lightbox="images/aks-journey.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/aks-journey.vsdx) of this architecture.*
-
 ## Introduction to Azure Kubernetes Service (AKS)
 
 If you're new to Kubernetes or AKS, the best place to learn about the service is Microsoft Learn. This free online platform provides interactive training for Microsoft products and more. The **Introduction to Kubernetes on Azure** learning path will provide you with foundational knowledge that will take you through core concepts of containers, AKS cluster management, and workload deployment.

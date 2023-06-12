@@ -1918,6 +1918,8 @@ items:
         href: /azure/architecture/browse/?terms=manufacturing
       - name: Siemens Teamcenter
         items: 
+        - name: Teamcenter baseline architecture
+          href: example-scenario/manufacturing/teamcenter-baseline.yml
         - name: Teamcenter with NetApp Files
           href: example-scenario/manufacturing/teamcenter-plm-netapp-files.yml 
       - name: Anomaly detection for conveyor belts
@@ -5303,6 +5305,8 @@ items:
           href: example-scenario/mainframe/asysco-zos-migration.yml
         - name: IBM z/OS online transaction processing
           href: example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml
+        - name: Implement Azure DevOps for IBM Z mainframe applications
+          href: example-scenario/mainframe/devops-mainframe-ibm-z.yml
         - name: Integrate IBM MQs with Azure
           href: example-scenario/mainframe/integrate-ibm-message-queues-azure.yml
         - name: Micro Focus Enterprise Server on Azure

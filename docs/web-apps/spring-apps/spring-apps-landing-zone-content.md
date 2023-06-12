@@ -317,6 +317,7 @@ In the Enterprise tier, [Application Configuration Service for Tanzu®](/azure/s
 
 There are other VMware services supported on this tier. For more information, see [Enterprise tier in Azure Marketplace](/azure/spring-apps/how-to-enterprise-marketplace-offer).
 
+The reference implementation supports Azure Spring Apps Enterprise SKU as a deployment option. In this option, there are some  architecture changes. It uses an instance of Azure Database for PostgreSQL flexible server deployed with VNet integration and Azure Cache for Redis with private endpoint. The sample application is [Fitness Store app](/azure/spring-apps/quickstart-sample-app-acme-fitness-store-introduction).
 
 ## Related resources
 

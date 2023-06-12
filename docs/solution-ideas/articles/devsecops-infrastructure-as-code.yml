@@ -14,7 +14,7 @@ azureCategories:
   - devops
   - security
 products:
-  - azure-sentinel
+  - microsoft-sentinel
   - azure-monitor
   - github
 name: DevSecOps for infrastructure as code (IaC)

@@ -25,7 +25,7 @@ azureCategories:
 summary: Use Azure Cosmos DB for retail and e-commerce apps to support in-depth queries over diverse product catalogs, traffic spikes, and rapidly changing inventory.
 products:
   - azure-cosmos-db
-  - azure-search
+  - azure-cognitive-search
   - azure-storage
 thumbnailUrl: /azure/architecture/browse/thumbs/retail-and-e-commerce-using-cosmos-db.png
 content: |

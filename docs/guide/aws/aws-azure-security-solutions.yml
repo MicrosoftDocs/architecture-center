@@ -15,7 +15,7 @@ azureCategories:
 summary: See how Microsoft Defender for Cloud Apps and Microsoft Sentinel can help secure and protect Amazon Web Services (AWS) account access and environments.
 products:
   - azure
-  - azure-sentinel
+  - microsoft-sentinel
   - defender-for-cloud-apps
   - defender-for-cloud
 thumbnailUrl: /azure/architecture/browse/thumbs/aws-azure-security-solutions-thumbnail.png
