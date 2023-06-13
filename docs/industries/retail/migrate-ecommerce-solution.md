@@ -171,6 +171,6 @@ Product documentation:
 
 ## Related resources
 
-- [Architect scalable e-commerce web app](../../solution-ideas/articles/scalable-ecommerce-web-app.yml)
+- [Architect scalable e-commerce web app](../../web-apps/idea/scalable-ecommerce-web-app.yml)
 - [Scalable order processing](../../example-scenario/data/ecommerce-order-processing.yml)
 - [Retail - Buy online, pick up in store (BOPIS)](../../example-scenario/iot/vertical-buy-online-pickup-in-store.yml)

@@ -6579,6 +6579,8 @@ items:
         href: example-scenario/wvd/multi-forest.yml
       - name: Multiple forests with Azure AD DS
         href: example-scenario/wvd/multi-forest-azure-managed.yml
+  - name: Web applications
+    href: /web-apps/index        
   - name: Web
     items:
     - name: Overview
@@ -6704,35 +6706,35 @@ items:
         href: example-scenario/mch-health/virtual-health-mch.yml
       - name: Web app monitoring on Azure
         href: reference-architectures/app-service-web-app/app-monitoring.yml
-    - name: Solution ideas
-      items:
-      - name: Dynamics Business Central as a service
-        href: solution-ideas/articles/business-central.yml
-      - name: E-commerce website running in ASE
-        href: solution-ideas/articles/ecommerce-website-running-in-secured-ase.yml
-      - name: Highly available SharePoint farm
-        href: solution-ideas/articles/highly-available-sharepoint-farm.yml
-      - name: Hybrid SharePoint farm with Microsoft 365
-        href: solution-ideas/articles/sharepoint-farm-microsoft-365.yml
-      - name: Lift-and-shift migration to containers with App Service
-        href: solution-ideas/articles/migrate-existing-applications-to-container-apps.yml
-      - name: Modern customer support portal
-        href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.yml
-      - name: Real-time presence with Microsoft 365
-        href: solution-ideas/articles/presence-microsoft-365-power-platform.yml
-      - name: Scalable e-commerce web app
-        href: solution-ideas/articles/scalable-ecommerce-web-app.yml
-      - name: Scalable Episerver marketing website
-        href: solution-ideas/articles/digital-marketing-episerver.yml
-      - name: Scalable Sitecore marketing website
-        href: solution-ideas/articles/digital-marketing-sitecore.yml
-      - name: Scalable Umbraco CMS web app
-        href: solution-ideas/articles/medium-umbraco-web-app.yml
-      - name: Simple branded website
-        href: solution-ideas/articles/simple-branded-website.yml
-      - name: Simple digital marketing website
-        href: solution-ideas/articles/digital-marketing-smb.yml
-      - name: Web/mobile apps with MySQL and Redis
-        href: solution-ideas/articles/webapps.yml
+    # - name: Solution ideas
+    #   items:
+    #   - name: Dynamics Business Central as a service
+    #     href: solution-ideas/articles/business-central.yml
+    #   - name: E-commerce website running in ASE
+    #     href: solution-ideas/articles/ecommerce-website-running-in-secured-ase.yml
+    #   - name: Highly available SharePoint farm
+    #     href: solution-ideas/articles/highly-available-sharepoint-farm.yml
+    #   - name: Hybrid SharePoint farm with Microsoft 365
+    #     href: solution-ideas/articles/sharepoint-farm-microsoft-365.yml
+    #   - name: Lift-and-shift migration to containers with App Service
+    #     href: solution-ideas/articles/migrate-existing-applications-to-container-apps.yml
+    #   - name: Modern customer support portal
+    #     href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.yml
+    #   - name: Real-time presence with Microsoft 365
+    #     href: solution-ideas/articles/presence-microsoft-365-power-platform.yml
+    #   - name: Scalable e-commerce web app
+    #     href: solution-ideas/articles/scalable-ecommerce-web-app.yml
+    #   - name: Scalable Episerver marketing website
+    #     href: solution-ideas/articles/digital-marketing-episerver.yml
+    #   - name: Scalable Sitecore marketing website
+    #     href: solution-ideas/articles/digital-marketing-sitecore.yml
+    #   - name: Scalable Umbraco CMS web app
+    #     href: solution-ideas/articles/medium-umbraco-web-app.yml
+    #   - name: Simple branded website
+    #     href: solution-ideas/articles/simple-branded-website.yml
+    #   - name: Simple digital marketing website
+    #     href: solution-ideas/articles/digital-marketing-smb.yml
+    #   - name: Web/mobile apps with MySQL and Redis
+    #     href: solution-ideas/articles/webapps.yml
 - name: Cloud Adoption Framework
   href: /azure/cloud-adoption-framework

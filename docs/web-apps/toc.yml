@@ -1,0 +1,10 @@
+items:
+- name: Web applications
+  href: index.md
+  items: 
+    - name: Solution ideas
+      items: 
+      - name: E-commerce web app
+        href: idea/scalable-ecommerce-web-app.yml
+      - name: Network secured e-commerce web app
+        href: idea/ecommerce-website-running-in-secured-ase.yml

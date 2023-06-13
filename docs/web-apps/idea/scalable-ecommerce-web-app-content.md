@@ -10,7 +10,7 @@ This solution is ideal for retail organizations, but it can apply to other indus
 
 <!-- cSpell:ignore helvetica -->
 
-![Architecture diagram shows the transaction from users finding products to purchasing them through web apps to third party payment.](../media/scalable-ecommerce-web-app.png)
+![Architecture diagram shows the transaction from users finding products to purchasing them through web apps to third party payment.](../idea/images/scalable-ecommerce-web-app.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/scalable-ecommerce-web-app.vsdx) of this architecture.*
 

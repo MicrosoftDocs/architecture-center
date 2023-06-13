@@ -2846,6 +2846,16 @@
       "source_path": "docs/reference-architectures/microservices/spring-cloud-reverse-proxy.yml",
       "redirect_url": "/azure/architecture/web-apps/spring-apps/spring-cloud-reverse-proxy",
       "redirect_document_id": false
-    }      
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/scalable-ecommerce-web-app.yml",
+      "redirect_url": "/azure/architecture/web-apps/idea/scalable-ecommerce-web-app",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/ecommerce-website-running-in-secured-ase.yml",
+      "redirect_url": "/azure/architecture/web-apps/idea/ecommerce-website-running-in-secured-ase",
+      "redirect_document_id": true
+    }
   ]
 }
