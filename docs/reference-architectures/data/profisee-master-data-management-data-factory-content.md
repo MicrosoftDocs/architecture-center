@@ -11,7 +11,7 @@ This pattern presents a modern approach to MDM. All technologies are deployable 
 
 :::image type="content" source="images/profisee-data-flow.svg" border="false" alt-text="Diagram showing the master data management Profisee data flow.":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/profisee-master-data-managment-data-factory.vsdx) of the diagrams used in this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/profisee-master-data-management-data-factory.vsdx) of the diagrams used in this architecture.*
 
 ### Dataflow
 
@@ -72,7 +72,7 @@ A core aspect of how MDM solutions function is that they combine data from multi
 
 :::image type="content" source="images/profisee-integration-pipeline.svg" border="false" alt-text="Image that shows the master data management Profisee integration pipeline.":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/profisee-master-data-managment-data-factory.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/profisee-master-data-management-data-factory.vsdx) of this architecture.*
 
 The preceding image shows the details for integrating with the Profisee MDM solution. Notice that Azure Data Factory and Profisee include native REST integration support, providing a lightweight and modern integration.
 
