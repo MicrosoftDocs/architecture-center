@@ -51,7 +51,7 @@ Reliability ensures your application can meet the commitments you make to your c
 - App Service provides built-in load balancing and health check features to maintain availability if an App Service instance fails.
 - Using a CDN to cache all responses can provide a small availability benefit when the origin isn't responding. However, it's important to note that caching shouldn't be considered a complete availability solution.
 - You can replicate Azure Blob Storage to a paired region for data redundancy across multiple regions. For more information, see [Azure Storage redundancy](/azure/storage/common/storage-disaster-recovery-guidance).
-- For higher Azure Database for MySQL availability, see [high availability options](/azure/mysql/flexible-server/concepts-high-availability) to meet your needs.
+- For higher Azure Database for MySQL availability, you should enable same zone high availability. It creates a standby server in the same availability zone as the primary server. You need to use the General Purpose or Business Critical compute tier to enable same zone high availability. For more information, see [high availability options](/azure/mysql/flexible-server/concepts-high-availability) to meet your needs.
 
 ### Performance efficiency
 
