@@ -14,7 +14,7 @@ This solution is ideal for small to medium-sized WordPress installations. It pro
 This scenario covers a scalable and secure installation of WordPress that uses a [WordPress on App Service deployment option](/azure/app-service/quickstart-wordpress).
 
 - Users access the front-end website through [Azure Front Door](https://azure.microsoft.com/products/frontdoor). As an alternative, you can use [Azure Content Delivery Network (CDN)](https://azure.microsoft.com/products/cdn) in the WordPress on App Service deployment.
-- Front Door load balances requests across the Azure App Service instances that WordPress is running on. Front Door pulls any data that isn't cached from the WordPress web app.
+- Front Door load balances requests across the Azure App Service web app instances that WordPress is running on. Front Door pulls any data that isn't cached from the WordPress web app.
 - The WordPress application accesses the [Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/overview) through the service endpoint and pulls any dynamic information out.
 - Azure Database for MySQL has locally redundant high availability enabled with a standby server in the same availability zone.
 - All static content is hosted in [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview).
