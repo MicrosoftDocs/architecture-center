@@ -5948,6 +5948,8 @@ items:
         href: guide/networking/private-link-hub-spoke-network.yml
       - name: Virtual Network guidance
         items:
+        - name: Addressing IPv4 exhaustion in Azure
+          href: example-scenario/networking/ipv4-exhaustion.yml        
         - name: Add IP spaces to peered virtual networks
           href: networking/prefixes/add-ip-space-peered-vnet.yml
         - name: Segment virtual networks
