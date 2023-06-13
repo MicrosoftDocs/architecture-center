@@ -68,7 +68,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 - No outbound internet traffic from the database tier is allowed.
 - There's no public access to private storage.
 
-For more information about WordPress security, see [General WordPress security&performance tips]((./wordpress-overview-content.md#general-wordpress-security--performance-tips)) and [Azure Security Documentation][security].
+For more information about WordPress security, see [General WordPress security&performance tips](./wordpress-overview-content.md#general-wordpress-security-and-performance-tips) and [Azure Security Documentation][security].
 
 ### Cost optimization
 
