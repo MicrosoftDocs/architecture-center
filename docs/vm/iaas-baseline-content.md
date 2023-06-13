@@ -240,9 +240,13 @@ Application Insights enables [distributed tracing](/azure/azure-monitor/app/dist
 
 Azure Monitor provides two experiences for consuming distributed trace data: the transaction diagnostics view for a single transaction/request and the application map view to show how systems interact.
 
-##### VM Insights
+##### VM insights
 
-VM insights is a feature of Azure Monitor that quickly gets you started monitoring your virtual machines. You can view trends of performance data, running processes on individual machines, and dependencies between machines. 
+[VM insights](/azure/azure-monitor/vm/vminsights-overview) is also a feature of Azure Monitor. It provides a quick and easy method for monitoring the client workloads on your virtual machines and virtual machine scale sets. It displays an inventory of your existing VMs and provides a guided experience to enable base monitoring for them. 
+
+It also monitors the performance and health of your virtual machines and virtual machine scale sets by collecting data on their running processes and dependencies on other resources. You can view trends of performance data, running processes on individual machines, and dependencies between machines. 
+
+To get started, see [Tutorial: Enable monitoring with VM insights for Azure virtual machine](/azure/azure-monitor/vm/tutorial-monitor-vm-enable-insights). Enabling VM insights also installs the Azure Monitoring Agent, as discussed in one of the following sections.
 
 ### Azure Load Balancer health probes
 
