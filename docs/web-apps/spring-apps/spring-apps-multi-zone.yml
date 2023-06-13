@@ -2,10 +2,10 @@
 metadata:
   title: Azure Spring Apps baseline architecture 
   titleSuffix: Azure Architecture Center
-  description: Deploy Azure Spring Apps instances in multiple zones for increased availability, resilience, and performance.
+  description: Learn how to deploy Azure Spring Apps instances in multiple zones for increased availability, resilience, and performance.
   author: vermegi
   ms.author: prwilk
-  ms.date: 06/06/2023
+  ms.date: 06/13/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
