@@ -9,7 +9,7 @@ This pattern presents a modern approach to MDM. All technologies are deployable 
 
 ## Architecture
 
-:::image type="content" source="images/profisee-data-flow.png" border="false" alt-text="Diagram showing the master data management Profisee data flow.":::
+:::image type="content" source="images/profisee-data-flow.svg" border="false" alt-text="Diagram showing the master data management Profisee data flow.":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/profisee-master-data-managment-data-factory.vsdx) of the diagrams used in this architecture.*
 
@@ -70,7 +70,7 @@ A core aspect of how MDM solutions function is that they combine data from multi
 
 ### MDM integration pipeline
 
-:::image type="content" source="images/profisee-integration-pipeline.png" border="false" alt-text="Image that shows the master data management Profisee integration pipeline.":::
+:::image type="content" source="images/profisee-integration-pipeline.svg" border="false" alt-text="Image that shows the master data management Profisee integration pipeline.":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/profisee-master-data-managment-data-factory.vsdx) of this architecture.*
 
