@@ -117,7 +117,7 @@ You can extend the same configuration to multiple regions. For example, in a hub
 
 The design variation with separate Azure firewalls or network virtual appliances for north-south and east-west traffic is also possible in a multi-region hub-and-spoke topology:
 
-:::image type="content" source="media/spoke-to-spoke-via-nva-2-hubs-north-south.psvg" alt-text="Network diagram that shows a two-region hub-and-spoke design with separated east-west and north-south firewalls in each region." lightbox="media/spoke-to-spoke-via-nva-2-hubs-north-south.svg" border="false":::
+:::image type="content" source="media/spoke-to-spoke-via-nva-2-hubs-north-south.svg" alt-text="Network diagram that shows a two-region hub-and-spoke design with separated east-west and north-south firewalls in each region." lightbox="media/spoke-to-spoke-via-nva-2-hubs-north-south.svg" border="false":::
 
 > [!NOTE]
 > The Azure firewall requires that only one Azure Firewall resource can be deployed in a virtual network. Therefore, a separate hub virtual network is required for additional Azure Firewall resources. For NVA scenarios, you can use a single hub virtual network for additional NVA deployments.
