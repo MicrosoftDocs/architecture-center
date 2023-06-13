@@ -6,7 +6,7 @@ LAAMPS is designed to run well on parallel machines, but it also runs on single-
 
 Typical LAMMPS simulations include all-atom models of liquids, solids, and explicit solvents.
 
-## Why deploy LAMMPS on Azure? 
+## Why deploy LAMMPS on Azure?
 
 - Modern and diverse compute options to meet your workload's needs. 
 - The flexibility of virtualization without the need to buy and maintain physical hardware. 
@@ -104,7 +104,7 @@ Complete the following steps below to install LAMMPS on single-node and cluster 
    cd src 
    ```
 
-1. Run these commands in the *src* folder to build LAMMPS: 
+1. To build LAMMPS, run these commands in the *src* folder: 
 
    ```
    make yes-rigid 
@@ -116,7 +116,7 @@ Complete the following steps below to install LAMMPS on single-node and cluster 
 
 ### Run LAMMPS
 
-1. To execute LAMMPS simulation on Standalone VM use below commands: 
+1. To run LAMMPS on a standalone VM, use these commands: 
 
    ```
    export PATH=$PATH:/opt/openmpi-4.1.0/bin/ 
@@ -128,149 +128,142 @@ Complete the following steps below to install LAMMPS on single-node and cluster 
    mpirun -np 16 /path/LAMMPS/lammps-<version>/src/lmp_mpi -in in.lj 
    ```
 
-1. To execute LAMMPS simulation on Multi node (Cluster) use below script: 
+1. To run LAMMPS on a multi-node cluster, use this script: 
 
    ```
-   #!/bin/bash 
+   1   #!/bin/bash 
 
-   #SBATCH --job-name=LAMMPS 
+   2   #SBATCH --job-name=LAMMPS 
 
-   #SBATCH --partition=hpc 
+   3   #SBATCH --partition=hpc 
 
-   #SBATCH --nodes=2 
+   4   #SBATCH --nodes=2 
 
-   #SBATCH --ntasks-per-node=64 
+   5   #SBATCH --ntasks-per-node=64 
 
-   #SBATCH --ntasks=128 
+   6   #SBATCH --ntasks=128 
 
-   export PATH=$PATH:/opt/openmpi-4.1.0/bin/ 
+   7   export PATH=$PATH:/opt/openmpi-4.1.0/bin/ 
 
-   export LD_LIBRARY_PATH=/opt/openmpi-4.1.0/lib 
+   8   export LD_LIBRARY_PATH=/opt/openmpi-4.1.0/lib 
 
-   export LMP_MPI=/path/LAMMPS/lammps-<version>/src/lmp_mpi 
+   9   export LMP_MPI=/path/LAMMPS/lammps-<version>/src/lmp_mpi 
 
-   mpirun -np 64 /path/LAMMPS/lammps-<version>/src/lmp_mpi -in benchmark.in 
+   10   mpirun -np 64 /path/LAMMPS/lammps-<version>/src/lmp_mpi -in benchmark.in 
+   ```
 
-> [!Note]
->
->#SBATCH --nodes=a (No. of nodes) 
->
->#SBATCH --ntasks-per-node=b (No. of cores per VM configuration) 
->
->#SBATCH --ntasks=a*b 
+   > [!Note]
+   >
+   > In the preceding script, `ntasks` on line 6 is the number of nodes multiplied by the number of cores per VM configuration. The number of nodes is 2, as specified on line 4. The number of cores per VM configuration is 64, as noted on line 5. So `ntasks` is 128. 
 
-## LAMMPS performance results on Azure Virtual Machines
+## LAMMPS performance results on Azure VMs
 
-Two models were considered for testing the scalability performance of LAMMPS v23  and v17 Nov2016 on Azure. 
+Two models were used to test the performance of LAMMPS versions 23  and 17 on Azure.
 
-- In.lj (Lennard-Jones) - It is a simple molecular dynamics simulation of a binary fluid in the NVT ensemble. It is made of neutral dots with a Langevin thermostating. 
-- HECBioSim – It is benchmark suite consists of a set of simple benchmarks for a number of popular Molecular Dynamics (MD) engines, each of which is set at a different atom count.
+### Lennard-Jones model
 
-The details of each test model are provided in the following sections.
+Lennard-Jones (in.lj) is a simple molecular dynamics simulation of a binary fluid in the NVT ensemble. It's made of neutral dots with a Langevin thermostating. 
 
-Model 1: In.lj (Lennard-Jones) 
+The following table provides details about the Lennard-Jones model.
 
-To validate LAMMPS scaling on Azure HPC systems, Lennard-Jones (lj) liquid model is used (1.0e+9 atoms). The following table provides details about the model.
+ |Number of atoms |Timestep|Thermo step|Run steps|
+ |-|-|-|-|
+ |1.0e+9  |0.1 |10|200| 
 
+### HECBioSim model 
 
-|Model Details|No. of atoms |Timestep|Thermo Step|Run steps|
-|-|-|-|-|-|
-|In.lj|1.0e+9 atoms|0.1 |10|200| 
+HECBioSim is a benchmark suite that consists of a set of simple benchmarks for a number of popular molecular dynamics engines, each of which is set at a different atom count.
 
-Model 2: HECBioSim 
+The following table provides details about the HECBioSim model.
 
-The following table provides details about the model.
+ |Number of atoms |Timestep|Thermo step|Run steps|
+ |-|-|-|-|
+ |1,403,180  |2.0|5,000|10,000| 
 
-|Model Details|No. of atoms |Timestep|Thermo Step|Run steps|
-|-|-|-|-|-|
-|HECBioSim|1403180 atoms|2.0|5000|10000| 
+### LAMMPS performance results on single-node VMs
 
-### LAMMPS 23June2022 performance results on single-node VMs
+The following sections provide the performance results of running LAMMPS version 23 on single-node Azure [HBv3 AMD EPYC 7V73X](/azure/virtual-machines/hbv3-series) (Milan-X) VMs. The Lennard-Jones model is used in these tests. 
 
-The following sections provide the performance results of running LAMMPS on single-node Azure [HBv3 AMD EPYC 7V73X](/azure/virtual-machines/hbv3-series) (Milan-X) VMs.  
-
-Model 1: in.lj (Lennard-Jones) 
-
-This table shows total wall clock time recorded for varying number of CPUs on the Standard HBv3-series VM: 
+This table shows the total wall clock times recorded for various number of CPUs on the Standard HBv3-series VM: 
 
 
 |Number of cores|Wall clock time (seconds)|Relative speed increase| 
 |-|-|-|
-|16|7634|1|
-|32|4412|1.73|
-|64|2102|3.63|
-|96|1648|4.63| 
-|120|1445|5.28| 
+|16|7,634|1|
+|32|4,412|1.73|
+|64|2,102|3.63|
+|96|1,648|4.63| 
+|120|1,445|5.28| 
 
-The following graph shows the relative speed increase as the number of CPUs increases: 
+The following graph shows the relative speed increases as the number of CPUs increases: 
 
-image 
+:::image type="content" source="media/single-node-graph.png" alt-text="Graph that shows the relative speed increases in a single-node configuration. " lightbox="media/single-node-graph.png" border="false":::
 
 #### Notes about the single-node tests
 
-For all single-node tests we have taken the solver time on HB120-16rs_v3 (16 cores) as the reference to calculate the relative speed up with respect to other similar VMs with more cores. The results presented above show that parallel performance improves as we increase from 16 to 120 cores. We can observe a speedup of about 5.3x is achieved with 120 cores.
+For the single-node tests, the Standard_HB120-16rs_v3 VM (16 cores) is used as a baseline to calculate relative speed increases as the number of cores increases. The results show that parallel performance improves as the number of cores increases from 16 to 120. A speed increase of 5.3x is achieved with 120 cores.
 
-### LAMMPS performance results on multi-node cluster
+### LAMMPS performance results on multi-node clusters
 
-The single-node tests confirm that the solver gives optimal parallel performance with 64 cores on HBv3 VMs. Based on those results, 64-core configurations on [Standard_HB120-64rs_v3](/azure/virtual-machines/hbv3-series) VMs were used to evaluate the performance of LAMMPS on multi-node clusters. In.lj (Lennard-Jones) and HECBioSim Models are used for multi-node runs. The following sections provide the test results.  
+The single-node tests show that optimal parallel performance is reached with 64 cores on HBv3 VMs. Based on those results, 64-core configurations on [Standard_HB120-64rs_v3](/azure/virtual-machines/hbv3-series) VMs are used to evaluate the performance of LAMMPS on multi-node clusters. The Lennard-Jones and HECBioSim models are used for the multi-node tests. 
 
-Model 1: In.lj (Lennard-Jones Liquid) 
+#### Lennard-Jones model
 
-This table shows total wall clock time recorded for varying numbers of Nodes with Standard HBv3-series VMs:
+This table shows the total wall clock times recorded for various numbers of nodes:
 
 
 |Number of nodes |Number of cores|Wall clock time (seconds)|Relative speed increase |
 |-|-|-|-|
-|1 |64|2612|1.00|
-|2|128|1573|1.66|
-|4|256|1035|2.52| 
+|1 |64|2,612|N/A|
+|2|128|1,573|1.66|
+|4|256|1,035|2.52| 
 |8|512|793|3.29| 
 
-The following graph shows the relative speed increase as the number of nodes increases: 
+The following graph shows the relative speed increases as the number of nodes increases: 
 
-image 
+:::image type="content" source="media/multi-node-lennard-jones.png" alt-text="Graph that shows the relative speed increases for the Lennard-Jones model in a multi-node configuration. " lightbox="media/multi-node-lennard-jones.png" border="false":::
 
-Model 2: HECBioSim 
+#### HECBioSim model 
 
-This table shows total wall clock time recorded for varying numbers of Nodes with Standard HBv3-series VMs: 
+This table shows the total wall clock times recorded for various numbers of nodes: 
 
 |Number of nodes |Number of cores|Wall clock time (seconds)|Relative speed increase |
 |-|-|-|-|
-|1|64|3103|1| 
-|2|128|1601|1.94| 
+|1|64|3,103|N/A| 
+|2|128|1,601|1.94| 
 |4|256|840|3.69| 
 |8|512|442|7.02| 
-|16|1024|241|12.88| 
+|16|1,024|241|12.88| 
 
-The following graph shows the relative speed increase as the number of nodes increases: 
+The following graph shows the relative speed increases as the number of nodes increases: 
 
-image 
+:::image type="content" source="media/multi-node-hecbiosim.png" alt-text="Graph that shows the relative speed increases for the HECBioSim model in a multi-node configuration. " lightbox="media/multi-node-hecbiosim.png" border="false":::
 
 #### Notes about the multi-node tests  
 
-- From the multi-node results we can observe that, both models are scaling very well with increase in number of nodes.  
-- The model **in.lj (Lennard-Jones Liquid)** is tested using LAMMPS version June2022 and the model **HECBioSim** is tested using LAMMPS version Nov2016.
+- The multi-node results show that both models scale well when you  increase the number of nodes.  
+- The Lennard-Jones model was tested with LAMMPS version 23. The HECBioSim model was tested with LAMMPS version 17.
 
-## Azure cost 
+## Azure cost
 
-Only simulation running time has been considered for the cost calculations. Installation time, simulation setup time and software costs have been ignored. 
+The following tables provide wall clock times that you can use to calculate Azure costs. To compute the cost, multiply the wall clock time by the number of nodes and the Azure VM hourly rate. For the hourly rates for Linux, see [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing). Azure VM hourly rates are subject to change.
+
+Only simulation running time is considered for the cost calculations. Installation time, simulation setup time, and software costs aren't included. 
 
 You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate VM costs for your configurations. 
 
-The following tables provide the solver times in hours. The Azure VM hourly rates are subject to change. To compute the cost, multiply the wall clock time by the number of nodes and the Azure VM hourly cost which you can find [here for Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing).
+### Running times for the Lennard-Jones model
 
-### Cost for model 1: in.lj (Lennard-Jones)
-
-|Number of nodes|Wall clock time (Hr)| 
+|Number of nodes|Wall clock time (hours)| 
 |-|-|
 |1|0.73| 
 |2|0.44 |
 |4|0.29|
 |8|0.22| 
 
-### Cost for model 2: HECBioSim 
+### Running times for the HECBioSim model 
 
-|Number of nodes|Wall clock time (Hr)| 
+|Number of nodes|Wall clock time (hours)| 
 |-|-|
 |1|0.86 | 
 |2|0.44  |
@@ -280,9 +273,9 @@ The following tables provide the solver times in hours. The Azure VM hourly rate
 
 ## Summary
 
-- LAMMPS was successfully tested on Azure using HBv3 standalone Virtual Machines and Azure Cycle Cloud multi-node (cluster) setup upto 16 nodes. 
-- We can see a very good scaleup of about 3.28x for Lennard-Jones liquid and a very good scaleup of about 12.38x for HECBioSim model with the multi-node setup. 
-- For small problems, we recommend that you use fewer CPUs to improve performance.
+- LAMMPS was successfully tested on HBv3 standalone VMs and Azure CycleCloud multi-node configurations with as many as 16 nodes. 
+- In multi-node configurations, tests indicate speed increases of about 3.29x for the Lennard-Jones model about 12.88x for the HECBioSim model. 
+- For small simulations, we recommend that you use fewer CPUs to improve performance.
 
 ## Contributors
 

@@ -3556,6 +3556,8 @@ items:
           href: guide/hpc/gromacs.yml
         - name: Indica Labs HALO AI
           href: guide/hpc/indica-labs-halo-ai.yml
+        - name: LAMMPS
+          href: guide/hpc/hpc-lammps.yml  
         - name: Luxion KeyShot
           href: guide/hpc/luxion-keyshot.yml
         - name: OpenFOAM
