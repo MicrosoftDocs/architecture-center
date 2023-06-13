@@ -383,11 +383,11 @@
 			</g>
 			<g id="shape1023-74" v:mID="1023" v:groupContext="shape">
 				<title>Sheet.1023</title>
-				<desc>Oracle DB 2 (standby)</desc>
+				<desc>OracleDB2 (standby)</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="36" cy="596.97" width="72.01" height="30.06"/>
 				<rect x="0" y="581.94" width="72" height="30.06" class="st11"/>
-				<text x="7.41" y="593.07" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Oracle DB 2<v:newlineChar/><tspan
+				<text x="10.42" y="593.07" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>OracleDB2<v:newlineChar/><tspan
 							x="13.44" dy="1.282em" class="st8">(standby)</tspan></text>			</g>
 		</g>
 		<g id="shape1029-78" v:mID="1029" v:groupContext="shape" transform="translate(513.41,-256.5)">
@@ -536,11 +536,11 @@
 				</g>
 				<g id="shape1001-124" v:mID="1001" v:groupContext="shape">
 					<title>Sheet.1001</title>
-					<desc>Oracle DB 1 (primary)</desc>
+					<desc>OracleDB1 (primary)</desc>
 					<v:textBlock v:margins="rect(4,4,4,4)"/>
 					<v:textRect cx="36" cy="596.97" width="72.01" height="30.06"/>
 					<rect x="0" y="581.94" width="72" height="30.06" class="st11"/>
-					<text x="7.41" y="593.07" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Oracle DB 1<v:newlineChar/><tspan
+					<text x="10.42" y="593.07" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>OracleDB1<v:newlineChar/><tspan
 								x="14.09" dy="1.282em" class="st8">(primary)</tspan></text>				</g>
 			</g>
 		</g>
@@ -689,19 +689,19 @@
 		</g>
 		<g id="shape1107-179" v:mID="1107" v:groupContext="shape" transform="translate(29.25,-351.562)">
 			<title>Sheet.1107</title>
-			<desc>Oracle DB1 (primary)</desc>
+			<desc>OracleDB1 (primary)</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="34.7578" cy="594.72" width="69.52" height="34.56"/>
 			<rect x="0" y="577.44" width="69.5155" height="34.56" class="st11"/>
-			<text x="7.67" y="591.42" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Oracle DB1 <tspan
+			<text x="9.18" y="591.42" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>OracleDB1 <tspan
 						x="12.85" dy="1.2em" class="st8">(primary)</tspan></text>		</g>
 		<g id="shape1108-183" v:mID="1108" v:groupContext="shape" transform="translate(136.634,-351.562)">
 			<title>Sheet.1108</title>
-			<desc>Oracle DB2 (standby)</desc>
+			<desc>OracleDB2 (standby)</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="34.7578" cy="594.72" width="69.52" height="34.56"/>
 			<rect x="0" y="577.44" width="69.5155" height="34.56" class="st11"/>
-			<text x="7.67" y="591.42" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Oracle DB2 <tspan
+			<text x="9.18" y="591.42" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>OracleDB2 <tspan
 						x="12.2" dy="1.2em" class="st8">(standby)</tspan></text>		</g>
 		<g id="shape1109-187" v:mID="1109" v:groupContext="shape" transform="translate(82.2422,-333)">
 			<title>Sheet.1109</title>
@@ -732,12 +732,12 @@
 			<text x="4.16" y="605.51" class="st29" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure</text>		</g>
 		<g id="shape1115-199" v:mID="1115" v:groupContext="shape" transform="translate(509.478,-367.826)">
 			<title>Sheet.1115</title>
-			<desc>DataGuard Redo Stream (sync)</desc>
+			<desc>DataGuard redo stream (sync)</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="53.5896" cy="595.747" width="107.18" height="32.5057"/>
 			<rect x="0" y="579.494" width="107.179" height="32.5057" class="st11"/>
 			<text x="27.44" y="592.45" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>DataGuard <v:newlineChar/><tspan
-						x="6.87" dy="1.2em" class="st8">Redo Stream (sync)</tspan></text>		</g>
+						x="8.84" dy="1.2em" class="st8">redo stream (sync)</tspan></text>		</g>
 		<g id="shape1116-203" v:mID="1116" v:groupContext="shape" transform="translate(73.2422,-235.44)">
 			<title>Sheet.1116</title>
 			<desc>FSFO observer</desc>
@@ -747,12 +747,12 @@
 			<text x="8.81" y="605.33" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>FSFO observer</text>		</g>
 		<g id="shape1117-206" v:mID="1117" v:groupContext="shape" transform="translate(201.913,-365.772)">
 			<title>Sheet.1117</title>
-			<desc>DataGuard Redo Stream (sync)</desc>
+			<desc>DataGuard redo stream (sync)</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="63" cy="594.72" width="126.01" height="34.56"/>
 			<rect x="0" y="577.44" width="126" height="34.56" class="st11"/>
 			<text x="36.85" y="591.42" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>DataGuard <v:newlineChar/><tspan
-						x="16.28" dy="1.2em" class="st8">Redo Stream (sync)</tspan></text>		</g>
+						x="18.25" dy="1.2em" class="st8">redo stream (sync)</tspan></text>		</g>
 		<g id="shape1118-210" v:mID="1118" v:groupContext="shape" transform="translate(523.5,-429.75)">
 			<title>Sheet.1118</title>
 			<desc>FSFO observer</desc>
@@ -842,12 +842,12 @@
 			</g>
 			<g id="shape1114-257" v:mID="1114" v:groupContext="shape">
 				<title>Sheet.1114</title>
-				<desc>VPN or ExpressRoute Connectivity</desc>
+				<desc>VPN or ExpressRoute connectivity</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="63.5189" cy="594.72" width="127.04" height="34.56"/>
 				<rect x="0" y="577.44" width="127.038" height="34.56" class="st11"/>
 				<text x="12.4" y="591.42" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>VPN or ExpressRoute <tspan
-							x="33.56" dy="1.2em" class="st8">Connectivity</tspan></text>			</g>
+							x="34.43" dy="1.2em" class="st8">connectivity</tspan></text>			</g>
 		</g>
 		<g id="group1212-261" transform="translate(149.014,-387.797)" v:mID="1212" v:groupContext="group">
 			<title>Sheet.1212</title>
