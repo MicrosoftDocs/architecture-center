@@ -90,7 +90,7 @@ WordPress can run on App Service, Azure Kubernetes Service (AKS), and virtual ma
 
 Large WordPress installations can be storage intensive. In these scenarios, you should use a storage solution with a higher input-output per second (IOPS) class and low latency to accommodate the storage requirements. We recommend [Azure NetApp Files](/azure/azure-netapp-files/). Azure NetApp Files can support storage-intensive WordPress deployments and provides extra features such as data protection, backup and restore, cross-region replication and disaster recovery.
 
-For a container deployment of WordPress, you should use **Azure Kubernetes Service (AKS)** and with Azure NetApp Files storage via Kubernetes CSI driver. Azure NetApp Files offers a ReadWriteMany mode so that all the nodes can read and write to the same storage. For more information, see [AKS WordPress architecture](./wordpress-container.yml)).
+For a container deployment of WordPress, you should use **Azure Kubernetes Service (AKS)** and with Azure NetApp Files storage via Kubernetes CSI driver. Azure NetApp Files offers a ReadWriteMany mode so that all the nodes can read and write to the same storage. For more information, see [AKS WordPress architecture](./wordpress-container.yml).
 
 For a large WordPress installation running on virtual machines (VMs), you should mount Azure NetApp Files using the network file system (NFS) protocol. [More details about VM deployment architecture](./wordpress-iaas.yml).
 
