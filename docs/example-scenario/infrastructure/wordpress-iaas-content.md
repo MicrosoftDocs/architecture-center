@@ -83,7 +83,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 - No access to private storage is allowed from public. 
 - You should disable public access to resources (where applicable) and use Private Endpoints for components Database for MySQL, Cache for Redis, Key Vault, Container Registry. 
 
-For more information about WordPress security, see [General WordPress security](/azure/wordpress#general-wordpress-securityperformance-tips) and [Azure Security Documentation][security].
+For more information about WordPress security, see [General WordPress security](./wordpress-overview-content.md#general-wordpress-security-and-performance-tips) and [Azure Security Documentation][security].
 
 ### Cost optimization
 
