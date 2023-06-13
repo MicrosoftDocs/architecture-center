@@ -4,7 +4,7 @@ metadata:
   description: Learn how LAMMPS classical molecular dynamics software performs on single-node and multi-node Azure virtual machine configurations.
   author: gauharjunnarkar
   ms.author: gajunnar
-  ms.date: 06/12/2023
+  ms.date: 06/15/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
@@ -15,6 +15,6 @@ products:
   - azure-virtual-network
 name: Deploy LAMMPS on an Azure virtual machine
 summary: Learn how LAMMPS classical molecular dynamics software performs on single-node and multi-node Azure virtual machine configurations.
-thumbnailUrl: /azure/architecture/browse/thumbs/lammps-architecture.png
+thumbnailUrl: /azure/architecture/browse/thumbs/multi-node-lammps.png
 content: |
   [!include[](hpc-lammps-content.md)]

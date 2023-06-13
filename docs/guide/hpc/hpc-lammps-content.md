@@ -65,7 +65,7 @@ For information about deploying the Azure CycleCloud and HPC cluster, see these 
 
 ### Install LAMMPS
 
-Complete the following steps below to install LAMMPS on single-node and cluster VMs. 
+Complete the following steps to install LAMMPS on single-node and cluster VMs. 
 
 1. Run the following commands: 
 
@@ -296,7 +296,7 @@ Other contributors:
 ## Next steps
 
 - [GPU-optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
-- [Linux virtual machines on Azure](/azure/virtual-machines/linux/overview)
+- [Virtual machines on Azure](/azure/virtual-machines/linux/overview)
 - [Virtual networks and virtual machines on Azure](/azure/virtual-network/network-overview)
 - [Learning path: Run HPC applications on Azure](/learn/paths/run-high-performance-computing-applications-azure)
 
