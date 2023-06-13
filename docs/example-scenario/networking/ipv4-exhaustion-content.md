@@ -63,7 +63,7 @@ Applications that are exposed via layer-7 application delivery controllers can b
 *Figure 3. Migration approach from traditional landing zone for applications exposed via layer-7 application delivery controllers.*
 
 #### Applications exposed via Azure Load Balancer
-If an application exposes its endpoints via an Azure Load Balancer, the compute instances that are part of the load balancer’s backend pool must remain in the routable VNet (Azure Load Balancers only support backend instances in their own VNet). The resulting migration guidance is shown in the picture below.
+If an application exposes its endpoints via an Azure Load Balancer, the compute instances that are part of the load balancer’s backend pool must remain in the same VNet (Azure Load Balancers only support backend instances in their own VNet). The resulting migration guidance is shown in the picture below.
 
 :::image type="content" source="./media/ipv4-exhaustion-load-balancer-l4.png" alt-text="Migration approach from traditional landing zone for applications exposed via Azure Load Balancers." border="false" lightbox="./media/ipv4-exhaustion-load-balancer-l4.png":::
 
@@ -71,7 +71,7 @@ If an application exposes its endpoints via an Azure Load Balancer, the compute 
 
 ### Outbound dependencies
 Although an application’s backend components do not need to be reachable (i.e., receive inbound connections from) the corporate network, it is common for them to have outbound dependencies: Backend components may need to connect to endpoints outside of their landing zones. Typical examples include DNS resolution, access to application endpoints exposed by other landing zones, access to logging or backup facilities, etc.
-Connections initiated by services in non-routable spoke VNets must be Source-NAT’ted behind a routable IP address. This requires deploying a NAT-capable NVA(s) in the routable spoke VNet. Each landing zone must run its own dedicated NAT NVA(s). Two options exist for implementing SNAT in a landing zone: Azure Firewall or 3rd party NVAs. In both cases, all subnets in the non-routable spoke must be associated to a custom route table, to forward traffic to destinations outside of the landing zone to the SNAT device, as shown in the diagram below.
+Connections initiated by services in non-routable spoke VNets must be Source-NAT’ted behind a routable IP address. This requires deploying a NAT-capable NVA(s) in the routable spoke VNet. Each landing zone must run its own dedicated NAT NVA(s). Two options exist for implementing SNAT in a landing zone: Azure Firewall or 3rd party NVAs. In both cases, all subnets in the non-routable spoke must be associated to a custom route table, to forward traffic to destinations outside of the landing zone to the SNAT device, as shown in the diagram below. Azure NAT Gateway does not support SNAT for destination with private IP address space(RFC 1918), hence it cannot be used for this purpose.
 
 :::image type="content" source="./media/ipv4-exhaustion-snat-nva.png" alt-text="To enable resources in the non-routable spoke to access routable IP addresses outside their landing zone, Source-NAT NVA(s) must be deployed in each landing zone’s routable spoke. All subnets in the non-routable spoke must be associated with a custom route table to send traffic to destinations outside the landing zone to the SNAT NVA(s)." border="false" lightbox="./media/ipv4-exhaustion-snat-nva.png":::
 
