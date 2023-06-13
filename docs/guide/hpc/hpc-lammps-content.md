@@ -32,12 +32,12 @@ This diagram shows a single-node configuration:
 ### Components
 
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is used to create Linux VMs.  
-  - For information about deploying the VM and installing the drivers, see [Linux VMs on Azure](../../reference-architectures/n-tier/linux-vm.yml). 
+  - For information about deploying VMs, see [Linux VMs on Azure](../../reference-architectures/n-tier/linux-vm.yml). 
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is used to create a private network infrastructure in the cloud.  
-  - [Network security groups](/azure/virtual-network/network-security-groups-overview) restrict access to the VMs.
-  - A public IP address connects the internet to the VM.
+  - [Network security groups](/azure/virtual-network/network-security-groups-overview) restrict access to VMs.
+  - A public IP address connects the internet to VMs.
 - [Azure CycleCloud](https://azuremarketplace.microsoft.com/marketplace/apps/azurecyclecloud.azure-cyclecloud) is used to create the cluster in the multi-node configuration. 
-- A physical SSD is used for storage.
+- A physical SSD provides storage.
 
 ## Compute sizing
 
@@ -53,11 +53,11 @@ Performance tests of LAMMPS on Azure used [HBv3 AMD EPYC 7V73X](/azure/virtual-m
 
 ## Install LAMMPS on a VM or HPC cluster 
 
-You can download the software from the [LAMMPS](https://docs.lammps.org/Install.html) website. You just need to untar or unzip the LAMMPS binary distribution file and you can run directly in the resulting directory. For a guide to building from source code, see [Build LAMMPS](https://docs.lammps.org/Build.html). 
+You can download the software from the [LAMMPS](https://docs.lammps.org/Install.html) website. You just need to untar or unzip the LAMMPS binary distribution file and you can run LAMMPS directly in the resulting directory. For a guide to building from source code, see [Build LAMMPS](https://docs.lammps.org/Build.html). 
 
 Before you install LAMMPS, you need to deploy and connect to a VM or HPC cluster.
 
-For information about deploying the VM, see [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml).
+For information about deploying a VM, see [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml).
 
 For information about deploying the Azure CycleCloud and HPC cluster, see these resources: 
 - [Install and configure Azure CycleCloud](/training/modules/azure-cyclecloud-high-performance-computing/4-exercise-install-configure/)
@@ -149,16 +149,16 @@ Complete the following steps to install LAMMPS on single-node and cluster VMs.
 
    9   export LMP_MPI=/path/LAMMPS/lammps-<version>/src/lmp_mpi 
 
-   10   mpirun -np 64 /path/LAMMPS/lammps-<version>/src/lmp_mpi -in benchmark.in 
+   10  mpirun -np 64 /path/LAMMPS/lammps-<version>/src/lmp_mpi -in benchmark.in 
    ```
 
    > [!Note]
    >
-   > In the preceding script, `ntasks` on line 6 is the number of nodes multiplied by the number of cores per VM configuration. The number of nodes is 2, as specified on line 4. The number of cores per VM configuration is 64, as noted on line 5. So `ntasks` is 128. 
+   > In the preceding script, `ntasks` on line 6 is the number of nodes multiplied by the number of cores per VM configuration. The number of nodes is 2, as specified on line 4. The number of cores per VM configuration is 64, as specified on line 5. So `ntasks` is 128. 
 
 ## LAMMPS performance results on Azure VMs
 
-Two models were used to test the performance of LAMMPS versions 23  and 17 on Azure.
+Two models were used to test the performance of LAMMPS version 23 and LAMMPS version 17 on Azure.
 
 ### Lennard-Jones model
 
@@ -184,7 +184,7 @@ The following table provides details about the HECBioSim model.
 
 The following sections provide the performance results of running LAMMPS version 23 on single-node Azure [HBv3 AMD EPYC 7V73X](/azure/virtual-machines/hbv3-series) (Milan-X) VMs. The Lennard-Jones model is used in these tests. 
 
-This table shows the total wall clock times recorded for various number of CPUs on the Standard HBv3-series VM: 
+This table shows the total wall clock times recorded for various numbers of CPUs on the Standard HBv3-series VM: 
 
 
 |Number of cores|Wall clock time (seconds)|Relative speed increase| 
@@ -274,7 +274,7 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing
 ## Summary
 
 - LAMMPS was successfully tested on HBv3 standalone VMs and Azure CycleCloud multi-node configurations with as many as 16 nodes. 
-- In multi-node configurations, tests indicate speed increases of about 3.29x for the Lennard-Jones model about 12.88x for the HECBioSim model. 
+- In multi-node configurations, tests indicate speed increases of about 3.29x for the Lennard-Jones model and about 12.88x for the HECBioSim model. 
 - For small simulations, we recommend that you use fewer CPUs to improve performance.
 
 ## Contributors
