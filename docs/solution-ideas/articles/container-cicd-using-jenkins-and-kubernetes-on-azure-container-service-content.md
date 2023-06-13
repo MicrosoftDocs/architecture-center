@@ -22,7 +22,7 @@ Dynamic build agents for Jenkins can be provisioned on Azure Kubernetes Service.
 
 ## Architecture
 
-![Diagram showing container C I/C D using Jenkins and Kubernetes on Azure Kubernetes Service.](../media/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.png)
+![Diagram showing container C I/C D using Jenkins and Kubernetes on Azure Kubernetes Service.](../media/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/container-cicd-jenkins-aks.vsdx) of this architecture.*
 
