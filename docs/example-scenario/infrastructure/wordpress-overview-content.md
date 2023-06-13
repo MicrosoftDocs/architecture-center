@@ -4,7 +4,7 @@ WordPress is a versatile and popular content management system, used for creatin
 
 This section covers deploying WordPress on Azure and provides guidance on what to consider and implement to ensure a secure, scalable, and cost-effective installation.
 
-## General WordPress security & performance tips
+## General WordPress security and performance tips
 
 Because of its overwhelming popularity, WordPress is a target for hackers, and websites running on the platform can be vulnerable to security threats such as malware and phishing attacks. To address these risks, the following tips can help to create a more secure and better-performing WordPress installation.
 
