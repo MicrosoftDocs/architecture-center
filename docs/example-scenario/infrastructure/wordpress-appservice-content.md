@@ -1,6 +1,6 @@
 <!-- cSpell:ignore wordpress -->
 
-This solution is ideal for small to medium-sized WordPress installations. It provides the scalability, reliability, and security of the Azure platform without the need for complex configuration or management. For larger or storage-intensive installations, see other [hosting options for WordPress](/azure/wordpress#wordpress-hosting-options-on-azure).
+This solution is ideal for small to medium-sized WordPress installations. It provides the scalability, reliability, and security of the Azure platform without the need for complex configuration or management. For larger or storage-intensive installations, see other [hosting options for WordPress](./wordpress-overview-content.md#wordpress-hosting-options-on-azure).
 
 ## Architecture
 
@@ -11,16 +11,16 @@ This solution is ideal for small to medium-sized WordPress installations. It pro
 
 ### Dataflow
 
-This scenario covers a scalable and secure installation of WordPress that uses a [WordPress on App Service deployment option](https://learn.microsoft.com/en-us/azure/app-service/quickstart-wordpress).
+This scenario covers a scalable and secure installation of WordPress that uses a [WordPress on App Service deployment option](/azure/app-service/quickstart-wordpress).
 
 - Users access the front-end website through [Azure Front Door](https://azure.microsoft.com/products/frontdoor). As an alternative, you can use [Azure Content Delivery Network (CDN)](https://azure.microsoft.com/products/cdn) in the WordPress on App Service deployment.
 - Front Door load balances requests across the Azure App Service instances that WordPress is running on. Front Door pulls any data that isn't cached from the WordPress web app.
-- The WordPress application accesses the [Azure Database for MySQL - Flexible Server](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/overview) through the service endpoint and pulls any dynamic information out.
+- The WordPress application accesses the [Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/overview) through the service endpoint and pulls any dynamic information out.
 - All static content is hosted in [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview).
 
 ### Components
 
-- [WordPress on App Service](https://learn.microsoft.com/en-us/azure/app-service/quickstart-wordpress) is a managed solution template, combined from [Azure App Service](https://azure.microsoft.com/products/appservice) and other Azure services mentioned below
+- [WordPress on App Service](https://learn.microsoft.com/azure/app-service/quickstart-wordpress) is a managed solution template, combined from [Azure App Service](https://azure.microsoft.com/products/app-service) and other Azure services mentioned below
 - [Azure Front Door](https://azure.microsoft.com/products/frontdoor) *or* [Azure Content Delivery Network (CDN)](https://azure.microsoft.com/products/cdn) product are a Microsoft’s modern cloud Content Delivery Network (CDN), distributed network of servers that efficiently delivers web content to users. CDNs minimize latency by storing cached content on edge servers in point-of-presence locations near to end users.
 - [Virtual networks](https://azure.microsoft.com/products/virtual-network) allow resources to securely communicate with each other, the Internet, and on-premises networks. Virtual networks provide isolation and segmentation, filter and route traffic, and allow connection between locations. The two networks are connected via Vnet peering.
 - [Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
@@ -63,11 +63,11 @@ This scenario hosts the WordPress front-end in App Service. You should enable th
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview). Consider the following recommendations in your deployment:
 
-- All the virtual network traffic point into the front-end application tier and should be protected by [WAF on Azure Front Door](/azure/web-application-firewall/afds/afds-overview). 
-- No outbound internet traffic from the database tier is allowed. 
-- There's no public access to private storage. 
+- All the virtual network traffic point into the front-end application tier and should be protected by [WAF on Azure Front Door](/azure/web-application-firewall/afds/afds-overview).
+- No outbound internet traffic from the database tier is allowed.
+- There's no public access to private storage.
 
-For more information about WordPress security, see [General WordPress security&performance tips](/azure/wordpress#general-wordpress-securityperformance-tips) and [Azure Security Documentation][security].
+For more information about WordPress security, see [General WordPress security&performance tips]((./wordpress-overview-content.md#general-wordpress-security--performance-tips)) and [Azure Security Documentation][security].
 
 ### Cost optimization
 
