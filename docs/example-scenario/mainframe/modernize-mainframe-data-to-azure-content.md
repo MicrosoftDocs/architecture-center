@@ -1,45 +1,43 @@
-This article describes an end-to-end modernization plan for mainframe and midrange data sources.
-
 *Apache®, [Spark](https://spark.apache.org), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
+
+This article describes an end-to-end modernization plan for mainframe and midrange data sources.
 
 ## Architecture
 
 :::image source="./media/modernize-mainframe-data.png" alt-text="Architecture diagram that shows how to modernize mainframe and midrange systems by migrating data to Azure." border="false" lightbox="./media/modernize-mainframe-data.png":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/modernize-mainframe-data.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/modernize-mainframe-data-azure.vsdx) of this architecture.*
 
 ### Dataflow
 
 The following dataflow outlines a process for modernizing a mainframe data tier. It corresponds to the preceding diagram.
 
-1. The [on-premises data gateway](/data-integration/gateway) provides enhanced-security data transfer between mainframe on-premises data and Azure services.
+1. Mainframe and midrange systems store data in data sources, like file systems (VSAM, flat file, LTFS), relational databases (Db2 for z/OS, Db2 for IBM i, Db2 for Linux UNIX and Windows), or non-relational databases (IMS, ADABAS, IDMS).
 
 1. The object conversion process extracts object definitions from source objects. The definitions are then converted into corresponding objects in the target data store.
 
-   -	[SQL Server Migration Assistant](/sql/ssma/sql-server-migration-assistant) for Db2 migrates schemas and data from IBM Db2 databases to Azure databases.
-   - Managed Data Provider for Host Files converts objects by:
+   - [SQL Server Migration Assistant](/sql/ssma/sql-server-migration-assistant) (SSMA) for Db2 migrates schemas and data from IBM Db2 databases to Azure databases.
+   - [Managed Data Provider for Host Files](/host-integration-server/core/managed-data-provider-for-host-files-programmer-s-guide2) converts objects by:
        - Parsing COBOL and RPG record layouts, or *copybooks*.
        - Mapping the copybooks to C# objects that .NET applications use.
-   -	Third-party tools perform automated object conversion on non-relational databases, file systems, and other data stores.
+   - Third-party tools perform automated object conversion on non-relational databases, file systems, and other data stores.
 
-1. Data is ingested and transformed.
-
-   a. FTP transfers mainframe and midrange file system datasets with single layouts and unpacked fields in binary format to Azure.
+1. Data is ingested and transformed. Mainframe and midrange systems store their file system data in EBCDIC-encoded format in file formats like:
+   - Indexed [VSAM](https://www.ibm.com/docs/cobol-zos/6.3?topic=files-vsam) files
+   - Non-indexed [GDG](https://www.ibm.com/support/knowledgecenter/zosbasics/com.ibm.zos.zconcepts/zconcepts_175.htm) files
+   - Flat files
    
-   b. Mainframe data is converted. Mainframe and midrange systems store data on DASD or tape in EBCDIC format in these types of files:
-      - Indexed [VSAM](/sql/ssma/sql-server-migration-assistant) files
-      -	Non-indexed [GDG](https://www.ibm.com/support/knowledgecenter/zosbasics/com.ibm.zos.zconcepts/zconcepts_175.htm) files
-      - [Flat files](https://www.pcmag.com/encyclopedia/term/flat-file)
+    COBOL, PL/I, and assembly language copybooks define the data structure of these files.
 
-      COBOL, PL/I, and assembly language copybooks define the data structure of these files. Data Provider for Host Files converts the data from EBCDIC to ASCII format based on the copybook layout.
+   a. FTP transfers mainframe and midrange file system datasets with single layouts and unpacked fields in binary format and corresponding copybook to Azure.
+   
+   b. Data is converted. The Azure Data Factory custom connector is a solution developed by using the Host File client component of Host Integration Server to convert mainframe datasets.
 
-      An Azure Data Factory custom connector uses the Host File client component of Host Integration Server to convert mainframe datasets. 
+      [Host Integration Server](/host-integration-server/what-is-his) integrates existing IBM host systems, programs, messages, and data with Azure applications. Host Integration Server is a Host File client component that you can use to develop a custom solution for dataset conversion.
 
-      [Host Integration Server](/host-integration-server/what-is-his) integrates existing IBM host systems, programs, messages, and data with Azure applications. 
+      The Azure Data Factory custom connector is based on the open-source Spark framework, and it runs on [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics). Like other solutions, it can parse the copybook and convert data. Manage the service for data conversion by using the [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) Parse Host File Contents connector.
 
-      A solution that's based on open-source software and is used in [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics) converts data. 
-
-   c. Relational database data is migrated. 
+   c. Relational database data is migrated.
 
       IBM mainframe and midrange systems store data in relational databases like these:
       - [Db2 for z/OS](https://www.ibm.com/analytics/db2/zos)
@@ -62,9 +60,7 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
 
 1. Azure services like Data Factory and [AzCopy](/azure/storage/common/storage-ref-azcopy) load data into Azure databases and Azure data storage. You can also use third-party solutions and custom loading solutions to load data.
 
-1. Data is moved to storage.
-
-   Azure provides many managed data storage solutions:
+1. Azure provides many managed data storage solutions:
    - Databases:
      - [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
      - [Azure Database for PostgreSQL](/azure/postgresql/single-server/overview)
@@ -92,9 +88,9 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
 - [SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance) is an intelligent, scalable cloud database service that offers all the benefits of a fully managed and evergreen platform as a service. SQL Managed Instance has near-100% compatibility with the latest SQL Server Enterprise edition database engine. It also provides a native virtual network implementation that addresses common security concerns.
 - [Azure Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) is a storage repository that holds large amounts of data in its native, raw format. Data lake stores are optimized for scaling to terabytes and petabytes of data. The data typically comes from multiple heterogeneous sources. It can be structured, semi-structured, or unstructured.
 
-#### Networking
+#### Compute
 
-- An [on-premises data gateway](/data-integration/gateway/service-gateway-onprem) provides enhanced-security data transfer between mainframe on-premises data and Azure services. Typically, [you install the gateway on a dedicated on-premises VM](/data-integration/gateway/service-gateway-install). 
+- Data Factory integrates data across different network environments by using an [integration runtime](/azure/data-factory/concepts-integration-runtime) (IR), which is a compute infrastructure. Data Factory copies data between cloud data stores and data stores in on-premises networks by using [self-hosted IRs](/azure/data-factory/concepts-integration-runtime#self-hosted-integration-runtime).
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) provides on-demand, scalable computing resources. An Azure virtual machine (VM) provides the flexibility of virtualization but eliminates the maintenance demands of physical hardware. Azure VMs offer a choice of operating systems, including Windows and Linux.
 
 #### Data integrators
@@ -138,20 +134,16 @@ Organizations that use mainframe and midrange systems can benefit from this solu
 - Acquire business intelligence to improve operations and gain a competitive advantage.
 - Remove the high costs and rigidity that are associated with mainframe and midrange data stores.
 
-## Recommendations
-
-- When you use the Data Provider for Host Files client to convert data, [turn on connection pooling](/host-integration-server/core/data-for-host-files#configuringForPerformance) to reduce connection startup time.
-- When you use Data Factory to extract data, [tune the performance of the copy activity](/azure/data-factory/copy-activity-performance#performance-tuning-steps).
-
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework). When you use the Data Provider for Host Files client to convert data, [turn on connection pooling](/host-integration-server/core/data-for-host-files#configuringForPerformance) to reduce the connection startup time. When you use Data Factory to extract data, [tune the performance of the copy activity](/azure/data-factory/copy-activity-performance#performance-tuning-steps).
 
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- The on-premises data gateway provides a level of data protection during transfers from on-premises to Azure systems.
+- Be aware of the differences between on-premises client identities and client identities in Azure. You need to compensate for any differences.
+- Use [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) for component-to-component data flows.
 - When you use Data Provider for Host Files to convert data, follow the recommendations in [Data Providers for Host Files security and protection](/host-integration-server/core/data-providers-for-host-files-security-and-protection).
 
 ### Cost optimization
@@ -162,21 +154,23 @@ Cost optimization is about reducing unnecessary expenses and improving operation
 - The Azure Synapse Spark-based solution is built from open-source libraries. It eliminates the financial burden of licensing conversion tools.
 - Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution.
 
-### Operational excellence 
+### Performance efficiency
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see the [Performance efficiency pillar overview](/azure/well-architected/scalability/overview).
 
-When you use an on-premises application gateway, be aware of the [limits on read and write operations](/data-integration/gateway/service-gateway-onprem#considerations).
+- The key pillars of performance efficiency are performance management, capacity planning, [scalability](https://azure.microsoft.com/product-categories/databases/), and choosing an appropriate performance pattern.
+- You can [scale out the self-hosted IR](/azure/data-factory/concepts-integration-runtime#self-hosted-ir-compute-resource-and-scaling) by associating the logical instance with multiple on-premises machines in active-active mode.
+- Azure SQL Database offers the ability to dynamically scale your databases. In a serverless tier, it can automatically scale the compute resources. Elastic Pool, which allows databases to share resources in a pool, can only be scaled manually.
 
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author: 
+Principal author:
 
 - [Ashish Khandelwal]( https://www.linkedin.com/in/ashish-khandelwal-839a851a3) | Principal Engineering Architect Manager
 
-Other contributors: 
+Other contributors:
 
 - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 - [Nithish Aruldoss](https://www.linkedin.com/in/nithish-aruldoss-b4035b2b) | Engineering Architect 
