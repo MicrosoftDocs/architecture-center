@@ -4,9 +4,9 @@ This article describes how a fictional city planning office could use this solut
 
 The following diagram shows the overall architecture of the solution.
 
-:::image type="content" source="./media/architecture-diagram-new.svg" lightbox="./media/architecture-diagram-new.svg" alt-text="Architecture diagram demonstrating DataOps for the modern data warehouse.":::
+:::image type="content" source="./media/architecture-diagram-demonstrating-dataops-for-the-modern-data-warehouse.svg" lightbox="./media/architecture-diagram-demonstrating-dataops-for-the-modern-data-warehouse.svg" alt-text="Architecture diagram demonstrating DataOps for the modern data warehouse.":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/architecture-diagram.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/architecture-diagram-demonstrating-dataops-for-the-modern-data-warehouse.vsdx) of this architecture.*
 
 ### Dataflow
 
