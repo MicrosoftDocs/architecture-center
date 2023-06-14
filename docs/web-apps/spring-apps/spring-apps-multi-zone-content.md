@@ -1,9 +1,14 @@
 This reference architecture describes an approach for running Java Spring Boot workloads on Azure Spring Apps. The design is focused on achieving high availability through zonal redundancy. The intent is to prevent the application from going down if all datacenters in a zone experience outage. 
 
-This architecture is useful when you want to:
+This architecture is useful to meet the following goals:
 
 - Increase the availability of your application over a single-zone deployment.
 - Increase the overall resilience and service level objective (SLO) of your application.
+
+This solution presents a **baseline** strategy for Azure Spring Apps deployment. Variations of this solution are available for the following configurations:
+
+- [Deploy Azure Spring Apps to multiple regions](spring-apps-multi-region.yml) to increase application resilience and reliability.
+- [Deploy Azure Spring Apps integrated with landing zones](spring-apps-landing-zone.yml) to integrate the workload with centrally managed shared services.
 
 > [!TIP]
 > ![GitHub logo](../../_images/github.svg) The architecture is backed by an [**example implementation**](https://github.com/Azure-Samples/azure-spring-apps-multi-zone) on GitHub that illustrates some of the design choices. Consider the implementation as your first step toward production.
@@ -12,11 +17,11 @@ This architecture is useful when you want to:
 
 The following diagram depicts the architecture for this approach:
 
-:::image type="content" source="./_images/spring-apps-reference-architecture-single-region-zone-redundant.svg" alt-text="Diagram that shows a multi-region Azure Spring Apps reference architecture." lightbox="./_images/spring-apps-reference-architecture-single-region-zone-redundant.png" border="false":::
+:::image type="content" source="./_images/spring-apps-reference-architecture-single-region-zone-redundant.png" alt-text="Diagram that shows a multi-region Azure Spring Apps reference architecture." lightbox="./_images/spring-apps-reference-architecture-single-region-zone-redundant.png" border="false":::
 
 ### Components
 
-The following Azure services act as the components in this architecture. For product documentation about Azure services, see the [Related resources](#related-resources) section. 
+The following Azure services are the components in this architecture. For product documentation about Azure services, see the [Related resources](#related-resources) section. 
 
 - **Azure Spring Apps Standard** hosts a sample Java Spring Boot application implemented as microservices. 
 
@@ -36,7 +41,7 @@ The reference architecture implements the following workflow:
 
 1. The user accesses the application by using the HTTP host name of the application such as `www.contoso.com`. Azure DNS resolves the request for this host name to the public endpoint of Application Gateway.
 
-1. Application Gateway with the integrated Web Application Firewall inspects the request and forwards the allowed traffic to the IP address of the load balancer in the provisioned Azure Spring Apps instance.
+1. Application Gateway with integrated Web Application Firewall inspects the request and forwards the allowed traffic to the IP address of the load balancer in the provisioned Azure Spring Apps instance.
 
 1. The internal load balancer routes the traffic to the back-end services.
 
@@ -91,7 +96,7 @@ The design incorporates several PaaS services that participate in processing a u
 
 ### Private connectivity
 
-Communication from Azure Spring Apps to supporting services like Key Vault and Azure Database for MySQL is also locked down by using either private endpoints or network integration.
+Communication from Azure Spring Apps to supporting services like Key Vault and Azure Database for MySQL is also controlled by using either private endpoints or network integration.
 
 You can control access by using private endpoints. These network interfaces use private IP addresses to bring the services into the virtual network. The architecture has Azure services that automatically set up the private endpoints. 
 
@@ -109,9 +114,7 @@ The private endpoint and network-integrated connections use an [Azure private DN
 
 ### Controls on the traffic flow
 
-This architecture is locked down to allow incoming calls only through the public endpoint exposed by Application Gateway.
-
-The traffic still needs to be inspected to block common exploits and vulnerabilities. Web Application Firewall on the Application Gateway tracks OWASP vulnerabilities. Incoming traffic is inspected based on the configured rules with an action to follow. 
+This architecture allows incoming calls only through the public endpoint exposed by Application Gateway. The traffic still needs to be inspected to block common exploits and vulnerabilities. Web Application Firewall on the Application Gateway tracks OWASP vulnerabilities. Incoming traffic is inspected based on the configured rules with an action to follow. 
 
 The Azure Spring Apps instance has an internal load balancer that routes and distributes traffic to the back-end services. The load balancer is configured to accept traffic only from Application Gateway.
 
@@ -155,7 +158,7 @@ You can also use a [blue-green](/azure/architecture/example-scenario/blue-green-
 
 ## Cost considerations
 
-There's a tradeoff on cost. Expect higher cost because the components are deployed in multiple zones. Instead of one instance of Spring Apps, they run two or even three instances. However, there's no extra cost for enabling zone redundancy on the service. For more information, see [Spring Apps - Pricing](/azure/spring-apps/how-to-enable-redundancy-and-disaster-recovery?tabs=azure-cli#pricing) 
+There's a tradeoff on cost. Expect higher cost because the components are deployed in multiple zones. Instead of one instance of Spring Apps, they run two or even three instances. However, there's no extra cost for enabling zone redundancy on the service. For more information, see [Spring Apps - Pricing](/azure/spring-apps/how-to-enable-redundancy-and-disaster-recovery?tabs=azure-cli#pricing).
 
 Consider the following implementation choices to address costs:
 
@@ -173,7 +176,7 @@ To deploy the architecture, follow the [step-by-step instructions](https://githu
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributor.*
+*Microsoft maintains this content. The following contributor developed the original content.*
 
 Principal author:
 
