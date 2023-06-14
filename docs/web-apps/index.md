@@ -1,9 +1,9 @@
 ---
 title: Web architecture design
 description: Get an overview of Azure web app technologies, guidance, solution ideas, and reference architectures.
-author: martinekuan
-ms.author: architectures
-ms.date: 07/25/2022
+author: robbagby
+ms.author: robbag
+ms.date: 06/14/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -47,12 +47,12 @@ These are a few good starting points to consider:
 
 Consider these patterns, guidelines, and architectures as you plan and implement your deployment:
 
-- [Basic web application](../../reference-architectures/app-service-web-app/basic-web-app.yml)
+- [Basic web application](../reference-architectures/app-service-web-app/basic-web-app.yml)
 - [Common web application architectures](/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures)
-- [Design principles for Azure applications](../../guide/design-principles/index.md)
-- [Design and implementation patterns - Cloud Design Patterns](../../patterns/category/design-implementation.md)
-- [Enterprise deployment using App Services Environment](../../reference-architectures/enterprise-integration/ase-standard-deployment.yml)
-- [High availability enterprise deployment using App Services Environment](../../reference-architectures/enterprise-integration/ase-high-availability-deployment.yml)
+- [Design principles for Azure applications](../guide/design-principles/index.md)
+- [Design and implementation patterns - Cloud Design Patterns](../patterns/category/design-implementation.md)
+- [Enterprise deployment using App Services Environment](../reference-architectures/enterprise-integration/ase-standard-deployment.yml)
+- [High availability enterprise deployment using App Services Environment](../reference-architectures/enterprise-integration/ase-high-availability-deployment.yml)
 
 ## Best practices
 
@@ -71,19 +71,19 @@ The following sections, organized by category, provide links to sample web app a
 
 ### E-commerce
 
-- [E-commerce front end](../../example-scenario/apps/ecommerce-scenario.yml)
-- [Intelligent product search engine for e-commerce](../../example-scenario/apps/ecommerce-search.yml)
-- [Scalable order processing](../../example-scenario/data/ecommerce-order-processing.yml)
-- [E-commerce website running in secured App Service Environment](../../web-apps/idea/ecommerce-website-running-in-secured-ase.yml)
-- [Scalable e-commerce web app](../../web-apps/idea/scalable-ecommerce-web-app.yml)
-- [Scalable Episerver marketing website](../../solution-ideas/articles/digital-marketing-episerver.yml)
-- [Scalable Sitecore marketing website](../../solution-ideas/articles/digital-marketing-sitecore.yml)
+- [E-commerce front end](../example-scenario/apps/ecommerce-scenario.yml)
+- [Intelligent product search engine for e-commerce](../example-scenario/apps/ecommerce-search.yml)
+- [Scalable order processing](../example-scenario/data/ecommerce-order-processing.yml)
+- [E-commerce website running in secured App Service Environment](../web-apps/idea/ecommerce-website-running-in-secured-ase.yml)
+- [Scalable e-commerce web app](../web-apps/idea/scalable-ecommerce-web-app.yml)
+- [Scalable Episerver marketing website](../solution-ideas/articles/digital-marketing-episerver.yml)
+- [Scalable Sitecore marketing website](../solution-ideas/articles/digital-marketing-sitecore.yml)
 
 ### Healthcare
 
-- [Clinical insights with Microsoft Cloud for Healthcare](../../example-scenario/mch-health/medical-data-insights.yml)
-- [Consumer health portal on Azure](../../example-scenario/digital-health/health-portal.yml)
-- [Virtual health on Microsoft Cloud for Healthcare](../../example-scenario/mch-health/virtual-health-mch.yml)
+- [Clinical insights with Microsoft Cloud for Healthcare](../example-scenario/mch-health/medical-data-insights.yml)
+- [Consumer health portal on Azure](../example-scenario/digital-health/health-portal.yml)
+- [Virtual health on Microsoft Cloud for Healthcare](../example-scenario/mch-health/virtual-health-mch.yml)
 
 ### Modernization
 
@@ -95,31 +95,31 @@ The following sections, organized by category, provide links to sample web app a
 
 ### Multi-tier apps
 
-- [Multi-tier app service with private endpoint](../../example-scenario/web/multi-tier-app-service-private-endpoint.yml)
-- [Multi-tier app service with service endpoint](../../reference-architectures/app-service-web-app/multi-tier-app-service-service-endpoint.yml)
-- [Multi-tier web application built for HA/DR](../../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)
+- [Multi-tier app service with private endpoint](../example-scenario/web/multi-tier-app-service-private-endpoint.yml)
+- [Multi-tier app service with service endpoint](../reference-architectures/app-service-web-app/multi-tier-app-service-service-endpoint.yml)
+- [Multi-tier web application built for HA/DR](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)
 
 ### Multi-region apps
 
-- [Highly available multi-region web application](../../reference-architectures/app-service-web-app/multi-region.yml)
-- [Multi-region web app with private connectivity to database](../../example-scenario/sql-failover/app-service-private-sql-multi-region.yml)
+- [Highly available multi-region web application](../reference-architectures/app-service-web-app/multi-region.yml)
+- [Multi-region web app with private connectivity to database](../example-scenario/sql-failover/app-service-private-sql-multi-region.yml)
 
 ### Scalability
 
-- [Scalable and secure WordPress on Azure](../../example-scenario/infrastructure/wordpress.yml)
-- [Scalable cloud applications and site reliability engineering (SRE)](../../example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml)
-- [Scalable web application](../../reference-architectures/app-service-web-app/scalable-web-app.yml)
-- [Scalable Umbraco CMS web app](../../solution-ideas/articles/medium-umbraco-web-app.yml)
+- [Scalable and secure WordPress on Azure](../example-scenario/infrastructure/wordpress.yml)
+- [Scalable cloud applications and site reliability engineering (SRE)](../example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml)
+- [Scalable web application](../reference-architectures/app-service-web-app/scalable-web-app.yml)
+- [Scalable Umbraco CMS web app](../solution-ideas/articles/medium-umbraco-web-app.yml)
 
 ### Security
 
-- [Improved-security access to multitenant web apps from an on-premises network](../../example-scenario/security/access-multitenant-web-app-from-on-premises.yml)
-- [Protect APIs with Application Gateway and API Management](../../reference-architectures/apis/protect-apis.yml)
+- [Improved-security access to multitenant web apps from an on-premises network](../example-scenario/security/access-multitenant-web-app-from-on-premises.yml)
+- [Protect APIs with Application Gateway and API Management](../reference-architectures/apis/protect-apis.yml)
 
 ### SharePoint
 
-- [Highly available SharePoint farm](../../solution-ideas/articles/highly-available-sharepoint-farm.yml)
-- [Hybrid SharePoint farm with Microsoft 365](../../solution-ideas/articles/sharepoint-farm-microsoft-365.yml)
+- [Highly available SharePoint farm](../solution-ideas/articles/highly-available-sharepoint-farm.yml)
+- [Hybrid SharePoint farm with Microsoft 365](../solution-ideas/articles/sharepoint-farm-microsoft-365.yml)
 
 ## Stay current with web development
 
@@ -133,12 +133,12 @@ Here are some additional implementations to consider:
 
 - [Eventual consistency between multiple Power Apps instances](/azure/architecture/guide/power-platform/eventual-consistency)
 - [App Service networking features](/azure/app-service/networking-features)
-- [IaaS: Web application with relational database](../../high-availability/ref-arch-iaas-web-and-db.yml)
-- [Migrate a web app using Azure APIM](../../example-scenario/apps/apim-api-scenario.yml)
-- [Sharing location in real time using low-cost serverless Azure services](../../example-scenario/signalr/index.yml)
-- [Serverless web application](../../reference-architectures/serverless/web-app.yml)
-- [Web application monitoring on Azure](../../reference-architectures/app-service-web-app/app-monitoring.yml)
-- [Web app private connectivity to Azure SQL Database](../../example-scenario/private-web-app/private-web-app.yml)
+- [IaaS: Web application with relational database](../high-availability/ref-arch-iaas-web-and-db.yml)
+- [Migrate a web app using Azure APIM](../example-scenario/apps/apim-api-scenario.yml)
+- [Sharing location in real time using low-cost serverless Azure services](../example-scenario/signalr/index.yml)
+- [Serverless web application](../reference-architectures/serverless/web-app.yml)
+- [Web application monitoring on Azure](../reference-architectures/app-service-web-app/app-monitoring.yml)
+- [Web app private connectivity to Azure SQL Database](../example-scenario/private-web-app/private-web-app.yml)
 
 ### AWS or Google Cloud professionals
 

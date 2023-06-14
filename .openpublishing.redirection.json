@@ -2858,23 +2858,33 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/solution-ideas/articles/migrate-existing-applications-to-container-apps.yml",
+      "redirect_url": "/azure/architecture/web-apps/idea/migrate-existing-applications-to-container-apps",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/solution-ideas/articles/simple-branded-website.yml",
       "redirect_url": "/azure/architecture/web-apps/",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.yml",
       "redirect_url": "/azure/architecture/web-apps/",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/solution-ideas/articles/digital-marketing-smb.yml",
       "redirect_url": "/azure/architecture/web-apps/",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/solution-ideas/articles/webapps.yml",
       "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/web/web-start-here.md",
+      "redirect_url": "/azure/architecture/web-apps/index.md",
       "redirect_document_id": true
     }
   ]

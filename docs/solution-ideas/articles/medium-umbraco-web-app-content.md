@@ -51,7 +51,7 @@ Use the following pre-built template to deploy this architecture to Azure:
 
 ## Related resources
 
-* [Web applications architecture design](../../guide/web/web-start-here.md)
+* [Web applications architecture design](../../web-apps/index.md)
 * [Architect scalable e-commerce web app](../../web-apps/idea/scalable-ecommerce-web-app.yml)
 * [Scalable Sitecore marketing website](../../solution-ideas/articles/digital-marketing-sitecore.yml)
 * [Scalable web application](../../reference-architectures/app-service-web-app/scalable-web-app.yml)

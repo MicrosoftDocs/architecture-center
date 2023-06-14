@@ -5688,7 +5688,7 @@ items:
       - name: JMeter implementation reference
         href: example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml
       - name: Lift and shift to containers with App Service
-        href: solution-ideas/articles/migrate-existing-applications-to-container-apps.yml
+        href: web-apps/idea/migrate-existing-applications-to-container-apps.yml
       - name: Migrate .NET applications
         href: solution-ideas/articles/net-app-modernization.yml
       - name: Migrate cloud workloads across security tenants
@@ -6578,11 +6578,11 @@ items:
       - name: Multiple forests with Azure AD DS
         href: example-scenario/wvd/multi-forest-azure-managed.yml
   - name: Web applications
-    href: /web-apps/index        
+    href: /web-apps/index.md
   - name: Web
     items:
     - name: Overview
-      href: guide/web/web-start-here.md
+      href: /web-apps/index.md
     - name: Guides
       items:
       - name: Design principles
