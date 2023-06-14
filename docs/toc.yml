@@ -6578,11 +6578,11 @@ items:
       - name: Multiple forests with Azure AD DS
         href: example-scenario/wvd/multi-forest-azure-managed.yml
   - name: Web applications
-    href: /web-apps/index.md
+    href: web-apps/index.md
   - name: Web
     items:
     - name: Overview
-      href: /web-apps/index.md
+      href: web-apps/index.md
     - name: Guides
       items:
       - name: Design principles
