@@ -4,7 +4,7 @@ The Price Analytics solution utilizes your transactional history data to show yo
 
 ## Architecture
 
-:::image type="content" alt-text="Screenshot showing interactive price analytics." source="../media/interactive-price-analytics.png" lightbox="../media/interactive-price-analytics.png":::
+:::image type="content" alt-text="Screenshot showing interactive price analytics." source="../media/interactive-price-analytics.svg" lightbox="../media/interactive-price-analytics.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/interactive-price-analytics.vsdx) of this architecture.*
 
