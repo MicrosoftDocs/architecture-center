@@ -121,6 +121,7 @@ The following are other ideas that you can use as a starting point for your reta
 
 **Web**:
 
+- [E-commerce website running in secured App Service Environment](../web-apps/idea/ecommerce-website-running-in-secured-ase-content.md)
 - [E-commerce website running in secured App Service Environment](../web-apps/idea/ecommerce-website-running-in-secured-ase.yml)
 - [Architect a scalable e-commerce web app](../web-apps/idea/scalable-ecommerce-web-app.yml)
 - [Scalable Episerver marketing website](../solution-ideas/articles/digital-marketing-episerver.yml)

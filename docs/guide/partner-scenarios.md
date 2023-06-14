@@ -2,8 +2,8 @@
 title: Microsoft partner and third-party scenarios on Azure
 description: Review an extensive list of architectures and solutions that use Microsoft partner and third-party solutions.
 author: martinekuan
-ms.author: architectures
-ms.date: 07/26/2022
+ms.author: robbag
+ms.date: 06/14/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
