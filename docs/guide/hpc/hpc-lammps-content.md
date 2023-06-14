@@ -2,7 +2,7 @@ This article briefly describes the steps for installing and running [LAMMPS](htt
 
 LAMMPS is a classical molecular dynamics simulator that's used for materials modeling. It can model solid-state materials, soft matter, and coarse-grained or mesoscopic systems. It can be used to model atoms or, more generically, as a parallel particle simulator at the atomic, meso, or continuum scale. 
 
-LAAMPS is designed to run well on parallel machines, but it also runs on single-processor desktop machines. It's composed of modular code, and most functionality is in optional packages.
+LAAMPS is designed to run well on parallel machines, but it also runs on single-processor desktop machines. It's composed of modular code, and most of its functionality is in optional packages.
 
 Typical LAMMPS simulations include all-atom models of liquids, solids, and explicit solvents.
 
@@ -53,7 +53,7 @@ Performance tests of LAMMPS on Azure used [HBv3 AMD EPYC 7V73X](/azure/virtual-m
 
 ## Install LAMMPS on a VM or HPC cluster 
 
-You can download the software from the [LAMMPS](https://docs.lammps.org/Install.html) website. You just need to untar or unzip the LAMMPS binary distribution file and you can run LAMMPS directly in the resulting directory. For a guide to building from source code, see [Build LAMMPS](https://docs.lammps.org/Build.html). 
+You can download the software from the [LAMMPS](https://docs.lammps.org/Install.html) website. You just need to untar or unzip the LAMMPS binary distribution file, and you can run LAMMPS directly in the resulting directory. For a guide to building from source code, see [Build LAMMPS](https://docs.lammps.org/Build.html). 
 
 Before you install LAMMPS, you need to deploy and connect to a VM or HPC cluster.
 
@@ -164,7 +164,7 @@ Two models were used to test the performance of LAMMPS version 23 and LAMMPS ver
 
 Lennard-Jones (in.lj) is a simple molecular dynamics simulation of a binary fluid in the NVT ensemble. It's made of neutral dots with a Langevin thermostating. 
 
-The following table provides details about the Lennard-Jones model.
+The following table provides details about the Lennard-Jones model:
 
  |Number of atoms |Timestep|Thermo step|Run steps|
  |-|-|-|-|
@@ -174,7 +174,7 @@ The following table provides details about the Lennard-Jones model.
 
 HECBioSim is a benchmark suite that consists of a set of simple benchmarks for a number of popular molecular dynamics engines, each of which is set at a different atom count.
 
-The following table provides details about the HECBioSim model.
+The following table provides details about the HECBioSim model:
 
  |Number of atoms |Timestep|Thermo step|Run steps|
  |-|-|-|-|
