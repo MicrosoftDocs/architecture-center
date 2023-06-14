@@ -7,7 +7,7 @@
 	<style type="text/css">
 	<![CDATA[
 		.st1 {fill:#ffffff;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
-		.st2 {fill:none;stroke:#0078d7;stroke-dasharray:0.01,2.25;stroke-width:0.75}
+		.st2 {fill:none;stroke:#0078d7;stroke-dasharray:0.01,3;stroke-width:1}
 		.st3 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:7.2}
 		.st4 {fill:#000000;font-family:Segoe UI;font-size:0.75em}
 		.st5 {fill:#ffffff;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.24}
@@ -33,7 +33,7 @@
 		</linearGradient>
 	</defs>
 	<g>
-		<title>VBackground-8</title>
+		<title>VBackground-5</title>
 		<g id="shape1000-1">
 			<title>Solid.1000</title>
 			<rect x="0" y="0" width="440.438" height="143.719" class="st1"/>
