@@ -139,7 +139,7 @@ You can use this feature in the following scenarios:
 
 - If your secondary region is a cold standby that doesn't receive active requests
 - To fail over if your primary region fails
-- To set up primary and secondary databases with private link connections to their respective regions via [virtual network peering](/azure/virtual-network/virtual-network-peering-overview) between the two regions. For more information, see [Multiregion web app with private connectivity to a database](../../example-scenario/sql-failover/app-service-private-sql-multi-region.yml).
+- To set up primary and secondary databases with private link connections to their respective regions via [virtual network peering](/azure/virtual-network/virtual-network-peering-overview) between the two regions. For more information, see [Multi-region web app with private connectivity to a database](../../example-scenario/sql-failover/app-service-private-sql-multi-region.yml).
 
 Another approach is to use Azure Cosmos DB. This service can [globally distribute](/azure/cosmos-db/distribute-data-globally) data by transparently replicating the data to all regions in your Azure Cosmos DB account. You can also configure Azure Cosmos DB with [multiple write regions](/azure/cosmos-db/high-availability#multiple-write-regions). For more information, see [Geode pattern](../../patterns/geodes.yml) and [Globally distributed applications with Azure Cosmos DB](/azure/architecture/solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db).
 
@@ -167,7 +167,7 @@ This reference architecture has several components that can autoscale based on m
 
 This solution effectively doubles the cost estimates of the [**baseline architecture**](/azure/architecture/web-apps/spring-apps/spring-apps-multi-zone#cost-considerations). 
 
-The main drivers for costs associated with this architecture include:
+The main drivers for costs associated with the multi-region solution include:
 
 - The primary and secondary databases must use the same service tier; otherwise, the secondary database might not keep up with replication changes.
 - Significant cross-region traffic increases costs. Network traffic between Azure regions incurs charges.
@@ -195,7 +195,7 @@ The design considerations for the multi-zone [**baseline architecture**](spring-
 
 ## Scenario deployment
 
-A deployment for this reference architecture is available at [Azure Spring Apps multiregion reference architecture](https://github.com/Azure-Samples/azure-spring-apps-multi-region) on GitHub. The deployment uses Terraform templates.
+A deployment for this reference architecture is available at [Azure Spring Apps multi-region reference architecture](https://github.com/Azure-Samples/azure-spring-apps-multi-region) on GitHub. The deployment uses Terraform templates.
 
 To deploy the architecture, [follow the step-by-step instructions](https://github.com/Azure-Samples/azure-spring-apps-multi-region#getting-started).
 
@@ -235,6 +235,6 @@ We recommend the following guides for a deeper understanding about the configura
 - [Expose Azure Spring Apps through a reverse proxy](spring-cloud-reverse-proxy.yml)
 - [High-availability blue/green deployment for applications](./blue-green-spring.yml)
 - [Preserve the original HTTP host name between a reverse proxy and its back-end web application](../../best-practices/host-name-preservation.yml)
-- [Multiregion web app with private connectivity to a database](../../example-scenario/sql-failover/app-service-private-sql-multi-region.yml)
+- [Multi-region web app with private connectivity to a database](../../example-scenario/sql-failover/app-service-private-sql-multi-region.yml)
 
 This architecture is designed in alignment with the pillars of the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework). We recommend that you review the design principles for each pillar.
