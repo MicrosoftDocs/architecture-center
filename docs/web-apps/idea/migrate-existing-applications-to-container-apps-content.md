@@ -4,7 +4,7 @@ This solution migrates existing web apps to containers that are deployed in App 
 
 ## Architecture
 
-[ ![Architecture diagram shows existing application migration to containers in Azure Kubernetes Service with Open Service Broker for Azure to access Azure databases.](../media/migrate-existing-applications-to-container-apps.svg)](../media/migrate-existing-applications-to-container-apps.svg#lightbox)
+[ ![Architecture diagram shows existing application migration to containers in Azure Kubernetes Service with Open Service Broker for Azure to access Azure databases.](images/migrate-existing-applications-to-container-apps.svg)](images/migrate-existing-applications-to-container-apps.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/migrate-existing-applications-to-container-apps.vsdx) of this architecture.*
 

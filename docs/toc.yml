@@ -5841,8 +5841,6 @@ items:
         href: solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.yml
       - name: Custom mobile workforce app
         href: solution-ideas/articles/custom-mobile-workforce-app.yml
-      - name: Modern customer support portal
-        href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.yml
       - name: Scalable apps with Azure MySQL
         href: solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml
       - name: Scalable apps using Azure PostgreSQL

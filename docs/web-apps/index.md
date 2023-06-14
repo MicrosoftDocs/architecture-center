@@ -78,7 +78,6 @@ The following sections, organized by category, provide links to sample web app a
 - [Scalable e-commerce web app](../../web-apps/idea/scalable-ecommerce-web-app.yml)
 - [Scalable Episerver marketing website](../../solution-ideas/articles/digital-marketing-episerver.yml)
 - [Scalable Sitecore marketing website](../../solution-ideas/articles/digital-marketing-sitecore.yml)
-- [Simple digital marketing website](../../solution-ideas/articles/digital-marketing-smb.yml)
 
 ### Healthcare
 
@@ -132,8 +131,6 @@ Get the latest [updates on Azure web app products and features](https://azure.mi
 
 Here are some additional implementations to consider:
 
-- [Simple branded website](../../solution-ideas/articles/simple-branded-website.yml)
-- [Build web and mobile applications](../../solution-ideas/articles/webapps.yml)
 - [Eventual consistency between multiple Power Apps instances](/azure/architecture/guide/power-platform/eventual-consistency)
 - [App Service networking features](/azure/app-service/networking-features)
 - [IaaS: Web application with relational database](../../high-availability/ref-arch-iaas-web-and-db.yml)
@@ -142,8 +139,6 @@ Here are some additional implementations to consider:
 - [Serverless web application](../../reference-architectures/serverless/web-app.yml)
 - [Web application monitoring on Azure](../../reference-architectures/app-service-web-app/app-monitoring.yml)
 - [Web app private connectivity to Azure SQL Database](../../example-scenario/private-web-app/private-web-app.yml)
-- [Dynamics Business Central as a service on Azure](../../solution-ideas/articles/business-central.yml)
-- [Real-time presence with Microsoft 365, Azure, and Power Platform](../../solution-ideas/articles/presence-microsoft-365-power-platform.yml)
 
 ### AWS or Google Cloud professionals
 

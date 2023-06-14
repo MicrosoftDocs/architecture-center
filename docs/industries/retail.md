@@ -125,4 +125,3 @@ The following are other ideas that you can use as a starting point for your reta
 - [Architect a scalable e-commerce web app](../web-apps/idea/scalable-ecommerce-web-app.yml)
 - [Scalable Episerver marketing website](../solution-ideas/articles/digital-marketing-episerver.yml)
 - [Scalable Sitecore marketing website](../solution-ideas/articles/digital-marketing-sitecore.yml)
-- [Simple digital marketing website](../solution-ideas/articles/digital-marketing-smb.yml)

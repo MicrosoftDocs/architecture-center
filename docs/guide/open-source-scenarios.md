@@ -233,7 +233,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |--|--|--|
 [Application data protection for AKS workloads on Azure NetApp Files](../example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)|Deploy Astra Control Service with Azure NetApp Files for data protection, disaster recovery, and mobility for AKS applications. This solution applies to systems that run MySQL database workloads.|Containers|
 [Build CNCF projects by using Azure Kubernetes Service](../example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml)|Learn how to conceptualize, architect, build, and deploy an application that uses projects from the CNCF after deployment of AKS. MySQL is used to store expense reports.|Containers|
-[Build web and mobile applications with MySQL and Redis](../solution-ideas/articles/webapps.yml)|Build web and mobile applications with an Azure microservices-based architecture. Use this solution, inspired by PayMe, for e-commerce platforms and more.|Web|
 |[Finance management apps with Azure Database for MySQL](../solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql.yml)|Use Azure Database for MySQL to store critical data with high security and provide users with high-value analytics and insights on aggregated data.|Databases|
 | [Gaming using Azure Database for MySQL](../solution-ideas/articles/gaming-using-azure-database-for-mysql.yml)|Use Azure Database for MySQL for gaming solutions so that databases scale elastically during traffic bursts and deliver low-latency multi-player experiences.|Databases|
 |[IBM z/OS online transaction processing on Azure](../example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml)|Migrate a z/OS online transaction processing (OLTP) workload to an Azure application that's cost-effective, responsive, scalable, and adaptable. The data layer can include Azure implementations of MySQL databases.|Mainframe|
@@ -321,7 +320,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Banking system cloud transformation on Azure](../example-scenario/banking/banking-system-cloud-transformation.yml)|Use simulated and actual applications and existing workloads to monitor the reaction of a solution infrastructure for scalability and performance. Azure Cache for Redis is used in a Publish-Subscribe messaging pattern for bank transactions. |Containers|
-|[Build web and mobile applications with MySQL and Redis](../solution-ideas/articles/webapps.yml)|Build web and mobile applications with an Azure microservices-based architecture. Use this solution, inspired by PayMe, for e-commerce platforms and more.|Web|
 |[COVID-19 safe solutions with IoT Edge](../solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml)|Create a COVID-19 safe environment that monitors social distance, mask/PPE use, and occupancy requirements with CCTVs and Azure IoT Edge, Azure Stream Analytics, and Azure Machine Learning. Redis is used to store cloud data for analytics and visualization.|IoT|
 |[Data cache](../solution-ideas/articles/data-cache-with-redis-cache.yml)| Azure Cache for Redis provides a cost-effective solution to scale read and write throughput of your data tier. Store and share database query results, session states, static contents, and more by using a common cache-aside pattern.|Databases|
 |[Data streaming with AKS](../solution-ideas/articles/data-streaming-scenario.yml)|Use AKS to easily ingest and process a real-time data stream with millions of data points collected via sensors. Azure Cache for Redis is used to cache processed data.|Containers|
@@ -389,7 +387,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Scalable Umbraco CMS web app](../solution-ideas/articles/medium-umbraco-web-app.yml)|Run an Umbraco content management system on the Web Apps feature of App Service. Use Azure managed services for a high availability environment.|Web|
-|[Simple digital marketing website](../solution-ideas/articles/digital-marketing-smb.yml)|Use an Azure-based content management system to easily maintain messaging on your website in real time, from a browser, with no coding skills. Umbraco manages content and deploys it to the website.|Web|
 
 ## WordPress
 

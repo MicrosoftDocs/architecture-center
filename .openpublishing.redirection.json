@@ -2856,6 +2856,26 @@
       "source_path": "docs/solution-ideas/articles/ecommerce-website-running-in-secured-ase.yml",
       "redirect_url": "/azure/architecture/web-apps/idea/ecommerce-website-running-in-secured-ase",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/simple-branded-website.yml",
+      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.yml",
+      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/digital-marketing-smb.yml",
+      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/webapps.yml",
+      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_document_id": true
     }
   ]
 }

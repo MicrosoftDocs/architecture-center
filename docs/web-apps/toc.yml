@@ -8,3 +8,5 @@ items:
         href: idea/scalable-ecommerce-web-app.yml
       - name: Network secured e-commerce web app
         href: idea/ecommerce-website-running-in-secured-ase.yml
+      - name: Lift-and-shift migration to containers with App Service
+        href: idea/migrate-existing-applications-to-container-apps.yml

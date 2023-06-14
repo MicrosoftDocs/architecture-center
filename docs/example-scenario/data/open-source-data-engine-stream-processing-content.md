@@ -212,7 +212,6 @@ To learn about related solutions, see the following information:
 [Azure regions with Availability Zones]: /azure/availability-zones/az-region#azure-regions-with-availability-zones
 [Azure Services that support Availability Zones]: /azure/availability-zones/az-region
 [Best practices for building an application with Azure Database for PostgreSQL]: /azure/postgresql/application-best-practices
-[Build web and mobile applications]: ../../solution-ideas/articles/webapps.yml
 [Cache-Aside pattern]: ../../patterns/cache-aside.yml
 [The Cassandra Query Language (CQL)]: https://cassandra.apache.org/doc/latest/cassandra/cql/index.html
 [Change feed in Azure Cosmos DB]: /azure/cosmos-db/change-feed
