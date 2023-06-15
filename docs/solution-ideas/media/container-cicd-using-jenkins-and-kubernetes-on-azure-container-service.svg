@@ -284,11 +284,11 @@
 						x="24.66" dy="1.2em" class="st5">Code</tspan></text>		</g>
 		<g id="shape1078-56" v:mID="1078" v:groupContext="shape" transform="translate(406.697,-354.685)">
 			<title>Sheet.1078</title>
-			<desc>Azure Container Service (AKS)</desc>
+			<desc>Azure Kubernetes Service (AKS)</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="84.3387" cy="597.946" width="168.68" height="28.1089"/>
 			<rect x="0" y="583.891" width="168.677" height="28.1089" class="st3"/>
-			<text x="12.17" y="601.25" class="st4" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Container Service (AKS)</text>		</g>
+			<text x="8.42" y="601.25" class="st4" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Kubernetes Service (AKS)</text>		</g>
 		<g id="group1121-59" transform="translate(328.204,-146.525)" v:mID="1121" v:groupContext="group">
 			<title>Users.1169</title>
 			<g id="shape1122-60" v:mID="1122" v:groupContext="shape">
