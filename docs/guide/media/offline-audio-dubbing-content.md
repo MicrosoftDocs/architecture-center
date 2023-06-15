@@ -28,7 +28,7 @@ The pipeline is aware of errors. This awareness is significant when the language
 ### Components
 
 - [Azure Cognitive Services](https://azure.microsoft.com/products/cognitive-services) is a suite of cloud-based AI services that helps developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. The services are available through REST APIs and client library SDKs in popular development languages.
-- [Azure Speech service](/products/cognitive-services/speech-services/) unifies speech-to-text, text-to-speech, speech translation, voice assistant, and speaker recognition functionality into a single service-based subscription offering.
+- [Azure Speech service](https://azure.microsoft.com/products/cognitive-services/speech-services/) unifies speech-to-text, text-to-speech, speech translation, voice assistant, and speaker recognition functionality into a single service-based subscription offering.
 - [Azure translator service](/azure/cognitive-services/translator/translator-overview) is a cloud-based neural machine translation service that's part of the Cognitive Services family of REST APIs. You can use it with any operating system. Translator service enables many Microsoft products and services that are used by thousands of businesses worldwide to perform language translation and other language-related operations.
 
 ## Use cases
