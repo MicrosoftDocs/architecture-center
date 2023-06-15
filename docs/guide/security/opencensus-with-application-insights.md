@@ -79,7 +79,7 @@ A transaction is represented by a trace, which is a collection of [spans](https:
 
 - A POST request submits to the API which then redirects you to a “waiting page”.
 - Writing logs with contextual information.
-- Performs an external call to a SaaS to request a billing page.
+- An external call to a SaaS to request a billing page.
 
 Each of these operations can be part of a span. The trace is a complete description of what happens when you select the purchase button.
 
@@ -125,7 +125,7 @@ For more information, see [Traceparent header](https://www.w3.org/TR/trace-conte
 
 ## Tracer in OpenCensus for Azure Functions
 
-Use an extension that's specific to Azure Functions. Don't use the opencensus package that you might use in other cases (for example, [Python Webapps](https://learn.microsoft.com/en-us/azure/azure-monitor/app/opencensus-python#instrument-with-opencensus-python-sdk-with-azure-monitor-exporters)).
+Use an extension that's specific to Azure Functions. Don't use the OpenCensus package that you might use in other cases (for example, [Python Webapps](/azure/azure-monitor/app/opencensus-python#instrument-with-opencensus-python-sdk-with-azure-monitor-exporters)).
 
 Azure Functions offers many input and output bindings, and each binding has a different way of embedding the traceparent. For Contoso, when events and messages are consumed, two Azure functions are triggered.
 
@@ -133,16 +133,16 @@ That means that two things need to be done:
 
 1) The context (characterized by the identifier of the trace and identifier of the current span) must be embedded in a *traceparent* in the W3C trace context format. This embedding is dependant on the nature of the output binding. For instance, the example architecture uses Event Hubs as a messaging system. The traceparent is encoded into bytes and embedded in the sent event(s) as the “Diagnostic-Id” property, which achieves the right trace context in the output binding.
 
-   Two spans can be linked even if they're not parent and child. For distributed tracing, the current span points to the next one. Creating a [link](https://opencensus.io/tracing/span/link/) establishes this relationship.
+   Two spans can be linked even if they're not parent and child. For distributed tracing, the current span points to the next one. To establish this relationship, Creating a [link](https://opencensus.io/tracing/span/link/) establishes this relationship.
 
    The [Azure Functions Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/1.15.0-preview1#readme-body-tab) package manages the embedding and linking for you.
 
-1) An Azure function in the middle of the end-to-end flow extracts the contextual information from the passed on *traceparent* that was previously mentioned. Use the OpenCensus extension for Azure Functions for this step. Instead of adding this process in the code of each Azure function, the OpenCensus extension implements a pre-invocation hook on the function app level.
+1) An Azure function in the middle of the end-to-end flow extracts the contextual information from the passed on *traceparent*. Use the OpenCensus extension for Azure Functions for this step. Instead of adding this process in the code of each Azure function, the OpenCensus extension implements a pre-invocation hook on the function app level.
 
    The pre-invocation hook:
 
    - Creates a *span\_context* object that holds the information of the previous span and triggers the Azure function. See a visual example of this step [in the next section](#understand-and-structure-the-code).
-   - Instantiates a tracer that contains this *span\_context* and creates a new trace for the triggered Azure Function.
+   - Creates a tracer that contains this *span\_context*, and creates a new trace for the triggered Azure function.
    - Injects that tracer in the [Azure Function execution context](/azure/azure-functions/functions-reference?tabs=blob#function-app).
 
 To ensure the traces appear in Application Insights, you must call the *configure()* method that instantiates and configures an [Azure Exporter](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure#opencensus-azure-monitor-exporters) whose role is to export all telemetry.
