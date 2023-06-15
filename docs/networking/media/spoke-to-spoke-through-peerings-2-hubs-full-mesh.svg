@@ -16,8 +16,8 @@
 		.st9 {fill:#000000;font-family:Segoe UI;font-size:0.75em}
 		.st10 {stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
 		.st11 {stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:1}
-		.st12 {fill:none;stroke:#0078d7;stroke-dasharray:0.01,2.25;stroke-width:0.75}
-		.st13 {stroke:#00b050;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st12 {stroke:#00b050;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st13 {fill:#ffffff;stroke:none;stroke-linecap:butt}
 		.st14 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
 	]]>
 	</style>
@@ -423,7 +423,7 @@
 			<g id="shape1295-187" transform="translate(0,-6.3668)">
 				<title>Virtual Network Box.1050</title>
 				<desc>Spoke</desc>
-				<path d="M0 225 L51.64 225 L51.64 197.69 L0 197.69 L0 225 Z" class="st12"/>
+				<path d="M0 225 L51.64 225 L51.64 197.69 L0 197.69 L0 225 Z" class="st7"/>
 				<rect x="13.5593" y="205.947" width="24.5259" height="10.7998" class="st8"/>
 				<text x="13.56" y="214.05" class="st9">Spoke</text>			</g>
 			<g id="group1296-191" transform="translate(7.02822,2.84217E-14)">
@@ -491,69 +491,69 @@
 		</g>
 		<g id="shape1310-224" transform="translate(152.329,-157.5)">
 			<title>Dynamic connector.3453</title>
-			<path d="M0 225 L-35.66 246.21 A3 3 -180 1 0 -40.82 249.28 L-90.83 279.03" class="st13"/>
+			<path d="M0 225 L-35.66 246.21 A3 3 -180 1 0 -40.82 249.28 L-90.83 279.03" class="st12"/>
 		</g>
 		<g id="shape1311-227" transform="translate(378.053,-141.938)">
 			<title>Dynamic connector.3454</title>
 			<path d="M0 222.56 L-36.1 219.81 A3 3 -180 0 0 -42.08 219.35 L-82.35 216.28 A3 3 -180 0 0 -88.34 215.83 L-172.18 209.44"
-					class="st13"/>
+					class="st12"/>
 		</g>
 		<g id="shape1312-230" transform="translate(233.872,-110.179)">
 			<title>Dynamic connector.3455</title>
-			<path d="M0 225 L-52.99 191.01" class="st13"/>
+			<path d="M0 225 L-52.99 191.01" class="st12"/>
 		</g>
 		<g id="shape1313-233" transform="translate(374.923,-143.971)">
 			<title>Dynamic connector.3456</title>
-			<path d="M0 225 L-34.22 237.84 A3 3 -180 1 0 -39.83 239.95 L-87.59 257.88" class="st13"/>
+			<path d="M0 225 L-34.22 237.84 A3 3 -180 1 0 -39.83 239.95 L-87.59 257.88" class="st12"/>
 		</g>
 		<g id="shape1314-236" transform="translate(233.872,-115.827)">
 			<title>Dynamic connector.3457</title>
 			<path d="M0 230.65 L-12.49 231.13 A3 3 -180 1 0 -18.48 231.37 L-79.06 233.72 A3 3 -180 1 0 -85.05 233.96 L-118.15 235.24
-						 A3 3 -180 1 0 -124.15 235.48 L-172.37 237.35" class="st13"/>
+						 A3 3 -180 1 0 -124.15 235.48 L-172.37 237.35" class="st12"/>
 		</g>
 		<g id="shape1315-239" transform="translate(109.023,-52.2547)">
 			<title>Dynamic connector.3458</title>
-			<path d="M0 225 L-47.52 173.78" class="st13"/>
+			<path d="M0 225 L-47.52 173.78" class="st12"/>
 		</g>
 		<g id="shape1316-242" transform="translate(307.174,-27.6817)">
 			<title>Dynamic connector.3459</title>
-			<path d="M0 225 L-126.29 108.51" class="st13"/>
+			<path d="M0 225 L-126.29 108.51" class="st12"/>
 		</g>
 		<g id="shape1317-245" transform="translate(180.886,-144.168)">
 			<title>Dynamic connector.3460</title>
-			<path d="M0 225 L-71.86 316.91" class="st13"/>
+			<path d="M0 225 L-71.86 316.91" class="st12"/>
 		</g>
 		<g id="shape1318-248" transform="translate(233.872,-110.179)">
 			<title>Dynamic connector.3462</title>
-			<path d="M0 225 L-8.02 228.72 A3 3 -180 1 0 -13.46 231.24 L-124.85 282.92" class="st13"/>
+			<path d="M0 225 L-8.02 228.72 A3 3 -180 1 0 -13.46 231.24 L-124.85 282.92" class="st12"/>
 		</g>
 		<g id="shape1319-251" transform="translate(307.125,-23.6836)">
 			<title>Dynamic connector.3463</title>
-			<path d="M0 220.56 L-173.18 211.44" class="st13"/>
+			<path d="M0 220.56 L-173.18 211.44" class="st12"/>
 		</g>
 		<g id="shape1320-254" transform="translate(333.895,-39.9182)">
 			<title>Dynamic connector.3464</title>
-			<path d="M0 225 L-46.57 153.82" class="st13"/>
+			<path d="M0 225 L-46.57 153.82" class="st12"/>
 		</g>
 		<g id="shape1321-257" transform="translate(378.053,-144.375)">
 			<title>Dynamic connector.3465</title>
-			<path d="M0 225 L-44.34 329.46" class="st13"/>
+			<path d="M0 225 L-44.34 329.46" class="st12"/>
 		</g>
 		<g id="shape1322-260" transform="translate(307.174,-27.6817)">
 			<title>Dynamic connector.3466</title>
 			<path d="M0 225 L-105.37 192.49 A3 3 -180 0 0 -111.11 190.72 L-147.96 179.35 A3 3 -180 0 0 -153.69 177.59 L-172.26 171.86
-						 A3 3 -180 0 0 -177.99 170.09 L-192.4 165.64 A3 3 -180 0 0 -198.13 163.87 L-245.67 149.21" class="st13"/>
+						 A3 3 -180 0 0 -177.99 170.09 L-192.4 165.64 A3 3 -180 0 0 -198.13 163.87 L-245.67 149.21" class="st12"/>
 		</g>
 		<g id="shape1323-263" transform="translate(378.053,-144.375)">
 			<title>Dynamic connector.4868</title>
 			<path d="M0 225 L-36.61 229.73 A3 3 -180 1 0 -42.56 230.5 L-108.34 239 A3 3 -180 1 0 -114.29 239.77 L-161.4 245.85 A3
 						 3 -180 1 0 -167.36 246.62 L-170.16 246.99 A3 3 -180 1 0 -176.11 247.75 L-216.17 252.93 A3 3 -180 1 0 -222.12
-						 253.7 L-262.14 258.87 A3 3 -180 1 0 -268.09 259.64 L-316.55 265.9" class="st13"/>
+						 253.7 L-262.14 258.87 A3 3 -180 1 0 -268.09 259.64 L-316.55 265.9" class="st12"/>
 		</g>
 		<g id="shape1324-266" transform="translate(385.081,-129.504)">
 			<title>Dynamic connector.4869</title>
 			<path d="M0 225 L-12.99 229.78 A3 3 -180 1 0 -18.62 231.85 L-45.5 241.73 A3 3 -180 1 0 -51.13 243.8 L-85.69 256.5 A3
-						 3 -180 0 0 -91.33 258.57 L-131.82 273.46 A3 3 -180 1 0 -137.45 275.53 L-251.14 317.32" class="st13"/>
+						 3 -180 0 0 -91.33 258.57 L-131.82 273.46 A3 3 -180 1 0 -137.45 275.53 L-251.14 317.32" class="st12"/>
 		</g>
 		<g id="group1326-269" transform="translate(97.0747,-183.147)">
 			<title>Sheet.1326</title>
@@ -561,7 +561,7 @@
 				<title>Virtual Network Box.3271</title>
 				<desc>East US hub</desc>
 				<path d="M0 225 L61.2 225 L61.2 197.69 L0 197.69 L0 225 Z" class="st7"/>
-				<rect x="6.91342" y="205.947" width="47.373" height="10.7998" class="st8"/>
+				<rect x="6.91342" y="205.947" width="47.373" height="10.7998" class="st13"/>
 				<text x="6.91" y="214.05" class="st9">East US hub</text>			</g>
 			<g id="group1328-274" transform="translate(9.74749,8.52651E-14)">
 				<title>Sheet.1328</title>
