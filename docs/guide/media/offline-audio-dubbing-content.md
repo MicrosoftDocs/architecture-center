@@ -1,5 +1,3 @@
-# Offline audio dubbing
-
 This guide describes how the AI tools in Azure Cognitive Services can help you automate an offline dubbing process and ensure a high-quality dubbed version of original input.
 
 *Dubbing* is the process of placing a replacement track over an original audio/video source. It includes speech-to-speech transformation from a source to a target speech stream. There are two types of dubbing. *Realtime dubbing* modifies the original audio/video track as the content. *Offline dubbing* refers to a postproduction process. The offline process enables human assistance to improve the overall outcome as compared that of to real-time implementations. You can correct errors at each stage and add enough metadata to make the output more truthful to the original. You can use the same pipeline to provide subtitles for the video track.
@@ -8,7 +6,7 @@ This guide describes how the AI tools in Azure Cognitive Services can help you a
 
 This architecture shows a pipeline that performs human-assisted speech-to-speech dubbing in offline mode. The successful completion of each module triggers the next one. The speech-to-speech pipeline shows the required elements for generating an offline dubbed audio stream. It only uses the transcript of the spoken text to produce subtitles. You can optionally enhance the subtitles to produce closed captioning as well.
 
-:::image type="content" source="images/audio-dubbing-architecture.png " alt-text="Diagram that shows an architecture for human-assisted dubbing." lightbox="images/audio-dubbing-architecture.png":::
+:::image type="content" source="images/audio-dubbing-architecture.png " alt-text="Diagram that shows an architecture for human-assisted dubbing." lightbox="images/audio-dubbing-architecture.png" border="false":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/audio-dubbing.pptx) of this architecture.*
  
@@ -203,80 +201,268 @@ You can estimate the speech signal duration from the number of tokens or charact
 
 If the target audio doesn't overlap with any other audio in the target, placing it is straightforward. The new offset in the target audio is the original offset minus half the difference between the target and source audio duration, as shown here:
 
-offsetti = offsetsi - (tti – tsi)/2
+offset<sub>t</sub><sup>i</sup> = offset<sub>s</sub><sup>i</sup> - (t<sub>t</sub><sup>i</sup> – t<sub>s</sub><sup>i</sup>)/2
 
-However, you may encounter situations where multiple audio segments in the target audio overlap. The goal of this process is to correct it, considering only the previous segment. Here are the different conditions for this overlap:
+However, multiple audio segments in the target audio might overlap. The goal of this process is to correct this problem, considering only the previous segment. These are the possible scenarios in which this overlap can occur:
 
-1. offsetti > offsett(i-1) \+ tt(i-1) : This implies that both segments fit within the pause assigned between them in the original audio with no issues.
-2. offsetti = offsett(i-1) \+ tt(i-1) : This means that there will be no pause between two consecutive audios in the target language. Add a small offset (enough for one word in the language) to the offsetti (Dtt). This (Dtt) is to avoid continuous audio in the target audio that isn’t present in the original.
-3. offsetti < offsett(i-1) \+ tt(i-1): This means that the two audios overlap. In this case there are two options
-	1. offsets(i-1) \+ ts(i-1)< median \{offsets(i-1) \+ ts(i-1)\}"i: This reflects that this pause is shorter than the nominal pause in the video, in turn the translated text could be shifted accordingly. The assumption is that the longer pauses make up for this. Therefore offsetti = offsett(i-1) \+ tt(i-1) \+ Dtt
-	2. offsets(i-1) \+ ts(i-1)> median \{offsets(i-1) \+ ts(i-1)\}"i: This reflects that this pause is longer than the nominal pause in the video, yet it is not fitting the translated audio. Thereon, the rate is used to adjust the segment to be more appropriately timed. The new rate is rateti = rateti \* (((offsett(i-1) \+ tt(i-1)) - offsetti)\+ tti\+ Dtt )/( tti).
+- offset<sub>t</sub><sup>i</sup> > offset<sub>t</sub><sup>(i-1)</sup> + t<sub>t</sub><sup>(i-1)</sup>. In this scenario, both segments fit within the pause assigned between them in the original audio with no issues.
+- offset<sub>t</sub><sup>i</sup> = offset<sub>t</sub><sup>(i-1)</sup> + t<sub>t</sub><sup>(i-1)</sup>. In this scenario, there's no pause between two consecutive audio segments in the target language. Add a small offset (enough for one word in the language) to the offset<sub>t</sub><sup>i</sup> (&#916;t<sub>t</sub>). (&#916;t<sub>t</sub>) is to avoid continuous audio in the target audio that isn't present in the original.
+- offset<sub>t</sub><sup>i</sup> < offset<sub>t</sub><sup>(i-1)</sup> + t<sub>t</sub><sup>(i-1)</sup>. In this case, the two audio segments overlap. There are two possible scenarios: 
+	- offset<sub>s</sub><sup>(i-1)</sup> + t<sub>s</sub><sup>(i-1)</sup> < median \{offset<sub>s</sub><sup>(i-1)</sup> \+ t<sub>s</sub><sup>(i-1)</sup>\}&#8704;i. In this case, the pause is shorter than the nominal pause in the video. You can shift the translated text to resolve the problem. You can assume that the longer pauses make up for the overlap. Therefore, offset<sub>t</sub><sup>i</sup> = offset<sub>t</sub><sup>(i-1)</sup> + t<sub>t</sub><sup>(i-1)</sup> + &#916;t<sub>t</sub>.
+	- offset<sub>s</sub><sup>(i-1)</sup> + t<sub>s</sub><sup>(i-1)</sup> > median \{offset<sub>s</sub><sup>(i-1)</sup> \+ t<sub>s</sub><sup>(i-1)</sup>\}&#8704;i. In this case, the pause is longer than the nominal pause in the video, but it doesn't fit the translated audio. You can use the rate to adjust the segment to be more appropriately timed. You can use this equation to calculate the new rate: rate<sub>t</sub><sup>i</sup> = rate<sub>t</sub><sup>i</sup> * (((offset<sub>t</sub><sup>(i-1)</sup> + t<sub>t</sub><sup>(i-1)</sup>) - offset<sub>t</sub><sup>i</sup>) + t<sub>t</sub><sup>i</sup> + &#916;t<sub>t</sub> )/( t<sub>t</sub><sup>i</sup>).
 
-This process might cause the last segment to run over the time of the original audio, particularly when the video ends at the end of the original audio, but the target audio is longer. You have two choices: let the audio run longer or add the full offset of the target audio to the pre-offset, making the last offsettn= offsetsn - (ttn – tsn). If this offset collides with the audio from the previous segment, then use the rate modification described above.
+Implementing this process might cause the last segment to run longer than the time of the original audio, especially if the video ends at the end of the original audio but the target audio is longer. In this situation, you have two choices: 
+- Let the audio run longer.
+- Add the full offset of the target audio to the pre-offset, to make the last offset offset<sub>t</sub><sup>n</sup> = offset<sub>s</sub><sup>n</sup> - (t<sub>t</sub><sup>n</sup> – t<sub>s</sub><sup>n</sup>). If this offset overlaps with the audio from the previous segment, use the rate modification described previously.
 
-Remember, aligning to the middle suits dubbing in languages with longer text in the target compared to the original. If the target is always quicker than the original, it may be better to align the timing to the beginning of the original audio segments.
+Remember, aligning audio segments to the middle is appropriate in translation scenarios in which the target text is longer than the original. If the target is always faster than the original, it might be better to align the timing to the beginnings of the original audio segments.
 
-CODE\_PLACEHOLDER\_3
+```csharp
+private List<PreProcessTTSInput> CompensatePausesAnchorMiddle(List<PreProcessTTSInput> inputs)
+{
+   logger.LogInformation($"Performing Text to Speech Preprocessing on {inputs.Count} segments.");
+   foreach (var input in inputs)
+    {
+        ValidateInput(input);
+        double rate = PreprocessTTSHelper.GetRelativeTargetRate(input, logger);
+        input.Rate = rate;
+    }
 
-### Creating WebVTT files for captioning and human editing
+    TimeSpan medianPause = PreprocessTTSHelper.CalculateMedianPause(inputs);
 
-Web Video Text Tracks Format (WebVTT) is a format for displaying timed text tracks, such as subtitles or captions. It’s used in adding text overlays to a video. This file presents the outputs of the pipeline for human consumption, as well as the captions file production. In the following, we will cover some considerations for leveraging the WebVTT along this pipeline.
+    // Setting nominal pause as average spoken duration of an English word
+    TimeSpan nominalPause = new TimeSpan(0, 0, 0, 0, (int)(60.0 / 228.0 * 1000.0)); 
 
-**Include information in the Notes of the WebVTT file**. To anchor on the WebVTT file across the pipeline, the file itself should contain all the necessary information required for processing the different modules. In addition to the timing and textual information, it includes the Language ID, User ID, and the flag for human intervention as the associated details. To include these details in the WebVTT file and keep it compatible to be used as captions/subtitles file, use the ‘Notes’ section of each segment in the WebVTT file. The following is a suggested format for this:
+    string targetLanguage = inputs[0].TargetLocale.Split('-')[0];
+    if (SpeechRateLookup.Rate.ContainsKey(targetLanguage))
+    {
+        nominalPause = new TimeSpan(0, 0, 0, 0, (int)(60.0 / SpeechRateLookup.Rate[targetLanguage].WordRate * 1000));
+    }
 
-CODE\_PLACEHOLDER\_4
+    TimeSpan previous_target_offset = new TimeSpan(0);
+    TimeSpan previous_target_duration = new TimeSpan(0);
 
-**Ensure proper display of subtitles on different screen sizes.** The number of words and lines of text to display on screen is an important consideration for the use of captions file. These needs be handled per use case and should be performed during the production of the WebVTT file. Humans in the loop review these files and use the prompts to provide fixes. The file also contains certain metadata that other modules down the line need to function properly.
+    TimeSpan previous_source_offset = new TimeSpan(0);
+    TimeSpan previous_source_duration = new TimeSpan(0);
 
-To make subtitles appear properly, longer segments (transcribed or translated results) need to be divided into multiple VTTCues, while preserving the Notes and other details so that they are still pointing to the right context and ensuring that the pipeline doesn’t interrupt the translation or the text-to-text placement of text.
 
-When dividing the original text segment into multiple VTTCues, the timing for each division should also be considered. The word level timestamps produced during transcription could be utilized for this. Since the WebVTT file is open for modification, these could be updated manually, but it’s considerably difficult to maintain.
+    foreach (PreProcessTTSInput source_segment in inputs)
+    {
+        var source_duration = source_segment.Duration;
+        var source_offset = source_segment.Offset;
 
-### Identify Human Intervention potential
+        var target_duration = PreprocessTTSHelper.GetTargetDuration(source_segment);
+        var target_offset = source_offset - (target_duration - source_duration) / 2;
 
-The dubbing pipeline involves several important components: speech-to-text, translation, and text-to-speech. Errors can potentially occur in each of these modules, and they may propagate and become more pronounced throughout the pipeline. It is highly recommended to have human intervention to review and rectify the results to achieve an acceptable level of quality. You can save significant time by identifying and highlighting the specific sections that require intervention. The upcoming sections outline the various stages of the pipeline where issues in the output can be identified, requiring manual intervention.
+        if (target_offset == previous_target_offset + previous_target_duration)
+        {
+            target_offset += nominalPause;
+            source_segment.HumanInterventionRequired = true;
+            source_segment.HumanInterventionReason = "After translation this segment just fit in the space available, a small pause was added before it to space it out.";
+        }
+        else if (target_offset < previous_target_offset + previous_target_duration)
+        {
+            source_segment.HumanInterventionRequired = true;
+            var previous_pause = source_segment.Offset - previous_source_offset + previous_source_duration;
+            if (previous_pause < medianPause)
+            {
+                target_offset = previous_target_offset + previous_target_duration + nominalPause;
+                source_segment.HumanInterventionReason = "After translation this segment overlapped with previous segment, but since the pause before this segment in the source was relatively small, this segment was NOT sped up and was placed right after the previous segment with a small pause";
+            }
+            else
+            {
+                var target_rate = source_segment.Rate * ((previous_target_offset + previous_target_duration - target_offset) + target_duration + nominalPause) / target_duration;
+                source_segment.Rate = target_rate;
+                target_duration = PreprocessTTSHelper.GetTargetDuration(source_segment);
+                target_offset = previous_target_offset + previous_target_duration + nominalPause;
+                source_segment.HumanInterventionReason = "After translation this segment overlapped with previous segment, also the pause this segment in the source was relatively large (and yet the translated segment did not fit), hence this segment was sped up and placed after the previous segment with a small pause";
+            }
+        }
 
-#### Speech To Text
+        source_segment.Offset = target_offset;
 
-The output of speech-to-text could be affected by several aspects, including the audio itself and the background noise present, as well as the language model. It goes without saying that some audio content improves when using customization to the language model to better suit the input. There are multiple aspects based on which points of human intervention are possible:
+        previous_target_offset = target_offset;
+        previous_target_duration = target_duration;
 
-**1. Identify transcription error:** The speech-to-text system may sometimes produce errors in transcribing identities. It provides multiple options for the final transcript, each with a confidence score. These scores help users determine the most accurate transcription from the available options. The n-best list contains the most probable hypotheses for a given speech input. The top hypothesis in this list has the highest score, indicating its likelihood of being the correct transcription. For instance, a score of 0.95 signifies 95% confidence in the accuracy of the top hypothesis. By comparing the scores and differences among the outputs, you can identify discrepancies that require human intervention. You need to consider the threshold and majority voting when selecting the n-best segments:
+        previous_source_offset = source_offset;
+        previous_source_duration = source_duration;
+    }
 
-*Set a higher threshold for improved quality in the dubbing pipeline*. The threshold plays a crucial role in identifying potential errors in the n-best results. It determines the number of n-best results that are compared during the process. A higher threshold means more n-best results are returned for comparison, resulting in a higher overall quality of intervention. It's important to note that setting the threshold to zero limits the selection of candidates with higher confidence compared to the final transcription produced by the speech-to-text system.
+    return inputs;
+}
 
-*Balance recall and precision*: When using majority voting, you should select the lexical form for each candidate that falls within the threshold. Next, determine the insertions, deletions, and replacements in relation to the output phrase. These points of contention need to be considered for highlighting, but highlighting all of them prioritizes recall at the expense of lower precision. To enhance precision, you should order the insertions, deletions, and replacements based on a normalized average score. The count of these errors, relative to the total number of candidates minus one, will serve as a weight. You can set a threshold to calibrate the desired precision level. A weight of 0 will prioritize recall, indicating that the error is present in at least one candidate. Conversely, a weight of 1 will prioritize precision, implying that the error appears in all candidates. This pipeline requires a balanced approach between recall and precision, considering both aspects to achieve optimal results.
+```
 
-CODE\_PLACEHOLDER\_5
+### Creating WebVTT files for captions and human editing
 
-**2. Implement well-spaced language transition detection.** In language identification, detecting a transition from one language to another involves identifying multiple words. When the transition occurs within a certain number of tokens from the previous text, it is flagged. This assumption is based on the idea that well-spaced segments are more likely to be detected accurately. The aim is to avoid false negatives, where a language change occurs but the speech-to-text system fails to detect it before shifting back to the original language.
+Web Video Text Tracks Format (WebVTT) is a format for displaying timed text tracks, like subtitles or captions. It's used for adding text overlays to video. The WebVTT file presents the output of the pipeline for human consumption. It's also used for the captions file. This sections describes some considerations for using WebVTT in this pipeline.
 
-**3. Flag 'Unidentified' SpeakerIDs.** When using speech-to-text with diarization, you may encounter instances where the system labels certain SpeakerIDs as 'Unidentified.' This typically occurs when a speaker has a very short segment and cannot be easily identified. In such cases, it is advisable to flag these conditions for human editing, allowing for better accuracy and identification.
+**Include information in the notes of the WebVTT file**. The WebVTT file should contain all the information that's required to process the various modules. In addition to timing and textual information, it includes the language ID, the user ID, and flags for human intervention. To include these details in the WebVTT file and keep it compatible for use as a captions/subtitles file, use the `NOTE` section of each segment in the WebVTT file. The following code shows the recommended format:
+
+```csharp
+NOTE
+{
+  "Locale": "en-US",
+  "Speaker": null,
+  "HumanIntervention": true,
+  "HumanInterventionReasons": [
+    {
+      "Word": "It's",
+      "WordIndex": 3,
+      "ContentionType": "WrongWord"
+    }
+  ]
+}
+
+1
+00:00:00.0600000-->00:00:04.6000000
+- Hello there!
+- It's a beautiful day 
+
+```
+
+**Ensure that subtitles display correctly on various screen sizes.** When you produce captions files, you need to consider the number of words and lines of text to display on the screen. You need to consider this specifically for each individual use case during the production of the WebVTT file. Humans in the loop review these files and use prompts to resolve problems. The file also contains metadata that other modules later in the pipeline need in order to function.
+
+To ensure that subtitles appear properly, you need to divide longer segments (transcribed or translated results) into multiple VTTCues. You need to preserve the notes and other details so that they still point to the right context and ensure that the pipeline doesn't interrupt the translation or the text-to-text placement of text.
+
+When you divide the original text segment into multiple VTTCues, you also need to consider the timing for each division. You can use the word-level timestamps that are produced during transcription for this purpose. Because the WebVTT file is open for modification, you can update these timestamps manually, but the process creates considerable maintanence overhead.
+
+### Identify potential for human intervention
+
+The dubbing pipeline includes three important modules: speech-to-text, translation, and text-to-speech. Errors can occur in each of these modules, and errors can propagate and become more pronounced later in the pipeline. We strongly recommend that you include human intervention to review and rectify results to ensure an acceptable level of quality. You can save significant time by identifying the specific areas that require intervention. This section describes potential errors in each module that require manual intervention.
+
+#### Speech-to-text
+
+The output of speech-to-text can be affected by the audio itself, the background noise, and the language model. You can improve audio content by customizing the language model to better suit the input. Consider the following options, depending on which points of human intervention are available in your scenario:
+
+**Identify transcription errors.** The speech-to-text system can sometimes produce transcription errors. It provides multiple transcription options, each with a confidence score. These scores can help you determine the most accurate transcription. The *n*-best list contains the most probable hypotheses for a given speech input. The top hypothesis in this list has the highest score, indicating its likelihood of being the correct transcription. For example, a score of 0.95 indicates 95% confidence in the accuracy of the top hypothesis. By comparing the scores and differences among the outputs, you can identify discrepancies that require human intervention. You need to consider the threshold and majority voting when you review the *n*-best list:
+
+*Set a higher threshold for improved quality in the dubbing pipeline*. The threshold plays a crucial role in identifying potential errors in the *n*-best results. It determines the number of *n*-best results that are compared during the process. A higher threshold returns more *n*-best for comparison, resulting in a higher quality of intervention. Setting the threshold to zero limits the selection of candidates but provides higher confidence, as compared to the transcription produced by the speech-to-text system.
+
+*Balance recall and precision*. When you use majority voting, select the lexical form for each candidate that falls within the threshold. Next, determine the insertions, deletions, and replacements in relation to the output phrase. You need to consider these points of contention for highlighting, but highlighting all of them prioritizes recall at the expense of lower precision. To enhance precision, order the insertions, deletions, and replacements based on a normalized average score. The count of these errors, relative to the total number of candidates minus one, serves as a weight. You can set a threshold to calibrate the desired precision level. A weight of 0  prioritizes recall, indicating that the error is present in at least one candidate. Conversely, a weight of 1 prioritizes precision, implying that the error appears in all candidates. In this pipeline, you need to find the appropriate balance between recall and precision.
+
+```csharp
+public string EvaluateCorrectness(SpeechCorrectnessInput input)
+{
+    var speechOutputSegments = input.Input;
+    var ConfidenceThreshold = input.Configuration.ConfidenceThreshold;
+    var errorOccurrenceThreshold = input.Configuration.OccurrenceThreshold;
+    var speechCorrectnessOutputSegments = new List<SpeechCorrectnessOutputSegment>();            
+
+    foreach (var speechOutputSegment in speechOutputSegments)
+    {
+// Filter the candidates within the lower confidence candidate threshold
+        var filteredCandidates = GetFilteredCandidates(speechOutputSegment,ConfidenceThreshold);
+
+        ICollection<SpeechPointOfContention> interventions = null;
+        if (filteredCandidates.Count > 0)
+        {
+// Calculate the possible reasons for needed intervention based on the selected text, the filtered candidates, and the error threshold
+interventions = CalculateInterventionReasons(speechOutputSegment.LexicalText, filteredCandidates, errorOccurrenceThreshold);
+        }
+        // Build the speech correctness segment
+        SpeechCorrectnessOutputSegment correctionSegment = new SpeechCorrectnessOutputSegment()
+        {
+            SegmentID = speechOutputSegment.SegmentID
+        };
+        if (interventions != null && interventions.Count > 0)
+        {
+    	    correctionSegment.InterventionNeeded = true;
+            correctionSegment.InterventionReasons = interventions;
+        }
+        else
+        {
+            correctionSegment.InterventionNeeded = false;
+            correctionSegment.InterventionReasons = null;
+        }
+        speechCorrectnessOutputSegments.Add(correctionSegment);
+     }
+
+    return JsonConvert.SerializeObject(speechCorrectnessOutputSegments);
+}
+
+private ICollection<SpeechPointOfContention> CalculateInterventionReasons(string selectedText, ICollection<SpeechCandidate> candidates, double errorOccurrenceThreshold)
+{
+    ICollection<ICollection<ICollection<SpeechPointOfContention>>> allPossiblePointsOfContention = new List<ICollection<ICollection<SpeechPointOfContention>>>();
+
+    foreach (var candidate in candidates)
+    {
+        // Get points of contention for all speech candidates in this segment, compared to the text selected
+        var candidateSentence = candidate.LexicalText.Split(' ');
+        var segmentSentence = selectedText.Split(' ');
+        var editDistanceResults = CalculateEditDistance(candidateSentence, segmentSentence);
+        var allPossibleCandidatePointsOfContention = GetAllPossiblePointsOfContention(
+            candidateSentence,
+            segmentSentence,
+            new Stack<SpeechPointOfContention>(), 
+            editDistanceResults);
+        allPossiblePointsOfContention.Add(allPossibleCandidatePointsOfContention);
+    }
+    // Calculate which combination of all possible points of contention will lead to the highest count for the selected points of contention across all candidates
+    var bestCandidatePointsOfContention = GetBestContentionCombination(allPossiblePointsOfContention);
+
+    // Keep count of occurrences of all points of contention across the candidates
+    var candidatePOCCounts = new Dictionary<SpeechPointOfContention, int>();
+    foreach (var pointsOfContention in bestCandidatePointsOfContention)
+    {
+        CountPointsOfContention(pointsOfContention, candidatePOCCounts);
+    }
+    var filteredPointsOfContention = new List<SpeechPointOfContention>();
+    foreach (var pocToCount in candidatePOCCounts)
+    {
+        // For each point of contention, calculate its rate of occurrence relative to the number of candidates
+        var occurrenceRate = (double)pocToCount.Value / candidates.Count;
+        // If the rate of occurrence is within the threshold, count the point of contention as an error that requires intervention
+        if (occurrenceRate >= errorOccurrenceThreshold)
+        {
+            filteredPointsOfContention.Add(pocToCount.Key);
+        }
+    }
+    return filteredPointsOfContention;
+}
+
+```
+
+**Implement well-spaced language transition detection.** In language identification, detecting a transition from one language to another involves identifying multiple words. When the transition occurs within a certain number of tokens from the previous text, it's flagged. This assumption is based on the idea that well-spaced segments are more likely to be detected accurately. The aim is to avoid false negatives, where a language change occurs but the speech-to-text system fails to detect it before shifting back to the original language.
+
+**Flag unidentified speaker IDs.** When you use speech-to-text with diarization, the system might label some speaker IDs as `Unidentified`. This typically occurs when a speaker speaks for a short time. We recommend that you flag these labels for human editing.
 
 #### Translation
 
-When evaluating the quality of translated output, one commonly used metric is the BLEU score. However, the BLEU score has its limitations. It relies on comparing the machine-translated output with human-generated reference translations to measure similarity. This metric does not consider important aspects such as fluency, grammar, and meaning preservation.
+The BLEU score is a commonly used metric for evaluating the quality of translated output. However, the BLEU score has limitations. It relies on comparing the machine-translated output with human-generated reference translations to measure similarity. This metric doesn't consider important elements like fluency, grammar, and the preservation of meaning.
 
-There is an alternative method you can employ to assess translation quality. It involves performing a bidirectional translation and comparing the results. First, the input segment is translated from the source language to the target language. Then, the translated output is reversed and translated back from the target language to the source language. This process generates two strings: the source segment (Si) and the expected value of the source (E(Si)). By comparing these two strings, you can figure out the number of insertions and deletions.
+You can use an alternative method to assess translation quality. It involves performing a bidirectional translation and comparing the results. First, translate the input segment from the source language to the target language. Next, reverse the process and translate back from the target language to the source language. This process generates two strings: the source segment (Si) and the expected value of the source (E(Si)). By comparing the two strings, you can figure out the number of insertions and deletions.
 
-If the number of insertions and deletions exceeds a predefined threshold, the statement is flagged for further examination. If the number falls below the threshold, the segment Si is considered a well-translated match. In cases where differences are found, it may be beneficial to highlight them in the source language. This approach helps draw attention to specific terms that need correction, rather than showing that the entire segment requires human verification.
+If the number of insertions and deletions exceeds a predefined threshold, the statement is flagged for further examination. If the number falls below the threshold, the segment Si is considered a well-translated match. In cases where differences are found, it might be beneficial to highlight them in the source language. This approach helps draw attention to specific terms that need correction, rather than showing that the entire segment requires human verification.
 
 #### Text-to-speech
 
-The text-to-speech highlighting is mostly associated with the changed rate and with shifts in placement that are beyond the gaps in the source audio. The locations where alterations of rate or placements as pointed out in the text-to-text section are highlighted for the user.
+The text-to-speech highlighting is mostly associated with the changed rate and with shifts in placement that are beyond the gaps in the source audio. The locations where alterations of rate or placements, as pointed out in the text-to-text section, are highlighted.
 
 ## Contributors
 
-[Nayer Wanas](https://www.linkedin.com/in/nwanas/)
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-[Pratyush Mishra](https://www.linkedin.com/in/mishrapratyush/)
+Principal author:
 
-[Vivek Chettiar](https://www.linkedin.com/in/vivekchettiar/)
+- [Nayer Wanas](https://www.linkedin.com/in/nwanas/) | Principal Software Engineer
 
-[Bernardo Chuecos Rincon](https://www.linkedin.com/in/bernardo-chuecos-rincon-171997177/)
+Other contributors:
 
-## Next Steps
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer 
+- [Vivek Chettiar](https://www.linkedin.com/in/vivekchettiar/) | Software Engineer II
+- [Bernardo Chuecos Rincon](https://www.linkedin.com/in/bernardo-chuecos-rincon-171997177/) | Software Engineer II
+- [Pratyush Mishra](https://www.linkedin.com/in/mishrapratyush/) | Principal Engineering Manager 
 
-You can see a sample implementation for offline audio dubbing in the following GitHub repository: [Cognitive services utilities](https://github.com/microsoft/Cognitive_Service_Utilities/blob/main/README.md).
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-https://learn.microsoft.com/en-us/azure/cognitive-services/what-are-cognitive-services
+## Next steps
+
+- [Sample implementation of offline audio dubbing](https://github.com/microsoft/Cognitive_Service_Utilities/blob/main/README.md)
+- [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
+- [Language and voice support for the Speech service](/azure/cognitive-services/speech-service/language-support)
+
+## Related resources
+
+- [Choose an Azure Cognitive Services technology](../../data-guide/technology-choices/cognitive-services.md)
+- [Implement custom speech-to-text](../../guide/ai/custom-speech-text.yml)
