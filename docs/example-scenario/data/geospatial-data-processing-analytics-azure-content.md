@@ -288,9 +288,6 @@ To start implementing this solution, see this information:
 [Azure Monitor Logs overview]: /azure/azure-monitor/logs/data-platform-logs
 [Azure Monitor Metrics overview]: /azure/azure-monitor/essentials/data-platform-metrics
 [Azure Monitor overview]: /azure/azure-monitor/overview
-[Basic web app availability considerations]: ../../reference-architectures/app-service-web-app/basic-web-app.yml?=cli#reliability
-[Basic web application scalability considerations]: ../../reference-architectures/app-service-web-app/basic-web-app.yml?tabs=cli#performance-efficiency
-[Basic web application authentication]: ../../reference-architectures/app-service-web-app/basic-web-app.yml?tabs=cli#authentication
 [Big data analytics with Azure Data Explorer]: ../../solution-ideas/articles/big-data-azure-data-explorer.yml
 [Chapter 4. PostGIS Usage]: https://postgis.net/docs/using_raster_dataman.html#RT_Loading_Rasters
 [Compare the machine learning products and technologies from Microsoft - Azure Databricks]: ../../data-guide/technology-choices/data-science-and-machine-learning.md#azure-databricks

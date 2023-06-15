@@ -496,7 +496,7 @@ See [Resiliency and dependencies](/azure/well-architected/resiliency/design-resi
 [priority-queue-pattern]: /previous-versions/msp-n-p/dn589794(v=pandp.10)
 [queue-based-load-leveling]: /previous-versions/msp-n-p/dn589783(v=pandp.10)
 [QuotaExceededException]: /dotnet/api/microsoft.servicebus.messaging.quotaexceededexception?view=azure-dotnet&preserve-view=true
-[ra-web-apps-basic]: ../reference-architectures/app-service-web-app/basic-web-app.yml
+[ra-web-apps-basic]: ../web-apps/architectures/basic-web-app.yml
 [redis-monitor]: /azure/azure-cache-for-redis/cache-how-to-monitor
 [redis-retry]: ../best-practices/retry-service-specific.md#azure-cache-for-redis
 [RoleEntryPoint.OnStop]: /previous-versions/azure/reference/ee772844(v=azure.100)

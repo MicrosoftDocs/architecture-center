@@ -6651,10 +6651,10 @@ items:
                 href: web-apps/spring-apps/spring-cloud-reverse-proxy.yml 
               - name: Blue/green deployments for applications
                 href: web-apps/spring-apps/blue-green-spring.yml                      
-      - name: Basic web application
-        href: reference-architectures/app-service-web-app/basic-web-app.yml
-      - name: Baseline web application with zone redundancy
-        href: reference-architectures/app-service-web-app/baseline-zone-redundant.yml
+      # - name: Basic web application
+      #   href: reference-architectures/app-service-web-app/basic-web-app.yml
+      # - name: Baseline web application with zone redundancy
+      #   href: reference-architectures/app-service-web-app/baseline-zone-redundant.yml
       - name: Clinical insights with Cloud for Healthcare
         href: example-scenario/mch-health/medical-data-insights.yml
       - name: Common web app architectures
@@ -6672,8 +6672,8 @@ items:
         href: example-scenario/web/design-api-developer-experiences-management-github.yml
       - name: E-commerce front end
         href: example-scenario/apps/ecommerce-scenario.yml
-      - name: Highly available multi-region web app
-        href: reference-architectures/app-service-web-app/multi-region.yml
+      # - name: Highly available multi-region web app
+      #   href: reference-architectures/app-service-web-app/multi-region.yml
       - name: 'IaaS: Web app with relational database'
         href: high-availability/ref-arch-iaas-web-and-db.yml
       - name: Improved access to multitenant web apps

@@ -75,6 +75,8 @@ Scale the AKS cluster to meet your performance and throughput requirements. Take
 
 ## Related resources
 
-- [Basic web application](../../reference-architectures/app-service-web-app/basic-web-app.yml)
+- [Basic web application](../../web-apps/architectures/basic-web-app.yml)
+- [Baseline zone-redundant web application](../../web-apps/architectures/baseline-zone-redundant.yml)
+- [Multi-region active-passive web application](../../web-apps/architectures/multi-region.yml)
 - [Design great API developer experiences using API Management and GitHub](../../example-scenario/web/design-api-developer-experiences-management-github.yml)
 - [Stream processing with Azure Databricks](../../reference-architectures/data/stream-processing-databricks.yml)

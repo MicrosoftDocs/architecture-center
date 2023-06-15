@@ -2,11 +2,21 @@ items:
 - name: Web applications
   href: index.md
   items: 
-    - name: Solution ideas
+    - name: Explore ideas about
       items: 
-      - name: E-commerce web app
+      - name: Hosting an e-commerce web app
         href: idea/scalable-ecommerce-web-app.yml
-      - name: Network secured e-commerce web app
+      - name: Network securing an e-commerce web app
         href: idea/ecommerce-website-running-in-secured-ase.yml
-      - name: Lift-and-shift migration to containers with App Service
+      - name: Migrating a workload to containers with App Service
         href: idea/migrate-existing-applications-to-container-apps.yml
+    - name: Architectures
+      items:
+      - name: Host web apps with Azure App Service
+        items:
+        - name: Basic web application
+          href: architectures/basic-web-app.yml
+        - name: Baseline web application with zone redundancy
+          href: architectures/baseline-zone-redundant.yml
+        - name: Active-passive multi-region web app
+          href: architectures/multi-region.yml        

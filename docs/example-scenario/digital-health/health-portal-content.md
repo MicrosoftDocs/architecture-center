@@ -81,7 +81,7 @@ This solution is currently designed as a single-region deployment. If your scena
 
 - Azure API Management is [deployed using CI/CD](/azure/api-management/devops-api-development-templates) into a secondary region. You might also apply the [Multi-Region Deployment capability](/azure/cosmos-db/high-availability) of API Management.
 
-- Azure App Service and Functions are deployed separately to multiple regions. This deployment can be done within your [CI/CD pipeline](https://azure.microsoft.com/solutions/architecture/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps) by creating a parallel deployment. Read the [Highly available multi-region web application](../../reference-architectures/app-service-web-app/multi-region.yml) for further guidance.
+- Azure App Service and Functions are deployed separately to multiple regions. This deployment can be done within your [CI/CD pipeline](https://azure.microsoft.com/solutions/architecture/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps) by creating a parallel deployment. Read the [Highly available multi-region web application](../../web-apps/architectures/multi-region.yml) for further guidance.
 
 - Depending on the requirement for RTO (recovery time objective), Azure Blob Storage can either be configured as geo-redundant storage (GRS), or read-access geo-redundant storage (RA-GRS) that allows reads directly from the alternate region. To learn more, see the [Azure Storage redundancy](/azure/storage/common/storage-redundancy) article.
 
@@ -166,5 +166,5 @@ Principal author:
 - [HIPAA and HITRUST Compliant Health Data AI](../../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)
 - [Scalable cloud applications and site reliability engineering (SRE)](/azure/architecture/example-scenario/apps/scalable-apps-performance-modeling-site-reliability)
 - [Network-hardened web application with private connectivity to PaaS datastores](/azure/architecture/example-scenario/security/hardened-web-app)
-- [Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region)
-- [Scalable web application](/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app)
+- [Baseline zone-redundant web application](/azure/architecture/web-apps/architectures/baseline-zone-redundant)
+- [Highly available multi-region web application](/azure/architecture/web-apps/architectures/multi-region)

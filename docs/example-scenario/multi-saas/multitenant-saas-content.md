@@ -180,6 +180,6 @@ The [pricing for Azure Cognitive Search](https://azure.microsoft.com/pricing/det
 
 ## Related resources
 
-* [Run a web application in multiple Azure regions for high availability](../../reference-architectures/app-service-web-app/multi-region.yml) is a reference for the multiregion requirement of the solution.
+* [Run a web application in multiple Azure regions for high availability](../../web-apps/architectures/multi-region.yml) is a reference for the multiregion requirement of the solution.
 
 * [Multitier web application built for high availability and disaster recovery on Azure](../infrastructure/multi-tier-app-disaster-recovery.yml) is a similar example workload scenario. It describes many of the considerations for a large-scale application on Azure.

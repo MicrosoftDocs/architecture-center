@@ -72,7 +72,8 @@ In early startup stages, any architecture extension should be just-in-time. The 
 
 Your architecture could be expanded in many ways, such as:
 
-- Enhancing resiliency through a [highly available multi-region deployment](../../reference-architectures/app-service-web-app/multi-region.yml)
+- Enhancing resiliency through a [zone-redundant deployment](../../web-apps/architectures/baseline-zone-redundant.yml)
+- Enhancing resiliency through a [highly available multi-region deployment](../../web-apps/architectures/multi-region.yml)
 - Enhancing security through a [network hardened technology stack](../../example-scenario/security/hardened-web-app.yml)
 
 ## Extract

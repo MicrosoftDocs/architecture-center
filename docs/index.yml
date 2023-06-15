@@ -496,13 +496,13 @@ conceptualContent:
       links:
         - text: Basic web application
           itemType: architecture
-          url: reference-architectures/app-service-web-app/basic-web-app.yml
-        - text: Improved scalability
+          url: web-apps/architectures/basic-web-app.yml
+        - text: Baseline zone-redundant web application
           itemType: architecture
-          url: reference-architectures/app-service-web-app/scalable-web-app.yml
+          url: web-apps/architectures/baseline-zone-redundant.yml
         - text: Multi-region deployment
           itemType: architecture
-          url: reference-architectures/app-service-web-app/multi-region.yml
+          url: web-apps/architectures/multi-region.yml
         - text: Web application monitoring
           itemType: architecture
           url: reference-architectures/app-service-web-app/app-monitoring.yml
