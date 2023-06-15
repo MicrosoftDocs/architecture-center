@@ -15,7 +15,7 @@ ADS CFD software is used primarily in the aerospace and turbomachinery (energy) 
 
 ## Architecture
 
-:::image type="content" source="media/hps-code-leo.png" alt-text="Diagram that shows an architecture for running Code Leo on Azure." lightbox="media/hps-code-leo.png" border="false":::
+:::image type="content" source="media/hps-code-leo.svg" alt-text="Diagram that shows an architecture for running Code Leo on Azure." lightbox="media/hps-code-leo.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/HPC-CodeLeo.vsdx) of this architecture.*
 
