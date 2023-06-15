@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Create an Azure private 5G split core shop floor network
+  title: Create a private 5G split core shop floor network
   titleSuffix: Azure Architecture Center
   description: Discover how a split 5G/LTE core architecture is suited for large enterprises that have multiple sites.
   author: jashobhit
   ms.author: shobhitjain
-  ms.date: 11/17/2022
+  ms.date: 6/15/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -17,7 +17,7 @@ products:
   - azure-sql-database
   - azure-stack-edge
   - azure-storage
-name: Create an Azure private 5G split core shop floor network
+name: Create a private 5G split core shop floor network
 summary: Discover how a split 5G/LTE core architecture is suited for large enterprises that have multiple sites.
 thumbnailUrl: /azure/architecture/browse/thumbs/private-5g-network.png
 content: |
