@@ -172,7 +172,7 @@
 				</g>
 			</g>
 		</g>
-		<g id="group1020-31" transform="translate(271.694,-209.356)">
+		<g id="group1020-31" transform="translate(271.856,-209.356)">
 			<title>MsPortalFx.base.images-7</title>
 			<g id="group1021-32">
 				<title>Sheet.1021</title>
@@ -212,7 +212,7 @@
 				</g>
 			</g>
 		</g>
-		<g id="group1028-47" transform="translate(275.695,-111.618)">
+		<g id="group1028-47" transform="translate(275.857,-111.618)">
 			<title>Icon-databases-130</title>
 			<g id="shape1029-48">
 				<title>Sheet.1029</title>
@@ -310,7 +310,7 @@
 			<desc>On-premises gateway data</desc>
 			<rect x="0" y="361.583" width="85.0394" height="31.4646" class="st22"/>
 			<text x="11.43" y="374.02" class="st23">On-premises <tspan x="10.1" dy="1.2em" class="st24">gateway data</tspan></text>		</g>
-		<g id="shape1046-86" transform="translate(22.1476,-184.609)">
+		<g id="shape1046-86" transform="translate(21.7599,-184.609)">
 			<title>Sheet.1046</title>
 			<desc>Data warehouse</desc>
 			<rect x="0" y="369.803" width="99.9882" height="23.2441" class="st22"/>
@@ -320,7 +320,7 @@
 			<desc>Azure Data Factory</desc>
 			<rect x="0" y="373.205" width="102.124" height="19.8425" class="st22"/>
 			<text x="5.11" y="386.43" class="st23">Azure Data Factory</text>		</g>
-		<g id="shape1048-92" transform="translate(236.766,-184.609)">
+		<g id="shape1048-92" transform="translate(236.929,-184.609)">
 			<title>Sheet.1048</title>
 			<desc>Azure Blob Storage</desc>
 			<rect x="0" y="369.803" width="102.124" height="23.2441" class="st22"/>
@@ -343,13 +343,13 @@
 			<title>Sheet.1053</title>
 			<path d="M0 393.05 L68.65 393.05" class="st25"/>
 		</g>
-		<g id="shape1054-112" transform="translate(680.876,206.737) rotate(90)">
+		<g id="shape1054-112" transform="translate(681.038,206.737) rotate(90)">
 			<title>Sheet.1054</title>
 			<path d="M0 393.05 L28.1 393.05" class="st25"/>
 		</g>
-		<g id="shape1055-117" transform="translate(680.876,117.446) rotate(90)">
+		<g id="shape1055-117" transform="translate(681.038,118.863) rotate(90)">
 			<title>Sheet.1055</title>
-			<path d="M0 393.05 L25.98 393.05" class="st25"/>
+			<path d="M0 393.05 L24.56 393.05" class="st25"/>
 		</g>
 		<g id="shape1056-122" transform="translate(464.801,208.438) rotate(90)">
 			<title>Sheet.1056</title>
@@ -364,7 +364,7 @@
 			<desc>On-premises data</desc>
 			<rect x="0" y="368.102" width="102.124" height="24.9449" class="st22"/>
 			<text x="7.76" y="383.87" class="st23">On-premises data</text>		</g>
-		<g id="group1059-133" transform="translate(274.26,-305.051)">
+		<g id="group1059-133" transform="translate(274.423,-305.051)">
 			<title>Icon-166Artboard 1</title>
 			<g id="shape1060-134">
 				<title>bc892891-989d-4c43-80d3-d2b4546</title>
@@ -379,11 +379,11 @@
 				<path d="M10.65 393.05 L0 382.06 L4.47 376.9 L12.54 386.01 L10.65 393.05 Z" class="st29"/>
 			</g>
 		</g>
-		<g id="shape1063-142" transform="translate(239.214,-275.743)">
+		<g id="shape1063-142" transform="translate(239.376,-274.184)">
 			<title>Sheet.1063</title>
-			<desc>Machine Learning Services</desc>
+			<desc>Azure Machine Learning</desc>
 			<rect x="0" y="364.701" width="97.2283" height="28.3465" class="st22"/>
-			<text x="5.42" y="375.57" class="st23">Machine Learning <tspan x="29.19" dy="1.2em" class="st24">Services</tspan></text>		</g>
+			<text x="12.46" y="375.57" class="st23">Azure Machine <tspan x="27.64" dy="1.2em" class="st24">Learning</tspan></text>		</g>
 		<g id="group1064-146" transform="translate(394.937,-305.051)">
 			<title>Excel.1064</title>
 			<g id="group1065-147">

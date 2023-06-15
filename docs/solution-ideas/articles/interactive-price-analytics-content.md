@@ -20,7 +20,7 @@ The Price Analytics solution utilizes your transactional history data to show yo
 ### Components
 
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory)
-- [Azure Machine Learning Services](https://azure.microsoft.com/services/machine-learning)
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning)
 - [Microsoft Excel](https://www.microsoft.com/microsoft-365/excel) worksheets
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database)
