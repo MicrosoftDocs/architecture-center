@@ -124,7 +124,7 @@ The design variation with separate Azure firewalls or network virtual appliances
 
 Virtual WAN creates a similar topology and takes over the routing complexity. It does so both in the hubs (which Microsoft manages) and in the spokes (where routes can be injected and don't need to be manually defined in route tables). So the network administrator only needs to connect the spoke virtual networks to a Virtual WAN hub and doesn't need to worry about forwarding traffic between regions.
 
-:::image type="content" source="media/spoke-to-spoke-through-vwan.svg" alt-text="Network diagram that shows a Virtual WAN design with spokes connected via Virtual WAN." lightbox="media/spoke-to-spoke-through-vwan.svg" border="false":::
+:::image type="content" source="media/spoke-to-spoke-through-virtual-wan.svg" alt-text="Network diagram that shows a Virtual WAN design with spokes connected via Virtual WAN." lightbox="media/spoke-to-spoke-through-virtual-wan.svg" border="false":::
 
 ### Hybrid patterns
 
@@ -138,7 +138,7 @@ Another common pattern involves connecting spokes in one region via direct virtu
 
 The same designs are applicable for Virtual WAN. However, one consideration is that direct connectivity between spoke virtual networks need to be configured manually directly between the virtual networks and not through the Virtual WAN resource. Azure Virtual Network Manager doesn't currently support architectures that are based on Virtual WAN. For example:
 
-:::image type="content" source="media/spoke-to-spoke-through-peerings-vwan.svg" alt-text="Network diagram that shows a Virtual WAN design with spokes connected via Virtual WAN and some virtual network peerings." lightbox="media/spoke-to-spoke-through-peerings-vwan.svg" border="false":::
+:::image type="content" source="media/spoke-to-spoke-through-peerings-virtual-wan.svg" alt-text="Network diagram that shows a Virtual WAN design with spokes connected via Virtual WAN and some virtual network peerings." lightbox="media/spoke-to-spoke-through-peerings-virtual-wan.svg" border="false":::
 
 > [!NOTE]
 > For hybrid approaches, it's important to understand that direct connectivity via virtual network peering propagates system routes for its connecting virtual networks that are often more specific than custom routes configured via route tables. Therefore, the virtual network peering path is preferred over custom routes that follow the [longest prefix-match route selection][udr_route_selection]. 
