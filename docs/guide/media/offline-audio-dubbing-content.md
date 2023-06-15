@@ -27,8 +27,8 @@ The pipeline is aware of errors. This awareness is significant when the language
 
 ### Components
 
-- [Azure Cognitive Services](https://azure.microsoft.com/eproducts/cognitive-services) is a suite of cloud-based AI services that helps developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. The services are available through REST APIs and client library SDKs in popular development languages.
-- [Azure Speech service](/azure/cognitive-services/speech-service/overview) unifies speech-to-text, text-to-speech, speech translation, voice assistant, and speaker recognition functionality into a single service-based subscription offering.
+- [Azure Cognitive Services](https://azure.microsoft.com/products/cognitive-services) is a suite of cloud-based AI services that helps developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. The services are available through REST APIs and client library SDKs in popular development languages.
+- [Azure Speech service](/products/cognitive-services/speech-services/) unifies speech-to-text, text-to-speech, speech translation, voice assistant, and speaker recognition functionality into a single service-based subscription offering.
 - [Azure translator service](/azure/cognitive-services/translator/translator-overview) is a cloud-based neural machine translation service that's part of the Cognitive Services family of REST APIs. You can use it with any operating system. Translator service enables many Microsoft products and services that are used by thousands of businesses worldwide to perform language translation and other language-related operations.
 
 ## Use cases
@@ -101,7 +101,7 @@ The translator service provides features that you can use to generate higher-qua
 
 ### Text-to-speech 
 
-**Select appropriate voices.** Based on the type of content and the intended audience, the selection of a speaker voice can have a big influence on how well the content is received. The service provides [pre-built voices](/azure/cognitive-services/speech-service/language-support?tabs=stt-tts#prebuilt-neural-voices) in a range of languages in male and female voices. It also provides pre-built models that allow injection of emotions. Alternatively, you can use a custom neural voice that's available in two versions, Lite and Pro, for the target speech language. If you use the Pro version, you can add emotions to the voice to model the source speech input. In all cases, you need to define a voice for each speaker and for each language. Unless you check the speech-to-text output to ensure that there are no unidentified speakers, you need to define a default voice.
+**Select appropriate voices.** Based on the type of content and the intended audience, the selection of a speaker voice can have a big influence on how well the content is received. The service provides [pre-built voices](/azure/cognitive-services/speech-service/language-support?tabs=tts#prebuilt-neural-voices) in a range of languages in male and female voices. It also provides pre-built models that allow injection of emotions. Alternatively, you can use a custom neural voice that's available in two versions, Lite and Pro, for the target speech language. If you use the Pro version, you can add emotions to the voice to model the source speech input. In all cases, you need to define a voice for each speaker and for each language. Unless you check the speech-to-text output to ensure that there are no unidentified speakers, you need to define a default voice.
 
 **Perform speech placement.** The placement of the target speech and the integration of it into one SSML file are key elements in the text-to-text module. The following sections describe these elements.
 
