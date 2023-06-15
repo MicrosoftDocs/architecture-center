@@ -17,7 +17,7 @@ products:
   - azure-sql-database
   - azure-stack-edge
   - azure-storage
-name: Create an Azure private 5G split core shop floor network
+name: Create a 5G split core shop floor network
 summary: Discover how a split 5G/LTE core architecture is suited for large enterprises that have multiple sites.
 thumbnailUrl: /azure/architecture/browse/thumbs/private-5g-network.png
 content: |
