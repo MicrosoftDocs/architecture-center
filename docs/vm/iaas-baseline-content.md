@@ -159,13 +159,15 @@ Another benefit is that flexible orchestration can spread VMs across fault domai
 
 [Azure Active Directory (Azure AD)](/azure/active-directory/) is recommended for authenication of all actors, both users and software components such as services. Use [Azure Role Based Access Control (RBAC)](/azure/role-based-access-control/overview) for authorization of all actors accessing resources, and implementation of the [principle of least privilege](/azure/active-directory/develop/secure-least-privileged-access) when applying roles and permissions to actors. 
 
-In the workload, services will need to communicate with other services. For example, VMs need to reach Key Vault to get certificates. To make sure that access is secure, the service needs to authenticate its identity to the other service. Using managed identity is recommended. Managed identities are based on Azure Active Directory service principals internally, but much easier to use due to the automatic management of the service principal object.
+In the workload, services will need to communicate with other services. For example, VMs need to reach Key Vault to get certificates. To make sure that access is secure, the service needs to authenticate its identity to the other service. Using a managed identity is recommended. Managed identities are based on Azure Active Directory service principals internally, but much easier to use due to the automatic management of the service principal object.
 
-These services in this architecture use [user-assigned managed identities](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types). The identities are created and assigned during deployment. 
+The services in this architecture use [user-assigned managed identities](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types). These identities are created and assigned during deployment:
 
 - **Azure Application Gateway** uses its user-assigned managed identity to access Azure Key Vault and retrieve external and internal TLS certificates. The external certificate is used for encrypting traffic to/from the user, and the internal certificate is used to encrypt traffic to/from the front-end web tier.
 
 - **Front-end web tier and back-end API tier VMs** use their own user-assigned managed identities to access Azure Key Vault and retrieve the internal TLS certificate. The internal certificate is used for encrypting traffic between frontend and backend VMs. VMs also use their managed identity to access the Azure Storage account issued during deployment, which is used to store boot diagnostics.
+
+Note that VMSS flexible orchestration mode [does not support](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#unsupported-parameters) the use of system-assigned managed identities. 
 
 // It's a good place to add some example of how to continue to use managed identity for extension cases. Like Backend servers would need managed identity for getting secrets from KV for database connection purposes. 
 
