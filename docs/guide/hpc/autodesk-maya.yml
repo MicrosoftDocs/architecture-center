@@ -1,0 +1,22 @@
+### YamlMime:Architecture
+metadata:
+  title: Deploy Autodesk Maya on a virtual machine
+  description: See how Autodesk Maya performs on an Azure virtual machine. Maya provides 3D animation, modeling, simulation, and rendering capabilities.
+  author: vinodms47
+  ms.author: v-vipamulapa
+  ms.date: 06/16/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - compute
+  - developer-tools
+  - media
+products:
+  - azure-virtual-machines
+  - azure-virtual-network
+name: Deploy Autodesk Maya on a virtual machine
+summary: See how Autodesk Maya performs on an Azure virtual machine. Maya provides 3D animation, modeling, simulation, and rendering capabilities.
+thumbnailUrl: /azure/architecture/browse/thumbs/autodesk-maya-thumbnail.png
+content: |
+  [!include[](autodesk-maya-content.md)]
