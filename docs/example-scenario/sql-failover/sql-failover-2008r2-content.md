@@ -2,7 +2,7 @@ This article presents a solution that can benefit organizations that rely on SQL
 
 ## Architecture
 
-:::image type="complex" source="./windows-server-2008-r2-failover-cluster-with-azure-shared-disk.png" alt-text="Architecture diagram showing a Windows Server 2008 R2 failover cluster that uses an Azure shared disk to manage shared storage." border="false":::
+:::image type="complex" source="./windows-server-2008-r2-failover-cluster-with-azure-shared-disk.svg" alt-text="Architecture diagram showing a Windows Server 2008 R2 failover cluster that uses an Azure shared disk to manage shared storage." border="false":::
 A dotted line surrounds most components, including an Azure Load Balancer, two virtual machines, and a file share witness. The line indicates that these components are part of a virtual network. Inside that network, a horizontal, blue rectangle represents an availability set. It contains the two virtual machines and their disks. Lines run between each virtual machine and an SMB file share witness. A black, vertical rectangle contains the file share witness and runs through the availability set. On the top border of that rectangle is the Load Balancer. A line extends from the Load Balancer to the outside of the virtual network rectangle. Outside the virtual network rectangle on the bottom is an Azure shared disk. A line connects that disk to the components in the network.
 :::image-end:::
 
@@ -351,7 +351,7 @@ To learn more about solution components, see these resources:
 [SQL Server 2008 R2 SP3 on Windows Server 2008 R2]: https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2008r2sp3-ws2008r2sp1-byol?tab=Overview
 [Upgrade SQL Server]: /sql/sql-server/end-of-support/sql-server-end-of-life-overview#upgrade-sql-server
 [Upload a generalized VHD and use it to create new VMs in Azure]: /azure/virtual-machines/windows/upload-generalized-managed
-[Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1778662-PR-1852-windows-server-2008-r2-failover-cluster-with-azure-shared-disk.vsdx
+[Visio version of architecture diagram]: https://arch-center.azureedge.net/windows-server-2008-r2-failover-cluster-with-azure-shared-disk.vsdx
 [What is Azure SQL?]: /azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview
 [What is Azure Virtual Network?]: /azure/virtual-network/virtual-networks-overview
 [Windows Server 2008 R2 lifecycle]: /lifecycle/products/windows-server-2008-r2
