@@ -1,14 +1,6 @@
 # OpenCensus on Azure with Application Insights
 
-Description: End-to-end monitoring of a distributed system: a case in point with Azure Functions and OpenCensus
-
-
-
-
-
-This article describes an example distributed architecture that uses Azure Functions for Python, Azure Event Hubs, and Azure Service Bus. Next, you learn about distributed tracing and how it works by using Python code examples. Also learn how to set up monitoring capabilities by using [opencensus-python](https://github.com/census-instrumentation/opencensus-python) and Application Insights. Learn how to leverage the introduced observability.
-
-In this article, we use an example case of a distributed application that requires events and messaging capabilities. Python being a common language in the ecosystem, we will use it with the Opencensus package recommended by Microsoft.
+This article describes a distributed architecture that uses Azure Functions for Python, Azure Event Hubs, and Azure Service Bus to monitor an end-to-end system. It introduces distributed tracing and explains how it works by using Python code examples. You can also learn how to set up monitoring capabilities by using [OpenCensus for Python](https://github.com/census-instrumentation/opencensus-python) and Application Insights.
 
 > [!NOTE]
 > OpenCensus and OpenTelemetry are merging, but OpenCensus is still the recommended approach to monitor Azure Functions. OpenTelemetry for Azure is in preview and [some features aren't available yet.](/azure/azure-monitor/faq#what-s-the-current-release-state-of-features-within-the-azure-monitor-opentelemetry-distro-)
@@ -19,9 +11,9 @@ In this article, we use an example case of a distributed application that requir
 
 ## Workflow
 
-1) **Query.** A timer-triggered Azure function queries a *Contoso* internal API to get the latest sales data once a day. It then uses the [Azure Event Hubs output binding](/azure/azure-functions/functions-bindings-event-hubs-output?tabs=in-process%2Cfunctionsv2%2Cextensionv5&pivots=programming-language-python) to send the unstructured data as events.
+1) **Query.** A timer-triggered Azure function queries a *Contoso* internal API to get the latest sales data once a day. The function uses the [Azure Event Hubs output binding](/azure/azure-functions/functions-bindings-event-hubs-output?tabs=in-process%2Cfunctionsv2%2Cextensionv5&pivots=programming-language-python) to send the unstructured data as events.
 
-1) **Process.** Event Hubs triggers an Azure function that processes and formats the unstructured data to a pre-defined structure. It then publishes one message to Service Bus per asset that needs to be imported by [using the Service Bus output binding](/azure/azure-functions/functions-bindings-service-bus-output?tabs=in-process%2Cextensionv5&pivots=programming-language-python).
+1) **Process.** Event Hubs triggers an Azure function that processes and formats the unstructured data to a pre-defined structure. The function publishes one message to Service Bus per asset that needs to be imported by [using the Service Bus output binding](/azure/azure-functions/functions-bindings-service-bus-output?tabs=in-process%2Cextensionv5&pivots=programming-language-python).
 
 1) **Upsert.** Service Bus triggers an Azure function that consumes messages from the queue and launches an upsert operation in the common company storage.
 
@@ -69,11 +61,11 @@ Description automatically generated with medium confidence](Aspose.Words.2d867fa
 > [!NOTE]
 > In the deployment, the call to the API is replaced by a read of a file in an Azure storage.
 
-## Distributed tracing
+### Distributed tracing
 
 **add description** make sure "transaction" is introduced
 
-### Traces and spans
+#### Traces and spans
 
 A transaction is represented by a trace, which is a collection of [spans](https://opencensus.io/tracing/span/#span). For example, when you select the purchase button to place an order on an e-commerce website, several subsequent operations take place. For example:
 
@@ -99,9 +91,9 @@ All spans are children of a *root* span.
 
 In the previous image, spans give you an easy way to describe all parts involved in the query step of the query data Azure function. Each Azure function is a trace. So an end-to-end pass through Contoso’s ingestion system is the union of three traces, which are the three Azure functions. When you combine the three traces and their telemetry, you build the end-to-end journey and describe all parts of the use case.
 
-### Tracer and W3C trace context
+#### Tracer and W3C trace context
 
-A tracer is an object that holds contextual information. We aim to have that contextual information propagated as data transits through the Azure Functions. To do this, the *opencensus-extension-azure-functions* leverages [the W3C trace context](https://www.w3.org/TR/trace-context).
+A tracer is an object that holds contextual information. It's ideal to have that contextual information propagated as data transits through the Azure functions. To do this, the *opencensus-extension-azure-functions* leverages [the W3C trace context](https://www.w3.org/TR/trace-context).
 
 As its official documentation states, the W3C trace context is a “specification that defines standard HTTP headers and a value format to propagate context information that enables distributed tracing scenarios.”
 
@@ -123,7 +115,7 @@ The traceId and parentId are the most important fields. In what follows, base16(
 
 For more information, see [Traceparent header](https://www.w3.org/TR/trace-context/#traceparent-header).
 
-## Tracer in OpenCensus for Azure Functions
+### Tracer in OpenCensus for Azure Functions
 
 Use an extension that's specific to Azure Functions. Don't use the OpenCensus package that you might use in other cases (for example, [Python Webapps](/azure/azure-monitor/app/opencensus-python#instrument-with-opencensus-python-sdk-with-azure-monitor-exporters)).
 
@@ -142,23 +134,23 @@ That means that two things need to be done:
    The pre-invocation hook:
 
    - Creates a *span\_context* object that holds the information of the previous span and triggers the Azure function. See a visual example of this step [in the next section](#understand-and-structure-the-code).
-   - Creates a tracer that contains this *span\_context*, and creates a new trace for the triggered Azure function.
-   - Injects that tracer in the [Azure Function execution context](/azure/azure-functions/functions-reference?tabs=blob#function-app).
+   - Creates a tracer that contains the *span\_context* and creates a new trace for the triggered Azure function.
+   - Injects the tracer in the [Azure function execution context](/azure/azure-functions/functions-reference?tabs=blob#function-app).
 
-To ensure the traces appear in Application Insights, you must call the *configure()* method that instantiates and configures an [Azure Exporter](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure#opencensus-azure-monitor-exporters) whose role is to export all telemetry.
+   To ensure the traces appear in Application Insights, you must call the *configure()* method to create and configure an [Azure exporter](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure#opencensus-azure-monitor-exporters), which exports telemetry.
 
-Since the extension is an app-level one, all the above is applied to all Azure Functions of a given Function App.
+   The extension is at app level, so the previous steps in this section apply to all Azure functions of a function app.
 
-## Understand and structure the code
+### Understand and structure the code
 
-The code example inside our Azure Function is structured with spans. In Python, you can create an opencensus span using the *with* statement to access the *span\_context* part of the tracer that is injected in the Azure Function execution context, which allows to get the details of the current span and its parents:
+The code example inside our Azure Function is structured with spans. In Python, create an OpenCensus span by using the *with* statement to access the *span\_context* part of the tracer that's injected in the Azure function execution context. This string provides the details of the current span and its parents:
 
 ```python
     with context.tracer.span("nameSpan"):
         # DO SOMETHING WITHIN THAT SPAN
 ```
 
-Let us have a look at the code of the Query Data *Azure Function:*
+The following code shows details of the query data Azure function:
 
 ```python
 import datetime
@@ -180,7 +172,7 @@ def main(timer: func.TimerRequest, outputEventHubMessage: func.Out[str], context
     if timer.past_due:
         logging.info('The timer is past due!')
 
-    logging.info(f"Query Data Azure Function triggerred. Current tracecontext is:      {context.trace_context.Traceparent}")
+    logging.info(f"Query Data Azure Function triggered. Current tracecontext is:      {context.trace_context.Traceparent}")
     with context.tracer.span("queryExternalCatalog"):
         logging.info('querying the external catalog')
         content = {"key_content_1": "thisisavalue1"}
@@ -200,70 +192,72 @@ def main(timer: func.TimerRequest, outputEventHubMessage: func.Out[str], context
     logging.info('Python timer trigger function ran at %s', utc_timestamp)
 ```
 
-In the code abode, there are three main points:
+The main points of the code are:
 
-1) An Opencensus.configure() call. This needs to be done in only one Azure function per Function App, which configures the Azure Exporter, to export Python telemetry such as logs, metrics and traces to Azure Monitor.
+1. An Opencensus.configure() call. Perform this call in only one Azure function per function app. This action configures the Azure exporter to export Python telemetry, such as logs, metrics, and traces to Azure Monitor.
 
-```python
-config_integration.trace_integrations(['requests'])
-config_integration.trace_integrations(['logging'])
-```
+1. Use the OpenCensus “requests” and “logging” [integrations](/azure/azure-monitor/app/opencensus-python-dependency#dependencies-with-requests-integration) to configure the telemetry collection from the request and logging modules for HTTP calls.
 
-Use the OpenCensus “requests” and “logging” [integrations](https://learn.microsoft.com/en-us/azure/azure-monitor/app/opencensus-python-dependency#dependencies-with-requests-integration) to configure telemetry collection from the request and logging modules for HTTP calls.
+   ```python
+   config_integration.trace_integrations(['requests'])
+   config_integration.trace_integrations(['logging'])
+   ```
 
-1) In the code, there are 5 spans:
+1. There are five spans:
 
-- a root span that is part of the tracer injected the context before the execution
+- A root span that's part of the tracer that's injected in the context before the execution.
 - *queryExternalCatalog*
-- *sendMessage,* and its two children *splitToMessages* and *setMessages*
+- *sendMessage*
+- *splitToMessages* (a child of *sendMessage*)
+- *setMessages* (a child of *sendMessage*)
 
-Then, every time a span is created, the *span\_context* of the tracer is updated, as you can see in the following diagram:
+### New heading?
+
+The following diagram shows how every time a span is created, the *span\_context* of the tracer is updated.
 
 ![](Aspose.Words.2d867fa4-b8e3-4946-86ba-487ab7e6ab80.005.png)
 
 Description of the workflow:
 
-- **An Azure Function is triggered**. 
-  A traceparent is injected in the tracer context object with a pre-invocation hook, which is called by the Python worker before the function runs. 
-- **Function execution**. 
+- **An Azure function is triggered**.
+  A traceparent is injected in the tracer context object with a pre-invocation hook, which is called by the Python worker before the function runs.
+- **Function execution**.
   Next, the OpencensusExtension.configure() method is called, initializing an Azure Exporter, enabling trace writing to Application Insights.
- 
+
 **Tracer relationship description.**
 
-- The tracer object of the Azure function context contains a *span\_context* field, that describes the root span. 
-- Every time a span is created in code, a new globally unique identifier is created, updating the span\_context property in the tracer object of the execution context. 
-- The *span\_context field* itself contains the *trace\_id* and *id* fields. 
-- *trace\_id* never gets updated, but *id* is updated to the generated unique identifier.  
-- In the diagram, the root span has two children spans: queryExternaApi span and sendMessage span. 
-  - The queryExternalApi span has a new span id that is different from the root span id, and the same applies to sendMessageSpan.
-  - sendmessage span itself has two children spans called splitToMessages and setMessages. These two children span ids are updated as previously in the span\_context field of tracer object of the context. 
-  - To capture the parent/child relationship between a span and its parent, the spans\_list field is used to describe the lineage of spans in a list: within the splitToMessages span, the *spans\_list* field is a list that contains sendMessage span (the parent span) and splitToMessages span (the current one). This parent/child relationship is how we can create the chain of isolated operations, within the execution of one Azure Function.*   
+- The tracer object of the Azure function context contains a *span\_context* field that describes the root span.
+- Every time you create a span in code, it creates a new globally unique identifier and updates the *span\_context* property in the tracer object of the execution context.
+- The *span\_context* field contains the *trace\_id* and *id* fields.
+- The *trace\_id* never gets updated, but the *id* updates to the generated unique identifier.  
+- In the diagram, the root span has two children spans: queryExternalApi and sendMessage.
+  - The queryExternalApi span and sendMessage span have a new span id that's different from the root_span_id.
+  - The sendMessage span has two children spans: splitToMessages and setMessages. Their span ids update in the span\_context field of the tracer object of the context.
+  - To capture the relationship between a child span and its parent, the spans\_list field provides the lineage of spans in list form. In the splitToMessages span, the *spans\_list* field contains sendMessage (the parent span) and splitToMessages (the current span). This parent/child relationship is how you create the chain of isolated operations within the execution of an Azure function.
 
-Now that we have the chain of operations inside one Azure Function, we want to chain it to the subsequent operations done by the next Azure Functions.
+Now that the chain of operations are organized in one Azure function, you can chain it to the subsequent operations performed by the next Azure function.
 
 ![Diagram Description automatically generated](Aspose.Words.2d867fa4-b8e3-4946-86ba-487ab7e6ab80.006.png)
 
 In the above image:
 
-- setMessages span is the last span of the Query Data Azure Function and the code within the span sends an event hub message to Event Hubs, that will trigger the subsequent Azure Function. The span\_context field of the context tracer object contains the information related to this span. However, that information is tied to the Query Data Azure function’s context. 
-- The Azure Functions worker adds a bytes-encoded *Diagnostic-Id* in the properties of the sent event and creates a [link](https://opencensus.io/tracing/span/link/#:~:text=A%20link%20describes%20a%20cross-relationship%20between%20spans%20in,span%20to%20another%20can%20help%20correlate%20related%20spans.) to the root span of the subsequent Azure Function
-- The pre-invocation hook of the subsequent Process Data Azure Function reads the Diagnostic Id, and sets the context adequately, which enables to chain multiple Azure Functions that are executed separately. 
+- The setMessages span is the last span of the query data Azure function. The code within the span sends a message to Event Hubs and triggers the subsequent Azure function. The span\_context field of the context tracer object contains the information related to this span. That information is tied to the query data Azure function’s context.
+- Azure Functions Worker adds a bytes-encoded *Diagnostic-Id* in the properties of the sent event and creates a [link](https://opencensus.io/tracing/span/link/#:~:text=A%20link%20describes%20a%20cross-relationship%20between%20spans%20in,span%20to%20another%20can%20help%20correlate%20related%20spans.) to the root span of the subsequent Azure function.
+- The pre-invocation hook of the subsequent process data Azure function reads the Diagnostic Id and sets the context, which chains the Azure functions, and they're executed separately.
 
-The same passing of context happens when the *Process Data*  Function sends a message to the Service Bus queue. 
+When the process data Azure function sends a message to the Service Bus queue, context is passed in the same way.
 
-**Leverage the distributed tracing**
+#### Take advantage of distributed tracing
 
-When the above monitoring configurations are in place, we can delve into the capabilities offered by Application Insights to query and visualize the end-to-end transactions.
+When the monitoring configurations are in place, use the Application Insights features to query and visualize the end-to-end transactions.
 
-There are several types of telemetry available in Application Insights. Our example code will mainly generate:
+There are several types of telemetry available in Application Insights. The example code generates the following telemetry:
 
-1. Request telemetry: emitted when a request like an HTTP call or Azure Function trigger happens.
-1. Dependency telemetry: emitted when making a call to another service, either internal or external to Azure
-1. Trace telemetry: from logs generated from the Azure Functions Runtime and the Azure Functions.
+- Request telemetry emits when you call an HTTP or trigger an Azure function.
+- Dependency telemetry emits when you make a call to an Azure service or an external service.
+- Trace telemetry emits from logs generated by Azure Functions runtime and Azure Functions.
 
-For example, the entry to Contoso’s system is a timer-trigger for the *Query Data* Azure Function and emits a *request* telemetry. The logging inside the Azure Function emits *trace* telemetry. When the Azure Function writes an event to Event Hubs, a *dependency* telemetry is emitted.
-
-All this telemetry can be visualized in miscellaneous manners (see related resources)
+For example, the entry to Contoso’s system has a timer-trigger for the query data Azure function that emits a request telemetry. The logging inside the Azure function emits trace telemetry. When the Azure function writes an event to Event Hubs, it emits a dependency telemetry.
 
 ## Contributors
 
@@ -271,31 +265,27 @@ All this telemetry can be visualized in miscellaneous manners (see related resou
 
 Principal author:
 
-[Raouf Aliouat](https://fr.linkedin.com/in/raouf-aliouat) | Software Engineer 2
+- [Raouf Aliouat](https://fr.linkedin.com/in/raouf-aliouat) | Software Engineer II
 
 Other contributors:
 
-[Julien Corioland](https://www.linkedin.com/in/juliencorioland) | Principal Software Engineer
+- [Julien Corioland](https://www.linkedin.com/in/juliencorioland) | Principal Software Engineer
+- [Benjamin Guinebertière](https://fr.linkedin.com/in/benjguin=3&fclid=247c03a9-237c-693e-12ad-1173228268bb&psq=Benjamin+Guineberti%c3%a8re&u=a1aHR0cHM6Ly9mci5saW5rZWRpbi5jb20vaW4vYmVuamd1aW4&ntb=1) | Principal Software Engineering Manager
+- [Adina Stoll](https://www.linkedin.com/in/adina-stoll) | Software Engineer II
 
-[Benjamin Guinebertière](https://fr.linkedin.com/in/benjguin=3&fclid=247c03a9-237c-693e-12ad-1173228268bb&psq=Benjamin+Guineberti%c3%a8re&u=a1aHR0cHM6Ly9mci5saW5rZWRpbi5jb20vaW4vYmVuamd1aW4&ntb=1) | Principal Software Engineering Manager
-
-[Adina Stoll](https://www.linkedin.com/in/adina-stoll) | Software Engineer 2
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
 - [Azure Monitor](/azure/azure-monitor/overview)
-- [OpenCensus Azure Monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
+- [OpenCensus Azure Monitor exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
 - [Code with engineering playbook: observability in microservices](https://microsoft.github.io/code-with-engineering-playbook/observability/microservices/)
 - An example of a system that leverages the presented approach: [Synchronization framework for metadata ingestion from external catalogs in Microsoft Purview](https://microsoft.sharepoint.com/:w:/t/CSEFTEFY19/ET9i4_ecx3tOnUSXR5P0NfMBSBFZxYq2iC67Lc-tYg2TtQ?e=BdG7pO)
-- To learn how to rely on distributed tracing in a bigger use case, see [metadata ingestion from external catalogs in Microsoft Purview.](/azure/architecture/solution-ideas/articles/sync-framework-metadata-ingestion)
+- To learn how to rely on distributed tracing in a bigger use case, see [Metadata ingestion from external catalogs in Microsoft Purview](/azure/architecture/solution-ideas/articles/sync-framework-metadata-ingestion)
+- [Distributed tracing and telemetry correlation in Azure Application Insights](/azure/azure-monitor/app/distributed-tracing-telemetry-correlation)
+- [Azure Monitor](/azure/azure-monitor/overview)
+- [Observability for Event Stream Processing with Azure Functions, Event Hubs, and Application Insights](https://devblogs.microsoft.com/cse/2021/05/13/observability-for-event-stream-processing-with-azure-functions-event-hubs-and-application-insights/#2-understanding-operation-ids-operation-links-when-working-with-event-hubs)
 
 ## Related resources
 
-Solution code on Azure samples
-
-- [Distributed tracing and telemetry correlation in Azure Application Insights - Azure Monitor | Microsoft Learn](/azure/azure-monitor/app/distributed-tracing-telemetry-correlation)
-- [Azure Monitor](/azure/azure-monitor/overview)
-- [Observability for Event Stream Processing with Azure Functions, Event Hubs, and Application Insights](https://devblogs.microsoft.com/cse/2021/05/13/observability-for-event-stream-processing-with-azure-functions-event-hubs-and-application-insights/#2-understanding-operation-ids-operation-links-when-working-with-event-hubs)
 - [Monitor Azure Functions and Event Hubs](/azure/architecture/serverless/event-hubs-functions/observability)
-
-
