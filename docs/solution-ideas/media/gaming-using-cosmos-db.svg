@@ -596,14 +596,14 @@
 		</g>
 		<g id="shape1114-175" v:mID="1114" v:groupContext="shape" transform="translate(219.349,-177.353)">
 			<title>Sheet.1114</title>
-			<desc>Azure API apps (Game backend)</desc>
+			<desc>Azure API Apps (Game backend)</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(19000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="44.3713" cy="355.913" width="88.75" height="26.1743"/>
 			<rect x="0" y="342.826" width="88.7426" height="26.1743" class="st2"/>
-			<text x="7.73" y="352.61" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure API apps<v:newlineChar/><tspan
+			<text x="6.98" y="352.61" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure API Apps<v:newlineChar/><tspan
 						x="4.83" dy="1.2em" class="st4">(Game backend)</tspan></text>		</g>
 		<g id="shape1115-179" v:mID="1115" v:groupContext="shape" transform="translate(332.373,-177.353)">
 			<title>Sheet.1115</title>
@@ -637,17 +637,17 @@
 			<rect x="0" y="337.896" width="104.691" height="31.1045" class="st2"/>
 			<text x="13.59" y="343.55" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Functions<v:newlineChar/><tspan
 						x="19.34" dy="1.2em" class="st4">(Triggered on </tspan><tspan x="20.79" dy="1.2em" class="st4">change feed)</tspan></text>		</g>
-		<g id="shape1118-191" v:mID="1118" v:groupContext="shape" transform="translate(542.506,-65.1176)">
+		<g id="shape1118-191" v:mID="1118" v:groupContext="shape" transform="translate(537.373,-69.4034)">
 			<title>Sheet.1118</title>
-			<desc>Azure Notification Hub (Push notification)</desc>
+			<desc>Azure Notification Hubs (Push notification)</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(23000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
-			<v:textRect cx="61.114" cy="355.913" width="122.23" height="26.1743"/>
-			<rect x="0" y="342.826" width="122.228" height="26.1743" class="st2"/>
-			<text x="5.46" y="352.61" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Notification Hub<v:newlineChar/><tspan
-						x="17.19" dy="1.2em" class="st4">(Push notification)</tspan></text>		</g>
+			<v:textRect cx="66.2469" cy="355.913" width="132.5" height="26.1743"/>
+			<rect x="0" y="342.826" width="132.494" height="26.1743" class="st2"/>
+			<text x="8.26" y="352.61" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Notification Hubs<v:newlineChar/><tspan
+						x="22.33" dy="1.2em" class="st4">(Push notification)</tspan></text>		</g>
 		<g id="shape1119-195" v:mID="1119" v:groupContext="shape" transform="translate(207.982,-290.118)">
 			<title>Sheet.1119</title>
 			<desc>Azure Content Delivery Network</desc>
