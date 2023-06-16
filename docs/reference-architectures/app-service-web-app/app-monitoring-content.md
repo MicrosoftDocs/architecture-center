@@ -56,7 +56,7 @@ Runtime monitoring is another easy way to get started. The telemetry that is col
 
 Like Application Insights, Log Analytics provides tools for [analyzing data across sources][analyzing data across sources], creating complex queries, and [sending proactive alerts][sending proactive alerts] on specified conditions. You can also view telemetry in [the Azure portal][the Azure portal]. Log Analytics adds value to existing monitoring services such as [Azure Monitor][azure-monitor] and can also monitor on-premises environments.
 
-Both Application Insights and Log Analytics use [Azure Log Analytics Query Language][Azure Log Analytics Query Language]. You can also use [cross-resource queries](https://azure.microsoft.com/blog/query-across-resources) to analyze the telemetry gathered by Application Insights and Log Analytics in a single query.
+Both Application Insights and Log Analytics use [Azure Log Analytics Query Language][Azure Log Analytics Query Language]. You can also use cross-resource queries to analyze the telemetry gathered by Application Insights and Log Analytics in a single query.
 
 Azure Monitor, Application Insights, and Log Analytics all send [alerts](/azure/monitoring-and-diagnostics/monitoring-overview-alerts). For example, Azure Monitor alerts on platform-level metrics such as CPU utilization, while Application Insights alerts on application-level metrics such as server response time. Azure Monitor alerts on new events in the Azure Activity Log, while Log Analytics can issue alerts about metrics or event data for the services configured to use it. [Unified alerts in Azure Monitor](/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts) is a new, unified alerting experience in Azure that uses a different taxonomy.
 

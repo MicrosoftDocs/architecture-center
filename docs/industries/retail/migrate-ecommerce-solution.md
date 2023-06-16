@@ -1,8 +1,8 @@
 ---
 # required metadata
 title: Migrate your e-commerce solution to Azure
-author: robbag
-ms.author: architectures
+author: robbagby
+ms.author: robbag
 ms.date: 06/14/2023
 ms.topic: conceptual
 ms.service: industry
