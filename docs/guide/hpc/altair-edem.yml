@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Deploy Altair EDEM on an Azure virtual machine
+  title: Deploy Altair EDEM for HPC on a virtual machine
   description: Learn how Altair EDEM discrete element method (DEM) software performs on an Azure virtual machine (VM).
   author: gauharjunnarkar
   ms.author: gajunnar

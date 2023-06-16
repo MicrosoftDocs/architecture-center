@@ -3,31 +3,20 @@ EDEM](https://www.altair.com/edem) on a virtual machine (VM) that\'s
 deployed on Azure. It also presents the performance results of running
 EDEM on Azure.
 
-EDEM is a high-performance application that's used for bulk material
-simulation. EDEM uses discrete element method (DEM) to simulate and
-analyze the behavior of coal, mined ores, soils, fibers, grains,
-tablets, and powders. EDEM:
+EDEM is high-performance software for bulk and granular material simulation. Powered by DEM, EDEM quickly and accurately simulates and analyzes the behavior of coal, mined ores, soils, fibers, grains, tablets, powders, and more.
 
--   Provides crucial insight into bulk material interaction with equipment
-    during a range of operation and process conditions.
--   Creates simulations of real-world materials like large rocks, fine
-    powders, grains, fibers, and tablets, representing material
-    behaviors like dry, sticky, and compressible.
+EDEM simulation provides engineers with crucial insight into how those materials will interact with their equipment during a range of operation and process conditions. It can be used stand-alone or combined with other CAE tools.
 
-EDEM includes three core components: EDEM Creator, Simulator, and
-Analyst.
+Leading companies in the heavy equipment, off-road, mining, steelmaking, and process manufacturing industries use EDEM to understand and predict granular material behaviors, evaluate equipment performance, and optimize processes.
 
-EDEM is primarily used in industries like construction (facilities), off-highway,
-mining (energy), agriculture, space exploration (aerospace), and process/manufacturing.
 
 ## Why deploy EDEM on Azure?
 
--   Modern and diverse compute options to align to your workload's
-    needs 
--   The flexibility of virtualization without the need to buy and
-    maintain physical hardware 
--   Rapid provisioning 
--   Ability to solve simulations in a few hours (with A100 GPUs)
+- Model particle shape using the highly validated and computationally efficient multi-sphere method.
+- Cutting edge DEM solver, highly parallelized for use on multi-core shared memory workstations, GPU hardware, and multi-GPU systems.
+- Solver engine is fully double precision across all platforms.
+- Simulate large and complex particle systems.
+- Advanced and powerful post-processing capability
 
 ## Architecture
 
@@ -53,40 +42,39 @@ mining (energy), agriculture, space exploration (aerospace), and process/manufac
 
 ## Compute sizing and drivers
 
-Performance tests of EDEM on Azure used [ND A100 v4](/azure/virtual-machines/nda100-v4-series) and [NCv3](/azure/virtual-machines/ncv3-series) series VMs running the Windows operating system. The following table provides the configuration details.
+Performance tests of Altair EDEM on Azure used [NCv3-series], [NC A100 v4-series] and [ND A100 v4-series] VMs running on Windows. The following table provides the configuration details.
 
-|  VM size|               vCPU    | Memory, in GiB |  Temporary storage (SSD), in GiB|   GPUs |    GPU  memory, in GiB     | Maximum data disks|
-|--|--|--|--|--|--|--|
-|Standard_ND96asr_v4|   96   |    900|       6,000|       8 A100|   40|        32|
-|  Standard_NC6s_v3   |   6 |       112     |  736         |1 V100   |16        |12|
+|  Size|               vCPU    | Memory, in GiB |  Temporary storage (SSD), in GiB|   GPUs |    GPU  memory, in GiB     | Maximum data disks|Max uncached disk throughput: IOPS / MBps |Max network bandwidth|Max NICs|
+|--|--|--|--|--|--|--|-|-|-|
+|Standard_ND96asr_v4|   96   |    900|       6,000|      8 A100 40 GB GPUs (NVLink 3.0)|   40|        32|80,000 / 800|24,000 Mbps|8|
+|Standard_NC24ads_A100_v4|24|220|1123|1|80|12|30000/1000|20,000|2|
+|Standard_NC48ads_A100_v4|48|440|2246|2|160|24|60000/2000|40,000|4|
+|Standard_NC96ads_A100_v4|96|880|4492|4|320|32|120000/4000|80,000|8|
+|  Standard_NC6s_v3   |   6 |       112     |  736         |1    |16        |12|20000/200||4|
 
 ### Required drivers
 
-To use EDEM on Standard_ND96asr_v4 VMs, you need to install NVIDIA and
-AMD drivers.
-
-To use EDEM on Standard_NC6s_v3 VMs, you need to install NVIDIA drivers.
+To use Altair EDEM  on the above mentioned VMs as described in this article, you need to install NVIDIA and AMD drivers.
 
 ## EDEM installation
 
-Before you install EDEM, you need to deploy and connect a VM, install an eligible Windows 10 or Windows 11 image, and install
-the NVIDIA drivers. On Standard_ND96asr_v4 VMs, you need to install the
-AMD drivers.
+Before you install EDEM, you need to deploy and connect a VM and install the required NVIDIA and AMD drivers.
 
-For information about eligible Windows images, see [How to deploy Windows 10 on Azure](/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) and [Use Windows client in Azure for dev/test scenarios](/azure/virtual-machines/windows/client-images).
+For information about deploying the VM and installing the drivers, see one of these articles:
 
-> [!IMPORTANT]
-> NVIDIA Fabric Manager installation is required for VMs
-that use NVLink or NVSwitch.
+- [Run a Windows VM on Azure]
+- [Run a Linux VM on Azure]
 
-For information about deploying the VM and installing the drivers, see [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml).
+To download EDEM:
+1.	Open Altair one Marketplace in web browser and sign in
+2.	Select EDEM in the product list.
+3.	Select appropriate operating system and download.
+4.	Download the license manager.
 
-To install EDEM, you need to download EDEM from Altair One Marketplace,
-install License Manager, and then install EDEM. For detailed
-installation instructions, see [Altair One
-Marketplace](https://altairone.com/Marketplace?__hstc=142694250.005b507352b9e4107a39c334591c181a.1662053255169.1662498072969.1662503447214.4&__hssc=142694250.2.1662503447214&__hsfp=886166656).
+See the documents in [Altair one Marketplace](https://altairone.com/Marketplace?queryText=edem&app=EDEM&tab=Download) for instructions for installing EDEM.
 
-## EDEM performance results
+## Performance results of EDEM on an Azure VM
+### EDEM performance results
 
 Seven real-world scenarios were used to test the performance of EDEM on
 Azure VMs. Particle simulations were tested. The following table provides the details.
