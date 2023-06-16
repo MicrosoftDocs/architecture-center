@@ -167,7 +167,7 @@ When hosting volumes for the Teamcenter Volume Server, it's recommended to attac
 
 ## Contributors
 
-Microsoft maintains this article. The following contributors originally wrote the article:
+*Microsoft maintains this article. The following contributors originally wrote the article.*
 
 Principal authors:
 
@@ -185,6 +185,8 @@ Other contributors:
 
 >[!div class="nextstepaction"]
 > [Teamcenter PLM with Azure NetApp Files](teamcenter-plm-netapp-files.yml)
+
+## Related resources
 
 - [GPU-optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
 - [Windows virtual machines on Azure](/azure/virtual-machines/overview)
