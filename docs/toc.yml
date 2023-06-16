@@ -5513,6 +5513,8 @@ items:
       - name: High availability with video on demand
         href: /azure/media-services/latest/architecture-high-availability-encoding-concept
         maintainContext: true
+      - name: Offline audio dubbing
+        href: guide/media/offline-audio-dubbing.yml
       - name: Monitor Media Services
         href: /azure/media-services/latest/monitoring/monitor-media-services
         maintainContext: true
