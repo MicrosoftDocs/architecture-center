@@ -1,6 +1,9 @@
 <!-- cSpell:ignore CNAME -->
 
-This example architecture is based on the [Scalable web application][guidance-web-apps-scalability] example architecture and extends it to show how to run an Azure App Service application in multiple regions to achieve high availability. Ensure that you're familiar with that design and the components used in it to prepare for this article. It provides detailed information on the core components that won't be reproduced here.
+This example architecture is based on the [Basic web application][guidance-web-apps-basic] example architecture and extends it to show:
+
+- Proven practices for improving scalability and performance in an Azure App Service web application
+- How to run an Azure App Service application in multiple regions to achieve high availability
 
 ## Architecture
 
@@ -10,29 +13,31 @@ This example architecture is based on the [Scalable web application][guidance-we
 
 ### Workflow
 
-This architecture builds on the one shown in [Scalable web application][guidance-web-apps-scalability]. The main differences are:
+This workflow addresses the multi-region aspects of the architecture and builds upon the [Basic web application](./basic-web-app.yml).
 
 - **Primary and secondary regions**. This architecture uses two regions to achieve higher availability. The application is deployed to each region. During normal operations, network traffic is routed to the primary region. If the primary region becomes unavailable, traffic is routed to the secondary region.
-- **Front Door**. Front Door is included in single-region design, as it's the recommended load balancer and web application firewall (WAF) solution for web apps. However, the difference in this design is in the routing configuration and replacing Azure CDN with Front Door's native content caching functionality. In this design, Front Door is configured for [priority](/azure/frontdoor/routing-methods#priority) routing, which sends all traffic to the primary region unless it becomes unavailable.  If the primary region becomes unavailable, Front Door routes all traffic to the secondary region.
+- **Front Door**. Azure Front Door is the recommended load balancer for multi-region implementations. It integrates with web application firewall (WAF) to protect against common exploits and uses Front Door's native content caching functionality. In this architecture, Front Door is configured for [priority](/azure/frontdoor/routing-methods#priority) routing, which sends all traffic to the primary region unless it becomes unavailable.  If the primary region becomes unavailable, Front Door routes all traffic to the secondary region.
 - **Geo-replication** of Storage Accounts, SQL Database and/or Azure Cosmos DB.
+
+> [!NOTE]
+>
+> For a detailed overview of using Azure Front Door for multi-region architectures, including in a network-secured configuration, please see [Network secure ingress implementation](/azure/architecture/pattern-implementations/network-secure-ingress).
 
 ### Components
 
 Key technologies used to implement this architecture:
 
-- [Azure Active Directory][Azure-Active-Directory]
-- [Azure DNS][Azure-DNS]
-- [Azure Content Delivery Network][Azure-Content-Delivery-Network]
-- [Azure Front Door][Azure-Front-Door]
-- [Azure AppService][Azure-AppService]
-- [Azure Function][Azure-Function]
-- [Azure Storage][Azure-Storage]
-- [Azure Redis Cache][Azure-Redis-Cache]
-- [Azure SQL Database][Azure-SQL-Database]
-- [Azure Cosmos DB][Azure-Cosmos-DB]
-- [Azure Search][Azure-Search]
-
-For a detailed description of the components in scope for this design, refer to the [Scalable web application](/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app#workflow) article that this design is based on.
+- [Azure Active Directory][Azure-Active-Directory] is a cloud-based identity and access management service that lets employees access cloud apps developed for your organization.
+- [Azure DNS][Azure-DNS] is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services. To use a custom domain name (such as `contoso.com`), create DNS records that map the custom domain name to the IP address. For more information, see [Configure a custom domain name in Azure App Service](/azure/app-service-web/web-sites-custom-domain-name).
+- [Azure Content Delivery Network][Azure-Content-Delivery-Network] is a global solution for delivering high-bandwidth content by caching it at strategically placed physical nodes across the world.
+- [Azure Front Door][Azure-Front-Door] is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web front end. Front Door also provides a [web application firewall](/azure/frontdoor/waf-overview) (WAF) that protects the application from common exploits and vulnerabilities. Front Door is also used for a [Content Delivery Network](/azure/frontdoor/front-door-overview#global-delivery-scale-using-microsofts-network) (CDN) solution in this design.
+- [Azure AppService][Azure-AppService] is a fully managed platform for creating and deploying cloud applications. It lets you define a set of compute resources for a web app to run, deploy web apps, and configure deployment slots.
+- [Azure Function Apps][Azure-Function] can be used to run background tasks. Functions are invoked by a trigger, such as a timer event or a message being placed on queue. For long-running stateful tasks, use [Durable Functions][durable-functions].
+- [Azure Storage][Azure-Storage] is a cloud storage solution for modern data storage scenarios, offering highly available, massively scalable, durable, and secure storage for a variety of data objects in the cloud.
+- [Azure Redis Cache][Azure-Redis-Cache] is a high-performance caching service that provides an in-memory data store for faster retrieval of data, based on the open-source implementation Redis cache.
+- [Azure SQL Database][Azure-SQL-Database] is a relational database-as-a-service in the cloud. SQL Database shares its code base with the Microsoft SQL Server database engine.
+- [Azure Cosmos DB][Azure-Cosmos-DB] is a globally distributed, fully managed, low latency, multi-model, multi query-API database for managing data at large scale.
+- [Azure Cognitive Search][Azure-Search] can be used to add search functionality such as search suggestions, fuzzy search, and language-specific search. Azure Search is typically used in conjunction with another data store, especially if the primary data store requires strict consistency. In this approach, store authoritative data in the other data store and the search index in Azure Search. Azure Search can also be used to consolidate a single search index from multiple data stores.
 
 ## Scenario details
 
@@ -44,7 +49,7 @@ There are several general approaches to achieve high availability across regions
 
 - Active/Active: both regions are active, and requests are load balanced between them. If one region becomes unavailable, it's taken out of rotation.
 
-This reference focuses on active/passive with hot standby. It extends the single region design for a scalable web application. See [Scalable web application][guidance-web-apps-scalability] for information on the base architecture.
+This reference focuses on active/passive with hot standby. 
 
 ### Potential use cases
 
@@ -74,6 +79,14 @@ However, make sure that both regions support all of the Azure services needed fo
 
 Consider placing the primary region, secondary region, and Front Door into separate [resource groups][resource groups]. This allocation lets you manage the resources deployed to each region as a single collection.
 
+### App Service apps
+
+We recommend creating the web application and the web API as separate App Service apps. This design lets you run them in separate App Service plans so they can be scaled independently. If you don't need that level of scalability initially, you can deploy the apps into the same plan and move them into separate plans later if necessary.
+
+> [!NOTE]
+> For the Basic, Standard, Premium, and Isolated plans, you are billed for the VM instances in the plan, not per app. See [App Service Pricing][app-service-pricing]
+>
+
 ### Front Door configuration
 
 **Routing**. Front Door supports several [routing mechanisms](/azure/frontdoor/front-door-routing-methods#priority-based-traffic-routing). For the scenario described in this article, use *priority* routing. With this setting, Front Door sends all requests to the primary region unless the endpoint for that region becomes unreachable. At that point, it automatically fails over to the secondary region. Set the origin pool with different priority values, 1 for the active region and 2 or higher for the standby or passive region.
@@ -83,6 +96,11 @@ Consider placing the primary region, secondary region, and Front Door into separ
 As a best practice, create a health probe path in your application origin that reports the overall health of the application. This health probe should check critical dependencies such as the App Service apps, storage queue, and SQL Database. Otherwise, the probe might report a healthy origin when critical parts of the application are actually failing. On the other hand, don't use the health probe to check lower priority services. For example, if an email service goes down the application can switch to a second provider or just send emails later. For further discussion of this design pattern, see [Health Endpoint Monitoring Pattern](/azure/architecture/patterns/health-endpoint-monitoring).
 
 Securing origins from the internet is a critical part of implementing a publicly accessible app. Refer to the [Network secure ingress implementation](/azure/architecture/pattern-implementations/network-secure-ingress) to learn about Microsoft's recommended design and implementation patterns for securing your app's ingress communications with Front Door.
+
+**CDN**. Use [Front Door's native CDN functionality](/azure/frontdoor/front-door-overview#global-delivery-scale-using-microsofts-network) to cache static content. The main benefit of a CDN is to reduce latency for users, because content is cached at an edge server that is geographically close to the user. CDN can also reduce load on the application, because that traffic is not being handled by the application. Front Door additionally offers [dynamic site acceleration](/azure/cdn/cdn-dynamic-site-acceleration) allowing you to deliver a better overall user experience for your web app than would be available with only static content caching.
+
+> [!NOTE]
+> Front Door CDN is not designed to serve content that requires authentication.
 
 ### SQL Database
 
@@ -181,15 +199,41 @@ It's important to understand that the Geo-disaster recovery feature included in 
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-This architecture builds on the one shown in [Scalable web application][guidance-web-apps-scalability], see the [Security considerations section][guidance-web-apps-scalability-security].
+**Restrict incoming traffic**
+Configure the application to accept traffic only from Front Door. This ensures that all traffic goes through the WAF before reaching the app. For more information, see How do I lock down the access to my backend to only Azure Front Door?
 
+**Cross-Origin Resource Sharing (CORS)**
+If you create a website and web API as separate apps, the website cannot make client-side AJAX calls to the API unless you enable CORS.
+
+[!NOTE] Browser security prevents a web page from making AJAX requests to another domain. This restriction is called the same-origin policy, and prevents a malicious site from reading sensitive data from another site. CORS is a W3C standard that allows a server to relax the same-origin policy and allow some cross-origin requests while rejecting others.
+
+App Services has built-in support for CORS, without needing to write any application code. See Consume an API app from JavaScript using CORS. Add the website to the list of allowed origins for the API.
+
+**SQL Database encryption**
+Use Transparent Data Encryption if you need to encrypt data at rest in the database. This feature performs real-time encryption and decryption of an entire database (including backups and transaction log files) and requires no changes to the application. Encryption does add some latency, so it's a good practice to separate the data that must be secure into its own database and enable encryption only for that database.
+
+**Identity**
 When you define identities for the components in this architecture, use [system managed identities][system-managed-identities] where possible to reduce your need to manage credentials and the risks inherent to managing credentials. Where it's not possible to use system managed identities, ensure that every user managed identity exists in only one region and is never shared across region boundaries.
 
+**Service firewalls**
 When configuring the service firewalls for the components, ensure both that only the region-local services have access to the services and that the services only allow outbound connections, which is explicitly required for replication and application functionality. Consider using [Azure Private Link][private-link] for further enhanced control and segmentation. For more information on securing web applications, see [Network-hardened web application with private connectivity to PaaS datastores][hardened-web-app].
 
 ### Cost optimization
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+**Caching**
+Use caching to reduce the load on servers that serve content that doesn't change frequently. Every render cycle of a page can impact cost because it consumes compute, memory, and bandwidth. Those costs can be reduced significantly by using caching, especially for static content services, such as JavaScript single-page apps and media streaming content.
+
+If your app has static content, use CDN to decrease the load on the front end servers. For data that doesn't change frequently, use Azure Cache for Redis.
+
+**State**
+Stateless apps that are configured for autoscaling are more cost effective than stateful apps. For an ASP.NET application that uses session state, store it in-memory with Azure Cache for Redis. For more information, see [ASP.NET Session State Provider for Azure Cache for Redis](/azure/azure-cache-for-redis/cache-aspnet-session-state-provider). Another option is to use Azure Cosmos DB as a backend state store through a session state provider. See [Use Azure Cosmos DB as an ASP.NET session state and caching provider](/azure/cosmos-db/sql/session-state-and-caching-provider).
+
+**Functions**
+Consider placing a function app into a dedicated App Service plan so that background tasks don't run on the same instances that handle HTTP requests. If background tasks run intermittently, consider using a [consumption plan](/azure/azure-functions/functions-scale#consumption-plan), which is billed based on the number of executions and resources used, rather than hourly.
+
+For more information, see the cost section in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview).
 
 Use the [pricing calculator][pricing-calculator] to estimate costs. These recommendations in this section may help you to reduce cost.
 
@@ -208,6 +252,29 @@ There are two factors that determine Azure Cosmos DB pricing:
 - Consumed storage. You're billed a flat rate for the total amount of storage (GBs) consumed for data and the indexes for a given hour.
 
 For more information, see the cost section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview).
+
+### Performance efficiency
+
+A major benefit of Azure App Service is the ability to scale your application based on load. Here are some considerations to keep in mind when planning to scale your application.
+
+#### App Service app
+
+If your solution includes several App Service apps, consider deploying them to separate App Service plans. This approach enables you to scale them independently because they run on separate instances.
+
+#### SQL Database
+
+Increase scalability of a SQL database by *sharding* the database. Sharding refers to partitioning the database horizontally. Sharding allows you to scale out the database horizontally using [Elastic Database tools][sql-elastic]. Potential benefits of sharding include:
+
+- Better transaction throughput.
+- Queries can run faster over a subset of the data.
+
+#### Azure Front Door
+
+Front Door can perform SSL offload and also reduces the total number of TCP connections with the backend web app. This improves scalability because the web app manages a smaller volume of SSL handshakes and TCP connections. These performance gains apply even if you forward the requests to the web app as HTTPS, due to the high level of connection reuse.
+
+#### Azure Search
+
+Azure Search removes the overhead of performing complex data searches from the primary data store, and it can scale to handle load. See [Scale resource levels for query and indexing workloads in Azure Search][azure-search-scaling].
 
 ### Operational excellence
 
@@ -242,12 +309,9 @@ Principal author:
 <!-- links -->
 
 [AFD-pricing]: https://azure.microsoft.com/pricing/details/frontdoor
-[AAF-devops-deployment-multi-region]: /azure/architecture/framework/devops/release-engineering-cd#consider-deploying-across-multiple-regions
 [bandwidth-pricing]: https://azure.microsoft.com/pricing/details/bandwidth
 [cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally
-[guidance-web-apps-scalability]: ./scalable-web-app.yml
-[guidance-web-apps-scalability-devops]: ./scalable-web-app.yml#devops
-[guidance-web-apps-scalability-security]: ./scalable-web-app.yml#security
+[guidance-web-apps-basic]: ./basic-web-app.yml
 [pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [ra-grs]: /azure/storage/common/storage-designing-ha-apps-with-ragrs
 [regional-pairs]: /azure/best-practices-availability-paired-regions

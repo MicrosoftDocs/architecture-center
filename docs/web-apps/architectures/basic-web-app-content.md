@@ -261,6 +261,6 @@ Microsoft Learn modules:
 ## Related resources
 
 - [Ten design principles for Azure applications](../../guide/design-principles/index.md)
+- [Baseline zone-redundant web application](multi-region.yml)
 - [Highly available multi-region web application](multi-region.yml)
 - [Multi-region web app with private connectivity to database](../../example-scenario/sql-failover/app-service-private-sql-multi-region.yml)
-- [Scalable web application](scalable-web-app.yml)
