@@ -2,7 +2,7 @@ This example scenario presents a hybrid solution for moving SQL Server databases
 
 ## Architecture
 
-![Digaram displaying an architecture overview of a hybrid ETL process that uses Azure Data Factory.][architecture-diagram]
+![Digaram displaying an architecture overview of a hybrid ETL process that uses Azure Data Factory.](media/architecture-diagram-hybrid-etl-with-adf-new.svg)
 
 *Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/architecture-diagram-hybrid-etl-with-adf.vsdx) of this architecture.*
 
