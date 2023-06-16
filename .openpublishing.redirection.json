@@ -2913,12 +2913,12 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "docs/example-scenario/infrastructure/digital-marketing-sitecore.yml",
+      "source_path": "docs/solution-ideas/articles/digital-marketing-sitecore.yml",
       "redirect_url": "/azure/architecture/web-apps/hosting-applications/digital-marketing-sitecore",
       "redirect_document_id": true
     },
     {
-      "source_path": "docs/example-scenario/infrastructure/medium-umbraco-web-app.yml",
+      "source_path": "docs/solution-ideas/articles/medium-umbraco-web-app.yml",
       "redirect_url": "/azure/architecture/web-apps/hosting-applications/medium-umbraco-web-app",
       "redirect_document_id": true
     }

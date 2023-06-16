@@ -131,6 +131,6 @@ Principal author:
 - [Social app for mobile and web with authentication](../../solution-ideas/articles/social-mobile-and-web-app-with-authentication.yml)
 - [Web applications architecture design](../../web-apps/index.md)
 - [Architect scalable e-commerce web app](../../web-apps/idea/scalable-ecommerce-web-app.yml)
-- [Scalable Sitecore marketing website](../../solution-ideas/articles/digital-marketing-sitecore.yml)
+- [Scalable Sitecore marketing website](../../web-apps/hosting-applications/digital-marketing-sitecore.yml)
 - [Scalable web application](../../reference-architectures/app-service-web-app/scalable-web-app.yml)
 - [Web application monitoring on Azure](../../reference-architectures/app-service-web-app/app-monitoring.yml)
