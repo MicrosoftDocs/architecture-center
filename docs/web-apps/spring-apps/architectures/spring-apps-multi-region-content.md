@@ -17,11 +17,11 @@ To increase application resilience and reliability, you can deploy the applicati
 The biggest challenge with a multi-region setup is replicating the data for your application between multiple regions. This isn't an issue with the multi-zone setup. Azure availability zones are connected by a high-performance network with a round-trip latency of less than 2 ms. This latency is OK for most applications.
 
 > [!TIP]
-> ![GitHub logo](../../_images/github.svg) The architecture is backed by an [**example implementation**](https://github.com/Azure-Samples/azure-spring-apps-multi-region) that illustrates design choices that deal with the challenges of multi-region deployment, automation, and traffic routing.  
+> ![GitHub logo](../../../_images/github.svg) The architecture is backed by an [**example implementation**](https://github.com/Azure-Samples/azure-spring-apps-multi-region) that illustrates design choices that deal with the challenges of multi-region deployment, automation, and traffic routing.  
 
 ## Architecture
 
-:::image type="content" source="./_images/spring-apps-reference-architecture-multi-region.svg" alt-text="Diagram that shows a multi-region Azure Spring Apps reference architecture." lightbox="./_images/spring-apps-reference-architecture-multi-region.png":::
+:::image type="content" source="../_images/spring-apps-reference-architecture-multi-region.svg" alt-text="Diagram that shows a multi-region Azure Spring Apps reference architecture." lightbox="../_images/spring-apps-reference-architecture-multi-region.png":::
 
 ### Components
 

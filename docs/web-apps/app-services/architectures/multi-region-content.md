@@ -7,7 +7,7 @@ This example architecture is based on the [Basic web application][guidance-web-a
 
 ## Architecture
 
-![Diagram showing the reference architecture for a web application with high availability.](./images/multi-region-web-app-diagram.png)
+![Diagram showing the reference architecture for a web application with high availability.](../_images/multi-region-web-app-diagram.png)
 
 *Download a [Visio file][visio-download] of this architecture.*
 

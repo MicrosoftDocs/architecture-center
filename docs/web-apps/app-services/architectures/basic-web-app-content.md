@@ -2,7 +2,7 @@ This architecture shows the fundamental components of a basic web application. Y
 
 ## Architecture
 
-![Diagram showing the reference architecture for a basic web application in Azure.](images/basic-webapp-v2.png)
+![Diagram showing the reference architecture for a basic web application in Azure.](../_images/basic-webapp-v2.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/app-service-reference-architectures-basic-webapp-v2.vsdx) of this architecture.*
 
@@ -132,7 +132,7 @@ An App Service app always has one deployment slot named `production`. The produc
 - Deploying to a staging slot ensures that all instances are warmed up before being swapped into production. Many applications have a significant warmup and cold-start time.
 - Create a third slot to hold the last-known-good deployment. After you swap staging and production, move the previous production deployment (which is now in staging) into the last-known-good slot. That way, if you discover a problem later, you can quickly revert to the last-known-good version.
 
-![Swapping slots for production and staging deployments](./images/paas-basic-web-app-staging-slots.png)
+![Swapping slots for production and staging deployments](../_images/paas-basic-web-app-staging-slots.png)
 
 - If you revert to a previous version, make sure any database schema changes are backward compatible.
 - Don't use slots on your production deployment for testing because all apps within the same App Service plan share the same VM instances. For example, load tests might degrade the live production site. Instead, create separate App Service plans for production and test. By putting test deployments into a separate plan, you isolate them from the production version.

@@ -20,6 +20,16 @@ items:
           href: app-service/architectures/baseline-zone-redundant.yml
         - name: Active-passive multi-region web app
           href: app-service/architectures/multi-region.yml
+      - name: Host web apps with Azure Spring Apps
+        items:
+          - name: Get started
+            href: spring-apps/index.md
+          - name: Baseline
+            href: spring-apps/architectures/spring-apps-multi-zone.yml
+          - name: Baseline in multiple regions
+            href: spring-apps/architectures/spring-apps-multi-region.yml
+          - name: Baseline in landing zones
+            href: spring-apps/architectures/spring-apps-landing-zone.yml          
     - name: Hosting applications
       items:
       - name: WordPress

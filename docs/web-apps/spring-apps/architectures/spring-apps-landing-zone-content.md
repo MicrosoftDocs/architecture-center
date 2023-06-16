@@ -16,12 +16,12 @@ In this scenario, your organization expects the workload to use federated resour
 The design choices made in this architecture are covered in the key technical design areas for this accelerator. For details, see [**Azure Spring Apps landing zone accelerator**](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator). 
 
 > [!TIP]
-> ![GitHub logo](../../_images/github.svg) The architecture is backed by an [**example implementation**](https://github.com/Azure/azure-spring-apps-landing-zone-accelerator#azure-spring-apps-landing-zone-accelerator) that illustrates some of those choices. The implementation can be used as your first step towards production.
+> ![GitHub logo](../../../_images/github.svg) The architecture is backed by an [**example implementation**](https://github.com/Azure/azure-spring-apps-landing-zone-accelerator#azure-spring-apps-landing-zone-accelerator) that illustrates some of those choices. The implementation can be used as your first step towards production.
 
 
 ## Architecture
 
-:::image type="content" source="./_images/spring-apps-reference-architecture-landing-zone.svg" alt-text="Diagram that shows an Azure Spring Apps workload in a landing zone." lightbox="./_images/spring-apps-reference-architecture-landing-zone.png":::
+:::image type="content" source="../_images/spring-apps-reference-architecture-landing-zone.svg" alt-text="Diagram that shows an Azure Spring Apps workload in a landing zone." lightbox="../_images/spring-apps-reference-architecture-landing-zone.png":::
 
 Typical uses for this architecture include:
 

@@ -5,7 +5,7 @@ This article provides a baseline architecture for running web applications on Az
 
 ## Architecture
 
-:::image type="complex" source="images/baseline-app-service-architecture.svg" lightbox="images/baseline-app-service-architecture.svg" alt-text="Diagram that shows a baseline App Service architecture with zonal redundancy and high availability.":::
+:::image type="complex" source="../_images/baseline-app-service-architecture.svg" lightbox="../_images/baseline-app-service-architecture.svg" alt-text="Diagram that shows a baseline App Service architecture with zonal redundancy and high availability.":::
     The diagram shows a virtual network with three subnets. One subnet contains Azure Application Gateway with Azure Web Application Firewall. The second subnet contains private endpoints for Azure PaaS services, while the third subnet contains a virtual interface for Azure App Service network integration. The diagram shows App Gateway communicating to Azure App Service via private endpoint. App Service shows a zonal configuration. The diagram also shows App Service using virtual network integration and private endpoints to communicate to Azure SQL Database, Azure Key Vault and Azure Storage.
 :::image-end:::
 *Figure 1: Baseline Azure App Service architecture*
@@ -37,7 +37,7 @@ Network security is at the core of the App Services baseline architecture (*see 
 
 ### Network flows
 
-:::image type="complex" source="images/baseline-app-service-network-architecture.svg" lightbox="images/baseline-app-service-network-architecture.svg" alt-text="Diagram that shows a baseline App Service network architecture.":::
+:::image type="complex" source="../_images/baseline-app-service-network-architecture.svg" lightbox="../_images/baseline-app-service-network-architecture.svg" alt-text="Diagram that shows a baseline App Service network architecture.":::
     The diagram is the same as the Baseline Azure App Service architecture with two numbered network flows. The inbound flow shows a line from the user to the Azure Application Gateway with Web Application Firewall (WAF). The second number is for WAF. The third number shows that private DNS zones are linked to the virtual network. The fourth number shows App Gateway using private endpoints to communicate to App Service. The first number in the flow from App Service to Azure PaaS services shows an arrow from App Service to a virtual interface. The second, again shows that private DNS zones are linked to the virtual network. The third shows arrows from the virtual interface communicating via private endpoints to Azure PaaS services.
 :::image-end:::
 *Figure 2: Network architecture of the baseline Azure App Service application*
@@ -186,7 +186,7 @@ A production web app needs to encrypt data in transit using HTTPS. HTTPS protoco
 
 In the baseline architecture, data in transit is encrypted from the user to the web app in App Service. The following workflow describes how the encryption works at a high level.
 
-:::image type="complex" source="images/baseline-app-service-encryption-flow.svg" lightbox="images/baseline-app-service-encryption-flow.svg" alt-text="Diagram that shows a baseline App Service encryption flow.":::
+:::image type="complex" source="../_images/baseline-app-service-encryption-flow.svg" lightbox="../_images/baseline-app-service-encryption-flow.svg" alt-text="Diagram that shows a baseline App Service encryption flow.":::
     The diagram adds numbers to the Baseline Azure App Service architecture to indicate the encryption flow. Number one is the user. Number two is Application Gateway with WAF. Number three is Azure Key Vault, storing the X.509 certificate. Number four represents the encrypted traffic sent from the application gateway to App Service.
 :::image-end:::
 
@@ -226,7 +226,7 @@ The App Service baseline configures authentication and authorization for user id
 
 Deployment for the baseline App Service application follows the guidance in [CI/CD for Azure Web Apps with Azure Pipelines](/azure/architecture/solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps). In addition to that guidance, the App Services baseline architecture takes into account that the application and deployment storage account are network secured. The architecture denies public access to App Service. This means you can't deploy from outside the virtual network. The baseline shows you how to deploy the application code within the virtual network using self-hosted deployment agents. The following deployment guidance focuses on deploying the application code and not deploying infrastructure or database changes.
 
-:::image type="complex" source="images/baseline-app-service-deployments.svg" lightbox="images/baseline-app-service-deployments.svg" alt-text="Diagram that shows a baseline App Service deployment architecture.":::
+:::image type="complex" source="../_images/baseline-app-service-deployments.svg" lightbox="../_images/baseline-app-service-deployments.svg" alt-text="Diagram that shows a baseline App Service deployment architecture.":::
     The diagram shows a subnet containing self-hosted deployment agents. It also adds an Azure Pipelines with managed agents. The last change is numbered for the deployment flow. Number one is on Azure Pipelines. Number two is an arrow from the self-hosted agents to Azure Pipelines. Three is an arrow from the self-hosted agent to the private endpoint for Azure Storage. Four is again above Azure Pipelines and the managed agents. Five is in App Services. Six is again over Azure Pipelines and the managed agents.
 :::image-end:::
 *Figure 3: Deploying Azure App Service applications*

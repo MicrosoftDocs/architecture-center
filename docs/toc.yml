@@ -6633,18 +6633,18 @@ items:
         href: guide/web/secure-single-page-application-authorization.yml
     - name: Architectures
       items:
-      - name: Azure Spring Apps
-        items:
-          - name: Get started
-            href: web-apps/spring-apps/index.md
-          - name: Architecture
-            items:              
-            - name: Baseline
-              href: web-apps/spring-apps/spring-apps-multi-zone.yml
-            - name: Baseline in multiple regions
-              href: web-apps/spring-apps/spring-apps-multi-region.yml
-            - name: Baseline in landing zones
-              href: web-apps/spring-apps/spring-apps-landing-zone.yml
+      # - name: Azure Spring Apps
+      #   items:
+      #     - name: Get started
+      #       href: web-apps/spring-apps/index.md
+      #     - name: Architecture
+      #       items:              
+      #       - name: Baseline
+      #         href: web-apps/spring-apps/spring-apps-multi-zone.yml
+      #       - name: Baseline in multiple regions
+      #         href: web-apps/spring-apps/spring-apps-multi-region.yml
+      #       - name: Baseline in landing zones
+      #         href: web-apps/spring-apps/spring-apps-landing-zone.yml
           - name: Guides
             items:
               - name: Spring Apps through a reverse Proxy

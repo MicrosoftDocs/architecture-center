@@ -6,11 +6,11 @@ This architecture is useful when you want to:
 - Increase the overall resilience and service level objective (SLO) of your application.
 
 > [!TIP]
-> ![GitHub logo](../../_images/github.svg) The architecture is backed by an [**example implementation**](https://github.com/Azure-Samples/azure-spring-apps-multi-zone) that illustrates some of the design choices. Consider the implementation as your first step towards production.
+> ![GitHub logo](../../../_images/github.svg) The architecture is backed by an [**example implementation**](https://github.com/Azure-Samples/azure-spring-apps-multi-zone) that illustrates some of the design choices. Consider the implementation as your first step towards production.
 
 ## Architecture
 
-:::image type="content" source="./_images/spring-apps-reference-architecture-single-region-zone-redundant.svg" alt-text="Diagram that shows a multi-region Azure Spring Apps reference architecture." lightbox="./_images/spring-apps-reference-architecture-single-region-zone-redundant.png":::
+:::image type="content" source="../_images/spring-apps-reference-architecture-single-region-zone-redundant.svg" alt-text="Diagram that shows a multi-region Azure Spring Apps reference architecture." lightbox="../_images/spring-apps-reference-architecture-single-region-zone-redundant.png":::
 
 
 ### Components
