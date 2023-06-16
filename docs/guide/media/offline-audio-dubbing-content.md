@@ -1,10 +1,10 @@
 This guide describes how the AI tools in Azure Cognitive Services can help you automate an offline dubbing process and ensure a high-quality dubbed version of original input.
 
-*Dubbing* is the process of placing a replacement track over an original audio/video source. It includes speech-to-speech transformation from a source to a target speech stream. There are two types of dubbing. *Real-time dubbing* modifies the original audio/video track as the content. *Offline dubbing* refers to a postproduction process. The offline process enables human assistance to improve the overall outcome as compared that of to real-time implementations. You can correct errors at each stage and add enough metadata to make the output more truthful to the original. You can use the same pipeline to provide subtitles for the video track.
+*Dubbing* is the process of placing a replacement track over an original audio/video source. It includes speech-to-speech transformation from a source to a target speech stream. There are two types of dubbing. *Real-time dubbing* modifies the original audio/video track for the content. *Offline dubbing* refers to a postproduction process. The offline process enables human assistance to improve the overall outcome as compared that of to real-time implementations. You can correct errors at each stage and add enough metadata to make the output more truthful to the original. You can use the same pipeline to provide subtitles for the video track.
 
 ## Architecture
 
-This architecture shows a pipeline that performs human-assisted speech-to-speech dubbing in offline mode. The successful completion of each module triggers the next one. The speech-to-speech pipeline shows the required elements for generating an offline dubbed audio stream. It only uses the transcript of the spoken text to produce subtitles. You can optionally enhance the subtitles to produce closed captioning as well.
+This architecture shows a pipeline that performs human-assisted speech-to-speech dubbing in offline mode. The successful completion of each module triggers the next one. The speech-to-speech pipeline shows the required elements for generating an offline dubbed audio stream. It uses the transcript of the spoken text to produce subtitles. You can optionally enhance the subtitles to produce closed captioning as well.
 
 :::image type="content" source="images/audio-dubbing-architecture.png " alt-text="Diagram that shows an architecture for human-assisted dubbing." lightbox="images/audio-dubbing-architecture.png" border="false":::
 
@@ -12,18 +12,18 @@ This architecture shows a pipeline that performs human-assisted speech-to-speech
  
 ### Workflow
 
-1. **Ingest video:** FFmpeg open-source software divides the input video content into an audio stream and a video stream. The pipeline saves the audio stream as a WAV file in *WAV file container* (blob storage). FFmpeg merges the video stream later in the process.
-1. **Speech-to-text module:** The speech-to-text module uses the audio file from *WAV file container* as input. It uses Speech service to determine the language or languages of the source audio and individual speakers. It transcribes the audio and saves it in text format. The speech-to-text module stores the text file, a subtitle caption file, and a word-level timestamp file in *STT transcript container*.
+1. **Video ingestion:** FFmpeg open-source software divides the input video content into an audio stream and a video stream. The pipeline saves the audio stream as a WAV file in *WAV file container* (blob storage). FFmpeg merges the video stream later in the process.
+1. **Speech-to-text module:** The speech-to-text module uses the audio file from *WAV file container* as input. It uses Speech service to determine the language or languages of the source audio and to detect individual speakers. It transcribes the audio and saves it in text format. The speech-to-text module stores the text file, a subtitle caption file, and a word-level timestamp file in *STT transcript container*.
 1. **Subtitle file production and filtering:** The speech-to-text module produces the subtitle file along with notes to aid manual review of the content and correct errors introduced by the speech-to-text module. The subtitle file includes text, timestamps, and other metadata, like speaker ID and language ID, that enables the rest of the pipeline to function correctly. The pipeline stores the subtitle file in *STT transcript container* as a WebVTT file. It contains notes on potential points for human verification. These notes don't interfere with the ability to add the file as a subtitle file to the final output video. After the speech-to-text module produces the subtitle file, human editors can correct errors and optionally add emotion tags to reflect the input audio.
-1. **Translator module:** The translation of the text is independent of timestamps. The input subtitle text is compiled based on the speakers. The translator service requires only the text with its context to perform the mapping to the target language. The timing and placement of the audio is forwarded to the text-to-speech module in the pipeline for proper representation of the source audio in the output. This input also includes language identification of the various segments. It enables the translation service to skip segments that don't require translation. The translation module can also add the ability to perform content filtering.
-1. **Target subtitle file production:** This module is responsible for reproducing the subtitle file in the target language. It does this by replacing of the text in the transcribed input file. It maintains the timestamps and metadata that are associated with the text. The metadata might also include hints for the human reviewer and correct the content to improve the quality of translated text. Like the speech-to-text output, the file is a WebVTT file that's stored in Azure storage. It includes notes that highlight potential points for human editing.
-1. **Text-to-speech module:** The Speech service converts the transcribed text from the source audio to the target speech track. The service uses Speech Synthesis Markup Language (SSML) to represent the conversion parameters of the target text. It fine-tunes pitch, pronunciation, emotion, speech rate, pauses, and other parameters in the text-to-text process. This service enables multiple customizations, including the ability to use custom neural voices. It generates the output audio files (WAV files) which are saved in blob storage for further use.
-1. **Timing adjustment and SSML file production:** The audio segments in source and target languages might be of different lengths, and the specifics for each language might differ. The pipeline adjusts the timing and positioning of the speech within the target output stream to be truthful to the source audio but still sound natural in the target language. It converts the output speech to an SSML file. It also matches the audio segments to the right speaker and provides the right tone and emotions. The pipeline produces one SSML file as output for the input audio. The SSML file is stored in Azure storage. It highlights segments that might benefit from human revision, in both placement and rate.
-1. **Merge:** FFmpeg adds the generated WAV file to the video stream to produce a final output. The subtitles that are generated at certain stages of this pipeline can be added to the video.
-1. **Azure storage:** The pipeline uses Azure storage to store and retrieve content as it's produced and processed. Intermediate files are editable if you need to correct errors at any stage. The pipeline can be restarted from different modules to improve the final output through human verification.
+1. **Translator module:** The translation of the text is independent of timestamps. The input subtitle text is compiled based on the speakers. The translator service requires only the text with its context to perform the mapping to the target language. The timing and placement of the audio is forwarded to the text-to-speech module in the pipeline for proper representation of the source audio in the output. This input also includes language identification of the various segments. It enables the translation service to skip segments that don't require translation. The translation module can also perform content filtering.
+1. **Target subtitle file production:** This module is responsible for reproducing the subtitle file in the target language. It does this by replacing the text in the transcribed input file. It maintains the timestamps and metadata that are associated with the text. The metadata might also include hints for the human reviewer and correct the content to improve the quality of translated text. Like the speech-to-text output, the file is a WebVTT file that's stored in Azure storage. It includes notes that highlight potential points for human editing.
+1. **Text-to-speech module:** The Speech service converts the transcribed text from the source audio to the target speech track. The service uses Speech Synthesis Markup Language (SSML) to represent the conversion parameters of the target text. It fine-tunes pitch, pronunciation, emotion, speech rate, pauses, and other parameters in the text-to-text process. This service enables multiple customizations, including the ability to use custom neural voices. It generates the output audio files (WAV files), which are saved in blob storage for further use.
+1. **Timing adjustment and SSML file production:** The audio segments in source and target languages might be of different lengths, and the specifics for each language might differ. The pipeline adjusts the timing and positioning of the speech within the target output stream to be truthful to the source audio but still sound natural in the target language. It converts the output speech to an SSML file. It also matches the audio segments to the right speaker and provides the right tone and emotions. The pipeline produces one SSML file as output for the input audio. The SSML file is stored in Azure storage. It highlights segments that might benefit from human revision, for both placement and rate.
+1. **Merge:** FFmpeg adds the generated WAV file to the video stream to produce a final output. The subtitles that are generated in this pipeline can be added to the video.
+1. **Azure storage:** The pipeline uses Azure storage to store and retrieve content as it's produced and processed. Intermediate files are editable if you need to correct errors at any stage. You can restart the pipeline from different modules to improve the final output via human verification.
 1. **Platform:** The platform components complete the pipeline, enabling enhanced security, access rights, and logging. Azure Active Directory (Azure AD) and Azure Key Vault regulate access and store secrets. You can enable Application Insights to perform logging for debugging.
 
-The pipeline is aware of errors. This awareness is significant when the language or speaker changes. Context is the key to determining both the speech-to-text and the translation outputs. The key to getting the right output is understanding the context of the speech. You might need to check and correct the output text after each step. For certain use cases, the pipeline can perform automatic dubbing, but it's not optimized for real-time speech-to-speech dubbing. In offline mode, the full audio is processed before the pipeline continues. This enables each module to run for the full length of the audio and aligns with the module design.
+The pipeline is aware of errors. This awareness is significant when the language or speaker changes. Context is the key to determining both the speech-to-text and the translation outputs. The key to getting the right output is understanding the context of the speech. You might need to check and correct the output text after each step. For certain use cases, the pipeline can perform automatic dubbing, but it's not optimized for real-time speech-to-speech dubbing. In offline mode, the full audio is processed before the pipeline continues. This enables each module to run for the full length of the audio and aligns with module design.
 
 ### Components
 
@@ -33,35 +33,35 @@ The pipeline is aware of errors. This awareness is significant when the language
 
 ## Use cases
 
-Audio dubbing is one of the most useful and widely used tools for media houses and OTT platforms. It helps increase global reach by adding relevance to the content for local audiences. Dubbing works best for offline processing but has applications for real-time dubbing.
+Audio dubbing is one of the most useful and widely used tools for media houses and OTT platforms. It helps increase global reach by adding relevance to content for local audiences. Offline processing works best for dubbing, but real-time dubbing can be used for some applications.
 
 ### Offline dubbing
 
-Following are some use cases in which offline audio dubbing provides the most benefit:
+Following are some use cases in which offline audio dubbing is the best choice:
 
 - Reproduce films and other media in a different language.
 - Replace original on-set audio that isn't usable because of poor recording equipment, ambient noise, or inadequate performance by the subject.
-- Implement content filtering to remove profanity or slang and pronunciation correction in applicable segments to adjust content for the target audience.
+- Implement content filtering to remove profanity or slang. Implement pronunciation correction in applicable segments to adjust content for the target audience.
 - Generate subtitles. The dubbing pipeline generates a transcript from the audio/video as a byproduct of the process. You can use this transcript to generate subtitles in the original or dubbed language. You can enhance the transcribed text to produce closed captioning for media.
 
-These scenarios have traditionally presented difficult problems that required manual intervention by trained employees. Given recent improvements in speech and language modeling, you can inject AI modules into these processes to make them more efficient and cost effective. 
+These scenarios have traditionally presented difficult problems that required manual intervention by trained professionals. Given recent improvements in speech and language modeling, you can inject AI modules into these processes to make them more efficient and cost effective. 
 
 ### Real-time dubbing
 
 You can implement real-time dubbing with this pipeline, but it doesn't allow human intervention for corrections. Also, longer audio files might require additional processing power and time, and which increases the cost of transcription. One way to handle this limitation is to divide the input into smaller segments of audio that are pushed through the pipeline as separate elements. However, this technique might present some problems:
 
-- Dividing the input audio into smaller clips can disrupt context and reduce transcription quality in the target language. Default speaker ID tagging might yield inconsistent results, especially if you don't use custom models for speaker identification. Default tagging that's based on appearance order makes accurate speaker mapping difficult when audio is divided into fragments. You can resolve this challenge if the source audio has separate channels assigned to specific speakers.
+- Dividing the input audio into smaller clips can disrupt context and reduce the quality of transcription. Default speaker ID tagging might yield inconsistent results, especially if you don't use custom models for speaker identification. Default tagging that's based on the order of appearance makes accurate speaker mapping difficult when audio is divided into fragments. You can resolve this challenge if the source audio has separate channels assigned to specific speakers.
 - Timing is crucial to obtaining natural and synchronized output audio. You need to minimize latency in the production pipeline and measure it accurately. By identifying the delay caused by the pipeline and using sufficient buffer, you can ensure that the output consistently matches the pace of the input audio. You also need to account for potential pipeline failures and maintain output consistency accordingly.
 
 Taking into account the previous points, you could use this pipeline to process real-time audio in scenarios where:
 
-- Audio contains only one speaker speaking clearly in one language.
+- Audio contains only one speaker who's speaking clearly in one language.
 - There's no overlapping audio from multiple speakers, and there's a clear pause between any speaker or language changes.
 - Different audio channels are produced for each speaker, and they can be processed independently.
 
 ## Design considerations
 
-This section describes services and features in the audio dubbing pipeline, highlighting the factors to consider to generate high-quality output. Note that this guide's implementation uses base or universal models for all cognitive models. Nevertheless, custom models can enhance the output of each service and the overall solution.
+This section describes services and features in the audio dubbing pipeline, highlighting the factors to consider to generate high-quality output. Note that this guide's implementation uses base or universal models for all cognitive models. Custom models can enhance the output of each service and the overall solution.
 
 ### Speech-to-text
 
@@ -85,7 +85,7 @@ The words recognized by the service appear in a format known as the *lexical for
 
 **Consider creating a joint-language model when you use a custom model.** Speech service provides a language identification feature. To use this feature, you need to define, beforehand, the locales that are relevant to the input audio. Language identification requires some context, and sometimes there's a lag in flagging a language change. If you use custom models, consider creating a joint-language model, where the model is trained with utterances from multiple languages. This approach is useful for handling speech from regions where it's common to use two different languages together, like Hinglish, which contains both Hindi and English.
 
-**Ensure clear turn-taking and natural pauses between speakers.** Like language switching, user switching also works best when the speakers take turns and there's natural pause between speakers. If there are overlapping conversations or a short pause between speakers and the audio is bundled into one channel, the speech-to-text output might contain errors that require human intervention. Background speech that might not be the focus of the content but that affect the output quality can cause similar errors. Correcting these errors requires word-level timing to identify the appropriate offsets for various speakers.
+**Ensure clear turn-taking and natural pauses between speakers.** Like language switching, user switching also works best when the speakers take turns and there's a natural pause between speakers. If there are overlapping conversations or a short pause between speakers and the audio is bundled into one channel, the speech-to-text output might contain errors that require human intervention. Background speech that might not be the focus of the content but that affect the output quality can cause similar errors. Correcting these errors requires word-level timing to identify the appropriate offsets for various speakers.
 
 ### Translator service
 
@@ -213,7 +213,7 @@ However, multiple audio segments in the target audio might overlap. The goal of 
 
 Implementing this process might cause the last segment to run longer than the time of the original audio, especially if the video ends at the end of the original audio but the target audio is longer. In this situation, you have two choices: 
 - Let the audio run longer.
-- Add the full offset of the target audio to the pre-offset, to make the last offset offset<sub>t</sub><sup>n</sup> = offset<sub>s</sub><sup>n</sup> - (t<sub>t</sub><sup>n</sup> – t<sub>s</sub><sup>n</sup>). If this offset overlaps with the audio from the previous segment, use the rate modification described previously.
+- Add the full offset of the target audio to the pre-offset, to make the last offset<sub>t</sub><sup>n</sup> = offset<sub>s</sub><sup>n</sup> - (t<sub>t</sub><sup>n</sup> – t<sub>s</sub><sup>n</sup>). If this offset overlaps with the audio from the previous segment, use the rate modification described previously.
 
 Remember, aligning audio segments to the middle is appropriate in translation scenarios in which the target text is longer than the original. If the target is always faster than the original, it might be better to align the timing to the beginnings of the original audio segments.
 
@@ -337,7 +337,7 @@ The output of speech-to-text can be affected by the audio itself, the background
 
 **Identify transcription errors.** The speech-to-text system can sometimes produce transcription errors. It provides multiple transcription options, each with a confidence score. These scores can help you determine the most accurate transcription. The *n*-best list contains the most probable hypotheses for a given speech input. The top hypothesis in this list has the highest score, indicating its likelihood of being the correct transcription. For example, a score of 0.95 indicates 95% confidence in the accuracy of the top hypothesis. By comparing the scores and differences among the outputs, you can identify discrepancies that require human intervention. You need to consider the threshold and majority voting when you review the *n*-best list:
 
-*Set a higher threshold for improved quality in the dubbing pipeline*. The threshold plays a crucial role in identifying potential errors in the *n*-best results. It determines the number of *n*-best results that are compared during the process. A higher threshold returns more *n*-best for comparison, resulting in a higher quality of intervention. Setting the threshold to zero limits the selection of candidates but provides higher confidence, as compared to the transcription produced by the speech-to-text system.
+*Set a higher threshold for improved quality in the dubbing pipeline*. The threshold plays a crucial role in identifying potential errors in the *n*-best results. It determines the number of *n*-best results that are compared during the process. A higher threshold returns more *n*-best results for comparison, resulting in a higher quality of intervention. Setting the threshold to zero limits the selection of candidates but provides higher confidence, as compared to the transcription produced by the speech-to-text system.
 
 *Balance recall and precision*. When you use majority voting, select the lexical form for each candidate that falls within the threshold. Next, determine the insertions, deletions, and replacements in relation to the output phrase. You need to consider these points of contention for highlighting, but highlighting all of them prioritizes recall at the expense of lower precision. To enhance precision, order the insertions, deletions, and replacements based on a normalized average score. The count of these errors, relative to the total number of candidates minus one, serves as a weight. You can set a threshold to calibrate the desired precision level. A weight of 0  prioritizes recall, indicating that the error is present in at least one candidate. Conversely, a weight of 1 prioritizes precision, implying that the error appears in all candidates. In this pipeline, you need to find the appropriate balance between recall and precision.
 
@@ -423,9 +423,9 @@ private ICollection<SpeechPointOfContention> CalculateInterventionReasons(string
 
 ```
 
-**Implement well-spaced language transition detection.** In language identification, detecting a transition from one language to another involves identifying multiple words. When the transition occurs within a certain number of tokens from the previous text, it's flagged. This assumption is based on the idea that well-spaced segments are more likely to be detected accurately. The aim is to avoid false negatives, where a language change occurs but the speech-to-text system fails to detect it before shifting back to the original language.
+**Implement well-spaced language transition detection.** In language identification, detecting a transition from one language to another involves identifying multiple words. When the transition occurs within a certain number of tokens from the previous text, it's flagged. This assumption is based on the assumption that well-spaced segments are more likely to be detected accurately. The aim is to avoid false negatives, where a language change occurs but the speech-to-text system fails to detect it before shifting back to the original language.
 
-**Flag unidentified speaker IDs.** When you use speech-to-text with diarization, the system might label some speaker IDs as `Unidentified`. This typically occurs when a speaker speaks for a short time. We recommend that you flag these labels for human editing.
+**Flag unidentified speaker IDs.** When you use speech-to-text with diarization, the system might label some speaker IDs as `Unidentified`. This labelling typically occurs when a speaker speaks for a short time. We recommend that you flag these labels for human editing.
 
 #### Translation
 
@@ -459,7 +459,7 @@ Other contributors:
 ## Next steps
 
 - [Sample implementation of offline audio dubbing](https://github.com/microsoft/Cognitive_Service_Utilities/blob/main/README.md)
-- [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
+- [What is Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
 - [Language and voice support for the Speech service](/azure/cognitive-services/speech-service/language-support)
 
 ## Related resources
