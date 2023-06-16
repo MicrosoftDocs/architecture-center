@@ -1,4 +1,4 @@
-The solution demonstrates how to use [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) as a storage solution for Siemens Teamcenter product lifecycle management (PLM). 
+The solution demonstrates how to use [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) as a storage solution for Siemens Teamcenter product lifecycle management (PLM). It assumes familiarity with the [Siemens Teamcenter baseline architecture on Azure](./teamcenter-baseline.yml). The Teamcenter baseline architecture helps understand the importance selecting the right storage solution(s). It also underscores the value Azure NetApp Files provides in a Siemens Teamcenter PLM deployment on Azure.
 
 ## Architecture
 
