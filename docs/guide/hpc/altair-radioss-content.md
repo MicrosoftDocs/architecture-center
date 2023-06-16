@@ -19,17 +19,13 @@ Radioss is used across industry sectors to provide multiphysics solutions to dyn
 
 This architecture shows a multi-node configuration, orchestrated with Azure CycleCloud:
 
-:::image type="content" source="media/altair-radioss/radioss-cluster-architecture.png" alt-text="Diagram that shows a multi-node configuration for deploying Altair Radioss." lightbox="media/altair-radioss/radioss-cluster-architecture.png" border="false":::
-
-*Download a [Visio file](https://arch-center.azureedge.net/radioss-cluster-architecture.vsdx) of this
-architecture.*
+:::image type="content" source="media/altair-radioss/radioss-cluster-architecture.svg" alt-text="Diagram that shows a multi-node configuration for deploying Altair Radioss." lightbox="media/altair-radioss/radioss-cluster-architecture.svg" border="false":::
 
 This architecture shows a single-node configuration:
 
-:::image type="content" source="media/altair-radioss/hpc-radioss.png" alt-text="Diagram that shows a single-node configuration for deploying Altair Radioss." lightbox="media/altair-radioss/hpc-radioss.png" border="false"::: 
+:::image type="content" source="media/altair-radioss/hpc-radioss.svg" alt-text="Diagram that shows a single-node configuration for deploying Altair Radioss." lightbox="media/altair-radioss/hpc-radioss.svg" border="false"::: 
 
-*Download a [Visio file](https://arch-center.azureedge.net/hpc-radioss.vsdx) of this
-architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/hpc-radioss-architecture.vsdx) of all diagrams in this article.*
 
 ### Components
 
