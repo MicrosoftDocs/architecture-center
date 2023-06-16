@@ -425,7 +425,7 @@ private ICollection<SpeechPointOfContention> CalculateInterventionReasons(string
 
 **Implement well-spaced language transition detection.** In language identification, detecting a transition from one language to another involves identifying multiple words. When the transition occurs within a certain number of tokens from the previous text, it's flagged. This assumption is based on the assumption that well-spaced segments are more likely to be detected accurately. The aim is to avoid false negatives, where a language change occurs but the speech-to-text system fails to detect it before shifting back to the original language.
 
-**Flag unidentified speaker IDs.** When you use speech-to-text with diarization, the system might label some speaker IDs as `Unidentified`. This labelling typically occurs when a speaker speaks for a short time. We recommend that you flag these labels for human editing.
+**Flag unidentified speaker IDs.** When you use speech-to-text with diarization, the system might label some speaker IDs as `Unidentified`. This labeling typically occurs when a speaker speaks for a short time. We recommend that you flag these labels for human editing.
 
 #### Translation
 
