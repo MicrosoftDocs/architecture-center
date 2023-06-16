@@ -457,7 +457,7 @@ conceptualContent:
           url: reference-architectures/n-tier/multi-region-sql-server.yml
         - text: Highly scalable WordPress
           itemType: get-started
-          url:  example-scenario/infrastructure/wordpress.yml
+          url: web-apps/hosting-applications/wordpress.yml
         - text: Multi-tier Windows
           itemType: get-started
           url:  ./reference-architectures/n-tier/n-tier-sql-server.yml

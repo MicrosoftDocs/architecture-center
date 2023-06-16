@@ -239,7 +239,7 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Scalable Sitecore marketing website](../solution-ideas/articles/digital-marketing-sitecore.yml)|Learn how the Sitecore Experience Platform (XP) provides the data, integrated tools, and automation you need to engage customers throughout an iterative lifecycle.|Web|
+|[Scalable Sitecore marketing website](../web-apps/hosting-applications/digital-marketing-sitecore.yml)|Learn how the Sitecore Experience Platform (XP) provides the data, integrated tools, and automation you need to engage customers throughout an iterative lifecycle.|Web|
 
 ## Skytap
 

@@ -19,4 +19,14 @@ items:
         - name: Baseline web application with zone redundancy
           href: architectures/baseline-zone-redundant.yml
         - name: Active-passive multi-region web app
-          href: architectures/multi-region.yml        
+          href: architectures/multi-region.yml
+    - name: Hosting applications
+      items:
+      - name: WordPress
+        href: hosting-applications/wordpress.yml
+      - name: Episerver
+        href: hosting-applications/digital-marketing-episerver.yml
+      - name: Sitecore
+        href: hosting-applications/digital-marketing-sitecore.yml
+      - name: Umbraco
+        href: hosting-applications/medium-umbraco-web-app.yml                

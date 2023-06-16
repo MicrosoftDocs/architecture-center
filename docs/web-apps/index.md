@@ -78,8 +78,8 @@ The following sections, organized by category, provide links to sample web app a
 - [Scalable order processing](../example-scenario/data/ecommerce-order-processing.yml)
 - [E-commerce website running in secured App Service Environment](../web-apps/idea/ecommerce-website-running-in-secured-ase.yml)
 - [Scalable e-commerce web app](../web-apps/idea/scalable-ecommerce-web-app.yml)
-- [Scalable Episerver marketing website](../solution-ideas/articles/digital-marketing-episerver.yml)
-- [Scalable Sitecore marketing website](../solution-ideas/articles/digital-marketing-sitecore.yml)
+- [Scalable Episerver marketing website](../web-apps/hosting-applications/digital-marketing-episerver.yml)
+- [Scalable Sitecore marketing website](../web-apps/hosting-applications/digital-marketing-sitecore.yml)
 
 ### Healthcare
 
@@ -108,10 +108,10 @@ The following sections, organized by category, provide links to sample web app a
 
 ### Scalability
 
-- [Scalable and secure WordPress on Azure](../example-scenario/infrastructure/wordpress.yml)
+- [Scalable and secure WordPress on Azure](../web-apps/hosting-applications/wordpress.yml)
 - [Scalable cloud applications and site reliability engineering (SRE)](../example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml)
 - [Scalable web application](../reference-architectures/app-service-web-app/scalable-web-app.yml)
-- [Scalable Umbraco CMS web app](../solution-ideas/articles/medium-umbraco-web-app.yml)
+- [Scalable Umbraco CMS web app](../web-apps/hosting-applications/medium-umbraco-web-app.yml)
 
 ### Security
 

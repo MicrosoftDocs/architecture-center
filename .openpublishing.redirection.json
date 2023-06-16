@@ -2901,6 +2901,26 @@
       "source_path": "docs/reference-architectures/app-service-web-app/multi-region.yml",
       "redirect_url": "/azure/architecture/web-apps/architectures/multi-region",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/infrastructure/wordpress.yml",
+      "redirect_url": "/azure/architecture/web-apps/hosting-applications/wordpress",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/digital-marketing-episerver.yml",
+      "redirect_url": "/azure/architecture/web-apps/hosting-applications/digital-marketing-episerver",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/infrastructure/digital-marketing-sitecore.yml",
+      "redirect_url": "/azure/architecture/web-apps/hosting-applications/digital-marketing-sitecore",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/infrastructure/medium-umbraco-web-app.yml",
+      "redirect_url": "/azure/architecture/web-apps/hosting-applications/medium-umbraco-web-app",
+      "redirect_document_id": true
     }
   ]
 }

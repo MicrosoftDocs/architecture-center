@@ -12,8 +12,8 @@ This solution is used by retail to provide up to date product offerings.
 
 ## Architecture
 
-![Architecture Diagram showing from browser through Episerver to databases](../media/digital-marketing-episerver.png)
-*Download an [SVG](../media/digital-marketing-episerver.svg) of this architecture.*
+![Architecture Diagram showing from browser through Episerver to databases](images/digital-marketing-episerver.png)
+*Download an [SVG](images/digital-marketing-episerver.svg) of this architecture.*
 
 ### Components
 

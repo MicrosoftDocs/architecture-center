@@ -10,8 +10,8 @@ This solution is used across multiple industries to improve customer experience 
 
 ## Architecture
 
-![Architecture diagram show the flow from the browser through Sitecore to Azure.](../media/digital-marketing-sitecore.png)
-*Download an [SVG](../media/digital-marketing-sitecore.svg) of this architecture.*
+![Architecture diagram show the flow from the browser through Sitecore to Azure.](images/digital-marketing-sitecore.png)
+*Download an [SVG](.images/digital-marketing-sitecore.svg) of this architecture.*
 
 ### Components
 
