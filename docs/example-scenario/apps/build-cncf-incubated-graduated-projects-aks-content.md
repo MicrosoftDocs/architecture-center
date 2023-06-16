@@ -159,5 +159,5 @@ This repo is a community project. It accepts and approves pull requests (PRs) fo
 - [AKS architecture design](../../reference-architectures/containers/aks-start-here.md)
 - [Baseline architecture for an AKS cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
 - [CI/CD pipeline for container-based workloads](../../guide/aks/aks-cicd-github-actions-and-gitops.yml) 
-- [Basic web application](../../web-apps/architectures/basic-web-app.yml)
-- [Baseline zone-redundant web application](../../web-apps/architectures/baseline-zone-redundant.yml)
+- [Basic web application](../../web-apps/app-services/architectures/basic-web-app.yml)
+- [Baseline zone-redundant web application](../../web-apps/app-services/architectures/baseline-zone-redundant.yml)

@@ -142,7 +142,7 @@ Principal author:
 [small-pricing]: https://azure.com/e/90fbb6a661a04888a57322985f9b34ac
 [medium-pricing]: https://azure.com/e/38d5d387e3234537b6859660db1c9973
 [large-pricing]: https://azure.com/e/f07f99b6c3134803a14c9b43fcba3e2f
-[app-service-reference-architecture]: /azure/architecture/web-apps/architectures/baseline-zone-redundant
+[app-service-reference-architecture]: /azure/architecture/web-apps/app-services/architectures/baseline-zone-redundant
 [availability]: /azure/architecture/framework/resiliency/reliability-patterns
 [circuit-breaker]: ../../patterns/circuit-breaker.yml
 [design-patterns-availability]: /azure/architecture/framework/resiliency/reliability-patterns
@@ -166,8 +166,8 @@ Principal author:
 [docs-webapps]: https://www.microsoft.com/azure/app-service/app-service-web-overview
 [end-to-end-walkthrough]: https://github.com/Azure/fta-customerfacingapps/tree/master/ecommerce/articles
 [microservices-ecommerce]: https://github.com/dotnet-architecture/eShopOnContainers
-[multi-region-web-app]: ../../web-apps/architectures/multi-region.yml
-[baseline-web-app]: ../../web-apps/architectures/baseline-zone-redundant.yml
+[multi-region-web-app]: ../../web-apps/app-services/architectures/multi-region.yml
+[baseline-web-app]: ../../web-apps/app-services/architectures/baseline-zone-redundant.yml
 [pci-dss-blueprint]: /azure/security/blueprints/payment-processing-blueprint
 [resiliency-app-service]: ../../checklist/resiliency-per-service.md#app-service
 [resiliency]: /azure/architecture/framework/resiliency/principles

@@ -64,7 +64,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- Review the security considerations in the appropriate [App Service web application reference architecture](/azure/architecture/web-apps/architectures/basic-web-app).
+- Review the security considerations in the appropriate [App Service web application reference architecture](/azure/architecture/web-apps/app-services/architectures/basic-web-app).
 - All data in Azure Database for MariaDB is automatically [encrypted](/azure/mariadb/concepts-security) and backed up. You can configure Microsoft Defender for Cloud for further mitigation of threats. For more information, see [Enable Microsoft Defender for open-source relational databases and respond to alerts](/azure/defender-for-cloud/defender-for-databases-usage).
 - Access to Azure Database for MariaDB over TLS helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application. It requires the root certificate to be available in the Docker image. This solution uses a custom Docker image that fetches the certificate at build time. The custom image is managed in an Azure Container Registry.
 - [Managed identities for Azure resources](/azure/app-service/app-service-managed-service-identity) provide access to other internal resources to your account. This solution uses a managed identity to authorize the web application in Azure App Service to read secrets from Azure Key Vault.
@@ -92,7 +92,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 - This solution requires at least the Basic tier, because lower tiers do not support [hybrid connections](https://azure.microsoft.com/pricing/details/app-service/linux/#pricing) into the virtual network.
 - The CTFd web application component requires [at least 1 CPU and 1 GB of RAM per instance](https://docs.ctfd.io/docs/deployment/installation).
-- For information about scaling a basic web app, see [Scaling the App Service app](/azure/architecture/web-apps/architectures/basic-web-app#scaling-the-app-service-app).
+- For information about scaling a basic web app, see [Scaling the App Service app](/azure/architecture/web-apps/app-services/architectures/basic-web-app#scaling-the-app-service-app).
 - You can [scale up](/azure/mariadb/concepts-pricing-tiers) Azure Database for MariaDB to meet higher demands. You can dynamically change the number vCores, the amount of storage, and the pricing tier (except to and from Basic), so you should carefully consider the right tier for your target workload.
 
 ## Deploy this scenario
@@ -125,8 +125,8 @@ Principal author:
 
 ## Related resources
 
-- [Baseline architecture for a zone-redundant web application](../../web-apps/architectures/baseline-zone-redundant.yml)
-- [Reference architecture for a multi-region web application](../../web-apps/architectures/multi-region.yml)
+- [Baseline architecture for a zone-redundant web application](../../web-apps/app-services/architectures/baseline-zone-redundant.yml)
+- [Reference architecture for a multi-region web application](../../web-apps/app-services/architectures/multi-region.yml)
 - [Scalable web and mobile applications using Azure Database for MySQL](../../solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml)
 - [Social app for mobile and web with authentication](../../solution-ideas/articles/social-mobile-and-web-app-with-authentication.yml)
 - [Web applications architecture design](../../web-apps/index.md)

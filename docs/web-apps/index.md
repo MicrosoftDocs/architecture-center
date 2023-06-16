@@ -103,7 +103,7 @@ The following sections, organized by category, provide links to sample web app a
 
 ### Multi-region apps
 
-- [Highly available multi-region web application](../web-apps/architectures/multi-region.yml)
+- [Highly available multi-region web application](../web-apps/app-services/architectures/multi-region.yml)
 - [Multi-region web app with private connectivity to database](../example-scenario/sql-failover/app-service-private-sql-multi-region.yml)
 
 ### Scalability

@@ -2784,22 +2784,22 @@
     },
     {
       "source_path": "docs/reference-architectures/app-service-web-app/zone-redundant.yml",
-      "redirect_url": "/azure/architecture/web-apps/architectures/baseline-zone-redundant",
+      "redirect_url": "/azure/architecture/web-apps/app-services/architectures/baseline-zone-redundant",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/reference-architectures/app-service-web-app/scalable-web-app.yml",
-      "redirect_url": "/azure/architecture/web-apps/architectures/baseline-zone-redundant",
+      "redirect_url": "/azure/architecture/web-apps/app-services/architectures/baseline-zone-redundant",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/private-web-app/private-web-app.yml",
-      "redirect_url": "/azure/architecture/web-apps/architectures/baseline-zone-redundant",
+      "redirect_url": "/azure/architecture/web-apps/app-services/architectures/baseline-zone-redundant",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/web/multi-tier-app-service-private-endpoint.yml",
-      "redirect_url": "/azure/architecture/web-apps/architectures/baseline-zone-redundant",
+      "redirect_url": "/azure/architecture/web-apps/app-services/architectures/baseline-zone-redundant",
       "redirect_document_id": false
     },
     {
@@ -2889,17 +2889,17 @@
     },
     {
       "source_path": "docs/reference-architectures/app-service-web-app/basic-web-app.yml",
-      "redirect_url": "/azure/architecture/web-apps/architectures/basic-web-app",
+      "redirect_url": "/azure/architecture/web-apps/app-services/architectures/basic-web-app",
       "redirect_document_id": true
     },
     {
       "source_path": "docs/reference-architectures/app-service-web-app/baseline-zone-redundant.yml",
-      "redirect_url": "/azure/architecture/web-apps/architectures/baseline-zone-redundant",
+      "redirect_url": "/azure/architecture/web-apps/app-services/architectures/baseline-zone-redundant",
       "redirect_document_id": true
     },
     {
       "source_path": "docs/reference-architectures/app-service-web-app/multi-region.yml",
-      "redirect_url": "/azure/architecture/web-apps/architectures/multi-region",
+      "redirect_url": "/azure/architecture/web-apps/app-services/architectures/multi-region",
       "redirect_document_id": true
     },
     {

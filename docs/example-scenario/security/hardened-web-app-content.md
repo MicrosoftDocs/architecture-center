@@ -66,7 +66,7 @@ You can further increase the availability of the solution by spreading it across
 
 See these reference architectures to learn about deploying highly available web applications in Azure and setting up multi-region SQL Server instances to work with private endpoints:
 
-- [Highly available multi-region web application](/azure/architecture/web-apps/architectures/multi-region)
+- [Highly available multi-region web application](/azure/architecture/web-apps/app-services/architectures/multi-region)
 - [Multi-region web app with private connectivity to a database](/azure/architecture/example-scenario/sql-failover/app-service-private-sql-multi-region)
 
 ### Security

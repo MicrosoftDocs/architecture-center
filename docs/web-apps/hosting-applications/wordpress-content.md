@@ -4,7 +4,7 @@ Use [Azure Content Delivery Network](/azure/cdn/cdn-overview) and other Azure se
 
 ## Architecture
 
-[![Architecture overview of the Azure components involved in a scalable and secure WordPress deployment](media/secure-scalable-wordpress.png)](media/secure-scalable-wordpress.png#lightbox)
+[![Architecture overview of the Azure components involved in a scalable and secure WordPress deployment](images/secure-scalable-wordpress.png)](images/secure-scalable-wordpress.png#lightbox)
 
 ### Dataflow
 

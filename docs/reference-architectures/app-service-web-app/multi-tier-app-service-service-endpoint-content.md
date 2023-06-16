@@ -65,7 +65,7 @@ Service endpoints protect the API apps from being accessed by anything other tha
 ### Scalability
 
 - Performance efficiency is the ability of your workload to scale to meet the demands placed on it in an efficient manner. Be aware of performance efficiency patterns as you design and build your cloud application. For more information, see [Performance Efficiency patterns](/azure/architecture/framework/scalability/performance-efficiency-patterns).
-- Learn about scaling a basic web app in [Scaling the App Service app](/azure/architecture/web-apps/architectures/basic-web-app#scaling-the-app-service-app). Review the other articles in the same section for ideas regarding other architectures.
+- Learn about scaling a basic web app in [Scaling the App Service app](/azure/architecture/web-apps/app-services/architectures/basic-web-app#scaling-the-app-service-app). Review the other articles in the same section for ideas regarding other architectures.
 - For more performance efficiency ideas, see [Performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency).
 
 ### Cost optimization
@@ -100,8 +100,8 @@ Principal author:
 
 ## Related Resources
 
-- [Basic web application](../../web-apps/architectures/basic-web-app.yml)
-- [Baseline zone-redundant web application](../../web-apps/architectures/baseline-zone-redundant.yml)
-- [Multi-region active-passive web application](../../web-apps/architectures/multi-region.yml)
+- [Basic web application](../../web-apps/app-services/architectures/basic-web-app.yml)
+- [Baseline zone-redundant web application](../../web-apps/app-services/architectures/baseline-zone-redundant.yml)
+- [Multi-region active-passive web application](../../web-apps/app-services/architectures/multi-region.yml)
 - [Web application monitoring on Azure](app-monitoring.yml)
 - [Scalable web application](scalable-web-app.yml)
