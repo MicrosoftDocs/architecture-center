@@ -1,4 +1,4 @@
-This article provides guidance for implementing Siemens Teamcenter Product Lifecycle Management (PLM) in Azure. It describes a baseline architecture for Siemens Teamcenter PLM deployments in Azure. [Siemens Teamcenter PLM](https://plm.sw.siemens.com/en-US/teamcenter/) is a software suite for managing the entire lifecycle of a product.
+This article defines the baseline architecture for implementing Siemens Teamcenter Product Lifecycle Management (PLM) on Azure. [Siemens Teamcenter PLM](https://plm.sw.siemens.com/en-US/teamcenter/) is a software suite for managing the entire lifecycle of a product. Consolidating Teamcenter on Azure provides a consistent and synchronized PLM experience across your enterprise.
 
 Many customers run multiple Teamcenter solutions across the enterprise, mixing multiple instances, multiple ISV vendors, and hybrid cloud and on-premises implementations. This fragmentation reduces the customer’s ability to uniformly access data. Consolidating Teamcenter on Azure provides a consistent and synchronized PLM experience across your enterprise.
 
@@ -167,7 +167,7 @@ When hosting volumes for the Teamcenter Volume Server, it's recommended to attac
 
 ## Contributors
 
-Microsoft maintains this article. The following contributors originally wrote the article:
+*Microsoft maintains this article. The following contributors originally wrote the article.*
 
 Principal authors:
 
@@ -185,6 +185,8 @@ Other contributors:
 
 >[!div class="nextstepaction"]
 > [Teamcenter PLM with Azure NetApp Files](teamcenter-plm-netapp-files.yml)
+
+## Related resources
 
 - [GPU-optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
 - [Windows virtual machines on Azure](/azure/virtual-machines/overview)

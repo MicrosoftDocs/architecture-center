@@ -1,4 +1,4 @@
-This article demonstrates how to use [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) as a storage solution for Siemens Teamcenter product lifecycle management (PLM). 
+The article demonstrates how to use [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) as a storage solution for Siemens Teamcenter product lifecycle management (PLM). It assumes familiarity with the [Siemens Teamcenter baseline architecture on Azure](./teamcenter-baseline.yml). The Teamcenter baseline architecture helps understand the importance selecting the right storage solution(s). It also underscores the value Azure NetApp Files provides in a Siemens Teamcenter PLM deployment on Azure.
 
 ## Architecture
 
@@ -155,7 +155,7 @@ Azure NetApp Files also optimizes costs for [Oracle](https://techcommunity.micro
 - Managed disks (OS boot disks)
 - Networking components
 
-**Use the Azure NetApp Files performance calculator.** The [Azure NetApp Files performance calculator](https://anftechteam.github.io/calc/advanced/) can help you determine the correct Azure NetApp Files storage tier for your cost and performance needs.
+**Use the Azure NetApp Files performance calculator.** The [Azure NetApp Files performance calculator](https://azure.github.io/azure-netapp-files/calc/) can help you determine the correct Azure NetApp Files storage tier for your cost and performance needs.
 
 **Consult an Azure Cloud Solutions Architect.** We recommend that you consult an Azure Cloud Solutions Architect (CSA) to help you with application sizing and selecting the smallest applicable VM SKU.
 
@@ -188,9 +188,9 @@ The VM type and performance tiers need to meet the storage needs of the Teamcent
 :::image type="content" source="media/storage-requirements.png" alt-text="Diagram that shows the storage tier requirements for various infrastructure components." lightbox="media/storage-requirements.png" border="false":::
 *Figure 4. Varied storage tier   requirements across infrastructure components. Download a [PowerPoint file](https://arch-center.azureedge.net/teamcenter-plm-netapp-files.pptx) of this architecture.*
 
-*Siemens Teamcenter servers (Root FSC)* (*see figure 4*) require medium-to-high storage performance for file data management. Depending on volume capacities, we typically recommend the Azure NetApp Files Premium tier unless [performance sizing](https://anftechteam.github.io/calc/advanced) suggests otherwise. You should use Azure D or F series VMs for the Root FSC servers. Azure NetApp Files provides [SLAs](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) to maintain operability and IOPS levels.
+*Siemens Teamcenter servers (Root FSC)* (*see figure 4*) require medium-to-high storage performance for file data management. Depending on volume capacities, we typically recommend the Azure NetApp Files Premium tier unless performance sizing suggests otherwise. You should use Azure D or F series VMs for the Root FSC servers. Azure NetApp Files provides [SLAs](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) to maintain operability and IOPS levels.
 
-*Database servers* ([SQL Server](/azure/azure-netapp-files/solutions-benefits-azure-netapp-files-sql-server) or [Oracle](https://techcommunity.microsoft.com/t5/azure-architecture-blog/run-your-most-demanding-oracle-workloads-in-azure-without/ba-p/3264545)) (*see figure 4*) require minimal latency between the server and storage. Azure NetApp Files provides latencies of less than 1 millisecond. You should use E or M series Azure VMs for your database servers. When you can, enable [constrained vCPU](/azure/virtual-machines/constrained-vcpu) to save on SKU and license costs. For the most demanding database applications, you should use the Azure NetApp Files Ultra tier unless database [performance sizing](https://anftechteam.github.io/calc/advanced) suggests otherwise.
+*Database servers* ([SQL Server](/azure/azure-netapp-files/solutions-benefits-azure-netapp-files-sql-server) or [Oracle](https://techcommunity.microsoft.com/t5/azure-architecture-blog/run-your-most-demanding-oracle-workloads-in-azure-without/ba-p/3264545)) (*see figure 4*) require minimal latency between the server and storage. Azure NetApp Files provides latencies of less than 1 millisecond. You should use E or M series Azure VMs for your database servers. When you can, enable [constrained vCPU](/azure/virtual-machines/constrained-vcpu) to save on SKU and license costs. For the most demanding database applications, you should use the Azure NetApp Files Ultra tier unless database performance sizing suggests otherwise.
 
 *Engineering workstations* (*see figure 4*) should use NV series VMs and NVIDIA GPUs and NVIDIA GRID technology for desktop accelerated applications and virtual desktops. Azure NetApp Files optimizes GPU-enabled engineering workstations by providing fast and concurrent access to file data to multiple workstations, which fosters collaboration. The Standard tier is sufficient for this use case. The Standard tier provides the same low-latency performance as the other tiers. It works with low bandwidth requirements and high concurrency such as many users accessing the volume in parallel.
 
@@ -204,7 +204,7 @@ Azure NetApp Files provides several features that can help you scale on-demand f
 
 All these changes are transparent to the Teamcenter components that run on top of Azure NetApp Files. The applications continue to access the volumes in the same way, and the performance and availability are maintained at the required level. You can scale your storage resources on-demand for performance and cost without disrupting your business operations.
 
-**Run a performance test.** Customer deployments and performance validation tests of Azure NetApp Files for Teamcenter PLM have validated significant decreases in runtimes and significant improvements in both read and write times. Use the [Azure NetApp Files performance calculator](https://anftechteam.github.io/calc/) to get started with an initial sizing and cost estimation.
+**Run a performance test.** Customer deployments and performance validation tests of Azure NetApp Files for Teamcenter PLM have validated significant decreases in runtimes and significant improvements in both read and write times. Use the [Azure NetApp Files performance calculator](https://azure.github.io/azure-netapp-files/calc/) to get started with an initial sizing and cost estimation.
 
 ## Contributors
 
@@ -230,7 +230,7 @@ Other contributors:
 - [Benefits of using Azure NetApp Files for SQL Server deployment](/azure/azure-netapp-files/solutions-benefits-azure-netapp-files-sql-server)
 - [Azure Virtual Desktop solutions with Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-solution-architectures#windows-virtual-desktop)
 - [File sharing solutions with Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-solution-architectures#file-sharing-and-global-file-caching)
-- [Azure NetApp Files performance calculator](https://anftechteam.github.io/calc/)
+- [Azure NetApp Files performance calculator](https://azure.github.io/azure-netapp-files/calc/)
 - [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator)
 
 ## Related resources
