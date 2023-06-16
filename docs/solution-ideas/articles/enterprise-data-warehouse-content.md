@@ -9,7 +9,7 @@ This article presents a solution for an enterprise data warehouse in Azure that:
 
 ## Architecture
 
-:::image type="content" source="../media/enterprise-data-warehouse.png" alt-text="Architecture diagram of an enterprise data warehouse that uses Azure Synapse Analytics, Data Lake Storage, Analysis Services, and Power BI." border="false":::
+:::image type="content" source="../media/enterprise-data-warehouse.svg" lightbox="../media/enterprise-data-warehouse.svg" alt-text="Architecture diagram of an enterprise data warehouse that uses Azure Synapse Analytics, Data Lake Storage, Analysis Services, and Power BI." border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/enterprise-data-warehouse.vsdx) of this architecture.*
 

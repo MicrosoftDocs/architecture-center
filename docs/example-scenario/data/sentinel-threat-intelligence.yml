@@ -23,7 +23,7 @@ products:
   - azure-active-directory
   - azure-logic-apps
   - azure-monitor
-  - azure-sentinel
+  - microsoft-sentinel
 thumbnailUrl: /azure/architecture/browse/thumbs/sentinel-data-flow.png
 content: |
    [!include[](sentinel-threat-intelligence-content.md)]

@@ -4,9 +4,9 @@ Azure Event Grid can serve as an essential building block in the automation of c
 
 ## Architecture
 
-:::image type="content" source="../media/ops-automation-using-event-grid.png" alt-text="Architecture diagram that shows the flow of data during the process of automatically tagging a new VM." border="false":::
+:::image type="content" source="../media/ops-automation-using-event-grid.svg" alt-text="Architecture diagram that shows the flow of data during the process of automatically tagging a new VM." border="false":::
 
-*Download an [SVG file](../media/ops-automation-using-event-grid.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/ops-automation-using-event-grid.vsdx) of this architecture.*
 
 ### Dataflow
 

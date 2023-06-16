@@ -49,7 +49,7 @@ The company wants to build a cloud-based "smart construction" solution. It shoul
 - Remotely and automatically controlling construction equipment to mitigate the effects of a labor shortage, ultimately requiring fewer workers and enabling lower-skilled workers to succeed.
 - Minimizing the operating costs and labor requirements for the supporting infrastructure, while increasing productivity and safety.
 - Easily scaling the infrastructure to support increases in telemetry data.
-- Complying with all relevant legal requirements by provisioning resources in-country without compromising system availability.
+- Complying with all relevant legal requirements by provisioning resources in-country/region without compromising system availability.
 - Using open-source software to maximize the investment in workers' current skills.
 
 Using managed Azure services such as IoT Hub and HDInsight will allow the customer to rapidly build and deploy a comprehensive solution with a lower operating cost. If you have additional data analytics needs, you should review the list of available [fully managed data analytics services in Azure][product-category].

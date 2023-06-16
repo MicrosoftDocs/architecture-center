@@ -2616,8 +2616,8 @@
       "source_path": "docs/solution-ideas/articles/devsecops-in-azure.yml",
       "redirect_url": "/azure/architecture/guide/devsecops/devsecops-on-aks",
       "redirect_document_id": false
-    },   
-    {
+    },
+    {    
       "source_path": "docs/multitenant-identity/adfs.yml",
       "redirect_url": "/azure/architecture/guide/multitenant/considerations/identity",
       "redirect_document_id": false
@@ -2783,6 +2783,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/reference-architectures/app-service-web-app/zone-redundant.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/baseline-zone-redundant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/app-service-web-app/scalable-web-app.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/baseline-zone-redundant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/private-web-app/private-web-app.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/baseline-zone-redundant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/web/multi-tier-app-service-private-endpoint.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/baseline-zone-redundant",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/reference-architectures/containers/blue-green-deployment-for-aks/blue-green-deployment-for-aks.yml",
       "redirect_url": "/azure/architecture/guide/aks/blue-green-deployment-for-aks",
       "redirect_document_id": true
@@ -2811,6 +2831,26 @@
       "source_path": "docs/reference-architectures/reliable-web-app/dotnet/pattern-overview.yml",
       "redirect_url": "docs/reference-architectures/reliable-web-app/dotnet/plan-implementation",
       "redirect_document_id": false
-    }
+    },
+    {
+      "source_path": "docs/reference-architectures/microservices/spring-apps-multi-region.yml",
+      "redirect_url": "/azure/architecture/web-apps/spring-apps/spring-apps-multi-region",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/blue-green-spring/blue-green-spring.yml",
+      "redirect_url": "/azure/architecture/web-apps/spring-apps/blue-green-spring",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/microservices/spring-apps-multi-zone.yml",
+      "redirect_url": "/azure/architecture/web-apps/spring-apps/spring-apps-multi-zone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/microservices/spring-cloud-reverse-proxy.yml",
+      "redirect_url": "/azure/architecture/web-apps/spring-apps/spring-cloud-reverse-proxy",
+      "redirect_document_id": false
+    }      
   ]
 }

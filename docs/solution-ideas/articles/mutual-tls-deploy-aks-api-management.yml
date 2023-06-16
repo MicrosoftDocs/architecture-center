@@ -21,7 +21,7 @@ products:
   - azure-kubernetes-service
   - azure-api-management
   - azure-container-registry
-  - azure-defender
+  - defender-for-cloud
 name: Deploy AKS and API Management with mTLS
 summary: Learn how to integrate Azure Kubernetes Service (AKS) and Azure API Management with mutual TLS in an architecture that provides end-to-end encryption.
 thumbnailUrl: /azure/architecture/browse/thumbs/mutual-tls-deploy-aks-api-management-thumb.png

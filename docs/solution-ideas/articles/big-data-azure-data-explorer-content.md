@@ -2,9 +2,11 @@
 
 This solution idea demonstrates big data analytics over large volumes of high-velocity data from various sources.
 
+*Apache® and Apache Kafka® are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
+
 ## Architecture
 
-:::image type="content" source="../media/big-data-azure-data-explorer.png" alt-text="Diagram showing big data analytics with Azure Data Explorer." lightbox="../media/big-data-azure-data-explorer.png":::
+:::image type="content" source="../media/big-data-azure-data-explorer.svg" alt-text="Diagram showing big data analytics with Azure Data Explorer." lightbox="../media/big-data-azure-data-explorer.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/big-data-azure-data-explorer.vsdx) of this architecture.*
 
