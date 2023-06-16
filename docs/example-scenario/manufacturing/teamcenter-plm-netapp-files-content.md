@@ -1,4 +1,4 @@
-The solution demonstrates how to use [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) as a storage solution for Siemens Teamcenter product lifecycle management (PLM). It assumes familiarity with the [Siemens Teamcenter baseline architecture on Azure](./teamcenter-baseline.yml). The Teamcenter baseline architecture helps understand the importance selecting the right storage solution(s). It also underscores the value Azure NetApp Files provides in a Siemens Teamcenter PLM deployment on Azure.
+The article demonstrates how to use [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) as a storage solution for Siemens Teamcenter product lifecycle management (PLM). It assumes familiarity with the [Siemens Teamcenter baseline architecture on Azure](./teamcenter-baseline.yml). The Teamcenter baseline architecture helps understand the importance selecting the right storage solution(s). It also underscores the value Azure NetApp Files provides in a Siemens Teamcenter PLM deployment on Azure.
 
 ## Architecture
 
@@ -155,6 +155,8 @@ Azure NetApp Files also optimizes costs for [Oracle](https://techcommunity.micro
 - Managed disks (OS boot disks)
 - Networking components
 
+**Use the Azure NetApp Files performance calculator.** The [Azure NetApp Files performance calculator](https://azure.github.io/azure-netapp-files/calc/) can help you determine the correct Azure NetApp Files storage tier for your cost and performance needs.
+
 **Consult an Azure Cloud Solutions Architect.** We recommend that you consult an Azure Cloud Solutions Architect (CSA) to help you with application sizing and selecting the smallest applicable VM SKU.
 
 ### Operational excellence
@@ -202,7 +204,7 @@ Azure NetApp Files provides several features that can help you scale on-demand f
 
 All these changes are transparent to the Teamcenter components that run on top of Azure NetApp Files. The applications continue to access the volumes in the same way, and the performance and availability are maintained at the required level. You can scale your storage resources on-demand for performance and cost without disrupting your business operations.
 
-**Run a performance test.** Customer deployments and performance validation tests of Azure NetApp Files for Teamcenter PLM have validated significant decreases in runtimes and significant improvements in both read and write times.
+**Run a performance test.** Customer deployments and performance validation tests of Azure NetApp Files for Teamcenter PLM have validated significant decreases in runtimes and significant improvements in both read and write times. Use the [Azure NetApp Files performance calculator](https://azure.github.io/azure-netapp-files/calc/) to get started with an initial sizing and cost estimation.
 
 ## Contributors
 
@@ -228,6 +230,7 @@ Other contributors:
 - [Benefits of using Azure NetApp Files for SQL Server deployment](/azure/azure-netapp-files/solutions-benefits-azure-netapp-files-sql-server)
 - [Azure Virtual Desktop solutions with Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-solution-architectures#windows-virtual-desktop)
 - [File sharing solutions with Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-solution-architectures#file-sharing-and-global-file-caching)
+- [Azure NetApp Files performance calculator](https://azure.github.io/azure-netapp-files/calc/)
 - [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator)
 
 ## Related resources
