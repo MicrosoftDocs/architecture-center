@@ -8,15 +8,15 @@ Key features of Maya include:
 - USD in Maya, an extension for the Universal Scene Description (USD) framework. You can use this extension to load and edit large datasets quickly and to use native tools to work directly with data.
 - Fast playback, which provides a fast way to review animations and leads to reduced *playblasts* with the Cached Playback system in Viewport 2.0. A playblast is a real-time preview of an animation in Maya.
 - Unreal Live Link for Maya, a plug-in that you can use to stream real-time animation data from Maya to Unreal.
-- A non-destructive, clip-based nonlinear time editor for making high-level animation edits.
+- A nondestructive, clip-based nonlinear time editor for making high-level animation edits.
 - A graph editor. You can use this graphical representation of scene animation to create, view, and modify animation curves.
-- Polygon modeling, a feature for creating 3D models by using geometry that's based on vertices, edges, and faces.
-- Non-uniform rational basis spline (NURBS) modeling. By using this feature, you can construct 3D models from geometric primitives and drawn curves.
+- Polygon modeling, a feature for creating 3D models that uses geometry that's based on vertices, edges, and faces.
+- Nonuniform rational basis spline (NURBS) modeling. By using this feature, you can construct 3D models from geometric primitives and drawn curves.
 - Character setup for creating sophisticated skeletons, inverse kinematics (IK) handles, and deformers for characters that deliver lifelike performances.
 
-Maya was developed by Autodesk and offers a wide range of animation, simulation, and modeling tools. You can also use Maya for motion graphics, virtual reality, UV maps, low poly, and character creation. This 3D software is very popular in the video game industry. You can use the Maya application to generate 3D assets for games and also for film, television, and commercials. Maya is known as a powerful application for animation that offers a vast library of animation tools. It's also very customizable if you're familiar with MEL or Python, which are the scripting languages in Maya.
+Maya was developed by Autodesk and offers a wide range of powerful tools for animation, simulation, and modeling. You can also use Maya for motion graphics, virtual reality, UV maps, low poly, and character creation. This 3D software is popular in the video game industry. You can use the Maya application to generate 3D assets for games and also for film, television, and commercials. Besides offering a vast library of animation tools, Maya is customizable. Scripting languages like Maya Embedded Language (MEL) and Python provide a way to extend Maya functionality.
 
-To see how to use an Arnold plug-in to use an [Arnold renderer](https://docs.arnoldrenderer.com/display/A5AFMUG/Arnold) directly in Maya, see the [Arnold for Autodesk Maya User Guide](https://docs.arnoldrenderer.com/display/a5AFMUG/Arnold+for+Maya+User+Guide?preview=/40111191/134645273/car.jpg).
+To see how to use an Arnold plug-in to use an [Arnold renderer](https://docs.arnoldrenderer.com/display/A5AFMUG/Arnold) directly in Maya, see the [Arnold for Maya User Guide](https://docs.arnoldrenderer.com/display/a5AFMUG/Arnold+for+Maya+User+Guide?preview=/40111191/134645273/car.jpg).
 
 ## Why deploy Maya on Azure?
 
@@ -45,11 +45,11 @@ To see how to use an Arnold plug-in to use an [Arnold renderer](https://docs.arn
 
 ## Deploy infrastructure and install Maya
 
-**Deploy Azure VMs.** Before you install Maya, deploy your Azure VMs. Use a [NVadsA10_v5-series](https://learn.microsoft.com/azure/virtual-machines/nva10v5-series) VM to run Maya. You should use a Premium SSD managed disk and attach it to the VM.
+**Deploy Azure VMs.** Before you install Maya, deploy your Azure VMs. Use a [NVadsA10_v5-series](/azure/virtual-machines/nva10v5-series) VM to run Maya. You should use a Premium SSD managed disk and attach it to the VM.
 
-**Create and configure the supporting infrastructure.** Configure a public IP address for inbound connectivity and use network security groups to provide security for the subnet.
+**Create and configure the supporting infrastructure.** Configure a public IP address for inbound connectivity. Use network security groups to provide security for the subnet.
 
-**Install NVIDIA drivers.** To take advantage of the GPU capabilities of NVadsA10_v5-series VMs, install [NVIDIA GPU drivers](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html). For information about deploying VMs and installing the drivers, see [Run a Windows VM on Azure](https://learn.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm).
+**Install NVIDIA drivers.** To take advantage of the GPU capabilities of NVadsA10_v5-series VMs, install [NVIDIA GPU drivers](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html). For information about deploying VMs and installing the drivers, see [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml).
 
 ## Compute sizing
 
@@ -68,11 +68,11 @@ Before you install Maya, you need to deploy and connect to a VM via Remote Deskt
 > [!IMPORTANT]
 > An NVIDIA Fabric Manager installation is required for VMs that use NV Link or NV Switch.
 
-You can install Maya from the [Autodesk Maya portal](https://www.autodesk.com/products/maya/overview?term=1-YEAR&tab=subscription&plc=MAYA). For a detailed installation procedure, see the [Autodesk Maya help documentation](https://help.autodesk.com/view/MAYAUL/2022/ENU/).
+You can install Maya from the [Autodesk Maya portal](https://www.autodesk.com/products/maya/overview?term=1-YEAR&tab=subscription&plc=MAYA). For a detailed installation procedure, see the [Autodesk Maya help documentation](https://help.autodesk.com/view/MAYAUL/2022/ENU).
 
 ## Maya performance results
 
-The performance analysis uses the Autodesk Maya 2023.1 trial version on Windows [NVadsA10_v5-series](/azure/virtual-machines/nva10v5-series) VMs.
+This performance analysis uses the Autodesk Maya 2023.1 trial version on Windows [NVadsA10_v5-series](/azure/virtual-machines/nva10v5-series) VMs.
 
 The following table provides details about the operating system that's used in testing:
 
@@ -86,13 +86,13 @@ The tests use the following model:
 
 | Model name | Image size | Image size in inches |
 | --- | --- | --- |
-| Open scene | HD 1080 | 26.7 x 15.0 inches |
+| Open scene | HD 1080 | 26.7 x 15.0 |
 
 The following sections provide information about four metrics that measure the performance of Maya on an Azure VM.
 
 ### Measurement 1: Open scene performance
 
-The following table lists times for reading the model file with various GPU configurations. The time it takes to load a test scene is the time it takes to read a file.
+The following table lists times for reading the model file with various GPU configurations. The time that it takes to load a test scene is the time that it takes to read a file.
 
 | Number of GPUs | File read time (seconds) |
 | --- | --- |
@@ -106,12 +106,12 @@ The following image shows the loading view:
 
 Note these points:
 
-- The loading view is the same as the one that's expected by the independent software vendor (ISV).
+- The loading view is the view that the independent software vendor (ISV) expects to see.
 - On tests with 1/6 GPUs, Maya reports an error about not enough free memory remaining in the GPU.
 
 ### Measurement 2: Playback performance
 
-The following table lists playback times and rates for various GPU configurations when a Maya Embedded Language (MEL) script is used:
+The following table lists playback times and rates for various GPU configurations when a MEL script is used:
 
 | Number of GPUs | Playback rate (frames/second) | Total playback time (seconds) |
 | --- | --- | --- |
@@ -121,9 +121,8 @@ The following table lists playback times and rates for various GPU configuration
 
 Note these points:
 
-- There are 425 frames set for the model.
-- The playback rate is the number of frames that are played in one second.
-- The playback time and rate are almost identical for all GPU configurations.
+- The model contains 425 frames.
+- The playback time and rate are almost identical for all tested GPU configurations.
 
 ### Measurement 3: Arnold renderer performance
 
@@ -131,7 +130,7 @@ The following table shows the rendering time for various GPU configurations. Res
 
 | Number of GPUs | Rendering time (seconds) | Relative speedup |
 | --- | --- | --- |
-| 6 vCPUs (cores) | 1275 | 1.00 |
+| 6 vCPUs (cores) | 1,275 | 1.00 |
 | 1/3 | 138 | 9.24 |
 | 1/2 | 96 | 13.28 |
 | 1 | 27 | 47.22 |
@@ -148,7 +147,7 @@ The following image shows the rendered output:
 
 The following table lists performance data for caching via a Python script. When you use the Cached Playback feature, you can view changes that you made to the animation without having to create a new playblast.
 
-| Number of vCPUs (cores) | Filling playback (frames/second) | Cached playback (frames/second) | Fill time (seconds) | Memory before playback (megabytes) | Memory after playback (megabytes) |
+| Number of vCPUs (cores) | Filling playback (frames/second) | Cached playback (frames/second) | Fill time (seconds) | Memory before playback (MB) | Memory after playback (MB) |
 | --- | --- | --- | --- | --- | --- |
 | 1/3 | 6.19 | 21.31 | 0.88 | [112,638.88, 18,825.78] | [112,638.88, 18,697.53] |
 | 1/2 | 17.09 | 24.11 | 0.67 | [225,278.88, 19,137.05] | [225,278.88, 19,172.94] |
@@ -157,12 +156,12 @@ The following table lists performance data for caching via a Python script. When
 ### Additional notes about tests
 
 - Tests on the Maya application run successfully on NVadsA10_v5 VMs on the Azure cloud platform.
-- Based on the rendering process, the NVadsA10_v5 VM tests show that the application scales well from a partial to a full GPU configuration.
-- The caching performance test values show that the fill time decreases as the configuration improves.
+- In tests of the rendering process on an NVadsA10_v5 VM, Maya scales well from a partial to a full GPU configuration.
+- Tests of the caching performance show that the fill time decreases as the configuration improves.
 
 ## Azure cost
 
-The following table lists the elapsed times in hours for running the model with various GPU configurations. To compute the total cost, multiply these times by the Azure VM hourly cost for the NVadsA10_v5 VM. For the current hourly cost, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing) and [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing).
+The following table lists the elapsed times in hours for running the model with various GPU configurations. To compute the total cost, multiply these times by the Azure VM hourly cost for an NVadsA10_v5 VM. For the current hourly cost, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing) and [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing).
 
 | Number of GPUs | Elapsed time (hours) |
 | --- | --- |
@@ -176,8 +175,8 @@ To estimate the cost of your configuration, use the [Azure pricing calculator](h
 
 ## Summary
 
-- Maya can be successfully deployed and tested on NVadsA10_v5-series VMs.
-- Based on the rendering process, the NVadsA10_v5 VM tests show that the Maya application scales well from a partial to a full GPU configuration.
+- You can successfully deploy and run Maya on NVadsA10_v5-series VMs.
+- In tests of the rendering process on an NVadsA10_v5 VM, Maya scales well from a partial to a full GPU configuration.
 
 ## Contributors
 
@@ -194,7 +193,7 @@ Other contributors:
 - [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director Business Strategy
 - [Sachin Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) | Manager
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
