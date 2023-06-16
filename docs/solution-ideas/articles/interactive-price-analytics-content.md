@@ -4,7 +4,7 @@ The Price Analytics solution utilizes your transactional history data to show yo
 
 ## Architecture
 
-:::image type="content" alt-text="Screenshot showing interactive price analytics." source="../media/interactive-price-analytics.png" lightbox="../media/interactive-price-analytics.png":::
+:::image type="content" alt-text="Screenshot showing interactive price analytics." source="../media/interactive-price-analytics.svg" lightbox="../media/interactive-price-analytics.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/interactive-price-analytics.vsdx) of this architecture.*
 
@@ -20,7 +20,7 @@ The Price Analytics solution utilizes your transactional history data to show yo
 ### Components
 
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory)
-- [Azure Machine Learning Services](https://azure.microsoft.com/services/machine-learning)
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning)
 - [Microsoft Excel](https://www.microsoft.com/microsoft-365/excel) worksheets
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database)
