@@ -1,4 +1,4 @@
-The solution demonstrates how to use [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) as a storage solution for Siemens Teamcenter product lifecycle management (PLM). 
+This article demonstrates how to use [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) as a storage solution for Siemens Teamcenter product lifecycle management (PLM). 
 
 ## Architecture
 
