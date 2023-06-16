@@ -16,7 +16,7 @@ Key features of Maya include:
 
 Maya was developed by Autodesk and offers a wide range of powerful tools for animation, simulation, and modeling. You can also use Maya for motion graphics, virtual reality, UV maps, low poly, and character creation. This 3D modeling software is popular in the video game industry. The Maya application can generate 3D assets for games but also for film, TV, and commercials. Besides offering a vast library of animation tools, Maya is customizable. You can use scripting languages like Maya Embedded Language (MEL) and Python to extend Maya functionality.
 
-To see how to use an Arnold plug-in to use an [Arnold renderer](https://docs.arnoldrenderer.com/display/A5AFMUG/Arnold) directly in Maya, see the [Arnold for Maya User Guide](https://docs.arnoldrenderer.com/display/a5AFMUG/Arnold+for+Maya+User+Guide?preview=/40111191/134645273/car.jpg).
+For information about a plug-in for using an [Arnold renderer](https://help.autodesk.com/view/ARNOL/ENU/) directly in Maya, see the [Arnold for Maya user guide](https://help.autodesk.com/view/ARNOL/ENU/?guid=arnold_for_maya_am_Arnold_for_Maya_User_Guide_html).
 
 ## Why deploy Maya on Azure?
 
