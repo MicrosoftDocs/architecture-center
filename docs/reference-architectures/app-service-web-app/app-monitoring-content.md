@@ -79,7 +79,7 @@ This scenario focuses on PaaS solutions for monitoring in large part because the
 
 Application Insights has [limits][app-insights-limits] on how many requests can be processed per second. If you exceed the request limit, you may experience message throttling. To prevent throttling, implement [filtering][message-filtering] or [sampling][message-sampling] to reduce the data rate
 
-High availability considerations for the app you run, however, are the developer's responsibility. For information about scale, for example, see the [scalability considerations](../../web-apps/app-services/architectures/basic-web-app.yml#performance-efficiency) in the basic web application reference architecture. After an app is deployed, you can set up tests to [monitor its availability][monitor its availability] using Application Insights.
+High availability considerations for the app you run, however, are the developer's responsibility. For information about scale, for example, see the [scalability considerations](../../web-apps/app-service/architectures/basic-web-app.yml#performance-efficiency) in the basic web application reference architecture. After an app is deployed, you can set up tests to [monitor its availability][monitor its availability] using Application Insights.
 
 ### Security
 
@@ -170,7 +170,7 @@ Check out these resources designed to help you get started with your own monitor
 [pricing]: https://azure.microsoft.com/pricing/calculator
 [Sampling in Application Insights]: /azure/application-insights/app-insights-sampling
 [Live Metrics Stream]: /azure/application-insights/app-insights-live-stream
-[Basic web application reference architecture]: /azure/architecture/web-apps/app-services/architectures/basic-web-app#performance-efficiency
+[Basic web application reference architecture]: /azure/architecture/web-apps/app-service/architectures/basic-web-app#performance-efficiency
 [Start monitoring your ASP.NET Web Application]: /azure/application-insights/quick-monitor-portal
 [Collect data about Azure Virtual Machines]: /azure/log-analytics/log-analytics-quick-collect-azurevm
 [Monitoring Azure applications and resources]: /azure/monitoring-and-diagnostics/monitoring-overview

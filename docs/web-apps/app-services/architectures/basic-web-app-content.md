@@ -109,7 +109,7 @@ For more information, see [Azure Resource Manager overview](/azure/azure-resourc
 
 #### Diagnostics and monitoring
 
-- Enable [diagnostics logging](/azure/app-service-web/web-sites-enable-diagnostic-log), including application logging and web server logging. Configure logging to use Azure Log Analytics. For more detailed guidance on logging, see [Monitoring and diagnostics guidance](../../best-practices/monitoring.yml).
+- Enable [diagnostics logging](/azure/app-service-web/web-sites-enable-diagnostic-log), including application logging and web server logging. Configure logging to use Azure Log Analytics. For more detailed guidance on logging, see [Monitoring and diagnostics guidance](../../../best-practices/monitoring.yml).
 - Use a service such as [New Relic](https://newrelic.com) or [Application Insights](/azure/application-insights/app-insights-overview) to monitor application performance and behavior under load. Be aware of the [data rate limits](/azure/application-insights/app-insights-pricing) for Application Insights.
 - Perform load testing, using a tool such as [Azure DevOps](/azure/devops) or [Azure DevOps Server](/azure/devops/server/tfs-is-now-azure-devops-server). For a general overview of performance analysis in cloud applications, see [Performance Analysis Primer](https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md).
 
@@ -217,7 +217,7 @@ New-AzResourceGroupDeployment -ResourceGroupName basic-web-app `
 
 Use the following button to deploy the reference using the Azure portal.
 
-[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmaster%2Fsolutions%2Fbasic-web-app%2Fazuredeploy.json)
+[![Deploy to Azure](../../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmaster%2Fsolutions%2Fbasic-web-app%2Fazuredeploy.json)
 
 ---
 
@@ -260,7 +260,7 @@ Microsoft Learn modules:
 
 ## Related resources
 
-- [Ten design principles for Azure applications](../../guide/design-principles/index.md)
+- [Ten design principles for Azure applications](../../../guide/design-principles/index.md)
 - [Baseline zone-redundant web application](multi-region.yml)
 - [Highly available multi-region web application](multi-region.yml)
-- [Multi-region web app with private connectivity to database](../../example-scenario/sql-failover/app-service-private-sql-multi-region.yml)
+- [Multi-region web app with private connectivity to database](../../../example-scenario/sql-failover/app-service-private-sql-multi-region.yml)

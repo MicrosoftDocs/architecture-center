@@ -15,11 +15,11 @@ items:
       - name: Host web apps with Azure App Service
         items:
         - name: Basic web application
-          href: architectures/basic-web-app.yml
+          href: app-service/architectures/basic-web-app.yml
         - name: Baseline web application with zone redundancy
-          href: architectures/baseline-zone-redundant.yml
+          href: app-service/architectures/baseline-zone-redundant.yml
         - name: Active-passive multi-region web app
-          href: architectures/multi-region.yml
+          href: app-service/architectures/multi-region.yml
     - name: Hosting applications
       items:
       - name: WordPress

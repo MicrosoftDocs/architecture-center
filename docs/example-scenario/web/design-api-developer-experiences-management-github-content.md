@@ -198,6 +198,6 @@ Principal author:
 ## Related resources
 
 - [Protect APIs with Azure Application Gateway and Azure API Management](../../reference-architectures/apis/protect-apis.yml)
-- [Baseline zone-redundant web app - Azure Architecture Center](../../web-apps/app-services/architectures/baseline-zone-redundant.yml)
-- [Highly available multi-region web app - Azure Architecture Center](../../web-apps/app-services/architectures/multi-region.yml)
+- [Baseline zone-redundant web app - Azure Architecture Center](../../web-apps/app-service/architectures/baseline-zone-redundant.yml)
+- [Highly available multi-region web app - Azure Architecture Center](../../web-apps/app-service/architectures/multi-region.yml)
 - [Basic enterprise integration on Azure](../../reference-architectures/enterprise-integration/basic-enterprise-integration.yml)

@@ -1,7 +1,7 @@
 This article provides a baseline architecture for running web applications on Azure App Service in a single region. It details guidance for designing a secure, zone-redundant, and highly available web application on Azure. The architecture exposes a public endpoint via Azure Application Gateway with Web Application Firewall. It routes requests to Azure App Service through Private Link. The App Service application uses virtual network integration and Private Link to securely communicate to Azure PaaS services such as Azure Key Vault and Azure SQL Database.
 
 > [!IMPORTANT]
-> ![GitHub logo](../../_images/github.svg) The guidance is backed by an [example implementation](https://github.com/Azure-Samples/app-service-baseline-implementation) which showcases a baseline App Service implementation on Azure. This implementation can be used as a basis for further solution development in your first step towards production.
+> ![GitHub logo](../../../_images/github.svg) The guidance is backed by an [example implementation](https://github.com/Azure-Samples/app-service-baseline-implementation) which showcases a baseline App Service implementation on Azure. This implementation can be used as a basis for further solution development in your first step towards production.
 
 ## Architecture
 
@@ -345,7 +345,7 @@ See more built-in policies for key services such as [Application Gateway and net
 
 ## Related resources
 
-- [Guide to Private Link in Virtual WAN](../../guide/networking/private-link-virtual-wan-dns-guide.yml)
+- [Guide to Private Link in Virtual WAN](../../../guide/networking/private-link-virtual-wan-dns-guide.yml)
 - [Scale up an app in Azure App Service](/azure/app-service/manage-scale-up)
 - [Migrate App Service to availability zone support](/azure/reliability/migrate-app-service)
 - [Scaling Application Gateway v2 and WAF v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant)

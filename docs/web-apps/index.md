@@ -47,9 +47,9 @@ These are a few good starting points to consider:
 
 Consider these patterns, guidelines, and architectures as you plan and implement your deployment:
 
-- [Basic web application](architectures/basic-web-app.yml)
-- [Baseline zone-redundant web application](architectures/baseline-zone-redundant.yml)
-- [Multi-region active-passive web application](architectures/multi-region.yml)
+- [Basic web application](app-service/architectures/basic-web-app.yml)
+- [Baseline zone-redundant web application](app-service/architectures/baseline-zone-redundant.yml)
+- [Multi-region active-passive web application](app-service/architectures/multi-region.yml)
 - [Common web application architectures](/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures)
 - [Design principles for Azure applications](../guide/design-principles/index.md)
 - [Design and implementation patterns - Cloud Design Patterns](../patterns/category/design-implementation.md)
@@ -103,7 +103,7 @@ The following sections, organized by category, provide links to sample web app a
 
 ### Multi-region apps
 
-- [Highly available multi-region web application](../web-apps/app-services/architectures/multi-region.yml)
+- [Highly available multi-region web application](../web-apps/app-service/architectures/multi-region.yml)
 - [Multi-region web app with private connectivity to database](../example-scenario/sql-failover/app-service-private-sql-multi-region.yml)
 
 ### Scalability
