@@ -31,7 +31,7 @@ mining (energy), agriculture, space exploration (aerospace), and process/manufac
 
 ## Architecture
 
-:::image type="content" source="media/altair-edem/hpc-edem.png" alt-text="Diagram that shows an architecture for deploying Altair EDEM." lightbox="media/altair-edem/hpc-edem.png" border="false":::
+:::image type="content" source="media/altair-edem/hpc-edem.svg" alt-text="Diagram that shows an architecture for deploying Altair EDEM." lightbox="media/altair-edem/hpc-edem.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/hpc-edem.vsdx) of this architecture.*
 
