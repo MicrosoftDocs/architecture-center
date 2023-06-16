@@ -14,7 +14,7 @@ Key features of Maya include:
 - Nonuniform rational basis spline (NURBS) modeling. By using this feature, you can construct 3D models from geometric primitives and drawn curves.
 - Character setup for creating sophisticated skeletons, inverse kinematics (IK) handles, and deformers for characters that deliver lifelike performances.
 
-Maya was developed by Autodesk and offers a wide range of powerful tools for animation, simulation, and modeling. You can also use Maya for motion graphics, virtual reality, UV maps, low poly, and character creation. This 3D software is popular in the video game industry. You can use the Maya application to generate 3D assets for games and also for film, television, and commercials. Besides offering a vast library of animation tools, Maya is customizable. Scripting languages like Maya Embedded Language (MEL) and Python provide a way to extend Maya functionality.
+Maya was developed by Autodesk and offers a wide range of powerful tools for animation, simulation, and modeling. You can also use Maya for motion graphics, virtual reality, UV maps, low poly, and character creation. This 3D modeling software is popular in the video game industry. The Maya application can generate 3D assets for games but also for film, TV, and commercials. Besides offering a vast library of animation tools, Maya is customizable. You can use scripting languages like Maya Embedded Language (MEL) and Python to extend Maya functionality.
 
 To see how to use an Arnold plug-in to use an [Arnold renderer](https://docs.arnoldrenderer.com/display/A5AFMUG/Arnold) directly in Maya, see the [Arnold for Maya User Guide](https://docs.arnoldrenderer.com/display/a5AFMUG/Arnold+for+Maya+User+Guide?preview=/40111191/134645273/car.jpg).
 
@@ -41,7 +41,7 @@ To see how to use an Arnold plug-in to use an [Arnold renderer](https://docs.arn
 
 - A public IP address provides users with access to Maya via the internet.
 
-- A physical solid-state drive (SSD) provides storage.
+- [Azure Disk Storage](https://azure.microsoft.com/products/storage/disks) provides a physical solid-state drive (SSD) for storage.
 
 ## Deploy infrastructure and install Maya
 
@@ -74,7 +74,7 @@ You can install Maya from the [Autodesk Maya portal](https://www.autodesk.com/pr
 
 This performance analysis uses the Autodesk Maya 2023.1 trial version on Windows [NVadsA10_v5-series](/azure/virtual-machines/nva10v5-series) VMs.
 
-The following table provides details about the operating system that's used in testing:
+The following table provides details about the testing operating system:
 
 | Operating system | Architecture | Processor |
 | --- | --- | --- |
@@ -145,7 +145,7 @@ The following image shows the rendered output:
 
 ### Measurement 4: Caching performance
 
-The following table lists performance data for caching via a Python script. When you use the Cached Playback feature, you can view changes that you made to the animation without having to create a new playblast.
+The following table lists performance data for caching via a Python script. When you use the Cached Playback feature, you can view changes that you make to the animation without having to create a new playblast.
 
 | Number of vCPUs (cores) | Filling playback (frames/second) | Cached playback (frames/second) | Fill time (seconds) | Memory before playback (MB) | Memory after playback (MB) |
 | --- | --- | --- | --- | --- | --- |
@@ -197,7 +197,7 @@ Other contributors:
 
 ## Next steps
 
-- [GPU optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
+- [GPU-optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
 - [Virtual machines in Azure](/azure/virtual-machines/overview)
 - [Virtual networks and virtual machines in Azure](/azure/virtual-network/network-overview)
 - [Training path: Run high-performance computing (HPC) applications on Azure](/training/paths/run-high-performance-computing-applications-azure)
