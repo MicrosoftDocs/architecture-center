@@ -6645,12 +6645,19 @@ items:
       #         href: web-apps/spring-apps/spring-apps-multi-region.yml
       #       - name: Baseline in landing zones
       #         href: web-apps/spring-apps/spring-apps-landing-zone.yml
-          - name: Guides
-            items:
-              - name: Spring Apps through a reverse Proxy
-                href: web-apps/spring-apps/spring-cloud-reverse-proxy.yml 
-              - name: Blue/green deployments for applications
-                href: web-apps/spring-apps/blue-green-spring.yml                      
+
+
+
+          # - name: Guides
+          #   items:
+          #     - name: Spring Apps through a reverse Proxy
+          #       href: web-apps/spring-apps/spring-cloud-reverse-proxy.yml 
+          #     - name: Blue/green deployments for applications
+          #       href: web-apps/spring-apps/blue-green-spring.yml   
+
+
+
+
       # - name: Basic web application
       #   href: reference-architectures/app-service-web-app/basic-web-app.yml
       # - name: Baseline web application with zone redundancy
@@ -6662,12 +6669,12 @@ items:
         # maintainContext: true
       # - name: Consumer health portal
       #   href: example-scenario/digital-health/health-portal.yml
-      - name: Deployment in App Service Environments
-        items:
-        - name: Standard deployment
-          href: reference-architectures/enterprise-integration/ase-standard-deployment.yml
-        - name: High availability deployment
-          href: reference-architectures/enterprise-integration/ase-high-availability-deployment.yml
+      # - name: Deployment in App Service Environments
+      #   items:
+      #   - name: Standard deployment
+      #     href: reference-architectures/enterprise-integration/ase-standard-deployment.yml
+      #   - name: High availability deployment
+      #     href: reference-architectures/enterprise-integration/ase-high-availability-deployment.yml
       - name: Design great API developer experiences
         href: example-scenario/web/design-api-developer-experiences-management-github.yml
       # - name: E-commerce front end

@@ -139,7 +139,7 @@ Principal author:
 ## Related resources
 
 - [App Service web application reference architecture][app-service-reference-architecture]
-- [High availability enterprise deployment using App Services Environment](/azure/architecture/reference-architectures/enterprise-integration/ase-high-availability-deployment)
+- [High availability enterprise deployment using App Services Environment](/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment)
 - [Publish internal APIs to external users](/azure/architecture/example-scenario/apps/publish-internal-apis-externally)
 
 <!-- links -->

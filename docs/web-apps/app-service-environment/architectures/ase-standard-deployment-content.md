@@ -1,10 +1,10 @@
 This reference architecture demonstrates a common enterprise workload using App Service Environment (ASE), and best practices to tighten security of this workload.
 
-![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub](https://github.com/mspnp/app-service-environments-ILB-deployments).
+![GitHub logo](../../../_images/github.png) A reference implementation for this architecture is available on [GitHub](https://github.com/mspnp/app-service-environments-ILB-deployments).
 
 ## Architecture
 
-:::image type="content" border="false" source="./_images/standard-ase-deployment.png" alt-text="Diagram showing architecture for standard App Service Environment deployment." lightbox="./_images/standard-ase-deployment.png":::
+:::image type="content" border="false" source="../_images/standard-ase-deployment.png" alt-text="Diagram showing architecture for standard App Service Environment deployment." lightbox="../_images/standard-ase-deployment.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/standard-ase-deployment.vsdx) of this architecture.*
 
@@ -41,7 +41,7 @@ The following services are key to locking down the ASE in this architecture:
 
 ### Multi-site configuration
 
-:::image type="content" border="false" source="./_images/ase-multi-site.png" alt-text="Diagram showing multi-site deployment." lightbox="./_images/ase-multi-site.png":::
+:::image type="content" border="false" source="../_images/ase-multi-site.png" alt-text="Diagram showing multi-site deployment." lightbox="../_images/ase-multi-site.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/standard-ase-deployment.vsdx) of this diagram.*
 

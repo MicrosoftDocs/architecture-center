@@ -2921,6 +2921,16 @@
       "source_path": "docs/solution-ideas/articles/medium-umbraco-web-app.yml",
       "redirect_url": "/azure/architecture/web-apps/hosting-applications/medium-umbraco-web-app",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/enterprise-integration/ase-standard-deployment.yml",
+      "redirect_url": "/azure/architecture/web-apps/app-service-environment/architectures/medium-umbraco-web-app",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/enterprise-integration/ase-high-availability-deployment.yml",
+      "redirect_url": "/azure/architecture/web-apps/app-service-environment/architectures/medium-umbraco-web-app",
+      "redirect_document_id": true
     }
   ]
 }

@@ -77,7 +77,7 @@ The following sections provide links to reference architectures in some key mana
 
 - [Build high availability into your BCDR strategy](../../solution-ideas/articles/build-high-availability-into-your-bcdr-strategy.yml)
 - [High availability and disaster recovery scenarios for IaaS apps](../../example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml)
-- [High availability enterprise deployment using App Service Environment](../../reference-architectures/enterprise-integration/ase-high-availability-deployment.yml)
+- [High availability enterprise deployment using App Service Environment](../../web-apps/app-service-environment/architectures/ase-high-availability-deployment.yml)
 - [Baseline zone-redundant web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml)
 - [Highly available multi-region web application](../../web-apps/app-service/architectures/multi-region.yml)
 - [Deploy highly available NVAs](../../reference-architectures/dmz/nva-ha.yml)

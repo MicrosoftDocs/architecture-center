@@ -1,10 +1,10 @@
 [Availability zones](/azure/availability-zones/az-overview) are physically separated collections of datacenters within a given region. Replicating your deployments across multiple zones, ensures that local outages limited to a zone do not negatively impact the availability of your application. This architecture shows how you can improve the resiliency of an ASE deployment by deploying in multiple availability zones. These zones are not related to proximity. They can map to different physical locations for different subscriptions. This architecture assumes a single subscription deployment.
 
-![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub](https://github.com/mspnp/app-service-environments-ILB-deployments).
+![GitHub logo](../../../_images/github.png) A reference implementation for this architecture is available on [GitHub](https://github.com/mspnp/app-service-environments-ILB-deployments).
 
 ## Architecture
 
-![Reference architecture for high availability ASE deployment](./_images/ha-ase-deployment.png)
+![Reference architecture for high availability ASE deployment](../_images/ha-ase-deployment.png)
 
 The contents of the ASE subnets used in this reference implementation are the same as the ones in the standard ASE deployment architecture [described here](./ase-standard-deployment.yml). This reference implementation replicates the deployment in two ASE subnets. Each subnet has its own web app, API, and function instances running in their individual App Service plans. The Redis cache required by the applications are also replicated for better performance. Note that the scope of this reference architecture is limited to a single region.
 

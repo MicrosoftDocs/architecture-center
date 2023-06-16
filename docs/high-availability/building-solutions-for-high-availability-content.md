@@ -13,7 +13,7 @@ For additional information on availability zones, including service support by r
 The following architectures feature high-availability scenarios:
 
 - [Mission-critical workload built for maximum reliability](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro)
-- [High availability enterprise deployment using App Services Environment](../reference-architectures/enterprise-integration/ase-high-availability-deployment.yml)
+- [High availability enterprise deployment using App Services Environment](../web-apps/app-service-environment/architectures/ase-high-availability-deployment.yml)
 - [IaaS: Web application with relational database](./ref-arch-iaas-web-and-db.yml)
 - [Multi-region load balancing with Traffic Manager and Application Gateway](./reference-architecture-traffic-manager-application-gateway.yml)
 - [Multi-region web app with private connectivity to database](../example-scenario/sql-failover/app-service-private-sql-multi-region.yml)
