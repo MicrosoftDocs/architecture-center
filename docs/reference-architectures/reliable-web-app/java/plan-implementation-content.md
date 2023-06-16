@@ -112,16 +112,18 @@ Azure Monitor is a comprehensive suite of monitoring tools for collecting data f
 - **Externalized.** The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data, and it couldn't invalidate data.
 - **Enabling non-sticky sessions:** The cache allows the web app to externalize session state use nonsticky sessions. Most Java web app running on premises use in-memory, client-side caching. In-memory, client-side caching doesn't scale well and increases the memory footprint on the host. By using Azure Cache for Redis, Proseware has a fully managed, scalable cache service to improve scalability and performance of their applications. Proseware was using a cache abstraction framework (Spring Cache) and only needed minimal configuration changes to swap out the cache provider. It allowed them to switch from an Ehcache provider to the Redis provider.
 
-### Global load balancer
+### External load balancer
 
-[Azure Front Door](/azure/frontdoor/front-door-overview) is a layer-7 global load balancer that uses the Azure backbone network to route traffic between regions. Proseware needed to a multi-region architecture to meet their 99.9% SLO. They needed Front Door to provide layer-7 routing between regions. Front Door also provides extra features, such as Web Application Firewall, and positions Proseware to use a content delivery network. The content delivery network provides site acceleration as the traffic to the web app increases. The web app uses Azure Front Door because it provides the following benefits:
+Single region deployments should use Application Gateway v2 SKU with WAF policies. Application Gateway routes HTTP traffic within a region but can't route traffic across multiple regions. Multi-region web apps that require WebSockets need to use Traffic Manager and Application Gateway. Traffic manager uses DNS to route traffic across regions and Application Gateway handles the HTTP and WebSockets connections. All other web multi-region apps should try [Azure Front Door](/azure/frontdoor/front-door-overview) first. Front Door can route HTTP traffic across multiple regions and provides performance acceleration.
 
-- **Routing flexibility.** It allows the application team to configure ingress needs to support future changes in the application.
-- **Traffic acceleration.** It uses anycast to reach the nearest Azure point of presence and find the fastest route to the web app.
-- **Custom domains.** It supports custom domain names with flexible domain validation.
-- **Health probes.** The application needs intelligent health probe monitoring. Azure Front Door uses responses from the probe to determine the best origin for routing client requests.
+Proseware needed a multi-region architecture to meet their 99.9% SLO (active-passive). The AirSonic web uses WebSockets. To support WebSockets, Proseware use Traffic Manager to load balance traffic between regions. They deployed Application Gateway to both regions for WebSocket support. This architecture provides the following benefits:
+
+- **WebSockets support.** Application Gateway natively [supports WebSockets](/azure/application-gateway/application-gateway-websocket) and requires no application code changes.
+- **Security.** Application Gateway integrates with Azure Web Application Firewall.
+- **Custom domains.** Application Gateway supports custom domain names.
+- **Health probes.** Traffic Manager and Application Gateway both have built-in health probes.
 - **Monitoring support.** It supports built-in reports with an all-in-one dashboard for both Front Door and security patterns. You can configure alerts that integrate with Azure Monitor. It lets the application log each request and failed health probes.
-- **DDoS protection.** It has built-in layer 3-4 DDoS protection.
+- **DDoS protection.** Application Gateway integrates with [Azure DDoS Protection](/azure/application-gateway/tutorial-protect-application-gateway-ddos).
 
 ### Web application firewall
 
