@@ -4,7 +4,7 @@ metadata:
   description: Learn how Altair EDEM discrete element method (DEM) software performs on an Azure virtual machine (VM).
   author: gauharjunnarkar
   ms.author: gajunnar
-  ms.date: 09/14/2022
+  ms.date: 06/23/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
