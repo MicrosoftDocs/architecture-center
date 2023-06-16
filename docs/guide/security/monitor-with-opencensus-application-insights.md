@@ -11,9 +11,15 @@ This article describes a distributed system that uses Azure Functions, Azure Eve
 
 1) **Query.** A timer-triggered Azure function queries a *Contoso* internal API to get the latest sales data once a day. The function uses the [Azure Event Hubs output binding](/azure/azure-functions/functions-bindings-event-hubs-output?tabs=in-process%2Cfunctionsv2%2Cextensionv5&pivots=programming-language-python) to send the unstructured data as events.
 
-1) **Process.** Event Hubs triggers an Azure function that processes and formats the unstructured data to a pre-defined structure. The function publishes one message to Service Bus per asset that needs to be imported by [using the Service Bus output binding](/azure/azure-functions/functions-bindings-service-bus-output?tabs=in-process%2Cextensionv5&pivots=programming-language-python).
+1) **Process.** Event Hubs triggers an Azure function that processes and formats the unstructured data to a pre-defined structure. The function publishes one message to Service Bus per asset that needs to be imported by using the [Service Bus output binding](/azure/azure-functions/functions-bindings-service-bus-output?tabs=in-process%2Cextensionv5&pivots=programming-language-python).
 
 1) **Upsert.** Service Bus triggers an Azure function that consumes messages from the queue and launches an upsert operation in the common company storage.
+
+It's important to consider potential operation failures of this architecture. Some examples include:
+
+- The internal API is unavailable, which leads to an exception that's raised by the query data Azure function in step one of the architecture.
+- In step two, the process data Azure function, encounters data that falls under an edge-case, which is data that's outside of the conditions or parameters of the function.
+- In step three, the upsert data Azure function fails. After several retries, the messages from the Service Bus queue go in the [dead letter queue](/azure/service-bus-messaging/service-bus-dead-letter-queues), which is a secondary queue that holds messages that can't be processed or delivered to a receiver after a pre-defined number of retries. Then the messages can follow an established automatic process, or they can be handled manually.
 
 ## Components
 
@@ -23,14 +29,6 @@ This article describes a distributed system that uses Azure Functions, Azure Eve
 - [Event Hubs](/azure/event-hubs/event-hubs-about) is a scalable event ingestion service that can receive and process millions of events per second.
 - [OpenCensus](https://opencensus.io/quickstart/) is a set of open-source libraries where you can collect distributed traces, metrics, and logging telemetry. This article uses the Python implementation of OpenCensus.
 - [Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) is a fully-managed message broker with message queues and publish-subscribe topics.
-
-## Considerations
-
-It's important to consider potential operation failures of this architecture. Some examples include:
-
-- The internal API is unavailable, which leads to an exception that's raised by the query data Azure function in step one of the architecture.
-- In step two, the process data Azure function, encounters data falls outside of the conditions or parameters.
-- In step three, the upsert data Azure function, fails. After several retries, the messages from the Service Bus queue go in the [dead letter queue](/azure/service-bus-messaging/service-bus-dead-letter-queues), which is a secondary queue that holds messages that can't be processed or delivered to a receiver after a pre-defined number of retries. Then the messages can follow an established automatic process, or they can be handled manually.
 
 ## Scenario details
 
@@ -46,7 +44,7 @@ When building a system, especially a distributed system, it's important to make 
 
 ## Distributed tracing
 
-In this example, the system is a chain of microservices. Each microservice can fail independently for various reasons. When that happens, it's important to understand what happened so you can troubleshoot. It’s helpful to isolate an end-to-end transaction and follow the journey through the app stack, which consists of different services or microservices. This is called distributed tracing.
+In this architecture, the system is a chain of microservices. Each microservice can fail independently for various reasons. When that happens, it's important to understand what happened so you can troubleshoot. It’s helpful to isolate an end-to-end transaction and follow the journey through the app stack, which consists of different services or microservices. This is called distributed tracing.
 
 The following sections show you how to set up distributed tracing in Contoso’s architecture. Select the Deploy to Azure button to deploy the infrastructure and the Azure function app.
 
@@ -65,7 +63,7 @@ A transaction is represented by a trace, which is a collection of [spans](https:
 
 Each of these operations can be part of a span. The trace is a complete description of what happens when you select the purchase button.
 
-Similarly, in Contoso’s use case, when the query data Azure function triggers to start the daily ingestion of the sales data, a trace is created that contains multiple spans:
+Similarly, in the architecture, when the query data Azure function triggers to start the daily ingestion of the sales data, a trace is created that contains multiple spans:
 
 - A span to confirm the trigger details.
 - A span to query the internal API.  
@@ -75,19 +73,19 @@ A span can have children spans. For example, the following image shows the query
 
 ![Image that depicts a complete trace composed of spans and their child spans.](Aspose.Words.2d867fa4-b8e3-4946-86ba-487ab7e6ab80.004.png)
 
-The *sendMessages* span is split into two children spans: *splitToMessages* and *writeToEventHubs*. The *sendMessages* span requires the two sub-operations to send messages.
+- The *sendMessages* span is split into two children spans: *splitToMessages* and *writeToEventHubs*. The *sendMessages* span requires those two sub-operations to send messages.
 
-All spans are children of a *root* span.
+- All spans are children of a *root* span.
 
-In the previous image, spans give you an easy way to describe all parts involved in the query step of the query data Azure function. Each Azure function is a trace. So an end-to-end pass through Contoso’s ingestion system is the union of three traces, which are the three Azure functions. When you combine the three traces and their telemetry, you build the end-to-end journey and describe all parts of the use case.
+- In the previous image, spans give you an easy way to describe all parts involved in the query step of the query data Azure function. Each Azure function is a trace. So an end-to-end pass through Contoso’s ingestion system is the union of three traces, which are the three Azure functions. When you combine the three traces and their telemetry, you build the end-to-end journey and describe all parts of the architecture.
 
-### Tracer and W3C trace context
+### Tracers and the W3C trace context
 
-A tracer is an object that holds contextual information. It's best to have that contextual information propagated as data transits through the Azure functions. To do this, the OpenCensus extension uses [the W3C trace context](https://www.w3.org/TR/trace-context).
+A tracer is an object that holds contextual information. Preferably, that contextual information propagates as data transits through the Azure functions. To do this, the OpenCensus extension uses [the W3C trace context](https://www.w3.org/TR/trace-context).
 
 As its official documentation states, the W3C trace context is a “specification that defines standard HTTP headers and a value format to propagate context information that enables distributed tracing scenarios.”
 
-A given component of the system can instantiate a tracer with the context of the previous component making the call by reading the traceparent. The format of a trace is:
+A component of the system can create a tracer with the context of the previous component that's making the call by reading the traceparent. The format of a trace is:
 
 Traceparent: [*version*]-[*traceId*]-[*parentId*]-[*traceFlags*]
 
@@ -109,7 +107,7 @@ For more information, see [Traceparent header](https://www.w3.org/TR/trace-conte
 
 Use the OpenCensus extension that's specific to Azure Functions. Don't use the OpenCensus package that you might use in other cases (for example, [Python Webapps](/azure/azure-monitor/app/opencensus-python#instrument-with-opencensus-python-sdk-with-azure-monitor-exporters)).
 
-Azure Functions offers many input and output bindings, and each binding has a different way of embedding the traceparent. For Contoso, when events and messages are consumed, two Azure functions are triggered.
+Azure Functions offers many input and output bindings, and each binding has a different way of embedding the traceparent. For this architecture, when events and messages are consumed, two Azure functions are triggered.
 
 That means that two things need to be done:
 
