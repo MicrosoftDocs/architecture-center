@@ -5,10 +5,7 @@ This architecture is useful to meet the following goals:
 - Increase the availability of your application over a single-zone deployment.
 - Increase the overall resilience and service level objective (SLO) of your application.
 
-This solution presents a **baseline** strategy for Azure Spring Apps deployment. Variations of this solution are available for the following configurations:
-
-- [Deploy Azure Spring Apps to multiple regions](spring-apps-multi-region.yml) to increase application resilience and reliability.
-- [Deploy Azure Spring Apps integrated with landing zones](spring-apps-landing-zone.yml) to integrate the workload with centrally managed shared services.
+This solution presents a **baseline** strategy for Azure Spring Apps deployment. Other solutions area available that build on this architecture, including [deployment to multiple regions](spring-apps-multi-region.yml) and [deployment with integrated landing zones](spring-apps-landing-zone.yml).
 
 > [!TIP]
 > ![GitHub logo](../../_images/github.svg) The architecture is backed by an [**example implementation**](https://github.com/Azure-Samples/azure-spring-apps-multi-zone) on GitHub that illustrates some of the design choices. Consider the implementation as your first step toward production.
@@ -90,9 +87,9 @@ The application needs to be protected from unauthorized access from the internet
 
 [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) is the fundamental building block for a private network in Azure. This architecture uses a virtual network for the region that you use for deployment. Components are placed in subnets to create further isolation. Azure Spring Apps requires a dedicated subnet for the service runtime and a separate subnet for Java Spring Boot applications.
 
-You should also protect your virtual networks with [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview). DDoS Protection, combined with application design best practices, provides enhanced mitigations to defend against distributed denial-of-service (DDoS) attacks.
+You should also protect your virtual networks with [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview). Distributed denial of service (DDoS) protection combined with application design best practices provides enhanced mitigations to defend against DDoS attacks.
 
-The design incorporates several PaaS services that participate in processing a user request. Strict network controls should be placed on those services to make sure the application isn't affected.
+The architecture design incorporates several PaaS services that participate in processing a user request. Strict network controls should be placed on those services to make sure the application isn't affected.
 
 ### Private connectivity
 
@@ -100,7 +97,7 @@ Communication from Azure Spring Apps to supporting services like Key Vault and A
 
 You can control access by using private endpoints. These network interfaces use private IP addresses to bring the services into the virtual network. The architecture has Azure services that automatically set up the private endpoints. 
 
-Azure Spring Apps is deployed into that network by using a process sometimes called [VNET injection](/azure/spring-apps/how-to-deploy-in-azure-virtual-network). The application is accessed by reaching the private IP address.
+Azure Spring Apps is deployed into the network via the [VNET injection](/azure/spring-apps/how-to-deploy-in-azure-virtual-network) process. The application is accessed by reaching the private IP address.
 
 <!-- Reviewers: Consider changing the following link for flexible server information to this target: https://azure.microsoft.com/en-us/resources/azure-database-for-mysql-flexible-server-infographic/ -->
 

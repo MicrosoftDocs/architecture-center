@@ -16,7 +16,7 @@ To increase application resilience and reliability, you can deploy the applicati
 The biggest challenge with a multi-region setup is replicating the data for your application between multiple regions. This issue isn't a concern with the multi-zone setup. Azure availability zones are connected by a high-performance network with a round-trip latency of less than 2 ms. This latency period is sufficient for most applications.
 
 > [!TIP]
-> ![GitHub logo](../../_images/github.svg) The architecture is backed by an [**example implementation**](https://github.com/Azure-Samples/azure-spring-apps-multi-region) on GitHub that illustrates design choices to deal with the challenges of multi-region deployment, automation, and traffic routing.  
+> ![GitHub logo](../../_images/github.svg) The architecture is backed by an [**example implementation**](https://github.com/Azure-Samples/azure-spring-apps-multi-region) on GitHub that illustrates some of the design choices. Consider the implementation to address the challenges of multi-region deployment, automation, and traffic routing.  
 
 ## Architecture
 
@@ -91,7 +91,7 @@ The following table summarizes the effort required to synchronize data for each 
 
 ## Routing between regions
 
-This reference architecture uses [Geographical nodes (Geodes)](/azure/architecture/patterns/geodes) where any region can service any request. 
+This reference architecture uses [geographical nodes (Geodes)](/azure/architecture/patterns/geodes) where any region can service any request. 
 
 Azure Front Door is configured with equal routing between the two deployment regions. Azure Front Door also provides other [traffic routing methods to origin](/azure/frontdoor/routing-methods). If you want to route clients to their closest origin, latency-based routing makes the most sense. If you're designing for an active-passive solution, priority-based routing is more appropriate.
 
