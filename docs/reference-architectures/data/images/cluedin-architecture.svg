@@ -7,7 +7,7 @@
 	<v:documentProperties v:langID="1033" v:viewMarkup="false">
 		<v:userDefs>
 			<v:ud v:nameU="msvNoAutoConnect" v:val="VT0(1):26"/>
-			<v:ud v:nameU="msvWarnOnPersonalInfo" v:val="VT0(1):5"/>
+			<v:ud v:nameU="msvWarnOnPersonalInfo" v:val="VT0(0):5"/>
 		</v:userDefs>
 	</v:documentProperties>
 
@@ -841,12 +841,12 @@
 		</g>
 		<g id="shape1100-149" v:mID="1100" v:groupContext="shape" transform="translate(433.038,-272.769)">
 			<title>Sheet.1100</title>
-			<desc>Azure Kubernetes Services (AKS)</desc>
+			<desc>Azure Kubernetes Service (AKS)</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="47.3504" cy="599.4" width="94.71" height="25.2"/>
 			<rect x="0" y="586.8" width="94.7008" height="25.2" class="st3"/>
 			<text x="4.52" y="596.1" class="st4" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Kubernetes <tspan
-						x="13.44" dy="1.2em" class="st8">Services (AKS)</tspan></text>		</g>
+						x="15.77" dy="1.2em" class="st8">Service (AKS)</tspan></text>		</g>
 		<g id="group1103-153" transform="translate(372.475,-202.5)" v:mID="1103" v:groupContext="group">
 			<title>Sheet.1103</title>
 		</g>
