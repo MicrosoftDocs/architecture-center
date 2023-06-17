@@ -114,9 +114,11 @@ Azure Monitor is a comprehensive suite of monitoring tools for collecting data f
 
 ### External load balancer
 
-Single region deployments should use Application Gateway v2 SKU with WAF policies. Application Gateway routes HTTP traffic within a region but can't route traffic across multiple regions. Multi-region web apps that require WebSockets need to use Traffic Manager and Application Gateway. Traffic manager uses DNS to route traffic across regions and Application Gateway handles the HTTP and WebSockets connections. All other web multi-region apps should try [Azure Front Door](/azure/frontdoor/front-door-overview) first. Front Door can route HTTP traffic across multiple regions and provides performance acceleration.
+Azure has three main external load balancing services: Azure Application Gateway, Azure Traffic Manager, and Azure Front Door.
 
-Proseware needed a multi-region architecture to meet their 99.9% SLO (active-passive). The AirSonic web uses WebSockets. To support WebSockets, Proseware use Traffic Manager to load balance traffic between regions. They deployed Application Gateway to both regions for WebSocket support. This architecture provides the following benefits:
+Single region deployments should use Application Gateway v2 SKU with WAF policies. Application Gateway routes HTTP traffic within a region but can't route traffic across multiple regions. Multi-region web apps that require WebSockets need to use Traffic Manager and Application Gateway. Traffic manager uses DNS to route traffic across regions and Application Gateway handles the HTTP and WebSockets connections within each region. All other web multi-region apps should try [Azure Front Door](/azure/frontdoor/front-door-overview) first. Front Door can route HTTP traffic across multiple regions and provides performance acceleration.
+
+Proseware needed a multi-region architecture to meet their 99.9% SLO. They chose an active-passive configuration to avoid code changes needed for an active-active configuration. The AirSonic web app uses WebSockets. To support WebSockets, Proseware needed to use Traffic Manager to load balance traffic between regions and Application Gateway in both regions for HTTP routing and WebSocket support. This architecture provides the following benefits:
 
 - **WebSockets support.** Application Gateway natively [supports WebSockets](/azure/application-gateway/application-gateway-websocket) and requires no application code changes.
 - **Security.** Application Gateway integrates with Azure Web Application Firewall.
