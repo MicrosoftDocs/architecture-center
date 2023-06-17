@@ -2,7 +2,7 @@
 
 This solution idea demonstrates how end manufacturers can connect their assets to the cloud using [Open Platform Communication Unified Architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua) and the [Microsoft Industrial Components](https://azure.github.io/Industrial-IoT/).
 
-## Architectur
+## Architecture
 
 [ ![Diagram showing the architecture.](../media/condition-monitoring-new.png) ](../media/condition-monitoring.svg#lightbox)
 
