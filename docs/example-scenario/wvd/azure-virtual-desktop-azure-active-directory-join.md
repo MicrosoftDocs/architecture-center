@@ -43,7 +43,7 @@ Azure Virtual Desktop Azure AD domain join has some limitations:
 
 - Azure AD join is only supported on Azure Virtual Desktop for Azure Resource Manager. Azure Virtual Desktop Classic isn't supported.
 
-- Azure Virtual Desktop supports Azure AD join for both personal and pooled host pools, except when using FSlogix with an Azure Files account that is also joined to the same Azure AD.
+- Azure Virtual Desktop supports Azure AD join for both personal and pooled host pools.
 
 - Azure Files now supports Azure AD as a [Kerberos](https://en.wikipedia.org/wiki/Kerberos_(protocol)) realm. This allows you to create an Azure Files share to store the FSLogix profiles and to configure it to support Azure AD authentication. FSLogix is the technology that enables and manages roaming user profiles in a pooled host pool scenario. The added support for FSLogix profiles combines the cost optimization of using a pooled environment shared among users with the key benefits of Azure AD-joined VMs. There is no line-of-sight to a domain controller, it's a simplified deployment, and you get enhanced management with Intune. 
 
