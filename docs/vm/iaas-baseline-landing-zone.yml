@@ -1,0 +1,35 @@
+### YamlMime:Architecture
+metadata:
+  title: Infrastructure as a Service (IaaS) baseline scenario
+  titleSuffix: Azure Architecture Center
+  description: Demonstrates how to set up an IaaS baseline environment that's suitable for migration of VM workloads
+  author: BryanLa
+  ms.author: architectures
+  ms.date: 04/01/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+azureCategories:
+    - compute
+    - migration
+    - networking
+products:
+  - azure-application-gateway
+  - azure-application-insights
+  - azure-bastion
+  - azure-portal
+  - azure-firewall
+  - azure-key-vault
+  - azure-load-balancer
+  - azure-log-analytics
+  - azure-pipelines
+  - azure-storage
+  - azure-virtual-machines
+  - azure-virtual-network
+  - azure-vm-scalesets
+  - github
+name: Infrastructure as a Service (IaaS) baseline scenario
+summary: Demonstrates how to set up an IaaS baseline environment that's suitable for migration of VM workloads
+thumbnailUrl: /azure/architecture/browse/thumbs/iaas-baseline.png
+content: |
+  [!include[](iaas-baseline-landing-zone-content.md)]
