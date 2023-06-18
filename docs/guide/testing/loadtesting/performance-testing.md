@@ -26,7 +26,7 @@ By developing custom plugins, testers can add new functionality or customize exi
 
 In order to perform load testing, you need to have a test plan, which is a set of instructions that tell JMeter what to do during the test. The test plan can include multiple test scenarios, each with different settings and configurations. For example, you might have one scenario that simulates a single user accessing a web application, and another scenario that simulates multiple users simultaneously accessing the same application. The test plan can also include multiple test cases, each with different settings and configurations. In our case, we assume that there is a device that is reporting temperature and humidity in a period of time. The device is sending the data to an Azure Event Hub. The Azure Function is triggered by Azure Event Hubs and is responsible for processing the data and then sending data to other downstream services such as Azure SQL Database or Azure Digital Twins. The Azure Function is the service that we want to test. The test plan is designed to simulate the behavior of the device and send data to the Event Hub.
 
-    :::image type="content" source="../images/load-testing-architecture.png" alt-text="Sample architecture for load testing." :::
+:::image type="content" source="images/load-testing-architecture.png" alt-text="Sample Architecture for load testing." border="false":::
 
 ## Custom Plugins
 
@@ -45,9 +45,9 @@ To create a sample JMeter test script:
 
 1. Create a *SampleTest.jmx* file on your local machine:
 
-    ```bash
-    touch LoadTest.jmx
-    ```
+```bash
+touch LoadTest.jmx
+```
 
 1. Open *LoadTest.jmx* in a text editor and paste the following code snippet in the file:
 
@@ -125,7 +125,7 @@ In this example, the payload for the event hub message is a json object with thr
 When Azure Load Testing starts your load test, it first deploys the JMeter script along with all other files onto test engine instances, and then start the load test as instructed [here](https://learn.microsoft.com/en-us/azure/load-testing/how-to-use-jmeter-plugins?tabs=portal).
 Before running the test, go to the parameter tab, define `EventHubConnectionString` and then provide the connection string to Event Hub.
 
-    :::image type="content" source="images/load-testing-configuration-parameters.png" alt-text="Screenshot that shows the parameters of the test." :::
+:::image type="content" source="images/load-testing-configuration-parameters.png" alt-text="Screenshot that shows the parameters of the test." :::
 
 ## Performance Testing Setup for Environment
 
@@ -135,7 +135,6 @@ As per the sample architecture, the following services could be used for perform
 
 | Service | Configuration |
 | ----------- | ----------- |
-| Azure Digital Twin | default setting. |
 | Eventhub | Premium with 1 PU. |
 | Azure Function | Linux with Premium Plan (EP1) - 210 ACU, 3.5 GB Memory and 1 vCPU equivalent Standard_D1_v2 |
 | Region | West US 2 |
