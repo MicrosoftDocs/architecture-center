@@ -1,6 +1,6 @@
 ---
-title: Extending Azure Load Testing using Custom Plugins
-description: Guide on developing a custom plugin for Azure Load Test
+title: Azure Load Testing for Azure Functions integrated with Event Hubs
+description: Guide on designing KPIs and developing a dashboard for Azure Load Test
 author: msetbar
 ms.author: msetayesh
 ms.date: 03/24/2023
@@ -12,317 +12,36 @@ categories: azure
 products:
 - load-testing
 ---
-# Azure Load Testing for Event Hubs using a Custom Plugin
+# Azure Load Testing for Azure Functions integrated with Event Hubs
 
 Azure Load Testing enables you to take an existing Apache JMeter script, and use it to run a load test at cloud scale on any Azure resources.
 JMeter is a popular open-source load testing tool that is primarily used to test the performance of web applications. It was originally developed for testing web applications. However it can also be used to test other types of applications, such as SOAP and REST web services, FTP servers, databases, and more.
 JMeter allows testers to create and execute load tests, stress tests, and functional tests. It simulates multiple users simultaneously accessing a web application, enabling testers to identify potential performance bottlenecks or other issues that might arise under heavy loads. JMeter can be used to measure various performance metrics, such as response time, throughput, and error rate.
-JMeter uses a GUI-based interface to allow users to create test plans, which can include multiple test scenarios, each with different settings and configurations. Testers can also customize JMeter using plugins or by writing custom code, allowing them to extend its functionality beyond what comes out of the box. The plugins can help us to work with services that use nonhttp protocols, such as AMQP and Websocket.
+JMeter uses a GUI-based interface to allow users to create test plans, which can include multiple test scenarios, each with different settings and configurations. Testers can also customize JMeter using plugins or by writing custom code, allowing them to extend its functionality beyond what comes out of the box. The plugins can help us to work with services that use non-http protocols, such as AMQP and Websocket.
+
 While JMeter provides a wide range of features and functions for load testing, there may be specific use cases or requirements that aren't covered by the built-in functionality.
 By developing custom plugins, testers can add new functionality or customize existing features to better suit their needs. For example, a custom plugin could be developed to simulate a specific type of user behavior or to generate more realistic test data. Additionally, custom plugins can be developed to integrate JMeter with other tools or systems, such as logging and reporting tools or continuous integration and deployment pipelines. The custom plugins can help streamline the testing process and make it easier to incorporate load testing into the overall software development workflow. Overall, they allow testers to tailor JMeter to their specific needs and improve the accuracy and effectiveness of their load testing efforts.
+
+## Sample of Architecture used for Load Testing
+
+In order to perform load testing, you need to have a test plan, which is a set of instructions that tell JMeter what to do during the test. The test plan can include multiple test scenarios, each with different settings and configurations. For example, you might have one scenario that simulates a single user accessing a web application, and another scenario that simulates multiple users simultaneously accessing the same application. The test plan can also include multiple test cases, each with different settings and configurations. In our case, we assume that there is a device that is reporting temperature and humidity in a period of time. The device is sending the data to an Azure Event Hub. The Azure Function is triggered by Azure Event Hubs and is responsible for processing the data and then sending data to other downstream services such as Azure SQL Database or Azure Digital Twins. The Azure Function is the service that we want to test. The test plan is designed to simulate the behavior of the device and send data to the Event Hub.
+
+    :::image type="content" source="../images/load-testing-architecture.png" alt-text="Sample architecture for load testing." :::
 
 ## Custom Plugins
 
 Custom plugins in the context of JMeter are software components that can be added to JMeter to extend its functionality beyond what comes out of the box. Users or third-party developers can develop custom plugins to add new features, functions, or integrations to JMeter. Custom plugins can be developed using Java programming language and the JMeter Plugin Development Kit (PDK). The PDK provides a set of tools and APIs that make it easier to create new plugins, including GUI elements, listeners, and samplers.
 Custom plugins can add a wide range of functionality to JMeter, such as new load testing samplers, visualizers, and listeners. They can also integrate JMeter with other systems, such as logging and reporting tools, or enable the use of other data sources for test data.
 
-## Develop a new custom plugin for Event Hubs
-
 Azure Event Hubs is a cloud-based event processing service that can be used to collect, process, and analyze events and streaming data from various sources in real-time. Azure Event Hubs supports multiple protocols, including: AMQP (Advanced Message Queuing Protocol), HTTPS, Kafka Protocol, MQTT (Message Queuing Telemetry Transport) and AMQP over WebSockets. Choosing the right protocol depends on several factors, including the type of data you're working with, the specific requirements of your application, and the capabilities and limitations of the protocols themselves. If the protocol you're using to interact with Azure Event Hubs isn't supported by JMeter, you may still be able to perform load testing using JMeter with the help of a custom JMeter plugin and Azure Event Hubs SDK.
 
-To implement a custom sampler for Event hubs in JMeter, you need to follow these steps:
-
-1. Create a new Java class named `EventHubPlugin` that extends the AbstractSampler class provided by JMeter. This class should implement the Sampler interface, which includes methods for initializing and executing the sampler:
-
-```java
-
-public class EventHubPlugin extends AbstractSampler implements TestStateListener {
-
-    private static final Logger log = LoggerFactory.getLogger(EventHubPlugin.class);
-
-    private static final Set<String> APPLIABLE_CONFIG_CLASSES = new HashSet<>(
-            Arrays.asList(
-                    "org.apache.jmeter.config.gui.SimpleConfigGui"));
-
-    public static final String LIQUID_TEMPLATE_FILENAME = "liquidTemplateFileName";
-    public static final String EVENT_HUB_CONNECTION_VAR_NAME = "eventHubConnectionVarName";
-    public static final String EVENT_HUB_NAME = "eventHubName";
-
-    private MessageRenderer messageRenderer = null;
-    private String templateFileName = null;
-
-    public EventHubPlugin() {
-        super();
-    }
-
-    public void setEventHubConnectionVarName(String eventHubConnectionVarName) {
-        setProperty(new StringProperty(EVENT_HUB_CONNECTION_VAR_NAME, eventHubConnectionVarName));
-    }
-
-    public String getEventHubConnectionVarName() {
-        return getPropertyAsString(EVENT_HUB_CONNECTION_VAR_NAME);
-    }
-
-    public void setEventHubName(String eventHubName) {
-        setProperty(new StringProperty(EVENT_HUB_NAME, eventHubName));
-    }
-
-    public String getEventHubName() {
-        return getPropertyAsString(EVENT_HUB_NAME);
-    }
-
-    public void setLiquidTemplateFileName(String liquidTemplateFileName) {
-        setProperty(new StringProperty(LIQUID_TEMPLATE_FILENAME, liquidTemplateFileName));
-    }
-
-    public String getLiquidTemplateFileName() {
-        if (templateFileName == null) {
-            templateFileName = getPropertyAsString(LIQUID_TEMPLATE_FILENAME);
-            messageRenderer = new MessageRenderer(templateFileName);
-        }
-
-        return templateFileName;
-    }
-
-    @Override
-    public SampleResult sample(Entry e) {
-        boolean isSuccessful = false;
-
-        SampleResult res = new SampleResult();
-        res.setSampleLabel(this.getName());
-
-        String threadName = Thread.currentThread().getName();
-        String responseMessage = "";
-        String requestBody = "";
-        long bytes = 0;
-        long sentBytes = 0;
-
-        EventHubProducerClient producer = null;
-        EventHubClientBuilder producerBuilder = new EventHubClientBuilder();
-
-        try {
-            String connectionStringVarName = getEventHubConnectionVarName();
-            requestBody = "EventHub Connection String Var Name: ".concat(connectionStringVarName);
-
-            final String connectionString = System.getenv(connectionStringVarName);
-
-            requestBody = requestBody.concat("\n")
-                    .concat("EventHub Connection String: ").concat(connectionString);
-
-            producerBuilder = producerBuilder.connectionString(connectionString, getEventHubName());
-
-            producer = producerBuilder.buildProducerClient();
-
-            // prepare a batch of events to send to the event hub
-            CreateBatchOptions batchOptions = new CreateBatchOptions();
-            EventDataBatch batch = producer.createBatch(batchOptions);
-            int msgCount = 1;
-            String liquidFileName = getLiquidTemplateFileName();
-            requestBody = requestBody.concat("\n")
-                    .concat("Liquid Template File: ").concat(liquidFileName);
-
-            String msg = messageRenderer.Render();
-            requestBody = requestBody.concat("\n\n")
-                    .concat("[Event data #").concat(String.valueOf(msgCount)).concat("]\n")
-                    .concat("Body: ").concat(msg);
-            EventData eventData = new EventData(msg);
-
-            batch.tryAdd(eventData);
-
-            bytes = batch.getSizeInBytes();
-
-            res.sampleStart();
-            // send the batch of events to the event hub
-            producer.send(batch);
-
-            sentBytes = batch.getSizeInBytes();
-            res.latencyEnd();
-
-            res.setDataType(SampleResult.TEXT);
-
-            responseMessage = "OK";
-            isSuccessful = true;
-            res.sampleEnd(); // End timing
-        } catch (AmqpException ex) {
-            log.info("Error calling {} sampler. ", threadName, ex);
-            if (ex.isTransient()) {
-                responseMessage = "A transient error occurred in ".concat(threadName)
-                        .concat(" sampler. Please try again later.\n");
-            }
-            responseMessage = responseMessage.concat(ex.getMessage());
-            res.setResponseData(ex.getMessage(), "UTF-8");
-        } catch (Exception ex) {
-            res.setResponseData(ex.toString(), "UTF-8");
-            responseMessage = ex.getMessage();
-            log.info("Error calling {} sampler. ", threadName, ex);
-        } finally {
-            if (producer != null) {
-                producer.close();
-            }
-            res.setSamplerData(requestBody); // Request Body
-            res.setBytes(bytes);
-            res.setSentBytes(sentBytes);
-            res.setResponseMessage(responseMessage);
-        }
-
-        res.setSuccessful(isSuccessful);
-        return res;
-    }
-
-    @Override
-    public void testStarted() {
-        testStarted("");
-    }
-
-    @Override
-    public void testEnded() {
-        testEnded("");
-    }
-
-    @Override
-    public void testStarted(String host) {
-        // ignored
-    }
-
-    /**
-     * @see org.apache.jmeter.samplers.AbstractSampler#applies(org.apache.jmeter.config.ConfigTestElement)
-     */
-    @Override
-    public boolean applies(ConfigTestElement configElement) {
-        String guiClass = configElement.getProperty(TestElement.GUI_CLASS).getStringValue();
-        return APPLIABLE_CONFIG_CLASSES.contains(guiClass);
-    }
-}
-```
-
-1. Define the input parameters that are required for the sampler. You can implement an interface that can be used in the JMeter GUI Designer to enter the required parameters using the interface. In our example, we have the following input parameters:
-    Our custom plugin has three input parameters:
-    1. eventHubConnectionVarName: to specify the connection string variable name for event hub that can be passed to the plugin using environmental variable or as Key Vault,
-    1. eventHubName: event hub name in the event hub name space
-    1. liquidTemplateFileName: location of a liquid template file, which is used by the plugin to render the content of a payload to send to event hub.
-
-```java
-public class EventHubPluginGui extends AbstractSamplerGui implements ChangeListener {
-    private static final long serialVersionUID = 1L;
-    private static final Logger log = LoggerFactory.getLogger(EventHubPluginGui.class);
-
-    private JPanel panel;
-    private JLabeledTextField eventHubConnectionStringVarName;
-    private JLabeledTextField eventHubName;
-    private JLabeledTextField liquidTemplateFileName;
-
-    public EventHubPluginGui() {
-        init();
-    }
-
-    @Override
-    public void configure(TestElement element) {
-        super.configure(element);
-        eventHubConnectionStringVarName
-                .setText(element.getPropertyAsString(EventHubPlugin.EVENT_HUB_CONNECTION_VAR_NAME));
-        eventHubName.setText(element.getPropertyAsString(EventHubPlugin.EVENT_HUB_NAME));
-        liquidTemplateFileName.setText(element.getPropertyAsString(EventHubPlugin.LIQUID_TEMPLATE_FILENAME));
-    }
-
-    @Override
-    public TestElement createTestElement() {
-        EventHubPlugin sampler = new EventHubPlugin();
-        modifyTestElement(sampler);
-        return sampler;
-    }
-
-    @Override
-    public void modifyTestElement(TestElement sampler) {
-        sampler.clear();
-        super.configureTestElement(sampler);
-        sampler.setProperty(EventHubPlugin.EVENT_HUB_CONNECTION_VAR_NAME, eventHubConnectionStringVarName.getText());
-        sampler.setProperty(EventHubPlugin.EVENT_HUB_NAME, eventHubName.getText());
-        sampler.setProperty(EventHubPlugin.LIQUID_TEMPLATE_FILENAME, liquidTemplateFileName.getText());
-    }
-
-    @Override
-    public void clearGui() {
-        super.clearGui();
-
-        eventHubConnectionStringVarName.setText("");
-        eventHubName.setText("");
-        liquidTemplateFileName.setText("");
-    }
-
-    @Override
-    public String getLabelResource() {
-        return getClass().getName();
-    }
-
-    public String getStaticLabel() {
-        return "Azure Event Hubs Sampler";
-    }
-
-    private JPanel createEventHubConnectionStringVarNamePanel() {
-        eventHubConnectionStringVarName = new JLabeledTextField("Event Hubs Connection String Var Name:");
-        eventHubConnectionStringVarName.setName(EventHubPlugin.EVENT_HUB_CONNECTION_VAR_NAME);
-
-        JPanel panel = new JPanel(new BorderLayout(5, 0));
-        panel.add(eventHubConnectionStringVarName);
-
-        return panel;
-    }
-
-    private JPanel createEventHubNamePanel() {
-        eventHubName = new JLabeledTextField("Event Hubs Name:");
-        eventHubName.setName(EventHubPlugin.EVENT_HUB_NAME);
-
-        JPanel panel = new JPanel(new BorderLayout(5, 0));
-        panel.add(eventHubName);
-
-        return panel;
-    }
-
-    private JPanel createliquidTemplateFileNamePanel() {
-        liquidTemplateFileName = new JLabeledTextField("Liquid Template File Name:");
-        liquidTemplateFileName.setName(EventHubPlugin.LIQUID_TEMPLATE_FILENAME);
-
-        JPanel panel = new JPanel(new BorderLayout(5, 0));
-        panel.add(liquidTemplateFileName);
-
-        return panel;
-    }
-
-    private void init() {
-        setLayout(new BorderLayout(0, 5));
-        setBorder(makeBorder());
-        add(makeTitlePanel(), BorderLayout.NORTH);
-        // MAIN PANEL
-        VerticalPanel mainPanel = new VerticalPanel();
-        VerticalPanel eventHubsConfigPanel = new VerticalPanel();
-        eventHubsConfigPanel.setBorder(BorderFactory.createTitledBorder("Event Hubs Configuration"));
-        eventHubsConfigPanel.add(createEventHubConnectionStringVarNamePanel());
-        eventHubsConfigPanel.add(createEventHubNamePanel());
-        eventHubsConfigPanel.add(createliquidTemplateFileNamePanel());
-        mainPanel.add(eventHubsConfigPanel, BorderLayout.NORTH);
-
-        add(mainPanel, BorderLayout.CENTER);
-    }
-
-    @Override
-    public void stateChanged(ChangeEvent event) {
-    }
-}
-```
-
-1. Implement the sample() method to simulate the desired request. This method should perform the necessary operations required to simulate the request. In our case, it's rendering a message as per a liquid template and then sending it to Event hub.
-
-1. Build your custom sampler class into a JAR file and place as instructed [here](https://github.com/Azure-Samples/load-testing-jmeter-plugins#how-to-setup-visual-studio-code-for-eventhub-plugin-development)
-
-1. Restart JMeter, and your custom Event hub sampler should now be available in the JMeter GUI. In order to set up JMeter GUI, follow the instruction [here](https://github.com/Azure-Samples/load-testing-jmeter-plugins#how-to-setup-jmeter-in-gui-mode).
-
-Once your custom sampler is implemented, you can use it in your JMeter test plan in Azure Load Test just like any other sampler. You can add it to a Thread Group, set its parameters, and configure it as needed. Custom samplers can be powerful tools in JMeter, allowing you to simulate complex scenarios and requests that aren't supported by the built-in samplers.
+To implement a custom sampler for Event hubs in JMeter, follow the instruction provided [here](https://github.com/Azure-Samples/load-testing-jmeter-plugins#how-to-setup-visual-studio-code-for-eventhub-plugin-development). Once your custom sampler is implemented, you can use it in your JMeter test plan in Azure Load Test just like any other sampler. You can add it to a Thread Group, set its parameters, and configure it as needed. Custom samplers can be powerful tools in JMeter, allowing you to simulate complex scenarios and requests that aren't supported by the built-in samplers.
 
 ## Create an Apache JMeter script with custom plugin
 
 In this section, you create a sample JMeter test script to load test an application with Event Hubs.
 
-To create a sample JMeter test script: 
+To create a sample JMeter test script:
 
 1. Create a *SampleTest.jmx* file on your local machine:
 
@@ -403,23 +122,64 @@ In this example, the payload for the event hub message is a json object with thr
 
 ## Run the load test using new plugin
 
-When Azure Load Testing starts your load test, it first deploys the JMeter script along with all other files onto test engine instances, and then start the load test.
-
-In order to run the JMeter script, you can follow these steps:
-
-1. Go to your Load Testing resource, select **Tests** from the left pane, and then create a new test.
-
-    :::image type="content" source="images/load-testing-configuration-basic.png" alt-text="Screenshot that shows the basic info." :::
-
-1. On the test plan tab, select and upload the JMeter script along with the liquid and JAR file containing the plugin. A prebuild JAR file for the Event hub sampler is available to download [here](https://github.com/Azure-Samples/load-testing-jmeter-plugins/blob/main/target/loadtestplugins-1.0.jar).
-
-    :::image type="content" source="images/load-testing-configuration-test-plan-uploaded.png" alt-text="Screenshot that shows the test plan page." :::
-
-    > [!TIP]
-    > The size for the JAR file should not be exceeded 10MB. If your file is larger than 10MB, you will need to split your JAR file to multiple files or try to use shaded version of your JAR file to minimize the file.
-
-1. Go to the parameter tab, define `EventHubConnectionString` and then provide the connection string to Event Hub.
+When Azure Load Testing starts your load test, it first deploys the JMeter script along with all other files onto test engine instances, and then start the load test as instructed [here](https://learn.microsoft.com/en-us/azure/load-testing/how-to-use-jmeter-plugins?tabs=portal).
+Before running the test, go to the parameter tab, define `EventHubConnectionString` and then provide the connection string to Event Hub.
 
     :::image type="content" source="images/load-testing-configuration-parameters.png" alt-text="Screenshot that shows the parameters of the test." :::
 
-1. Create and then run and notice the test run details, statistics, and client metrics in the Azure portal.
+## Performance Testing Setup for Environment
+
+In any performance testing, it is important to have a similar environment to the production environment. In this example, the following environment is used for performance testing in order to better understand the system capacity and the performance of the system.
+
+As per the sample architecture, the following services could be used for performance testing:
+
+| Service | Configuration |
+| ----------- | ----------- |
+| Azure Digital Twin | default setting. |
+| Eventhub | Premium with 1 PU. |
+| Azure Function | Linux with Premium Plan (EP1) - 210 ACU, 3.5 GB Memory and 1 vCPU equivalent Standard_D1_v2 |
+| Region | West US 2 |
+
+Note than choosing of a service tier for any Azure services including Azure Event Hubs and Azure Functions is a complex process and depends on many factors. For more information, see [Azure Event Hubs pricing](https://azure.microsoft.com/en-us/pricing/details/event-hubs/) and [Azure Functions pricing](https://azure.microsoft.com/en-us/pricing/details/functions/).
+
+
+## Designing KPIs for Performance Testing
+
+In order to design KPIs for performance testing, you need to understand the business requirements and the system architecture. The business requirements are the key performance indicators (KPIs) that you need to measure. The system architecture is the foundation for the performance testing strategy. It defines the components that you need to test and the performance testing approach for each component.
+
+In this example, the business requirements are:
+
+- The system should be able to handle 1000 requests per second.
+- The system reliability should be higher than 0.99.
+- The system should be able to handle 1000 concurrent devices reporting their telemetry information.
+- What is the maximum capacity of the system in terms of the number of devices that can be supported?
+
+As per these requirements, the KPIs for performance testing could be:
+
+| KPI | Description |
+| ----------- | ----------- |
+| RPS |  Request Per Second for Eventhub  |
+| LOAD |  Number of loads/requests sent to Eventhub during performance testing |
+| IR | Number of function executions or ingestion rate |
+| RT | Average time for Azure Function Execution Time |
+| AMU | Average Memory Usage for Azure Functions |
+| SR | Success Rate of all function executions |
+| ARS | Average Downstream Service Response Time (e.g. Sql server or a microservice) |
+| DF | Dependency Failure count including internal Azure function errors |
+| MRPS | Maximum RPS with no Backlog in Eventhub (System Capacity) |
+
+### How to measure KPIs
+
+In order to measure KPIs, you need to have a performance testing strategy. The strategy defines the performance testing approach for each component. In this example, the following performance testing strategy is used:
+
+- Eventhub: The performance testing approach for Eventhub is to send a number of messages to Eventhub and then measure the RPS and LOAD. The RPS is the number of messages that are sent to Eventhub per second. The LOAD is the total number of messages that are sent to Eventhub during the performance testing. The RPS and LOAD are measured by the Azure Load Testing service.
+- Azure Function: The performance testing approach for Azure Function is to measure the IR, RT, AMU and SR. The IR is the number of function executions or ingestion rate. The RT is the average time for Azure Function Execution Time. The AMU is the average memory usage for Azure Functions. The SR is the success rate of all function executions. The ARS is the average downstream service response time. The DF is the dependency failure count including internal Azure function errors. The IR, RT and SR are measured by the Azure Monitor service. The AMU, ARS and DF are measured by the Azure Load Test service.
+
+In order to measure KPIs using Azure Monitor service, we need to enable Application Insights for Azure Functions. For more information, see [Enable Application Insights for Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-monitoring?tabs=cmd#enable-application-insights).
+
+After enabling Azure Monitor service, you can use the following queries to measure KPIs:
+
+- IR: `FunctionAppLogs | where Category startswith "your-function-name" and Message startswith "Executed" | summarize count() by FunctionName, Level Aggregate by hour | order by FunctionName desc`
+- RT: `FunctionAppLogs\n| where Category startswith "your-function-name" and Message startswith "Executed "| parse Message with "Executed " Name " ("  Result ", Id=" Id ", Duration=" Duration:long "ms)\n| project  TimeGenerated, Message, FunctionName, Result, FunctionInvocationId, Duration\n`
+- SR: `FunctionAppLogs\n| where Category startswith "Function." and Message startswith "Executed" | summarize Success=countif(Level == "Information" ), Total=count() by FunctionName| extend Result=Success*1.0/Total| project FunctionName, Result| order by FunctionName desc`
+
