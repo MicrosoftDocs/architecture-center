@@ -191,7 +191,7 @@ The main points in this code are:
 
 - There are five spans:
 
-  - A root span that's part of the tracer that's injected in the context before the execution.
+  - A root span that's part of the tracer that's injected in the context before the execution
   - *queryExternalCatalog*
   - *sendMessage*
   - *splitToMessages* (a child of *sendMessage*)
@@ -254,7 +254,7 @@ Principal author:
 Other contributors:
 
 - [Julien Corioland](https://www.linkedin.com/in/juliencorioland) | Principal Software Engineer
-- [Benjamin Guinebertière](https://fr.linkedin.com/in/benjguin=3&fclid=247c03a9-237c-693e-12ad-1173228268bb&psq=Benjamin+Guineberti%c3%a8re&u=a1aHR0cHM6Ly9mci5saW5rZWRpbi5jb20vaW4vYmVuamd1aW4&ntb=1) | Principal Software Engineering Manager
+- [Benjamin Guinebertière](https://www.linkedin.com/in/benjguin) | Principal Software Engineering Manager
 - [Jodi Martis](https://www.linkedin.com/in/jodimartis) | Technical Writer
 - [Adina Stoll](https://www.linkedin.com/in/adina-stoll) | Software Engineer II
 
@@ -262,11 +262,11 @@ Other contributors:
 
 ## Next steps
 
-- An example of a system that leverages the presented approach: [Synchronization framework for metadata ingestion from external catalogs in Microsoft Purview](https://microsoft.sharepoint.com/:w:/t/CSEFTEFY19/ET9i4_ecx3tOnUSXR5P0NfMBSBFZxYq2iC67Lc-tYg2TtQ?e=BdG7pO)
-- [Azure Monitor](/azure/azure-monitor/overview)
-- [Code with engineering playbook: observability in microservices](https://microsoft.github.io/code-with-engineering-playbook/observability/microservices/)
-- [Distributed tracing and telemetry correlation in Azure Application Insights](/azure/azure-monitor/app/distributed-tracing-telemetry-correlation)
-- [Observability for Event Stream Processing with Azure Functions, Event Hubs, and Application Insights](https://devblogs.microsoft.com/cse/2021/05/13/observability-for-event-stream-processing-with-azure-functions-event-hubs-and-application-insights/#2-understanding-operation-ids-operation-links-when-working-with-event-hubs)
+- An example of a system that uses the presented approach: [Synchronization framework for metadata ingestion from external catalogs in Microsoft Purview](https://microsoft.sharepoint.com/:w:/t/CSEFTEFY19/ET9i4_ecx3tOnUSXR5P0NfMBSBFZxYq2iC67Lc-tYg2TtQ?e=BdG7pO)
+- [Azure Monitor overview](/azure/azure-monitor/overview)
+- [Observability in microservices](https://microsoft.github.io/code-with-engineering-playbook/observability/microservices/)
+- [Distributed tracing and telemetry correlation](/azure/azure-monitor/app/distributed-tracing-telemetry-correlation)
+- [Understand operation IDs and operation links in Event Hubs](https://devblogs.microsoft.com/cse/2021/05/13/observability-for-event-stream-processing-with-azure-functions-event-hubs-and-application-insights/#2-understanding-operation-ids-operation-links-when-working-with-event-hubs)
 - [OpenCensus Azure Monitor exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
 - [Metadata ingestion from external catalogs in Microsoft Purview](/azure/architecture/solution-ideas/articles/sync-framework-metadata-ingestion)
 
@@ -276,4 +276,3 @@ Other contributors:
 - [Monitor Azure Functions and Event Hubs](/azure/architecture/serverless/event-hubs-functions/observability)
 - [Monitor serverless event processing](/azure/architecture/serverless/guide/monitoring-serverless-event-processing)
 - [Performance and scale guidance for Event Hubs and Azure Functions](/azure/architecture/serverless/event-hubs-functions/performance-scale)
-- 
