@@ -272,4 +272,8 @@ Other contributors:
 
 ## Related resources
 
+- [Integrate Event Hubs with serverless functions on Azure](/azure/architecture/serverless/event-hubs-functions/event-hubs-functions)
 - [Monitor Azure Functions and Event Hubs](/azure/architecture/serverless/event-hubs-functions/observability)
+- [Monitor serverless event processing](/azure/architecture/serverless/guide/monitoring-serverless-event-processing)
+- [Performance and scale guidance for Event Hubs and Azure Functions](/azure/architecture/serverless/event-hubs-functions/performance-scale)
+- 
