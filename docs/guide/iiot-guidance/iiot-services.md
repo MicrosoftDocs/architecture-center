@@ -65,7 +65,7 @@ The following sections describe common microservices in Azure IIoT analytics sol
 ### REST API interfaces to factory floor OPC UA servers
 
 - Use Azure IIoT components like [OPC Publisher](/azure/industrial-iot/overview-what-is-opc-publisher), [OPC Twin](https://github.com/Azure/Industrial-IoT/tree/main/docs/api/twin), and [OPC Vault](https://github.com/Azure/azure-iiot-opc-vault-service/blob/main/docs/opcvault-services-overview.md) for device discovery, registration, and remote control.
-- Use AKS to host Azure IIoT microservices. To understand the deployment options, see [Deploy the Azure Industrial IoT Platform](https://github.com/Azure/Industrial-IoT/blob/master/docs/deploy/readme.md).
+- Use AKS to host Azure IIoT microservices. To understand the deployment options, see [Deploy the Azure Industrial IoT Platform](https://github.com/Azure/Industrial-IoT/blob/main/deploy/helm/azure-industrial-iot/README.md).
 
 ### Data transformation services
 
