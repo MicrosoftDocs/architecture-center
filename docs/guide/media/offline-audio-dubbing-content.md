@@ -2,6 +2,8 @@ This guide describes how the AI tools in Azure Cognitive Services can help you a
 
 *Dubbing* is the process of placing a replacement track over an original audio/video source. It includes speech-to-speech transformation from a source to a target speech stream. There are two types of dubbing. *Real-time dubbing* modifies the original audio/video track for the content. *Offline dubbing* refers to a postproduction process. The offline process enables human assistance to improve the overall outcome as compared to that of real-time implementations. You can correct errors at each stage and add enough metadata to make the output more truthful to the original. You can use the same pipeline to provide subtitles for the video track.
 
+*FFmpeg is a trademark of Fabrice Bellard.*
+
 ## Architecture
 
 This architecture shows a pipeline that performs human-assisted speech-to-speech dubbing in offline mode. The successful completion of each module triggers the next one. The speech-to-speech pipeline contains the required elements for generating an offline dubbed audio stream. It uses the transcript of the spoken text to produce subtitles. You can optionally enhance the subtitles to produce closed captioning as well.
