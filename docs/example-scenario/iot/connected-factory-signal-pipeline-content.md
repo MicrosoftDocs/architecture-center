@@ -155,7 +155,7 @@ Principal authors:
 
 ## Next steps
 
-- [Industrial Services on Azure Kubernetes](https://github.com/Azure/Industrial-IoT/tree/master/docs/services)
+- [Industrial Services on Azure Kubernetes](https://github.com/Azure/Industrial-IoT/blob/main/docs/web-api/readme.md)
 - [Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub)
 - [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 - [Industrial IoT (IIoT) architecture patterns with Azure IoT Central](/azure/iot-central/core/concepts-iiot-architecture)

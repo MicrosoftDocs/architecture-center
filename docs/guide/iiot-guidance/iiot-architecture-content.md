@@ -109,7 +109,7 @@ OPC UA bases industry and domain-specific information models on the OPC UA data 
 
 Microsoft based the following open-source [Azure Industrial IoT](https://github.com/Azure/Industrial-IoT/blob/main/deploy/helm/azure-industrial-iot/README.md) components on OPC UA to implement identity translation:
 
-- [OPC Twin](https://github.com/Azure/Industrial-IoT/tree/main/docs/api/twin) uses microservices and an Azure IoT Edge module to connect the cloud to a factory network. OPC Twin provides discovery, registration, and synchronous remote control of industrial devices through REST APIs. OPC Twin also supports the OPC HDA profile for historical data.
+- [OPC Twin](https://github.com/Azure/Industrial-IoT/tree/main/docs/opc-publisher#opc-ua-client-opc-twin) uses microservices and an Azure IoT Edge module to connect the cloud to a factory network. OPC Twin provides discovery, registration, and synchronous remote control of industrial devices through REST APIs. OPC Twin also supports the OPC HDA profile for historical data.
 
 - [OPC Publisher](/azure/industrial-iot/overview-what-is-opc-publisher) is an Azure IoT Edge module that publishes telemetry data from OPC UA servers in OPC UA PubSub format, in both JSON and binary.
 
