@@ -1,6 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Monitor a distributed system with Application Insights and OpenCensus
+  titleSuffix: Azure Architecture Center
   description: Learn how to monitor an end-to-end distributed system by using OpenCensus for Python and Application Insights.
   author: raliouat
   ms.author: raoufaliouat

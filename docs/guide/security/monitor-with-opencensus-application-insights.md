@@ -1,7 +1,7 @@
-This article describes a distributed system that uses Azure Functions, Azure Event Hubs, and Azure Service Bus. It provides details about how to monitor the end-to-end system by using [OpenCensus for Python](https://github.com/census-instrumentation/opencensus-python) and Application Insights. This article also introduces distributed tracing and explains how it works by using Python code examples. This architecture uses the fictional company, Contoso, to describe the scenario.
+This article describes a distributed system that uses Azure Functions, Azure Event Hubs, and Azure Service Bus. It provides details about how to monitor the end-to-end system by using [OpenCensus for Python](https://github.com/census-instrumentation/opencensus-python) and Application Insights. This article also introduces distributed tracing and explains how it works by using Python code examples. The fictional company, Contoso, is used in the architecture to help describe the scenario.
 
 > [!NOTE]
-> OpenCensus and OpenTelemetry are merging, but OpenCensus is still the recommended approach to monitor Azure Functions. OpenTelemetry for Azure is in preview and [some features aren't available yet.](/azure/azure-monitor/faq#what-s-the-current-release-state-of-features-within-the-azure-monitor-opentelemetry-distro-)
+> OpenCensus and OpenTelemetry are merging, but OpenCensus is still the recommended approach to monitor Azure Functions. OpenTelemetry for Azure is in preview and [some features aren't available yet](/azure/azure-monitor/faq#what-s-the-current-release-state-of-features-within-the-azure-monitor-opentelemetry-distro-).
 
 ## Architecture
 
@@ -21,7 +21,7 @@ It's important to consider potential operation failures of this architecture. So
 
 - The internal API is unavailable, which leads to an exception that's raised by the query data Azure function in step one of the architecture.
 - In step two, the process data Azure function, encounters data that falls under an edge-case, which is data that's outside of the conditions or parameters of the function.
-- In step three, the upsert data Azure function fails. After several retries, the messages from the Service Bus queue go in the [dead letter queue](/azure/service-bus-messaging/service-bus-dead-letter-queues), which is a secondary queue that holds messages that can't be processed or delivered to a receiver after a pre-defined number of retries. Then the messages can follow an established automatic process, or they can be handled manually.
+- In step three, the upsert data Azure function fails. After several retries, the messages from the Service Bus queue go in the [dead-letter queue](/azure/service-bus-messaging/service-bus-dead-letter-queues), which is a secondary queue that holds messages that can't be processed or delivered to a receiver after a pre-defined number of retries. Then the messages can follow an established automatic process, or they can be handled manually.
 
 ## Components
 
@@ -34,7 +34,7 @@ It's important to consider potential operation failures of this architecture. So
 
 ## Scenario details
 
-Distributed systems are made of loosely coupled components. It can be difficult to understand how the components communicate and to fully perceive the end-to-end journey of a user request.
+Distributed systems are made of loosely coupled components. It can be difficult to understand how the components communicate and to fully perceive the end-to-end journey of a user request. This architecture helps you see how components are connected.
 
 Like many companies, Contoso needs to ingest on-premises or third-party data in the cloud while also collecting data about their sales by using services and in-house tools. In this architecture, a department at Contoso built an internal API that exposes the unstructured data, and they ingest the data into common storage. The common storage contains structured data from every department. The architecture shows how Contoso extracts, processes, and ingests that metadata in the cloud.
 
@@ -46,14 +46,13 @@ When building a system, especially a distributed system, it's important to make 
 
 ## Distributed tracing
 
-In this architecture, the system is a chain of microservices. Each microservice can fail independently for various reasons. When that happens, it's important to understand what happened so you can troubleshoot. It’s helpful to isolate an end-to-end transaction and follow the journey through the app stack, which consists of different services or microservices. This is called distributed tracing.
+In this architecture, the system is a chain of microservices. Each microservice can fail independently for various reasons. When that happens, it's important to understand what happened so you can troubleshoot. It’s helpful to isolate an end-to-end transaction and follow the journey through the app stack, which consists of different services or microservices. This method is called distributed tracing.
 
-The following sections show you how to set up distributed tracing in Contoso’s architecture. Select the Deploy to Azure button to deploy the infrastructure and the Azure function app.
+The following sections show you how to set up distributed tracing in Contoso’s architecture. Select the following Deploy to Azure button to deploy the infrastructure and the Azure function app.
+> [!NOTE]
+> There isn't an internal API in the architecture, so a read of an Azure file replaces the call to an API.
 
  [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://github.com/Azure/observable-python-azure-functions/tree/initial-branch-code)
-
-> [!NOTE]
-> There isn't an internal API in the architecture, so a read of a file in Azure replaces the call to an API.
 
 ### Traces and spans
 
@@ -65,7 +64,7 @@ A transaction is represented by a trace, which is a collection of [spans](https:
 
 Each of these operations can be part of a span. The trace is a complete description of what happens when you select the purchase button.
 
-Similarly, in the architecture, when the query data Azure function triggers to start the daily ingestion of the sales data, a trace is created that contains multiple spans:
+Similarly, in this architecture, when the query data Azure function triggers to start the daily ingestion of the sales data, a trace is created that contains multiple spans:
 
 - A span to confirm the trigger details.
 - A span to query the internal API.  
@@ -73,21 +72,21 @@ Similarly, in the architecture, when the query data Azure function triggers to s
 
 A span can have children spans. For example, the following image shows the query data Azure function as a trace:
 
-![Image that depicts a complete trace composed of spans and their child spans.](Aspose.Words.2d867fa4-b8e3-4946-86ba-487ab7e6ab80.004.png)
+:::image type="content" source="images/trace-example.png" alt-text="An image that shows a complete trace composed of spans and their child spans." lightbox="images/trace-example.png":::
 
-- The *sendMessages* span is split into two children spans: *splitToMessages* and *writeToEventHubs*. The *sendMessages* span requires those two sub-operations to send messages.
+- The sendMessages span is split into two children spans: splitToMessages and writeToEventHubs. The sendMessages span requires those two sub-operations to send messages.
 
-- All spans are children of a *root* span.
+- All spans are children of a root span.
 
 - In the previous image, spans give you an easy way to describe all parts involved in the query step of the query data Azure function. Each Azure function is a trace. So an end-to-end pass through Contoso’s ingestion system is the union of three traces, which are the three Azure functions. When you combine the three traces and their telemetry, you build the end-to-end journey and describe all parts of the architecture.
 
 ### Tracers and the W3C trace context
 
-A tracer is an object that holds contextual information. Preferably, that contextual information propagates as data transits through the Azure functions. To do this, the OpenCensus extension uses [the W3C trace context](https://www.w3.org/TR/trace-context).
+A tracer is an object that holds contextual information. Ideally, that contextual information propagates as data transits through the Azure functions. To do this, the OpenCensus extension uses [the W3C trace context](https://www.w3.org/TR/trace-context).
 
 As its official documentation states, the W3C trace context is a “specification that defines standard HTTP headers and a value format to propagate context information that enables distributed tracing scenarios.”
 
-A component of the system can create a tracer with the context of the previous component that's making the call by reading the traceparent. The format of a trace is:
+A component of the system, such as a function, can create a tracer with the context of the previous component that's making the call by reading the traceparent. The format of a trace is:
 
 Traceparent: [*version*]-[*traceId*]-[*parentId*]-[*traceFlags*]
 
@@ -101,9 +100,11 @@ base16(parentId) = b7ad6b7169203331
 
 base16(traceFlags) = 00
 
-The traceId and parentId are the most important fields. In what follows, base16(version) and base16(traceFlags) are set to 00. The traceId is a globally unique identifier of a trace. The parentId is a globally unique identifier of a span. That span is part of the trace that the traceId identifies.
+The traceId and parentId are the most important fields. The traceId is a globally unique identifier of a trace. The parentId is a globally unique identifier of a span. That span is part of the trace that the traceId identifies.
 
 For more information, see [Traceparent header](https://www.w3.org/TR/trace-context/#traceparent-header).
+
+In what follows, base16(version) and base16(traceFlags) are set to 00.
 
 ### Create a tracer with the OpenCensus extension
 
@@ -123,17 +124,17 @@ Before the two functions can trigger:
 
    The pre-invocation hook:
 
-   - Creates a *span\_context* object that holds the information of the previous span and triggers the Azure function. See a visual example of this step [in the next section](#understand-and-structure-the-code).
-   - Creates a tracer that contains the *span\_context* and creates a new trace for the triggered Azure function.
+   - Creates a span_context object that holds the information of the previous span and triggers the Azure function. See a visual example of this step [in the next section](#understand-and-structure-the-code).
+   - Creates a tracer that contains the span_context and creates a new trace for the triggered Azure function.
    - Injects the tracer in the [Azure function execution context](/azure/azure-functions/functions-reference?tabs=blob#function-app).
 
-   To ensure the traces appear in Application Insights, you must call the *configure()* method to create and configure an [Azure exporter](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure#opencensus-azure-monitor-exporters), which exports telemetry.
+   To ensure the traces appear in Application Insights, you must call the configure() method to create and configure an [Azure exporter](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure#opencensus-azure-monitor-exporters), which exports telemetry.
 
    The extension is at app level, so the steps in this section apply to all Azure functions in a function app.
 
 ### Understand and structure the code
 
-The code in the architecture's Azure functions are structured with spans. In Python, create an OpenCensus span by using the *with* statement to access the *span\_context* part of the tracer that's injected in the Azure function execution context. The following string provides the details of the current span and its parents:
+In this architecture, the code in the Azure functions are structured with spans. In Python, create an OpenCensus span by using the *with* statement to access the *span\_context* part of the tracer that's injected in the Azure function execution context. The following string provides the details of the current span and its parents:
 
 ```python
     with context.tracer.span("nameSpan"):
@@ -200,7 +201,7 @@ The main points in this code are:
 
 The following diagram shows how every time a span is created, the *span\_context* of the tracer is updated.
 
-![](Aspose.Words.2d867fa4-b8e3-4946-86ba-487ab7e6ab80.005.png)
+:::image type="content" source="images/span-context-tracer.png" alt-text="An image that shows the code lines of the function." lightbox="images/span-context-tracer.png":::
 
 In the previous diagram:
 
@@ -218,11 +219,11 @@ The following details explain the relationship between a tracer and a span in th
   - The sendMessage span has two children spans: splitToMessages and setMessages. Their span ids update in the span\_context field of the tracer object of the context.
 - To capture the relationship between a child span and its parent, the spans\_list field provides the lineage of spans in list form. In the splitToMessages span, the *spans\_list* field contains sendMessage (the parent span) and splitToMessages (the current span). This parent/child relationship is how you create the chain of isolated operations within the execution of an Azure function.
 
-### Chain functions by using the context field
+### Chain the functions by using the context field
 
 Now that the chain of operations are organized in one Azure function, you can chain it to the subsequent operations performed by the next Azure function.
 
-![Diagram Description automatically generated](Aspose.Words.2d867fa4-b8e3-4946-86ba-487ab7e6ab80.006.png)
+:::image type="content" source="images/set-messages-span.png" alt-text="A diagram that shows how the functions are chained." lightbox="images/set-messages-span.png":::
 
 In the previous diagram:
 
@@ -232,11 +233,11 @@ In the previous diagram:
 
 When the process data Azure function sends a message to the Service Bus queue, context is passed in the same way.
 
-### Types of telemetry
-
 When the monitoring configurations are in place, use the Application Insights features to query and visualize the end-to-end transactions.
 
-There are several types of telemetry available in Application Insights. This architecture's code generates the following telemetry:
+### Types of telemetry
+
+There are several types of telemetry available in Application Insights. The code in this architecture generates the following telemetry:
 
 - **Request** telemetry emits when you call an HTTP or trigger an Azure function. The entry to Contoso’s system has a timer-trigger for the query data Azure function that emits a request telemetry.
 - **Dependency** telemetry emits when you make a call to an Azure service or an external service. When the Azure function writes an event to Event Hubs, it emits a dependency telemetry.
