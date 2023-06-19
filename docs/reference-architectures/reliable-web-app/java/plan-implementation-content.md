@@ -114,9 +114,9 @@ Azure Monitor is a comprehensive suite of monitoring tools for collecting data f
 
 ### External load balancer
 
-Azure has three main external load balancing services: Azure Application Gateway, Azure Traffic Manager, and Azure Front Door.
+Azure has three external load balancing services. Azure Application Gateway is a regional load balancer and can only route HTTP traffic within a region, not between regions. Azure Traffic Manager is a global load balancer that uses DNS to route traffic. Global load balancers can route traffic between regions. Azure Front Door is a modern content delivery network and global load balancer that routes HTTP traffic.
 
-Single region deployments should use Application Gateway v2 SKU with WAF policies. Application Gateway routes HTTP traffic within a region but can't route traffic across multiple regions. Multi-region web apps that require WebSockets need to use Traffic Manager and Application Gateway. Traffic manager uses DNS to route traffic across regions and Application Gateway handles the HTTP and WebSockets connections within each region. All other web multi-region apps should try [Azure Front Door](/azure/frontdoor/front-door-overview) first. Front Door can route HTTP traffic across multiple regions and provides performance acceleration.
+Single region web apps should use an Application Gateway v2 SKU with WAF policies. Multi-region web apps should use a different architecture. Multi-region web apps with WebSockets need to use Traffic Manager and Application Gateway. Traffic manager uses DNS to route traffic across regions and Application Gateway handles the HTTP and WebSockets connections within each region. All other web multi-region web apps should try [Azure Front Door](/azure/frontdoor/front-door-overview) first. Front Door can route HTTP traffic across multiple regions and provides performance acceleration.
 
 Proseware needed a multi-region architecture to meet their 99.9% SLO. They chose an active-passive configuration to avoid code changes needed for an active-active configuration. The AirSonic web app uses WebSockets. To support WebSockets, Proseware needed to use Traffic Manager to load balance traffic between regions and Application Gateway in both regions for HTTP routing and WebSocket support. This architecture provides the following benefits:
 
@@ -124,12 +124,12 @@ Proseware needed a multi-region architecture to meet their 99.9% SLO. They chose
 - **Security.** Application Gateway integrates with Azure Web Application Firewall.
 - **Custom domains.** Application Gateway supports custom domain names.
 - **Health probes.** Traffic Manager and Application Gateway both have built-in health probes.
-- **Monitoring support.** It supports built-in reports with an all-in-one dashboard for both Front Door and security patterns. You can configure alerts that integrate with Azure Monitor. It lets the application log each request and failed health probes.
+- **Monitoring support.** You can configure alerts that integrate with Azure Monitor. It lets the application log each request and failed health probes.
 - **DDoS protection.** Application Gateway integrates with [Azure DDoS Protection](/azure/application-gateway/tutorial-protect-application-gateway-ddos).
 
 ### Web application firewall
 
-[Azure Web Application Firewall](/azure/web-application-firewall/overview) helps provide centralized protection of your web applications from common exploits and vulnerabilities. It's built into Azure Front Door and helps prevent malicious attacks close to the attack sources before they enter your virtual network. Web Application Firewall provides the following benefits:
+[Azure Web Application Firewall](/azure/web-application-firewall/overview) helps provide centralized protection of your web applications from common exploits and vulnerabilities. WAF integrates with Application Gateway and Front Door. It helps prevent malicious attacks close to the attack sources before they enter your virtual network. Web Application Firewall provides the following benefits:
 
 - **Global protection.** It provides increased global web app protection without sacrificing performance.
 - **Botnet protection.** You can configure bot protection rules to monitor for botnet attacks.
