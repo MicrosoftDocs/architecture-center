@@ -1,102 +1,109 @@
 <!-- cSpell:ignore wordpress -->
 
-WordPress is a versatile and popular content management system, used for creating websites of all sizes and purposes. From small personal blogs to large-scale corporate sites and e-commerce stores, WordPress offers a range of functionalities and customizations to suit different needs. However, due to its varying sizes and use cases, WordPress also has different hosting requirements, depending on factors such as traffic volume and storage needs.
+WordPress is a versatile and popular content management system that's used to create websites of all sizes and purposes. From small personal blogs to large-scale corporate sites and e-commerce stores, WordPress offers a range of functionalities and customizations to suit different needs. However, due to its varying sizes and use cases, WordPress also has unique hosting requirements that depend on factors such as traffic volume and storage needs.
 
-This section covers deploying WordPress on Azure and provides guidance on what to consider and implement to ensure a secure, scalable, and cost-effective installation.
+This article covers WordPress deployments on Azure. It provides guidance on what to consider and implement to help ensure a secure, scalable, and cost-effective installation.
 
 ## General WordPress security and performance tips
 
-Because of its overwhelming popularity, WordPress is a target for hackers, and websites running on the platform can be vulnerable to security threats such as malware and phishing attacks. To address these risks, the following tips can help to create a more secure and better-performing WordPress installation.
+Because of its overwhelming popularity, WordPress is a target for hackers. Websites that run on the platform can be vulnerable to security threats such as malware and phishing attacks. The following tips can help you address these risks by creating a more secure and better-performing WordPress installation.
 
-Regardless of the hosting architecture, whether it's VM, App Service, or any other, these tips are universally applicable.
+Whether you use a virtual machine (VM) or Azure App Service for your hosting architecture or some other solution, these tips are universally applicable.
 
 ### Use Web Application Firewall
 
-Azure Web Application Firewall (WAF) helps secure the website against common web-based attacks. It acts as a filter between the website and the internet, monitoring incoming traffic and blocking malicious requests that can exploit vulnerabilities in your website's code. WAF can protect your website from a range of attacks, including SQL injections, cross-site scripting (XSS), and cross-site request forgery (CSRF).
+Azure Web Application Firewall helps secure your website against common web-based attacks. It acts as a filter between the website and the internet by monitoring incoming traffic and blocking malicious requests that can exploit vulnerabilities in your website's code. Web Application Firewall can protect your website from a range of attacks, including SQL injections, cross-site scripting (XSS), and cross-site request forgery (CSRF).
 
-You should use WAF on Azure Front Door to get centralized protection for your web applications. Azure Front Door is content delivery network (CDN) that provides fast, reliable, and secure access between your users and your applications’ static and dynamic web content across the globe.  WAF on Front Door defends your web services against common exploits and vulnerabilities.
+You should use Web Application Firewall on Azure Front Door to get centralized protection for your web applications. Azure Front Door is a content delivery network that helps provide users across the globe with fast, reliable, and secure access to your applications' static and dynamic web content. Deploying Web Application Firewall on Azure Front Door helps to defend your web services against common exploits and vulnerabilities.
 
-### Remove unused plugins and themes
+### Remove unused plug-ins and themes
 
-You should remove unused plugins and themes from any WordPress installation. It's an important step in keeping your WordPress website secure and optimizing its performance. Even if you're not actively using a plugin or theme, it can still pose a security risk by providing an entry point for hackers to exploit vulnerabilities in outdated or unmaintained code. Additionally, having too many plugins and themes installed on your website can slow down its performance by increasing the load time and server resource usage.
+You should remove unused plug-ins and themes from your WordPress installation. This step is important for keeping your WordPress website secure and optimizing its performance. Even if you're not actively using a plug-in or theme, it can still pose a security risk by providing an entry point for hackers to exploit vulnerabilities in outdated or unmaintained code. Also, having lots of plugins and themes installed on your website can slow down its performance by increasing load time and server resource usage.
 
-### Offload static content away from PHP processor
+### Offload static content away from the PHP processor
 
-You should offload static content, such as images, videos, and CSS files, away from the PHP processor. Offloading static content helps optimize website performance and reducing server load. When a user visits a website, the server processes the PHP code and generates HTML content dynamically. This process is resource intensive. However, static content doesn't change frequently. You should serve static content directly from the server file system or a CDN without needing PHP processing. By offloading these assets, you can reduce the load on the server's CPU and RAM. This configuration results in faster page load times, improved website performance, and a better user experience.
+To reduce the load on your PHP processor, you should offload static content, such as images, videos, and CSS files. Offloading static content helps to optimize website performance and reduce server load. When a user visits a website, the server processes PHP code and generates HTML content dynamically. This process is resource intensive. However, static content doesn't change frequently, so you can serve static content directly from a server file system or a content delivery network. By offloading these assets, you can reduce the load on your server's CPU and RAM. This configuration results in faster page load times, improved website performance, and a better user experience.
 
-Another benefit of serving static resources from a CDN service such as [Azure Front Door](/azure/frontdoor/front-door-overview) is that users can access servers closer to their geographic location, further reducing latency and increasing website speed. In summary, offloading static content away from the PHP processor is a crucial step in optimizing website performance and reducing server load.
+There are also other benefits to serving static resources from a content delivery network service such as [Azure Front Door](/azure/frontdoor/front-door-overview). For instance, when you offload static content, you can reduce latency and increase website speed by placing servers close to users' geographic locations.
 
 > [!NOTE]
-> To secure an origin with Azure Front Door using a Private Endpoint, you need to use the Premium SKU of Front Door. For more information, see [Secure your origin with Private Link](/azure/frontdoor/private-link).
+> To secure an origin with Azure Front Door by using a private endpoint, you need to use the Premium SKU of Azure Front Door. For more information, see [Secure your origin with Private Link](/azure/frontdoor/private-link).
 
 #### CDN cache invalidation
 
-For large WordPress installations using any CDN (like Azure Front Door or Azure CDN), you need to implement cache invalidation logic. Whenever a new event occurs, such as publishing a new article, updating an existing page, or adding a new comment, your need to invalidate the cache in the CDN for the affected page. The invalidation logic needs to discover all the URLs the change affected. The logic needs to discover and invalidate dynamically generated pages, such as categories and archives, in the CDN cache. Depending on the installed theme and plugins, even a minor change may affect every page.
+For large WordPress installations that use a content delivery network, such as Azure Front Door or Azure Content Delivery Network, you need to implement cache invalidation logic. Whenever a new event occurs, you need to invalidate the cache in the content delivery network for the affected page. Examples of events include publishing a new article, updating an existing page, and adding a comment. The invalidation logic needs to locate all the URLs that the change affected. Specifically, the logic needs to find and invalidate dynamically generated pages, such as categories and archives, in the content delivery network cache. With some installed themes and plug-ins, even a minor change can affect every page.
 
-An easy way to implement some discovery logic could be through a plugin that enables manual triggering of cache invalidation for all URLs. However, this cache purge could cause traffic peaks to WordPress when all URLs are invalidated at once. [Example implementation for Azure CDN on GitHub](https://github.com/vjirovsky/pr-crisis-wp-website/blob/master/wordpress/wp-content/plugins/azure-invalidate-cdn/plugin.php)
+An easy way to implement discovery logic is to use a plug-in that enables manual triggering of cache invalidation for all URLs. But invalidating all URLs at once can cause traffic to spike at your WordPress site. For an example of cache invalidation logic for Azure Content Delivery Network, see the [Flush Azure cache and deploy hook](https://github.com/vjirovsky/pr-crisis-wp-website/blob/master/wordpress/wp-content/plugins/azure-invalidate-cdn/plugin.php) implementation on GitHub.
 
-### Enable Two-Factor Authentication (2FA)
+### Enable two-factor authentication
 
-Two-factor authentication increases the security of your installation and help protect all accounts accessing the administration against unauthorized access or attacks. You can use of a plugin such a [MiniOrange authentication plugin](https://wordpress.org/plugins/miniorange-2-factor-authentication/). This plugin allows, among other methods, to use the Microsoft Authenticator as provider for 2FA method before gaining access to administration of your WordPress site.
+Two-factor authentication increases the security of your installation and helps protect your admin accounts from unauthorized access and attacks. To take advantage of two-factor authentication, you can use a plug-in such as the [miniOrange authentication plug-in](https://wordpress.org/plugins/miniorange-2-factor-authentication/). Among other features, this plug-in provides a way for you to configure Microsoft Authenticator as a two-factor authentication method for users who sign in to your WordPress site as administrators.
 
 ### Disable XML-RPC access
 
-XML-RPC is a remote protocol that allows third-party applications to interact with your website's server. However, this protocol is also a common target for hackers who use it to launch brute force attacks or exploit vulnerabilities in the CMS. If you're using Front Door, you can set up a deny rule for URL `/xmlrpc.php` to disable XML-RPC.
+XML-RPC is a remote protocol that provides a way for third-party applications to interact with your website's server. However, this protocol is also a common target for hackers, who use it to launch brute force attacks or exploit vulnerabilities in your content management system. If you use Azure Front Door, you can disable XML-RPC by setting up a deny rule for URLs that end in `/xmlrpc.php`.
 
-### Restrict access to administration
+### Restrict access to the administration panel
 
-By default, the WordPress administration panel is accessible to anyone with the correct URL `/wp-login.php` or `/wp-admin` and login credentials. This means that hackers and other malicious actors can attempt to guess your login details, perform a session hijacking, launch brute force attacks, or exploit some vulnerabilities in the WordPress to gain access.
- Web Application Firewall can help to prevent some attack, but many administrators prefer to restrict access to WordPress administration on network level.
+By default, your WordPress administration panel is accessible to anyone with your account credentials and the correct URL, which ends in `/wp-login.php` or `/wp-admin`. As a result, hackers and other malicious actors can attempt to guess your credentials, perform a session hijacking, launch brute force attacks, or exploit vulnerabilities in WordPress to gain access.
 
-An example, how to achieve this restriction, could be blocking any access to private URLs on Azure Front Door component and introduce a new internal access via Internal Application Gateway/Load Balancer accessible from private network via Hub&spoke network topology. Internal Application Gateway supports Web Application Firewall rules (as well as Azure Front Door) providing protection to WordPress installation also for internal access. In case the risk of attack from internal access is acceptable, there could be used Internal Load Balancer (*OSI layer 4*).
+Web Application Firewall can help prevent some attacks, but many administrators prefer to restrict access to the WordPress administration panel on the network level.
 
-[![Example architecture diagram describing blocking public access to administration and introducing an internal access via VPN in Hub&spoke topology](media/wordpress-architecture-restrict-ntw.png)](media/wordpress-architecture-restrict-ntw.png#lightbox)
+For example, you can block access to private URLs in Azure Front Door. You can then use Azure Application Gateway to provide internal access from a private network that uses a hub-and-spoke topology. Internal instances of Application Gateway support Web Application Firewall rules and Azure Front Door rules. These rules help protect your WordPress installation from internal attacks. If you can tolerate the risk of an internal attack, you can use an internal instance of Azure Load Balancer instead of Application Gateway. Load Balancer operates at layer four of the Open Systems Interconnection (OSI) model.
 
-In some cases, certain WordPress plugins require the URL `/wp-admin/admin-ajax.php` be publicly accessible and removed from this deny rule.
+:::image type="content" source="media/wordpress-architecture-restrict-network-level.png" alt-text="Architecture diagram that shows blocked public access to a WordPress administration panel. A VPN in a hub-and-spoke topology provides internal access." lightbox="media/wordpress-architecture-restrict-network-level.png" border="false":::
+
+Certain WordPress plug-ins require URLs that end in `/wp-admin/admin-ajax.php` to be publicly accessible and removed from this deny rule.
 
 ### Store secrets in Azure Key Vault
 
-To ensure the security of WordPress deployments on Azure, it's recommended to store secrets, such as database passwords and SSL certificates, in Azure Key Vault. Azure Key Vault is a cloud-based service that provides secure storage and management of cryptographic keys, certificates, and secrets.
+To help ensure the security of WordPress deployments on Azure, we recommend that you store secrets, such as database passwords and SSL certificates, in Azure Key Vault. This cloud-based service helps provides secure storage and management of cryptographic keys, certificates, and secrets.
 
-Authorized applications and services can securely access secrets without storing them in plain text within the WordPress container image or in application code.
+Key Vault helps your authorized applications and services to securely access secrets. You don't need to store them in plain text within your WordPress container image or in application code.
 
 ### Tune performance
 
-You should tune various settings and use plugins to optimize WordPress performance. The following plugin can assist in debugging WordPress installation:
+To optimize WordPress performance, you should tune various settings and use plug-ins. The following plug-ins can assist in debugging WordPress installations:
 
-- [Query Monitor](https://wordpress.org/plugins/query-monitor/) - breakdown of time spent for each SQL query and more (PHP errors, hooks and actions, block editor blocks, enqueued scripts and stylesheets, HTTP API calls)
-- [Laps](https://github.com/Rarst/laps) - provides a breakdown of where time is spent serving a page
-
+- [Query Monitor](https://wordpress.org/plugins/query-monitor) provides a breakdown of the time that's spent on each SQL query and other actions. Examples include PHP errors, hooks and actions, block editor blocks, enqueued scripts and stylesheets, and HTTP API calls.
+- [Laps](https://github.com/Rarst/laps) provides a breakdown of how time is spent on WordPress page loads.
 
 ## Hosting challenges of WordPress
 
-WordPress application architecture gives rise to several hosting challenges, including:
+With the WordPress application architecture, there are several hosting challenges, including:
 
-- **Scalability**: A hosting architecture must be capable of scaling out during peak traffic periods.
-- **Read&Write-Many storage (*RWX*)**: By default, WordPress stores all static assets, plugin, and theme source codes in the `/wp-content/` directory, which must be readable and writable from all nodes during scale-out.
-- **IOPS storage class**: WordPress consists of 1000+ tiny `.php` files that are referenced, loaded, and executed by PHP processor during incoming requests. Loading numerous small files can result in overhead and is often slower than loading one file with the same size (depending on the selected protocol).
-- **Cache invalidation**: When a new activity occurs in the application, such as publishing a new article, the cache must be invalidated across all nodes.
-- **Building cache time**: For the first user of a given node, the response time may be slower until the cache is built.
+- **Scalability**. A hosting architecture must be able to scale out during peak traffic periods.
+- **ReadWriteMany (RWX) storage**. By default, WordPress stores all static assets, plug-ins, and theme source code in the `/wp-content/` directory. During a scale-out, all nodes must be able to read from and write to that directory.
+- **Increased overhead**. WordPress consists of over 1,000 tiny `.php` files that the PHP processor references, loads, and runs during incoming requests. With some protocols, loading numerous small files can increase overhead. IOPS might not be affected, but overall performance is often slower than loading one file with the same total size.
+- **Cache invalidation**. When there's new activity in the application, such as when you publish a new article, you need to invalidate the cache across all nodes.
+- **The time to build the cache**. For the first user of a given node, the response time can be slow until the cache is built.
 
 ## WordPress hosting options on Azure
 
-WordPress can run on App Service, Azure Kubernetes Service (AKS), and virtual machines (VMs). The size of the installation is an important factor for decision. For small to medium installations, App Service is a cost-effective option. However, for larger installations you should consider AKS or VM hosting.
+WordPress can run on Azure App Service, Azure Kubernetes Service (AKS), and virtual machines (VMs). The size of the installation is an important factor in the host selection. For small to medium installations, App Service is a cost-effective option. However, for larger installations you should consider AKS or VM hosting.
 
 ### WordPress on App Service
 
-[WordPress on App Service (on Linux)](/azure/app-service/quickstart-wordpress) is a fully managed solution provided by Microsoft and designed to help you quickly and easily deploy a WordPress installation. This solution is ideal for small to medium-sized WordPress installations. It provides the scalability, reliability, and security of the Azure platform without the need for complex configuration or management. It performs automatic updates, backups, and monitoring to ensure that your site is always available. For more information, see [WordPress on App Service](./wordpress-appservice.yml)
+For a fully managed solution that Microsoft provides, see [WordPress on App Service (on Linux)](/azure/app-service/quickstart-wordpress). This solution:
+
+- Is designed to help you quickly and easily deploy a WordPress installation.
+- Is ideal for small to medium-sized WordPress installations.
+- Provides the scalability, reliability, and security of the Azure platform without the need for complex configuration or management.
+- Performs automatic updates, backups, and monitoring to ensure that your site is always available.
+
+For more information, see [WordPress on App Service](./wordpress-appservice.yml).
 
 ### Storage-intensive workloads
 
-Large WordPress installations can be storage intensive. In these scenarios, you should use a storage solution with a higher input-output per second (IOPS) class and low latency to accommodate the storage requirements. We recommend [Azure NetApp Files](/azure/azure-netapp-files/). Azure NetApp Files can support storage-intensive WordPress deployments and provides extra features such as data protection, backup and restore, cross-region replication and disaster recovery.
+Large WordPress installations can be storage intensive. In these scenarios, you should use a storage solution with a high input-output per second (IOPS) class and low latency to accommodate the storage requirements. We recommend [Azure NetApp Files](/azure/azure-netapp-files/). Azure NetApp Files can support storage-intensive WordPress deployments. It also provides extra features such as data protection, backup and restore, cross-region replication, and disaster recovery.
 
-For a container deployment of WordPress, you should use **Azure Kubernetes Service (AKS)** and with Azure NetApp Files storage via Kubernetes CSI driver. Azure NetApp Files offers a ReadWriteMany mode so that all the nodes can read and write to the same storage. For more information, see [AKS WordPress architecture](./wordpress-container.yml).
+For a container deployment of WordPress, you should use AKS. With Azure NetApp Files, implement storage via a Kubernetes Container Storage Interface (CSI) driver. Azure NetApp Files offers a `ReadWriteMany` mode so that all the nodes can read from and write to the same storage. For more information, see [AKS WordPress architecture](./wordpress-container.yml).
 
-For a large WordPress installation running on virtual machines (VMs), you should mount Azure NetApp Files using the network file system (NFS) protocol. [More details about VM deployment architecture](./wordpress-iaas.yml).
+For a large WordPress installation that runs on VMs, you should mount Azure NetApp Files by using the network file system (NFS) protocol. [More details about VM deployment architecture](./wordpress-iaas.yml).
 
 ### Immutable WordPress container
 
-An alternative approach to traditional hosting methods is to deploy WordPress into an immutable container. This approach has advantages and disadvantages. The source code and all resources within immutable containers are fixed and can't be modified after deployment. You need to make all changes, including new plugin installation or WordPress core updating, in a new version of the container image. While this approach ensures consistency and simplifies rollbacks, you have to build deployment pipeline to make changes. Additionally, immutable containers may have limitations on persistent storage options. It might force to develop a solution for handling media files and other data. Despite these limitations, immutable container deployments offer benefits in terms of security, scalability, and portability.
+An alternative approach to traditional hosting methods is to deploy WordPress into an immutable container. This approach has advantages and disadvantages. The source code and all resources within immutable containers are fixed and can't be modified after deployment. You need to make all changes, including new plug-in installation or WordPress core updating, in a new version of the container image. While this approach ensures consistency and simplifies rollbacks, you have to build deployment pipeline to make changes. Additionally, immutable containers may have limitations on persistent storage options. It might force to develop a solution for handling media files and other data. Despite these limitations, immutable container deployments offer benefits in terms of security, scalability, and portability.
 
 You can deploy an immutable containerized version of WordPress on various platforms, including Azure Container App, Azure Kubernetes Service, and Azure App Service with a custom container image. You can host the container image in Azure Container Registry.
 
