@@ -17,7 +17,7 @@ Fluent is used in the aerospace, automotive, medical, healthcare, manufacturing,
 
 ## Architecture
 
-:::image type="content" source="media/ansys-fluent/ansys-fluent.png" alt-text="Diagram that shows an architecture for deploying Fluent." lightbox="media/ansys-fluent/ansys-fluent.png" border="false":::
+:::image type="content" source="media/ansys-fluent/ansys-fluent.svg" alt-text="Diagram that shows an architecture for deploying Fluent." lightbox="media/ansys-fluent/ansys-fluent.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ansys-fluent.vsdx) of this
 architecture.*
