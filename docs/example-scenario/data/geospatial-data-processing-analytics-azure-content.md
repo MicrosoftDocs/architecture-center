@@ -239,7 +239,7 @@ To start implementing this solution, see this information:
 
 - [Connect a WFS to Azure Maps][Connect to a WFS service]
 - [Process OpenStreetMap data][Frameworks - OpenStreetMap Wiki] with Spark.
-- Explore ways to [display data with Azure Maps][Azure Maps Web SDK Samples].
+- Explore ways to display data with Azure Maps[Azure Maps Web SDK Samples].
 
 ### Information on processing geospatial data
 
