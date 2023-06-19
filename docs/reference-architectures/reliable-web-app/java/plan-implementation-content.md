@@ -124,7 +124,7 @@ Proseware needed a multi-region architecture to meet their 99.9% SLO. They chose
 - **Security.** Application Gateway integrates with Azure Web Application Firewall.
 - **Custom domains.** Application Gateway supports custom domain names.
 - **Health probes.** Traffic Manager and Application Gateway both have built-in health probes.
-- **Monitoring support.** You can configure alerts that integrate with Azure Monitor. It lets the application log each request and failed health probes.
+- **Monitoring support.** You can configure alerts that integrate with Azure Monitor.
 - **DDoS protection.** Application Gateway integrates with [Azure DDoS Protection](/azure/application-gateway/tutorial-protect-application-gateway-ddos).
 
 ### Web application firewall
