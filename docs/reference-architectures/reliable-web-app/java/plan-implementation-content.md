@@ -169,4 +169,4 @@ You can deploy the reference implementation by following the instructions in the
 This article describes how to plan the implementation for the reliable web app pattern. The next step is to apply the reliable web app pattern.
 
 >[!div class="nextstepaction"]
->[Apply the pattern](plan-implementation.yml)
+>[Apply the reliable web app pattern for Java](plan-implementation.yml)
