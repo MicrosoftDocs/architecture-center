@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Scalable and secure WordPress on Azure
+  title: WordPress on Azure
   titleSuffix: Azure Architecture Center
-  description: Learn how to use Azure Content Delivery Network and other Azure services to deploy a highly scalable and secure installation of WordPress.
-  author: david-stanford
-  ms.author: dastanfo
-  ms.date: 08/23/2022
+  description: Learn about multiple hosting options to deploy a highly scalable and secure installation of WordPress.
+  author: vjirovsky
+  ms.author: vjirovsky
+  ms.date: 04/18/2023
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -15,16 +15,15 @@ metadata:
     - web-apps
     - scalability
     - example-scenario
-name: Scalable and secure WordPress on Azure
+  social_image_url: /azure/architecture/example-scenario/infrastructure/media/wordpress-at-azure.png
+name: WordPress on Azure
 azureCategories:
   - web
-summary: Learn how to use Azure Content Delivery Network and other Azure services to deploy a highly scalable and secure installation of WordPress.
+summary: Learn about multiple hosting options to deploy a highly scalable and secure installation of WordPress.
 products:
-  - azure-cdn
-  - azure-key-vault
-  - azure-load-balancer
-  - azure-virtual-network
-  - azure-vm-scalesets
-thumbnailUrl: /azure/architecture/browse/thumbs/secure-scalable-wordpress.png
+  - azure-front-door
+  - azure-web-application-firewall
+  - azure-private-link
+thumbnailUrl: /azure/architecture/browse/thumbs/wordpress-at-azure.png
 content: |
-   [!include[](wordpress-content.md)]
+   [!include[](wordpress-overview-content.md)]
