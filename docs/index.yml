@@ -280,7 +280,7 @@ conceptualContent:
           itemType: how-to-guide
         - text: DevOps with Azure DevOps
           itemType: get-started
-          url:  example-scenario/apps/devops-dotnet-baseline.yml
+          url:  /azure/devops/pipelines/architectures/devops-baseline-architecture.yml
         - text: DevOps with containers
           itemType: get-started
           url:  guide/aks/aks-cicd-github-actions-and-gitops.yml
