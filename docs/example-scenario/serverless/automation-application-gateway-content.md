@@ -137,6 +137,6 @@ Browse our architectures:
 Related guidance:
 - [Serverless Functions architecture](/azure/architecture/serverless-quest/serverless-overview)
 - [Run containers in a hybrid environment](/azure/architecture/hybrid/hybrid-containers)
-- [Protect APIs with Application Gateway and API Management](/azure/architecture/reference-architectures/apis/protect-apis)
+- [Protect APIs with Application Gateway and API Management](/azure/architecture/web-apps/api-management/architectures/protect-apis)
 - [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
 - [Zero-trust network for web applications with Azure Firewall and Application Gateway](/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall)

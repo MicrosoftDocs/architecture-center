@@ -8,7 +8,7 @@ With more companies adhering to the [API-first approach](https://swagger.io/reso
 
 This article doesn't address the application's underlying services, like App Service Environment, Azure SQL Managed Instance, and Azure Kubernetes Services. Those parts of the diagram only showcase what you can do as a broader solution. This article specifically discusses the shaded areas, API Management and Application Gateway.
 
-![Diagram showing how Application Gateway and API Management protect APIs.](images/protect-apis.png)
+![Diagram showing how Application Gateway and API Management protect APIs.](../_images/protect-apis.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/protect-apis.vsdx) of this architecture.*
 

@@ -29,13 +29,23 @@ items:
           - name: Baseline in multiple regions
             href: spring-apps/architectures/spring-apps-multi-region.yml
           - name: Baseline in landing zones
-            href: spring-apps/architectures/spring-apps-landing-zone.yml     
+            href: spring-apps/architectures/spring-apps-landing-zone.yml
+      - name: Manage your APIs with Azure API Management (APIM)
+        items:
+        - name: Protect APIs with Application Gateway
+          href: api-management/architectures/protect-apis.yml
       - name: Host web apps with App Service Environments
         items:
         - name: Standard deployment
           href: app-service-environment/architectures/ase-standard-deployment.yml
         - name: High availability deployment
           href: app-service-environment/architectures/ase-high-availability-deployment.yml                 
+    - name: Guides
+      items:
+      - name: Networking guidance for web apps
+        items:
+        - name: Securing access to multitenant web apps from on prem
+          href: guides/networking/access-multitenant-web-app-from-on-premises.yml
     - name: Hosting applications
       items:
       - name: WordPress

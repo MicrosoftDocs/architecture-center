@@ -172,5 +172,5 @@ As noted previously, however, APIs are less sensitive to the problems caused by 
 ## Related resources
 
 - [Zero-trust network for web applications with Azure Firewall and Application Gateway](/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall)
-- [Protect APIs with Application Gateway and API Management](/azure/architecture/reference-architectures/apis/protect-apis)
+- [Protect APIs with Application Gateway and API Management](/azure/architecture/web-apps/api-management/architectures/protect-apis)
 - [Enterprise deployment using App Services Environment](/azure/architecture/web-apps/app-service-environment/architectures/ase-standard-deployment)

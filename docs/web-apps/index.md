@@ -98,7 +98,6 @@ The following sections, organized by category, provide links to sample web app a
 ### Multi-tier apps
 
 - [Multi-tier app service with private endpoint](../example-scenario/web/multi-tier-app-service-private-endpoint.yml)
-- [Multi-tier app service with service endpoint](../reference-architectures/app-service-web-app/multi-tier-app-service-service-endpoint.yml)
 - [Multi-tier web application built for HA/DR](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)
 
 ### Multi-region apps
@@ -115,8 +114,8 @@ The following sections, organized by category, provide links to sample web app a
 
 ### Security
 
-- [Improved-security access to multitenant web apps from an on-premises network](../example-scenario/security/access-multitenant-web-app-from-on-premises.yml)
-- [Protect APIs with Application Gateway and API Management](../reference-architectures/apis/protect-apis.yml)
+- [Improved-security access to multitenant web apps from an on-premises network](../web-apps/guides/networking/access-multitenant-web-app-from-on-premises.yml)
+- [Protect APIs with Application Gateway and API Management](../web-apps/api-management/architectures/protect-apis.yml)
 
 ### SharePoint
 

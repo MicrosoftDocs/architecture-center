@@ -2931,6 +2931,22 @@
       "source_path": "docs/reference-architectures/enterprise-integration/ase-high-availability-deployment.yml",
       "redirect_url": "/azure/architecture/web-apps/app-service-environment/architectures/medium-umbraco-web-app",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/sql-failover/access-multitenant-web-app-from-on-premises.yml",
+      "redirect_url": "/azure/architecture/guides/networking/access-multitenant-web-app-from-on-premises",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "reference-architectures/app-service-web-app/multi-tier-app-service-service-endpoint.yml",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "reference-architectures/apis/protect-apis.yml",
+      "redirect_url": "/azure/architecture/web-apps/api-management/architectures/protect-apis",
+      "redirect_document_id": true
     }
+    
   ]
 }

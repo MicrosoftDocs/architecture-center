@@ -181,5 +181,5 @@ Principal author:
 
 - [GitOps for Azure Kubernetes Service](../gitops-aks/gitops-blueprint-aks.yml)
 - [Migrate a web app using Azure API Management](../apps/apim-api-scenario.yml)
-- [Protect APIs with Application Gateway and API Management](../../reference-architectures/apis/protect-apis.yml)
+- [Protect APIs with Application Gateway and API Management](../../web-apps/api-management/architectures/protect-apis.yml)
 - [Publish internal APIs to external users](../apps/publish-internal-apis-externally.yml)

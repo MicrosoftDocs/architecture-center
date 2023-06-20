@@ -205,7 +205,7 @@ Principal author:
 The following architectures cover key API Management scenarios:
 
 - [Migrate a web app using Azure API Management](/azure/architecture/example-scenario/apps/apim-api-scenario)
-- [Protect APIs with Application Gateway and API Management](/azure/architecture/reference-architectures/apis/protect-apis)
+- [Protect APIs with Application Gateway and API Management](/azure/architecture/web-apps/api-management/architectures/protect-apis)
 - [Azure API Management landing zone accelerator](/azure/architecture/example-scenario/integration/app-gateway-internal-api-management-function)
 
 The following articles cover key functions scenarios:
