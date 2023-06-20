@@ -4452,6 +4452,8 @@ items:
             href: serverless/code.yml
           - name: CI/CD for a serverless frontend
             href: serverless/guide/serverless-app-cicd-best-practices.yml
+        - name: Monitor a distributed system
+          href: guide/devops/monitor-with-opencensus-application-insights.yml 
         - name: Monitoring serverless event processing
           href: serverless/guide/monitoring-serverless-event-processing.md
         - name: Serverless Functions app operations

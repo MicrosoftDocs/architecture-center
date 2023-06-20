@@ -17,6 +17,7 @@ products:
   - azure-monitor
 azureCategories:
   - security
+  - devops
 name: Monitor a distributed system with Application Insights and OpenCensus
 summary: Learn how to monitor an end-to-end distributed system by using OpenCensus for Python and Application Insights.
 thumbnailUrl: /azure/architecture/browse/thumbs/monitor-with-opencensus-application-insights.png
