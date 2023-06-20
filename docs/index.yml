@@ -433,7 +433,7 @@ conceptualContent:
           url: reference-architectures/serverless/event-processing.yml
         - text: Serverless web application
           itemType: architecture
-          url: reference-architectures/serverless/web-app.yml
+          url: web-apps/serverless/architectures/web-app.yml
       footerLink:
         text: Introduction to Serverless Applications on Azure
         url: ./serverless/code.yml
@@ -505,7 +505,7 @@ conceptualContent:
           url: web-apps/app-service/architectures/multi-region.yml
         - text: Web application monitoring
           itemType: architecture
-          url: reference-architectures/app-service-web-app/app-monitoring.yml
+          url: web-apps/guides/monitoring/app-monitoring.yml
         - text: E-commerce API management
           itemType: get-started
           url:  example-scenario/apps/apim-api-scenario.yml

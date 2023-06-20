@@ -233,7 +233,7 @@
     },
     {
       "source_path": "docs/example-scenario/apps/app-monitoring.md",
-      "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/app-monitoring",
+      "redirect_url": "/azure/architecture/web-apps/guides/monitoring/app-monitoring",
       "redirect_document_id": true
     },
     {
@@ -1955,7 +1955,7 @@
     },
     {
       "source_path": "docs/reference-architectures/serverless/index.md",
-      "redirect_url": "/azure/architecture/reference-architectures/serverless/web-app",
+      "redirect_url": "/azure/architecture/web-apps/serverless/architectures/web-app",
       "redirect_document_id": false
     },
     {
@@ -2084,8 +2084,6 @@
       "redirect_url": "/azure/architecture/solution-ideas/articles/devops-in-a-hybrid-environment",
       "redirect_document_id": false
     },
-
-
     {
       "source_path": "docs/solution-ideas/articles/modern-data-warehouse.md",
       "redirect_url": "/azure/architecture/solution-ideas/articles/enterprise-data-warehouse",
@@ -2946,7 +2944,16 @@
       "source_path": "reference-architectures/apis/protect-apis.yml",
       "redirect_url": "/azure/architecture/web-apps/api-management/architectures/protect-apis",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "reference-architectures/serverless/web-app.yml",
+      "redirect_url": "/azure/architecture/web-apps/serverless/architectures/web-app",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "reference-architectures/app-service-web-app/app-monitoring.yml",
+      "redirect_url": "/azure/architecture/web-apps/guides/monitoring/app-monitoring.yml",
+      "redirect_document_id": true
     }
-    
   ]
 }

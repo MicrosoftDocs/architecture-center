@@ -137,8 +137,8 @@ Here are some additional implementations to consider:
 - [IaaS: Web application with relational database](../high-availability/ref-arch-iaas-web-and-db.yml)
 - [Migrate a web app using Azure APIM](../example-scenario/apps/apim-api-scenario.yml)
 - [Sharing location in real time using low-cost serverless Azure services](../example-scenario/signalr/index.yml)
-- [Serverless web application](../reference-architectures/serverless/web-app.yml)
-- [Web application monitoring on Azure](../reference-architectures/app-service-web-app/app-monitoring.yml)
+- [Serverless web application](../web-apps/serverless/architectures/web-app.yml)
+- [Web application monitoring on Azure](../web-apps/guides/monitoring/app-monitoring.yml)
 - [Web app private connectivity to Azure SQL Database](../example-scenario/private-web-app/private-web-app.yml)
 
 ### AWS or Google Cloud professionals

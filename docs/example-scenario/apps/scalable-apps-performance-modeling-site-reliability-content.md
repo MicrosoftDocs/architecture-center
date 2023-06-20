@@ -255,5 +255,5 @@ Principal author:
 ## Related resources
 
 - [Scalable web application](../../reference-architectures/app-service-web-app/scalable-web-app.yml)
-- [Web application monitoring on Azure](../../reference-architectures/app-service-web-app/app-monitoring.yml)
+- [Web application monitoring on Azure](../../web-apps/guides/monitoring/app-monitoring.yml)
 - [Unified logging for microservices applications](../../example-scenario/logging/unified-logging.yml)

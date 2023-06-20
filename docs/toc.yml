@@ -2777,7 +2777,7 @@ items:
           href: /azure/orbital/sar-reference-architecture
           maintainContext: true
         - name: Serverless web app for drone delivery
-          href: reference-architectures/serverless/web-app.yml
+          href: web-apps/serverless/architectures/web-app.yml
         - name: Spaceborne data analysis
           href: industries/aerospace/geospatial-processing-analytics.yml
         - name: Vision classifier - simulated drone
@@ -6631,17 +6631,5 @@ items:
         href: guide/power-platform/eventual-consistency.yml
       - name: Single-page application authorization
         href: guide/web/secure-single-page-application-authorization.yml
-    - name: Architectures
-      items:
-      - name: Real-time location sharing
-        href: example-scenario/signalr/index.yml
-      - name: SaaS Starter web app
-        href: example-scenario/apps/saas-starter-web-app.yml
-      - name: Scalable cloud applications and SRE
-        href: example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml
-      - name: Serverless web app
-        href: reference-architectures/serverless/web-app.yml
-      - name: Web app monitoring on Azure
-        href: reference-architectures/app-service-web-app/app-monitoring.yml
 - name: Cloud Adoption Framework
   href: /azure/cloud-adoption-framework

@@ -4,7 +4,7 @@ This reference architecture shows a [serverless](https://azure.microsoft.com/sol
 
 ## Architecture
 
-![Diagram showing reference architecture for a serverless web application.](./_images/serverless-web-app.png)
+![Diagram showing reference architecture for a serverless web application.](../_images/serverless-web-app.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/serverless-web-app.vsdx) of this architecture.*
 

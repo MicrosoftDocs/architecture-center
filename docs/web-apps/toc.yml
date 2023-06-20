@@ -20,6 +20,12 @@ items:
           href: app-service/architectures/baseline-zone-redundant.yml
         - name: Active-passive multi-region web app
           href: app-service/architectures/multi-region.yml
+      - name: Host web apps with App Service Environments
+        items:
+        - name: Standard deployment
+          href: app-service-environment/architectures/ase-standard-deployment.yml
+        - name: High availability deployment
+          href: app-service-environment/architectures/ase-high-availability-deployment.yml            
       - name: Host web apps with Azure Spring Apps
         items:
           - name: Get started
@@ -34,12 +40,10 @@ items:
         items:
         - name: Protect APIs with Application Gateway
           href: api-management/architectures/protect-apis.yml
-      - name: Host web apps with App Service Environments
+      - name: Host serverless web apps with Azure Functions
         items:
-        - name: Standard deployment
-          href: app-service-environment/architectures/ase-standard-deployment.yml
-        - name: High availability deployment
-          href: app-service-environment/architectures/ase-high-availability-deployment.yml                 
+        - name: Serverless web app
+          href: serverless/architectures/web-app.yml
     - name: Guides
       items:
       - name: Networking guidance for web apps

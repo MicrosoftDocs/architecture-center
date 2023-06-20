@@ -2,7 +2,7 @@ This scenario addresses the monitoring services you can use and describes a data
 
 ## Architecture
 
-!["Diagram demonstrating the architecture of using Azure's PaaS services to monitor your application."](./images/architecture-diagram-app-monitoring-new.png)
+!["Diagram demonstrating the architecture of using Azure's PaaS services to monitor your application."](../_images/architecture-diagram-app-monitoring-new.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/architecture-diagram-app-monitoring.vsdx) of this architecture.*
 
@@ -135,7 +135,7 @@ Check out these resources designed to help you get started with your own monitor
 ## Related resources
 
 - [Basic web application reference architecture][Basic web application reference architecture]
-- [Web application monitoring on Azure](/azure/architecture/reference-architectures/app-service-web-app/app-monitoring)
+- [Web application monitoring on Azure](/azure/architecture/web-apps/guides/monitoring/app-monitoring)
 - [Extract actionable insights from IoT data](/azure/architecture/industries/manufacturing/extract-insights-iot-data)
 - [Hybrid availability and performance monitoring](/azure/architecture/hybrid/hybrid-perf-monitoring)
 - [High availability enterprise deployment using App Service Environment](/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment)

@@ -55,4 +55,4 @@ Use the following pre-built template to deploy this architecture to Azure:
 * [Architect scalable e-commerce web app](../../web-apps/idea/scalable-ecommerce-web-app.yml)
 * [Scalable Sitecore marketing website](../../web-apps/hosting-applications/digital-marketing-sitecore.yml)
 * [Scalable web application](../../reference-architectures/app-service-web-app/scalable-web-app.yml)
-* [Web application monitoring on Azure](../../reference-architectures/app-service-web-app/app-monitoring.yml)
+* [Web application monitoring on Azure](../../web-apps/guides/monitoring/app-monitoring.yml)
