@@ -1,21 +1,41 @@
 
-This architecture is for global, internet-facing applications that use HTTP(S) and TCP protocols. It features DNS-based global load balancing, two forms of regional load balancing, and global virtual network peering to create a high availability architecture that can withstand a regional outage.
+This architecture is for global, internet-facing applications that use HTTP(S) and non-HTTP(S) protocols. It features DNS-based global load balancing, two forms of regional load balancing, and global virtual network peering to create a high availability architecture that can withstand a regional outage.
 
 ## Architecture
 
-:::image type="content" source="images/high-availability-multi-region-v-9.png" alt-text="Diagram showing multi-region load balancing with Application Gateway and Traffic Manager." lightbox="images/high-availability-multi-region-v-9.png":::
+:::image type="content" source="images/high-availability-multi-region-web-v-10.png" alt-text="Diagram showing multi-region load balancing with Azure Firewall, Application Gateway and Traffic Manager for web traffic." lightbox="images/high-availability-multi-region-web-v-10.png.png":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/high-availability-multi-region-v-9.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/high-availability-multi-region-v-10.vsdx) of this architecture.*
 
-### Workflow
+### Workflow for HTTP(S) traffic:
 
-1. Azure Traffic Manager uses DNS-based routing to load balance incoming traffic across the two regions. Traffic Manager resolves DNS queries for the application to the public IP addresses of the Application Gateway (AppGW) endpoints. The public endpoints of the AppGWs serve as the backend endpoints of Traffic Manager. Traffic Manager resolves DNS queries based on a choice of six routing methods. The browser connects directly to the endpoint. [Traffic Manager doesn't see the HTTP(S) traffic](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method).
+1. Azure Traffic Manager uses DNS-based routing to load balance incoming traffic across the two regions. Traffic Manager resolves DNS queries for the application to the public IP addresses of the Azure Application Gateway endpoints. The public endpoints of the Application Gateways serve as the backend endpoints of Traffic Manager for HTTP(S) traffic. Traffic Manager resolves DNS queries based on a choice of six routing methods. The browser connects directly to the endpoint. [Traffic Manager doesn't see the HTTP(S) traffic](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method).
 
-1. The Application Gateways (AppGWs) receive HTTP(S) traffic from the browser and load balance requests across the backend pool of virtual machines (VMs) in the web tier. Deploying the AppGWs to all three zones provides zone redundancy for the AppGWs. The AppGWs also distribute traffic across the three zones in the web tier. AppGWs include a Web Application Firewall (WAF) that inspects traffic and protects the application from web exploits and vulnerabilities.
+1. The Application Gateways deployed across availability zones receive HTTP(S) traffic from the browser, and the Web Application Firewalls Premium inspect the traffic to detect web attacks. The Application Gateways will send traffic to their backend, the internal load balancer for the frontend VMs. For this specific flow, the internal load balancer in front of the web servers is not strictly required since the Application Gateway could perform this load balancing itself. However, it is included for consistency with the flow for non-HTTP(S) applications.
 
-1. The web tier is the first layer of the three-tier application. It hosts VMs in three availability zones. The Application Gateways distribute traffic to each of the three availability zones. The web tier contains the user interface. It also parses user interactions and passes traffic destined to the data tier to internal load balancer.
+1. The traffic between the Application Gateway and the frontend internal load balancer will be intercepted by Azure Firewall Premium via User Defined Routes applied on the Application Gateway subnet. The Azure Firewall Premium will apply TLS inspection to the traffic for additional security. The Azure Firewall is zone-redundant as well. Upon successful inspection, the Azure Firewall will forward the traffic to the destination web tier internal load balancer.
 
-1. The internal load balancers distribute traffic to the business-tier VMs across the three availability zones. They use a single, private IP address for easy configuration. The private IP addresses of the load balancers are zone redundant. The IP addresses persist in all three zones and can survive any single zone failure.
+1. The web tier is the first layer of the three-tier application. It hosts VMs in three availability zones. The web-tier load balancer will distribute traffic to each of the three VMs, each in an availability zones. The web tier contains the user interface, and it also parses user interactions and passes traffic destined to the data tier to internal load balancer.
+
+1. The web tier VMs will communicate with the business tier via a dedicated internal load balancer.
+
+1. The business-tier internal load balancers distribute traffic to the business-tier VMs across the three availability zones. They use a single, private IP address for easy configuration. The private IP addresses of the load balancers are zone redundant. The IP addresses persist in all three zones and can survive any single zone failure.
+
+1. The business tier processes the user interactions and determines the next steps. It connects the web and data tiers. The VMs in the business tier route traffic to the availability group listener of the databases.
+
+1. The data tier stores the application data, typically in a database, object storage, or file share. The architecture has SQL server on VMs distributed across three availability zones. They are in an availability group and use a distributed network name (DNN) to route traffic to the [availability group listener](/azure/azure-sql/virtual-machines/windows/availability-group-overview) for load balancing.
+
+### Workflow for non-HTTP(S) traffic:
+
+1. Azure Traffic Manager uses DNS-based routing to load balance incoming traffic across the two regions. Traffic Manager resolves DNS queries for the application to the public IP addresses of the Azure endpoints. The public endpoints of the Application Firewall serve as the backend endpoints of Traffic Manager for non-HTTP(S) traffic. Traffic Manager resolves DNS queries based on a choice of six routing methods. The browser connects directly to the endpoint. [Traffic Manager doesn't see the HTTP(S) traffic](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method).
+
+1.  The Azure Firewall Premium will inspect the inbound traffic for security. Upon successful inspection, the Azure Firewall will forward the traffic to the web-tier internal load balancer.
+
+1. The web tier is the first layer of the three-tier application. It hosts VMs in three availability zones. The web-tier load balancer will distribute traffic to each of the three VMs, each in an availability zones. The web tier contains the user interface, and it also parses user interactions and passes traffic destined to the data tier to internal load balancer.
+
+1. The web tier VMs will communicate with the business tier via a dedicated internal load balancer.
+
+1. The business-tier internal load balancers distribute traffic to the business-tier VMs across the three availability zones. They use a single, private IP address for easy configuration. The private IP addresses of the load balancers are zone redundant. The IP addresses persist in all three zones and can survive any single zone failure.
 
 1. The business tier processes the user interactions and determines the next steps. It connects the web and data tiers. The VMs in the business tier route traffic to the availability group listener of the databases.
 
@@ -36,7 +56,7 @@ This architecture is for global, internet-facing applications that use HTTP(S) a
 
 ### Alternatives
 
-For web applications that only use HTTP(S), Azure Front Door is a better global load balancing solution than Traffic Manager. Front Door is a layer-7 load balancer that also provides caching, traffic acceleration, SSL/TLS termination, certificate management, health probes, and other capabilities.
+For web applications that only use HTTP(S), Azure Front Door is a better global load balancing solution than Traffic Manager. Front Door is a layer-7 load balancer that also provides caching, traffic acceleration, SSL/TLS termination, certificate management, health probes, and other capabilities. However, Application Gateway offers better integration with Azure Firewall for a layered protection approach.
 
 ## Solution Details
 
@@ -51,7 +71,13 @@ For web applications that only use HTTP(S), Azure Front Door is a better global 
 - Path-based routing
 - Cookie-based session affinity
 
-*Virtual network (vnet) peering -* We call vnet peering between regions "global vnet peering." Global vnet peering provides low-latency, high-bandwidth data replication between regions. You can transfer data across Azure subscriptions, Azure Active Directory tenants, and deployment models with global vnet peering.
+*Azure Firewall -* Azure Firewall Premium inspects three types of flows:
+
+- Inbound HTTP(S) flows from the Application Gateway are protected with Azure Firewall Premium TLS inspection.
+- Inbound non-HTTP(S) flows from the public Internet are inspected with the rest of [Azure Firewall Premium features](https://learn.microsoft.com/azure/firewall/premium-features).
+- Outbound flows from Azure Virtual Machines are inspected by Azure Firewall to prevent data exfiltration and access to forbidden sites and applications.
+
+*Virtual network (VNet) peering -* We call vnet peering between regions "global vnet peering." Global vnet peering provides low-latency, high-bandwidth data replication between regions. You can transfer data across Azure subscriptions, Azure Active Directory tenants, and deployment models with global vnet peering.
 
 ## Recommendations
 
@@ -80,7 +106,7 @@ For more information, see:
 
 ### Routing
 
-*Routing method -* Use the traffic-routing method that best meets the needs of your customers. Traffic Manager supports six traffic-routing methods to determine how to route traffic to the various service endpoints.
+*Global routing method -* Use the traffic-routing method that best meets the needs of your customers. Traffic Manager supports six traffic-routing methods to determine how to route traffic to the various service endpoints.
 
 *Nested configuration -* Use Traffic Manager in a nested configuration if you need more granular control to choose a preferred failover within a region.
 
@@ -102,6 +128,12 @@ Use Application Gateway v2 SKU for out-of-the-box automated resiliency.
 - Application Gateway v2 SKU automatically ensures that new instances spawn across fault domains and update domains. If you choose zone redundancy, the newest instances also spawn across availability zones to give fault tolerance.
 
 - Application Gateway v1 SKU supports high-availability scenarios when you've deployed two or more instances. Azure distributes these instances across update and fault domains to ensure that instances don't fail at the same time. The v1 SKU supports scalability by adding multiple instances of the same gateway to share the load.
+
+The Application Gateway needs to trust the CA certificate of Azure Firewall.
+
+### Azure Firewall
+
+The Premium tier of Azure Firewall is required in this design to provide TLS inspection. Azure Firewall will intercept the TLS sessions between Application Gateway and the web-tier VMs generating its own certificates. You can find more information on this design in [Zero-trust network for web applications with Azure Firewall and Application Gateway](https://learn.microsoft.com/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall).
 
 ### Health probes
 
@@ -149,35 +181,40 @@ For more information, see:
 
 ## Security
 
+*Web Application Firewall -* The WAF functionality of Azure Application Gateway will detect and prevent attacks at the HTTP level, such as SQL Code Injection or Cross-Site Scripting.
+
+*Next-Generation Firewall -* Azure Firewall Premium provides an additional layer of defence by inspecting content for non-web attacks, such as malicious files uploaded via HTTP(S) or any other protocol.
+
+*End-to-end encryption -* Traffic is encrypted at all times when traversing the Azure network. Both Application Gateway and Azure Firewall encrypt traffic before sending it to the corresponding backend system.
+
 *Distributed Denial of Service (DDoS) -* Use [Azure DDoS Network Protection](/azure/ddos-protection/ddos-protection-overview) for greater DDoS protection than the basic protection that Azure provides. For more information, see [security considerations](../reference-architectures/n-tier/n-tier-sql-server.yml#security).
 
 *Network security groups (NSGs):* Use [NSGs](/azure/virtual-network/network-security-groups-overview) to restrict network traffic within the virtual network. For example, in the three-tier architecture shown here, the data tier accepts traffic only from the business tier, not from the web front end. Only the business tier can communicate directly with the database tier. To enforce this rule, the database tier should block all incoming traffic except for the business-tier subnet.
 
-1. Deny all inbound traffic from the virtual network, using the VIRTUAL_NETWORK tag in the rule).
 1. Allow inbound traffic from the business-tier subnet.
 1. Allow inbound traffic from the database-tier subnet itself. This rule allows communication between the database VMs. Database replication and failover need this rule.
+1. Deny all inbound traffic from the virtual network, using the `VirtualNetwork` tag in the rule) to overwrite the permit statement included in the default NSG rules.
 
-Create rules 2 – 3 with higher priority than the first rule, so they override it.
+Create rules 3 with lower priority (higher number) than the first rules.
 
 You can use [service tags](/azure/virtual-network/service-tags-overview) to define network access controls on Network Security Groups or Azure Firewall.
 
 For more information, see [application gateway infrastructure configuration](/azure/application-gateway/configuration-infrastructure#network-security-groups).
 
-## Cost optimization
-
-*Data transfer -* Use a VPN Gateway for environments with substantial amounts of data replicated between regions instead of virtual network peering. Virtual network peering charges for inbound and outbound data. VPN Gateways have an hourly charge but only charge on outbound data.
+## Cost
 
 For more information, see:
 
 - [Load Balancing pricing](https://azure.microsoft.com/pricing/details/load-balancer/)
 - [Virtual network Pricing](https://azure.microsoft.com/pricing/details/virtual-network/)
 - [Application gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/)
+- [Choose the right Azure Firewall SKU to meet your needs](https://learn.microsoft.com/azure/firewall/choose-firewall-sku)
 - [Traffic Manager pricing](https://azure.microsoft.com/pricing/details/traffic-manager/)
 - [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 
 ## Performance efficiency
 
-*Virtual machine scale sets -* Use Virtual Machine Scale Sets to automate the scalability of your VMs. Virtual machine scale sets are available on all Windows VM sizes. You're only charged for the VMs deployed and the underlying infrastructure resources consumed. There are no incremental charges. The benefits of Virtual Machine Scale Sets are:
+*Virtual machine scale sets -* Use Virtual Machine Scale Sets to automate the scalability of your VMs. Virtual machine scale sets are available on all Windows and Linux VM sizes. You're only charged for the VMs deployed and the underlying infrastructure resources consumed. There are no incremental charges. The benefits of Virtual Machine Scale Sets are:
 
 - Create and manage multiple VMs easily
 - High availability and application resiliency
