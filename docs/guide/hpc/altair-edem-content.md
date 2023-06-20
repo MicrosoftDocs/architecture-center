@@ -69,7 +69,7 @@ To download EDEM:
 
 See the documents in [Altair one Marketplace](https://altairone.com/Marketplace?queryText=edem&app=EDEM&tab=Download) for instructions for installing EDEM.
 
-## Performance results of EDEM on Azure VMs
+## EDEM performance results
 
 Seven models are used to test the performance of EDEM on
 Azure VMs. The following table provides details.
@@ -90,7 +90,7 @@ Azure VMs. The following table provides details.
 | Factory |No|No| No|No|No|No|Yes|
 |  Periodic boundaries   |No|No| No|No|No|No|No|
 
-### Performance results of EDEM 2021.1 on NDv4 and NCv3 VMs
+### Results for EDEM 2021.1 on NDv4 and NCv3 VMs
 
 The following table shows the elapsed wall-clock times, in seconds, required to complete each simulation.
 
@@ -109,7 +109,7 @@ The following graph uses a Standard_ND96asr_v4, 96 vCPU VM as a baseline and sho
 :::image type="content" source="media/altair-edem/2021-ndv4-ncv3.png" alt-text="Graph that shows relative speed increases on NCv4 and NCv3 VMs." lightbox="media/altair-edem/2021-ndv4-ncv3.png" border="false":::
 
 
-### Performance results for EDEM 2022.1 on NC A100 v4 VMs 
+### Results for EDEM 2022.1 on NC A100 v4 VMs 
 
 The following table shows the elapsed wall-clock times, in seconds, required to complete each simulation.
 
@@ -127,7 +127,7 @@ The following table shows the elapsed wall-clock times, in seconds, required to 
 
 :::image type="content" source="media/altair-edem/2022-nc-a100.png" alt-text="Graph that shows relative speed increases on NC A100 v4 VMs." lightbox="media/altair-edem/2022-nc-a100.png" border="false":::
 
-### Performance results for EDEM 2022.1 on ND A100 v4 VMs
+### Results for EDEM 2022.1 on ND A100 v4 VMs
 
 The following table shows the elapsed wall-clock times, in seconds, required to complete each simulation.
 
@@ -220,7 +220,7 @@ Principal authors:
 -   [Gauhar Junnarkar](https://www.linkedin.com/in/gauharjunnarkar) |
     Principal Program Manager
 - [Saurabh Parave](https://www.linkedin.com/in/saurabh-parave-957303162/) | HPC Performance Engineer
-- [Kalai Selvan](https://www.linkedin.com/in/kalai-selvan-5a153358/) | HPC Performance Engineer
+- Kalai Selvan | HPC Performance Engineer
 
 Other contributors:
 
