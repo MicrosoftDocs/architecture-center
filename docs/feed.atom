@@ -594,8 +594,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Reliable web app pattern for .NET -  Apply the pattern]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/reliable-web-app/dotnet/apply-pattern</id>
-        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/reliable-web-app/dotnet/apply-pattern"/>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/guides/reliable-web-app/apply-pattern</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/guides/reliable-web-app/apply-pattern"/>
         <updated>2023-03-16T18:01:36.000Z</updated>
         <summary type="html"><![CDATA[How to migrate your .NET application to the cloud with minimal code changes. Plan and apply low-cost, high-value updates to your .NET application.]]></summary>
         <category label="updated" term="updated"/>

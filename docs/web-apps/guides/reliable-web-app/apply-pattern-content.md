@@ -12,7 +12,7 @@ This article shows you how to apply the reliable web app pattern for .NET. The c
 
 A well-architected web application needs quality code, and quality code needs a well-architected solution. The reliable web app pattern situates code changes within the pillars of the [Azure Well-Architected Framework](/azure/architecture/framework/) to reinforce the close relationship between code and architecture. The following diagram illustrates the architecture of the reference implementation.
 
-[![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-dotnet.png)](images/reliable-web-app-dotnet.png)
+[![Diagram showing the architecture of the reference implementation.](../_images/reliable-web-app-dotnet.png)](../_images/reliable-web-app-dotnet.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet.vsdx) of this architecture. For the estimated cost, see:*
 

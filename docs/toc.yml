@@ -6587,25 +6587,25 @@ items:
       href: web-apps/index.md
     - name: Guides
       items:
-      - name: Design principles
-        href: guide/design-principles/index.md
-      - name: Design and implementation patterns
-        href: patterns/category/design-implementation.md
+      # - name: Design principles
+      #   href: guide/design-principles/index.md
+      # - name: Design and implementation patterns
+      #   href: patterns/category/design-implementation.md
       - name: Application guidance
         items:
-        - name: Characteristics of modern web apps
-          href: /dotnet/architecture/modern-web-apps-azure/modern-web-applications-characteristics
-          maintainContext: true
-        - name: Enterprise app patterns
-          items:
-          - name: Reliable web app pattern
-            items:
-            - name: .NET
-              items:
-              - name: Plan the implementation
-                href: reference-architectures/reliable-web-app/dotnet/pattern-overview.yml
-              - name: Apply the pattern
-                href: reference-architectures/reliable-web-app/dotnet/apply-pattern.yml
+        # - name: Characteristics of modern web apps
+        #   href: /dotnet/architecture/modern-web-apps-azure/modern-web-applications-characteristics
+          # maintainContext: true
+        # - name: Enterprise app patterns
+        #   items:
+        #   - name: Reliable web app pattern
+        #     items:
+        #     - name: .NET
+        #       items:
+        #       - name: Plan the implementation
+        #         href: reference-architectures/reliable-web-app/dotnet/pattern-overview.yml
+        #       - name: Apply the pattern
+        #         href: reference-architectures/reliable-web-app/dotnet/apply-pattern.yml
       - name: App Service considerations
         items:
         - name: Deployment best practices
