@@ -1,4 +1,6 @@
-The reliable web app pattern is how you should update web apps moving to the cloud. It defines the implementation guidance to re-platform web apps the right way. There are two articles on the reliable web app pattern for Java. This article explains important decisions to plan the implementation of the pattern. The companion provides code and architecture guidance to [apply the pattern](apply-pattern.yml). There's a [reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java) (sample web app) of the pattern that you can deploy.
+The reliable web app pattern is how you should update web apps moving to the cloud. The reliable web app pattern defines the implementation guidance you need to re-platform web apps the right way.
+
+There are two articles on the reliable web app pattern for Java. This article explains important decisions to plan the implementation of the pattern. The companion provides code and architecture guidance to [apply the pattern](apply-pattern.yml). There's a [reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java) (sample web app) of the pattern that you can deploy.
 
 ## Architecture
 
@@ -31,7 +33,7 @@ The web app is an employee-facing, LOB, training application. Proseware employee
 
 ## Service level objective
 
-A service level objective (SLO) for availability defines how available you want a web app to be for users. Proseware has a target SLO of 99.9% for availability. It's about 8.7 hours of downtime per year. 
+A service level objective (SLO) for availability defines how available you want a web app to be for users. Proseware has a target SLO of 99.9% for availability. It's about 8.7 hours of downtime per year.
 
 You need to define what availability means for your web application. For Proseware, the web app is considered available when employees can watch training videos 99.9% of the time. When you have a definition of *available*, list all the dependencies on the critical path of availability. Dependencies should include Azure services and third-party solutions.
 
