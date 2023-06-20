@@ -21,16 +21,16 @@ It's important to consider potential operation failures of this architecture. So
 
 - The internal API is unavailable, which leads to an exception that's raised by the query data Azure function in step one of the architecture.
 - In step two, the process data Azure function, encounters data that falls under an edge-case, which is data that's outside of the conditions or parameters of the function.
-- In step three, the upsert data Azure function fails. After several retries, the messages from the Service Bus queue go in the [dead-letter queue](/azure/service-bus-messaging/service-bus-dead-letter-queues), which is a secondary queue that holds messages that can't be processed or delivered to a receiver after a pre-defined number of retries. Then the messages can follow an established automatic process, or they can be handled manually.
+- In step three, the upsert data Azure function fails. After several retries, the messages from the Service Bus queue go in the [dead-letter queue](/azure/service-bus-messaging/service-bus-dead-letter-queues), which is a secondary queue that holds messages that can't be processed or delivered to a receiver after a predefined number of retries. Then the messages can follow an established automatic process, or they can be handled manually.
 
 ## Components
 
 - [Azure Functions](/azure/azure-functions) is a serverless service that manages your applications.
 - [Application Insights](/azure/azure-monitor/app/app-insights-overview?tabs=net) is a feature of Azure Monitor that monitors applications in development, test, and production. Application Insights analyzes how an application performs, and it reviews application execution data to determine the cause of an incident.
-- [Azure Table Storage](/azure/storage/tables/table-storage-overview) is a service that stores non-relational structured data (structured NoSQL data) in the cloud and provides a key/attribute store with a schemaless design.
+- [Azure Table Storage](/azure/storage/tables/table-storage-overview) is a service that stores nonrelational structured data (structured NoSQL data) in the cloud and provides a key/attribute store with a schemaless design.
 - [Event Hubs](/azure/event-hubs/event-hubs-about) is a scalable event ingestion service that can receive and process millions of events per second.
 - [OpenCensus](https://opencensus.io/quickstart/) is a set of open-source libraries where you can collect distributed traces, metrics, and logging telemetry. This article uses the Python implementation of OpenCensus.
-- [Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) is a fully-managed message broker with message queues and publish-subscribe topics.
+- [Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) is a fully managed message broker with message queues and publish-subscribe topics.
 
 ## Scenario details
 
@@ -38,7 +38,7 @@ Distributed systems are made of loosely coupled components. It can be difficult 
 
 Like many companies, Contoso needs to ingest on-premises or third-party data in the cloud while also collecting data about their sales by using services and in-house tools. In this architecture, a department at Contoso built an internal API that exposes the unstructured data, and they ingest the data into common storage. The common storage contains structured data from every department. The architecture shows how Contoso extracts, processes, and ingests that metadata in the cloud.
 
-When building a system, especially a distributed system, it's important to make it observable. An observable system:
+When you build a system, especially a distributed system, it's important to make it observable. An observable system:
 
 - Provides a holistic view of the health of the distributed application.
 - Measures the operational performance of the system.
@@ -58,7 +58,7 @@ The following sections describe how to set up distributed tracing in the archite
 
 A transaction is represented by a trace, which is a collection of [spans](https://opencensus.io/tracing/span/#span). For example, when you select the purchase button to place an order on an e-commerce website, several subsequent operations take place. Some possible operations include:
 
-- A POST request submits to the API which then redirects you to a “waiting page.”
+- A POST request submits to the API, which then redirects you to a “waiting page.”
 - Writing logs with contextual information.
 - An external call to web-based software to request a billing page.
 
@@ -74,7 +74,7 @@ A span can have children spans. For example, the following image shows the query
 
 :::image type="content" source="images/trace-example.png" alt-text="An image that shows a complete trace composed of spans and their child spans." lightbox="images/trace-example.png":::
 
-- The sendMessages span is split into two children spans: splitToMessages and writeToEventHubs. The sendMessages span requires those two sub-operations to send messages.
+- The sendMessages span is split into two children spans: splitToMessages and writeToEventHubs. The sendMessages span requires those two suboperations to send messages.
 
 - All spans are children of a root span.
 
@@ -82,7 +82,7 @@ A span can have children spans. For example, the following image shows the query
 
 ### Tracers and the W3C trace context
 
-A tracer is an object that holds contextual information. Ideally, that contextual information propagates as data transits through the Azure functions. To do this, the OpenCensus extension uses [the W3C trace context](https://www.w3.org/TR/trace-context).
+A tracer is an object that holds contextual information. Ideally, that contextual information propagates as data transits through the Azure functions. To propagate the information, the OpenCensus extension uses [the W3C trace context](https://www.w3.org/TR/trace-context).
 
 As its official documentation states, the W3C trace context is a “specification that defines standard HTTP headers and a value format to propagate context information that enables distributed tracing scenarios.”
 
@@ -104,7 +104,7 @@ The trace ID and parent ID are the most important fields. The trace ID is a glob
 
 For more information, see [Traceparent header](https://www.w3.org/TR/trace-context/#traceparent-header).
 
-In what follows, base16(version) and base16(traceFlags) are set to 00.
+In the remaining sections of this article, it's assumed that the base16(version) and base16(traceFlags) are set to 00.
 
 ### Create a tracer with the OpenCensus extension
 
@@ -114,15 +114,15 @@ Azure Functions offers many input and output bindings, and each binding has a di
 
 Before the two functions can trigger:
 
-1) The context (characterized by the identifier of the trace and the identifier of the current span) must be embedded in a trace parent in the W3C trace context format. This embedding is dependant on the nature of the output binding. For instance, the architecture uses Event Hubs as a messaging system. The trace parent is encoded into bytes and embedded in the sent event(s) as the diagnostic ID property, which achieves the right trace context in the output binding.
+1) The context (characterized by the identifier of the trace and the identifier of the current span) must be embedded in a trace parent in the W3C trace context format. This embedding is dependent on the nature of the output binding. For instance, the architecture uses Event Hubs as a messaging system. The trace parent is encoded into bytes and embedded in the sent event(s) as the diagnostic ID property, which achieves the right trace context in the output binding.
 
    Two spans can be linked even if they're not parent and child. For distributed tracing, the current span points to the next one. Creating a [link](https://opencensus.io/tracing/span/link/) establishes this relationship.
 
    The [Azure Functions Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/1.15.0-preview1#readme-body-tab) package manages the embedding and linking for you.
 
-1) An Azure function in the middle of the end-to-end flow extracts the contextual information from the passed on trace parent. Use the OpenCensus extension for Azure Functions for this step. Instead of adding this process in the code of each Azure function, the OpenCensus extension implements a pre-invocation hook on the function app level.
+1) An Azure function in the middle of the end-to-end flow extracts the contextual information from the passed on trace parent. Use the OpenCensus extension for Azure Functions for this step. Instead of adding this process in the code of each Azure function, the OpenCensus extension implements a preinvocation hook on the function app level.
 
-   The pre-invocation hook:
+   The preinvocation hook:
 
    - Creates a span context object that holds the information of the previous span and triggers the Azure function. See a visual example of this step [in the next section](#understand-and-structure-the-code).
    - Creates a tracer that contains the span context and creates a new trace for the triggered Azure function.
@@ -134,7 +134,7 @@ Before the two functions can trigger:
 
 ### Understand and structure the code
 
-In this architecture, the code in the Azure functions are structured with spans. In Python, create an OpenCensus span by using the *with* statement to access the span context part of the tracer that's injected in the Azure function execution context. The following string provides the details of the current span and its parents:
+In this architecture, the code in the Azure functions is structured with spans. In Python, create an OpenCensus span by using the *with* statement to access the span context part of the tracer that's injected in the Azure function execution context. The following string provides the details of the current span and its parents:
 
 ```python
     with context.tracer.span("nameSpan"):
@@ -205,7 +205,7 @@ The following diagram shows how every time a span is created, the span context o
 
 In the previous diagram:
 
-1. **An Azure function is triggered**. A trace parent is injected in the tracer context object with a pre-invocation hook, which is called by the Python worker before the function runs.
+1. **An Azure function is triggered**. A trace parent is injected in the tracer context object with a preinvocation hook, which is called by the Python worker before the function runs.
 1. **An Azure function is run**. The *OpenCensusExtension.configure()* method is called, which initializes an Azure exporter and enables trace writing to Application Insights.
 
 The following details explain the relationship between a tracer and a span in this architecture:
@@ -215,13 +215,13 @@ The following details explain the relationship between a tracer and a span in th
 - The **span_context** field contains the **trace_id** and **id** fields.
 - The **trace_id** never gets updated, but the **id** updates to the generated unique identifier.  
 - In the previous diagram, the root span has two children spans: queryExternalApi and sendMessage.
-  - The queryExternalApi span and sendMessage span have a new span id that's different from the **root_span_id**.
-  - The sendMessage span has two children spans: splitToMessages and setMessages. Their span ids update in the **span_context** field of the tracer object of the context.
+  - The queryExternalApi span and sendMessage span have a new span ID that's different from the **root_span_id**.
+  - The sendMessage span has two children spans: splitToMessages and setMessages. Their span IDs update in the **span_context** field of the tracer object of the context.
 - To capture the relationship between a child span and its parent, the **spans_list** field provides the lineage of spans in list form. In the splitToMessages span, the **spans_list** field contains sendMessage (the parent span) and splitToMessages (the current span). This parent/child relationship is how you create the chain of isolated operations within the execution of an Azure function.
 
 ### Chain the functions by using the context field
 
-Now that the chain of operations are organized in one Azure function, you can chain it to the subsequent operations performed by the next Azure function.
+Now that the chain of operations is organized in one Azure function, you can chain it to the subsequent operations performed by the next Azure function.
 
 :::image type="content" source="images/set-messages-span.png" alt-text="A diagram that shows how the functions are chained." lightbox="images/set-messages-span.png":::
 
@@ -229,7 +229,7 @@ In the previous diagram:
 
 - The setMessages span is the last span of the query data Azure function. The code within the span sends a message to Event Hubs and triggers the subsequent Azure function. The **span_context** field of the context tracer object contains the information related to this span. That information is tied to the query data Azure function’s context.
 - Azure Functions Worker adds a bytes-encoded **Diagnostic-Id** in the properties of the sent event and creates a [link](https://opencensus.io/tracing/span/link/#:~:text=A%20link%20describes%20a%20cross-relationship%20between%20spans%20in,span%20to%20another%20can%20help%20correlate%20related%20spans.) to the root span of the subsequent Azure function.
-- The pre-invocation hook of the subsequent process data Azure function reads the **Diagnostic-Id** and sets the context, which chains the Azure functions, and they're executed separately.
+- The preinvocation hook of the subsequent process data Azure function reads the **Diagnostic-Id** and sets the context, which chains the Azure functions, and they're executed separately.
 
 When the process data Azure function sends a message to the Service Bus queue, context is passed in the same way.
 
