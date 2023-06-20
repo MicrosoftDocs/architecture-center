@@ -11,8 +11,8 @@ Companies in the heavy equipment, off-road, mining, steelmaking, and process man
 
 ## Why deploy EDEM on Azure?
 
-- You can use EDEM to Model particle shape by using the highly validated and computationally efficient multi-sphere method.
-- EDEM is a cutting edge DEM solver, highly parallelized for use on multi-core shared memory workstations, GPU hardware, and multi-GPU systems.
+- You can use EDEM to model particle shape by using the multi-sphere method.
+- EDEM is highly parallelized for use on multi-core shared memory workstations, GPU hardware, and multi-GPU systems.
 - The solver engine is fully double precision across all platforms.
 - EDEM can simulate large and complex particle systems.
 - EDEM provides advanced post-processing capabilities.
@@ -41,7 +41,7 @@ Companies in the heavy equipment, off-road, mining, steelmaking, and process man
 
 ## Compute sizing and drivers
 
-Performance tests of EDEM on Azure used [NCv3](/azure/virtual-machines/ncv3-series), [NC A100 v4](/azure/virtual-machines/nc-a100-v4-series) and [ND A100 v4](/azure/virtual-machines/nda100-v4-series) series VMs running on Windows. The following table provides the configuration details.
+Performance tests of EDEM on Azure used [NCv3](/azure/virtual-machines/ncv3-series), [NC A100 v4](/azure/virtual-machines/nc-a100-v4-series), and [ND A100 v4](/azure/virtual-machines/nda100-v4-series) series VMs running on Windows. The following table provides the configuration details.
 
 |  Size|               vCPU    | Memory, in GiB |  Temporary storage (SSD), in GiB|   GPUs |    GPU  memory, in GiB     | Maximum data disks|Maximum uncached disk throughput: IOPS / MBps |Maximum NICs|
 |--|--|--|--|--|--|--|-|-|
@@ -67,7 +67,7 @@ To download EDEM:
 3.	Select the appropriate operating system and download.
 4.	Download the license manager.
 
-See the documents in [Altair one Marketplace](https://altairone.com/Marketplace?queryText=edem&app=EDEM&tab=Download) for instructions for installing EDEM.
+See the documents on [Altair one Marketplace](https://altairone.com/Marketplace?queryText=edem&app=EDEM&tab=Download) for EDEM installation instructions.
 
 ## EDEM performance results
 
@@ -113,7 +113,7 @@ The following graph uses a Standard_ND96asr_v4, 96 vCPU VM as a baseline and sho
 
 The following table shows the elapsed wall-clock times, in seconds, required to complete each simulation.
 
-| Model| NC24ads_A100_v4, 24 vCPUs| NC24ads_A100_v4,	1 GPUs| NC48ads_A100_v4, 2 GPU|NC96ads_A100_v4, 4 GPUs |
+| Model| NC24ads_A100_v4, 24 vCPUs| NC24ads_A100_v4,	1 GPU| NC48ads_A100_v4, 2 GPUs|NC96ads_A100_v4, 4 GPUs |
 |-|-|-|-|-|
 |Angle of repose|22,950.80|649.59|404.05|	339.38|
 |Bed of material|	4,835.23	|140.10	|87.67|	72.11|
@@ -147,11 +147,11 @@ The following graph uses a Standard_NC24ads_A100_v4, 24-vCPU VM as a baseline an
 
 ## Azure cost
 
-Only model running time (wall clock time) is considered for these cost calculations. Application installation time isn't considered. The calculations are indicative. The actual numbers depend on the size of the model.
+Only model running time (wall-clock time) is considered for these cost calculations. Application installation time isn't considered. The calculations are indicative. The actual numbers depend on the size of the model.
 
 You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your configuration.
 
-The following tables provide elapsed times in hours. To compute the total costs, multiply by the Azure VM hourly cost. For the current hourly costs, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing).
+The following tables provide elapsed times in hours. To compute the total cost, multiply the elapsed time by the Azure VM hourly cost. For the current hourly costs, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing).
 
 ### EDEM 2021.1 costs on ND96asr_v4 VMs
 
@@ -171,7 +171,7 @@ The following tables provide elapsed times in hours. To compute the total costs,
 |-|-|
 |Angle of repose|0.64	|
 |Bed of material|0.13	|
-|Hopper cischarge|0.29	|
+|Hopper discharge|0.29	|
 |Powder mixer	|0.36	|
 |Screw auger|0.32	|	
 |Mill	|0.03|	
@@ -181,7 +181,7 @@ The following tables provide elapsed times in hours. To compute the total costs,
 
 |Model |NC24ads_A100_v4, 24 vCPUs|NC24ads_A100_v4, 1 GPU|	NC24ads_A100_v4, 2 GPUs|NC24ads_A100_v4, 4 GPUs|
 |-|-|-|-|-|
-|Angle of pepose|	6.38|	0.18	|0.11|	0.09|
+|Angle of repose|	6.38|	0.18	|0.11|	0.09|
 |Bed of material|	1.34|	0.04	|0.02	|0.02|
 |Hopper discharge|	3.18|	0.08	|0.05|	0.04|
 |Powder mixer|	3.86	|0.17|	0.11|	0.10|
@@ -203,7 +203,7 @@ The following tables provide elapsed times in hours. To compute the total costs,
 
 ## Summary
 
-- EDEM 2021.1 was deployed and tested on ND A100 v4 and NCv3 VMs with one GPU. EDEM 2022.1 was deployed and tested on ND A100 v4 and NC A100 v4 VMs with multiple GPUs.
+- EDEM 2021.1 was deployed and tested on ND A100 v4 and NCv3 VMs with one GPU and two GPUs. EDEM 2022.1 was deployed and tested on ND A100 v4 and NC A100 v4 VMs with one GPU and multiple GPUs.
 -	The GPU technology in EDEM provides faster processing than CPU configurations on Azure. Tests demonstrate speed increases of about 80x with NC A100 v4 A100 GPUs and about 60x with ND A100 v4 A100 GPUs.
 -	The complexity of the model affects GPU scale-up. 
 -	The NC A100 v4 VM demonstrates better GPU acceleration than other VM configurations on Azure.
