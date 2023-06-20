@@ -100,14 +100,11 @@ The following table lists times for reading the model file with various GPU conf
 | 1/2 | 13.3 |
 | 1 | 12.9 |
 
-The following image shows the loading view:
+On tests with 1/6 GPUs, Maya reports an error about not enough free memory remaining in the GPU.
+
+The following image shows the loading view, which is the view that the independent software vendor (ISV) expects to see:
 
 :::image type="content" source="media/autodesk-maya/autodesk-maya-loading-view.png" alt-text="Animated image of a motorbike parked on an image of a skull.":::
-
-Note these points:
-
-- The loading view is the view that the independent software vendor (ISV) expects to see.
-- On tests with 1/6 GPUs, Maya reports an error about not enough free memory remaining in the GPU.
 
 ### Measurement 2: Playback performance
 
@@ -119,10 +116,7 @@ The following table lists playback times and rates for various GPU configuration
 | 1/2 | 24.02 | 17.69 |
 | 1 | 24.02 | 17.69 |
 
-Note these points:
-
-- The model contains 425 frames.
-- The playback time and rate are almost identical for all tested GPU configurations.
+The model contains 425 frames. The playback time and rate are almost identical for all tested GPU configurations.
 
 ### Measurement 3: Arnold renderer performance
 
