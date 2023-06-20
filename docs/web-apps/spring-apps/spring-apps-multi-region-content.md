@@ -125,7 +125,7 @@ Azure Front Door has integrated content delivery networks (CDNs) that deliver co
 The current solution uses two reverse proxies to maintain consistency with the baseline architecture. Azure Front Door is the global router. Application Gateway acts as a load balancer per region. In most cases, this setup isn't required. You can remove Application Gateway if you address the following requirements:
 
 - Because Azure Web Application Firewall is attached to Application Gateway, you need to attach Web Application Firewall to the Azure Front Door service instead.
-- You need a way to ensure that incoming calls originate only from your Azure Front Door instance. You can add the `X-Azure-FDID header` check and the Azure Front Door IP ranges check in the Spring Cloud Gateway application. For more information, see [Use Azure Front Door as the reverse proxy](spring-cloud-reverse-proxy.yml#scenario-4-using-azure-front-door-as-the-reverse-proxy).
+- You need a way to ensure that incoming calls originate only from your Azure Front Door instance. You can add the `X-Azure-FDID header` check and the Azure Front Door IP ranges check in the Spring Cloud Gateway application. For more information, see [Use Azure Front Door as the reverse proxy with Spring Cloud Gateway](spring-cloud-reverse-proxy.yml#scenario-4-use-azure-front-door-with-spring-cloud-gateway).
 
 For information about different reverse proxy scenarios, how to set them up, and their security considerations, see [Expose Azure Spring Apps through a reverse proxy](spring-cloud-reverse-proxy.yml).
 

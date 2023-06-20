@@ -10,17 +10,17 @@ This article describes how to enforce access restrictions so applications hosted
 
    - You have control over the virtual network in which your apps run. Use native Azure networking features like network security groups (NSGs) to lock down access to allow only your reverse proxy.
 
-   - You can [expose your apps publicly to the internet by using Azure Application Gateway](/azure/spring-cloud/expose-apps-gateway) and then apply the appropriate access restrictions to lock it down. This approach is described in [**Scenario 1**](#scenario-1-using-application-gateway-as-the-reverse-proxy) later in this article.
+   - You can [expose your apps publicly to the internet by using Azure Application Gateway](/azure/spring-cloud/expose-apps-gateway) and then apply the appropriate access restrictions to lock it down. This approach is described in [**Scenario 1**](#scenario-1-use-application-gateway-as-the-reverse-proxy) later in this article.
   
-   - You can't use Azure Front Door directly because it can't reach the Azure Spring Apps instance in your private virtual network. Azure Front Door can connect to backends only through a public IP address or via services that use a private endpoint. When you have a multi-region deployment of Azure Spring Apps and require global load balancing, you can still expose your Azure Spring Apps instances through Application Gateway. To achieve this scenario, you place Azure Front Door in front of Application Gateway. This approach is described in [**Scenario 2**](#scenario-2-using-azure-front-door-and-application-gateway-as-the-reverse-proxy) later in this article.
+   - You can't use Azure Front Door directly because it can't reach the Azure Spring Apps instance in your private virtual network. Azure Front Door can connect to backends only through a public IP address or via services that use a private endpoint. When you have a multi-region deployment of Azure Spring Apps and require global load balancing, you can still expose your Azure Spring Apps instances through Application Gateway. To achieve this scenario, you place Azure Front Door in front of Application Gateway. This approach is described in [**Scenario 2**](#scenario-2-use-both-azure-front-door-and-application-gateway-as-the-reverse-proxy) later in this article.
 
 - **Deploy Azure Spring Apps outside a virtual network** and publish your apps to the internet directly, if you assign them an endpoint.
 
    - You don't control the network and you can't use NSGs to restrict access. Allowing only the reverse proxy to access your apps requires an approach within Azure Spring Apps itself.
    
-   - Because your apps are publicly reachable, you can use Application Gateway or Azure Front Door as the reverse proxy. The Application Gateway approach is described in [**Scenario 3**](#scenario-3-using-application-gateway-as-the-reverse-proxy) later in this article. The Azure Front Door approach is described in [**Scenario 4**](#scenario-4-using-azure-front-door-as-the-reverse-proxy) later in this article.
+   - Because your apps are publicly reachable, you can use Application Gateway or Azure Front Door as the reverse proxy. The Application Gateway approach is described in [**Scenario 3**](#scenario-3-use-application-gateway-with-spring-cloud-gateway) later in this article. The Azure Front Door approach is described in [**Scenario 4**](#scenario-4-use-azure-front-door-with-spring-cloud-gateway) later in this article.
 
-   - You can use a combination of both approaches, as needed. If you use both Application Gateway and Azure Front Door, use the same access restrictions between the two reverse proxies that are used in [Scenario 2](#scenario-2-using-azure-front-door-and-application-gateway-as-the-reverse-proxy).
+   - You can use a combination of both approaches, as needed. If you use both Application Gateway and Azure Front Door, use the same access restrictions between the two reverse proxies that are used in [Scenario 2](#scenario-2-use-both-azure-front-door-and-application-gateway-as-the-reverse-proxy).
 
 > [!NOTE]
 > You can use other reverse proxy services instead of Application Gateway or Azure Front Door. For regional services that are based in an Azure virtual network, like Azure API Management, the guidance is similar to the guidance for Application Gateway. If you use non-Azure services, the guidance is similar to the guidance for Azure Front Door.
@@ -31,10 +31,10 @@ The following table provides a brief comparison of the four reverse proxy config
 
 | Scenario | Deployment | Services | Configuration |
 | --- | --- | --- | --- |
-| [**Scenario 1**](#scenario-1-using-application-gateway-as-the-reverse-proxy) | Inside virtual network | Application Gateway | - For each app you want to expose, assign it an endpoint and map the appropriate custom domain or domains to that app. <br> - For the back-end pool in Application Gateway, use the assigned endpoint of each app. <br> - In the service runtime subnet, add an NSG to allow traffic only from the Application Gateway subnet, the apps subnet, and the Azure load balancer. Block all other traffic. |
-| [**Scenario 2**](#scenario-2-using-azure-front-door-and-application-gateway-as-the-reverse-proxy) | Inside virtual network | Azure Front Door, Application Gateway | - Restrict access between Application Gateway and Azure Spring Apps by using the same approach described for Scenario 1. <br> - On the Application Gateway subnet, create an NSG to allow only traffic that has the `AzureFrontDoor.Backend` service tag. <br> - Create a custom WAF rule in Application Gateway to verify the `X-Azure-FDID` HTTP header contains your specific Azure Front Door instance ID. |
-| [**Scenario 3**](#scenario-3-using-application-gateway-as-the-reverse-proxy) | Outside virtual network | Application Gateway, Spring Cloud Gateway | - Use Spring Cloud Gateway to expose your back-end apps. Only the Spring Cloud Gateway app requires an assigned endpoint. The custom domains of all back-end apps should be mapped to this single Spring Cloud Gateway app. <br> - For the back-end pool in Application Gateway, use the assigned endpoint of the Spring Cloud Gateway app. <br> - In Spring Cloud Gateway, set the `XForwarded Remote Addr` route predicate to the public IP address of Application Gateway. <br> - Optionally, in your Spring Framework apps, set the `server.forward-headers-strategy` application property to `FRAMEWORK`. |
-| [**Scenario 4**](#scenario-4-using-azure-front-door-as-the-reverse-proxy) | Outside virtual network | Azure Front Door, Spring Cloud Gateway | - Use Spring Cloud Gateway to expose your back-end apps. Only the Spring Cloud Gateway app requires an assigned endpoint. The custom domains of all back-end apps should be mapped to this single Spring Cloud Gateway app. <br> - For the back-end pool or origin in Azure Front Door, use the assigned endpoint of the Spring Cloud Gateway app. <br> - In Spring Cloud Gateway, set the `XForwarded Remote Addr` route predicate to all outbound IP ranges of Azure Front Door, and keep this setting current. Set the `Header` route predicate to ensure that the `X-Azure-FDID` HTTP header contains your unique Azure Front Door ID. <br> - Optionally, in your Spring Framework apps, set the `server.forward-headers-strategy` application property to `FRAMEWORK`. |
+| [**1**](#scenario-1-use-application-gateway-as-the-reverse-proxy) | Inside virtual network | Application Gateway | - For each app you want to expose, assign it an endpoint and map the appropriate custom domain or domains to that app. <br> - For the back-end pool in Application Gateway, use the assigned endpoint of each app. <br> - In the service runtime subnet, add an NSG to allow traffic only from the Application Gateway subnet, the apps subnet, and the Azure load balancer. Block all other traffic. |
+| [**2**](#scenario-2-use-both-azure-front-door-and-application-gateway-as-the-reverse-proxy) | Inside virtual network | Azure Front Door *and* Application Gateway | - Restrict access between Application Gateway and Azure Spring Apps by using the same approach described for Scenario 1. <br> - On the Application Gateway subnet, create an NSG to allow only traffic that has the `AzureFrontDoor.Backend` service tag. <br> - Create a custom WAF rule in Application Gateway to verify the `X-Azure-FDID` HTTP header contains your specific Azure Front Door instance ID. |
+| [**3**](#scenario-3-use-application-gateway-with-spring-cloud-gateway) | Outside virtual network | Application Gateway *with* Spring Cloud Gateway | - Use Spring Cloud Gateway to expose your back-end apps. Only the Spring Cloud Gateway app requires an assigned endpoint. The custom domains of all back-end apps should be mapped to this single Spring Cloud Gateway app. <br> - For the back-end pool in Application Gateway, use the assigned endpoint of the Spring Cloud Gateway app. <br> - In Spring Cloud Gateway, set the `XForwarded Remote Addr` route predicate to the public IP address of Application Gateway. <br> - Optionally, in your Spring Framework apps, set the `server.forward-headers-strategy` application property to `FRAMEWORK`. |
+| [**4**](#scenario-4-use-azure-front-door-with-spring-cloud-gateway) | Outside virtual network | Azure Front Door *with* Spring Cloud Gateway | - Use Spring Cloud Gateway to expose your back-end apps. Only the Spring Cloud Gateway app requires an assigned endpoint. The custom domains of all back-end apps should be mapped to this single Spring Cloud Gateway app. <br> - For the back-end pool or origin in Azure Front Door, use the assigned endpoint of the Spring Cloud Gateway app. <br> - In Spring Cloud Gateway, set the `XForwarded Remote Addr` route predicate to all outbound IP ranges of Azure Front Door, and keep this setting current. Set the `Header` route predicate to ensure that the `X-Azure-FDID` HTTP header contains your unique Azure Front Door ID. <br> - Optionally, in your Spring Framework apps, set the `server.forward-headers-strategy` application property to `FRAMEWORK`. |
 
 > [!NOTE]
 > After you set up your configuration, consider using [Azure Policy](/azure/governance/policy) or [resource locks](/azure/azure-resource-manager/management/lock-resources) to prevent accidental or malicious changes that might allow the reverse proxy to be bypassed and the application to be exposed directly. This safeguard applies only to the Azure resources (specifically, the NSGs) because configuration *within* Azure Spring Apps isn't visible to the Azure control plane.
@@ -54,7 +54,7 @@ Because the service runtime subnet contains the load balancer for connecting to 
 Each app that you want to expose through your reverse proxy should have an assigned endpoint so the reverse proxy can reach the app in the virtual network. For each app, you should also [map the custom domains](/azure/spring-cloud/tutorial-custom-domain#map-your-custom-domain-to-azure-spring-apps-app) it uses to avoid overriding the HTTP `Host` header in the reverse proxy and keep the original host name intact. This method avoids problems like broken cookies or redirect URLs that don't work properly. For more information, see [Host name preservation](../../best-practices/host-name-preservation.yml).
 
 > [!NOTE]
-> Alternatively (or, for defense in depth, possibly in addition to the NSG) you can follow the guidance for when you have [Azure Spring Apps deployed outside your virtual network](#azure-spring-apps-deployed-outside-your-virtual-network). That section explaings how access restrictions are typically achieved by using Spring Cloud Gateway, which also affects the back-end apps because they no longer need an assigned endpoint or custom domain.
+> Alternatively (or, for defense in depth, possibly in addition to the NSG) you can follow the guidance for when you have [Azure Spring Apps deployed outside your virtual network](#deployment-outside-your-virtual-network). That section explaings how access restrictions are typically achieved by using Spring Cloud Gateway, which also affects the back-end apps because they no longer need an assigned endpoint or custom domain.
 
 ### Scenario 1: Use Application Gateway as the reverse proxy
 
@@ -62,7 +62,7 @@ Scenario 1 describes how to [expose your apps publicly to the internet by using 
 
 The following diagram depicts the architecture for Scenario 1:
 
-:::image type="content" source="_images/application-gateway-reverse-proxy-virtual-network.png" alt-text="Diagram that shows the use of Azure Application Gateway with Azure Spring Apps in a virtual network." lightbox="_images/application-gateway-reverse-proxy-virtual-network.png" border="false":::
+:::image type="content" source="_images/application-gateway-reverse-proxy-virtual-network.png" alt-text="Diagram that shows the use of Azure Application Gateway with Azure Spring Apps in a virtual network." border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/scenario1.vsdx) of this architecture.*
 
@@ -89,11 +89,11 @@ As previously noted, you can't place Azure Front Door directly in front of Azure
 
 The following diagram depicts the architecture for Scenario 2:
 
-:::image type="content" source="_images/azure-front-door-application-gateway-reverse-proxy.png" alt-text="Diagram that shows the use of Azure Front Door and Azure Application Gateway with Azure Spring Apps in a virtual network." lightbox="_images/azure-front-door-application-gateway-reverse-proxy.png" border="false":::
+:::image type="content" source="_images/azure-front-door-application-gateway-reverse-proxy.png" alt-text="Diagram that shows the use of Azure Front Door and Azure Application Gateway with Azure Spring Apps in a virtual network." border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/scenario2.vsdx) of this architecture.*
 
-The Scenario 2 configuration implements access restrictions between Application Gateway and Azure Spring Apps in the same manner as [Scenario 1](#scenario-1-using-application-gateway-as-the-reverse-proxy). You place an NSG on the service runtime subnet with the appropriate rules.
+The Scenario 2 configuration implements access restrictions between Application Gateway and Azure Spring Apps in the same manner as [Scenario 1](#scenario-1-use-application-gateway-as-the-reverse-proxy). You place an NSG on the service runtime subnet with the appropriate rules.
 
 In Scenario 2, you also have to ensure that Application Gateway accepts traffic coming only from your Azure Front Door instance. The Azure Front Door documentation explains [how to lock down access to a backend to allow only Azure Front Door traffic](/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-). When the back end is Application Gateway, you can implement this restriction as follows:
 
@@ -188,7 +188,7 @@ Scenario 3 describes how to use Application Gateway as the reverse proxy for pub
 
 The following diagram depicts the architecture for Scenario 3:
 
-:::image type="content" source="_images/application-gateway-reverse-proxy.png" alt-text="Diagram that shows the use of Azure Application Gateway with Azure Spring Apps outside of a virtual network." lightbox="_images/application-gateway-reverse-proxy.png" border="false":::
+:::image type="content" source="_images/application-gateway-reverse-proxy.png" alt-text="Diagram that shows the use of Azure Application Gateway with Azure Spring Apps outside of a virtual network." border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/scenario3.vsdx) of this architecture.*
 
@@ -208,7 +208,7 @@ Scenario 4 describes how to use Azure Front Door as the reverse proxy for public
 
 The following diagram depicts the architecture for Scenario 4:
 
-:::image type="content" source="_images/azure-front-door-reverse-proxy.png" alt-text="Diagram that shows the use of Azure Front Door with Azure Spring Apps outside of a virtual network." lightbox="_images/azure-front-door-reverse-proxy.png" border="false":::
+:::image type="content" source="_images/azure-front-door-reverse-proxy.png" alt-text="Diagram that shows the use of Azure Front Door with Azure Spring Apps outside of a virtual network." border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/scenario4.vsdx) of this architecture.*
 
