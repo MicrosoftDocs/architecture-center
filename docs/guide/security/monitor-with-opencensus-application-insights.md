@@ -48,7 +48,7 @@ When building a system, especially a distributed system, it's important to make 
 
 In this architecture, the system is a chain of microservices. Each microservice can fail independently for various reasons. When that happens, it's important to understand what happened so you can troubleshoot. It’s helpful to isolate an end-to-end transaction and follow the journey through the app stack, which consists of different services or microservices. This method is called distributed tracing.
 
-The following sections show you how to set up distributed tracing in Contoso’s architecture. Select the following Deploy to Azure button to deploy the infrastructure and the Azure function app.
+The following sections describe how to set up distributed tracing in the architecture. Select the following Deploy to Azure button to deploy the infrastructure and the Azure function app.
 > [!NOTE]
 > There isn't an internal API in the architecture, so a read of an Azure file replaces the call to an API.
 
@@ -58,9 +58,9 @@ The following sections show you how to set up distributed tracing in Contoso’s
 
 A transaction is represented by a trace, which is a collection of [spans](https://opencensus.io/tracing/span/#span). For example, when you select the purchase button to place an order on an e-commerce website, several subsequent operations take place. Some possible operations include:
 
-- A POST request submits to the API which then redirects you to a “waiting page”.
+- A POST request submits to the API which then redirects you to a “waiting page.”
 - Writing logs with contextual information.
-- An external call to a SaaS to request a billing page.
+- An external call to web-based software to request a billing page.
 
 Each of these operations can be part of a span. The trace is a complete description of what happens when you select the purchase button.
 
@@ -86,7 +86,7 @@ A tracer is an object that holds contextual information. Ideally, that contextua
 
 As its official documentation states, the W3C trace context is a “specification that defines standard HTTP headers and a value format to propagate context information that enables distributed tracing scenarios.”
 
-A component of the system, such as a function, can create a tracer with the context of the previous component that's making the call by reading the traceparent. The format of a trace is:
+A component of the system, such as a function, can create a tracer with the context of the previous component that's making the call by reading the trace parent. The format of a trace is:
 
 Traceparent: [*version*]-[*traceId*]-[*parentId*]-[*traceFlags*]
 
@@ -100,7 +100,7 @@ base16(parentId) = b7ad6b7169203331
 
 base16(traceFlags) = 00
 
-The traceId and parentId are the most important fields. The traceId is a globally unique identifier of a trace. The parentId is a globally unique identifier of a span. That span is part of the trace that the traceId identifies.
+The trace ID and parent ID are the most important fields. The trace ID is a globally unique identifier of a trace. The parent ID is a globally unique identifier of a span. That span is part of the trace that the trace ID identifies.
 
 For more information, see [Traceparent header](https://www.w3.org/TR/trace-context/#traceparent-header).
 
@@ -110,31 +110,31 @@ In what follows, base16(version) and base16(traceFlags) are set to 00.
 
 Use the OpenCensus extension that's specific to Azure Functions. Don't use the OpenCensus package that you might use in other cases (for example, [Python Webapps](/azure/azure-monitor/app/opencensus-python#instrument-with-opencensus-python-sdk-with-azure-monitor-exporters)).
 
-Azure Functions offers many input and output bindings, and each binding has a different way of embedding the traceparent. For this architecture, when events and messages are consumed, two Azure functions are triggered.
+Azure Functions offers many input and output bindings, and each binding has a different way of embedding the trace parent. For this architecture, when events and messages are consumed, two Azure functions are triggered.
 
 Before the two functions can trigger:
 
-1) The context (characterized by the identifier of the trace and the identifier of the current span) must be embedded in a traceparent in the W3C trace context format. This embedding is dependant on the nature of the output binding. For instance, the architecture uses Event Hubs as a messaging system. The traceparent is encoded into bytes and embedded in the sent event(s) as the “Diagnostic-Id” property, which achieves the right trace context in the output binding.
+1) The context (characterized by the identifier of the trace and the identifier of the current span) must be embedded in a trace parent in the W3C trace context format. This embedding is dependant on the nature of the output binding. For instance, the architecture uses Event Hubs as a messaging system. The trace parent is encoded into bytes and embedded in the sent event(s) as the diagnostic ID property, which achieves the right trace context in the output binding.
 
    Two spans can be linked even if they're not parent and child. For distributed tracing, the current span points to the next one. Creating a [link](https://opencensus.io/tracing/span/link/) establishes this relationship.
 
    The [Azure Functions Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/1.15.0-preview1#readme-body-tab) package manages the embedding and linking for you.
 
-1) An Azure function in the middle of the end-to-end flow extracts the contextual information from the passed on traceparent. Use the OpenCensus extension for Azure Functions for this step. Instead of adding this process in the code of each Azure function, the OpenCensus extension implements a pre-invocation hook on the function app level.
+1) An Azure function in the middle of the end-to-end flow extracts the contextual information from the passed on trace parent. Use the OpenCensus extension for Azure Functions for this step. Instead of adding this process in the code of each Azure function, the OpenCensus extension implements a pre-invocation hook on the function app level.
 
    The pre-invocation hook:
 
-   - Creates a span_context object that holds the information of the previous span and triggers the Azure function. See a visual example of this step [in the next section](#understand-and-structure-the-code).
-   - Creates a tracer that contains the span_context and creates a new trace for the triggered Azure function.
+   - Creates a span context object that holds the information of the previous span and triggers the Azure function. See a visual example of this step [in the next section](#understand-and-structure-the-code).
+   - Creates a tracer that contains the span context and creates a new trace for the triggered Azure function.
    - Injects the tracer in the [Azure function execution context](/azure/azure-functions/functions-reference?tabs=blob#function-app).
 
-   To ensure the traces appear in Application Insights, you must call the configure() method to create and configure an [Azure exporter](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure#opencensus-azure-monitor-exporters), which exports telemetry.
+   To ensure the traces appear in Application Insights, you must call the *configure()* method to create and configure an [Azure exporter](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure#opencensus-azure-monitor-exporters), which exports telemetry.
 
    The extension is at app level, so the steps in this section apply to all Azure functions in a function app.
 
 ### Understand and structure the code
 
-In this architecture, the code in the Azure functions are structured with spans. In Python, create an OpenCensus span by using the *with* statement to access the *span\_context* part of the tracer that's injected in the Azure function execution context. The following string provides the details of the current span and its parents:
+In this architecture, the code in the Azure functions are structured with spans. In Python, create an OpenCensus span by using the *with* statement to access the span context part of the tracer that's injected in the Azure function execution context. The following string provides the details of the current span and its parents:
 
 ```python
     with context.tracer.span("nameSpan"):
@@ -185,39 +185,39 @@ def main(timer: func.TimerRequest, outputEventHubMessage: func.Out[str], context
 
 The main points in this code are:
 
-- An OpenCensusExtension.configure() call. Perform this call in only one Azure function per function app. This action configures the Azure exporter to export Python telemetry, such as logs, metrics, and traces to Application Insights.
+- An *OpenCensusExtension.configure()* call. Perform this call in only one Azure function per function app. This action configures the Azure exporter to export Python telemetry, such as logs, metrics, and traces to Application Insights.
 
-- The OpenCensus “requests” and “logging” [integrations](/azure/azure-monitor/app/opencensus-python-dependency#dependencies-with-requests-integration) to configure the telemetry collection from the request and logging modules for HTTP calls.
+- The OpenCensus 'requests' and 'logging' [integrations](/azure/azure-monitor/app/opencensus-python-dependency#dependencies-with-requests-integration) to configure the telemetry collection from the request and logging modules for HTTP calls.
 
 - There are five spans:
 
   - A root span that's part of the tracer that's injected in the context before the execution
-  - *queryExternalCatalog*
-  - *sendMessage*
-  - *splitToMessages* (a child of *sendMessage*)
-  - *setMessages* (a child of *sendMessage*)
+  - queryExternalCatalog
+  - sendMessage
+  - splitToMessages (a child of sendMessage)
+  - setMessages (a child of sendMessage)
 
 ### Tracers and spans
 
-The following diagram shows how every time a span is created, the *span\_context* of the tracer is updated.
+The following diagram shows how every time a span is created, the span context of the tracer is updated.
 
 :::image type="content" source="images/span-context-tracer.png" alt-text="An image that shows the code lines of the function." lightbox="images/span-context-tracer.png":::
 
 In the previous diagram:
 
-1. **An Azure function is triggered**. A traceparent is injected in the tracer context object with a pre-invocation hook, which is called by the Python worker before the function runs.
-1. **An Azure function is run**. The OpenCensusExtension.configure() method is called, which initializes an Azure exporter and enables trace writing to Application Insights.
+1. **An Azure function is triggered**. A trace parent is injected in the tracer context object with a pre-invocation hook, which is called by the Python worker before the function runs.
+1. **An Azure function is run**. The *OpenCensusExtension.configure()* method is called, which initializes an Azure exporter and enables trace writing to Application Insights.
 
 The following details explain the relationship between a tracer and a span in this architecture:
 
-- The tracer object of the Azure function context contains a *span\_context* field that describes the root span.
-- Every time you create a span in code, it creates a new globally unique identifier and updates the *span\_context* property in the tracer object of the execution context.
-- The *span\_context* field contains the *trace\_id* and *id* fields.
-- The *trace\_id* never gets updated, but the *id* updates to the generated unique identifier.  
+- The tracer object of the Azure function context contains a **span_context** field that describes the root span.
+- Every time you create a span in code, it creates a new globally unique identifier and updates the **span_context** property in the tracer object of the execution context.
+- The **span_context** field contains the **trace_id** and **id** fields.
+- The **trace_id** never gets updated, but the **id** updates to the generated unique identifier.  
 - In the previous diagram, the root span has two children spans: queryExternalApi and sendMessage.
-  - The queryExternalApi span and sendMessage span have a new span id that's different from the root_span_id.
-  - The sendMessage span has two children spans: splitToMessages and setMessages. Their span ids update in the span\_context field of the tracer object of the context.
-- To capture the relationship between a child span and its parent, the spans\_list field provides the lineage of spans in list form. In the splitToMessages span, the *spans\_list* field contains sendMessage (the parent span) and splitToMessages (the current span). This parent/child relationship is how you create the chain of isolated operations within the execution of an Azure function.
+  - The queryExternalApi span and sendMessage span have a new span id that's different from the **root_span_id**.
+  - The sendMessage span has two children spans: splitToMessages and setMessages. Their span ids update in the **span_context** field of the tracer object of the context.
+- To capture the relationship between a child span and its parent, the **spans_list** field provides the lineage of spans in list form. In the splitToMessages span, the **spans_list** field contains sendMessage (the parent span) and splitToMessages (the current span). This parent/child relationship is how you create the chain of isolated operations within the execution of an Azure function.
 
 ### Chain the functions by using the context field
 
@@ -227,9 +227,9 @@ Now that the chain of operations are organized in one Azure function, you can ch
 
 In the previous diagram:
 
-- The setMessages span is the last span of the query data Azure function. The code within the span sends a message to Event Hubs and triggers the subsequent Azure function. The span\_context field of the context tracer object contains the information related to this span. That information is tied to the query data Azure function’s context.
-- Azure Functions Worker adds a bytes-encoded Diagnostic-Id in the properties of the sent event and creates a [link](https://opencensus.io/tracing/span/link/#:~:text=A%20link%20describes%20a%20cross-relationship%20between%20spans%20in,span%20to%20another%20can%20help%20correlate%20related%20spans.) to the root span of the subsequent Azure function.
-- The pre-invocation hook of the subsequent process data Azure function reads the Diagnostic-Id and sets the context, which chains the Azure functions, and they're executed separately.
+- The setMessages span is the last span of the query data Azure function. The code within the span sends a message to Event Hubs and triggers the subsequent Azure function. The **span_context** field of the context tracer object contains the information related to this span. That information is tied to the query data Azure function’s context.
+- Azure Functions Worker adds a bytes-encoded **Diagnostic-Id** in the properties of the sent event and creates a [link](https://opencensus.io/tracing/span/link/#:~:text=A%20link%20describes%20a%20cross-relationship%20between%20spans%20in,span%20to%20another%20can%20help%20correlate%20related%20spans.) to the root span of the subsequent Azure function.
+- The pre-invocation hook of the subsequent process data Azure function reads the **Diagnostic-Id** and sets the context, which chains the Azure functions, and they're executed separately.
 
 When the process data Azure function sends a message to the Service Bus queue, context is passed in the same way.
 
