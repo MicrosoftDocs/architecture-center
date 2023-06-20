@@ -31,7 +31,9 @@ The web app is an employee-facing, LOB, training application. Proseware employee
 
 ## Service level objective
 
-A service level objective (SLO) for availability defines how available you want a web app to be for users. Proseware has a target SLO of 99.9% for availability, about 8.77 hours of downtime per year. You need to define what availability means for your web application. For Proseware, the web app is considered available when employees can watch training videos 99.9% of the time. When you have a definition of *available*, list all the dependencies on the critical path of availability. Dependencies should include Azure services and third-party solutions.
+A service level objective (SLO) for availability defines how available you want a web app to be for users. Proseware has a target SLO of 99.9% for availability. It's about 8.7 hours of downtime per year. 
+
+You need to define what availability means for your web application. For Proseware, the web app is considered available when employees can watch training videos 99.9% of the time. When you have a definition of *available*, list all the dependencies on the critical path of availability. Dependencies should include Azure services and third-party solutions.
 
 For each dependency in the critical path, you need to assign an availability goal. Service Level Agreements (SLAs) from Azure provide a good starting point.
 

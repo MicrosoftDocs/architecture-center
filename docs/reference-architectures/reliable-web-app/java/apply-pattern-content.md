@@ -54,37 +54,45 @@ The code uses the retry registry to get a `Retry` object. It also uses `Try` fro
 
 Architecture refers to the arrangement and distribution of infrastructure and services supporting your web app. Your service level objective is an important metric for how you architect your web app.
 
-**Determine infrastructure redundancy.** Use the web app service level objective to determine how many regions to use. For single region web apps, availability zones are the main way to increase infrastructure reliability. For multi-region web apps, availability zones improve resiliency. A multi-region active-passive configuration should use all availability zones to avoid a single point of failure. For more information, see [service level objective](./plan-implementation-content.md#service-level-objective).
+**Determine infrastructure redundancy.** Use the web app service level objective to determine how many regions to use. You need to use two or more regions if a single region doesn't allow you to reach your service level objective. Web apps that use one region use availability zones to increase infrastructure reliability. For web apps running in multiple regions, availability zones help you recover from failover faster (resiliency). A web app running in multiple regions with a active-passive configuration should use at least two availability zones. This configuration helps avoid a single point of failure. For more information, see [service level objective](./plan-implementation-content.md#service-level-objective).
 
-**Determine multi-region configuration (if applicable):** Multi-region deployments have active-active and active-passive configurations. You should use an active-active configuration if you need to ensure minimal to no downtime for your web app. Use an active-passive configuration if you can accept up to two hours of downtime. For more information, see [App Service disaster recovery strategies](/azure/app-service/overview-disaster-recovery) and [Storage redundancy](/azure/storage/common/storage-redundancy#summary-of-redundancy-options).
+**Determine region configuration (if applicable):** Web app running in multiple regions can have an active-active configuration or active-passive configuration. An active-active configuration uses both regions in normal operations. An active-passive configuration uses one region in normal operations (active region) and the second region only if there's an outage (passive region).
+
+You should use an active-active configuration if you need minimal to no downtime. Use an active-passive configuration if up to two hours of downtime. For more information, see [App Service disaster recovery strategies](/azure/app-service/overview-disaster-recovery) and [Storage redundancy](/azure/storage/common/storage-redundancy#summary-of-redundancy-options).
 
 *Reference implementation.* The reference implementation uses two regions in an active-passive configuration. Proseware had a 99.9% SLO and needed to use two regions to meet the SLO. The active-passive configuration aligns with Proseware's goal of minimal code changes for this phase in the cloud journey. The active-passive configuration provides a simple data strategy. It avoids needing to set up event-based data synchronization, data shards, or some other data management strategy. All inbound traffic heads to the active region. If a failure occurs in the active region, Proseware manually initiates its failover plan and routes all traffic to the passive region.
 
 ### Architect data reliability
 
-Data reliability relies on replicating data across multiple locations. In general, the more isolated those locations are from each other the better your data reliability.
+Data reliability relies on replicating data across multiple locations. In general, the more isolated those locations are from each other the better data reliability.
 
-**Define the recovery point objective.** A recovery point objective (RPO) is the maximum amount of data you're willing to lose during an outage. For example, an RPO of one hour means the web app loses up to one hour of the most recent data changes. If the web app goes down at 2PM, the disaster recovery process can only recover data before 1PM. You need to define an RPO for each web app.
+**Define the recovery point objective.** A recovery point objective (RPO) is the maximum amount of data you're okay losing during an outage. For example, an RPO of one hour means you lose up to an hour of the most recent data changes. Define an RPO for each web app.
 
-**Configure data replication if multi-region.** The web app architecture and RPO determine how you replicate your data. Most Azure data services offer synchronous data replication between availability zones. So single region web apps only need to be zone redundant. No further configuration needed. Multi-region web apps need extra configurations. For a multi-region web app with an active-passive configuration, you need to replicate data to the passive region for disaster recovery. The replication frequency of your data in an active-passive configuration needs to meet your RPO. For a multi-region in an active-active configuration, you need to replicate data across regions in near real-time.
+**Configure data replication if multi-region.** Your architecture and RPO determine how you should replicate your data.
+
+*Single-region web apps.* Most Azure data services offer synchronous data replication between availability zones. Single region web apps only need to use multiple availability zones (zone redundant). No further configuration needed.
+
+*Multi-region web apps.* Multi-region web apps with an active-passive configuration need to replicate data to the passive region for disaster recovery. The replication frequency in an active-passive configuration needs to meet your RPO. A multi-region in an active-active configuration needs to replicate data across regions in near real-time.
 
 *Reference implementation.* The reference implementation has two main data stores: Azure Files and PostgreSQL database. The reference implementation uses geo-zone-redundnant storage (GZRS) with Azure Files. GZRS asynchronously creates a copy of Azure Files data in the passive region. Check the [last sync time property](/azure/storage/common/last-sync-time-get) to get an estimated RPO. For the Azure Database for PostgreSQL, the reference implementation uses zone redundant high availability with standby servers in two availability zones. It also asynchronously replicates to the read replica in the passive region. Azure Files GZRS and Azure Database for PostgreSQL read replica are central to Proseware's failover plan.
 
 ### Create a failover plan
 
-A failover plan details the procedure to respond to an outage. The plan should define what an outage means for your web app. For example, you can define outage in terms of downtime or loss of functionality. For more information, see [App Service disaster recovery](/azure/app-service/overview-disaster-recovery).
+A failover plan outlines how you will respond to an outage. Your failover plan should define what an outage means for your web app. You can define outage in terms of downtime or loss of functionality. For more information, see [App Service disaster recovery](/azure/app-service/overview-disaster-recovery).
 
-**Determine the recovery time objective.** The recovery time objective (RTO) is the maximum, acceptable downtime for a web app or feature. For example, an RTO of four hours means the web app or feature should be operational within four hours of a disruption. You can have multiple RTOs relating to different features in your web app. Each RTO should tie back to your SLO in support of making the service available to end-users.
+**Determine the recovery time objective.** The recovery time objective (RTO) is the maximum, acceptable downtime. For example, an RTO of four hours means the web app should be operational within four hours of a disruption. You can have multiple RTOs relating to different features in a web app. Each RTO should tie back to your SLO in support of making the service available to end-users.
 
-**Define failover duration.** The failover process needs to take as much or less time than your RTO. An RTO of four hours means you need to fail over within four hours.
+**Define failover duration.** The failover process needs to less time than your RTO. An RTO of four hours means you need to fail over and be operational within four hours.
 
-**Determine failover mechanism.** You can automate the failover or use a manual process. Automating the failover makes the results more consistent, but it creates the potential that someone could initiate a failover accidentally. Consider a manual initiation of the failover. You can automate aspects of the failover to help ensure consistent results.
+**Determine failover mechanism.** You can automate the failover process or use a manual process. Automating the failover makes the results of the failover more consistent, but it creates the potential that someone could initiate a failover accidentally. Consider a manual initiation of the failover. You can automate aspects of the failover to help ensure consistent results.
 
 **Outline the return process.** The failover plan needs to define the steps to return to normal operations. Most failover plans revert to the state before the failover.
 
-**Test failover plan in test environment.** You need to test the failover plan regularly. You should use a test environment to avoid production issues. The test environment should resemble the production environment as closely as possible.
+**Test the failover plan.** You need to test the failover plan regularly. You should use a test environment to avoid production issues. The test environment should resemble the production environment as closely as possible.
 
+<!-- Uncomment when doc is ready in GitHub
 *Reference implementation.* We created a failover plan for Proseware. For more information, see [Proseware's failover plan](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/failover-plan.md#failover-plan).
+-->
 
 ## Security
 
