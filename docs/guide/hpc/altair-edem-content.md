@@ -1,21 +1,21 @@
 This article briefly describes the steps for running [Altair
-EDEM](https://www.altair.com/edem) on a virtual machine (VM) that\'s
+EDEM](https://www.altair.com/edem) on a virtual machine (VM) that's
 deployed on Azure. It also presents the performance results of running
 EDEM on Azure.
 
-EDEM is high-performance software for bulk and granular material simulation. Powered by DEM, EDEM quickly and accurately simulates and analyzes the behavior of coal, mined ores, soils, fibers, grains, tablets, powders, and more.
+EDEM is an application that's used for bulk and granular material simulation. EDEM uses discrete element method (DEM) to simulate and analyze the behavior of coal, mined ores, soils, fibers, grains, tablets, and powders. 
 
-EDEM simulation provides engineers with crucial insight into how those materials will interact with their equipment during a range of operation and process conditions. It can be used stand-alone or combined with other CAE tools.
+EDEM simulation provides engineers with insight into how those materials interact with equipment during a range of operation and process conditions. It can be used by itself or combined with other CAE tools.
 
-Leading companies in the heavy equipment, off-road, mining, steelmaking, and process manufacturing industries use EDEM to understand and predict granular material behaviors, evaluate equipment performance, and optimize processes.
+Companies in the heavy equipment, off-road, mining, steelmaking, and process manufacturing industries use EDEM to understand and predict granular material behaviors, evaluate equipment performance, and optimize processes.
 
 ## Why deploy EDEM on Azure?
 
-- Model particle shape using the highly validated and computationally efficient multi-sphere method.
-- Cutting edge DEM solver, highly parallelized for use on multi-core shared memory workstations, GPU hardware, and multi-GPU systems.
-- Solver engine is fully double precision across all platforms.
-- Simulate large and complex particle systems.
-- Advanced and powerful post-processing capability
+- You can use EDEM to Model particle shape by using the highly validated and computationally efficient multi-sphere method.
+- EDEM is a cutting edge DEM solver, highly parallelized for use on multi-core shared memory workstations, GPU hardware, and multi-GPU systems.
+- The solver engine is fully double precision across all platforms.
+- EDEM can simulate large and complex particle systems.
+- EDEM provides advanced post-processing capabilities.
 
 ## Architecture
 
@@ -35,47 +35,44 @@ Leading companies in the heavy equipment, off-road, mining, steelmaking, and pro
     used to create a private network infrastructure in the cloud. 
     -   [Network security
         groups](/azure/virtual-network/network-security-groups-overview)
-        are used to restrict access to the VMs.  
+     restrict access to the VMs.  
     -   A public IP address connects the internet to the VM.   
--   A physical SSD is used for storage.   
+-   A physical SSD provides storage.
 
 ## Compute sizing and drivers
 
-Performance tests of Altair EDEM on Azure used [NCv3-series], [NC A100 v4-series] and [ND A100 v4-series] VMs running on Windows. The following table provides the configuration details.
+Performance tests of EDEM on Azure used [NCv3](/azure/virtual-machines/ncv3-series), [NC A100 v4](/azure/virtual-machines/nc-a100-v4-series) and [ND A100 v4](/azure/virtual-machines/nda100-v4-series) series VMs running on Windows. The following table provides the configuration details.
 
-|  Size|               vCPU    | Memory, in GiB |  Temporary storage (SSD), in GiB|   GPUs |    GPU  memory, in GiB     | Maximum data disks|Max uncached disk throughput: IOPS / MBps |Max network bandwidth|Max NICs|
-|--|--|--|--|--|--|--|-|-|-|
-|Standard_ND96asr_v4|   96   |    900|       6,000|      8 A100 40 GB GPUs (NVLink 3.0)|   40|        32|80,000 / 800|24,000 Mbps|8|
-|Standard_NC24ads_A100_v4|24|220|1123|1|80|12|30000/1000|20,000|2|
-|Standard_NC48ads_A100_v4|48|440|2246|2|160|24|60000/2000|40,000|4|
-|Standard_NC96ads_A100_v4|96|880|4492|4|320|32|120000/4000|80,000|8|
-|  Standard_NC6s_v3   |   6 |       112     |  736         |1    |16        |12|20000/200||4|
+|  Size|               vCPU    | Memory, in GiB |  Temporary storage (SSD), in GiB|   GPUs |    GPU  memory, in GiB     | Maximum data disks|Maximum uncached disk throughput: IOPS / MBps |Maximum NICs|
+|--|--|--|--|--|--|--|-|-|
+|Standard_ND96asr_v4|   96   |    900|       6,000|      8 |   40|        32|80,000 / 800|8|
+|Standard_NC24ads_A100_v4|24|220|1,123|1|80|12|30,000 / 1,000|2|
+|Standard_NC48ads_A100_v4|48|440|2,246|2|160|24|60,000 / 2,000|4|
+|Standard_NC96ads_A100_v4|96|880|4,492|4|320|32|120,000 / 4,000|8|
+|  Standard_NC6s_v3   |   6 |       112     |  736         |1    |16    |12|20,000 / 200|4|
 
 ### Required drivers
 
-To use Altair EDEM  on the above mentioned VMs as described in this article, you need to install NVIDIA and AMD drivers.
+To use EDEM  on the previously listed VMs as described in this article, you need to install NVIDIA and AMD drivers.
 
 ## EDEM installation
 
 Before you install EDEM, you need to deploy and connect a VM and install the required NVIDIA and AMD drivers.
 
-For information about deploying the VM and installing the drivers, see one of these articles:
-
-- [Run a Windows VM on Azure]
+For information about deploying the VM and installing the drivers, see [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml).
  
 To download EDEM:
-1.	Open Altair one Marketplace in web browser and sign in
-2.	Select EDEM in the product list.
-3.	Select appropriate operating system and download.
+1.	Sign in to [Altair one Marketplace](https://altairone.com/Marketplace?queryText=edem&app=EDEM&tab=Download).
+2.	Select **EDEM** in the product list.
+3.	Select the appropriate operating system and download.
 4.	Download the license manager.
 
 See the documents in [Altair one Marketplace](https://altairone.com/Marketplace?queryText=edem&app=EDEM&tab=Download) for instructions for installing EDEM.
 
-## Performance results of EDEM on an Azure VM
-### EDEM performance results
+## Performance results of EDEM on Azure VMs
 
-Seven models were used to test the performance of EDEM on
-Azure VMs. The following table provides the details.
+Seven models are used to test the performance of EDEM on
+Azure VMs. The following table provides details.
 
 | Model | Angle of repose |Bed of material  |Hopper discharge  |Powder mixer|Screw augur|Mill|Transfer chute|
 |---------|---------|---------|---------|--|--|--|--|
@@ -93,126 +90,123 @@ Azure VMs. The following table provides the details.
 | Factory |No|No| No|No|No|No|Yes|
 |  Periodic boundaries   |No|No| No|No|No|No|No|
 
-### Performance results for EDEM v2021.1  on NDv4 & NCv3 Series VMs
+### Performance results of EDEM 2021.1 on NDv4 and NCv3 VMs
 
-The following table shows the elapsed wall-clock time required to complete each of
-the simulations, in seconds.
+The following table shows the elapsed wall-clock times, in seconds, required to complete each simulation.
 
-| Model               | ND96asr_v4  VM <br>96 CPUs     | ND96asr_v4 VM <br>A100 GPU (1GPU) | NC6s_v3 VM<br> V100 GPU (1GPU)   |
-|     --               |--         |--                  |--              |
-| Angle of repose     | 12819.80    | 1543.66          | 2319.39      |
-| Bed of material     | 2650.56     | 320.24           | 475.04       |
-| Hopper discharge    | 9318.89     | 566.59           | 1030.38      |
-| Powder mixer        | 14028.50    | 1013.98          | 1312.27      |
-| Screw auger         | 8871.59     | 1295.16          | 1158.98      |
-| Mill                | 1339.11     | 83.18            | 116.49       |
-| Transfer chute      | 3859.01     | 310.22           | 437.92       |
+| Model               |ND96asr_v4, 96 CPUs     | ND96asr_v4, 1 A100 GPU | NC6s_v3, 1 V100 GPU   |
+|     --               |--         |--          |--    |
+| Angle of repose     | 12,819.80    | 1,543.66          | 2,319.39      |
+| Bed of material     | 2,650.56     | 320.24           | 475.04       |
+| Hopper discharge    | 9,318.89     | 566.59           | 1,030.38      |
+| Powder mixer        | 14,028.50    | 1,013.98          | 1,312.27      |
+| Screw auger         | 8,871.59     | 1,295.16          | 1,158.98      |
+| Mill                | 1,339.11     | 83.18            | 116.49       |
+| Transfer chute      | 3,859.01     | 310.22           | 437.92       |
 
-Note: The Standard_ND96asr_v4, 96 vCPU VM size wall clock time is used as the baseline for calculating relative speed for A100 and V100 GPU wall clock time as shown in the table below. 
+The following graph uses a Standard_ND96asr_v4, 96 vCPU VM as a baseline and shows how much the speed increases on A100 and V100 GPU VMs. 
 
-image
+:::image type="content" source="media/altair-edem/2021-ndv4-ncv3.png" alt-text="Graph that shows relative speed increases on NCv4 and NCv3 VMs." lightbox="media/altair-edem/2021-ndv4-ncv3.png" border="false":::
 
-### Performance results for EDEM v2022.1  on NC A100 v4 Series VMs 
 
-Wall clock time in seconds:
+### Performance results for EDEM 2022.1 on NC A100 v4 VMs 
 
-| Model| 24 vCPU<br> NC24ads_A100_v4|1 GPU <br> NC24ads_A100_v4	|2 GPU<br> NC48ads_A100_v4|4 GPU <br>NC96ads_A100_v4|
+The following table shows the elapsed wall-clock times, in seconds, required to complete each simulation.
+
+| Model| NC24ads_A100_v4, 24 vCPUs| NC24ads_A100_v4,	1 GPUs| NC48ads_A100_v4, 2 GPU|NC96ads_A100_v4, 4 GPUs |
 |-|-|-|-|-|
-|Angle of Repose|22950.80|649.59|404.05|	339.38|
-|Bed of Material|	4835.23	|140.10	|87.67|	72.11|
-|Hopper Discharge|	11457.00|	301.33	|187.68	|144.45|
-|Powder Mixer|	13906.20	|606.43	|394.99	|361.85|
-|Screw Auger|	11089.00	|536.27|	343.75|	278.92|
-|Mill	|1141.65|	46.33	|34.26	|28.49|
-|Transfer Chute|	4146.64|	117.67|	77.98|	63.80|
+|Angle of repose|22,950.80|649.59|404.05|	339.38|
+|Bed of material|	4,835.23	|140.10	|87.67|	72.11|
+|Hopper cischarge|	11,457.00|	301.33	|187.68	|144.45|
+|Powder mixer|	13,906.20	|606.43	|394.99	|361.85|
+|Screw auger|	11,089.00	|536.27|	343.75|	278.92|
+|Mill	|1,141.65|	46.33	|34.26	|28.49|
+|Transfer chute|	4,146.64|	117.67|	77.98|	63.80|
 
+ The following graph uses a Standard_NC24ads_A100_v4, 24-vCPU VM as a baseline and shows how much the speed increases on VMs with varying numbers of A100 GPUs.
 
-Note: The Standard_ NC24ads_A100_v4, 24 vCPU wall clock time is used as the baseline for calculating the relative speed for A100 GPUs wall clock time as shown in the table below.
+:::image type="content" source="media/altair-edem/2022-nc-a100.png" alt-text="Graph that shows relative speed increases on NC A100 v4 VMs." lightbox="media/altair-edem/2022-nc-a100.png" border="false":::
 
-image 
+### Performance results for EDEM 2022.1 on ND A100 v4 VMs
 
-### Performance results for EDEM v2022.1 in ND A100 v4 Series VM
+The following table shows the elapsed wall-clock times, in seconds, required to complete each simulation.
 
-Wall clock time in seconds:
-
-| Model| 24 vCPU<br> NC24ads_A100_v4|1 GPU <br> ND96asr_v4 	|2 GPU<br> ND96asr_v4 |3 GPU <br>ND96asr_v4|4 GPU <br>ND96asr_v4|
+| Model| NC24ads_A100_v4, 24 vCPUs|ND96asr_v4, 1 GPU	|ND96asr_v4, 2 GPUs | ND96asr_v4, 3 GPUs| ND96asr_v4, 4 GPUs|
 |-|-|-|-|-|-|
-|Angle of Repose|22950.80|682.66 |517.99|	491.00|494.08|
-|Bed of Material|	4835.23	| 148.17	|106.42|93.42|98.30	|
-|Hopper Discharge|	11457.00|316.62	 	|236.32	|204.62|189.02|
-|Powder Mixer|	13906.20	|646.77 	|477.97|463.59|	477.86|
-|Screw Auger|	11089.00	|566.37 |408.32	|	378.17	|341.56|
-|Mill	|1141.65|51.79	 | 41.29	|39.93	|35.96|
-|Transfer Chute|	4146.64|126.46	 |90.54|85.01	|81.35|
+|Angle of repose|22,950.80|682.66 |517.99|	491.00|494.08|
+|Bed of material|	4,835.23	| 148.17	|106.42|93.42|98.30	|
+|Hopper discharge|	11,457.00|316.62	 	|236.32	|204.62|189.02|
+|Powder mixer|	13,906.20	|646.77 	|477.97|463.59|	477.86|
+|Screw auger|	11,089.00	|566.37 |408.32	|	378.17	|341.56|
+|Mill	|1,141.65|51.79	 | 41.29	|39.93	|35.96|
+|Transfer chute|	4,146.64|126.46	 |90.54|85.01	|81.35|
 
-Note: Standard_ NC24ads_A100_v4, 24 vCPU wall clock time is used as baseline for calculating relative speed for ND96asr_v4 A100 GPUs wall clock time as shown in the table below..
+The following graph uses a Standard_NC24ads_A100_v4, 24-vCPU VM as a baseline and shows how much the speed increases on ND96asr_v4 VMs with varying numbers of A100 GPUs.
 
-graph 
+:::image type="content" source="media/altair-edem/2022-nd-a100.png" alt-text="Graph that shows relative speed increases on ND A100 v4 VMs." lightbox="media/altair-edem/2022-nd-a100.png" border="false":::
 
 ## Azure cost
 
 Only model running time (wall clock time) is considered for these cost calculations. Application installation time isn't considered. The calculations are indicative. The actual numbers depend on the size of the model.
 
-You can use the [Azure pricing calculator] to estimate costs for your configuration.
+You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your configuration.
 
-The following tables provide elapsed times in hours. To compute the total cost, multiply by the Azure VM hourly cost, which you can find [here for Windows] and .
+The following tables provide elapsed times in hours. To compute the total costs, multiply by the Azure VM hourly cost. For the current hourly costs, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing).
 
-### EDEM cost on Standard_ND96asr_v4 VM Series
+### EDEM 2021.1 costs on ND96asr_v4 VMs
 
-|Model |ND96asr_v4 <br>96 vCPU|	ND96asr_v4<br> 1 GPU|
+|Model |ND96asr_v4, 96 vCPUs|	ND96asr_v4, 1 GPU|
 |-|-|-|
-|Angle of Repose|	3.56|	0.43|
-|Bed of Material|	0.74|	0.09|
-|Hopper Discharge|	2.59|	0.16|
-|Powder Mixer	|3.90	|0.28|
-|Screw Auger|	2.46|	0.36|
+|Angle of repose|	3.56|	0.43|
+|Bed of material|	0.74|	0.09|
+|Hopper discharge|	2.59|	0.16|
+|Powder mixer	|3.90	|0.28|
+|Screw auger|	2.46|	0.36|
 |Mill	|0.37|	0.02|
-|Transfer Chute	|1.07|	0.09|
+|Transfer chute	|1.07|	0.09|
  
+### EDEM 2021.1 costs on NCv3 VMs
 
-### EDEM v2021.1 cost on NCv3-series
-
-|Model |NC6s_v3 <br>1 GPU |	
+|Model |NC6s_v3, 1 GPU |	
 |-|-|
-|Angle of Repose|0.64	|
-|Bed of Material|0.13	|
-|Hopper Discharge|0.29	|
-|Powder Mixer	|0.36	|
-|Screw Auger|0.32	|	
+|Angle of repose|0.64	|
+|Bed of material|0.13	|
+|Hopper cischarge|0.29	|
+|Powder mixer	|0.36	|
+|Screw auger|0.32	|	
 |Mill	|0.03|	
-|Transfer Chute	|0.12|	
+|Transfer chute	|0.12|	
 
-### EDEM v2022.1 cost on NC A100 v4-series
+### EDEM 2022.1 costs on NC A100 v4 VMs
 
-|Model |NC24ads_A100_v4 24 vCPU|NC24ads_A100_v4 1 GPU|	NC24ads_A100_v4 2 GPU|NC24ads_A100_v4 4 GPU|
+|Model |NC24ads_A100_v4, 24 vCPUs|NC24ads_A100_v4, 1 GPU|	NC24ads_A100_v4, 2 GPUs|NC24ads_A100_v4, 4 GPUs|
 |-|-|-|-|-|
-|Angle of Repose|	6.38|	0.18	|0.11|	0.09|
-|Bed of Material|	1.34|	0.04	|0.02	|0.02|
-|Hopper Discharge|	3.18|	0.08	|0.05|	0.04|
-|Powder Mixer|	3.86	|0.17|	0.11|	0.10|
-|Screw Auger|	3.08|	0.15|	0.10	|0.08|
+|Angle of pepose|	6.38|	0.18	|0.11|	0.09|
+|Bed of material|	1.34|	0.04	|0.02	|0.02|
+|Hopper discharge|	3.18|	0.08	|0.05|	0.04|
+|Powder mixer|	3.86	|0.17|	0.11|	0.10|
+|Screw auger|	3.08|	0.15|	0.10	|0.08|
 |Mill	|0.32	|0.01|	0.01	|0.01|
-|Transfer Chute|	1.15|	0.03|	0.02	|0.02| 
+|Transfer chute|	1.15|	0.03|	0.02	|0.02| 
 
-### EDEM v2022.1 cost on Standard_ND96asr_v4
+### EDEM 2022.1 costs on ND96asr_v4 VMs
 
-|Model| ND96asr_v4 1 GPU|ND96asr_v4 2 GPU|ND96asr_v4 3 GPU|ND96asr_v4 4 GPU|
+|Model| ND96asr_v4, 1 GPU|ND96asr_v4, 2 GPUs|ND96asr_v4, 3 GPUs|ND96asr_v4, 4 GPUs|
 |-|-|-|-|-|
-|Angle of Repose|	0.19|	0.14|	0.14|	0.14|
-|Bed of Material	|0.04|	0.03|	0.03|	0.03|
-|Hopper Discharge|	0.09|	0.07|	0.06|	0.05|
-|Powder Mixer	|0.18	|0.13	|0.13|	0.13|
-|Screw Auger|	0.16	|0.11	|0.11|	0.09|
+|Angle of repose|	0.19|	0.14|	0.14|	0.14|
+|Bed of material	|0.04|	0.03|	0.03|	0.03|
+|Hopper discharge|	0.09|	0.07|	0.06|	0.05|
+|Powder mixer	|0.18	|0.13	|0.13|	0.13|
+|Screw auger|	0.16	|0.11	|0.11|	0.09|
 |Mill	|0.01	|0.01	|0.01	|0.01|
-|Transfer Chute|	0.04|	0.03|	0.02|	0.02|
-
+|Transfer chute|	0.04|	0.03|	0.02|	0.02|
 
 ## Summary
 
--	We deployed and tested Altair EDEM v2021.1 on the ND A100 v4 VM and NCv3 VM with 1GPU. We also deployed and tested EDEM v2022.1 on ND A100 v4 and NC A100 v4 VMs with multi-GPUs
--	The GPU technology in EDEM provides increased processing power when compared to CPU runs on Azure. We can observe around 80x speedup with NC A100 v4 A100 GPUs and around 60x with ND A100 v4 A100 GPUs.
--	The model complexity affected the GPU scale-up. .
--	The NC A100 v4 demonstrated the best GPU acceleration compared to other configuration of VM in Azure.
+- EDEM 2021.1 was deployed and tested on ND A100 v4 and NCv3 VMs with one GPU. EDEM 2022.1 was deployed and tested on ND A100 v4 and NC A100 v4 VMs with multiple GPUs.
+-	The GPU technology in EDEM provides faster processing than CPU configurations on Azure. Tests demonstrate speed increases of about 80x with NC A100 v4 A100 GPUs and about 60x with ND A100 v4 A100 GPUs.
+-	The complexity of the model affects GPU scale-up. 
+-	The NC A100 v4 VM demonstrates better GPU acceleration than other VM configurations on Azure.
 
 ## Contributors
 
@@ -228,12 +222,11 @@ Principal authors:
 - [Saurabh Parave](https://www.linkedin.com/in/saurabh-parave-957303162/) | HPC Performance Engineer
 - [Kalai Selvan](https://www.linkedin.com/in/kalai-selvan-5a153358/) | HPC Performance Engineer
 
-
 Other contributors:
 
 -   [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) |
     Technical Writer
--   [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director
+-   [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director of
     Business Strategy
 -   [Sachin
     Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) |
