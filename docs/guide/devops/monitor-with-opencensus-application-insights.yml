@@ -22,4 +22,4 @@ name: Monitor a distributed system by using Application Insights and OpenCensus
 summary: Learn how to monitor an end-to-end distributed system by using OpenCensus for Python and Application Insights.
 thumbnailUrl: /azure/architecture/browse/thumbs/monitor-with-opencensus-application-insights.png
 content: |
-  [!include[](monitor-with-opencensus-application-insights.md)]
+  [!include[](monitor-with-opencensus-application-insights-content.md)]
