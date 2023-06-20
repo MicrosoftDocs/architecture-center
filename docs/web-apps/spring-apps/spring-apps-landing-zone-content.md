@@ -274,6 +274,10 @@ There are other VMware services supported on this tier. For more information, se
 
 The reference implementation supports Azure Spring Apps Enterprise SKU as a deployment option. In this option, there are some architecture changes. It uses an instance of Azure Database for PostgreSQL flexible server deployed with Azure Virtual Network integration and Azure Cache for Redis with private endpoint. The sample application is [Fitness Store app](/azure/spring-apps/quickstart-sample-app-acme-fitness-store-introduction).
 
+## Next steps
+
+- Review the design areas of the [Azure Spring Apps landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator).
+
 ## Related resources
 
 For product documentation on the Azure services used in this architecture, see the following articles:
@@ -289,7 +293,3 @@ For other implementation scenarios, see the following articles:
 
 - [Deploy Azure Spring Apps to multiple regions](spring-apps-multi-region.yml)
 - [Expose Azure Spring Apps through a reverse proxy](spring-cloud-reverse-proxy.yml)
-
-## Next steps
-
-- Review the design areas of the [Azure Spring Apps landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator).
