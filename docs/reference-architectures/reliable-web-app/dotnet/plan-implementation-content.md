@@ -9,7 +9,7 @@ The reliable web app pattern is how you should update web apps moving to the clo
 
 Your business context, existing web app, and service level objective (SLO) affect the architecture of your web app. The reference implementation needed a multi-region deployment to meet stated objectives (*see figure 1*).
 
-[![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-dotnet.png)](images/reliable-web-app-dotnet.png)
+[![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-dotnet.png)](images/reliable-web-app-dotnet.png#lighthouse)
 
 *Figure 1. Target reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet.vsdx) of this architecture. See [Production environment](https://azure.com/e/26f1165c5e9344a4bf814cfe6c85ed8d) and [Nonproduction environment](https://azure.com/e/8a574d4811a74928b55956838db71093) for an estimated cost.*
 
