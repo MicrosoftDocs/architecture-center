@@ -115,7 +115,7 @@ Microsoft based the following open-source [Azure Industrial IoT](https://github.
 
 - [OPC Vault](https://github.com/Azure/azure-iiot-opc-vault-service/blob/main/docs/opcvault-services-overview.md) is a cloud microservice that can configure, register, and manage certificate lifecycle for OPC UA server and client applications.
 
-- [Discovery Services](https://azure.github.io/Industrial-IoT/modules/discovery.html) is an Azure IoT Edge module that supports network scanning and OPC UA discovery.
+- [Discovery Services](https://azure.github.io/Industrial-IoT/web-api/#discovery) is an Azure IoT Edge module that supports network scanning and OPC UA discovery.
 
 See the [Microsoft Azure IIoT solution](https://azure.github.io/Industrial-IoT) on GitHub for more open-source services, REST APIs, deployment scripts, and configuration tools.
 
