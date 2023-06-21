@@ -5,7 +5,7 @@ metadata:
   description: Learn about a high-availability blue/green deployment solution for applications on Azure Spring Apps.
   author: vermegi
   ms.author: givermei
-  ms.date: 06/20/2023
+  ms.date: 06/21/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

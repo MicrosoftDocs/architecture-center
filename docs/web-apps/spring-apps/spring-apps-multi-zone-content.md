@@ -22,7 +22,7 @@ The following Azure services are the components in this architecture. For produc
 
 - **Azure Spring Apps Standard** hosts a sample Java Spring Boot application implemented as microservices. 
 
-- **Azure Application Gateway Standard v2** is the load balancer and manages traffic to the applications. It acts a local reverse proxy in a region where your application runs. 
+- **Azure Application Gateway Standard_v2** is the load balancer and manages traffic to the applications. It acts a local reverse proxy in a region where your application runs. 
 
     This SKU has the integrated Azure Web Application Firewall that provides centralized protection of your web applications from common exploits and vulnerabilities. Web Application Firewall on Application Gateway tracks Open Web Application Security Project (OWASP) exploits.
 
@@ -91,7 +91,7 @@ You should also protect your virtual networks with [Azure DDoS Protection](/azur
 
 The architecture design incorporates several PaaS services that participate in processing a user request. Strict network controls should be placed on those services to make sure the application isn't affected.
 
-### Private connectivity
+##### Private connectivity
 
 Communication from Azure Spring Apps to supporting services like Key Vault and Azure Database for MySQL is also controlled by using either private endpoints or network integration.
 
@@ -109,15 +109,15 @@ Private endpoints don't require a dedicated subnet, but it's good practice to pu
 
 The private endpoint and network-integrated connections use an [Azure private DNS zone](/azure/dns/private-dns-getstarted-cli).
 
-### Controls on the traffic flow
+##### Controls on the traffic flow
 
-This architecture allows incoming calls only through the public endpoint exposed by Application Gateway. The traffic still needs to be inspected to block common exploits and vulnerabilities. Web Application Firewall on the Application Gateway tracks OWASP vulnerabilities. Incoming traffic is inspected based on the configured rules with an action to follow. 
+This architecture allows incoming requests only through the public endpoint exposed by Application Gateway. The traffic still needs to be inspected to block common exploits and vulnerabilities. Web Application Firewall on the Application Gateway tracks OWASP vulnerabilities. Incoming traffic is inspected based on the configured rules with an action to follow. 
 
 The Azure Spring Apps instance has an internal load balancer that routes and distributes traffic to the back-end services. The load balancer is configured to accept traffic only from Application Gateway.
 
 The application might need to connect with other endpoints over the public internet. To restrict that flow, consider placing Azure Firewall on the egress path.
 
-### Reverse proxy setup
+##### Reverse proxy setup
 
 The current solution uses Application Gateway as a reverse proxy. However, you can use different reverse proxies in front of Azure Spring Apps. You can combine Application Gateway with Azure Front Door, or you can use Front Door instead of Application Gateway.
 

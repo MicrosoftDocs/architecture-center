@@ -55,17 +55,17 @@ Your choice depends on the availability requirements for your application. This 
 > [!NOTE] 
 > Multi-region deployment doubles the workload cost because the complete setup is duplicated to a secondary region.
 
-### Active-active
+##### Active-active
 
 In active-active mode, all regions process requests simultaneously. The greatest challenge with active-active mode is keeping the data synchronization between the regions. This mode is a costly approach because you pay twice for almost all components.
 
-### Active-passive with hot standby
+##### Active-passive with hot standby
 
 In active-passive mode with hot standby, the secondary region doesn't receive any requests from Azure Front Door as long as the primary region is active. Make sure you replicate your application data from your primary to your secondary region. If a failure occurs in your primary region, you need to change the roles of your back-end databases and fail over all traffic through Azure Front Door to your secondary region.
 
 In active-passive mode, failover is expected to take some time, which makes it easier to ensure all data remains synchronized. However, the active-passive mode with hot standby is as costly as working with active-active mode.
   
-### Active-passive with cold standby
+##### Active-passive with cold standby
 
 In active-passive mode with cold standby, the primary region has all the resources and serves traffic. The secondary region might have fewer components or components with lower compute resources. The technology choices depend on how much downtime is acceptable according to the business requirements. The extent of your secondary region setup also affects costs. Make sure that at least application data is present in the secondary region.
 
@@ -101,7 +101,7 @@ The reference architecture example uses an equal-weight load balancing rule betw
 
 - One origin per region where the application is deployed, where each origin is an [Azure Application Gateway](/azure/application-gateway/overview) instance.
 
-### Resource group layout
+##### Resource group layout
 
 Use Azure resource groups to manage resources deployed to each region as a single collection. Consider placing the primary region, secondary region, and Azure Front Door into separate resource groups, as shown in the following diagram:
 
@@ -116,7 +116,7 @@ The diagram shows the following configuration of resource groups:
 
 Resources in the same resource group share the same lifecycle and can be easily created and deleted together. Each region has its own set of resources in a dedicated resource group that follows a naming convention based on the region name. Azure Front Door is in its own resource group because it must exist even if other regions are added or removed.
 
-### Reverse proxy setup
+##### Reverse proxy setup
 
 Azure Front Door does global load balancing between regions. This reverse proxy helps distribute the traffic if you deploy a workload to multiple regions. As an alternative, you can use [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview). Traffic Manager is a DNS-based traffic load balancer that load balances only at the domain level.
 
@@ -129,7 +129,7 @@ The current solution uses two reverse proxies to maintain consistency with the b
 
 For information about different reverse proxy scenarios, how to set them up, and their security considerations, see [Expose Azure Spring Apps through a reverse proxy](spring-cloud-reverse-proxy.yml).
 
-### Back-end database
+##### Back-end database
 
 For multi-region deployment, you need to have a data replication strategy. When the application is available across regions, data should be synchronized so users don't see stale data. 
 

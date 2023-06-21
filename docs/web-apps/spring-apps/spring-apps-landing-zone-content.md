@@ -40,7 +40,7 @@ Your team is responsible for creating and maintaining the following resources.
 
 - **Azure Spring Apps Standard** hosts your Java Spring Boot applications in Azure. 
 
-- **Azure Application Gateway Standard v2** is the reverse proxy that routes incoming web traffic to Azure Spring Apps. This SKU has integrated Azure Web Application Firewall that inspects traffic for Open Web Application Security Project (OWASP) vulnerabilities.
+- **Azure Application Gateway Standard_v2** is the reverse proxy that routes incoming web traffic to Azure Spring Apps. This SKU has integrated Azure Web Application Firewall that inspects traffic for Open Web Application Security Project (OWASP) vulnerabilities.
 
 - **Azure Virtual Machines** acts as a jump box for management operations.
 
@@ -52,7 +52,7 @@ Your team is responsible for creating and maintaining the following resources.
 
 - **Azure Application Insights** is used as an Application Performance Management (APM) tool to collect all application monitoring data and store it directly within Log Analytics.
 
-### Platform team-owned resources
+#### Platform team-owned resources
 
 This architecture assumes the following resources already exist. The central teams of the organization own and maintain these resources. Your application depends on these services to reduce operational overhead and optimize cost.
 
@@ -70,7 +70,7 @@ This architecture assumes the following resources already exist. The central tea
 
 The reference implementation includes a sample application that illustrates a typical microservices application hosted in an Azure Spring Apps instance. The following sections provide details about the hosted application. For more information, see [PetClinic store sample](/azure/spring-apps/quickstart-sample-app-introduction). 
 
-### Service discovery
+#### Service discovery
 
 In a microservices pattern, service registry capability must be supported for routing user requests and service-to-service communication. 
 
@@ -78,11 +78,11 @@ Services should be able to communicate with other services. When new instances a
 
 The Azure Spring Apps instance implements the [gateway routing](/azure/architecture/patterns/gateway-routing) pattern, which provides a single point of entry for external traffic. The gateway routes incoming requests to the active service instances found in the registry. In this design, the pattern is implemented with an open-source implementation of [Spring Cloud Gateway](https://spring.io/projects/spring-cloud-gateway). It offers a feature set that includes authentication and authorization, resiliency features, and rate limiting. 
 
-### Configuration server
+#### Configuration server
 
 For microservices, configuration data must be separated from the code. In this architecture, [Azure Spring Apps Config Server](/azure/spring-apps/how-to-config-server) enables the management of resources through a pluggable repository that supports local storage and Git repositories.
 
-### Redundancy
+#### Redundancy
 
 You can use availability zones when creating an Azure Spring Apps instance. 
 
@@ -94,7 +94,7 @@ If you enable your own resource in Azure Spring Apps, such as your own persisten
 
 Availability zones aren't supported in all regions. To see which regions support availability zones, see [Azure regions with availability zone support](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support).
 
-### Scalability
+#### Scalability
 
 Azure Spring Apps provides [autoscaling](/azure/spring-apps/how-to-setup-autoscale) capabilities out of the box that enable apps to scale based on metric thresholds or during a specific time window. Autoscaling is recommended when apps need to scale up or scale out in response to changing demand.
 
@@ -107,11 +107,11 @@ Azure Spring Apps also supports scaling your applications [manually](/azure/spri
 
 In this design, the workload is dependent on resources owned by the platform team for accessing on-premises resources, controlling egress traffic, and so on. For more information, see [Azure Spring Apps landing zone accelerator: Network topology and connectivity](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/network-topology-and-connectivity).
 
-### Network topology
+#### Network topology
 
 The platform team determines the network topology. A hub-spoke topology is assumed in this architecture.
 
-#### Hub virtual network
+##### Hub virtual network
 
 The [connectivity subscription](/azure/cloud-adoption-framework/ready/azure-best-practices/traditional-azure-networking-topology) contains a hub virtual network shared by the entire organization. The network contains [networking resources](#platform-team-owned-resources) owned and maintained by the platform team. The following platform team resources are in scope for this architecture:
 
@@ -130,7 +130,7 @@ The pre-provisioned virtual network and peerings must be able to support the exp
 > - Provide distinct addresses for virtual networks that participate in peerings.
 > - Allocate IP address spaces that are large enough to contain the service runtime and deployments resources and also support scalability.
 
-### VNet injection and subnetting
+#### VNet injection and subnetting
 
 Azure Spring Apps is deployed into the network via the [VNET injection](/azure/spring-apps/how-to-deploy-in-azure-virtual-network) process. This process isolates the application from the internet, systems in private networks, other Azure services, and even the service runtime. Inbound and outbound traffic from the application is allowed or denied based on network rules.
 
@@ -143,7 +143,7 @@ The minimum size of each subnet is /28. The actual size depends on the number of
 > [!WARNING]
 > The selected subnet size can't overlap with the existing virtual network address space. The size also shouldn't overlap with any peered or on-premises subnet address ranges.
 
-### Network controls
+#### Network controls
 
 Azure Application Gateway with Web Application Firewall restricts inbound traffic to the spoke virtual network from the internet. Web Application Firewall rules allow or deny HTTP/s connections.
 
@@ -193,7 +193,7 @@ Collect logs and metrics for other Azure services. The boot diagnostics is enabl
 
 [Configure diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings) to send resource logs for all other Azure resources to a Log Analytics workspace. Resource logs aren't collected until they're routed to a destination. Each Azure resource requires its own diagnostic setting.
 
-### Data correlation from multiple workspaces
+#### Data correlation from multiple workspaces
 
 Logs and metrics generated by the workload and its infrastructure components are saved in the workload's Log Analytics workspace. However, logs and metrics generated by centralized services such as Active Directory and Azure Firewall are saved to a central Log Analytics workspace managed by platform teams. Correlating data from different sinks can lead to complexities.
 
@@ -211,7 +211,7 @@ To help with this type of collaboration, familiarize yourself with the procedure
 >
 > For more information, see [Azure Spring Apps landing zone accelerator: Monitor operations](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/management).
 
-### Health probes
+#### Health probes
 
 Azure Application Gateway uses [health probes](/azure/application-gateway/application-gateway-probe-overview) to ensure incoming traffic is routed to responsive back-end instances. Azure Spring Apps Readiness, Liveness, and Startup probes are recommended. If there's a failure, these probes can help in graceful termination. For more information, see [How to configure health probes](/azure/spring-apps/how-to-configure-health-probes-graceful-termination).
 
@@ -219,11 +219,11 @@ Azure Application Gateway uses [health probes](/azure/application-gateway/applic
 
 The centralized teams provide networking and identity controls as part of the platform. However, the workload should have security affordances to reduce the attack surface. For more information, see [Azure Spring Apps landing zone accelerator: Security](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/security).
 
-### Data at rest
+#### Data at rest
 
 Data at rest should be encrypted. The application itself is stateless. Any data is persisted in an external database, where this architecture uses Azure Database for MySQL. This service encrypts the data, including backups and temporary files created while running queries.
 
-### Data in transit
+#### Data in transit
 
 Data in transit should be encrypted. Traffic between the user's browser and Azure Application Gateway must be encrypted to ensure data remains unchanged during transit. In this architecture, Azure Application Gateway only accepts HTTPS traffic and negotiates TLS handshake. This check is enforced through NSG rules on the Application Gateway subnet. The TLS certificate is loaded directly during deployment.
 
@@ -233,11 +233,11 @@ You can choose to implement [end-to-end TLS communication through Azure Spring A
 
 Data in transit should be inspected for vulnerabilities. Web Application Firewall is integrated with Application Gateway and further inspects traffic blocking OWASP vulnerabilities. You can configure Web Application Firewall to detect, monitor, and log threat alerts. Or, you can set up the service to block intrusions and attacks detected by the rules.
 
-### DDoS protection
+#### DDoS protection
 
 Distributed denial of service (DDoS) can take down a system by overburdening it with requests. Basic DDoS protection is enabled at the infrastructure level for all Azure services to defend against such attacks. Consider upgrading to [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) service to take advantage of features such as monitoring, alerts, the ability set thresholds for the application. For more information, see [Azure DDoS Protection Service frequently asked questions](/azure/ddos-protection/ddos-faq).
 
-### Secret management
+#### Secret management
 
 Microsoft's Zero Trust security approach requires secrets, certificates, and credentials to be stored in a secure vault. The recommended service is Azure Key Vault.
 

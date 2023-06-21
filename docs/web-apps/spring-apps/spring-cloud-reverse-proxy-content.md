@@ -120,7 +120,7 @@ This pattern is commonly used. For the purposes of this article, we assume that 
 
 Describing how Spring Cloud Gateway works is outside the scope of this article. It's a highly flexible service that you can customize via code or configuration. To keep things simple, this article describes only a purely configuration-driven approach that doesn't require code changes. You can implement this approach by including the traditional [`application.properties` or `application.yml`](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config.files) file in the deployed Spring Cloud Gateway app. You can also implement the approach by using a [Config Server in Azure Spring Apps](/azure/spring-cloud/how-to-config-server) that externalizes the configuration file into a Git repository. In the following examples, we implement the `application.yml` approach with YAML syntax, but the equivalent `application.properties` syntax also works.
 
-#### Route requests to your applications
+##### Route requests to your applications
 
 By default, when your app in Azure Spring Apps doesn't have an endpoint assigned to it or a custom domain configured for it, it isn't reachable from the outside. When an app [registers itself with the Spring Cloud Service Registry](/azure/spring-cloud/how-to-service-registration), Spring Cloud Gateway can discover the app so it can use routing rules to forward traffic to the right destination app.
 
@@ -157,7 +157,7 @@ spring:
 
 With both the discovery locator approach and explicit route definitions, you can use route predicates to reject invalid requests. In this case, we use that functionality to block requests that don't come from the expected reverse proxy that sits in front of Azure Spring Apps.
 
-#### Restrict access with the X-Forwarded-For HTTP header
+##### Restrict access with the X-Forwarded-For HTTP header
 
 When you deploy an app into Azure Spring Apps, the HTTP client or reverse proxy doesn't connect directly to the app. Network traffic goes through an internal ingress controller first.
 
@@ -173,7 +173,7 @@ To filter requests based on the `X-Forwarded-For` header, you can use the built-
 > [!NOTE]
 > The `XForwarded Remote Addr` route predicate requires Spring Cloud Gateway version 3.1.1 or later. Version 3.1.1 is available in the [Spring Cloud 2021.0.1](https://github.com/spring-cloud/spring-cloud-release/wiki/Spring-Cloud-2021.0-Release-Notes#202101) release train. If you can't use make a few code changes to your Spring Cloud Gateway app to [modify the way the `RemoteAddr` route predicate determines the client IP address](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html#modifying-the-way-remote-addresses-are-resolved). You can achieve the same result as you would with the `XForwarded Remote Addr` route predicate. Configure the `RemoteAddr` route predicate to use `XForwardedRemoteAddressResolver` and configure the latter with a `maxTrustedIndex` value of `1`. This approach configures your Spring Cloud Gateway app to use the right-most value of the `X-Forwarded-For` header as the logical client IP address.
 
-#### Configure your app to see the correct host name and request URL
+##### Configure your app to see the correct host name and request URL
 
 When you use Spring Cloud Gateway, there's an important factor to consider. Spring Cloud Gateway sets the HTTP `Host` header on the outbound request to the internal IP address of your app instance, such as `Host: 10.2.1.15:1025`. The request's host name that your application code sees is no longer the original host name of the request that the browser sent, such as `contoso.com`. In some cases, this result can lead to problems like broken cookies or redirect URLs not working properly. For more information on these types of problems and how to configure a reverse proxy service like Application Gateway or Azure Front Door to avoid them, see [Host name preservation](../../best-practices/host-name-preservation.yml).
 

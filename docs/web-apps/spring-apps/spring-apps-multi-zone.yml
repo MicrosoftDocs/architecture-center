@@ -5,7 +5,7 @@ metadata:
   description: Learn how to deploy Azure Spring Apps instances in multiple zones for increased availability, resilience, and performance.
   author: vermegi
   ms.author: prwilk
-  ms.date: 06/16/2023
+  ms.date: 06/21/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
