@@ -23,15 +23,13 @@ HELYX is used in the automotive, aerospace, construction, marine, turbo, and ene
 
 Multi-node configuration:
 
-:::image type="content" source="media/helyx-cluster-architecture.png" alt-text="Diagram that shows a multi-node configuration." lightbox="media/helyx-cluster-architecture.png" border="false"::: 
-
-*Download a [Visio file](https://arch-center.azureedge.net/helyx-cluster-architecture.vsdx) of this architecture.* 
+:::image type="content" source="media/helyx-cluster-architecture.svg" alt-text="Diagram that shows a multi-node configuration." lightbox="media/helyx-cluster-architecture.svg" border="false":::
 
 Single-node configuration: 
 
-:::image type="content" source="media/helyx-architecture.png" alt-text="Diagram that shows a single-node configuration." border="false"::: 
+:::image type="content" source="media/helyx-architecture.svg" alt-text="Diagram that shows a single-node configuration." border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/helyx-architecture.vsdx) of this architecture.* 
+*Download a [Visio file](https://arch-center.azureedge.net/helyx-architecture.vsdx) of all diagram in this article.*
 
 ### Components
 
