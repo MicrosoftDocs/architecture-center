@@ -34,7 +34,7 @@ architecture.*
 
 Performance tests of Samadii DEM on Azure used [NVv3](/azure/virtual-machines/nvv3-series), [NCasT4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), [ND_A100_v4](/azure/virtual-machines/nda100-v4-series), and [NC A100 v4](/azure/virtual-machines/nc-a100-v4-series) series VMs running Windows 10. The following table provides details about the VMs.
 
-|VM size|GPU name|vCPU|Memory, in GiB|Maximum data disks|	GPU|GPU memory, in GiB|Maximum uncached disk throughput, in IOPS / MBps|Temporary storage (SSD), in GiB|Maximum NICs|
+|VM size|GPU name|vCPUs|Memory, in GiB|Maximum data disks|	GPUs|GPU memory, in GiB|Maximum uncached disk throughput, in IOPS / MBps|Temporary storage (SSD), in GiB|Maximum NICs|
 |-|-|-|-|-|-|-|-|-|-|
 |Standard_NV12s_v3	|Tesla M60|12	|112|	12|	1|	8	|20,000 / 200	|320|	4|
 |Standard_NC4as_T4_v3|Tesla T4|	4|	28	|8	|1	|16	|-|	180|	2|
@@ -169,8 +169,8 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 ## Summary
 
 - Samadii DEM was successfully tested on ND_A100_v4, NCv3, NCasT4_v3, NVv3, and NC A100 v4 series VMs.
-- Performance tests demonstrate that Samadii DEM performs well on NCasT4_v3, NCv3, NC A100 v4, and ND_A100_v4 series VMs. The speed increases are as much as 1.5 times, 2 times, 2.25 times, and 2.15 times, respectively, over the times recorded with Tesla M60 GPU cards.
-- We recommend NCasT4_v3 VMs with a one-GPU configuration because these VMs are delivering good scale-up and are also cost efficient. For the simple box model, they provide relative speed increases that are comparable to those recorded on the NC A100 v4 VM.
+- Performance tests demonstrate that Samadii DEM performs well on NCasT4_v3, NCv3, NC A100 v4, and ND_A100_v4 series VMs. The speed increases are as much as 1.5 times, 2 times, 2.25 times, and 2.15 times, respectively, higher than the times recorded with Tesla M60 GPU cards.
+- We recommend NCasT4_v3 VMs with a one-GPU configuration because these VMs provide good scale-up and are also cost efficient. For the simple box model, they provide relative speed increases that are comparable to those recorded on the NC A100 v4 VM.
 
 ## Contributors
 
