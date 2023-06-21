@@ -27,8 +27,7 @@ Companies in the heavy equipment, off-road, mining, steelmaking, and process man
 
 -   [Azure Virtual
     Machines](https://azure.microsoft.com/services/virtual-machines) is
-    used to create Windows VMs. 
-    -   For information about deploying the VM and installing the
+    used to create Windows VMs. For information about deploying VMs and installing the
         drivers, see [Windows VMs on Azure](../../reference-architectures/n-tier/windows-vm.yml).
 -   [Azure Virtual
     Network](https://azure.microsoft.com/services/virtual-network) is
@@ -36,14 +35,14 @@ Companies in the heavy equipment, off-road, mining, steelmaking, and process man
     -   [Network security
         groups](/azure/virtual-network/network-security-groups-overview)
      restrict access to the VMs.  
-    -   A public IP address connects the internet to the VM.   
+    -   A public IP address connects the internet to the VMs.   
 -   A physical SSD provides storage.
 
 ## Compute sizing and drivers
 
 Performance tests of EDEM on Azure used [NCv3](/azure/virtual-machines/ncv3-series), [NC A100 v4](/azure/virtual-machines/nc-a100-v4-series), and [ND A100 v4](/azure/virtual-machines/nda100-v4-series) series VMs running on Windows. The following table provides the configuration details.
 
-|  Size|               vCPU    | Memory, in GiB |  Temporary storage (SSD), in GiB|   GPUs |    GPU  memory, in GiB     | Maximum data disks|Maximum uncached disk throughput: IOPS / MBps |Maximum NICs|
+|  Size|               vCPUs    | Memory, in GiB |  Temporary storage (SSD), in GiB|   GPUs |    GPU  memory, in GiB     | Maximum data disks|Maximum uncached disk throughput: IOPS / MBps |Maximum NICs|
 |--|--|--|--|--|--|--|-|-|
 |Standard_ND96asr_v4|   96   |    900|       6,000|      8 |   40|        32|80,000 / 800|8|
 |Standard_NC24ads_A100_v4|24|220|1,123|1|80|12|30,000 / 1,000|2|
@@ -62,12 +61,12 @@ Before you install EDEM, you need to deploy and connect a VM and install the req
 For information about deploying the VM and installing the drivers, see [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml).
  
 To download EDEM:
-1.	Sign in to [Altair one Marketplace](https://altairone.com/Marketplace?queryText=edem&app=EDEM&tab=Download).
+1.	Sign in to [Altair One Marketplace](https://altairone.com/Marketplace?queryText=edem&app=EDEM&tab=Download).
 2.	Select **EDEM** in the product list.
 3.	Select the appropriate operating system and download.
 4.	Download the license manager.
 
-See the documents on [Altair one Marketplace](https://altairone.com/Marketplace?queryText=edem&app=EDEM&tab=Download) for EDEM installation instructions.
+For EDEM installation instructions, see the documents on [Altair One Marketplace](https://altairone.com/Marketplace?queryText=edem&app=EDEM&tab=Download).
 
 ## EDEM performance results
 
@@ -104,7 +103,7 @@ The following table shows the elapsed wall-clock times, in seconds, required to 
 | Mill                | 1,339.11     | 83.18            | 116.49       |
 | Transfer chute      | 3,859.01     | 310.22           | 437.92       |
 
-The following graph uses a Standard_ND96asr_v4, 96 vCPU VM as a baseline and shows how much the speed increases on A100 and V100 GPU VMs. 
+The following graph uses a Standard_ND96asr_v4, 96-vCPU VM as a baseline and shows how much the speed increases on A100-GPU and V100-GPU VMs. 
 
 :::image type="content" source="media/altair-edem/2021-ndv4-ncv3.png" alt-text="Graph that shows relative speed increases on NCv4 and NCv3 VMs." lightbox="media/altair-edem/2021-ndv4-ncv3.png" border="false":::
 
@@ -151,7 +150,7 @@ Only model running time (wall-clock time) is considered for these cost calculati
 
 You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your configuration.
 
-The following tables provide elapsed times in hours. To compute the total cost, multiply the elapsed time by the Azure VM hourly cost. For the current hourly costs, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing).
+The following tables provide elapsed times in hours. To compute the total cost, multiply the elapsed time by the Azure VM hourly cost. For current hourly costs, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing).
 
 ### EDEM 2021.1 costs on ND96asr_v4 VMs
 
@@ -204,7 +203,7 @@ The following tables provide elapsed times in hours. To compute the total cost, 
 ## Summary
 
 - EDEM 2021.1 was deployed and tested on ND A100 v4 and NCv3 VMs with one GPU and two GPUs. EDEM 2022.1 was deployed and tested on ND A100 v4 and NC A100 v4 VMs with one GPU and multiple GPUs.
--	The GPU technology in EDEM provides faster processing than CPU configurations on Azure. Tests demonstrate speed increases of about 80x with NC A100 v4 A100 GPUs and about 60x with ND A100 v4 A100 GPUs.
+-	 On Azure, the GPU technology in EDEM provides faster processing than CPU configurations. Tests demonstrate speed increases of about 80x with NC A100 v4 A100 GPUs and about 60x with ND A100 v4 A100 GPUs.
 -	The complexity of the model affects GPU scale-up. 
 -	The NC A100 v4 VM demonstrates better GPU acceleration than other VM configurations on Azure.
 
