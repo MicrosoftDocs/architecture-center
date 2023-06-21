@@ -15,9 +15,9 @@ WRF is used by academic atmospheric scientists (dynamics, physics, weather, and 
 
 ## Architecture
 
-:::image type="content" source="media/wrf/architecture.png" alt-text="Diagram that shows an architecture for deploying WRF." lightbox="media/wrf/architecture.png" border="false":::
+:::image type="content" source="media/wrf/weather-research-forecasting.svg" alt-text="Diagram that shows an architecture for deploying WRF." lightbox="media/wrf/weather-research-forecasting.svg" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/wrf.vsdx) of this
+*Download a [Visio file](https://arch-center.azureedge.net/hpc-weather-research-forecasting.vsdx) of this
 architecture.*
 
 ### Components
