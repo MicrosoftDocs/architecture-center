@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution idea demonstrates how end manufacturers can connect their assets to the cloud using [Open Platform Communication Unified Architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua) and the [Microsoft Industrial Components](https://azure.github.io/Industrial-IoT/industrial-iot-components.html).
+This solution idea demonstrates how end manufacturers can connect their assets to the cloud using [Open Platform Communication Unified Architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua) and the [Microsoft Industrial Components](https://azure.github.io/Industrial-IoT/).
 
 ## Architecture
 
@@ -59,9 +59,9 @@ Manufacturers can monitor their equipment's key parameters to discover anomalies
 
 ## Next steps
 
-- For a detailed view of the Industrial Modules and Services, see the Azure Industrial IoT Platform [architecture](https://github.com/Azure/Industrial-IoT/blob/master/docs/architecture.md).
-- For a detailed view of all the individual microservices and agent processes, see [Architectural details](https://github.com/Azure/Industrial-IoT/tree/main).
-- You can find more information on how to get started with the Azure Industrial IoT Platform in the [Industrial IoT GitHub repository](https://github.com/Azure/Industrial-IoT/tree/main).
+- For a detailed view of the Industrial Modules and Services, see the Azure Industrial IoT Platform [architecture](https://github.com/Azure/Industrial-IoT/blob/main/docs/web-api/readme.md).
+- For a detailed view of all the individual microservices and agent processes, see [Architectural details](https://github.com/Azure/Industrial-IoT/blob/master/docs/architecture-details.md).
+- You can find more information on how to get started with the Azure Industrial IoT Platform in the [Industrial IoT GitHub repository](https://github.com/Azure/Industrial-IoT/blob/master/docs/architecture-details.md).
 
 ## Related resources
 
