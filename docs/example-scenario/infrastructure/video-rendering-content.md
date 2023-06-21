@@ -167,7 +167,7 @@ Learn modules:
 
 <!-- links -->
 
-[architecture]: ./media/architecture-video-rendering.png
+[architecture]: ./media/architecture-video-rendering.svg
 [security]: /azure/security
 [vmss]: /azure/virtual-machine-scale-sets/overview
 [compute-hpc]: /azure/virtual-machines/windows/sizes-hpc
