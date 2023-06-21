@@ -4,7 +4,7 @@ By using SQL Server 2016 or later with Machine Learning Services, a lending inst
 
 ## Architecture
 
-![Diagram that shows an architecture for predicting loan credit risk.](../media/loan-credit-risk-sql-server.png)
+![Diagram that shows an architecture for predicting loan credit risk.](../media/loan-credit-risk-sql-server.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/loan-credit-risk-with-sql-server.vsdx) of this architecture.*
 
