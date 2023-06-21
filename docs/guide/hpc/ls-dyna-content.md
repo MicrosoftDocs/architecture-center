@@ -13,7 +13,7 @@ LS-DYNA is used in the automotive, aerospace, construction, facilities, military
 
 ## Architecture
 
-:::image type="content" source="media/ls-dyna/architecture.png" alt-text="Diagram that shows an architecture for deploying LS-DYNA." lightbox="media/ls-dyna/architecture.png" border="false":::
+:::image type="content" source="media/ls-dyna/ls-dyna-architecture.svg" alt-text="Diagram that shows an architecture for deploying LS-DYNA." lightbox="media/ls-dyna/ls-dyna-architecture.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ls-dyna.vsdx) of this
 architecture.*
