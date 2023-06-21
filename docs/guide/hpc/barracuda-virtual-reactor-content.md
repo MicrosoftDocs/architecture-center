@@ -18,7 +18,7 @@ Barracuda is most widely used in the oil refining, petrochemical, energy, and mi
 
 ## Architecture
 
-:::image type="content" source="media/barracuda-virtual-reactor/barracuda-virtual-reactor.png" alt-text="Diagram that shows an architecture for deploying Virtual Reactor." lightbox="media/barracuda-virtual-reactor/barracuda-virtual-reactor.png" border="false":::
+:::image type="content" source="media/barracuda-virtual-reactor/barracuda-virtual-reactor.svg" alt-text="Diagram that shows an architecture for deploying Virtual Reactor." lightbox="media/barracuda-virtual-reactor/barracuda-virtual-reactor.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/barracuda-virtual-reactor.vsdx) of this
 architecture.*
