@@ -34,7 +34,7 @@ These use cases are similar except for the configuration of security and network
 
 The following sections describe the components of this architecture. The components are divided according to ownership responsibilities to help you identify what to share with the platform teams of the organization. For product documentation about Azure services, see the [Related resources](#related-resources) section.
 
-### Application team-owned resources
+#### Application team-owned resources
 
 Your team is responsible for creating and maintaining the following resources.
 
@@ -118,7 +118,7 @@ The [connectivity subscription](/azure/cloud-adoption-framework/ready/azure-best
 - **Azure Firewall** controls outbound traffic to the internet.
 - **Azure Bastion** secures access to the management jump box.
 
-#### Spoke virtual network
+##### Spoke virtual network
 
 The application landing zone has at least one pre-provisioned virtual network that's peered to the hub network. You own the resources in this network, such as the load balancer that routes and protects inbound HTTP/s connections to Azure Spring Apps from the internet.
 
