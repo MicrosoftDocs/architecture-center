@@ -2,7 +2,7 @@ This article briefly describes the steps for running [Samadii DEM](https://www.m
 
 Samadii DEM analyzes and interprets large-scale particles at high speed. It uses discrete element method (DEM), which is a Lagrangian method that determines the movement of particles by using the six-degrees-of-freedom equations of motion, taking into consideration all forces of individual particles. It uses explicit methods for time integration to calculate the position and velocity of the particles in the next time step.
 
-DEM requires significant memory and computing power because of its small time step and the large number of particles that it takes into account. Samadii DEM, which is designed to perform analysis by using GPU and parallel processing techniques, supplies reliable results by analyzing a variety of large-scale grain boundary issues at a high speed. 
+DEM requires significant memory and computing power because of its small time step and the large number of particles that it takes into account. Samadii DEM, which is designed to perform analysis by using GPU and parallel processing techniques, supplies reliable results by analyzing a variety of large-scale grain boundary issues at a high speed.
 
 Samadii DEM is used in the mechanical, electronic, chemical, semiconductor, manufacturing, automotive, energy, and construction/facilities industries.
 
@@ -23,12 +23,12 @@ architecture.*
 ### Components
 
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is
-    used to create a Windows VM. For information about deploying the VM and installing the drivers, see [Windows VMs on Azure](../../reference-architectures/n-tier/windows-vm.yml).
+    used to create a Windows VM. For information about deploying VMs and installing the drivers, see [Windows VMs on Azure](../../reference-architectures/n-tier/windows-vm.yml).
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is
     used to create a private network infrastructure in the cloud.
   - [Network security groups](/azure/virtual-network/network-security-groups-overview) restrict access to the VM.  
   - A public IP address connects the internet to the VM.
-- A physical solid-state drive (SSD) provide storage.
+- A physical solid-state drive (SSD) provides storage.
 
 ## Compute sizing and drivers
 
@@ -136,7 +136,7 @@ Only simulation runtime is considered for these cost calculations. Application i
 
 You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your configuration.
 
-### Costs, simple box 
+### Costs, simple box
 
 |VM size	|Number of GPUs|	GPUs utilized	|	Wall-clock time, in hours|
 |-|-|-|-|
@@ -169,8 +169,8 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 ## Summary
 
 - Samadii DEM was successfully tested on ND_A100_v4, NCv3, NCasT4_v3, NVv3, and NC A100 v4 series VMs.
-- From the Performance Benchmarking results, it is observed that NCasT4, NCv3, NC A100 v4 and ND A100 v4 Series VMs are delivering good performance for Samadii-DEM application. We can observe a max speedup of about 1.5x, 2x, 2.25x and 2.15x for the mentioned VMs respectively when compared with M 60 GPU cards.
-- NCasT4 Virtual Machines with 1 GPU configuration are recommended here since these VMs are delivering good scale-up and are also very cost efficient since we are almost getting similar speedup as the NC A100 v4 VM for the simple-box model.
+- Performance tests demonstrate that Samadii DEM performs well on NCasT4_v3, NCv3, NC A100 v4, and ND_A100_v4 series VMs. The speed increases are as much as 1.5 times, 2 times, 2.25 times, and 2.15 times, respectively, over the times recorded with Tesla M60 GPU cards.
+- We recommend NCasT4_v3 VMs with a one-GPU configuration because these VMs are delivering good scale-up and are also cost efficient. For the simple box model, they provide relative speed increases that are comparable to those recorded on the NC A100 v4 VM.
 
 ## Contributors
 
