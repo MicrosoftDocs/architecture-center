@@ -141,7 +141,7 @@ The following image shows the rendered output:
 
 The following table lists performance data for caching via a Python script. When you use the Cached Playback feature, you can view changes that you make to the animation without having to create a new playblast.
 
-| Number of vCPUs (cores) | Filling playback (frames/second) | Cached playback (frames/second) | Fill time (seconds) | Memory before playback (MB) | Memory after playback (MB) |
+| Number of GPUs | Filling playback (frames/second) | Cached playback (frames/second) | Fill time (seconds) | Memory before playback (MB) | Memory after playback (MB) |
 | --- | --- | --- | --- | --- | --- |
 | 1/3 | 6.19 | 21.31 | 0.88 | [112,638.88, 18,825.78] | [112,638.88, 18,697.53] |
 | 1/2 | 17.09 | 24.11 | 0.67 | [225,278.88, 19,137.05] | [225,278.88, 19,172.94] |
@@ -157,13 +157,14 @@ The following table lists performance data for caching via a Python script. When
 
 The following table lists the elapsed times in hours for running the model with various GPU configurations. To compute the total cost, multiply these times by the Azure VM hourly cost for an NVadsA10_v5 VM. For the current hourly cost, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing) and [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing).
 
-| Number of GPUs | Elapsed time (hours) |
+| Number of GPUs or CPUs | Elapsed time (hours) |
 | --- | --- |
-| 1/3 | 0.0041 |
-| 1/2 | 0.0036 |
-| 1 | 0.0035 |
+| 1/3 GPUs | 0.038 |
+| 1/2 GPUs | 0.0267 |
+| 1 GPU | 0.0075 |
+| 6 vCPUs | 0.3542 |
 
-Only the model running time, or wall clock time, is considered for these cost calculations. The application installation time isn't considered. The calculations are indicative of your potential results, but actual values depend on the size of your model.
+For these cost calculations, only the model rendering time is considered, measured in wall-clock time. The application installation time isn't considered. The calculations are indicative of your potential results, but actual values depend on the size of your model.
 
 To estimate the cost of your configuration, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
