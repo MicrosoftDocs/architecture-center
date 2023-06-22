@@ -693,14 +693,14 @@
 			<text x="7.23" y="542.3" class="st47" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Active Directory</text>		</g>
 		<g id="shape1090-152" v:mID="1090" v:groupContext="shape" transform="translate(470.443,-303.75)">
 			<title>Sheet.1090</title>
-			<desc>App Services (CD)</desc>
+			<desc>App Service (CD)</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(19000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="46.3438" cy="539" width="92.69" height="20"/>
 			<rect x="0" y="529" width="92.6875" height="20" class="st46"/>
-			<text x="15.4" y="535.7" class="st47" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>App Services<v:newlineChar/><tspan
+			<text x="17.73" y="535.7" class="st47" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>App Service<v:newlineChar/><tspan
 						x="35.76" dy="1.2em" class="st48">(CD)</tspan></text>		</g>
 		<g id="shape1091-156" v:mID="1091" v:groupContext="shape" transform="translate(626.323,-303.75)">
 			<title>Sheet.1091</title>
@@ -1021,14 +1021,14 @@
 		</g>
 		<g id="shape1121-293" v:mID="1121" v:groupContext="shape" transform="translate(496.739,-501.75)">
 			<title>Sheet.1121</title>
-			<desc>Azure Environment</desc>
+			<desc>Azure environment</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(50000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="54.5173" cy="539" width="109.04" height="20"/>
 			<rect x="0" y="529" width="109.035" height="20" class="st46"/>
-			<text x="4.85" y="542.3" class="st63" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Environment</text>		</g>
+			<text x="4.8" y="542.3" class="st63" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure environment</text>		</g>
 		<g id="shape1122-296" v:mID="1122" v:groupContext="shape" transform="translate(496.739,-103.75)">
 			<title>Sheet.1122</title>
 			<desc>On-premises</desc>
