@@ -66,12 +66,13 @@ The product installation process involves installing a license server, installin
 
 ## Samadii Plasma performance results
 
-Windows 10 Professional, version 20H2, with an x86-64 architecture, was used for all tests. The following table shows the processors that were used.
+The following table shows the operating system versions and processors that were used for the tests.
 
-|VM series|ND_A100_v4|	NCv3|	NCasT4_v3|	NVv3|NC_A100_v4|
+|VM series| ND_A100_v4	|NCv3| 	NCasT4_v3|	NVv3| 	NC A100 v4|
 |-|-|-|-|-|-|
-|Processor|	AMD EPYC 7V12, 64-core processor, 2.44 GHz (2 processors)|	Intel Xeon CPU E5-2690 v4|	AMD EPYC 7V12, 64-core processor, 2.44 GHz|	Intel Xeon CPU E5-2690 v4|AMD EPYC 7V13, 64-core processor, 2.44 GHz|
-
+|Operating system version|Windows 10 Professional, version 20H2|Windows 10 Professional, version 20H2|Windows 10 Professional, version 20H2|Windows 10 Professional, version 20H2|Windows 10 Professional, version 21H2|
+|OS architecture|x86-64 |x86-64 |x86-64 |x86-64 |x86-64 |
+|Processor	|AMD EPYC 7V12, 64-core processor, 2.44 GHz (2 processors)	|Intel Xeon CPU E5-2690 v4|	AMD EPYC 7V12, 64-core processor, 2.44 GHz	|Intel Xeon CPU E5-2690 v4|	AMD EPYC 7V13, 64-core processor, 2.44 GHz|
 The following three models were used for testing.
 
 ### Magnetron sputter
@@ -152,7 +153,7 @@ This graph shows the relative speed increases.
 
 ## Azure cost
 
-The following tables present wall-clock times in hours. To compute the total cost, multiply these times by the Azure VM hourly costs for NVv3, NCasT4_v3, NCv3, ND_A100_v4, and NC_A100_v4 series VMs. For the current hourly costs, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing).
+The following tables present simulation runtimes in hours. To compute the total cost, multiply these times by the Azure VM hourly costs for NVv3, NCasT4_v3, NCv3, ND_A100_v4, and NC_A100_v4 series VMs. For the current hourly costs, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing).
 
 Only simulation runtime is considered in these cost calculations. Application installation time and license costs aren't included.
 
