@@ -96,34 +96,6 @@ This scenario is a pull-based DevOps pipeline for a typical web application. The
 
 Any repository that's compatible with Git, including Azure DevOps, can serve as the configuration source repository.
 
-#### Dataflow for scenario 5
-
-This solution follows a strong GitOps approach.
-
-1. The single source of truth is the GitHub repository that holds the provisioned AKS cluster configurations. The repository stores all AKS application manifests and all cluster infrastructure desired states. Every change to the cluster happens under version control.
-
-   GitHub functionality:
-   - Ensures review for changes.
-   - Prevents unintended or unauthorized changes.
-   - Enforces desired quality checks.
-1. Flux is the GitOps operator and controller, and is the only component that can make changes to the cluster. Flux pulls cluster desired state changes from GitHub, and syncs them into AKS. Flux:
-   - Pulls desired changes from GitHub.
-   - Detects any configuration drift.
-   - Reconciles the state in the Kubernetes cluster.
-   - Manages Gatekeeper and the applications.
-   - Updates itself.
-1. Open Policy Agent (OPA) Gatekeeper enforces policies with a validating admission webhook. Gatekeeper validates cluster configuration changes against provisioned policies, and applies the changes only if they comply with policies.
-
-### Components
-
-The architecture scenarios use one or more of the following components:
-
-1. [AKS](https://azure.microsoft.com/products/kubernetes-service) is a highly available, secure, and fully managed Kubernetes service in Azure. In AKS, Azure manages the Kubernetes API server. Cluster owners and operators access and manage the Kubernetes nodes and node pools.
-1. [GitHub](https://github.com) is a code hosting platform for version control and collaboration. GitHub provides Git distributed version control, source code management, and other features.
-1. [Flux](https://fluxcd.io) is a GitOps tool that automates the deployment of applications on Kubernetes. Flux automates configuration updates when there's new code to deploy. Flux is provided as a native extension to AKS.
-1. [Argo CD](https://argo-cd.readthedocs.io) is a declarative GitOps continuous-delivery tool for Kubernetes.
-1. [OPA Gatekeeper](https://github.com/open-policy-agent/gatekeeper) is a project that integrates the open-source OPA admission controller with Kubernetes. Kubernetes admission controllers enforce policies on objects during create, update, and delete operations, and are fundamental to Kubernetes policy enforcement.
-
 ## Scenario details
 
 GitOps is a set of principles for operating and managing a software system.
