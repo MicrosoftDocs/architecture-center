@@ -2,7 +2,9 @@ Provisioning a virtual machine (VM) in Azure requires some additional components
 
 ## Architecture
 
-![Diagram showing a Linux VM in Azure.](./images/single-vm-diagram.png)
+:::image type="content" border="false" source="./images/single-vm-diagram.svg" alt-text="Diagram showing a Linux VM in Azure." lightbox="./images/single-vm-diagram.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/linux-vm-single-vm-diagram.vsdx) of this architecture.*
 
 ## Workflow
 
