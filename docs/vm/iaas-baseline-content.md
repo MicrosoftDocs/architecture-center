@@ -572,7 +572,7 @@ Using Application Gateway or a Standard Load Balancer configured as zone-redunda
 
 #### Virtual Machine Scale Sets with flexible orchestration
 
-In this baseline architecture we are using Virtual Machine Scale Sets (VMSS) with Flexible orchestration to facilitate the operation of virtual machines at cloud scale. Unlike uniform VMSS, with flexible orchestration Azure enables you to allocate and manage VMs individually. You have full control over the virtual machine lifecycle, as well as network interfaces and disks using the standard Azure VM APIs and commands. At the same time, by joining VM to a flexible VMSS, you get an orchestration layer that facilitates achieving high availability at scale with identical or multiple virtual machine types. Flexible orchestration offers high availability guarantees (up to 1000 VMs) by spreading VMs across fault domains in a region or within an Availability Zone. This enables you to scale out your application while maintaining fault domain isolation that is essential to run quorum-based or stateful workloads, including:
+In this baseline architecture we are using Virtual Machine Scale Sets (VMSS) with [Flexible orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration) to facilitate the operation of virtual machines at cloud scale. Unlike uniform VMSS, with flexible orchestration Azure enables you to allocate and manage VMs individually. You have full control over the virtual machine lifecycle, as well as network interfaces and disks using the standard Azure VM APIs and commands. At the same time, by joining VM to a flexible VMSS, you get an orchestration layer that facilitates achieving high availability at scale with identical or multiple virtual machine types. Flexible orchestration offers high availability guarantees (up to 1000 VMs) by spreading VMs across fault domains in a region or within an Availability Zone. This enables you to scale out your application while maintaining fault domain isolation that is essential to run quorum-based or stateful workloads, including:
 
 ##### Scale out with standard Azure virtual machines
 
@@ -588,7 +588,10 @@ Enabling automatic instance repairs for Azure Virtual Machine Scale Sets helps a
 
 *Terminate notification and automatic repairs* If the terminate notification feature is enabled on a scale set, then during automatic repair operation, the deletion of an unhealthy instance follows the terminate notification configuration. A terminate notification is sent through Azure metadata service – scheduled events – and instance deletion is delayed during the configured delay timeout. However, the creation of a new instance to replace the unhealthy one doesn't wait for the delay timeout to complete.
 
+##### Fault domains in VMSS
+One important factor to consider in your IaaS baseline is the configuration of fault domains. Fault domains provides a way to limit the impact of potential physical hardware failures, network outages, or power interruptions. When using VMSS, Azure evenly spreads instances across fault domains. The even spreading ensures that a single hardware or infrastructure issue does not affect all instances.
 
+In the IaaS baseline for VMSS flexible orchestration, it is recommended to let Azure manage the allocation of fault domains. This allows Azure to maximize spreading of instances, providing greater resilience and availability.
 
 ### DevOps
 
