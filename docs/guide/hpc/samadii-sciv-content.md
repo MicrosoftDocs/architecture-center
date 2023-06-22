@@ -66,7 +66,7 @@ The product installation process involves installing a license server, installin
 
 ## Samadii SCIV performance results
 
-Windows 10 Professional, version 20H2, with an x86-64 architecture, was used for all tests. The following table shows the processors that were used.
+The following table shows the processors that were used.
 
 |VM series|ND_A100_v4	|NCv3	|NCas_T4_v3	|NVv3|NC A100 v4|
 |-|-|-|-|-|

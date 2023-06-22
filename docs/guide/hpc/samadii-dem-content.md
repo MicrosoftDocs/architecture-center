@@ -66,7 +66,7 @@ The product installation process involves installing a license server, installin
 
 ## Samadii DEM performance results
 
-The following table shows the processors that were used.
+The following table shows operating system versions and processors that were used for the tests.
 
 |VM series| ND_A100_v4	|NCv3| 	NCasT4_v3|	NVv3| 	NC A100 v4|
 |-|-|-|-|-|-|
