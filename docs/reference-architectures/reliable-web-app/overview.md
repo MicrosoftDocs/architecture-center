@@ -23,9 +23,9 @@ categories:
 
 # Reliable web app pattern
 
-The reliable web app pattern is how you should update web apps moving to the cloud. The reliable web app pattern defines the implementation guidance you need to re-platform web apps the right way.
+The reliable web app pattern provides essential implementation guidance for web apps moving to the cloud. It defines how you should update (re-platform) your web app to be successful in the cloud.
 
-The reliable web app pattern focuses on the minimal code changes you need be successful in the cloud. It shows you how to add reliability design patterns to your code and choose managed services so that you can rapidly adopt the cloud (*see figure 1*).
+The reliable web app pattern focuses on minimal code changes, reliability design patterns, and managed services so you can rapidly adopt the cloud (*see figure 1*).
 
 [![Diagram showing the principles of the reliable web app pattern](images/reliable-web-app-overview.svg)](images/reliable-web-app-overview.svg#lightbox)
 *Figure 1. Overview of the reliable web app pattern.*

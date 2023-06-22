@@ -1,4 +1,4 @@
-The reliable web app pattern is how you should update web apps moving to the cloud. The reliable web app pattern defines the implementation guidance you need to re-platform web apps the right way.
+The reliable web app pattern provides essential implementation guidance for web apps moving to the cloud. It defines how you should update (re-platform) your web app to be successful in the cloud.
 
 There are two articles on the reliable web app pattern for Java. This article provides code and architecture guidance. The companion article provides [planning guidance](plan-implementation.yml). There's a [reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java) (sample web app) of the pattern that you can deploy.
 
