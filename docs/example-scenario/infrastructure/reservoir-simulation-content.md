@@ -4,7 +4,7 @@
 
 ## Architecture
 
-:::image type="content" alt-text="Diagram demonstrating the reservoir simulation architecture." source="./media/architecture-hpc-reservoir-simulation.png" lightbox="./media/architecture-hpc-reservoir-simulation.png":::
+:::image type="content" alt-text="Diagram demonstrating the reservoir simulation architecture." source="./media/architecture-hpc-reservoir-simulation.svg" lightbox="./media/architecture-hpc-reservoir-simulation.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/architecture-hpc-reservoir-simulation.vsdx) of this architecture.*
 
