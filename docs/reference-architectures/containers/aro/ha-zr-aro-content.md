@@ -1,61 +1,59 @@
 <!-- cSpell:ignore CNAME -->
 
-This reference architecture shows the holistic view of a web-app workload on Azure Red Hat OpenShift in a zone-redundant configuration. [Zone-redundant services][az-ha-services] provide high-availability by replicating your services and data across Availability zones to protect from single points of failure.
+This reference architecture shows the holistic view of a web-app workload on Azure Red Hat OpenShift in a zone-redundant configuration. [Zone-redundant services][az-ha-services] replicate your services and data across availability zones to protect them from single points of failure and provide high availability.
 
-This document builds on top of the ["Azure Red Hat OpenShift landing zone accelerator"](https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-openshift/landing-zone-accelerator), focusing on zone-redundant configuration with Azure Red Hat OpenShift. Please read "Azure Red Hat OpenShift landing zone accelerator" before starting building production environment with Azure Red Hat OpenShift.
+Before you build a production environment with Azure Red Hat OpenShift, read [Azure Red Hat OpenShift landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-openshift/landing-zone-accelerator).
 
 ## Architecture
 
-:::image type="content" source="./images/openshift-zonal-architecture.svg" alt-text="Reference architecture for a web application with high availability":::
+:::image type="content" source="./images/openshift-zonal-architecture.svg" alt-text="Diagram that shows the architecture for a web application with high availability.":::
 
-_Download a [Visio file](https://arch-center.azureedge.net/openshift-zonal-architecture.vsdx) that contains this architecture diagram._
-
-This architecture builds on [Availability zones infrastructure][azs] found in many Azure regions today. For a list of Azure regions that support Availability Zones, see [Azure regions with Availability Zones][az-regions].
-
-Availability zones spread a solution across multiple independent zones within a region, allowing for an application to continue functioning when one zone fails. Most foundational and mainstream Azure services, and many specialized Azure services provide support for availability zones today. All of the Azure services in this architecture are zone-redundant, simplifying deployment and management. For a list of Azure services that support availability zones see [Azure Services that support Availability Zones][az-services].
-
-Zone-redundant Azure Red Hat OpenShift automatically manage and mitigate failures, including zone failures, to maintain their [service level agreements (SLAs)][sla]. Zone-redundancy offers effective recovery times of zero for zone failure. If a single zone within a region becomes unavailable, you shouldn't expect to lose any data, and your workload should continue to run.
+_Download a [Visio file](https://arch-center.azureedge.net/openshift-zonal-architecture.vsdx) of this architecture._
 
 ### Workflow
 
-A client sends a request to Azure. The request is received by Azure Front Door and routed to a web application hosted on Azure Red Hat OpenShift. The web application executes the client request using other Azure services, and then sends a response back to the client.
+A user sends a request to Azure. The request is received by Azure Front Door and routed to a web application that's hosted on Azure Red Hat OpenShift. The web application runs the client request by using the Azure services, Azure Key Vault, Azure Cosmos DB, and Azure Container Registry. The web application sends a response back to the client.
 
 ### Components
 
-* End users are authenticated by [Azure Active Directory (Azure AD)][aad] or [Azure AD B2C][aad-b2c]. The browser performs DNS lookups to resolve addresses to Azure Front Door.
-* [Azure Front Door][afd] is the public front-end for all internet requests, acting as a global HTTP reverse proxy and cache in front of several back-end (origin) services. Front Door also provides automatic protection from layer 4 DDoS attacks, and a range of other features to enhance the security and performance of your application.
-* [Azure Red Hat OpenShift][aro] is the Kubernetes-based container orchestrator and hosts the API applications and services, also providing a front-end for back-end services.
-* [Azure Container Registry][acr] is the registry supporting Docker and Open Container Initiative (OCI) compliant container images.
+* [Azure Active Directory (Azure AD)][aad] or [Azure AD B2C][aad-b2c] authenticates users. The browser performs DNS lookups to resolve addresses to Azure Front Door.
+* [Azure Front Door][afd] is the public interface for all internet requests. It acts as a global HTTP reverse proxy and cache for back-end (origin) services. Front Door provides features that enhance the security and performance of your application, like protection from layer 4 distributed denial-of-service (DDoS) attacks.
+* [Azure Red Hat OpenShift][aro] is the Kubernetes-based container orchestrator that hosts the API applications and services, and provides a front-end for back-end services.
+* [Azure Container Registry][acr] supports Docker and Open Container Initiative (OCI) compliant container images.
 * Azure Red Hat OpenShift uses [Virtual Network (VNet) Integration][vnet-integration] to connect to backend services over a private VNet.
 * [Azure Cosmos DB][cosmos-db] provides NoSQL document databases for front-end services.
-* [Private Endpoints][peps] allow connections to back-end Azure services from private VNets, and allow the public endpoints on these services to be disabled.
-* [Azure private DNS][private-dns] automatically configures and updates the DNS records required by private endpoint services.
-* [Azure Key Vault][akv] securely stores secrets and certificates to be accessed by Azure services.
-* [Azure Monitor][azmon] and [Application Insights][insights] collects service logs and application performance metrics for observability.
+* [Private endpoints][peps] enable connections to back-end Azure services from private VNets and enable you to disable the public endpoints on these services.
+* [Azure private DNS][private-dns] configures and updates the DNS records that are required by private endpoint services.
+* [Azure Key Vault][akv] securely stores secrets and certificates that are accessed by Azure services.
+* [Azure Monitor][azmon] and [Application Insights][insights] collect service logs and application performance metrics for observability.
 
 ### Alternatives
 
-* Either Azure Active Directory (Azure AD) or Azure AD B2C can be used as an IDP in this scenario. Azure AD is designed for internal applications and business-to-business (B2B) scenarios, while Azure AD B2C is designed for business-to-consumer (B2C) scenarios.
-* Azure-managed DNS is recommended, but user's own DNS provider can be used as an alternative.
-* [Azure Application Gateway][appgw] could be used instead of Azure Front Door if most of your users are located close to the Azure region that hosts your workload, and when you don't need content caching. [Azure DDoS Protection][ddosp] Standard is recommended for protecting internet-facing Application Gateway services.
-* A premium [Azure API Manager][apim] instance deployed with zone-redundancy enabled is a good alternative for hosting frontend APIs, backend APIs or both. For more information about zone-redundancy in API Manager, see [availability zone support][apim-zr].
-* OpenShift Container Platform or OKD onto [Azure Virtual Machines][az-vm] can be used instead of Azure Red Hat OpenShift. OpenShift Container Platform or OKD are IaaS alternatives to a fully platform managed (PaaS) service like Azure Red Hat OpenShift. Customers must purchase the necessary entitlements for OpenShift Container Platform or OKD and are responsible for installation and management of the entire infrastructure. For more information, see [OpenShift in Azure][openshift-in-azure].
+* You can use Azure AD or Azure AD B2C as an identity provider (IdP) in this scenario. Azure AD is for internal applications and business-to-business (B2B) scenarios. Azure AD B2C is for business-to-consumer (B2C) scenarios.
+* Azure-managed DNS is recommended, but you can alternately use your own DNS provider.
+* You can use [Azure Application Gateway][appgw] instead of Azure Front Door if most of your users are located close to the Azure region that hosts your workload and if you don't need content caching. Use [Azure DDoS Protection][ddosp] to protect internet-facing Application Gateway services.
+* Deploy a premium [Azure API Management][apim] instance with zone-redundancy as an alternative for hosting frontend APIs, backend APIs, or both. For more information about API Management zone-redundancy, see [Migrate Azure API Management to availability zone support][apim-zr].
+* You can use OpenShift Container Platform or Origin Community Distribution of Kubernetes (OKD) on [Azure Virtual Machines][az-vm] instead of Azure Red Hat OpenShift. OpenShift Container Platform or OKD are infrastructure-as-a-service (IaaS) alternatives to a fully platform managed (PaaS) service, like Azure Red Hat OpenShift. For more information, see [OpenShift in Azure][openshift-in-azure].
 
 ## Scenario details
 
-Traditionally, it's been hard to keep hosting platforms highly available at scale. High availability has historically required complex and expensive multi-region deployments, with tradeoffs between data consistency and high performance.
+This architecture builds on [availability zones infrastructure][azs] that's found in many regions today. For a list of regions that support Azure availability zones, see [Azure regions with availability zones][az-regions].
 
-[Availability zones][azs] resolve many of these issues. Availability zones are physically separate locations within each Azure region that are tolerant to local failures. Availability zones spread a solution across multiple independent zones within a region, allowing an application to continue functioning when one zone fails.
+Availability zones spread a solution across multiple independent zones within a region, which keeps an application functioning when one zone fails. Most mainstream Azure services and many specialized Azure services provide support for availability zones. All Azure services in this architecture are zone-redundant, which simplifies the deployment and management. For a list of Azure services that support availability zones, see [Azure Services that support availability zones][az-services].
 
-Zone-redundant Azure services automatically manage and mitigate failures to maintain their [service level agreements (SLAs)](https://azure.microsoft.com/support/legal/sla). Zone-redundancy offers effective recovery times of zero for zonal failure. If a single zone within a region becomes unavailable, you shouldn't expect to lose any data, and your workload should continue to run within the remaining available zones. Zone redundancy is configured at deployment time and is automatically managed by services throughout their lifetime, so there is no need to manage zone pinning or zonal deployments.
+To maintain their [service-level agreements (SLAs)][sla], zone-redundant Azure Red Hat OpenShift manages and mitigates failures, including zone failures. Zone redundancy provides a recovery time of zero for zone failure. If a single zone in a region is unavailable, you don't lose any data, and your workload continues to run. Zone redundancy is configured at deployment time and is managed by services, so you don't need to manage zone pinning or zonal deployments.
 
-This architecture shows how to compose zone-redundant services into a solution that provides high availability and is resilient to zonal failures.
+When hosting platforms are at scale, it's often difficult to keep them highly available. High availability has historically required complex and expensive multi-region deployments with data consistency and high performance tradeoffs.
 
-All of the Azure services in this architecture are either globally available or zone-redundant services. Azure Front Door, Azure AD and Azure DNS are globally available non-regional services that are resilient to zone and region-wide outages. All other services are zone-redundant.
+[Availability zones][azs] resolve many of these issues. Availability zones are separate physical locations in each Azure region. Availability zones spread a solution across multiple independent zones in a region, which allows an application to continue functioning when one zone fails.
+
+This architecture describes how to compose zone-redundant services into a solution that provides high availability and is resilient to zonal failures.
+
+Azure Front Door, Azure AD, and Azure DNS are globally available services that are resilient to zone and region-wide outages. All other services are zone-redundant.
 
 ### Potential use cases
 
-Azure Red Hat OpenShift is a general purpose container orchestration service using Kubernetes suitable for a variety of use cases.
+Azure Red Hat OpenShift is a container orchestration service that uses Kubernetes. It's suitable for many use cases such as:
 
 * Banking
 * Stock trading
@@ -69,11 +67,11 @@ Azure Red Hat OpenShift is a general purpose container orchestration service usi
 
 ## Recommendations
 
-The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
+The following recommendations apply to most scenarios.
 
 ### Front Door
 
-Azure Front Door is a global service offering resilience to zone and region failures.
+Azure Front Door is a global service that provides resilience to zone and region failures.
 
 * Use [Azure managed certificates][afd-certs] on all frontends to prevent certificate mis-configuration and expiration issues.
 * Enable [Caching][afd-cache] on routes where appropriate to improve availability. Front Door's cache distributes your content to the Azure PoP (point of presence) edge nodes. In addition to improving your performance, caching reduces the load on your origin servers.
