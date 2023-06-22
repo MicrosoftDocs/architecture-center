@@ -73,6 +73,7 @@ The following table shows the operating system versions and processors that were
 |Operating system version|Windows 10 Professional, version 20H2|Windows 10 Professional, version 20H2|Windows 10 Professional, version 20H2|Windows 10 Professional, version 20H2|Windows 10 Professional, version 21H2|
 |OS architecture|x86-64 |x86-64 |x86-64 |x86-64 |x86-64 |
 |Processor	|AMD EPYC 7V12, 64-core processor, 2.44 GHz (2 processors)	|Intel Xeon CPU E5-2690 v4|	AMD EPYC 7V12, 64-core processor, 2.44 GHz	|Intel Xeon CPU E5-2690 v4|	AMD EPYC 7V13, 64-core processor, 2.44 GHz|
+
 The following three models were used for testing.
 
 ### Magnetron sputter
