@@ -11,7 +11,9 @@ This solution demonstrates observability patterns and metrics to improve the pro
 
 ## Architecture
 
-:::image type="content" source="_images/databricks-observability-architecture.png" alt-text="Diagram of performance tuning using observability patterns with Azure Databricks, Azure Monitor, Azure Log Analytics, and Azure Data Lake Storage." border="false":::
+:::image type="content" source="_images/databricks-observability-architecture.svg" alt-text="Diagram of performance tuning using observability patterns with Azure Databricks, Azure Monitor, Azure Log Analytics, and Azure Data Lake Storage." border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/databricks-observability-architecture.vsdx) of this architecture.*
 
 ### Workflow
 

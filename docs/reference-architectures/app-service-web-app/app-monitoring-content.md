@@ -66,6 +66,7 @@ This article describes conveniently available monitoring options with popular fe
 
 - Consolidate Azure Monitor and Application Insights metrics in Grafana using the [Azure Monitor Data Source For Grafana][Azure Monitor Data Source For Grafana].
 - [Data Dog][data-dog] features a connector for Azure Monitor
+- [New Relic](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/azure-integrations-list/azure-monitor/) integration with Azure Monitor.
 - Automate monitoring functions using [Azure Automation][Azure Automation].
 - Add communication with [ITSM solutions][ITSM solutions].
 - Extend Log Analytics with a [management solution][management solution].

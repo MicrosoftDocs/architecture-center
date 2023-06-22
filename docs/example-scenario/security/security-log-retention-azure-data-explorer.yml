@@ -20,7 +20,7 @@ products:
   - azure-data-lake-storage
   - azure-event-hubs
   - azure-log-analytics
-  - azure-sentinel
+  - microsoft-sentinel
 name: Long-term security log retention with Azure Data Explorer
 summary: Store security logs in Azure Data Explorer on a long-term basis. This solution minimizes costs and provides easy access when you need to query the data.
 thumbnailUrl: /azure/architecture/browse/thumbs/security-log-retention-azure-data-explorer-architecture-diagram-thumbnail.png
