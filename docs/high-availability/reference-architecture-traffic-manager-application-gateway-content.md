@@ -1,7 +1,13 @@
 
 This architecture is for global, internet-facing applications that use HTTP(S) and non-HTTP(S) protocols. It features DNS-based global load balancing, two forms of regional load balancing, and global virtual network peering to create a high availability architecture that can withstand a regional outage.
 
-### Architecture and workflow for HTTP(S) traffic:
+### Architecture notes
+
+The architecture in this document is easily extensible to a hub-and-spoke VNet design, where the Azure Firewall would be in the hub VNet, and the Application Gateway either in the hub VNet as well or in a spoke. If the Application Gateway is deployed in the hub, you still want multiple Application Gateways, each for a given set of applications, to avoid RBAC conflicts and prevent hitting Application Gateway limits (see [Application Gateway Limits](https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits)).
+
+In a Virtual WAN environment Application Gateways cannot be deployed in the hub, so they would be installed in spoke VNets.
+
+### Workflow for HTTP(S) traffic
 
 :::image type="content" source="images/high-availability-multi-region-web-v-10.png" alt-text="Diagram showing multi-region load balancing with Azure Firewall, Application Gateway and Traffic Manager for web traffic." lightbox="images/high-availability-multi-region-web-v-10.png":::
 
@@ -23,7 +29,7 @@ This architecture is for global, internet-facing applications that use HTTP(S) a
 
 1. The data tier stores the application data, typically in a database, object storage, or file share. The architecture has SQL server on VMs distributed across three availability zones. They are in an availability group and use a distributed network name (DNN) to route traffic to the [availability group listener](/azure/azure-sql/virtual-machines/windows/availability-group-overview) for load balancing.
 
-### Architecture and workflow for non-HTTP(S) traffic:
+### Workflow for non-HTTP(S) traffic
 
 :::image type="content" source="images/high-availability-multi-region-nonweb-v-10.png" alt-text="Diagram showing multi-region load balancing with Azure Firewall, Application Gateway and Traffic Manager for non-web traffic." lightbox="images/high-availability-multi-region-nonweb-v-10.png":::
 
