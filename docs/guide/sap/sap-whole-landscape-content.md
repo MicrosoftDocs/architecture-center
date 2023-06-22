@@ -2,7 +2,7 @@ This article provides a reference architecture for deploying an entire SAP lands
 
 ## Architecture
 
-[![Diagram that shows a sample overall SAP landscape in Azure.](media/sap-whole-landscape.png)](media/sap-whole-landscape.svg#lightbox)
+[![Diagram that shows a sample overall SAP landscape in Azure.](media/sap-whole-landscape.svg)](media/sap-whole-landscape.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/sap-whole-landscape.vsdx) of the architecture.*
 
