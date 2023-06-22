@@ -11,10 +11,10 @@
 		.st3 {stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.49927}
 		.st4 {stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
 		.st5 {fill:#000000;font-family:Segoe UI Semibold;font-size:0.916672em;font-weight:bold}
-		.st6 {fill:#000000;font-family:Segoe UI Semibold;font-size:0.916672em}
-		.st7 {fill:#000000;font-family:Calibri;font-size:0.916672em}
-		.st8 {fill:#000000;font-family:Segoe UI;font-size:0.916672em}
-		.st9 {font-size:1em}
+		.st6 {font-size:1em}
+		.st7 {fill:#000000;font-family:Segoe UI Semibold;font-size:0.916672em}
+		.st8 {fill:#000000;font-family:Calibri;font-size:0.916672em}
+		.st9 {fill:#000000;font-family:Segoe UI;font-size:0.916672em}
 		.st10 {fill:url(#grad0-82);stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st11 {fill:#50e6ff;stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st12 {fill:url(#grad0-88);stroke:none;stroke-linecap:butt;stroke-width:0.75}
@@ -797,69 +797,68 @@
 			<title>Sheet.30</title>
 			<path d="M0 441.11 L115.07 441.11 L115.07 500.97 L0 500.97 L0 441.11" class="st3"/>
 		</g>
-		<g id="shape34-21" transform="translate(220.435,-316.379)">
+		<g id="shape34-21" transform="translate(215.521,-303.329)">
 			<title>Sheet.34</title>
-			<desc>Defender ATP</desc>
-			<path d="M75.14 489.03 L0 489.03 L0 500.97 L75.14 500.97 L75.14 489.03" class="st4"/>
-			<text x="2.95" y="498.3" class="st5">Defender ATP</text>		</g>
-		<g id="shape39-25" transform="translate(19.4236,-265.915)">
+			<desc>Defender For Endpoint</desc>
+			<path d="M75.14 472.96 L0 472.96 L0 500.97 L75.14 500.97 L75.14 472.96" class="st4"/>
+			<text x="4.81" y="483.66" class="st5">Defender For <tspan x="14.97" dy="1.2em" class="st6">Endpoint</tspan></text>		</g>
+		<g id="shape39-26" transform="translate(19.4236,-265.915)">
 			<title>Sheet.39</title>
 			<desc>Devices with Defender</desc>
 			<path d="M118.18 489.03 L0 489.03 L0 500.97 L118.18 500.97 L118.18 489.03" class="st4"/>
 			<text x="3.14" y="498.3" class="st5">Devices with Defender</text>		</g>
-		<g id="shape40-29" transform="translate(20.3621,-369.08)">
+		<g id="shape40-30" transform="translate(20.3621,-369.08)">
 			<title>Sheet.40</title>
 			<desc>Servers with Defender</desc>
 			<path d="M116.3 489.03 L0 489.03 L0 500.97 L116.3 500.97 L116.3 489.03" class="st4"/>
 			<text x="3.11" y="498.3" class="st5">Servers with Defender</text>		</g>
-		<g id="shape41-33" transform="translate(10.6393,-167.067)">
+		<g id="shape41-34" transform="translate(10.6393,-167.067)">
 			<title>Sheet.41</title>
 			<desc>Sentinel data source logs</desc>
 			<path d="M135.75 489.03 L0 489.03 L0 500.97 L135.75 500.97 L135.75 489.03" class="st4"/>
-			<text x="5.36" y="498.3" class="st6">Sentinel data source logs</text>		</g>
-		<g id="shape42-37" transform="translate(189.999,-137.868)">
+			<text x="5.36" y="498.3" class="st7">Sentinel data source logs</text>		</g>
+		<g id="shape42-38" transform="translate(189.999,-137.868)">
 			<title>Sheet.42</title>
 			<desc>Short term data retention</desc>
 			<path d="M136.01 489.03 L0 489.03 L0 500.97 L136.01 500.97 L136.01 489.03" class="st4"/>
-			<text x="4.11" y="498.3" class="st6">Short term data retention</text>		</g>
-		<g id="shape43-41" transform="translate(182.402,-126.365)">
+			<text x="4.11" y="498.3" class="st7">Short term data retention</text>		</g>
+		<g id="shape43-42" transform="translate(182.402,-125.798)">
 			<title>Sheet.43</title>
-			<desc>(KQL Query support 3 – months)</desc>
+			<desc>(KQL query support 3 – months)</desc>
 			<path d="M151.21 489.03 L0 489.03 L0 500.97 L151.21 500.97 L151.21 489.03" class="st4"/>
-			<text x="3.37" y="498.3" class="st7">(KQL Query support 3 – months)</text>		</g>
-		<g id="shape48-45" transform="translate(472.594,-250.161)">
+			<text x="4.18" y="498.3" class="st8">(KQL query support 3 – months)</text>		</g>
+		<g id="shape48-46" transform="translate(472.594,-250.161)">
 			<title>Sheet.48</title>
 			<desc>(Long term queryable data retention)</desc>
 			<path d="M188.5 489.03 L0 489.03 L0 500.97 L188.5 500.97 L188.5 489.03" class="st4"/>
-			<text x="4.44" y="498.3" class="st8">(Long term queryable data retention)</text>		</g>
-		<g id="shape51-49" transform="translate(410.231,-279.882)">
+			<text x="4.44" y="498.3" class="st9">(Long term queryable data retention)</text>		</g>
+		<g id="shape51-50" transform="translate(410.231,-279.882)">
 			<title>Sheet.51</title>
 			<desc>Azure Data Lake</desc>
 			<path d="M68.09 490.18 L0 490.18 L0 500.97 L68.09 500.97 L68.09 490.18" class="st4"/>
-			<text x="6.45" y="492.27" class="st6">Azure Data <tspan x="22.68" dy="1.2em" class="st9">Lake</tspan></text>		</g>
-		<g id="shape62-54" transform="translate(380.4,-172.747)">
+			<text x="6.45" y="492.27" class="st7">Azure Data <tspan x="22.68" dy="1.2em" class="st6">Lake</tspan></text>		</g>
+		<g id="shape62-55" transform="translate(380.4,-172.747)">
 			<title>Sheet.62</title>
 			<desc>Query across Sentinel, Monitor, Log Analytics, Azure Data Exp...</desc>
 			<path d="M135.75 447.64 L0 447.64 L0 500.97 L135.75 500.97 L135.75 447.64" class="st4"/>
-			<text x="14.39" y="457.8" class="st8">Query across Sentinel, <tspan x="12.3" dy="1.2em" class="st9">Monitor, L</tspan>og Analytics, <tspan
-						x="11.54" dy="1.2em" class="st9">A</tspan>zure Data Explorer via <tspan x="54.47" dy="1.2em" class="st9">Proxy</tspan></text>		</g>
-		<g id="shape67-61" transform="translate(503.91,-119.766)">
+			<text x="14.39" y="457.8" class="st9">Query across Sentinel, <tspan x="12.3" dy="1.2em" class="st6">Monitor, L</tspan>og Analytics, <tspan
+						x="11.54" dy="1.2em" class="st6">A</tspan>zure Data Explorer via <tspan x="54.32" dy="1.2em" class="st6">p</tspan>roxy</text>		</g>
+		<g id="shape67-62" transform="translate(500.373,-119.766)">
 			<title>Sheet.67</title>
-			<desc>Full range forensic analysis Security Investigations KQL Lang...</desc>
-			<path d="M131.68 465.35 L0 465.35 L0 500.97 L131.68 500.97 L131.68 465.35" class="st4"/>
-			<text x="1.16" y="473.26" class="st8">Full range forensic analysis <tspan x="11.59" dy="1.2em" class="st9">Security Investigations </tspan><tspan
-						x="30.64" dy="1.2em" class="st9">KQL Language </tspan></text>		</g>
+			<desc>Full range forensic analysis Security investigations KQL</desc>
+			<path d="M136.06 465.35 L0 465.35 L0 500.97 L136.06 500.97 L136.06 465.35" class="st4"/>
+			<text x="3.36" y="479.86" class="st9">Full range forensic analysis <tspan x="2.48" dy="1.2em" class="st6">Security investigations</tspan> KQL</text>		</g>
 		<g id="shape70-67" transform="translate(529.287,-406.586)">
 			<title>Sheet.70</title>
 			<desc>Azure Data Lake Storage (archived)</desc>
 			<path d="M106.59 475.8 L0 475.8 L0 500.97 L106.59 500.97 L106.59 475.8" class="st4"/>
-			<text x="12.81" y="485.09" class="st6">Azure Data Lake <tspan x="7.56" dy="1.2em" class="st9">Storage (</tspan>archived) </text>		</g>
+			<text x="12.81" y="485.09" class="st7">Azure Data Lake <tspan x="7.56" dy="1.2em" class="st6">Storage (</tspan>archived) </text>		</g>
 		<g id="shape75-72" transform="translate(580.175,-351.937)">
 			<title>Sheet.75</title>
 			<desc>Continuous export, query external tables</desc>
 			<path d="M75.14 465.21 L0 465.21 L0 500.97 L75.14 500.97 L75.14 465.21" class="st4"/>
-			<text x="9.74" y="473.19" class="st8">Continuous <tspan x="5.44" dy="1.2em" class="st9">export, query </tspan><tspan
-						x="2.33" dy="1.2em" class="st9">external tables</tspan></text>		</g>
+			<text x="9.74" y="473.19" class="st9">Continuous <tspan x="5.44" dy="1.2em" class="st6">export, query </tspan><tspan
+						x="2.33" dy="1.2em" class="st6">external tables</tspan></text>		</g>
 		<g id="group1176-78" transform="translate(542.38,-274.996)">
 			<title>Icon-analytics-145</title>
 			<desc>Azure Data Explorer</desc>
@@ -915,7 +914,7 @@
 							 500.63 A1.14844 1.14845 0 0 1 2.33 500.63 L0.34 498.63 A1.14844 1.14845 0 0 1 0.34 497 Z" class="st13"/>
 			</g>
 			<g id="shape1176-103">
-				<text x="-25.86" y="510.84" class="st6">Azure Data Explorer</text>			</g>
+				<text x="-25.86" y="510.84" class="st7">Azure Data Explorer</text>			</g>
 		</g>
 		<g id="shape103-105" transform="translate(53.7822,-182.758)">
 			<title>Sheet.103</title>
@@ -923,109 +922,109 @@
 			<!-- Unsupported Record: EmfPlusRecordTypeSetPixelOffsetMode  -->
 			<svg viewBox="-0.70833 -0.70968 412.01 412.09" height="49.3795" preserveAspectRatio="none" width="49.4646" x="0"
 					y="451.589">
-				<clipPath id="mfid24">
-					<rect x="-0.70833" y="-0.70968" width="412.01" height="412.09" id="mfid25"/>
+				<clipPath id="mfid70">
+					<rect x="-0.70833" y="-0.70968" width="412.01" height="412.09" id="mfid71"/>
 				</clipPath>
-				<g clip-path="url(#mfid24)">
-					<mask id="mfid26">
+				<g clip-path="url(#mfid70)">
+					<mask id="mfid72">
 						<rect width="412" height="412" fill="white" stroke="none"/>
 					</mask>
-					<mask id="mfid27" fill="white" stroke="none">
+					<mask id="mfid73" fill="white" stroke="none">
 						<g>
-							<g mask="url(#mfid26)">
-								<use xlink:href="#mfid25"/>
+							<g mask="url(#mfid72)">
+								<use xlink:href="#mfid71"/>
 							</g>
 						</g>
 					</mask>
 					<!-- GetDC -->
-					<mask id="mfid28" fill-rule="evenodd" fill="white" stroke="none">
+					<mask id="mfid74" fill-rule="evenodd" fill="white" stroke="none">
 						<rect x="0" y="0" width="412" height="412"/>
 					</mask>
 					<!-- Released DC -->
 					<defs>
-						<path id="mfid29" d="M0,0 L627890,0 L627890,627890 L0,627890 Z"/>
+						<path id="mfid75" d="M0,0 L627890,0 L627890,627890 L0,627890 Z"/>
 					</defs>
-					<mask id="mfid30">
-						<use xlink:href="#mfid29" fill-rule="evenodd" fill="white" stroke="none"
+					<mask id="mfid76">
+						<use xlink:href="#mfid75" fill-rule="evenodd" fill="white" stroke="none"
 								transform="matrix(0.00065617, 0, 0, 0.00065617, 0, 0)"/>
 					</mask>
-					<mask id="mfid31" fill="white" stroke="none">
-						<g mask="url(#mfid27)">
-							<g mask="url(#mfid30)">
-								<use xlink:href="#mfid25"/>
+					<mask id="mfid77" fill="white" stroke="none">
+						<g mask="url(#mfid73)">
+							<g mask="url(#mfid76)">
+								<use xlink:href="#mfid71"/>
 							</g>
 						</g>
 					</mask>
 					<defs>
 						<!-- Unsupported Record: EmfPlusRecordTypeSetPixelOffsetMode  -->
-						<svg viewBox="-0.70833 -0.70968 50.056 50.151" height="50" id="mfid32" width="50">
-							<clipPath id="mfid33">
-								<rect x="-0.70833" y="-0.70968" width="50.056" height="50.151" id="mfid34"/>
+						<svg viewBox="-0.70833 -0.70968 50.056 50.151" height="50" id="mfid78" width="50">
+							<clipPath id="mfid79">
+								<rect x="-0.70833" y="-0.70968" width="50.056" height="50.151" id="mfid80"/>
 							</clipPath>
-							<g clip-path="url(#mfid33)">
-								<mask id="mfid35">
+							<g clip-path="url(#mfid79)">
+								<mask id="mfid81">
 									<rect width="50" height="50" fill="white" stroke="none"/>
 								</mask>
-								<mask id="mfid36" fill="white" stroke="none">
+								<mask id="mfid82" fill="white" stroke="none">
 									<g>
-										<g mask="url(#mfid35)">
-											<use xlink:href="#mfid34"/>
+										<g mask="url(#mfid81)">
+											<use xlink:href="#mfid80"/>
 										</g>
 									</g>
 								</mask>
 								<defs>
-									<path id="mfid37"
+									<path id="mfid83"
 											d="M19.5,10.1 C20.4,4.4 25.3,0.1 31.3,0.1 C37.9,0.1 43.2,5.5 43.2,12.1 C43.2,12.9 43.1,13.6 43,14.3 C46.9,14.7 49.9,18.3 49.9,22.6 C49.9,27.2 46.4,31 42.2,31 L20.2,31 C14.6,31 10,26.2 10,20.4 C10.1,15 14.3,10.6 19.5,10.1 Z"/>
 								</defs>
-								<g mask="url(#mfid36)">
+								<g mask="url(#mfid82)">
 									<g transform="matrix(1, 0, 0, 1, 0, 0)">
 										<g fill="#59b4d9">
-											<use xlink:href="#mfid37" fill-rule="nonzero" stroke="none"/>
+											<use xlink:href="#mfid83" fill-rule="nonzero" stroke="none"/>
 											<defs>
-												<path id="mfid38"
+												<path id="mfid84"
 														d="M41,22 C41,20.9 40.1,20 39,20 L28,20 C27.635,20 27.296,20.106 27,20.279 C26.698,20.098 26.352,20.002 26,20 L15,20 C14.635,20 14.296,20.106 14,20.279 C13.698,20.098 13.352,20.002 13,20 L2,20 C0.9,20 0,20.9 0,22 L0,27 C0,27.365 0.106,27.704 0.279,28 C0.098485,28.302 0.0021571,28.648 0.000000014067,29 L0,34 C0,34.365 0.106,34.704 0.279,35 C0.098485,35.303 0.0021571,35.648 0.000000014067,36 L0,41 C0,41.365 0.106,41.704 0.279,42 C0.098485,42.303 0.0021571,42.648 0.000000014067,43 L0,48 C0,49.1 0.9,50 2,50 L13,50 C13.365,50 13.704,49.894 14,49.721 C14.296,49.894 14.635,50 15,50 L26,50 C26.365,50 26.704,49.894 27,49.721 C27.296,49.894 27.635,50 28,50 L39,50 C40.1,50 41,49.1 41,48 L41,43 C41,42.635 40.894,42.296 40.721,42 C40.894,41.704 41,41.365 41,41 L41,36 C41,35.635 40.894,35.296 40.721,35 C40.894,34.704 41,34.365 41,34 L41,29 C41,28.635 40.894,28.296 40.721,28 C40.894,27.704 41,27.365 41,27 L41,22 Z"/>
 											</defs>
 										</g>
 										<g fill="#a0a1a2">
-											<use xlink:href="#mfid38" fill-rule="nonzero" stroke="none"/>
+											<use xlink:href="#mfid84" fill-rule="nonzero" stroke="none"/>
 											<defs>
-												<path id="mfid39" d="M15,22 L26,22 L26,27 L15,27 Z"/>
+												<path id="mfid85" d="M15,22 L26,22 L26,27 L15,27 Z"/>
 											</defs>
 										</g>
 										<g fill="#dd5900">
-											<use xlink:href="#mfid39" fill-rule="nonzero" stroke="none"/>
+											<use xlink:href="#mfid85" fill-rule="nonzero" stroke="none"/>
 											<defs>
-												<path id="mfid40"
+												<path id="mfid86"
 														d="M28,22 L39,22 L39,27 L28,27 Z M2,22 L13,22 L13,27 L2,27 Z M15,29 L26,29 L26,34 L15,34 Z"/>
 											</defs>
 										</g>
 										<g fill="#ba141a">
-											<use xlink:href="#mfid40" fill-rule="nonzero" stroke="none"/>
+											<use xlink:href="#mfid86" fill-rule="nonzero" stroke="none"/>
 											<defs>
-												<path id="mfid41" d="M2,36 L13,36 L13,41 L2,41 Z"/>
+												<path id="mfid87" d="M2,36 L13,36 L13,41 L2,41 Z"/>
 											</defs>
 										</g>
 										<g fill="#dd5900">
-											<use xlink:href="#mfid41" fill-rule="nonzero" stroke="none"/>
+											<use xlink:href="#mfid87" fill-rule="nonzero" stroke="none"/>
 											<defs>
-												<path id="mfid42"
+												<path id="mfid88"
 														d="M2,29 L13,29 L13,34 L2,34 Z M15,43 L26,43 L26,48 L15,48 Z M28,36 L39,36 L39,41 L28,41 Z M28,29 L39,29 L39,34 L28,34 Z M15,36 L26,36 L26,41 L15,41 Z"/>
 											</defs>
 										</g>
 										<g fill="#ba141a">
-											<use xlink:href="#mfid42" fill-rule="nonzero" stroke="none"/>
+											<use xlink:href="#mfid88" fill-rule="nonzero" stroke="none"/>
 											<defs>
-												<path id="mfid43" d="M28,43 L39,43 L39,48 L28,48 Z"/>
+												<path id="mfid89" d="M28,43 L39,43 L39,48 L28,48 Z"/>
 											</defs>
 										</g>
 										<g fill="#dd5900">
-											<use xlink:href="#mfid43" fill-rule="nonzero" stroke="none"/>
+											<use xlink:href="#mfid89" fill-rule="nonzero" stroke="none"/>
 											<defs>
-												<path id="mfid44" d="M2,43 L13,43 L13,48 L2,48 Z"/>
+												<path id="mfid90" d="M2,43 L13,43 L13,48 L2,48 Z"/>
 											</defs>
 										</g>
 										<g fill="#ba141a">
-											<use xlink:href="#mfid44" fill-rule="nonzero" stroke="none"/>
+											<use xlink:href="#mfid90" fill-rule="nonzero" stroke="none"/>
 										</g>
 									</g>
 								</g>
@@ -1033,26 +1032,26 @@
 						</svg>
 					</defs>
 					<!-- Unsupported Record: EmfPlusRecordTypeSetObject Obj_ImageAttributes -->
-					<g mask="url(#mfid31)">
+					<g mask="url(#mfid77)">
 						<g transform="matrix(8.0696, 0, 0, 8.0547, 5.716, 5.7162)">
-							<clipPath id="mfid45">
+							<clipPath id="mfid91">
 								<rect x="-0.70833" y="-0.70968" width="51.056" height="51.151"/>
 							</clipPath>
-							<use xlink:href="#mfid32" clip-path="url(#mfid45)" transform="matrix(1, 0, 0, 1, -0.00000052924, 0)"/>
+							<use xlink:href="#mfid78" clip-path="url(#mfid91)" transform="matrix(1, 0, 0, 1, -0.00000052924, 0)"/>
 						</g>
 					</g>
-					<mask id="mfid46">
+					<mask id="mfid92">
 						<rect width="412" height="412" fill="white" stroke="none"/>
 					</mask>
 				</g>
 			</svg>
 			<rect x="0" y="451.589" width="49.4646" height="49.3795" class="st2"/>
 		</g>
-		<g id="shape1008-108" transform="translate(177.79,-301.317)">
+		<g id="shape1008-108" transform="translate(172.121,-289.723)">
 			<title>Sheet.1008</title>
-			<desc>(KQL Query support 1 – month)</desc>
+			<desc>(KQL query support 1 – month)</desc>
 			<path d="M161.57 489.03 L0 489.03 L0 500.97 L161.57 500.97 L161.57 489.03" class="st4"/>
-			<text x="4.62" y="498.3" class="st8">(KQL Query support 1 – month)</text>		</g>
+			<text x="5.53" y="498.3" class="st9">(KQL query support 1 – month)</text>		</g>
 		<g id="shape1009-112" transform="translate(681.014,-18.7614)">
 			<title>Sheet.1009</title>
 			<path d="M0 500.97 L106.23 500.97 L106.23 35.13 L0 35.13 L0 500.97 Z" class="st14"/>
@@ -1063,7 +1062,7 @@
 				<title>Sheet.1011</title>
 				<desc>Power BI</desc>
 				<path d="M44.29 490.18 L0 490.18 L0 500.97 L44.29 500.97 L44.29 490.18" class="st4"/>
-				<text x="0.09" y="498.87" class="st6">Power BI</text>			</g>
+				<text x="0.09" y="498.87" class="st7">Power BI</text>			</g>
 			<g id="group1012-119" transform="translate(6.39365,-19.3365)">
 				<title>Sheet.1012</title>
 				<g id="group1013-120">
@@ -1130,7 +1129,7 @@
 				<title>Sheet.1022</title>
 				<desc>Notebook</desc>
 				<path d="M60.94 490.18 L0 490.18 L0 500.97 L60.94 500.97 L60.94 490.18" class="st4"/>
-				<text x="5.29" y="498.87" class="st6">Notebook</text>			</g>
+				<text x="5.29" y="498.87" class="st7">Notebook</text>			</g>
 			<g id="group1023-137" transform="translate(9.07775,-10.4002)">
 				<title>Group.svg</title>
 				<desc>Created using Figma 0.90</desc>
@@ -1249,7 +1248,7 @@
 				<title>Sheet.1040</title>
 				<desc>Grafana</desc>
 				<path d="M39.65 490.18 L0 490.18 L0 500.97 L39.65 500.97 L39.65 490.18" class="st4"/>
-				<text x="0.24" y="498.87" class="st6">Grafana</text>			</g>
+				<text x="0.24" y="498.87" class="st7">Grafana</text>			</g>
 			<g id="shape1041-170" transform="translate(7.36666,-12.5763)">
 				<title>Sheet.1041</title>
 				<path d="M24.87 485.95 C24.83 485.52 24.78 484.99 24.59 484.42 C24.44 483.84 24.2 483.22 23.87 482.55 C23.53 481.88
@@ -1372,7 +1371,7 @@
 				<title>Sheet.1043</title>
 				<desc>Workbooks</desc>
 				<path d="M72.28 490.18 L0 490.18 L0 500.97 L72.28 500.97 L72.28 490.18" class="st4"/>
-				<text x="7.48" y="498.87" class="st6">Workbooks</text>			</g>
+				<text x="7.48" y="498.87" class="st7">Workbooks</text>			</g>
 		</g>
 		<g id="group1044-183" transform="translate(705.776,-423.23)">
 			<title>Sheet.1044</title>
@@ -1380,7 +1379,7 @@
 				<title>Sheet.1045</title>
 				<desc>Logic Apps</desc>
 				<path d="M56.7 490.18 L0 490.18 L0 500.97 L56.7 500.97 L56.7 490.18" class="st4"/>
-				<text x="0.84" y="498.87" class="st6">Logic Apps</text>			</g>
+				<text x="0.84" y="498.87" class="st7">Logic Apps</text>			</g>
 			<g id="group1046-188" transform="translate(9.66356,-16.7124)">
 				<title>Sheet.1046</title>
 				<g id="shape1047-189">
@@ -1437,7 +1436,7 @@
 				<title>Sheet.1054</title>
 				<desc>Azure Data Explorer web UI</desc>
 				<path d="M80.65 471.57 L0 471.57 L0 500.97 L80.65 500.97 L80.65 471.57" class="st4"/>
-				<text x="12.73" y="482.97" class="st6">Azure Data <tspan x="0.8" dy="1.2em" class="st9">Explorer </tspan>web UI</text>			</g>
+				<text x="12.73" y="482.97" class="st7">Azure Data <tspan x="0.8" dy="1.2em" class="st6">Explorer </tspan>web UI</text>			</g>
 			<g id="shape107-210" transform="translate(27.1285,-95.625)">
 				<title>Sheet.107</title>
 				<rect x="0" y="473.288" width="30.6142" height="27.6803" class="st2"/>
@@ -1624,7 +1623,7 @@
 				<title>Sheet.1055</title>
 				<desc>Azure Data Explorer SDKs</desc>
 				<path d="M76.12 485.26 L0 485.26 L0 500.97 L76.12 500.97 L76.12 485.26" class="st4"/>
-				<text x="10.46" y="492.8" class="st6">Azure Data <tspan x="3.25" dy="1.2em" class="st9">Explorer SDKs</tspan></text>			</g>
+				<text x="10.46" y="492.8" class="st7">Azure Data <tspan x="3.25" dy="1.2em" class="st6">Explorer SDKs</tspan></text>			</g>
 			<g id="group1056-219" transform="translate(29.3632,-39.0536)">
 				<title>Icon-analytics-145.89</title>
 				<g id="group1057-220">
@@ -1731,7 +1730,7 @@
 			<title>Sheet.1074</title>
 			<desc>Event Hubs</desc>
 			<path d="M68.03 490.18 L0 490.18 L0 500.97 L68.03 500.97 L68.03 490.18" class="st4"/>
-			<text x="5.81" y="498.87" class="st6">Event Hubs</text>		</g>
+			<text x="5.81" y="498.87" class="st7">Event Hubs</text>		</g>
 		<g id="group1075-262" transform="translate(427.071,-359.838)">
 			<title>Page-1</title>
 			<g id="group1076-263">
@@ -1976,9 +1975,9 @@
 			<title>Side to side 1.1128</title>
 			<path d="M0 500.97 L31.8 500.97 L31.8 390.15 L59.34 390.15" class="st41"/>
 		</g>
-		<g id="shape1129-370" transform="translate(760.479,203.025) rotate(90)">
+		<g id="shape1129-370" transform="translate(752.271,211.623) rotate(90)">
 			<title>Directed line 1.1129</title>
-			<path d="M0 500.97 L30.7 500.97" class="st41"/>
+			<path d="M0 500.97 L22.1 500.97" class="st41"/>
 		</g>
 		<g id="shape1130-375" transform="translate(480.288,-305.741)">
 			<title>Directed line 1.1130</title>
@@ -2042,7 +2041,7 @@
 				<title>Sheet.1144</title>
 				<desc>SOC analyst</desc>
 				<rect x="0" y="482.543" width="89.2913" height="18.4252" class="st2"/>
-				<text x="15.02" y="495.06" class="st6">SOC analyst</text>			</g>
+				<text x="15.02" y="495.06" class="st7">SOC analyst</text>			</g>
 		</g>
 		<g id="shape108-420" transform="translate(216.396,-330.812)">
 			<title>Sheet.108</title>
@@ -3206,7 +3205,7 @@
 		</g>
 		<g id="group1149-428" transform="translate(209.805,-197.258)">
 			<title>Azure Sentinel.1149</title>
-			<desc>Azure Sentinel</desc>
+			<desc>Sentinel</desc>
 			<g id="shape1150-429">
 				<title>Sheet.1150</title>
 				<path d="M30.24 482.54 C30.24 491.83 18.3 499.31 15.7 500.83 a0.9288 0.873821 0 0 1 -0.9936 0 C12.03 499.31 0 491.81
@@ -3231,7 +3230,7 @@
 				<ellipse cx="4.1256" cy="497.087" rx="4.1256" ry="3.88139" class="st13"/>
 			</g>
 			<g id="shape1149-439">
-				<text x="1.76" y="510.63" class="st6">Azure <tspan x="-3.94" dy="1.2em" class="st9">Sentinel</tspan></text>			</g>
+				<text x="-3.94" y="517.23" class="st7">Sentinel</text>			</g>
 		</g>
 	</g>
 </svg>
