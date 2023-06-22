@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 06/12/2023
+ms.date: 06/19/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -33,7 +33,10 @@ The following new and updated articles have recently been published in the Azure
 - [Deploy Azure Spring Apps to multiple regions](./web-apps/spring-apps/spring-apps-multi-region.yml)
 - [Azure Spring Apps baseline architecture](./web-apps/spring-apps/spring-apps-multi-zone.yml)
 - [Baseline highly available zone-redundant app services web application](./reference-architectures/app-service-web-app/baseline-zone-redundant.yml)
-- [Siemens Teamcenter baseline architecture](./example-scenario/manufacturing/teamcenter-baseline.yml)
+- [Deploy LAMMPS on an Azure virtual machine](./guide/hpc/hpc-lammps.yml)
+- [Build language model pipelines with memory](./guide/ai/language-model-pipelines.yml)
+- [Implement Azure DevOps for mainframe applications that use IBM Z and Cloud Modernization Stack](./example-scenario/mainframe/devops-mainframe-ibm-z.yml)
+- [Siemens Teamcenter baseline architecture on Azure](./example-scenario/manufacturing/teamcenter-baseline.yml)
 - [DataOps for autonomous vehicle operations](./example-scenario/automotive/autonomous-vehicle-operations-dataops.yml)
 - [Use Teamcenter PLM with Azure NetApp Files](./example-scenario/manufacturing/teamcenter-plm-netapp-files.yml)
 - [Carrier-grade voicemail solution on Azure](./industries/telecommunications/carrier-grade.yml)

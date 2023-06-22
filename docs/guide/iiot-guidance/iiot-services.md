@@ -64,8 +64,8 @@ The following sections describe common microservices in Azure IIoT analytics sol
 
 ### REST API interfaces to factory floor OPC UA servers
 
-- Use Azure IIoT components like [OPC Publisher](/azure/industrial-iot/overview-what-is-opc-publisher), [OPC Twin](https://github.com/Azure/Industrial-IoT/tree/main/docs/api/twin), and [OPC Vault](https://github.com/Azure/azure-iiot-opc-vault-service/blob/main/docs/opcvault-services-overview.md) for device discovery, registration, and remote control.
-- Use AKS to host Azure IIoT microservices. To understand the deployment options, see [Deploy the Azure Industrial IoT Platform](https://github.com/Azure/Industrial-IoT/blob/master/docs/deploy/readme.md).
+- Use Azure IIoT components like [OPC Publisher](/azure/industrial-iot/overview-what-is-opc-publisher), [OPC Twin](https://github.com/Azure/Industrial-IoT/tree/main/docs/opc-publisher#opc-ua-client-opc-twin), and [OPC Vault](https://github.com/Azure/azure-iiot-opc-vault-service/blob/main/docs/opcvault-services-overview.md) for device discovery, registration, and remote control.
+- Use AKS to host Azure IIoT microservices. To understand the deployment options, see [Deploy the Azure Industrial IoT Platform](https://github.com/Azure/Industrial-IoT/blob/main/deploy/helm/azure-industrial-iot/README.md).
 
 ### Data transformation services
 
@@ -105,7 +105,7 @@ Use the following workflow to let solution administrators know about new or upda
 
 1. Once the solution owners approve the new or updated tags and assign them a frequency, Logic Apps calls a function in Azure Functions.
 
-1. The function calls the [OPC Twin](https://github.com/Azure/Industrial-IoT/tree/main/docs/api/twin) microservice, which directs the [OPC Publisher](/azure/industrial-iot/overview-what-is-opc-publisher) module to subscribe to the new tags.
+1. The function calls the [OPC Twin](https://github.com/Azure/Industrial-IoT/tree/main/docs/opc-publisher#opc-ua-client-opc-twin) microservice, which directs the [OPC Publisher](/azure/industrial-iot/overview-what-is-opc-publisher) module to subscribe to the new tags.
 
    If your solution involves third-party software, configure the function to call a third-party API instead of OPC Publisher. Either call the API directly or by using an IoT Hub [direct method](/azure/iot-hub/iot-hub-devguide-direct-methods).
 
