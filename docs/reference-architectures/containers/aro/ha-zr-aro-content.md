@@ -22,12 +22,12 @@ _Download a [Visio file](https://arch-center.azureedge.net/openshift-zonal-archi
 * [Azure Active Directory (Azure AD)][aad] or [Azure AD B2C][aad-b2c] authenticates users. The browser performs DNS lookups to resolve addresses to Azure Front Door.
 * [Azure Front Door][afd] is the public interface for all internet requests. It acts as a global HTTP reverse proxy and cache for back-end (origin) services. Front Door provides features that enhance the security and performance of your application, like protection from layer 4 distributed denial-of-service (DDoS) attacks.
 * [Azure Red Hat OpenShift][aro] is the Kubernetes-based container orchestrator that hosts the API applications and services, and provides a front-end for back-end services.
-* [Azure Container Registry][acr] supports Docker and Open Container Initiative (OCI) compliant container images.
+* [Container Registry][acr] supports Docker and Open Container Initiative (OCI) compliant container images. Container Registry supports zone redundancy, which makes it highly available and resilient to zone failure. It also supports [geo-replication][acr-georeplica], which replicates the service across multiple regions.
 * Azure Red Hat OpenShift uses [Virtual Network (VNet) Integration][vnet-integration] to connect to backend services over a private VNet.
 * [Azure Cosmos DB][cosmos-db] provides NoSQL document databases for front-end services.
 * [Private endpoints][peps] enable connections to back-end Azure services from private VNets and enable you to disable the public endpoints on these services.
 * [Azure private DNS][private-dns] configures and updates the DNS records that are required by private endpoint services.
-* [Azure Key Vault][akv] securely stores secrets and certificates that are accessed by Azure services.
+* [Key Vault][akv] securely stores secrets and certificates that are accessed by Azure services.
 * [Azure Monitor][azmon] and [Application Insights][insights] collect service logs and application performance metrics for observability.
 
 ### Alternatives
@@ -92,27 +92,23 @@ An [Azure Red Hat OpenShift][aro] cluster is deployed across three availability 
 
 ### Container Registry
 
-[Azure Container Registry][acr] supports zone redundancy making Azure Container registry highly available and resilient to zone failure. Azure Container Registry also supports [geo-replication][acr-georeplica], which replicates the service across multiple regions. 
+* The Premium Container Registry service tier offers zone redundancy. For information about registry service tiers and limits, see [Container Registry service tiers][acr-tier].
+* Ensure that [a region where a container registry is deployed supports availability zones][az-regions].
+* After a container registry is deployed, you can't disable or enable the zone redundancy option.
+* ACR Tasks doesn't support availability zones.
 
-* Zone redundancy is a feature of the Premium container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry service tiers][acr-tier].
-* Ensure that [a region which a container registry is deployed in supports availability zones][az-regions].
-* Once a container registry is deployed, its zone redundancy option cannot be changed. After deployment, zone redundancy option in the container registry cannot be disabled or enabled.
-* ACR Tasks doesn't support availability zones yet.
+For more information, see [Enable zone redundancy in Container Registry for resiliency and high availability][acr-zoneredundancy] and [Use Container Registry with Azure Red Hat OpenShift][aro-acr].
 
-For more information, see [Enable zone redundancy in Azure Container Registry for resiliency and high availability][acr-zoneredundancy] and [Use Azure Container Registry with Azure Red Hat OpenShift (ARO)][aro-acr].
+### Azure Cosmos DB
 
-### Cosmos DB
-
-Enable [zone-redundancy in Azure Cosmos DB][cosmos-ha] when selecting a region to associate with your Azure Cosmos account.
-
-* Enable zone-redundancy when adding the local read/write region to the Azure Cosmos account.
+* Enable [zone redundancy][cosmos-ha] when you add the local read/write region to your Azure Cosmos DB account.
 * [Enable continuous backups][cosmos-backup].
-* [Configure private link for the Cosmos DB account][cosmos-pep]. Enabling the private endpoint will disable the public endpoint.
-* Integrate the Private endpoint with an Azure Private DNS zone.
+* [Configure Azure Private Link for your Azure Cosmos DB account][cosmos-pep]. When you enable the private endpoint, you disable the public endpoint.
+* Integrate the private endpoint with a private Azure DNS zone.
 
 ### Key Vault
 
-Key Vault is automatically zone-redundant in any region where Availability zones are available. The Key Vault used in this architecture is deployed with a private endpoint enabled and public endpoint disabled. For more information about Private endpoints for Azure Key Vault, see [Integrate Key Vault with Azure Private Link][akv-pep].
+Key Vault is automatically zone-redundant in any region where availability zones are available. The Key Vault used in this architecture is deployed with a private endpoint enabled and public endpoint disabled. For more information about Private endpoints for Key Vault, see [Integrate Key Vault with Private Link][akv-pep].
 
 ### Azure DNS Private Zones
 
@@ -164,7 +160,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 * Private endpoints are used on Azure services that don't need to be accessed from the public internet.
 * All service-to-service communication in Azure is TLS (transport layer security) encrypted by default. Azure Front Door should be configured to accept HTTPS traffic only, and the minimum TLS version set.
 * Managed identities are used for authenticating Azure service-to-service communication, where available. For more information about managed identities, see [What are managed identities for Azure resources?](https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
-* To manage and protect secrets, certificates, and connection strings in your cluster, consider connecting Azure Red Hat OpenShift cluster to Azure Arc-enabled Kubernetes and use the Azure Key Vault Secrets Provider extension to fetch secrets.
+* To manage and protect secrets, certificates, and connection strings in your cluster, consider connecting Azure Red Hat OpenShift cluster to Azure Arc-enabled Kubernetes and use the Key Vault Secrets Provider extension to fetch secrets.
 * Configure Microsoft Defender for Containers supported via Arc enabled Kubernetes to secure clusters, containers, and applications. Also scan your images for vulnerabilities with Microsoft Defender or any other image scanning solution.
 * Configure Azure AD integration to use Azure AD to authenticate users in your Azure Red Hat OpenShift cluster.
 * Use Microsoft Defender for Containers supported via Arc enabled Kubernetes to secure clusters, containers, and applications. Also scan your images for vulnerabilities with Microsoft Defender or any other image scanning solution.
@@ -228,12 +224,12 @@ To deploy this reference architecture scenario see the [Azure Red Hat OpenShift 
 
 _This article is maintained by Microsoft. It was originally written by the following contributors._
 
-Principal author:
+Principal authors:
 
 * [Hiro Tarusawa](https://www.linkedin.com/in/hiro-tarusawa-bb29a2137/) | FastTrack for Azure Customer Engineer
 * [Daniel Mossberg](https://www.linkedin.com/in/danielmossberg/) | FastTrack for Azure Customer Engineer
 
-Other contributor:
+Other contributors:
 
 * [Daniel Larsen](https://www.linkedin.com/in/daniellarsennz) | FastTrack for Azure Customer Engineer
 * [Ayobami Ayodeji](https://www.linkedin.com/in/ayobamiayodeji) | FastTrack for Azure Customer Engineer
@@ -246,12 +242,12 @@ _To see non-public LinkedIn profiles, sign in to LinkedIn._
 * [Azure regions with availability zones][az-regions]
 * [Find an availability zone region near you][region-roadmap]
 * [Microsoft Azure Well-Architected Framework - Reliability][learn-ha]
-* [Microsoft Azure Well-Architected Framework - Mission-critical workloads](https://learn.microsoft.com/azure/architecture/framework/mission-critical/mission-critical-overview)
+* [Microsoft Azure Well-Architected Framework - Mission-critical workloads](/azure/architecture/framework/mission-critical/mission-critical-overview)
 
 ## Related resources
 
-* [Mission-critical baseline architecture](https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro)
-* [Design principles for mission-critical workloads](https://learn.microsoft.com/azure/architecture/framework/mission-critical/mission-critical-design-principles)
+* [Mission-critical baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro)
+* [Design principles for mission-critical workloads](/azure/architecture/framework/mission-critical/mission-critical-design-principles)
 
 <!-- links -->
 [aad]:https://azure.microsoft.com/services/active-directory/
