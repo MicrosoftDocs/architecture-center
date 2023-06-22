@@ -42,9 +42,9 @@ The performance tests of Samadii Plasma on Azure used [NVv3](/azure/virtual-mach
 
 ### Required drivers
 
-To take advantage of the GPU capabilities of [NVv3](/azure/virtual-machines/nvv3-series), [NCasT4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), [ND A100 v4](/azure/virtual-machines/nda100-v4-series), and [NC A100 v4](/azure/virtual-machines/nc-a100-v4-series) series VMs, you need to install NVIDIA GPU drivers.
+To take advantage of the GPU capabilities of [NVv3](/azure/virtual-machines/nvv3-series), [NCasT4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), [ND_A100_v4](/azure/virtual-machines/nda100-v4-series), and [NC_A100_v4](/azure/virtual-machines/nc-a100-v4-series) series VMs, you need to install NVIDIA GPU drivers.
 
-To use AMD processors on [NVv3](/azure/virtual-machines/nvv3-series), [NCasT4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), [ND A100 v4](/azure/virtual-machines/nda100-v4-series), and [NC A100 v4](/azure/virtual-machines/nc-a100-v4-series) series VMs, you need to install AMD drivers.
+To use AMD processors on [NVv3](/azure/virtual-machines/nvv3-series), [NCasT4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), [ND_A100_v4](/azure/virtual-machines/nda100-v4-series), and [NC_A100_v4](/azure/virtual-machines/nc-a100-v4-series) series VMs, you need to install AMD drivers.
 
 ## Samadii Plasma installation
 
@@ -68,7 +68,7 @@ The product installation process involves installing a license server, installin
 
 Windows 10 Professional, version 20H2, with an x86-64 architecture, was used for all tests. The following table shows the processors that were used.
 
-|VM series|ND A100 v4|	NCv3|	NCasT4_v3|	NVv3|NC A100 v4|
+|VM series|ND_A100_v4|	NCv3|	NCasT4_v3|	NVv3|NC_A100_v4|
 |-|-|-|-|-|-|
 |Processor|	AMD EPYC 7V12, 64-core processor, 2.44 GHz (2 processors)|	Intel Xeon CPU E5-2690 v4|	AMD EPYC 7V12, 64-core processor, 2.44 GHz|	Intel Xeon CPU E5-2690 v4|AMD EPYC 7V13, 64-core processor, 2.44 GHz|
 
@@ -111,8 +111,8 @@ The following table shows the elapsed runtimes and relative speed increases on e
 |NVv3|Tesla M60|	12,825.36|	N/A|
 |NCasT4_v3|Tesla T4	|7,606.59|	1.69|
 |NCv3	|V100|2,798.55|	4.58|
-|ND A100 v4|A100	|1,977|	6.49|
-|NC A100 v4|A100|1,590.83|	8.06|
+|ND_A100_v4|A100	|1,977|	6.49|
+|NC_A100_v4|A100|1,590.83|	8.06|
 
 This graph shows the relative speed increases.  
 
@@ -127,8 +127,8 @@ The following table shows the elapsed runtimes and relative speed increases on e
 |NVv3|Tesla M60|248.99| N/A|
 |NCasT4_v3|Tesla T4	|159.61|1.56|
 |NCv3	|V100|141.59|1.76|
-|ND A100 v4|A100	|112|2.22|
-|NC A100 v4|A100|44.27|	5.62|
+|ND_A100_v4|A100	|112|2.22|
+|NC_A100_v4|A100|44.27|	5.62|
 
 This graph shows the relative speed increases.  
 
@@ -144,7 +144,7 @@ The following table shows the elapsed runtimes and relative speed increases on e
 |NCasT4_v3	|Tesla T4|8.46|1.63|
 |NCv3|V100	|6.86|2.01|
 |ND_A100_v4|A100	|5.9|2.34|
-|NC A100 v4|A100	|8.61	|1.61|
+|NC_A100_v4|A100	|8.61	|1.61|
 
 This graph shows the relative speed increases. 
 
@@ -152,7 +152,7 @@ This graph shows the relative speed increases.
 
 ## Azure cost
 
-The following tables present wall-clock times in hours. To compute the total cost, multiply these times by the Azure VM hourly costs for NVv3, NCasT4_v3, NCv3, NDA100v4, and NC A100 v4 series VMs. For the current hourly costs, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing).
+The following tables present wall-clock times in hours. To compute the total cost, multiply these times by the Azure VM hourly costs for NVv3, NCasT4_v3, NCv3, ND_A100_v4, and NC_A100_v4 series VMs. For the current hourly costs, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing).
 
 Only simulation runtime is considered in these cost calculations. Application installation time and license costs aren't included.
 
@@ -190,9 +190,9 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 
 ## Summary
 
-- Samadii Plasma was tested on Azure NDv4, NCv3, NCasT4_v3, NVv3, and NC A100 v4 series VMs.
-- For complex models like Magnetron-sputter and Import-inlet, we can observe that the NC24ads_A100_v4 VM provides the best relative speed-up performance.
-- For models with less complexity, the NCasT4_v3 VM provides good scale-up and also the performance to cost ratio is better than other VMs tested. 
+- Samadii Plasma was tested on Azure ND_A100_v4, NCv3, NCasT4_v3, NVv3, and NC_A100_v4 series VMs.
+- For complex models, like magnetron sputter and import inlet, the Standard_NC24ads_A100_v4 VM provides the best performance.
+- For models with less complexity, the NCasT4_v3 VM provides good scale-up, and the performance-to-cost ratio is better than that of the other VMs tested. 
 
 ## Contributors
 
@@ -212,7 +212,7 @@ Other contributors:
 
 -   [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) |
     Technical Writer
--   [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director
+-   [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director of
     Business Strategy
 -   [Sachin Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) |
     Manager
