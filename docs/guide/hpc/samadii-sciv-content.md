@@ -57,7 +57,7 @@ For information about deploying the VM and installing the drivers, see [Run a Wi
 
 Following are some prerequisites for running Samadii applications.
 
-- Microsoft Windows 10 (x64) OS
+- Windows 10 (x64) OS
 - One or more NVIDIA CUDA-enabled GPUs: Tesla, Quadro, or GeForce series
 - Visual C++ 2010 SP1 Redistributable Package 
 - Microsoft MPI v7.1
