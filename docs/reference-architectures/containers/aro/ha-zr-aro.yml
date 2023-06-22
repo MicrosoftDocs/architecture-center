@@ -1,0 +1,31 @@
+### YamlMime:Architecture
+metadata:
+  title: Highly available zone-redundant Azure Red Hat OpenShift
+  titleSuffix: Azure Reference Architectures
+  description: Learn how to run an application on Azure Red Hat OpenShift in a zone-redundant configuration to achieve high availability.
+  author: hitarusa, dmossberg
+  ms.author: hitarusa@microsoft.com, daniem@microsoft.com
+  ms.date: 03/20/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.category:
+    - containers
+    - web
+    - management-and-governance
+  ms.custom:
+    - reference-architecture
+    - internal-intro
+azureCategories:
+  - containers
+  - web
+  - management-and-governance
+products:
+  - azure-redhat-openshift
+  - azure-cosmos-db
+  - azure-front-door
+name: Highly available zone-redundant Azure Red Hat OpenShift
+summary: Learn how to run an application on Azure Red Hat OpenShift in a zone-redundant configuration to achieve high availability.
+thumbnailUrl: /azure/architecture/browse/thumbs/zone-redundant-aro-diagram.png
+content: |
+  [!include[](./ha-zr-aro-content.md)]
