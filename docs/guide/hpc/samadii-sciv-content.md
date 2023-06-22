@@ -13,7 +13,7 @@ SCIV is used by manufacturers of display devices and semiconductors, in aerospac
 
 ## Architecture
 
-:::image type="content" source="media/samadii-sciv/architecture.png" alt-text="Diagram that shows an architecture for deploying Samadii SCIV." lightbox="media/samadii-sciv/architecture.png" border="false":::
+:::image type="content" source="media/samadii-sciv/samadii-sciv-architecture.svg" alt-text="Diagram that shows an architecture for deploying Samadii SCIV." lightbox="media/samadii-sciv/samadii-sciv-architecture.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/samadii-sciv.vsdx) of this
 architecture.*
