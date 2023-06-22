@@ -2,7 +2,7 @@ This article provides a reference architecture for deploying an entire SAP lands
 
 ## Architecture
 
-[![Diagram that shows a sample overall SAP landscape in Azure.](media/sap-whole-landscape.png)](media/sap-whole-landscape.png#lightbox)
+[![Diagram that shows a sample overall SAP landscape in Azure.](media/sap-whole-landscape.png)](media/sap-whole-landscape.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/sap-whole-landscape.vsdx) of the architecture.*
 
@@ -89,7 +89,7 @@ You can create separate set SAP perimeter subnet in the non-production subscript
 
 **Place perimeter subnets in a separate virtual network for increased security**: For increased security, you can put the SAP perimeter subnet and Application Gateway subnet in a separate virtual network within the SAP production subscription. The SAP perimeter spoke virtual network is peered with the Hub virtual network, and all network traffic to public networks flows through the perimeter virtual network.
 
-[![Diagram showing network flow between virtual network spokes through the Hub virtual network.](media/sap-whole-landscape-secured-perimeter-peering.png)](media/sap-whole-landscape-secured-perimeter-peering.png#lightbox)
+[![Diagram showing network flow between virtual network spokes through the Hub virtual network.](media/sap-whole-landscape-secured-perimeter-peering.svg)](media/sap-whole-landscape-secured-perimeter-peering.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/sap-whole-landscape-secured.vsdx) of the full architecture.*
 
