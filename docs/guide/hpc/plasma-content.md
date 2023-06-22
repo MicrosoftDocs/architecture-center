@@ -30,7 +30,7 @@ architecture.*
 
 ## Compute sizing and drivers
 
-The performance tests of Samadii Plasma on Azure used [NVv3](/azure/virtual-machines/nvv3-series), [NCasT4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), [ND A100 v4](/azure/virtual-machines/nda100-v4-series), and [NC A100 v4](/azure/virtual-machines/nc-a100-v4-series) series VMs running Windows 10. The following table provides details about the VMs.
+The performance tests of Samadii Plasma on Azure used [NVv3](/azure/virtual-machines/nvv3-series), [NCasT4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), [ND_A100_v4](/azure/virtual-machines/nda100-v4-series), and [NC_A100_v4](/azure/virtual-machines/nc-a100-v4-series) series VMs running Windows 10. The following table provides details about the VMs.
 
 |VM size|GPU|Number of vCPUs|Memory, in GiB|Maximum data disks|Number of GPUs|GPU memory, in GiB|Maximum uncached disk throughput, in IOPS / MBps|Temporary storage (SSD), in GiB|Maximum NICs|
 |-|-|-|-|-|-|-|-|-|-|
@@ -53,7 +53,7 @@ Before you install Samadii Plasma, you need to deploy and connect a VM and insta
 For information about deploying the VM and installing the drivers, see [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml). 
 
 > [!IMPORTANT]
-> NVIDIA Fabric Manager installation is required for VMs that use NVLink. ND A100 v4 and NC A100 v4 VMs use this technology.
+> NVIDIA Fabric Manager installation is required for VMs that use NVLink. ND_A100_v4 and NC_A100_v4 VMs use this technology.
 
 Following are some prerequisites for running Samadii applications.
 - Windows 10 (x64) OS
@@ -97,7 +97,7 @@ The following three models were used for testing.
 
 :::image type="content" source="media/samadii-plasma/sputtering-target.png" alt-text="Screenshot that shows the sputtering target model.":::
 
-- Size: 15,991
+- Model size: 15,991
 - Cell type: Shell and solid
 - Solver: Samadii SCIV V21 R1
 - Number of GPUs used for all simulations: One
