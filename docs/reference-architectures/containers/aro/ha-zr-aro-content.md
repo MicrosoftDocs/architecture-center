@@ -6,13 +6,16 @@ Before you build a production environment with Azure Red Hat OpenShift, read [Az
 
 ## Architecture
 
-:::image type="content" source="./images/openshift-zonal-architecture.svg" alt-text="Diagram that shows the architecture for a web application with high availability.":::
+:::image type="content" source="./images/openshift-zonal-architecture.png" alt-text="Diagram that shows the architecture for a web application with high availability.":::
 
 _Download a [Visio file](https://arch-center.azureedge.net/openshift-zonal-architecture.vsdx) of this architecture._
 
 ### Workflow
 
-A user sends a request to Azure. The request is received by Azure Front Door and routed to a web application that's hosted on Azure Red Hat OpenShift. The web application runs the client request by using the Azure services, Azure Key Vault, Azure Cosmos DB, and Azure Container Registry. The web application sends a response back to the client.
+* A user sends a request to Azure.
+* Azure Front Door receives the request and routes the request to a web application that's hosted on Azure Red Hat OpenShift.
+* The web application runs the request by using the Azure services, Azure Key Vault, Azure Cosmos DB, and Azure Container Registry.
+* The web application sends a response back to the user.
 
 ### Components
 
@@ -37,7 +40,7 @@ A user sends a request to Azure. The request is received by Azure Front Door and
 
 ## Scenario details
 
-This architecture builds on [availability zones infrastructure][azs] that's found in many regions today. For a list of regions that support Azure availability zones, see [Azure regions with availability zones][az-regions].
+This architecture builds on the [availability zones infrastructure][azs] that's found in many regions. For a list of regions that support Azure availability zones, see [Azure regions with availability zones][az-regions].
 
 Availability zones spread a solution across multiple independent zones within a region, which keeps an application functioning when one zone fails. Most mainstream Azure services and many specialized Azure services provide support for availability zones. All Azure services in this architecture are zone-redundant, which simplifies the deployment and management. For a list of Azure services that support availability zones, see [Azure Services that support availability zones][az-services].
 
@@ -71,25 +74,25 @@ The following recommendations apply to most scenarios.
 
 ### Front Door
 
-Azure Front Door is a global service that provides resilience to zone and region failures.
+Azure Front Door is a global service that provides protection against zone and region failures.
 
-* Use [Azure managed certificates][afd-certs] on all frontends to prevent certificate mis-configuration and expiration issues.
-* Enable [Caching][afd-cache] on routes where appropriate to improve availability. Front Door's cache distributes your content to the Azure PoP (point of presence) edge nodes. In addition to improving your performance, caching reduces the load on your origin servers.
-* Deploy Azure Front Door Premium and configure a [WAF policy][afd-waf] with a Microsoft-managed ruleset. Apply the policy to all custom domains. Use Prevention mode to mitigate web attacks that might cause an origin service to become unavailable.
+* Use [Azure-managed certificates][afd-certs] on all frontends to prevent certificate misconfiguration and expiration issues.
+* Enable [caching][afd-cache] on routes where appropriate to improve availability. Front Door's cache distributes your content to the Azure PoP (point of presence) edge nodes. Caching reduces the load on origin servers and improves performance.
+* Deploy Azure Front Door Premium and configure a [WAF policy][afd-waf] with a Microsoft-managed ruleset. Apply the policy to all custom domains. Use prevention mode to mitigate web attacks that might cause an origin service to become unavailable.
 
-### Red Hat OpenShift
+### Azure Red Hat OpenShift
 
-An [Azure Red Hat OpenShift][aro] cluster is automatically deployed across three availability zones in Azure regions that support them. A cluster consists of three control-plane nodes and three or more worker nodes, each of which is spread across zones to improve redundancy.
+An [Azure Red Hat OpenShift][aro] cluster is deployed across three availability zones in Azure regions that support them. A cluster consists of three control plane nodes and three or more worker nodes. To improve redundancy, the nodes are spread across the zones.
 
-* Ensure that the Azure region where Azure Red Hat OpenShift is to be deployed supports availability zones. For more information, see [Azure regions with availability zone support][az-regions].
-* Ensure that all services that an Azure Red Had OpenShift cluster depends on support and are configured for zone redundancy. For more information, see [Azure services with availability zone support][az-ha-services].
-* Remove state from containers and make use of Azure storage or database services instead.
-* Set up multiple replicas in deployments, with appropriate disruption budget configuration, to continuously provide application service over disruptions like hardware failures in zones.
-* Secure access to Azure Red Hat OpenShift so that only Front Door traffic is allowed. This ensures that requests are not able to bypass the Azure Front Door WAF (Web Application Firewall). For more information about restricting access to a specific Azure Front Door instance, see [Secure access to Azure Red Hat OpenShift with Azure Front Door][aro-afd].
+* Ensure that the Azure region where Azure Red Hat OpenShift is deployed supports availability zones. For more information, see [Azure regions with availability zone support][az-regions].
+* An Azure Red Hat OpenShift cluster depends on some services. Ensure that those services support and are configured for zone redundancy. For more information, see [Azure services with availability zone support][az-ha-services].
+* Remove the state from containers, and use Azure storage or database services instead.
+* Set up multiple replicas in deployments with appropriate disruption budget configuration to continuously provide application service despite disruptions, like hardware failures in zones.
+* Secure access to Azure Red Hat OpenShift. Only allow Front Door traffic to ensure that requests can't bypass the Front Door WAF (Web Application Firewall). For more information about restricting access to a specific Azure Front Door instance, see [Secure access to Azure Red Hat OpenShift with Front Door][aro-afd].
 
 ### Container Registry
 
-[Azure Container Registry][acr] supports zone redundancy making Azure Continer registry highly available and resilient to zone failure. Azure Container Registry also supports [geo-replication][acr-georeplica], which replicates the service across multiple regions. 
+[Azure Container Registry][acr] supports zone redundancy making Azure Container registry highly available and resilient to zone failure. Azure Container Registry also supports [geo-replication][acr-georeplica], which replicates the service across multiple regions. 
 
 * Zone redundancy is a feature of the Premium container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry service tiers][acr-tier].
 * Ensure that [a region which a container registry is deployed in supports availability zones][az-regions].

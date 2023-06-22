@@ -5,7 +5,7 @@ metadata:
   description: Run an application on Azure Red Hat OpenShift in a zone-redundant configuration to achieve high availability.
   author: hitarusa, dmossberg
   ms.author: hitarusa, daniem
-  ms.date: 06/22/2023
+  ms.date: 06/23/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
@@ -26,6 +26,6 @@ products:
   - azure-front-door
 name: Highly available zone-redundant Azure Red Hat OpenShift
 summary: Run an application on Azure Red Hat OpenShift in a zone-redundant configuration to achieve high availability.
-thumbnailUrl: /azure/architecture/browse/thumbs/zone-redundant-aro-diagram.png
+thumbnailUrl: /azure/architecture/browse/thumbs/openshift-architecture.png
 content: |
   [!include[](./ha-zr-aro-content.md)]
