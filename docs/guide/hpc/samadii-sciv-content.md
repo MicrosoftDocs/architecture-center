@@ -1,6 +1,6 @@
 This article briefly describes the steps for running [Samadii SCIV](https://www.metariver.kr/smdsciv.html) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running Samadii SCIV on Azure.
 
-Samadii SCIV (Statistical Contact in Vacuum) analyzes fluid behavior, deposition processes, and chemical reactions on rarefied gas regions by using the direct simulation Monte Carlo (DSMC) method. To calculate the physical phenomena represented by the Boltzmann equation, the DSMC method uses representative particles, which replace the real molecules. SCIV also provides functions for traditional flow simulation, display deposition processes, and semiconductor device analysis in rarefied gas regions.
+Samadii SCIV (Statistical Contact in Vacuum) analyzes fluid behavior, deposition processes, and chemical reactions on rarefied gas regions by using the direct simulation Monte Carlo (DSMC) method. To calculate the physical phenomena represented by the Boltzmann equation, the DSMC method uses representative particles, which replace the real molecules. SCIV also provides functions for traditional flow simulation, display deposition processes, and semiconductor device analysis in rarefied gas regions. Samadii SCIV is based on a GPU architecture and uses CUDA technology.
 
 SCIV is used by manufacturers of display devices and semiconductors, in aerospace, manufacturing, and in other industries.
 
@@ -9,11 +9,11 @@ SCIV is used by manufacturers of display devices and semiconductors, in aerospac
 - Modern and diverse compute options to meet your workload's needs
 - The flexibility of virtualization without the need to buy and maintain physical hardware
 - Rapid provisioning
-- Strong performance scale-up, with configurations that provide optimized scaling or optimized cost efficiency
+- Strong performance scale-up, with configurations that provide either optimized scaling or optimized cost efficiency
 
 ## Architecture
 
-:::image type="content" source="media/samadii-sciv/architecture.png" alt-text="Diagram that shows an architecture for deploying Samadii SCIV." lightbox="media/samadii-sciv/architecture.png" border="false":::
+:::image type="content" source="media/samadii-sciv/sciv-architecture.png" alt-text="Diagram that shows an architecture for deploying Samadii SCIV." lightbox="media/samadii-sciv/sciv-architecture.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/samadii-sciv.vsdx) of this
 architecture.*
@@ -30,7 +30,7 @@ architecture.*
 
 ## Compute sizing and drivers
 
-The performance tests of Samadii SCIV on Azure used [NVv3](/azure/virtual-machines/nvv3-series), [NCas_T4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), and [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) VMs running Windows 10. The following table provides details about the VMs.
+The performance tests of Samadii SCIV on Azure used [NVv3](/azure/virtual-machines/nvv3-series), [NCas_T4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), [ND_A100_v4](/azure/virtual-machines/nda100-v4-series), and [NC A100 v4] series VMs running Windows 10. The following table provides details about the VMs.
 
 |VM size|	GPU name|	vCPU|	Memory, in GiB|	Maximum data disks|	GPU	|GPU memory, in GiB|	Maximum uncached disk throughput, IOPS / MBps)|	Temporary storage (SSD), in GiB|	Maximum NICs|
 |-|-|-|-|-|-|-|-|-|-|
@@ -38,23 +38,29 @@ The performance tests of Samadii SCIV on Azure used [NVv3](/azure/virtual-machin
 |Standard_NC4as_T4_v3|	Tesla T4	|4|	28|	8|	1	|16	|-|	180|	2|
 |Standard_NC6s_v3	|V100|	6	|112|	12	|1	|16|	20,000 / 200|	736|	4|
 |Standard_ND96asr_v4|	A100|	96	|900	|32|	8	|40	|80,000 / 800	|6,000	|8|
+|Standard_NC24ads_A100_v4|A100|	24	|220	|32	|1	|80	|30000/1000	|1123	|2|
 
 ### Required drivers
 
-To take advantage of the GPU capabilities of [NVv3](/azure/virtual-machines/nvv3-series), [NCas_T4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), and [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) VMs, you need to install NVIDIA GPU drivers.
+To take advantage of the GPU capabilities of [NVv3](/azure/virtual-machines/nvv3-series), [NCas_T4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), [ND_A100_v4](/azure/virtual-machines/nda100-v4-series), and [NC A100 v4] series VMs, you need to install NVIDIA GPU drivers.
 
 To use AMD processors on [NCas_T4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), and [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) VMs, you need to install AMD drivers.
 
 ## Samadii SCIV installation
 
-Before you install SCIV, you need to deploy and connect a VM, install an eligible Windows 10 image, and install the required NVIDIA and AMD drivers.
+Before you install SCIV, you need to deploy and connect a VM and install the required NVIDIA and AMD drivers.
 
-For information about eligible Windows images, see [How to deploy Windows 10 on Azure](/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) and [Use Windows client in Azure for dev/test scenarios](/azure/virtual-machines/windows/client-images).
+For information about deploying the VM and installing the drivers, see [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml).
 
 > [!IMPORTANT]
 > NVIDIA Fabric Manager installation is required for VMs that use NVLink. ND_A100_v4 VMs use this technology.
 
-For information about deploying the VM and installing the drivers, see [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml).
+Some of the prerequisites are listed below for Samadii applications to work.
+- Microsoft Windows 10(x64) OS
+- nVidia CUDA-enabled GPU(s): Tesla/Quadro/GeForce series
+- Microsoft Visual C++ 2010 Redistributable Package SP1
+- Microsoft MS-MPI v7.1
+- Microsoft .Net framework 4.5
 
 The product installation process involves installing a license server, installing Samadii SCIV, and configuring the license server. For more information about installing SCIV, contact [Metariver Technology](https://www.metariver.kr/index.html).
 
@@ -62,7 +68,7 @@ The product installation process involves installing a license server, installin
 
 Windows 10 Professional, version 20H2, with an x86-64 architecture, was used for all tests. The following table shows the processors that were used.
 
-||ND_A100_v4	|NCv3	|NCas_T4_v3	|NVv3|
+|VM series|ND_A100_v4	|NCv3	|NCas_T4_v3	|NVv3|NC A100 v4|
 |-|-|-|-|-|
 |Processor|	AMD EPYC 7V12, 64-core processor, 2.44 GHz (2 processors)	|Intel Xeon CPU E5-2690 v4|	AMD EPYC 7V12, 64-core processor, 2.44 GHz	|Intel Xeon CPU E5-2690 v4|
 
