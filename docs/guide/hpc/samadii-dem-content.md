@@ -15,7 +15,7 @@ Samadii DEM is used in the mechanical, electronic, chemical, semiconductor, manu
 
 ## Architecture
 
-:::image type="content" source="media/samadii-dem/architecture.png" alt-text="Diagram that shows an architecture for deploying Samadii DEM." lightbox="media/samadii-dem/architecture.png" border="false":::
+:::image type="content" source="media/samadii-dem/samadii-dem-architecture.svg" alt-text="Diagram that shows an architecture for deploying Samadii DEM." lightbox="media/samadii-dem/samadii-dem-architecture.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/samadii-dem.vsdx) of this
 architecture.*

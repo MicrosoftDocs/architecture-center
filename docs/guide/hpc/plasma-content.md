@@ -13,7 +13,7 @@ Organizations that use Samadii Plasma include manufacturers of flat panel and OL
 
 ## Architecture
 
-:::image type="content" source="media/samadii-plasma/architecture.png" alt-text="Diagram that shows an architecture for deploying Samadii Plasma." lightbox="media/samadii-plasma/architecture.png" border="false":::
+:::image type="content" source="media/samadii-plasma/samadii-plasma-architecture.svg" alt-text="Diagram that shows an architecture for deploying Samadii Plasma." lightbox="media/samadii-plasma/samadii-plasma-architecture.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/samadii-plasma.vsdx) of this
 architecture.*
