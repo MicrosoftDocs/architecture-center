@@ -43,7 +43,7 @@ AKS natively integrates with [Azure Monitor](/azure/azure-monitor/overview). Azu
 
 Microsoft Sentinel  must be connected with your [AKS](/azure/sentinel/data-connectors/azure-kubernetes-service-aks). This connector lets you stream your Azure Kubernetes Service (AKS) diagnostics logs into Microsoft Sentinel, allowing you to continuously monitor activity in all your instances.
 
-Once you have connected your data sources to Microsoft Sentinel, you can [visualize and monitor the data](/azure/sentinel/monitor-your-data) using the Microsoft Sentinel adoption of Azure Monitor Workbooks, which provides versatility in creating custom dashboards.
+Once you have connected your data sources to Microsoft Sentinel, you can [visualize and monitor the data](/azure/sentinel/monitor-your-data) using the Microsoft Sentinel and Azure Monitor Workbooks, which provides versatility in creating custom dashboards.
 
 ### AKS cluster and workload monitoring
 
