@@ -1,12 +1,12 @@
 <!-- cSpell:ignore CNAME -->
 
-This reference architecture shows the holistic view of a web-app workload on Azure Red Hat OpenShift in a zone-redundant configuration. [Zone-redundant services][az-ha-services] replicate your services and data across availability zones to protect them from single points of failure and provide high availability.
+This article provides a comprehensive overview of a web app workload on Azure Red Hat OpenShift in a zone-redundant configuration. [Zone-redundant services][az-ha-services] replicate your services and data across availability zones to protect them from single points of failure and provide high availability.
 
 Before you build a production environment with Azure Red Hat OpenShift, read [Azure Red Hat OpenShift landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-openshift/landing-zone-accelerator).
 
 ## Architecture
 
-:::image type="content" source="./images/openshift-zonal-architecture.png" alt-text="Diagram that shows the architecture for a web application with high availability.":::
+:::image type="content" source="./images/openshift-zonal-architecture.png" alt-text="Diagram that shows the architecture for a web application with high availability." lightbox="./images/openshift-zonal-architecture.png" border="false":::
 
 _Download a [Visio file](https://arch-center.azureedge.net/openshift-zonal-architecture.vsdx) of this architecture._
 
@@ -20,7 +20,7 @@ _Download a [Visio file](https://arch-center.azureedge.net/openshift-zonal-archi
 ### Components
 
 * [Azure Active Directory (Azure AD)][aad] or [Azure AD B2C][aad-b2c] authenticates users. The browser performs DNS lookups to resolve addresses to Azure Front Door.
-* [Azure Front Door][afd] is the public interface for all internet requests. It acts as a global HTTP reverse proxy and cache for back-end (origin) services. Front Door provides features that enhance the security and performance of your application, like protection from layer 4 distributed denial-of-service (DDoS) attacks.
+* [Azure Front Door][afd] is the public interface for all internet requests. It acts as a global HTTP reverse proxy and cache for back-end (origin) services. Azure Front Door provides features that enhance the security and performance of your application, like protection from layer 4 distributed denial-of-service (DDoS) attacks.
 * [Azure Red Hat OpenShift][aro] is the Kubernetes-based container orchestrator that hosts the API applications and services, and provides a front-end for back-end services.
 * [Container Registry][acr] supports Docker and Open Container Initiative (OCI) compliant container images. Container Registry supports zone redundancy, which makes it highly available and resilient to zone failure. It also supports [geo-replication][acr-georeplica], which replicates the service across multiple regions.
 * Azure Red Hat OpenShift uses [Virtual Network (VNet) Integration][vnet-integration] to connect to backend services over a private VNet.
@@ -72,12 +72,12 @@ Azure Red Hat OpenShift is a container orchestration service that uses Kubernete
 
 The following recommendations apply to most scenarios.
 
-### Front Door
+### Azure Front Door
 
 Azure Front Door is a global service that provides protection against zone and region failures.
 
 * Use [Azure-managed certificates][afd-certs] on all frontends to prevent certificate misconfiguration and expiration issues.
-* Enable [caching][afd-cache] on routes where appropriate to improve availability. Front Door's cache distributes your content to the Azure PoP (point of presence) edge nodes. Caching reduces the load on origin servers and improves performance.
+* Enable [caching][afd-cache] on routes where appropriate to improve availability. Azure Front Door's cache distributes your content to the Azure PoP (point of presence) edge nodes. Caching reduces the load on origin servers and improves performance.
 * Deploy Azure Front Door Premium and configure a [WAF policy][afd-waf] with a Microsoft-managed ruleset. Apply the policy to all custom domains. Use prevention mode to mitigate web attacks that might cause an origin service to become unavailable.
 
 ### Azure Red Hat OpenShift
@@ -88,7 +88,7 @@ An [Azure Red Hat OpenShift][aro] cluster is deployed across three availability 
 * An Azure Red Hat OpenShift cluster depends on some services. Ensure that those services support and are configured for zone redundancy. For more information, see [Azure services with availability zone support][az-ha-services].
 * Remove the state from containers, and use Azure storage or database services instead.
 * Set up multiple replicas in deployments with appropriate disruption budget configuration to continuously provide application service despite disruptions, like hardware failures in zones.
-* Secure access to Azure Red Hat OpenShift. Only allow Front Door traffic to ensure that requests can't bypass the Front Door WAF (Web Application Firewall). For more information about restricting access to a specific Azure Front Door instance, see [Secure access to Azure Red Hat OpenShift with Front Door][aro-afd].
+* Secure access to Azure Red Hat OpenShift. Only allow Azure Front Door traffic to ensure that requests can't bypass the Azure Front Door WAF (Web Application Firewall). For more information about restricting access to a specific Azure Front Door instance, see [Secure access to Azure Red Hat OpenShift with Azure Front Door][aro-afd].
 
 ### Container Registry
 
@@ -108,11 +108,11 @@ For more information, see [Enable zone redundancy in Container Registry for resi
 
 ### Key Vault
 
-Key Vault is automatically zone-redundant in any region where availability zones are available. The Key Vault used in this architecture is deployed with a private endpoint enabled and public endpoint disabled. For more information about Private endpoints for Key Vault, see [Integrate Key Vault with Private Link][akv-pep].
+Key Vault is zone-redundant in any region where availability zones are available. In this architecture, Key Vault used is deployed with a private endpoint enabled and a public endpoint disabled. For more information about private endpoints for Key Vault, see [Integrate Key Vault with Private Link][akv-pep].
 
-### Azure DNS Private Zones
+### Private Azure DNS zones
 
-Integrate Private Endpoints with Azure DNS Private Zones to simplify DNS management. For more information, see [Azure Private Endpoint DNS configuration][pep-dns].
+To simplify DNS management, integrate private endpoints with private Azure DNS zones. For more information, see [Azure private endpoint DNS configuration][pep-dns].
 
 ## Considerations
 
@@ -122,95 +122,93 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](https://learn.microsoft.com/azure/architecture/framework/resiliency/overview).
 
-* Define Pod resource requests and limits in application deployment manifests, and enforce with Azure Policy.
+* Define pod resource requests and limits in application deployment manifests, and enforce them with Azure Policy.
 * Separate applications to dedicated machine sets based on specific requirements.
 
 #### Availability
 
-This reference architecture is designed to provide high availability through availability zone infrastructure. When implemented properly this architecture provides excellent availability for lower cost and operational overhead than other solutions. The risk of a zone failure in an Azure region is mitigated by this design, since zone-redundant services are designed to withstand a zonal failure while still operating within the defined SLA.
+When the availability zone infrastructure is implemented properly, this architecture provides excellent availability for lower cost and lower operational overhead than other solutions. This architecture mitigates the risk of a zone failure in an Azure region because zone-redundant services withstand the failure while still operating within the defined SLA.
 
-Regional failures are unlikely, but are possible. Region failures are where services are unavailable throughout all availability zones within a region. It's important to understand the types of risks that you mitigate by using multi-zone and multi-region architectures.
+Regional failures are unlikely but possible. In a regional failure, services are unavailable throughout all availability zones within a region. It's important to understand the types of risks that you mitigate by using multi-zone and multi-region architectures.
 
-Mitigate the risk of region failure by combining this zone-redundant architecture with a multi-region architecture. You should understand how to plan your multi-region architecture to reduce your solution's recovery time if an entire region is unavailable.
+Combine this zone-redundant architecture with a multi-region architecture to mitigate the risk of region failure. Plan your multi-region architecture to reduce the recovery time if an entire region is unavailable.
 
-Multi-region designs are more complex and often more expensive than multi-zone designs within a single region, but provide an opportunity to  further optimize availability and overall reliability.
+Multi-region designs are more complex and often more expensive than multi-zone designs in a single region, but multi-region designs provide an opportunity to further optimize availability and overall reliability.
 
 > [!NOTE]
-> You should perform a risk assessment to determine if a [multi-region architecture](https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro) is required for your solution.
+> Perform a risk assessment to determine if your solution requires a [multi-region architecture](https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro).
 
 #### Resilience
 
-Multi-zone designs based on availability zones offer levels of availability and resilience that meet or exceed the business requirements of most customers. However, for customers who want to replicate data to a secondary region for disaster recovery, the options you have available depend on the Azure services that you use.
+Multi-zone designs that are based on availability zones offer availability and resilience that meets or exceeds the business requirements of most customers. But if you want to replicate data to a secondary region for disaster recovery, your options depend on the Azure services that you use.
 
-For example, Azure Storage supports [object replication for block blobs][object-replication]. Azure data services like Cosmos DB also offer replication of data to other Azure regions with continuous backup. You can use these features to restore your solution if a disaster occurs. For more information, see [Continuous backup with point-in-time restore in Azure Cosmos DB][cosmos-continuous-backup].
+For example, Azure Storage supports [object replication for block blobs][object-replication]. Azure data services, like Azure Cosmos DB, offer data replication to other Azure regions that have continuous backup. You can use these features to restore your solution if a disaster occurs. For more information, see [Continuous backup with point-in-time restore in Azure Cosmos DB][cosmos-continuous-backup].
 
 #### Global services
 
-Failures in global services like Azure Front Door and Azure Active Directory (Azure AD) are rare, but the impact can be high. Improve recovery by preparing and rehearsing runbooks to be used if failure occurs.
+Failures in global services, like Azure Front Door and Azure AD, are rare, but the effect of a failure can be high. To improve recovery if a failure occurs, prepare and rehearse runbooks.
 
-For example, Front Door service downtime may be reduced with a runbook that deploys an [Azure Application Gateway][appgw] and changes DNS records, redirecting traffic until Front Door service is restored.
+For example, you can reduce Azure Front Door downtime by using a runbook to deploy [Azure Application Gateway][appgw] and change DNS records to redirect traffic until Azure Front Door is restored.
 
-See also this important guidance for increasing resilience to Azure AD failures by [building resilience in identity and access management infrastructure][aad-resilience].
+For more information, see [Building resilience in identity and access management infrastructure][aad-resilience].
 
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](https://learn.microsoft.com/azure/architecture/framework/security/overview).
 
-* Consider deploying a private cluster
-* Private endpoints are used on Azure services that don't need to be accessed from the public internet.
-* All service-to-service communication in Azure is TLS (transport layer security) encrypted by default. Azure Front Door should be configured to accept HTTPS traffic only, and the minimum TLS version set.
-* Managed identities are used for authenticating Azure service-to-service communication, where available. For more information about managed identities, see [What are managed identities for Azure resources?](https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
-* To manage and protect secrets, certificates, and connection strings in your cluster, consider connecting Azure Red Hat OpenShift cluster to Azure Arc-enabled Kubernetes and use the Key Vault Secrets Provider extension to fetch secrets.
-* Configure Microsoft Defender for Containers supported via Arc enabled Kubernetes to secure clusters, containers, and applications. Also scan your images for vulnerabilities with Microsoft Defender or any other image scanning solution.
+* Consider deploying a private cluster.
+* Use private endpoints on Azure services that aren't accessed from the public internet.
+* By default, all service-to-service communication in Azure is Transport Layer Security (TLS) encrypted. Configure Azure Front Door to accept HTTPS traffic only, and set the minimum TLS version.
+* Managed identities authenticate Azure service-to-service communication where available. For more information about managed identities, see [What are managed identities for Azure resources?](https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+* To manage and protect secrets, certificates, and connection strings in your cluster, connect the Azure Red Hat OpenShift cluster to Azure Arc-enabled Kubernetes. Use the Key Vault Secrets Provider extension to fetch secrets.
+* Configure Microsoft Defender for Containers to secure clusters, containers, and applications. Defender for Containers is supported via Azure Arc-enabled Kubernetes. Scan your images for vulnerabilities with Microsoft Defender or another image scanning solution.
 * Configure Azure AD integration to use Azure AD to authenticate users in your Azure Red Hat OpenShift cluster.
-* Use Microsoft Defender for Containers supported via Arc enabled Kubernetes to secure clusters, containers, and applications. Also scan your images for vulnerabilities with Microsoft Defender or any other image scanning solution.
 
 ### Cost optimization
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](https://learn.microsoft.com/azure/architecture/framework/cost/overview).
 
-Zone-redundant architectures are less expensive than multi-region alternatives because services can be deployed in a single region. However, there are several cost implications that customers should be aware of:
+Zone-redundant architectures are less expensive than multi-region alternatives because services are deployed in a single region. But there are several cost implications to be aware of:
 
 * Some zone-redundant services incur charges for inter-zone bandwidth. For more information, see [Bandwidth pricing][bandwidth-pricing].
 * Some services require a minimum number of instances or replicas to be deployed to achieve zone redundancy.
 * Zone-redundant storage (ZRS) is priced differently than locally redundant storage (LRS). For more information, see [Storage pricing][storage-pricing].
-* Private endpoints are mostly available on Premium Azure service SKUs. Private endpoints incur hourly and bandwidth (data) charges. For more information, see [Private Link pricing][pep-pricing].
+* Private endpoints are mostly available on premium Azure service SKUs. Private endpoints incur hourly charges and bandwidth charges. For more information, see [Private Link pricing][pep-pricing].
 
-Costs can be optimized by reserving resources in advance. Several services in this architecture are eligible for reserved capacity pricing. For more information about reserved capacity, see [Reservations][reservations].
+Optimize costs by reserving resources in advance. Many services in this architecture are eligible for reserved-capacity pricing. For more information, see [Reservations][reservations].
 
-An example bill of materials for this architecture can be viewed in the [Azure pricing calculator][bom].
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs.
 
 ### Operational excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](https://learn.microsoft.com/azure/architecture/framework/devops/overview).
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-All Azure PaaS (platform as a service) services are integrated with [Azure Monitor][azmon]. Follow [Azure monitor best practices][azmon-bp] to:
+All Azure services that are platform as a service (PaaS) are integrated with [Azure Monitor][azmon]. Follow [Azure Monitor best practices][azmon-bp] to:
 
-* Build a [health model](https://learn.microsoft.com/azure/architecture/framework/mission-critical/mission-critical-health-modeling#video-define-a-health-model-for-your-mission-critical-workload) to quantify application health in the context of business requirements.
-* Configure the right amount of log data collection.
-* Create Azure Dashboards for "single pane of glass" views for operations teams.
+* Build a [health model](/azure/architecture/framework/mission-critical/mission-critical-health-modeling#video-define-a-health-model-for-your-mission-critical-workload) to quantify application health in the context of business requirements.
+* Configure the proper amount of log data collection.
+* Create Azure dashboards for "single pane of glass" views for operations teams.
 * Create a successful alerting strategy.
 * Integrate [Application Insights][insights] into apps to track application performance metrics.  
-* Use an alerting system to provide notifications when things need direct action: Container Insights metric alerts or in-built Alerting UI.
-* Be aware of ways to monitor and log Azure Red Hat OpenShift to gain insights into the health of your resources and to foresee potential issues.
+* To provide notifications when direct action is needed, use an alerting system, like Container Insights metric alerts or in-built Alerting UI.
+* Consider various methods to monitor and log Azure Red Hat OpenShift to gain insights into the health of your resources and to foresee potential issues.
 * Review the Azure Red Hat OpenShift responsibility matrix to understand how responsibilities for clusters are shared between Microsoft, Red Hat, and customers.
 
-Automate service deployments with [Bicep][bicep], a template language for deploying Infrastructure as Code.
+Automate service deployments with [Bicep][bicep], a template language for deploying infrastructure as code (IaC).
 
-[Continuously validate](https://learn.microsoft.com/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#video-continuously-validate-your-mission-critical-workload) the workload to test the performance and resilience of the entire solution using services such as [Azure Load Testing][load-tests] and [Azure Chaos Studio][chaos].
+[Continuously validate](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#video-continuously-validate-your-mission-critical-workload) the workload to test the performance and resilience of the entire solution by using services, such as [Azure Load Testing][load-tests] and [Azure Chaos Studio][chaos].
 
 ### Performance efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](https://learn.microsoft.com/azure/architecture/framework/scalability/overview).
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-This architecture can be highly optimized for performance and scale:
+Optimize this architecture for performance and scale:
 
-* Cache assets in Azure Front Door to distribute workloads to the Azure Microsoft Edge.
+* Cache assets in Azure Front Door to distribute workloads to edge locations.
 * Review [subscription limits and quotas][quotas] to ensure that services scale to demand.
-* Monitor application performance using [Azure Monitor Application Insights][insights].
-* Performance-test workloads to measure latency caused by cross-zone connections, if any.
-* Azure Red Hat OpenShift has a rich operator ecosystem and should be used to perform and automate operational activities with efficiency and accuracy.
-* Choose appropriate virtual machine sizes for your workloads, large enough to so you get the benefits of increased density, but not so large that your cluster can't handle the workload of a failing node.
+* Monitor application performance by using [Application Insights][insights].
+* Performance test workloads to measure any latency that's caused by cross-zone connections.
+* Choose appropriate virtual machine sizes for your workloads. Choose a size that's large enough to get the benefits of increased density, but not so large that your cluster can't handle the workload of a failing node.
 * Use pod requests and limits to manage the compute resources within a cluster. Pod requests and limits inform the Kubernetes scheduler, which assigns compute resources to a pod. Restrict resource consumption in a project using limit ranges.
 * Optimize the CPU and memory request values, and maximize the efficiency of the cluster resources using vertical pod autoscaler.
 * Scale pods to meet demand using horizontal pod autoscaler.
@@ -218,7 +216,7 @@ This architecture can be highly optimized for performance and scale:
 
 ## Deploy this scenario
 
-To deploy this reference architecture scenario see the [Azure Red Hat OpenShift landing zone accelerator](https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-openshift/landing-zone-accelerator) and the associated [GitHub repository](https://github.com/Azure/ARO-Landing-Zone-Accelerator).
+To deploy this architecture, see the [Azure Red Hat OpenShift landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-openshift/landing-zone-accelerator) and the associated [GitHub repository](https://github.com/Azure/ARO-Landing-Zone-Accelerator).
 
 ## Contributors
 
@@ -242,12 +240,12 @@ _To see non-public LinkedIn profiles, sign in to LinkedIn._
 * [Azure regions with availability zones][az-regions]
 * [Find an availability zone region near you][region-roadmap]
 * [Microsoft Azure Well-Architected Framework - Reliability][learn-ha]
-* [Microsoft Azure Well-Architected Framework - Mission-critical workloads](/azure/architecture/framework/mission-critical/mission-critical-overview)
 
 ## Related resources
 
-* [Mission-critical baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro)
 * [Design principles for mission-critical workloads](/azure/architecture/framework/mission-critical/mission-critical-design-principles)
+* [Microsoft Azure Well-Architected Framework - Mission-critical workloads](/azure/architecture/framework/mission-critical/mission-critical-overview)
+* [Mission-critical baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro)
 
 <!-- links -->
 [aad]:https://azure.microsoft.com/services/active-directory/
