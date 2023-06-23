@@ -2,7 +2,7 @@ This reference architecture illustrates how to use [Azure Stack Edge][azure-stac
 
 ## Architecture
 
-![Architecture diagram: on-premises data training a model in Azure Machine Learning, with model deployed back to the edge for inference.][architectural-diagram]
+:::image type="content" border="false" source="[architectural-diagram]" alt-text="Architecture diagram: on-premises data training a model in Azure Machine Learning, with model deployed back to the edge for inference" lightbox="[architectural-diagram]":::
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
