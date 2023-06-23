@@ -4,7 +4,7 @@ This article provides a set of proven practices for improving the security of in
 
 ## Architecture
 
-[![Diagram that shows a solution for internet-facing communication for SAP on Azure.](media/sap-internet-communication-architecture-main.png)](media/sap-internet-communication-architecture-main.png#lightbox)
+[![Diagram that shows a solution for internet-facing communication for SAP on Azure.](media/sap-internet-communication-architecture-main.svg)](media/sap-internet-communication-architecture-main.svg#lightbox)
 
 _Download a [Visio file](https://arch-center.azureedge.net/sap-internet-communication-architecture.vsdx) of the architectures in this article._
 
@@ -63,7 +63,7 @@ The drawbacks are increased complexity and extra virtual network peering costs f
 
 To address the recommendations in this article but limit the drawbacks, you can use a single spoke virtual network for both the perimeter and the SAP applications. The following architecture contains all subnets in a single SAP production virtual network. The benefit of immediate isolation by termination of virtual network peering to the SAP perimeter if it's compromised isn't available. In this scenario, changes to NSGs affect only new connections.
 
-[![Diagram that shows a simplified architecture for internet-facing communication for SAP on Azure.](media/sap-internet-communication-architecture-simplified.png)](media/sap-internet-communication-architecture-simplified.png#lightbox)
+[![Diagram that shows a simplified architecture for internet-facing communication for SAP on Azure.](media/sap-internet-communication-architecture-simplified.svg)](media/sap-internet-communication-architecture-simplified.svg#lightbox)
 
 _Download a [Visio file](https://arch-center.azureedge.net/sap-internet-communication-architecture.vsdx) of the architectures in this article._
 
