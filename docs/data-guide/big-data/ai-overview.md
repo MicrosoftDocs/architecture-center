@@ -161,9 +161,7 @@ The core concept of AI is the use of algorithms to analyze data and generate mod
 
 Microsoft has fully embraced the R programming language and provides many different options for R developers to run their code in Azure.
 
-- [R developer's guide to Azure](../../data-guide/technology-choices/r-developers-guide.md)
-
-- [Microsoft R Open.](https://mran.microsoft.com/open) An enhanced distribution of R from Microsoft, fully compatible with R-3.5.3, with additional capabilities for improved performance and reproducibility, in addition to support for Windows- and Linux-based platforms
+- [Use R interactively on Azure Machine Learning](/azure/machine-learning/how-to-r-interactive-development).
 
 - [Tutorial: Create a logistic regression model in R with Azure Machine Learning](/azure/machine-learning/tutorial-1st-r-experiment)
 
