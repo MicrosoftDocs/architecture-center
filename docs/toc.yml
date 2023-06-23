@@ -2856,8 +2856,6 @@ items:
         href: guide/ai/query-based-summarization.md
       - name: Conversation summarization
         href: guide/ai/conversation-summarization.yml  
-      - name: R developer's guide to Azure
-        href: data-guide/technology-choices/r-developers-guide.md
       - name: Machine learning
         items:
         - name: Machine learning options
