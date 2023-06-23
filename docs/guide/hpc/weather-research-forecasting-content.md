@@ -116,7 +116,7 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 ## Summary
 
 - WRF was successfully tested on HBv3-series series VMs on Azure.
-- Expected mean time per step was achieved with all CPU configurations. However, scalability might vary depending on the dataset used and the node count. Be sure to test the affect of the tile size, process, and threads per process.
+- Expected mean time per step was achieved with all CPU configurations. However, scalability might vary depending on the dataset used and the node count. Be sure to test the effect of the tile size, process, and threads per process.
  
 ## Contributors
 
