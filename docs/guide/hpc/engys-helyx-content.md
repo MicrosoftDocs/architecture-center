@@ -29,7 +29,7 @@ Single-node configuration:
 
 :::image type="content" source="media/helyx-architecture.svg" alt-text="Diagram that shows a single-node configuration." border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/helyx-architecture.vsdx) of all diagram in this article.*
+*Download a [Visio file](https://arch-center.azureedge.net/helyx-architecture.vsdx) of all diagrams in this article.*
 
 ### Components
 
