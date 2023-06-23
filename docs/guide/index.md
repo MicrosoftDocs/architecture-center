@@ -50,15 +50,15 @@ Learn more: [Architecture styles](./architecture-styles/index.md)
 
 ## Technology choices
 
-Knowing the type of architecture you are building, now you can start to choose the main technology pieces for the architecture. The following technology choices are critical:
+Knowing the type of architecture you are building, you can now start to choose the main technology pieces for the architecture. The following technology choices are critical:
 
 - *Compute* refers to the hosting model for the computing resources that your applications run on. For more information, see [Choose a compute service](./technology-choices/compute-decision-tree.yml).
 
-- *Data stores* include databases but also storage for message queues, caches, logs, and anything else that an application might persist to storage. For more information, see [Choose a data store](./technology-choices/data-store-overview.md).
+- *Data stores* include databases and storage for message queues, caches, logs, and anything else that an application might persist to storage. For more information, see [Choose a data store](./technology-choices/data-store-overview.md).
 
 - *Messaging* technologies enable asynchronous messages between components of the system. For more information, see [Choose a messaging service](./technology-choices/messaging.yml).
 
-You will probably have to make additional technology choices along the way, but these three elements (compute, data, and messaging) are central to most cloud applications and will determine many aspects of your design.
+You may have to make additional technology choices; however, these elements (compute, data, and messaging) are central to most cloud applications and will determine many design aspects.
 
 ## Design the architecture
 
@@ -66,23 +66,23 @@ Once you have chosen the architecture style and the major technology components,
 
 ### Reference architectures
 
-Depending on your scenario, one of our [reference architectures](/azure/architecture/architectures/?filter=reference-architecture) may be a good starting point. Each reference architecture includes recommended practices, along with considerations for scalability, availability, security, resilience, and other aspects of the design. Most also include a deployable solution or reference implementation.
+Depending on your scenario, one of our [reference architectures](/azure/architecture/architectures/?filter=reference-architecture) may be a good starting point. Each reference architecture includes recommended practices and considerations for scalability, availability, security, resilience, and other aspects of the design. Most also include a deployable solution or reference implementation.
 
 ### Design principles
 
-We have identified 10 high-level design principles that will make your application more scalable, resilient, and manageable. These design principles apply to any architectural style. Throughout the design process, keep these 10 high-level design principles in mind. For more information, see [Design principles](./design-principles/index.md).
+We have identified ten high-level design principles that will make your application more scalable, resilient, and manageable. These design principles apply to any architectural style. Throughout the design process, keep these ten high-level design principles in mind. For more information, see [Design principles](./design-principles/index.md).
 
 ### Design patterns
 
-Software design patterns are repeatable patterns that are proven to solve specific problems. Our catalog of Cloud design patterns addresses specific challenges in distributed systems. They address aspects such as availability, high availability, operational excellence, resiliency, performance, and security. You can find our catalog of design patterns [here](../patterns/index.md).
+Software design patterns are repeatable patterns that are proven to solve specific problems. Our Catalog of Cloud design patterns addresses specific challenges in distributed systems. They address availability, high availability, operational excellence, resiliency, performance, and security. We can find our design pattern Catalog [here](../patterns/index.md).
 
 ### Best practices
 
-Our [best practices](/azure/architecture/best-practices) articles cover various design considerations including API design, autoscaling, data partitioning, caching, and so forth. Review these and apply the best practices that are appropriate for your application.
+Our [best practices](/azure/architecture/best-practices) articles cover various design considerations, including API design, autoscaling, data partitioning, caching, etc. Look over these and apply the best practices appropriate for your application.
 
 ### Security best practices
 
-Our [security best practices](/security/compass/applications-services) describe how to ensure that the confidentiality, integrity, and availability of your application aren't compromised by malicious actors.
+Our [security best practices](/security/compass/applications-services) describe how to ensure that malicious actors don't compromise your application's confidentiality, integrity, and availability.
 
 ## Quality pillars
 
