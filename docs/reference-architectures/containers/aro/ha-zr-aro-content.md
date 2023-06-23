@@ -14,7 +14,7 @@ _Download a [Visio file](https://arch-center.azureedge.net/openshift-zonal-archi
 
 * A user sends a request to Azure.
 * Azure Front Door receives the request and routes the request to a web application that's hosted on Azure Red Hat OpenShift.
-* The web application runs the request by using the Azure services, Azure Key Vault, Azure Cosmos DB, and Azure Container Registry.
+* The web application runs the request by using Azure Key Vault, Azure Cosmos DB, and Azure Container Registry.
 * The web application sends a response back to the user.
 
 ### Components
