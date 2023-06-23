@@ -16,7 +16,7 @@ NX is used in the automotive sector and for projects ranging from supersonic car
 
 ## Architecture
 
-:::image type="content" source="media/siemens-nx/siemens-nx.png" alt-text="Diagram that shows an architecture for deploying Siemens NX." lightbox="media/siemens-nx/siemens-nx.png" border="false":::
+:::image type="content" source="media/siemens-nx/siemens-nx.svg" alt-text="Diagram that shows an architecture for deploying Siemens NX." lightbox="media/siemens-nx/siemens-nx.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/siemens-nx.vsdx) of this
 architecture.*
