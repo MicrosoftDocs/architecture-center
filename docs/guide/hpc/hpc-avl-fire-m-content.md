@@ -182,6 +182,7 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 |  16 |                                1.6|
 
 *The total run time presented here is for 300 iterations only. The analysis time for a fully converged solution can differ.
+
 **The total run time presented here is for 500 iterations only. The analysis time for a fully converged solution can differ.
 
 ## Summary
