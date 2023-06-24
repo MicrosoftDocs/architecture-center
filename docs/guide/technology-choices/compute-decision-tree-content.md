@@ -1,8 +1,8 @@
-Azure offers many ways to host your application code. The term *compute* refers to the hosting model for the resources that your application runs on. This article helps choose a compute service for your application.
+Azure offers many ways to host your application code. The term *compute* refers to the hosting model for the resources that your application runs on. This article helps you choose a compute service for your application.
 
 ## Choose a candidate service
 
-Use the following flowchart to select a candidate compute service.
+You can use the following flowchart to select a candidate compute service.
 
 :::image type="content" source="./images/compute-choices.png" alt-text="Diagram of decision tree for Azure compute services." border="false":::
 
@@ -29,14 +29,14 @@ If you're not familiar with the Azure service selected in the previous section, 
 - [Azure Container Instances](/azure/container-instances/container-instances-overview). This service is a fast and simple way to run a container in Azure. You don't have to provision any virtual machines or adopt a higher-level service.
 - [Azure Red Hat OpenShift](/azure/openshift). A fully managed OpenShift cluster for running containers in production with Kubernetes.
 - [Azure Spring Apps](/azure/spring-apps). A managed service designed and optimized for hosting Spring Boot apps.
-- [Azure Service Fabric](/azure/service-fabric/service-fabric-overview). A distributed systems platform that can run in many environments, including Azure or on premises.
+- [Azure Service Fabric](/azure/service-fabric/service-fabric-overview). A distributed systems platform that can run in many environments, including Azure or on-premises.
 - [Azure Batch](/azure/batch/batch-technical-overview). A managed service for running large-scale parallel and high-performance computing (HPC) applications.
 
 ## Understand the hosting models
 
 For hosting models, cloud services fall into three categories:
 
-- **Infrastructure-as-a-Service** (IaaS) lets you provision virtual machines along with the associated networking and storage components. Then deploy whatever software and applications you want onto those virtual machines. This model is the closest to a traditional on-premises environment. Microsoft manages the infrastructure. You still manage the virtual machines.
+- **Infrastructure-as-a-Service** (IaaS) lets you provision virtual machines and the associated networking and storage components. Then deploy whatever software and applications you want onto those virtual machines. This model is the closest to a traditional on-premises environment. Microsoft manages the infrastructure. You still manage the virtual machines.
 
 - **Platform-as-a-Service** (PaaS) provides a managed hosting environment where you can deploy your application without needing to manage virtual machines or networking resources. Azure App Service and Azure Container Apps are PaaS services.
 
@@ -45,9 +45,9 @@ For hosting models, cloud services fall into three categories:
   > [!NOTE]
   > Azure Functions is an [Azure serverless](https://azure.microsoft.com/solutions/serverless/#solutions) compute offering. To see how this service compares with other Azure serverless offerings, such as Logic Apps, which provides serverless workflows, see [Choose the right integration and automation services in Azure](/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs).
 
-There's a spectrum from IaaS to pure PaaS. For example, Azure virtual machines can automatically scale by using virtual machine scale sets. This capability isn't strictly a PaaS, but it's the type of management feature found in PaaS.
+There's a spectrum from IaaS to pure PaaS. For example, Azure virtual machines can automatically scale using virtual machine scale sets. This capability isn't strictly a PaaS, but it's the type of management feature in PaaS.
 
-There's a tradeoff between control and ease of management. IaaS gives the most control, flexibility, and portability, but you have to provision, configure, and manage the virtual machines and network components you create. FaaS services automatically manage nearly all aspects of running an application. PaaS falls somewhere in between.
+There's a tradeoff between control and ease of management. IaaS gives the most control, flexibility, and portability, but you must provision, configure, and manage the virtual machines and network components you create. FaaS services automatically manage nearly all aspects of running an application. PaaS falls somewhere in between.
 
 | Service | Application composition | Density | Minimum number of nodes | State management | Web hosting |
 |----------|-----------------|-------------|---------|----------------|-----------------|
@@ -67,8 +67,8 @@ Notes
 1. <span id="note1">If you're using a Consumption plan. For an App Service plan, functions run on the VMs allocated for your App Service plan. See [Choose the correct service plan for Azure Functions][function-plans].</span>
 2. <span id="note2">Higher SLA with two or more instances.</span>
 3. <span id="note3">Recommended for production environments.</span>
-4. <span id="note4">Can scale down to zero after job completes.</span>
-5. <span id="note5">Three for primary nodes, and three for worker nodes.</span>
+4. <span id="note4">Can scale down to zero after the job completes.</span>
+5. <span id="note5">Three for primary and worker nodes.</span>
 6. <span id="note6">When using [Durable Functions][durable-functions].</span>
 
 ## Networking
@@ -109,7 +109,7 @@ Notes
 
 Notes
 
-1. <span id="note1b">Options include: IIS Express for ASP.NET or node.js (iisnode), PHP web server, Azure Toolkit for IntelliJ, and Azure Toolkit for Eclipse. App Service also supports remote debugging of deployed web app.</span>
+1. <span id="note1b">Options include IIS Express for ASP.NET or node.js (iisnode), PHP web server, Azure Toolkit for IntelliJ, and Azure Toolkit for Eclipse. App Service also supports remote debugging of deployed web app.</span>
 
 ## Scalability
 
