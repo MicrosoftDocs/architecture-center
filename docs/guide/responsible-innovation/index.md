@@ -1,7 +1,7 @@
 ---
 title: Responsible Innovation toolkit
 titleSuffix: Azure Application Architecture Guide
-description: Responsible Innovation is a commitment to put people first in the development of technology by understanding the stakeholders and impact of your technology
+description: Responsible Innovation is a commitment to put people first in the development of technology by understanding the stakeholders and the impact of your technology
 author: Zimmergren
 ms.author: tozimmergren
 ms.reviewer: tozimmergren
@@ -40,7 +40,7 @@ keywords:
 - Infringement on human rights
 - Erosion of democratic & societal structures
 
-Similar to *Security Threat Modeling*, Harms Modeling enables product teams to anticipate potential real-world impacts of technology, which is a cornerstone of responsible development.
+Like *Security Threat Modeling*, Harms Modeling enables product teams to anticipate potential real-world impacts of technology, a cornerstone of responsible development.
 
 ## Community Jury
 
@@ -48,4 +48,4 @@ Similar to *Security Threat Modeling*, Harms Modeling enables product teams to a
 
 ## Sustainability
 
-The [Azure Well-Architected Framework sustainability workload guidance](/azure/architecture/framework/sustainability/) are recommendations and principles to increase cloud efficiency across Azure workloads. This guidance is developed in partnership with the Green Software Foundation for an improved sustainability posture to help create new business value while reducing the operational footprint. This guide helps drive innovation responsibly by evaluating the impact workload design decisions have on the climate and gives concrete advice on how to build for a better tomorrow.
+The [Azure Well-Architected Framework sustainability workload guidance](/azure/architecture/framework/sustainability/) are recommendations and principles to increase cloud efficiency across Azure workloads. This guidance is developed in partnership with the Green Software Foundation for an improved sustainability posture to help create new business value while reducing the operational footprint. This guide helps drive innovation responsibly by evaluating the impact of workload design decisions on the climate and gives concrete advice on building for a better tomorrow.
