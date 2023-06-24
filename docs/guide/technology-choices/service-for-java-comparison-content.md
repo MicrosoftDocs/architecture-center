@@ -23,7 +23,7 @@ These applications are packaged into archives that have the *.jar* extension, kn
 
 ### Spring Cloud applications
 
-The *microservice architectural style* is an approach to developing a single application as a suite of small services. Each service runs in its own process and communicates by using lightweight mechanisms, often an HTTP resource API. These services are built around business capabilities.
+The *microservice architectural style* is an approach to developing a single application as a suite of small services. Each service runs in its process and communicates using lightweight mechanisms, often an HTTP resource API. These services are built around business capabilities.
 
 Automated deployment machinery independently deploys these microservices. There's a minimum of centralized management, which might be written in different programming languages and use different data storage technologies. Such services are often built with frameworks such as [Spring Cloud](https://spring.io/projects/spring-cloud).
 
@@ -33,17 +33,17 @@ These services are packaged into multiple applications as JAR files.
 
 Web applications run inside a servlet container. Some use servlet APIs directly, while others use other frameworks that encapsulate servlet APIs, such as [Apache Struts](https://struts.apache.org), [Spring MVC](https://spring.io), and [JavaServer Faces](https://www.oracle.com/java/technologies/javaserverfaces.html).
 
-Web applications are packaged into archives that have the *.war* extension, known as WAR files.
+Web applications are packaged into archives with the *.war* extension, known as WAR files.
 
 ### Jakarta EE applications
 
-Jakarta Enterprise Edition (Jakarta EE) applications can contain some, all, or none of the elements of web applications. They can also contain and consume many more components, as defined by the Jakarta EE specification. Jakarta EE applications were formerly known as *Java EE applications* or *J2EE applications*.
+Jakarta Enterprise Edition (Jakarta EE) applications can contain some, all, or none of the elements of web applications. They can also contain and consume many more components defined by the Jakarta EE specification. Jakarta EE applications were formerly called *Java EE applications* or *J2EE applications*.
 
-Jakarta EE applications can be packaged as WAR files or as archives that have the *.ear* extension, known as EAR files.
+Jakarta EE applications can be packaged as WAR files or as archives with the *.ear* extension, known as EAR files.
 
 Jakarta EE applications must be deployed onto application servers that are Jakarta EE compliant. Examples include [WebLogic](https://www.oracle.com/java/weblogic/editions), [WebSphere](https://www.ibm.com/products/websphere-application-server), [WildFly](https://www.wildfly.org), [GlassFish](https://glassfish.org), and [Payara](https://www.payara.org/home).
 
-Applications that rely only on features provided by the Jakarta EE specification can be migrated from one compliant application server onto another. If your application is dependent on a specific application server, you might need to select an Azure service destination that permits you to host that application server.
+Applications that rely only on features provided by the Jakarta EE specification can be migrated from one compliant application server onto another. If your application depends on a specific application server, you should select an Azure service destination that permits you to host that application server.
 
 ### Platform options
 
@@ -57,7 +57,7 @@ Use the following table to identify potential platforms for your application typ
 | **Jakarta EE applications**         |          |          |          | &#x2714; |          | &#x2714; | &#x2714; |
 | **Azure region availability**       | [Details][1] | [Details][2] | [Details][2] | [Details][2] | [Details][3] | [Details][4] | [Details][5] |
 
-Azure Kubernetes Service (AKS) and Virtual Machines support all application types, but they require that your team to take on more responsibilities, as described in the next section.
+Azure Kubernetes Service (AKS) and Virtual Machines support all application types, but they require your team to take on more responsibilities, as described in the next section.
 
 ## Supportability
 
@@ -70,24 +70,24 @@ Besides the platform choices, modern Java applications might have other supporta
 
 ### Batch or scheduled jobs
 
-Instead of waiting for requests or user input, some applications run briefly, run a particular workload, and then exit. Sometimes, such jobs need to run once or at regular, scheduled intervals. On-premises, such jobs are often invoked from a server's cron table.
+Instead of waiting for requests or user input, some applications run briefly, run a particular workload, and exit. Sometimes, such jobs must run once or at regular, scheduled intervals. On-premises, such jobs are often invoked from a server's cron table.
 
 These applications are packaged as JAR files.
 
 > [!NOTE]
-> If your application uses a scheduler, such as Spring Batch or Quartz, to run scheduled tasks, we strongly recommend that you run those tasks outside of the application. If your application scales to multiple instances in the cloud, the same job can run more than once. If your scheduling mechanism uses the host's local time zone, there might be undesired behavior when you scale an application across regions.
+> If your application uses a scheduler, such as Spring Batch or Quartz, to run scheduled tasks, we strongly recommend running those tasks outside the application. If your application scales to multiple instances in the cloud, the same job can run more than once. If your scheduling mechanism uses the host's local time zone, there might be undesired behaviour when you scale an application across regions.
 
 ### Virtual network integration
 
-When you deploy a Java application in your virtual network, it has outbound dependencies on services outside of the virtual network. For management and operations, your project must have access to certain ports and fully qualified domain names. With Azure Virtual Networks, you can place many of your Azure resources in a non-internet routable network. The *virtual network integration* feature enables your applications to access resources in or through a virtual network. Virtual network integration doesn't enable your applications to be accessed privately.
+When you deploy a Java application in your virtual network, it has outbound dependencies on services outside of the virtual network. Your project must have access to certain ports and fully qualified domain names for management and operations. With Azure Virtual Networks, you can place many of your Azure resources in a non-internet routable network. The *virtual network integration* feature enables applications to access resources in or through a virtual network. Virtual network integration doesn't enable your applications to be accessed privately.
 
 ### Serverless development model
 
-Serverless is a cloud-native development model that allows developers to build and run applications without having to manage servers. With serverless applications, the cloud service provider automatically provisions, scales, and manages the infrastructure required to run the code. Servers still exist in the serverless model. They're abstracted away from application development.
+Serverless is a cloud-native development model that allows developers to build and run applications without managing servers. With serverless applications, the cloud service provider automatically provisions, scales, and manages the infrastructure required to run the code. Servers still exist in the serverless model. They're abstracted away from application development.
 
 ### Containerization
 
-Containerization is the packaging together of software code with all its necessary components, like libraries, frameworks, and other dependencies. The application is isolated in its own container.
+Containerization is packaging software code with all its necessary components, like libraries, frameworks, and other dependencies. The application is isolated in its container.
 
 ### CI/CD
 
@@ -95,15 +95,15 @@ Continuous integration and continuous delivery (CI/CD) is a method to frequently
 
 ### Open-source search engine
 
-Searches are integral parts of any application. If speed, performance, and high availability are critical, searches on terabytes and petabytes of data can be challenging. When you host Java applications on Azure, plan to host your related Solr and Elasticsearch instances. Alternatively, consider migrating to [Azure Cognitive Search](/azure/search).
+Searches are integral parts of any application. If speed, performance, and high availability are critical, searches on terabytes and petabytes of data can be challenging. When you host Java applications on Azure, plan to host your related Solr and Elasticsearch instances. Alternatively, migrate to [Azure Cognitive Search](/azure/search).
 
 ### Big data tools
 
-Big data tools enable the automation of data flow among the software systems. They support scalable, robust, and streamlined data routing graphs along with system mediation logic. They're utilized to build live data flow pipelines and stream applications. Learn how [Nifi][8] and [Apache Kafka][9] on Azure might be suitable for your needs.
+Big data tools enable the automation of data flow among the software systems. They support scalable, robust, streamlined data routing graphs and system mediation logic. They're utilized to build live data flow pipelines and stream applications. Learn how [Nifi][8] and [Apache Kafka][9] on Azure might be suitable for your needs.
 
 ### Supportability options
 
-Use the following table to identify potential options for your application type. AKS and Virtual Machines support all application types, but they require your team to take on more responsibilities.
+Use the following table to identify potential options for your application type. AKS and Virtual Machines support all application types but require your team to take on more responsibilities.
 
 |          | Azure Spring Apps | App Service Java SE | App Service Tomcat | App Service JBoss EAP | Azure Container Apps | AKS | Virtual Machines |
 |---------------------------------|----------|----------|----------|----------|----------|----------|----------|
@@ -125,11 +125,11 @@ To build or migrate the Java applications, identify the Java platform of your ap
 
 ### Java SE
 
-Java Platform, Standard Edition (Java SE) is a computing platform for the development and deployment of portable code for desktop and server environments. Popular projects built on Java SE include Spring Boot, Spring Cloud, [Spring Framework](https://spring.io/projects/spring-framework), and [Apache Tomcat](https://tomcat.apache.org).
+Java Platform, Standard Edition (Java SE) is a computing platform for developing and deploying portable code for desktop and server environments. Popular projects built on Java SE include Spring Boot, Spring Cloud, [Spring Framework](https://spring.io/projects/spring-framework), and [Apache Tomcat](https://tomcat.apache.org).
 
 ### Jakarta EE
 
-Jakarta EE is the open source future of cloud-native enterprise Java. It's a set of specifications that extend Java SE with enterprise features such as distributed computing and web services. Jakarta EE applications run reference runtimes. These runtimes can be microservices or application servers. They handle transactions, security, scalability, concurrency, and management of the components the application deploys.
+Jakarta EE is the open-source future of cloud-native enterprise Java. It's a set of specifications that extend Java SE with enterprise features such as distributed computing and web services. Jakarta EE applications run reference runtimes. These runtimes can be microservices or application servers. They handle transactions, security, scalability, concurrency, and management of the components the application deploys.
 
 ### MicroProfile
 
