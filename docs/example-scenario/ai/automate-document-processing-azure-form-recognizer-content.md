@@ -1,4 +1,4 @@
-This article outlines a scalable and secure solution for building an automated document processing pipeline. The solution uses Azure Form Recognizer for the structured extraction of data. Natural language processing (NLP) models and custom models enrich the data.
+This article outlines a scalable, secure solution for building an automated document processing pipeline. The solution uses Azure Form Recognizer for the structured extraction of data. Natural language processing (NLP) models and custom models enrich the data.
 
 ## Architecture
 
@@ -25,11 +25,11 @@ The following sections describe the various stages of the data extraction proces
 
    The response from Form Recognizer contains raw OCR data and structured extractions. Form Recognizer also assigns [confidence values][Characteristics and limitations of Form Recognizer - Customer evaluation] to the extracted data.
 
-1. The App Service back-end application uses the confidence values to check the extraction quality. If the quality is below a specified threshold, the app flags the data for manual verification. When the extraction quality meets requirements, the data enters [Azure Cosmos DB][Welcome to Azure Cosmos DB] for downstream application consumption. The app can also return the results to the front-end browser.
+1. The App Service back-end application uses confidence values to check the extraction quality. The app flags the data for manual verification if the quality is below a specified threshold. When the extraction quality meets requirements, the data enters [Azure Cosmos DB][Welcome to Azure Cosmos DB] for downstream application consumption. The app can also return the results to the front-end browser.
 
-1. Other sources provide images, PDF files, and other documents. Sources include email attachments and File Transfer Protocol (FTP) servers. Tools like [Azure Data Factory][Load data into Azure Data Lake Storage Gen2 with Azure Data Factory] and [AzCopy][Get started with AzCopy] transfer these files to Azure Blob Storage. [Azure Logic Apps][Tutorial: Automate tasks to process emails by using Azure Logic Apps, Azure Functions, and Azure Storage] offers pipelines for automatically extracting attachments from emails.
+1. Other sources provide images, PDF files, and other documents. Sources include email attachments and File Transfer Protocol (FTP) servers. Tools like [Azure Data Factory][Load data into Azure Data Lake Storage Gen2 with Azure Data Factory] and [AzCopy][Get started with AzCopy] transfer these files to Azure Blob Storage. [Azure Logic Apps][Tutorial: Automate tasks to process emails using Azure Logic Apps, Azure Functions, and Azure Storage] offers pipelines for automatically extracting email attachments.
 
-1. When a document enters Blob Storage, an Azure function is triggered. The function:
+1. An Azure function is triggered When a document enters Blob Storage. The function:
 
    * Posts a request to the relevant Form Recognizer pre-built endpoint.
    * Receives the response.
@@ -37,7 +37,7 @@ The following sections describe the various stages of the data extraction proces
 
 1. The extracted data enters Azure Cosmos DB.
 
-#### Data enrichment
+#### Data Enrichment
 
 The pipeline that's used for data enrichment depends on the use case.
 
@@ -69,14 +69,14 @@ The pipeline that's used for data enrichment depends on the use case.
 
    These possibilities exist for inferencing:
 
-   * Real-time processes. The models can be deployed to [managed online endpoints](/azure/machine-learning/concept-endpoints#managed-online-endpoints) or Kubernetes online endpoints, where managed Kubernetes cluster can be anywhere including [Azure Kubernetes Service (AKS)][What is Kubernetes?].
+   * Real-time processes. The models can be deployed to [managed online endpoints](/azure/machine-learning/concept-endpoints#managed-online-endpoints) or Kubernetes online endpoints, where managed Kubernetes cluster can be anywhere, including [Azure Kubernetes Service (AKS)][What is Kubernetes?].
    * Batch inferencing can be done at [batch endpoints](/azure/machine-learning/concept-endpoints#what-are-batch-endpoints) or in Azure Virtual Machines.
 
 1. The enriched data enters Azure Cosmos DB.
 
 #### Analytics and visualizations
 
-1. Applications use the raw OCR, structured data from Form Recognizer endpoints, and the enriched data from NLP:
+1. Applications use the raw OCR, structured data from Form Recognizer endpoints, and enriched data from NLP:
 
    * Power BI displays the data and presents reports on it.
    * The data functions as a source for Azure Cognitive Search.
@@ -88,7 +88,7 @@ The pipeline that's used for data enrichment depends on the use case.
 
 * [Application Gateway][Application Gateway service page] is a layer-7 (application layer) load balancer that manages traffic to web applications. You can run Application Gateway with [Azure Web Application Firewall][Azure Web Application Firewall service page] to help protect web applications from common exploits and vulnerabilities.
 
-* [Azure Functions][Azure Functions service page] is a serverless compute platform that you can use to build applications. With Functions, you can use triggers and bindings to react to changes in Azure services like Blob Storage and Azure Cosmos DB. Functions can run scheduled tasks, process data in real time, and process messaging queues.
+* [Azure Functions][Azure Functions service page] is a serverless compute platform you can use to build applications. With Functions, you can use triggers and bindings to react to changes in Azure services like Blob Storage and Azure Cosmos DB. Functions can run scheduled tasks, process data in real-time, and process messaging queues.
 
 * [Form Recognizer][Azure Form Recognizer service page] is part of Azure Applied AI Services. Form Recognizer offers a collection of pre-built endpoints for extracting data from invoices, documents, receipts, ID cards, and business cards. This service maps each piece of extracted data to a field as a key-value pair. Form Recognizer also extracts table content and structure. The output format is JSON.
 
@@ -96,19 +96,19 @@ The pipeline that's used for data enrichment depends on the use case.
 
 * [Blob Storage][Azure Blob Storage] is a service that's part of Azure Storage. Blob Storage offers optimized cloud object storage for large amounts of unstructured data.
 
-* [Azure Data Lake Storage][Azure Data Lake Storage] is a scalable, secure data lake for high-performance analytics workloads. The data typically comes from multiple heterogeneous sources and can be structured, semi-structured, or unstructured. Azure Data Lake Storage Gen2 combines Azure Data Lake Storage Gen1 capabilities with Blob Storage. As a next-generation solution, Data Lake Storage Gen2 provides file system semantics, file-level security, and scale. But it also offers the tiered storage, high availability, and disaster recovery capabilities of Blob Storage.
+* [Azure Data Lake Storage][Azure Data Lake Storage] is a scalable, secure data lake for high-performance analytics workloads. The data typically comes from multiple heterogeneous sources and can be structured, semi-structured, or unstructured. Azure Data Lake Storage Gen2 combines Azure Data Lake Storage Gen1 capabilities with Blob Storage. Data Lake Storage Gen2 is a next-generation solution that provides file system semantics, file-level security, and scale. But it also offers the tiered storage, high availability, and disaster recovery capabilities of Blob Storage.
 
-* [Azure Cosmos DB][Azure Cosmos DB] is a fully managed, highly responsive, scalable NoSQL database. Azure Cosmos DB offers enterprise-grade security and supports APIs for many databases, languages, and platforms. Examples include SQL, MongoDB, Gremlin, Table, and Apache Cassandra. Serverless, automatic scaling options in Azure Cosmos DB efficiently manage capacity demands of applications.
+* [Azure Cosmos DB][Azure Cosmos DB] is a fully managed, highly responsive, scalable NoSQL database. Azure Cosmos DB offers enterprise-grade security and supports APIs for many databases, languages, and platforms. Examples include SQL, MongoDB, Gremlin, Table, and Apache Cassandra. Serverless, automatic scaling options in Azure Cosmos DB efficiently manage the capacity demands of applications.
 
-* [Azure Cognitive Service for Language][Azure Cognitive Service service page] offers many NLP services that you can use to understand and analyze text. Some of these services are customizable, such as custom NER, custom text classification, conversational language understanding, and question answering.
+* [Azure Cognitive Service for Language][Azure Cognitive Service service page] offers many NLP services that you can use to understand and analyze text. Some services, such as custom NER, custom text classification, conversational language understanding, and question answering, are customizable.
 
-* [Machine Learning][Azure Machine Learning service page] is an open platform for managing the development and deployment of machine-learning models at scale. Machine Learning caters to skill levels of different users, such as data scientists or business analysts. The platform supports commonly used open frameworks and offers automated featurization and algorithm selection. You can deploy models to various targets. Examples include [AKS][Deploy Azure Machine Learning to AKS], [Azure Container Instances][Deploy Azure Machine Learning to ACI] as a web service for real-time inferencing at scale, and [Azure Virtual Machine for batch scoring][Tutorial: Build an Azure Machine Learning pipeline for batch scoring]. Managed endpoints in Machine Learning abstract the required infrastructure for [real-time][Deploy and score a machine learning model by using an online endpoint (preview)] or [batch][Use batch endpoints (preview) for batch scoring] model inferencing.
+* [Machine Learning][Azure Machine Learning service page] is an open platform for managing the development and deployment of machine-learning models at scale. Machine Learning caters to the skill levels of different users, such as data scientists or business analysts. The platform supports commonly used open frameworks and offers automated featurization and algorithm selection. You can deploy models to various targets. Examples include [AKS][Deploy Azure Machine Learning to AKS], [Azure Container Instances][Deploy Azure Machine Learning to ACI] as a web service for real-time inferencing at scale, and [Azure Virtual Machine for batch scoring][Tutorial: Build an Azure Machine Learning pipeline for batch scoring]. Managed endpoints in Machine Learning abstract the required infrastructure for [real-time][Deploy and score a machine learning model by using an online endpoint (preview)] or [batch][Use batch endpoints (preview) for batch scoring] model inferencing.
 
 * [AKS][Azure Kubernetes Service (AKS)] is a fully managed Kubernetes service that makes it easy to deploy and manage containerized applications. AKS offers serverless Kubernetes technology, an integrated continuous integration and continuous delivery (CI/CD) experience, and enterprise-grade security and governance.
 
 * [Power BI][Power BI] is a collection of software services and apps that display analytics information.
 
-* [Azure Cognitive Search][Azure Cognitive Search] is a cloud search service that supplies infrastructure, APIs, and tools for searching. You can use Azure Cognitive Search to build search experiences over private, heterogeneous content in web, mobile, and enterprise applications.
+* [Azure Cognitive Search][Azure Cognitive Search] is a cloud search service that supplies infrastructure, APIs, and tools for searching. Azure Cognitive Search can build search experiences over private, heterogeneous content in web, mobile, and enterprise applications.
 
 ### Alternatives
 
@@ -122,9 +122,9 @@ The pipeline that's used for data enrichment depends on the use case.
 
 ## Scenario details
 
-Automating document processing and data extraction is an integral task in organizations across all industry verticals. AI is one of the proven solutions in this process, although achieving 100 percent accuracy is a distant reality. But, using AI for digitization instead of purely manual processes can reduce manual effort by up to 90 percent.
+Automating document processing and data extraction is integral in organizations across all industry verticals. AI is a proven solution in this process, although achieving 100 per cent accuracy is a distant reality. But, using AI for digitization instead of purely manual processes can reduce manual effort by up to 90 per cent.
 
-Optical character recognition (OCR) can extract content from images and PDF files, which make up most of the documents that organizations use. This process uses key word search and regular expression matching. These mechanisms extract relevant data from full text and then create structured output. This approach has drawbacks. Revising the post-extraction process to meet changing document formats requires extensive maintenance effort.
+Optical character recognition (OCR) can extract content from images and PDF files, which comprise most of the documents organizations use. This process uses keyword search and regular expression matching. These mechanisms extract relevant data from the full text and create structured output. This approach has drawbacks. Revising the post-extraction process to meet changing document formats requires extensive maintenance effort.
 
 ### Potential use cases
 
@@ -134,7 +134,7 @@ This solution is ideal for the finance industry. It can also apply to the automo
 * Processing invoices, receipts, and bills for insurance claims and financial audits
 * Processing claims that include invoices, discharge summaries, and other documents
 * Automating statement of work (SoW) approvals
-* Automating ID extraction for verification purposes, as with passports or driver licenses
+* Automating ID extraction for verification purposes, as with passports or driver's licenses
 * Automating the process of entering business card data into visitor management systems
 * Identifying purchase patterns and duplicate financial documents for fraud detection
 
@@ -152,7 +152,7 @@ The availability of the architecture depends on the Azure services that make up 
 
 * Azure Cognitive Service for Language is part of Azure Cognitive Services. For the availability guarantee for these services, see [SLA for Azure Cognitive Services][SLA for Azure Cognitive Services].
 
-* Azure Cosmos DB provides high availability by maintaining four replicas of data within each region and by replicating data across regions. The exact availability guarantee depends on whether you replicate within a single region or across multiple regions. For more information, see [Achieve high availability with Azure Cosmos DB][Achieve high availability with Azure Cosmos DB].
+* Azure Cosmos DB provides high availability by maintaining four replicas of data within each region and replicating data across regions. The exact availability guarantee depends on whether you replicate within a single region or across multiple regions. For more information, see [Achieve high availability with Azure Cosmos DB][Achieve high availability with Azure Cosmos DB].
 
 * Blob Storage offers redundancy options that help ensure high availability. You can use either of these approaches to replicate data three times in a primary region:
 
@@ -174,7 +174,7 @@ The availability of the architecture depends on the Azure services that make up 
 
 * By default, Form Recognizer supports 15 concurrent requests per second. You can increase this value by [creating an Azure support ticket][Create an Azure support request] with a quota increase request.
 
-* For custom models that you host as web services on AKS, [azureml-fe][Deploy a model to an Azure Kubernetes Service cluster - Autoscaling] automatically scales as needed. This front-end component routes incoming inference requests to deployed services.
+* For custom models you host as web services on AKS, [azureml-fe][Deploy a model to an Azure Kubernetes Service cluster - Autoscaling] automatically scales as needed. This front-end component routes incoming inference requests to deployed services.
 
 * For batch inferencing, Machine Learning creates a compute cluster on demand that scales automatically. For more information, see [Tutorial: Build an Azure Machine Learning pipeline for batch scoring][Tutorial: Build an Azure Machine Learning pipeline for batch scoring]. Machine Learning uses the [ParellelRunStep][ParallelRunStep Class] class to run the inferencing jobs in parallel.
 
@@ -187,7 +187,7 @@ The availability of the architecture depends on the Azure services that make up 
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security assures against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 * Azure Web Application Firewall helps protect your application from common vulnerabilities. This Application Gateway option uses Open Web Application Security Project (OWASP) rules to prevent attacks like cross-site scripting, session hijacks, and other exploits.
 
@@ -200,15 +200,15 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 * Blob Storage and Azure Cosmos DB encrypt data at rest. You can secure these services by using service endpoints or private endpoints.
 
-* Azure Functions supports virtual network integration. By using this functionality, function apps can access resources inside a virtual network. For more information, see [Azure Functions networking options][Azure Functions networking options].
+* Azure Functions supports virtual network integration. This functionality allows function apps to access resources inside a virtual network. For more information, see [Azure Functions networking options][Azure Functions networking options].
 
-* You can configure Form Recognizer and Azure Cognitive Service for Language for access from specific virtual networks or from private endpoints. These services encrypt data at rest. You can use subscription keys, tokens, or Azure Active Directory (Azure AD) to authenticate requests to these services. For more information, see [Authenticate requests to Azure Cognitive Services][Authenticate requests to Azure Cognitive Services].
+* You can configure Form Recognizer and Azure Cognitive Service for Language for access from specific virtual networks or private endpoints. These services encrypt data at rest. You can use subscription keys, tokens, or Azure Active Directory (Azure AD) to authenticate requests to these services. For more information, see [Authenticate requests to Azure Cognitive Services][Authenticate requests to Azure Cognitive Services].
 
 * Machine Learning offers many levels of security:
 
   * [Workspace authentication][Set up authentication for Azure Machine Learning resources and workflows] provides identity and access management.
   * You can use [authorization][Manage access to an Azure Machine Learning workspace] to manage access to the workspace.
-  * By [securing workspace resources][Secure an Azure Machine Learning workspace with virtual networks], you can improve network security.
+  * You can improve network security by [securing workspace resources][Secure an Azure Machine Learning workspace with virtual networks].
   * You can [use Transport Layer Security (TLS) to secure web services][Use TLS to secure a web service through Azure Machine Learning] that you deploy through Machine Learning.
   * To protect data, you can [change the access keys for Azure Storage accounts][Regenerate storage account access keys] that Machine Learning uses.
 
@@ -222,9 +222,9 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 ### Cost optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost optimization is looking at reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-The cost of implementing this solution depends on which components you use and which options you choose for each component.
+The cost of implementing this solution depends on which components you use and your options for each component.
 
 Many factors can affect the price of each component:
 
