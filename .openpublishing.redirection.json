@@ -2846,6 +2846,11 @@
       "source_path": "docs/reference-architectures/microservices/spring-cloud-reverse-proxy.yml",
       "redirect_url": "/azure/architecture/web-apps/spring-apps/spring-cloud-reverse-proxy",
       "redirect_document_id": false
-    }      
+    },
+    {
+      "source_path": "docs/data-guide/technology-choices/r-developers-guide.md",
+      "redirect_url": "/azure/machine-learning/how-to-r-interactive-development",
+      "redirect_document_id": false
+    }
   ]
 }

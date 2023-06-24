@@ -2856,8 +2856,6 @@ items:
         href: guide/ai/query-based-summarization.md
       - name: Conversation summarization
         href: guide/ai/conversation-summarization.yml  
-      - name: R developer's guide to Azure
-        href: data-guide/technology-choices/r-developers-guide.md
       - name: Machine learning
         items:
         - name: Machine learning options
@@ -3544,6 +3542,8 @@ items:
             href: guide/hpc/civil-3d.yml
           - name: Autodesk Inventor
             href: guide/hpc/autodesk-inventor.yml
+          - name: Autodesk Maya
+            href: guide/hpc/autodesk-maya.yml
           - name: Autodesk Revit 
             href: guide/hpc/hpc-autodesk-revit.yml 
           - name: Autodesk VRED
@@ -4458,6 +4458,8 @@ items:
             href: serverless/code.yml
           - name: CI/CD for a serverless frontend
             href: serverless/guide/serverless-app-cicd-best-practices.yml
+        - name: Monitor a distributed system
+          href: guide/devops/monitor-with-opencensus-application-insights.yml 
         - name: Monitoring serverless event processing
           href: serverless/guide/monitoring-serverless-event-processing.md
         - name: Serverless Functions app operations
@@ -5515,6 +5517,8 @@ items:
       - name: High availability with video on demand
         href: /azure/media-services/latest/architecture-high-availability-encoding-concept
         maintainContext: true
+      - name: Offline audio dubbing
+        href: guide/media/offline-audio-dubbing.yml
       - name: Monitor Media Services
         href: /azure/media-services/latest/monitoring/monitor-media-services
         maintainContext: true
