@@ -2976,7 +2976,7 @@
 			</g>
 			<g id="shape1477-614" v:mID="1477" v:groupContext="shape" transform="translate(27.3341,0)">
 				<title>Sheet.1477</title>
-				<desc>Azure Security Center</desc>
+				<desc>Microsoft Defender for Cloud</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 				<v:textRect cx="39.2463" cy="758.877" width="78.5" height="52.6391"/>
 				<rect x="0" y="732.558" width="78.4927" height="52.6391" class="st4"/>

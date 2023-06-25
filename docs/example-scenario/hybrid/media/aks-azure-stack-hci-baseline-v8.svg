@@ -2337,7 +2337,7 @@
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(130000):26"/>
 			</v:userDefs>
-			<title>Security Center</title>
+			<title>Microsoft Defender for Cloud</title>
 			<desc>Microsoft Defender for Cloud</desc>
 			<g id="group1237-815" v:mID="1237" v:groupContext="group">
 				<title>Sheet.1237</title>

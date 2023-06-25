@@ -92,7 +92,7 @@ Reliability ensures your application can meet the commitments you make to your c
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 - Azure DevOps allows you to control access to your resources and data by using role-based access control (RBAC). RBAC helps to ensure that only authorized users can access your resources. For more information, see [Security best practices](/azure/devops/organizations/security/security-best-practices?view=azure-devops).  
-- Azure DevOps integrates with Azure Security Center, which provides additional security insights and recommendations that can help you identify potential security problems and take steps to address them. 
+- Azure DevOps integrates with Microsoft Defender for Cloud, which provides additional security insights and recommendations that can help you identify potential security problems and take steps to address them. 
 - You can enhance and extend your current DevSecOps practices by taking advantage of the security capabilities of IBM zSystems. By doing so, you can effectively mitigate business risks, help safeguard application data, and help ensure the long-term security for your systems. 
 
 ### Cost optimization

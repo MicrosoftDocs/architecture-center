@@ -2462,7 +2462,7 @@
 			</g>
 			<g id="shape2215-357" v:mID="2215" v:groupContext="shape" transform="translate(27.3341,0)">
 				<title>Sheet.2215</title>
-				<desc>Security Center</desc>
+				<desc>Microsoft Defender for Cloud</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 				<v:textRect cx="39.2463" cy="884.452" width="78.5" height="52.6391"/>
 				<rect x="0" y="858.133" width="78.4927" height="52.6391" class="st7"/>

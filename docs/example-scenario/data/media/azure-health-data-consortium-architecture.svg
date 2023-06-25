@@ -1543,7 +1543,7 @@
 						x="9.65" dy="1.2em" class="st25">DevOps</tspan></text>		</g>
 		<g id="shape1231-556" v:mID="1231" v:groupContext="shape" transform="translate(479.726,-78.5685)">
 			<title>Sheet.1231</title>
-			<desc>Security Center</desc>
+			<desc>Microsoft Defender for Cloud</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="27" cy="620" width="54" height="20"/>
 			<rect x="0" y="610" width="54" height="20" class="st23"/>
