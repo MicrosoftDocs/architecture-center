@@ -211,4 +211,4 @@ Related architectures:
 
 - [Building blocks for autonomous-driving simulation environments](/azure/architecture/industries/automotive/building-blocks-autonomous-driving-simulation-environments)
 - [Running CFD simulations](/azure/architecture/example-scenario/infrastructure/hpc-cfd)
-- [Industrial services on Azure Kubernetes](https://github.com/Azure/Industrial-IoT/tree/master/docs/services)
+- [Industrial services on Azure Kubernetes](https://github.com/Azure/Industrial-IoT/blob/main/docs/web-api/readme.md)

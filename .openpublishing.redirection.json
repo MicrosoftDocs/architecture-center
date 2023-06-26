@@ -2974,7 +2974,11 @@
       "source_path": "guide/web/secure-single-page-application-authorization.yml",
       "redirect_url": "/azure/architecture/web-apps/guides/security/secure-single-page-application-authorization",
       "redirect_document_id": true
+    },
+    {   
+      "source_path": "docs/data-guide/technology-choices/r-developers-guide.md",
+      "redirect_url": "/azure/machine-learning/how-to-r-interactive-development",
+      "redirect_document_id": false
     }
-   
   ]
 }

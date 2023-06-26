@@ -2,7 +2,7 @@ Provisioning a virtual machine (VM) in Azure requires some additional components
 
 ## Architecture
 
-![Diagram that shows Windows virtual machine in Azure.](./images/single-vm-diagram.png)
+:::image type="content" border="false" source="./images/single-vm-diagram.svg" alt-text="Diagram that shows Windows virtual machine in Azure." lightbox="./images/single-vm-diagram.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/windows-vm-single-vm-diagram.vsdx) of this architecture.*
 
@@ -112,7 +112,7 @@ Use [Microsoft Defender for Cloud][security-center] to get a central view of the
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-Use infrastructure as Code (IaC) either by using a single [Azure Resource Manager template][arm-template] for provisioning the Azure resources (declarative approach) or by using a single PowerShell script (imperative approach). Since all the resources are in the same virtual network, they are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a DevOps team, so that the team can independently manage all aspects of those resources. This isolation enables the DevOps Team and Services to perform continuous integration and continuous delivery (CI/CD).
+Use infrastructure as Code (IaC) either by using a single [Azure Resource Manager template][arm-template] for provisioning the Azure resources (declarative approach) or by using a single PowerShell script (imperative approach).Because all the resources are in the same virtual network, they're isolated in the same basic workload. That makes it easier to associate the workload's specific resources to a DevOps team, so that the team can independently manage all aspects of those resources. This isolation enables the DevOps Team and Services to perform continuous integration and continuous delivery (CI/CD).
 
 Also, you can use different [Azure Resource Manager templates][arm-template] and integrate them with [Azure DevOps Services][az-devops] to provision different environments in minutes, for example to replicate production like scenarios or load testing environments only when needed, saving cost.
 

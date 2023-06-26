@@ -21,7 +21,7 @@ HALO AI is used across the healthcare industry, in clinical, pharmaceutical, bio
 
 ## Architecture
 
-:::image type="content" source="media/halo-ai/architecture.png" alt-text="Diagram that shows an architecture for deploying HALO AI." lightbox="media/halo-ai/architecture.png" border="false":::
+:::image type="content" source="media/halo-ai/halo-ai-architecture.svg" alt-text="Diagram that shows an architecture for deploying HALO AI." lightbox="media/halo-ai/halo-ai-architecture.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/halo-ai.vsdx) of this
 architecture.*
