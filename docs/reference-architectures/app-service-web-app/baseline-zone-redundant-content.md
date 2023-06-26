@@ -42,7 +42,7 @@ Network security is at the core of the App Services baseline architecture (*see 
 :::image-end:::
 *Figure 2: Network architecture of the baseline Azure App Service application*
 
-The following are descriptions of the inbound flow of internet traffic to the App Service instance and the flow from the App Service to Azure services.
+The following are descriptions of the inbound flow of internet traffic to the App Service instance, and the flow from the App Service to Azure services.
 
 #### Inbound flow
 
@@ -61,7 +61,7 @@ The following are descriptions of the inbound flow of internet traffic to the Ap
 
 Application Gateway is a regional resource that meets the requirements of this baseline architecture. Application Gateway is a scalable, regional, layer 7 load balancer that supports features such as web application firewall and TLS offloading. Consider the following points when implementing Application Gateway for ingress to Azure App Services.
 
-- Deploy Application Gateway and configure a [WAF policy](/azure/web-application-firewall/ag/policy-overview) with a Microsoft-managed ruleset. Use Prevention mode to mitigate web attacks that might cause an origin service (App Service in the architecture) to become unavailable.
+- Deploy Application Gateway and configure a [WAF policy](/azure/web-application-firewall/ag/policy-overview) with a Microsoft-managed ruleset. Use Prevention mode to mitigate web attacks, that might cause an origin service (App Service in the architecture) to become unavailable.
 - Implement [end-to-end TLS encryption](/azure/application-gateway/ssl-overview#end-to-end-tls-encryption).
 - Use [private endpoints to implement inbound private access to your App Service](/azure/app-service/networking/private-endpoint).
 - Consider implementing [autoscaling](/azure/application-gateway/overview-v2) for Application Gateway to readily adjust to dynamic traffic flows. 
@@ -114,7 +114,7 @@ Deploy Azure Application Gateway v2 in a zone redundant configuration. Consider 
 
 ### App Services
 
-- Deploy at least three instances of App Services with Availability Zone support.
+- Deploy a minimum of three instances of App Services with Availability Zone support.
 - Implement health check endpoints in your apps and configure the App Service health check feature to reroute requests away from unhealthy instances. For more information about App Service Health check, see [Monitor App Service instances using health check](/azure/app-service/monitor-instances-health-check). For more information about implementing health check endpoints in ASP.NET applications, see [Health checks in ASP.NET Core](https://learn.microsoft.com/aspnet/core/host-and-deploy/health-checks).
 - Overprovision capacity to be able to handle zone failures.
 
@@ -224,7 +224,7 @@ The App Service baseline configures authentication and authorization for user id
 
 ## Deployment
 
-Deployment for the baseline App Service application follows the guidance in [CI/CD for Azure Web Apps with Azure Pipelines](/azure/architecture/solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps). In addition to that guidance, the App Services baseline architecture takes into account that the application and deployment storage account is network secured. The architecture denies public access to App Service. This means you can't deploy from outside the virtual network. The baseline shows you how to deploy the application code within the virtual network using self-hosted deployment agents. The following deployment guidance focuses on deploying the application code and not deploying infrastructure or database changes.
+Deployment for the baseline App Service application follows the guidance in [CI/CD for Azure Web Apps with Azure Pipelines](/azure/architecture/solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps). In addition to that guidance, the App Services baseline architecture takes into account that the application and the deployment storage account are network secured. The architecture denies public access to App Service. This means you can't deploy from outside the virtual network. The baseline shows you how to deploy the application code within the virtual network using self-hosted deployment agents. The following deployment guidance focuses on deploying the application code and not deploying infrastructure or database changes.
 
 :::image type="complex" source="images/baseline-app-service-deployments.svg" lightbox="images/baseline-app-service-deployments.svg" alt-text="Diagram that shows a baseline App Service deployment architecture.":::
     The diagram shows a subnet containing self-hosted deployment agents. It also adds Azure Pipelines with managed agents. The last change is numbered for the deployment flow. Number one is on Azure Pipelines. Number two is an arrow from the self-hosted agents to Azure Pipelines. Three is an arrow from the self-hosted agent to the private endpoint for Azure Storage. Four is again above Azure Pipelines and the managed agents. Five is in App Services. Six is again over Azure Pipelines and the managed agents.
@@ -245,7 +245,7 @@ Deployment for the baseline App Service application follows the guidance in [CI/
 5. Azure App Service pulls the new publish zip file from storage via the storage account private endpoint. The staging instance restarts with the new package because WEBSITE_RUN_FROM_PACKAGE was set to a different file name.
 6. The pipeline resumes and runs any smoke tests or waits for approval. If the tests pass or approval is given, the pipeline swaps the staging and production slots.
 
-### Deployment Guidance
+### Deployment guidance
 
 The following highlights key deployment guidance for the baseline architecture.
 
@@ -325,11 +325,11 @@ App Service has built-in and integrated monitoring tools that you should enable 
 
 ## Governance
 
-Web apps benefit from Azure Policy by enforcing architectural and security decisions. Azure Policy can make it (1) impossible to deploy (deny) or (2) easy to detect (audit) configuration drift from your preferred desired state. This helps you catch IaC (Infrastructure as Code) deployments or Azure portal changes that deviate from agreed-upon architecture. You should place all resources in your architecture under Azure Policy governance. Use built-in policies or policy initiatives where possible to enforce essential network topology, service features, security, and monitoring decisions, for example:
+Web apps benefit from Azure Policy by enforcing architectural and security decisions. Azure Policy can make it (1) impossible to deploy (deny) or (2) easy to detect (audit) configuration drift from your preferred desired state. This helps you catch Infrastructure as Code (IaC) deployments or Azure portal changes that deviate from the agreed-upon architecture. You should place all resources in your architecture under Azure Policy governance. Use built-in policies or policy initiatives where possible to enforce essential network topology, service features, security, and monitoring decisions, for example:
 
 - App Service should disable public network access
 - App service should use virtual network integration
-- App Service should use a private link
+- App Service should use Azure Private Link to connect to PaaS services
 - App Service should have local authentication methods disabled for FTP & SCM site deployments
 - App Service should have remote debugging turned off
 - App Service apps should use the latest TLS version
