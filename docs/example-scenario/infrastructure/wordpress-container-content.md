@@ -1,28 +1,28 @@
 <!-- cSpell:ignore wordpress -->
 
-This example scenario is applicable for any larger installation of WordPress with storage-intensive requirements. It uses [Azure Front Door](/azure/frontdoor/front-door-overview), [Azure Kubernetes Service](/azure/aks/intro-kubernetes), [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) and other Azure services to deploy a highly scalable and secure installation of WordPress.
+This article describes a solution for hosting large installations of WordPress that have storage-intensive requirements. The solution uses [Azure Front Door](/azure/frontdoor/front-door-overview), [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes), [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction), and other Azure services to deploy a highly scalable and secure installation of WordPress.
 
 ## Architecture
 
-[![Architecture overview of the WordPress deployment in AKS](media/wordpress-aks-netapp.png)](media/wordpress-aks-netapp.png#lightbox)
+[![Architecture overview of the WordPress deployment in AKS](media/wordpress-aks-azure-netapp-files.png)](media/wordpress-aks-netapp.png#lightbox)
 
 > [!NOTE]
-> This architecture can be extended and combined with other tips and recommendations that are not specific to any particular WordPress hosting method. [Learn more about tips for WordPress](/azure/architecture/example-scenario/infrastructure/wordpress)
+> You can extend this solution by implementing tips and recommendations that aren't specific to any particular WordPress hosting method. For general tips for deploying a WordPress installation, see [WordPress on Azure](../../guide/infrastructure/wordpress-overview.yml).
 
 ### Dataflow
 
-- Users access the front-end website through Azure Front Door with Azure Web Application Firewall (WAF) enabled.
-- Front Door uses an [internal Azure Load Balancer](/azure/load-balancer/load-balancer-overview) as the origin. The internal Azure Load Balancer is a hidden component of AKS. Front Door pulls any data that isn't cached.
+- Users access the front-end website through Azure Front Door with Azure Web Application Firewall enabled.
+- Front Door uses an internal instance of [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) as the origin. The internal load balancer is a hidden component of AKS. Front Door retrieves any data that isn't cached.
 - The internal load balancer distributes ingress traffic to pods within AKS.
 - The private key (X.509 certificate) and other secrets are stored in [Azure Key Vault](/azure/key-vault/key-vault-overview).
-- The WordPress application pulls any dynamic information out of the managed [Azure Database for MySQL - Flexible Server](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/overview) privately via Private Endpoint.
-- All static content is hosted in [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) using the AKS CSI Astra Trident driver with the NFS protocol.
+- The WordPress application retrieves dynamic information out of the managed [Azure Database for MySQL flexible server](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/overview) privately via a private endpoint.
+- All static content is hosted in [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction). The solution uses the Astra Trident Container Storage Interface (CSI) driver with the NFS protocol.
 
 ### Components
 
-- [Azure Front Door](https://azure.microsoft.com/products/frontdoor) is a Microsoft’s modern cloud Content Delivery Network (CDN). It's a distributed network of servers that efficiently delivers web content to users. CDNs minimize latency by storing cached content on edge servers in point-of-presence locations near to end users.
-- [Virtual networks](https://azure.microsoft.com/products/virtual-network) allow deployed resources to securely communicate with each other, the Internet, and on-premises networks. Virtual networks provide isolation and segmentation, filter and route traffic, and allow connection between locations. The two networks are connected via virtual network peering.
-- [Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+- [Azure Front Door](https://azure.microsoft.com/products/frontdoor) is a modern cloud content delivery network. As a distributed network of servers, Azure Front Door efficiently delivers web content to users. Content delivery networks minimize latency by storing cached content on edge servers in point-of-presence locations near to end users.
+- [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) provides a way for deployed resources to securely communicate with each other, the internet, and on-premises networks. Virtual networks provide isolation and segmentation. They also filter and route traffic and make it possible to establish connections between various locations. In this solution, the two networks are connected via a virtual network peering.
+- [Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview) provides enhanced DDoS mitigation features that help defend against DDoS attacks when combined with application-design best practices. You should enable Azure DDOS Protection Standard on any perimeter virtual network.
 - [Network security groups](/azure/virtual-network/security-overview) contain a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. The subnets in this scenario are secured with network security group rules that restrict any traffic flow between the application components.
 - [Load balancers](https://azure.microsoft.com/solutions/load-balancing-with-azure) distribute inbound traffic according to rules and health probes. A load balancer provides low latency and high throughput and scales up to millions of flows for all TCP and UDP applications. A load balancer is used in this scenario to distribute traffic from the content delivery network to the front-end web servers.
 - [Azure Kubernetes Service](https://azure.microsoft.com/products/kubernetes-service) is a fully managed service that makes it easy to deploy, manage, and scale containerized applications using Kubernetes.
