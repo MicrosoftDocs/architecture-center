@@ -6694,16 +6694,6 @@ items:
         href: example-scenario/signalr/index.yml
       - name: SaaS Starter web app
         href: example-scenario/apps/saas-starter-web-app.yml
-      - name: WordPress on Azure
-        items:
-          - name: Overview
-            href: example-scenario/infrastructure/wordpress.yml
-          - name: Container hosting (AKS)
-            href: example-scenario/infrastructure/wordpress-container.yml
-          - name: App Service hosting
-            href: example-scenario/infrastructure/wordpress-appservice.yml
-          - name: VM hosting
-            href: example-scenario/infrastructure/wordpress-iaas.yml
       - name: Scalable cloud applications and SRE
         href: example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml
       - name: Scalable order processing
@@ -6714,6 +6704,16 @@ items:
         href: example-scenario/mch-health/virtual-health-mch.yml
       - name: Web app monitoring on Azure
         href: reference-architectures/app-service-web-app/app-monitoring.yml
+      - name: WordPress on Azure
+        items:
+          - name: Overview
+            href: guide/infrastructure/wordpress-overview.yml
+          - name: Container hosting (AKS)
+            href: example-scenario/infrastructure/wordpress-container.yml
+          - name: App Service hosting
+            href: example-scenario/infrastructure/wordpress-appservice.yml
+          - name: VM hosting
+            href: example-scenario/infrastructure/wordpress-iaas.yml
     - name: Solution ideas
       items:
       - name: Dynamics Business Central as a service

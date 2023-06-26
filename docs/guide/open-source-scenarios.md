@@ -206,7 +206,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |[Mainframe file replication and sync on Azure](../solution-ideas/articles/mainframe-azure-file-replication.yml)|Learn about several options for moving, converting, transforming, and storing mainframe and midrange file system data on-premises and in Azure. Store data in Azure Database for MariaDB.|Mainframe|
 |[Modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)|Learn how to modernize IBM mainframe and midrange data and see how to use a data-first approach to migrate this data to Azure. Azure Database for MariaDB is one recommended relational database.|Mainframe|
 |[Replicate and sync mainframe data in Azure](../reference-architectures/migration/sync-mainframe-data-with-azure.yml)|Replicate data while modernizing mainframe and midrange systems. Sync on-premises data with Azure data during modernization. Azure Database for MariaDB is one recommended relational database.|Mainframe|
-|[Scalable and secure WordPress on Azure](../example-scenario/infrastructure/wordpress.yml)|Learn how to use Content Delivery Network and other Azure services to deploy a highly scalable and highly secure installation of WordPress. In this scenario, MariaDB is used as a data store.|Web|
 |[Understand data store models](../guide/technology-choices/data-store-overview.md)|Learn about the high-level differences between the various data storage models found in Azure data services. Azure Database for MariaDB is one example of a relational database.|Databases|
 
 ## MLflow
@@ -395,7 +394,7 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Scalable and secure WordPress on Azure](../example-scenario/infrastructure/wordpress.yml)|Learn how to use Azure Content Delivery Network and other Azure services to deploy a highly scalable and highly secure installation of WordPress.|Web|
+|[WordPress on Azure](./infrastructure/wordpress-overview.yml)|Learn about multiple options for hosting WordPress on Azure. See guidance and tips for deploying a secure, scalable, and cost-effective WordPress installation.|Web|
 
 ## Related resources
 

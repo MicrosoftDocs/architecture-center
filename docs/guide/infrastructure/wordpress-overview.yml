@@ -1,0 +1,30 @@
+### YamlMime:Architecture
+metadata:
+  title: WordPress on Azure
+  titleSuffix: Azure Architecture Center
+  description: Learn about multiple options for hosting WordPress on Azure. See guidance and tips for deploying a secure, scalable, and cost-effective WordPress installation.
+  author: vjirovsky
+  ms.author: vjirovsky
+  ms.date: 06/28/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+  ms.category:
+    - web
+  ms.custom:
+    - web-apps
+    - scalability
+  social_image_url: /azure/architecture/guide/infrastructure/media/azure-wordpress.png
+name: WordPress on Azure
+azureCategories:
+  - web
+summary: Learn about multiple options for hosting WordPress on Azure. See guidance and tips for deploying a secure, scalable, and cost-effective WordPress installation.
+products:
+  - azure-app-service
+  - azure-front-door
+  - azure-kubernetes-service
+  - azure-web-application-firewall
+  - azure-private-link
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-wordpress.png
+content: |
+   [!include[](wordpress-overview-content.md)]

@@ -107,7 +107,6 @@ The following sections, organized by category, provide links to sample web app a
 
 ### Scalability
 
-- [Scalable and secure WordPress on Azure](../../example-scenario/infrastructure/wordpress.yml)
 - [Scalable cloud applications and site reliability engineering (SRE)](../../example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml)
 - [Scalable web application](../../reference-architectures/app-service-web-app/scalable-web-app.yml)
 - [Scalable Umbraco CMS web app](../../solution-ideas/articles/medium-umbraco-web-app.yml)
