@@ -75,7 +75,7 @@ This architecture uses a hub-spoke network topology. The hub and spoke(s) are de
 
 - Aligns with the [Azure enterprise-scale landing zones](/azure/cloud-adoption-framework/ready/enterprise-scale/implementation).
 
-[ ![Architecture diagram that shows Hub-spoke network topology.](images/aks-baseline-architecture.svg)](images/aks-baseline-architecture.svg#lightbox)
+[ ![Architecture diagram that shows a hub-spoke network topology.](images/aks-baseline-architecture.svg)](images/aks-baseline-architecture.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-baseline-architecture.vsdx) of this architecture.*
 
@@ -633,7 +633,7 @@ Keep the Kubernetes version up to date with the [supported N-2 versions](/azure/
 
 For more information, see [Regularly update to the latest version of Kubernetes](/azure/aks/operator-best-practices-cluster-security#regularly-update-to-the-latest-version-of-kubernetes) and [Upgrade an Azure Kubernetes Service (AKS) cluster](/azure/aks/upgrade-cluster).
 
-Notification of events raised by your cluster, such as new AKS version availability for your cluster, can be achieved through the [AKS System Topic for Azure Event Grid](/azure/event-grid/event-schema-aks). The reference implementation, deploys this Event Grid System Topic so that you can subscribe to the `Microsoft.ContainerService.NewKubernetesVersionAvailable` event from your event stream notification solution.
+Notification of events raised by your cluster, such as new AKS version availability for your cluster, can be achieved through the [AKS System Topic for Azure Event Grid](/azure/event-grid/event-schema-aks). The reference implementation deploys this Event Grid System Topic so that you can subscribe to the `Microsoft.ContainerService.NewKubernetesVersionAvailable` event from your event stream notification solution.
 
 #### Weekly updates
 
@@ -705,7 +705,7 @@ In this architecture, we've chosen [GitHub Actions](https://github.com/marketpla
 
 ### Cluster CI/CD
 
-[ ![Diagram showing Workload CI/CD.](images/workload-ci-cd.svg)](images/workload-ci-cd.svg#lightbox)
+[ ![Diagram showing workload CI/CD.](images/workload-ci-cd.svg)](images/workload-ci-cd.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/secure-baseline-aks-workload-ci-cd.vsdx) of this architecture.*
 
@@ -724,7 +724,7 @@ You can also set policies that govern how those changes are deployed.
 
 Here's an example that shows how to automate cluster configuration with GitOps and flux:
 
-[ ![Diagram showing GitOps Flow.](images/gitops-flow.svg)](images/gitops-flow.svg#lightbox)
+[ ![Diagram that shows the GitOps flow.](images/gitops-flow.svg)](images/gitops-flow.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/secure-baseline-aks-gitops-flow.vsdx) of this architecture.*
 
