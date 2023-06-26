@@ -18,7 +18,7 @@ This architecture works best for:
 
 ## Architecture
 
-![Flow diagram that shows Azure Cosmos DB being accessed by a private endpoint for Azure Container Instances. It's fronted by Azure Application Gateway.](./media/architecture-automation.png)
+![Flow diagram that shows Azure Cosmos DB being accessed by a private endpoint for Azure Container Instances. It's fronted by Azure Application Gateway.](../_images/architecture-automation.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/Architecture.vsdx) of this architecture.*
 

@@ -104,7 +104,7 @@ The following new and updated articles have recently been published in the Azure
 - [Run CAE simulations for manufacturing on Azure](./example-scenario/hpc/hpc-run-cae-simulations.yml)
 - [Autonomous Vehicle Operations (AVOps) design guide](./guide/machine-learning/avops-design-guide.md)
 - [Create an Autonomous Vehicle Operations (AVOps) solution](./solution-ideas/articles/avops-architecture.yml)
-- [Protect access tokens in a single-page application by using Azure API Management](./guide/web/secure-single-page-application-authorization.yml)
+- [Protect access tokens in a single-page application by using Azure API Management](./web-apps/guides/security/secure-single-page-application-authorization.yml)
 
 ### Updated articles
 

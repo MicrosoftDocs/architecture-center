@@ -50,6 +50,12 @@ items:
         items:
         - name: Securing access to multitenant web apps from on prem
           href: guides/networking/access-multitenant-web-app-from-on-premises.yml
+        - name: Automate Application Gateway reconfiguration for web apps
+          href: guides/networking/automation-application-gateway.yml
+      - name: Security guidance for web apps
+        items:
+        - name: Single-page application authorization
+          href: guides/security/secure-single-page-application-authorization.yml
       - name: Application development guidance for web apps
         items:
         - name: Enterprise app patterns

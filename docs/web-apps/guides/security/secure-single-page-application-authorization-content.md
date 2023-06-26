@@ -11,7 +11,7 @@ Because the backend handles token acquisition, no other code or library, like [M
 
 ## Architecture
 
-![Diagram that shows an architecture that doesn't store tokens in the browser.](./images/no-token.png)
+![Diagram that shows an architecture that doesn't store tokens in the browser.](../_images/no-token.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/no-token-in-the-browser.vsdx) of this architecture.*
 
@@ -52,7 +52,7 @@ To learn more about using custom domains for Azure resources, see [Custom domain
 
 This process uses the [OAuth2 Authorization Code flow](/azure/active-directory/fundamentals/auth-oauth2). To obtain an access token that allows the single-page application to access the API, users must first authenticate themselves. You invoke the authentication flow by redirecting users to the Azure AD authorization endpoint. You need to configure a redirect URI in Azure AD. This redirect URI must be the API Management callback endpoint. Users are prompted to authenticate themselves by using Azure AD and are redirected back to the API Management callback endpoint with an authorization code. The API Management policy then exchanges the authorization code for an access token by calling the Azure AD token endpoint. The following diagram shows the sequence of events for this flow.
 
-![Diagram that shows the authentication flow.](./images/no-token-in-browser-set-token-sequence.png)
+![Diagram that shows the authentication flow.](../_images/no-token-in-browser-set-token-sequence.png)
 
 The flow contains these steps:
 
@@ -113,7 +113,7 @@ The flow contains these steps:
 
 When the single-page application has the access token, it can use the token to call the downstream API. Because the cookie is scoped to the domain of the single-page application and is configured with the `SameSite=Strict` attribute, it's automatically added to the request. The access token can then be decrypted so it can be used to call the downstream API. The following diagram shows the sequence of events for this flow.
 
-![Diagram that shows the API call sequence.](./images/no-token-in-browser-call-api-sequence.png)
+![Diagram that shows the API call sequence.](../_images/no-token-in-browser-call-api-sequence.png)
 
 The flow contains these steps:
 
