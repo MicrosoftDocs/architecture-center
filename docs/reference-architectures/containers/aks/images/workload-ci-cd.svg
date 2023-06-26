@@ -737,7 +737,7 @@
 		</g>
 		<g id="group1154-194" transform="translate(617.478,-106.56)" v:mID="1154" v:groupContext="group">
 			<title>Kubernetes Services.1154</title>
-			<desc>Azure Kubernetes Services</desc>
+			<desc>Azure Kubernetes Service</desc>
 			<g id="shape1155-195" v:mID="1155" v:groupContext="shape" transform="translate(12.5801,-52.8407)">
 				<title>Sheet.1155</title>
 				<v:userDefs>
@@ -867,7 +867,7 @@
 				<v:textBlock v:margins="rect(0,0,0,0)"/>
 				<v:textRect cx="38.6817" cy="253.802" width="77.37" height="39.6038"/>
 				<text x="24.75" y="243.9" class="st40" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure <tspan
-							x="11.29" dy="1.2em" class="st41">Kubernetes </tspan><tspan x="19.25" dy="1.2em" class="st41">Services</tspan></text>			</g>
+							x="11.29" dy="1.2em" class="st41">Kubernetes </tspan><tspan x="21.59" dy="1.2em" class="st41">Service</tspan></text>			</g>
 		</g>
 		<g id="shape1172-239" v:mID="1172" v:groupContext="shape" transform="translate(210.637,-64.125)">
 			<title>Sheet.1172</title>
@@ -879,11 +879,11 @@
 						x="17.17" dy="1.2em" class="st41">Pipelines</tspan></text>		</g>
 		<g id="shape1176-243" v:mID="1176" v:groupContext="shape" transform="translate(321.318,-64.125)">
 			<title>Sheet.1176</title>
-			<desc>Github Actions</desc>
+			<desc>GitHub Actions</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="38.6817" cy="216.563" width="77.37" height="34.875"/>
 			<rect x="0" y="199.125" width="77.3634" height="34.875" class="st42"/>
-			<text x="22.25" y="213.26" class="st40" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Github <tspan
+			<text x="21.46" y="213.26" class="st40" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>GitHub <tspan
 						x="20.73" dy="1.2em" class="st41">Actions</tspan></text>		</g>
 		<g id="shape1177-247" v:mID="1177" v:groupContext="shape" transform="translate(432,-54)">
 			<title>Sheet.1177</title>
