@@ -335,7 +335,7 @@ The function also accesses the Service Bus listener connection string in a simil
 
 #### Design scalable apps
 
-The application in this reference architecture is structured so that individual components can be scaled based on usage. Each web app, API, and function is deployed in its own App Service plan. You can monitor each app for any performance bottlenecks, and then [scale it up](/azure/app-service/manage-scale-up) if required. Read [Improve scalability in an Azure web application](../app-service-web-app/scalable-web-app.yml) to learn how to design scalable web applications using Azure App Service.
+The application in this reference architecture is structured so that individual components can be scaled based on usage. Each web app, API, and function is deployed in its own App Service plan. You can monitor each app for any performance bottlenecks, and then [scale it up](/azure/app-service/manage-scale-up) if required. Read [Baseline web application with zone redundancy](../../../web-apps/app-service/architectures/baseline-zone-redundant.yml) to learn how to design scalable web applications using Azure App Service.
 
 #### Autoscaling App Gateway
 

@@ -109,7 +109,7 @@ The following sections, organized by category, provide links to sample web app a
 
 - [Scalable and secure WordPress on Azure](../web-apps/hosting-applications/wordpress.yml)
 - [Scalable cloud applications and site reliability engineering (SRE)](../example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml)
-- [Scalable web application](../reference-architectures/app-service-web-app/scalable-web-app.yml)
+- [Baseline web application with zone redundancy](../web-apps/app-service/architectures/baseline-zone-redundant.yml)
 - [Scalable Umbraco CMS web app](../web-apps/hosting-applications/medium-umbraco-web-app.yml)
 
 ### Security

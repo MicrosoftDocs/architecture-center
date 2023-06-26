@@ -607,6 +607,6 @@ The following deployment steps use the Azure portal to update an existing Azure 
 
 ## Related resources
 
-- [Web API design](../../best-practices/api-design.md)
-- [Web API implementation](../../best-practices/api-implementation.md)
-- [Gateway Routing pattern](../../patterns/gateway-routing.yml)
+- [Web API design](../../../best-practices/api-design.md)
+- [Web API implementation](../../../best-practices/api-implementation.md)
+- [Gateway Routing pattern](../../../patterns/gateway-routing.yml)

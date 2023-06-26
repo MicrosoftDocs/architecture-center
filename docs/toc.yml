@@ -6304,7 +6304,7 @@ items:
       - name: Hybrid security monitoring
         href: hybrid/hybrid-security-monitoring.yml
       - name: Improved-security access to multitenant
-        href: example-scenario/security/access-multitenant-web-app-from-on-premises.yml
+        href: web-apps/guides/networking/access-multitenant-web-app-from-on-premises.yml
       - name: Long-term security logs in Data Explorer
         href: example-scenario/security/security-log-retention-azure-data-explorer.yml
       - name: Real-time fraud detection

@@ -160,7 +160,7 @@ The following sections list other serverless and Azure Functions-related referen
 
 - [An e-commerce front end](../example-scenario/apps/ecommerce-scenario.yml)
 - [Architect scalable e-commerce web app](../web-apps/idea/scalable-ecommerce-web-app.yml)
-- [Improve scalability in an Azure web application](../reference-architectures/app-service-web-app/scalable-web-app.yml)
+- [Baseline web application with zone redundancy](../web-apps/app-service/architectures/baseline-zone-redundant.yml)
 - [Uploading and CDN-preloading static content with Azure Functions](/samples/azure-samples/functions-java-push-static-contents-to-cdn/functions-java-push-static-contents-to-cdn/)
 - [Cross Cloud Scaling Architecture](../solution-ideas/articles/cross-cloud-scaling.yml)
 - [Social App for Mobile and Web with Authentication](../solution-ideas/articles/social-mobile-and-web-app-with-authentication.yml)
