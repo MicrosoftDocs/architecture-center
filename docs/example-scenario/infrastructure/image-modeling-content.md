@@ -2,7 +2,7 @@ This example scenario provides architecture and design guidance for any organiza
 
 ## Architecture
 
-![Diagram showing architecture of image-based modeling using Agisoft PhotoScan backed by Avere vFXT storage, Active Directory domain controllers and jump boxes.](./media/architecture-image-modeling.png)
+![Diagram showing architecture of image-based modeling using Agisoft PhotoScan backed by Avere vFXT storage, Active Directory domain controllers and jump boxes.](./media/architecture-image-modeling.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/architecture-image-modeling.vsdx) of this architecture.*
 
