@@ -6,7 +6,7 @@ This architecture illustrates an implementation of a Sterling Order Management S
 
 :::image type="content" alt-text="Architecture diagram that shows the components and services that support deployment of a Sterling OMS IBM order management system on Azure." source="./media/deploy-ibm-sterling-oms-architecture.svg" lightbox="./media/deploy-ibm-sterling-oms-architecture.svg" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-2026672-deploy-ibm-sterling-oms-architecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/deploy-ibm-sterling-oms-architecture.vsdx) of this architecture.*
 
 You can deploy a workload so that it's internally or externally facing. Use the configuration that best suits your requirements.
 
