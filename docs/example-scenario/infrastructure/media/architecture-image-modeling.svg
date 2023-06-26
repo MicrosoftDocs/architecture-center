@@ -806,9 +806,9 @@
 			</g>
 			<g id="shape1200-262">
 				<title>Sheet.1200</title>
-				<desc>Avere Controller</desc>
+				<desc>Avere controller</desc>
 				<rect x="0" y="467.767" width="58.5" height="18.2332" class="st8"/>
-				<text x="15.4" y="473.58" class="st17">Avere <tspan x="5.06" dy="1.2em" class="st29">Controller</tspan></text>			</g>
+				<text x="15.4" y="473.58" class="st17">Avere <tspan x="5.92" dy="1.2em" class="st29">controller</tspan></text>			</g>
 		</g>
 		<g id="group1360-266" transform="translate(579.913,-141.652)">
 			<title>Sheet.1360</title>
@@ -1305,9 +1305,9 @@
 			<text x="5.08" y="473.58" class="st17">Azure Key <tspan x="16.73" dy="1.2em" class="st29">Vault</tspan></text>		</g>
 		<g id="shape1400-414" transform="translate(207,-440.044)">
 			<title>Sheet.1400</title>
-			<desc>ProtoScan-VNet virtual network</desc>
+			<desc>PhotoScan-VNet virtual network</desc>
 			<rect x="0" y="475.217" width="192.375" height="10.7832" class="st8"/>
-			<text x="5.63" y="484.21" class="st46">ProtoScan-VNet virtual network</text>		</g>
+			<text x="4.41" y="484.21" class="st46">PhotoScan-VNet virtual network</text>		</g>
 		<g id="shape1401-417" transform="translate(202.5,-232.217)">
 			<title>Sheet.1401</title>
 			<desc>Avere VNet virtual network</desc>
