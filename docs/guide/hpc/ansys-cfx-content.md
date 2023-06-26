@@ -16,7 +16,7 @@ CFX is used in the aerospace, defense, steam turbine, energy, automotive, constr
 
 ## Architecture
 
-:::image type="content" source="media/cfx/ansys-cfx.png" alt-text="Diagram that shows an architecture for deploying Ansys CFX." lightbox="media/cfx/ansys-cfx.png" border="false":::
+:::image type="content" source="media/cfx/ansys-cfx.svg" alt-text="Diagram that shows an architecture for deploying Ansys CFX." lightbox="media/cfx/ansys-cfx.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ansys-cfx.vsdx) of this
 architecture.*
