@@ -23,27 +23,27 @@
 		.st15 {fill:#0078d4;stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st16 {fill:url(#grad0-78);stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st17 {fill:url(#grad0-84);stroke:none;stroke-linecap:butt;stroke-width:0.75}
-		.st18 {fill:url(#grad0-95);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st18 {fill:url(#grad0-96);stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st19 {fill:#773adc;stroke:none;stroke-linecap:butt;stroke-width:0.75}
-		.st20 {fill:url(#grad0-115);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st20 {fill:url(#grad0-116);stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st21 {fill:#000000;fill-opacity:0.2;stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st22 {fill:#000000;fill-opacity:0.18;stroke:none;stroke-linecap:butt;stroke-width:0.75}
-		.st23 {fill:url(#grad0-123);stroke:none;stroke-linecap:butt;stroke-width:0.75}
-		.st24 {fill:url(#grad0-127);stroke:none;stroke-linecap:butt;stroke-width:0.75}
-		.st25 {fill:url(#grad0-138);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st23 {fill:url(#grad0-124);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st24 {fill:url(#grad0-128);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st25 {fill:url(#grad0-139);stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st26 {fill:#53b1e0;stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st27 {fill:#9cebff;stroke:none;stroke-linecap:butt;stroke-width:0.75}
-		.st28 {fill:url(#grad0-146);stroke:none;stroke-linecap:butt;stroke-width:0.75}
-		.st29 {marker-end:url(#mrkr4-155);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
+		.st28 {fill:url(#grad0-147);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st29 {marker-end:url(#mrkr4-156);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
 		.st30 {fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:0.37313432835821}
 		.st31 {fill:#000000;font-family:Segoe UI;font-size:0.833336em;font-style:italic}
-		.st32 {fill:url(#grad0-188);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st32 {fill:url(#grad0-189);stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st33 {fill:#003067;stroke:none;stroke-linecap:butt;stroke-width:0.75}
-		.st34 {fill:url(#grad0-200);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st34 {fill:url(#grad0-201);stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st35 {fill:#f2f2f2;stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st36 {fill:#76bc2d;stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st37 {fill:#5e9624;stroke:none;stroke-linecap:butt;stroke-width:0.75}
-		.st38 {fill:url(#grad0-217);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st38 {fill:url(#grad0-218);stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st39 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
 	]]>
 	</style>
@@ -80,46 +80,46 @@
 			<stop offset="0.66" stop-color="#32bedd" stop-opacity="1"/>
 			<stop offset="0.975" stop-color="#50e6ff" stop-opacity="1"/>
 		</linearGradient>
-		<linearGradient id="grad0-95" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(90 0.5 0.5)">
+		<linearGradient id="grad0-96" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(90 0.5 0.5)">
 			<stop offset="0" stop-color="#32d4f5" stop-opacity="1"/>
 			<stop offset="1" stop-color="#198ab3" stop-opacity="1"/>
 		</linearGradient>
-		<linearGradient id="grad0-115" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(35.2432185142 0.5 0.5)">
+		<linearGradient id="grad0-116" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(35.2432185142 0.5 0.5)">
 			<stop offset="0" stop-color="#e6ad10" stop-opacity="1"/>
 			<stop offset="1" stop-color="#c87e0e" stop-opacity="1"/>
 		</linearGradient>
-		<linearGradient id="grad0-123" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(40.759716433349 0.5 0.5)">
+		<linearGradient id="grad0-124" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(40.759716433349 0.5 0.5)">
 			<stop offset="0" stop-color="#f6d751" stop-opacity="1"/>
 			<stop offset="1" stop-color="#e6ad10" stop-opacity="1"/>
 		</linearGradient>
-		<linearGradient id="grad0-127" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(57.669552439706 0.5 0.5)">
+		<linearGradient id="grad0-128" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(57.669552439706 0.5 0.5)">
 			<stop offset="0" stop-color="#f9e589" stop-opacity="1"/>
 			<stop offset="1" stop-color="#f6d751" stop-opacity="1"/>
 		</linearGradient>
-		<linearGradient id="grad0-138" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-133.54829310906 0.5 0.5)">
+		<linearGradient id="grad0-139" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-133.54829310906 0.5 0.5)">
 			<stop offset="0" stop-color="#1988d9" stop-opacity="1"/>
 			<stop offset="0.9" stop-color="#54aef0" stop-opacity="1"/>
 		</linearGradient>
-		<linearGradient id="grad0-146" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(65.834982258294 0.5 0.5)">
+		<linearGradient id="grad0-147" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(65.834982258294 0.5 0.5)">
 			<stop offset="0.1" stop-color="#54aef0" stop-opacity="1"/>
 			<stop offset="0.29" stop-color="#4fabee" stop-opacity="1"/>
 			<stop offset="0.51" stop-color="#41a2e9" stop-opacity="1"/>
 			<stop offset="0.74" stop-color="#2a93e0" stop-opacity="1"/>
 			<stop offset="0.88" stop-color="#1988d9" stop-opacity="1"/>
 		</linearGradient>
-		<linearGradient id="grad0-188" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-90 0.5 0.5)">
+		<linearGradient id="grad0-189" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-90 0.5 0.5)">
 			<stop offset="0" stop-color="#949494" stop-opacity="1"/>
 			<stop offset="0.53" stop-color="#a2a2a2" stop-opacity="1"/>
 			<stop offset="1" stop-color="#b3b3b3" stop-opacity="1"/>
 		</linearGradient>
-		<linearGradient id="grad0-200" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-90 0.5 0.5)">
+		<linearGradient id="grad0-201" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-90 0.5 0.5)">
 			<stop offset="0" stop-color="#0078d4" stop-opacity="1"/>
 			<stop offset="0.16" stop-color="#1380da" stop-opacity="1"/>
 			<stop offset="0.53" stop-color="#3c91e5" stop-opacity="1"/>
 			<stop offset="0.82" stop-color="#559cec" stop-opacity="1"/>
 			<stop offset="1" stop-color="#5ea0ef" stop-opacity="1"/>
 		</linearGradient>
-		<linearGradient id="grad0-217" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(76.639598616806 0.5 0.5)">
+		<linearGradient id="grad0-218" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(76.639598616806 0.5 0.5)">
 			<stop offset="0" stop-color="#0078d4" stop-opacity="1"/>
 			<stop offset="0.02" stop-color="#0d7ed8" stop-opacity="1"/>
 			<stop offset="0.08" stop-color="#2b8ae0" stop-opacity="1"/>
@@ -138,7 +138,7 @@
 		<g id="lend4">
 			<path d="M 2 1 L 0 0 L 2 -1 L 2 1 " style="stroke:none"/>
 		</g>
-		<marker id="mrkr4-155" class="st30" refX="-5.36" orient="auto" markerUnits="strokeWidth" overflow="visible">
+		<marker id="mrkr4-156" class="st30" refX="-5.36" orient="auto" markerUnits="strokeWidth" overflow="visible">
 			<use xlink:href="#lend4" transform="scale(-2.68,-2.68) "/>
 		</marker>
 	</defs>
@@ -322,173 +322,173 @@
 			<text x="5.84" y="361.35" class="st5">Blob Storage</text>		</g>
 		<g id="shape1067-88" transform="translate(316.898,-207.15)">
 			<title>Sheet.1067</title>
-			<desc>Azure Synapse</desc>
+			<desc>Azure Synapse Analytics</desc>
 			<rect x="0" y="342" width="103.5" height="27" class="st6"/>
-			<text x="16.37" y="359.1" class="st5">Azure Synapse </text>		</g>
-		<g id="group1068-91" transform="translate(496.549,-245.397)">
+			<text x="16.37" y="351.6" class="st5">Azure Synapse <tspan x="30.23" dy="1.282em" class="st7">Analytics </tspan></text>		</g>
+		<g id="group1068-92" transform="translate(496.549,-245.397)">
 			<title>Analysis Services.1084</title>
-			<g id="shape1069-92" transform="translate(2.21823E-13,-26.2445)">
+			<g id="shape1069-93" transform="translate(2.21823E-13,-26.2445)">
 				<title>Sheet.1069</title>
 				<path d="M0 368.04 a0.731929 0.959351 -180 0 0 0.731912 0.959329 L17.36 369 a0.731929 0.959351 -180 0 0 0.731912
 							 -0.959329 L18.09 351.77 a0.731929 0.959351 -180 0 0 -0.731912 -0.959329 L0.73 350.81 a0.731929 0.959351
 							 -180 0 0 -0.731912 0.959329 L0 368.04 Z" class="st18"/>
 			</g>
-			<g id="shape1070-96" transform="translate(26.3488,-15.7604)">
+			<g id="shape1070-97" transform="translate(26.3488,-15.7604)">
 				<title>Sheet.1070</title>
 				<path d="M0 368.04 a0.731929 0.959351 -180 0 0 0.731912 0.959329 L17.36 369 a0.731929 0.959351 -180 0 0 0.731912
 							 -0.959329 L18.09 351.77 a0.731929 0.959351 -180 0 0 -0.731912 -0.959329 L0.73 350.81 a0.731929 0.959351
 							 -180 0 0 -0.731912 0.959329 L0 368.04 Z" class="st18"/>
 			</g>
-			<g id="shape1071-99" transform="translate(3.45044,2.27374E-13)">
+			<g id="shape1071-100" transform="translate(3.45044,2.27374E-13)">
 				<title>Sheet.1071</title>
 				<path d="M0 367.56 A1.09789 1.43903 -180 0 0 1.1 369 L16.99 369 A1.09789 1.43903 -180 0 0 18.09 367.56 L18.09 352.25
 							 A1.09789 1.43903 -180 0 0 16.99 350.81 L1.1 350.81 A1.09789 1.43903 -180 0 0 0 352.25 L0 367.56 Z"
 						class="st18"/>
 			</g>
-			<g id="shape1072-102" transform="translate(8.20787,-7.26349)">
+			<g id="shape1072-103" transform="translate(8.20787,-7.26349)">
 				<title>Sheet.1072</title>
 				<path d="M24.86 353.75 L25.46 351.56 L3.08 340.77 L2.48 342.93 L24.86 353.75 ZM26.24 353.45 L25.41 351.39 L4.31 365.95
 							 L5.12 368.01 L26.24 353.45 ZM3.55 369 L5.31 368.59 L1.75 342.17 L0 342.58 L3.55 369 Z" class="st19"/>
 			</g>
-			<g id="shape1073-104" transform="translate(-162.797,37.2505) rotate(-32.41)">
+			<g id="shape1073-105" transform="translate(-162.797,37.2505) rotate(-32.41)">
 				<title>Sheet.1073</title>
 				<ellipse cx="2.82309" cy="365.3" rx="2.82309" ry="3.70027" class="st10"/>
 			</g>
-			<g id="shape1074-106" transform="translate(-189.119,26.7642) rotate(-32.41)">
+			<g id="shape1074-107" transform="translate(-189.119,26.7642) rotate(-32.41)">
 				<title>Sheet.1074</title>
 				<ellipse cx="2.82309" cy="365.3" rx="2.82309" ry="3.70027" class="st10"/>
 			</g>
-			<g id="shape1075-108" transform="translate(-185.647,52.9885) rotate(-32.41)">
+			<g id="shape1075-109" transform="translate(-185.647,52.9885) rotate(-32.41)">
 				<title>Sheet.1075</title>
 				<ellipse cx="2.82309" cy="365.3" rx="2.82309" ry="3.70027" class="st10"/>
 			</g>
 		</g>
-		<g id="group1076-110" transform="translate(620.456,-246.522)">
+		<g id="group1076-111" transform="translate(620.456,-246.522)">
 			<title>Power BI.1092</title>
-			<g id="group1077-111">
+			<g id="group1077-112">
 				<title>Sheet.1077</title>
-				<g id="shape1078-112" transform="translate(24.0625,-0.883929)">
+				<g id="shape1078-113" transform="translate(24.0625,-0.883929)">
 					<title>Sheet.1078</title>
 					<path d="M19.25 326.57 L19.25 369 L0 369 L0 326.57 L19.25 326.57 Z" class="st20"/>
 				</g>
-				<g id="shape1079-116" transform="translate(12.0314,-0.707143)">
+				<g id="shape1079-117" transform="translate(12.0314,-0.707143)">
 					<title>Sheet.1079</title>
 					<path d="M19.25 338.95 L19.25 369 L0 369 L0 337.18 L16.84 337.18 C18.17 337.18 19.25 337.97 19.25 338.95 Z"
 							class="st21"/>
 				</g>
-				<g id="shape1080-118" transform="translate(12.0314,0)">
+				<g id="shape1080-119" transform="translate(12.0314,0)">
 					<title>Sheet.1080</title>
 					<path d="M19.25 338.95 L19.25 369 L0 369 L0 337.18 L16.84 337.18 C18.17 337.18 19.25 337.97 19.25 338.95 Z"
 							class="st22"/>
 				</g>
-				<g id="shape1081-120" transform="translate(12.0314,-0.883929)">
+				<g id="shape1081-121" transform="translate(12.0314,-0.883929)">
 					<title>Sheet.1081</title>
 					<path d="M19.25 338.95 L19.25 369 L0 369 L0 337.18 L16.84 337.18 C18.17 337.18 19.25 337.97 19.25 338.95 Z"
 							class="st23"/>
 				</g>
-				<g id="shape1082-124" transform="translate(0,-0.883929)">
+				<g id="shape1082-125" transform="translate(0,-0.883929)">
 					<title>Sheet.1082</title>
 					<path d="M0 347.79 L0 369 L19.25 369 L19.25 349.55 C19.25 348.58 18.17 347.79 16.84 347.79 L0 347.79 Z"
 							class="st24"/>
 				</g>
 			</g>
 		</g>
-		<g id="group1083-128" transform="translate(493.8,-81.9)">
+		<g id="group1083-129" transform="translate(493.8,-81.9)">
 			<title>Azure Active Directory.1099</title>
 			<desc>Azure Active Directory</desc>
-			<g id="shape1084-129">
+			<g id="shape1084-130">
 				<title>Sheet.1084</title>
 				<path d="M2.53 347.95 L22.4 363.41 L42.62 347.89 L45.15 351.44 L22.4 369 L0 351.44 L2.53 347.95 Z" class="st12"/>
 			</g>
-			<g id="shape1085-131" transform="translate(4.03842,-8.81049)">
+			<g id="shape1085-132" transform="translate(4.03842,-8.81049)">
 				<title>Sheet.1085</title>
 				<path d="M0 354.78 L18.36 328.56 L37.1 354.81 L18.36 369 L0 354.78 Z" class="st10"/>
 			</g>
-			<g id="shape1086-133" transform="translate(4.03842,-8.81049)">
+			<g id="shape1086-134" transform="translate(4.03842,-8.81049)">
 				<title>Sheet.1086</title>
 				<path d="M18.36 328.56 L18.36 369 L0 354.78 L18.36 328.56 Z" class="st12"/>
 			</g>
-			<g id="shape1087-135" transform="translate(22.3994,-8.81049)">
+			<g id="shape1087-136" transform="translate(22.3994,-8.81049)">
 				<title>Sheet.1087</title>
 				<path d="M0 328.56 L0 369 L18.74 354.81 L0 328.56 Z" class="st25"/>
 			</g>
-			<g id="shape1088-139" transform="translate(22.3994,-8.81049)">
+			<g id="shape1088-140" transform="translate(22.3994,-8.81049)">
 				<title>Sheet.1088</title>
 				<path d="M0 349.45 L18.74 354.81 L0 369 L0 349.45 Z" class="st26"/>
 			</g>
-			<g id="shape1089-141" transform="translate(4.03842,-8.81049)">
+			<g id="shape1089-142" transform="translate(4.03842,-8.81049)">
 				<title>Sheet.1089</title>
 				<path d="M18.36 369 L0 354.78 L18.36 349.45 L18.36 369 Z" class="st27"/>
 			</g>
-			<g id="shape1090-143" transform="translate(22.3994,2.27374E-13)">
+			<g id="shape1090-144" transform="translate(22.3994,2.27374E-13)">
 				<title>Sheet.1090</title>
 				<path d="M0 369 L22.75 351.44 L20.22 347.89 L0 363.41 L0 369 Z" class="st28"/>
 			</g>
-			<g id="shape1083-147">
+			<g id="shape1083-148">
 				<text x="-7.66" y="378.9" class="st5">Azure Active <tspan x="0.4" dy="1.2em" class="st7">Directory</tspan></text>			</g>
 		</g>
-		<g id="shape1092-150" transform="translate(133.35,-135.75)">
+		<g id="shape1092-151" transform="translate(133.35,-135.75)">
 			<title>Side to top/bottom.1111</title>
 			<path d="M0 369 L108.83 369 L108.83 321.39" class="st29"/>
 		</g>
-		<g id="shape1095-156" transform="translate(566.175,-264.525)">
+		<g id="shape1095-157" transform="translate(566.175,-264.525)">
 			<title>Directed line 1.1112</title>
 			<path d="M0 369 L21.28 369" class="st29"/>
 		</g>
-		<g id="shape1096-161" transform="translate(435,-129.3)">
+		<g id="shape1096-162" transform="translate(435,-129.3)">
 			<title>Sheet.1096</title>
 			<desc>Authentication</desc>
 			<rect x="0" y="342" width="85.5" height="27" class="st6"/>
 			<text x="10.96" y="358.5" class="st31">Authentication</text>		</g>
-		<g id="shape1098-164" transform="translate(489.675,-101.4) scale(-1,1)">
+		<g id="shape1098-165" transform="translate(489.675,-101.4) scale(-1,1)">
 			<title>Side to top/bottom.1114</title>
 			<path d="M0 369 L120.37 369 L120.37 285.91" class="st29"/>
 		</g>
-		<g id="shape1099-169" transform="translate(147.15,234.9) rotate(-90)">
+		<g id="shape1099-170" transform="translate(147.15,234.9) rotate(-90)">
 			<title>Directed line 1.1117</title>
 			<path d="M0 369 L48.36 369" class="st29"/>
 		</g>
-		<g id="shape1100-174" transform="translate(121.5,-264.525)">
+		<g id="shape1100-175" transform="translate(121.5,-264.525)">
 			<title>Directed line 1.1118</title>
 			<path d="M0 369 L71.46 369" class="st29"/>
 		</g>
-		<g id="shape1101-179" transform="translate(294.6,-264.525)">
+		<g id="shape1101-180" transform="translate(294.6,-264.525)">
 			<title>Directed line 1.1101</title>
 			<path d="M0 369 L19.56 369" class="st29"/>
 		</g>
-		<g id="group1102-184" transform="translate(72.9375,-242.1)">
+		<g id="group1102-185" transform="translate(72.9375,-242.1)">
 			<title>Icon-databases-136</title>
-			<g id="shape1103-185" transform="translate(-2.43805E-13,-0.171265)">
+			<g id="shape1103-186" transform="translate(-2.43805E-13,-0.171265)">
 				<title>Sheet.1103</title>
 				<path d="M28.03 367.37 A1.65556 1.65556 0 0 1 26.4 369 L1.63 369 A1.62701 1.62701 0 0 1 0 367.37 L0 322.9 A1.59847
 							 1.59847 0 0 1 1.63 321.27 L26.4 321.27 A1.62701 1.62701 0 0 1 28.03 322.9 L28.03 367.37 Z"
 						class="st32"/>
 			</g>
-			<g id="shape1104-189" transform="translate(4.11035,-28.116)">
+			<g id="shape1104-190" transform="translate(4.11035,-28.116)">
 				<title>Sheet.1104</title>
 				<path d="M0 365.95 A3.05422 3.05422 0 0 1 3.03 362.92 L17.01 362.92 A3.05422 3.05422 0 0 1 20.15 365.95 A3.05422
 							 3.05422 0 0 1 17.01 369 L3.03 369 A3.05422 3.05422 0 0 1 -0 365.95 Z" class="st33"/>
 			</g>
-			<g id="shape1105-191" transform="translate(4.11035,-37.1644)">
+			<g id="shape1105-192" transform="translate(4.11035,-37.1644)">
 				<title>Sheet.1105</title>
 				<path d="M-0 365.97 A3.05422 3.05422 0 0 1 3.03 362.92 L17.01 362.92 A3.05422 3.05422 0 0 1 20.15 365.97 A3.05422
 							 3.05422 0 0 1 17.01 369 L3.03 369 A3.05422 3.05422 0 0 1 0 365.97 Z" class="st33"/>
 			</g>
-			<g id="shape1106-193" transform="translate(5.25212,-38.1349)">
+			<g id="shape1106-194" transform="translate(5.25212,-38.1349)">
 				<title>Sheet.1106</title>
 				<ellipse cx="2.05518" cy="366.945" rx="2.05518" ry="2.05518" class="st12"/>
 			</g>
-			<g id="shape1107-195" transform="translate(5.25212,-29.115)">
+			<g id="shape1107-196" transform="translate(5.25212,-29.115)">
 				<title>Sheet.1107</title>
 				<ellipse cx="2.05518" cy="366.945" rx="2.05518" ry="2.05518" class="st12"/>
 			</g>
-			<g id="shape1108-197" transform="translate(5.93718,-2.27374E-13)">
+			<g id="shape1108-198" transform="translate(5.93718,-2.27374E-13)">
 				<title>Sheet.1108</title>
 				<path d="M42.59 359.55 A9.59082 9.59082 -180 0 0 34.28 350.36 A12.0456 12.0456 -180 0 0 21.86 338.94 A12.3311 12.3311
 							 -180 0 0 10.05 346.88 A11.4176 11.4176 -180 0 0 -0 357.87 A11.5889 11.5889 -180 0 0 11.99 369 L13.04
 							 369 L32.6 369 L33.08 369 A9.67646 9.67646 -180 0 0 42.59 359.55 Z" class="st34"/>
 			</g>
-			<g id="shape1109-201" transform="translate(12.7021,-3.1684)">
+			<g id="shape1109-202" transform="translate(12.7021,-3.1684)">
 				<title>Sheet.1109</title>
 				<path d="M24.72 363.78 L24.72 354.19 L22.06 354.19 L22.06 365.95 L29.06 365.95 L29.06 363.78 L24.72 363.78 ZM4.45
 							 359.07 A6.36534 6.36534 0 0 1 3 358.18 A1.25594 1.25594 0 0 1 2.65 357.27 a0.9705 0.9705 0 0 1 0.428162
@@ -508,46 +508,46 @@
 							 4.39579 0 0 1 17.35 359.98 A4.19599 4.19599 0 0 1 16.53 362.86 Z" class="st35"/>
 			</g>
 		</g>
-		<g id="shape1110-203" transform="translate(415.8,-264.525)">
+		<g id="shape1110-204" transform="translate(415.8,-264.525)">
 			<title>Directed line 1.1110</title>
 			<path d="M0 369 L48.36 369" class="st29"/>
 		</g>
-		<g id="group1111-208" transform="translate(70.32,-106.5)">
+		<g id="group1111-209" transform="translate(70.32,-106.5)">
 			<title>Disks.1111</title>
-			<g id="shape1112-209" transform="translate(0,-6.15656)">
+			<g id="shape1112-210" transform="translate(0,-6.15656)">
 				<title>Sheet.1112</title>
 				<ellipse cx="26.8085" cy="357.713" rx="26.8085" ry="11.287" class="st36"/>
 			</g>
-			<g id="shape1113-211" transform="translate(18.5872,-15.0616)">
+			<g id="shape1113-212" transform="translate(18.5872,-15.0616)">
 				<title>Sheet.1113</title>
 				<ellipse cx="8.90043" cy="366.508" rx="8.90043" ry="2.49194" class="st37"/>
 			</g>
-			<g id="shape1114-213" transform="translate(49.6494,-11.6535)">
+			<g id="shape1114-214" transform="translate(49.6494,-11.6535)">
 				<title>Sheet.1114</title>
 			</g>
-			<g id="shape1115-214" transform="translate(0,-31.1859)">
+			<g id="shape1115-215" transform="translate(0,-31.1859)">
 				<title>Sheet.1115</title>
 				<ellipse cx="26.8085" cy="357.713" rx="26.8085" ry="11.287" class="st38"/>
 			</g>
-			<g id="shape1116-218" transform="translate(18.5872,-40.1276)">
+			<g id="shape1116-219" transform="translate(18.5872,-40.1276)">
 				<title>Sheet.1116</title>
 				<ellipse cx="8.90043" cy="366.508" rx="8.90043" ry="2.49194" class="st8"/>
 			</g>
-			<g id="shape1117-220">
+			<g id="shape1117-221">
 				<title>Sheet.1117</title>
 				<path d="M26.95 362.62 C41.79 362.62 53.76 357.57 53.76 351.34 L53.76 358.01 C53.26 364.05 41.46 369 26.95 369 C12.44
 							 369 0.14 363.94 0.14 357.71 L0.14 351.34 C0 357.57 12.01 362.62 26.95 362.62 Z" class="st37"/>
 			</g>
-			<g id="shape1118-222" transform="translate(49.6494,-11.6535)">
+			<g id="shape1118-223" transform="translate(49.6494,-11.6535)">
 				<title>Sheet.1118</title>
 			</g>
-			<g id="shape1119-223" transform="translate(0,-25.066)">
+			<g id="shape1119-224" transform="translate(0,-25.066)">
 				<title>Sheet.1119</title>
 				<path d="M26.95 362.62 C41.79 362.62 53.76 357.57 53.76 351.34 L53.76 358.01 C53.26 364.05 41.46 369 26.95 369 C12.44
 							 369 0.14 363.94 0.14 357.71 L0.14 351.34 C0 357.57 12.01 362.62 26.95 362.62 Z" class="st15"/>
 			</g>
 		</g>
-		<g id="shape1-225" transform="translate(-2.625,9.9)">
+		<g id="shape1-226" transform="translate(-2.625,9.9)">
 			<title>Sheet.1</title>
 			<rect x="0" y="290.087" width="149.4" height="78.9134" class="st6"/>
 			<image x="0" y="290.087" width="149.4" height="78.9134" preserveAspectRatio="none" xlink:href="data:image/png;base64,
