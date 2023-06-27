@@ -6,12 +6,12 @@ This article provides architectural guidance for minimizing private address spac
 The following sections present best practice recommendations and options for customers with huge number of IPv4 address requirements or the ones who are running out of RFC 1918 address space. Each recommendation is collated under the "Best Practices" section.
 
 #### Background
-Corporate networks typically use address spaces included in the private IPv4 address ranges defined by RFC 1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16). In on-premises environments, these ranges provide enough IP addresses to meet the requirements of even the largest networks. As a result, many organizations have developed address management practices that prioritize simple routing configurations and agile processes for IP allocation over efficient utilization of the address space. 
+Corporate networks typically use address spaces included in the private IPv4 address ranges defined by RFC 1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16). In on-premises environments, these ranges provide enough IP addresses to meet the requirements of even the largest networks. As a result, many organizations have developed address management practices that prioritize simple routing configurations and agile processes for IP allocation over efficient utilization of the address space.
 
 In the cloud, the ease with which large hybrid networks can be built, as well as the emergence of architectural patterns (microservices, container orchestration platforms, VNet injection for PaaS services) that consume many IP addresses, requires revisiting those practices. Private IPv4 addresses must be treated as a limited resource.
 
 #### IP address ranges supported by Azure Virtual Networks
-Microsoft recommends using the address blocks defined by RFC 1918 in Azure VNets. These blocks have been officially allocated as address space for general-purpose private networks and – as such - declared to be "non routable" on the public internet. 
+Microsoft recommends using the address blocks defined by RFC 1918 in Azure VNets. These blocks have been officially allocated as address space for general-purpose private networks and – as such - declared to be "non routable" on the public internet.
 
 However, the following additional ranges may be used. Customers that want to use these ranges in their VNets should refer to the official IANA documentation to understand the potential implications for their environment:
 
@@ -26,22 +26,22 @@ The following IP address ranges can't be used in Azure VNets:
 - 169.254.0.0/16 (Link-local)
 - 168.63.129.16/32 (Internal DNS)
 
-> [!NOTE] 
+> [!NOTE]
 > The additional ranges mentioned previously aren't likely to provide a long-term solution for organizations facing IPv4 exhaustion issues across the entire RFC 1918 address space. Such organizations are encouraged to consider the best practices covered in the next section, for minimizing private address space consumption.
 
 #### Azure landing zone alignment
-The best practices covered in this article target the [Azure Landing Zones (ALZ) reference architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture). As such, the guidance assumes that:
+The best practices covered in this article target implementations based on the [Azure Landing Zones (ALZ) reference architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture). As such, the guidance assumes that:
 - a hub and spoke topology is used in each region
 - hub and spoke networks in different regions are connected with each other
 - hub and spoke networks are connected to on-premises sites using a proper combination of VNet peering, Expressroute circuits, and site-to-site VPNs
- 
+
 The best practices are equally applicable to networks built on top of Virtual WAN, which follow the same topological pattern (hub and spoke networks in each region).
 
 :::image type="content" source="./media/ipv4-exhaustion-hub-spoke.png" alt-text="Regional hub and spoke topology recommended by the ALZ reference architecture." border="false" lightbox="./media/ipv4-exhaustion-hub-spoke.png":::
 
 *Figure 1. Regional hub and spoke topology recommended by the ALZ reference architecture. In multi-region scenarios, a hub and spoke network is created in each region. Application landing zones are typically assigned a single spoke VNet, peered to the regional hub.*
 
-In the ALZ reference architecture, applications are deployed in their own landing zones, each one containing a spoke VNet, peered to a regional hub. Spoke VNets are assumed to be an integral part of the corporate network and are assigned routable (= unique across the entire corporate network) IPv4 addresses. As such, all architectural components that are deployed in Azure VNets (virtual machines, first party or third-party network NVAs, VNet-injected PaaS services, etc) consume IPv4 addresses in the corporate network’s address space, even if only a few of them expose endpoints that must be reachable from the entire corporate network.
+In an implementation based on the Azure landing zone reference architecture, applications are deployed in their own landing zones, each one containing a spoke VNet, peered to a regional hub. Spoke VNets are assumed to be an integral part of the corporate network and are assigned routable (= unique across the entire corporate network) IPv4 addresses. As such, all architectural components that are deployed in Azure VNets (virtual machines, first party or third-party network NVAs, VNet-injected PaaS services, etc) consume IPv4 addresses in the corporate network’s address space, even if only a few of them expose endpoints that must be reachable from the entire corporate network.
 
 In the remainder of this article, we'll refer to an application’s components that must be reachable from the entire corporate network (from outside its own landing zone) as "frontend components". Application components that don't expose endpoints in the corporate network and only need to be reachable from within their own landing zone will be referred to as "backend components".
 
@@ -59,7 +59,7 @@ In an Azure hub and spoke network (irrespective of the implementation: customer-
 
 *Figure 2. Each application landing zone contains two peered VNets, one with routable IP addresses, which hosts frontend components, and one with non-routable IP addresses, which hosts backend components.*
 
-Each landing zone is composed of two peered VNets, referred to as "routable LZ Spoke" and "non-routable LZ Spoke". The routable LZ spoke peers with the regional hub. The non-routable LZ spoke peers the routable LZ spoke. The non-transitive nature of VNet peering prevents non-routable prefixes from becoming visible to the regional hub (and the rest of the corporate network). It should be noted that the address range(s) declared "non-routable" can't be used in any of the routable VNets. Some organizations with fragmented address space already assigned to routable networks may find it challenging to identify reasonably large address blocks that are still unused and declare them "non-routable". Unused addresses not included in the RFC 1918 address space may be considered in this case. Figure 2 provides an example of using CGN addresses (RFC 6598) in non-routable spoke VNets.
+Each application landing zone is composed of two peered VNets, referred to as "routable LZ Spoke" and "non-routable LZ Spoke". The routable LZ spoke peers with the regional hub. The non-routable LZ spoke peers the routable LZ spoke. The non-transitive nature of VNet peering prevents non-routable prefixes from becoming visible to the regional hub (and the rest of the corporate network). It should be noted that the address range(s) declared "non-routable" can't be used in any of the routable VNets. Some organizations with fragmented address space already assigned to routable networks may find it challenging to identify reasonably large address blocks that are still unused and declare them "non-routable". Unused addresses not included in the RFC 1918 address space may be considered in this case. Figure 2 provides an example of using CGN addresses (RFC 6598) in non-routable spoke VNets.
 
 ### Migration from single-VNet landing zones
 VNet peering provides full layer-3 connectivity between two peered VNets. Therefore, application components deployed in traditional ALZ single-VNet landing zones that communicate with each other over IP can be freely moved between routable and non-routable spoke VNets in a landing zone. This section covers two typical migration patterns.
@@ -94,7 +94,7 @@ The following diagram shows the typical landing zone layout when using Azure Fir
 
 *Figure 6. To enable resources in the non-routable spoke to access routable IP addresses outside their landing zone, Azure Firewall must be deployed with ‘Perform Source NAT’ as ‘Always’ in each landing zone’s routable spoke. All subnets in the non-routable spoke must be associated with a custom route table to send traffic to destinations outside the landing zone to Azure Firewall.*
 
-The following diagram shows the typical landing zone layout when using Azure Firewall for Source-NAT in a hub and spoke network.
+The following diagram shows the typical landing zone layout when using Azure Firewall for Source-NAT in a Virtual WAN based hub and spoke network.
 
 :::image type="content" source="./media/ipv4-exhaustion-snat-azfw-vwan.png" alt-text="To enable resources in the non-routable spoke to access routable IP addresses outside their landing zone, Azure Firewall must be deployed with ‘Perform Source NAT’ as ‘Always’ in each landing zone’s routable spoke (VWAN Connected). All subnets in the non-routable spoke (No Connection with VWAN) must be associated with a custom route table to send traffic to destinations outside the landing zone to Azure Firewall." border="false" lightbox="./media/ipv4-exhaustion-snat-azfw-vwan.png":::
 
@@ -102,7 +102,7 @@ The following diagram shows the typical landing zone layout when using Azure Fir
 
 The following design considerations apply:
 
-- Azure Firewall provides HA.
+- Azure Firewall provides High Availability.
 - Azure Firewall provides native scalability and 3 different SKUs. As Source-NAT is a non-resource-intensive task, the Basic SKU should be considered first. For landing zones that require large volumes of outbound traffic from the non-routable address space, the Standard SKU can be used.
 - Azure Firewall Source-NATs traffic behind the private IP addresses of any one of its instances. Each instance can use all the nonprivileged ports.
 - Instructions on how to configure Azure Firewall to Source-NAT all received connections are available in the public documentation.
@@ -116,20 +116,23 @@ Typical requirements that are best addressed by using third-party NVAs with NAT 
 
 - granular control over scale in/scale out
 - granular control of the NAT pool
-- custom NAT policies, such as the ability to use different NAT addresses depending on the properties of the incoming connection, such as source or destination IP 
- 
+- custom NAT policies, such as the ability to use different NAT addresses depending on the properties of the incoming connection, such as source or destination IP
+
 The following design considerations apply:
 
 - Clusters with at least two NVAs should be deployed for high availability. An Azure Load Balancer is needed to distribute incoming connections from the non-routable spoke VNet to the NVAs. An "HA Port" load balancing rule is required, as the cluster is expected to Source-NAT all connections leaving the landing zone, irrespective of the destination port. "HA Port" load balancing rules are only supported by Azure Load Balancer Standard.
 - Azure’s network virtualization stack doesn't set any constraints as to how many NICs (one NIC vs. two NICs) the NVAs should use. While this design decision is mainly driven by the specific NVAs being used, single-homed NVAs should be preferred, as they reduce address space consumption in the routable spoke VNets.
 
 The following diagram shows the typical landing zone layout when using third-party NVAs in a traditional hub and spoke network topology.
+:::image type="content" source="./media/ipv4-exhaustion-nva-snat-flow.png" alt-text="When using third-party NVAs, in a traditional hub-spoke, to provide Source-NAT for non-routable spokes, multiple instances must be deployed behind an Azure Load Balancer in order to guarantee high availability. Azure Load Balancer Standard SKU is required." border="false" lightbox="./media/ipv4-exhaustion-nva-snat-flow.png":::
+
+*Figure 9.  When using third-party NVAs, in a traditional hub-spoke, to provide Source-NAT for non-routable spokes, multiple instances must be deployed behind an Azure Load Balancer in order to guarantee high availability. Azure Load Balancer Standard SKU is required.*
 
 The following diagram shows the typical landing zone layout when using third-party NVAs in a VWAN based hub-spoke network topology.
 
-:::image type="content" source="./media/ipv4-exhaustion-nva-snat-flow.png" alt-text="When using third-party NVAs, in a VWAN spoke, to provide Source-NAT for non-routable spokes, multiple instances must be deployed behind an Azure Load Balancer in order to guarantee high availability. Azure Load Balancer Standard SKU is required." border="false" lightbox="./media/ipv4-exhaustion-nva-snat-flow.png":::
+:::image type="content" source="./media/ipv4-exhaustion-vwan-nva-snat-flow.png" alt-text="When using third-party NVAs, in a VWAN spoke, to provide Source-NAT for non-routable spokes, multiple instances must be deployed behind an Azure Load Balancer in order to guarantee high availability. Azure Load Balancer Standard SKU is required." border="false" lightbox="./media/ipv4-exhaustion-vwan-nva-snat-flow.png":::
 
-*Figure 9.  When using third-party NVAs, in a VWAN spoke, to provide Source-NAT for non-routable spokes, multiple instances must be deployed behind an Azure Load Balancer in order to guarantee high availability. Azure Load Balancer Standard SKU is required.*
+*Figure 10.  When using third-party NVAs, in a VWAN spoke, to provide Source-NAT for non-routable spokes, multiple instances must be deployed behind an Azure Load Balancer in order to guarantee high availability. Azure Load Balancer Standard SKU is required.*
 
 ## Best practice #2: Private Link Services
 Private Link is an Azure feature that allows a client in a VNet to access an application deployed in a different, disconnected VNet. In the server-side (application) VNet, a Private Link Service resource is deployed and associated with an application endpoint exposed on the frontend IP address of an Internal Azure Load Balancer (Standard SKU). In the client-side VNet, a Private Endpoint resource is deployed and associated with the Private Link Service. The Private Endpoint exposes the application endpoint in the client’s VNets. Private Link provides, in the physical underlay, the tunneling and NAT-ting logic needed to route traffic between the client- and the server-side. For more information see [What is Azure Private Link?](/azure/private-link/private-link-overview).
@@ -143,14 +146,14 @@ The landing zone topology enabled by Private Link is shown in the following diag
 
 :::image type="content" source="./media/ipv4-exhaustion-private-link.png" alt-text="Landing zone topology when Private Link Services are used to expose applications deployed in isolated VNets." border="false" lightbox="./media/ipv4-exhaustion-private-link.png":::
 
-*Figure 10. Landing zone topology using Private Link Services to expose applications deployed in isolated VNets.*
+*Figure 11. Landing zone topology using Private Link Services to expose applications deployed in isolated VNets.*
 
 ### Outbound dependencies
 When deploying applications in isolated spoke VNets, Private Link Services (PLS) must be used for outbound dependencies. Private Endpoints must be defined in the isolated spoke VNet and associated with PLS’s in routable VNets. The following diagram shows the conceptual approach.
 
 :::image type="content" source="./media/ipv4-exhaustion-private-link-isolated.png" alt-text="Private Link Services can be used for outbound dependencies for applications deployed in isolated VNets." border="false" lightbox="./media/ipv4-exhaustion-private-link-isolated.png":::
 
-*Figure 11. Private Link Services can be used for outbound dependencies for applications deployed in isolated VNets.*
+*Figure 12. Private Link Services can be used for outbound dependencies for applications deployed in isolated VNets.*
 
 In real-world, large-scale implementations, the approach shown in Figure 11 may not be applicable:
 
@@ -161,7 +164,7 @@ These two limitations can be overcome by deploying a proxy/NAT solution in the r
 
 :::image type="content" source="./media/ipv4-exhaustion-private-link-flow.png" alt-text="A single Private Endpoint/Private Link Service can be used to expose a proxy/NAT solution deployed in the routable network. Port- and Address-Translation rules defined on the NVAs allow a single Private Endpoint in the isolated VNet to be used for accessing multiple dependencies in the routable network." border="false" lightbox="./media/ipv4-exhaustion-private-link-flow.png":::
 
-*Figure 12. A single Private Endpoint/Private Link Service can be used to expose a proxy/NAT solution deployed in the routable network. Port-Translation and Address-Translation rules defined on the NVAs allow a single Private Endpoint in the isolated VNet to be used for accessing multiple dependencies in the routable network.*
+*Figure 13. A single Private Endpoint/Private Link Service can be used to expose a proxy/NAT solution deployed in the routable network. Port-Translation and Address-Translation rules defined on the NVAs allow a single Private Endpoint in the isolated VNet to be used for accessing multiple dependencies in the routable network.*
 
 ## Next steps
 - [Deploy Azure Firewall in a Virtual Network](/azure/firewall/tutorial-firewall-deploy-portal-policy)
