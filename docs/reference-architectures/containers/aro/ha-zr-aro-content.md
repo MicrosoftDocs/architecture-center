@@ -25,18 +25,18 @@ _Download a [Visio file](https://arch-center.azureedge.net/openshift-zonal-archi
 * [Container Registry][acr] supports Docker and Open Container Initiative (OCI) compliant container images. Container Registry supports zone redundancy, which makes it highly available and resilient to zone failure. It also supports [geo-replication][acr-georeplica], which replicates the service across multiple regions.
 * Azure Red Hat OpenShift uses [virtual network integration][vnet-integration] to connect to back-end services over a private virtual network.
 * [Azure Cosmos DB][cosmos-db] provides NoSQL document databases for front-end services.
-* [Private endpoints][peps] enable connections to back-end Azure services from private virtual networks and enable you to disable the public endpoints on these services.
-* [Azure private DNS][private-dns] configures and updates the DNS records that are required by private endpoint services.
+* [Private endpoints][peps] enable connections to back-end Azure services from private virtual networks and allow you to disable the public endpoints on these services.
+* [Azure Private DNS][private-dns] configures and updates the DNS records that the private endpoint services require.
 * [Key Vault][akv] securely stores secrets and certificates that are accessed by Azure services.
 * [Azure Monitor][azmon] and [Application Insights][insights] collect service logs and application performance metrics for observability.
 
 ### Alternatives
 
-* You can use Azure AD or Azure AD B2C as an identity provider (IdP) in this scenario. Azure AD is for internal applications and business-to-business (B2B) scenarios. Azure AD B2C is for business-to-consumer (B2C) scenarios.
-* Azure-managed DNS is recommended, but you can alternately use your own DNS provider.
+* You can use Azure AD or Azure AD B2C as an identity provider in this scenario. Azure AD is for internal applications and business-to-business (B2B) scenarios. Azure AD B2C is for business-to-consumer (B2C) scenarios.
+* Azure-managed DNS is recommended, or you can use your own DNS provider.
 * You can use [Azure Application Gateway][appgw] instead of Azure Front Door if most of your users are located close to the Azure region that hosts your workload and if you don't need content caching. Use [Azure DDoS Protection][ddosp] to protect internet-facing Application Gateway services.
 * Deploy a premium [Azure API Management][apim] instance with zone-redundancy as an alternative for hosting front-end APIs, back-end APIs, or both. For more information about API Management zone-redundancy, see [Migrate Azure API Management to availability zone support][apim-zr].
-* You can use OpenShift Container Platform or Origin Community Distribution of Kubernetes (OKD) on [Azure Virtual Machines][az-vm] instead of Azure Red Hat OpenShift. OpenShift Container Platform or OKD are infrastructure-as-a-service (IaaS) alternatives to a fully platform managed (PaaS) service, like Azure Red Hat OpenShift. For more information, see [OpenShift in Azure][openshift-in-azure].
+* You can use OpenShift Container Platform or Origin Community Distribution of Kubernetes (OKD) on [Azure Virtual Machines][az-vm] instead of Azure Red Hat OpenShift. OpenShift Container Platform or OKD are infrastructure-as-a-service (IaaS) alternatives to a fully platform-managed service, like Azure Red Hat OpenShift. For more information, see [Azure Red Hat OpenShift][openshift-in-azure].
 
 ## Scenario details
 
@@ -233,9 +233,9 @@ _To see non-public LinkedIn profiles, sign in to LinkedIn._
 
 ## Related resources
 
-* [Design principles for mission-critical workloads](www.learn.microsoft.com/azure/architecture/framework/mission-critical/mission-critical-design-principles)
-* [Azure Well-Architected Framework - Mission-critical workloads](www.learn.microsoft.com/azure/architecture/framework/mission-critical/mission-critical-overview)
-* [Mission-critical baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro)
+* [Design principles for mission-critical workloads][mission]
+* [Azure Well-Architected Framework - Mission-critical workloads][WAF-mission]
+* [Mission-critical baseline architecture][mission-arch]
 
 <!-- links -->
 [aad]:https://azure.microsoft.com/services/active-directory/
@@ -272,6 +272,8 @@ _To see non-public LinkedIn profiles, sign in to LinkedIn._
 [ha-zoneredundant-webapp]:https://learn.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/zone-redundant#scenario-details
 [insights]:https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview
 [load-tests]:https://azure.microsoft.com/services/load-testing/
+[mission]:www.learn.microsoft.com/azure/architecture/framework/mission-critical/mission-critical-design-principles
+[mission-arch]:/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro
 [openshift-in-azure]:https://learn.microsoft.com/azure/virtual-machines/linux/openshift-get-started
 [openshift-jboss]:https://learn.microsoft.com/azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app
 [openshift-serverless]:https://learn.microsoft.com/azure/openshift/howto-deploy-with-serverless
@@ -292,3 +294,4 @@ _To see non-public LinkedIn profiles, sign in to LinkedIn._
 [quotas]:https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits
 [learn-ha]:https://learn.microsoft.com/learn/modules/azure-well-architected-reliability/
 [object-replication]:https://learn.microsoft.com/azure/storage/blobs/object-replication-overview
+[WAF-mission]:www.learn.microsoft.com/azure/architecture/framework/mission-critical/mission-critical-overview

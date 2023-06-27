@@ -5,7 +5,7 @@ metadata:
   description: Run an application on Azure Red Hat OpenShift in a zone-redundant configuration to achieve high availability.
   author: hitarusa
   ms.author: hitarusa, daniem
-  ms.date: 06/26/2023
+  ms.date: 06/27/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
