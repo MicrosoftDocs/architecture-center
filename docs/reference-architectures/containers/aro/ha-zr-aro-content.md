@@ -118,8 +118,6 @@ Reliability ensures your application can meet the commitments you make to your c
 
 This architecture ensures reliability by providing availability, resilience, and dependable global service features.
 
-* Separate applications to dedicated machine sets based on specific requirements.
-
 #### Availability
 
 When the availability zone infrastructure is implemented properly, this architecture provides excellent availability for lower cost and lower operational overhead than other solutions. This architecture mitigates the risk of a zone failure in an Azure region because zone-redundant services withstand the failure while still operating within the defined SLA.
@@ -272,7 +270,7 @@ _To see non-public LinkedIn profiles, sign in to LinkedIn._
 [ha-zoneredundant-webapp]:https://learn.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/zone-redundant#scenario-details
 [insights]:https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview
 [load-tests]:https://azure.microsoft.com/services/load-testing/
-[mission]:www.learn.microsoft.com/azure/architecture/framework/mission-critical/mission-critical-design-principles
+[mission]:/azure/architecture/framework/mission-critical/mission-critical-design-principles
 [mission-arch]:/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro
 [openshift-in-azure]:https://learn.microsoft.com/azure/virtual-machines/linux/openshift-get-started
 [openshift-jboss]:https://learn.microsoft.com/azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app
@@ -294,4 +292,4 @@ _To see non-public LinkedIn profiles, sign in to LinkedIn._
 [quotas]:https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits
 [learn-ha]:https://learn.microsoft.com/learn/modules/azure-well-architected-reliability/
 [object-replication]:https://learn.microsoft.com/azure/storage/blobs/object-replication-overview
-[WAF-mission]:www.learn.microsoft.com/azure/architecture/framework/mission-critical/mission-critical-overview
+[WAF-mission]:/azure/architecture/framework/mission-critical/mission-critical-overview
