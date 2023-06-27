@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2023-06-12T16:01:46.746Z</updated>
+    <updated>2023-06-19T16:03:07.305Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
@@ -57,11 +57,35 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Siemens Teamcenter baseline architecture]]></title>
+        <title type="html"><![CDATA[Deploy LAMMPS on an Azure virtual machine]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/hpc-lammps</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/hpc-lammps"/>
+        <updated>2023-06-14T16:44:29.000Z</updated>
+        <summary type="html"><![CDATA[Learn how LAMMPS classical molecular dynamics software performs on single-node and multi-node Azure virtual machine configurations.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Build language model pipelines with memory]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/ai/language-model-pipelines</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/ai/language-model-pipelines"/>
+        <updated>2023-06-13T18:34:44.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use an AI/ML pipeline, LangChain, and language models to create an analysis of how your product compares to competitor's similar products.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Implement Azure DevOps for mainframe applications that use IBM Z and Cloud Modernization Stack]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/devops-mainframe-ibm-z</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/devops-mainframe-ibm-z"/>
+        <updated>2023-06-12T17:02:55.000Z</updated>
+        <summary type="html"><![CDATA[Implement Azure DevOps for z/OS mainframe applications that use IBM Z and Cloud Modernization Stack.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Siemens Teamcenter baseline architecture on Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/manufacturing/teamcenter-baseline</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/manufacturing/teamcenter-baseline"/>
         <updated>2023-06-09T21:20:50.000Z</updated>
-        <summary type="html"><![CDATA[Learn about the Siemens Teamcenter product lifecycle management (PLM) solution architecture in Azure.]]></summary>
+        <summary type="html"><![CDATA[Learn about the Siemens Teamcenter product lifecycle management (PLM) solution architecture on Azure.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
