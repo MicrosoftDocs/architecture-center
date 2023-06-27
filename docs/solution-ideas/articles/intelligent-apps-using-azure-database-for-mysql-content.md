@@ -4,7 +4,7 @@ This article presents a solution for automating data analysis and visualization 
 
 ## Architecture
 
-![Architecture diagram that shows the dataflow of an intelligent application using Azure Database for MySQL.](../media/intelligent-apps-using-azure-database-for-mysql.png)
+![Architecture diagram that shows the dataflow of an intelligent application using Azure Database for MySQL.](../media/intelligent-apps-using-azure-database-for-mysql.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/intelligent-apps-using-azure-database-for-mysql.vsdx) of this architecture.*
 
