@@ -147,14 +147,13 @@ In addition, use platform diagnostics to get logs and metrics from all the Azure
 
 This comprehensive logging solution provides visibility for automation to scale components in real time. Analyzing log data can also reveal inefficiencies in application code that you can address to improve costs and performance.
 
-
 ## Automated deployment
 
 Automate your infrastructure deployment and application code deployments, as much as possible.
 
 Automating infrastructure deployments guarantees that infrastructure is configured identically, avoiding configuration drift (for example, between environments). Infrastructure automation can also test fail over operations.
 
-You can also use a [blue-green](/azure/architecture/web-apps-spring-apps/guides/blue-green-spring) or canary deployment strategy.
+You can also use a [blue-green](/azure/architecture/web-apps/spring-apps/guides/blue-green-spring) or canary deployment strategy.
 
 ## Cost considerations
 

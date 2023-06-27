@@ -2957,7 +2957,7 @@
     },
     {
       "source_path": "docs/reference-architectures/app-service-web-app/app-monitoring.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/monitoring/app-monitoring.yml",
+      "redirect_url": "/azure/architecture/web-apps/guides/monitoring/app-monitoring",
       "redirect_document_id": true
     },
     {
