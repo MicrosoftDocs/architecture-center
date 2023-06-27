@@ -100,7 +100,7 @@ This example uses an equal-weight load balancing rule between the two regions. A
 
 Use Azure resource groups to manage resources deployed to each region as a single collection. Consider placing the primary region, secondary region, and Front Door into separate resource groups, as shown in the following diagram:
 
-![Diagram that shows different resource groups.](./_images/spring-apps-resource-groups.png)
+![Diagram that shows different resource groups.](../_images/spring-apps-resource-groups.png)
 
 In this example:
 
@@ -123,7 +123,7 @@ The current solution uses two reverse proxies to maintain consistency with the b
 
 - You need a way to ensure that incoming calls originate only from your Azure Front Door instance. You can add the X-Azure-FDID header check and the Azure Front Door IP ranges check in the Spring Cloud Gateway app. For more information, see [Use Azure Front Door as the reverse proxy](../guides/spring-cloud-reverse-proxy.yml#scenario-4-using-azure-front-door-as-the-reverse-proxy).
 
-For information about different reverse proxy scenarios, how to set them up, and their security considerations, see [Expose Azure Spring Apps through a reverse proxy](../spring-cloud-reverse-proxy.yml).
+For information about different reverse proxy scenarios, how to set them up, and their security considerations, see [Expose Azure Spring Apps through a reverse proxy](../guides/spring-cloud-reverse-proxy.yml).
 
 ##### Backend database
 

@@ -2984,6 +2984,31 @@
       "source_path": "docs/data-guide/technology-choices/r-developers-guide.md",
       "redirect_url": "/azure/machine-learning/how-to-r-interactive-development",
       "redirect_document_id": false
+    },
+    {   
+      "source_path": "docs/web-apps/spring-apps/spring-apps-landing-zone.yml",
+      "redirect_url": "/azure/architecture/web-apps/spring-apps/architectures/spring-apps-landing-zone",
+      "redirect_document_id": false
+    },
+    {   
+      "source_path": "docs/web-apps/spring-apps/spring-apps-multi-region.yml",
+      "redirect_url": "/azure/architecture/web-apps/spring-apps/architectures/spring-apps-multi-region",
+      "redirect_document_id": false
+    },
+    {   
+      "source_path": "docs/web-apps/spring-apps/spring-apps-multi-zone.yml",
+      "redirect_url": "/azure/architecture/web-apps/spring-apps/architectures/spring-apps-multi-zone",
+      "redirect_document_id": false
+    },
+    {   
+      "source_path": "docs/web-apps/spring-apps/blue-green-spring.yml",
+      "redirect_url": "/azure/architecture/web-apps/spring-apps/guides/blue-green-spring",
+      "redirect_document_id": false
+    },
+    {   
+      "source_path": "docs/web-apps/spring-apps/spring-cloud-reverse-proxy.yml",
+      "redirect_url": "/azure/architecture/web-apps/spring-apps/guides/spring-cloud-reverse-proxy",
+      "redirect_document_id": false
     }
   ]
 }
