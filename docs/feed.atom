@@ -10,8 +10,8 @@
     <category term="updated"/>
     <entry>
         <title type="html"><![CDATA[Blue/green deployments on Azure Spring Apps]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/web-apps/spring-apps/blue-green-spring</id>
-        <link href="https://learn.microsoft.com/azure/architecture/web-apps/spring-apps/blue-green-spring"/>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/spring-apps/guides/blue-green-spring</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/spring-apps/guides/blue-green-spring"/>
         <updated>2023-06-09T02:54:33.000Z</updated>
         <summary type="html"><![CDATA[This article describes a high-availability blue/green deployment solution for applications on Azure Spring Apps.]]></summary>
         <category label="new" term="new"/>

@@ -2,8 +2,8 @@
 title: Solutions for the aerospace industry
 description: See architectures and ideas that use Azure services to build efficient, scalable, and reliable solutions in the aerospace industry.
 author: martinekuan
-ms.author: architectures
-ms.date: 08/10/2022
+ms.author: robbag
+ms.date: 06/27/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide

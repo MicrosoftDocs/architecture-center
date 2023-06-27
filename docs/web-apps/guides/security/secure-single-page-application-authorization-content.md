@@ -200,5 +200,5 @@ Other contributor:
 
 ## Related resources
 
-- [Protect APIs with Application Gateway and API Management](../../web-apps/api-management/architectures/protect-apis.yml)
-- [Protect backend APIs by using Azure API Management and Azure AD B2C](../../solution-ideas/articles/protect-backend-apis-azure-management.yml)
+- [Protect APIs with Application Gateway and API Management](../../../web-apps/api-management/architectures/protect-apis.yml)
+- [Protect backend APIs by using Azure API Management and Azure AD B2C](../../../solution-ideas/articles/protect-backend-apis-azure-management.yml)

@@ -27,11 +27,11 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
-- [Blue/green deployments on Azure Spring Apps](./web-apps/spring-apps/blue-green-spring.yml)
+- [Blue/green deployments on Azure Spring Apps](./web-apps/spring-apps/guides/blue-green-spring.yml)
 - [Azure Spring Apps (ASA) architecture design](./web-apps/spring-apps/index.md)
-- [Azure Spring Apps integrated with landing zones](./web-apps/spring-apps/architecture/spring-apps-landing-zone.yml)
-- [Deploy Azure Spring Apps to multiple regions](./web-apps/spring-apps/architecture/spring-apps-multi-region.yml)
-- [Azure Spring Apps baseline architecture](./web-apps/spring-apps/architecture/spring-apps-multi-zone.yml)
+- [Azure Spring Apps integrated with landing zones](./web-apps/spring-apps/architectures/spring-apps-landing-zone.yml)
+- [Deploy Azure Spring Apps to multiple regions](./web-apps/spring-apps/architectures/spring-apps-multi-region.yml)
+- [Azure Spring Apps baseline architecture](./web-apps/spring-apps/architectures/spring-apps-multi-zone.yml)
 - [Baseline highly available zone-redundant app services web application](./reference-architectures/app-service-web-app/baseline-zone-redundant.yml)
 - [Deploy LAMMPS on an Azure virtual machine](./guide/hpc/hpc-lammps.yml)
 - [Build language model pipelines with memory](./guide/ai/language-model-pipelines.yml)

@@ -77,7 +77,7 @@ The primary region has all the resources and serves traffic. The secondary regio
 
 If your entire solution setup uses templates, you can easily deploy a cold standby secondary region by creating its resources when needed. You can use Bicep/Azure Resource Manager (ARM) or Terraform templates, and automate infrastructure setup in a continuous integration/continuous deployment (CI/CD) pipeline. You should regularly test recreating your secondary region to make sure your templates are deployable in an emergency.
 
-[Deployment Stamps](../../patterns/deployment-stamp.yml) pattern is recommended because multiple independent copies of an application or component can be deployed from a single template to multiple regions.
+[Deployment Stamps](../../../patterns/deployment-stamp.yml) pattern is recommended because multiple independent copies of an application or component can be deployed from a single template to multiple regions.
 
 > [!IMPORTANT]
 > For mission-critical workloads, we recommend combining zone redundancy and regional redundancy to achieve maximum reliability and availability, with zone-redundant services deployed across multiple Azure regions.
@@ -121,9 +121,9 @@ The current solution uses two reverse proxies to maintain consistency with the b
 
 - Because the Web Application Firewall (WAF) is attached to the Application Gateway, you need to attach WAF to the Azure Front Door service instead.
 
-- You need a way to ensure that incoming calls originate only from your Azure Front Door instance. You can add the X-Azure-FDID header check and the Azure Front Door IP ranges check in the Spring Cloud Gateway app. For more information, see [Use Azure Front Door as the reverse proxy](spring-cloud-reverse-proxy.yml#scenario-4-using-azure-front-door-as-the-reverse-proxy).
+- You need a way to ensure that incoming calls originate only from your Azure Front Door instance. You can add the X-Azure-FDID header check and the Azure Front Door IP ranges check in the Spring Cloud Gateway app. For more information, see [Use Azure Front Door as the reverse proxy](../guides/spring-cloud-reverse-proxy.yml#scenario-4-using-azure-front-door-as-the-reverse-proxy).
 
-For information about different reverse proxy scenarios, how to set them up, and their security considerations, see [Expose Azure Spring Apps through a reverse proxy](spring-cloud-reverse-proxy.yml).
+For information about different reverse proxy scenarios, how to set them up, and their security considerations, see [Expose Azure Spring Apps through a reverse proxy](../spring-cloud-reverse-proxy.yml).
 
 ##### Backend database
 
@@ -136,9 +136,9 @@ You can use this feature:
 
 - If your secondary region is a cold standby that doesn't receive active requests.
 - To fail over to if your primary region fails.
-- To set up primary and secondary databases with private link connections to their respective regions, with [virtual network peering](/azure/virtual-network/virtual-network-peering-overview) between the two regions. For more information, see [Multiregion web app with private connectivity to a database](../../example-scenario/sql-failover/app-service-private-sql-multi-region.yml).
+- To set up primary and secondary databases with private link connections to their respective regions, with [virtual network peering](/azure/virtual-network/virtual-network-peering-overview) between the two regions. For more information, see [Multiregion web app with private connectivity to a database](../../../example-scenario/sql-failover/app-service-private-sql-multi-region.yml).
 
-Another alternative is Azure Cosmos DB. It can [globally distribute](/azure/cosmos-db/distribute-data-globally) data by transparently replicating the data to all the regions in your Azure Cosmos DB account. You can also configure Azure Cosmos DB with [multiple write regions](/azure/cosmos-db/high-availability#multiple-write-regions). For more information, see [Geode pattern](../../patterns/geodes.yml) and [Globally distributed applications using Azure Cosmos DB](/azure/architecture/solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db).
+Another alternative is Azure Cosmos DB. It can [globally distribute](/azure/cosmos-db/distribute-data-globally) data by transparently replicating the data to all the regions in your Azure Cosmos DB account. You can also configure Azure Cosmos DB with [multiple write regions](/azure/cosmos-db/high-availability#multiple-write-regions). For more information, see [Geode pattern](../../../patterns/geodes.yml) and [Globally distributed applications using Azure Cosmos DB](/azure/architecture/solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db).
 
 
 ## Automated deployment
@@ -147,7 +147,7 @@ Automate your infrastructure deployment and application code deployments, as muc
 
 Automating infrastructure deployments guarantees that infrastructure is configured identically, avoiding configuration drift (for example, between regions). Infrastructure automation can also test fail over operations.
 
-For application deployment, make sure your deployment systems target the multiple regions they need to deploy to. You can also use multiple regions in a [blue-green](blue-green-spring.yml) or canary deployment strategy. With these deployment strategies, you roll out new versions of applications to one region for testing, and to other regions after testing is successful.
+For application deployment, make sure your deployment systems target the multiple regions they need to deploy to. You can also use multiple regions in a [blue-green](../guides/blue-green-spring.yml) or canary deployment strategy. With these deployment strategies, you roll out new versions of applications to one region for testing, and to other regions after testing is successful.
 
 
 ## Performance and scalability
@@ -236,10 +236,10 @@ For documentation on the Azure services and features used in this architecture, 
 
 We recommend these guides to get deeper understanding around the choices made in this architecture:
 
-- [Expose Azure Spring Apps through a reverse proxy](spring-cloud-reverse-proxy.yml)
-- [High-availability blue/green deployment](./blue-green-spring.yml)
-- [Preserve the original HTTP host name between a reverse proxy and its back-end web application](../../best-practices/host-name-preservation.yml)
-- [Multiregion web app with private connectivity to a database](../../example-scenario/sql-failover/app-service-private-sql-multi-region.yml)
+- [Expose Azure Spring Apps through a reverse proxy](../guides/spring-cloud-reverse-proxy.yml)
+- [High-availability blue/green deployment](../guides/blue-green-spring.yml)
+- [Preserve the original HTTP host name between a reverse proxy and its back-end web application](../../../best-practices/host-name-preservation.yml)
+- [Multiregion web app with private connectivity to a database](../../../example-scenario/sql-failover/app-service-private-sql-multi-region.yml)
 
 
 This architecture has been designed keeping alignment with the pillars of the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework). We recommend that you review the design principles for each pillar.

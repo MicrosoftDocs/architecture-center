@@ -333,8 +333,8 @@ For product documentation on the Azure services used in this architecture, see t
 For more scenarios, see these articles.
 
 - [Deploy Azure Spring Apps to multiple regions](spring-apps-multi-region.yml)
-- [Expose Azure Spring Apps through a reverse proxy](spring-cloud-reverse-proxy.yml)
-
+- [Expose Azure Spring Apps through a reverse proxy](../guides/spring-cloud-reverse-proxy.yml)
+- 
 ## Next steps
 
 Review the design areas of the [Azure Spring Apps landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator).

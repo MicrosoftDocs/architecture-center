@@ -58,7 +58,7 @@ Each app that you want to expose through your reverse proxy should have an endpo
 
 ### Scenario 1: Using Application Gateway as the reverse proxy
 
-![Diagram that shows the use of Application Gateway with Azure Spring Apps in a virtual network.](_images/application-gateway-reverse-proxy-virtual-network.png)
+![Diagram that shows the use of Application Gateway with Azure Spring Apps in a virtual network.](../_images/application-gateway-reverse-proxy-virtual-network.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/scenario1.vsdx) of this architecture.*
 
@@ -82,7 +82,7 @@ This configuration ensures that the service runtime subnet allows traffic only f
 
 As previously noted, you can't place Azure Front Door directly in front of Azure Spring Apps because it can't reach into your private virtual network. ([Azure Front Door Standard or Premium can connect to private endpoints in a virtual network](/azure/frontdoor/private-link), but Azure Spring Apps doesn't currently offer private endpoint support.) If you still want to use Azure Front Door, for example when you require global load balancing across multiple instances of Azure Spring Apps in different Azure regions, you can expose them via Application Gateway first and then place Azure Front Door in front of Application Gateway.
 
-![Diagram that shows the use of Azure Front Door and Application Gateway with Azure Spring Apps in a virtual network.](_images/azure-front-door-application-gateway-reverse-proxy.png)
+![Diagram that shows the use of Azure Front Door and Application Gateway with Azure Spring Apps in a virtual network.](../_images/azure-front-door-application-gateway-reverse-proxy.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/scenario2.vsdx) of this architecture.*
 
@@ -177,7 +177,7 @@ Spring Cloud Gateway does provide the original host name in the [`Forwarded` hea
 
 ### Scenario 3: Using Application Gateway as the reverse proxy
 
-![Diagram that shows the use of Application Gateway with Azure Spring Apps outside of a virtual network.](_images/application-gateway-reverse-proxy.png)
+![Diagram that shows the use of Application Gateway with Azure Spring Apps outside of a virtual network.](../_images/application-gateway-reverse-proxy.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/scenario3.vsdx) of this architecture.*
 
@@ -193,7 +193,7 @@ predicates:
 
 ### Scenario 4: Using Azure Front Door as the reverse proxy
 
-![Diagram that shows the use of Azure Front Door with Azure Spring Apps outside of a virtual network.](_images/azure-front-door-reverse-proxy.png)
+![Diagram that shows the use of Azure Front Door with Azure Spring Apps outside of a virtual network.](../_images/azure-front-door-reverse-proxy.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/scenario4.vsdx) of this architecture.*
 
@@ -232,6 +232,6 @@ Principal author:
 
 ## Related resources
 
-- [Host name preservation](../../best-practices/host-name-preservation.yml)
-- [Load-balancing options](../../guide/technology-choices/load-balancing-overview.yml)
-- [Microservices architecture style](../../guide/architecture-styles/microservices.yml)
+- [Host name preservation](../../../best-practices/host-name-preservation.yml)
+- [Load-balancing options](../../../guide/technology-choices/load-balancing-overview.yml)
+- [Microservices architecture style](../../../guide/architecture-styles/microservices.yml)

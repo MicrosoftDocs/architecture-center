@@ -19,6 +19,6 @@ products:
   - azure-front-door
 name: Expose Azure Spring Apps through a reverse proxy
 summary: Expose Azure Spring Apps with improved security by using reverse proxy services like Application Gateway, Azure Front Door, and Spring Cloud Gateway.
-thumbnailUrl: ../../browse/thumbs/azure-front-door-application-gateway-reverse-proxy.png
+thumbnailUrl: ../../../browse/thumbs/azure-front-door-application-gateway-reverse-proxy.png
 content: |
   [!include[](spring-cloud-reverse-proxy-content.md)]

@@ -28,6 +28,8 @@ items:
           href: app-service-environment/architectures/ase-high-availability-deployment.yml            
       - name: Host web apps with Azure Spring Apps
         items:
+        - name: Architectures
+          items:
           - name: Get started
             href: spring-apps/index.md
           - name: Baseline
@@ -36,6 +38,12 @@ items:
             href: spring-apps/architectures/spring-apps-multi-region.yml
           - name: Baseline in landing zones
             href: spring-apps/architectures/spring-apps-landing-zone.yml
+        - name: Guides
+          items:
+          - name: Spring Apps through a reverse proxy
+            href: spring-apps/guides/spring-cloud-reverse-proxy.yml
+          - name: Blue/green deployments for applications
+            href: spring-apps/guides/blue-green-spring.yml         
       - name: Manage your APIs with Azure API Management (APIM)
         items:
         - name: Protect APIs with Application Gateway
@@ -56,6 +64,10 @@ items:
         items:
         - name: Single-page application authorization
           href: guides/security/secure-single-page-application-authorization.yml
+      - name: Monitoring guidance for web apps
+        items:
+        - name: Monitoring a web application
+          href: guides/monitoring/app-monitoring.yml
       - name: Application development guidance for web apps
         items:
         - name: Enterprise app patterns

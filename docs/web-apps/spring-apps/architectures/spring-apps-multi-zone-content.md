@@ -122,7 +122,7 @@ The application might need to connect with other endpoints over the public inter
 
 The current solution uses Application Gateway as a reverse proxy. You can, however, use different reverse proxies in front of Azure Spring Apps. You can combine Azure Application Gateway with Azure Front Door, or you can use Azure Front Door instead of Azure Application Gateway.
 
-For information about different reverse proxy scenarios, how to set them up, and their security considerations, see [Expose Azure Spring Apps through a reverse proxy](spring-cloud-reverse-proxy.yml).
+For information about different reverse proxy scenarios, how to set them up, and their security considerations, see [Expose Azure Spring Apps through a reverse proxy](../guides/spring-cloud-reverse-proxy.yml).
 
 
 ## Identity and access management
@@ -154,7 +154,7 @@ Automate your infrastructure deployment and application code deployments, as muc
 
 Automating infrastructure deployments guarantees that infrastructure is configured identically, avoiding configuration drift (for example, between environments). Infrastructure automation can also test fail over operations.
 
-You can also use a [blue-green](/azure/architecture/example-scenario/blue-green-spring/blue-green-spring) or canary deployment strategy.
+You can also use a [blue-green](/azure/architecture/web-apps-spring-apps/guides/blue-green-spring) or canary deployment strategy.
 
 ## Cost considerations
 
@@ -214,8 +214,8 @@ For documentation on the Azure services and features used in this architecture, 
 
 We recommend these guides to get deeper understanding around the choices made in this architecture:
 
-- [Expose Azure Spring Apps through a reverse proxy](spring-cloud-reverse-proxy.yml)
-- [High-availability blue/green deployment](../../example-scenario/blue-green-spring/blue-green-spring.yml)
+- [Expose Azure Spring Apps through a reverse proxy](../guides/spring-cloud-reverse-proxy.yml)
+- [High-availability blue/green deployment](../../../web-apps/spring-apps/guides/blue-green-spring.yml)
 
 
 This architecture has been designed keeping alignment with the pillars of the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework). We recommend that you review the design principles for each pillar.

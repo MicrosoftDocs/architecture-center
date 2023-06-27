@@ -2,7 +2,7 @@ This article describes a high-availability blue/green deployment solution for ap
 
 ## Architecture
 
-[ ![Architecture diagram that shows an architecture for blue/green deployment. It uses GitHub, GitHub Actions, and Azure Spring Apps.](_images/blue-green-deployment.png)](_images/blue-green-deployment.png#lightbox)
+[ ![Architecture diagram that shows an architecture for blue/green deployment. It uses GitHub, GitHub Actions, and Azure Spring Apps.](../_images/blue-green-deployment.png)](../_images/blue-green-deployment.png#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/blue-green-deployment.vsdx) of this architecture.*
 
@@ -137,6 +137,6 @@ Principal author:
 ## Related resources
 
 - [Azure Spring Apps reference architecture](/azure/spring-cloud/reference-architecture)
-- [Expose Azure Spring Apps through a reverse proxy](../../reference-architectures/microservices/spring-cloud-reverse-proxy.yml)
-- [DevTest and DevOps for microservice solutions](../../solution-ideas/articles/dev-test-microservice.yml)
-- [Deploy Azure Spring Apps to multiple regions](../../reference-architectures/microservices/spring-apps-multi-region.yml)
+- [Expose Azure Spring Apps through a reverse proxy](../../../web-apps/spring-apps/guides/spring-cloud-reverse-proxy.yml)
+- [DevTest and DevOps for microservice solutions](../../../solution-ideas/articles/dev-test-microservice.yml)
+- [Deploy Azure Spring Apps to multiple regions](../../../reference-architectures/microservices/spring-apps-multi-region.yml)

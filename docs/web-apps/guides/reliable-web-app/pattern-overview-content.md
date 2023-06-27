@@ -45,7 +45,7 @@ For each dependency in the critical path, you need to assign an availability g
 
 Relecloud used Azure SLAs for Azure services. The following diagram illustrates Relecloud's dependency list with availability goals for each dependency.
 
-[![Diagram showing Relecloud's dependencies on the critical path and assigned availability metric for each dependency.](images/slo-dependencies.png)](images/slo-dependencies.png)
+[![Diagram showing Relecloud's dependencies on the critical path and assigned availability metric for each dependency.](../_images/slo-dependencies.png)](../_images/slo-dependencies.png)
 
 Finally, use the formulas for composite SLAs and multi-region availability to estimate the composite availability of the dependencies on the critical path. This number should meet or exceed your SLO. For more information, see:
 

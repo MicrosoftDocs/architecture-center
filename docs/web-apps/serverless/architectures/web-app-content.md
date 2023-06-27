@@ -1,6 +1,6 @@
 This reference architecture shows a [serverless](https://azure.microsoft.com/solutions/serverless/) web application. The application serves static content from Azure Blob Storage, and implements an API using Azure Functions. The API reads data from Azure Cosmos DB and returns the results to the web app.
 
-![GitHub logo](../../_images/github.png) Two reference implementations for this architecture are available on GitHub: [Drone Delivery App (ARM & Azure Pipelines)][drone-delivery] and [To Do App (Bicep & GitHub Actions)][todo].
+![GitHub logo](../../../_images/github.png) Two reference implementations for this architecture are available on GitHub: [Drone Delivery App (ARM & Azure Pipelines)][drone-delivery] and [To Do App (Bicep & GitHub Actions)][todo].
 
 ## Architecture
 
@@ -244,7 +244,7 @@ Alternatively, you can store application secrets in Key Vault. This allows you t
 
 The front end of this reference architecture is a single page application, with JavaScript accessing the serverless back-end APIs, and static content providing a fast user experience. The following are some important considerations for such an application:
 
-- Deploy the application uniformly to users over a wide geographical area with a global-ready CDN, with the static content hosted on the cloud. This avoids the need for a dedicated web server. Read [Integrate an Azure storage account with Azure CDN](/azure/cdn/cdn-create-a-storage-account-with-cdn) to get started. Secure your application with [HTTPS](/azure/storage/blobs/storage-https-custom-domain-cdn). Read the [Best practices for using content delivery networks](../../best-practices/cdn.yml) for additional recommendations.
+- Deploy the application uniformly to users over a wide geographical area with a global-ready CDN, with the static content hosted on the cloud. This avoids the need for a dedicated web server. Read [Integrate an Azure storage account with Azure CDN](/azure/cdn/cdn-create-a-storage-account-with-cdn) to get started. Secure your application with [HTTPS](/azure/storage/blobs/storage-https-custom-domain-cdn). Read the [Best practices for using content delivery networks](../../../best-practices/cdn.yml) for additional recommendations.
 - Use a fast and reliable CI/CD service such as [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) or [GitHub Actions][gh-actions], to automatically build and deploy every source change. The source must reside in an online version control system. For more details on Azure Pipelines, read [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2&view=azure-devops&preserve-view=true). To learn more on GitHub Actions for Azure, see [Deploy apps to Azure](/azure/developer/github/deploy-to-azure).
 - Compress your website files to reduce the bandwidth consumption on the CDN and improve performance. Azure CDN allows [compression on the fly on the edge servers](/azure/cdn/cdn-improve-performance). Alternatively, the deploy pipeline in this reference architecture compresses the files before deploying them to the Blob storage. This reduces the storage requirement, and gives you more freedom to choose the compression tools, regardless of any CDN limitations.
 - The CDN should be able to [purge its cache](/azure/cdn/cdn-purge-endpoint) to ensure all users are served the freshest content. A cache purge is required if the build and deploy processes are not atomic, for example, if they replace old files with newly built ones in the same origin folder.
@@ -330,17 +330,17 @@ Learn modules:
 
 ## Related resources
 
-To learn more about the reference implementation, read [Code walkthrough: Serverless application with Azure Functions](../../serverless/code.yml).
+To learn more about the reference implementation, read [Code walkthrough: Serverless application with Azure Functions](../../../serverless/code.yml).
 
 Related guidance:
 
-- [Best practices for using CDNs](../../best-practices/cdn.yml)
-- [Static Content Hosting pattern](../../patterns/static-content-hosting.yml)
+- [Best practices for using CDNs](../../../best-practices/cdn.yml)
+- [Static Content Hosting pattern](../../../patterns/static-content-hosting.yml)
 
 <!-- links -->
 
 [aaf-cost]: /azure/architecture/framework/cost/overview
-[api-versioning]: ../../best-practices/api-design.md#versioning-a-restful-web-api
+[api-versioning]: ../../../best-practices/api-design.md#versioning-a-restful-web-api
 [apim]: /azure/api-management/api-management-key-concepts
 [apim-ip]: /azure/api-management/api-management-faq#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services
 [api-geo]: /azure/api-management/api-management-howto-deploy-multi-region
@@ -363,7 +363,7 @@ Related guidance:
 [cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db
 [cosmosdb-scale]: /azure/cosmos-db/partition-data
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[event-driven]: ../../guide/architecture-styles/event-driven.yml
+[event-driven]: ../../../guide/architecture-styles/event-driven.yml
 [functions]: /azure/azure-functions/functions-overview
 [functions-bindings]: /azure/azure-functions/functions-triggers-bindings
 [functions-cold-start]: https://blogs.msdn.microsoft.com/appserviceteam/2018/02/07/understanding-serverless-cold-start
@@ -374,7 +374,7 @@ Related guidance:
 [functions-timeout]: /azure/azure-functions/functions-scale#consumption-plan
 [graph]: /graph/overview
 [key-vault-web-app]: /azure/key-vault/tutorial-web-application-keyvault
-[microservices-domain-analysis]: ../../microservices/model/domain-analysis.md
+[microservices-domain-analysis]: ../../../microservices/model/domain-analysis.md
 [monitor]: /azure/azure-monitor/overview
 [oauth-flow]: https://auth0.com/docs/api-auth/which-oauth-flow-to-use
 [partition-key]: /azure/cosmos-db/partition-data

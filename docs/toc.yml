@@ -4641,7 +4641,7 @@ items:
       - name: Enterprise monitoring with Azure Monitor
         href: example-scenario/monitoring/enterprise-monitoring.yml
       - name: High-availability blue/green deployment
-        href: example-scenario/blue-green-spring/blue-green-spring.yml
+        href: web-apps/spring-apps/guides/blue-green-spring.yml
       - name: Jenkins on Azure
         href: example-scenario/apps/jenkins.yml
       - name: Microsoft 365 tenant configuration
