@@ -2958,7 +2958,7 @@
     {
       "source_path": "docs/reference-architectures/app-service-web-app/app-monitoring.yml",
       "redirect_url": "/azure/architecture/web-apps/guides/monitoring/app-monitoring",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/reference-architectures/reliable-web-app/dotnet/pattern-overview.yml",
