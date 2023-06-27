@@ -2,10 +2,10 @@
 metadata:
   title: Blue/green deployments on Azure Spring Apps 
   titleSuffix: Azure Architecture Center
-  description: This article describes a high-availability blue/green deployment solution for applications on Azure Spring Apps.
+  description: Learn about a high-availability blue/green deployment solution for applications on Azure Spring Apps.
   author: vermegi
   ms.author: givermei
-  ms.date: 06/06/2023
+  ms.date: 06/21/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
