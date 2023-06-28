@@ -1,12 +1,12 @@
 ### YamlMime:Architecture
 metadata:
-  title: WordPress on AKS
-  titleSuffix: WordPress in Azure Architecture Center
-  description: Learn how to use AKS to deploy a highly scalable and secure installation of WordPress.
+  title: WordPress on Azure Kubernetes Service
+  titleSuffix: Azure Architecture Center
+  description: "Use Azure Kubernetes Service (AKS) to deploy a highly scalable and secure installation of WordPress that's a good fit for large, storage-intensive applications."
   author: vjirovsky
   ms.author: vjirovsky
-  ms.date: 04/18/2023
-  ms.topic: example-scenario
+  ms.date: 06/30/2023
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.category:
@@ -15,20 +15,18 @@ metadata:
     - web-apps
     - scalability
     - example-scenario
-  social_image_url: /azure/architecture/example-scenario/infrastructure/media/wordpress-aks-netapp.png
-name: WordPress in container on Azure Kubernetes Service
+  social_image_url: /azure/architecture/example-scenario/infrastructure/media/wordpress-aks-azure-netapp-files.png
+name: WordPress on Azure Kubernetes Service
 azureCategories:
   - web
-summary: Learn how to use AKS to deploy a highly scalable and secure installation of WordPress.
+  - containers
+summary: "Use Azure Kubernetes Service (AKS) to deploy a highly scalable and secure installation of WordPress that's a good fit for large, storage-intensive applications."
 products:
-  - azure-front-door
-  - azure-key-vault
-  - azure-load-balancer
-  - azure-virtual-network
-  - azure-kubernetes-service
-  - azure-container-registry
   - azure-cache-redis
+  - azure-front-door
+  - azure-kubernetes-service
+  - azure-load-balancer
   - azure-netapp-files
-thumbnailUrl: /azure/architecture/browse/thumbs/wordpress-aks-netapp.png
+thumbnailUrl: /azure/architecture/browse/thumbs/wordpress-aks-azure-netapp-files.png
 content: |
    [!include[](wordpress-container-content.md)]

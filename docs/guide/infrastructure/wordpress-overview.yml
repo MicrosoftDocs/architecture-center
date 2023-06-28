@@ -5,7 +5,7 @@ metadata:
   description: Learn about multiple options for hosting WordPress on Azure. See guidance and tips for deploying a secure, scalable, and cost-effective WordPress installation.
   author: vjirovsky
   ms.author: vjirovsky
-  ms.date: 06/28/2023
+  ms.date: 06/30/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
