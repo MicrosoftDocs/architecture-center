@@ -42,7 +42,7 @@ Network security is at the core of the App Services baseline architecture (*see 
 :::image-end:::
 *Figure 2: Network architecture of the baseline Azure App Service application*
 
-The following are descriptions of the inbound flow of internet traffic to the App Service instance, and the flow from the App Service to Azure services.
+The following are descriptions of the inbound flow of internet traffic to the App Service instance and the flow from the App Service to Azure services.
 
 #### Inbound flow
 
@@ -101,6 +101,18 @@ Consider the following points when implementing virtual network segmentation and
 - Enable [DDoS protection](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa7aca53f-2ed4-4466-a25e-0b45ade68efd) for the virtual network with a subnet that is part of an application gateway with a public IP.
 - [Add an NSG](/azure/virtual-network/network-security-groups-overview) to every subnet where possible. You should use the strictest rules that enable full solution functionality.
 - Use [application security groups](/azure/virtual-network/tutorial-filter-network-traffic#create-application-security-groups). Application security groups allow you to group NSGs, making rule creation easier for complex environments.
+
+An example of a Virtual subnet schema could be:
+
+| Type            | Name                   | Address Range |
+| --------------- | ---------------------- | ------------- |
+| Virtual Network | Address Prefix         | 10.0.0.0/16   |
+| Subnet          | GatewaySubnet          | 10.0.1.0/24   |
+| Subnet          | AppServicesSubnet      | 10.0.0.0/24   |
+| Subnet          | PrivateEndpointsSubnet | 10.0.2.0/27   |
+| Subnet          | AgentsSubject          | 10.0.2.32/27  |
+
+Reference [Azure-Samples\app-service-baseline-implementation](https://github.com/Azure-Samples/app-service-baseline-implementation/tree/main)
 
 ## Reliability  
 
