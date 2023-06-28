@@ -13,9 +13,9 @@ This article provides general information for running SAS Grid 9.4 on Azure, usi
 
 ## Architecture
 
-:::image type="content" source="media/main-architecture.png" alt-text="Diagram that shows an architecture for running SAS Grid on Azure." lightbox="media/main-architecture.png" border="false":::
+:::image type="content" source="media/main-architecture.svg" alt-text="Diagram that shows an architecture for running SAS Grid on Azure." lightbox="media/main-architecture.svg" border="false":::
  
-*Download a [PowerPoint file](https://arch-center.azureedge.net/sas-grid.pptx) of the architectures in this article.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/sas-grid.pptx) of all diagrams in this article.*
 
 ### Dataflow 
 
@@ -151,9 +151,7 @@ The options in the table correspond to deployments described in the architecture
 
 ## Temporary storage architecture
 
-:::image type="content" source="media/temporary-storage.png" alt-text="Diagram that shows a temporary storage architecture." lightbox="media/temporary-storage.png" border="false":::
-
-*Download a [PowerPoint file](https://arch-center.azureedge.net/sas-grid.pptx) of the architectures in this article.* 
+:::image type="content" source="media/temporary-storage.svg" alt-text="Diagram that shows a temporary storage architecture." lightbox="media/temporary-storage.svg" border="false":::
 
 For smaller SASWORK capacity requirements, Azure VM temporary storage is a fast and cost-effective solution. In this architecture, each VM in the compute tier is equipped with some temporary storage. To determine the temporary storage sizes for the VMs you use, see the [Azure VM documentation](/azure/virtual-machines/sizes).
 
@@ -165,9 +163,7 @@ For smaller SASWORK capacity requirements, Azure VM temporary storage is a fast 
 
 ## Managed disk architecture
 
-:::image type="content" source="media/managed-disk.png" alt-text="Diagram that shows a managed disk architecture." lightbox="media/managed-disk.png" border="false":::
-
-*Download a [PowerPoint file](https://arch-center.azureedge.net/sas-grid.pptx) of the architectures in this article.* 
+:::image type="content" source="media/managed-disk.svg" alt-text="Diagram that shows a managed disk architecture." lightbox="media/managed-disk.svg" border="false":::
 
 If your capacity requirements for SASWORK exceed the capacities available in temporary storage, Azure managed disks are a good alternative. Managed disks are available in various sizes and performance levels. For more information, see [Scalability and performance targets for VM disks](/azure/virtual-machines/disks-scalability-targets).
 
@@ -179,9 +175,7 @@ If your capacity requirements for SASWORK exceed the capacities available in tem
 
 ## Azure NetApp Files architecture
 
-:::image type="content" source="media/azure-netapp-files.png" alt-text="Diagram that shows an Azure NetApp Files architecture." lightbox="media/azure-netapp-files.png" border="false":::
-
-*Download a [PowerPoint file](https://arch-center.azureedge.net/sas-grid.pptx) of the architectures in this article.*
+:::image type="content" source="media/azure-netapp-files.svg" alt-text="Diagram that shows an Azure NetApp Files architecture." lightbox="media/azure-netapp-files.svg" border="false":::
 
 For higher SASWORK capacity and/or medium performance requirements, consider using Azure NetApp Files. Azure NetApp Files provides volume capacities as high as 100 TiB. Each node in the compute tier should have its own SASWORK volume. The volumes shouldn't be shared. 
 
@@ -307,9 +301,7 @@ The storage contents are replicated without the use of any compute infrastructur
 
 The following architecture shows how the storage content on Azure NetApp Files is replicated to a second region, where the storage is populated with a replica of the production data. If there's a failover, the secondary region is brought online, and the VMs are started so production can resume in the second region. You need to reroute traffic to the second region by reconfiguring load balancers that aren't shown in the diagram.
 
-:::image type="content" source="media/replication.png" alt-text="Diagram that shows an architecture with cross-region replication." lightbox="media/replication.png" border="false":::
-
-*Download a [PowerPoint file](https://arch-center.azureedge.net/sas-grid.pptx) of the architectures in this article.*
+:::image type="content" source="media/replication.svg" alt-text="Diagram that shows an architecture with cross-region replication." lightbox="media/replication.svg" border="false":::
 
 The typical RPO for this solution is less than 20 minutes when the cross-region replication update interval is set to 10 minutes. 
 
