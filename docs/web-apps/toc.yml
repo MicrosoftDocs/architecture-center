@@ -10,7 +10,7 @@ items:
         href: idea/ecommerce-website-running-in-secured-ase.yml
       - name: Migrating a workload to containers with App Service
         href: idea/migrate-existing-applications-to-container-apps.yml
-    - name: Architectures
+    - name: Design architectures
       items:
       - name: Host web apps with App Service
         items:
@@ -28,16 +28,14 @@ items:
           href: app-service-environment/architectures/ase-high-availability-deployment.yml            
       - name: Host web apps with Azure Spring Apps
         items:
-        - name: Architectures
-          items:
-          - name: Get started
-            href: spring-apps/index.md
-          - name: Baseline
-            href: spring-apps/architectures/spring-apps-multi-zone.yml
-          - name: Baseline in multiple regions
-            href: spring-apps/architectures/spring-apps-multi-region.yml
-          - name: Baseline in landing zones
-            href: spring-apps/architectures/spring-apps-landing-zone.yml
+        - name: Get started
+          href: spring-apps/index.md
+        - name: Baseline
+          href: spring-apps/architectures/spring-apps-multi-zone.yml
+        - name: Baseline in multiple regions
+          href: spring-apps/architectures/spring-apps-multi-region.yml
+        - name: Baseline in landing zones
+          href: spring-apps/architectures/spring-apps-landing-zone.yml
         - name: Guides
           items:
           - name: Spring Apps through a reverse proxy
@@ -52,7 +50,7 @@ items:
         items:
         - name: Serverless web app
           href: serverless/architectures/web-app.yml
-    - name: Guides
+    - name: Apply guidance
       items:
       - name: Networking guidance for web apps
         items:
