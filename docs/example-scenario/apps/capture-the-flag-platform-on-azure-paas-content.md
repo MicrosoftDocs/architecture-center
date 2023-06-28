@@ -64,7 +64,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- Review the security considerations in the appropriate [App Service web application reference architecture](/azure/architecture/web-apps/app-service/architectures/basic-web-app).
+- Review the security considerations in the appropriate [App Service web application reference architecture](/azure/architecture/web-apps/app-service/architectures/basic-web-app#security).
 - All data in Azure Database for MariaDB is automatically [encrypted](/azure/mariadb/concepts-security) and backed up. You can configure Microsoft Defender for Cloud for further mitigation of threats. For more information, see [Enable Microsoft Defender for open-source relational databases and respond to alerts](/azure/defender-for-cloud/defender-for-databases-usage).
 - Access to Azure Database for MariaDB over TLS helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application. It requires the root certificate to be available in the Docker image. This solution uses a custom Docker image that fetches the certificate at build time. The custom image is managed in an Azure Container Registry.
 - [Managed identities for Azure resources](/azure/app-service/app-service-managed-service-identity) provide access to other internal resources to your account. This solution uses a managed identity to authorize the web application in Azure App Service to read secrets from Azure Key Vault.

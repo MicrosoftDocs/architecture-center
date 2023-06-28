@@ -2888,7 +2888,7 @@
     {
       "source_path": "docs/guide/web/web-start-here.md",
       "redirect_url": "/azure/architecture/web-apps/index",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/reference-architectures/app-service-web-app/basic-web-app.yml",
