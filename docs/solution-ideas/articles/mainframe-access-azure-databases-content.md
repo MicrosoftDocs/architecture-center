@@ -103,7 +103,7 @@ Principal authors:
 [Planning and Architecting Solutions Using Microsoft Service for DRDA]: /host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda
 [Replicate and sync mainframe data in Azure]: ../../reference-architectures/migration/sync-mainframe-data-with-azure.yml
 [SQL Server technical documentation]: /sql/sql-server
-[Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1826653-PR-2782-mainframe-access-azure-databases-architecture.vsdx
+[Visio version of architecture diagram]: https://arch-center.azureedge.net/mainframe-access-azure-databases-architecture.vsdx
 [What is Azure SQL Database?]: /azure/azure-sql/database/sql-database-paas-overview
 [What is Azure SQL?]: /azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview
 [What is HIS]: /host-integration-server/what-is-his
