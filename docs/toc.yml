@@ -1482,6 +1482,8 @@ items:
         href: /azure/architecture/browse/?terms=healthcare
       - name: Analyze observational patient data
         href: example-scenario/digital-health/patient-data-ohdsi-omop-cdm.yml
+      - name: Azure Health Data Services Architecture
+        href: guide/data/ahds-architecture.yml
       - name: Automate COVID-19 test forms
         href: example-scenario/ai/form-recognizer-covid.yml
       - name: Build a telehealth system with Azure
