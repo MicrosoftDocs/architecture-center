@@ -122,7 +122,7 @@ In this example, the payload for the event hub message is a json object with thr
 
 ## Run the load test using new plugin
 
-When Azure Load Testing starts your load test, it first deploys the JMeter script along with all other files onto test engine instances, and then starts the load test as instructed [here](https://learn.microsoft.com/en-us/azure/load-testing/how-to-use-jmeter-plugins?tabs=portal).
+When Azure Load Testing starts your load test, it first deploys the JMeter script along with all other files onto test engine instances, and then starts the load test as instructed [here](https://learn.microsoft.com/azure/load-testing/how-to-use-jmeter-plugins?tabs=portal).
 Before running the test, go to the parameter tab, define `EventHubConnectionString` and then provide the connection string to the event hub.
 
 :::image type="content" source="images/load-testing-configuration-parameters.png" alt-text="Screenshot that shows the parameters of the test." :::
@@ -139,7 +139,7 @@ As per the sample architecture, the following services could be used for perform
 | Azure Function | Linux with Premium Plan (EP1) - 210 ACU, 3.5 GB Memory and 1 vCPU equivalent Standard_D1_v2 |
 | Region | West US 2 |
 
-Choosing of a service tier for any Azure services including Azure Event Hubs and Azure Functions is a complex process and depends on many factors. For more information, see [Azure Event Hubs pricing](https://azure.microsoft.com/en-us/pricing/details/event-hubs/) and [Azure Functions pricing](https://azure.microsoft.com/en-us/pricing/details/functions/).
+Choosing of a service tier for any Azure services including Azure Event Hubs and Azure Functions is a complex process and depends on many factors. For more information, see [Azure Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/) and [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
 
 
 ## Designing KPIs for Performance Testing
@@ -174,7 +174,7 @@ In order to measure KPIs, you need to have a performance testing strategy. The s
 - event hub: The performance testing approach for the event hub is to send many messages to the event hub and then measure the RPS and LOAD. The RPS is the number of messages that are sent to the event hub per second. The LOAD is the total number of messages that are sent to the event hub during the performance testing. Azure Load Testing service can measure RPS and LOAD.
 - Azure Function: The performance testing approach for Azure Function is to measure the IR, RT, AMU and SR. The IR is the number of function executions or ingestion rate. The RT is the average time for Azure Function Execution Time. The AMU is the average memory usage for Azure Functions. The SR is the success rate of all function executions. The ARS is the average downstream service response time. The DF is the dependency failure count including internal Azure function errors. Azure Monitor service doesn't measure IR, RT and SR but does AMU, ARS and DF.
 
-In order to measure KPIs using Azure Monitor service, we need to enable Application Insights for Azure Functions. For more information, see [Enable Application Insights for Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-monitoring?tabs=cmd#enable-application-insights).
+In order to measure KPIs using Azure Monitor service, we need to enable Application Insights for Azure Functions. For more information, see [Enable Application Insights for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring?tabs=cmd#enable-application-insights).
 
 After enabling Azure Monitor service, you can use the following queries to measure KPIs:
 
