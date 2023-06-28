@@ -46,6 +46,8 @@ items:
         items:
         - name: Protect APIs with Application Gateway
           href: api-management/architectures/protect-apis.yml
+        - name: Design API with API Management and GitHub
+          href: ../../example-scenario/web/design-api-developer-experiences-management-github.yml
       - name: Host serverless web apps with Azure Functions
         items:
         - name: Serverless web app

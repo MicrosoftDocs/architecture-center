@@ -97,7 +97,6 @@ The following sections, organized by category, provide links to sample web app a
 
 ### Multi-tier apps
 
-- [Multi-tier app service with private endpoint](../example-scenario/web/multi-tier-app-service-private-endpoint.yml)
 - [Multi-tier web application built for HA/DR](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)
 
 ### Multi-region apps
@@ -108,7 +107,6 @@ The following sections, organized by category, provide links to sample web app a
 ### Scalability
 
 - [Scalable and secure WordPress on Azure](../web-apps/hosting-applications/wordpress.yml)
-- [Scalable cloud applications and site reliability engineering (SRE)](../example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml)
 - [Baseline web application with zone redundancy](../web-apps/app-service/architectures/baseline-zone-redundant.yml)
 - [Scalable Umbraco CMS web app](../web-apps/hosting-applications/medium-umbraco-web-app.yml)
 
@@ -139,7 +137,6 @@ Here are some additional implementations to consider:
 - [Sharing location in real time using low-cost serverless Azure services](../example-scenario/signalr/index.yml)
 - [Serverless web application](../web-apps/serverless/architectures/web-app.yml)
 - [Web application monitoring on Azure](../web-apps/guides/monitoring/app-monitoring.yml)
-- [Web app private connectivity to Azure SQL Database](../example-scenario/private-web-app/private-web-app.yml)
 
 ### AWS or Google Cloud professionals
 
