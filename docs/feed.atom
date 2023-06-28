@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2023-06-19T16:03:07.305Z</updated>
+    <updated>2023-06-27T15:44:36.779Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
@@ -54,6 +54,30 @@
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/baseline-zone-redundant"/>
         <updated>2023-06-05T18:39:45.000Z</updated>
         <summary type="html"><![CDATA[A baseline reference architecture for a network secured, highly available, and zone-redundant App Service web application.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Monitor a distributed system by using Application Insights and OpenCensus]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/devops/monitor-with-opencensus-application-insights</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/devops/monitor-with-opencensus-application-insights"/>
+        <updated>2023-06-20T21:37:39.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to monitor an end-to-end distributed system by using OpenCensus for Python and Application Insights.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Autodesk Maya on a virtual machine]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/autodesk-maya</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/autodesk-maya"/>
+        <updated>2023-06-20T18:00:29.000Z</updated>
+        <summary type="html"><![CDATA[See how Autodesk Maya performs on an Azure virtual machine. Maya provides 3D animation, modeling, simulation, and rendering capabilities.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Offline audio dubbing]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/media/offline-audio-dubbing</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/media/offline-audio-dubbing"/>
+        <updated>2023-06-20T16:09:16.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure Cognitive Services AI tools to automate the offline dubbing process and ensure a high-quality dubbed version of original input.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -111,6 +135,38 @@
         <updated>2023-06-05T18:38:47.000Z</updated>
         <summary type="html"><![CDATA[An example of a carrier-grade solution design that focuses on highly reliability using Azure services.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Altair EDEM on an Azure virtual machine]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/altair-edem</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/altair-edem"/>
+        <updated>2023-06-26T17:58:54.000Z</updated>
+        <summary type="html"><![CDATA[Learn how Altair EDEM discrete element method (DEM) software performs on an Azure virtual machine (VM).]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Samadii Plasma on an Azure virtual machine]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/plasma</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/plasma"/>
+        <updated>2023-06-26T17:58:54.000Z</updated>
+        <summary type="html"><![CDATA[Find out how the Samadii Plasma particle-based application performs on an Azure virtual machine (VM).]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Samadii DEM on an Azure virtual machine]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/samadii-dem</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/samadii-dem"/>
+        <updated>2023-06-26T17:58:54.000Z</updated>
+        <summary type="html"><![CDATA[Find out how Samadii DEM, a discrete element method solver, performs on an Azure virtual machine (VM).]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Samadii SCIV on an Azure virtual machine]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/samadii-sciv</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/samadii-sciv"/>
+        <updated>2023-06-26T17:58:54.000Z</updated>
+        <summary type="html"><![CDATA[Find out how Samadii SCIV (Statistical Contact in Vacuum) performs on an Azure virtual machine (VM).]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Implement TIC 3.0 compliance]]></title>
