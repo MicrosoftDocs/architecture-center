@@ -8,7 +8,7 @@ This architecture is useful to meet the following goals:
 This solution presents a **baseline** strategy for Azure Spring Apps deployment. Other solutions area available that build on this architecture, including [deployment to multiple regions](spring-apps-multi-region.yml) and [deployment with integrated landing zones](spring-apps-landing-zone.yml).
 
 > [!TIP]
-> ![GitHub logo](../../_images/github.svg) The architecture is backed by an [**example implementation**](https://github.com/Azure-Samples/azure-spring-apps-multi-zone) on GitHub that illustrates some of the design choices. Consider the implementation as your first step toward production.
+> ![GitHub logo](../../../_images/github.svg) The architecture is backed by an [**example implementation**](https://github.com/Azure-Samples/azure-spring-apps-multi-zone) on GitHub that illustrates some of the design choices. Consider the implementation as your first step toward production.
 
 ## Architecture
 
