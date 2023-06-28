@@ -2,10 +2,10 @@
 metadata:
   title: Azure Spring Apps integrated with landing zones
   titleSuffix: Azure Architecture Center
-  description: Reference architecture for Spring Boot applications hosted in Azure Spring Apps. The application is deployed in an Azure landing zone so that the workload can use shared resources managed by central teams of an organization. 
+  description: Learn how to deploy a reference architecture for Spring Boot apps in Azure Spring Apps with landing zones so workloads can share resources via centralized management.
   author: PageWriter-MSFT
   ms.author: prwilk
-  ms.date: 06/06/2023
+  ms.date: 06/21/2023
   ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
@@ -18,7 +18,7 @@ products:
   - azure-key-vault
   - azure-spring-apps
 name: Azure Spring Apps integrated with landing zones
-summary: Reference architecture for Spring Boot applications hosted in Azure Spring Apps. The application is deployed in an Azure landing zone so that the workload can use shared resources managed by central teams of an organization.
+summary: Learn how to deploy a reference architecture for Spring Boot applications hosted in Azure Spring Apps. The application is deployed in an Azure landing zone to enable the workload to use shared resources managed by central teams of an organization.
 thumbnailUrl: ../../browse/thumbs/spring-apps-reference-architecture-landing-zone.svg
 content: |
   [!include[](spring-apps-landing-zone-content.md)]
