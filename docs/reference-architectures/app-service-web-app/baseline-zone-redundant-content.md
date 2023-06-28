@@ -317,7 +317,7 @@ Platform monitoring is the collection of data from the Azure services in your ar
 
 #### Application Gateway
 
-Application Gateway monitors the health of resources in its backend pool. Use the Application Gateway Access logs for information like the timestamp, the HTTP response code, and the URL path. For more information, see [Application Gateway default health probe](/azure/application-gateway/application-gateway-probe-overview#default-health-probe) and [Backend health and diagnostic logs](/azure/application-gateway/application-gateway-diagnostics#diagnostic-logging).
+Application Gateway monitors the health of resources in its backend pool. Use the Application Gateway Access logs to collect information like the timestamp, the HTTP response code, and the URL path. For more information, see [Application Gateway default health probe](/azure/application-gateway/application-gateway-probe-overview#default-health-probe) and [Backend health and diagnostic logs](/azure/application-gateway/application-gateway-diagnostics#diagnostic-logging).
 
 #### App Service
 
