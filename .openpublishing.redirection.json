@@ -2832,23 +2832,23 @@
     },
     {
       "source_path": "docs/reference-architectures/microservices/spring-apps-landing-zone.yml",
-      "redirect_url": "/azure/architecture/web-apps/spring-apps/architectures/spring-apps-landing-zone",
-      "redirect_document_id": false
+      "redirect_url": "/azure/architecture/web-apps/spring-apps/spring-apps-landing-zone",
+      "redirect_document_id": true
     },    
     {
       "source_path": "docs/example-scenario/blue-green-spring/blue-green-spring.yml",
-      "redirect_url": "/azure/architecture/web-apps/spring-apps/guides/blue-green-spring",
-      "redirect_document_id": false
+      "redirect_url": "/azure/architecture/web-apps/spring-apps/blue-green-spring",
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/reference-architectures/microservices/spring-apps-multi-zone.yml",
-      "redirect_url": "/azure/architecture/web-apps/spring-apps/architectures/spring-apps-multi-zone",
-      "redirect_document_id": false
+      "redirect_url": "/azure/architecture/web-apps/spring-apps/spring-apps-multi-zone",
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/reference-architectures/microservices/spring-cloud-reverse-proxy.yml",
-      "redirect_url": "/azure/architecture/web-apps/spring-apps/guides/spring-cloud-reverse-proxy",
-      "redirect_document_id": false
+      "redirect_url": "/azure/architecture/web-apps/spring-apps/spring-cloud-reverse-proxy",
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/solution-ideas/articles/scalable-ecommerce-web-app.yml",
@@ -2958,7 +2958,7 @@
     {
       "source_path": "docs/reference-architectures/app-service-web-app/app-monitoring.yml",
       "redirect_url": "/azure/architecture/web-apps/guides/monitoring/app-monitoring",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/reference-architectures/reliable-web-app/dotnet/pattern-overview.yml",
