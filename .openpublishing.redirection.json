@@ -3011,7 +3011,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "serverless/code.yml",
+      "source_path": "docs/serverless/code.yml",
       "redirect_url": "/azure/architecture/web-apps/serverless/architectures/code",
       "redirect_document_id": true
     }
