@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
   title: Expose Azure Spring Apps through a reverse proxy
-  description: Expose Azure Spring Apps with improved security by using reverse proxy services like Application Gateway, Azure Front Door, and Spring Cloud Gateway.
+  description: Learn how to expose Azure Spring Apps with reverse proxy services like Application Gateway, Azure Front Door, and Spring Cloud Gateway.
   author: jelledruyts
   ms.author: jelled
-  ms.date: 06/06/2023
+  ms.date: 06/21/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
@@ -18,7 +18,7 @@ products:
   - azure-application-gateway
   - azure-front-door
 name: Expose Azure Spring Apps through a reverse proxy
-summary: Expose Azure Spring Apps with improved security by using reverse proxy services like Application Gateway, Azure Front Door, and Spring Cloud Gateway.
+summary: Expose Azure Spring Apps with improved security through reverse proxy services like Azure Application Gateway, Azure Front Door, and Spring Cloud Gateway.
 thumbnailUrl: ../../browse/thumbs/azure-front-door-application-gateway-reverse-proxy.png
 content: |
   [!include[](spring-cloud-reverse-proxy-content.md)]
