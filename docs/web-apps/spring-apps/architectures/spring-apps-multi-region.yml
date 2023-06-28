@@ -1,10 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Deploy Azure Spring Apps to multiple regions
-  description: Deploy Azure Spring Apps instances in multiple regions for increased availability, resilience, and performance.
+  titleSuffix: Azure Architecture Center  
+  description: Learn how to deploy Azure Spring Apps instances in multiple regions for increased availability, resilience, and performance.
   author: vermegi
   ms.author: prwilk
-  ms.date: 06/06/2023
+  ms.date: 06/21/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
