@@ -2827,8 +2827,8 @@
     },
     {
       "source_path": "docs/reference-architectures/microservices/spring-apps-multi-region.yml",
-      "redirect_url": "/azure/architecture/web-apps/spring-apps/architectures/spring-apps-multi-region",
-      "redirect_document_id": false
+      "redirect_url": "/azure/architecture/web-apps/spring-apps/spring-apps-multi-region",
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/reference-architectures/microservices/spring-apps-landing-zone.yml",
@@ -3008,6 +3008,11 @@
     {   
       "source_path": "docs/web-apps/spring-apps/spring-cloud-reverse-proxy.yml",
       "redirect_url": "/azure/architecture/web-apps/spring-apps/guides/spring-cloud-reverse-proxy",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "serverless/code.yml",
+      "redirect_url": "/azure/architecture/web-apps/serverless/architectures/code",
       "redirect_document_id": true
     }
   ]

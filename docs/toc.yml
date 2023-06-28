@@ -4455,7 +4455,7 @@ items:
           - name: App development and deployment
             href: serverless-quest/application-development.md
           - name: Code walkthrough
-            href: serverless/code.yml
+            href: web-apps/serverless/architectures/code.yml
           - name: CI/CD for a serverless frontend
             href: serverless/guide/serverless-app-cicd-best-practices.yml
         - name: Monitor a distributed system

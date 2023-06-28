@@ -131,7 +131,7 @@ The [serverless microservices reference architecture](/samples/azure-samples/ser
 This two-part solution describes a hypothetical drone delivery system. Drones send in-flight status to the cloud, which stores these messages for later use. A web application allows users to retrieve the messages to get the latest device status.
 
 - You can download the code for this solution from [GitHub](https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0).
-- The article [Code walkthrough: Serverless application with Azure Functions](../serverless/code.yml) walks you through the code and the design processes.
+- The article [Code walkthrough: Serverless application with Azure Functions](../web-apps/serverless/architectures/code.yml) walks you through the code and the design processes.
 
 ### Event-based cloud automation
 

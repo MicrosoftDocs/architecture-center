@@ -423,7 +423,7 @@ conceptualContent:
     - title: Serverless applications
       links:
         - text: Code walkthrough
-          url: serverless/code.yml
+          url: web-apps/serverless/architectures/code.yml
           itemType: how-to-guide
         - text: Serverless event processing
           itemType: architecture
@@ -433,7 +433,7 @@ conceptualContent:
           url: web-apps/serverless/architectures/web-app.yml
       footerLink:
         text: Introduction to Serverless Applications on Azure
-        url: ./serverless/code.yml
+        url: web-apps/serverless/architectures/code.yml
 
     - title: VM workloads
       links:

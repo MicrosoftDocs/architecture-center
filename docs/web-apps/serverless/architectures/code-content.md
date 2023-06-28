@@ -24,7 +24,7 @@ You don't need to be an expert in Functions or Event Hubs, but you should unders
 
 ## Understand the scenario
 
-![Diagram of the functional blocks](./images/functional-diagram.png)
+![Diagram of the functional blocks](../_images/functional-diagram.png)
 
 Fabrikam manages a fleet of drones for a drone delivery service. The application consists of two main functional areas:
 
@@ -36,7 +36,7 @@ Fabrikam manages a fleet of drones for a drone delivery service. The application
 
 Here's a screenshot of the web app, showing the result of a query:
 
-![Screenshot of client app](./images/client-app.png)
+![Screenshot of client app](../_images/client-app.png)
 
 ## Design the application
 
@@ -57,7 +57,7 @@ There are also some operational advantages to using a serverless architecture:
 
 The following diagram shows the high-level architecture of the application:
 
-:::image type="complex" source="./images/architecture.png" alt-text="Diagram showing the high-level architecture of the serverless Functions application.":::
+:::image type="complex" source="../_images/architecture.png" alt-text="Diagram showing the high-level architecture of the serverless Functions application.":::
    In one data flow, arrows show messages going from Devices to Event Hubs and triggering the function app. From the app, one arrow shows dead-letter messages going to a storage queue, and another arrow shows writing to Azure Cosmos DB. In another data flow, arrows show the client web app getting static files from Blob storage static web hosting, through a CDN. Another arrow shows the client HTTP request going through API Management. From API Management, one arrow shows the function app triggering and reading data from Azure Cosmos DB. Another arrow shows authentication through Azure AD. A User also signs in to Azure AD.
 :::image-end:::
 
@@ -569,7 +569,7 @@ The web app uses Azure AD to authenticate users. Because the app is a single-pag
 1. The identity provider redirects back to the web app with an access token.
 1. The web app sends a request to the web API and includes the access token in the Authorization header.
 
-![Implicit flow diagram](./images/implicit-flow.png)
+![Implicit flow diagram](../_images/implicit-flow.png)
 
 A Function application can be configured to authenticate users with zero code. For more information, see [Authentication and authorization in Azure App Service](/azure/app-service/overview-authentication-authorization).
 

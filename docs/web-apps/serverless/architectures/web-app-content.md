@@ -330,7 +330,7 @@ Learn modules:
 
 ## Related resources
 
-To learn more about the reference implementation, read [Code walkthrough: Serverless application with Azure Functions](../../../serverless/code.yml).
+To learn more about the reference implementation, read [Code walkthrough: Serverless application with Azure Functions](../../../web-apps/serverless/architectures/code.yml).
 
 Related guidance:
 

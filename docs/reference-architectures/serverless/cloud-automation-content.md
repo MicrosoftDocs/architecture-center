@@ -251,7 +251,7 @@ To deploy the cost center scenario, see the [deployment steps on GitHub](https:/
 
 ## Related resources
 
-- [Code walkthrough: Serverless application with Functions](../../serverless/code.yml)
+- [Code walkthrough: Serverless application with Functions](../../web-apps/serverless/architectures/code.yml)
 - [Serverless functions architecture design](../../serverless-quest/serverless-overview.md)
 - [Serverless functions reference architectures](../../serverless-quest/reference-architectures.md)
 

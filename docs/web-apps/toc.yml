@@ -52,6 +52,8 @@ items:
         items:
         - name: Serverless web app
           href: serverless/architectures/web-app.yml
+        - name: Serverless code walkthrough
+          href: serverless/architectures/code.yml
     - name: Apply guidance
       items:
       - name: Networking guidance for web apps
