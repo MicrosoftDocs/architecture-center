@@ -190,11 +190,11 @@
 		<v:layer v:name="Azure" v:index="1"/>
 		<g id="shape1013-3" v:mID="1013" v:groupContext="shape" transform="translate(194.848,-251.767)">
 			<title>Sheet.1013</title>
-			<desc>Azure Function App</desc>
+			<desc>Function app</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="57.375" cy="503.883" width="114.76" height="18.2332"/>
 			<rect x="0" y="494.767" width="114.75" height="18.2332" class="st2"/>
-			<text x="9.43" y="507.18" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Function App</text>		</g>
+			<text x="25.62" y="507.18" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Function app</text>		</g>
 		<g id="group1068-6" transform="translate(234,-406.161)" v:mID="1068" v:groupContext="group">
 			<title>Sheet.1068</title>
 			<g id="group1069-7" v:mID="1069" v:groupContext="group">
