@@ -6711,7 +6711,7 @@ items:
           - name: Container hosting (AKS)
             href: example-scenario/infrastructure/wordpress-container.yml
           - name: App Service hosting
-            href: example-scenario/infrastructure/wordpress-appservice.yml
+            href: example-scenario/infrastructure/wordpress-app-service.yml
           - name: VM hosting
             href: example-scenario/infrastructure/wordpress-iaas.yml
     - name: Solution ideas

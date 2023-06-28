@@ -28,4 +28,4 @@ products:
   - azure-database-mysql
 thumbnailUrl: /azure/architecture/browse/thumbs/wordpress-app-service.png
 content: |
-   [!include[](wordpress-appservice-content.md)]
+   [!include[](wordpress-app-service-content.md)]

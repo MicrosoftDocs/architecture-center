@@ -96,15 +96,15 @@ Microsoft provides a fully managed solution for running WordPress on App Service
 For more information, see the following resources:
 
 - [Create a WordPress site](/azure/app-service/quickstart-wordpress)
-- [WordPress on App Service](../../example-scenario/wordpress-appservice.yml)
+- [WordPress on App Service](../../example-scenario/wordpress-app-service.yml)
 
 ### Storage-intensive workloads
 
 Large WordPress installations can be storage intensive. In these scenarios, you should use a storage solution with a high-IOPS class and low latency. We recommend [Azure NetApp Files](/azure/azure-netapp-files). Azure NetApp Files can support storage-intensive WordPress deployments. It also provides extra features such as data protection, backup and restore, cross-region replication, and disaster recovery.
 
-For a container deployment of WordPress, you should use AKS. With Azure NetApp Files, implement storage via a Kubernetes Container Storage Interface (CSI) driver. Azure NetApp Files offers a `ReadWriteMany` mode so that all the nodes can read from and write to the same storage. For more information, see [AKS WordPress architecture](../../example-scenario/wordpress-container.yml).
+For a container deployment of WordPress, you should use AKS. With Azure NetApp Files, implement storage via a Kubernetes Container Storage Interface (CSI) driver. Azure NetApp Files offers a `ReadWriteMany` mode so that all the nodes can read from and write to the same storage. For more information, see [AKS WordPress architecture](../../example-scenario/infrastructure/wordpress-container.yml).
 
-For a large WordPress installation that runs on VMs, you should mount Azure NetApp Files via the network file system (NFS) protocol. For more information, see [WordPress on VMs](../../example-scenario/wordpress-iaas.yml).
+For a large WordPress installation that runs on VMs, you should mount Azure NetApp Files via the network file system (NFS) protocol. For more information, see [WordPress on VMs](../../example-scenario/infrastructure/wordpress-iaas.yml).
 
 ### Immutable WordPress container
 
@@ -146,5 +146,5 @@ Training modules:
 
 ## Related resources
 
-- [Ten design principles for Azure applications](../guide/design-principles/index.md)
+- [Ten design principles for Azure applications](../design-principles/index.md)
 - [Scalable cloud applications and site reliability engineering](../../example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml)
