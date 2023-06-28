@@ -14,7 +14,7 @@ Various scenarios can benefit from this solution:
 
 ## Architecture
 
-:::image type="complex" source="../media/mainframe-access-azure-databases-architecture.png" alt-text="Architecture diagram showing how mainframe applications can access Azure databases." border="false":::
+:::image type="complex" source="../media/mainframe-access-azure-databases-architecture.svg" alt-text="Architecture diagram showing how mainframe applications can access Azure databases." border="false":::
    Vertical lines divide the diagram into two parts, one for mainframe components and one for Azure components. The mainframe part has the label IBM and contains two components. The first component contains two cylinders that represent databases (Db2 for z/OS and Db2 for i). The second component is a rectangle that contains the names of mainframe languages and environments. Arrows point back and forth between the cylinder and the rectangle. The Azure part of the diagram contains two rectangles with arrows pointing back and forth between them. The first rectangle represents software and contains a computer icon. The second rectangle contains two icons. One icon has the label PaaS and shows a database in a cloud. The other icon has the label IaaS and shows a computer. Arrows also point back and forth between the mainframe database cylinder and the rectangle that represents software in the Azure part.
 :::image-end:::
 
