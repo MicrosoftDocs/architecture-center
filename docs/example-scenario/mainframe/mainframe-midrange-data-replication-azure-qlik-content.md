@@ -5,9 +5,9 @@ This solution uses an on-premises instance of Qlik to replicate on-premises data
 
 ## Architecture
 
-:::image type="content" source="media/mainframe-midrange-data-replication-azure-qlik.png" alt-text="Architecture for data migration to Azure by using Qlik" lightbox="media/mainframe-midrange-data-replication-azure-qlik.png":::
+:::image type="content" source="media/mainframe-midrange-data-replication-azure-qlik.svg" alt-text="Architecture for data migration to Azure by using Qlik." lightbox="media/mainframe-midrange-data-replication-azure-qlik.svg" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-1875751-PR-3888-mainframe-midrange-data-replication-azure-qlik.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/mainframe-midrange-data-replication-azure-qlik.vsdx) of this architecture.*
 
 ### Workflow
 
