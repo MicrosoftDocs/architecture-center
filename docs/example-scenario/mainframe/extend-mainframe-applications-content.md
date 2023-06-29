@@ -2,7 +2,7 @@ This architecture shows how legacy mainframe and midrange terminal-based applica
 
 ## Legacy IBM z/OS architecture
 
-:::image type="content" source="media/extend-mainframe-source-zos-architecture.png" alt-text="Diagram that shows the mainframe architecture before extending to Azure." lightbox="media/extend-mainframe-source-zos-architecture.png" border="false":::
+:::image type="content" source="media/extend-mainframe-source-zos-architecture.svg" alt-text="Diagram that shows the mainframe architecture before extending to Azure." lightbox="media/extend-mainframe-source-zos-architecture.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/extend-mainframe-applications-to-azure-architecture.vsdx) of this architecture.*
 
@@ -28,7 +28,7 @@ This architecture shows how legacy mainframe and midrange terminal-based applica
 
 ## Mainframe architecture extended to Azure
 
-:::image type="content" source="media/extend-mainframe-architecture-to-azure.png" alt-text="Diagram that shows the mainframe architecture after extending to Azure." lightbox="media/extend-mainframe-architecture-to-azure.png" border="false":::
+:::image type="content" source="media/extend-mainframe-applications-to-azure-architecture..svg" alt-text="Diagram that shows the mainframe architecture after extending to Azure." lightbox="media/extend-mainframe-applications-to-azure-architecture..svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/extend-mainframe-applications-to-azure-architecture.vsdx) of this architecture.*
 
