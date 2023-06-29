@@ -4,7 +4,7 @@ This solution describes a migration from an IBM AIX Unix platform to Red Hat Ent
 
 The following diagram shows the pre-migration, on-premises AIX legacy system architecture:
 
-:::image type="content" source="media/aix-on-premises-system.png" alt-text="Diagram that shows the pre-migration AIX system architecture." border="false" lightbox="media/aix-on-premises-system.png":::
+:::image type="content" source="media/aix-on-premises-system.svg" alt-text="Diagram that shows the pre-migration AIX system architecture." border="false" lightbox="media/aix-on-premises-system.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/UNIX-AIX-Azure-RHEL-migration.vsdx) of this architecture.*
 
@@ -28,7 +28,7 @@ The following diagram shows the pre-migration, on-premises AIX legacy system arc
 
 The following diagram shows the Azure RHEL post-migration system architecture:
 
-:::image type="content" source="media/rhel-azure-system.png" alt-text="Diagram that shows the post-migration Azure architecture." border="false" lightbox="media/rhel-azure-system.png":::
+:::image type="content" source="media/rhel-azure-system.svg" alt-text="Diagram that shows the post-migration Azure architecture." border="false" lightbox="media/rhel-azure-system.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/UNIX-AIX-Azure-RHEL-migration.vsdx) of this architecture.*
 
