@@ -205,7 +205,8 @@ Configure the application to accept traffic only from Front Door. This ensures t
 **Cross-Origin Resource Sharing (CORS)**
 If you create a website and web API as separate apps, the website cannot make client-side AJAX calls to the API unless you enable CORS.
 
-[!NOTE] Browser security prevents a web page from making AJAX requests to another domain. This restriction is called the same-origin policy, and prevents a malicious site from reading sensitive data from another site. CORS is a W3C standard that allows a server to relax the same-origin policy and allow some cross-origin requests while rejecting others.
+> [!NOTE]
+> Browser security prevents a web page from making AJAX requests to another domain. This restriction is called the same-origin policy, and prevents a malicious site from reading sensitive data from another site. CORS is a W3C standard that allows a server to relax the same-origin policy and allow some cross-origin requests while rejecting others.
 
 App Services has built-in support for CORS, without needing to write any application code. See Consume an API app from JavaScript using CORS. Add the website to the list of allowed origins for the API.
 
@@ -339,3 +340,7 @@ Principal author:
 [Design-principles-for-Azure-Application]: /azure/architecture/guide/design-principles
 [private-link]: /azure/private-link/private-link-overview
 [hardened-web-app]: /azure/architecture/example-scenario/security/hardened-web-app
+[durable-functions]: /azure/azure-functions/durable/durable-functions-overview
+[sql-elastic]: /azure/sql-database/sql-database-elastic-scale-introduction
+[azure-search-scaling]: /azure/search/search-capacity-planning
+[app-service-pricing]: https://azure.microsoft.com/pricing/details/app-service

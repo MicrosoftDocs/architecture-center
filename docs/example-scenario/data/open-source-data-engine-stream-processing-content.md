@@ -187,7 +187,6 @@ To learn about related solutions, see the following information:
 - [Choose a data analytics technology in Azure][Choose a data analytics technology in Azure]
 - [Azure Kubernetes in event stream processing][Azure Kubernetes in event stream processing]
 - [Data streaming with AKS][Data streaming with AKS]
-- [Build web and mobile applications][Build web and mobile applications]
 
 [About Azure Cache for Redis]: /azure/azure-cache-for-redis/cache-overview
 [About Azure Key Vault]: /azure/key-vault/general/overview
