@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 06/12/2023
+ms.date: 06/27/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -33,13 +33,23 @@ The following new and updated articles have recently been published in the Azure
 - [Deploy Azure Spring Apps to multiple regions](./web-apps/spring-apps/spring-apps-multi-region.yml)
 - [Azure Spring Apps baseline architecture](./web-apps/spring-apps/spring-apps-multi-zone.yml)
 - [Baseline highly available zone-redundant app services web application](./reference-architectures/app-service-web-app/baseline-zone-redundant.yml)
-- [Siemens Teamcenter baseline architecture](./example-scenario/manufacturing/teamcenter-baseline.yml)
+- [Monitor a distributed system by using Application Insights and OpenCensus](./guide/devops/monitor-with-opencensus-application-insights.yml)
+- [Deploy Autodesk Maya on a virtual machine](./guide/hpc/autodesk-maya.yml)
+- [Offline audio dubbing](./guide/media/offline-audio-dubbing.yml)
+- [Deploy LAMMPS on an Azure virtual machine](./guide/hpc/hpc-lammps.yml)
+- [Build language model pipelines with memory](./guide/ai/language-model-pipelines.yml)
+- [Implement Azure DevOps for mainframe applications that use IBM Z and Cloud Modernization Stack](./example-scenario/mainframe/devops-mainframe-ibm-z.yml)
+- [Siemens Teamcenter baseline architecture on Azure](./example-scenario/manufacturing/teamcenter-baseline.yml)
 - [DataOps for autonomous vehicle operations](./example-scenario/automotive/autonomous-vehicle-operations-dataops.yml)
 - [Use Teamcenter PLM with Azure NetApp Files](./example-scenario/manufacturing/teamcenter-plm-netapp-files.yml)
 - [Carrier-grade voicemail solution on Azure](./industries/telecommunications/carrier-grade.yml)
 
 ### Updated articles
 
+- [Deploy Altair EDEM on an Azure virtual machine](./guide/hpc/altair-edem.yml)  ([#306c39ceff](https://github.com/MicrosoftDocs/architecture-center/commit/306c39ceff))
+- [Deploy Samadii Plasma on an Azure virtual machine](./guide/hpc/plasma.yml)  ([#306c39ceff](https://github.com/MicrosoftDocs/architecture-center/commit/306c39ceff))
+- [Deploy Samadii DEM on an Azure virtual machine](./guide/hpc/samadii-dem.yml)  ([#306c39ceff](https://github.com/MicrosoftDocs/architecture-center/commit/306c39ceff))
+- [Deploy Samadii SCIV on an Azure virtual machine](./guide/hpc/samadii-sciv.yml)  ([#306c39ceff](https://github.com/MicrosoftDocs/architecture-center/commit/306c39ceff))
 - [Implement TIC 3.0 compliance](./example-scenario/security/trusted-internet-connections.yml)  ([#f6fe0b35f8](https://github.com/MicrosoftDocs/architecture-center/commit/f6fe0b35f8))
 - [DR for Azure Data Platform - Overview](./data-guide/disaster-recovery/dr-for-azure-data-platform-overview.yml)  ([#f451a54cdb](https://github.com/MicrosoftDocs/architecture-center/commit/f451a54cdb))
 - [DR for Azure Data Platform - Scenario details](./data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details.yml)  ([#f451a54cdb](https://github.com/MicrosoftDocs/architecture-center/commit/f451a54cdb))

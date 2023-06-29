@@ -15,15 +15,13 @@ ELEMENTS is used to solve flow-related problems that are encountered in automoti
 
 Multi-node configuration:
 
-:::image type="content" source="media/elements-cluster-architecture.png" alt-text="Diagram that shows an architecture for running ELEMENTS in a multi-node configuration." lightbox="media/elements-cluster-architecture.png" border="false":::
-
-Download a [Visio file](https://arch-center.azureedge.net/elements-cluster-architecture.vsdx) of this architecture.
+:::image type="content" source="media/elements-cluster-architecture.svg" alt-text="Diagram that shows an architecture for running ELEMENTS in a multi-node configuration." lightbox="media/elements-cluster-architecture.svg" border="false":::
 
 Single-node configuration:
 
-:::image type="content" source="media/elements-architecture.png" alt-text="Diagram that shows an architecture for running ELEMENTS in a single-node configuration." lightbox="media/elements-architecture.png" border="false":::
+:::image type="content" source="media/elements-architecture.svg" alt-text="Diagram that shows an architecture for running ELEMENTS in a single-node configuration." lightbox="media/elements-architecture.svg" border="false":::
 
-Download a [Visio file](https://arch-center.azureedge.net/elements-architecture.vsdx) of this architecture.
+Download a [Visio file](https://arch-center.azureedge.net/elements-architecture.vsdx) of all diagrams in this article.
 
 ### Components
 

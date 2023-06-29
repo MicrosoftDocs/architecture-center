@@ -56,7 +56,7 @@ Runtime monitoring is another easy way to get started. The telemetry that is col
 
 Like Application Insights, Log Analytics provides tools for [analyzing data across sources][analyzing data across sources], creating complex queries, and [sending proactive alerts][sending proactive alerts] on specified conditions. You can also view telemetry in [the Azure portal][the Azure portal]. Log Analytics adds value to existing monitoring services such as [Azure Monitor][azure-monitor] and can also monitor on-premises environments.
 
-Both Application Insights and Log Analytics use [Azure Log Analytics Query Language][Azure Log Analytics Query Language]. You can also use [cross-resource queries](https://azure.microsoft.com/blog/query-across-resources) to analyze the telemetry gathered by Application Insights and Log Analytics in a single query.
+Both Application Insights and Log Analytics use [Azure Log Analytics Query Language][Azure Log Analytics Query Language]. You can also use [cross-resource queries](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cross-workspace-query) to analyze the telemetry gathered by Application Insights and Log Analytics in a single query.
 
 Azure Monitor, Application Insights, and Log Analytics all send [alerts](/azure/monitoring-and-diagnostics/monitoring-overview-alerts). For example, Azure Monitor alerts on platform-level metrics such as CPU utilization, while Application Insights alerts on application-level metrics such as server response time. Azure Monitor alerts on new events in the Azure Activity Log, while Log Analytics can issue alerts about metrics or event data for the services configured to use it. [Unified alerts in Azure Monitor](/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts) is a new, unified alerting experience in Azure that uses a different taxonomy.
 
@@ -156,7 +156,7 @@ Check out these resources designed to help you get started with your own monitor
 [sending proactive alerts]: /azure/log-analytics/log-analytics-alerts
 [the Azure portal]: /azure/log-analytics/log-analytics-tutorial-dashboards
 [Azure Log Analytics Query Language]: /azure/azure-monitor/log-query/get-started-queries
-[cross-resource queries]: https://azure.microsoft.com/blog/query-across-resources
+[cross-resource queries]: https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cross-workspace-query
 [alerts]: /azure/monitoring-and-diagnostics/monitoring-overview-alerts
 [Alerts (Preview)]: /azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts
 [Azure Monitor Data Source For Grafana]: https://grafana.com/grafana/plugins/grafana-azure-monitor-datasource
