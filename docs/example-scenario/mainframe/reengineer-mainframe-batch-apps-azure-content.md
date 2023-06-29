@@ -31,7 +31,7 @@ The first diagram shows the architecture of a typical batch application running 
 
 The second diagram shows how you can use Azure services to re-engineer a similar application with added capabilities and flexibility.
 
-:::image type="content" source="azure-reengineered-mainframe-batch-application-architecture.svg" alt-text="Diagram of a batch application re-engineered using Azure services. Multiple example services are included." lightbox="azure-reengineered-mainframe-batch-application-architecture.svg":::
+:::image type="content" source="media/azure-reengineered-mainframe-batch-application-architecture.svg" alt-text="Diagram of a batch application re-engineered using Azure services. Multiple example services are included." lightbox="media/azure-reengineered-mainframe-batch-application-architecture.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/us-1858749-pr-3417-azure-reengineer-mainframe-batch-example.vsdx) of this architecture.*
 
