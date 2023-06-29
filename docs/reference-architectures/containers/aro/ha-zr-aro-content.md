@@ -33,7 +33,7 @@ _Download a [Visio file](https://arch-center.azureedge.net/openshift-zonal-archi
 ### Alternatives
 
 * You can use Azure AD or Azure AD B2C as an identity provider in this scenario. Azure AD is for internal applications and business-to-business (B2B) scenarios. Azure AD B2C is for business-to-consumer (B2C) scenarios.
-* Azure-managed DNS is recommended, or you can use your own DNS provider.
+* Azure-managed DNS is recommended, but you can use your own DNS provider.
 * You can use [Azure Application Gateway][appgw] instead of Azure Front Door if most of your users are located close to the Azure region that hosts your workload and if you don't need content caching. Use [Azure DDoS Protection][ddosp] to protect internet-facing Application Gateway services.
 * Deploy a premium [Azure API Management][apim] instance with zone-redundancy as an alternative for hosting front-end APIs, back-end APIs, or both. For more information about API Management zone-redundancy, see [Migrate Azure API Management to availability zone support][apim-zr].
 * You can use OpenShift Container Platform or Origin Community Distribution of Kubernetes (OKD) on [Azure Virtual Machines][az-vm] instead of Azure Red Hat OpenShift. OpenShift Container Platform or OKD are infrastructure-as-a-service (IaaS) alternatives to a fully platform-managed service, like Azure Red Hat OpenShift. For more information, see [Azure Red Hat OpenShift][openshift-in-azure].
@@ -46,7 +46,7 @@ Availability zones are separate physical locations in each Azure region. Availab
 
 When hosting platforms are at scale, it's often difficult to keep them highly available. High availability has historically required complex and expensive multi-region deployments with data-consistency and high-performance tradeoffs. [Availability zones][azs] resolve many of these issues. Most mainstream Azure services and many specialized Azure services provide support for availability zones. All Azure services in this architecture are zone-redundant, which simplifies the deployment and management. For more information, see [Azure services that support availability zones][az-services].
 
-To maintain their [service-level agreements (SLAs)][sla], zone-redundant Azure Red Hat OpenShift manages and mitigates failures, including zone failures. Zone redundancy provides a recovery time of zero for zone failure. If a single zone in a region is unavailable, you don't lose any data, and your workload continues to run. Zone redundancy is configured at deployment time and is managed by services, so you don't need to manage zone pinning or zonal deployments.
+To maintain the [service-level agreements (SLAs)][sla], zone-redundant Azure Red Hat OpenShift manages and mitigates failures, including zone failures. Zone redundancy provides a recovery time of zero for zone failure. If a single zone in a region is unavailable, you don't lose any data, and your workload continues to run. Zone redundancy is configured at deployment time and is managed by services, so you don't need to manage zone pinning or zonal deployments.
 
 In this architecture, an [Azure Red Hat OpenShift][aro] cluster is deployed across three availability zones in Azure regions that support them. A cluster consists of three control plane nodes and three or more worker nodes. To improve redundancy, the nodes are spread across the zones.
 
@@ -54,7 +54,7 @@ Azure Front Door, Azure AD, and Azure DNS are globally available services that a
 
 ### Potential use cases
 
-Azure Red Hat OpenShift is a container orchestration service that uses Kubernetes. It's suitable for many use cases such as:
+Azure Red Hat OpenShift is a container orchestration service that uses Kubernetes. It's suitable for many use cases, such as:
 
 * Banking
 * Stock trading
@@ -73,7 +73,7 @@ The following recommendations apply to most scenarios.
 ### Azure Front Door
 
 * Use [Azure-managed certificates][afd-certs] on all front-end applications to prevent certificate misconfiguration and expiration issues.
-* Enable [caching][afd-cache] on routes to improve availability. Azure Front Door's cache distributes your content to the Azure point-of-presence (POP) edge nodes. Caching reduces the load on origin servers and improves performance.
+* Enable [caching][afd-cache] on routes to improve availability. The Azure Front Door cache distributes your content to the Azure point-of-presence (POP) edge nodes. Caching reduces the load on origin servers and improves performance.
 * Deploy Azure Front Door Premium and configure a [WAF policy][afd-waf] with a Microsoft-managed ruleset. Apply the policy to all custom domains. Use prevention mode to mitigate web attacks that might cause an origin-service failure.
 
 ### Azure Red Hat OpenShift
@@ -82,12 +82,12 @@ The following recommendations apply to most scenarios.
 * An Azure Red Hat OpenShift cluster depends on some services. Ensure that those services support and are configured for zone redundancy. For more information, see [Azure services with availability zone support][az-ha-services].
 * Remove the state from containers, and use Azure storage or database services instead.
 * Set up multiple replicas in deployments with appropriate disruption budget configuration to continuously provide application service despite disruptions, like hardware failures in zones.
-* Secure access to Azure Red Hat OpenShift. Only allow Azure Front Door traffic to ensure that requests can't bypass the Azure Front Door WAF (Web Application Firewall). For more information about restricting access to a specific Azure Front Door instance, see [Secure access to Azure Red Hat OpenShift with Azure Front Door][aro-afd].
+* Secure access to Azure Red Hat OpenShift. To ensure that requests can't bypass the Azure Front Door WAF (Web Application Firewall), allow only Azure Front Door traffic. For more information about restricting access to a specific Azure Front Door instance, see [Secure access to Azure Red Hat OpenShift with Azure Front Door][aro-afd].
 
 ### Container Registry
 
 * The Premium Container Registry service tier offers zone redundancy. For information about registry service tiers and limits, see [Container Registry service tiers][acr-tier].
-* Ensure that [a region where a container registry is deployed supports availability zones][az-regions].
+* [The region where a container registry is deployed must support availability zones][az-regions].
 * After a container registry is deployed, you can't change the zone redundancy option.
 * ACR Tasks doesn't support availability zones.
 
@@ -131,7 +131,7 @@ Multi-region designs are more complex and often more expensive than multi-zone d
 
 #### Resilience
 
-Multi-zone designs that are based on availability zones offer availability and resilience that meets or exceeds the business requirements of most customers. But if you want to replicate data to a secondary region for disaster recovery, your options depend on the Azure services that you use.
+Multi-zone designs that are based on availability zones offer availability and resilience that meets or exceeds the business requirements of most organizations. But if you want to replicate data to a secondary region for disaster recovery, your options depend on the Azure services that you use.
 
 For example, Azure Storage supports [object replication for block blobs][object-replication]. Azure data services, like Azure Cosmos DB, offer data replication to other Azure regions that have continuous backup. You can use these features to restore your solution if a disaster occurs. For more information, see [Continuous backup with point-in-time restore in Azure Cosmos DB][cosmos-continuous-backup].
 
@@ -152,7 +152,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 * By default, all service-to-service communication in Azure is Transport Layer Security (TLS) encrypted. Configure Azure Front Door to accept HTTPS traffic only, and set the minimum TLS version.
 * Managed identities authenticate Azure service-to-service communication where it's available. For more information, see [What are managed identities for Azure resources?](https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 * To manage and protect secrets, certificates, and connection strings in your cluster, connect the Azure Red Hat OpenShift cluster to Azure Arc-enabled Kubernetes. Use the Key Vault Secrets Provider extension to fetch secrets.
-* Configure Microsoft Defender for Containers to secure clusters, containers, and applications. Defender for Containers is supported via Azure Arc-enabled Kubernetes. Scan your images for vulnerabilities with Microsoft Defender or another image scanning solution.
+* Configure Microsoft Defender for Containers to provide security for clusters, containers, and applications. Defender for Containers is supported via Azure Arc-enabled Kubernetes. Scan your images for vulnerabilities with Microsoft Defender or another image scanning solution.
 * Configure Azure AD integration to use Azure AD to authenticate users in your Azure Red Hat OpenShift cluster.
 
 ### Cost optimization
@@ -182,7 +182,7 @@ All Azure services that are platform as a service (PaaS) are integrated with [Az
 * Create a successful alerting strategy.
 * Integrate [Application Insights][insights] into apps to track application performance metrics.  
 * To provide notifications when direct action is needed, use an alerting system, like Container insights metric alerts or the Azure Red Hat OpenShift alerting UI.
-* Consider various methods to monitor and log Azure Red Hat OpenShift to gain insights into the health of your resources and to foresee potential issues.
+* Consider various methods for monitoring and logging Azure Red Hat OpenShift to gain insights into the health of your resources and to foresee potential issues.
 * Review the Azure Red Hat OpenShift responsibility matrix to understand how Microsoft, Red Hat, and customers share responsibilities for clusters.
 * Automate service deployments with [Bicep][bicep], a template language for deploying infrastructure as code (IaC).
 * [Continuously validate](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#continuous-validation-and-testing) the workload to test the performance and resilience of the entire solution by using services, such as [Azure Load Testing][load-tests] and [Azure Chaos Studio][chaos].
@@ -212,13 +212,13 @@ _This article is maintained by Microsoft. It was originally written by the follo
 
 Principal authors:
 
-* [Hiro Tarusawa](https://www.linkedin.com/in/hiro-tarusawa-bb29a2137/) | FastTrack for Azure Customer Engineer
 * [Daniel Mossberg](https://www.linkedin.com/in/danielmossberg/) | FastTrack for Azure Customer Engineer
+* [Hiro Tarusawa](https://www.linkedin.com/in/hiro-tarusawa-bb29a2137/) | FastTrack for Azure Customer Engineer
 
 Other contributors:
 
-* [Daniel Larsen](https://www.linkedin.com/in/daniellarsennz) | FastTrack for Azure Customer Engineer
 * [Ayobami Ayodeji](https://www.linkedin.com/in/ayobamiayodeji) | FastTrack for Azure Customer Engineer
+* [Daniel Larsen](https://www.linkedin.com/in/daniellarsennz) | FastTrack for Azure Customer Engineer
 
 _To see non-public LinkedIn profiles, sign in to LinkedIn._
 
@@ -227,7 +227,7 @@ _To see non-public LinkedIn profiles, sign in to LinkedIn._
 * [Azure services that support availability zones][az-services]
 * [Azure regions with availability zones][az-regions]
 * [Find an availability zone region near you][region-roadmap]
-* [Azure Well-Architected Framework - Reliability][learn-ha]
+* [Azure Well-Architected Framework - Reliability training module][learn-ha]
 
 ## Related resources
 
@@ -237,7 +237,7 @@ _To see non-public LinkedIn profiles, sign in to LinkedIn._
 
 <!-- links -->
 [aad]:https://azure.microsoft.com/services/active-directory/
-[aad-b2c]:https://azure.microsoft.com/services/active-directory/external-identities/b2c/
+[aad-b2c]:https://azuremarketplace.microsoft.com/marketplace/apps/amestofortytwoas1653635920536.b2c
 [acr]:https://azure.microsoft.com/products/container-registry/
 [acr-georeplica]:https://learn.microsoft.com/azure/container-registry/container-registry-geo-replication
 [acr-tier]:https://learn.microsoft.com/azure/container-registry/container-registry-skus
