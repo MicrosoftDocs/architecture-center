@@ -478,14 +478,19 @@ Azure Monitor provides two experiences for consuming distributed trace data: the
 // Jose's original monitoring contribution -->
 
 
+## Redundancy
 
+This architecture uses zone-redundancy for several components. Having instances run in separate zones protects the application against data center failures. 
 
+For more information about how availability zones work, see [Building solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability).
 
+- VMs are automatically spread across availability zones. Each zone is made up of one or more datacenters with independent power, cooling, and networking. VMs are also placed in separate fault domains. This makes sure all VMs aren't updated at the same time. 
 
+- Managed disks can only be attached to a VM in the same region. Their availability typically impacts the availability of the VM. For single-region deployments, disks can be configured for redundancy within a datacenter; locally-Redundant Storage (LRS) or zone-Redundant Storage (ZRS). For most IaaS architectures, LRS is sufficient as it supports [zonal failure mitigations](/azure/virtual-machines/disks-redundancy#locally-redundant-storage-for-managed-disks). For workloads that need even less time to recover from failure, ZRS is a recommended. It requires a recovery strategy to take advantage of availability zones. Ideally pre-provisioned compute in alternate availability zones ready to recover from a zonal failure. 
 
+    In this architecture, data disks are configured as LRS because all tiers are stateless. Recovery strategy is to redeploy the solution.
 
-
-
+- Application Gateway or a Standard Load Balancer are configured as zone-redundant. Traffic can be routed to VMs located across zones with a single IP address, which will survive zone failures. Both services use health probes to determine the availability of the VMs. One or more availability zones can fail but routing survives as long as one zone in the region remains healthy. Routing across zones has higher latency than routing within the zone.
 
 
 
@@ -495,17 +500,7 @@ Azure Monitor provides two experiences for consuming distributed trace data: the
 ## Dump zone
 
 
-## Redundancy
 
-#### Redundancy in disks
-
-Managed disks are a regional resource and can only be attached to a virtual machine in the same region. Managed disks can be either LRS or ZRS. For most IaaS architectures, LRS is sufficient for data disks. ZRS is a good candidate for workloads that require lower RTO and RPO options on data disks, but requires a recovery strategy designed to advantage of availability zones and ideally pre-provisioned compute in alternate availability zones ready to recover from a zonal failure. ZRS also introduces an added bit of write latency that should be validated in your workload. Even LRS disks have [zonal failure mitigations](/azure/virtual-machines/disks-redundancy#locally-redundant-storage-for-managed-disks), but only ZRS is capable of achieving zero RPO.
-
-Some specialty workloads, such as SQL Server Always On, can write data to multiple zones. Likewise, custom applications that you write can also follow that strategy and achieving multi-zone redundancy while still using LRS disks. Architecting your IaaS application to take advantage of the flexibility and raw storage access can be a boon for the overall reliability of your workload.
-
-In this architecture, data disks are configured as LRS as no state is persisted locally on any tiers, and the DR playbook for this architecture is redeploy.
-
-- Azure Managed disks themselves do not have a financially backed SLA, no matter what tier is selected. Their availability typically impacts the availability of the virtual machines they are attached to or worse, they do not, but still impact the availability of the workload.
 
 ## Scalability
 
@@ -547,26 +542,8 @@ Resources in this architecture that can benefit from Azure reservations:
 
 
 
-##### Zone redundancy
-
-Availability zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters with independent power, cooling, and networking. The physical separation of availability zones within a region limits the impact to applications and data from zone failures
-
-By replicating VMs across availability zones, you can protect your applications and data from a zone failure. This is how Azure meets the industry-best [VM uptime service-level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9). For more information, see [Building solutions for high availability using availability zones](../high-availability/building-solutions-for-high-availability.yml).
-
-##### Update domains
-
-Spreading resources across availability zones also protects an application from planned maintenance. When VMs are distributed across three availability zones, they are, in effect, spread across three update domains. The Azure platform recognizes this distribution across update domains to ensure that VMs in different zones aren't updated at the same time.
 
 
-### Business continuity and disaster recovery (BCDR)
-
-
-
-##### Guidance for PaaS and other components
-
-With zone-redundant services, the distribution of the workload is a feature of the service and is handled by Azure. Azure automatically replicates the resource across zones without requiring your intervention. For example, zone-redundant load balancer, Azure Application Gateway, virtual private network (VPN), zone-redundant storage.
-
-Using Application Gateway or a Standard Load Balancer configured as zone-redundant, traffic can be routed to VMs located across zones with a single IP address, which will survive zone failures. The load frontend IP can be used to reach all (non-impacted) VMs no matter the zone. One or more availability zones can fail and the data path survives as long as one zone in the region remains healthy.
 
 ### Compute
 
@@ -624,16 +601,7 @@ The following recommendations apply for most scenarios. Follow these recommendat
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
-
-Availability zones provide high resiliency within a single region. If you need even higher availability, consider replicating the application across two regions. For more information, see [Run an N-tier application in multiple Azure regions for high availability](../reference-architectures/n-tier/multi-region-sql-server.yml).
-
-Not all regions support availability zones, and not all VM sizes are supported in all zones. Run the following Azure CLI command to find the supported zones for each VM size within a region:
-
-```azurecli
-az vm list-skus --resource-type virtualMachines --zone false --location eastus -o table
 ```
 
 ### Security
