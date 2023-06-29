@@ -4,9 +4,9 @@ This example workload relates to both telemetry and batch test drive data ingest
 
 ## Architecture
 
-:::image type="content" source="images/analytics-dataflow.png" alt-text="Diagram that shows the analytics dataflow for automotive streaming data and files." border="false" lightbox="images/analytics-dataflow.png":::
+:::image type="content" source="images/analytics-dataflow.svg" alt-text="Diagram that shows the analytics dataflow for automotive streaming data and files." border="false" lightbox="images/analytics-dataflow.svg":::
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/NextGenerationTelemetryAnalyticsforAutomotive.pptx) with all the diagrams in this article.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/next-generation-telemetry-analytics-automotive.pptx) with all the diagrams in this article.*
 
 ### Dataflow
 
@@ -30,7 +30,7 @@ This example workload relates to both telemetry and batch test drive data ingest
 
 ### Azure Data Explorer schema
 
-:::image type="content" source="images/data-explorer-schema.png" alt-text="Diagram that shows the Azure Data Explorer functions and methods for extracting, expanding, and enriching data." border="false":::
+:::image type="content" source="images/data-explorer-schema.svg" alt-text="Diagram that shows the Azure Data Explorer functions and methods for extracting, expanding, and enriching data." border="false":::
 
 1. The `Update()` function uses methods such as:
 
@@ -69,7 +69,7 @@ The following key technologies implement this workload:
 
 [Azure Batch](https://azure.microsoft.com/services/batch) is a good alternative for complex file decoding. This scenario involves large numbers of files over 300 megabytes that require different decoding algorithms based on file version or type.
 
-:::image type="content" source="images/batch-workflow.png" alt-text="Diagram that shows an alternative Azure Batch method for decoding complex files." border="false":::
+:::image type="content" source="images/batch-workflow.svg" alt-text="Diagram that shows an alternative Azure Batch method for decoding complex files." border="false":::
 
 1. Uploading a recorded data file to Blob Storage triggers a Functions app to schedule decoding.
 1. The Functions app creates a batch job, taking into consideration the file type, size, and required decoding algorithm. The app selects a suitable virtual machine (VM) from the pool and starts the job.
