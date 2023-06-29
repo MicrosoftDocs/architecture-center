@@ -3,6 +3,8 @@ This solution uses an on-premises instance of Qlik to replicate on-premises data
 > [!Note]
 > Pronounce "Qlik" like "click".
 
+*Apache® and Apache Kafka® are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
+
 ## Architecture
 
 :::image type="content" source="media/mainframe-midrange-data-replication-azure-qlik.svg" alt-text="Architecture for data migration to Azure by using Qlik." lightbox="media/mainframe-midrange-data-replication-azure-qlik.svg" border="false":::
