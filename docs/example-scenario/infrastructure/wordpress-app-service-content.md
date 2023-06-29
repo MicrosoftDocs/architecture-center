@@ -1,36 +1,36 @@
 <!-- cSpell:ignore wordpress -->
 
-This article describes a solution for small to medium-sized WordPress installations. The solution provides the scalability, reliability, and security of the Azure platform without the need for complex configuration or management. For larger or storage-intensive installations, see other [hosting options for WordPress](../../guide/infrastructure/wordpress-overview.yml#wordpress-hosting-options-on-azure).
+This article describes a solution for small to medium-sized WordPress installations. The solution provides the scalability, reliability, and security of the Azure platform without the need for complex configuration or management. For solutions for larger or storage-intensive installations, see [WordPress hosting options on Azure](../../guide/infrastructure/wordpress-overview.yml#wordpress-hosting-options-on-azure).
 
 ## Architecture
 
 :::image type="content" source="media/wordpress-app-service.png" alt-text="Architecture diagram of WordPress on Azure App Service. Azure Front Door routes traffic to web apps. Azure Database for MySQL stores dynamic content." lightbox="media/wordpress-app-service.png" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/azure-wordpress.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/azure-wordpress-app-service.vsdx) of this architecture.*
 
 > [!NOTE]
 > You can extend this solution by implementing tips and recommendations that aren't specific to any particular WordPress hosting method. For general tips for deploying a WordPress installation, see [WordPress on Azure](../../guide/infrastructure/wordpress-overview.yml).
 
 ### Dataflow
 
-This scenario covers a scalable and secure installation of [WordPress that runs on Azure App Service](/azure/app-service/quickstart-wordpress).
+This scenario covers a scalable installation of [WordPress that runs on Azure App Service](/azure/app-service/quickstart-wordpress).
 
-- Users access the front-end website through Azure Front Door.
-- Azure Front Door distributes requests across the App Service web apps that WordPress is running on. Azure Front Door retrieves any data that isn't cached from the WordPress web apps.
+- Users access the front-end website through Azure Front Door with Azure Web Application Firewall enabled.
+- Azure Front Door distributes requests across the App Service web apps that WordPress runs on. Azure Front Door retrieves any data that isn't cached from the WordPress web apps.
 - The WordPress application uses a service endpoint to access a flexible server instance of Azure Database for MySQL. The WordPress application retrieves dynamic information from the database.
-- Azure Database for MySQL has locally redundant high availability enabled with a standby server in the same availability zone.
+- Locally redundant high availability is enabled for Azure Database for MySQL via a standby server in the same availability zone.
 - All static content is hosted in Azure Blob Storage.
 
 ### Components
 
-- [WordPress on App Service](/azure/app-service/quickstart-wordpress) is a managed solution template for hosting WordPress on App Service. The solution also uses the other Azure services that are described in this section.
+- The [WordPress on App Service template](/azure/app-service/quickstart-wordpress) is a managed solution for hosting WordPress on App Service. Besides App Service, the solution also uses the other Azure services that are described in this section.
 - [App Service](https://azure.microsoft.com/products/app-service) provides a framework for building, deploying, and scaling web apps.
 - [Azure Front Door](https://azure.microsoft.com/products/frontdoor) is a modern cloud content delivery network. As a distributed network of servers, Azure Front Door efficiently delivers web content to users. Content delivery networks minimize latency by storing cached content on edge servers in point-of-presence locations near end users.
 - [Azure Content Delivery Network](https://azure.microsoft.com/products/cdn) efficiently delivers web content to users by storing blobs at strategically placed locations. In this solution, you can use Content Delivery Network as an alternative to Azure Front Door.
-- [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) provides a way for deployed resources to securely communicate with each other, the internet, and on-premises networks. Virtual networks provide isolation and segmentation. They also filter and route traffic and make it possible to establish connections between various locations. In this solution, the two networks are connected via a virtual network peering.
-- [Azure DDoS Protection](https://azure.microsoft.com/products/ddos-protection) provides enhanced DDoS mitigation features. When you combine these features with application-design best practices, they help defend against DDoS attacks. You should enable DDOS Protection on perimeter virtual networks.
-- [Network security groups](/azure/virtual-network/network-security-groups-overview) use a list of security rules to allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. The subnets in this scenario are secured with network security group rules that restrict traffic flow between the application components.
-- [Azure Key Vault](https://azure.microsoft.com/products/active-directory) is used to store and tightly control access to passwords, certificates, and keys.
+- [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) provides a way for deployed resources to communicate with each other, the internet, and on-premises networks. Virtual networks provide isolation and segmentation. They also filter and route traffic and make it possible to establish connections between various locations. In this solution, the two networks are connected via virtual network peering.
+- [Azure DDoS Protection](https://azure.microsoft.com/products/ddos-protection) provides enhanced DDoS mitigation features. When you combine these features with application-design best practices, they help defend against DDoS attacks. You should enable DDoS Protection on perimeter virtual networks.
+- [Network security groups](/azure/virtual-network/network-security-groups-overview) use a list of security rules to allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. In this scenario's subnets, network security group rules restrict traffic flow between the application components.
+- [Azure Key Vault](https://azure.microsoft.com/products/key-vault/) stores and controls access to passwords, certificates, and keys.
 - [Azure Database for MySQL - flexible server](https://azure.microsoft.com/products/mysql) is a relational database service that's based on the open-source MySQL database engine. The flexible server deployment option is a fully managed service that provides granular control and flexibility over database management functions and configuration settings. In this scenario, Azure Database for MySQL stores WordPress data.
 - [Blob Storage](https://azure.microsoft.com/products/storage/blobs) provides scalable, optimized object storage. Blob Storage is a good fit for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning.
 
@@ -83,17 +83,17 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 Review the following cost considerations when you deploy this solution:
 
-- **Traffic expectations (GB/month):** Your traffic volume is the factor with the greatest effect on your cost. The amount of traffic that you receive determines the number of App Service instances that you need and the price for outbound data transfer. The traffic volume also directly correlates with the amount of data that's provided by your content delivery network, where outbound data transfer costs are cheaper.
-- **Amount of hosted data:** It's important to consider how much data that you host in Blob Storage. Storage pricing is based on used capacity.
-- **Write percentage:** Consider how much new data you write to your website and host in Azure Storage. Determine whether the new data is needed. For multi-region deployments, the amount of new data that you write to your website correlates with the amount of data that's mirrored across your regions.
-- **Static versus dynamic content:** Monitor your database storage performance and capacity to see whether a cheaper SKU can support your site. The database stores dynamic content, and the content delivery network caches static content.
-- **App Service optimization:** For general tips for optimizing App Service costs, see [Azure App Service and cost optimization](/azure/well-architected/services/compute/azure-app-service/cost-optimization).
+- **Traffic expectations (GB/month)**. Your traffic volume is the factor that has the greatest effect on your cost. The amount of traffic that you receive determines the number of App Service instances that you need and the price for outbound data transfer. The traffic volume also directly correlates with the amount of data that's provided by your content delivery network, where outbound data transfer costs are cheaper.
+- **Amount of hosted data**. It's important to consider the amount of data that you host in Blob Storage. Storage pricing is based on used capacity.
+- **Write percentage**. Consider how much new data you write to your website and host in Azure Storage. Determine whether the new data is needed. For multi-region deployments, the amount of new data that you write to your website correlates with the amount of data that's mirrored across your regions.
+- **Static versus dynamic content**. Monitor your database storage performance and capacity to determine whether a cheaper SKU can support your site. The database stores dynamic content, and the content delivery network caches static content.
+- **App Service optimization**. For general tips for optimizing App Service costs, see [Azure App Service and cost optimization](/azure/well-architected/services/compute/azure-app-service/cost-optimization).
 
 ### Performance efficiency
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-This scenario hosts the WordPress front end in App Service. You should enable the autoscale feature to automatically scale the number of App Service instances. You can set an autoscale trigger to respond to customer demand. You can also set a trigger that's based on a defined schedule. For more information, see [Get started with autoscale in Azure](/azure/azure-monitor/autoscale/autoscale-get-started) and the Microsoft Azure Well-Architected Framework article [Performance efficiency principles](/azure/well-architected/scalability/principles).
+This scenario hosts the WordPress front end in App Service. You should enable the autoscale feature to automatically scale the number of App Service instances. You can set an autoscale trigger to respond to customer demand. You can also set a trigger that's based on a defined schedule. For more information, see [Get started with autoscale in Azure](/azure/azure-monitor/autoscale/autoscale-get-started) and the Azure Well-Architected Framework article [Performance efficiency principles](/azure/well-architected/scalability/principles).
 
 ## Contributors
 
@@ -105,7 +105,9 @@ Principal author:
 
 Other contributors:
 
-- Adrian Calinescu | Sr. Cloud Solution Architect
+- Adrian Calinescu | Senior Cloud Solution Architect
+
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

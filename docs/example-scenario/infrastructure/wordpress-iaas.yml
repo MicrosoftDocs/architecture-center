@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: WordPress on VMs
+  title: WordPress on virtual machines
   titleSuffix: Azure Architecture Center
   description: Use Azure Front Door, Azure Virtual Machine Scale Sets, and other Azure services to deploy a highly scalable and secure installation of WordPress.
   author: vjirovsky
@@ -16,7 +16,7 @@ metadata:
     - scalability
     - example-scenario
   social_image_url: /azure/architecture/example-scenario/infrastructure/media/wordpress-vm.png
-name: WordPress on VMs
+name: WordPress on virtual machines
 azureCategories:
   - web
 summary: Use Azure Front Door, Azure Virtual Machine Scale Sets, and other Azure services to deploy a highly scalable and secure installation of WordPress.

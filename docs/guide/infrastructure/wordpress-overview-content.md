@@ -1,6 +1,6 @@
 <!-- cSpell:ignore wordpress -->
 
-WordPress is a versatile and popular content management system that's used to create websites of all sizes and purposes. From small personal blogs to large-scale corporate sites and e-commerce stores, WordPress offers a range of functionalities and customizations to suit different needs. However, due to its installations' varying sizes and use cases, WordPress also has unique hosting requirements that depend on factors such as traffic volume and storage needs.
+WordPress is a versatile and popular content management system that's used to create websites of all sizes, for multiple purposes. From small personal blogs to large-scale corporate sites and e-commerce stores, WordPress offers a range of functionalities and customizations to suit different needs. However, due to its installations' varying sizes and use cases, WordPress also has unique hosting requirements that depend on factors such as traffic volume and storage needs.
 
 This article covers WordPress deployments on Azure. It provides guidance on what to consider and implement to help ensure a secure, scalable, and cost-effective installation.
 
@@ -8,7 +8,7 @@ This article covers WordPress deployments on Azure. It provides guidance on what
 
 Because of its overwhelming popularity, WordPress is a target for hackers. Websites that run on the platform can be vulnerable to security threats such as malware and phishing attacks. The following tips can help you address these risks by creating a more secure and better-performing WordPress installation.
 
-Whether you use a virtual machine (VM) or Azure App Service for your hosting architecture or some other solution, these tips are universally applicable.
+Whether you use a virtual machine (VM) or Azure App Service for your hosting architecture, or whether you use some other solution, these tips are applicable.
 
 ### Use Azure Web Application Firewall
 
@@ -18,7 +18,7 @@ You should use Web Application Firewall on Azure Front Door to get centralized p
 
 ### Remove unused plug-ins and themes
 
-You should remove unused plug-ins and themes from your WordPress installation. This step is important for keeping your WordPress website secure and optimizing its performance. Even a plug-in or theme that you don't actively use can pose a security risk by providing an entry point for hackers to exploit vulnerabilities in outdated or unmaintained code. Also, having lots of plug-ins and themes installed on your website can slow down its performance by increasing load time and server resource usage.
+You should remove unused plug-ins and themes from your WordPress installation. This step is important for helping to keep your WordPress website secure and optimizing its performance. Even a plug-in or theme that you don't actively use can pose a security risk by providing an entry point for hackers to exploit vulnerabilities in outdated or unmaintained code. Also, having lots of plug-ins and themes installed on your website can slow down its performance by increasing load time and server resource usage.
 
 ### Offload static content away from the PHP processor
 
@@ -27,7 +27,7 @@ To reduce the load on your PHP processor, you should offload static content, suc
 There are also other benefits to serving static resources from a content delivery network service such as [Azure Front Door](/azure/frontdoor/front-door-overview). For instance, when you offload static content, you can reduce latency and increase website speed by placing servers close to users' geographic locations.
 
 > [!NOTE]
-> To secure an origin with Azure Front Door by using a private endpoint, you need to use the Premium SKU of Azure Front Door. For more information, see [Secure your origin with Private Link](/azure/frontdoor/private-link).
+> To help secure an origin with Azure Front Door by using a private endpoint, you need to use the Premium SKU of Azure Front Door. For more information, see [Secure your origin with Private Link](/azure/frontdoor/private-link).
 
 #### Content delivery network cache invalidation
 
@@ -76,7 +76,7 @@ With the WordPress application architecture, there are several hosting challenge
 
 - **Scalability**. A hosting architecture must be able to scale out during peak traffic periods.
 - **ReadWriteMany (RWX) storage**. By default, WordPress stores all static assets, plug-ins, and theme source code in the `/wp-content/` directory. During a scale-out, all nodes must be able to read from and write to that directory.
-- **The input/output operations per second (IOPS) storage class**. WordPress consists of over 1,000 tiny .php files that the PHP processor references, loads, and runs during incoming requests. With some protocols, loading numerous small files can increase overhead. Overall performance is then slower than loading one file with the same total size. As a result, the storage solution needs to support high IOPS.
+- **The input/output operations per second (IOPS) storage class**. WordPress consists of over 1,000 small .php files that the PHP processor references, loads, and runs during incoming requests. With some protocols, loading numerous small files can increase overhead. Overall performance is then slower than loading one file with the same total size. As a result, the storage solution needs to support high IOPS.
 - **Cache invalidation**. When there's new activity in the application, such as when you publish a new article, you need to invalidate the cache across all nodes.
 - **The time to build the cache**. For the first user of a given node, the response time can be slow until the cache is built.
 
@@ -86,17 +86,14 @@ WordPress can run on App Service, Azure Kubernetes Service (AKS), and Azure Virt
 
 ### WordPress on App Service
 
-Microsoft provides a fully managed solution for running WordPress on App Service on Linux VMs. The solution:
+Microsoft provides a fully managed solution for running WordPress on App Service on Linux VMs. For detailed information, see [Create a WordPress site](/azure/app-service/quickstart-wordpress). This solution:
 
 - Is designed to help you quickly and easily deploy a WordPress installation.
 - Is ideal for small to medium-sized WordPress installations.
 - Provides the scalability, reliability, and security of the Azure platform without the need for complex configuration or management.
 - Performs automatic updates, backups, and monitoring to help ensure that your site is always available.
 
-For more information, see the following resources:
-
-- [Create a WordPress site](/azure/app-service/quickstart-wordpress)
-- [WordPress on App Service](../../example-scenario/wordpress-app-service.yml)
+For more information, see [WordPress on App Service](../../example-scenario/infrastructure/wordpress-app-service.yml).
 
 ### Storage-intensive workloads
 
@@ -104,11 +101,11 @@ Large WordPress installations can be storage intensive. In these scenarios, you 
 
 For a container deployment of WordPress, you should use AKS. With Azure NetApp Files, implement storage via a Kubernetes Container Storage Interface (CSI) driver. Azure NetApp Files offers a `ReadWriteMany` mode so that all the nodes can read from and write to the same storage. For more information, see [AKS WordPress architecture](../../example-scenario/infrastructure/wordpress-container.yml).
 
-For a large WordPress installation that runs on VMs, you should mount Azure NetApp Files via the network file system (NFS) protocol. For more information, see [WordPress on VMs](../../example-scenario/infrastructure/wordpress-iaas.yml).
+For a large WordPress installation that runs on VMs, you should mount Azure NetApp Files via the network file system (NFS) protocol. For more information, see [WordPress on virtual machines](../../example-scenario/infrastructure/wordpress-iaas.yml).
 
 ### Immutable WordPress container
 
-An alternative approach to traditional hosting methods is to deploy WordPress into an immutable container. This approach has advantages and disadvantages. The source code and all resources within immutable containers are fixed and can't be modified after deployment. You need to make all changes, including new plug-in installations or WordPress core updating, in a new version of the container image. While this approach helps ensure consistency and simplifies rollbacks, you have to build a deployment pipeline to make changes. Also, immutable containers can be limited in the persistent storage options that they offer. You might need to develop a solution for handling media files and other data. Despite these limitations, immutable container deployments offer benefits in terms of security, scalability, and portability.
+An alternative approach to traditional hosting methods is to deploy WordPress into an immutable container. This approach has advantages and disadvantages. The source code and all resources within immutable containers are fixed and can't be modified after deployment. You need to make all changes, including new plug-in installations or WordPress core updating, in a new version of the container image. Although this approach helps ensure consistency and simplifies rollbacks, you have to build a deployment pipeline to make changes. Also, immutable containers can be limited in the persistent storage options that they offer. You might need to develop a solution for handling media files and other data. Despite these limitations, immutable container deployments offer benefits in terms of security, scalability, and portability.
 
 You can deploy an immutable containerized version of WordPress on various platforms, including Azure Container Apps, AKS, and App Service with a custom container image. You can host the container image in Azure Container Registry.
 
@@ -122,7 +119,9 @@ Principal author:
 
 Other contributors:
 
-- Adrian Calinescu | Sr. Cloud Solution Architect
+- Adrian Calinescu | Senior Cloud Solution Architect
+
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
@@ -142,7 +141,7 @@ Training modules:
 - [Introduction to Azure Front Door](/training/modules/intro-to-azure-front-door)
 - [Configure Azure Load Balancer](/training/modules/configure-azure-load-balancer)
 - [Implement Azure Key Vault](/training/modules/implement-azure-key-vault)
-- [Introduction to Azure Virtual Networks](/training/modules/introduction-to-azure-virtual-networks)
+- [Introduction to Azure Virtual Network](/training/modules/introduction-to-azure-virtual-networks)
 
 ## Related resources
 
