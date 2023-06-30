@@ -14,7 +14,6 @@ metadata:
   ms.custom:
     - web-apps
     - scalability
-  social_image_url: /azure/architecture/guide/infrastructure/media/azure-wordpress.png
 name: WordPress on Azure
 azureCategories:
   - web
