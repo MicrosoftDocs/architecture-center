@@ -16,7 +16,6 @@ products:
   - azure-monitor
   - azure-pipelines
   - azure-devtest-labs
-  - devsecops
 ms.custom:
   - overview
   - fcp
