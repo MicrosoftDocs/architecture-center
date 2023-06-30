@@ -81,7 +81,6 @@ Plan your path to production by reviewing:
 | [Azure Resource Manager templates (ARM templates)](/azure/azure-resource-manager/templates/overview) | [ARM template documentation](/azure/azure-resource-manager/templates) | Templates that you can use to define the infrastructure and configuration for your project. |
 | [Azure Test Plans](https://azure.microsoft.com/services/devops/test-plans) | [Azure Test Plans documentation](/azure/devops/test) | Provides planned and exploratory testing services for your apps. |
 
-
 ### Example DevOps architectures
 
 The DevOps architectures are found in two sections:
