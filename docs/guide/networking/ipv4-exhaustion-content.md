@@ -1,5 +1,5 @@
 
-This article describes how to minimize private address space consumption when you build large networks in Azure. You might need to minimize address space consumption if proper address space allocation policies aren't established, and you run out of private IP addresses to assign to Azure virtual networks. This article describes how to use non-routable landing zone spoke virtual networks or Private Link services to create the proper environment.
+This article describes how to minimize private address space consumption when you build large networks in Azure. You might need to minimize address space consumption if proper allocation policies aren't established, and you run out of private IP addresses to assign to Azure virtual networks. This article describes how to use non-routable landing zone spoke virtual networks or Private Link services to create the proper environment.
 
 ## Scenario details
 
@@ -75,7 +75,7 @@ Applications that are exposed via layer-7 application delivery controllers can b
 
 :::image type="content" source="./media/ipv4-exhaustion-app-gw-l7.png" alt-text="Migration approach from traditional landing zone for applications exposed via layer-7 application delivery controllers." border="false" lightbox="./media/ipv4-exhaustion-app-gw-l7.png":::
 
-##### Applications that are exposed via an Azure load balancer
+#### Applications that are exposed via an Azure load balancer
 
 If an application exposes its endpoints via an Azure load balancer, the compute instances that are part of the load balancer’s back-end pool must remain in the same virtual network. Azure load balancers only support back-end instances in their own virtual network.
 
@@ -83,7 +83,7 @@ If an application exposes its endpoints via an Azure load balancer, the compute 
 
 ### Outbound dependencies
 
-An application’s back-end components don't need to be reachable (receive inbound connections) from the corporate network, but the components often have outbound dependencies. Back-end components might need to connect to endpoints that are outside of their landing zones in instances, like DNS resolution, access to application endpoints that are exposed by other landing zones, or access to logging or backup facilities.
+An application’s back-end components don't need to be reachable, or receive inbound connections, from the corporate network, but the components often have outbound dependencies. Back-end components might need to connect to endpoints that are outside of their landing zones in instances such as DNS resolution, access to application endpoints that are exposed by other landing zones, or access to logging or backup facilities.
 
 When services initiate connections in non-routable spoke virtual networks, you must source NAT the connections behind a routable IP address. Deploy a NAT-capable NVA in the routable spoke virtual network. Each landing zone runs its own dedicated NAT NVA. There are two options for implementing SNAT in a landing zone: Azure Firewall or third-party NVAs. In both cases, all subnets in the non-routable spoke must be associated with a custom route table. The route table forwards traffic to destinations outside of the landing zone to the SNAT device. Azure NAT Gateway doesn't support SNAT for destinations with private IP address space, such as RFC 1918.
 
@@ -153,9 +153,9 @@ The following diagram shows the landing zone topology that's enabled by Private 
 
 :::image type="content" source="./media/ipv4-exhaustion-private-link.png" alt-text="Landing zone topology when Private Link Services are used to expose applications deployed in isolated virtual networks." border="false" lightbox="./media/ipv4-exhaustion-private-link.png":::
 
-### Outbound dependencies
+### Use Private Link service for outbound dependencies
 
-When you deploy applications in isolated spoke virtual networks, use Private Link Service (PLS) for outbound dependencies. Define private endpoints in the isolated spoke virtual network and associate them with PLS’s in routable virtual networks. The following diagram shows the conceptual approach.
+When you deploy applications in isolated spoke virtual networks, use Private Link service for outbound dependencies. Define private endpoints in the isolated spoke virtual network and associate them with Private Link service in routable virtual networks. The following diagram shows the conceptual approach.
 
 :::image type="content" source="./media/ipv4-exhaustion-private-link-isolated.png" alt-text="Private Link Services can be used for outbound dependencies for applications deployed in isolated virtual networks." border="false" lightbox="./media/ipv4-exhaustion-private-link-isolated.png":::
 
