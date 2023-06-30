@@ -85,7 +85,17 @@ items:
     - name: Hosting applications
       items:
       - name: WordPress
-        href: hosting-applications/wordpress.yml
+        items:
+        - name: Overview
+          href: ../guide/infrastructure/wordpress-overview.yml
+        - name: Scalable and secure WordPress
+          href: hosting-applications/wordpress.yml
+        - name: Container hosting (AKS)
+          href: ../example-scenario/infrastructure/wordpress-container.yml
+        - name: App Service hosting
+          href: ../example-scenario/infrastructure/wordpress-app-service.yml
+        - name: VM hosting
+          href: ../example-scenario/infrastructure/wordpress-iaas.yml
       - name: Episerver
         href: hosting-applications/digital-marketing-episerver.yml
       - name: Sitecore
