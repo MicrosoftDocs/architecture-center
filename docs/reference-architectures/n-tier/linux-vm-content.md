@@ -2,7 +2,9 @@ Provisioning a virtual machine (VM) in Azure requires some additional components
 
 ## Architecture
 
-![Diagram showing a Linux VM in Azure.](./images/single-vm-diagram.png)
+:::image type="content" border="false" source="./images/single-vm-diagram.svg" alt-text="Diagram showing a Linux VM in Azure." lightbox="./images/single-vm-diagram.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/linux-vm-single-vm-diagram.vsdx) of this architecture.*
 
 ## Workflow
 
@@ -34,7 +36,7 @@ For best disk I/O performance, we recommend [Premium Storage][premium-storage], 
 
 The OS disk is a VHD stored in [Azure Storage][azure-storage], so it persists even when the host machine is down. The VHD can be locally attached NVMe or similar devices available on many VM SKUs. OS disks provide top-tier performance at no extra cost, but come with the significant drawbacks of being non-persistent, having limited capacity, and being restricted to OS and temp disk use only. For Linux VMs, the OS disk is `/dev/sda1`. We also recommend creating one or more [data disks][data-disk], which are persistent VHDs used for application data.
 
-When you create a VHD, it is unformatted. Log into the VM to format the disk. In the Linux shell, data disks are displayed as `/dev/sdc`, `/dev/sdd`, and so on. You can run `lsblk` to list the block devices, including the disks. To use a data disk, create a partition and file system, and mount the disk. For example:
+When you create a VHD, it is unformatted. Log in to the VM to format the disk. In the Linux shell, data disks are displayed as `/dev/sdc`, `/dev/sdd`, and so on. You can run `lsblk` to list the block devices, including the disks. To use a data disk, create a partition and file system, and mount the disk. For example:
 
 ```bash
 # Create a partition.

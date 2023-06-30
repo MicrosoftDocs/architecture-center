@@ -249,5 +249,6 @@ Other contributors:
 
 - [Cost governance with Kubecost](/azure/cloud-adoption-framework/scenarios/app-platform/aks/cost-governance-with-kubecost)
 - [Cost Management discipline overview](/azure/cloud-adoption-framework/govern/cost-management)
+- [Video - Can cloud native architectures lower your long-term costs?](https://www.youtube.com/watch?v=5KVz_rz3P3w)
 - [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator)
 - [Plan and manage your Azure costs](/learn/modules/plan-manage-azure-costs)

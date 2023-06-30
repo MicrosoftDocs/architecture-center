@@ -159,6 +159,6 @@ Other contributors:
 
 ## Related resources
 
-- [Protect APIs with Azure Application Gateway and Azure API Management](../../reference-architectures/apis/protect-apis.yml)
+- [Protect APIs with Azure Application Gateway and Azure API Management](../../web-apps/api-management/architectures/protect-apis.yml)
 - [Query-based document summarization](/azure/architecture/guide/ai/query-based-summarization)
 - [AI architecture design](../../data-guide/big-data/ai-overview.md)

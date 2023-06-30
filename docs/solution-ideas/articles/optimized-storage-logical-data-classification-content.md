@@ -2,7 +2,7 @@ This architecture is for a high-availability solution that handles massive amoun
 
 ## Architecture
 
-:::image type="content" source="../media/optimized-storage-logical-data-classification.svg" lightbox="../media/optimized-storage-logical-data-classification.png" alt-text="Architecture of a resilient system that uses two types of storage to reduce costs.":::
+:::image type="content" source="../media/optimized-storage-logical-data-classification.svg" lightbox="../media/optimized-storage-logical-data-classification.svg" alt-text="Architecture of a resilient system that uses two types of storage to reduce costs.":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1857597-PR-3334-optimized-storage-logical-data-classification.vsdx) of this architecture.*
 

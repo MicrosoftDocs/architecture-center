@@ -4,8 +4,9 @@ This article presents a solution for automating data analysis and visualization 
 
 ## Architecture
 
-![Architecture Diagram](../media/intelligent-apps-using-azure-database-for-postgresql.png)
-*Download a [PNG file](../media/intelligent-apps-using-azure-database-for-postgresql.png) of this architecture.*
+![Diagram that shows the dataflow of an intelligent application using Azure Database for PostgreSQL.](../media/intelligent-apps-using-azure-database-for-postgresql.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/intelligent-apps-azure-database-for-postgresql.vsdx) of this architecture.*
 
 ### Dataflow
 

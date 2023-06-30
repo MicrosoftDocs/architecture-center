@@ -75,7 +75,7 @@ This architecture uses a hub-spoke network topology. The hub and spoke(s) are de
 
 - Aligns with the [Azure enterprise-scale landing zones](/azure/cloud-adoption-framework/ready/enterprise-scale/implementation).
 
-![Hub-spoke network topology](images/aks-baseline-architecture.png)
+[ ![Architecture diagram that shows a hub-spoke network topology.](images/aks-baseline-architecture.svg)](images/aks-baseline-architecture.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-baseline-architecture.vsdx) of this architecture.*
 
@@ -125,7 +125,7 @@ For more information, see [Private Link deployment options](../../../guide/netwo
 
 ## Plan the IP addresses
 
-![Diagram showing network topology of the AKS cluster.](images/aks-baseline-network-topology.png)
+[ ![Diagram showing network topology of the AKS cluster.](images/aks-baseline-network-topology.svg)](images/aks-baseline-network-topology.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-baseline_network_topology.vsdx) of this architecture.*
 
@@ -343,7 +343,7 @@ Network flow, in this context, can be categorized as:
 
 - **Management traffic**. Traffic that goes between the client and the Kubernetes API server.
 
-![Cluster traffic flow](images/traffic-flow.png)
+[ ![Diagram showing cluster traffic flow.](images/traffic-flow.svg)](images/traffic-flow.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/secure-baseline-aks-traffic-flow.vsdx) of this architecture.*
 
@@ -353,7 +353,7 @@ This architecture has several layers of security to secure all types of traffic.
 
 The architecture only accepts TLS encrypted requests from the client. TLS v1.2 is the minimum allowed version with a restricted set of cyphers. Server Name Indication (SNI) strict is enabled. End-to-end TLS is set up through Application Gateway by using two different TLS certificates, as shown in this image.
 
-![TLS termination](images/tls-termination.png)
+[ ![Diagram showing TLS termination.](images/tls-termination.svg)](images/tls-termination.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/secure-baseline-aks-tls-termination.vsdx) of this architecture.*
 
@@ -466,7 +466,7 @@ There are two approaches: autoscaling or manual scaling.
 
 The manual or programmatic way requires you to monitor and set alerts on CPU utilization or custom metrics. For pod scaling, the application operator can increase or decrease the number of pod replicas by adjusting the `ReplicaSet` through Kubernetes APIs. For cluster scaling, one way is to get notified when the Kubernetes scheduler fails. Another way is to watch for pending pods over time. You can adjust the node count through Azure CLI or the portal.
 
-Autoscaling is the approach because some of those manual mechanisms are built into the autoscaler.
+Autoscaling is the recommended approach because some of those manual mechanisms are built into the autoscaler.
 
 As a general approach, start by performance testing with a minimum number of pods and nodes. Use those values to establish the baseline expectation. Then use a combination of performance metrics and manual scaling to locate bottlenecks and understand the application's response to scaling. Finally, use this data to set the parameters for autoscaling. For information about a performance tuning scenario using AKS, see [Performance tuning scenario: Distributed business transactions](../../../performance/distributed-transaction.yml).
 
@@ -603,7 +603,7 @@ Azure Monitor [Container insights](/azure/azure-monitor/containers/container-ins
 
 Most workloads hosted in pods emit Prometheus metrics. Container insights is capable of integrating with Prometheus to view application and workload metrics it collects from nodes and Kubernetes.
 
-There are some third-party solutions that integrate with Kubernetes you can take advantage of, such as Grafana or Datadog, if your organization already uses them.
+There are some third-party solutions that integrate with Kubernetes you can take advantage of, such as Datadog, Grafana, or New Relic, if your organization already uses them.
 
 With AKS, Azure manages some core Kubernetes services and the logs for the AKS control plane components are implemented in Azure as [resource logs](/azure/azure-monitor/essentials/resource-logs). It is recommended that most clusters have the following enabled at all times as they can help you troubleshoot cluster issues and have a relatively low log density:
 
@@ -633,7 +633,7 @@ Keep the Kubernetes version up to date with the [supported N-2 versions](/azure/
 
 For more information, see [Regularly update to the latest version of Kubernetes](/azure/aks/operator-best-practices-cluster-security#regularly-update-to-the-latest-version-of-kubernetes) and [Upgrade an Azure Kubernetes Service (AKS) cluster](/azure/aks/upgrade-cluster).
 
-Notification of events raised by your cluster, such as new AKS version availability for your cluster, can be achieved through the [AKS System Topic for Azure Event Grid](/azure/event-grid/event-schema-aks). The reference implementation, deploys this Event Grid System Topic so that you can subscribe to the `Microsoft.ContainerService.NewKubernetesVersionAvailable` event from your event stream notification solution.
+Notification of events raised by your cluster, such as new AKS version availability for your cluster, can be achieved through the [AKS System Topic for Azure Event Grid](/azure/event-grid/event-schema-aks). The reference implementation deploys this Event Grid System Topic so that you can subscribe to the `Microsoft.ContainerService.NewKubernetesVersionAvailable` event from your event stream notification solution.
 
 #### Weekly updates
 
@@ -705,7 +705,9 @@ In this architecture, we've chosen [GitHub Actions](https://github.com/marketpla
 
 ### Cluster CI/CD
 
-![Workload CI/CD](images/workload-ci-cd.png)
+[ ![Diagram showing workload CI/CD.](images/workload-ci-cd.svg)](images/workload-ci-cd.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/secure-baseline-aks-workload-ci-cd.vsdx) of this architecture.*
 
 Instead of using an imperative approach like kubectl, use tools that automatically synchronize cluster and repository changes. To manage the workflow, such as release of a new version and validation of that version before deploying to production, consider a GitOps flow.
 
@@ -722,7 +724,9 @@ You can also set policies that govern how those changes are deployed.
 
 Here's an example that shows how to automate cluster configuration with GitOps and flux:
 
-![GitOps Flow](images/gitops-flow.png)
+[ ![Diagram that shows the GitOps flow.](images/gitops-flow.svg)](images/gitops-flow.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/secure-baseline-aks-gitops-flow.vsdx) of this architecture.*
 
 1. A developer commits changes to source code, such as configuration YAML files, which are stored in a git repository. The changes are then pushed to a git server.
 

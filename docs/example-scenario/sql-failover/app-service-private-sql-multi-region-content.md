@@ -4,11 +4,11 @@ See [Web app private connectivity to Azure SQL Database][Web app private connect
 
 ## Architecture
 
-:::image type="complex" source="./media/app-service-private-sql-multi-region-solution-architecture.png" alt-text="Architecture diagram showing how traffic flows from a web app to a database on a private connection. Routes for multiple failover scenarios are visible." border="false":::
+:::image type="complex" source="./media/app-service-private-sql-multi-region-solution-architecture.svg" alt-text="Architecture diagram showing how traffic flows from a web app to a database on a private connection. Routes for multiple failover scenarios are visible." border="false" lightbox="./media/app-service-private-sql-multi-region-solution-architecture.svg":::
    The diagram contains two vertically aligned boxes, one for a primary region and one for a secondary region. Each box contains a web app icon, a box for a virtual network, and a database icon. Outside the boxes on the left, a cloud represents the internet. Arrows point from that cloud through a Front Door and then into the web app in each box. The arrow leading into the secondary region box is dashed. Inside each box, arrows connect the web app, the virtual network, and the database. More arrows cross from the virtual network in each region into the database in the other region. All arrows that end in the secondary database are dashed. Outside each box on the right, a cloud represents the internet. A red arrow that is marked with a letter x points from each cloud to the database in its region. An arrow with points on both ends that is labeled Database Geo-replication connects the two databases. An arrow with points on both ends that is labeled Virtual Network Peering connects the two networks. An icon for a private DNS zone is located at the top of the diagram.
 :::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-1808238-app-service-private-sql-multi-region-solution-architecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/app-service-private-sql-multi-region-solution-architecture.vsdx) of this architecture.*
 
 ### General case
 
@@ -216,9 +216,8 @@ Principal author:
 
 ## Next steps
 
-- [Basic web application][Basic web application]
+- [Baseline App Services web application][Baseline web application]
 - [Highly available multi-region web application][Highly available multi-region web application]
-- [Scalable web application][Scalable web application]
 
 ## Related resources
 
@@ -234,7 +233,7 @@ Principal author:
 [Azure DNS Private Zones]: /azure/app-service/web-sites-integrate-with-vnet#azure-dns-private-zones
 [Azure Web Apps]: /azure/app-service/overview
 [Bandwidth Pricing Details]: https://azure.microsoft.com/pricing/details/bandwidth/
-[Basic web application]: ../../reference-architectures/app-service-web-app/basic-web-app.yml
+[Baseline web application]: ../../web-apps/app-service/architectures/baseline-zone-redundant.yml
 [Complete region failover]: #alternatives
 [Configuring secondary database]: /azure/azure-sql/database/active-geo-replication-overview#configuring-secondary-database
 [Considerations that apply to the single-region version]: ../private-web-app/private-web-app.yml#considerations
@@ -247,14 +246,13 @@ Principal author:
 [Fail over to a geo-replicated secondary database]: /azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview#fail-over-to-a-geo-replicated-secondary-database
 [Global peering limitation]: ../private-web-app/private-web-app.yml#global-peering
 [High availability]: https://wikipedia.org/wiki/High_availability
-[Highly available multi-region web application]: ../../reference-architectures/app-service-web-app/multi-region.yml
+[Highly available multi-region web application]: ../../web-apps/app-service/architectures/multi-region.yml
 [How to set up Private Link for Azure SQL Database]: /azure/azure-sql/database/private-endpoint-overview#how-to-set-up-private-link-for-azure-sql-database
 [Integrate your app with an Azure virtual network]: /azure/app-service/web-sites-integrate-with-vnet
 [Multi-region N-tier application]: ../../reference-architectures/n-tier/multi-region-sql-server.yml
 [Overview of business continuity with Azure SQL Database]: /azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview
 [Private link resource]: /azure/private-link/private-endpoint-overview#private-link-resource
 [Regional VNet Integration]: /azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration
-[Scalable web application]: ../../reference-architectures/app-service-web-app/scalable-web-app.yml
 [Use auto-failover groups to enable transparent and coordinated failover of multiple databases]: /azure/azure-sql/database/auto-failover-group-overview
 [Virtual network peering]: /azure/virtual-network/virtual-network-peering-overview
 [Web app private connectivity to Azure SQL database]: ../private-web-app/private-web-app.yml

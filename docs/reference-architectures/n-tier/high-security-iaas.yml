@@ -23,7 +23,7 @@ products:
   - azure-disk-encryption
   - azure-firewall
   - azure-key-vault
-  - azure-security-center
+  - defender-for-cloud
   - azure-virtual-network
 thumbnailUrl: /azure/architecture/browse/thumbs/dedicated-hosts.png
 content: |

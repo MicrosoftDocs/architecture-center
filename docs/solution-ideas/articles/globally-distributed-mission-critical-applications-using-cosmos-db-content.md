@@ -2,9 +2,9 @@ Applications need to be highly responsive and always online. This article presen
 
 ## Architecture
 
-:::image type="content" source="../media/globally-distributed-mission-critical-applications-using-cosmos-db.png" alt-text="Architecture diagram that shows how Azure Traffic Manager routes an app user to the best location for accessing Azure Cosmos DB.":::
+[ ![Architecture diagram that shows how Azure Traffic Manager routes an app user to the best location for accessing Azure Cosmos DB.](../media/globally-distributed-mission-critical-applications-using-cosmos-db.svg)](../media/globally-distributed-mission-critical-applications-using-cosmos-db.svg#lightbox)
 
-*Download an [SVG](../media/globally-distributed-mission-critical-applications-using-cosmos-db.svg) version of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/globally-distributed-mission-critical-applications-using-cosmos-db.vsdx) of this architecture.*
 
 ### Dataflow
 

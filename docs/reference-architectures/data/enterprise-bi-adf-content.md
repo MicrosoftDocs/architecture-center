@@ -4,7 +4,7 @@ This reference architecture shows how to perform incremental loading in an [extr
 
 ## Architecture
 
-![Architecture diagram for automated enterprise BI with Azure Synapse and Azure Data Factory](./images/enterprise-bi-adf.png)
+![Architecture diagram for automated enterprise BI with Azure Synapse Analytics and Azure Data Factory.](./images/enterprise-bi-data-factory.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/enterprise-bi-adf.vsdx) of this architecture.*
 
