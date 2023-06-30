@@ -81,29 +81,31 @@ Applications that are exposed via layer-7 application delivery controllers can b
 
 ##### Applications that are exposed via Azure Load Balancer
 
-If an application exposes its endpoints via an Azure load balancer, the compute instances that are part of the load balancer’s back-end pool must remain in the same virtual network (Azure load balancers only support back-end instances in their own virtual network). The resulting migration guidance is shown in the following diagram.
+If an application exposes its endpoints via an Azure load balancer, the compute instances that are part of the load balancer’s back-end pool must remain in the same virtual network. Azure load balancers only support back-end instances in their own virtual network. The following diagram shows the migration guidance.
 
 :::image type="content" source="./media/ipv4-exhaustion-load-balancer-l4.png" alt-text="Migration approach from traditional landing zone for applications exposed via Azure Load Balancer." border="false" lightbox="./media/ipv4-exhaustion-load-balancer-l4.png":::
 
 *Figure 4. Migration approach from traditional landing zone for applications exposed via Azure Load Balancer.*
 
 ### Outbound dependencies
-Although an application’s back-end components don't need to be reachable (receive inbound connections) from the corporate network, it's common for them to have outbound dependencies: back-end components may need to connect to endpoints outside of their landing zones. Typical examples include DNS resolution, access to application endpoints exposed by other landing zones, access to logging or backup facilities, etc.
 
-Connections initiated by services in non-routable spoke virtual networks must be Source-NAT’ted behind a routable IP address. This requires deploying a NAT-capable NVA(s) in the routable spoke virtual network. Each landing zone must run its own dedicated NAT NVA(s). Two options exist for implementing SNAT in a landing zone: Azure Firewall or third-party NVAs. In both cases, all subnets in the non-routable spoke must be associated to a custom route table, to forward traffic to destinations outside of the landing zone to the SNAT device, as shown in the following diagram. Azure NAT Gateway doesn't support SNAT for destination with private IP address space(RFC 1918), hence it can't be used for this purpose.
+An application’s back-end components don't need to be reachable (receive inbound connections) from the corporate network, but the components often have outbound dependencies. Back-end components might need to connect to endpoints that are outside of their landing zones. For example, DNS resolution, access to application endpoints that are exposed by other landing zones, or access to logging or backup facilities.
+
+For connections that are initiated by services in non-routable spoke virtual networks, you must source NAT the connections behind a routable IP address. Deploy a NAT-capable NVA in the routable spoke virtual network. Each landing zone must run its own dedicated NAT NVA. There are two options for implementing SNAT in a landing zone: Azure Firewall or third-party NVAs. In both cases, all subnets in the non-routable spoke must be associated with a custom route table. The route table forwards traffic to destinations outside of the landing zone to the SNAT device. Azure NAT Gateway doesn't support SNAT for destinations with private IP address space, such as RFC 1918.
 
 :::image type="content" source="./media/ipv4-exhaustion-snat-nva.png" alt-text="To enable resources in the non-routable spoke to access routable IP addresses outside their landing zone, Source-NAT NVA(s) must be deployed in each landing zone’s routable spoke. All subnets in the non-routable spoke must be associated with a custom route table to send traffic to destinations outside the landing zone to the SNAT NVA(s)." border="false" lightbox="./media/ipv4-exhaustion-snat-nva.png":::
 
 *Figure 5. To enable resources in the non-routable spoke to access routable IP addresses outside their landing zone, Source-NAT NVA(s) must be deployed in each landing zone’s routable spoke. All subnets in the non-routable spoke must be associated with a custom route table to send traffic to destinations outside the landing zone to the SNAT NVA(s).*
 
-##### SNAT Option 1: Azure Firewall
-The following diagram shows the typical landing zone layout when using Azure Firewall for Source-NAT in a traditional Hub-Spoke network topology.
+#### SNAT Option 1: Azure Firewall
+
+The following diagram shows the landing zone layout when you use Azure Firewall for source NAT in a traditional hub-spoke network topology.
 
 :::image type="content" source="./media/ipv4-exhaustion-snat-azfw.png" alt-text="To enable resources in the non-routable spoke to access routable IP addresses outside their landing zone, Azure Firewall must be deployed with ‘Perform Source NAT’ as ‘Always’ in each landing zone’s routable spoke. All subnets in the non-routable spoke must be associated with a custom route table to send traffic to destinations outside the landing zone to Azure Firewall." border="false" lightbox="./media/ipv4-exhaustion-snat-azfw.png":::
 
 *Figure 6. To enable resources in the non-routable spoke to access routable IP addresses outside their landing zone, Azure Firewall must be deployed with ‘Perform Source NAT’ as ‘Always’ in each landing zone’s routable spoke. All subnets in the non-routable spoke must be associated with a custom route table to send traffic to destinations outside the landing zone to Azure Firewall.*
 
-The following diagram shows the typical landing zone layout when using Azure Firewall for Source-NAT in a Virtual WAN based hub-and-spoke network.
+The following diagram shows the landing zone layout when you use Azure Firewall for source NAT in a Virtual WAN-based hub-and-spoke network.
 
 :::image type="content" source="./media/ipv4-exhaustion-snat-azfw-vwan.png" alt-text="To enable resources in the non-routable spoke to access routable IP addresses outside their landing zone, Azure Firewall must be deployed with ‘Perform Source NAT’ as ‘Always’ in each landing zone’s routable spoke (VWAN Connected). All subnets in the non-routable spoke (No Connection with VWAN) must be associated with a custom route table to send traffic to destinations outside the landing zone to Azure Firewall." border="false" lightbox="./media/ipv4-exhaustion-snat-azfw-vwan.png":::
 
@@ -111,47 +113,49 @@ The following diagram shows the typical landing zone layout when using Azure Fir
 
 The following design considerations apply:
 
-- Azure Firewall provides High Availability.
-- Azure Firewall provides native scalability and 3 different SKUs. As Source-NAT is a non-resource-intensive task, the Basic SKU should be considered first. For landing zones that require large volumes of outbound traffic from the non-routable address space, the Standard SKU can be used.
-- Azure Firewall Source-NATs traffic behind the private IP addresses of any one of its instances. Each instance can use all the nonprivileged ports.
-- Instructions on how to configure Azure Firewall to Source-NAT all received connections are available in the public documentation.
+- Azure Firewall provides high availability.
+- Azure Firewall provides native scalability and three different SKUs. Source NAT is a non-resource intensive task, so consider the basic SKU first. For landing zones that require large volumes of outbound traffic from the non-routable address space, use the standard SKU.
+- Azure Firewall source NATs traffic behind the private IP addresses of any of its instances. Each instance can use all the nonprivileged ports.
+- You can find instructions to configure Azure Firewall to source NAT all received connections in public documentation.
 
 :::image type="content" source="./media/ipv4-exhaustion-azfw-snat-behavior.png" alt-text="Azure Firewall can be configured to Source-NAT all received connections. This is the required configuration for using Azure Firewall as a NAT device for connections initiated by resources in non-routable spoke virtual networks." border="false" lightbox="./media/ipv4-exhaustion-azfw-snat-behavior.png":::
 
 *Figure 8. Azure Firewall can be configured to Source-NAT all received connections. This is the required configuration for using Azure Firewall as a NAT device for connections initiated by resources in non-routable spoke virtual networks.*
 
-##### SNAT Option 2: Third-party NVAs (Azure Marketplace)
-Typical requirements that are best addressed by using third-party NVAs with NAT capabilities include:
+#### SNAT Option 2: Third-party NVAs (Azure Marketplace)
 
-- granular control over scale in/scale out
-- granular control of the NAT pool
-- custom NAT policies, such as the ability to use different NAT addresses depending on the properties of the incoming connection, such as source or destination IP
+Use third-party NVAs with NAT capabilities to provide:
+
+- Granular control over scale in or scale out.
+- Granular control of the NAT pool.
+- Custom NAT policies, such as using different NAT addresses depending on the properties of the incoming connection, like the source or destination IP.
 
 The following design considerations apply:
 
-- Clusters with at least two NVAs should be deployed for high availability. An Azure load balancer is needed to distribute incoming connections from the non-routable spoke virtual network to the NVAs. An "HA Port" load balancing rule is required, as the cluster is expected to Source-NAT all connections leaving the landing zone, irrespective of the destination port. "HA Port" load balancing rules are only supported by Azure Load Balancer Standard.
-- Azure’s network virtualization stack doesn't set any constraints as to how many NICs (one NIC vs. two NICs) the NVAs should use. While this design decision is mainly driven by the specific NVAs being used, single-homed NVAs should be preferred, as they reduce address space consumption in the routable spoke virtual networks.
+- For high availability, deploy clusters with at least two NVAs. Use an Azure load balancer to distribute incoming connections from the non-routable spoke virtual network to the NVAs. An "HA Port" load balancing rule is required because the cluster source NATs all connections that leave the landing zone. Azure Load Balancer Standard supports "HA Port" load balancing rules.
+- The Azure network virtualization stack has no constraints for the number of NICs that the NVAs use. The third-party NVA option is mainly driven by the NVAs that are used. Single-homed NVAs are preferred because they reduce address space consumption in the routable spoke virtual networks.
 
-The following diagram shows the typical landing zone layout when using third-party NVAs in a traditional hub-and-spoke network topology.
+The following diagram shows the landing zone layout when you use third-party NVAs in a hub-and-spoke network topology.
 :::image type="content" source="./media/ipv4-exhaustion-nva-snat-flow.png" alt-text="When using third-party NVAs, in a traditional hub-spoke, to provide Source-NAT for non-routable spokes, multiple instances must be deployed behind an Azure load balancer in order to guarantee high availability. Azure Load Balancer Standard SKU is required." border="false" lightbox="./media/ipv4-exhaustion-nva-snat-flow.png":::
 
 *Figure 9.  When using third-party NVAs, in a traditional hub-spoke, to provide Source-NAT for non-routable spokes, multiple instances must be deployed behind an Azure load balancer in order to guarantee high availability. Azure Load Balancer Standard SKU is required.*
 
-The following diagram shows the typical landing zone layout when using third-party NVAs in a VWAN based hub-spoke network topology.
+The following diagram shows the landing zone layout when you use third-party NVAs in a Virtual WAN-based hub-spoke network topology.
 
 :::image type="content" source="./media/ipv4-exhaustion-vwan-nva-snat-flow.png" alt-text="When using third-party NVAs, in a VWAN spoke, to provide Source-NAT for non-routable spokes, multiple instances must be deployed behind an Azure load balancer in order to guarantee high availability. Azure Load Balancer Standard SKU is required." border="false" lightbox="./media/ipv4-exhaustion-vwan-nva-snat-flow.png":::
 
 *Figure 10.  When using third-party NVAs, in a VWAN spoke, to provide Source-NAT for non-routable spokes, multiple instances must be deployed behind an Azure Load Balancer in order to guarantee high availability. Azure Load Balancer Standard SKU is required.*
 
-## Best practice #2: Private Link Services
-Private Link is an Azure feature that allows a client in a virtual network to access an application deployed in a different, disconnected virtual network. In the server-side (application) virtual network, a Private Link Service resource is deployed and associated with an application endpoint exposed on the front-end IP address of an internal Azure load balancer (Standard SKU). In the client-side virtual network, a Private Endpoint resource is deployed and associated with the Private Link Service. The Private Endpoint exposes the application endpoint in the client’s virtual networks. Private Link provides, in the physical underlay, the tunneling and NAT-ting logic needed to route traffic between the client- and the server-side. For more information see [What is Azure Private Link?](/azure/private-link/private-link-overview).
+## Best practice #2: Private Link services
 
-Private Link doesn't require a layer-3 connection between client-side and server-side virtual networks. Hence, the two virtual networks can have overlapping IP address spaces. Private Link allows deployment of applications in dedicated, isolated virtual networks, all of which the same address space. The applications are exposed as Private Link Services in the corporate network, which uses a routable address space. In the context of the Azure landing zone reference architecture, the resulting landing zone topology is comprised of:
+Private Link is an Azure feature that enables you access to an application that's deployed in a virtual network that's disconnected from your virtual network. In the server-side (application) virtual network, a Private Link Service resource is deployed and associated with an application endpoint that's exposed on the front-end IP address of an internal Azure load balancer (Standard SKU). In the client-side virtual network, a Private Endpoint resource is deployed and associated with the Private Link Service. The Private Endpoint exposes the application endpoint in your virtual networks. Private Link provides the tunneling and NAT-ting logic to route traffic between your side and the server side. For more information, see [What is Azure Private Link?](/azure/private-link/private-link-overview)
 
-- An isolated virtual network, whose address space can be freely defined by the application team, that hosts the entire application and the Private Link Service(s) associated to the application’s endpoints.
-- A spoke virtual network, directly peered with the regional hub, with a routable address space, that hosts the Private Endpoint(s) associated with the Private Link Service(s).
+Private Link doesn't require a layer-3 connection between your side and the server side virtual networks. The two virtual networks can have overlapping IP address spaces. Private Link allows the deployment of applications in dedicated, isolated virtual networks, all of which have the same address space. The applications are exposed as Private Link services in the corporate network, which uses a routable address space. In the context of the Azure landing zone reference architecture, the resulting landing zone topology is comprised of:
 
-The landing zone topology enabled by Private Link is shown in the following diagram.
+- An isolated virtual network that hosts the entire application and the Private Link service that's associated with the application’s endpoints. The application team defines the virtual network address space.
+- A spoke virtual network with a routable address space that hosts the private endpoint associated with the Private Link service. The spoke virtual network is directly peered with the regional hub.
+
+The following diagram shows the landing zone topology that's enabled by Private Link.
 
 :::image type="content" source="./media/ipv4-exhaustion-private-link.png" alt-text="Landing zone topology when Private Link Services are used to expose applications deployed in isolated virtual networks." border="false" lightbox="./media/ipv4-exhaustion-private-link.png":::
 
@@ -159,7 +163,7 @@ The landing zone topology enabled by Private Link is shown in the following diag
 
 ### Outbound dependencies
 
-When deploying applications in isolated spoke virtual networks, Private Link Services (PLS) must be used for outbound dependencies. Private Endpoints must be defined in the isolated spoke virtual network and associated with PLS’s in routable virtual networks. The following diagram shows the conceptual approach.
+When you deploy applications in isolated spoke virtual networks, use Private Link Service (PLS) for outbound dependencies. Define private endpoints in the isolated spoke virtual network and associate them with PLS’s in routable virtual networks. The following diagram shows the conceptual approach.
 
 :::image type="content" source="./media/ipv4-exhaustion-private-link-isolated.png" alt-text="Private Link Services can be used for outbound dependencies for applications deployed in isolated virtual networks." border="false" lightbox="./media/ipv4-exhaustion-private-link-isolated.png":::
 
@@ -176,6 +180,10 @@ These two limitations can be overcome by deploying a proxy/NAT solution in the r
 
 *Figure 13. A single Private Endpoint/Private Link Service can be used to expose a proxy/NAT solution deployed in the routable network. Port-Translation and Address-Translation rules defined on the NVAs allow a single Private Endpoint in the isolated virtual network to be used for accessing multiple dependencies in the routable network.*
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
 **Principal authors:**
 
 - [Federico Guerrini](https://www.linkedin.com/in/federico-guerrini-phd-8185954) | EMEA Technical Lead
@@ -188,8 +196,9 @@ These two limitations can be overcome by deploying a proxy/NAT solution in the r
 
 - [Deploy Azure Firewall in a virtual network](/azure/firewall/tutorial-firewall-deploy-portal-policy)
 - [Configure SNAT on Azure Firewall](/azure/firewall/snat-private-range)
+- [Supported IP addresses in Azure Virtual Network](/azure/virtual-network/virtual-networks-faq#what-address-ranges-can-i-use-in-my-vnets)
+- [Azure Private Link](/azure/private-link/private-link-overview)
 
 ## Related resources
 
-- [Supported IP addresses in Azure Virtual Network](/azure/virtual-network/virtual-networks-faq#what-address-ranges-can-i-use-in-my-vnets)
-- [Azure Private Link](/azure/private-link/private-link-overview)
+
