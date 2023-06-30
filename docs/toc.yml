@@ -3060,8 +3060,6 @@ items:
       items:
       - name: Analyze browser information
         href: example-scenario/ai/analyze-browser-info-for-security-insights.yml
-      - name: Analyze observational patient data
-        href: example-scenario/digital-health/patient-data-ohdsi-omop-cdm.yml
       - name: Anomaly detection for conveyor belts
         href: example-scenario/ai/real-time-anomaly-detection-conveyor-belt.yml
       - name: Automate document classification
