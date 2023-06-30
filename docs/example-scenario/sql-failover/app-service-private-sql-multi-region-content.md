@@ -216,9 +216,8 @@ Principal author:
 
 ## Next steps
 
-- [Basic web application][Basic web application]
+- [Baseline App Services web application][Baseline web application]
 - [Highly available multi-region web application][Highly available multi-region web application]
-- [Scalable web application][Scalable web application]
 
 ## Related resources
 
@@ -234,7 +233,7 @@ Principal author:
 [Azure DNS Private Zones]: /azure/app-service/web-sites-integrate-with-vnet#azure-dns-private-zones
 [Azure Web Apps]: /azure/app-service/overview
 [Bandwidth Pricing Details]: https://azure.microsoft.com/pricing/details/bandwidth/
-[Basic web application]: ../../reference-architectures/app-service-web-app/basic-web-app.yml
+[Baseline web application]: ../../web-apps/app-service/architectures/baseline-zone-redundant.yml
 [Complete region failover]: #alternatives
 [Configuring secondary database]: /azure/azure-sql/database/active-geo-replication-overview#configuring-secondary-database
 [Considerations that apply to the single-region version]: ../private-web-app/private-web-app.yml#considerations
@@ -247,14 +246,13 @@ Principal author:
 [Fail over to a geo-replicated secondary database]: /azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview#fail-over-to-a-geo-replicated-secondary-database
 [Global peering limitation]: ../private-web-app/private-web-app.yml#global-peering
 [High availability]: https://wikipedia.org/wiki/High_availability
-[Highly available multi-region web application]: ../../reference-architectures/app-service-web-app/multi-region.yml
+[Highly available multi-region web application]: ../../web-apps/app-service/architectures/multi-region.yml
 [How to set up Private Link for Azure SQL Database]: /azure/azure-sql/database/private-endpoint-overview#how-to-set-up-private-link-for-azure-sql-database
 [Integrate your app with an Azure virtual network]: /azure/app-service/web-sites-integrate-with-vnet
 [Multi-region N-tier application]: ../../reference-architectures/n-tier/multi-region-sql-server.yml
 [Overview of business continuity with Azure SQL Database]: /azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview
 [Private link resource]: /azure/private-link/private-endpoint-overview#private-link-resource
 [Regional VNet Integration]: /azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration
-[Scalable web application]: ../../reference-architectures/app-service-web-app/scalable-web-app.yml
 [Use auto-failover groups to enable transparent and coordinated failover of multiple databases]: /azure/azure-sql/database/auto-failover-group-overview
 [Virtual network peering]: /azure/virtual-network/virtual-network-peering-overview
 [Web app private connectivity to Azure SQL database]: ../private-web-app/private-web-app.yml

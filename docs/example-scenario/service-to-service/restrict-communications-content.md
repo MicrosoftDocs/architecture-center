@@ -114,7 +114,7 @@ Principal author:
 ## Next steps
 
 - [Message encoding considerations for cloud applications](../../best-practices/message-encode.md)
-- [Enterprise deployment using App Services Environment](../../reference-architectures/enterprise-integration/ase-standard-deployment.yml)
+- [Enterprise deployment using App Services Environment](../../web-apps/app-service-environment/architectures/ase-standard-deployment.yml)
 - [Web app private connectivity to Azure SQL database](../private-web-app/private-web-app.yml)
 
 ## Related resources

@@ -2,8 +2,8 @@
 title: Solutions for the aerospace industry
 description: See architectures and ideas that use Azure services to build efficient, scalable, and reliable solutions in the aerospace industry.
 author: martinekuan
-ms.author: architectures
-ms.date: 08/10/2022
+ms.author: robbag
+ms.date: 06/27/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -47,7 +47,7 @@ The following articles provide detailed analysis of architectures created and re
 |[Ingest FAA SWIM content to analyze flight data](../example-scenario/analytics/ingest-faa-swim-analyze-flight-data.yml)|Integrate Chef Infra, Chef InSpec, Test Kitchen, Terraform, Terraform Cloud, and GitHub Actions to automate and create data analytics environments.| Analytics|
 |[Organize spaceborne geospatial data with SpatioTemporal Asset Catalog (STAC)](/azure/orbital/organize-stac-data?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) |This reference architecture shows an end-to-end implementation of SpatioTemporal Asset Catalog (STAC) to structure geospatial data. |Databases|
 |[Process Synthetic Aperture Radar (SAR) data in Azure](/azure/orbital/sar-reference-architecture?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) |View a reference architecture that enables processing SAR/Remote Sensing data on Azure by using Apache Spark on Azure Synapse. |Analytics|
-|[Serverless web application](../reference-architectures/serverless/web-app.yml) |Review a reference architecture that shows a serverless web application that serves static content from Azure Blob Storage.  An example scenario describes a company that uses a drone-based delivery service.|Serverless|
+|[Serverless web application](../web-apps/serverless/architectures/web-app.yml) |Review a reference architecture that shows a serverless web application that serves static content from Azure Blob Storage.  An example scenario describes a company that uses a drone-based delivery service.|Serverless|
 |[Spaceborne data analysis with Azure Synapse Analytics](./aerospace/geospatial-processing-analytics.yml) |View a reference architecture that enables geospatial workloads on Azure by using Azure Synapse.|Analytics|
 
 ## Solution ideas for aerospace

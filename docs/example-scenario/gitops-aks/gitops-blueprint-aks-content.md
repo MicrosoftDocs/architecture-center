@@ -227,4 +227,4 @@ Principal author:
 - [DevSecOps for infrastructure as code (IaC)](../../solution-ideas/articles/devsecops-infrastructure-as-code.yml)
 - [Enterprise infrastructure as code using Bicep and Azure Container Registry](../../guide/azure-resource-manager/advanced-templates/enterprise-infrastructure-bicep-container-registry.yml)
 - [DevSecOps with GitHub Security](../../solution-ideas/articles/devsecops-in-github.yml)
-- [Automate infrastructure reconfiguration by using Azure](../../example-scenario/serverless/automation-application-gateway.yml)
+- [Automate infrastructure reconfiguration by using Azure](../../web-apps/guides/networking/automation-application-gateway.yml)

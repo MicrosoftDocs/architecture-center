@@ -84,5 +84,5 @@ Other contributors:
 
 ## Related resources
 
-- [Protect APIs with Application Gateway and API Management](../../reference-architectures/apis/protect-apis.yml)
+- [Protect APIs with Application Gateway and API Management](../../web-apps/api-management/architectures/protect-apis.yml)
 - [Automated API deployments with APIOps](../../example-scenario/devops/automated-api-deployments-apiops.yml)
