@@ -4,7 +4,7 @@ This solution idea describes how to tier data and applications on-premises and o
 
 ## Architecture
 
-:::image type="content" border="false" source="../media/tiered-data-for-analytics.svg" alt-text="Architecture diagram shows data to Azure function; to Web apps, Azure Queue and storage; to Azure function to storage to Web apps." lightbox="../media/tiered-data-for-analytics.svg":::
+:::image type="content" border="false" source="../media/tiered-data-for-analytics.svg" alt-text="Architecture diagram that shows  how to tier data and applications on-premises and on Azure." lightbox="../media/tiered-data-for-analytics.svg":::
 *Download a [Visio file](https://arch-center.azureedge.net/tiered-data-for-analytics.vsdx) of this architecture.*
 
 ### Dataflow
