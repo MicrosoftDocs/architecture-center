@@ -1,25 +1,28 @@
 
-This article describes how to minimize private address space consumption when you build large networks in Azure. For example, these recommendations are useful if you run out of private IP addresses to assign to Azure Virtual Network because proper address space allocation policies aren't adopted.
+This article describes how to minimize private address space consumption when you build large networks in Azure. These recommendations are for anyone that has run out of private IP addresses to assign to Azure virtual networks or if proper address space allocation policies aren't adopted.
 
 ## Architecture
 
 The following sections present best practice recommendations for scenarios that have a huge number of IPv4 address requirements and for scenarios that have limited RFC 1918 address space. Each recommendation is collated under the "Best Practices" section.
 
-### Background
+### Scenario details
 
-Corporate networks typically use address spaces that are included in the private IPv4 address ranges defined by RFC 1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16). In on-premises environments, these ranges provide enough IP addresses to meet the requirements of even the largest networks. As a result, many organizations develop address-management practices that prioritize simple routing configurations and agile processes for IP allocation over efficient utilization of the address space.
+Corporate networks typically use address spaces that are in the private IPv4 address ranges that RFC 1918 defines, such as 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16. In on-premises environments, these ranges provide enough IP addresses to meet the requirements of even the largest networks. As a result, many organizations develop address-management practices that prioritize simple-routing configurations and agile processes for IP allocation. Efficient use of the address space isn't a priority.
 
-In the cloud, large hybrid networks are easy to build, and architectural patterns (microservices, container orchestration platforms, virtual network injection for platform-as-a-service (PaaS) services) consume many IP addresses, so it’s important to revisit those address-management  practices. Treat private IPv4 addresses as a limited resource.
+In the cloud, large hybrid networks are easy to build, and architectural patterns, like microservices or container orchestration platforms, consume many IP addresses, so it’s important to adjust those address-management practices. In a cloud environment, treat private IPv4 addresses as a limited resource.
 
-### IP address ranges that Azure Virtual Network supports
+### Azure Virtual Network IP address ranges
 
-In Azure Virtual Network, we recommend that you use the address blocks that are defined by RFC 1918. These address blocks are for general-purpose private networks and are "non-routable" on the public internet.
+In Azure Virtual Network, we recommend that you use the address blocks that RFC 1918 defines. These address blocks are for general-purpose private networks and are "non-routable" on the public internet.
 
-But you can also use the following ranges. Before you use these ranges in your virtual network, read the IANA documentation to understand the potential implications to your environment:
+But there are other ranges that you can use. Before you use these ranges in your virtual network, read the IANA documentation to understand the potential implications to your environment. You can use the following ranges:
 
-- The shared address space for Carrier Grade NAT (CGN) that's defined by RFC 6598 (100.64.0.0/10) is treated as private address space in Azure Virtual Network.
-- You can use public, internet-routable IP addresses in Azure Virtual Network. You can use public address ranges that aren’t owned by your organization, but this practice is discouraged. When you use public address ranges, resources in the virtual network can’t access internet endpoints that are exposed over the public IP addresses.
-- You can use some of the special-purpose address blocks that are defined by IANA, like 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 198.18.0.0/15, 198.51.100.0/24, 203.0.113.0/24, 233.252.0.0/24, 240.0.0.0/4.
+- The shared address space for carrier-grade NAT (CGN) that RFC 6598 defines is treated as private address space in Azure Virtual Network. The address block is 100.64.0.0/10.
+- You can use public, internet-routable IP addresses in Azure Virtual Network that aren’t owned by your organization, but this practice is discouraged. When you use public address ranges, resources in the virtual network can’t access internet endpoints that are exposed over the public IP addresses.
+- You can use some of the special-purpose address blocks that IANA defines, like 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 198.18.0.0/15, 198.51.100.0/24, 203.0.113.0/24, 233.252.0.0/24, and 240.0.0.0/4.
+
+> [!NOTE]
+> The previous ranges won't provide a long-term solution for organizations that have IPv4 exhaustion issues across the entire RFC 1918 address space. Those organizations should minimize private address space consumption.
 
 You can't use the following IP address ranges in Azure Virtual Network:
 
@@ -29,35 +32,32 @@ You can't use the following IP address ranges in Azure Virtual Network:
 - 169.254.0.0/16 (Link-local)
 - 168.63.129.16/32 (Internal DNS)
 
-> [!NOTE]
-> The additional ranges mentioned previously aren't likely to provide a long-term solution for organizations that have IPv4 exhaustion issues across the entire RFC 1918 address space. Those organizations should minimize private address space consumption.
-
 ### Azure landing zone alignment
 
-The best practices in this article are for scenarios based on the [Azure landing zones reference architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture). The guidance assumes that:
+The best practices in this article are for scenarios that are based on the [Azure landing zones reference architecture](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture). The guidance assumes that:
 
-- A hub-and-spoke topology is used in each region.
+- Each region has a hub-and-spoke topology.
 - Hub-and-spoke networks that are in different regions are connected.
 - Hub-and-spoke networks are connected to on-premises sites via a combination of virtual network peering, ExpressRoute circuits, and site-to-site VPNs.
 
-The best practices are equally applicable to networks that are built on top of Azure Virtual WAN, which follows the same topological pattern that has hub-and-spoke networks in each region.
+The recommendations are equally applicable to networks that are built on top of Azure Virtual WAN, which also has hub-and-spoke networks in each region.
 
 :::image type="content" source="./media/ipv4-exhaustion-hub-spoke.png" alt-text="Regional hub-and-spoke topology recommended by the Azure landing zone reference architecture." border="false" lightbox="./media/ipv4-exhaustion-hub-spoke.png":::
 
 *Figure 1. Regional hub-and-spoke topology recommended by the Azure landing zone reference architecture. In multi-region scenarios, a hub-and-spoke network is created in each region. Application landing zones are typically assigned a single spoke virtual network, peered to the regional hub that's deployed into the platform landing zone.*
 
-In a scenario that's based on the Azure landing zone reference architecture, applications are deployed in their own landing zones. Each landing zone contains a spoke virtual network that's peered to a regional hub. Spoke virtual networks are an integral part of the corporate network and are assigned routable IPv4 addresses. These addresses are unique across the entire corporate network. So, all architectural components that are deployed in Azure Virtual Network consume IPv4 addresses in the corporate network’s address space even if only a few of them expose endpoints that must be reachable from the entire corporate network. These architectural components can be virtual machines, first-party or third-party network NVAs, or virtual network-injected PaaS services.
+In a scenario that's based on the Azure landing zone reference architecture, applications are deployed in their own landing zones. Each landing zone contains a spoke virtual network that's peered to a regional hub. Spoke virtual networks are an integral part of the corporate network and are assigned routable IPv4 addresses. These addresses are unique across the entire corporate network. So, all architectural components that are deployed in Azure Virtual Network consume IPv4 addresses in the corporate network’s address space even if only a few of them expose endpoints that must be reachable from the entire corporate network. These architectural components might be virtual machines, first-party or third-party network NVAs, or virtual network-injected PaaS services.
 
-In the remainder of this article, an application’s components that must be reachable from the entire corporate network (from outside its own landing zone) are referred to as "front-end components". Application components that don't expose endpoints in the corporate network and only need to be reachable from within their own landing zone are referred to as "back-end components". For example, a web application that exposes an endpoint and a database that doesn't expose any endpoint have one front-end component and one back-end component.
+For the remainder of this article, "front-end components" refer to application components that must be reachable from the entire corporate network or from outside the components' landing zone. "Back-end components" refer to application components that don't expose endpoints in the corporate network and only need to be reachable from within their own landing zone. For example, a web application that exposes an endpoint and a database that doesn't expose any endpoint have one front-end component and one back-end component.
 
-The following sections describe best practices to minimize private address space consumption when you build large networks in Azure. For example, these recommendations are useful if you run out of private IP addresses to assign to Azure Virtual Network because proper address space allocation policies aren't adopted.
+The following sections describe best practices to minimize private address space consumption when you build large networks in Azure. These recommendations are for anyone that has run out of private IP addresses to assign to Azure virtual networks or if proper address space allocation policies aren't adopted.
 
 ## Best practice #1: Non-routable landing zone spoke virtual networks
 
-RFC 1918 carves some IP address blocks out of the IPv4 32-bit address space and declares them to be "non-routable" in the public internet, so that they can be freely reused within multiple private networks for internal communication. This best practice is based on the same principle that applies to private address space. One or more address ranges are carved out of the entire private address space that's used by an organization and declared "non-routable" within that organization’s corporate network, for them to be reused in multiple landing zones. As a result, each landing zone:
+RFC 1918 carves IP address blocks out of the IPv4 32-bit address space and makes them "non-routable" in the public internet, so that they can be reused in multiple private networks for internal communication. This best practice is based on the same principle that applies to private address space. One or more address ranges are carved out of the entire private address space that's used by an organization and declared "non-routable" within that organization’s corporate network. The address ranges are reused in multiple landing zones. As a result, each landing zone:
 
-- Is assigned a "routable" address space made of one or more address ranges that are centrally managed by the organization and uniquely assigned to a landing zone for communicating with the corporate network. Addresses in the routable space are assigned to front-end components.
-- Can freely use the "non-routable" address space, which is the address ranges that the organization has declared to be non-routable in the corporate network. You can use these reserved ranges for internal communication in all landing zones. Addresses in the non-routable space are assigned to back-end components.
+- Is assigned a "routable" address space that's made of one or more address ranges. The address ranges are centrally managed by the organization and uniquely assigned to a landing zone for communicating with the corporate network. Addresses in the routable space are assigned to front-end components.
+- Can use the "non-routable" address space, which is the address ranges that the organization declared non-routable in the corporate network. You can use these reserved ranges for internal communication in all landing zones. Addresses in the non-routable space are assigned to back-end components.
 
 In an Azure hub-and-spoke network (customer-managed or based on Virtual WAN), two or more spoke virtual networks can't have overlapping IP address spaces. So non-routable address blocks can't be assigned to a landing zone spoke. But due to the nontransitive nature of virtual network peering, a landing zone spoke virtual network can peer with a "second-level" spoke virtual network with a non-routable address space. The following diagram shows the dual virtual network topology for landing zones:
 
