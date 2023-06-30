@@ -3,8 +3,8 @@ title: Architecture for startups
 titleSuffix: Azure Architecture Center
 description: Understand how to approach architecture when you're working in a startup.
 author: mootpointer
-ms.author: anharvey
-ms.date: 2/15/2023
+ms.author: robbag
+ms.date: 6/27/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -72,7 +72,8 @@ In early startup stages, any architecture extension should be just-in-time. The 
 
 Your architecture could be expanded in many ways, such as:
 
-- Enhancing resiliency through a [highly available multi-region deployment](../../reference-architectures/app-service-web-app/multi-region.yml)
+- Enhancing resiliency through a [zone-redundant deployment](../../web-apps/app-service/architectures/baseline-zone-redundant.yml)
+- Enhancing resiliency through a [highly available multi-region deployment](../../web-apps/app-service/architectures/multi-region.yml)
 - Enhancing security through a [network hardened technology stack](../../example-scenario/security/hardened-web-app.yml)
 
 ## Extract
