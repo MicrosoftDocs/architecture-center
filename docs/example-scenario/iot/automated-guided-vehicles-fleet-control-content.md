@@ -202,7 +202,8 @@ Azure Architecture Center overview articles:
 
 - [Microservices architecture style](/azure/architecture/guide/architecture-styles/microservices)
 - [Choosing an Azure compute option for microservices](/azure/architecture/microservices/design/compute-options)
-- [Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region)
+- [Baseline zone-redundant web application](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant)
+- [Highly available multi-region web application](/azure/architecture/web-apps/app-service/architectures/multi-region)
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)
 - [CI/CD for AKS apps with Azure Pipelines](/azure/architecture/guide/aks/aks-cicd-azure-pipelines)
 
@@ -210,4 +211,4 @@ Related architectures:
 
 - [Building blocks for autonomous-driving simulation environments](/azure/architecture/industries/automotive/building-blocks-autonomous-driving-simulation-environments)
 - [Running CFD simulations](/azure/architecture/example-scenario/infrastructure/hpc-cfd)
-- [Industrial services on Azure Kubernetes](https://github.com/Azure/Industrial-IoT/tree/master/docs/services)
+- [Industrial services on Azure Kubernetes](https://github.com/Azure/Industrial-IoT/blob/main/docs/web-api/readme.md)

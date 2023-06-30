@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 06/12/2023
+ms.date: 06/27/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -27,19 +27,29 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
-- [Blue/green deployments on Azure Spring Apps](./web-apps/spring-apps/blue-green-spring.yml)
+- [Blue/green deployments on Azure Spring Apps](./web-apps/spring-apps/guides/blue-green-spring.yml)
 - [Azure Spring Apps (ASA) architecture design](./web-apps/spring-apps/index.md)
-- [Azure Spring Apps integrated with landing zones](./web-apps/spring-apps/spring-apps-landing-zone.yml)
-- [Deploy Azure Spring Apps to multiple regions](./web-apps/spring-apps/spring-apps-multi-region.yml)
-- [Azure Spring Apps baseline architecture](./web-apps/spring-apps/spring-apps-multi-zone.yml)
+- [Azure Spring Apps integrated with landing zones](./web-apps/spring-apps/architectures/spring-apps-landing-zone.yml)
+- [Deploy Azure Spring Apps to multiple regions](./web-apps/spring-apps/architectures/spring-apps-multi-region.yml)
+- [Azure Spring Apps baseline architecture](./web-apps/spring-apps/architectures/spring-apps-multi-zone.yml)
 - [Baseline highly available zone-redundant app services web application](./reference-architectures/app-service-web-app/baseline-zone-redundant.yml)
-- [Siemens Teamcenter baseline architecture](./example-scenario/manufacturing/teamcenter-baseline.yml)
+- [Monitor a distributed system by using Application Insights and OpenCensus](./guide/devops/monitor-with-opencensus-application-insights.yml)
+- [Deploy Autodesk Maya on a virtual machine](./guide/hpc/autodesk-maya.yml)
+- [Offline audio dubbing](./guide/media/offline-audio-dubbing.yml)
+- [Deploy LAMMPS on an Azure virtual machine](./guide/hpc/hpc-lammps.yml)
+- [Build language model pipelines with memory](./guide/ai/language-model-pipelines.yml)
+- [Implement Azure DevOps for mainframe applications that use IBM Z and Cloud Modernization Stack](./example-scenario/mainframe/devops-mainframe-ibm-z.yml)
+- [Siemens Teamcenter baseline architecture on Azure](./example-scenario/manufacturing/teamcenter-baseline.yml)
 - [DataOps for autonomous vehicle operations](./example-scenario/automotive/autonomous-vehicle-operations-dataops.yml)
 - [Use Teamcenter PLM with Azure NetApp Files](./example-scenario/manufacturing/teamcenter-plm-netapp-files.yml)
 - [Carrier-grade voicemail solution on Azure](./industries/telecommunications/carrier-grade.yml)
 
 ### Updated articles
 
+- [Deploy Altair EDEM on an Azure virtual machine](./guide/hpc/altair-edem.yml)  ([#306c39ceff](https://github.com/MicrosoftDocs/architecture-center/commit/306c39ceff))
+- [Deploy Samadii Plasma on an Azure virtual machine](./guide/hpc/plasma.yml)  ([#306c39ceff](https://github.com/MicrosoftDocs/architecture-center/commit/306c39ceff))
+- [Deploy Samadii DEM on an Azure virtual machine](./guide/hpc/samadii-dem.yml)  ([#306c39ceff](https://github.com/MicrosoftDocs/architecture-center/commit/306c39ceff))
+- [Deploy Samadii SCIV on an Azure virtual machine](./guide/hpc/samadii-sciv.yml)  ([#306c39ceff](https://github.com/MicrosoftDocs/architecture-center/commit/306c39ceff))
 - [Implement TIC 3.0 compliance](./example-scenario/security/trusted-internet-connections.yml)  ([#f6fe0b35f8](https://github.com/MicrosoftDocs/architecture-center/commit/f6fe0b35f8))
 - [DR for Azure Data Platform - Overview](./data-guide/disaster-recovery/dr-for-azure-data-platform-overview.yml)  ([#f451a54cdb](https://github.com/MicrosoftDocs/architecture-center/commit/f451a54cdb))
 - [DR for Azure Data Platform - Scenario details](./data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details.yml)  ([#f451a54cdb](https://github.com/MicrosoftDocs/architecture-center/commit/f451a54cdb))
@@ -125,7 +135,7 @@ The following new and updated articles have recently been published in the Azure
 - [Run CAE simulations for manufacturing on Azure](./example-scenario/hpc/hpc-run-cae-simulations.yml)
 - [Autonomous Vehicle Operations (AVOps) design guide](./guide/machine-learning/avops-design-guide.md)
 - [Create an Autonomous Vehicle Operations (AVOps) solution](./solution-ideas/articles/avops-architecture.yml)
-- [Protect access tokens in a single-page application by using Azure API Management](./guide/web/secure-single-page-application-authorization.yml)
+- [Protect access tokens in a single-page application by using Azure API Management](./web-apps/guides/security/secure-single-page-application-authorization.yml)
 
 ### Updated articles
 
@@ -140,7 +150,7 @@ The following new and updated articles have recently been published in the Azure
 - [Azure App Service and Azure Functions considerations for multitenancy](./guide/multitenant/service/app-service.yml)  ([#924f5e599b](https://github.com/MicrosoftDocs/architecture-center/commit/924f5e599b))
 - [Deploy Azure landing zones](./landing-zones/landing-zone-deploy.md)  ([#5ff05eae2e](https://github.com/MicrosoftDocs/architecture-center/commit/5ff05eae2e))
 - [High-availability Kubernetes with Azure Stack Hub](./example-scenario/hybrid/high-availability-kubernetes.yml)  ([#b4b724827e](https://github.com/MicrosoftDocs/architecture-center/commit/b4b724827e))
-- [Reliable web app pattern for .NET -  Apply the pattern](./reference-architectures/reliable-web-app/dotnet/apply-pattern.yml)  ([#47558cb037](https://github.com/MicrosoftDocs/architecture-center/commit/47558cb037))
+- [Reliable web app pattern for .NET -  Apply the pattern](./web-apps/guides/reliable-web-app/apply-pattern.yml)  ([#47558cb037](https://github.com/MicrosoftDocs/architecture-center/commit/47558cb037))
 - [Scale AI and machine learning initiatives in regulated industries](./example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml)  ([#9042e8a0fa](https://github.com/MicrosoftDocs/architecture-center/commit/9042e8a0fa))
 - [Multitenant SaaS on Azure](./example-scenario/multi-saas/multitenant-saas.yml)  ([#139802b59c](https://github.com/MicrosoftDocs/architecture-center/commit/139802b59c))
 - [Master data management with Profisee and Azure Data Factory](./reference-architectures/data/profisee-master-data-management-data-factory.yml)  ([#d1671805f9](https://github.com/MicrosoftDocs/architecture-center/commit/d1671805f9))

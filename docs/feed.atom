@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2023-06-12T16:01:46.746Z</updated>
+    <updated>2023-06-27T15:44:36.779Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
@@ -10,8 +10,8 @@
     <category term="updated"/>
     <entry>
         <title type="html"><![CDATA[Blue/green deployments on Azure Spring Apps]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/web-apps/spring-apps/blue-green-spring</id>
-        <link href="https://learn.microsoft.com/azure/architecture/web-apps/spring-apps/blue-green-spring"/>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/spring-apps/guides/blue-green-spring</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/spring-apps/guides/blue-green-spring"/>
         <updated>2023-06-09T02:54:33.000Z</updated>
         <summary type="html"><![CDATA[This article describes a high-availability blue/green deployment solution for applications on Azure Spring Apps.]]></summary>
         <category label="new" term="new"/>
@@ -57,11 +57,59 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Siemens Teamcenter baseline architecture]]></title>
+        <title type="html"><![CDATA[Monitor a distributed system by using Application Insights and OpenCensus]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/devops/monitor-with-opencensus-application-insights</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/devops/monitor-with-opencensus-application-insights"/>
+        <updated>2023-06-20T21:37:39.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to monitor an end-to-end distributed system by using OpenCensus for Python and Application Insights.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Autodesk Maya on a virtual machine]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/autodesk-maya</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/autodesk-maya"/>
+        <updated>2023-06-20T18:00:29.000Z</updated>
+        <summary type="html"><![CDATA[See how Autodesk Maya performs on an Azure virtual machine. Maya provides 3D animation, modeling, simulation, and rendering capabilities.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Offline audio dubbing]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/media/offline-audio-dubbing</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/media/offline-audio-dubbing"/>
+        <updated>2023-06-20T16:09:16.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure Cognitive Services AI tools to automate the offline dubbing process and ensure a high-quality dubbed version of original input.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy LAMMPS on an Azure virtual machine]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/hpc-lammps</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/hpc-lammps"/>
+        <updated>2023-06-14T16:44:29.000Z</updated>
+        <summary type="html"><![CDATA[Learn how LAMMPS classical molecular dynamics software performs on single-node and multi-node Azure virtual machine configurations.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Build language model pipelines with memory]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/ai/language-model-pipelines</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/ai/language-model-pipelines"/>
+        <updated>2023-06-13T18:34:44.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use an AI/ML pipeline, LangChain, and language models to create an analysis of how your product compares to competitor's similar products.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Implement Azure DevOps for mainframe applications that use IBM Z and Cloud Modernization Stack]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/devops-mainframe-ibm-z</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/devops-mainframe-ibm-z"/>
+        <updated>2023-06-12T17:02:55.000Z</updated>
+        <summary type="html"><![CDATA[Implement Azure DevOps for z/OS mainframe applications that use IBM Z and Cloud Modernization Stack.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Siemens Teamcenter baseline architecture on Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/manufacturing/teamcenter-baseline</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/manufacturing/teamcenter-baseline"/>
         <updated>2023-06-09T21:20:50.000Z</updated>
-        <summary type="html"><![CDATA[Learn about the Siemens Teamcenter product lifecycle management (PLM) solution architecture in Azure.]]></summary>
+        <summary type="html"><![CDATA[Learn about the Siemens Teamcenter product lifecycle management (PLM) solution architecture on Azure.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -87,6 +135,38 @@
         <updated>2023-06-05T18:38:47.000Z</updated>
         <summary type="html"><![CDATA[An example of a carrier-grade solution design that focuses on highly reliability using Azure services.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Altair EDEM on an Azure virtual machine]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/altair-edem</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/altair-edem"/>
+        <updated>2023-06-26T17:58:54.000Z</updated>
+        <summary type="html"><![CDATA[Learn how Altair EDEM discrete element method (DEM) software performs on an Azure virtual machine (VM).]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Samadii Plasma on an Azure virtual machine]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/plasma</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/plasma"/>
+        <updated>2023-06-26T17:58:54.000Z</updated>
+        <summary type="html"><![CDATA[Find out how the Samadii Plasma particle-based application performs on an Azure virtual machine (VM).]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Samadii DEM on an Azure virtual machine]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/samadii-dem</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/samadii-dem"/>
+        <updated>2023-06-26T17:58:54.000Z</updated>
+        <summary type="html"><![CDATA[Find out how Samadii DEM, a discrete element method solver, performs on an Azure virtual machine (VM).]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Samadii SCIV on an Azure virtual machine]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/samadii-sciv</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/samadii-sciv"/>
+        <updated>2023-06-26T17:58:54.000Z</updated>
+        <summary type="html"><![CDATA[Find out how Samadii SCIV (Statistical Contact in Vacuum) performs on an Azure virtual machine (VM).]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Implement TIC 3.0 compliance]]></title>
@@ -602,8 +682,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Protect access tokens in a single-page application by using Azure API Management]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/web/secure-single-page-application-authorization</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/web/secure-single-page-application-authorization"/>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/guides/security/secure-single-page-application-authorization</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/guides/security/secure-single-page-application-authorization"/>
         <updated>2023-03-08T19:18:51.000Z</updated>
         <summary type="html"><![CDATA[Implement a No Token in the Browser architecture for a JavaScript single-page application using API Management.]]></summary>
         <category label="new" term="new"/>
@@ -698,8 +778,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Reliable web app pattern for .NET -  Apply the pattern]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/reliable-web-app/dotnet/apply-pattern</id>
-        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/reliable-web-app/dotnet/apply-pattern"/>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/guides/reliable-web-app/apply-pattern</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/guides/reliable-web-app/apply-pattern"/>
         <updated>2023-03-16T18:01:36.000Z</updated>
         <summary type="html"><![CDATA[How to migrate your .NET application to the cloud with minimal code changes. Plan and apply low-cost, high-value updates to your .NET application.]]></summary>
         <category label="updated" term="updated"/>

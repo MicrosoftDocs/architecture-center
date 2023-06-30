@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Offline audio dubbing
+  description: Use Azure Cognitive Services AI tools to automate the offline dubbing process and ensure a high-quality dubbed version of original input. 
+  author: nawanas
+  ms.author: nawanas
+  ms.date: 06/20/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - ai-machine-learning
+  - media
+products:
+  - azure-cognitive-services
+  - azure-speech
+  - azure-speech-text
+  - azure-speech-translation
+name: Offline audio dubbing
+summary: Use Azure Cognitive Services AI tools to automate the offline dubbing process and ensure a high-quality dubbed version of original input.
+thumbnailUrl: /azure/architecture/browse/thumbs/audio-dubbing-architecture.png
+content: |
+  [!include[](offline-audio-dubbing-content.md)]

@@ -15,6 +15,6 @@ products:
   - azure-virtual-network
 name: Deploy WRF on a virtual machine
 summary: Find out how WRF performs on an Azure VM.
-thumbnailUrl: /azure/architecture/browse/thumbs/wrf-thumb.png
+thumbnailUrl: /azure/architecture/browse/thumbs/weather-research-forecasting-thumb.png
 content: |
   [!include[](weather-research-forecasting-content.md)]

@@ -171,9 +171,6 @@ conceptualContent:
       - text: Natural language processing
         itemType: concept
         url: ./data-guide/technology-choices/natural-language-processing.yml
-      - text: R developer's guide to Azure
-        itemType: concept
-        url: ./data-guide/technology-choices/r-developers-guide.md
       - text: Movie recommendation
         itemType: get-started
         url: ./example-scenario/ai/movie-recommendations-with-machine-learning.yml
@@ -426,17 +423,17 @@ conceptualContent:
     - title: Serverless applications
       links:
         - text: Code walkthrough
-          url: serverless/code.yml
+          url: web-apps/serverless/architectures/code.yml
           itemType: how-to-guide
         - text: Serverless event processing
           itemType: architecture
           url: reference-architectures/serverless/event-processing.yml
         - text: Serverless web application
           itemType: architecture
-          url: reference-architectures/serverless/web-app.yml
+          url: web-apps/serverless/architectures/web-app.yml
       footerLink:
         text: Introduction to Serverless Applications on Azure
-        url: ./serverless/code.yml
+        url: web-apps/serverless/architectures/code.yml
 
     - title: VM workloads
       links:
@@ -457,7 +454,7 @@ conceptualContent:
           url: reference-architectures/n-tier/multi-region-sql-server.yml
         - text: Highly scalable WordPress
           itemType: get-started
-          url:  example-scenario/infrastructure/wordpress.yml
+          url: web-apps/hosting-applications/wordpress.yml
         - text: Multi-tier Windows
           itemType: get-started
           url:  ./reference-architectures/n-tier/n-tier-sql-server.yml
@@ -496,16 +493,16 @@ conceptualContent:
       links:
         - text: Basic web application
           itemType: architecture
-          url: reference-architectures/app-service-web-app/basic-web-app.yml
-        - text: Improved scalability
+          url: web-apps/app-service/architectures/basic-web-app.yml
+        - text: Baseline zone-redundant web application
           itemType: architecture
-          url: reference-architectures/app-service-web-app/scalable-web-app.yml
+          url: web-apps/app-service/architectures/baseline-zone-redundant.yml
         - text: Multi-region deployment
           itemType: architecture
-          url: reference-architectures/app-service-web-app/multi-region.yml
+          url: web-apps/app-service/architectures/multi-region.yml
         - text: Web application monitoring
           itemType: architecture
-          url: reference-architectures/app-service-web-app/app-monitoring.yml
+          url: web-apps/guides/monitoring/app-monitoring.yml
         - text: E-commerce API management
           itemType: get-started
           url:  example-scenario/apps/apim-api-scenario.yml
