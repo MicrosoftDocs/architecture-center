@@ -4,7 +4,7 @@
 
 ## Architecture
 
-:::image type="content" alt-text="Diagram demonstrating the reservoir simulation architecture." source="./media/architecture-hpc-reservoir-simulation.svg" lightbox="./media/architecture-hpc-reservoir-simulation.svg":::
+:::image type="content" alt-text="Diagram demonstrating the reservoir simulation architecture." source="./media/architecture-hpc-reservoir-simulation.svg" lightbox="./media/architecture-hpc-reservoir-simulation.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/architecture-hpc-reservoir-simulation.vsdx) of this architecture.*
 
@@ -85,7 +85,7 @@ The following approaches are common in the oil and gas industry. Choose the solu
 
 - **Medium to large-scale read-intensive workloads:** Consider using [Avere vFXT for Azure][avere-vfxt] (6 to 24 nodes). This solution works for workloads of up to 50,000 cores, throughput up to 2 GiB/s for writes and up to 14 GiB/s for reads, a cache of up to 192 TB, and a file server of up to 2 petabytes (PB).
 
-- **Balanced or write-intensive medium-scale workloads:** Consider using [Azure NetApps Files][azure-naf] for workloads of up to 4,000 cores, with a throughput up to 6.5 GiB/s, storage up to 100 TB/volume, and a maximize file size of 12 TB.
+- **Balanced or write-intensive medium-scale workloads:** Consider using [Azure NetApp Files][azure-naf] for workloads of up to 4,000 cores, with a throughput up to 6.5 GiB/s, storage up to 100 TB/volume, and a maximize file size of 12 TB.
 
 - **Large-scale workloads:** Use an orchestrated parallel file service, such as Lustre or BeeGFS. This approach works for up to 50,000 cores, with read/write rates up to 50 GiB/s, and 500 TB storage. For even larger clusters, a bare-metal approach may be more cost-effective. For example, Cray ClusterStor is a managed HPC storage solution with the flexibility to support larger elastic clusters on the fly.
 
