@@ -153,7 +153,6 @@ Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the pe
 - [Linux virtual desktops with Citrix](/azure/architecture/example-scenario/infrastructure/linux-vdi-citrix)
 - [Run a Windows VM on Azure](windows-vm.yml)
 
-<!-- links -->
 
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/

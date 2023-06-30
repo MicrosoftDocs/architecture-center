@@ -132,7 +132,6 @@ Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the pe
 - [Azure Automation update management](../../hybrid/azure-update-mgmt.yml)
 - [Plan deployment for updating Windows VMs in Azure](/azure/architecture/example-scenario/wsus)
 
-<!-- links -->
 
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
