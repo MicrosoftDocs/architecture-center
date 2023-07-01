@@ -4,7 +4,7 @@ Your organization needs to ingest data of any format, size, and speed into the c
 
 ## Architecture
 
-:::image type="content" source="../media/ingest-etl-and-stream-processing-with-azure-databricks.png" alt-text="Diagram that shows the architecture and data flow for ETL and stream processing with Azure Databricks." border="false":::
+:::image type="content" source="../media/ingest-etl-and-stream-processing-with-azure-databricks.svg" alt-text="Diagram that shows the architecture and data flow for ETL and stream processing with Azure Databricks." lightbox="../media/ingest-etl-and-stream-processing-with-azure-databricks.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ingest-etl-and-stream-processing-with-azure-databricks.vsdx) of this architecture.*
 
