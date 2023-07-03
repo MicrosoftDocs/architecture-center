@@ -5,7 +5,7 @@ This article describes how to minimize private address space consumption when yo
 
 The recommendations in this article are for scenarios that have a huge number of IPv4 address requirements and for environments that have limited RFC 1918 address space.
 
-Corporate networks typically use address spaces that are in the private IPv4 address ranges that RFC 1918 defines, such as 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16. In on-premise environments, these ranges provide enough IP addresses to meet the requirements of even the largest networks. As a result, many organizations develop address-management practices that prioritize simple-routing configurations and agile processes for IP allocation. Efficient use of the address space isn't a priority.
+Corporate networks typically use address spaces that are in the private IPv4 address ranges that RFC 1918 defines, such as 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16. In on-premises environments, these ranges provide enough IP addresses to meet the requirements of even the largest networks. As a result, many organizations develop address-management practices that prioritize simple-routing configurations and agile processes for IP allocation. Efficient use of the address space isn't a priority.
 
 In the cloud, large hybrid networks are easy to build, and architectural patterns, like microservices or container orchestration platforms, consume many IP addresses, so it’s important to adjust those address-management practices. In a cloud environment, treat private IPv4 addresses as a limited resource.
 
@@ -16,7 +16,7 @@ In Azure Virtual Network, we recommend that you use the address blocks that RFC 
 You can use other ranges, but before you use these ranges in your virtual network, read the IANA documentation to understand the potential implications to your environment. You can use the following ranges:
 
 - The shared address space for carrier-grade NAT that RFC 6598 defines is treated as private address space in Azure Virtual Network. The address block is 100.64.0.0/10.
-- You can use public, internet-routable IP addresses that aren’t owned by your organization, but this practice is discouraged. When you use public address ranges, resources in the virtual network can’t access internet endpoints that are exposed over the public IP addresses.
+- You can use public, internet-routable IP addresses that your organization doesn't own, but this practice is discouraged. When you use public address ranges, resources in the virtual network can’t access internet endpoints that are exposed over the public IP addresses.
 - You can use some of the special-purpose address blocks that IANA defines, like 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 198.18.0.0/15, 198.51.100.0/24, 203.0.113.0/24, 233.252.0.0/24, and 240.0.0.0/4.
 
 > [!NOTE]
@@ -36,7 +36,7 @@ The recommendations in this article are for scenarios that are based on the [Azu
 
 - Each region has a hub-and-spoke topology.
 - Hub-and-spoke networks that are in different regions are connected.
-- Hub-and-spoke networks are connected to on-premise sites via a combination of virtual network peering, ExpressRoute circuits, and site-to-site VPNs.
+- Hub-and-spoke networks are connected to on-premises sites via a combination of virtual network peering, ExpressRoute circuits, and site-to-site VPNs.
 
 The recommendations are equally applicable to networks that are built on top of Azure Virtual WAN, which also has hub-and-spoke networks in each region.
 
@@ -52,14 +52,14 @@ The following sections describe two best practices to minimize private address s
 
 RFC 1918 carves IP address blocks out of the IPv4 32-bit address space and makes them non-routable on the public internet, so you can reuse them in multiple private networks for internal communication. This best practice is based on the same principle that applies to private address space. One or more address ranges are carved out of the entire private address space that's used by an organization and declared non-routable within that organization’s corporate network. The address ranges are reused in multiple landing zones. As a result, each landing zone:
 
-- Is assigned a routable address space that's made of one or more address ranges. The address ranges are centrally managed by the organization and uniquely assigned to a landing zone for communicating with the corporate network. Addresses in the routable space are assigned to front-end components.
+- Is assigned a routable address space that's made of one or more address ranges. The organization centrally manages the address ranges and uniquely assigns them to a landing zone for communicating with the corporate network. Addresses in the routable space are assigned to front-end components.
 - Can use the non-routable address space, which is the address ranges that the organization declared non-routable in the corporate network. You can use these reserved ranges for internal communication in all landing zones. Addresses in the non-routable space are assigned to back-end components.
 
 In an Azure hub-and-spoke network that's customer-managed or based on Virtual WAN, two or more spoke virtual networks can't have overlapping IP address spaces. Non-routable address blocks can't be assigned to a landing zone spoke. Virtual network peering is nontransitive, so a landing zone spoke virtual network can peer with a "second-level" spoke virtual network that has a non-routable address space. The following diagram shows the dual virtual network topology for landing zones.
 
 :::image type="content" source="./media/ipv4-exhaustion-hub-spoke-vnet-peering.png" alt-text="Each application landing zone contains two peered virtual networks, one with routable IP addresses, which hosts front-end components, and one with non-routable IP addresses, which hosts back-end components." border="false" lightbox="./media/ipv4-exhaustion-hub-spoke-vnet-peering.png":::
 
-Each application landing zone contains two peered virtual networks. One virtual network has routable IP addresses, which hosts front-end components and one has non-routable IP addresses, which hosts back-end components. The routable landing zone spoke peers with the regional hub. The non-routable landing zone spoke peers the routable landing zone spoke. Virtual network peering is nontransitive, so non-routable prefixes aren't visible to the regional hub or the rest of the corporate network. The routable virtual networks can't use the non-routable address ranges. Some organizations have fragmented address space that’s already assigned to routable networks. It can be challenging to identify unused large address blocks and declare them non-routable. In that case, consider unused addresses that aren’t included in the RFC 1918 address space. The previous diagram provides an example of carrier-grade NAT addresses, defined by RFC 6598, in non-routable spoke virtual networks.
+Each application landing zone contains two peered virtual networks. One virtual network has routable IP addresses and hosts front-end components. One has non-routable IP addresses and hosts back-end components. The routable landing zone spoke peers with the regional hub. The non-routable landing zone spoke peers the routable landing zone spoke. Virtual network peering is nontransitive, so non-routable prefixes aren't visible to the regional hub or the rest of the corporate network. The routable virtual networks can't use the non-routable address ranges. Some organizations have fragmented address space that’s already assigned to routable networks. It can be challenging to identify unused large address blocks and declare them non-routable. In that case, consider unused addresses that aren’t included in the RFC 1918 address space. The previous diagram provides an example of carrier-grade NAT addresses, defined by RFC 6598, in non-routable spoke virtual networks.
 
 ### Migration from single virtual network landing zones
 
@@ -113,7 +113,7 @@ You can find instructions to configure Azure Firewall to source NAT all received
 
 Third-party NVAs with NAT capabilities are available in Azure Marketplace. They provide:
 
-- Granular control over scale in and scale out.
+- Granular control over scale-in and scale-out.
 - Granular control of the NAT pool.
 - Custom NAT policies, such as using different NAT addresses depending on the properties of the incoming connection, like the source or destination IP.
 
@@ -174,6 +174,10 @@ To overcome these two limitations, deploy a proxy/NAT solution in the routable s
 - [Khush Kaviraj](https://www.linkedin.com/in/khushalkaviraj) | Cloud Solution Architect
 - [Jack Tracey](https://www.linkedin.com/in/jacktracey93) | Senior Cloud Solution Architect
   
+**Other contributors:**
+
+- [Jodi Martis](https://www.linkedin.com/in/jodimartis) | Technical Writer
+
  *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
