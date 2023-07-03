@@ -4,7 +4,7 @@ This solution idea describes how Azure Data Explorer provides near real-time ana
 
 ## Architecture
 
-:::image type="content" source="../media/iot-azure-data-explorer-new.png" alt-text="Diagram showing IoT telemetry analytics with Azure Data Explorer." border="false" lightbox="../media/iot-azure-data-explorer-new.png":::
+:::image type="content" source="../media/iot-azure-data-explorer-new.svg" alt-text="Diagram showing IoT telemetry analytics with Azure Data Explorer." lightbox="../media/iot-azure-data-explorer-new.svg" border="false":::
 
 *Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/iot-azure-data-explorer.vsdx) of this architecture.*
 
