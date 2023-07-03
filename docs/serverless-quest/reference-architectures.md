@@ -131,7 +131,7 @@ The [serverless microservices reference architecture](/samples/azure-samples/ser
 This two-part solution describes a hypothetical drone delivery system. Drones send in-flight status to the cloud, which stores these messages for later use. A web application allows users to retrieve the messages to get the latest device status.
 
 - You can download the code for this solution from [GitHub](https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0).
-- The article [Code walkthrough: Serverless application with Azure Functions](../serverless/code.yml) walks you through the code and the design processes.
+- The article [Code walkthrough: Serverless application with Azure Functions](../web-apps/serverless/architectures/code.yml) walks you through the code and the design processes.
 
 ### Event-based cloud automation
 
@@ -150,7 +150,7 @@ The following sections list other serverless and Azure Functions-related referen
 - [Serverless application architectures using Event Grid](../solution-ideas/articles/serverless-application-architectures-using-event-grid.yml)
 - [Serverless apps using Azure Cosmos DB](https://azure.microsoft.com/solutions/architecture/serverless-apps-using-cosmos-db/)
 - [Serverless event processing using Azure Functions](../reference-architectures/serverless/event-processing.yml)
-- [Serverless web application on Azure](../reference-architectures/serverless/web-app.yml)
+- [Serverless web application on Azure](../web-apps/serverless/architectures/web-app.yml)
 - [Serverless Asynchronous Multiplayer Reference Architecture](/gaming/azure/reference-architectures/multiplayer-asynchronous-serverless)
 - [Instant Broadcasting on Serverless Architecture](/azure/architecture/serverless-quest/serverless-overview)
 - [Building a telehealth system on Azure](../example-scenario/apps/telehealth-system.yml)
@@ -159,8 +159,8 @@ The following sections list other serverless and Azure Functions-related referen
 ### Web and mobile backend
 
 - [An e-commerce front end](../example-scenario/apps/ecommerce-scenario.yml)
-- [Architect scalable e-commerce web app](../solution-ideas/articles/scalable-ecommerce-web-app.yml)
-- [Improve scalability in an Azure web application](../reference-architectures/app-service-web-app/scalable-web-app.yml)
+- [Architect scalable e-commerce web app](../web-apps/idea/scalable-ecommerce-web-app.yml)
+- [Baseline web application with zone redundancy](../web-apps/app-service/architectures/baseline-zone-redundant.yml)
 - [Uploading and CDN-preloading static content with Azure Functions](/samples/azure-samples/functions-java-push-static-contents-to-cdn/functions-java-push-static-contents-to-cdn/)
 - [Cross Cloud Scaling Architecture](../solution-ideas/articles/cross-cloud-scaling.yml)
 - [Social App for Mobile and Web with Authentication](../solution-ideas/articles/social-mobile-and-web-app-with-authentication.yml)

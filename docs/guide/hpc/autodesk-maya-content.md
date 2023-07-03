@@ -141,11 +141,11 @@ The following image shows the rendered output:
 
 The following table lists performance data for caching via a Python script. When you use the Cached Playback feature, you can view changes that you make to the animation without having to create a new playblast.
 
-| Number of GPUs | Filling playback (frames/second) | Cached playback (frames/second) | Fill time (seconds) | Memory before playback (MB) | Memory after playback (MB) |
-| --- | --- | --- | --- | --- | --- |
-| 1/3 | 6.19 | 21.31 | 0.88 | [112,638.88, 18,825.78] | [112,638.88, 18,697.53] |
-| 1/2 | 17.09 | 24.11 | 0.67 | [225,278.88, 19,137.05] | [225,278.88, 19,172.94] |
-| 1 | 18.86 | 24.11 | 0.60 | [450,558.88, 19,718.22] | [450,558.88, 19,636.18] |
+| Number of GPUs | Filling playback (frames/second) | Cached playback (frames/second) | Fill time (seconds) |
+| --- | --- | --- | --- |
+| 1/3 | 6.19 | 21.31 | 0.88 |
+| 1/2 | 17.09 | 24.11 | 0.67 |
+| 1 | 18.86 | 24.11 | 0.60 |
 
 ### Additional notes about tests
 

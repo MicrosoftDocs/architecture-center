@@ -2777,7 +2777,7 @@ items:
           href: /azure/orbital/sar-reference-architecture
           maintainContext: true
         - name: Serverless web app for drone delivery
-          href: reference-architectures/serverless/web-app.yml
+          href: web-apps/serverless/architectures/web-app.yml
         - name: Spaceborne data analysis
           href: industries/aerospace/geospatial-processing-analytics.yml
         - name: Vision classifier - simulated drone
@@ -3060,8 +3060,6 @@ items:
       items:
       - name: Analyze browser information
         href: example-scenario/ai/analyze-browser-info-for-security-insights.yml
-      - name: Analyze observational patient data
-        href: example-scenario/digital-health/patient-data-ohdsi-omop-cdm.yml
       - name: Anomaly detection for conveyor belts
         href: example-scenario/ai/real-time-anomaly-detection-conveyor-belt.yml
       - name: Automate document classification
@@ -3728,6 +3726,8 @@ items:
             href: reference-architectures/containers/aks/baseline-aks.yml
           - name: AKS baseline for multi-region clusters
             href: reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml
+          - name: Deploy web apps on Azure Red Hat OpenShift
+            href: reference-architectures/containers/aro/ha-zr-aro.yml
           - name: Running Windows containers on AKS
             href: reference-architectures/containers/aks/windows-containers-on-aks.yml
           - name: AKS cluster for a PCI-DSS workload
@@ -4455,7 +4455,7 @@ items:
           - name: App development and deployment
             href: serverless-quest/application-development.md
           - name: Code walkthrough
-            href: serverless/code.yml
+            href: web-apps/serverless/architectures/code.yml
           - name: CI/CD for a serverless frontend
             href: serverless/guide/serverless-app-cicd-best-practices.yml
         - name: Monitor a distributed system
@@ -4641,7 +4641,7 @@ items:
       - name: Enterprise monitoring with Azure Monitor
         href: example-scenario/monitoring/enterprise-monitoring.yml
       - name: High-availability blue/green deployment
-        href: example-scenario/blue-green-spring/blue-green-spring.yml
+        href: web-apps/spring-apps/guides/blue-green-spring.yml
       - name: Jenkins on Azure
         href: example-scenario/apps/jenkins.yml
       - name: Microsoft 365 tenant configuration
@@ -5694,7 +5694,7 @@ items:
       - name: JMeter implementation reference
         href: example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml
       - name: Lift and shift to containers with App Service
-        href: solution-ideas/articles/migrate-existing-applications-to-container-apps.yml
+        href: web-apps/idea/migrate-existing-applications-to-container-apps.yml
       - name: Migrate .NET applications
         href: solution-ideas/articles/net-app-modernization.yml
       - name: Migrate cloud workloads across security tenants
@@ -5847,8 +5847,6 @@ items:
         href: solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.yml
       - name: Custom mobile workforce app
         href: solution-ideas/articles/custom-mobile-workforce-app.yml
-      - name: Modern customer support portal
-        href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.yml
       - name: Scalable apps with Azure MySQL
         href: solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml
       - name: Scalable apps using Azure PostgreSQL
@@ -6306,7 +6304,7 @@ items:
       - name: Hybrid security monitoring
         href: hybrid/hybrid-security-monitoring.yml
       - name: Improved-security access to multitenant
-        href: example-scenario/security/access-multitenant-web-app-from-on-premises.yml
+        href: web-apps/guides/networking/access-multitenant-web-app-from-on-premises.yml
       - name: Long-term security logs in Data Explorer
         href: example-scenario/security/security-log-retention-azure-data-explorer.yml
       - name: Real-time fraud detection

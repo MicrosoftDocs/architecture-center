@@ -2,7 +2,7 @@ This reference architecture shows how to move data from mainframe and midrange s
 
 ## Architecture 
 
-:::image type="content" border="false" source="media/mainframe-export-archive-data.png" alt-text="Diagram that shows an architecture for archiving mainframe data to Azure." lightbox="media/mainframe-export-archive-data.png"::: 
+:::image type="content" border="false" source="media/mainframe-export-archive-data.svg" alt-text="Diagram that shows an architecture for archiving mainframe data to Azure." lightbox="media/mainframe-export-archive-data.svg"::: 
 
 *Download a [Visio file](https://arch-center.azureedge.net/archive-mainframe-data.vsdx) of this architecture.*
 

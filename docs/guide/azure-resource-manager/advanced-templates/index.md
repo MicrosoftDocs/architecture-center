@@ -22,7 +22,7 @@ ms.custom:
 
 The articles in this section provide examples of using Azure Resource Manager templates (ARM templates). They assume that you have an advanced understanding of ARM templates. The articles are:
 
-- [Update a resource in an ARM template](update-resource.md). You can update a resource during a deployment if necessary. You'd need to do this, for example, if you can't specify all the properties for a resource until other, dependent resources are created.
+- [Update a resource in an ARM template](update-resource.md). You can update a resource during deployment if necessary. For example, you'd need to do this if you can specify some of the properties for a resource only after other dependent resources are created.
 - [Use objects as parameters in a copy loop in an ARM template](objects-as-parameters.md). There's a limit of 256 parameters per deployment. You can work around this limit by passing objects as parameters.
 - [Implement a property transformer and collector in an ARM template](collector.md). A property transform and collector template can transform objects into JSON schemas for use by nested templates.
 

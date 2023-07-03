@@ -165,5 +165,5 @@ Principal author:
 [MonitoFi : Health & Performance Monitor for Apache NiFi on GitHub]: https://github.com/microsoft/MonitoFi
 [Monitoring Azure Functions and Event Hubs]: ../../serverless/event-hubs-functions/observability.yml
 [NiFi Rest API 1.14.0]: https://nifi.apache.org/docs/nifi-docs/rest-api/index.html
-[Web application monitoring on Azure]: ../../reference-architectures/app-service-web-app/app-monitoring.yml
+[Web application monitoring on Azure]: ../../web-apps/guides/monitoring/app-monitoring.yml
 [What is Application Insights?]: /azure/azure-monitor/app/app-insights-overview

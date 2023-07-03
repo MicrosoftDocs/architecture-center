@@ -3,8 +3,8 @@ title: Solutions for the retail industry
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas to use Azure services for building efficient, scalable, and reliable retail solutions.
 author: martinekuan
-ms.author: architectures
-ms.date: 07/26/2022
+ms.author: robbag
+ms.date: 06/14/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -121,8 +121,7 @@ The following are other ideas that you can use as a starting point for your reta
 
 **Web**:
 
-- [E-commerce website running in secured App Service Environment](../solution-ideas/articles/ecommerce-website-running-in-secured-ase.yml)
-- [Architect a scalable e-commerce web app](../solution-ideas/articles/scalable-ecommerce-web-app.yml)
-- [Scalable Episerver marketing website](../solution-ideas/articles/digital-marketing-episerver.yml)
-- [Scalable Sitecore marketing website](../solution-ideas/articles/digital-marketing-sitecore.yml)
-- [Simple digital marketing website](../solution-ideas/articles/digital-marketing-smb.yml)
+- [E-commerce website running in secured App Service Environment](../web-apps/idea/ecommerce-website-running-in-secured-ase.yml)
+- [Architect a scalable e-commerce web app](../web-apps/idea/scalable-ecommerce-web-app.yml)
+- [Scalable Episerver marketing website](../web-apps/hosting-applications/digital-marketing-episerver.yml)
+- [Scalable Sitecore marketing website](../web-apps/hosting-applications/digital-marketing-sitecore.yml)
