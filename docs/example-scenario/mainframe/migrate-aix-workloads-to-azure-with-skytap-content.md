@@ -2,7 +2,7 @@ Skytap on Azure simplifies cloud migration for applications that run on IBM Powe
 
 ## Architecture
 
-:::image type="content" border="false" source="media/aix-skytap-architecture.svg" alt-text="Diagram of a self-service lift-and-shift of AIX workloads to Skytap on Azure." lightbox="media/aix-skytap-architecture-large.png":::
+:::image type="content" border="false" source="media/migrate-aix-workloads-to-azure-with-skytap.svg" alt-text="Diagram of a self-service lift-and-shift of AIX workloads to Skytap on Azure." lightbox="media/migrate-aix-workloads-to-azure-with-skytap.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/migrate-aix-workloads-to-azure-with-skytap.vsdx) of this architecture.*
  
