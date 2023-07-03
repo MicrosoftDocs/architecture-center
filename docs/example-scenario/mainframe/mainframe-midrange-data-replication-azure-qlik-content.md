@@ -46,7 +46,7 @@ The solution uses the components that are listed in the following subsections.
 #### Application
 
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) is a big data streaming platform and event ingestion service that can store Db2, IMS, and VSAM change data messages. It can receive and process millions of messages per second. Data sent to an event hub can be transformed and stored by using a real-time analytics provider or a custom adapter.
-- [Apache Kafka](https://kafka.apache.org) is an open-source distributed event streaming platform that's used for high-performance data pipelines, streaming analytics, data integration, and mission-critcal applications. It can be easily integrated with Qlik data integration to store Db2 change data.
+- [Apache Kafka](https://kafka.apache.org) is an open-source distributed event streaming platform that's used for high-performance data pipelines, streaming analytics, data integration, and mission-critical applications. It can be easily integrated with Qlik data integration to store Db2 change data.
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) Azure Data Lake Storage provides a data lake for storing the processed on-premises change log data.
 - [Azure Databricks](https://azure.microsoft.com/services/databricks) is a cloud-based data engineering tool that's based on Apache Spark. It can process and transform massive quantities of data. You can explore the data by using machine learning models. Jobs can be written in R, Python, Java, Scala, and Spark SQL.
 
