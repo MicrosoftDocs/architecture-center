@@ -30,14 +30,14 @@ For product documentation, see [Azure Spring Apps](/azure/spring-apps/).
 Now that you have a good understanding about deploying a Spring Apps application, apply your skills in designing a simple solution. Refer to this **baseline architecture** that deploys Spring Apps instance in a single region with zone redundancy. 
 
 > [!div class="nextstepaction"] 
-> [Reference architecture: Azure Spring Apps baseline architecture](spring-apps-multi-zone.yml)
+> [Reference architecture: Azure Spring Apps baseline architecture](./architectures/spring-apps-multi-zone.yml)
 
 ## Add complexity 
 
 Build on the baseline architecture and extend the design to address a **multiregion availability** that can withstand a regional outage. You'll need to change the baseline load balancer to a global router. Also, you have extra considerations related to your choice distribution mode such as active-active, active-passive with hot standby, or active-passive with cold standby mode. 
 
 > [!div class="nextstepaction"] 
-> [Reference architecture: Deploy Azure Spring Apps to multiple regions](spring-apps-multi-region.yml)
+> [Reference architecture: Deploy Azure Spring Apps to multiple regions](./architectures/spring-apps-multi-region.yml)
 
 
 ## Integrate with landing zones
@@ -47,7 +47,7 @@ Suppose, your organization wants you to **deploy the solution a part of an enter
 Refer to this architecture that deploys the baseline in an enterprise deployment that's design as per the design principles of Azure Landing Zones. Some sample requirements that should be communicated with central teams are annotated with "Platform team" notes.
 
 > [!div class="nextstepaction"] 
-> [Reference architecture: Azure Spring Apps integrated with landing zones](spring-apps-landing-zone.yml)
+> [Reference architecture: Azure Spring Apps integrated with landing zones](./architectures/spring-apps-landing-zone.yml)
 
 
 ## Sample implementations

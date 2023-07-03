@@ -161,7 +161,7 @@ private bool IsTransient(Exception ex)
 
 ## Related resources
 
-- [Reliable web app pattern for .NET](../reference-architectures/reliable-web-app/dotnet/pattern-overview.yml) shows you how to apply the retry pattern to an ASP.NET web application converging on the cloud.
+- [Reliable web app pattern for .NET](../web-apps/guides/reliable-web-app/pattern-overview.yml) shows you how to apply the retry pattern to an ASP.NET web application converging on the cloud.
 
 - For most Azure services, the client SDKs include built-in retry logic. For more information, see [Retry guidance for Azure services](../best-practices/retry-service-specific.md).
 

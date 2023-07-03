@@ -2,8 +2,8 @@
 title: Mobile architecture design
 description: Review resources to help you learn about mobile development and back-end infrastructure on Azure. Includes solution ideas and reference architectures.
 author: martinekuan
-ms.author: architectures
-ms.date: 08/15/2022
+ms.author: robbag
+ms.date: 06/14/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -75,7 +75,6 @@ The following sections provide links to reference architectures in some key cate
 ### Scenario-specific apps
 
 - [Custom mobile workforce app](../../solution-ideas/articles/custom-mobile-workforce-app.yml)
-- [Modern customer support portal](../../solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.yml)
 - [Social app for mobile and web with authentication](../../solution-ideas/articles/social-mobile-and-web-app-with-authentication.yml)
 - [Task-based consumer mobile app](../../solution-ideas/articles/task-based-consumer-mobile-app.yml)
 

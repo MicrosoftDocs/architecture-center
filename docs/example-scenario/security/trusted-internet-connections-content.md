@@ -298,4 +298,4 @@ Other contributor:
 - [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml)
 - [Securely managed web applications](../apps/fully-managed-secure-apps.yml)
 - [Secure and govern workloads with network-level segmentation](../../reference-architectures/hybrid-networking/network-level-segmentation.yml)
-- [Improved-security access to multitenant web apps from an on-premises network](access-multitenant-web-app-from-on-premises.yml)
+- [Improved-security access to multitenant web apps from an on-premises network](../../web-apps/guides/networking/access-multitenant-web-app-from-on-premises.yml)

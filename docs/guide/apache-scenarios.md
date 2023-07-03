@@ -49,7 +49,7 @@ This article provides a summary of architectures and solutions that use Azure to
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Scalable web application](../reference-architectures/app-service-web-app/scalable-web-app.yml) |Use the proven practices in this reference architecture to improve scalability and performance in an Azure App Service web application. CouchDB is a recommended document database.|Web
+|[Baseline web application with zone redundancy](../web-apps/app-service/architectures/baseline-zone-redundant.yml) |Use the proven practices in this reference architecture to improve redundancy, scalability and performance in an Azure App Service web application. CouchDB is a recommended document database.|Web
 
 ## Apache Hadoop
 
