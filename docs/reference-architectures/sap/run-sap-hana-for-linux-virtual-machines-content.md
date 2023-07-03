@@ -33,7 +33,7 @@ If applications connecting to SAP HANA are running on VMs, the application VMs s
 
 **Network interface cards (NICs)** Network interface cards enable all communication among virtual machines on a virtual network. Traditional on-premises SAP deployments implement multiple NICs per machine to segregate administrative traffic from business traffic.
 
-On Azure it's not necessary to use multiple NICs for performance reasons. Multiple NICs share the same network throughput limit of a VM. But if your organization needs to segregate traffic, you can deploy multiple NICs per VM and connect each NIC to a different subnet. You can then use network security groups to enforce different access control policies on each subnet.
+On Azure, it's unnecessary to use multiple NICs for performance reasons. Multiple NICs share the same network throughput limit of a VM. But if your organization needs to segregate traffic, you can deploy multiple NICs per VM and connect each NIC to a different subnet. You can then use network security groups to enforce different access control policies on each subnet.
 
 Azure NICs support multiple IPs. This support conforms with the SAP recommended practice of using virtual host names for installations. For a complete outline, see [SAP note 962955](https://launchpad.support.sap.com/#/notes/962955). (To access SAP notes, you need an SAP Service Marketplace account.)
 
@@ -44,7 +44,7 @@ Azure NICs support multiple IPs. This support conforms with the SAP recommended 
 
 This architecture uses virtual machines (VM). Azure offers single-node scale up to 23.5 Tebibyte (TiB) memory on virtual machines. The [SAP Certified and Supported SAP HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?id=s:2494&filters=ve:24) lists the virtual machines that are certified for the SAP HANA database. For details about SAP support for virtual machine types and throughput metrics (SAPS), see [SAP Note 1928533 - SAP Applications on Microsoft Azure: Supported Products and Azure VM types](https://launchpad.support.sap.com/#/notes/1928533). (To access this and other SAP notes, an SAP Service Marketplace account is required.)
 
-Microsoft and SAP jointly certify a range of virtual machine sizes for SAP HANA workloads. For example, smaller deployments can run on an [Edsv4](/azure/virtual-machines/edv4-edsv4-series) and [E(d)sv5](/azure/virtual-machines/edv5-edsv5-series) virtual machine starting with 160 GiB of RAM. To support the largest SAP HANA memory sizes on virtual machines—up to 23 TB—you can use the [Azure M-series v2](/azure/virtual-machines/mv2-series) (Mv2) virtual machines. The M208 virtual machine types achieve approximately 260,000 SAPS, and the M832ixs virtual machine types achieve approximately 795,900 SAPS.
+Microsoft and SAP jointly certify a range of virtual machine sizes for SAP HANA workloads. For example, smaller deployments can run on an [Edsv4](/azure/virtual-machines/edv4-edsv4-series) and [E(d)sv5](/azure/virtual-machines/edv5-edsv5-series) virtual machine starting with 160 GiB of RAM. To support the largest SAP HANA memory sizes on virtual machines—up to 23 TiB—you can use the [Azure M-series v2](/azure/virtual-machines/mv2-series) (Mv2) virtual machines. The M208 virtual machine types achieve approximately 260,000 SAPS, and the M832ixs virtual machine types achieve approximately 795,900 SAPS.
 
 **Generation 2 (Gen2) virtual machines** Azure offers the choice when deploying VMs if they should be generation 1 or 2. [Generation 2 VMs](/azure/virtual-machines/generation-2) support key features that aren't available for generation 1 VMs. Particularly for SAP HANA this is of importance since some VM families such as [Mv2](/azure/virtual-machines/mv2-series) or [Mdsv2](/azure/virtual-machines/msv2-mdsv2-series) are **only** supported as Gen2 VMs. Similarly, SAP on Azure certification for some newer VMs might require them to be only Gen2 for full support, even if Azure allows both on them. See details in [SAP Note 1928533 - SAP Applications on Microsoft Azure: Supported Products and Azure VM types](https://launchpad.support.sap.com/#/notes/1928533).
 
@@ -62,6 +62,8 @@ Since all other VMs supporting SAP HANA allow the choice of either Gen2 only or 
 * [Azure Disk Storage](https://azure.microsoft.com/services/storage/disks)
 
 ## Considerations
+
+This section describes key considerations for running SAP HANA on Azure.
 
 ### Scalability
 
@@ -145,27 +147,30 @@ Many security measures are used to protect the confidentiality, integrity, and a
 
 For data at rest, different encryption functionalities provide security as follows:
 
-- Along with the SAP HANA native encryption technology, consider using an encryption solution from a partner that supports customer-managed keys.
+* Along with the SAP HANA native encryption technology, consider using an encryption solution from a partner that supports customer-managed keys.
 
-- To encrypt virtual machine disks, you can use functionalities described in [Disk Encryption Overview](/azure/virtual-machines/disk-encryption-overview). 
-- SAP Database servers: Use Transparent Data Encryption offered by the DBMS provider (for example, *SAP HANA native encryption technology*) to secure your data and log files and to ensure the backups are also encrypted.
-- Data in Azure physical storage (Server-Side Encryption) is automatically encrypted at rest with an Azure managed key. You also can choose a customer managed key (CMK) instead of the Azure managed key.
-- For support of Azure Disk Encryption on particular Linux distros/version/images check [Azure Disk Encryption for Linux VMs](/azure/virtual-machines/linux/disk-encryption-overview).
+* To encrypt virtual machine disks, you can use functionalities described in [Disk Encryption Overview](/azure/virtual-machines/disk-encryption-overview).
+  
+* SAP Database servers: Use Transparent Data Encryption offered by the DBMS provider (for example, *SAP HANA native encryption technology*) to secure your data and log files and to ensure the backups are also encrypted.
+  
+* Data in Azure physical storage (Server-Side Encryption) is automatically encrypted at rest with an Azure managed key. You also can choose a customer managed key (CMK) instead of the Azure managed key.
+
+* For support of Azure Disk Encryption on particular Linux distros/version/images check [Azure Disk Encryption for Linux VMs](/azure/virtual-machines/linux/disk-encryption-overview).
 
 > [!NOTE]
-> Do not combine SAP HANA native encryption technology with Azure Disk Encryption or Host Based Encryption on the same storage volume. Also, operating system boot disks for Linux virtual machines do not support Azure Disk Encryption. Instead when using SAP HANA native encryption combine it with Server-Side Encryption which is automatically enabled. Be aware that the usage of customer managed keys might impact storage throughput.
+> Do not combine SAP HANA native encryption technology with Azure Disk Encryption or Host Based Encryption on the same storage volume. Also, operating system boot disks for Linux virtual machines do not support Azure Disk Encryption. Instead when using SAP HANA native encryption combine it with Server*Side Encryption which is automatically enabled. Be aware that the usage of customer managed keys might impact storage throughput.
 
 For network security, use network security groups (NSGs) and Azure Firewall or a network virtual appliance as follows:
 
-- Use [NSGs](/azure/virtual-network/network-security-groups-overview) to protect and control traffic between subnets and application/database layers. Only apply NSGs to subnets. NSGs applied to both NIC and subnet very often lead to problems during troubleshooting and should be used rarely if ever.
+* Use [NSGs](/azure/virtual-network/network-security-groups-overview) to protect and control traffic between subnets and application/database layers. Only apply NSGs to subnets. NSGs applied to both NIC and subnet very often lead to problems during troubleshooting and should be used rarely if ever.
 
-- Use [Azure Firewall](/azure/firewall/overview) or Azure network virtual appliance to inspect and control the routing of traffic from the hub virtual network to the spoke virtual network where your SAP applications are, and also to control your outbound internet connectivity.
+* Use [Azure Firewall](/azure/firewall/overview) or Azure network virtual appliance to inspect and control the routing of traffic from the hub virtual network to the spoke virtual network where your SAP applications are, and also to control your outbound internet connectivity.
 
 For User and Authorization, implement role-based access control (RBAC) and resource locks as follows:
 
-- Follow the least privilege principle, using [RBAC](/azure/role-based-access-control/overview) for assigning administrative privileges at IaaS-level resources that host your SAP solution on Azure. Basically, the main purpose of RBAC is segregation and control of duties for your users/group. RBAC is designed to grant only the amount of access to resources that's needed for users to do their jobs.
+* Follow the least privilege principle, using [RBAC](/azure/role-based-access-control/overview) for assigning administrative privileges at IaaS-level resources that host your SAP solution on Azure. Basically, the main purpose of RBAC is segregation and control of duties for your users/group. RBAC is designed to grant only the amount of access to resources that's needed for users to do their jobs.
 
-- Use [resource locks](/azure/azure-resource-manager/management/lock-resources) to avoid risk that's accidental or which might be caused by malicious intention. Resource locks prevent scenarios in which an administrator may delete or modify critical Azure resources where your SAP solution is.
+* Use [resource locks](/azure/azure-resource-manager/management/lock-resources) to avoid risk that's accidental or which might be caused by malicious intention. Resource locks prevent scenarios in which an administrator may delete or modify critical Azure resources where your SAP solution is.
 
 More security recommendations can be found at theses [Microsoft](https://azure.microsoft.com/blog/sap-on-azure-architecture-designing-for-security/) and [SAP](https://blogs.sap.com/2019/07/21/sap-security-operations-on-azure/) articles.
 
@@ -173,9 +178,11 @@ More security recommendations can be found at theses [Microsoft](https://azure.m
 
 Communities can answer questions and help you set up a successful deployment. Consider the following communities:
 
-- [Azure Community Support](https://azure.microsoft.com/support/forums/)
-- [SAP Community](https://www.sap.com/community.html)
-- [Stack Overflow SAP](http://stackoverflow.com/tags/sap/info)
+* [Azure Community Support](https://azure.microsoft.com/support/forums/)
+
+* [SAP Community](https://www.sap.com/community.html)
+
+* [Stack Overflow SAP](http://stackoverflow.com/tags/sap/info)
 
 ## Contributors
 

@@ -18,10 +18,6 @@ This architecture makes use of the following technologies:
   - The application servers pool.
   - The SAP Central Services cluster.
 
-- [Availability sets](/azure/virtual-machines/windows/tutorial-availability-sets) group two or more virtual machines across Azure host clusters to achieve high availability and a higher [service-level agreement](https://azure.microsoft.com/support/legal/sla/virtual-machines) (SLA).
-
-- [Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) improve workload availability by distributing its servers across more than one datacenter within an Azure region.
-
 - [Load balancers](https://azure.microsoft.com/solutions/load-balancing-with-azure) direct traffic to virtual machines in the application subnet. For high availability, this example uses [SAP Web Dispatcher](https://help.sap.com/saphelp_nwce72/helpdata/en/48/8fe37933114e6fe10000000a421937/content.htm?no_cache=true) and [Azure Standard Load Balancer](/azure/load-balancer/load-balancer-overview). These two services also support capacity extension by scaling out, or you can use Azure Application Gateway or other partner products, depending on the traffic type and required functionality you need, such as Secure Sockets Layer (SSL) termination and forwarding.
 
 - [Network security groups](/azure/virtual-network/security-overview) (NSGs) attach to a subnet or to the network interface cards (NICs) on a virtual machine. NSGs are used to restrict incoming, outgoing, and intra-subnet traffic in the virtual network.
@@ -136,11 +132,13 @@ SAP BW/4HANA is designed for the SAP HANA database platform. Azure provides thre
 
 - A [scale-out deployment of SAP HANA](/azure/virtual-machines/workloads/sap/sap-planning-supported-configurations#sap-hana-scale-out-scenarios) is supported for some virtual machine types.
 
-- [Azure Large Instances](./hana-large-instances.yml) for SAP HANA, Revision 4, are special-purpose physical servers, certified to meet SAP HANA Tailored Datacenter Integration (TDI) standards, and located in a Microsoft Azure datacenter.
-
 ### Storage
 
 This example uses [Premium managed disks](/azure/virtual-machines/windows/disks-types#premium-ssd) for the non-shared storage of the application servers. It also uses [Azure NetApp Files](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs) for cluster shared storage.
+
+[Azure Premium SSD v2](/updates/general-availability-azure-premium-ssd-v2-disk-storage/) is generally available starting Oct 19, 2022.  Premium SSD v2 Disk Storage is the most advanced general purpose block storage solution available, designed for performance-critical workloads like SAP. Refer to the [Deploy a Premium SSD v2](/azure/virtual-machines/disks-deploy-premium-v2?tabs=azure-cli) article for the storage solution's benefits and its current limitation.
+
+[Ultra Disk Storage](/azure/virtual-machines/linux/disks-enable-ultra-ssd) greatly reduces disk latency. As a result, it benefits performance-critical applications like the SAP database servers. To compare block storage options in Azure, see [Azure managed disk types](/azure/virtual-machines/windows/disks-types).
 
 Standard managed disks aren't supported, as stated in [SAP Note 1928533](https://launchpad.support.sap.com/#/notes/1928533). The use of standard storage isn't recommended for any SAP installations.
 
@@ -222,17 +220,9 @@ Azure supports various [disaster recovery options](/azure/virtual-machines/workl
 
 ### Monitoring
 
-To maximize the availability and performance of applications and services, use [Azure Monitor](/azure/azure-monitor/overview). Azure Monitor is a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
+To maximize the availability and performance of applications and services, use [Azure Monitor](/azure/azure-monitor/overview), which includes Azure Log Analytics and Azure Application Insights, provides sophisticated tools for collecting and analyzing telemetry. It lets you maximize the performance and availability of your cloud and on-premises resources and applications. Azure Monitor can be used to monitor and alert administrators of infrastructure and application anomalies and to automate reactions to predefined conditions.
 
-To provide SAP-based monitoring of resources and service performance of the SAP infrastructure, use the [Azure SAP Enhanced Monitoring](/azure/virtual-machines/workloads/sap/deployment-guide#d98edcd3-f2a1-49f7-b26a-07448ceb60ca) extension. For details, see [SAP Note 2191498](https://launchpad.support.sap.com/#/notes/2191498), &quot;SAP on Linux with Azure: Enhanced Monitoring.&quot;
-
-[Azure Monitor](/azure/azure-monitor/overview), which now includes Azure Log Analytics and Azure Application Insights, provides sophisticated tools for collecting and analyzing telemetry. It lets you maximize the performance and availability of your cloud and on-premises resources and applications. Azure Monitor can be used to monitor and alert administrators of infrastructure and application anomalies and to automate reactions to predefined conditions.
-
-To provide SAP-based monitoring of resources and service performance of the SAP infrastructure, use the [Azure SAP Enhanced Monitoring](/azure/virtual-machines/workloads/sap/deployment-guide) extension. This extension feeds Azure monitoring statistics into the SAP application for operating system monitoring and DBA Cockpit functions. SAP enhanced monitoring is a mandatory prerequisite to run SAP on Azure. For details, see [SAP note 2191498](https://launchpad.support.sap.com/#/notes/2191498) – "SAP on Linux with Azure: Enhanced Monitoring." (To access the SAP notes, you must have an SA Service Marketplace account.)
-
-The future direction for an Azure-native, end-to-end monitoring solution for SAP BW/4HANA is [Azure Monitor for SAP](/azure/virtual-machines/workloads/sap/azure-monitor-overview). Azure Monitor for SAP is currently in Public Preview. It's only available in a limited set of regions, so you should carefully evaluate if it meets your requirements.
-
-Azure Monitor for SAP provides a comprehensive initial set of metrics and telemetry for monitoring. The metric definitions are stored as SQL queries in JSON and can be modified to meet your requirements. The starting set of metrics is available on GitHub [here](https://github.com/Azure/AzureMonitorForSAPSolutions/blob/master/sapmon/content/SapHana.json).
+For the SAP applications running on SAP HANA and other major database solutions, refer to the article [Azure Monitor for SAP solutions](/sap/monitor/about-azure-monitor-sap-solutions) to learn how Azure Monitor for SAP helps in managing SAP services availability and performance. Azure Monitor for SAP provides a comprehensive initial set of metrics and telemetry for monitoring. The metric definitions are stored as SQL queries in JSON and can be modified to meet your requirements. The starting set of metrics is available on GitHub [here](https://github.com/Azure/AzureMonitorForSAPSolutions/blob/master/sapmon/content/SapHana.json).
 
 ### Backup
 

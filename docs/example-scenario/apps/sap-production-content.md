@@ -4,15 +4,8 @@ This reference architecture shows a set of proven practices for running SAP NetW
 
 The first diagram shows a reference architecture for SAP on Oracle in Azure, which utilizes availability sets.
 
-[![Diagram of the architecture of a production SAP system on Oracle in Azure.](./media/sap-oracle-avset.svg)](./media/sap-oracle-avset.svg#lightbox)
-*Figure - The architecture of a production SAP system on Oracle, in Azure with availability sets.*
-
-_Download a [Visio file](https://arch-center.azureedge.net/sap-oracle-architecture-avzone.vsdx) for all architectures._
-
-The second diagram shows a reference architecture for SAP on Oracle in Azure, which uses availability zones for increased resiliency.
-
-[![Diagram of the architecture of a production SAP system on Oracle in Azure.](./media/sap-oracle-avzone.svg)](./media/sap-oracle-avzone.svg#lightbox)
-*Figure - The architecture of a production SAP system on Oracle, in Azure with availability zones.*
+[![Diagram of the architecture of a production SAP system on Oracle in Azure.](./media/sap-oracle-architecture.png)](./media/sap-oracle-architecture.png#lightbox)
+*Figure - The architecture of a production SAP system on Oracle running on Azure.*
 
 _Download a [Visio file](https://arch-center.azureedge.net/sap-oracle-architecture-avzone.vsdx) for all architectures._
 
@@ -25,7 +18,7 @@ This reference architecture describes a typical SAP production system running on
 
 ### Networking
 
-**Virtual networks** The [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) service connects Azure resources to each other with enhanced security. In this architecture, the virtual network connects to an on-premises environment via a virtual private network (VPN) gateway deployed in the hub of a [hub-spoke topology](../../reference-architectures/hybrid-networking/hub-spoke.yml). SAP applications and database are contained in own spoke virtual network. The virtual networks are subdivided into separate subnets for each tier application (SAP NetWeaver), the database, and shared services (like jumpbox and DNS servers).
+**Virtual networks** The [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) service connects Azure resources to each other with enhanced security. In this architecture, the virtual network connects to an on-premises environment via a virtual private network (VPN) gateway deployed in the hub of a [hub-spoke topology](../../reference-architectures/hybrid-networking/hub-spoke.yml). SAP applications and database are contained in own spoke virtual network. The virtual networks are subdivided into separate subnets for each tier application (SAP NetWeaver), the database, and shared services (like Azure Bastion).
 
 This architecture subdivides the virtual network address space into subnets. Place application servers on a separate subnet and database servers on another. Doing so allows you to secure them more easily by managing the subnet security policies rather than the individual servers and cleanly separates security rules applicable to databases from application servers.
 
@@ -66,20 +59,15 @@ This architecture uses [Azure managed disks](/azure/virtual-machines/windows/man
 - **Storage design for SAP on Oracle** Recommended storage design for SAP on Oracle in Azure in [following documentation](/azure/virtual-machines/workloads/sap/dbms_guide_oracle) with specific guidances on file system layout, disk sizing recommendations and other storage options.
 - **Storing Oracle Database files** On Linux ext4 or xfs filesystems need to be used for database, NTFS for Windows deployments. [Oracle ASM](/azure/virtual-machines/workloads/oracle/configure-oracle-asm) is also supported for Oracle deployments for Oracle Database 12c Release 2 and higher.
 - **Options to managed disks** is to use [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) for the Oracle Database as well, the details of which are described in above mentioned [SAP note 2039619](https://launchpad.support.sap.com/#/notes/2039619) and [Oracle on Azure](/azure/virtual-machines/workloads/sap/dbms_guide_oracle) documentation. [**Azure Files NFS**](/azure/storage/files/files-nfs-protocol) volumes are not intended for storing Oracle Database files, unlike Azure NetApp Files.
+- **Azure Premium SSD v2** [Azure Premium SSD v2](/updates/general-availability-azure-premium-ssd-v2-disk-storage/) is generally available starting Oct 19, 2022.  Premium SSD v2 Disk Storage is the most advanced general purpose block storage solution available, designed for performance-critical workloads like SAP. Refer to the [Deploy a Premium SSD v2](/azure/virtual-machines/disks-deploy-premium-v2?tabs=azure-cli) article for the storage solution's benefits and its current limitation.
 
 ### High Availability
 
 The above architecture depicts a highly available deployment, with each application layer contained on 2 or more virtual machines. Following components are used.
 
+With Azure, SAP workload deployment can either be regional or zonal depending on the availability and resiliency requirements of the SAP applications. Azure provides [different deployment options](/azure/sap/workloads/sap-high-availability-architecture-scenarios#comparison-of-different-deployment-types-for-sap-workload) like flexible scale set with FD=1, availability zones, or availability sets to enhance the availability of the resources. To have a comprehensive understanding of the available deployment options and their applicability across different Azure regions (including across zones, within a single zone, or in a region without zones), it is important to refer to the [Azure VMs HA architecture and scenarios for SAP NetWeaver](azure/sap/workloads/sap-high-availability-architecture-scenarios) documentation.
+
 **Load Balancers**  [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) are used to distribute traffic to virtual machines in the SAP subnets. When you incorporate Azure Load Balancer in a zonal deployment of SAP, make sure you select the Standard SKU load balancer because the Basic SKU balancer doesn't come with zonal redundancy. In a cluster
-
-**Availability sets** Availability sets distribute servers through the Azure physical infrastructure, to spread them through different failure and update domains to improve service availability. To meet service-level agreements ([SLAs](https://azure.microsoft.com/support/legal/sla/virtual-machines)), put virtual machines that perform the same role into an availability set. Doing so helps guard against planned and unplanned downtime imposed by Azure infrastructure maintenance or caused by hardware faults. To get a higher SLA, you need to have two or more virtual machines per availability set.
-
-All virtual machines in a set must perform the same role. Don't mix servers of different roles in the same availability set. For example, don't place an ASCS node in the same availability set with the application servers or databases.
-
-You can deploy Azure availability sets in [Azure Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) when you use a [proximity placement group](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios).
-
-**Availability zones** [Availability zones](/azure/availability-zones/az-overview) are physically separated locations within a specific Azure region. Their purpose is to further enhance service availability. Due to their potential geographic and network placement, administrators need a clear network latency profile between all zones of a target region before they can determine the resource placement with minimum inter-zone latency. To create this profile, deploy small virtual machines in each zone for testing. Recommended tools for these tests include [PsPing](/sysinternals/downloads/psping) and [Iperf](https://sourceforge.net/projects/iperf). When the tests are done, remove the virtual machines that you used for testing. As an alternative, there is also an [Azure inter-zone latency check tool](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/blob/main/AvZone-Latency-Test/AvZone-Latency-Test.ps1) available for your convenience.
 
 Consider the [decision factors](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones#considerations-for-deploying-across-availability-zones) when deploying VMs between availability zones for SAP. Use of [proximity placement groups](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) with an availability zone deployment needs to be evaluated and used only for application tier VMs.
 
@@ -130,31 +118,12 @@ For  SAP application part, see the details in architecture guide [Run SAP NetWea
 
 ### Disaster recovery
 
-[![Diagram that shows an architecture of a production SAP system on Oracle in Azure.](./media/sap-oracle-avzone-disaster-recovery.svg)](./media/sap-oracle-avzone-disaster-recovery.svg#lightbox)
+[![Diagram that shows an architecture of a production SAP system on Oracle in Azure.](./media/sap-oracle-avzone-disaster-recovery.png)](./media/sap-oracle-avzone-disaster-recovery.png#lightbox)
 *Figure - Architecture of a production SAP system on Oracle in Azure with AvZone and DR*
 
 _Download a [Visio file](https://arch-center.azureedge.net/sap-oracle-architecture-avzone.vsdx) for all architectures._
 
-Every tier in the SAP application stack uses a different DR strategy.
-
-**Central services and application servers tier**
-SAP central services and application servers don't contain business data. On Azure, a simple DR strategy is to create SAP application servers in the secondary region, and then shut them down. If there are configuration changes or kernel updates on the primary application server, you need to apply the same changes to the virtual machines in the secondary region. For example, copy the SAP kernel executable files to the DR virtual machines.
-
-For automatic replication of application servers to a secondary region, we recommend [Azure Site Recovery](/azure/site-recovery/site-recovery-overview). You can also use Azure Site Recovery to set up DR for a [multitier SAP NetWeaver application](/azure/site-recovery/site-recovery-sap) deployment.
-When protecting a clustered environment with Azure Site Recovery, pre-scripted actions would need to be prepared within custom scripts, tested and set to be executed within Azure Site Recovery recovery plans in order to change or disable cluster services.
-
-**NFS tier**
-With most business critical data located within central SAP shared NFS volumes such as transport directory and sapmnt, protecting them for an interruption requiring a DR failover is crucial. Depending on the NFS architecture chosen, different solutions are possible
-
-- **File-based replication** With NFS tiers deployed in different regions but without direct service-driven replication, VM bound tools such as rsync can be executed on schedule to keep an asynchronous replication from source region NFS volumes to target region's NFS volumes. For Azure Files NFS, a VM in primary region (e.g. (A)SCS VM) can access an NFS volume located in another region through global vnet peering. During a DR failover situation a DNS and/or configuration switch needs to be performed to have the SAP systems in DR region connect to the DR located NFS volume(s).
-- **Azure NetApp Files** volumes can be protected with automated, asynchronous storage replication. [Cross-region replication](/azure/azure-netapp-files/cross-region-replication-introduction) is available between select region pairs. An alternative when dealing with regions not in select regions pairs is to use earlier mentioned file-based replication, requiring a VM operational in the target region with mounted NetApp NFS volume from same region, as Azure NetApp Files [does not allow cross-region access](/azure/azure-netapp-files/azure-netapp-files-network-topologies#supported-network-topologies) of NFS volumes. File-based replication is thus VM-to-VM between regions, each mounting respective regions NetApp NFS volume.
-- **3rd party backup tools** Other vendor tooling providing file based replication between NFS volumes of any source and target.
-
-**Database tier**
-
-Oracle Data Guard in asynchronous mode is the recommended way to replicate Oracle Database between regions. With asynchronous replication the log changes are committed on the primary region before they arrive on the secondary region's database, the distance between the regions is thus no longer a factor in overall SAP system performance.
-
-The target database VM in the DR region can be of reduced size as it does not require additional CPU power and memory to provide a fast SAP response time, the only load being the application of changes from the database replication. In any recovery plan or process, such VM re-size activity needs to be planned for or outright automated.
+Every architectural layer in the SAP application stack uses a different approach to provide DR protection. For DR strategies and implementation details, refer to these 2 articles: [Disaster recovery overview and infrastructure guidelines for SAP workload](/azure/sap/workloads/disaster-recovery-overview-guide) and [Disaster recovery guidelines for SAP application](/azure/sap/workloads/disaster-recovery-sap-guide?tabs=linux).
 
 ### Backup
 
