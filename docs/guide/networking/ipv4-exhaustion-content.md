@@ -3,21 +3,21 @@ This article describes how to minimize private address space consumption when yo
 
 ## Scenario details
 
-The recommendations in this article are for scenarios that have a huge number of IPv4 address requirements and for environments that have limited RFC 1918 address space.
+The recommendations in this article are for scenarios that have a large IPv4 address requirement and for environments that have limited RFC 1918 address space.
 
-Corporate networks typically use address spaces that are in the private IPv4 address ranges that RFC 1918 defines, such as 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16. In on-premises environments, these ranges provide enough IP addresses to meet the requirements of even the largest networks. As a result, many organizations develop address-management practices that prioritize simple-routing configurations and agile processes for IP allocation. Efficient use of the address space isn't a priority.
+Corporate networks typically use address spaces that are in the private, RFC 1918-defined IPv4 address ranges, such as 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16. In on-premises environments, these ranges provide enough IP addresses to meet the requirements of even the largest networks. As a result, many organizations develop address-management practices that prioritize simple-routing configurations and agile processes for IP allocation. Efficient use of the address space isn't a priority.
 
 In the cloud, large hybrid networks are easy to build, and architectural patterns, like microservices or container orchestration platforms, consume many IP addresses, so it’s important to adjust those address-management practices. In a cloud environment, treat private IPv4 addresses as a limited resource.
 
 ### Azure Virtual Network IP address ranges
 
-In Azure Virtual Network, we recommend that you use the address blocks that RFC 1918 defines. These address blocks are for general-purpose private networks and are non-routable on the public internet.
+In Azure Virtual Network, we recommend that you use the RFC 1918-defined address blocks. These address blocks are for general-purpose private networks and are non-routable on the public internet.
 
-You can use other ranges, but before you use these ranges in your virtual network, read the IANA documentation to understand the potential implications to your environment. You can use the following ranges:
+You can use other ranges, but before you use those ranges in your virtual network, read the IANA documentation to understand the potential implications to your environment. You can use the following ranges:
 
-- The shared address space for carrier-grade NAT that RFC 6598 defines is treated as private address space in Azure Virtual Network. The address block is 100.64.0.0/10.
+- The shared, RFC 6598-defined address space for carrier-grade NAT is treated as private address space in Azure Virtual Network. The address block is 100.64.0.0/10.
 - You can use public, internet-routable IP addresses that your organization doesn't own, but this practice is discouraged. When you use public address ranges, resources in the virtual network can’t access internet endpoints that are exposed over the public IP addresses.
-- You can use some of the special-purpose address blocks that IANA defines, like 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 198.18.0.0/15, 198.51.100.0/24, 203.0.113.0/24, 233.252.0.0/24, and 240.0.0.0/4.
+- You can use some of the special-purpose, IANA-defined address blocks, like 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 198.18.0.0/15, 198.51.100.0/24, 203.0.113.0/24, 233.252.0.0/24, and 240.0.0.0/4.
 
 > [!NOTE]
 > The previous ranges won't provide a long-term solution for organizations that have IPv4 exhaustion issues across the entire RFC 1918 address space. In that case, you should minimize private address space consumption.
@@ -50,10 +50,10 @@ The following sections describe two best practices to minimize private address s
 
 ## Best practice: Non-routable landing zone spoke virtual networks
 
-RFC 1918 carves IP address blocks out of the IPv4 32-bit address space and makes them non-routable on the public internet, so you can reuse them in multiple private networks for internal communication. This best practice is based on the same principle that applies to private address space. One or more address ranges are carved out of the entire private address space that's used by an organization and declared non-routable within that organization’s corporate network. The address ranges are reused in multiple landing zones. As a result, each landing zone:
+RFC 1918 carves IP address blocks out of the IPv4 32-bit address space and makes them non-routable on the public internet, so you can reuse them in multiple private networks for internal communication. This best practice is based on the same principle that applies to private address space. One or more address ranges are carved out of the entire private address space that's used by your organization and declared non-routable within your organization’s corporate network. The address ranges are reused in multiple landing zones. As a result, each landing zone:
 
-- Is assigned a routable address space that's made of one or more address ranges. The organization centrally manages the address ranges and uniquely assigns them to a landing zone for communicating with the corporate network. Addresses in the routable space are assigned to front-end components.
-- Can use the non-routable address space, which is the address ranges that the organization declared non-routable in the corporate network. You can use these reserved ranges for internal communication in all landing zones. Addresses in the non-routable space are assigned to back-end components.
+- Is assigned a routable address space that's made of one or more address ranges. Your organization centrally manages the address ranges and uniquely assigns them to a landing zone for communicating with the corporate network. Addresses in the routable space are assigned to front-end components.
+- Can use the non-routable address space, which is the address ranges that your organization declared non-routable in the corporate network. You can use these reserved ranges for internal communication in all landing zones. Addresses in the non-routable space are assigned to back-end components.
 
 In an Azure hub-and-spoke network that's customer-managed or based on Virtual WAN, two or more spoke virtual networks can't have overlapping IP address spaces. Non-routable address blocks can't be assigned to a landing zone spoke. Virtual network peering is nontransitive, so a landing zone spoke virtual network can peer with a "second-level" spoke virtual network that has a non-routable address space. The following diagram shows the dual virtual network topology for landing zones.
 
