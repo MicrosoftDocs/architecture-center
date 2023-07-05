@@ -25,7 +25,7 @@ If only web applications are exposed (no non-HTTP(S) applications), and the doub
 
 1. The web tier is the first layer of the three-tier application. It hosts virtual machines in three availability zones. The web-tier load balancer will distribute traffic to each of the three machines, each in an availability zone. The web tier contains the user interface and it also parses user interactions.
 
-1. The web tier VMs will communicate with the business tier via a dedicated internal load balancer.
+1. The web tier virtual machines will communicate with the business tier via a dedicated internal load balancer.
 
 1. The business-tier internal load balancers distribute traffic to the business-tier VMs across the three availability zones. They use a single, private IP address for easy configuration. The private IP addresses of the load balancers are zone redundant. The IP addresses persist in all three zones and can survive any single zone failure.
 
