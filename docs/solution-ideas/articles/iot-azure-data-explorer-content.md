@@ -2,6 +2,9 @@
 
 This solution idea describes how Azure Data Explorer provides near real-time analytics for fast flowing, high volume streaming data from internet of things (IoT) devices and sensors. This analytics workflow is part of an overall IoT solution that integrates operational and analytical workloads with Azure Cosmos DB and Azure Data Explorer.
 
+Jupyter is a trademark of its respective company. No endorsement is implied by the use of this mark.
+Apache® and Apache Kafka® are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.
+
 ## Architecture
 
 :::image type="content" source="../media/iot-azure-data-explorer-new.svg" alt-text="Diagram showing IoT telemetry analytics with Azure Data Explorer." lightbox="../media/iot-azure-data-explorer-new.svg" border="false":::
