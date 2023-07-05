@@ -215,7 +215,7 @@ You can use [service tags](/azure/virtual-network/service-tags-overview) to defi
 
 For more information, see [application gateway infrastructure configuration](/azure/application-gateway/configuration-infrastructure#network-security-groups).
 
-## Cost
+### Cost optimization
 
 For more information, see:
 
