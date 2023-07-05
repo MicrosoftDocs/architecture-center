@@ -363,7 +363,7 @@ Other contributor:
 [COVID-19 safe environments with IoT Edge monitoring and alerting]: ../../solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml
 [Data Lake]: https://azure.microsoft.com/solutions/data-lake
 [Develop with Azure Digital Twins]: /training/paths/develop-azure-digital-twins
-[Digital Twins Definition Language]: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md
+[Digital Twins Definition Language]: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md
 [Digital Twins Definition Language (DTDL)]: /azure/digital-twins/concepts-models
 [Digital Twins ontologies]: /azure/digital-twins/concepts-ontologies
 [Digital Twins REST API]: /rest/api/iothub/service/digitaltwin
