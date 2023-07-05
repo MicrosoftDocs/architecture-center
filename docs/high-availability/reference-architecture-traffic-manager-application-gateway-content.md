@@ -3,7 +3,7 @@ This architecture is for global, internet-facing applications that use HTTP(S) a
 
 ### Architecture notes
 
-The architecture in this document is easily extensible to a hub-and-spoke VNet design, where the Azure Firewall would be in the hub VNet, and the Application Gateway either in the hub VNet as well or in a spoke. If the Application Gateway is deployed in the hub, you still want multiple Application Gateways, each for a given set of applications, to avoid RBAC conflicts and prevent hitting Application Gateway limits (see [Application Gateway Limits](https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits)).
+The architecture in this document is easily extensible to a hub-and-spoke virtual network design, where the Azure Firewall would be in the hub network, and the Application Gateway either in the hub network as well or in a spoke. If the Application Gateway is deployed in the hub, you still want multiple Application Gateways, each for a given set of applications, to avoid RBAC conflicts and prevent hitting Application Gateway limits (see [Application Gateway Limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits)).
 
 In a Virtual WAN environment Application Gateways cannot be deployed in the hub, so they would be installed in spoke VNets.
 
