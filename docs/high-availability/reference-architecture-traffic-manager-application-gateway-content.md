@@ -21,7 +21,7 @@ If only web applications are exposed (no non-HTTP(S) applications), and the doub
 
 1. The Application Gateways deployed across availability zones receive HTTP(S) traffic from the browser, and the Web Application Firewalls Premium inspect the traffic to detect web attacks. The Application Gateways will send traffic to their backend, the internal load balancer for the frontend virtual machines. For this specific flow, the internal load balancer in front of the web servers is not strictly required since the Application Gateway could perform this load balancing itself. However, it is included for consistency with the flow for non-HTTP(S) applications.
 
-1. The traffic between the Application Gateway and the frontend internal load balancer will be intercepted by Azure Firewall Premium via User Defined Routes applied on the Application Gateway subnet. The Azure Firewall Premium will apply TLS inspection to the traffic for additional security. The Azure Firewall is zone-redundant as well. Upon successful inspection, the Azure Firewall will forward the traffic to the destination web tier internal load balancer.
+1. The traffic between the Application Gateway and the frontend internal load balancer will be intercepted by Azure Firewall Premium via User Defined Routes applied on the Application Gateway subnet. The Azure Firewall Premium will apply TLS inspection to the traffic for additional security. The Azure Firewall is zone-redundant as well. Upon successful inspection, the Azure Firewall will forward the traffic to the destination web tier internal load balancer. Otherwise, if the Azure Firewall detects a threat in the traffic, it will drop the packets.
 
 1. The web tier is the first layer of the three-tier application. It hosts virtual machines in three availability zones. The web-tier load balancer will distribute traffic to each of the three machines, each in an availability zone. The web tier contains the user interface and it also parses user interactions.
 
@@ -41,7 +41,7 @@ If only web applications are exposed (no non-HTTP(S) applications), and the doub
 
 1. Azure Traffic Manager uses DNS-based routing to load balance incoming traffic across the two regions. Traffic Manager resolves DNS queries for the application to the public IP addresses of the Azure endpoints. The public endpoints of the Application Firewall serve as the backend endpoints of Traffic Manager for non-HTTP(S) traffic. Traffic Manager resolves DNS queries based on a choice of various routing methods. The browser connects directly to the endpoint; [Traffic Manager doesn't see the HTTP(S) traffic](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method).
 
-1.  The Azure Firewall Premium will inspect the inbound traffic for security. Upon successful inspection, the Azure Firewall will forward the traffic to the web-tier internal load balancer.
+1.  The Azure Firewall Premium will inspect the inbound traffic for security. Upon successful inspection, the Azure Firewall will forward the traffic to the web-tier internal load balancer. Otherwise, if the Azure Firewall detects a threat in the traffic, it will drop the packets.
 
 1. The web tier is the first layer of the three-tier application. It hosts VMs in three availability zones. The web-tier load balancer will distribute traffic to each of the three VMs, each in an availability zones. The web tier contains the user interface, and it also parses user interactions and passes traffic destined to the data tier to internal load balancer.
 
