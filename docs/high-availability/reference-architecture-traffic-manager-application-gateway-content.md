@@ -209,7 +209,7 @@ For more information, see:
 1. Allow inbound traffic from the database-tier subnet itself. This rule allows communication between the database VMs. Database replication and failover need this rule.
 1. Deny all inbound traffic from the virtual network, using the `VirtualNetwork` tag in the rule) to overwrite the permit statement included in the default NSG rules.
 
-Create rules 3 with lower priority (higher number) than the first rules.
+Create rule 3 with lower priority (higher number) than the first rules.
 
 You can use [service tags](/azure/virtual-network/service-tags-overview) to define network access controls on Network Security Groups or Azure Firewall.
 
