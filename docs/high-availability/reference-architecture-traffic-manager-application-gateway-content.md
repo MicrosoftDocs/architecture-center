@@ -228,7 +228,7 @@ For more information, see:
 
 ## Performance efficiency
 
-*Virtual machine scale sets -* Use Virtual Machine Scale Sets to automate the scalability of your VMs. Virtual machine scale sets are available on all Windows and Linux VM sizes. You're only charged for the VMs deployed and the underlying infrastructure resources consumed. There are no incremental charges. The benefits of Virtual Machine Scale Sets are:
+*Virtual machine scale sets -* Use Virtual Machine Scale Sets to automate the scalability of your virtual machines. Virtual machine scale sets are available on all Windows and Linux virtual machine sizes. You're only charged for the virtual machines deployed and the underlying infrastructure resources consumed. There are no incremental charges. The benefits of Virtual Machine Scale Sets are:
 
 - Create and manage multiple virtual machines easily
 - High availability and application resiliency
