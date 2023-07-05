@@ -23,7 +23,7 @@ If only web applications are exposed (no non-HTTP(S) applications), and the doub
 
 1. The traffic between the Application Gateway and the frontend internal load balancer will be intercepted by Azure Firewall Premium via User Defined Routes applied on the Application Gateway subnet. The Azure Firewall Premium will apply TLS inspection to the traffic for additional security. The Azure Firewall is zone-redundant as well. Upon successful inspection, the Azure Firewall will forward the traffic to the destination web tier internal load balancer.
 
-1. The web tier is the first layer of the three-tier application. It hosts VMs in three availability zones. The web-tier load balancer will distribute traffic to each of the three VMs, each in an availability zones. The web tier contains the user interface, and it also parses user interactions and passes traffic destined to the data tier to internal load balancer.
+1. The web tier is the first layer of the three-tier application. It hosts virtual machines in three availability zones. The web-tier load balancer will distribute traffic to each of the three machines, each in an availability zone. The web tier contains the user interface and it also parses user interactions.
 
 1. The web tier VMs will communicate with the business tier via a dedicated internal load balancer.
 
