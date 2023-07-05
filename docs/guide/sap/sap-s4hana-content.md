@@ -163,7 +163,7 @@ For the backup data store, we recommend that you use Azure [cool and archive acc
 
 [Ultra Disk Storage](/azure/virtual-machines/linux/disks-enable-ultra-ssd) and Azure NetApp Files [ultra performance tier](/azure/azure-netapp-files/azure-netapp-files-service-levels) greatly reduce disk latency and benefit performance-critical applications and the SAP database servers.
 
-[Azure Premium SSD v2](/updates/general-availability-azure-premium-ssd-v2-disk-storage/) is generally available starting Oct 19, 2022.  Premium SSD v2 Disk Storage is the most advanced general purpose block storage solution available, designed for performance-critical workloads like SAP. Refer to the [Deploy a Premium SSD v2](/azure/virtual-machines/disks-deploy-premium-v2?tabs=azure-cli) article for the storage solution's benefits and its current limitation.
+[Azure Premium SSD v2](https://azure.microsoft.com/en-us/updates/general-availability-azure-premium-ssd-v2-disk-storage/) is generally available starting Oct 19, 2022.  Premium SSD v2 Disk Storage is the most advanced general purpose block storage solution available, designed for performance-critical workloads like SAP. Refer to the [Deploy a Premium SSD v2](/azure/virtual-machines/disks-deploy-premium-v2?tabs=azure-cli) article for the storage solution's benefits and its current limitation.
 
 ## Performance considerations
 
@@ -175,7 +175,7 @@ For details about SAP HANA performance requirements, see [SAP note 1943937 - Har
 
 To achieve high IOPS and disk bandwidth throughput, the common practices in storage volume [performance optimization](/azure/virtual-machines/linux/premium-storage-performance) apply to your Storage layout. For example, if you combine multiple disks to create a striped disk volume, you can improve IO performance. By enabling the read cache on storage content that changes infrequently, you can enhance the speed of data retrieval. For recommendations about storage configurations for various VM sizes when you run SAP HANA, see [SAP HANA Azure virtual machine storage configurations](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage).
 
-[Azure Premium SSD v2](/updates/general-availability-azure-premium-ssd-v2-disk-storage/) is the most advanced general purpose block storage solution available, designed for performance-critical workloads like SAP. Refer to the [Azure Managed Disk types](/azure/virtual-machines/disks-types#premium-ssd-v2) article to learn the benefits, limitations, and their optimal usage.
+Azure Premium SSD v2 is the most advanced general purpose block storage solution available, designed for performance-critical workloads like SAP. Refer to the [Azure Managed Disk types](/azure/virtual-machines/disks-types#premium-ssd-v2) article to learn the benefits, limitations, and their optimal usage.
 
 [Ultra Disk Storage](/azure/virtual-machines/linux/disks-enable-ultra-ssd) is a new generation of storage that meets intensive IOPS and the transfer bandwidth demands of applications such as SAP HANA. You can dynamically change the performance of ultra disks and independently configure metrics like IOPS and MB/s without rebooting your VM. When Ultra Disk Storage is available, we recommend Ultra Disk Storage instead of Write Accelerator.
 
@@ -301,7 +301,7 @@ There are several payment options for VMs in general:
   - Test environments, including continuous integration and continuous delivery workloads
   - Large-scale stateless applications
 
-- Azure reserved VM Instances lower your total cost of ownership by combining Azure Reserved VM Instances rates with a pay-as-you-go subscription to manage costs across predictable and variable workloads.  See [Azure Reserved Virtual Machine Instances](/reservations/?ef_id=_k_c6b1a4a4e31717e945e5c0329255ae1f_k_&OCID=AIDcmme9zx2qiz_SEM__k_c6b1a4a4e31717e945e5c0329255ae1f_k_&msclkid=c6b1a4a4e31717e945e5c0329255ae1f).
+- Azure reserved VM Instances lower your total cost of ownership by combining Azure Reserved VM Instances rates with a pay-as-you-go subscription to manage costs across predictable and variable workloads.  See [Azure Reserved Virtual Machine Instances](/azure/virtual-machines/prepay-reserved-vm-instances).
 
 For more information, also see [Linux Virtual Machines Pricing][linux-vms-pricing].
 
@@ -344,7 +344,7 @@ Use a centralized identity management system to control access to resources at a
 
 ### Monitoring
 
-To maximize the availability and performance of applications and services on Azure, use [Azure Monitor](/azure/azure-monitor/overview), a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. Azure Monitor shows how applications are performing and proactively identifies issues that affect them and the resources that they depend on.  For the SAP applications running on SAP HANA and other major database solutions, refer to the article [Azure Monitor for SAP solutions](/sap/monitor/about-azure-monitor-sap-solutions) to learn how Azure Monitor for SAP helps in managing SAP services availability and performance.
+To maximize the availability and performance of applications and services on Azure, use [Azure Monitor](/azure/azure-monitor/overview), a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. Azure Monitor shows how applications are performing and proactively identifies issues that affect them and the resources that they depend on.  For the SAP applications running on SAP HANA and other major database solutions, refer to the article [Azure Monitor for SAP solutions](/azure/sap/monitor/about-azure-monitor-sap-solutions) to learn how Azure Monitor for SAP helps in managing SAP services availability and performance.
 
 ## Security considerations
 

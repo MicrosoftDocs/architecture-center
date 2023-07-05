@@ -141,7 +141,7 @@ Storage is also used by [Cloud Witness](/windows-server/failover-clustering/depl
 
 For the backup data store, we recommend Azure [cool and archive access tiers](/azure/storage/blobs/access-tiers-overview). These storage tiers provide a cost-effective way to store long-lived data that's infrequently accessed.
 
-[Azure Premium SSD v2 Disk Storage](/updates/general-availability-azure-premium-ssd-v2-disk-storage/) Azure Premium SSD v2 Disk Storage is the most advanced general purpose block storage solution available, designed for performance-critical workloads like online transaction processing systems that consistently need sub-millisecond latency combined with high IOPS and throughput.
+[Azure Premium SSD v2 Disk Storage](https://azure.microsoft.com/en-us/updates/general-availability-azure-premium-ssd-v2-disk-storage/) Azure Premium SSD v2 Disk Storage is the most advanced general purpose block storage solution available, designed for performance-critical workloads like online transaction processing systems that consistently need sub-millisecond latency combined with high IOPS and throughput.
 
 [Ultra Disk Storage](/azure/virtual-machines/linux/disks-enable-ultra-ssd) greatly reduces disk latency. As a result, it benefits performance-critical applications like the SAP database servers. To compare block storage options in Azure, see [Azure managed disk types](/azure/virtual-machines/windows/disks-types).
 
@@ -185,7 +185,7 @@ You can scale SAP application servers and the Central Services clusters up and d
 
 Resource redundancy is the general theme in highly available infrastructure solutions. For single-instance VM availability SLAs for various storage types, see [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9). To increase the service availability on Azure, deploy VM resources with virtual machine scale set with flexible orchestration, availability zones, or availability set.
 
-With Azure, SAP workload deployment can either be regional or zonal depending on the availability and resiliency requirements of the SAP applications. Azure provides [different deployment options](/azure/sap/workloads/sap-high-availability-architecture-scenarios#comparison-of-different-deployment-types-for-sap-workload) like flexible scale set with FD=1, availability zones, or availability sets to enhance the availability of the resources. To have a comprehensive understanding of the available deployment options and their applicability across different Azure regions (including across zones, within a single zone, or in a region without zones), it is important to refer to the [Azure VMs HA architecture and scenarios for SAP NetWeaver](azure/sap/workloads/sap-high-availability-architecture-scenarios) document.
+With Azure, SAP workload deployment can either be regional or zonal depending on the availability and resiliency requirements of the SAP applications. Azure provides [different deployment options](/azure/sap/workloads/sap-high-availability-architecture-scenarios#comparison-of-different-deployment-types-for-sap-workload) like flexible scale set with FD=1, availability zones, or availability sets to enhance the availability of the resources. To have a comprehensive understanding of the available deployment options and their applicability across different Azure regions (including across zones, within a single zone, or in a region without zones), it is important to refer to the [Azure VMs HA architecture and scenarios for SAP NetWeaver](/azure/sap/workloads/sap-high-availability-architecture-scenarios) document.
 
 In this distributed installation of the SAP application, the base installation is replicated to achieve high availability. For each layer of the architecture, the high availability design varies.
 
@@ -290,7 +290,7 @@ Support access within the applications themselves by using the services that SAP
 
 ### Monitoring
 
-To maximize the availability and performance of applications and services on Azure, use [Azure Monitor](/azure/azure-monitor/overview), a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. Azure Monitor shows how applications are performing and proactively identifies issues that affect them and the resources that they depend on.  For the SAP applications running on SAP HANA and other major database solutions, refer to the article [Azure Monitor for SAP solutions](/sap/monitor/about-azure-monitor-sap-solutions) to learn how Azure Monitor for SAP helps in managing SAP services availability and performance.
+To maximize the availability and performance of applications and services on Azure, use [Azure Monitor](/azure/azure-monitor/overview), a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. Azure Monitor shows how applications are performing and proactively identifies issues that affect them and the resources that they depend on.  For the SAP applications running on SAP HANA and other major database solutions, refer to the article [Azure Monitor for SAP solutions](/azure/sap/monitor/about-azure-monitor-sap-solutions) to learn how Azure Monitor for SAP helps in managing SAP services availability and performance.
 
 ## Security considerations
 
@@ -334,7 +334,7 @@ Use [Azure spot VMs][az-spot-vms] to run workloads that can be interrupted and d
 - Test environments, including continuous integration and continuous delivery workloads
 - Large-scale stateless applications
 
-Azure reserved VM Instances lower your total cost of ownership by combining Azure Reserved VM Instances rates with a pay-as-you-go subscription to manage costs across predictable and variable workloads.  See [Azure Reserved Virtual Machine Instances](/reservations/?ef_id=_k_c6b1a4a4e31717e945e5c0329255ae1f_k_&OCID=AIDcmme9zx2qiz_SEM__k_c6b1a4a4e31717e945e5c0329255ae1f_k_&msclkid=c6b1a4a4e31717e945e5c0329255ae1f).
+Azure reserved VM Instances lower your total cost of ownership by combining Azure Reserved VM Instances rates with a pay-as-you-go subscription to manage costs across predictable and variable workloads.  See [Azure Reserved Virtual Machine Instances](/azure/virtual-machines/prepay-reserved-vm-instances).
 
 ### Load Balancer
 
