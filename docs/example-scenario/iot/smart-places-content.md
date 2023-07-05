@@ -387,7 +387,7 @@ Other contributor:
 [Power BI]: https://powerbi.microsoft.com
 [Power Platform]: https://powerplatform.microsoft.com
 [Power Virtual Agents]: https://powervirtualagents.microsoft.com
-[Powering Microsoft smart buildings with Microsoft Azure Digital Twins]: https://www.microsoft.com/insidetrack/blog/powering-microsoft-smart-buildings-with-microsoft-azure-digital-twins
+[Powering Microsoft smart buildings with Microsoft Azure Digital Twins]: https://www.microsoft.com/insidetrack/blog/powering-microsoft-smart-buildings-with-microsoft-azure-digital-twins/
 [Principles of cost optimization]: /azure/architecture/framework/cost/overview
 [RealEstateCore]: https://techcommunity.microsoft.com/t5/internet-of-things/realestatecore-a-smart-building-ontology-for-digital-twins-is/ba-p/1914794
 [RealEstateCore ontology]: https://github.com/azure/opendigitaltwins-building

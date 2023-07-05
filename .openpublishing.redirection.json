@@ -2712,7 +2712,7 @@
     },
     {
       "source_path": "docs/example-scenario/apps/devops-dotnet-baseline.yml",
-      "redirect_url": "/azure/devops/pipelines/architectures/devops-baseline-architecture",
+      "redirect_url": "/azure/devops/pipelines/architectures/devops-pipelines-baseline-architecture",
       "redirect_document_id": false
     },
     {

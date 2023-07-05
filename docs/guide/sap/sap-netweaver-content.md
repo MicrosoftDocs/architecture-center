@@ -46,7 +46,7 @@ For some internet-facing inbound/outbound design examples, see [Inbound and outb
 Standard Load Balancer supports multiple front-end virtual IPs. This support is ideal for cluster implementations that involve these components:
 
 - Advanced Business Application Programming (ABAP) SAP Central Service (ASCS)
-- Evaluated receipt settlement (ERS)
+- Enqueue Replication Service (ERS)
 
 The services can share a load balancer to simplify the solution.
 
