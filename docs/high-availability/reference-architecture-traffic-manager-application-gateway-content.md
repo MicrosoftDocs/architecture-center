@@ -222,7 +222,7 @@ For more information, see:
 - [Load Balancing pricing](https://azure.microsoft.com/pricing/details/load-balancer/)
 - [Virtual network Pricing](https://azure.microsoft.com/pricing/details/virtual-network/)
 - [Application gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/)
-- [Choose the right Azure Firewall SKU to meet your needs](https://learn.microsoft.com/azure/firewall/choose-firewall-sku)
+- [Choose the right Azure Firewall SKU to meet your needs](/azure/firewall/choose-firewall-sku)
 - [Traffic Manager pricing](https://azure.microsoft.com/pricing/details/traffic-manager/)
 - [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 
