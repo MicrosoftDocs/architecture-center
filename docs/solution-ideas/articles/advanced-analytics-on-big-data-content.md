@@ -4,7 +4,7 @@ This architecture allows you to combine any data at any scale with custom machin
 
 ## Architecture
 
-:::image type="content" source="../media/advanced-analytics-on-big-data.png" alt-text="Diagram of an advanced analytics architecture using Azure Synapse Analytics with Azure Data Lake Storage Gen2, Azure Analysis Services, Azure Cosmos DB, and Power BI." border="false":::
+:::image type="content" source="../media/advanced-analytics-on-big-data.svg" alt-text="Diagram of an advanced analytics architecture using Azure Synapse Analytics with Azure Data Lake Storage Gen2, Azure Analysis Services, Azure Cosmos DB, and Power BI." border="false" lightbox="../media/advanced-analytics-on-big-data.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/advanced-analytics-on-big-data.vsdx) of this architecture.*
 
