@@ -46,11 +46,11 @@ In a scenario that's based on the Azure landing zone architecture, applications 
 
 For the remainder of this article, "front-end component" refers to application components that are reachable from the entire corporate network, or from outside the component's landing zone. "Back-end component" refers to application components that don't expose endpoints in the corporate network and only need to be reachable from within their own landing zone. For example, a web application that exposes an endpoint is a front-end component, and a database that doesn't expose an endpoint is a back-end component.
 
-The following sections describe two best practices to minimize private address space consumption when you build large networks in Azure.
+The following sections describe two methods to minimize private address space consumption when you build large networks in Azure.
 
-## Best practice: Non-routable landing zone spoke virtual networks
+## Method #1: Non-routable landing zone spoke virtual networks
 
-RFC 1918 carves IP address blocks out of the IPv4 32-bit address space and makes them non-routable on the public internet, so you can reuse them in multiple private networks for internal communication. This best practice is based on the same principle that applies to private address space. One or more address ranges are carved out of the entire private address space that's used by your organization and declared non-routable within your organization’s corporate network. The address ranges are reused in multiple landing zones. As a result, each landing zone:
+RFC 1918 carves IP address blocks out of the IPv4 32-bit address space and makes them non-routable on the public internet, so you can reuse them in multiple private networks for internal communication. This method is based on the same principle that applies to private address space. One or more address ranges are carved out of the entire private address space that's used by your organization and declared non-routable within your organization’s corporate network. The address ranges are reused in multiple landing zones. As a result, each landing zone:
 
 - Is assigned a routable address space that's made of one or more address ranges. Your organization centrally manages the address ranges and uniquely assigns them to a landing zone for communicating with the corporate network. Addresses in the routable space are assigned to front-end components.
 - Can use the non-routable address space, which is the address ranges that your organization declared non-routable in the corporate network. You can use these reserved ranges for internal communication in all landing zones. Addresses in the non-routable space are assigned to back-end components.
@@ -134,7 +134,7 @@ The following diagram shows the landing zone layout when you use third-party NVA
 
 *Figure 10.  When using third-party NVAs, in a VWAN spoke, to provide Source-NAT for non-routable spokes, multiple instances must be deployed behind an Azure Load Balancer in order to guarantee high availability. Azure Load Balancer Standard SKU is required.*
 
-## Best practice: Private Link services
+## Method #2: Private Link services
 
 Private Link is an Azure feature that provides access to applications that are deployed in a virtual network that's not connected to your virtual network. In the server-side, or application, virtual network, a Private Link service is deployed and associated with an application endpoint that's exposed on the front-end IP address of an internal Azure standard SKU load balancer. In the client-side virtual network, a private endpoint resource is deployed and associated with the Private Link service. The private endpoint exposes the application endpoint in your virtual networks. Private Link provides the tunneling and NAT logic to route traffic between the client side and the server side. For more information, see [What is Azure Private Link?](/azure/private-link/private-link-overview)
 
