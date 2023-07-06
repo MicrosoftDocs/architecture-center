@@ -571,10 +571,16 @@ One important factor to consider in your IaaS baseline is the configuration of f
 In the IaaS baseline for VMSS flexible orchestration, it is recommended to let Azure manage the allocation of fault domains. This allows Azure to maximize spreading of instances, providing greater resilience and availability.
 
 ### DevOps
+DevOps plays a critical role in ensuring that the underlying infrastructure is properly configured and maintained. DevOps tasks include OS patching, packaging and publishing workload artifacts, and configuring the guest OS. Azure VMs have a variety of options for performing these tasks, including Maintenance Configuration for OS patching, VM Applications and Azure Compute Gallery for packaging and deploying workloads, and Azure VM extensions for configuring the guest OS.
 
 ##### OS patching
+You can use Maintenance Configurations to control and manage updates for both Windows and Linux VMs. Maintenance Configurations provides a centralized view of the patch status of your VMs, and you can schedule patching to occur during a maintenance window that you define based on three supported scopes. For more information, check out the [Maintenance Configuration scopes.](/azure/virtual-machines/maintenance-configurations#scopes)
+
 ##### Packaging/publishing workload artifacts
+VM Applications and Azure Compute Gallery are packaging and publishing options for workload artifacts. Use VM Applications to create and define your application as a packaged resource to globally distribute to your Windows and Linux VMs. Have Azure Compute Gallery act as your repository for managing and sharing the VM Application packages. For more information, see [VM Applications](/azure/virtual-machines/vm-applications) and [Azure Compute Gallery.](/azure/virtual-machines/azure-compute-gallery)
+
 ##### Guest OS config
+VM extensions are small applications that provide post-deployment configuration and automation to Azure VMs. Azure VM extensions are used to customize the configuration of your VMs, such as installing software, configuring security settings, and joining a domain. For more information, see the [Extensions overview page.](/azure/virtual-machines/extensions/overview)
 
 #### Use Infrastructure as Code (IaC)
 
