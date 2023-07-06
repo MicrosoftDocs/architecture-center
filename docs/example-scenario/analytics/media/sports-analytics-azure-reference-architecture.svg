@@ -64,13 +64,13 @@
 		.st57 {fill:#57a300;stroke:none;stroke-linecap:butt;stroke-width:12.2399}
 		.st58 {fill:#b8d432;fill-opacity:0.4;stroke:none;stroke-linecap:butt;stroke-width:12.2399}
 		.st59 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:12.2399}
-		.st60 {fill:#258277;stroke:none;stroke-width:0.75}
-		.st61 {fill:#ffca00}
-		.st62 {stroke:none;stroke-width:0.75}
-		.st63 {fill:url(#grad3-588);stroke:none;stroke-width:0.75}
-		.st64 {fill:#cccccc;stroke:none;stroke-width:0.75}
-		.st65 {fill:#999999;stroke:none;stroke-width:0.75}
-		.st66 {fill:#000000;font-family:Segoe UI;font-size:1.00001em}
+		.st60 {fill:#000000;font-family:Segoe UI;font-size:1.00001em}
+		.st61 {fill:#258277;stroke:none;stroke-width:0.75}
+		.st62 {fill:#ffca00}
+		.st63 {stroke:none;stroke-width:0.75}
+		.st64 {fill:url(#grad3-588);stroke:none;stroke-width:0.75}
+		.st65 {fill:#cccccc;stroke:none;stroke-width:0.75}
+		.st66 {fill:#999999;stroke:none;stroke-width:0.75}
 		.st67 {fill:url(#grad3-606);stroke:none;stroke-linecap:butt;stroke-width:34.0001}
 		.st68 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:34.0001}
 		.st69 {fill:url(#grad7-614);stroke:none;stroke-linecap:butt;stroke-width:34.0001}
@@ -1749,8 +1749,8 @@
 						<title>Sheet.1594</title>
 						<desc>Microsoft Defender for Cloud</desc>
 						<rect x="0" y="663.75" width="89.6121" height="20.25" class="st5"/>
-						<text x="21.72" y="663.8" class="st15">Microsoft <tspan x="13.97" dy="1.2em" class="st4">Defender for </tspan><tspan
-									x="30.49" dy="1.223em" class="st4">Cloud</tspan></text>					</g>
+						<text x="19.62" y="662.89" class="st60">Microsoft <tspan x="11.17" dy="1.2em" class="st4">Defender for </tspan><tspan
+									x="29.19" dy="1.223em" class="st4">Cloud</tspan></text>					</g>
 				</g>
 				<g id="group1604-577" transform="translate(91.8621,0)">
 					<title>Sheet.1604</title>
@@ -1768,30 +1768,30 @@
 											 A5.72018 5.72018 -180 0 0 4.04 673.61 L4.04 676.47 A5.87071 5.87071 0 0 1 6.35 677.83
 											 A2.50885 2.50885 0 0 1 7.08 679.58 ZM2.96 676 L2.96 673.66 A1.00354 1.00354 -180 0 0
 											 2.06 674.72 C2.06 675.24 2.39 675.67 3.06 676 L2.96 676 ZM5.09 679.68 C5.09 679.21 4.74
-											 678.83 4.04 678.51 L4.04 680.76 C4.74 680.64 5.09 680.29 5.09 679.68 Z" class="st60"/>
+											 678.83 4.04 678.51 L4.04 680.76 C4.74 680.64 5.09 680.29 5.09 679.68 Z" class="st61"/>
 							</g>
 							<g id="shape1599-582" transform="translate(27.4468,-5.04279)">
 								<title>Sheet.1599</title>
 								<path d="M12.74 668.97 L3.71 668.97 A11.1142 11.1142 0 0 1 -0 677.25 L6 684 A20.0708 20.0708 -180
-											 0 0 12.74 668.95 L12.74 668.97 Z" class="st61"/>
+											 0 0 12.74 668.95 L12.74 668.97 Z" class="st62"/>
 								<path d="M12.74 668.97 L3.71 668.97 A11.1142 11.1142 0 0 1 -0 677.25 L6 684 A20.0708 20.0708 -180
-											 0 0 12.74 668.95" class="st62"/>
+											 0 0 12.74 668.95" class="st63"/>
 							</g>
 							<g id="shape1600-585">
 								<title>Sheet.1600</title>
 								<path d="M20.07 675.07 A11.1142 11.1142 0 0 1 20.07 652.84 L20.07 643.86 A20.0708 20.0708 -180 0
 											 0 0 663.93 A20.0708 20.0708 -180 0 0 20.07 684 A20.0708 20.0708 -180 0 0 33.47 678.98
-											 L27.45 672.23 A10.9888 10.9888 0 0 1 20.07 675.07 Z" class="st63"/>
+											 L27.45 672.23 A10.9888 10.9888 0 0 1 20.07 675.07 Z" class="st64"/>
 							</g>
 							<g id="shape1601-589" transform="translate(19.1425,-19.2429)">
 								<title>Sheet.1601</title>
 								<path d="M0 660.57 L0 671 A12.77 12.77 0 0 1 12.97 684 L23.46 684 A23.4327 23.4327 -180 0 0 0 660.57
-											 Z" class="st64"/>
+											 Z" class="st65"/>
 							</g>
 							<g id="shape1602-591" transform="translate(19.1425,-19.2429)">
 								<title>Sheet.1602</title>
 								<path d="M13.02 684 A12.8704 12.8704 -180 0 0 0.33 671 L0 671 L0.83 672.56 A11.2898 11.2898 0 0 1
-											 11.44 683.22 L13.02 684 Z" class="st65"/>
+											 11.44 683.22 L13.02 684 Z" class="st66"/>
 							</g>
 						</g>
 					</g>
@@ -1799,7 +1799,7 @@
 						<title>Sheet.1603</title>
 						<desc>Azure Cost Management</desc>
 						<rect x="0" y="641.095" width="81" height="42.9052" class="st5"/>
-						<text x="11.84" y="658.76" class="st66">Azure Cost <tspan x="5.21" dy="1.223em" class="st4">Management</tspan></text>					</g>
+						<text x="11.84" y="658.76" class="st60">Azure Cost <tspan x="5.21" dy="1.223em" class="st4">Management</tspan></text>					</g>
 				</g>
 				<g id="group1609-597" transform="translate(261.31,-0.193982)">
 					<title>Sheet.1609</title>
@@ -1882,7 +1882,7 @@
 						<title>Sheet.1608</title>
 						<desc>Azure Key Vault</desc>
 						<rect x="0" y="641.095" width="81" height="42.9052" class="st5"/>
-						<text x="14.13" y="658.76" class="st66">Azure Key <tspan x="26.84" dy="1.223em" class="st4">Vault</tspan></text>					</g>
+						<text x="14.13" y="658.76" class="st60">Azure Key <tspan x="26.84" dy="1.223em" class="st4">Vault</tspan></text>					</g>
 				</g>
 				<g id="group1610-628" transform="translate(340.759,-0.193982)">
 					<title>Sheet.1610</title>
@@ -1952,7 +1952,7 @@
 						<title>Sheet.1607</title>
 						<desc>Azure Active Directory</desc>
 						<rect x="0" y="641.095" width="81" height="42.9052" class="st5"/>
-						<text x="7.51" y="658.76" class="st66">Azure Active <tspan x="16.31" dy="1.223em" class="st4">Directory</tspan></text>					</g>
+						<text x="7.51" y="658.76" class="st60">Azure Active <tspan x="16.31" dy="1.223em" class="st4">Directory</tspan></text>					</g>
 				</g>
 				<g id="group1614-662" transform="translate(423.931,-1.43536)">
 					<title>Sheet.1614</title>
@@ -1969,7 +1969,7 @@
 						<title>Sheet.1613</title>
 						<desc>Azure DevOps</desc>
 						<rect x="0" y="641.095" width="81" height="42.9052" class="st5"/>
-						<text x="25.3" y="658.76" class="st66">Azure <tspan x="19.68" dy="1.223em" class="st4">DevOps</tspan></text>					</g>
+						<text x="25.3" y="658.76" class="st60">Azure <tspan x="19.68" dy="1.223em" class="st4">DevOps</tspan></text>					</g>
 				</g>
 				<g id="group1615-672" transform="translate(182.366,-0.193982)">
 					<title>Sheet.1615</title>
@@ -2045,7 +2045,7 @@
 						<title>Sheet.1605</title>
 						<desc>Azure Monitor</desc>
 						<rect x="0" y="641.095" width="81" height="42.9052" class="st5"/>
-						<text x="25.3" y="658.76" class="st66">Azure <tspan x="19.11" dy="1.223em" class="st4">Monitor</tspan></text>					</g>
+						<text x="25.3" y="658.76" class="st60">Azure <tspan x="19.11" dy="1.223em" class="st4">Monitor</tspan></text>					</g>
 				</g>
 			</g>
 			<g id="shape1617-706">
