@@ -32,7 +32,7 @@ There are two deployment modes available for Azure Database for PostgreSQL that 
 - [Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/) - An Azure managed database service designed for solutions requiring a high level of scale, which often includes multitenanted applications. This service is part of the Azure Cosmos DB family of products.
 
 > [!NOTE]
-> Azure Database for PostgreSQL - Single Server is on the retirement path and is [scheduled for retirement by March 28, 2025](/updates/azure-database-for-postgresql-single-server-will-be-retired-migrate-to-flexible-server-by-28-march-2025/). It is not recommended for new multitenant workloads.
+> Azure Database for PostgreSQL - Single Server is on the retirement path and is [scheduled for retirement by March 28, 2025](https://azure.microsoft.com/updates/azure-database-for-postgresql-single-server-will-be-retired-migrate-to-flexible-server-by-28-march-2025/). It is not recommended for new multitenant workloads.
 
 ## Features of Azure Database for PostgreSQL that support multitenancy
 
