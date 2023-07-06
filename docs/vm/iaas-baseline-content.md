@@ -150,9 +150,13 @@ In this architecture, the both backend and frontend VMs use Standard HDD LRS. //
 
 ##### Virtual Machine Scale Sets with flexible orchestration
 
-In this architecture, VMs are provisioned as part of **Virtual Machine Scale Sets (VMSS) with Flexible orchestration** to facilitate operations at scale. VMSS represent a logical organization of VMs. The expected capacity can be met by allocating identical VMs or multiple virtual machine types. You can manage the machine lifecycle, including network interfaces and disks using the standard Azure VM APIs and commands. 
+In this architecture, VMs are provisioned as part of **Virtual Machine Scale Sets (VMSS) with [Flexible orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration)** to facilitate operations at scale. VMSS represent a logical organization of VMs. The expected capacity can be met by allocating identical VMs or multiple virtual machine types. You can manage the machine lifecycle, including network interfaces and disks using the standard Azure VM APIs and commands.
 
-Another benefit is that flexible orchestration can spread VMs across fault domains within an Availability Zone. You to scale out the application while maintaining fault domain isolation.
+Another benefit is that the flexible orchestration mode of VMSS allows for better control and more granular scaling decisions.
+
+One important factor to consider in your IaaS baseline is the configuration of fault domains. Fault domains provides a way to limit the impact of potential physical hardware failures, network outages, or power interruptions. When using VMSS, Azure evenly spreads instances across fault domains. The even spreading ensures that a single hardware or infrastructure issue does not affect all instances.
+
+In the IaaS baseline for VMSS flexible orchestration, it is recommended to let Azure manage the allocation of fault domains. This allows Azure to maximize spreading of instances, providing greater resilience and availability.
 
 ## Networking 
 
@@ -262,15 +266,13 @@ Azure Private DNS zones is used for resolving requests to the private endpoints 
 
 [Azure Active Directory (Azure AD)](/azure/active-directory/) is recommended for authenication of all actors, both users and software components such as services. Use [Azure Role Based Access Control (RBAC)](/azure/role-based-access-control/overview) for authorization of all actors accessing resources, and implementation of the [principle of least privilege](/azure/active-directory/develop/secure-least-privileged-access) when applying roles and permissions to actors. 
 
-In the workload, services will need to communicate with other services. For example, VMs need to reach Key Vault to get certificates. To make sure that access is secure, the service needs to authenticate its identity to the other service. Using a managed identity is recommended. Managed identities are based on Azure Active Directory service principals internally, but much easier to use due to the automatic management of the service principal object.
+In the workload, services will need to communicate with other services. For example, VMs need to reach Key Vault to get certificates. To make sure that access is secure, the service needs to authenticate its identity to the other service. Using managed identity is recommended. Managed identities are based on Azure Active Directory service principals internally, but much easier to use due to the automatic management of the service principal object.
 
-The services in this architecture use [user-assigned managed identities](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types). These identities are created and assigned during deployment:
+These services in this architecture use [user-assigned managed identities](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types). The identities are created and assigned during deployment. 
 
 - **Azure Application Gateway** uses its user-assigned managed identity to access Azure Key Vault and retrieve external and internal TLS certificates. The external certificate is used for encrypting traffic to/from the user, and the internal certificate is used to encrypt traffic to/from the front-end web tier.
 
 - **Front-end web tier and back-end API tier VMs** use their own user-assigned managed identities to access Azure Key Vault and retrieve the internal TLS certificate. The internal certificate is used for encrypting traffic between frontend and backend VMs. VMs also use their managed identity to access the Azure Storage account issued during deployment, which is used to store boot diagnostics.
-
-Note that VMSS flexible orchestration mode [does not support](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#unsupported-parameters) the use of system-assigned managed identities. 
 
 // It's a good place to add some example of how to continue to use managed identity for extension cases. Like Backend servers would need managed identity for getting secrets from KV for database connection purposes. 
 
@@ -395,7 +397,7 @@ The table below lists the types of data you can currently collect with the Azure
 | Performance | Azure Monitor Metrics (Public preview)<sup>1</sup> - Insights.virtualmachine namespace<br>Log Analytics workspace - [Perf](/azure/azure-monitor/reference/tables/perf) table | Numerical values measuring performance of different aspects of operating system and workloads |
 | Windows event logs (including sysmon events) | Log Analytics workspace - [Event](/azure/azure-monitor/reference/tables/Event) table | Information sent to the Windows event logging system |
 | Syslog | Log Analytics workspace - [Syslog](/azure/azure-monitor/reference/tables/syslog)<sup>2</sup> table | Information sent to the Linux event logging system |
-|	Text logs and Windows IIS logs	|	Log Analytics workspace - custom table(s) created manually |	[Collect text logs with Azure Monitor Agent](data-collection-text-log.md)	|
+|	Text logs and Windows IIS logs	|	Log Analytics workspace - custom table(s) created manually |	[Collect text logs with Azure Monitor Agent](/azure/azure-monitor/agents/data-collection-text-log)	|
 
 //TODO: consider adding details about the data collection rules implemented in the RI. Highlight differences between the frontend and backend DCR definitions. See tutorials:  
 //        [Tutorial: Enable monitoring with VM insights for Azure virtual machine](/azure/azure-monitor/vm/tutorial-monitor-vm-enable-insights)  
@@ -547,7 +549,7 @@ Resources in this architecture that can benefit from Azure reservations:
 
 #### Virtual Machine Scale Sets with flexible orchestration
 
-In this baseline architecture we are using Virtual Machine Scale Sets (VMSS) with Flexible orchestration to facilitate the operation of virtual machines at cloud scale. Unlike uniform VMSS, with flexible orchestration Azure enables you to allocate and manage VMs individually. You have full control over the virtual machine lifecycle, as well as network interfaces and disks using the standard Azure VM APIs and commands. At the same time, by joining VM to a flexible VMSS, you get an orchestration layer that facilitates achieving high availability at scale with identical or multiple virtual machine types. Flexible orchestration offers high availability guarantees (up to 1000 VMs) by spreading VMs across fault domains in a region or within an Availability Zone. This enables you to scale out your application while maintaining fault domain isolation that is essential to run quorum-based or stateful workloads, including:
+In this baseline architecture we are using Virtual Machine Scale Sets (VMSS) with [Flexible orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration) to facilitate the operation of virtual machines at cloud scale. Unlike uniform VMSS, with flexible orchestration Azure enables you to allocate and manage VMs individually. You have full control over the virtual machine lifecycle, as well as network interfaces and disks using the standard Azure VM APIs and commands. At the same time, by joining VM to a flexible VMSS, you get an orchestration layer that facilitates achieving high availability at scale with identical or multiple virtual machine types. Flexible orchestration offers high availability guarantees (up to 1000 VMs) by spreading VMs across fault domains in a region or within an Availability Zone. This enables you to scale out your application while maintaining fault domain isolation that is essential to run quorum-based or stateful workloads, including:
 
 ##### Scale out with standard Azure virtual machines
 
@@ -563,13 +565,22 @@ Enabling automatic instance repairs for Azure Virtual Machine Scale Sets helps a
 
 *Terminate notification and automatic repairs* If the terminate notification feature is enabled on a scale set, then during automatic repair operation, the deletion of an unhealthy instance follows the terminate notification configuration. A terminate notification is sent through Azure metadata service – scheduled events – and instance deletion is delayed during the configured delay timeout. However, the creation of a new instance to replace the unhealthy one doesn't wait for the delay timeout to complete.
 
+##### Fault domains in VMSS
+One important factor to consider in your IaaS baseline is the configuration of fault domains. Fault domains provides a way to limit the impact of potential physical hardware failures, network outages, or power interruptions. When using VMSS, Azure evenly spreads instances across fault domains. The even spreading ensures that a single hardware or infrastructure issue does not affect all instances.
 
+In the IaaS baseline for VMSS flexible orchestration, it is recommended to let Azure manage the allocation of fault domains. This allows Azure to maximize spreading of instances, providing greater resilience and availability.
 
 ### DevOps
+DevOps plays a critical role in ensuring that the underlying infrastructure is properly configured and maintained. DevOps tasks include OS patching, packaging and publishing workload artifacts, and configuring the guest OS. Azure VMs have a variety of options for performing these tasks, including Maintenance Configuration for OS patching, VM Applications and Azure Compute Gallery for packaging and deploying workloads, and Azure VM extensions for configuring the guest OS.
 
 ##### OS patching
+You can use Maintenance Configurations to control and manage updates for both Windows and Linux VMs. Maintenance Configurations provides a centralized view of the patch status of your VMs, and you can schedule patching to occur during a maintenance window that you define based on three supported scopes. For more information, check out the [Maintenance Configuration scopes.](/azure/virtual-machines/maintenance-configurations#scopes)
+
 ##### Packaging/publishing workload artifacts
+VM Applications and Azure Compute Gallery are packaging and publishing options for workload artifacts. Use VM Applications to create and define your application as a packaged resource to globally distribute to your Windows and Linux VMs. Have Azure Compute Gallery act as your repository for managing and sharing the VM Application packages. For more information, see [VM Applications](/azure/virtual-machines/vm-applications) and [Azure Compute Gallery.](/azure/virtual-machines/azure-compute-gallery)
+
 ##### Guest OS config
+VM extensions are small applications that provide post-deployment configuration and automation to Azure VMs. Azure VM extensions are used to customize the configuration of your VMs, such as installing software, configuring security settings, and joining a domain. For more information, see the [Extensions overview page.](/azure/virtual-machines/extensions/overview)
 
 #### Use Infrastructure as Code (IaC)
 
