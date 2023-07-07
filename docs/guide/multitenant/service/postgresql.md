@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure Database for PostgreSQL that are useful when working with multitenanted systems, and it provides links to guidance and examples.
 author: PlagueHO
 ms.author: dascottr
-ms.date: 02/04/2022
+ms.date: 07/07/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -26,14 +26,13 @@ Many multitenant solutions on Azure use the open-source relational database mana
 
 ## Deployment modes
 
-There are three deployment modes available for Azure Database for PostgreSQL that are suitable for use with multitenant applications:
+There are two deployment modes available for Azure Database for PostgreSQL that are suitable for use with multitenant applications:
 
-- [Single Server](/azure/postgresql/single-server) - The basic PostgreSQL service that has a broad set of supported features and [service limits](/azure/postgresql/concepts-limits).
-- [Flexible Server](/azure/postgresql/flexible-server/) - Supports higher [service limits](/azure/postgresql/flexible-server/concepts-limits) and larger SKUs than single server. This is a good choice for most multitenant deployments that don't require the high scalability that's provided by Azure Cosmos DB for PostgreSQL.
-- [Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/introduction) - Azure managed database service designed for solutions requiring a high level of scale, which often includes multitenanted applications.
+- [Flexible Server](/azure/postgresql/flexible-server/) - This is a good choice for most multitenant deployments that don't require the high scalability that's provided by Azure Cosmos DB for PostgreSQL.
+- [Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/) - An Azure managed database service designed for solutions requiring a high level of scale, which often includes multitenanted applications. This service is part of the Azure Cosmos DB family of products.
 
 > [!NOTE]
-> On 28 March 2025, [Azure Database for PostgreSQL Single Server will be retired](https://azure.microsoft.com/updates/azure-database-for-postgresql-single-server-will-be-retired-migrate-to-flexible-server-by-28-march-2025/), and you'll need to migrate to Azure Database for PostgreSQL Flexible Server by that date
+> Azure Database for PostgreSQL - Single Server is on the retirement path and is [scheduled for retirement by March 28, 2025](https://azure.microsoft.com/updates/azure-database-for-postgresql-single-server-will-be-retired-migrate-to-flexible-server-by-28-march-2025/). It is not recommended for new multitenant workloads.
 
 ## Features of Azure Database for PostgreSQL that support multitenancy
 
@@ -46,9 +45,11 @@ When you're building a multitenant application using Azure Database for PostgreS
 
 Row-level security is useful for enforcing tenant-level isolation, when you use shared tables. In PostgreSQL, row-level security is implemented by applying _row security policies_ to tables to restrict access to rows by tenant.
 
+There maybe a slight performance impact when implementing row-level security on a table. Therefore, additional indexes might need to be created on tables with row-level security enabled to ensure performance is not impacted. It is recommended to use performance testing techniques to validate that your workload meets your baseline performance requirements when row-level security is enabled.
+
 More information:
 
-- [Row security policies in PostgreSQL](https://www.postgresql.org/docs/14/ddl-rowsecurity.html)
+- [Azure Database for PostgreSQL Flexible Server row-level security](/azure/postgresql/flexible-server/concepts-security#row--level-security)
 
 ### Horizontal scaling with sharding
 
@@ -56,18 +57,21 @@ The [Sharding pattern](/azure/architecture/patterns/sharding) enables you to sca
 
 Solutions that need a very high level of scale can use Azure Cosmos DB for PostgreSQL. This deployment mode enables horizontal sharding of tenants across multiple servers (nodes). By using _distributed tables_ in multitenant databases, you can ensure all data for a tenant is stored on the same node, which increases query performance.
 
+> [!NOTE]
+> From October 2022, Azure Database for PostgreSQL Hyperscale (Citus) has been rebranded as Azure Cosmos DB for PostgreSQL and [moved into the Cosmos DB family of products](/azure/postgresql/hyperscale/moved).
+
 More information:
 
 - [Design a multi-tenant database using Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/tutorial-design-database-multi-tenant)
-- [Distributed tables](/azure/postgresql/hyperscale/concepts-nodes#type-1-distributed-tables)
-- Choosing a [distribution column](/azure/postgresql/hyperscale/concepts-choose-distribution-column) in a distributed table.
+- [Distributed tables](/azure/cosmos-db/postgresql/concepts-nodes#type-1-distributed-tables)
+- Choosing a [distribution column](/azure/cosmos-db/postgresql/howto-choose-distribution-column) in a distributed table.
 - A guide to using [Citus for multitenant applications](https://docs.citusdata.com/en/v10.2/use_cases/multi_tenant.html).
 
 ### Connection pooling
 
 Postgres uses a process-based model for connections. This model makes it inefficient to maintain large numbers of idle connections. Some multitenant architectures require a large number of active connections, which will negatively impact the performance of the Postgres server.
 
-Connection pooling via PgBouncer is installed by default in Azure Database for PostgreSQL [Flexible Server](/azure/postgresql/flexible-server) and [Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/introduction). Connection pooling via PgBouncer is not built-in to [Single Server](/azure/postgresql/single-server), but it can be installed on a separate server.
+Connection pooling via PgBouncer is installed by default in Azure Database for PostgreSQL [Flexible Server](/azure/postgresql/flexible-server).
 
 More information:
 
@@ -77,17 +81,20 @@ More information:
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+_This article is maintained by Microsoft. It was originally written by the following contributors._
 
 Principal author:
- * [Daniel Scott-Raynsford](http://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
+
+- [Daniel Scott-Raynsford](http://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
 
 Other contributors:
 
- * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
- * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+- [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [Paul Burpo](https://www.linkedin.com/in/paul-burpo/) | Principal Customer Engineer, FastTrack for Azure ISVs
+- [Assaf Fraenkel](https://www.linkedin.com/in/assaf-fraenkel/) | Senior Engineer/Data Architect, Azure FastTrack for ISVs and Start-ups
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+_To see non-public LinkedIn profiles, sign in to LinkedIn._
 
 ## Next steps
 
