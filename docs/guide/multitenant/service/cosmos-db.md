@@ -57,7 +57,7 @@ More information:
 - [Serverless](/azure/cosmos-db/serverless)
 - [Measuring the RU charge of a request](/azure/cosmos-db/optimize-cost-reads-writes#measuring-the-ru-charge-of-a-request)
 - [Azure Cosmos DB service quotas](/azure/cosmos-db/concepts-limits)
-- [Burst Capacity](/azure/cosmos-db/burst-capacity)
+- [Burst capacity](/azure/cosmos-db/burst-capacity)
 
 ### Customer-managed keys
 
