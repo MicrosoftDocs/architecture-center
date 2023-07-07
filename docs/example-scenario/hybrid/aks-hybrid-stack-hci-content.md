@@ -53,7 +53,7 @@ Reliability ensures that your application can meet the commitments you make to y
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- **Understand the security benefits of the architecture.** With Flux v2, Kustomize, GitOps, and DevOps pipelines operational changes are applied via automation. You can control and audit the code that implements these operational practices by taking advantage of mechanisms like branch protection, pull request reviews, and immutable history. The IaC approach removes the need to manage permissions for accessing the infrastructure and supports the principle of least privilege. Flux support for namespace-based configuration scoping facilitates multitenant scenarios.
+- **Understand the security benefits of the architecture.** With Flux v2, Kustomize, GitOps, and DevOps pipelines, operational changes are applied via automation. You can control and audit the code that implements these operational practices by taking advantage of mechanisms like branch protection, pull request reviews, and immutable history. The IaC approach removes the need to manage permissions for accessing the infrastructure and supports the principle of least privilege. Flux support for namespace-based configuration scoping facilitates multitenant scenarios.
 
 - **Understand encryption.** To help ensure data security, the cluster configuration service stores the Flux configuration resource data in an Azure Cosmos DB database and encrypts it at rest.
 
