@@ -485,14 +485,14 @@
 		</g>
 		<g id="shape1127-131" v:mID="1127" v:groupContext="shape" transform="translate(114.437,-363.375)">
 			<title>Sheet.1127</title>
-			<desc>Any Handoop or Spark distribution</desc>
+			<desc>Any Hadoop or Spark distribution</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(13000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="53.75" cy="494" width="107.5" height="20"/>
 			<rect x="0" y="484" width="107.5" height="20" class="st15"/>
-			<text x="13.55" y="490.7" class="st21" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Any Handoop or<v:newlineChar/><tspan
+			<text x="16.66" y="490.7" class="st21" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Any Hadoop or<v:newlineChar/><tspan
 						x="10.75" dy="1.2em" class="st22">Spark distribution</tspan></text>		</g>
 		<g id="shape1128-135" v:mID="1128" v:groupContext="shape" transform="translate(234.844,-369.125)">
 			<title>Sheet.1128</title>
