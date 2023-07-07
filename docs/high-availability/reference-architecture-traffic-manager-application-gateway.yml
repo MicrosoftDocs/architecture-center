@@ -19,8 +19,8 @@ products:
   - azure-bastion
   - azure-load-balancer
   - azure-traffic-manager
-name: Multi-region load balancing with Traffic Manager, Azure Firewall and Application Gateway
-summary: Multi-region load balancing with Traffic Manager, Azure Firewall and Application Gateway.
+name: Multi-region load balancing with Traffic Manager, Azure Firewall, and Application Gateway
+summary: Multi-region load balancing with Traffic Manager, Azure Firewall, and Application Gateway.
 thumbnailUrl: /azure/architecture/browse/thumbs/high-availability-multi-region-v-10.png
 content: |
   [!include[](reference-architecture-traffic-manager-application-gateway-content.md)]
