@@ -1,7 +1,7 @@
 ---
 title: Azure Storage considerations for multitenancy
 titleSuffix: Azure Architecture Center
-description: This article describes the features of Azure Storage that are useful when working with multitenanted systems. It provides links to guidance and examples for how to use Azure Storage in a multitenant solution.
+description: This article describes the features of Azure Storage that are useful when working with multitenant systems. It provides links to guidance and examples for how to use Azure Storage in a multitenant solution.
 author: johndowns
 ms.author: jodowns
 ms.date: 07/07/2023
