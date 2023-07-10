@@ -11,19 +11,16 @@ There are two articles on the reliable web app pattern for .NET. This article ex
 
 Your business context, existing web app, and service level objective (SLO) affect the architecture of your web app. The reference implementation needed a multi-region deployment to meet stated objectives (*see figure 1*).
 
-<<<<<<<< HEAD:docs/web-apps/guides/reliable-web-app/plan-implementation-content.md
-[![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-dotnet.png)](images/reliable-web-app-dotnet.png#lightbox)
-========
-[![Diagram showing the architecture of the reference implementation.](../_images/reliable-web-app-dotnet.png)](../_images/reliable-web-app-dotnet.png)
->>>>>>>> bb0fb930c87d09878335dfd91db91c4913c55ebe:docs/web-apps/guides/reliable-web-app/pattern-overview-content.md
-
-*Figure 1. Target reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet.vsdx) of this architecture. See [Production environment](https://azure.com/e/26f1165c5e9344a4bf814cfe6c85ed8d) and [Nonproduction environment](https://azure.com/e/8a574d4811a74928b55956838db71093) for an estimated cost.*
+[![Diagram showing the architecture of the reference implementation.](../../_images/reliable-web-app-dotnet.png)](../../_images/reliable-web-app-dotnet.png)
+*Figure 1. Target reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet.vsdx) of this architecture. See estimated[production environment cost](https://azure.com/e/26f1165c5e9344a4bf814cfe6c85ed8d) and [nonproduction environment cost](https://azure.com/e/8a574d4811a74928b55956838db71093).*
 
 The following table lists the principles of the reliable web app pattern and implementation details.
 
 | Reliable web app pattern principles | Implementation details |
 | --- | --- |
 | *Reliable web app pattern principles:*<br>▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br><br>*Well Architected Framework principles:*<br>▪ Cost optimized<br>▪ Observable<br>▪ Ingress secure<br>▪ Infrastructure as code<br>▪ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Bicep deployment <br>▪ Telemetry, logging, monitoring |
+
+For more information, see the [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos).
 
 ## Business context
 

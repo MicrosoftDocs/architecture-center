@@ -292,9 +292,9 @@
 			<title>Sheet.1782</title>
 			<rect x="0" y="150.746" width="1336.5" height="648" class="st1"/>
 		</g>
-		<g id="shape3-3" v:mID="3" v:groupContext="shape" transform="translate(155.25,-51.4667)">
+		<g id="shape3-3" v:mID="3" v:groupContext="shape" transform="translate(162,-51.4667)">
 			<title>Sheet.3</title>
-			<rect x="0" y="292.213" width="481.5" height="506.533" class="st2"/>
+			<rect x="0" y="292.213" width="480.375" height="506.533" class="st2"/>
 		</g>
 		<g id="group5-5" transform="translate(699.66,-622.44)" v:mID="5" v:groupContext="group">
 			<title>Users.1116</title>
@@ -1151,7 +1151,7 @@
 							 -0.26325 Z" class="st60"/>
 			</g>
 		</g>
-		<g id="group1346-392" transform="translate(162,-522)" v:mID="1346" v:groupContext="group">
+		<g id="group1346-392" transform="translate(171,-522)" v:mID="1346" v:groupContext="group">
 			<title>Sheet.1346</title>
 			<g id="group146-393" transform="translate(8.78907,-11.25)" v:mID="146" v:groupContext="group">
 				<title>Sheet.146</title>
@@ -1233,7 +1233,7 @@
 		</g>
 		<g id="shape1349-429" v:mID="1349" v:groupContext="shape" transform="translate(1273.28,-51.1835) scale(-1,1)">
 			<title>Sheet.1349</title>
-			<rect x="0" y="273.929" width="481.5" height="524.817" class="st2"/>
+			<rect x="0" y="291.929" width="481.5" height="506.817" class="st2"/>
 		</g>
 		<g id="shape1358-431" v:mID="1358" v:groupContext="shape" transform="translate(1246.28,-183.09) scale(-1,1)">
 			<title>Sheet.1358</title>
@@ -2005,9 +2005,9 @@
 							 -0.26325 Z" class="st60"/>
 			</g>
 		</g>
-		<g id="group1526-745" transform="translate(1265.87,-540) scale(-1,1)" v:mID="1526" v:groupContext="group">
+		<g id="group1526-745" transform="translate(1265.87,-522) scale(-1,1)" v:mID="1526" v:groupContext="group">
 			<title>Sheet.1526</title>
-			<g id="group1527-746" transform="translate(8.78907,-13.5)" v:mID="1527" v:groupContext="group">
+			<g id="group1527-746" transform="translate(5.86549,-11.25)" v:mID="1527" v:groupContext="group">
 				<title>Sheet.1527</title>
 				<g id="shape1528-747" v:mID="1528" v:groupContext="shape" transform="translate(11.6539,0)">
 					<title>Sheet.1528</title>
@@ -2386,15 +2386,15 @@
 								x="29.55" dy="1.2em" class="st7">DNS Zones</tspan></text>				</g>
 			</g>
 		</g>
-		<g id="shape1764-901" v:mID="1764" v:groupContext="shape" transform="translate(1331.89,1302.47) rotate(-179.432)">
+		<g id="shape1764-901" v:mID="1764" v:groupContext="shape" transform="translate(1311.75,1301.6) rotate(180)">
 			<title>Sheet.1764</title>
-			<path d="M0 798.75 L84.89 798.75" class="st90"/>
+			<path d="M0 798.75 L56.81 798.75" class="st90"/>
 		</g>
 		<g id="shape1765-906" v:mID="1765" v:groupContext="shape" transform="translate(119.261,-290.169)">
 			<title>Sheet.1765</title>
 			<path d="M0 798.75 L64.93 798.75" class="st91"/>
 		</g>
-		<g id="shape1766-912" v:mID="1766" v:groupContext="shape" transform="translate(106.875,-268.232)">
+		<g id="shape1766-912" v:mID="1766" v:groupContext="shape" transform="translate(109.125,-266.062)">
 			<title>Sheet.1766</title>
 			<desc>linked</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
@@ -2485,14 +2485,14 @@
 								x="29.55" dy="1.2em" class="st7">DNS Zones</tspan></text>				</g>
 			</g>
 		</g>
-		<g id="shape1780-940" v:mID="1780" v:groupContext="shape" transform="translate(1263.49,-269.453)">
+		<g id="shape1780-940" v:mID="1780" v:groupContext="shape" transform="translate(1263.49,-270)">
 			<title>Sheet.1780</title>
 			<desc>linked</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="30.375" cy="785.808" width="60.75" height="25.875"/>
 			<rect x="0" y="772.871" width="60.75" height="25.875" class="st87"/>
 			<text x="15.86" y="789.41" class="st74" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>linked</text>		</g>
-		<g id="shape1781-943" v:mID="1781" v:groupContext="shape" transform="translate(860.362,-487.125)">
+		<g id="shape1781-943" v:mID="1781" v:groupContext="shape" transform="translate(788.625,-482.625)">
 			<title>Sheet.1781</title>
 			<desc>failover</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
