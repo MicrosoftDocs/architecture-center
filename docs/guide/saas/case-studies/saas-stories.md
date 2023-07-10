@@ -53,7 +53,7 @@ In this episode, we are exploring how Vocean built their SaaS application that c
 
 <br/>
 
-> [!VIDEO https://www.youtube.com/watch?v=VsAHrPvbeBg]
+> [!VIDEO https://www.youtube.com/embed/VsAHrPvbeBg]
 
 ## Next steps
 
