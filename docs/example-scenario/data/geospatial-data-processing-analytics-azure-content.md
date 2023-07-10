@@ -2,7 +2,7 @@ This article outlines a manageable solution for making large volumes of geospati
 
 ## Architecture
 
-:::image type="content" source="./media/geospatial-data-processing-analytics-azure-architecture-new.svg" alt-text="Architecture diagram showing how geospatial data flows through an Azure system. Various components receive, process, store, analyze, and publish the data." lightbox="./media/geospatial-data-processing-analytics-azure-architecture-new.svg":::
+:::image type="content" source="./data/geospatial-data-processing-analytics-azure-architecture-new.svg" alt-text="Architecture diagram showing how geospatial data flows through an Azure system. Various components receive, process, store, analyze, and publish the data." lightbox="./data/geospatial-data-processing-analytics-azure-architecture-new.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/geospatial-data-processing-analytics-azure-architecture.vsdx)* of this architecture.  
 
