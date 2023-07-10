@@ -2,7 +2,7 @@ This article describes the lift-and-shift migration of an HP-UX workload to Azur
 
 ## Architecture
 
-:::image type="content" source="media/charon-par-hp-ux.png" alt-text="Diagram that shows an architecture for lift-and-shift migration of HP-UX." lightbox="media/charon-par-hp-ux.png" border="false":::
+:::image type="content" source="media/charon-par-hp-ux.svg" alt-text="Diagram that shows an architecture for lift-and-shift migration of HP-UX." lightbox="media/charon-par-hp-ux.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/Stromasys-Charon-PAR-for-HP-UX-Reference-Architecture.vsdx) of this architecture.*
 
