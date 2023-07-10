@@ -76,12 +76,20 @@ items:
           items:
           - name: Reliable web app pattern
             items:
+            - name: Overview
+              href: guides/reliable-web-app/overview.md
             - name: .NET
               items:
               - name: Plan the implementation
-                href: guides/reliable-web-app/pattern-overview.yml
+                href: guides/reliable-web-app/.net/plan-implementation.yml
               - name: Apply the pattern
                 href: guides/reliable-web-app/apply-pattern.yml
+            - name: Java
+              items:
+              - name: Plan the implementation
+                href: guides/reliable-web-app/java/plan-implementation.yml
+              - name: Apply the pattern
+                href: guides/reliable-web-app/java/apply-pattern.yml
     - name: Hosting applications
       items:
       - name: WordPress
