@@ -78,6 +78,7 @@ Principal author:
 
 ## Next steps
 
+- [Landing zone sandbox environments](/azure/cloud-adoption-framework/ready/considerations/sandbox-environments)
 - [Develop and test on Azure](https://azure.microsoft.com/solutions/dev-test/#overview)
 - [Microsoft Cloud Adoption Framework](/azure/cloud-adoption-framework)
 - [Cloud Adoption Framework Azure setup guide](/azure/cloud-adoption-framework/ready/azure-setup-guide)
