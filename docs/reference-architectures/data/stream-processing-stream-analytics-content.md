@@ -4,7 +4,7 @@ This reference architecture shows an end-to-end [stream processing](../../data-g
 
 ## Architecture
 
-:::image type="content" source="docs/solution-ideas/media/stream-processing-stream-analytics.svg" alt-text="Interactive analytics with Azure Data Explorer." lightbox="docs/solution-ideas/media/stream-processing-stream-analytics.svg":::
+:::image type="content" source="architecture-center-pr/docs/solution-ideas/media/stream-processing-stream-analytics.svg" alt-text="Interactive analytics with Azure Data Explorer." lightbox="architecture-center-pr/docs/solution-ideas/media/stream-processing-stream-analytics.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/stream-processing-stream-analytics.vsdx) of this architecture.*
 
