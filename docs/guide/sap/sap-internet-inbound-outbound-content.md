@@ -12,13 +12,13 @@ This solution illustrates a common production environment. You can reduce the si
 
 Customer requirements, driven by business policies, will necessitate adaptations to the architecture, particularly to the network design. When possible, we've included alternatives. Many solutions are viable. Choose an approach that's right for your business. It needs to help you secure your Azure resources but still provide a performant solution.
 
-Disaster recovery (DR) isn't covered in this architecture. For the network design, the same principles and design that are valid for primary production regions apply. In your network design, depending on the applications being protected by DR, you might want to consider enabling DR in another Azure region.
+Disaster recovery (DR) isn't covered in this architecture. For the network design, the same principles and design that are valid for primary production regions apply. In your network design, depending on the applications being protected by DR, consider enabling DR in another Azure region. For more information, see the article [Disaster recovery overview and infrastructure guidelines for SAP workload](/azure/sap/workloads/disaster-recovery-overview-guide)
 
 ### Workflow
 
-- The on-premises network connects to a central hub via Azure ExpressRoute. The hub virtual network contains a gateway subnet, an Azure Firewall subnet, a shared services subnet, and an Azure Bastion subnet.
+- The on-premises network connects to a central hub via Azure ExpressRoute. The hub virtual network contains a gateway subnet, an Azure Firewall subnet, a shared services subnet, and an Azure Application Gateway subnet.
 - The hub connects to an SAP production subscription via virtual network peering. This subscription contains two spoke virtual networks:
-  - The SAP perimeter virtual network contains an SAP perimeter application subnet and an Application Gateway subnet.
+  - The SAP perimeter virtual network contains an SAP perimeter application subnet.
   - The SAP production virtual network contains an application subnet and a database subnet.
 - The hub subscription and the SAP production subscription connect to the internet via public IP addresses.  
 
@@ -28,7 +28,7 @@ Disaster recovery (DR) isn't covered in this architecture. For the network desig
 
 **Virtual networks.** [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) connects Azure resources to each other with enhanced security. In this architecture, the virtual network connects to an on-premises environment via an ExpressRoute or virtual private network (VPN) gateway that's deployed in the hub of a [hub-spoke topology](../../reference-architectures/hybrid-networking/hub-spoke.yml). The SAP production landscape uses its own spoke virtual networks. Two distinct spoke virtual networks perform different tasks, and subnets provide network segregation.
 
-Separation into subnets by workload makes it easier to use network security groups (NSGs) to set security rules for application VMs or Azure services that are deployed on them.
+Separation into subnets by workload makes it easier to use network security groups (NSGs) to set security rules for application VMs or Azure services that are deployed.
 
 **Zone-redundant gateway.** A gateway connects distinct networks, extending your on-premises network to the Azure virtual network. We recommend that you use [ExpressRoute](https://azure.microsoft.com/services/expressroute) to create private connections that don't use the public internet. You can also use a [site-to-site](../../reference-architectures/hybrid-networking/expressroute.yml) connection. You can deploy ExpressRoute or VPN gateways across zones to help avoid zone failures. See [Zone-redundant virtual network gateways](/azure/vpn-gateway/about-zone-redundant-vnet-gateways) for an explanation of the differences between a zonal deployment and a zone-redundant deployment. For a zone deployment of the gateways, you need to use Standard SKU IP addresses.
 
@@ -40,7 +40,7 @@ Separation into subnets by workload makes it easier to use network security grou
 
 **Azure Application Gateway.** [Application Gateway](https://azure.microsoft.com/services/application-gateway) is a web-traffic load balancer. With its Web Application Firewall functionality, it's the ideal service to expose web applications to the internet with improved security. Application Gateway can service either public (internet) or private clients, or both, depending on the configuration.
 
-In the architecture, Application Gateway, using a public IP address, allows inbound connections to the SAP landscape over HTTPS. Its back-end pool is two or more SAP Web Dispatcher VMs, accessed round-robin and providing high availability. The application gateway is a reverse proxy and web-traffic load balancer, but it doesn't replace the SAP Web Dispatcher. SAP Web Dispatcher provides application integration with your SAP systems and includes features that Application Gateway by itself doesn't provide. Client authentication, when it reaches the SAP systems, is performed by the SAP application layer natively or via single sign-on.
+In the architecture, Application Gateway, using a public IP address, allows inbound connections to the SAP landscape over HTTPS. Its back-end pool is two or more SAP Web Dispatcher VMs, accessed round-robin and providing high availability. The application gateway is a reverse proxy and web-traffic load balancer, but it doesn't replace the SAP Web Dispatcher. SAP Web Dispatcher provides application integration with your SAP systems and includes features that Application Gateway by itself doesn't provide. Client authentication, when it reaches the SAP systems, is performed by the SAP application layer natively or via single sign-on. When leveraging Azure DDoS protection, consider using [DDoS network protection SKU](/azure/ddos-protection/ddos-protection-sku-comparison) which discounts the use of Application Gateway Web Application Firewall.
 
 For optimal performance, enable [HTTP/2 support](/azure/application-gateway/configuration-listeners#http2-support) for Application Gateway, [SAP Web Dispatcher](https://help.sap.com/docs/SAP_NETWEAVER_AS_ABAP_751_IP/683d6a1797a34730a6e005d1e8de6f22/c7b46000a76445f489e86f4c5814c7e8.html), and SAP NetWeaver.
 
@@ -50,7 +50,7 @@ For optimal performance, enable [HTTP/2 support](/azure/application-gateway/conf
 
 The architecture uses two discrete virtual networks, both spoke virtual networks that are peered to the central hub virtual network. There's no spoke-to-spoke peering. A star topology is used, in which communication passes through the hub. The separation of networks helps to protect the applications from breaches.
 
-An application-specific [perimeter network](/azure/cloud-adoption-framework/ready/azure-best-practices/perimeter-networks) (also known as a *DMZ*) contains the internet-facing applications, like SAProuter, SAP Cloud Connector, SAP Analytics Cloud Agent, and Application Gateway. In the architecture diagram, the perimeter network is named *SAP perimeter -- spoke virtual network*. Because of dependencies on SAP systems, the SAP team typically does the deployment, configuration, and management of these services. That's why these SAP perimeter services frequently aren't located in a central hub subscription and network, where they would need to be managed by the central IT team. This constraint causes organizational challenges. Application Gateway always requires its own designated subnet, which is best placed in the SAP perimeter virtual network. Application Gateway uses public IP addresses for its front end and HTTPS listener.
+An application-specific [perimeter network](/azure/cloud-adoption-framework/ready/azure-best-practices/perimeter-networks) (also known as a *DMZ*) contains the internet-facing applications, like SAProuter, SAP Cloud Connector, SAP Analytics Cloud Agent, and others. In the architecture diagram, the perimeter network is named *SAP perimeter -- spoke virtual network*. Because of dependencies on SAP systems, the SAP team typically does the deployment, configuration, and management of these services. That's why these SAP perimeter services frequently aren't located in a central hub subscription and network, where they would need to be managed by the central IT team. This constraint causes organizational challenges.
 
 These are some of the benefits of using a separate SAP perimeter virtual network:
 
@@ -69,13 +69,13 @@ _Download a [Visio file](https://arch-center.azureedge.net/sap-internet-communic
 
 For deployments that are smaller in size and scope, the simplified architecture might be a better fit, and it still adheres to the principles of the more complex architecture. This article, unless otherwise noted, refers to the more complex architecture.
 
-The simplified architecture uses a NAT gateway in the SAP perimeter subnet. This gateway provides outbound connectivity for SAP Cloud Connector and SAP Analytics Cloud Agent and OS updates for the deployed VMs. Because SAProuter requires both incoming and outbound connections, the SAProuter communication path goes through the firewall instead of using the NAT gateway.
+The simplified architecture uses a NAT gateway in the SAP perimeter subnet. This gateway provides outbound connectivity for SAP Cloud Connector and SAP Analytics Cloud Agent and OS updates for the deployed VMs. Because SAProuter requires both incoming and outbound connections, the SAProuter communication path goes through the firewall instead of using the NAT gateway. The simplified architecture also places the Application Gateway with its own designated subnet in the SAP perimeter virtual network, as an alternative approach to hub virtual network.
 
 A [NAT gateway](/azure/virtual-network/nat-gateway/nat-overview) is a service that provides static public IP addresses for outbound connectivity. The NAT gateway is assigned to a subnet. All outbound communications use the NAT gateway's IP addresses for internet access. Inbound connections don't use the NAT gateway. Applications like SAP Cloud Connector, or VM OS update services that access repositories on the internet, can use the NAT gateway instead of routing all outbound traffic through the central firewall. Frequently, [user-defined rules](/azure/virtual-network/ip-services/default-outbound-access) are implemented on all subnets to force internet-bound traffic from all virtual networks through the central firewall.
 
 Depending on your requirements, you might be able to use the NAT gateway as an alternative to the central firewall, on outbound connections only. By doing so, you can reduce load on the central firewall while communicating with NSG-allowed public endpoints. You also get outbound IP control, because you can configure destination firewall rules on a set IP list of the NAT gateway. Examples include reaching Azure public endpoints that are used by public services, OS patch repositories, or third-party interfaces.
 
-For a high-availability configuration, keep in mind that NAT gateway is deployed in a [specific zone only](/azure/virtual-network/nat-gateway/faq#how-does-virtual-network-nat-gateway-work-with-availability-zones) and isn't currently cross-zone redundant. So it's not ideal for SAP deployments that use zone-redundant (cross-zone) deployment for virtual machines.
+For a high-availability configuration, keep in mind that NAT gateway is deployed in a [specific zone only](/azure/virtual-network/nat-gateway/faq#how-does-virtual-network-nat-gateway-work-with-availability-zones) and isn't currently cross-zone redundant. With a single NAT gateway it's not ideal for SAP deployments that use zone-redundant (cross-zone) deployment for virtual machines.
 
 ### Use of network components across an SAP landscape
 
@@ -94,7 +94,7 @@ Services that typically serve an SAP system are best separated as described here
 When you design subnets for your SAP landscape, be sure to follow sizing and design principles:
 
 - Several Azure platform as a service (PaaS) services require their own designated subnets.
-- Application Gateway requires at least a /29 subnet. We [recommend /27 or larger](/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsub). You can't use both versions of Application Gateway (1 and 2) in the same subnet.
+- Application Gateway recommends a /24 subnet for scaling. If chosing to limit the Application Gateway scale a smaller subnet could be used, at the [minimum /26 or larger](/azure/application-gateway/configuration-infrastructure#size-of-the-subnet). You can't use both versions of Application Gateway (1 and 2) in the same subnet.
 - If you use Azure NetApp Files for your NFS/SMB shares or database storage, a designated subnet is required. A /24 subnet is the default. Use your requirements to determine the [proper sizing](/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).
 - If you use SAP virtual host names, you need more address space in your SAP subnets, including the SAP perimeter.
 - Central services like Azure Bastion or Azure Firewall, typically managed by a central IT team, require their own dedicated subnets of sufficient size.
