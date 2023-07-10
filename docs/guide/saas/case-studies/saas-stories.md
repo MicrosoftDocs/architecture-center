@@ -47,6 +47,14 @@ In our second episode with Zammo’s Stacey Kyler and Nicholas Spagnola, we lear
 
 > [!VIDEO https://www.youtube.com/embed/NDcpqd9Df_s]
 
+## Episode 4: Vocean
+
+In this episode, we are exploring how Vocean built their SaaS application that changes the way organizations make decisions. They share the importance of taking time to plan, learn, and listen to experts around you before rushing to build features.
+
+<br/>
+
+> [!VIDEO https://www.youtube.com/watch?v=VsAHrPvbeBg]
+
 ## Next steps
 
 - [Plan your own journey to SaaS](../plan-journey-saas.md)
