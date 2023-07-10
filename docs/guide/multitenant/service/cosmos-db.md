@@ -1,10 +1,10 @@
 ---
 title: Azure Cosmos DB considerations for multitenancy
 titleSuffix: Azure Architecture Center
-description: This article describes the features of Azure Cosmos DB that are useful when working with multitenanted systems, and links to guidance and examples for how to use Azure Cosmos DB in a multitenant solution.
+description: This article describes the features of Azure Cosmos DB that are useful when working with multitenant systems, and links to guidance and examples for how to use Azure Cosmos DB in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 12/02/2022
+ms.date: 07/07/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -22,7 +22,7 @@ ms.custom:
 
 # Multitenancy and Azure Cosmos DB
 
-On this page, we describe some of the features of Azure Cosmos DB that are useful when you're working with multitenanted systems. We also link to guidance and examples for how to use Azure Cosmos DB in a multitenant solution.
+On this page, we describe some of the features of Azure Cosmos DB that are useful when you're working with multitenant systems. We also link to guidance and examples for how to use Azure Cosmos DB in a multitenant solution.
 
 ## Features of Azure Cosmos DB that support multitenancy
 
@@ -30,10 +30,12 @@ On this page, we describe some of the features of Azure Cosmos DB that are usefu
 
 By using partitions with your Azure Cosmos DB containers, you can create containers that are shared across multiple tenants. Typically you use the tenant identifier as a partition key, but you might also consider using multiple partition keys for a single tenant. A well-planned partitioning strategy effectively implements the [Sharding pattern](../../../patterns/sharding.yml). With large containers, Azure Cosmos DB spreads your tenants across multiple physical nodes to achieve a high degree of scale.
 
+We recommend that you explore the use of [hierarchical partition keys](/azure/cosmos-db/hierarchical-partition-keys) to improve the performance of your multitenant solution. Hierarchical partition keys enable you to create a partition key that includes multiple values. For example, you might use a hierarchical partition key that includes the tenant identifier and the type of data that you're storing. This approach allows you to scale beyond the logical partition limit of 20 GB per partition key value.
+
 More information:
 
 - [Partitioning and horizontal scaling in Azure Cosmos DB](/azure/cosmos-db/partitioning-overview)
-- [Hierarchical partition keys](https://devblogs.microsoft.com/cosmosdb/hierarchical-partition-keys-private-preview/)
+- [Hierarchical partition keys](/azure/cosmos-db/hierarchical-partition-keys)
 
 ### Managing request units
 
@@ -41,7 +43,7 @@ Azure Cosmos DB pricing model is based on the number of *request units* per seco
 
 One tenancy model for Azure Cosmos DB involves deploying separate containers for each tenant within a shared database. Azure Cosmos DB enables you to provision request units for a database, and all of the containers share the request units. If your tenant workloads don't typically overlap, this approach can help reduce your operational costs. However, this approach is susceptible to the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) because a single tenant's container might consume a disproportionate amount of the shared provisioned request units. To mitigate this issue, first identify the noisy tenants. Then, you can optionally set provisioned throughput on a specific container. The other containers in the database continue to share their throughput, but the noisy tenant consumes their own dedicated throughput.
 
-Azure Cosmos DB also provides a serverless tier, which is suited for workloads with intermittent or unpredictable traffic. Alternatively, autoscaling enables you to configure policies to specify the scaling of provisioned throughput. In a multitenant solution, you might combine all of these approaches to support different types of tenant.
+Azure Cosmos DB also provides a serverless tier, which is suited for workloads with intermittent or unpredictable traffic. Alternatively, autoscaling enables you to configure policies to specify the scaling of provisioned throughput. Additionally, you can take advantage of Azure Cosmos DB burst capacity, maximizing the utilization of your provisioned throughput capacity, which would have been rate limited otherwise. In a multitenant solution, you might combine all of these approaches to support different types of tenant.
 
 > [!NOTE]
 > When planning your Azure Cosmos DB configuration, ensure you consider the [service quotas and limits](/azure/cosmos-db/concepts-limits).
@@ -55,6 +57,7 @@ More information:
 - [Serverless](/azure/cosmos-db/serverless)
 - [Measuring the RU charge of a request](/azure/cosmos-db/optimize-cost-reads-writes#measuring-the-ru-charge-of-a-request)
 - [Azure Cosmos DB service quotas](/azure/cosmos-db/concepts-limits)
+- [Burst capacity](/azure/cosmos-db/burst-capacity)
 
 ### Customer-managed keys
 
@@ -147,6 +150,7 @@ Other contributors:
 - [Theo van Kraay](https://www.linkedin.com/in/theo-van-kraay-3388b130) | Senior Program Manager, Azure Cosmos DB
 - [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 - Thomas Weiss | Principal Program Manager
+- [Vic Perdana](https://www.linkedin.com/in/vperdana) | Cloud Solution Architect, Azure ISV
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
