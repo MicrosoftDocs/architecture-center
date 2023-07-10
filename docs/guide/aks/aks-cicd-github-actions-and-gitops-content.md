@@ -24,7 +24,7 @@ This scenario covers a push-based DevOps pipeline for a two-tier web application
 1. The app code is developed.
 2. The app code is committed to a GitHub git repository.
 3. GitHub Actions builds a container image from the app code and pushes the container image to Azure Container Registry.
-4. A GitHub Actions job deploys, or pushes, the app to the Azure Kubernetes Service (AKS) cluster using kubectl deployment of the Kubernetes manifest files.
+4. A GitHub Actions job deploys, or pushes, the app to the Azure Kubernetes Service (AKS) cluster using kubectl deployment of the Kubernetes manifest files, while another option is utilizing the [Deploy to Kubernetes cluster](https://github.com/marketplace/actions/deploy-to-kubernetes-cluster) action.
 
 ### Option 2: Pull-based CI/CD (GitOps)
 
