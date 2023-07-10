@@ -4,7 +4,7 @@ This architecture shows how to use Raincode's IMSql to rehost IMS Database Man
 
 ### IBM z/OS architecture, before migration
 
-:::image type="content" source="media/mainframe-architecture.png" alt-text="Diagram that shows the mainframe architecture before migration." lightbox="media/mainframe-architecture.png" border="false":::
+:::image type="content" source="media/mainframe-architecture.svg" alt-text="Diagram that shows the mainframe architecture before migration." lightbox="media/mainframe-architecture.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/imsql-rehosting-ims-pre-migration-mainframe.vsdx) of this architecture.*
 
