@@ -33,6 +33,13 @@
     - name: Cloud Design Patterns
       tocHref: /azure/architecture/patterns/
       topicHref: /azure/architecture/patterns
+    - name: Web Apps
+      tocHref: /azure/architecture/web-apps
+      topicHref: /azure/architecture/web-apps/index
+      items:
+      - name: Spring Apps
+        tocHref: /azure/architecture/web-apps/spring-apps
+        topicHref: /azure/architecture/web-apps/spring-apps/index
     - name: Cloud Adoption Framework (CAF)
       tocHref: /azure/architecture/cloud-adoption/
       topicHref: /azure/architecture/cloud-adoption

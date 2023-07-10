@@ -1,9 +1,9 @@
 ---
 # required metadata
 title: Migrate your e-commerce solution to Azure
-author: martinekuan
-ms.author: architectures
-ms.date: 07/26/2022
+author: robbagby
+ms.author: robbag
+ms.date: 06/14/2023
 ms.topic: conceptual
 ms.service: industry
 products:
@@ -171,6 +171,6 @@ Product documentation:
 
 ## Related resources
 
-- [Architect scalable e-commerce web app](../../solution-ideas/articles/scalable-ecommerce-web-app.yml)
+- [Architect scalable e-commerce web app](../../web-apps/idea/scalable-ecommerce-web-app.yml)
 - [Scalable order processing](../../example-scenario/data/ecommerce-order-processing.yml)
 - [Retail - Buy online, pick up in store (BOPIS)](../../example-scenario/iot/vertical-buy-online-pickup-in-store.yml)

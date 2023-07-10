@@ -2,7 +2,7 @@ This architecture demonstrates running computational fluid dynamics simulations 
 
 ## Architecture
 
-:::image type="content" alt-text="Diagram showing the architecture of a computational-fluid-dynamics scenario." source="./media/architecture-hpc-cfd.png" lightbox="./media/architecture-hpc-cfd.png":::
+:::image type="content" alt-text="Diagram showing the architecture of a computational-fluid-dynamics scenario." source="./media/architecture-hpc-cfd.svg" lightbox="./media/architecture-hpc-cfd.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/architecture-hpc-cfd.vsdx) of this architecture.*
 
