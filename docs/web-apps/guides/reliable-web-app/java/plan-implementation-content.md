@@ -39,9 +39,9 @@ You need to define what availability means for your web application. For Prosewa
 
 For each dependency in the critical path, you need to assign an availability goal. Service Level Agreements (SLAs) from Azure provide a good starting point.
 
-Keep in mind that SLAs don't factor in (1) downtime associated with the application code run on those services, (2) deployment and operations methodologies, or (3) architecture choices to connect the services. The availability metric you assign to a dependency shouldn't exceed the SLA. Proseware used Azure SLAs for Azure services (*see figure 2*).
+SLAs don't factor in (1) downtime associated with the application code run on those services, (2) deployment and operations methodologies, or (3) architecture choices to connect the services. The availability metric you assign to a dependency shouldn't exceed the SLA. Proseware used Azure SLAs for Azure services (*see figure 2*).
 
-[![Diagram showing Proseware's dependencies on the critical path and the assigned availability metric for each dependency.](images/java-slo-dependecies.svg)](images/java-slo-dependecies.svg)
+[![Diagram showing Proseware's dependencies on the critical path and the assigned availability metric for each dependency.](../../_images/java-slo-dependecies.svg)](../../_images/java-slo-dependecies.svg)
 *Figure 2. SLA dependency map. Azure SLAs are subject to change. The SLAs shown here are examples used to illustrate the process of estimating composite availability. For information, see [SLAs for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).*
 
 Finally, you need to use the formulas for composite SLAs to estimate the composite availability of the dependencies on the critical path. This number should meet or exceed your SLO. Proseware needed a multi-region architecture to meet the 99.9% SLO. For more information, see:
@@ -116,21 +116,18 @@ Azure Monitor is a comprehensive suite of monitoring tools for collecting data f
 - **Externalized.** The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data, and it couldn't invalidate data.
 - **Enabling non-sticky sessions:** The cache allows the web app to externalize session state use nonsticky sessions. Most Java web app running on premises use in-memory, client-side caching. In-memory, client-side caching doesn't scale well and increases the memory footprint on the host. By using Azure Cache for Redis, Proseware has a fully managed, scalable cache service to improve scalability and performance of their applications. Proseware was using a cache abstraction framework (Spring Cache) and only needed minimal configuration changes to swap out the cache provider. It allowed them to switch from an Ehcache provider to the Redis provider.
 
-### External load balancer
+### Global load balancer
 
-Azure has three external load balancing services. Azure Application Gateway is a regional load balancer. It can route HTTP traffic within a region, not to different regions. You need a global load balancer to route traffic to different regions. Azure has two global load balancers. Azure Traffic Manager is a global load balancer that uses DNS to route traffic. Azure Front Door is a modern content delivery network and global load balancer that routes HTTP traffic.
+Proseware needed a multi-region architecture to meet their 99.9% SLO. They chose an active-passive configuration to avoid the code changes needed for an active-active configuration. To route traffic across regions, they needed a global load balancer. Azure has two primary global load balancing architectures: (1) Azure Front Door and (2) Azure Traffic Manager.
 
-- **Single region web apps.** Single region web apps should use an Application Gateway v2 SKU with WAF policies.
-- **Multi-region web apps.** Multi-region web apps need to add a global load balancer. Multi-region web apps with WebSockets need to use Traffic Manager and Application Gateway. Traffic Manager load balances traffic across regions and Application Gateway handles the HTTP and WebSockets connections within each region. Application Gateway deploys to a virtual network unlike Azure Front Door. You need to use Traffic Manager and Application Gateway to keep web app communication in your virtual network. All other web multi-region web apps should try [Azure Front Door](/azure/frontdoor/front-door-overview) first. Front Door can route HTTP traffic across multiple regions and provides performance acceleration.
+Front Door is a modern content delivery network and global load balancer that routes HTTP traffic. Traffic Manager is a global load balancer that uses DNS to route traffic across regions. The AirSonic web app uses WebSockets. Proseware chose Front Door as the global load balancer for following benefits:
 
-Proseware needed a multi-region architecture to meet their 99.9% SLO. They chose an active-passive configuration to avoid code changes needed for an active-active configuration. The AirSonic web app uses WebSockets. To support WebSockets, Proseware needed to use Traffic Manager to load balance traffic between regions and Application Gateway in both regions for HTTP routing and WebSocket support. This architecture provides the following benefits:
-
-- **WebSockets support.** Application Gateway natively [supports WebSockets](/azure/application-gateway/application-gateway-websocket) and requires no application code changes.
-- **Security.** Application Gateway integrates with Azure Web Application Firewall.
-- **Custom domains.** Application Gateway supports custom domain names.
-- **Health probes.** Traffic Manager and Application Gateway both have built-in health probes.
-- **Monitoring support.** You can configure alerts that integrate with Azure Monitor.
-- **DDoS protection.** Application Gateway integrates with [Azure DDoS Protection](/azure/application-gateway/tutorial-protect-application-gateway-ddos).
+- **Routing flexibility.** It allows the application team to configure ingress needs to support future changes in the application.
+- **Traffic acceleration.** It uses anycast to reach the nearest Azure point of presence and find the fastest route to the web app.
+- **Custom domains.** It supports custom domain names with flexible domain validation.
+- **Health probes.** The application needs intelligent health probe monitoring. Azure Front Door uses responses from the probe to determine the best origin for routing client requests.
+- **Monitoring support.** It supports built-in reports with an all-in-one dashboard for both Front Door and security patterns. You can configure alerts that integrate with Azure Monitor. It lets the application log each request and failed health probes.
+- **DDoS protection.** It has built-in layer 3-4 DDoS protection.
 
 ### Web application firewall
 
