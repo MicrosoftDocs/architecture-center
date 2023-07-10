@@ -25,7 +25,7 @@ ms.custom:
 
 ## Episode 1: Basis Theory
 
-In our first episode we talk with Basis Theory features CTO Brandon Weber. Basis Theory shares how they built confidence with their customers by creating an easy-to-use SaaS platform that scales while remaining reliable and secure. Learn the challenges they encountered running a 24/7 service while evolving the service and handling customer growth.
+In our first episode, we talk with Basis Theory features CTO Brandon Weber. Basis Theory shares how they built confidence with their customers by creating an easy-to-use SaaS platform that scales while remaining reliable and secure. Learn the challenges they encountered running a 24/7 service while evolving the service and handling customer growth.
 
 <br/>
 
@@ -33,7 +33,7 @@ In our first episode we talk with Basis Theory features CTO Brandon Weber. Basis
 
 ## Episode 2: Zammo.ai
 
-In our second episode with Zammo’s Stacey Kyler and Nicholas Spagnola, we learn about their significant growth in business and much faster time to close based on having their products in the marketplace. They share their experience building for Azure and running a No-Code Conversational AI Software SaaS platform.
+In our second episode with Zammo’s Stacey Kyler and Nicholas Spagnola, we learn about their significant growth in business and faster time to close based on having their products in the marketplace. They share their experience building for Azure and running a No-Code Conversational AI Software SaaS platform.
 
 <br/>
 
@@ -46,6 +46,14 @@ In our second episode with Zammo’s Stacey Kyler and Nicholas Spagnola, we lear
 <br/>
 
 > [!VIDEO https://www.youtube.com/embed/NDcpqd9Df_s]
+
+## Episode 4: Vocean
+
+In this episode, we're exploring how Vocean built their SaaS application that changes the way organizations make decisions. They share the importance of taking time to plan, learn, and listen to experts around you before rushing to build features.
+
+<br/>
+
+> [!VIDEO https://www.youtube.com/embed/VsAHrPvbeBg]
 
 ## Next steps
 
