@@ -28,7 +28,7 @@ Therefore, design an application to be self healing when failures occur. This re
 - Respond to failures gracefully.
 - Log and monitor failures, to give operational insight.
 
-How you respond to a particular type of failure may depend on your application's availability requirements. For example, if you require very high availability, you might automatically fail over to a secondary region during a regional outage. However, that will incur a higher cost and potentially lower performance than a single-region deployment. You can also consider other alternatives, like using availability zones, to provide high availability.
+How you respond to a particular type of failure may depend on your application's availability requirements. For example, if you require high availability, you might deploy to multiple availability zones in a region. To avoid outages even in the unlikely event of an entire Azure region experiencing disruption, you can automatically fail over to a secondary region during a regional outage. However, that will incur a higher cost and potentially lower performance than a single-region deployment.
 
 Also, don't just consider big events like regional outages, which are generally rare. You should focus as much, if not more, on handling local, short-lived failures, such as network connectivity failures or failed database connections.
 
