@@ -4,9 +4,9 @@ With ever-evolving business needs and data, applications must produce and scale 
 
 The following diagram shows the architecture of the workload to be migrated, an OLTP system running on a z/OS mainframe:
 
-:::image type="content" source="media/ibm-zos-online-transaction-processing-on-zos.svg" alt-text="OLTP architecture on z/OS" lightbox="media/ibm-zos-online-transaction-processing-on-zos.png":::
+:::image type="content" source="media/ibm-zos-online-transaction-processing-on-zos.svg" alt-text="OLTP architecture on z/OS" lightbox="media/ibm-zos-online-transaction-processing-on-zos.svg" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-1850083-PR-3227-ibm-zos-online-transaction-processing-on-zos.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/ibm-zos-online-transaction-processing-on-zos.vsdx) of this architecture.*
 
 1. Users connect to the mainframe over TCP/IP using standard mainframe protocols like TN3270 and HTTPS.
 1. The transaction managers interact with the users and invoke the application to satisfy user requests.
@@ -26,9 +26,9 @@ This architecture is ideal for OLTP workloads that have these characteristics:
 
 ## Architecture
 
-:::image type="content" source="media/ibm-zos-online-transaction-processing-on-azure.svg" alt-text="Azure architecture to migrate z/OS OLTP workload" lightbox="media/ibm-zos-online-transaction-processing-on-azure.png":::
+:::image type="content" source="media/ibm-zos-online-transaction-processing-on-azure.svg" alt-text="Azure architecture to migrate z/OS OLTP workload" lightbox="media/ibm-zos-online-transaction-processing-on-azure.svg" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-1850083-PR-3227-ibm-zos-online-transaction-processing-on-azure.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/ibm-zos-online-transaction-processing-on-azure.vsdx) of this architecture.*
 
 1. Mainframe users are familiar with 3270 terminals and on-premises connectivity. In the migrated system, they interact with Azure applications via public internet or via a private connection implemented with Azure ExpressRoute. Azure Active Directory (Azure AD) provides authentication.
 1. Input requests go to a global load balancer service, like Azure Front Door or Azure Traffic Manager. The load balancer can serve a geographically spread user base. It routes the requests according to rules defined for the supported workloads. These load balancers can coordinate with Azure Application Gateway or Azure Load Balancer for load balancing of the application layer. The Azure Content Delivery Network service caches static content in edge servers for quick response, secured using the Web Application Firewall (WAF) service.
