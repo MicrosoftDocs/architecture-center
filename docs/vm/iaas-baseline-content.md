@@ -266,15 +266,15 @@ Azure Private DNS zones is used for resolving requests to the private endpoints 
 
 [Azure Active Directory (Azure AD)](/azure/active-directory/) is recommended for authenication of all actors, both users and software components such as services. Use [Azure Role Based Access Control (RBAC)](/azure/role-based-access-control/overview) for authorization of all actors accessing resources, and implementation of the [principle of least privilege](/azure/active-directory/develop/secure-least-privileged-access) when applying roles and permissions to actors. 
 
-In the workload, services will need to communicate with other services. For example, VMs need to reach Key Vault to get certificates. To make sure that access is secure, the service needs to authenticate its identity to the other service. Using managed identity is recommended. Managed identities are based on Azure Active Directory service principals internally, but much easier to use due to the automatic management of the service principal object.
+In the workload, services will need to communicate with other services. For example, VMs need to reach Key Vault to get certificates. Use of a managed identity is the recommended way to ensure that access is secure, allowing the service to authenticate its identity to the other service. Managed identities are based on Azure Active Directory service principals internally, but much easier to use due to the automatic management of the service principal object.
 
-These services in this architecture use [user-assigned managed identities](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types). The identities are created and assigned during deployment. 
+The following services in this architecture use [user-assigned managed identities](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types), which are created and assigned during deployment:
 
 - **Azure Application Gateway** uses its user-assigned managed identity to access Azure Key Vault and retrieve external and internal TLS certificates. The external certificate is used for encrypting traffic to/from the user, and the internal certificate is used to encrypt traffic to/from the front-end web tier.
 
 - **Front-end web tier and back-end API tier VMs** use their own user-assigned managed identities to access Azure Key Vault and retrieve the internal TLS certificate. The internal certificate is used for encrypting traffic between frontend and backend VMs. VMs also use their managed identity to access the Azure Storage account issued during deployment, which is used to store boot diagnostics.
 
-// It's a good place to add some example of how to continue to use managed identity for extension cases. Like Backend servers would need managed identity for getting secrets from KV for database connection purposes. 
+Depending on your design, a managed identity can also be used in backend servers to get secrets from Key Vault for database connection purposes. 
 
 ## Secret management
 
@@ -288,8 +288,8 @@ The managed identities configured during deployment are used by Application Gate
 > It is your responsibility to ensure your locally stored certificates are rotated regularly. See [Azure Key Vault VM extension for Linux](/azure/virtual-machines/extensions/key-vault-linux) or [Azure Key Vault VM extension for Windows](/azure/virtual-machines/extensions/key-vault-windows) for more details. 
 
 The certificates stored in Key Vault are identified by the following common names:
-- **app.contoso.com**: An external certificate used by clients and Application Gateway for secure public Internet traffic
-- ***.worload.contoso.com**: A wildcard certificate used by the infrastructure components for secure internal traffic.
+- **app.contoso.com**: An external certificate used by clients and Application Gateway for secure public Internet traffic (1)
+- ***.worload.contoso.com**: A wildcard certificate used by the infrastructure components for secure internal traffic (2, 3, 4)
 
 It's also a good idea to use Key Vault for storage of secrets used for database encryption. For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure). We also recommend that you store application secrets, such as database connection strings, in Key Vault.
 
