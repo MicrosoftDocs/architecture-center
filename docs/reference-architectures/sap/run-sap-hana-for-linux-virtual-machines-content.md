@@ -171,7 +171,8 @@ For User and Authorization, implement role-based access control (RBAC) and resou
 
 * Follow the least privilege principle, using [RBAC](/azure/role-based-access-control/overview) for assigning administrative privileges at IaaS-level resources that host your SAP solution on Azure. Basically, the main purpose of RBAC is segregation and control of duties for your users/group. RBAC is designed to grant only the amount of access to resources that's needed for users to do their jobs.
 
-* Use [resource locks](/azure/azure-resource-manager/management/lock-resources) to avoid risk that's accidental or which might be caused by malicious intention. Resource locks prevent scenarios in which an administrator may delete or modify critical Azure resources where your SAP solution is.
+* Use [resource locks](/azure/azure-resource-manager/management/lock-resources) to avoid accidental or malicious risk. Resource locks prevent scenarios in which an administrator may delete or modify critical Azure resources where your SAP solution is.
+
 
 More security recommendations can be found at theses [Microsoft](https://azure.microsoft.com/blog/sap-on-azure-architecture-designing-for-security/) and [SAP](https://blogs.sap.com/2019/07/21/sap-security-operations-on-azure/) articles.
 
