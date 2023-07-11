@@ -2,9 +2,11 @@
 
 Your organization needs to ingest data of any format, size, and speed into the cloud in a consistent way. The solution in this article meets that need with an architecture that implements extract, transform, and load (ETL) from your data sources to a data lake. The data lake can hold all the data, including transformed and curated versions at various scales. The data can be used for data analytics, business intelligence (BI), reporting, data science, and machine learning.
 
+*Apache® and Apache Spark™ are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
+
 ## Architecture
 
-:::image type="content" source="../media/ingest-etl-and-stream-processing-with-azure-databricks.png" alt-text="Diagram that shows the architecture and data flow for ETL and stream processing with Azure Databricks." border="false":::
+:::image type="content" source="../media/ingest-etl-and-stream-processing-with-azure-databricks.svg" alt-text="Diagram that shows the architecture and data flow for ETL and stream processing with Azure Databricks." lightbox="../media/ingest-etl-and-stream-processing-with-azure-databricks.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ingest-etl-and-stream-processing-with-azure-databricks.vsdx) of this architecture.*
 
