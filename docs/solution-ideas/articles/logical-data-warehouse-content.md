@@ -42,13 +42,13 @@ An Azure Synapse Analytics LDW is based on serverless SQL pools that are availab
 
 This data access allows creation of relational database objects like tables and views over collections of data files that represent logical entities, like products, customers, and sales transactions. BI tools that connect by using a standard SQL Server endpoint can consume these logical entities as dimensions and fact tables.
 
-:::image type="complex" source="../media/logical-data-warehouse-architecture-concept.svg" alt-text="Diagram showing side by side comparison of the LDW conceptual design, next to an implementation of LDW with Azure Synapse serverless SQL pool." border="false" lightbox="../media/logical-data-warehouse-architecture-concept.svg":::
+:::image type="complex" source="../media/logical-data-warehouse-architecture-concept.svg" alt-text="Diagram that shows a side-by-side comparison of the LDW conceptual design, next to an implementation of LDW with Azure Synapse Analytics serverless SQL pool." border="false" lightbox="../media/logical-data-warehouse-architecture-concept.svg":::
    Each diagram has three layers. The bottom layer shows files in cloud storage. The second layer is the logical database showing tables with arrows from the cloud storage files to the logical tables. The top layer is the logical tables being accessed by a dashboard for reporting and analytics. The implementation with Azure Synapse diagram shows the logical layer being implemented with a serverless SQL database. A SQL Server endpoint is shown above the logical layer tables. Power BI and SSMS access the SQL endpoint. The Azure Synapse components like SQL endpoint and serverless SQL database are inside a box with an Azure Synapse logo."
 :::image-end:::
 
 The ability to access transactional data stores like Azure Cosmos DB through the Azure Synapse Link for Azure Cosmos DB expands these capabilities. Accessing OLTP data by using HTAP architecture provides instant updates without interfering with live transactions.
 
-:::image type="content" source="../media/logical-data-warehouse-architecture-data.svg" alt-text="Diagram that shows the flow of external data to the reporting layer using Azure Synapse serverless SQL pool." border="false" lightbox="../media/logical-data-warehouse-architecture-data.svg":::
+:::image type="content" source="../media/logical-data-warehouse-architecture-data.svg" alt-text="Diagram that shows the flow of external data to the reporting layer using Azure Synapse Analytics serverless SQL pool." border="false" lightbox="../media/logical-data-warehouse-architecture-data.svg":::
 
 Each Azure Synapse workspace includes an on-demand SQL endpoint. The endpoint lets SQL Server administrators and developers use familiar environments to work with LDWs that Azure Synapse serverless SQL pools define.
 
@@ -64,7 +64,7 @@ Azure Synapse serverless SQL pools support the following file formats:
 
 Azure Synapse serverless SQL pools also support the [Delta Lake](/azure/synapse-analytics/spark/apache-spark-what-is-delta-lake) format. This support allows patterns like *enrich in Spark, serve with SQL*, where Apache Spark™ services like [Azure Databricks](https://azure.microsoft.com/products/databricks) or [Apache Spark pools in Azure Synapse](/azure/synapse-analytics/spark/apache-spark-overview) engineer data to create curated datasets in the data lake. Instead of having to load these datasets into a physical data warehouse, you can define an LDW over the data lake to provide the model/serve layer for reporting.
 
-:::image type="content" source="../media/logical-data-warehouse-architecture.svg" alt-text="Diagram that shows the flow of external data to the reporting layer with Azure Synapse serverless SQL pool." border="false" lightbox="../media/logical-data-warehouse-architecture.svg":::
+:::image type="content" source="../media/logical-data-warehouse-architecture.svg" alt-text="Diagram that shows the flow of external data to the reporting layer with Azure Synapse Analytics serverless SQL pool." border="false" lightbox="../media/logical-data-warehouse-architecture.svg":::
 
 The LDW with Azure Synapse serverless SQL pools is an implementation of the [Data Lakehouse](/azure/databricks/lakehouse) pattern. Using Databricks SQL to implement an LDW is an alternative solution. However, Databricks SQL lacks the HTAP capability of Azure Synapse Link for Cosmos DB.
 
