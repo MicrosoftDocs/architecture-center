@@ -81,9 +81,9 @@ items:
             - name: .NET
               items:
               - name: Plan the implementation
-                href: guides/reliable-web-app/.net/plan-implementation.yml
+                href: guides/reliable-web-app/dotnet/plan-implementation.yml
               - name: Apply the pattern
-                href: guides/reliable-web-app/apply-pattern.yml
+                href: guides/reliable-web-app/dotnet/apply-pattern.yml
             - name: Java
               items:
               - name: Plan the implementation
