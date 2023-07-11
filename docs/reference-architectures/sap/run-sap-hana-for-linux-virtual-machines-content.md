@@ -99,7 +99,8 @@ For SAP HANA database clusters, you must enable Direct Server Return (DSR), also
 
 **SAP HANA** For high availability, SAP HANA runs on two or more Linux virtual machines. SAP HANA System Replication (HSR) is used to replicate data between the primary and secondary (replica) SAP HANA systems. HSR is also used for cross-region or cross-zone disaster recovery. Depending on latency in the communication between your virtual machines, synchronous replication can be used within a region. HSR between regions for disaster recovery will in most cases be running in asynchronous manner.
 
-For the Linux Pacemaker cluster, you need to choose which cluster fencing mechanism to used. Cluster fencing is a process of isolating a failed VM from the cluster and restarting it. For RedHat Enterprise Linux (RHEL), the only supported fencing mechanism for Pacemaker on Azure is Azure fence agent. For SUSE Linux Enterprise Server (SLES), either Azure fence agent or STONITH block device (SBD) can be used. Compare the failover times for each solution and choose based on your business requirements for recovery time objective (RTO) if there's a  difference.
+For the Linux Pacemaker cluster, you need to choose which cluster fencing mechanism to use. Cluster fencing is a process of isolating a failed VM from the cluster and restarting it. For RedHat Enterprise Linux (RHEL), the only supported fencing mechanism for Pacemaker on Azure is Azure fence agent. For SUSE Linux Enterprise Server (SLES), either Azure fence agent or STONITH block device (SBD) can be used. Compare the failover times for each solution and choose based on your business requirements for recovery time objective (RTO) if there's a difference.
+
 
 **Azure fence agent** This fencing method relies on the Azure ARM API, with Pacemaker querying ARM api about the status of both SAP HANA VMs in the cluster. Should one VM fail, for example OS unresponsive or VM crash, the cluster manager uses again the ARM api to restart the VM and if needed fails the SAP HANA database to the other, active node. For this purpose, a service name principal ([SPN](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-an-azure-fence-agent-stonith-device)) with a custom role to query and restart VMs is used to authorize against the ARM api. No other infrastructure is needed, the SBD VMs in the architecture drawings aren't deployed in case Azure fence agent is used.
 
@@ -170,7 +171,8 @@ For User and Authorization, implement role-based access control (RBAC) and resou
 
 * Follow the least privilege principle, using [RBAC](/azure/role-based-access-control/overview) for assigning administrative privileges at IaaS-level resources that host your SAP solution on Azure. Basically, the main purpose of RBAC is segregation and control of duties for your users/group. RBAC is designed to grant only the amount of access to resources that's needed for users to do their jobs.
 
-* Use [resource locks](/azure/azure-resource-manager/management/lock-resources) to avoid risk that's accidental or which might be caused by malicious intention. Resource locks prevent scenarios in which an administrator may delete or modify critical Azure resources where your SAP solution is.
+* Use [resource locks](/azure/azure-resource-manager/management/lock-resources) to avoid accidental or malicious risk. Resource locks prevent scenarios in which an administrator may delete or modify critical Azure resources where your SAP solution is.
+
 
 More security recommendations can be found at theses [Microsoft](https://azure.microsoft.com/blog/sap-on-azure-architecture-designing-for-security/) and [SAP](https://blogs.sap.com/2019/07/21/sap-security-operations-on-azure/) articles.
 

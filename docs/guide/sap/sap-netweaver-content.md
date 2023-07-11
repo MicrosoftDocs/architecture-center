@@ -159,7 +159,7 @@ To achieve high IOPS and disk throughput, follow the common practices in storage
 
 [Ultra Disk Storage](/azure/virtual-machines/linux/disks-enable-ultra-ssd) is available for I/O-intensive applications. Where these disks are available, we recommend them over [Write Accelerator](/azure/virtual-machines/windows/how-to-enable-write-accelerator) premium storage. You can individually increase or decrease performance metrics like IOPS and MB/s without needing to reboot.
 
-For advices about optimizing Azure storage for SAP workloads on SQL Server, see [Azure Virtual Machines planning and implementation for SAP NetWeaver](/azure/virtual-machines/workloads/sap/planning-guide).
+For guidance about optimizing Azure storage for SAP workloads on SQL Server, see [Azure Virtual Machines planning and implementation for SAP NetWeaver](/azure/virtual-machines/workloads/sap/planning-guide).
 
 The placement of a network virtual appliance (NVA) between the application and the database layers for any SAP application stack is not supported. This practice introduces significant processing time for data packets, which leads to unacceptable application performance.
 
