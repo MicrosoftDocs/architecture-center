@@ -2,12 +2,36 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2023-07-05T18:27:06.008Z</updated>
+    <updated>2023-07-11T15:23:47.158Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Microsoft SaaS stories]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/saas/case-studies/saas-stories</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/saas/case-studies/saas-stories"/>
+        <updated>2023-07-10T15:55:04.000Z</updated>
+        <summary type="html"><![CDATA[Collection of insightful interviews featuring Microsoft partners who have embarked on their unique software as a service (SaaS) journey.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Database for PostgreSQL considerations for multitenancy]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/postgresql</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/postgresql"/>
+        <updated>2023-07-07T14:33:44.000Z</updated>
+        <summary type="html"><![CDATA[This article describes the features of Azure Database for PostgreSQL that are useful when working with multitenanted systems, and it provides links to guidance and examples.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multi-region load balancing]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway</id>
+        <link href="https://learn.microsoft.com/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway"/>
+        <updated>2023-07-06T15:00:47.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to build an Azure system that serves web and non-web workloads with resilient multi-tier applications in multiple Azure regions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Azure Spring Apps (ASA) architecture design]]></title>
         <id>https://learn.microsoft.com/azure/architecture/web-apps/spring-apps</id>
