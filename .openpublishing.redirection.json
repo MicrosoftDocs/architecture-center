@@ -2826,11 +2826,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "docs/reference-architectures/reliable-web-app/dotnet/pattern-overview.yml",
-      "redirect_url": "docs/reference-architectures/reliable-web-app/dotnet/plan-implementation",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "docs/reference-architectures/microservices/spring-apps-multi-region.yml",
       "redirect_url": "/azure/architecture/web-apps/spring-apps/spring-apps-multi-region",
       "redirect_document_id": true
@@ -2967,12 +2962,12 @@
     },
     {
       "source_path": "docs/reference-architectures/reliable-web-app/dotnet/pattern-overview.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/reliable-web-app/pattern-overview",
+      "redirect_url": "/azure/architecture/web-apps/guides/reliable-web-app/dotnet/plan-implementation",
       "redirect_document_id": true
     },
     {
       "source_path": "docs/reference-architectures/reliable-web-app/dotnet/apply-pattern.yml",
-      "redirect_url": "/azure/architecture/web-apps/guides/reliable-web-app/apply-pattern",
+      "redirect_url": "/azure/architecture/web-apps/guides/reliable-web-app/dotnet/apply-pattern",
       "redirect_document_id": true
     },
     {
