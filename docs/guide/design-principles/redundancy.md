@@ -26,6 +26,15 @@ A resilient application routes around failure. Identify the critical paths in yo
 
 **Consider business requirements**. The amount of redundancy built into a system can affect both cost and complexity. Your architecture should be informed by your business requirements, such as recovery time objective (RTO) and recovery point objective (RPO). You should also consider your performance requirements, and your team's ability to manage complex sets of resources.
 
+**Consider multi-zone and multi-region architectures.** Ensure that you understand how [availability zones and regions](/azure/reliability/availability-zones-overview) provide resiliency and different sets of architectural tradeoffs.
+
+Azure availability zones are isolated sets of data centers within a region. By using availability zones, you can meet many different sets of requirements and make tradeoffs between cost, risk mitigation, performance, and recoverability. For example, when you use zone redundant services in your architecture, Azure provides automatic data replication and failover between geographically separated instances, which mitigates many different types of risks.
+
+If you have a mission-critical workload and need to mitigate the risk of a region-wide outage, you can consider a multi-region deployment. A multi-region deployment is more expensive than a single-region deployment, and is more complicated to manage. You'll need operational procedures to handle failover and failback. Depending on your RPO requirements, you might need to accept slightly lower performance to enable cross-region data replication. The additional cost and complexity might be justified for some business scenarios and not others.
+
+> [!TIP]
+> For many workloads, a zone-redundant architecture provides the best set of tradeoffs. Consider a multi-region architecture if your business requirements indicate that you need to mitigate the unlikely risk of a region-wide outage, and if you're prepared to accept the tradeoffs involved in such an approach.
+
 **Place VMs behind a load balancer**. Don't use a single VM for mission-critical workloads. Instead, place multiple VMs behind a load balancer. If any VM becomes unavailable, the load balancer distributes traffic to the remaining healthy VMs. To learn how to deploy this configuration, see [Multiple VMs for scalability and availability][multi-vm-blueprint].
 
 ![Diagram of load-balanced VMs](./images/load-balancing.svg)
@@ -36,14 +45,7 @@ If you use an IaaS database solution, choose one that supports replication and f
 
 **Partition for availability**. Database partitioning is often used to improve scalability, but it can also improve availability. If one shard goes down, the other shards can still be reached. A failure in one shard will only disrupt a subset of the total transactions.
 
-**Consider multi-zone and multi-region architectures.** Ensure that you understand how [availability zones and regions](/azure/reliability/availability-zones-overview) provide resiliency and different sets of architectural tradeoffs.
-
-Azure availability zones are isolated sets of data centers within a region. By using availability zones, you can meet many different sets of requirements and make tradeoffs between cost, risk mitigation, performance, and recoverability. For example, when you use zone redundant services in your architecture, Azure provides automatic data replication and failover between geographically separated instances, which mitigates many different types of risks.
-
-> [!TIP]
-> For many workloads, a zone-redundant architecture provides the best set of tradeoffs. We recommend you consider zone-redundant workloads first. Consider a multi-region architecture only if your business requirements indicate that you need to mitigate the unlikely risk of a region-wide outage, and if you're prepared to accept the tradeoffs involved in such an approach.
-
-If you have a mission-critical workload and need to mitigate the risk of a region-wide outage, you can consider a multi-region deployment. A multi-region deployment is more expensive than a single-region deployment, and is more complicated to manage. You'll need operational procedures to handle failover and failback. Depending on your RPO requirements, you might need to accept slightly lower performance to enable cross-region data replication. The additional cost and complexity might be justified for some business scenarios and not others.
+### Multi-region solutions
 
 The following diagram shows a multi-region application that uses Azure Traffic Manager to handle failover.
 
