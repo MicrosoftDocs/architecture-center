@@ -3446,8 +3446,8 @@
 			<v:textBlock v:margins="rect(3.99997,3.99997,3.99997,3.99997)" v:verticalAlign="0"/>
 			<v:textRect cx="56.6418" cy="799.429" width="113.29" height="57.1369"/>
 			<rect x="0" y="770.863" width="113.284" height="57.1369" class="st60"/>
-			<text x="4" y="783.86" class="st61" v:langID="1033"><v:paragraph/><v:tabList/>Avanade AMT control <tspan x="4"
-						dy="1.2em" class="st37">center</tspan></text>		</g>
+			<text x="4" y="783.86" class="st61" v:langID="1033"><v:paragraph/><v:tabList/>Avanade AMT Control <tspan x="4"
+						dy="1.2em" class="st37">Center</tspan></text>		</g>
 		<g id="shape2246-898" v:mID="2246" v:groupContext="shape" transform="translate(899.125,-502.823)">
 			<title>Sheet.2246</title>
 			<v:userDefs>
