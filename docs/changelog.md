@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 07/05/2023
+ms.date: 07/11/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -22,6 +22,14 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWxOYN]
 
 The following new and updated articles have recently been published in the Azure Architecture Center.
+
+## July 2023
+
+### Updated articles
+
+- [Microsoft SaaS stories](./guide/saas/case-studies/saas-stories.md)  ([#ab9015d14a](https://github.com/MicrosoftDocs/architecture-center/commit/ab9015d14a))
+- [Azure Database for PostgreSQL considerations for multitenancy](./guide/multitenant/service/postgresql.md)  ([#4438c7638c](https://github.com/MicrosoftDocs/architecture-center/commit/4438c7638c))
+- [Multi-region load balancing](./high-availability/reference-architecture-traffic-manager-application-gateway.yml)  ([#a2b159dbbb](https://github.com/MicrosoftDocs/architecture-center/commit/a2b159dbbb))
 
 ## June 2023
 
