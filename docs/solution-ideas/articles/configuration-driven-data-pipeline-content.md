@@ -6,7 +6,7 @@ This article is a solution idea for creating and maintaining a data pipeline by 
 
 ## Architecture
 
-:::image type="content" source="../media/configuration-driven-data-pipeline-architecture.png" alt-text="Diagram of the architecture for configuration-driven data pipeline." lightbox="../media/configuration-driven-data-pipeline-architecture.png" :::
+:::image type="content" source="../media/configuration-driven-data-pipeline-architecture.svg" alt-text="Diagram of the architecture for configuration-driven data pipeline." lightbox="../media/configuration-driven-data-pipeline-architecture.svg" :::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/US-2003744-configuration-driven-data-pipelines.pptx) of this architecture.*
 
