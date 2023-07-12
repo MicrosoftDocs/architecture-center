@@ -266,7 +266,7 @@ catch (Exception ex)
 
 The following patterns might also be useful when implementing this pattern:
 
-- [Reliable web app pattern for .NET](../web-apps/guides/reliable-web-app/pattern-overview.yml) shows you how to apply the circuit-breaker pattern to an ASP.NET web application converging on the cloud.
+- [Reliable web app pattern](../web-apps/guides/reliable-web-app/overview.md) shows you how to apply the circuit-breaker pattern to web applications converging on the cloud.
 
 - [Retry pattern](./retry.yml). Describes how an application can handle anticipated temporary failures when it tries to connect to a service or network resource by transparently retrying an operation that has previously failed.
 
