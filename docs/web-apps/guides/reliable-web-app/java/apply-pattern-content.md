@@ -56,7 +56,7 @@ The code uses the retry registry to get a `Retry` object. It also uses `Try` fro
 
 Infrastructure refers to the physical components supporting your web app. The way you architect these components affects the reliability of your web app. Architecture refers to the arrangement, distribution, and connections among the web app components. The architecture is the foundation for reaching the [service level objective](./plan-implementation.yml#service-level-objective) you set for your web app.
 
-**Determine infrastructure redundancy.** The number of regions a web app should use is a key design decision. You should use the service level objective for the web app as a starting point. A single region might not allow you reach your service level objective. In this case, you need to deploy your app to multiple regions. Deploying to multiple region requires code changes in most cases. The web app needs to synchronize data across regions.
+**Determine infrastructure redundancy.** The number of regions a web app should use is a key design decision. You should use the service level objective for the web app as a starting point. A single region might not allow you reach your service level objective. In this case, you need to deploy your app to multiple regions. Deploying to multiple regions requires code changes in most cases. The web app needs to synchronize data across regions.
 
 Single-region web apps should use availability zones to increase infrastructure reliability. Multi-region web apps use regions and availability zones to increase reliability. The more availability zones you use the better your reliability. You must balance the cost of operating with zone redundancy.
 
@@ -80,7 +80,7 @@ Multi-region web apps with an active-passive configuration need to replicate dat
 
 ### Create a failover plan
 
-A failover plan (disaster recovery plan) outlines how you will respond to an outage. Your failover plan should define what an outage means for your web app. You can define outage in terms of downtime or loss of functionality. For more information, see [App Service disaster recovery](/azure/app-service/overview-disaster-recovery).
+A failover plan (disaster recovery plan) outlines how you'll respond to an outage. Your failover plan should define what an outage means for your web app. You can define outage in terms of downtime or loss of functionality. For more information, see [App Service disaster recovery](/azure/app-service/overview-disaster-recovery).
 
 **Determine the recovery time objective.** The recovery time objective (RTO) is the maximum, acceptable downtime for a web app. For example, an RTO of four hours means the web app should be operational within four hours of a disruption. You can have multiple RTOs relating to different features in a web app. Each RTO should tie back to your SLO.
 
