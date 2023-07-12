@@ -1,5 +1,5 @@
 
-This article describes how to minimize private address space consumption when you build large networks in Azure. You might need to minimize address space consumption if proper allocation policies aren't established, and you run out of private IP addresses to assign to Azure virtual networks. This article describes how to use non-routable landing zone spoke virtual networks or Private Link services to create the proper environment.
+This article describes how to minimize private address space consumption when you build large networks in Azure. You might need to minimize address space consumption if proper allocation policies aren't established, and you run out of private IP addresses to assign to Azure virtual networks. This article presents two methods to create the proper environment.
 
 ## Scenario details
 
@@ -158,7 +158,7 @@ In real-world, large-scale implementations, the Private Link method might not ap
 
 To overcome these two limitations, deploy a proxy/NAT solution in the routable spoke and make it accessible from the isolated virtual network by using Private Link.
 
-:::image type="content" source="./images/ipv4-exhaustion-private-link-flow.png" alt-text="Diagram that shows the architecture for using a Private Link service for outbound dependencies." border="false" lightbox="./images/ipv4-exhaustion-private-link-flow.png":::
+:::image type="content" source="./images/ipv4-exhaustion-private-link-flow.png" alt-text="Diagram that shows the architecture that uses a Private Link service for outbound dependencies." border="false" lightbox="./images/ipv4-exhaustion-private-link-flow.png":::
 
 Use a single Private Endpoint or Private Link service to expose a proxy/NAT solution that's deployed in the routable network. Defined on the NVAs, Port-Translation and Address-Translation rules allow the use of a single private endpoint in the isolated virtual network to access multiple dependencies in the routable network.
 
@@ -192,4 +192,3 @@ Use a single Private Endpoint or Private Link service to expose a proxy/NAT solu
 - [Networking architecture design](/azure/architecture/guide/networking/networking-start-here)
 - [Architectural approaches for networking in multitenant solutions](/azure/architecture/guide/multitenant/approaches/networking)
 - [Hub-and-spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology)
-
