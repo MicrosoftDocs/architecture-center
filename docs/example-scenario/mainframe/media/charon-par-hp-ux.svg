@@ -939,14 +939,14 @@
 			<text x="4" y="771.79" class="st44" v:langID="1033"><v:paragraph/><v:tabList/>Azure</text>		</g>
 		<g id="shape1070-265" v:mID="1070" v:groupContext="shape" transform="translate(72,-585)">
 			<title>Sheet.1070</title>
-			<desc>On premises</desc>
+			<desc>On-premises</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(21000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:verticalAlign="0"/>
 			<v:textRect cx="72.7875" cy="774.675" width="145.58" height="34.65"/>
 			<rect x="0" y="757.35" width="145.575" height="34.65" class="st4"/>
-			<text x="4" y="782.95" class="st44" v:langID="1033"><v:paragraph/><v:tabList/>On premises</text>		</g>
+			<text x="4" y="782.95" class="st44" v:langID="1033"><v:paragraph/><v:tabList/>On-premises</text>		</g>
 		<g id="group1071-268" transform="translate(154.875,-402.528)" v:mID="1071" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(22000):26"/>
@@ -977,16 +977,16 @@
 				</g>
 			</g>
 		</g>
-		<g id="shape1078-286" v:mID="1078" v:groupContext="shape" transform="translate(171.562,-506.003)">
+		<g id="shape1078-286" v:mID="1078" v:groupContext="shape" transform="translate(180,-504)">
 			<title>Sheet.1078</title>
-			<desc>On premises user</desc>
+			<desc>On-premises user</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(23000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="45.225" cy="771.188" width="90.45" height="41.625"/>
 			<rect x="0" y="750.375" width="90.45" height="41.625" class="st4"/>
-			<text x="12.06" y="767.59" class="st31" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>On premises <tspan
+			<text x="11.3" y="767.59" class="st31" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>On-premises <tspan
 						x="34.06" dy="1.2em" class="st13">user</tspan></text>		</g>
 		<g id="shape1079-290" v:mID="1079" v:groupContext="shape" transform="translate(176.625,-407.565)">
 			<title>Sheet.1079</title>
