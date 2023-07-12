@@ -5,7 +5,6 @@ There are two articles on the reliable web app pattern for Java. This article ex
 ## Architecture
 
 Your business context, existing web app, and service level objective (SLO) should determine the architecture of your web app. This guidance uses the reference implementation architecture to illustrate the principles of the reliable web app pattern (*see figure 1*). It's important that your web app adheres to the principles of the pattern, not necessarily this specific architecture.
-
 [![Diagram showing the architecture of the reference implementation.](../../_images/reliable-web-app-java.svg)](../../_images/reliable-web-app-java.svg#lightbox)
 *Figure 1. Target reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java.vsdx) of this architecture. See the estimated [production environment cost](https://azure.com/e/65354031bc084e539b6c8ccfc1a7b097) and [nonproduction environment cost](https://azure.com/e/af7d105ce24340dab93dfe666909a3e0).*
 
