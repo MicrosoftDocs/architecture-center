@@ -2971,12 +2971,12 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "/azure/architecture/web-apps/guides/reliable-web-app/pattern-overview.yml",
+      "source_path": "docs/web-apps/guides/reliable-web-app/pattern-overview.yml",
       "redirect_url": "/azure/architecture/web-apps/guides/reliable-web-app/dotnet/plan-implementation",
       "redirect_document_id": true
     },
     {
-      "source_path": "/azure/architecture/web-apps/guides/reliable-web-app/apply-pattern.yml",
+      "source_path": "docs/web-apps/guides/reliable-web-app/apply-pattern.yml",
       "redirect_url": "/azure/architecture/web-apps/guides/reliable-web-app/dotnet/apply-pattern",
       "redirect_document_id": true
     },

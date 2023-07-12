@@ -407,7 +407,7 @@ public async Task<CreateResult> CreateConcertAsync(Concert newConcert)
 }
 ```
 
-**Ensure data consistency.** You need to change cached data whenever a user makes an update. An event-driven system can make these updates. Another option is to ensure that cached data is only accessed directly from the repository class that's responsible for handling the create and edit events.
+**Ensure data consistency.** You need to change cached data whenever a user makes an update. An event-driven system can make these updates. You can also ensure only the repository class responsible for handling the create and edit events can access the cached data.
 
 *Reference implementation:* The reference implementation uses the `UpdateConcertAsync` method to keep the data in the cache consistent.
 
@@ -423,7 +423,7 @@ public async Task<UpdateResult> UpdateConcertAsync(Concert existingConcert),
 
 ### Autoscale by performance metrics
 
-Autoscale based on performance metrics so that users aren't affected by SKU constraints. CPU utilization performance triggers are a good starting point if you don't understand the scaling criteria of your application. You need to configure and adapt scaling triggers (CPU, RAM, network, and disk) to correspond to the behavior of your web application.
+Autoscale based on performance metrics. CPU utilization performance triggers are a good starting point if you don't understand the scaling criteria of your application. You need to configure and adapt scaling triggers (CPU, RAM, network, and disk) to correspond to the behavior of your web application.
 
 *Reference implementation:* The reference implementation uses CPU usage as the trigger for scaling in and out. The web app hosting platform scales out at 85% CPU usage and scales in at 60%. The scale-out setting of 85%, rather than a percentage closer to 100%, provides a buffer to protect against accumulated user traffic caused by sticky sessions. It also protects against high bursts of traffic by scaling early to avoid maximum CPU usage. These autoscale rules aren't universal.
 
