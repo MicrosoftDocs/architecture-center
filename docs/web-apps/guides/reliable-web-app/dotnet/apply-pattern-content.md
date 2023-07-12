@@ -164,7 +164,7 @@ Not every service supports managed identities, so sometimes you have to use secr
 
 Many on-premises environments don't have a central secrets store. The absence makes key rotation uncommon and auditing to see who has access to a secret difficult. However, with Key Vault you can store secrets, rotate keys, and audit key access. You can also enable monitoring in Key Vault. For more information, see [Monitoring Azure Key Vault](/azure/key-vault/general/monitor-key-vault).
 
-*Reference implementation:* The reference implementation doesn't use Key Vault monitoring, and it also uses external secrets for three services.
+*Reference implementation:* The reference implementation doesn't use Key Vault monitoring, and it also uses external secrets for these services:
 
 - *Azure AD client secret:* There are different authorization processes. To provide the API with an authenticated employee, the web app uses an on-behalf-of flow. The on-behalf-of flow needed a client secret from Azure AD and stored in Key Vault. To rotate the secret, generate a new client secret and then save the new value to Key Vault. In the reference implementation, restart the web app so the code starts using the new secret. After the web app has been restarted, the team can delete the previous client secret.
 
@@ -174,10 +174,7 @@ Many on-premises environments don't have a central secrets store. The absence ma
 
 You should use private endpoints to provide more secure communication between your web app and Azure services. By default, service communication to most Azure services crosses the public internet. In the reference implementation, these services include Azure SQL Database, Azure Cache for Redis, and Azure App Service. Azure Private Link enables you to add security to that communication via private endpoints in a virtual network to avoid the public internet.
 
-This improved network security is transparent from the code perspective. It doesn't involve any app configuration, connection string, or code changes. For more information, see:
-
-- [How to create a private endpoint](/azure/architecture/example-scenario/private-web-app/private-web-app#deploy-this-scenario)
-- [Best practices for endpoint security](/azure/architecture/framework/security/design-network-endpoints)
+This improved network security is transparent from the code perspective. It doesn't involve any app configuration, connection string, or code changes. For more information, see [How to create a private endpoint](/azure/architecture/example-scenario/private-web-app/private-web-app#deploy-this-scenario) and [Best practices for endpoint security](/azure/architecture/framework/security/design-network-endpoints).
 
 ### Use a web application firewall
 
@@ -308,7 +305,7 @@ public void ConfigureServices(IServiceCollection services)
 - `RemoveFromCart` records tickets that users remove from the cart ([see code.](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/4b486d52bccc54c4e89b3ab089f2a7c2f38a1d90/src/Relecloud.Web/Controllers/CartController.cs#L111)).
 - `CheckoutCart` records an event every time a user buys a ticket ([see code.](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/4b486d52bccc54c4e89b3ab089f2a7c2f38a1d90/src/Relecloud.Web/Controllers/CartController.cs#L165)).
 
-You can find the telemetry from `TelemetryClient` in the Azure portal. Go to Application Insights. Under **Usage**, select **Events**. For more information, see [Application Insights TrackEvent](/azure/azure-monitor/app/api-custom-events-metrics#trackevent).
+You can find the telemetry from `TelemetryClient` in the Azure portal. Go to Application Insights. Under *Usage*, select *Events*. For more information, see [Application Insights TrackEvent](/azure/azure-monitor/app/api-custom-events-metrics#trackevent).
 
 The following code uses `this.telemetryClient.TrackEvent` to count the tickets added to the cart. It supplies the event name (`AddToCart`) and specifies the output (a dictionary that has the `concertId` and `count`). You should turn the query into an Azure Dashboard widget.
 
