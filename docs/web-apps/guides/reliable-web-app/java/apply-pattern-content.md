@@ -66,7 +66,7 @@ You should have an active-active configuration if your web app requires minimal 
 
 ### Data reliability
 
-Data reliability relies on synchronizing data across multiple locations. In general, the more isolated these locations are from each other the higher your data reliability.
+Data reliability relies on synchronizing data across multiple locations. Regions and availability zones are the primary location types in Azure. In general, the more isolated these locations are from each other the higher your data reliability.
 
 **Define the recovery point objective.** A recovery point objective (RPO) is the maximum amount of data you're okay losing during an outage. For example, an RPO of one hour means you lose up to an hour of the most recent data changes. Define an RPO for each web app.
 
