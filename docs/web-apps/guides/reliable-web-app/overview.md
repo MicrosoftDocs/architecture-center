@@ -28,11 +28,11 @@ The reliable web app pattern provides essential implementation guidance for web 
 [![Diagram showing the principles of the reliable web app pattern](../_images/reliable-web-app-overview.svg)](../_images/reliable-web-app-overview.svg#lightbox)
 *Figure 1. Overview of the reliable web app pattern.*
 
-The reliable web app pattern builds on the principles of the Azure Well-Architected Framework and highlights several that are essential for the cloud adoption journey. The reliable web app pattern helps ensure web app is cost optimized, observable, and ingress secure. It also improves web app to use infrastructure as code and identity based security.
+The reliable web app pattern builds on the principles of the Azure Well-Architected Framework. It focuses on several well-architected principles that are essential for the entire cloud adoption journey. The reliable web app pattern helps ensure web apps are cost optimized, observable, and ingress secure. The pattern also shows you how to implement infrastructure as code and identity-centric security.
 
 ## Next steps
 
-We created reliable web app pattern guidance for .NET and Java web apps. Both have a reference implementation (sample web app) with the pattern applied that you should deploy. Find the right guidance for your web app and deploy the reference implementation.
+There's specific implementation guidance for .NET and Java web apps. There's a reference implementation (sample web app) for both .NET and Java. The reference implementation has the reliable web app pattern applied. You should follow right guidance for your web app and use the reference implementation to expedite your progress.
 
 >[!div class="nextstepaction"]
 >[Reliable web app pattern for .NET](./dotnet/plan-implementation.yml)
