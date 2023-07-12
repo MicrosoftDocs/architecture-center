@@ -5,7 +5,7 @@ ms.custom:
 
 The reliable web app pattern provides essential implementation guidance for web apps moving to the cloud. It defines how you should update (re-platform) your web app to be successful in the cloud.
 
-There are two articles on the reliable web app pattern for .NET. This article explains important decisions to plan the implementation of the pattern. The companion provides code and architecture guidance to [apply the pattern](apply-pattern.yml). There's a [reference implementation](https://aka.ms/eap/rwa/dotnet) (sample web app) of the pattern that you can deploy.
+There are two articles on the reliable web app pattern for .NET. This article explains important decisions to plan the implementation of the pattern. The companion articles provides code and architecture guidance to [apply the pattern](apply-pattern.yml). There's a [reference implementation](https://aka.ms/eap/rwa/dotnet) (sample web app) of the pattern that you can deploy.
 
 ## Architecture
 
