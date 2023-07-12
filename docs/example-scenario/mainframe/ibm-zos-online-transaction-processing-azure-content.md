@@ -26,7 +26,7 @@ This architecture is ideal for OLTP workloads that have these characteristics:
 
 ## Architecture
 
-:::image type="content" source="media/ibm-zos-online-transaction-processing-on-azure.svg" alt-text="Azure architecture to migrate z/OS OLTP workload" lightbox="media/ibm-zos-online-transaction-processing-on-azure.svg" border="false":::
+:::image type="content" source="media/ibm-zos-online-transaction-processing-on-azure.svg" alt-text="Diagram that shows an architecture for migrating a z/OS OLTP workload." lightbox="media/ibm-zos-online-transaction-processing-on-azure.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ibm-zos-online-transaction-processing-on-azure.vsdx) of this architecture.*
 
