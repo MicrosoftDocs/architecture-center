@@ -9,13 +9,13 @@ There are two articles on the reliable web app pattern for .NET. This article ex
 
 ## Architecture
 
-Your business context, existing web app, and service level objective (SLO) should determine the architecture of your web app. This guidance uses the reference implementation architecture to illustrate the principles of the reliable web app pattern (*see figure 1*). It's important that your web app adheres to the principles of the pattern, not necessarily this specific architecture.
+The reliable web app pattern is a set of principles with implementation guidance. It's not a specific architecture. Your business context, existing web app, and desired service level objective (SLO) are critical factors that shape the architecture of your web app. The following diagram (*figure 1*) represents the architecture of the [reference implementation](https://aka.ms/eap/rwa/dotnet). It's one example that illustrates the principles of the reliable web app pattern. It's important that your web app adheres to the principles of the reliable web app pattern, not necessarily this specific architecture.
 [![Diagram showing the architecture of the reference implementation.](../../_images/reliable-web-app-dotnet.png)](../../_images/reliable-web-app-dotnet.png)
-*Figure 1. Target reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet.vsdx) of this architecture. See estimated[production environment cost](https://azure.com/e/26f1165c5e9344a4bf814cfe6c85ed8d) and [nonproduction environment cost](https://azure.com/e/8a574d4811a74928b55956838db71093).*
+*Figure 1. Target reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet.vsdx) of this architecture. For the estimated cost of this architecture, see the [production environment cost](https://azure.com/e/26f1165c5e9344a4bf814cfe6c85ed8d) and [nonproduction environment cost](https://azure.com/e/8a574d4811a74928b55956838db71093).*
 
 The following table lists the principles of the reliable web app pattern and implementation details.
 
-| Reliable web app pattern principles | Implementation details |
+| Reliable web app pattern principles | How to implement the principles |
 | --- | --- |
 | *Reliable web app pattern principles:*<br>▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br><br>*Well Architected Framework principles:*<br>▪ Cost optimized<br>▪ Observable<br>▪ Ingress secure<br>▪ Infrastructure as code<br>▪ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Bicep deployment <br>▪ Telemetry, logging, monitoring |
 
@@ -23,34 +23,28 @@ For more information, see the [Reliable web app pattern video series (YouTube)](
 
 ## Business context
 
-The implementation guidance mirrors the cloud journey of a fictional company called Relecloud. The goal is to meet increasing business demand with minimal investments in the existing monolithic app. Traffic to the on-premises application has increased due to increased sales. Relecloud expects the demand to continue to increase.
-
-The on-premises infrastructure doesn't provide a cost-efficient means to scale. The company decided that a migration to the cloud offered the best return on investment to meet their short and long-term goals.
+For business context, the guidance follows the cloud journey of a fictional company called Relecloud. Relecloud needs to meet increasing business demand with minimal investments in their existing monolithic app. Traffic to the current on-premises application has increased due to increased sales. Relecloud expects the demand to continue to increase. They company concluded that the on-premises infrastructure doesn't provide a cost-efficient means to scale. They decided that moving the web app to the cloud offered the best return on investment and allowed them to meet their short and long-term goals.
 
 | Short-term app goals | Long-term app goals |
 | --- | --- |
 | ▪ Apply low-cost, high-value code changes<br>▪ Reach a service level objective of 99.9%<br>▪ Adopt DevOps practices<br>▪ Create cost-optimized environments <br>▪ Improve reliability and security|▪ Expose the application customers<br>▪ Develop web and mobile experiences<br>▪ Improve availability<br> ▪ Expedite new feature delivery<br>▪ Scale components based on traffic.
 
-## On-premises context
+## Existing web app
 
-The on-premises starting point is an ASP.NET monolithic web app. It's an eCommerce, line-of-business web application that runs on two virtual machines. It also has a Microsoft SQL Server database. The web application is employee-facing. The only application users are Relecloud's call center employees. Relecloud employees use the application to buy tickets on behalf of Relecloud customers. The on-premises web application suffers from common challenges. These challenges include extended timelines to build and ship new features difficulty scaling different components of the application under a higher load.
+The existing web app is on-premises. It's a monolithic ASP.NET web app. It runs an eCommerce, line-of-business web app on two virtual machines and has a Microsoft SQL Server database. The web app is employee-facing. The only application users are Relecloud's call center employees. Relecloud employees use the application to buy tickets on behalf of Relecloud customers. The on-premises web app suffers from common challenges. These challenges include extended timelines to build and ship new features difficulty scaling different components of the application under a higher load.
 
 ## Service level objective
 
-A service level objective (SLO) for availability defines how available you want a web app to be for users. Relecloud has a target SLO of 99.9% for availability. You need to define what it means to be available for your web application. For Relecloud, the web app is available when call center employees can purchase tickets 99.9% of the time. When you have a definition of *available*, list all the dependencies on the critical path of availability. Dependencies should include Azure services and third-party solutions.
+A service level objective (SLO) for availability defines how available you want a web app to be for users. Relecloud has a target SLO of 99.9% for availability. You need to define what it means to be available for your web app. For Relecloud, the web app is available when call center employees can purchase tickets 99.9% of the time. When you have a definition of *available*, list all the dependencies on the critical path of availability. Dependencies should include Azure services and third-party solutions.
 
 For each dependency in the critical path, you need to assign an availability goal. Service level agreements (SLAs) from Azure provide a good starting point. SLAs don't factor in (1) downtime that's associated with the application code running on the services (2) deployment and operation methodologies, (3) architecture choices to connect the services. The availability metric you assign to a dependency shouldn't exceed the SLA.
 
 Relecloud used Azure SLAs for Azure services. The following diagram illustrates Relecloud's dependency list with availability goals for each dependency.
 
-<<<<<<<< HEAD:docs/web-apps/guides/reliable-web-app/plan-implementation-content.md
 [![Diagram showing Relecloud's dependencies on the critical path and assigned availability metric for each dependency.](images/slo-dependencies.png)](images/slo-dependencies.png)
 *Azure SLAs are subject to change. The SLAs shown here are examples used to illustrate the process of estimating composite availability. For information, see [SLAs for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).*
-========
-[![Diagram showing Relecloud's dependencies on the critical path and assigned availability metric for each dependency.](../_images/slo-dependencies.png)](../_images/slo-dependencies.png)
->>>>>>>> bb0fb930c87d09878335dfd91db91c4913c55ebe:docs/web-apps/guides/reliable-web-app/pattern-overview-content.md
 
-Finally, use the formulas for composite SLAs and multi-region availability to estimate the composite availability of the dependencies on the critical path. This number should meet or exceed your SLO. Relecloud needed a multi-region architecture to meet the 99.9% SLO. For more information, see:
+Finally, you need to use the formulas for composite SLAs to estimate the composite availability of the dependencies on the critical path. This number should meet or exceed your SLO. Relecloud needed a multi-region architecture to meet the 99.9% SLO. For more information, see:
 
 - [Composite SLA formula](/azure/architecture/framework/resiliency/business-metrics#composite-slas)
 - [Multiregional SLA formula](/azure/architecture/framework/resiliency/business-metrics#slas-for-multiregion-deployments)
@@ -59,11 +53,11 @@ Finally, use the formulas for composite SLAs and multi-region availability to es
 
 The Azure services you choose should support your short-term objectives while preparing your application to meet any long-term goals. You should pick services that (1) meet the SLO for the production environment, (2) require minimal migration effort, and (3) support planned modernization efforts.
 
-At this phase, it's important to select Azure services that mirror key on-premises choices to minimize the migration effort. For example, you should keep the same database engine (SQL Server -> Azure Database for PostgreSQL - Flexible Server) and app hosting platform (IIS on Windows Server -> Web Apps). Containerization of your application typically doesn't meet the short-term objectives of the reliable web app pattern, but the application platform you choose now should support containerization if that's a long-term goal.
+At this phase, it's important to select Azure services that mirror key on-premises choices to minimize the migration effort. For example, you should keep the same database engine (from SQL Server to Azure Database for PostgreSQL Flexible Server) and app hosting platform (from IIS on Windows Server to Azure App Service). Containerization of your application typically doesn't meet the short-term objectives of the reliable web app pattern, but the application platform you choose now should support containerization if that's a long-term goal.
 
 ### Application platform
 
-[Azure App Service](/azure/app-service/overview) is an HTTP-based, managed service for hosting web applications, REST APIs, and mobile back ends. Azure has many viable compute options. For more information, see the [compute decision tree](/azure/architecture/guide/technology-choices/compute-decision-tree). The web app uses Azure App Service because it meets the following requirements:
+[Azure App Service](/azure/app-service/overview) is an HTTP-based, managed service for hosting web apps, REST APIs, and mobile back ends. Azure has many viable compute options. For more information, see the [compute decision tree](/azure/architecture/guide/technology-choices/compute-decision-tree). The web app uses Azure App Service because it meets the following requirements:
 
 - **High SLA.** It has a high SLA that meets the production environment SLO.
 - **Reduced management overhead.** It's a fully managed solution that handles scaling, health checks, and load balancing.
@@ -135,11 +129,11 @@ Azure has several load balancers. Evaluate your current system capabilities and 
 
 ### Web Application Firewall
 
-[Azure Web Application Firewall](/azure/web-application-firewall/overview) helps provide centralized protection of your web applications from common exploits and vulnerabilities. It's built into Azure Front Door and helps prevent malicious attacks close to the attack sources before they enter your virtual network. Web Application Firewall provides the following benefits:
+[Azure Web Application Firewall](/azure/web-application-firewall/overview) helps provide centralized protection of your web apps from common exploits and vulnerabilities. It's built into Azure Front Door and helps prevent malicious attacks close to the attack sources before they enter your virtual network. Web Application Firewall provides the following benefits:
 
 - **Global protection.** It provides improved global web app protection without sacrificing performance.
 - **Botnet protection.** The team can monitor and configure to address security concerns from botnets.
-- **Parity with on-premises.** The service allows the team to maintain parity with the on-premises solution, which was running behind a web application firewall managed by IT.
+- **Parity with on-premises.** The on-premises solution was running behind a web application firewall managed by IT.
 
 ### Configuration storage
 
@@ -178,7 +172,7 @@ For Blob Storage, the web app uses zone-redundant storage (ZRS). Zone-redundant 
 [Azure Private Link](/azure/private-link/private-link-overview) provides access to PaaS services (such as Azure Cache for Redis and SQL Database) over a private endpoint in your virtual network. Traffic between your virtual network and the service travels across the Microsoft backbone network. Azure DNS with Azure Private Link enables your solution to communicate via an enhanced security link with Azure services like SQL Database. The web app uses Private Link for these reasons:
 
 - **Enhanced security communication.** It lets the application privately access services on the Azure platform and reduces the network footprint of data stores to help protect against data leakage.
-- **Minimal effort.** The private endpoints support the web application platform and database platform the web app uses. Both platforms mirror existing on-premises configurations for minimal change.
+- **Minimal effort.** The private endpoints support the web app platform and database platform the web app uses. Both platforms mirror existing on-premises configurations for minimal change.
 
 ## Deploy the reference implementation
 

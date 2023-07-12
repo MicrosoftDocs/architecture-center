@@ -4,19 +4,19 @@ There are two articles on the reliable web app pattern for Java. This article ex
 
 ## Architecture
 
-Your business context, existing web app, and service level objective (SLO) should determine the architecture of your web app. This guidance uses the reference implementation architecture to illustrate the principles of the reliable web app pattern (*see figure 1*). It's important that your web app adheres to the principles of the pattern, not necessarily this specific architecture.
+The reliable web app pattern is a set of principles with implementation guidance. It's not a specific architecture. Your business context, existing web app, and desired service level objective (SLO) are critical factors that shape the architecture of your web app. The following diagram (*figure 1*) represents the architecture of the [reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java). It's one example that illustrates the principles of the reliable web app pattern. It's important that your web app adheres to the principles of the reliable web app pattern, not necessarily this specific architecture.
 [![Diagram showing the architecture of the reference implementation.](../../_images/reliable-web-app-java.svg)](../../_images/reliable-web-app-java.svg#lightbox)
-*Figure 1. Target reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java.vsdx) of this architecture. See the estimated [production environment cost](https://azure.com/e/65354031bc084e539b6c8ccfc1a7b097) and [nonproduction environment cost](https://azure.com/e/af7d105ce24340dab93dfe666909a3e0).*
+*Figure 1. Target reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java.vsdx) of this architecture. For the estimated cost of this architecture, see the [production environment cost](https://azure.com/e/65354031bc084e539b6c8ccfc1a7b097) and [nonproduction environment cost](https://azure.com/e/af7d105ce24340dab93dfe666909a3e0).*
 
 The following table lists the principles of the reliable web app pattern and how the pattern implements those principles in the web app.
 
-| Reliable web app pattern principles | Implementation details |
+| Reliable web app pattern principles | How to implement the principles |
 | --- | --- |
 | *Reliable web app pattern principles:*<br>▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br><br>*Well Architected Framework principles:*<br>▪ Cost optimized<br>▪ Observable<br>▪ Ingress secure<br>▪ Infrastructure as code<br>▪ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Terraform deployment <br>▪ Telemetry, logging, monitoring |
 
 ## Business context
 
-For business context, we follow the cloud journey of a fictional company called Proseware. Company leadership at Proseware wants to expand their business into the education technology application market. After their initial technical research, they concluded that they can use their existing internal training web application as a starting point. The long term plan is to make the web app a customer facing application. Proseware needs to update the application to handle that increase in user load.
+For business context, the guidance follows the cloud journey of a fictional company called Proseware. Company leadership at Proseware wants to expand their business into the education technology application market. After their initial technical research, they concluded that they can use their existing internal training web app as a starting point. The long term plan is to make the web app a customer facing application. Proseware needs to update the application to handle that increase in user load.
 
 To reach these long term goals, Proseware calculated that moving the web app to the cloud offered the best return on investment. The cloud offered them a way to meet the increased business demand with minimal investments in the existing web app.
 
@@ -24,21 +24,19 @@ To reach these long term goals, Proseware calculated that moving the web app to 
 | --- | --- |
 | ▪ Apply low-cost, high-value code changes<br>▪ Reach a service level objective of 99.9%<br>▪ Adopt DevOps practices<br>▪ Create cost-optimized environments <br>▪ Improve reliability and security|▪ Expose the application customers<br>▪ Develop web and mobile experiences<br>▪ Improve availability<br> ▪ Expedite new feature delivery<br>▪ Scale components based on traffic.
 
-## On-premises context
+## Existing web app
 
-The on-premises starting point is a monolithic Java web application that runs a web based media stream called Airsonic. Airsonic is a well-known open-source project. For this guidance though, we act as if Proseware developed Airsonic in-house and owns all the code. Code ownership is more common scenario than an upstream dependency. The on-premises web app runs on an Apache Tomcat web server with a PostgreSQL database.
+The existing web app is on premises. It's a monolithic Java web app that runs a web based media stream called Airsonic. Airsonic is a well-known open-source project. For this guidance though, we act as if Proseware developed Airsonic in-house and owns all the code. Code ownership is a more common scenario than an upstream dependency. The on-premises web app runs on an Apache Tomcat web server with a PostgreSQL database.
 
-The web app is an employee-facing, LOB, training application. Proseware employees use the application to complete required HR training. The on-premises web application suffers from common challenges. These challenges include extended timelines to build and ship new features and difficulty scaling different application components under higher load.
+The web app is an employee-facing, LOB, training application. Proseware employees use the application to complete required HR training. The on-premises web app suffers from common challenges. These challenges include extended timelines to build and ship new features and difficulty scaling different application components under higher load.
 
 ## Service level objective
 
-A service level objective (SLO) for availability defines how available you want a web app to be for users. Proseware has a target SLO of 99.9% for availability. It's about 8.7 hours of downtime per year.
+A service level objective (SLO) for availability defines how available you want a web app to be for users. Proseware has a target SLO of 99.9% for availability. It's about 8.7 hours of downtime per year. You need to define what availability means for your web app. For Proseware, the web app is considered available when employees can watch training videos 99.9% of the time. When you have a definition of *available*, list all the dependencies on the critical path of availability. Dependencies should include Azure services and third-party solutions.
 
-You need to define what availability means for your web application. For Proseware, the web app is considered available when employees can watch training videos 99.9% of the time. When you have a definition of *available*, list all the dependencies on the critical path of availability. Dependencies should include Azure services and third-party solutions.
+For each dependency in the critical path, you need to assign an availability goal. Service Level Agreements (SLAs) from Azure provide a good starting point. SLAs don't factor in (1) downtime associated with the application code run on those services, (2) deployment and operations methodologies, or (3) architecture choices to connect the services. The availability metric you assign to a dependency shouldn't exceed the SLA.
 
-For each dependency in the critical path, you need to assign an availability goal. Service Level Agreements (SLAs) from Azure provide a good starting point.
-
-SLAs don't factor in (1) downtime associated with the application code run on those services, (2) deployment and operations methodologies, or (3) architecture choices to connect the services. The availability metric you assign to a dependency shouldn't exceed the SLA. Proseware used Azure SLAs for Azure services (*see figure 2*).
+Proseware used Azure SLAs for Azure services. The following diagram illustrates Proseware's dependency list with availability goals for each dependency. (*see figure 2*).
 
 [![Diagram showing Proseware's dependencies on the critical path and the assigned availability metric for each dependency.](../../_images/java-slo-dependecies.svg)](../../_images/java-slo-dependecies.svg)
 *Figure 2. SLA dependency map. Azure SLAs are subject to change. The SLAs shown here are examples used to illustrate the process of estimating composite availability. For information, see [SLAs for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).*
@@ -52,11 +50,11 @@ Finally, you need to use the formulas for composite SLAs to estimate the composi
 
 The Azure services you choose should support your short-term objectives while preparing your application to meet any long-term goals. You should pick services that (1) meet the SLO for the production environment, (2) require minimal migration effort, and (3) support planned modernization efforts.
 
-At this phase, it's important to select Azure services that mirror key on-premises choices to minimize the migration effort. For example, you should keep the same database engine (PostgreSQL -> Azure Database for PostgreSQL Flexible Server). Containerization of your application typically doesn't meet the short-term objectives of the reliable web app pattern, but the application platform you choose now should support containerization if it's a long-term goal. The two main requirements Proseware used when choosing Azure services were (1) an SLO of 99.9% for the production environment and (2) an average load of 1,000 users daily.
+At this phase, it's important to select Azure services that mirror key on-premises choices to minimize the migration effort. For example, you should keep the same database engine (from PostgreSQL to Azure Database for PostgreSQL Flexible Server). Containerization of your application typically doesn't meet the short-term objectives of the reliable web app pattern, but the application platform you choose now should support containerization if it's a long-term goal. The two main requirements Proseware used when choosing Azure services were (1) an SLO of 99.9% for the production environment and (2) an average load of 1,000 users daily.
 
 ### Application platform
 
-[Azure App Service](/azure/app-service/overview) is an HTTP-based managed service for hosting web applications, REST APIs, and mobile back ends. Azure has many viable [compute options](/azure/architecture/guide/technology-choices/compute-decision-tree). The web app uses Azure App Service because it meets the following requirements:
+[Azure App Service](/azure/app-service/overview) is an HTTP-based managed service for hosting web apps, REST APIs, and mobile back ends. Azure has many viable [compute options](/azure/architecture/guide/technology-choices/compute-decision-tree). The web app uses Azure App Service because it meets the following requirements:
 
 - **Natural progression.** On-premises, Proseware deployed a `war` file to a Tomcat server and wanted to minimize the amount of rearchitecting for that deployment model. App Service was a natural progression for Proseware, but Azure Spring Apps is an alternative.
 - **High SLA.** It has a high SLA that meets the requirements for the production environment.
@@ -130,11 +128,11 @@ Front Door is a modern content delivery network and global load balancer that ro
 
 ### Web application firewall
 
-[Azure Web Application Firewall](/azure/web-application-firewall/overview) helps provide centralized protection of your web applications from common exploits and vulnerabilities. WAF integrates with Application Gateway and Front Door. It helps prevent malicious attacks close to the attack sources before they enter your virtual network. Web Application Firewall provides the following benefits:
+[Azure Web Application Firewall](/azure/web-application-firewall/overview) helps provide centralized protection of your web app from common exploits and vulnerabilities. WAF integrates with Application Gateway and Front Door. It helps prevent malicious attacks close to the attack sources before they enter your virtual network. Web Application Firewall provides the following benefits:
 
 - **Global protection.** It provides increased global web app protection without sacrificing performance.
 - **Botnet protection.** You can configure bot protection rules to monitor for botnet attacks.
-- **Parity with on-premises.** It allows Proseware to maintain parity with its on-premises solution, which was running behind a web application firewall managed by IT.
+- **Parity with on-premises.** The on-premises solution was running behind a web application firewall managed by IT.
 
 ### Secrets manager
 
@@ -159,7 +157,7 @@ Azure Files offers fully managed file shares in the cloud that are accessible vi
 [Azure Private Link](/azure/private-link/private-link-overview) provides access to PaaS services (like Azure Cache for Redis and Azure Database for PostgreSQL) over a private endpoint in your virtual network. Traffic between your virtual network and the service travels across the Microsoft backbone network. Azure Private DNS with Azure Private Link enables your solution to communicate with Azure services without requiring application changes. The web app uses Private Link for the following reasons:
 
 - **Enhanced security.** It lets the application privately access services on Azure and reduces the network footprint of data stores to help protect against data leakage.
-- **Minimal effort.** Private endpoints support the web application platform and the database platform that the web app uses. Both platforms mirror the existing on-premises setup, so minimal changes are required.
+- **Minimal effort.** Private endpoints support the web app platform and the database platform that the web app uses. Both platforms mirror the existing on-premises setup, so minimal changes are required.
 
 ## Deploy the reference implementation
 
