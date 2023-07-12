@@ -561,26 +561,18 @@ Database performance can affect the performance and scalability of an applicatio
 
 When you use a mounted storage solution for your web applications, such as Azure Files, it's important to choose a storage tier that meets the input/output operations per second (IOPS) requirements of your application. Azure Files offers different performance tiers with varying IOPS capabilities and costs. Make sure to select the appropriate tier to ensure the best performance and cost-optimization for your web application.
 
-## Deploy the reference implementation
-
-You can deploy the reference implementation by following the instructions in the [Reliable web app pattern for Java repository](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java). Use the deployment guide to set up a local development environment and deploy the solution to Azure.
-
 ## Next steps
 
-The following resources provide cloud best practices and migration guidance.
+You can deploy the reference implementation by following the instructions in the [Reliable web app pattern for Java repository](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java). You should use the deployment guide to set up a local development environment and deploy the solution to Azure. The following resources provide cloud best practices and migration guidance.
 
-### Cloud best practices
-
-For Azure adoption and architectural guidance, see:
+**Cloud best practices.** For Azure adoption and architectural guidance, see:
 
 - [Cloud Adoption Framework](/azure/cloud-adoption-framework/overview). A framework to help your organization prepare and execute a strategy to build solutions on Azure.
 - [Well-Architected Framework](/azure/architecture/framework/). A set of guiding tenets that you can use to improve the quality of a workload.
 
 For applications that require a higher service level objective (SLO), see [mission-critical workloads](/azure/architecture/framework/mission-critical/mission-critical-overview).
 
-### Migration guidance
-
-The following tools and resources can help you migrate on-premises resources to Azure.
+**Migration guidance.** The following tools and resources can help you migrate on-premises resources to Azure.
 
 - [Azure Migrate](/azure/migrate/migrate-services-overview) provides a simplified migration, modernization, and optimization service for Azure that handles assessment and migration of web apps, SQL Server, and virtual machines.
 - [Azure Database Migration Guides](/data-migration/) provides resources for various database types, and tools designed for your migration scenario.
