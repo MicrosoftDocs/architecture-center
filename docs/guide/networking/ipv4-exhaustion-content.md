@@ -191,5 +191,5 @@ Use a single private endpoint or Private Link service to expose a proxy/NAT solu
 ## Related resources
 
 - [Networking architecture design](networking-start-here.md)
-- [Architectural approaches for networking in multitenant solutions](./multitenant/approaches/networking.md)
+- [Architectural approaches for networking in multitenant solutions](~/multitenant/approaches/networking.md)
 - [Hub-and-spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology)
