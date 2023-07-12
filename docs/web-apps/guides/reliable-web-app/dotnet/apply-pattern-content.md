@@ -14,13 +14,11 @@ The reliable web app pattern situates code changes within the pillars of the Azu
 
 ## Principles and implementation
 
-The following table lists the principles of the reliable web app pattern and how to implement those principles in the web app.
+The following table lists the principles of the reliable web app pattern and how to implement those principles in the web app. For more information, see the [Reliable web app pattern overview](../overview.md) and [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos).
 
 | Reliable web app pattern principles | How to implement the principles |
 | --- | --- |
 | *Reliable web app pattern principles:*<br>▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br><br>*Well Architected Framework principles:*<br>▪ Cost optimized<br>▪ Observable<br>▪ Ingress secure<br>▪ Infrastructure as code<br>▪ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Bicep deployment <br>▪ Telemetry, logging, monitoring |
-
-For more information, see the [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos).
 
 ## Reliability
 

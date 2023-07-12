@@ -10,7 +10,7 @@ The reliable web app pattern situates code changes within the pillars of the Azu
 
 ## Principles and implementation
 
-The following table lists the principles of the reliable web app pattern and how to implement those principles in the web app.
+The following table lists the principles of the reliable web app pattern and how to implement those principles in the web app. For more information, see the [Reliable web app pattern overview](../overview.md) and [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos).
 
 | Reliable web app pattern principles | How to implement the principles |
 | --- | --- |
