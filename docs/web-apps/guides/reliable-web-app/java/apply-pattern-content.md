@@ -572,7 +572,7 @@ You can deploy the reference implementation by following the instructions in the
 
 For applications that require a higher service level objective (SLO), see [mission-critical workloads](/azure/architecture/framework/mission-critical/mission-critical-overview).
 
-**Migration guidance.** The following tools and resources can help you migrate on-premises resources to Azure.
+**Migration guidance.** The following tools and resources can help you migrate on-premises resources to Azure:
 
 - [Azure Migrate](/azure/migrate/migrate-services-overview) provides a simplified migration, modernization, and optimization service for Azure that handles assessment and migration of web apps, SQL Server, and virtual machines.
 - [Azure Database Migration Guides](/data-migration/) provides resources for various database types, and tools designed for your migration scenario.
