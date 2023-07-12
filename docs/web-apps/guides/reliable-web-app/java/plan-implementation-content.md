@@ -8,7 +8,7 @@ The reliable web app pattern is a set of principles with implementation guidance
 [![Diagram showing the architecture of the reference implementation.](../../_images/reliable-web-app-java.svg)](../../_images/reliable-web-app-java.svg#lightbox)
 *Figure 1. Target reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java.vsdx) of this architecture. For the estimated cost of this architecture, see the [production environment cost](https://azure.com/e/65354031bc084e539b6c8ccfc1a7b097) and [nonproduction environment cost](https://azure.com/e/af7d105ce24340dab93dfe666909a3e0).*
 
-The following table lists the principles of the reliable web app pattern and how the pattern implements those principles in the web app.
+The following table lists the principles of the reliable web app pattern and how to implement those principles in the web app.
 
 | Reliable web app pattern principles | How to implement the principles |
 | --- | --- |

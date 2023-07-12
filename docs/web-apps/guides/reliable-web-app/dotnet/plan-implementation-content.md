@@ -13,7 +13,7 @@ The reliable web app pattern is a set of principles with implementation guidance
 [![Diagram showing the architecture of the reference implementation.](../../_images/reliable-web-app-dotnet.png)](../../_images/reliable-web-app-dotnet.png)
 *Figure 1. Target reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet.vsdx) of this architecture. For the estimated cost of this architecture, see the [production environment cost](https://azure.com/e/26f1165c5e9344a4bf814cfe6c85ed8d) and [nonproduction environment cost](https://azure.com/e/8a574d4811a74928b55956838db71093).*
 
-The following table lists the principles of the reliable web app pattern and implementation details.
+The following table lists the principles of the reliable web app pattern and how to implement those principles in the web app.
 
 | Reliable web app pattern principles | How to implement the principles |
 | --- | --- |
