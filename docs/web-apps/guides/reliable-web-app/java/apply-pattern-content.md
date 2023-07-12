@@ -349,7 +349,7 @@ terraform -chdir=./terraform plan -var environment=dev -out infrastructure.tfpla
 
 Proseware uses the same infrastructure-as-code (IaC) templates for development and production deployments. The only difference is a few SKU differences to optimize cost in the development environment. Proseware chose to use cheaper SKUs in the development environment for Azure Cache for Redis, App Service, and Azure Database for PostgreSQL Flexible Server. The following table shows the services and the SKUs Proseware chose for each environment. You should choose SKUs that meet the needs of each environment.
 
-*Table 2. Reference implementation SKU differences between the development and production environments.*
+*Table 2. Reference implementation SKU differences between the development and production environments.*<br>
 | Service | Development SKU | Production SKU | SKU options |
 | --- | --- | --- | --- |
 | Azure Cache for Redis | Basic | Standard | [Azure Cache for Redis SKU options](https://azure.microsoft.com/pricing/details/cache/)
