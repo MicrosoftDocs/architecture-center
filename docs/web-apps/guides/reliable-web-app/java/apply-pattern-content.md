@@ -64,7 +64,7 @@ You should have an active-active configuration if your web app requires minimal 
 
 *Reference implementation.* The reference implementation uses two regions in an active-passive configuration. Proseware had a 99.9% SLO and needed to use two regions to meet the SLO. The active-passive configuration aligns with Proseware's goal of minimal code changes for this phase in the cloud journey. The active-passive configuration provides a simple data strategy. It avoids needing to set up event-based data synchronization, data shards, or some other data management strategy. All inbound traffic heads to the active region. If a failure occurs in the active region, Proseware manually initiates its failover plan and routes all traffic to the passive region.
 
-### Architect data reliability
+### Data reliability
 
 Data reliability relies on synchronizing data across multiple locations. In general, the more isolated these locations are from each other the higher your data reliability.
 
