@@ -76,7 +76,7 @@ Data reliability relies on synchronizing data across multiple locations. Regions
 
 Multi-region web apps with an active-passive configuration need to replicate data to the passive region for disaster recovery. The web app RPO determines the frequency of the data replication. The replication needs to happen more frequently than your RPO. An RPO of one hour means you need to replicate data at least once every hour. A multi-region in an active-active configuration needs to synchronize data across regions in near real-time. Data synchronization across regions often requires code changes.
 
-*Reference implementation.* The reference implementation has two main data stores: Azure Files and PostgreSQL database. The reference implementation uses geo-zone-redundnant storage (GZRS) with Azure Files. GZRS asynchronously creates a copy of Azure Files data in the passive region. Check the [last sync time property](/azure/storage/common/last-sync-time-get) to get an estimated RPO. For the Azure Database for PostgreSQL, the reference implementation uses zone redundant high availability with standby servers in two availability zones. It also asynchronously replicates to the read replica in the passive region. Azure Files GZRS and Azure Database for PostgreSQL read replica are central to Proseware's failover plan.
+*Reference implementation.* The reference implementation has two main data stores: Azure Files and PostgreSQL database. The reference implementation uses geo-zone-redundnant storage (GZRS) with Azure Files. GZRS asynchronously creates a copy of Azure Files data in the passive region. Check the [last sync time property](/azure/storage/common/last-sync-time-get) to get an estimated RPO for the synchronization. For the Azure Database for PostgreSQL, the reference implementation uses zone redundant high availability with standby servers in two availability zones. The database also asynchronously replicates to the read replica in the passive region. Azure Files GZRS and the Azure Database for PostgreSQL read replica are central to Proseware's failover plan.
 
 ### Create a failover plan
 
@@ -139,7 +139,7 @@ auth_settings_v2 {
 }
 ```
 
-The code configures Azure Active Directory as the authentication provider, using a client ID and secret stored in an Azure Key Vault. It specifies the authentication endpoint for the Azure AD tenant and enables the token store functionality for the sign in.
+The code configures Azure Active Directory as the authentication provider. It uses a client ID and secret stored in an Azure Key Vault. The code specifies the authentication endpoint for the Azure AD tenant and enables the token store functionality for the sign in.
 
 **Integrate with the identity provider.** You need to integrate the web application with the identity provider (Azure AD) in the code to help ensure secure and seamless authentication and authorization.
 
@@ -160,7 +160,7 @@ The Spring Boot Starter for Azure AD is an excellent option for integrating with
 
 For more information, see [Spring Cloud Azure support for Spring Security](https://learn.microsoft.com/azure/developer/java/spring-framework/spring-security-support).
 
-**Implement authentication and authorization business rules.** Implementing authentication and authorization business rules involves defining the access control policies and permissions for various application functionalities and resources. You need to configure Spring Security to use Spring Boot Starter for Azure AD. This library allows integration with Azure AD and helps you ensure that users are authenticated securely. Additionally, configuring and enabling the Microsoft Authentication Library (MSAL) provides access to more security features, like token caching and automatic token refreshing, and enhances the security of the web application.
+**Implement authentication and authorization business rules.** Implementing authentication and authorization business rules involves defining the access control policies and permissions for various application functionalities and resources. You need to configure Spring Security to use Spring Boot Starter for Azure AD. This library allows integration with Azure AD and helps you ensure that users are authenticated securely. Configuring and enabling the Microsoft Authentication Library (MSAL) provides access to more security features. These features include token caching and automatic token refreshing.
 
 *Reference implementation* The reference implementation creates two app roles (*User* and *Creator*). Roles translate into permissions during authorization. The *Creator* role has permissions to configure the application settings, upload videos, and create playlists. The *User* Role can view the videos.
 
@@ -298,7 +298,7 @@ spring.datasource.username=${database-app-user}
 spring.datasource.password=${database-app-user-password}
 ```
 
-**Avoid using access keys for temporary access where possible.** Granting permanent access to a storage account is a security risk. If compromised, they provide attackers permanent access to your data. It's a best practice to use temporary permissions to grant access to resources. Temporary permissions reduce the risk of unauthorized access or data breaches.
+**Avoid using access keys for temporary access where possible.** Granting permanent access to a storage account is a security risk. If attackers obtain the access keys, they have permanent access to your data. It's a best practice to use temporary permissions to grant access to resources. Temporary permissions reduce the risk of unauthorized access or data breaches.
 
 For temporary account access, you should use a shared access signature (SAS). There's a user delegation SAS, a service SAS, and an account SAS. You should use a user delegation SAS when possible. It's the only SAS that uses Azure AD credentials and doesn't require a storage account key.
 
