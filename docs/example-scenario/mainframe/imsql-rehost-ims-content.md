@@ -29,7 +29,7 @@ I. Partitions run separate workloads and segregate work types within the environ
 
 ### Azure architecture, after migration  
 
-:::image type="content" source="media/imsql-virtual-machines.png" alt-text="Diagram that shows the IMSql architecture after migration to virtual machines." lightbox="media/imsql-virtual-machines.png" border="false":::
+:::image type="content" source="media/imsql-virtual-machines.svg" alt-text="Diagram that shows the IMSql architecture after migration to virtual machines." lightbox="media/imsql-virtual-machines.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/imsql-rehosting-raincode-app-modernization.vsdx) of this architecture.*
 
