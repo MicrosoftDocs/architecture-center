@@ -71,7 +71,7 @@ For detailed instructions on viewing and editing the Microsoft Sentinel Threat I
 
 *Cyber threat intelligence (CTI)* can come from many sources, such as open-source data feeds, threat intelligence sharing communities, paid intelligence feeds, and security investigations within organizations. CTI can range from written reports on a threat actor's motivations, infrastructure, and techniques, to specific observations of IP addresses, domains, and file hashes. CTI provides essential context for unusual activity, so security personnel can act quickly to protect people and assets.
 
-The most utilized CTI in SIEM solutions like Microsoft Sentinel is threat indicator data, sometimes called *Indicators of Compromise (IoCs)*. Threat indicators associate URLs, file hashes, IP addresses, and other data with known threat activity like phishing, botnets, or malware. This form of threat intelligence is often called *tactical threat intelligence*because security products and automation can use it on a large scale to protect and detect potential threats. Microsoft Sentinel can help detect, respond to, and provide CTI context for malicious cyber activity.
+The most utilized CTI in SIEM solutions like Microsoft Sentinel is threat indicator data, sometimes called *Indicators of Compromise (IoCs)*. Threat indicators associate URLs, file hashes, IP addresses, and other data with known threat activity like phishing, botnets, or malware. This form of threat intelligence is often called *tactical threat intelligence* because security products and automation can use it on a large scale to protect and detect potential threats. Microsoft Sentinel can help detect, respond to, and provide CTI context for malicious cyber activity.
 
 ### Potential use cases
 
@@ -168,7 +168,7 @@ You see your connection under **List of configured TAXII 2.0 servers**. Repeat t
 
 The **tiIndicators** API needs the **Application (client) ID**, **Directory (tenant) ID**, and **client secret** from your TIP or custom solution to connect and send threat indicators to Microsoft Sentinel. You get this information by registering the TIP or solution app in Azure Active Directory (Azure AD) and granting it the needed permissions.
 
-To do this, refer to [Connect your threat intelligence platform to Microsoft Sentinel](azure/sentinel/connect-threat-intelligence-tip)
+To do this, refer to [Connect your threat intelligence platform to Microsoft Sentinel](azure/sentinel/connect-threat-intelligence-tip).
 
 ### Create an Analytics rule from a template
 
@@ -184,7 +184,7 @@ The example assumes you have used one or both threat intelligence data connector
 
    ![Create Analytics rule](media/sentinel-threat-intelligence/create-rule-from-template.png)
 
-   The rule logic page contains the query for the rule, entities to map, rule scheduling, and the number of query results that generate a security alert. The template settings run once an hour identifies any IP address IoCs that match any IP addresses from Azure events, and generates security alerts for all matches. You can keep these settings or change any of them to meet your needs. When you're finished, select **Next: Incident settings (Preview)**.
+   The rule logic page contains the query for the rule, entities to map, rule scheduling, and the number of query results that generate a security alert. The template settings run once an hour, identifies any IP address IoCs that match any IP addresses from Azure events, and generates security alerts for all matches. You can keep these settings or change any of them to meet your needs. When you're finished, select **Next: Incident settings (Preview)**.
 
 1. Under **Incident settings (Preview)**, make sure that **Create incidents from alerts triggered by this analytics rule** is set to **Enabled**, and select **Next: Automated response**.
 
