@@ -133,16 +133,16 @@ Notes
 
 ## Availability
 
-| Service | SLA | Multi-region failover |
+| Service | SLA | Multiregion failover |
 |----------|-----------------|-----------------|
 | Azure Virtual Machines | [SLA for Virtual Machines][sla-vm] | Azure Traffic Manager, Azure Front Door, and cross-region Azure Load Balancer |
 | Azure App Service | [SLA for App Service][sla-app-service] | Azure Traffic Manager and Azure Front Door |
 | Azure Functions | [SLA for Functions][sla-functions] | Azure Traffic Manager and Azure Front Door |
-| Azure Kubernetes Service | [SLA for AKS][sla-acs] | Azure Traffic Manager, Azure Front Door, and Multi-Region Cluster |
+| Azure Kubernetes Service | [SLA for AKS][sla-acs] | Azure Traffic Manager, Azure Front Door, and Multiregion Cluster |
 | Azure Container Apps | [SLA for Container Apps][sla-aca] | Azure Traffic Manager and Azure Front Door |
 | Azure Container Instances | [SLA for Container Instances](https://azure.microsoft.com/support/legal/sla/container-instances) | Azure Traffic Manager and Azure Front Door |
 | Azure Red Hat OpenShift | [SLA for Azure Red Hat OpenShift][sla-aro] | Azure Traffic Manager and Azure Front Door |
-| Azure Spring Apps | [SLA for Azure Spring Apps][sla-azure-spring-apps] | Azure Traffic Manager, Azure Front Door, and Multi-Region Cluster |
+| Azure Spring Apps | [SLA for Azure Spring Apps][sla-azure-spring-apps] | Azure Traffic Manager, Azure Front Door, and Multiregion Cluster |
 | Azure Service Fabric | [SLA for Service Fabric][sla-sf] | Azure Traffic Manager, Azure Front Door, and cross-region Azure Load Balancer |
 | Azure Batch | [SLA for Batch][sla-batch] | Not applicable |
 
@@ -150,7 +150,7 @@ For guided learning on service guarantees, see [Core Cloud Services - Azure arch
 
 ## Security
 
-Review and understand the available security controls and visibility for each service.
+Review and understand the available security controls and visibility for each service:
 
 - [Azure Windows virtual machine](/azure/virtual-machines/windows/security-baseline)
 - [Azure Linux virtual machine](/azure/virtual-machines/linux/security-baseline)
