@@ -70,21 +70,19 @@ Data reliability relies on synchronizing data across multiple locations. Regions
 
 **Define the recovery point objective.** A recovery point objective (RPO) is the maximum amount of data you're okay losing during an outage. For example, an RPO of one hour means you lose up to an hour of the most recent data changes. Define an RPO for each web app.
 
-**Configure data replication if multi-region.** Your architecture and RPO determine how you should replicate your data.
+**Configure data replication.** Your architecture and RPO determine how you should replicate your data. Most Azure data services offer synchronous data replication between availability zones in a region. You should use multiple availability zones for an easy boost to data reliability.
 
-*Single-region web apps.* Most Azure data services offer synchronous data replication between availability zones. Single region web apps only need to use multiple availability zones (zone redundant). No further configuration needed.
-
-*Multi-region web apps.* Multi-region web apps with an active-passive configuration need to replicate data to the passive region for disaster recovery. The replication frequency in an active-passive configuration needs to meet your RPO. A multi-region in an active-active configuration needs to replicate data across regions in near real-time.
+Multi-region web apps with an active-passive configuration need to replicate data to the passive region for disaster recovery. The web app RPO determines the frequency of the data replication. The replication needs to happen more frequently than your RPO. An RPO of one hour means you need to replicate data at least once every hour. A multi-region in an active-active configuration needs to synchronize data across regions in near real-time. Data synchronization across regions often requires code changes.
 
 *Reference implementation.* The reference implementation has two main data stores: Azure Files and PostgreSQL database. The reference implementation uses geo-zone-redundnant storage (GZRS) with Azure Files. GZRS asynchronously creates a copy of Azure Files data in the passive region. Check the [last sync time property](/azure/storage/common/last-sync-time-get) to get an estimated RPO. For the Azure Database for PostgreSQL, the reference implementation uses zone redundant high availability with standby servers in two availability zones. It also asynchronously replicates to the read replica in the passive region. Azure Files GZRS and Azure Database for PostgreSQL read replica are central to Proseware's failover plan.
 
 ### Create a failover plan
 
-A failover plan outlines how you will respond to an outage. Your failover plan should define what an outage means for your web app. You can define outage in terms of downtime or loss of functionality. For more information, see [App Service disaster recovery](/azure/app-service/overview-disaster-recovery).
+A failover plan (disaster recovery plan) outlines how you will respond to an outage. Your failover plan should define what an outage means for your web app. You can define outage in terms of downtime or loss of functionality. For more information, see [App Service disaster recovery](/azure/app-service/overview-disaster-recovery).
 
-**Determine the recovery time objective.** The recovery time objective (RTO) is the maximum, acceptable downtime. For example, an RTO of four hours means the web app should be operational within four hours of a disruption. You can have multiple RTOs relating to different features in a web app. Each RTO should tie back to your SLO in support of making the service available to end-users.
+**Determine the recovery time objective.** The recovery time objective (RTO) is the maximum, acceptable downtime for a web app. For example, an RTO of four hours means the web app should be operational within four hours of a disruption. You can have multiple RTOs relating to different features in a web app. Each RTO should tie back to your SLO.
 
-**Define failover duration.** The failover process needs to less time than your RTO. An RTO of four hours means you need to fail over and be operational within four hours.
+**Define failover duration.** The failover process needs to take less time than your RTO. An RTO of four hours means you need to fail over and be operational within four hours.
 
 **Determine failover mechanism.** You can automate the failover process or use a manual process. Automating the failover makes the results of the failover more consistent, but it creates the potential that someone could initiate a failover accidentally. Consider a manual initiation of the failover. You can automate aspects of the failover to help ensure consistent results.
 
@@ -98,17 +96,17 @@ A failover plan outlines how you will respond to an outage. Your failover plan s
 
 ## Security
 
-Security is a critical component of any architectural design. The goal is to ensure the confidentiality, integrity, and availability of your data and systems. The following guidance outlines the key security concepts that you need to implement.
+Security is a critical component of architectural design. The goal is to ensure the confidentiality, integrity, and availability of your data and systems. The following guidance outlines the key security concepts that you need to implement.
 
 ### Enforce least privileges
 
 The principle of least privilege means you should only grant users (user identities) and Azure services (workload identities) the permissions they need.
 
-**Assign permissions to user identities.** Map users to roles and give the appropriate permissions to those roles. The number and type of roles you use depends on the needs of your application.
+**Assign permissions to user identities.** You need to map users to roles and give the appropriate permissions to those roles. The number and type of roles you use depends on the needs of your application.
 
-**Assign permissions to workload identities:** You should also enforce the principle of least privilege for workload identities across all Azure services. Workload identity permissions are persistent, rather than just-in-time or short-term permissions. You should assign only the necessary permissions to the workload identity so that the underlying Azure service can perform its required functions within the workload. These required functions include create, read, update, and delete (CRUD) operations in a database and reading secrets.
+**Assign permissions to workload identities.** You should enforce the principle of least privilege for workload identities across all Azure services. Workload identity permissions are persistent. You can't provide just-in-time or short-term permissions to workload identities. You should assign only the necessary permissions to the workload identity. The underlying Azure service should only be able to perform its required functions within the workload. For example, workload identities often need to create, read, update, and delete (CRUD) operations in a database and read secrets.
 
-There are two ways to manage access for workload identities. You can control access by (1) using Azure Active Directory (Azure AD) role-based access control (RBAC) or (2) at the Azure-service level with access policies. You should prioritize Azure RBAC to manage permissions over Azure-service level access controls. Azure RBAC ensures consistent, granular, and auditable access control with Azure AD that simplifies access management. For example, you need to create an identity for your web app in Azure AD. You should use Azure RBAC to grant the least number of permissions the web app needs to function to the web app identity. For more information, see:
+There are two ways to manage access for workload identities. (1) You can control access by using Azure Active Directory (Azure AD) role-based access control (RBAC). (2) You can also control access at the Azure-service level with access policies. You should prioritize Azure RBAC to manage permissions over Azure-service level access controls. Azure RBAC ensures consistent, granular, and auditable access control with Azure AD that simplifies access management. For example, you need to create an identity for your web app in Azure AD. You should use Azure RBAC to grant the least number of permissions the web app needs to function to the web app identity. For more information, see:
 
 - [Access to Azure Storage](/azure/storage/blobs/authorize-access-azure-active-directory)
 - [Access to Key Vault](/azure/key-vault/general/rbac-guide)
