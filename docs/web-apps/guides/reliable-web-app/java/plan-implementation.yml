@@ -1,12 +1,12 @@
 ### YamlMime:Architecture
 metadata:
-  title: Reliable web app pattern for Java - Plan the implementation
+  title: Reliable web app pattern for Java. Plan the implementation
   titleSuffix: Azure Reference Architectures
   description: How to migrate and modernize your Java application in the cloud with minimal code changes. Plan and apply low-cost, high-value modernizations to your Java application.
   author: stephen-sumner
   ms.author: ndalalelis
   ms.reviewer: ssumner
-  ms.date: 04/28/2023
+  ms.date: 07/17/2023
   ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
