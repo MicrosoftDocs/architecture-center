@@ -120,6 +120,7 @@ While the entirety of the [Azure Well-Architected Framework](/azure/architecture
 ### AI/ML
 
 * [Design patterns for multitenant SaaS applications and Azure Cognitive Search](/azure/search/search-modeling-multitenant-saas-applications): This document discusses tenant isolation strategies for multitenant applications that are built with Azure Cognitive Search.
+
 ## Community content
 
 ### Kubernetes
