@@ -214,7 +214,7 @@ Because of the introduction of Standard Load Balancer, you can enable the [high 
 
 ### Application services in the application servers tier
 
-High availability for the SAP application servers is achieved by load balancing traffic within a pool of application servers without the need of cluster software, SAP Wed Dispatcher, or the Azure load balancer.  The SAP message server can load-balance client traffics to the application servers defined in an ABAP logon group by the transaction SMLG.  
+High availability for the SAP application servers is achieved by load balancing traffic within a pool of application servers without the need of cluster software, SAP Wed Dispatcher, or the Azure load balancer.  The SAP message server can load balance client traffic to the application servers defined in an ABAP logon group by the transaction SMLG.  
 
 ### Database tier
 
