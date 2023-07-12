@@ -41,7 +41,7 @@ The recommendations in this article are for scenarios that are based on the [Azu
 The following diagram shows an example architecture. The recommendations are equally applicable to networks that are built on top of Azure Virtual WAN, which also has hub-and-spoke networks in each region.
 
 :::image type="content" source="./images/ipv4-exhaustion-hub-spoke.png" alt-text="Diagram that shows the regional hub-and-spoke topology." border="false" lightbox="./images/ipv4-exhaustion-hub-spoke.png":::
-*Download a [PowerPoint file](https://arch-center.azureedge.net/ipv4-exhaustion-hub-spoke.pptx) of this architecture.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/ipv4-hub-spoke-pp.pptx) of this architecture.*
 
 In a scenario that's based on the Azure landing zone architecture, applications are deployed in their own landing zone. Each landing zone contains a spoke virtual network that's peered to a regional hub. Spoke virtual networks are an integral part of the corporate network and are assigned routable IPv4 addresses. These addresses are unique across the entire corporate network. So, all architectural components that are deployed in Azure Virtual Network consume IPv4 addresses in the corporate network’s address space even if only a few components expose endpoints that must be reachable from the entire corporate network. These architectural components might be virtual machines, first-party or third-party network virtual appliances (NVAs), or virtual network-injected PaaS services.
 
