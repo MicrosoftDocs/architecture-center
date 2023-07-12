@@ -17,6 +17,8 @@ The reliable web app pattern is a set of principles with implementation guidance
 
 The following table lists the principles of the reliable web app pattern and how to implement those principles in the web app. For more information, see the [Reliable web app pattern overview](../overview.md) and [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos).
 
+*Table 1. Pattern principles and how to implement them.*
+
 | Reliable web app pattern principles | How to implement the principles |
 | --- | --- |
 | *Reliable web app pattern principles:*<br>▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br><br>*Well Architected Framework principles:*<br>▪ Cost optimized<br>▪ Observable<br>▪ Ingress secure<br>▪ Infrastructure as code<br>▪ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Bicep deployment <br>▪ Telemetry, logging, monitoring |
@@ -24,6 +26,8 @@ The following table lists the principles of the reliable web app pattern and how
 ## Business context
 
 For business context, the guidance follows the cloud journey of a fictional company called Relecloud. Relecloud needs to meet increasing business demand with minimal investments in their existing monolithic app. Traffic to the current on-premises application has increased due to increased sales. Relecloud expects the demand to continue to increase. They company concluded that the on-premises infrastructure doesn't provide a cost-efficient means to scale. They decided that moving the web app to the cloud offered the best return on investment and allowed them to meet their short and long-term goals.
+
+*Table 2. Short and long-term web app goals.*
 
 | Short-term app goals | Long-term app goals |
 | --- | --- |
