@@ -2,7 +2,7 @@ tcVISION is a data replication solution from BOS Software. It provides an IBM ma
 
 ## Architecture
 
-:::image type="content" source="./media/Mainframe-Realtime-Batch-Data-Replication-Azure-tcVISION.svg" alt-text="Architecture diagram of the data flow in migrating mainframe to Azure data platform." border="false" lightbox="./media/Mainframe-Realtime-Batch-Data-Replication-Azure-tcVISION.svg":::
+:::image type="content" source="./media/mainframe-realtime-batch-data-replication-azure-tcvision.svg" alt-text="Architecture diagram of the data flow in migrating mainframe to Azure data platform." border="false" lightbox="./media/mainframe-realtime-batch-data-replication-azure-tcvision.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/Mainframe-Realtime-Batch-Data-Replication-Azure-tcVISION.vsdx) of this architecture.*
 
