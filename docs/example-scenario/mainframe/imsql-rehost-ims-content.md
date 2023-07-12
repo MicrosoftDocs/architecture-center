@@ -15,6 +15,7 @@ A. Users connect via TCP/IP by using protocols like TN3270 and HTTPS.
 B. Input into the mainframe uses standard mainframe communication protocols.  
 
 C. Applications receive the data. These applications are either batch or online systems.  
+
 D. COBOL, PL/I, Assembler, or other compatible languages run in an enabled environment.  
 
 E. Database systems, commonly hierarchical/network and relational systems, store data.  
