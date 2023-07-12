@@ -18,7 +18,7 @@ This reference architecture describes a typical SAP production system running on
 
 ### Networking
 
-**Virtual networks** The [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) service connects Azure resources to each other with enhanced security. In this architecture, the virtual network connects to an on-premises environment via a virtual private network (VPN) gateway deployed in the hub of a [hub-spoke topology](../../reference-architectures/hybrid-networking/hub-spoke.yml). SAP applications and database are contained in own spoke virtual network. The virtual networks are subdivided into separate subnets for each tier application (SAP NetWeaver), the database, and shared services (like Azure Bastion).
+**Virtual networks** The [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) service connects Azure resources to each other with enhanced security. In this architecture, the virtual network connects to an on-premises environment via a virtual private network (VPN) gateway deployed in the hub of a [hub-spoke topology](../../reference-architectures/hybrid-networking/hub-spoke.yml). SAP applications and database are contained in their own spoke virtual network. The virtual networks are subdivided into separate subnets for each tier: application (SAP NetWeaver), the database, and shared services (like Azure Bastion).
 
 This architecture subdivides the virtual network address space into subnets. Place application servers on a separate subnet and database servers on another. Doing so allows you to secure them more easily by managing the subnet security policies rather than the individual servers and cleanly separates security rules applicable to databases from application servers.
 
