@@ -8,6 +8,8 @@ The reliable web app pattern is a set of principles with implementation guidance
 [![Diagram showing the architecture of the reference implementation.](../../_images/reliable-web-app-java.svg)](../../_images/reliable-web-app-java.svg#lightbox)
 *Figure 1. Target reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java.vsdx) of this architecture. For the estimated cost of this architecture, see the [production environment cost](https://azure.com/e/65354031bc084e539b6c8ccfc1a7b097) and [nonproduction environment cost](https://azure.com/e/af7d105ce24340dab93dfe666909a3e0).*
 
+## Principles and implementation
+
 The following table lists the principles of the reliable web app pattern and how to implement those principles in the web app.
 
 | Reliable web app pattern principles | How to implement the principles |
@@ -26,9 +28,9 @@ To reach these long term goals, Proseware calculated that moving the web app to 
 
 ## Existing web app
 
-The existing web app is on premises. It's a monolithic Java web app that runs a web based media stream called Airsonic. Airsonic is a well-known open-source project. For this guidance though, we act as if Proseware developed Airsonic in-house and owns all the code. Code ownership is a more common scenario than an upstream dependency. The on-premises web app runs on an Apache Tomcat web server with a PostgreSQL database.
+The existing web app is on premises. It's a monolithic Java web app that runs a web based media stream called Airsonic. Airsonic is a well-known open-source project, but in this scenario, Proseware owns the code. Code ownership is a more common scenario than an upstream dependency. The on-premises web app runs on an Apache Tomcat web server with a PostgreSQL database.
 
-The web app is an employee-facing, LOB, training application. Proseware employees use the application to complete required HR training. The on-premises web app suffers from common challenges. These challenges include extended timelines to build and ship new features and difficulty scaling different application components under higher load.
+The web app is a line-of-business training app. It's employee-facing. Proseware employees use the application to complete required HR training. The on-premises web app suffers from common challenges. These challenges include extended timelines to build and ship new features and difficulty scaling different application components under higher load.
 
 ## Service level objective
 
