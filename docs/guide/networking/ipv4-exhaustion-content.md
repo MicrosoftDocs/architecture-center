@@ -41,6 +41,7 @@ The recommendations in this article are for scenarios that are based on the [Azu
 The following diagram shows an example architecture. The recommendations are equally applicable to networks that are built on top of Azure Virtual WAN, which also has hub-and-spoke networks in each region.
 
 :::image type="content" source="./images/ipv4-exhaustion-hub-spoke.png" alt-text="Diagram that shows the regional hub-and-spoke topology." border="false" lightbox="./images/ipv4-exhaustion-hub-spoke.png":::
+*Download a [PowerPoint file](https://arch-center.azureedge.net/ipv4-exhaustion-hub-spoke.pptx) of this architecture.*
 
 In a scenario that's based on the Azure landing zone architecture, applications are deployed in their own landing zone. Each landing zone contains a spoke virtual network that's peered to a regional hub. Spoke virtual networks are an integral part of the corporate network and are assigned routable IPv4 addresses. These addresses are unique across the entire corporate network. So, all architectural components that are deployed in Azure Virtual Network consume IPv4 addresses in the corporate network’s address space even if only a few components expose endpoints that must be reachable from the entire corporate network. These architectural components might be virtual machines, first-party or third-party network virtual appliances (NVAs), or virtual network-injected PaaS services.
 
@@ -97,15 +98,15 @@ The following diagram shows the landing zone layout to implement SNAT in a hub-a
 
 :::image type="content" source="./images/ipv4-exhaustion-snat-azfw.png" alt-text="Diagram that shows the SNAT implementation by using Azure Firewall." border="false" lightbox="./images/ipv4-exhaustion-snat-azfw.png":::
 
-To enable resources in the non-routable spoke access to routable IP addresses outside their landing zone, you must deploy Azure Firewall with the option "Perform SNAT" set to "Always" in each landing zone’s routable spoke. You must associate all subnets in the non-routable spoke with a custom route table to send traffic to destinations outside the landing zone to Azure Firewall.
+You must associate all subnets in the non-routable spoke with a custom route table to send traffic to destinations outside the landing zone to Azure Firewall.
 
 The following diagram shows the landing zone layout to implement SNAT *in a Virtual WAN-based* hub-and-spoke network by using Azure Firewall.
 
 :::image type="content" source="./images/ipv4-exhaustion-snat-azfw-vwan.png" alt-text="Diagram that shows the SNAT implementation in a Virtual WAN-based network by using Azure Firewall." border="false" lightbox="./images/ipv4-exhaustion-snat-azfw-vwan.png":::
 
-To enable resources in the non-routable spoke access to routable IP addresses outside their landing zone, you must deploy Azure Firewall with the option "Perform SNAT" set to "Always" in each landing zone’s routable spoke, or the spokes that are connected to Virtual WAN. You must associate all subnets in the non-routable spoke, or the spokes that aren't connected to Virtual WAN, with a custom route table to send traffic to destinations outside the landing zone to Azure Firewall.
+You must associate all subnets in the non-routable spoke, or the spokes that aren't connected to Virtual WAN, with a custom route table to send traffic to destinations outside the landing zone to Azure Firewall.
 
-You can find instructions about how to configure Azure Firewall to SNAT all received connections in public documentation. The following diagram shows Azure Firewall as a NAT device for connections that are initiated by resources in non-routable spoke virtual networks.
+For both layouts, to enable resources in the non-routable spoke access to routable IP addresses outside their landing zone, you must deploy Azure Firewall with the option "Perform SNAT" set to "Always" in each landing zone’s routable spoke. You can find instructions about how to configure Azure Firewall to SNAT all received connections in public documentation. The following diagram shows Azure Firewall as a NAT device for connections that are initiated by resources in non-routable spoke virtual networks.
 
 :::image type="content" source="./images/ipv4-exhaustion-azfw-snat-behavior.png" alt-text="Screenshot that shows the dialog for Azure Firewall Default SNAT Behavior. Always is selected for the Perform SNAT option." border="false" lightbox="./images/ipv4-exhaustion-azfw-snat-behavior.png":::
 
