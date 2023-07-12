@@ -33,7 +33,7 @@ Helping our customers design and architect new solutions is core to the Azure Ar
 
 ## Example architecture diagram
 
-![Example architecture diagram showing multiple services connected together with numbered steps.](../solution-ideas/media/advanced-analytics-on-big-data.png)
+![Example architecture diagram showing multiple services connected together with numbered steps.](../browse/thumbs/advanced-analytics-on-big-data.png)
 
 [Browse all Azure architectures](../browse/index.yml) to view other examples.
 
