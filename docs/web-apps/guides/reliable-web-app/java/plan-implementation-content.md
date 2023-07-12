@@ -38,7 +38,7 @@ A service level objective (SLO) for availability defines how available you want 
 
 For each dependency in the critical path, you need to assign an availability goal. Service Level Agreements (SLAs) from Azure provide a good starting point. However, SLAs don't factor in (1) downtime associated with the application code run on those services, (2) deployment and operations methodologies, or (3) architecture choices to connect the services. The availability metric you assign to a dependency shouldn't exceed the SLA.
 
-Proseware used Azure SLAs for Azure services. The following diagram illustrates Proseware's dependency list with availability goals for each dependency. (*see figure 2*).
+Proseware used Azure SLAs for Azure services. The following diagram illustrates Proseware's dependency list with availability goals for each dependency (*see figure 2*).
 
 [![Diagram showing Proseware's dependencies on the critical path and the assigned availability metric for each dependency.](../../_images/java-slo-dependecies.svg)](../../_images/java-slo-dependecies.svg)
 *Figure 2. SLA dependency map. Azure SLAs are subject to change. The SLAs shown here are examples used to illustrate the process of estimating composite availability. For information, see [SLAs for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).*
@@ -56,7 +56,7 @@ When you move a web app to the cloud, you should select Azure services that mirr
 
 ### Application platform
 
-[Azure App Service](/azure/app-service/overview) is an HTTP-based managed service for hosting web apps, REST APIs, and mobile back ends. Azure has many viable [compute options](/azure/architecture/guide/technology-choices/compute-decision-tree). The web app uses Azure App Service because it meets the following requirements:
+[Azure App Service](/azure/app-service/overview) is an HTTP-based managed service for hosting web apps, REST APIs, and mobile back ends. Azure has many viable [compute options](/azure/architecture/guide/technology-choices/compute-decision-tree). Proseware chose Azure App Service because it meets the following requirements:
 
 - **Natural progression.** On-premises, Proseware deployed a `war` file to a Tomcat server and wanted to minimize the amount of rearchitecting for that deployment model. App Service was a natural progression for Proseware, but Azure Spring Apps is an alternative.
 - **High SLA.** It has a high SLA that meets the requirements for the production environment.
@@ -68,7 +68,7 @@ Azure has a fully managed service specifically for Spring Boot apps (Azure Sprin
 
 ### Identity management
 
-[Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) is a cloud-based identity and access management service. It authenticates and authorizes users based on roles that integrate with applications. Azure AD provides the following abilities:
+[Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) is a cloud-based identity and access management service. It authenticates and authorizes users based on roles that integrate with applications. Azure AD provides the following features for Proseware's web app:
 
 - **Authentication and authorization.** It handles authentication and authorization of employees.
 - **Scalability.** It scales to support larger scenarios.
@@ -89,7 +89,7 @@ Azure has a fully managed service specifically for Spring Boot apps (Azure Sprin
 
 ### Application performance monitoring
 
-[Application Insights](/azure/azure-monitor/app/app-insights-overview) is a feature of Azure Monitor that provides extensible application performance management (APM) and monitoring for live web apps. The web app uses Application Insights for the following reasons:
+[Application Insights](/azure/azure-monitor/app/app-insights-overview) is a feature of Azure Monitor that provides extensible application performance management (APM) and monitoring for live web apps. Proseware added Application Insights for the following reasons:
 
 - **Anomaly detection.** It automatically detects performance anomalies.
 - **Troubleshooting.** It helps diagnose problems in the running app.
@@ -108,7 +108,7 @@ Azure Monitor is a comprehensive suite of monitoring tools for collecting data f
 
 ### Cache
 
-[Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a managed in-memory data store that's based on Redis software. The web app needs a cache that provides the following benefits:
+[Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a managed in-memory data store that's based on Redis software. Proseware needed a cache that provides the following benefits:
 
 - **Speed and volume.** It has high-data throughput and low latency reads for commonly accessed, slow-changing data.
 - **Diverse supportability.** It's a unified cache location that all instances of the web app can use.
@@ -119,7 +119,7 @@ Azure Monitor is a comprehensive suite of monitoring tools for collecting data f
 
 Proseware needed a multi-region architecture to meet their 99.9% SLO. They chose an active-passive configuration to avoid the code changes needed for an active-active configuration. To route traffic across regions, they needed a global load balancer. Azure has two primary global load balancing architectures: (1) Azure Front Door and (2) Azure Traffic Manager.
 
-Front Door is a modern content delivery network and global load balancer that routes HTTP traffic. Traffic Manager is a global load balancer that uses DNS to route traffic across regions. The AirSonic web app uses WebSockets. Proseware chose Front Door as the global load balancer for following benefits:
+Front Door is a modern content delivery network and global load balancer that routes HTTP traffic. Traffic Manager is a global load balancer that uses DNS to route traffic across regions. Proseware chose Front Door as the global load balancer for following benefits:
 
 - **Routing flexibility.** It allows the application team to configure ingress needs to support future changes in the application.
 - **Traffic acceleration.** It uses anycast to reach the nearest Azure point of presence and find the fastest route to the web app.
@@ -130,7 +130,7 @@ Front Door is a modern content delivery network and global load balancer that ro
 
 ### Web application firewall
 
-[Azure Web Application Firewall](/azure/web-application-firewall/overview) helps provide centralized protection of your web app from common exploits and vulnerabilities. WAF integrates with Application Gateway and Front Door. It helps prevent malicious attacks close to the attack sources before they enter your virtual network. Web Application Firewall provides the following benefits:
+[Azure Web Application Firewall](/azure/web-application-firewall/overview) helps provide centralized protection of your web app from common exploits and vulnerabilities. WAF integrates with Application Gateway and Front Door. It helps prevent malicious attacks close to the attack sources before they enter your virtual network. Proseare chose the Web Application Firewall for the following benefits:
 
 - **Global protection.** It provides increased global web app protection without sacrificing performance.
 - **Botnet protection.** You can configure bot protection rules to monitor for botnet attacks.
@@ -138,7 +138,7 @@ Front Door is a modern content delivery network and global load balancer that ro
 
 ### Secrets manager
 
-[Azure Key Vault](/azure/key-vault/general/overview) provides centralized storage of application secrets so that you can control their distribution. It supports X.509 certificates, connection strings, and API keys to integrate with third-party services. Managed identities are the preferred solution for intra-Azure service communication, but the application still has secrets to manage. The on-premises web app stored secrets on-premises in code configuration files, but it's a better security practice to externalize secrets. The web app uses Key Vault because it provides the following features:
+[Azure Key Vault](/azure/key-vault/general/overview) provides centralized storage of application secrets so that you can control their distribution. It supports X.509 certificates, connection strings, and API keys to integrate with third-party services. Managed identities are the preferred solution for intra-Azure service communication, but the application still has secrets to manage. The on-premises web app stored secrets on-premises in code configuration files, but it's a better security practice to externalize secrets. Proseware chose Key Vault because it provides the following features:
 
 - **Encryption.** It supports encryption at rest and in transit.
 - **Supports managed identities.** The application services can use managed identities to access the secret store.
@@ -156,18 +156,18 @@ Azure Files offers fully managed file shares in the cloud that are accessible vi
 
 ### Endpoint security
 
-[Azure Private Link](/azure/private-link/private-link-overview) provides access to PaaS services (like Azure Cache for Redis and Azure Database for PostgreSQL) over a private endpoint in your virtual network. Traffic between your virtual network and the service travels across the Microsoft backbone network. Azure Private DNS with Azure Private Link enables your solution to communicate with Azure services without requiring application changes. The web app uses Private Link for the following reasons:
+[Azure Private Link](/azure/private-link/private-link-overview) provides access to PaaS services (like Azure Cache for Redis and Azure Database for PostgreSQL) over a private endpoint in your virtual network. Traffic between your virtual network and the service travels across the Microsoft backbone network. Azure Private DNS with Azure Private Link enables your solution to communicate with Azure services without requiring application changes. Proseware chose Private Link for the following reasons:
 
 - **Enhanced security.** It lets the application privately access services on Azure and reduces the network footprint of data stores to help protect against data leakage.
 - **Minimal effort.** Private endpoints support the web app platform and the database platform that the web app uses. Both platforms mirror the existing on-premises setup, so minimal changes are required.
 
 ## Deploy the reference implementation
 
-You can deploy the reference implementation by following the instructions in the [Reliable web app pattern for Java repository](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java). Use the deployment guide to set up a local development environment and deploy the solution to Azure.
+You can deploy the reference implementation by following the instructions in the [Reliable web app pattern for Java repository](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java). You should use the deployment guide to set up a local development environment and deploy the web app.
 
 ## Next step
 
-This article describes how to plan the implementation for the reliable web app pattern. The next step is to apply the reliable web app pattern.
+This article showed you how plan an implementation of the reliable web app pattern. Now you need to apply the reliable web app pattern.
 
 >[!div class="nextstepaction"]
 >[Apply the reliable web app pattern for Java](plan-implementation.yml)

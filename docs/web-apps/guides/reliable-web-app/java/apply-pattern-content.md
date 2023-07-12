@@ -1,6 +1,6 @@
 The reliable web app pattern provides essential implementation guidance for web apps moving to the cloud. It defines how you should update (re-platform) your web app to be successful in the cloud.
 
-There are two articles on the reliable web app pattern for Java. This article provides code and architecture guidance. The companion article provides [planning guidance](plan-implementation.yml). There's a [reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java) (sample web app) of the pattern that you can deploy.
+There are two articles on the reliable web app pattern for Java. This article provides code and architecture implementation guidance. The companion article provides [planning guidance](plan-implementation.yml). There's a [reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java) (sample web app) of the pattern that you can deploy.
 
 ## Architecture
 
@@ -10,7 +10,7 @@ The reliable web app pattern situates code changes within the pillars of the Azu
 
 ## Principles and implementation
 
-The following table lists the principles of the reliable web app pattern and how to implement those principles in the web app. For more information, see the [Reliable web app pattern overview](../overview.md) and [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos).
+The following table lists the principles of the reliable web app pattern and how to implement those principles in the web app. For more information, see [Reliable web app pattern overview](../overview.md).
 
 | Reliable web app pattern principles | How to implement the principles |
 | --- | --- |
@@ -18,20 +18,17 @@ The following table lists the principles of the reliable web app pattern and how
 
 ## Reliability
 
-A reliable web application is one that's both resilient and available. *Resiliency* is the ability of the system to recover from failures and continue to function. *Availability* measures whether your users can access your web application. The following reliability recommendations cover resiliency and availability at the infrastructure, application, and data levels.
+A reliable web application is one that's both resilient and available. *Resiliency* is the ability of the system to recover from failures and continue to function. *Availability* measures whether your users can access your web application. The following reliability recommendations cover resiliency and availability at the code, infrastructure, and data levels.
 
-### Add reliability design patterns to your code
+### Code reliability
 
-Reliability design patterns improve the reliability of service to service communication your web app. You should add the Retry pattern and Circuit Breaker pattern to your web app.
+Your code should implement reliability design patterns. Reliability design patterns improve the reliability of service-to-service communication your web app. You should add the Retry pattern and Circuit Breaker pattern to your web app.
 
 **Use the Retry pattern.** The Retry pattern is a technique for handling temporary service interruptions. These temporary service interruptions are known as *transient faults* and typically resolve themselves in a few seconds. The leading causes of transient faults in the cloud are service throttling, dynamic load distribution, and network connectivity. The Retry pattern handles transient faults by resending failed requests to the Azure service.
 
-You can configure the amount of time between retries and how many retries to attempt before throwing an exception. If your code already uses the Retry pattern, you should update your code to use the [Retry mechanisms](/azure/architecture/best-practices/retry-service-specific) available for Azure services and client SDKs. If your application doesn't have a Retry pattern, you should add one based on the following guidance. For more information, see:
+You can configure the amount of time between retries and how many retries to attempt before throwing an exception. If your code already uses the Retry pattern, you should update your code to use the [Retry mechanisms](/azure/architecture/best-practices/retry-service-specific) available for Azure services and client SDKs. If your application doesn't have a Retry pattern, you should add one based on the following guidance. For more information, see [Transient fault handling](/azure/architecture/best-practices/transient-faults) and [Retry pattern](/azure/architecture/patterns/retry).
 
-- [Transient fault handling](/azure/architecture/best-practices/transient-faults)
-- [Retry pattern](/azure/architecture/patterns/retry)
-
-You should use [Resilience4j](https://github.com/resilience4j/resilience4j) to implement the Retry pattern in Java. Resilience4j is a lightweight fault tolerance library. It provides higher-order functions (decorators) to enhance any functional interface, lambda expression, or method reference with a Circuit Breaker, Rate Limiter, Retry, or Bulkhead design pattern.
+You should use [Resilience4j](https://github.com/resilience4j/resilience4j) to implement the Retry pattern in Java. Resilience4j is a lightweight, fault-tolerance library. It provides higher-order functions (decorators) to enhance functional interfaces, lambda expressions, and method references with a Circuit Breaker, Rate Limiter, Retry, or Bulkhead design pattern.
 
 *Reference implementation.* The reference implementation adds the Retry pattern by decorating a lambda expression with the Retry annotations. The code retries the call to get the media file from disk. The following code demonstrates how to use Resilience4j to retry a call to Azure Files to get the last modified time.
 
@@ -45,29 +42,31 @@ private MediaFile checkLastModified(MediaFile mediaFile, MusicFolder folder, boo
 }
 ```
 
-The code uses the retry registry to get a `Retry` object. It also uses `Try` from the Vavr library. `Try` performs error handling and recovery in Java applications. In this code, `Try` recovers from an exception and invokes another lambda expression as a fallback. The code returns the original `MediaFile` when the number of retries reaches the set maximum number. The reference implementation configures the retry properties in `application.properties`. For more ways to configure Resilience4j, see [Spring Retry](https://docs.spring.io/spring-batch/docs/current/reference/html/retry.html) and the [Resilience4j documentation](https://resilience4j.readme.io/v1.7.0/docs/getting-started-3).
+The code uses the retry registry to get a `Retry` object. It also uses `Try` from the Vavr library. `Try` performs error handling and recovery in Java applications. In this code, `Try` recovers from an exception and invokes another lambda expression as a fallback. The code returns the original `MediaFile` when the number of retries reaches the set maximum number. The reference implementation configures the retry properties in the `application.properties`. For more information, see [Spring Retry](https://docs.spring.io/spring-batch/docs/current/reference/html/retry.html) and the [Resilience4j documentation](https://resilience4j.readme.io/v1.7.0/docs/getting-started-3).
 
 *Simulate the Retry pattern:* You can simulate the Retry pattern in the reference implementation. For instructions, see [Simulate the Retry pattern](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/simulate-patterns.md#retry-and-circuit-break-pattern).
   
-**Use the Circuit Breaker pattern.** You should pair the Retry pattern with the Circuit Breaker pattern. The Retry pattern handles transient fault while the Circuit Breaker pattern handles faults that aren't transient. The Circuit Breaker patterns prevent an application from repeatedly invoking a service that is down. The Circuit Breaker pattern releases the application from a repeatedly failed request to avoid wasting CPU cycles and improves application performance. For more information, see [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker), [Spring Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbreaker/docs/current/reference/html/#usage-documentation), and [Resilience4j documentation](https://resilience4j.readme.io/v1.7.0/docs/getting-started-3).
+**Use the Circuit Breaker pattern.** You should pair the Retry pattern with the Circuit Breaker pattern. The Retry pattern handles transient fault. The Circuit Breaker pattern handles faults that aren't transient. The Circuit Breaker pattern prevents an application from repeatedly invoking a service that is down. The Circuit Breaker pattern releases the application from a repeatedly failed request. It helps avoid wasted CPU cycles and improves application performance. For more information, see [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker), [Spring Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbreaker/docs/current/reference/html/#usage-documentation), and [Resilience4j documentation](https://resilience4j.readme.io/v1.7.0/docs/getting-started-3).
 
 *Simulate the Circuit Breaker pattern:* You can simulate the Circuit Breaker pattern in the reference implementation. For instructions, see [Simulate the Circuit Breaker pattern](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/simulate-patterns.md#retry-and-circuit-break-pattern).
 
-### Design architecture reliability
+### Infrastructure reliability
 
-Architecture refers to the arrangement and distribution of infrastructure and services supporting your web app. Your service level objective is an important metric for how you architect your web app.
+Infrastructure refers to the physical components supporting your web app. The way you architect these components affects the reliability of your web app. Architecture refers to the arrangement, distribution, and connections among the web app components. The architecture is the foundation for reaching the [service level objective](./plan-implementation.yml#service-level-objective) you set for your web app.
 
-**Determine infrastructure redundancy.** Use the web app service level objective to determine how many regions to use. You need to use two or more regions if a single region doesn't allow you to reach your service level objective. Web apps that use one region use availability zones to increase infrastructure reliability. For web apps running in multiple regions, availability zones help you recover from failover faster (resiliency). A web app running in multiple regions with a active-passive configuration should use at least two availability zones. This configuration helps avoid a single point of failure. For more information, see [service level objective](./plan-implementation.yml#service-level-objective).
+**Determine infrastructure redundancy.** The number of regions a web app should use is a key design decision. You should use the service level objective for the web app as a starting point. A single region might not allow you reach your service level objective. In this case, you need to deploy your app to multiple regions. Deploying to multiple region requires code changes in most cases. The web app needs to synchronize data across regions.
 
-**Determine region configuration (if applicable):** Web app running in multiple regions can have an active-active configuration or active-passive configuration. An active-active configuration uses both regions in normal operations. An active-passive configuration uses one region in normal operations (active region) and the second region only if there's an outage (passive region).
+Single-region web apps should use availability zones to increase infrastructure reliability. Multi-region web apps use regions and availability zones to increase reliability. The more availability zones you use the better your reliability. You must balance the cost of operating with zone redundancy.
 
-You should use an active-active configuration if you need minimal to no downtime. Use an active-passive configuration if up to two hours of downtime. For more information, see [App Service disaster recovery strategies](/azure/app-service/overview-disaster-recovery) and [Storage redundancy](/azure/storage/common/storage-redundancy#summary-of-redundancy-options).
+**Determine region configuration (if applicable):** Multi-region web apps can have an active-active configuration or active-passive configuration. An active-active configuration uses all regions in normal operations. An active-passive configuration has a primary region (active region) and secondary region (passive region). You only use the secondary region in a failover scenario.
+
+You should have an active-active configuration if your web app requires minimal to no downtime. You should use an active-passive configuration if you can tolerate up to two hours of downtime per failover event. For more information, see [App Service disaster recovery strategies](/azure/app-service/overview-disaster-recovery) and [Storage redundancy](/azure/storage/common/storage-redundancy#summary-of-redundancy-options).
 
 *Reference implementation.* The reference implementation uses two regions in an active-passive configuration. Proseware had a 99.9% SLO and needed to use two regions to meet the SLO. The active-passive configuration aligns with Proseware's goal of minimal code changes for this phase in the cloud journey. The active-passive configuration provides a simple data strategy. It avoids needing to set up event-based data synchronization, data shards, or some other data management strategy. All inbound traffic heads to the active region. If a failure occurs in the active region, Proseware manually initiates its failover plan and routes all traffic to the passive region.
 
 ### Architect data reliability
 
-Data reliability relies on replicating data across multiple locations. In general, the more isolated those locations are from each other the better data reliability.
+Data reliability relies on synchronizing data across multiple locations. In general, the more isolated these locations are from each other the higher your data reliability.
 
 **Define the recovery point objective.** A recovery point objective (RPO) is the maximum amount of data you're okay losing during an outage. For example, an RPO of one hour means you lose up to an hour of the most recent data changes. Define an RPO for each web app.
 

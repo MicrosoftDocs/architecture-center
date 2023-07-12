@@ -39,10 +39,10 @@ A service level objective (SLO) for availability defines how available you want 
 
 For each dependency in the critical path, you need to assign an availability goal. Service level agreements (SLAs) from Azure provide a good starting point. However, SLAs don't factor in (1) downtime that's associated with the application code running on the services (2) deployment and operation methodologies, (3) architecture choices to connect the services. The availability metric you assign to a dependency shouldn't exceed the SLA.
 
-Relecloud used Azure SLAs for Azure services. The following diagram illustrates Relecloud's dependency list with availability goals for each dependency.
+Relecloud used Azure SLAs for Azure services. The following diagram illustrates Relecloud's dependency list with availability goals for each dependency (*see figure 2*).
 
 [![Diagram showing Relecloud's dependencies on the critical path and assigned availability metric for each dependency.](images/slo-dependencies.png)](images/slo-dependencies.png)
-*Azure SLAs are subject to change. The SLAs shown here are examples used to illustrate the process of estimating composite availability. For information, see [SLAs for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).*
+*Figure 2. SLA dependency map. Azure SLAs are subject to change. The SLAs shown here are examples used to illustrate the process of estimating composite availability. For information, see [SLAs for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).*
 
 When you have an SLA dependency map, you need to use the formulas for composite SLAs to estimate the composite availability of the dependencies on the critical path. This number should meet or exceed your SLO. Relecloud needed a multi-region architecture to meet the 99.9% SLO. For more information, see:
 
@@ -180,7 +180,7 @@ You can deploy the reference implementation by following the instructions in the
 
 ## Next steps
 
-This article covers the architecture and planning details for the reliable web app pattern for .NET. The following article shows you how to apply the reliable web app pattern with specific design patterns structured around the Well-Architected Framework pillars.
+This article showed you how plan an implementation of the reliable web app pattern. Now you need to apply the reliable web app pattern.
 
 >[!div class="nextstepaction"]
 > [Apply the reliable web app pattern for .NET](apply-pattern.yml)

@@ -4,7 +4,7 @@ ms.custom:
 ---
 The reliable web app pattern provides essential implementation guidance for web apps moving to the cloud. It defines how you should update (re-platform) your web app to be successful in the cloud.
 
-There are two articles on the reliable web app pattern for .NET. This article provides code and architecture guidance. The companion article provides [planning guidance](plan-implementation.yml). There's a [reference implementation](https://aka.ms/eap/rwa/dotnet) (sample web app) of the pattern that you can deploy.
+There are two articles on the reliable web app pattern for .NET. This article provides code and architecture implementation guidance. The companion article provides [planning guidance](plan-implementation.yml). There's a [reference implementation](https://aka.ms/eap/rwa/dotnet) (sample web app) of the pattern that you can deploy.
 
 ## Architecture and code
 
@@ -22,7 +22,7 @@ The following table lists the principles of the reliable web app pattern and how
 
 ## Reliability
 
-A reliable web application is one that is both resilient and available. Resiliency is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. Availability is a measure of whether your users can access your web application when they need to. You should use the Retry and Circuit Breaker patterns as critical first steps toward improving application reliability. These design patterns introduce self-healing qualities and help your application maximize the reliability features of the cloud. Here are our reliability recommendations.
+A reliable web application is one that is both resilient and available. Resiliency is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. Availability is a measure of whether your users can access your web application when they need to. You should use the Retry and Circuit Breaker patterns as critical first steps toward improving application reliability. These design patterns introduce self-healing qualities and help your application maximize the reliability features of the cloud.
 
 ### Use the Retry pattern
 
