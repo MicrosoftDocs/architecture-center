@@ -13,6 +13,7 @@ The reliable web app pattern situates code changes within the pillars of the Azu
 The following table lists the principles of the reliable web app pattern and how to implement those principles in the web app. For more information, see [Reliable web app pattern overview](../overview.md).
 
 *Table 1. Pattern principles and how to implement them.*
+
 | Reliable web app pattern principles | How to implement the principles |
 | --- | --- |
 | *Reliable web app pattern principles:*<br>▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br><br>*Well Architected Framework principles:*<br>▪ Cost optimized<br>▪ Observable<br>▪ Ingress secure<br>▪ Infrastructure as code<br>▪ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Terraform deployment <br>▪ Telemetry, logging, monitoring |
@@ -349,11 +350,12 @@ terraform -chdir=./terraform plan -var environment=dev -out infrastructure.tfpla
 
 Proseware uses the same infrastructure-as-code (IaC) templates for development and production deployments. The only difference is a few SKU differences to optimize cost in the development environment. Proseware chose to use cheaper SKUs in the development environment for Azure Cache for Redis, App Service, and Azure Database for PostgreSQL Flexible Server. The following table shows the services and the SKUs Proseware chose for each environment. You should choose SKUs that meet the needs of each environment.
 
-*Table 2. Reference implementation SKU differences between the development and production environments.*<br>
+*Table 2. Reference implementation SKU differences between the development and production environments.*
+
 | Service | Development SKU | Production SKU | SKU options |
 | --- | --- | --- | --- |
 | Azure Cache for Redis | Basic | Standard | [Azure Cache for Redis SKU options](https://azure.microsoft.com/pricing/details/cache/)
-| App Service | P1v2 | P2v2 | [App Service SKU options](https://azure.microsoft.com/pricing/details/app-service/linux/)
+| App Service | P1v3 | P2v3 | [App Service SKU options](https://azure.microsoft.com/pricing/details/app-service/linux/)
 | Azure Database for PostgreSQL - Flexible Server | Burstable B1ms (B_Standard_B1ms) | General Purpose D4s_v3 (GP_Standard_D4s_v3) | [Azure Database for PostgreSQL - Flexible Server SKU options](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-compute-storage)
 
 **Consider Azure Reservations or an Azure savings plan.** You can combine an Azure savings plan with Azure Reservations to optimize compute cost and flexibility. Azure Reservations helps you save by committing to one-year or three-year plans for multiple products. The Azure savings plan for compute is the most flexible savings plan. It generates savings on pay-as-you-go prices. Pick a one-year or three-year commitment for compute services, regardless of region, instance size, or operating system. Eligible compute services include virtual machines, dedicated hosts, container instances, Azure Functions Premium, and App Service.
