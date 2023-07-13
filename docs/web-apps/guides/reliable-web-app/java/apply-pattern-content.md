@@ -4,7 +4,7 @@ There are two articles on the reliable web app pattern for Java. This article pr
 
 ## Architecture
 
-The reliable web app pattern situates code changes within the pillars of the Azure Well-Architected Framework to reinforce the close relationship between code and architecture. This guidance uses the reference implementation architecture to illustrate the principles of the reliable web app pattern (*see figure 1*). It's important that your web app adheres to the principles of the pattern, not this specific architecture.
+The reliable web app pattern situates code changes within the pillars of the Azure Well-Architected Framework to reinforce the close relationship between code and architecture. This guidance uses the reference implementation architecture to illustrate the principles of the reliable web app pattern (*see figure 1*). The reliable web app pattern is a set of principles with implementation guidance. It's not a specific architecture. It's important that your web app adheres to the principles of the pattern, not this specific architecture.
 [![Diagram showing the architecture of the reference implementation.](../../_images/reliable-web-app-java.svg)](../../_images/reliable-web-app-java.svg#lightbox)
 *Figure 1. Target reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java.vsdx) of this architecture. For the estimated cost of this architecture, see the [production environment cost](https://azure.com/e/65354031bc084e539b6c8ccfc1a7b097) and [nonproduction environment cost](https://azure.com/e/af7d105ce24340dab93dfe666909a3e0).*
 
@@ -162,11 +162,13 @@ For more information, see [Spring Cloud Azure support for Spring Security](https
 
 **Implement authentication and authorization business rules.** Implementing authentication and authorization business rules involves defining the access control policies and permissions for various application functionalities and resources. You need to configure Spring Security to use Spring Boot Starter for Azure AD. This library allows integration with Azure AD and helps you ensure that users are authenticated securely. Configuring and enabling the Microsoft Authentication Library (MSAL) provides access to more security features. These features include token caching and automatic token refreshing.
 
-*Reference implementation* The reference implementation creates two app roles (*User* and *Creator*). Roles translate into permissions during authorization. The *Creator* role has permissions to configure the application settings, upload videos, and create playlists. The *User* Role can view the videos.
+*Reference implementation* The reference implementation creates two app roles (*User* and *Creator*). Roles translate into permissions during authorization. The *Creator* role has permissions to configure the application settings, upload videos, and create playlists. The *User* role can view the videos.
 
 To integrate with Azure AD, the reference implementation had to refactor the [`GlobalSecurityConfig.java`](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/src/airsonic-advanced/airsonic-main/src/main/java/org/airsonic/player/security/GlobalSecurityConfig.java). `GlobalSecurityConfig.java` has the class-level annotation `@EnableWebSecurity`. `@EnableWebSecurity` enables Spring Security to locate the class and allows the class to have custom Spring Security configuration defined in any `WebSecurityConfigurer`. `WebSecurityConfigurerAdapter` is the implementation class of the `WebSecurityConfigurer` interface. Extending the `WebSecurityConfigurerAdapter` class enables endpoint authorization.
 
 For Azure AD, the [`AadWebSecurityConfigurerAdapter`](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/spring-cloud-azure-autoconfigure/src/main/java/com/azure/spring/cloud/autoconfigure/aad/AadWebSecurityConfigurerAdapter.java) class protects the routes in a Spring application, and it extends `WebSecurityConfigurerAdapter`. To configure the specific requirements for the reference implementation, the `WebSecurityConfiguration` class in the following code extends `ADWebSecurityConfigurationAdapter`.
+
+The `antMatchers` method enforces authorization to the specified routes. For example, users making a request to `/deletePlaylist*` must have the role `APPROLE_Creator`. The code doesn't allow users without `APPROLE_Creator` to make the request.
 
 ```java
 @Configuration
@@ -199,15 +201,11 @@ public class WebSecurityConfiguration extends AadWebSecurityConfigurerAdapter {
 }
 ```
 
-The `antMatchers` method enforces authorization to the specified routes. For example, users making a request to `/deletePlaylist*` must have the role `APPROLE_Creator`. The code doesn't allow users without `APPROLE_Creator` to make the request.
-
-**Express your application needs in Azure AD.** Most apps use application roles. *Application roles* are custom roles for assigning permissions to users or applications. The application code defines the application roles, and it interprets the application roles as permissions during authorization.
-
-You can define application roles as Azure AD roles that the MSAL configuration can use. The Azure AD roles provide the backing for the access that the application roles receive. Azure AD authorizes users by using the application roles.
+**Express your application needs in Azure AD.** Most apps use application roles. *Application roles* are custom roles for assigning permissions to users or applications. The application code defines the application roles, and it interprets the application roles as permissions during authorization. You can define application roles as Azure AD roles that the MSAL configuration can use. The Azure AD roles provide the backing for the access that the application roles receive. Azure AD authorizes users by using the application roles.
 
 The `appRoles` attribute in Azure AD defines the roles that an app can declare in the application manifest. The `appRoles` attribute allows applications to define their own roles. When a user signs in to the application, Azure AD generates an ID token that contains various claims. This token includes a roles claim that lists the roles assigned to the user.
 
-*Reference implementation.* The reference implementation uses an app registration to assign Azure AD users an app role ("User" or "Creator"). The app roles allow users to sign in to the application. The following JSON shows what the *User* and *Creator* `appRoles` look like in Azure active directory app registration.
+*Reference implementation.* The reference implementation uses an app registration to assign Azure AD users an app role (*User* or *Creator*). The app roles allow users to sign in to the application. The following JSON shows what the *User* and *Creator* `appRoles` look like in Azure active directory app registration.
 
 ```json
 "appRoles": {
@@ -247,16 +245,16 @@ For more information, see:
 
 You need to configure user authentication and authorization so users can access the web app. You also need to configure service authentication and authorization so the services in your environment have the permissions to perform necessary functions.
 
-**Use managed identities.** Managed identities create an identity in Azure AD that eliminates the need for developers to manage credentials. The web app receives a workload identity (service principal) in Azure AD, and Azure manages the access tokens behind the scenes. Managed identities make identity management easier and more secure by eliminating the need for developers to manage credentials. They provide benefits for authentication, authorization, and accounting. For example, you can use a managed identity to grant the web app access to other Azure resources (Azure Key Vault, Azure databases). Or you can use a managed identity to enable a CI/CD pipeline to deploy a web app to App Service.
+**Use managed identities.** Managed identities create an identity in Azure AD that eliminates the need for developers to manage credentials. The web app receives a workload identity (service principal) in Azure AD. Azure manages the access tokens behind the scenes. Managed identities provide benefits for authentication, authorization, and accounting. For example, you can use a managed identity to grant the web app access to other Azure resources such as Azure Key Vault and Azure databases. You can also use a managed identity to enable a CI/CD pipeline that deploys a web app to App Service.
 
-You should use managed identities when you can because of the security and operational benefits. However, in some cases, keeping your on-premises authentication and authorization configuration improves your migration experience. For example, hybrid deployments, legacy systems, and robust on-premises identity solutions could be reasons to delay the adoption of managed identities. In these cases, you should keep the on-premises setup and plan to modernize your identity solution later. For more information, see:
+However, keeping your on-premises authentication and authorization configuration can improve your migration experience in some cases. For example, hybrid deployments, legacy systems, and robust on-premises identity solutions could be reasons to delay the adoption of managed identities. You should keep the on-premises setup and modernize your identity solution later. For more information, see:
 
 - [Connecting from your application to resources without handling credentials](/azure/active-directory/managed-identities-azure-resources/overview-for-developers)
 - [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview)
 - [Azure services that support managed identities](/azure/active-directory/managed-identities-azure-resources/managed-identities-status)
 - [Access Azure Storage from a web app](/azure/active-directory/develop/multi-service-web-app-access-storage)
 
-*Reference implementation.* The reference implementation keeps the on-premises authentication mechanism (username and password) rather than switching to managed identities. This scenario is common. As a result, the reference implementation stores the database secret in Key Vault. The web app uses a managed identity (system-assigned) to retrieve runtime secrets from Key Vault.
+*Reference implementation.* The reference implementation keeps the on-premises authentication mechanism for the database (username and password). As a result, the reference implementation stores the database secret in Key Vault. The web app uses a managed identity (system assigned) to retrieve secrets from Key Vault.
 
 ### Use a central secrets store (Key Vault)
 
