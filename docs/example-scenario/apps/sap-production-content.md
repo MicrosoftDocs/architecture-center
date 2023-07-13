@@ -1,11 +1,10 @@
 <!-- cSpell:ignore DharmeshBhagat HANA -->
 
-This reference architecture shows a set of proven practices for running SAP NetWeaver with Oracle Database in Azure, with high availability. The architecture principles are operating system (OS) agnostic, however, unless otherwise specified, it is assumed to be based on Linux.
+This reference architecture shows a set of proven practices for running a high-availability SAP NetWeaver with Oracle Database on Azure. The architecture principles are OS-agnostic, however, unless otherwise specified, the architecture is assumed to be based on Linux.
 
-The first diagram shows a reference architecture for SAP on Oracle in Azure, which utilizes availability sets.
+The first diagram shows a reference architecture for SAP on Oracle in Azure. The architecture uses availability sets.
 
 [![Diagram of the architecture of a production SAP system on Oracle in Azure.](./media/sap-oracle-architecture.png)](./media/sap-oracle-architecture.png#lightbox)
-*Figure - The architecture of a production SAP system on Oracle running on Azure.*
 
 _Download a [Visio file](https://arch-center.azureedge.net/sap-oracle-architecture-avzone.vsdx) for all architectures._
 
@@ -118,10 +117,11 @@ For  SAP application part, see the details in architecture guide [Run SAP NetWea
 
 ### Disaster recovery
 
-[![Diagram that shows an architecture of a production SAP system on Oracle in Azure.](./media/sap-oracle-avzone-disaster-recovery.png)]
-*Figure - Architecture of a production SAP system on Oracle in Azure with AvZone and DR*
+The followig diagram shows the architecture of a production SAP system on Oracle in Azure with AvZone and DR.
 
-_Download a [Visio file](https://arch-center.azureedge.net/sap-oracle-architecture-avzone.vsdx) for all architectures.
+![Diagram that shows an architecture of a production SAP system on Oracle in Azure.](./media/sap-oracle-avzone-disaster-recovery.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/sap-oracle-architecture-avzone.vsdx) for all architectures.*
 
 Every architectural layer in the SAP application stack uses a different approach to provide DR protection. For DR strategies and implementation details, refer to these 2 articles: [Disaster recovery overview and infrastructure guidelines for SAP workload](/azure/sap/workloads/disaster-recovery-overview-guide) and [Disaster recovery guidelines for SAP application](/azure/sap/workloads/disaster-recovery-sap-guide?tabs=linux).
 
