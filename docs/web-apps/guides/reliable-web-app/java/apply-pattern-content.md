@@ -369,11 +369,11 @@ Proseware uses the same infrastructure-as-code (IaC) templates for development a
 
 *Table 2. Reference implementation SKU differences between the development and production environments.*
 
-| Service | Development SKU | Production SKU | SKU options |
-| --- | --- | --- | --- |
-| Azure Cache for Redis | Basic | Standard | [Azure Cache for Redis SKU options](https://azure.microsoft.com/pricing/details/cache/)
-| App Service | P1v3 | P2v3 | [App Service SKU options](https://azure.microsoft.com/pricing/details/app-service/linux/)
-| Azure Database for PostgreSQL - Flexible Server | Burstable B1ms (B_Standard_B1ms) | General Purpose D4s_v3 (GP_Standard_D4s_v3) | [Azure Database for PostgreSQL - Flexible Server SKU options](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-compute-storage)
+| Service | Development environment SKU | Production environment SKU |
+| --- | --- | --- |
+| Azure Cache for Redis | Basic | Standard |
+| App Service | P1v3 | P2v3 |
+| Azure Database for PostgreSQL - Flexible Server | Burstable B1ms (B_Standard_B1ms) | General Purpose D4s_v3 (GP_Standard_D4s_v3) |
 
 **Consider Azure Reservations or an Azure savings plan.** You can combine an Azure savings plan with Azure Reservations to optimize compute cost and flexibility. Azure Reservations helps you save by committing to one-year or three-year plans for multiple products. The Azure savings plan for compute is the most flexible savings plan. It generates savings on pay-as-you-go prices. Pick a one-year or three-year commitment for compute services, regardless of region, instance size, or operating system. Eligible compute services include virtual machines, dedicated hosts, container instances, Azure Functions Premium, and App Service.
 
@@ -384,63 +384,6 @@ Plan your commitments around your team's architecture roadmap. For example, if y
 ### Automate scaling the environment
 
 You should use autoscale to automate horizontal scaling for production environments. Autoscaling adapts to user demand to save you money. Horizontal scaling automatically increases compute capacity to meet user demand and decreases compute capacity when demand drops. Don't increase the size of your application platform (vertical scaling) to meet frequent changes in demand. It's less cost efficient. For more information, see [Scale up an app in Azure App Service](https://learn.microsoft.com/azure/app-service/manage-scale-up) and [Overview of autoscale in Microsoft Azure](https://learn.microsoft.com/azure/azure-monitor/autoscale/autoscale-overview).
-
-<!-- 
-*Reference implementation.* The reference implementation uses the following configuration in Terraform. It creates an autoscale rule for App Service. The rule scales up to 10 instances and defaults to two instances. The code sets up two rules for scaling the resource up or down based on the average CPU usage over a period of time. The rules define a metric trigger that checks the CPU usage against a threshold value. It also defines a scale action that increases or decreases the number of instances in response to the trigger.
-
-```terraform
-resource "azurerm_monitor_autoscale_setting" "sitescaling" {
-  name                = "sitescaling"
-  resource_group_name = var.resource_group
-  location            = var.location
-  target_resource_id  = azurerm_service_plan.application.id
-  profile {
-    name = "default"
-    capacity {
-      default = 2
-      minimum = 2
-      maximum = 10
-    }
-    rule {
-      metric_trigger {
-        metric_name         = "CpuPercentage"
-        metric_resource_id  = azurerm_service_plan.application.id
-        time_grain          = "PT1M"
-        statistic           = "Average"
-        time_window         = "PT5M"
-        time_aggregation    = "Average"
-        operator            = "GreaterThan"
-        threshold           = 85
-      }
-      scale_action {
-        direction = "Increase"
-        type      = "ChangeCount"
-        value     = "1"
-        cooldown  = "PT1M"
-      }
-    }
-    rule {
-      metric_trigger {
-        metric_name         = "CpuPercentage"
-        metric_resource_id  = azurerm_service_plan.application.id
-        time_grain          = "PT1M"
-        statistic           = "Average"
-        time_window         = "PT5M"
-        time_aggregation    = "Average"
-        operator            = "LessThan"
-        threshold           = 65
-      }
-      scale_action {
-        direction = "Decrease"
-        type      = "ChangeCount"
-        value     = "1"
-        cooldown  = "PT1M"
-      }
-    }
-  }
-}
-```
--->
 
 ### Delete nonproduction environments
 
