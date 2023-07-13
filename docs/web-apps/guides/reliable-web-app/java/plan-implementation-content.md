@@ -167,4 +167,4 @@ Azure Files offers fully managed file shares in the cloud that are accessible vi
 This article showed you how plan an implementation of the reliable web app pattern. Now you need to apply the reliable web app pattern.
 
 >[!div class="nextstepaction"]
->[Apply the reliable web app pattern for Java](plan-implementation.yml)
+>[Apply the reliable web app pattern](apply-pattern.yml)

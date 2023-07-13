@@ -183,4 +183,4 @@ For Blob Storage, the web app uses zone-redundant storage (ZRS). Zone-redundant 
 This article showed you how plan an implementation of the reliable web app pattern. Now you need to apply the reliable web app pattern.
 
 >[!div class="nextstepaction"]
-> [Apply the reliable web app pattern for .NET](apply-pattern.yml)
+> [Apply the reliable web app pattern](apply-pattern.yml)
