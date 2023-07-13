@@ -6,7 +6,7 @@ This reference architecture shows an end-to-end [stream processing](../../data-g
 
 ## Architecture
 
-:::image type="content" source="./images/stream-processing-databricks-new.png" alt-text="[Diagram showing a reference architecture for stream processing with Azure Databricks." border="false" lightbox="./images/stream-processing-databricks-new.png" :::
+:::image type="content" source="./images/stream-processing-databricks.svg" alt-text="Diagram showing a reference architecture for stream processing with Azure Databricks." border="false" lightbox="./images/stream-processing-databricks.svg" :::
 
 *Download a [Visio file](https://arch-center.azureedge.net/stream-processing-databricks.vsdx)* of this architecture.
 
@@ -50,7 +50,7 @@ Event Hubs uses [partitions](/azure/event-hubs/event-hubs-features#partitions) t
 
 In this scenario, ride data and fare data should end up with the same partition ID for a given taxi cab. This enables Databricks to apply a degree of parallelism when it correlates the two streams. A record in partition *n* of the ride data will match a record in partition *n* of the fare data.
 
-![Diagram of stream processing with Azure Databricks and Event Hubs](./images/stream-processing-databricks-eh-new.png)
+:::image type="content" source="./images/stream-processing-databricks-eh.svg" alt-text="Diagram of stream processing with Azure Databricks and Event Hubs." border="false" lightbox="./images/stream-processing-databricks-eh.svg" :::
 
 *Download a [Visio file](https://arch-center.azureedge.net/stream-processing-databricks-eh.vsdx)* of this architecture.
 
