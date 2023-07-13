@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Automate COVID-19 test forms 
+  title: Automate healthcare forms 
   titleSuffix: Azure Example Scenarios
   description: Learn about an architecture that can help you automate processes and quickly digitize vaccination and test forms.
   author: nchandhi
@@ -18,7 +18,7 @@ products:
   - azure-logic-apps
   - azure-functions
   - azure-synapse-analytics
-name: Automate COVID-19 test forms 
+name: Automate healthcare forms 
 summary: Learn about an architecture that can help you automate processes and quickly digitize vaccination and test forms.
 thumbnailUrl: /azure/architecture/browse/thumbs/form-recognizer-covid.png
 content: |

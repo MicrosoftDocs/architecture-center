@@ -1,4 +1,4 @@
-This architecture can help you automate processes and digitize vaccination and test forms quickly.
+This article describes a solution for automating the tasks of processing and digitizing healthcare forms, such as vaccination and test forms.
 
 ## Architecture
 
@@ -9,9 +9,9 @@ This architecture can help you automate processes and digitize vaccination and t
 ### Dataflow
 
 1. An Azure logic app ingests raw forms that are sent as attachments in emails.
-2. Alternatively, an Azure function receives raw forms that are uploaded to a web application or that an app created in Power Apps.
-3. The raw forms are loaded to Azure Data Lake Storage and processed by an Azure Form Recognizer custom model to extract key-value pairs from the forms. Azure Custom Vision validates any logos in the forms to help ensure the authenticity of the forms.
-4. The extracted structured data from unstructured documents is stored in Azure Cosmos DB and Azure Synapse Analytics. 
+2. Alternatively, an Azure function app receives raw forms that are uploaded to a web application or that an app created in Power Apps.
+3. The raw forms are loaded into Azure Data Lake Storage and processed by an Azure Form Recognizer custom model to extract key-value pairs from the forms. Azure Custom Vision validates any logos in the forms to help ensure the authenticity of the forms.
+4. The extracted structured data from unstructured documents is stored in Azure Cosmos DB and Azure Synapse Analytics.
 5. Power BI ingests the extracted data to visualize the insights from the forms.
 
 ### Components
@@ -27,13 +27,13 @@ This architecture can help you automate processes and digitize vaccination and t
 
 ## Scenario details
 
-The rapid and accurate verification of COVID-19 vaccination and test statuses has become a global priority that affects efforts to return to the workplace. Manual data entry slows COVID-19 compliance efforts and introduces errors. Many organizations don't have the internal expertise to deploy automated solutions that provide real-time insights.
+Manually entering healthcare data is a tedious process that can slow down compliance efforts and introduce errors. Automating data entry and verification steps can speed up the process and improve its accuracy. But many organizations don't have the internal expertise that's needed to deploy automated solutions that provide real-time insights.
 
 The AI-powered Azure Form Recognizer helps turn forms into usable data that's translated into real-time, actionable insights and visualized in Power BI. These insights can help you validate compliance and inform your health and safety strategies.
 
 ### Potential use cases
 
-This solution can be applied across many industries by organizations that need to create processes for safely returning to the workplace. It's ideal for the healthcare industry.
+This solution is ideal for the healthcare industry. It can also be applied across many industries by organizations that need to meet healthcare compliance regulations.
 
 You can use this solution to modernize your workplace and improve employee and customer safety. The AI-powered Azure Form Recognizer helps reduce development and deployment effort by introducing automated deployment scripts for all Azure resources. It uses Power BI dashboards to present insights to stakeholders.
 
@@ -41,33 +41,16 @@ You can use this solution to modernize your workplace and improve employee and c
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-Consider these points when implementing this solution:
+### Reliability
 
-### Availability
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
 The availability of this solution depends on the availability of its main components:
 
 - Form Recognizer is an Applied AI Services product. For details, see [SLA of Azure Applied AI Services](https://azure.microsoft.com/support/legal/sla/azure-applied-ai-services/v1_0). Note that there's no SLA for the Free tier.
 - Azure Cosmos DB provides multiple features and configuration options for high availability. For details, see [High availability in Azure Cosmos DB](/azure/cosmos-db/high-availability#slas-for-availability).
-- Azure functions running on Consumption and Premium plans guarantee high availability. For details, see [SLA for Azure Functions](https://azure.microsoft.com/support/legal/sla/functions/v1_2).
+- Azure function apps running on Consumption and Premium plans guarantee high availability. For details, see [SLA for Azure Functions](https://azure.microsoft.com/support/legal/sla/functions/v1_2).
 - Azure Blob Storage provides redundancy options that help ensure high availability. You can use either locally redundant storage (LRS) or availability zones. For details, see [availability parameters](/azure/storage/common/storage-redundancy#durability-and-availability-parameters).
-
-### Security
-
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
-
-This solution uses Azure Active Directory (Azure AD) to authenticate users to the Azure services in the architecture. You can manage permissions via Azure AD authentication or role-based access control.
-
-Follow [these security guidelines](/azure/security/fundamentals/overview) when you implement this solution.
-
-### Scalability
-
-This solution uses Logic Apps and Azure Functions for workflow orchestration.
-
-- Azure Functions supports automated and flexible scaling. Azure Functions on the Consumption plan can scale down to zero instances. When a new event triggers a function app, a new instance must be created with your code running on it. This process is referred to as a *cold start*, and there's latency associated with it. The Azure Functions Premium plan provides the option to configure [pre-warmed instances](/azure/azure-functions/functions-premium-plan#pre-warmed-instances) that are ready for new requests. The number of pre-warmed instances that you can configure is the same as the minimum number of instances in your scale-out configuration.
-- Logic Apps provides a way to access and process data in real time, with improved security. Its serverless solutions handle hosting, scaling, and managing workflows as needed.
-
-### Resiliency
 
 The solution's resiliency depends on the failure modes of the individual services in the architecture.
 
@@ -79,31 +62,46 @@ For information about resiliency for other services, see these checklists:
 - [Azure Storage](../../checklist/resiliency-per-service.md#storage)
 - [Azure Synapse Analytics](../../checklist/resiliency-per-service.md#azure-synapse-analytics)
 
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
+This solution uses Azure Active Directory (Azure AD) to authenticate users to the Azure services in the architecture. You can manage permissions via Azure AD authentication or role-based access control.
+
+For security guidelines to follow when you implement this solution, see [Introduction to Azure security](/azure/security/fundamentals/overview).
+
 ### Cost optimization
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs of the services in this architecture.
+To estimate the costs of the services in this architecture, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
 [Azure Functions](https://azure.microsoft.com/pricing/details/functions) provides various plans to help you optimize costs. You can start with the Consumption plan, which is billed based on per-second resource consumption and executions. The Premium plan is required for Azure Virtual Network connectivity, private site access, service endpoints, and pre-warmed instances.
 
-[Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps) provides various plans that are based on the scale of the solution. For this solution, you can start with the Consumption plan, which offers pay-as-you-go pricing. 
+[Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps) provides various plans that are based on the scale of the solution. For this solution, you can start with the Consumption plan, which offers pay-as-you-go pricing.
 
-[Form Recognizer](https://azure.microsoft.com/pricing/details/form-recognizer) provides pay-as-you-go and Commitment tier pricing options. Note that access is limited for Commitment tier pricing. [Apply here](/azure/cognitive-services/commitment-tier) to request approval.
+[Form Recognizer](https://azure.microsoft.com/pricing/details/form-recognizer) provides pay-as-you-go and Commitment tier pricing options. Note that access is limited for Commitment tier pricing. To request approval, see [Purchase commitment tier pricing](/azure/cognitive-services/commitment-tier).
 
 [Custom Vision](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service) supports Free and Standard instances. You need to use Standard for this solution.
 
 The cost of [Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db) database operations is normalized and expressed as request units (RU). Azure Cosmos DB offers two [database operations models](https://www.youtube.com/watch?v=CgYQo6uHyt0&t=9s). You can deploy this solution with a serverless model and adjust as the number of operations increases.
 
-The price for [Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics) dedicated SQL pool depends on the service level. You can deploy this solution at the DW100c level and scale up as the amount of data increases.
+The price for an [Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics) dedicated SQL pool depends on the service level. You can deploy this solution at the DW100c level and scale up as the amount of data increases.
 
 There are various [Power BI](https://powerbi.microsoft.com/pricing) product options to meet different requirements. [Power BI Embedded](https://azure.microsoft.com/pricing/details/power-bi-embedded) provides an Azure-based option for embedding Power BI functionality in your applications.
 
-Azure services like Azure Storage, Azure Key Vault, Application Insights, and so on, that are deployed as part of this solution incur additional costs.
+Azure services like Azure Storage, Azure Key Vault, and Application Insights that are deployed as part of this solution incur additional costs.
+
+### Performance efficiency
+
+This solution uses Logic Apps and Azure Functions for workflow orchestration.
+
+- Azure Functions supports automated and flexible scaling. Azure Functions on the Consumption plan can scale down to zero instances. When a new event triggers a function app, a new instance must be created with your code running on it. This process is referred to as a *cold start*, and there's latency associated with it. The Azure Functions Premium plan provides the option to configure [pre-warmed instances](/azure/azure-functions/functions-premium-plan#pre-warmed-instances) that are ready for new requests. The number of pre-warmed instances that you can configure is the same as the minimum number of instances in your scale-out configuration.
+- Logic Apps provides a way to access and process data in real time, with improved security. Its serverless solutions handle hosting, scaling, and managing workflows as needed.
 
 ## Deploy this scenario
 
-Follow the steps in the [Getting Started guide](https://github.com/microsoft/Azure-Solution-Accelerator-to-automate-COVID-19-Vaccination-Proof-and-Test-Verification-Forms/#getting-started) in [GitHub](https://github.com/microsoft/Azure-Solution-Accelerator-to-automate-COVID-19-Vaccination-Proof-and-Test-Verification-Forms) to deploy this solution. Getting Started includes a step-by-step [deployment guide](https://github.com/microsoft/Azure-Solution-Accelerator-to-automate-COVID-19-Vaccination-Proof-and-Test-Verification-Forms/blob/main/Deployment/Deployment.md).
+To deploy this solution, follow the steps in the [Getting Started guide](https://github.com/microsoft/Azure-Solution-Accelerator-to-automate-COVID-19-Vaccination-Proof-and-Test-Verification-Forms/#getting-started) in [GitHub](https://github.com/microsoft/Azure-Solution-Accelerator-to-automate-COVID-19-Vaccination-Proof-and-Test-Verification-Forms). Getting Started includes a step-by-step [deployment guide](https://github.com/microsoft/Azure-Solution-Accelerator-to-automate-COVID-19-Vaccination-Proof-and-Test-Verification-Forms/blob/main/Deployment/Deployment.md).
 
 ## Contributors
 
@@ -113,13 +111,14 @@ Principal author:
 
 - [Nalini Chandhi](https://www.linkedin.com/in/nalinichandhi) | Sr. Technical Specialist
 
-## Next steps 
+## Next steps
 
-Review the information in [this GitHub repository](https://github.com/microsoft/Azure-Solution-Accelerator-to-automate-COVID-19-Vaccination-Proof-and-Test-Verification-Forms) to determine whether you can benefit from this solution.
+To determine whether you can benefit from this solution, review the information in [this GitHub repository](https://github.com/microsoft/Azure-Solution-Accelerator-to-automate-COVID-19-Vaccination-Proof-and-Test-Verification-Forms).
 
-See the [deployment guide](https://github.com/microsoft/Azure-Solution-Accelerator-to-automate-COVID-19-Vaccination-Proof-and-Test-Verification-Forms/blob/main/Deployment/Deployment.md) in the GitHub repository for step-by-step instructions for deploying the solution.
+For step-by-step instructions for deploying the solution, see the [deployment guide](https://github.com/microsoft/Azure-Solution-Accelerator-to-automate-COVID-19-Vaccination-Proof-and-Test-Verification-Forms/blob/main/Deployment/Deployment.md) in the GitHub repository.
 
-See these articles for more information: 
+See these articles for more information:
+
 - [Azure Applied AI Services documentation](/azure/applied-ai-services)
 - [What is Azure Form Recognizer?](/azure/applied-ai-services/form-recognizer/overview)
 - [Introduction to Form Recognizer](/training/modules/intro-to-form-recognizer)
