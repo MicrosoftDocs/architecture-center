@@ -56,7 +56,7 @@ The code uses the retry registry to get a `Retry` object. It also uses `Try` fro
 
 Infrastructure refers to the physical components supporting your web app. The way you architect these components affects the reliability of your web app. Architecture refers to the arrangement, distribution, and connections among the web app components. The architecture is the foundation for reaching the [service level objective](./plan-implementation.yml#service-level-objective) you set for your web app.
 
-**Determine infrastructure redundancy.** The number of regions a web app should use is a key design decision. You should use the service level objective for the web app as a starting point. A single region might not allow you reach your service level objective. You need to deploy your app to multiple regions if a single region isn't sufficient. Web apps should use availability zones to increase infrastructure redundancy.
+**Determine infrastructure redundancy.** The number of regions a web app should use is a key design decision. You should use the service level objective for the web app as a starting point. A single region might not allow you to reach your service level objective. You need to deploy your app to multiple regions if a single region isn't sufficient. Web apps should use availability zones to increase infrastructure redundancy.
 
 **Determine region configuration (if applicable):** Multi-region web apps can have an active-active configuration or active-passive configuration. An active-active configuration uses both regions in normal operations. An active-passive configuration has a primary region (active region) and secondary region (passive region). You only use the secondary region in a failover scenario.
 
