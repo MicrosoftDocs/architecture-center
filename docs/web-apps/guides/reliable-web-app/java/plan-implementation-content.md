@@ -162,10 +162,6 @@ Azure Files offers fully managed file shares in the cloud that are accessible vi
 - **Enhanced security.** It lets the application privately access services on Azure and reduces the network footprint of data stores to help protect against data leakage.
 - **Minimal effort.** Private endpoints support the web app platform and the database platform that the web app uses. Both platforms mirror the existing on-premises setup, so minimal changes are required.
 
-## Deploy the reference implementation
-
-You can deploy the reference implementation by following the instructions in the [Reliable web app pattern for Java repository](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java). You should use the deployment guide to set up a local development environment and deploy the web app.
-
 ## Next step
 
 This article showed you how plan an implementation of the reliable web app pattern. Now you need to apply the reliable web app pattern.
