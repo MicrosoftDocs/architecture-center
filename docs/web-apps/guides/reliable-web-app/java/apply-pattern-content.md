@@ -208,6 +208,8 @@ The `appRoles` attribute in Azure AD defines the roles that an app can declare i
 *Reference implementation.* The reference implementation uses an app registration to assign Azure AD users an app role (*User* or *Creator*). The app roles allow users to sign in to the application. The following JSON shows what the *User* and *Creator* `appRoles` look like in Terraform.
 
 ```terraform
+data "azuread_client_config" "current" {}
+
 resource "azuread_application" "app_registration" {
   display_name     = "${azurecaf_name.app_service.result}-app"
   owners           = [data.azuread_client_config.current.object_id]
@@ -230,7 +232,6 @@ resource "azuread_application" "app_registration" {
     id                   = random_uuid.creator_role_id.result
     value                = "Creator"
   }
-...
 }
 ```
 
