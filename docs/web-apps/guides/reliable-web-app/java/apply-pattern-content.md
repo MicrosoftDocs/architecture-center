@@ -120,7 +120,7 @@ Authentication and authorization are critical aspects of web application securit
 
 **Configure user authentication.** Your web app needs to prioritize the authentication of users to help ensure the security and integrity of the application. To configure user authentication, you should use the capabilities of the web application platform. App Service enables authentication with identity providers, including Azure AD. You should use this feature to reduce the responsibility of your code to handle user authentication. For more information, see [Authentication in App Service](/azure/app-service/overview-authentication-authorization).
 
-*Reference implementation.* The reference implementation uses the built-in authentication feature of App Service (EasyAuth) to manage the initial sign-in flow (cookies). It uses Azure AD as the identity platform. It ensures the users that get access to the web app are users in the directory. The following Terraform code explicitly enables authentication and requires authentication to access the web app.
+*Reference implementation.* The reference implementation uses Azure AD as the identity platform. Using Azure AD as the identity platform requires an application registration in the primary tenant. The application registration ensures the users that get access to the web app have identities in the primary tenant. The following Terraform code explicitly enables authentication and requires authentication to access the web app.
 
 ```terraform
 auth_settings_v2 {
@@ -205,30 +205,32 @@ public class WebSecurityConfiguration extends AadWebSecurityConfigurerAdapter {
 
 The `appRoles` attribute in Azure AD defines the roles that an app can declare in the application manifest. The `appRoles` attribute allows applications to define their own roles. When a user signs in to the application, Azure AD generates an ID token that contains various claims. This token includes a roles claim that lists the roles assigned to the user.
 
-*Reference implementation.* The reference implementation uses an app registration to assign Azure AD users an app role (*User* or *Creator*). The app roles allow users to sign in to the application. The following JSON shows what the *User* and *Creator* `appRoles` look like in Azure active directory app registration.
+*Reference implementation.* The reference implementation uses an app registration to assign Azure AD users an app role (*User* or *Creator*). The app roles allow users to sign in to the application. The following JSON shows what the *User* and *Creator* `appRoles` look like in Terraform.
 
-```json
-"appRoles": {
-  {
-    "allowedMemberTypes": [
-        "User"
-    ],
-    "description": "ReadOnly roles have limited query access",
-    "displayName": "ReadOnly",
-    "id": "random_uuid",
-    "isEnabled": true,
-    "value": "User"
-  },
- {
-    "allowedMemberTypes": [
-        "User"
-    ],
-    "description": "Creator role allows users to create content",
-    "displayName": "Creator",
-    "id": "random_uuid",
-    "isEnabled": true,
-    "value": "Creator"
+```terraform
+resource "azuread_application" "app_registration" {
+  display_name     = "${azurecaf_name.app_service.result}-app"
+  owners           = [data.azuread_client_config.current.object_id]
+  sign_in_audience = "AzureADMyOrg"  # single tenant
+
+  app_role {
+    allowed_member_types = ["User"]
+    description          = "ReadOnly roles have limited query access"
+    display_name         = "ReadOnly"
+    enabled              = true
+    id                   = random_uuid.user_role_id.result
+    value                = "User"
   }
+
+  app_role {
+    allowed_member_types = ["User"]
+    description          = "Creator roles allows users to create content"
+    display_name         = "Creator"
+    enabled              = true
+    id                   = random_uuid.creator_role_id.result
+    value                = "Creator"
+  }
+...
 }
 ```
 
@@ -315,6 +317,23 @@ You should protect web applications with a web application firewall. The web app
 You should restrict access on the application platform (App Service) to accept only inbound communication from your gateway instance, Azure Front Door in this architecture. You can (1) [use Azure Front Door private endpoint](/azure/frontdoor/private-link), or (2) you can filter requests by the `X-Azure-FDID` header value. The App Service platform and Java Spring can filter by header value. You should use App Service as the first option. Filtering at the platform level prevents unwanted requests from reaching your code. You need to configure what traffic you want to pass through your WAF. You can filter based on the host name, client IP, and other values. For more information, see [Preserve the original HTTP host name](/azure/architecture/best-practices/host-name-preservation)
 
 *Reference implementation.* The reference implementation filters requests to ensure they pass through the WAF. It uses a native network control in App Service that looks for a specific `X-Azure-FDID` value.
+
+```terraform
+ip_restriction {
+   service_tag               = "AzureFrontDoor.Backend"
+  ip_address                = null
+  virtual_network_subnet_id = null
+  action                    = "Allow"
+  priority                  = 100
+  headers {
+    x_azure_fdid      = [var.frontdoor_profile_uuid]
+    x_fd_health_probe = []
+    x_forwarded_for   = []
+    x_forwarded_host  = []
+  }
+  name = "Allow traffic from Front Door"
+}
+```
 
 ### Configure database security
 
