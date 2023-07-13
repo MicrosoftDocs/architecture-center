@@ -1,11 +1,11 @@
 
 This article presents a solution for gauging public opinion in tweets. The goal is to create a transformation pipeline that outputs clusters of comments and trending subjects. 
 
-*Apache®, [Apache NiFi](https://nifi.apache.org), [Apache Hadoop](https://hadoop.apache.org), [Apache Hive](https://hive.apache.org), and [Apache Airflow](https://airflow.apache.org) are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
+*Apache™, [Apache NiFi](https://nifi.apache.org), [Apache Hadoop](https://hadoop.apache.org), [Apache Hive](https://hive.apache.org), and [Apache Airflow](https://airflow.apache.org) are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 ## Architecture
 
-:::image type="content" source="./media/nifi-sentiment-analysis-face-recognition-pipeline.png" alt-text="Architecture diagram of a pipeline. Components include services for ingestion, data transformation, storage, analytics, AI, and data presentation." lightbox="./media/nifi-sentiment-analysis-face-recognition-pipeline.png" border="false":::
+:::image type="content" source="./media/nifi-sentiment-analysis-face-recognition-pipeline.svg" alt-text="Architecture diagram of a pipeline. Components include services for ingestion, data transformation, storage, analytics, AI, and data presentation." lightbox="./media/nifi-sentiment-analysis-face-recognition-pipeline.svg" border="false":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/US-1951768-nifi-sentiment-analysis-face-recognition-diagrams.pptx) of this diagram.*
 
@@ -50,7 +50,7 @@ Power BI dashboards display data from the following sources:
 
 ### Dataflow
 
-:::image type="content" source="./media/nifi-sentiment-analysis-face-recognition-dataflow.png" alt-text="Architecture diagram that shows the flow of data from Twitter, through image processing and sentiment analysis, and into storage." lightbox="./media/nifi-sentiment-analysis-face-recognition-dataflow.png" border="false":::
+:::image type="content" source="./media/nifi-sentiment-analysis-face-recognition-dataflow.svg" alt-text="Architecture diagram that shows the flow of data from Twitter, through image processing and sentiment analysis, and into storage." lightbox="./media/nifi-sentiment-analysis-face-recognition-dataflow.svg" border="false":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/US-1951768-nifi-sentiment-analysis-face-recognition-diagrams.pptx) of this diagram.*
 
@@ -70,7 +70,7 @@ A Natural Language Toolkit (NLTK) algorithm runs on the ingested messages. Senti
 
 ### Components
 
-:::image type="content" source="./media/nifi-sentiment-analysis-face-recognition-components.png" alt-text="Architecture diagram that shows the components in the ingestion, storage, and processing layers of the solution." lightbox="./media/nifi-sentiment-analysis-face-recognition-components.png" border="false":::
+:::image type="content" source="./media/nifi-sentiment-analysis-face-recognition-components.svg" alt-text="Architecture diagram that shows the components in the ingestion, storage, and processing layers of the solution." lightbox="./media/nifi-sentiment-analysis-face-recognition-components.svg" border="false":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/US-1951768-nifi-sentiment-analysis-face-recognition-diagrams.pptx) of this diagram.*
 
