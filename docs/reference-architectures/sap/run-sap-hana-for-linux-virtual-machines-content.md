@@ -170,7 +170,8 @@ For network security, use network security groups (NSGs) and Azure Firewall or a
 
 For User and Authorization, implement role-based access control (RBAC) and resource locks as follows:
 
-* Follow the least privilege principle, using [RBAC](/azure/role-based-access-control/overview) for assigning administrative privileges at IaaS-level resources that host your SAP solution on Azure. Basically, the main purpose of RBAC is segregation and control of duties for your users/group. RBAC is designed to grant only the amount of access to resources that's needed for users to do their jobs.
+* Follow the principle of least privilege, using [RBAC](/azure/role-based-access-control/overview) for assigning administrative privileges at IaaS-level resources that host your SAP solution on Azure. The fundamental purpose of RBAC is the segregation and control of duties for your users/group. RBAC is designed to grant only the amount of access to resources that's needed for users to do their jobs.
+
 
 * Use [resource locks](/azure/azure-resource-manager/management/lock-resources) to avoid accidental or malicious risk. Resource locks prevent scenarios in which an administrator may delete or modify critical Azure resources where your SAP solution is.
 
