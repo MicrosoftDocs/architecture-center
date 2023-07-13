@@ -178,10 +178,6 @@ For Blob Storage, the web app uses zone-redundant storage (ZRS). Zone-redundant 
 - **Enhanced security communication.** It lets the application privately access services on the Azure platform and reduces the network footprint of data stores to help protect against data leakage.
 - **Minimal effort.** The private endpoints support the web app platform and database platform the web app uses. Both platforms mirror existing on-premises configurations for minimal change.
 
-## Deploy the reference implementation
-
-You can deploy the reference implementation by following the instructions in the [reliable web app pattern for .NET repository](https://aka.ms/eap/rwa/dotnet). Use the deployment guide to set up a local development environment and deploy the solution to Azure.
-
 ## Next steps
 
 This article showed you how plan an implementation of the reliable web app pattern. Now you need to apply the reliable web app pattern.
