@@ -123,19 +123,12 @@ Authentication and authorization are critical aspects of web application securit
 *Reference implementation.* The reference implementation uses Azure AD as the identity platform. Using Azure AD as the identity platform requires an application registration in the primary tenant. The application registration ensures the users that get access to the web app have identities in the primary tenant. The following Terraform code explicitly enables authentication and requires authentication to access the web app.
 
 ```terraform
-auth_settings_v2 {
-  auth_enabled                  = true
-  require_authentication        = true
-  
-  active_directory_v2 {
-    client_id                   = azuread_application.app_registration.application_id
-    tenant_auth_endpoint        = "https://login.microsoftonline.com/${data.azuread_client_config.current.tenant_id}/v2.0/"
-    client_secret_setting_name  = "MICROSOFT_PROVIDER_AUTHENTICATION_SECRET"
-  }
+data "azuread_client_config" "current" {}
 
-  login {
-    token_store_enabled = true
-  }
+resource "azuread_application" "app_registration" {
+  display_name     = "${azurecaf_name.app_service.result}-app"
+  owners           = [data.azuread_client_config.current.object_id]
+  sign_in_audience = "AzureADMyOrg"  # single tenant
 }
 ```
 
@@ -320,19 +313,25 @@ You should restrict access on the application platform (App Service) to accept o
 *Reference implementation.* The reference implementation filters requests to ensure they pass through the WAF. It uses a native network control in App Service that looks for a specific `X-Azure-FDID` value.
 
 ```terraform
-ip_restriction {
-   service_tag               = "AzureFrontDoor.Backend"
-  ip_address                = null
-  virtual_network_subnet_id = null
-  action                    = "Allow"
-  priority                  = 100
-  headers {
-    x_azure_fdid      = [var.frontdoor_profile_uuid]
-    x_fd_health_probe = []
-    x_forwarded_for   = []
-    x_forwarded_host  = []
-  }
-  name = "Allow traffic from Front Door"
+resource "azurerm_linux_web_app" "application" {
+
+    site_config {
+
+        ip_restriction {
+           service_tag               = "AzureFrontDoor.Backend"
+          ip_address                = null
+          virtual_network_subnet_id = null
+          action                    = "Allow"
+          priority                  = 100
+          headers {
+            x_azure_fdid      = [var.frontdoor_profile_uuid]
+            x_fd_health_probe = []
+            x_forwarded_for   = []
+            x_forwarded_host  = []
+          }
+          name = "Allow traffic from Front Door"
+        }
+    }
 }
 ```
 
@@ -362,8 +361,8 @@ Production environments need SKUs that meet the service level agreements (SLAs),
 
 *Reference implementation.* The reference implementation has an optional parameter that deploys different SKUs. An environment parameter instructs the Terraform template to select development SKUs. The following code shows this environment parameter.
 
-```terraform
-terraform -chdir=./terraform plan -var environment=dev -out infrastructure.tfplan
+```shell
+azd env set APP_ENVIRONMENT prod
 ```
 
 Proseware uses the same infrastructure-as-code (IaC) templates for development and production deployments. The only difference is a few SKU differences to optimize cost in the development environment. Proseware chose to use cheaper SKUs in the development environment for Azure Cache for Redis, App Service, and Azure Database for PostgreSQL Flexible Server. The following table shows the services and the SKUs Proseware chose for each environment. You should choose SKUs that meet the needs of each environment.
