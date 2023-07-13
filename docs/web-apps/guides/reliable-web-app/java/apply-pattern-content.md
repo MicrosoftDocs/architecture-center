@@ -132,7 +132,15 @@ resource "azuread_application" "app_registration" {
 }
 ```
 
-The code configures Azure Active Directory as the authentication provider. It uses a client ID and secret stored in an Azure Key Vault. The code specifies the authentication endpoint for the Azure AD tenant and enables the token store functionality for the sign in.
+The following code configures Azure Active Directory as the authentication provider. It uses a client secret stored in an Azure Key Vault.
+
+```java
+spring.cloud.azure.active-directory.enabled=true
+spring.cloud.azure.active-directory.credential.client-id=
+spring.cloud.azure.active-directory.profile.tenant-id=
+spring.cloud.azure.active-directory.credential.client-secret=${airsonic-application-client-secret}
+spring.cloud.azure.active-directory.authorization-clients.graph.scopes=https://graph.microsoft.com/User.Read
+```
 
 **Integrate with the identity provider.** You need to integrate the web application with the identity provider (Azure AD) in the code to help ensure secure and seamless authentication and authorization.
 
