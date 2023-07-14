@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Reliable web app pattern for .NET -  Apply the pattern
+  title: Reliable web app pattern for .NET - Apply the pattern
   titleSuffix: Azure Reference Architectures
-  description: How to migrate and modernize your .NET application in the cloud with minimal code changes. Plan and apply low-cost, high-value updates to your .NET application.
+  description: Apply reliable web app pattern for .NET. Essential implementation guidance for web apps moving to the cloud. How to update (re-platform) web apps to be successful in the cloud.
   author: stephen-sumner
   ms.author: keschlob
   ms.reviewer: ssumner
@@ -23,7 +23,7 @@ products:
   - azure-cache-redis
   - dotnet
 name: Reliable web app pattern for .NET - Apply the pattern
-summary: How to migrate and modernize your .NET application in the cloud with minimal code changes. Plan and apply low-cost, high-value updates to your .NET application.
+summary: Apply reliable web app pattern for .NET. Essential implementation guidance for web apps moving to the cloud. How to update (re-platform) web apps to be successful in the cloud.
 thumbnailUrl: /azure/architecture/browse/thumbs/reliable-web-app-dotnet.png
 content: |
    [!include[](apply-pattern-content.md)]
