@@ -15,7 +15,7 @@ The reliable web app pattern is a set of principles with implementation guidance
 
 ## Principles and implementation
 
-The following table lists the principles of the reliable web app pattern and how to implement those principles in the web app. For more information, see the [Reliable web app pattern overview](../overview.md) and [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos).
+The following table lists the principles of the reliable web app pattern and how to implement those principles in your web app. For more information, see the [Reliable web app pattern overview](../overview.md) and [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos).
 
 *Table 1. Pattern principles and how to implement them.*
 
