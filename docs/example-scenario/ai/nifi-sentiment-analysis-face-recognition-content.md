@@ -1,7 +1,7 @@
 
 This article presents a solution for gauging public opinion in tweets. The goal is to create a transformation pipeline that outputs clusters of comments and trending subjects. 
 
-*Apache™, [Apache NiFi](https://nifi.apache.org), [Apache Hadoop](https://hadoop.apache.org), [Apache Hive](https://hive.apache.org), and [Apache Airflow](https://airflow.apache.org) are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
+*Apache®, [Apache NiFi](https://nifi.apache.org), [Apache Hadoop](https://hadoop.apache.org), [Apache Hive](https://hive.apache.org), and [Apache Airflow](https://airflow.apache.org) are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 ## Architecture
 
@@ -76,7 +76,7 @@ A Natural Language Toolkit (NLTK) algorithm runs on the ingested messages. Senti
 
 - [Data Factory](https://azure.microsoft.com/services/data-factory) provides batch transformation services for various sources and sinks. As a key component of big data processing, Data Factory helps to simplify extract-transform-load (ETL) workloads. Data Factory also handles the complexities and scale challenges of big data integration.
 
-- [Nifi](https://nifi.apache.org) automates the flow of data among software systems. NiFi offers security features, an extensible architecture, and a flexible scaling model. It handles multiple sources and multiple sinks with different types of processors. NiFi functionality includes:
+- [NiFi](https://nifi.apache.org) automates the flow of data among software systems. NiFi offers security features, an extensible architecture, and a flexible scaling model. It handles multiple sources and multiple sinks with different types of processors. NiFi functionality includes:
 
   - Running streaming transformations.
   - Connecting decoupled systems in the cloud.
