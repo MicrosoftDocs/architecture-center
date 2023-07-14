@@ -1,23 +1,23 @@
-This article describes a solution for automating the tasks of processing and digitizing healthcare forms, such as vaccination and test forms.
+This article describes a solution for automating the tasks of processing and digitizing healthcare forms.
 
 ## Architecture
 
-:::image type="content" border="false" source="./media/form-recognizer-covid.svg" alt-text="Architecture diagram that shows an architecture for automating processes and digitizing vaccination and test forms." lightbox="./media/form-recognizer-covid.svg":::
+:::image type="content" border="false" source="./media/form-recognizer-healthcare.png" alt-text="Architecture diagram that shows an automated solution for collecting, processing, and analyzing data from healthcare forms." lightbox="./media/form-recognizer-healthcare.png":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/form-recognizer-covid.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/form-recognizer-healthcare.vsdx) of this architecture.*
 
 ### Dataflow
 
 1. An Azure logic app ingests raw forms that are sent as attachments in emails.
-2. Alternatively, an Azure function app receives raw forms that are uploaded to a web application or that an app created in Power Apps.
-3. The raw forms are loaded into Azure Data Lake Storage and processed by an Azure Form Recognizer custom model to extract key-value pairs from the forms. Azure Custom Vision validates any logos in the forms to help ensure the authenticity of the forms.
-4. The extracted structured data from unstructured documents is stored in Azure Cosmos DB and Azure Synapse Analytics.
-5. Power BI ingests the extracted data to visualize the insights from the forms.
+1. Alternatively, an Azure function app receives raw forms that are uploaded to a web application or that an app creates in Power Apps.
+1. The raw forms are loaded into Azure Data Lake Storage. An Azure Form Recognizer custom model extracts key-value pairs from the forms. Azure Custom Vision validates any logos in the forms to help ensure the authenticity of the forms.
+1. The structured data that's extracted from the unstructured documents is stored in Azure Cosmos DB and Azure Synapse Analytics.
+1. Power BI ingests the extracted data to visualize insights from the forms.
 
 ### Components
 
 - [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) helps to automate the workflow for receiving and processing forms that are sent as email attachments.
-- [Azure Functions](https://azure.microsoft.com/services/functions) is an event-driven serverless compute platform. Here, it helps to orchestrate the workflow for receiving and processing forms that are uploaded to a web application or an app that's created in Power Apps.
+- [Azure Functions](https://azure.microsoft.com/services/functions) is an event-driven serverless compute platform. Here, it helps to orchestrate the workflow for receiving and processing uploaded forms.
 - [Form Recognizer](https://azure.microsoft.com/services/form-recognizer) is a cloud-based Azure Applied AI Services product that uses machine-learning models to extract key-value pairs, text, and tables from documents.
 - [Azure Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service) helps you build, deploy, and improve an object detection model. It's used here to find and validate logos in the forms.
 - [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) provides a massively scalable and highly secure data lake for high-performance analytics workloads.
@@ -27,15 +27,15 @@ This article describes a solution for automating the tasks of processing and dig
 
 ## Scenario details
 
-Manually entering healthcare data is a tedious process that can slow down compliance efforts and introduce errors. Automating data entry and verification steps can speed up the process and improve its accuracy. But many organizations don't have the internal expertise that's needed to deploy automated solutions that provide real-time insights.
+Manual data entry is a tedious process that can introduce errors. With healthcare data such as vaccination and test form data, manually entering data can also slow down compliance efforts. Automating data entry and verification tasks can speed up the process, improve its accuracy, and provide real-time insights from the data. But many organizations don't have the internal expertise that's needed to deploy automated solutions.
 
 The AI-powered Azure Form Recognizer helps turn forms into usable data that's translated into real-time, actionable insights and visualized in Power BI. These insights can help you validate compliance and inform your health and safety strategies.
 
 ### Potential use cases
 
-This solution is ideal for the healthcare industry. It can also be applied across many industries by organizations that need to meet healthcare compliance regulations.
+This solution is ideal for the healthcare industry. Organizations across many industries that need to meet healthcare compliance regulations can also use this solution.
 
-You can use this solution to modernize your workplace and improve employee and customer safety. The AI-powered Azure Form Recognizer helps reduce development and deployment effort by introducing automated deployment scripts for all Azure resources. It uses Power BI dashboards to present insights to stakeholders.
+You can use this solution to modernize your workplace and improve employee and customer safety. The AI-powered Azure Form Recognizer helps reduce development and deployment effort by introducing automated deployment scripts for all Azure resources. The solution uses Power BI dashboards to present insights to stakeholders.
 
 ## Considerations
 
@@ -47,14 +47,14 @@ Reliability ensures your application can meet the commitments you make to your c
 
 The availability of this solution depends on the availability of its main components:
 
-- Form Recognizer is an Applied AI Services product. For details, see [SLA of Azure Applied AI Services](https://azure.microsoft.com/support/legal/sla/azure-applied-ai-services/v1_0). Note that there's no SLA for the Free tier.
+- Form Recognizer is an Applied AI Services product. For details, see [SLA of Azure Applied AI Services](https://azure.microsoft.com/support/legal/sla/azure-applied-ai-services/v1_0). There's no SLA for the Free tier.
 - Azure Cosmos DB provides multiple features and configuration options for high availability. For details, see [High availability in Azure Cosmos DB](/azure/cosmos-db/high-availability#slas-for-availability).
 - Azure function apps running on Consumption and Premium plans guarantee high availability. For details, see [SLA for Azure Functions](https://azure.microsoft.com/support/legal/sla/functions/v1_2).
 - Azure Blob Storage provides redundancy options that help ensure high availability. You can use either locally redundant storage (LRS) or availability zones. For details, see [availability parameters](/azure/storage/common/storage-redundancy#durability-and-availability-parameters).
 
 The solution's resiliency depends on the failure modes of the individual services in the architecture.
 
-You can make Form Recognizer resilient by designing it to fail over to another region and/or by splitting the workload into two or more regions. For guidance on Form Recognizer disaster recovery, see [Back up and recover your Form Recognizer models](/azure/applied-ai-services/form-recognizer/disaster-recovery).
+You can make Form Recognizer resilient by designing it to fail over to another region or by splitting the workload into two or more regions. For guidance on Form Recognizer disaster recovery, see [Back up and recover your Form Recognizer models](/azure/applied-ai-services/form-recognizer/disaster-recovery).
 
 For information about resiliency for other services, see these checklists:
 
@@ -80,7 +80,7 @@ To estimate the costs of the services in this architecture, use the [Azure prici
 
 [Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps) provides various plans that are based on the scale of the solution. For this solution, you can start with the Consumption plan, which offers pay-as-you-go pricing.
 
-[Form Recognizer](https://azure.microsoft.com/pricing/details/form-recognizer) provides pay-as-you-go and Commitment tier pricing options. Note that access is limited for Commitment tier pricing. To request approval, see [Purchase commitment tier pricing](/azure/cognitive-services/commitment-tier).
+[Form Recognizer](https://azure.microsoft.com/pricing/details/form-recognizer) provides pay-as-you-go and Commitment tier pricing options. Access is limited for Commitment tier pricing. To request approval, see [Purchase commitment tier pricing](/azure/cognitive-services/commitment-tier).
 
 [Custom Vision](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service) supports Free and Standard instances. You need to use Standard for this solution.
 
@@ -90,9 +90,11 @@ The price for an [Azure Synapse Analytics](https://azure.microsoft.com/pricing/d
 
 There are various [Power BI](https://powerbi.microsoft.com/pricing) product options to meet different requirements. [Power BI Embedded](https://azure.microsoft.com/pricing/details/power-bi-embedded) provides an Azure-based option for embedding Power BI functionality in your applications.
 
-Azure services like Azure Storage, Azure Key Vault, and Application Insights that are deployed as part of this solution incur additional costs.
+Azure services like Azure Storage, Azure Key Vault, and Application Insights that are deployed as part of this solution also incur costs.
 
 ### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
 This solution uses Logic Apps and Azure Functions for workflow orchestration.
 
@@ -113,11 +115,11 @@ Principal author:
 
 ## Next steps
 
-To determine whether you can benefit from this solution, review the information in [this GitHub repository](https://github.com/microsoft/Azure-Solution-Accelerator-to-automate-COVID-19-Vaccination-Proof-and-Test-Verification-Forms).
+To determine whether you can benefit from this solution, review the information in the [Azure solution accelerator for automating healthcare forms](https://github.com/microsoft/Azure-Solution-Accelerator-to-automate-COVID-19-Vaccination-Proof-and-Test-Verification-Forms) repository on GitHub.
 
 For step-by-step instructions for deploying the solution, see the [deployment guide](https://github.com/microsoft/Azure-Solution-Accelerator-to-automate-COVID-19-Vaccination-Proof-and-Test-Verification-Forms/blob/main/Deployment/Deployment.md) in the GitHub repository.
 
-See these articles for more information:
+For more information, see the following articles:
 
 - [Azure Applied AI Services documentation](/azure/applied-ai-services)
 - [What is Azure Form Recognizer?](/azure/applied-ai-services/form-recognizer/overview)

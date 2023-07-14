@@ -2746,6 +2746,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/ai/form-recognizer-covid.yml",
+      "redirect_url": "/azure/architecture/example-scenario/ai/form-recognizer-healthcare",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/reference-architectures/data/cluedin-experiment.yml",
       "redirect_url": "/azure/architecture/reference-architectures/data/cluedin",
       "redirect_document_id": false

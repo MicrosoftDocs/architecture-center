@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Automate healthcare forms 
+  titleSuffix: Azure Example Scenarios
+  description: Use Azure Functions, Azure Logic Apps, and other Azure services to automate the tasks of processing and digitizing healthcare forms.
+  author: nchandhi
+  ms.author: nachandh
+  ms.date: 07/14/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom: fcp 
+azureCategories:
+  - ai-machine-learning
+products:
+  - azure-form-recognizer
+  - azure-custom-vision
+  - azure-logic-apps
+  - azure-functions
+  - azure-synapse-analytics
+name: Automate healthcare forms 
+summary: Use Azure Functions, Azure Logic Apps, and other Azure services to automate the tasks of processing and digitizing healthcare forms.
+thumbnailUrl: /azure/architecture/browse/thumbs/form-recognizer-healthcare.png
+content: |
+  [!include[](form-recognizer-healthcare-content.md)]
