@@ -2746,6 +2746,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/ai/form-recognizer-covid.yml",
+      "redirect_url": "/azure/architecture/example-scenario/ai/form-recognizer-healthcare",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/reference-architectures/data/cluedin-experiment.yml",
       "redirect_url": "/azure/architecture/reference-architectures/data/cluedin",
       "redirect_document_id": false
@@ -2968,6 +2973,16 @@
     {
       "source_path": "docs/reference-architectures/reliable-web-app/dotnet/apply-pattern.yml",
       "redirect_url": "/azure/architecture/web-apps/guides/reliable-web-app/apply-pattern",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/web-apps/guides/reliable-web-app/pattern-overview.yml",
+      "redirect_url": "/azure/architecture/web-apps/guides/reliable-web-app/dotnet/plan-implementation",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/web-apps/guides/reliable-web-app/apply-pattern.yml",
+      "redirect_url": "/azure/architecture/web-apps/guides/reliable-web-app/dotnet/apply-pattern",
       "redirect_document_id": true
     },
     {

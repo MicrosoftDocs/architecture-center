@@ -1482,8 +1482,8 @@ items:
         href: /azure/architecture/browse/?terms=healthcare
       - name: Analyze observational patient data
         href: example-scenario/digital-health/patient-data-ohdsi-omop-cdm.yml
-      - name: Automate COVID-19 test forms
-        href: example-scenario/ai/form-recognizer-covid.yml
+      - name: Automate healthcare forms
+        href: example-scenario/ai/form-recognizer-healthcare.yml
       - name: Build a telehealth system with Azure
         href: example-scenario/apps/telehealth-system.yml
       - name: Clinical insights with Cloud for Healthcare
@@ -3066,8 +3066,8 @@ items:
         href: example-scenario/ai/automate-document-classification-durable-functions.yml
       - name: Automate document processing
         href: example-scenario/ai/automate-document-processing-azure-form-recognizer.yml
-      - name: Automate COVID-19 test forms
-        href: example-scenario/ai/form-recognizer-covid.yml
+      - name: Automate healthcare forms
+        href: example-scenario/ai/form-recognizer-healthcare.yml
       - name: Automate PDF form processing
         href: example-scenario/document-processing/automate-pdf-forms-processing.yml
       - name: Automate video analysis

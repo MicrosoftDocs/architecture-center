@@ -2,11 +2,11 @@
 metadata:
   title: Reliable web app pattern for .NET - Plan the implementation
   titleSuffix: Azure Reference Architectures
-  description: How to migrate your .NET application to the cloud with minimal code changes. Plan and apply low-cost, high-value modernizations to your .NET application.
+  description: How to migrate and modernize your .NET application in the cloud with minimal code changes. Plan and apply low-cost, high-value modernizations to your .NET application.
   author: stephen-sumner
   ms.author: keschlob
   ms.reviewer: ssumner
-  ms.date: 02/17/2023
+  ms.date: 07/17/2023
   ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
@@ -23,7 +23,7 @@ products:
   - azure-cache-redis
   - dotnet
 name: Reliable web app pattern for .NET - Plan the implementation
-summary: How to migrate your .NET application to the cloud with minimal code changes. Plan and apply low-cost, high-value modernizations to your .NET application.
+summary: How to migrate and modernize your .NET application in the cloud with minimal code changes. Plan and apply low-cost, high-value modernizations to your .NET application.
 thumbnailUrl: /azure/architecture/browse/thumbs/reliable-web-app-dotnet.png
 content: |
-   [!include[](pattern-overview-content.md)]
+   [!include[](plan-implementation-content.md)]
