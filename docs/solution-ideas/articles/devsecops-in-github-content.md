@@ -156,8 +156,8 @@ Principal author:
 
 ## Next steps
 
-- [Training materials, tools, and other resources on GitHub DevSecOps][GitHub DevSecOps training materials]
-- [Tips for getting started with GitHub DevSecOps][GitHub DevSecOps getting started tips]
+- [Training materials, tools, and other resources on GitHub DevSecOps](https://github.com/devsecops/awesome-devsecops)
+- [Tips for getting started with GitHub DevSecOps](https://resources.github.com/devops/tools/)
 
 ## Related resources
 
