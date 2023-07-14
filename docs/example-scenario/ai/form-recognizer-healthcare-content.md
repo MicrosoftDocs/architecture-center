@@ -33,7 +33,7 @@ The AI-powered Azure Form Recognizer helps turn forms into usable data that's tr
 
 ### Potential use cases
 
-This solution is ideal for the healthcare industry. Organizations across many industries that need to meet healthcare compliance regulations can also use this solution.
+This solution is ideal for the healthcare industry. Organizations across many industries that need to meet healthcare compliance regulations can also apply this solution.
 
 You can use this solution to modernize your workplace and improve employee and customer safety. The AI-powered Azure Form Recognizer helps reduce development and deployment effort by introducing automated deployment scripts for all Azure resources. The solution uses Power BI dashboards to present insights to stakeholders.
 
@@ -47,9 +47,9 @@ Reliability ensures your application can meet the commitments you make to your c
 
 The availability of this solution depends on the availability of its main components:
 
-- Form Recognizer is an Applied AI Services product. For details, see [SLA of Azure Applied AI Services](https://azure.microsoft.com/support/legal/sla/azure-applied-ai-services/v1_0). There's no SLA for the Free tier.
+- Form Recognizer is an Applied AI Services product. For details, see [SLA of Azure Applied AI Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services). There's no SLA for the Free tier.
 - Azure Cosmos DB provides multiple features and configuration options for high availability. For details, see [High availability in Azure Cosmos DB](/azure/cosmos-db/high-availability#slas-for-availability).
-- Azure function apps running on Consumption and Premium plans guarantee high availability. For details, see [SLA for Azure Functions](https://azure.microsoft.com/support/legal/sla/functions/v1_2).
+- Azure function apps running on Consumption and Premium plans guarantee high availability. For details, see [SLA for Azure Functions](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 - Azure Blob Storage provides redundancy options that help ensure high availability. You can use either locally redundant storage (LRS) or availability zones. For details, see [availability parameters](/azure/storage/common/storage-redundancy#durability-and-availability-parameters).
 
 The solution's resiliency depends on the failure modes of the individual services in the architecture.
@@ -103,7 +103,7 @@ This solution uses Logic Apps and Azure Functions for workflow orchestration.
 
 ## Deploy this scenario
 
-To deploy this solution, follow the steps in the [Getting Started guide](https://github.com/microsoft/Azure-Solution-Accelerator-to-automate-COVID-19-Vaccination-Proof-and-Test-Verification-Forms/#getting-started) in [GitHub](https://github.com/microsoft/Azure-Solution-Accelerator-to-automate-COVID-19-Vaccination-Proof-and-Test-Verification-Forms). Getting Started includes a step-by-step [deployment guide](https://github.com/microsoft/Azure-Solution-Accelerator-to-automate-COVID-19-Vaccination-Proof-and-Test-Verification-Forms/blob/main/Deployment/Deployment.md).
+To deploy this solution, follow the steps in the [Getting Started guide](https://github.com/microsoft/Azure-Solution-Accelerator-to-automate-COVID-19-Vaccination-Proof-and-Test-Verification-Forms/#getting-started) in [GitHub](https://github.com/microsoft/Azure-Solution-Accelerator-to-automate-COVID-19-Vaccination-Proof-and-Test-Verification-Forms). This guide includes [step-by-step instructions for deploying the solution](https://github.com/microsoft/Azure-Solution-Accelerator-to-automate-COVID-19-Vaccination-Proof-and-Test-Verification-Forms/blob/main/Deployment/Deployment.md).
 
 ## Contributors
 
@@ -111,7 +111,7 @@ To deploy this solution, follow the steps in the [Getting Started guide](https:/
 
 Principal author:
 
-- [Nalini Chandhi](https://www.linkedin.com/in/nalinichandhi) | Sr. Technical Specialist
+- [Nalini Chandhi](https://www.linkedin.com/in/nalinichandhi) | Senior Technical Specialist
 
 ## Next steps
 
