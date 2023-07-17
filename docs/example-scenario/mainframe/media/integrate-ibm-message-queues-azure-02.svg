@@ -852,7 +852,7 @@
 		</g>
 		<g id="shape2210-122" v:mID="2210" v:groupContext="shape" transform="translate(612,-142)">
 			<title>Sheet.2210</title>
-			<desc>Azure Blob Storage cnnector</desc>
+			<desc>Azure Blob Storage connector</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(281000):26"/>
 			</v:userDefs>
@@ -860,7 +860,7 @@
 			<v:textRect cx="69.5" cy="566" width="139" height="20"/>
 			<rect x="0" y="556" width="139" height="20" class="st3"/>
 			<text x="10.03" y="561.8" class="st25" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Blob Storage <tspan
-						x="42.54" dy="1.2em" class="st6">cnnector</tspan></text>		</g>
+						x="38.44" dy="1.2em" class="st6">connector</tspan></text>		</g>
 		<g id="shape2282-126" v:mID="2282" v:groupContext="shape" transform="translate(738,-198)">
 			<title>Sheet.2282</title>
 			<v:userDefs>

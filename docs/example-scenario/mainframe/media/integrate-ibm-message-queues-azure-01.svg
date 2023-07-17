@@ -163,7 +163,7 @@
 			<rect x="0" y="0" width="1296" height="828" class="st1"/>
 		</g>
 	</g>
-	<g v:mID="11" v:index="2" v:groupContext="foregroundPage">
+	<g v:mID="11" v:index="3" v:groupContext="foregroundPage">
 		<v:userDefs>
 			<v:ud v:nameU="msvThemeOrder" v:val="VT0(0):26"/>
 			<v:ud v:nameU="visNavType" v:val="VT0(1):26"/>
@@ -1308,14 +1308,14 @@
 			<text x="13.1" y="815.33" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>4</text>		</g>
 		<g id="shape2259-267" v:mID="2259" v:groupContext="shape" transform="translate(257,-198)">
 			<title>Sheet.2259</title>
-			<desc>Iaas option</desc>
+			<desc>IaaS option</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(292000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="69.5" cy="818" width="139" height="20"/>
 			<rect x="0" y="808" width="139" height="20" class="st3"/>
-			<text x="31.29" y="822.8" class="st16" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Iaas option</text>		</g>
+			<text x="30.47" y="822.8" class="st16" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>IaaS option</text>		</g>
 		<g id="shape2260-270" v:mID="2260" v:groupContext="shape" transform="translate(396,-108)">
 			<title>Sheet.2260</title>
 			<v:userDefs>
@@ -1381,14 +1381,14 @@
 		</g>
 		<g id="shape2271-297" v:mID="2271" v:groupContext="shape" transform="translate(495,-314)">
 			<title>Sheet.2271</title>
-			<desc>Azure Virtual machine</desc>
+			<desc>Azure virtual machine</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(297000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="94.5" cy="818" width="189" height="20"/>
 			<rect x="0" y="808" width="189" height="20" class="st3"/>
-			<text x="11.22" y="822.8" class="st20" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Virtual machine</text>		</g>
+			<text x="12.22" y="822.8" class="st20" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure virtual machine</text>		</g>
 		<g id="group2272-300" transform="translate(423,-135)" v:mID="2272" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(298000):26"/>
@@ -1424,14 +1424,14 @@
 		</g>
 		<g id="shape2275-305" v:mID="2275" v:groupContext="shape" transform="translate(459,-135)">
 			<title>Sheet.2275</title>
-			<desc>Host integration server for MQ integration</desc>
+			<desc>Host Integration Server for MQ integration</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(299000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="84.375" cy="810" width="168.76" height="36.0002"/>
 			<rect x="0" y="792" width="168.75" height="36.0002" class="st3"/>
-			<text x="8.2" y="805.8" class="st55" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Host integration server<tspan
+			<text x="7.13" y="805.8" class="st55" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Host Integration Server<tspan
 						class="st56"> </tspan><tspan x="26.31" dy="1.2em" class="st56">for MQ integration</tspan></text>		</g>
 		<g id="shape204-310" v:mID="204" v:groupContext="shape" transform="translate(744.75,-132.75)">
 			<title>Sheet.204</title>
