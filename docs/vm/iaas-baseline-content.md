@@ -276,6 +276,9 @@ The following services in this architecture use [user-assigned managed identitie
 
 Depending on your design, a managed identity can also be used in backend servers to get secrets from Key Vault for database connection purposes. 
 
+>[!IMPORTANT]
+> The baseline architecture uses only user-assigned managed identities. Even though you may specify a system-assigned managed identity in a Bicep or ARM template with no error, they cannot be used in a flex VMSS configuration. The Azure portal however will respond with the appropriate error. 
+
 ## Secret management
 
 :::image type="content" source="./media/iaas-baseline-tls-termination.png" alt-text="IaaS monitoring data flow  diagram" lightbox="./media/iaas-baseline-tls-termination.png":::
