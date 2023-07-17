@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 07/11/2023
+ms.date: 07/17/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -24,6 +24,12 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 The following new and updated articles have recently been published in the Azure Architecture Center.
 
 ## July 2023
+
+### New articles
+
+- [Reliable web app pattern for Java - Apply the pattern](./web-apps/guides/reliable-web-app/java/apply-pattern.yml)
+- [Reliable web app pattern for Java - Plan the implementation](./web-apps/guides/reliable-web-app/java/plan-implementation.yml)
+- [Reliable web app pattern](./web-apps/guides/reliable-web-app/overview.md)
 
 ### Updated articles
 
