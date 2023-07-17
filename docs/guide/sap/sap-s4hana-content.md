@@ -202,9 +202,9 @@ Resource redundancy is the general theme in highly available infrastructure solu
 
 In this distributed installation of the SAP application, the base installation is replicated to achieve high availability. For each layer of the architecture, the high availability design varies.
 
-### Available deployment approaches
+### Deployment approaches
 
-In Azure, SAP workload deployment can either be regional or zonal depending on the availability and resiliency requirements of the SAP applications. Azure provides [different deployment options](/azure/sap/workloads/sap-high-availability-architecture-scenarios#comparison-of-different-deployment-types-for-sap-workload) like flexible scale set with FD=1, availability zones, or availability sets to enhance the availability of the resources. To have a comprehensive understanding of the available deployment options and their applicability across different Azure regions (including across zones, within a single zone, or in a region without zones), it is important to refer to the [Azure VMs HA architecture and scenarios for SAP NetWeaver](/azure/sap/workloads/sap-high-availability-architecture-scenarios) documentation.
+On Azure, SAP workload deployment can be either regional or zonal, depending on the availability and resiliency requirements of the SAP applications. Azure provides [different deployment options](/azure/sap/workloads/sap-high-availability-architecture-scenarios#comparison-of-different-deployment-types-for-sap-workload), like Virtual Machine Scale Sets with Flexible orchestration (FD=1), availability zones, and availability sets, to enhance the availability of the resources. To get a comprehensive understanding of the available deployment options and their applicability across different Azure regions (including across zones, within a single zone, or in a region without zones), see [High-availability architecture and scenarios for SAP NetWeaver](/azure/sap/workloads/sap-high-availability-architecture-scenarios).
 
 ### Web Dispatcher in the application servers tier
 
@@ -274,7 +274,7 @@ If zone 1 goes offline, the ASCS and database services fail over to zone 2. The 
 
 ## DR considerations
 
-Every tier in the SAP application stack uses a different approach to provide DR protection. For DR strategies and implementation details, refer to these 2 articles: [Disaster recovery overview and infrastructure guidelines for SAP workload](/azure/sap/workloads/disaster-recovery-overview-guide) and [Disaster recovery guidelines for SAP application](/azure/sap/workloads/disaster-recovery-sap-guide?tabs=linux).
+Every tier in the SAP application stack uses a different approach to provide DR protection. For DR strategies and implementation details, see [Disaster recovery overview and infrastructure guidelines for SAP workload](/azure/sap/workloads/disaster-recovery-overview-guide) and [Disaster recovery guidelines for SAP application](/azure/sap/workloads/disaster-recovery-sap-guide?tabs=linux).
 
 > [!NOTE]
 > If there's a regional disaster that causes a mass failover event for many Azure customers in one region, the target region's [resource capacity](/azure/site-recovery/azure-to-azure-common-questions#capacity) isn't guaranteed. Like all Azure services, Site Recovery continues to add features and capabilities. For the latest information about Azure-to-Azure replication, see the [support matrix](/azure/site-recovery/azure-to-azure-support-matrix).
@@ -301,9 +301,9 @@ There are several payment options for VMs in general:
   - Test environments, including continuous integration and continuous delivery workloads
   - Large-scale stateless applications
 
-- Azure reserved VM Instances lower your total cost of ownership by combining Azure Reserved VM Instances rates with a pay-as-you-go subscription to manage costs across predictable and variable workloads.  See [Azure Reserved Virtual Machine Instances](/azure/virtual-machines/prepay-reserved-vm-instances).
+- Azure Reserved Virtual Machine Instances can reduce your total cost of ownership by combining Azure Reserved Virtual Machine Instances rates with a pay-as-you-go subscription so you can manage costs across predictable and variable workloads. For more information about this offering, see [Azure Reserved Virtual Machine Instances](/azure/virtual-machines/prepay-reserved-vm-instances).
 
-For more information, also see [Linux Virtual Machines Pricing][linux-vms-pricing].
+For an overview of pricing, see [Linux Virtual Machines Pricing][linux-vms-pricing].
 
 ### Load Balancer
 
@@ -321,9 +321,9 @@ All inbound data transfer is free. All outbound data transfer is charged based o
 
 To help keep your system running in production, consider the following points.
 
-### Azure Center for SAP Solutions
+### Azure Center for SAP solutions
 
-Azure Center for SAP Solutions is an end-to-end solution that enables you to create and run SAP systems as a unified workload on Azure and provides a more seamless foundation for innovation. Also, Azure Center for SAP Solutions guided deployment experience takes care of creating the necessary compute, storage and networking components needed to run your SAP system. It then helps automate the installation of the SAP software according to Microsoft best practices.You can take advantage of the management capabilities for both new and existing Azure-based SAP systems.  Refer to [Azure Center for SAP Solutions](/azure/sap/center-sap-solutions/overview) for more details.
+Azure Center for SAP solutions is an end-to-end solution that enables you to create and run SAP systems as a unified workload on Azure and provides a more seamless foundation for innovation. Also, the Azure Center for SAP solutions guided deployment experience creates the necessary compute, storage, and networking components that you need to run your SAP system. It then helps you automate the installation of the SAP software according to Microsoft best practices. You can take advantage of the management capabilities for both new and existing Azure-based SAP systems. For more information, see [Azure Center for SAP solutions](/azure/sap/center-sap-solutions/overview).
 
 ### Backup
 
