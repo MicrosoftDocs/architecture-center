@@ -286,7 +286,7 @@ Other contributor:
 - [Register an application with the Microsoft identity platform](/graph/auth-register-app-v2)
 - [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal)
 - [Create resource groups](/azure/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups)
-- [How to find your Azure AD tenant ID](/azure/active-directory/fundamentals/active-directory-how-to-find-tenant)
+- [How to find your Azure AD tenant ID](/azure/active-directory-b2c/tenant-management-read-tenant-name)
 - [Collect Syslog data sources with the Log Analytics agent](/azure/azure-monitor/agents/data-sources-syslog)
 - [Parse text data in Azure Monitor logs](/azure/azure-monitor/logs/parse-text)
 - [Introduction to flow logging for network security groups](/azure/network-watcher/network-watcher-nsg-flow-logging-overview)

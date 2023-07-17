@@ -6,11 +6,11 @@ There are two articles on the reliable web app pattern for Java. This article ex
 
 The reliable web app pattern is a set of principles with implementation guidance. It's not a specific architecture. Your business context, existing web app, and desired service level objective (SLO) are critical factors that shape the architecture of your web app. The following diagram (*figure 1*) represents the architecture of the [reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java). It's one example that illustrates the principles of the reliable web app pattern. It's important that your web app adheres to the principles of the reliable web app pattern, not necessarily this specific architecture.
 [![Diagram showing the architecture of the reference implementation.](../../_images/reliable-web-app-java.svg)](../../_images/reliable-web-app-java.svg#lightbox)
-*Figure 1. Target reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java.vsdx) of this architecture. For the estimated cost of this architecture, see the [production environment cost](https://azure.com/e/65354031bc084e539b6c8ccfc1a7b097) and [nonproduction environment cost](https://azure.com/e/af7d105ce24340dab93dfe666909a3e0).*
+*Figure 1. Target reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java.vsdx) of this architecture. For the estimated cost of this architecture, see the [production environment cost](https://azure.com/e/9ed08d9eb2ba426e95e4e7f5a8b075e7) and [nonproduction environment cost](https://azure.com/e/b6ac4fdb62f3475cb1c2dee388dc4b9a).*
 
 ## Principles and implementation
 
-The following table lists the principles of the reliable web app pattern and how to implement those principles in the web app. For more information, see [Reliable web app pattern overview](../overview.md).
+The following table lists the principles of the reliable web app pattern and how to implement those principles in your web app. For more information, see [Reliable web app pattern overview](../overview.md).
 
 *Table 1. Pattern principles and how to implement them.*
 
@@ -44,7 +44,7 @@ For each dependency in the critical path, you need to assign an availability goa
 
 Proseware used Azure SLAs for Azure services. The following diagram illustrates Proseware's dependency list with availability goals for each dependency (*see figure 2*).
 
-[![Diagram showing Proseware's dependencies on the critical path and the assigned availability metric for each dependency.](../../_images/java-slo-dependecies.svg)](../../_images/java-slo-dependecies.svg)
+[![Diagram showing Proseware's dependencies on the critical path and the assigned availability metric for each dependency.](../../_images/java-slo-dependecies.svg)](../../_images/java-slo-dependecies.svg#lightbox)
 *Figure 2. SLA dependency map. Azure SLAs are subject to change. The SLAs shown here are examples used to illustrate the process of estimating composite availability. For information, see [SLAs for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).*
 
 When you have an SLA dependency map, you need to use the formulas for composite SLAs to estimate the composite availability of the dependencies on the critical path. This number should meet or exceed your SLO. Proseware needed a multi-region architecture to meet the 99.9% SLO. For more information, see [Composite SLA formula](/azure/architecture/framework/resiliency/business-metrics#composite-slas) and [Multiregional SLA formula](/azure/architecture/framework/resiliency/business-metrics#slas-for-multiregion-deployments).
