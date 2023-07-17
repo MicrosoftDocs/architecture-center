@@ -74,7 +74,7 @@ For advanced visualizations, such as schematic views or process graphics, you ca
 You can create a single-page application (SPA) by using:
 
 - JavaScript, HTML5, and CSS3.
-- [MSAL.js](/graph/toolkit/providers/msal) to sign in users and get tokens to use with the Microsoft Graph.
+- [MSAL.js](/graph/toolkit/providers/msal2) to sign in users and get tokens to use with the Microsoft Graph.
 - [Azure App Services Web Apps](https://azure.microsoft.com/services/app-service/web) to host the web application.
 - [Power BI embedded analytics](/power-bi/developer/embedded/embedded-analytics-power-bi) to embed your Power BI content such as reports and dashboards in the web application.
 - [Azure Maps](/azure/azure-maps) to render map visualizations.

@@ -225,7 +225,7 @@ For more information, see the Cost section in [Microsoft Azure Well-Architected 
 
 ### Deployment considerations
 
-For critical automation workflows that manage behavior of your application, zero downtime deployment must be achieved using an efficient DevOps pipeline. For more information, read [serverless backend deployment](../../reference-architectures/serverless/web-app.yml#back-end-deployment).
+For critical automation workflows that manage behavior of your application, zero downtime deployment must be achieved using an efficient DevOps pipeline. For more information, read [serverless backend deployment](../../web-apps/serverless/architectures/web-app.yml#back-end-deployment).
 
 If the automation covers multiple applications, keep the resources required by the automation in a [separate resource group](/azure/azure-resource-manager/resource-group-overview#resource-groups). A single resource group can be shared between automation and application resources, if the automation covers a single application.
 
@@ -251,7 +251,7 @@ To deploy the cost center scenario, see the [deployment steps on GitHub](https:/
 
 ## Related resources
 
-- [Code walkthrough: Serverless application with Functions](../../serverless/code.yml)
+- [Code walkthrough: Serverless application with Functions](../../web-apps/serverless/architectures/code.yml)
 - [Serverless functions architecture design](../../serverless-quest/serverless-overview.md)
 - [Serverless functions reference architectures](../../serverless-quest/reference-architectures.md)
 

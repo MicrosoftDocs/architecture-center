@@ -21,6 +21,6 @@ products:
   - azure-sql-database
   - azure-virtual-machines
   - azure-virtual-network
-thumbnailUrl: /azure/architecture/browse/thumbs/zos-components.png
+thumbnailUrl: /azure/architecture/browse/thumbs/asysco-zos-migration.png
 content: |
    [!include[](asysco-zos-migration-content.md)]

@@ -2,7 +2,7 @@ This article presents an architecture for a near real-time implementation of an
 
 ## Architecture
 
-![Diagram of the anomaly detector process architecture.](../media/anomaly-detector.png)
+![Diagram of the anomaly detector process architecture.](../media/anomaly-detector.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/anomaly-detector-process.vsdx) of this architecture.*
 

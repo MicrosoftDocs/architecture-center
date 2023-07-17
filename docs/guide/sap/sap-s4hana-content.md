@@ -327,7 +327,7 @@ Azure Center for SAP solutions is an end-to-end solution that enables you to cre
 
 ### Backup
 
-You can back up SAP HANA data in many ways. After you migrate to Azure, continue to use any existing backup solutions that you already have. Azure provides two native approaches to backup. You can back up [SAP HANA on VMs or use Azure Backup at the file level](/azure/virtual-machines/workloads/sap/sap-hana-backup-guide). Azure Backup is [BackInt certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:e062231e-9fb7-4ea8-b7d2-e6fe448c592d) by SAP. For more information, see [Azure Backup FAQ](/azure/backup/backup-azure-backup-faq) and [Support matrix for backup of SAP HANA databases on Azure VMs](/azure/backup/sap-hana-backup-support-matrix).
+You can back up SAP HANA data in many ways. After you migrate to Azure, continue using any existing backup solutions that you have. Azure provides two native approaches to backup. You can back up [SAP HANA on VMs or use Azure Backup at the file level](/azure/virtual-machines/workloads/sap/sap-hana-backup-guide). Azure Backup is [BackInt certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:e062231e-9fb7-4ea8-b7d2-e6fe448c592d) by SAP. For more information, see [Azure Backup FAQ](/azure/backup/backup-azure-backup-faq) and [Support matrix for backup of SAP HANA databases on Azure VMs](/azure/backup/sap-hana-backup-support-matrix).
 
 > [!NOTE]
 > Currently only HANA single-container or scale-up deployments support Azure storage snapshots.  
@@ -344,7 +344,7 @@ Use a centralized identity management system to control access to resources at a
 
 ### Monitoring
 
-To maximize the availability and performance of applications and services on Azure, use [Azure Monitor](/azure/azure-monitor/overview), a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. Azure Monitor shows how applications are performing and proactively identifies issues that affect them and the resources that they depend on.  For the SAP applications running on SAP HANA and other major database solutions, refer to the article [Azure Monitor for SAP solutions](/azure/sap/monitor/about-azure-monitor-sap-solutions) to learn how Azure Monitor for SAP helps in managing SAP services availability and performance.
+To maximize the availability and performance of applications and services on Azure, use [Azure Monitor](/azure/azure-monitor/overview), a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. Azure Monitor shows how applications are performing and proactively identifies issues that affect them and the resources that they depend on. For SAP applications that run on SAP HANA and other major database solutions, see [Azure Monitor for SAP solutions](/azure/sap/monitor/about-azure-monitor-sap-solutions) to learn how Azure Monitor for SAP can help you manage SAP services availability and performance.
 
 ## Security considerations
 

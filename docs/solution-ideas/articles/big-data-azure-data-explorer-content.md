@@ -6,7 +6,7 @@ This solution idea demonstrates big data analytics over large volumes of high-ve
 
 ## Architecture
 
-:::image type="content" source="../media/big-data-azure-data-explorer.svg" alt-text="Diagram showing big data analytics with Azure Data Explorer." lightbox="../media/big-data-azure-data-explorer.svg":::
+:::image type="content" source="../media/big-data-azure-data-explorer.svg" alt-text="Diagram showing big data analytics with Azure Data Explorer." border="false" lightbox="../media/big-data-azure-data-explorer.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/big-data-azure-data-explorer.vsdx) of this architecture.*
 

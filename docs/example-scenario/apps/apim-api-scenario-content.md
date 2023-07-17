@@ -120,7 +120,7 @@ Learn modules:
 
 ## Related resources
 
-- [Architect scalable e-commerce web app](../../solution-ideas/articles/scalable-ecommerce-web-app.yml)
+- [Architect scalable e-commerce web app](../../web-apps/idea/scalable-ecommerce-web-app.yml)
 - [Design great API developer experiences using API Management and GitHub](../../example-scenario/web/design-api-developer-experiences-management-github.yml)
 - [DevTest and DevOps for PaaS solutions](../../solution-ideas/articles/dev-test-paas.yml)
 

@@ -116,7 +116,7 @@ Deploying this solution involves these steps:
   - Run a pipeline that downloads changes in the portal to the API Management instance.
       <!--Pipeline named _APIM-download-portal-changes_ in the scenario.-->
 
-  - Enter the names of the branch, the API Management instance, and the resource group.
+  - [Enter the names of the branch, your APIM artifacts repository, the API Management instance, and the resource group](https://azure.github.io/apiops/apiops/4-extractApimArtifacts/apiops-azdo-3-1.html#extract-apim-artifacts-in-azure-devops-from-extractor-tool).
 
       :::image type="content" alt-text="Screenshot of 'Run pipeline', where you enter the names of the API Management instance and the resource group." source="media/automated-api-deployments-run-pipeline.png":::
 
@@ -181,5 +181,5 @@ Principal author:
 
 - [GitOps for Azure Kubernetes Service](../gitops-aks/gitops-blueprint-aks.yml)
 - [Migrate a web app using Azure API Management](../apps/apim-api-scenario.yml)
-- [Protect APIs with Application Gateway and API Management](../../reference-architectures/apis/protect-apis.yml)
+- [Protect APIs with Application Gateway and API Management](../../web-apps/api-management/architectures/protect-apis.yml)
 - [Publish internal APIs to external users](../apps/publish-internal-apis-externally.yml)

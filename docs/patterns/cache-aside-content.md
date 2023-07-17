@@ -128,7 +128,7 @@ public async Task UpdateEntityAsync(MyEntity entity)
 
 The following information might be relevant when implementing this pattern:
 
-- [Reliable web app pattern for .NET](../reference-architectures/reliable-web-app/dotnet/pattern-overview.yml) shows you how to apply the cache-aside pattern to an ASP.NET web application converging on the cloud.
+- [Reliable web app pattern](../web-apps/guides/reliable-web-app/overview.md) shows you how to apply the cache-aside pattern to web applications converging on the cloud.
 
 - [Caching Guidance](../best-practices/caching.yml). Provides additional information on how you can cache data in a cloud solution, and the issues that you should consider when you implement a cache.
 

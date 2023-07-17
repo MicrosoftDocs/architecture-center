@@ -27,7 +27,7 @@ The following list describes the benefits of deploying AVL FIRE M on Azure:
 
 This diagram shows a multi-node configuration:
 
-:::image type="content" source="media/fire-m/fire-m-cluster-architecture.png" alt-text="Diagram that shows a multi-node configuration architecture." lightbox="media/fire-m/fire-m-cluster-architecture.png" border="false":::
+:::image type="content" source="media/fire-m/fire-m-cluster-architecture.svg" alt-text="Diagram that shows a multi-node configuration architecture." lightbox="media/fire-m/fire-m-cluster-architecture.svg" border="false":::
 
 *Download a* *[Visio file](https://arch-center.azureedge.net/fire-m-cluster-architecture.vsdx) of this architecture.*
 
@@ -181,8 +181,9 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 |  8 |                                2.5|
 |  16 |                                1.6|
 
-> [!NOTE]
-> *The total run time presented here is for 300 iterations only. The analysis time for a fully converged solution can differ. **The total run time presented here is for 500 iterations only. The analysis time for a fully converged solution can differ.
+*The total run time presented here is for 300 iterations only. The analysis time for a fully converged solution can differ.
+
+**The total run time presented here is for 500 iterations only. The analysis time for a fully converged solution can differ.
 
 ## Summary
 

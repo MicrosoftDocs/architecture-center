@@ -2,12 +2,12 @@
 
 This solution idea demonstrates a hybrid end-to-end monitoring solution integrated with Microsoft Sentinel and Azure Monitor for ingesting streamed and batched logs from diverse sources, on-premises, or any cloud, within an enterprise ecosystem.
 
-*Apache® and [Apache Nifi®](https://projects.apache.org/project.html?nifi) are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks. 
+*Apache®, [Apache Nifi®](https://projects.apache.org/project.html?nifi) and Apache Kafka are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks. 
 [Fluentd](https://www.fluentd.org/),  [Logstash](https://www.elastic.co/logstash/), [Grafana](https://grafana.com/), and [Jupyter Notebooks](https://jupyter.org/) are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
 
 ## Architecture
 
-:::image type="content" source="../media/monitor-azure-data-explorer.svg" alt-text="Monitoring solution with Azure Data Explorer." lightbox="../media/monitor-azure-data-explorer.svg":::
+:::image type="content" source="../media/monitor-azure-data-explorer.svg" alt-text="Monitoring solution with Azure Data Explorer." lightbox="../media/monitor-azure-data-explorer.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/monitor-azure-data-explorer.vsdx) of this architecture.*
 

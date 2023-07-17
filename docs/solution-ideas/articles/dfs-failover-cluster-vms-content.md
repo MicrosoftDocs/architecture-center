@@ -4,7 +4,7 @@ This solution uses Azure virtual machines (VMs) to replicate the behavior of an 
 
 ## Architecture
 
-![Diagram that shows how to deploy a DFS Namespaces failover cluster.](../media/dfs-azure-vms.png)
+:::image type="content" border="false" source="../media/dfs-azure-vms.svg" alt-text="Diagram that shows how to deploy a DFS Namespaces failover cluster." lightbox="../media/dfs-azure-vms.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/dfs-azure-vms.vsdx) of this architecture.*
 

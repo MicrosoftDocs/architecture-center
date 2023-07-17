@@ -51,5 +51,4 @@ This solution benefits organizations that manage large volumes of customer data.
 ## Related resources
   
 - [Decide which compute option to use for your apps](../../guide/technology-choices/compute-decision-tree.yml)
-- [Modern customer support portal](./modern-customer-support-portal-powered-by-an-agile-business-process.yml)
 - [Face recognition and sentiment analysis](../../example-scenario/ai/nifi-sentiment-analysis-face-recognition.yml)

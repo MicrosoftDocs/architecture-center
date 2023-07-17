@@ -1955,7 +1955,7 @@
     },
     {
       "source_path": "docs/reference-architectures/serverless/index.md",
-      "redirect_url": "/azure/architecture/reference-architectures/serverless/web-app",
+      "redirect_url": "/azure/architecture/web-apps/serverless/architectures/web-app",
       "redirect_document_id": false
     },
     {
@@ -2084,8 +2084,6 @@
       "redirect_url": "/azure/architecture/solution-ideas/articles/devops-in-a-hybrid-environment",
       "redirect_document_id": false
     },
-
-
     {
       "source_path": "docs/solution-ideas/articles/modern-data-warehouse.md",
       "redirect_url": "/azure/architecture/solution-ideas/articles/enterprise-data-warehouse",
@@ -2714,7 +2712,7 @@
     },
     {
       "source_path": "docs/example-scenario/apps/devops-dotnet-baseline.yml",
-      "redirect_url": "/azure/devops/pipelines/architectures/devops-baseline-architecture",
+      "redirect_url": "/azure/devops/pipelines/architectures/devops-pipelines-baseline-architecture",
       "redirect_document_id": false
     },
     {
@@ -2748,6 +2746,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/ai/form-recognizer-covid.yml",
+      "redirect_url": "/azure/architecture/example-scenario/ai/form-recognizer-healthcare",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/reference-architectures/data/cluedin-experiment.yml",
       "redirect_url": "/azure/architecture/reference-architectures/data/cluedin",
       "redirect_document_id": false
@@ -2774,7 +2777,7 @@
     },
     {
       "source_path": "docs/solution-ideas/articles/durable-functions-containers.yml",
-      "redirect_url": "/azure/architecture/example-scenario/serverless/automation-application-gateway",
+      "redirect_url": "/azure/architecture/web-apps/guides/networking/automation-application-gateway",
       "redirect_document_id": false
     },
     {
@@ -2784,22 +2787,22 @@
     },
     {
       "source_path": "docs/reference-architectures/app-service-web-app/zone-redundant.yml",
-      "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/baseline-zone-redundant",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/reference-architectures/app-service-web-app/scalable-web-app.yml",
-      "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/baseline-zone-redundant",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/private-web-app/private-web-app.yml",
-      "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/baseline-zone-redundant",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/example-scenario/web/multi-tier-app-service-private-endpoint.yml",
-      "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/baseline-zone-redundant",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
       "redirect_document_id": false
     },
     {
@@ -2830,22 +2833,202 @@
     {
       "source_path": "docs/reference-architectures/microservices/spring-apps-multi-region.yml",
       "redirect_url": "/azure/architecture/web-apps/spring-apps/spring-apps-multi-region",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
+    {
+      "source_path": "docs/reference-architectures/microservices/spring-apps-landing-zone.yml",
+      "redirect_url": "/azure/architecture/web-apps/spring-apps/spring-apps-landing-zone",
+      "redirect_document_id": true
+    },    
     {
       "source_path": "docs/example-scenario/blue-green-spring/blue-green-spring.yml",
       "redirect_url": "/azure/architecture/web-apps/spring-apps/blue-green-spring",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/reference-architectures/microservices/spring-apps-multi-zone.yml",
       "redirect_url": "/azure/architecture/web-apps/spring-apps/spring-apps-multi-zone",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/reference-architectures/microservices/spring-cloud-reverse-proxy.yml",
       "redirect_url": "/azure/architecture/web-apps/spring-apps/spring-cloud-reverse-proxy",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/scalable-ecommerce-web-app.yml",
+      "redirect_url": "/azure/architecture/web-apps/idea/scalable-ecommerce-web-app",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/ecommerce-website-running-in-secured-ase.yml",
+      "redirect_url": "/azure/architecture/web-apps/idea/ecommerce-website-running-in-secured-ase",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/migrate-existing-applications-to-container-apps.yml",
+      "redirect_url": "/azure/architecture/web-apps/idea/migrate-existing-applications-to-container-apps",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/simple-branded-website.yml",
+      "redirect_url": "/azure/architecture/web-apps/",
       "redirect_document_id": false
-    }      
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.yml",
+      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/digital-marketing-smb.yml",
+      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/webapps.yml",
+      "redirect_url": "/azure/architecture/web-apps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/web/web-start-here.md",
+      "redirect_url": "/azure/architecture/web-apps/index",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/app-service-web-app/basic-web-app.yml",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/basic-web-app",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/app-service-web-app/baseline-zone-redundant.yml",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/app-service-web-app/multi-region.yml",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/multi-region",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/infrastructure/wordpress.yml",
+      "redirect_url": "/azure/architecture/web-apps/hosting-applications/wordpress",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/digital-marketing-episerver.yml",
+      "redirect_url": "/azure/architecture/web-apps/hosting-applications/digital-marketing-episerver",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/digital-marketing-sitecore.yml",
+      "redirect_url": "/azure/architecture/web-apps/hosting-applications/digital-marketing-sitecore",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/medium-umbraco-web-app.yml",
+      "redirect_url": "/azure/architecture/web-apps/hosting-applications/medium-umbraco-web-app",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/enterprise-integration/ase-standard-deployment.yml",
+      "redirect_url": "/azure/architecture/web-apps/app-service-environment/architectures/ase-standard-deployment",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/enterprise-integration/ase-high-availability-deployment.yml",
+      "redirect_url": "/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/security/access-multitenant-web-app-from-on-premises.yml",
+      "redirect_url": "/azure/architecture/web-apps/guides/networking/access-multitenant-web-app-from-on-premises",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/app-service-web-app/multi-tier-app-service-service-endpoint.yml",
+      "redirect_url": "/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/apis/protect-apis.yml",
+      "redirect_url": "/azure/architecture/web-apps/api-management/architectures/protect-apis",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/serverless/web-app.yml",
+      "redirect_url": "/azure/architecture/web-apps/serverless/architectures/web-app",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/app-service-web-app/app-monitoring.yml",
+      "redirect_url": "/azure/architecture/web-apps/guides/monitoring/app-monitoring",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/reliable-web-app/dotnet/pattern-overview.yml",
+      "redirect_url": "/azure/architecture/web-apps/guides/reliable-web-app/pattern-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/reliable-web-app/dotnet/apply-pattern.yml",
+      "redirect_url": "/azure/architecture/web-apps/guides/reliable-web-app/apply-pattern",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/web-apps/guides/reliable-web-app/pattern-overview.yml",
+      "redirect_url": "/azure/architecture/web-apps/guides/reliable-web-app/dotnet/plan-implementation",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/web-apps/guides/reliable-web-app/apply-pattern.yml",
+      "redirect_url": "/azure/architecture/web-apps/guides/reliable-web-app/dotnet/apply-pattern",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/serverless/automation-application-gateway.yml",
+      "redirect_url": "/azure/architecture/web-apps/guides/networking/automation-application-gateway",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/guide/web/secure-single-page-application-authorization.yml",
+      "redirect_url": "/azure/architecture/web-apps/guides/security/secure-single-page-application-authorization",
+      "redirect_document_id": true
+    },
+    {   
+      "source_path": "docs/data-guide/technology-choices/r-developers-guide.md",
+      "redirect_url": "/azure/machine-learning/how-to-r-interactive-development",
+      "redirect_document_id": false
+    },
+    {   
+      "source_path": "docs/web-apps/spring-apps/spring-apps-landing-zone.yml",
+      "redirect_url": "/azure/architecture/web-apps/spring-apps/architectures/spring-apps-landing-zone",
+      "redirect_document_id": true
+    },
+    {   
+      "source_path": "docs/web-apps/spring-apps/spring-apps-multi-region.yml",
+      "redirect_url": "/azure/architecture/web-apps/spring-apps/architectures/spring-apps-multi-region",
+      "redirect_document_id": true
+    },
+    {   
+      "source_path": "docs/web-apps/spring-apps/spring-apps-multi-zone.yml",
+      "redirect_url": "/azure/architecture/web-apps/spring-apps/architectures/spring-apps-multi-zone",
+      "redirect_document_id": true
+    },
+    {   
+      "source_path": "docs/web-apps/spring-apps/blue-green-spring.yml",
+      "redirect_url": "/azure/architecture/web-apps/spring-apps/guides/blue-green-spring",
+      "redirect_document_id": true
+    },
+    {   
+      "source_path": "docs/web-apps/spring-apps/spring-cloud-reverse-proxy.yml",
+      "redirect_url": "/azure/architecture/web-apps/spring-apps/guides/spring-cloud-reverse-proxy",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/serverless/code.yml",
+      "redirect_url": "/azure/architecture/web-apps/serverless/architectures/code",
+      "redirect_document_id": true
+    }
   ]
 }

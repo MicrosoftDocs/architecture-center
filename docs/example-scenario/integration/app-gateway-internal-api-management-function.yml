@@ -16,7 +16,7 @@ products:
   - azure-api-management
   - azure-application-gateway
   - azure-functions
-  - dotnet-core
+  - dotnet
 name: Azure API Management landing zone accelerator
 summary: An opinionated accelerator to deploy a secure enterprise-ready API management solution and CI/CD pipeline.
 thumbnailUrl: /azure/architecture/browse/thumbs/app-gateway-internal-api-management-function.png
