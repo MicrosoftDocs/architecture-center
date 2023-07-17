@@ -6,7 +6,7 @@ There are two articles on the reliable web app pattern for Java. This article pr
 
 The reliable web app pattern situates code changes within the pillars of the Azure Well-Architected Framework to reinforce the close relationship between code and architecture. This guidance uses the reference implementation architecture to illustrate the principles of the reliable web app pattern (*see figure 1*). The reliable web app pattern is a set of principles with implementation guidance. It's not a specific architecture. It's important that your web app adheres to the principles of the pattern, not this specific architecture.
 [![Diagram showing the architecture of the reference implementation.](../../_images/reliable-web-app-java.svg)](../../_images/reliable-web-app-java.svg#lightbox)
-*Figure 1. Target reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java.vsdx) of this architecture. For the estimated cost of this architecture, see the [production environment cost](https://azure.com/e/a44f5feb443f430abbd9116b6cc879bf) and [nonproduction environment cost](https://azure.com/e/807cdb0d6d9a41899885bd875deb12f5).*
+*Figure 1. Target reference implementation architecture. Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java.vsdx) of this architecture. For the estimated cost of this architecture, see the [production environment cost](https://azure.com/e/9ed08d9eb2ba426e95e4e7f5a8b075e7) and [nonproduction environment cost](https://azure.com/e/b6ac4fdb62f3475cb1c2dee388dc4b9a).*
 
 ## Principles and implementation
 
