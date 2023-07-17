@@ -136,9 +136,9 @@ SAP BW/4HANA is designed for the SAP HANA database platform. Azure provides thre
 
 This example uses [Premium managed disks](/azure/virtual-machines/windows/disks-types#premium-ssd) for the non-shared storage of the application servers. It also uses [Azure NetApp Files](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs) for cluster shared storage.
 
-[Azure Premium SSD v2](https://azure.microsoft.com/updates/general-availability-azure-premium-ssd-v2-disk-storage/) is designed for performance-critical workloads like SAP. Refer to the [Deploy a Premium SSD v2](/azure/virtual-machines/disks-deploy-premium-v2?tabs=azure-cli) article for the storage solution's benefits and its current limitation.
+[Azure Premium SSD v2](https://azure.microsoft.com/updates/general-availability-azure-premium-ssd-v2-disk-storage/) is designed for performance-critical workloads like SAP. See [Deploy a Premium SSD v2](/azure/virtual-machines/disks-deploy-premium-v2?tabs=azure-cli) for information about the storage solution's benefits and current limitations.
 
-[Ultra Disk Storage](/azure/virtual-machines/linux/disks-enable-ultra-ssd) greatly reduces disk latency. As a result, it benefits performance-critical applications like the SAP database servers. To compare block storage options in Azure, see [Azure managed disk types](/azure/virtual-machines/windows/disks-types).
+[Ultra Disk Storage](/azure/virtual-machines/linux/disks-enable-ultra-ssd) significantly reduces disk latency. As a result, it benefits performance-critical applications like the SAP database servers. To compare block storage options in Azure, see [Azure managed disk types](/azure/virtual-machines/windows/disks-types).
 
 Standard managed disks aren't supported, as stated in [SAP Note 1928533](https://launchpad.support.sap.com/#/notes/1928533). The use of standard storage isn't recommended for any SAP installations.
 
@@ -186,7 +186,7 @@ This architecture places virtual machines that do the same role into an availabi
 
 #### Azure Load Balancer
 
-[Azure Load Balancer](https://azure.microsoft.com/blog/azure-load-balancer-new-distribution-mode) is a network transmission layer service (layer 4). In cluster setups, Azure Load Balancer directs traffic to the primary service instance or the healthy node if there's a fault. We recommend using [Azure Standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview) for all SAP scenarios. It offers by-design security implementation and blocks outgoing traffic from the back-end pool unless you enable [outbound connectivity to public endpoints](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  In addition, you can also use an [Azure NAT gateway](/azure/nat-gateway/nat-overview) to get outbound connectivity.
+[Azure Load Balancer](https://azure.microsoft.com/blog/azure-load-balancer-new-distribution-mode) is a network transmission layer service (layer 4). In cluster configurations, Azure Load Balancer directs traffic to the primary service instance or the healthy node if there's a fault. We recommend using [Azure Standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview) for all SAP scenarios. It offers by-design security implementation and blocks outgoing traffic from the back-end pool unless you enable [outbound connectivity to public endpoints](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections). In addition, you can also use an [Azure NAT Gateway](/azure/nat-gateway/nat-overview) to get outbound connectivity.
 
 Also, if you decide to deploy SAP workloads in [Azure Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones), the Standard Load Balancer is zone-aware.
 
@@ -220,9 +220,9 @@ Azure supports various [disaster recovery options](/azure/virtual-machines/workl
 
 ### Monitoring
 
-To maximize the availability and performance of applications and services, use [Azure Monitor](/azure/azure-monitor/overview), which includes Azure Log Analytics and Azure Application Insights and provides sophisticated tools for collecting and analyzing telemetry. It lets you maximize the performance and availability of your cloud and on-premises resources and applications. Azure Monitor can be used to monitor and alert administrators of infrastructure and application anomalies and to automate reactions to predefined conditions.
+To maximize the availability and performance of applications and services, use [Azure Monitor](/azure/azure-monitor/overview), which includes Azure Log Analytics and Azure Application Insights and provides sophisticated tools for collecting and analyzing telemetry. It can help you maximize the performance and availability of your cloud and on-premises resources and applications. You can use Azure Monitor to monitor infrastructure and application anomalies, send alterts to administrators, and automate reactions to predefined conditions.
 
-For the SAP applications running on SAP HANA and other major database solutions, refer to the article [Azure Monitor for SAP solutions](/azure/sap/monitor/about-azure-monitor-sap-solutions) to learn how Azure Monitor for SAP helps in managing SAP services availability and performance. Azure Monitor for SAP provides a comprehensive initial set of metrics and telemetry for monitoring. The metric definitions are stored as SQL queries in JSON and can be modified to meet your requirements. The starting set of metrics is available on GitHub [here](https://github.com/Azure/AzureMonitorForSAPSolutions/blob/master/sapmon/content/SapHana.json).
+For SAP applications that run on SAP HANA and other major database solutions, see [Azure Monitor for SAP solutions](/azure/sap/monitor/about-azure-monitor-sap-solutions) to learn how Azure Monitor for SAP can help you manage the availability and performance of SAP services. Azure Monitor for SAP provides a comprehensive initial set of metrics and telemetry for monitoring. The metric definitions are stored as SQL queries in JSON and can be modified to meet your requirements. The starting set of metrics is available on GitHub [here](https://github.com/Azure/AzureMonitorForSAPSolutions/blob/master/sapmon/content/SapHana.json).
 
 ### Backup
 
