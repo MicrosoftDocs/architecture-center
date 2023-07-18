@@ -404,9 +404,15 @@ The table below lists the types of data you can currently collect with AMA and w
 | Syslog | Log Analytics workspace - [Syslog](/azure/azure-monitor/reference/tables/syslog) table | Information sent to the Linux event logging system |
 |	Text logs and Windows IIS logs	|	Log Analytics workspace - custom table(s) created manually |	[Collect text logs with Azure Monitor Agent](/azure/azure-monitor/agents/data-collection-text-log)	|
 
-//TODO: Jose to provide details about the data collection rules implemented in the RI. Highlight differences between the frontend and backend DCR definitions. See tutorials:  
-//        [Tutorial: Enable monitoring with VM insights for Azure virtual machine](/azure/azure-monitor/vm/tutorial-monitor-vm-enable-insights)  
-//        [Tutorial: Collect guest logs and metrics from Azure virtual machine](/azure/azure-monitor/vm/tutorial-monitor-vm-guest)  
+In the reference implementation, OS-specific DCRs are created and assigned to each VM according to the VM's OS. The AMA extension acts on the DCR's configuration, sending all requested data directly to the workload's log analytics workspace.  The DCRs are configured to collect:
+
+- Performance counters to power Azure Monitor's VM Insights experience, including guest OS metrics where available
+- OS logs (Syslog or Windows Events) with a filter to capture only higher importance items
+- Change tracking, with the default recommended settings per OS
+- Dependency tracking to power the Azure Monitor Service Map
+- Web server HTTP logs
+
+The DCRs are applied to VMs through a built-in Azure Policy assignment to ensure that, as the scale set grows and adds nodes, the newly allocated VMs will be configured with the AMA settings.
 
 ##### Application Health extension
 
