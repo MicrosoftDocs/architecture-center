@@ -169,7 +169,7 @@ To enable the Threat Intelligence – TAXII data connector in Microsoft Sentinel
 
    ![Screenshot that shows the TAXII configuration page.](media/sentinel-threat-intelligence/taxii-connector.png)
 
-You see your connection under **List of configured TAXII 2.0 servers**. Repeat the configuration for each collection you want to connect from the same or different TAXII servers.
+You see your connection under a list of configured TAXII 2.0 servers. Repeat the configuration for each collection you want to connect from the same or different TAXII servers.
 
 ### Import threat indicators with the Platforms data connector
 

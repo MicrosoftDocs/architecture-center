@@ -12,7 +12,7 @@ The workflow consists of the following steps:
 
 - Ingest
 - Store
-- Train and deploy
+- Train and deploy a model
 - Consume
 
 #### Ingest
