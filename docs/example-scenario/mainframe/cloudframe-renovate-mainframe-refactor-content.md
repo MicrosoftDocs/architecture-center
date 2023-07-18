@@ -2,7 +2,7 @@ CloudFrame Renovate migrates COBOL code to Java Spring Boot Batch quickly, witho
 
 ## Legacy IBM zSeries architecture 
 
-:::image type="content" source="media/cloudframe-refactor.png" alt-text="Diagram that shows the mainframe architecture before migration." lightbox="media/cloudframe-refactor.png":::
+:::image type="content" source="media/cloudframe-refactor.svg" alt-text="Diagram that shows the mainframe architecture before migration." lightbox="media/cloudframe-refactor.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/cloudframe-refactor-to-azure-architecture.vsdx) of the architectures in this article.*
 
@@ -30,7 +30,7 @@ J. The Processor Resource / System Manager (PR/SM) hypervisor performs direct ha
 
 ## Migrated Azure architecture 
 
-:::image type="content" source="media/cloudframe-refactor-after.png" alt-text="Diagram that shows the architecture after migration to Azure." lightbox="media/cloudframe-refactor-after.png"::: 
+:::image type="content" source="media/cloudframe-refactor-after.svg" alt-text="Diagram that shows the architecture after migration to Azure." lightbox="media/cloudframe-refactor-after.png" border="false"::: 
 
 *Download a [Visio file](https://arch-center.azureedge.net/cloudframe-refactor-to-azure-architecture.vsdx) of the architectures in this article.*
 
