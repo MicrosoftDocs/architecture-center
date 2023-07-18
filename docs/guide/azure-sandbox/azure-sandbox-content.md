@@ -30,6 +30,17 @@ The Azure Sandbox environment requires the following prerequisites:
 
 For more information about how to prepare for a sandbox deployment, see [Prerequisites](https://github.com/Azure-Samples/azuresandbox#prerequisites).
 
+To integrate [AzureSandbox](https://github.com/Azure-Samples/azuresandbox) with an [Azure landing zone](/azure/cloud-adoption-framework/ready/landing-zone) consider doing the following:
+
+- Place the sandbox subscription in the *Sandboxes* management group.
+- Keep the sandbox isolated from your private network.
+- Audit sandbox subscription activity.
+- Limit sandbox access, and remove access when it is no longer required.
+- Decomission sandboxes after an expiration period to control costs.
+- Create a budget on sandbox subscriptions to control costs.
+
+See [Landing zone sandbox environments](/azure/cloud-adoption-framework/ready/considerations/sandbox-environments) for more information.
+
 To deploy Azure Sandbox, go to the [AzureSandbox](https://github.com/Azure-Samples/azuresandbox) GitHub repository and begin with [Getting started](https://github.com/Azure-Samples/azuresandbox#getting-started). See [Default Sandbox Deployment](https://github.com/Azure-Samples/azuresandbox#perform-default-sandbox-deployment) to deploy your Azure Sandbox environment. For more information, see [Known issues](https://github.com/Azure-Samples/azuresandbox#known-issues).
 
 ## Use cases
