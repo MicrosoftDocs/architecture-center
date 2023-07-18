@@ -59,7 +59,9 @@ This solution implements the following design patterns:
 
 ## Design
 
-:::image type="complex" source="_images/network-diagram-ingress.png" alt-text="Diagram that shows a request flowing through Azure Front Door Premium to regional stamps."::: The diagram shows an HTTPS request flowing to an Azure Front Door Premium box, which has a web application firewall (WAF) in it. This illustrates the integration between Azure Front Door Premium and Azure Web Application Firewall. The diagram then shows the request flowing through Private Link to two stamps in different regions. Each stamp has a static website and an internal load balancer. The requests flow through Private Link to the static websites and the load balancers in both stamps. :::image-end:::
+:::image type="complex" source="_images/network-diagram-ingress.png" alt-text="Diagram that shows a request flowing through Azure Front Door Premium to regional stamps.":::
+The diagram shows an HTTPS request flowing to an Azure Front Door Premium box, which has a web application firewall (WAF) in it. This illustrates the integration between Azure Front Door Premium and Azure Web Application Firewall. The diagram then shows the request flowing through Private Link to two stamps in different regions. Each stamp has a static website and an internal load balancer. The requests flow through Private Link to the static websites and the load balancers in both stamps.
+:::image-end:::
 
 This implementation includes the following details:
 
@@ -102,7 +104,9 @@ Here are details about the components for operations:
 
 ## Web request flow
 
-:::image type="complex" source="_images/network-diagram-ingress-user-flow.png" alt-text="Diagram that shows the flow for a web request."::: The diagram shows a user making a web request to Azure Front Door. In the Azure Front Door box, the diagram shows each of the steps of the Azure Front Door routing flow. Highlighted in the flow is the step where WAF rules are evaluated, where the Azure Front Door route is matched and an origin group is selected, and where the origin is selected from the origin group. The last highlighted piece is where Azure Front Door connects to the Azure Blob Storage account via Private Link. :::image-end:::
+:::image type="complex" source="_images/network-diagram-ingress-user-flow.png" alt-text="Diagram that shows the flow for a web request.":::
+The diagram shows a user making a web request to Azure Front Door. In the Azure Front Door box, the diagram shows each of the steps of the Azure Front Door routing flow. Highlighted in the flow is the step where WAF rules are evaluated, where the Azure Front Door route is matched and an origin group is selected, and where the origin is selected from the origin group. The last highlighted piece is where Azure Front Door connects to the Azure Blob Storage account via Private Link.
+:::image-end:::
 
 1. The user issues an HTTP or HTTPS request to an Azure Front Door endpoint.
 2. The WAF rules are evaluated. Rules that match are always logged. If the Azure Front Door WAF policy mode is set to *prevention* and the matching rule has an action set to *block on anomaly*, the request is blocked. Otherwise, the request continues or is redirected, or the subsequent rules are evaluated.
@@ -117,7 +121,9 @@ For more information about the Azure Front Door routing architecture, see [Routi
 
 ## Operational flow
 
-:::image type="complex" source="_images/network-diagram-ingress-with-vnet.png" alt-text="Diagram that shows the flow that an administrator would use to connect to a protected resource."::: The diagram has three parts. The first part shows Azure Blob Storage acting as a static website. Azure Front Door connects through Private Link to the storage account. The second part is a box that represents a virtual network. The virtual network has subnets and their contents. These subnets include a private endpoint subnet that contains a Private Link endpoint with an IP address of 10.0.2.5, a jumpbox subnet with a jumpbox virtual machine, and an Azure Bastion subnet with Azure Bastion in it. The third part is an administrative user who is using SSH to access the jumpbox VM in the virtual network via Azure Bastion. An arrow goes from the VM to the private Azure DNS zone. The last arrow goes from the VM to the Private link endpoint and then to the storage account. :::image-end:::
+:::image type="complex" source="_images/network-diagram-ingress-with-vnet.png" alt-text="Diagram that shows the flow that an administrator would use to connect to a protected resource.":::
+The diagram has three parts. The first part shows Azure Blob Storage acting as a static website. Azure Front Door connects through Private Link to the storage account. The second part is a box that represents a virtual network. The virtual network has subnets and their contents. These subnets include a private endpoint subnet that contains a Private Link endpoint with an IP address of 10.0.2.5, a jumpbox subnet with a jumpbox virtual machine, and an Azure Bastion subnet with Azure Bastion in it. The third part is an administrative user who is using SSH to access the jumpbox VM in the virtual network via Azure Bastion. An arrow goes from the VM to the private Azure DNS zone. The last arrow goes from the VM to the Private link endpoint and then to the storage account.
+:::image-end:::
 
 1. An administrator connects to the Azure Bastion instance that's deployed in the virtual network.
 2. Azure Bastion provides SSH connectivity to the jumpbox virtual machine.
