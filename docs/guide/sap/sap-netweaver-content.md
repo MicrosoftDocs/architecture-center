@@ -6,9 +6,9 @@ This guide presents a set of proven practices for running SAP NetWeaver in a Win
 
 The following diagram shows SAP NetWeaver in a Windows environment.
 
-:::image type="content" source="media/sap-netweaver-win.png" alt-text="Architecture diagram that shows a solution for SAP NetWeaver on Windows. The database is AnyDB on Azure VMs with availability sets." lightbox="media/sap-netweaver-avset-afs-ppg.png" border="false":::
+:::image type="content" source="media/sap-netweaver.png" alt-text="Architecture diagram that shows a solution for SAP NetWeaver on Windows. The database is AnyDB on Azure VMs with availability sets." lightbox="media/sap-netweaver.png" border="false":::
 
-_Download a [Visio file](https://arch-center.azureedge.net/sap-netweaver-win.vsdx) of this architecture._
+_Download a [Visio file](https://arch-center.azureedge.net/sap-netweaver-windows.vsdx) of this architecture._
 
 > [!NOTE]
 > To deploy this architecture, you need appropriate licensing of SAP products and other non-Microsoft technologies.

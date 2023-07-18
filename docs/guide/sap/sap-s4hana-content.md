@@ -4,7 +4,7 @@ This guide presents a set of proven practices for running S/4HANA and Suite on H
 
 ## Architecture
 
-:::image type="content" source="media/s4-afs.png" alt-text="Architecture diagram that shows SAP S/4HANA for Linux virtual machines in an Azure availability set." lightbox="media/s4-avset-afs-ppg.png" border="false":::
+:::image type="content" source="media/s-4hana.png" alt-text="Architecture diagram that shows SAP S/4HANA for Linux virtual machines in an Azure availability set." lightbox="media/s-4hana.png" border="false":::
 
 *Download a [Visio file][visio-download] of this architecture.*
 
@@ -398,5 +398,5 @@ For more information and for examples of SAP workloads that use some of the same
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [linux-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute
-[visio-download]: https://arch-center.azureedge.net/s4-afs.vsdx
+[visio-download]: https://arch-center.azureedge.net/s-4hana.vsdx
 [az-spot-vms]: /azure/virtual-machines/windows/spot-vms

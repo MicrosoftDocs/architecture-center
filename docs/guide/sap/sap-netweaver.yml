@@ -28,6 +28,6 @@ products:
   - azure-virtual-machines
   - azure-virtual-network
   - azure-netapp-files
-thumbnailUrl: /azure/architecture/browse/thumbs/sap-netweaver-avset-afs-ppg-thumbnail.png
+thumbnailUrl: /azure/architecture/browse/thumbs/sap-netweaver-windows.png
 content: |
    [!include[](sap-netweaver-content.md)]
