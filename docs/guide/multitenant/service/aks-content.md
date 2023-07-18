@@ -103,7 +103,9 @@ For more information, see [Storage isolation](https://kubernetes.io/docs/concept
 
 ### Node isolation
 
-Tenant workloads can be configured to run on separate agent nodes to avoid the [Noisy Neighbor issue](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor) and the risk of information disclosure. In AKS, you can create a separate cluster, or just a dedicated node pool, for those tenants that have strict requirements in terms of isolation, security, regulatory compliance, and performance. You can use [taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), [tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), [node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node), [node selectors](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node), and [node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node) to constrain tenants pods to run only on a particular set of nodes or node pools.
+Tenant workloads can be configured to run on separate agent nodes to avoid the [Noisy Neighbor issue](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor) and the risk of information disclosure. In AKS, you can create a separate cluster, or just a dedicated node pool, for those tenants that have strict requirements in terms of isolation, security, regulatory compliance, and performance. When tenant applications require isolation at the hardware level, you can create dedicated node pools in [Azure Dedicated Hosts](#azure-dedicated-hosts) which are physical servers dedicated to a single Azure subscription. Hardware isolation ensures that no other virtual machines are placed on the dedicated hosts, providing an additional layer of isolation for tenant workloads.
+
+You can use [taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), [tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), [node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node), [node selectors](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node), and [node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node) to constrain tenants pods to run only on a particular set of nodes or node pools.
 
 Node isolation allows you to  easily associate and charge back the cost of a set of nodes or node pool to a single tenant. It's strictly related to the tenancy model that's adopted by your solution.
 
@@ -177,7 +179,7 @@ You can implement different variations of this tenancy model. For example, you c
 
 - Basic tier: The tenant requests are served by a single, multitenant Kubernetes application that's shared with other tenants. Data is stored in one or more databases that are shared by all Basic-tier tenants.
 - Standard tier: Tenants requests are served by a dedicated Kubernetes application that runs in a separate namespace, which provides isolation boundaries in terms of security, networking, resource consumption. All the tenants' applications, one for each tenant, share the same AKS cluster and node pool with other standard-tier customers.
-- Premium tier: The tenant application runs in a dedicated node pool or AKS cluster, to guarantee a higher service level agreement, performance, and isolation degree. This tier could provide a flexible cost model based on the number and SKU of the agent nodes that are used to host the tenant application.
+- Premium tier: The tenant application runs in a dedicated node pool or AKS cluster, to guarantee a higher service level agreement, performance, and isolation degree. This tier could provide a flexible cost model based on the number and SKU of the agent nodes that are used to host the tenant application. You can use [Pod Sandboxing](#pod-sandboxing) as an alternative solution to using dedicated clusters or node pools to isolate distinct tenant workloads.
 
 The following diagram shows a scenario where tenants A and B run on a shared AKS cluster, whereas tenant C runs on a separate AKS cluster.
 
@@ -238,6 +240,54 @@ For more information about authentication and authorization with AKS, see the fo
 If you host multiple tenant applications on a single AKS cluster, and each is in a separate namespace, then each workload should use a different [Kubernetes service account](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account) and credentials to access the downstream Azure services. *Service accounts* are one of the primary user types in Kubernetes. The Kubernetes API holds and manages service accounts. Service account credentials are stored as Kubernetes secrets, which allows them to be used by authorized pods to communicate with the API Server. Most API requests provide an authentication token for a service account or a normal user account.
 
 Tenant workloads deployed to AKS clusters can use Azure AD application credentials to access Azure AD-protected resources, such as Azure Key Vault and Microsoft Graph. [Azure AD Workload Identity for Kubernetes](https://azure.github.io/azure-workload-identity/docs/introduction.html) integrates with the Kubernetes native capabilities to federate with any external identity providers.
+
+### Pod Sandboxing
+
+AKS includes a mechanism called [Pod Sandboxing](/azure/aks/use-pod-sandboxing) that provides an isolation boundary between the container application and the shared kernel and compute resources of the container host, such as CPU, memory, and networking. Pod Sandboxing complements other security measures or data protection controls to help tenant workloads meet regulatory, industry, or governance compliance requirements for securing sensitive information.
+
+Deploying applications on separate clusters or node pools allows you to isolate tenant workloads of different teams or customers strongly. While using multiple clusters and node pools may be suitable for the isolation requirements of many organizations and SaaS solutions, there are cases in which a single cluster with shared VM node pools can be more efficient, for example, when running untrusted and trusted pods in the same node or co-locating daemonsets and privileged containers on the same node for faster local communication and functional grouping. In scenarios like these where the container’s code cannot be trusted or tenant workloads require isolation from the parent node’s kernel, kubelet and system pods, [Pod Sandboxing](/azure/aks/use-pod-sandboxing) can help you to strongly isolate tenant applications on the same cluster nodes without the need to run these workloads in separate clusters or node pools. While other methods require that you recompile your code or run into other compatibility requirements, Pod Sandboxing in AKS can run any container unmodified inside a secure VM boundary.
+
+Pod Sandboxing on AKS is based on [Kata Containers](https://katacontainers.io/) running on the Azure Linux container host for AKS stack delivers hardware-enforced isolation. Kata Containers on AKS are built on top of a security-hardened Azure hypervisor using [Azure Linux container host for AKS](/azure/aks/use-azure-linux). The isolation per pod is achieved by using a nested lightweight Kata VM that carves out resources from a parent VM node. In this model, each Kata pod gets its own kernel per nested Kata guest VM. This allows users to pack many Kata containers in a single guest VM, while continuing to run containers in the parent VM, providing strong Isolation boundary within a shared AKS Cluster.
+
+For more information, see:
+
+- [Pod Sandboxing with Azure Kubernetes Service (AKS)](/azure/aks/use-pod-sandboxing)
+- [Support for Kata VM Isolated Containers on AKS for Pod Sandboxing](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/preview-support-for-kata-vm-isolated-containers-on-aks-for-pod/ba-p/3751557)
+
+### Azure Dedicated Hosts
+
+[Azure Dedicated Hosts](/azure/virtual-machines/dedicated-hosts) are physical servers dedicated to a single Azure subscription, which provide hardware isolation at the physical server level. These dedicated hosts can be provisioned within a region, availability zone, and fault domain, allowing users to place virtual machines (VMs) directly into the provisioned hosts.
+
+By utilizing Azure Dedicated Hosts with AKS, several benefits can be achieved. Firstly, hardware isolation ensures that no other virtual machines are placed on the dedicated hosts, providing an additional layer of isolation for tenant workloads. These dedicated hosts are deployed in the same data centers and share the same network and underlying storage infrastructure as other non-isolated hosts. Secondly, Azure Dedicated Hosts offer control over maintenance events initiated by the Azure platform. Users can opt for a maintenance window, reducing the impact on services and ensuring the availability and privacy of tenant workloads.
+
+Azure Dedicated Hosts can help SaaS providers ensure tenant applications meet regulatory, industry, and governance compliance requirements for securing sensitive information. For more information, see [Add Azure Dedicated Host to an Azure Kubernetes Service (AKS) cluster](/azure/aks/use-azure-dedicated-hosts).
+
+### Confidential Virtual Machines
+
+You can use [Confidential Virtual Machines (CVM)](/azure/aks/use-cvm) to add one or more node pools to your AKS cluster to address tenants' strict isolation, privacy, and security requirements. [Confidential Virtual Machines (CVM)](https://techcommunity.microsoft.com/t5/azure-confidential-computing/azure-confidential-vms-using-sev-snp-dcasv5-ecasv5-are-now/ba-p/3573747) adopt VMs with a hardware-based [Trusted Execution Environment (TEE)](https://en.wikipedia.org/wiki/Trusted_execution_environment). [AMD Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP)](https://www.amd.com/system/files/TechDocs/SEV-SNP-strengthening-vm-isolation-with-integrity-protection-and-more.pdf) confidential VMs deny the hypervisor and other host management code access to VM memory and state, adding defense in-depth protections against operator access. For more information, see [Use Confidential Virtual Machines (CVM) in Azure Kubernetes Service (AKS) cluster](/azure/aks/use-cvm).
+
+### Federal Information Process Standard (FIPS)
+
+The [Federal Information Processing Standard (FIPS) 140-2](https://csrc.nist.gov/publications/detail/fips/140/3/final) is a US government standard that defines minimum security requirements for cryptographic modules in information technology products and systems. By enabling [Federal Information Process Standard (FIPS) compliance for AKS node pools](/azure/aks/enable-fips-nodes), organizations can enhance the isolation, privacy, and security of their tenant workloads. [FIPS](/azure/compliance/offerings/offering-fips-140-2) compliance ensures the use of validated cryptographic modules for encryption, hashing, and other security-related operations. With FIPS-enabled AKS node pools, customers can meet regulatory and industry compliance requirements by employing robust cryptographic algorithms and mechanisms. Microsoft Azure provides documentation on how to enable FIPS for AKS node pools, allowing customers to strengthen the security posture of their multitenant AKS environments. For more information, see [Enable Federal Information Process Standard (FIPS) for Azure Kubernetes Service (AKS) node pools](/azure/aks/enable-fips-nodes).
+
+### Bring your own keys (BYOK) with Azure disks
+
+Azure Storage encrypts all data in a storage account at rest, including the OS and data disks of an Azure Kubernetes Service (AKS) cluster. By default, data is encrypted with Microsoft-managed keys. For more control over encryption keys, you can supply customer-managed keys to use for encryption at rest for both the OS and data disks for your AKS clusters. For more information, see:
+
+- [Bring your own keys (BYOK) with Azure disks in Azure Kubernetes Service (AKS)](/azure/aks/azure-disk-customer-managed-keys)
+- [Server-side encryption of Azure Disk Storage](/azure/virtual-machines/disk-encryption)
+
+### Host-based encryption
+
+[Host-based encryption](/azure/aks/enable-host-encryption) on Azure Kubernetes Service (AKS) further strengthens tenant workloads' isolation, privacy, and security. By enabling host-based encryption, AKS encrypts data at rest on the underlying host machines, ensuring that sensitive tenant information is protected from unauthorized access. Temporary disks and ephemeral OS disks are encrypted at rest with platform-managed keys when you enable end-to-end encryption.
+
+In AKS, OS and data disks use server-side encryption with platform-managed keys by default. The caches for these disks are encrypted at rest with platform-managed keys. You can specify your own [key encryption key (KEK)](/azure/security/fundamentals/encryption-atrest#envelope-encryption-with-a-key-hierarchy) to encrypt the [data protection key (DEK)]((/azure/security/fundamentals/encryption-atrest#envelope-encryption-with-a-key-hierarchy)) using envelope encryption, also referred to as wrapping. For more information, see [Bring your own keys (BYOK) with Azure disks in Azure Kubernetes Service (AKS)](/azure/aks/azure-disk-customer-managed-keys). The cache for the OS and data disks are also encrypted using the [bring your own key (BYOK)](/azure/aks/azure-disk-customer-managed-keys) you specify.
+
+Host-based encryption adds an extra layer of security for multitenant environments, where each tenant's data in the OS and data disk caches is encrypted at rest with either customer-managed or platform-managed keys, depending on the selected disk encryption type. For more information, see:
+
+- [Host-based encryption on Azure Kubernetes Service (AKS)](/azure/aks/enable-host-encryption)
+- [Bring your own keys (BYOK) with Azure disks in Azure Kubernetes Service (AKS)](/azure/aks/azure-disk-customer-managed-keys)
+- [Server-side encryption of Azure Disk Storage](/azure/virtual-machines/disk-encryption)
 
 ## Networking
 
