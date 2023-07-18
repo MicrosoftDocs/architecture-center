@@ -119,7 +119,7 @@ For  SAP application part, see the details in architecture guide [Run SAP NetWea
 
 The following diagram shows the architecture of a production SAP system on Oracle in Azure. The architecture provides DR and uses availabily zones.
 
-![Diagram that shows an architecture of a production SAP system on Oracle in Azure.](./media/sap-oracle-avzone-disaster-recovery.png)
+![Diagram that shows an architecture of a production SAP system on Oracle in Azure.](./media/sap-oracle-disaster-recovery.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/sap-oracle-architecture-avzone.vsdx) of this architecture and related architectures.*
 
