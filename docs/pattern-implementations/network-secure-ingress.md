@@ -60,14 +60,14 @@ This solution implements the following design patterns:
 ## Design
 
 :::image type="complex" source="_images/network-diagram-ingress.png" alt-text="Diagram that shows a request flowing through Azure Front Door Premium to regional stamps.":::
-The diagram shows an HTTPS request flowing to an Azure Front Door Premium box, which has a web application firewall (WAF) in it. This illustrates the integration between Azure Front Door Premium and Azure Web Application Firewall. The diagram then shows the request flowing through Private Link to two stamps in different regions. Each stamp has a static website and an internal load balancer. The requests flow through Private Link to the static websites and the load balancers in both stamps.
+The diagram shows an HTTPS request flowing to an Azure Front Door Premium box, which has a web application firewall in it. This illustrates the integration between Azure Front Door Premium and Azure Web Application Firewall. The diagram then shows the request flowing through Private Link to two stamps in different regions. Each stamp has a static website and an internal load balancer. The requests flow through Private Link to the static websites and the load balancers in both stamps.
 :::image-end:::
 
 This implementation includes the following details:
 
 - It uses Azure Blob Storage accounts to simulate static web workloads running in two regions. This implementation doesn't include any workloads running behind an internal load balancer (ILB). The diagram shows an ILB to illustrate that this implementation would work for private workloads running behind an ILB.
 - It uses Azure Front Door Premium tier as the global gateway.
-- The Azure Front Door instance has a global WAF policy configured with managed rules that help protect against common exploits.
+- The Azure Front Door instance has a global web application firewall (WAF) policy configured with managed rules that help protect against common exploits.
 - The storage accounts aren't exposed over the internet.
 - The Azure Front Door Premium tier accesses the storage accounts via Azure Private Link.
 - The Azure Front Door instance has the following high-level configuration:
@@ -92,12 +92,12 @@ This implementation includes the following details:
 
 Securing resources from a network perspective helps protect against exploits, but it also isolates the resources from processes or administrators who might need to access those resources. For example, a build agent in a DevOps pipeline might need to access the storage account in order to deploy an update to the web application. Also, an administrator might need to access the resource for troubleshooting purposes.
 
-To illustrate providing access to network secure access for operational purposes, this implementation deploys a virtual machine in a virtual network that has Private Link access to the storage accounts. This implementation deploys Azure Bastion, which the administrator can use to connect to the virtual machine. For the deployment scenario, a private build agent could be deployed to the virtual network, similar to how the virtual machine was.
+To illustrate providing access to network secure access for operational purposes, this implementation deploys a virtual machine (VM) in a virtual network that has Private Link access to the storage accounts. This implementation deploys Azure Bastion, which the administrator can use to connect to the VM. For the deployment scenario, a private build agent could be deployed to the virtual network, similar to how the VM was.
 
 Here are details about the components for operations:
 
 - [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview): This implementation uses the virtual network to contain the components required for an administrator to securely communicate with the storage account over the private Microsoft backbone network.
-- [Azure Virtual Machine](/azure/virtual-machines/overview): This implementation uses a virtual machine (VM) as a jumpbox for administrators to connect to. The VM is deployed in the private virtual network.
+- [Azure Virtual Machines](/azure/virtual-machines/overview): This implementation uses a VM as a jumpbox for administrators to connect to. The VM is deployed in the private virtual network.
 - [Azure Bastion](/azure/bastion/bastion-overview): Azure Bastion allows the administrator to securely connect to the jumpbox VM over Secure Shell (SSH) without requiring the VM to have a public IP address.
 - [Private Link endpoint](/azure/private-link/private-endpoint-overview): The private endpoint is assigned a private IP address from the virtual network and connects to the storage account PaaS service. This connection allows resources in the private virtual network to communicate with the storage account over the private IP address.
 - [Private Azure DNS zone](/azure/dns/private-dns-privatednszone): The private Azure DNS zone is a DNS service that's used to resolve the Azure storage account's Private Link host name to the private endpoint's private IP address.
@@ -126,7 +126,7 @@ The diagram has three parts. The first part shows Azure Blob Storage acting as a
 :::image-end:::
 
 1. An administrator connects to the Azure Bastion instance that's deployed in the virtual network.
-2. Azure Bastion provides SSH connectivity to the jumpbox virtual machine.
+2. Azure Bastion provides SSH connectivity to the jumpbox VM.
 3. The administrator on the jumpbox tries to access the storage account via the Azure CLI. The jumpbox queries DNS for the public Azure Blob Storage account endpoint: storageaccountname.blob.core.windows.net. 
 
    Private DNS ultimately resolves to storageaccountname.privatelink.blob.core.windows.net. It returns the private IP address of the Private Link endpoint, which is 10.0.2.5 in this example.
@@ -134,7 +134,7 @@ The diagram has three parts. The first part shows Azure Blob Storage acting as a
 
 ## Considerations
 
-Keep these points in mind when you use this solution.
+Keep the following points in mind when you use this solution.
 
 ### Reliability
 
@@ -182,7 +182,7 @@ Implementing network security boundaries adds complexity to operations and deplo
 
 Performance efficiency is the ability of your workload to scale to meet the demands that users place on it. For more information, see [Overview of the performance efficiency pillar](/azure/architecture/framework/scalability/overview).
 
-Global routing enables horizontal scaling through the deployment of additional resources in the same or different regions.
+Global routing enables horizontal scaling through the deployment of more resources in the same region or different regions.
 
 ## Next steps
 
