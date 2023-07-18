@@ -13,16 +13,18 @@ In this scenario, an e-commerce company in the travel industry migrates a legacy
 3. Inbound calls are made from Azure to the existing internal services:
     - The security team allows traffic from the API Management instance to pass through the corporate firewall to the existing on-premises services [by using secure transport (HTTPS or SSL)][apim-ssl].
     - The operations team allows inbound calls to the services only from the API Management instance. It meets this requirement by [adding the IP address of the API Management instance to the allowlist][apim-allow-ip] within the corporate network perimeter.
-    - A new module is configured into the on-premises HTTP services request pipeline (to act on *only* connections that originate externally). The pipeline validates [a certificate that API Management provides][apim-mutualcert-auth].
+    - A new module is configured into the on-premises request pipeline for HTTP services (to act on *only* connections that originate externally). The pipeline validates [a certificate that API Management provides][apim-mutualcert-auth].
 4. The new API:
     - Is surfaced only through the API Management instance, which provides the API facade. The new API isn't accessed directly.
-    - Is developed and published as an [Azure platform as a service (PaaS) Web API app][azure-api-apps].
+    - Is developed and published as an [Azure PaaS Web API app][azure-api-apps].
     - Is configured (via [settings for the Web Apps feature of Azure App Service][azure-appservice-ip-restrict]) to accept only the [API Management virtual IP][apim-faq-vip].
-    - Is hosted in Web Apps with Transport Layer Security (TLS) or Secure Sockets Layer (SSL) turned on.
+    - Is hosted in Web Apps with secure transport (HTTPS or SSL) turned on.
     - Has authorization enabled, [provided by Azure App Service][azure-appservice-auth] via Azure Active Directory and OAuth 2.
 5. The new browser-based web application depends on the Azure API Management instance for *both* the existing HTTP API and the new API.
 
-The API Management instance is configured to map the legacy HTTP services to a new API contract. In this configuration, the new Web UI is unaware of the integration with a set of legacy services/APIs and new APIs. In the future, the project team will gradually port functionality to the new APIs and retire the original services. The team will handle these changes within API Management configuration, leaving the front-end UI unaffected and avoiding redevelopment work.
+The API Management instance is configured to map the legacy HTTP services to a new API contract. In this configuration, the new Web UI is unaware of the integration with a set of legacy services/APIs and new APIs.
+
+In the future, the project team will gradually port functionality to the new APIs and retire the original services. The team will handle these changes within API Management configuration, leaving the front-end UI unaffected and avoiding redevelopment work.
 
 ### Components
 
@@ -34,7 +36,7 @@ The API Management instance is configured to map the legacy HTTP services to a n
 - If the organization plans to move its infrastructure entirely to Azure, including the virtual machines (VMs) that host the legacy applications, API Management is still a great option because it can act as a facade for any addressable HTTP endpoint.
 - If the organization had decided to keep the existing endpoints private and not expose them publicly, the organization's API Management instance could be linked to an [Azure virtual network][azure-vnet]:
   - In an [Azure "lift and shift" scenario][azure-vm-lift-shift] linked to a deployed Azure virtual network, the organization could directly address the back-end service through private IP addresses.
-  - In the on-premises scenario, the API Management instance could reach back to the internal service privately via an [Azure VPN gateway and site-to-site IPSec VPN connection][azure-vpn] or [Azure ExpressRoute][azure-er], making this a [hybrid Azure and on-premises scenario][azure-hybrid].
+  - In the on-premises scenario, the API Management instance could reach back to the internal service privately via an [Azure VPN gateway and site-to-site IPSec VPN connection][azure-vpn] or [Azure ExpressRoute][azure-er]. This scenario would then become a [hybrid of Azure and on-premises][azure-hybrid].
 - The organization can keep the API Management instance private by deploying it in internal mode. The organization can then use deployment with [Azure Application Gateway][azure-appgw] to enable public access for some APIs while others remain internal. For more information, see [Integrate API Management in an internal virtual network with Application Gateway][apim-vnet-internal].
 - The organization might decide to host its APIs on-premises. One reason for this change might be that the organization couldn't move downstream database dependencies that are in scope for this project to the cloud. If that's the case, the organization can still take advantage of API Management locally by using a [self-hosted gateway][apim-sh-gw].
 
@@ -80,7 +82,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Cost optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost optimization is about finding ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 API Management is offered in four tiers: Developer, Basic, Standard, and Premium. For detailed guidance on the differences in these tiers, see the [Azure API Management pricing guidance][apim-pricing].
 
