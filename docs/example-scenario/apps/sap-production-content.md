@@ -54,8 +54,8 @@ Since all other VMs supporting SAP allow the choice of either Gen2 only or Gen1+
 
 This architecture uses [Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview) for virtual machines and [Azure Files NFS](/azure/storage/files/files-nfs-protocol) or [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) for any NFS shared storage requirements such as sapmnt and SAP transport NFS volumes. Guidelines for storage deployment with SAP on Azure are in detail within the [Azure Storage types for SAP workload guide](/azure/virtual-machines/workloads/sap/planning-guide-storage)
 
-- **Certified storage for SAP.** Similar to certified VM types for SAP usage, observe the details in [SAP note 2015553](https://launchpad.support.sap.com/#/notes/2015553) and [SAP note 2039619](https://launchpad.support.sap.com/#/notes/2039619)
-- **Storage design for SAP on Oracle.** Recommended storage design for SAP on Oracle in Azure in [following documentation](/azure/virtual-machines/workloads/sap/dbms_guide_oracle) with specific guidances on file system layout, disk sizing recommendations and other storage options.
+- **Certified storage for SAP.** Similar to certified VM types for SAP usage, see the details in [SAP note 2015553](https://launchpad.support.sap.com/#/notes/2015553) and [SAP note 2039619](https://launchpad.support.sap.com/#/notes/2039619).
+- **Storage design for SAP on Oracle.** You can find a recommended storage design for SAP on Oracle in Azure in [Azure Virtual Machines Oracle DBMS deployment for SAP workload](/azure/virtual-machines/workloads/sap/dbms_guide_oracle). This article provides specific guidance on file system layout, disk sizing recommendations, and other storage options.
 - **Storing Oracle Database files.** On Linux ext4 or xfs filesystems need to be used for database, NTFS for Windows deployments. [Oracle ASM](/azure/virtual-machines/workloads/oracle/configure-oracle-asm) is also supported for Oracle deployments for Oracle Database 12c Release 2 and higher.
 - **Alternatives to managed disks.** You can alternatively use [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) for the Oracle database. For more information, see [SAP note 2039619](https://launchpad.support.sap.com/#/notes/2039619) and the [Oracle on Azure](/azure/virtual-machines/workloads/sap/dbms_guide_oracle) documentation. [**Azure Files NFS**](/azure/storage/files/files-nfs-protocol) volumes are not intended for storing Oracle Database files, unlike Azure NetApp Files.
 - [**Azure Premium SSD v2**](https://azure.microsoft.com/updates/general-availability-azure-premium-ssd-v2-disk-storage/) is designed for performance-critical workloads like SAP. See [Deploy a Premium SSD v2](/azure/virtual-machines/disks-deploy-premium-v2?tabs=azure-cli) for this storage solution's benefits and its current limitations.
@@ -117,7 +117,7 @@ For  SAP application part, see the details in architecture guide [Run SAP NetWea
 
 ### Disaster recovery
 
-The following diagram shows the architecture of a production SAP system on Oracle in Azure. The architecture provides DR and uses availabily zones.
+The following diagram shows the architecture of a production SAP system on Oracle in Azure. The architecture provides DR and uses availability zones.
 
 ![Diagram that shows an architecture of a production SAP system on Oracle in Azure.](./media/sap-oracle-disaster-recovery.png)
 

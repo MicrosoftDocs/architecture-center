@@ -42,7 +42,7 @@ The architecture uses the following components. Some shared services are optiona
 Standard Load Balancer supports multiple front-end virtual IPs. This support is ideal for cluster implementations that include these components:
 
 - Advanced Business Application Programming (ABAP) SAP Central Service (ASCS)
-- Enqeue Replication Server (ERS)
+- Enqueue Replication Server (ERS)
 
 These two components can share a load balancer to simplify the solution.
 

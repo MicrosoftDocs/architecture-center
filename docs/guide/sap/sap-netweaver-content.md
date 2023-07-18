@@ -264,7 +264,7 @@ To help keep your system running in production, consider the following points.
 
 ### Azure Center for SAP solutions
 
-Azure Center for SAP solutions is an end-to-end solution that enables you to create and run SAP systems as a unified workload on Azure and provides a more seamless foundation for innovation. Also, the Azure Center for SAP solutions guided deployment experience creates the necessary compute, storage, and networking components that you need to run your SAP system. It then helps you automate the installation of SAP software according to Microsoft best practices.You can take advantage of the management capabilities for both new and existing Azure-based SAP systems. For more information, see [Azure Center for SAP solutions](/azure/sap/center-sap-solutions/overview).
+Azure Center for SAP solutions is an end-to-end solution that enables you to create and run SAP systems as a unified workload on Azure and provides a more seamless foundation for innovation. Also, the Azure Center for SAP solutions guided deployment experience creates the necessary compute, storage, and networking components that you need to run your SAP system. It then helps you automate the installation of SAP software according to Microsoft best practices. You can take advantage of the management capabilities for both new and existing Azure-based SAP systems. For more information, see [Azure Center for SAP solutions](/azure/sap/center-sap-solutions/overview).
 
 If you need more control over maintenance events or hardware isolation, for either performance or compliance, consider deploying your VMs on [dedicated hosts](/azure/virtual-machines/dedicated-hosts).
 
