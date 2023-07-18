@@ -1,0 +1,19 @@
+### YamlMime:Architecture
+metadata:
+  title: Medical data ingestion in Azure
+  description: 
+  author: dsutton-msft
+  ms.author: dsutton, nabalas 
+  ms.date: 07/19/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - 
+products:
+  - 
+name: 
+summary: 
+thumbnailUrl: /azure/architecture/browse/thumbs/
+content: |
+  [!include[](healthcare-ai-blueprint-content.md)]
