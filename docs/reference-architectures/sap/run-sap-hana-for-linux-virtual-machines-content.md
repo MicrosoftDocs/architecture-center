@@ -6,7 +6,8 @@ This reference architecture describes a common production system. You can choose
 
 The following diagram shows a reference architecture for SAP HANA on Azure:
 
-![Diagram that shows a regional deployment architecture.](./images/sap-hana-architecture.png)
+[ ![Diagram that shows a regional deployment architecture.](./images/sap-hana-architecture.png) ](./images/sap-hana-architecture.png#lightbox)
+
 
 *Download a [Visio file](https://arch-center.azureedge.net/sap-hana-architecture.vsdx) that contains the diagrams in this article.*
 
