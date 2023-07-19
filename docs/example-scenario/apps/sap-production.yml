@@ -4,7 +4,7 @@ metadata:
   description: Learn proven practices for running SAP on Oracle in Azure, with high availability.
   author: robiro
   ms.author: robiro
-  ms.date: 07/01/2022
+  ms.date: 07/20/2023
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -29,6 +29,6 @@ products:
   - azure-virtual-machines
   - azure-virtual-network
   - azure-netapp-files
-thumbnailUrl: /azure/architecture/browse/thumbs/sap-oracle-avzone.png
+thumbnailUrl: /azure/architecture/browse/thumbs/sap-oracle-architecture.png
 content: |
    [!include[](sap-production-content.md)]
