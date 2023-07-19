@@ -9,11 +9,15 @@ metadata:
   ms.service: architecture-center
   ms.subservice: example-scenario
 azureCategories:
-  - 
+  - storage
 products:
-  - 
-name: 
+  - azure-data-factory
+  - azure-data-explorer
+  - azure-queue-storage
+  - azure-blob-storage
+  - azure-files
+name: Medical data ingestion in Azure
 summary: 
-thumbnailUrl: /azure/architecture/browse/thumbs/
+thumbnailUrl: /azure/architecture/browse/thumbs/data-factory-pipeline.png
 content: |
-  [!include[](healthcare-ai-blueprint-content.md)]
+  [!include[](medical-data-ingestion-content.md)]
