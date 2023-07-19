@@ -1,8 +1,8 @@
-This article describes how to create a data store to search and filter medical data. It presents a solution that ingests DICOM-format medical imaging data and clinical data by using Azure Data Factory pipelines with pre-ingestion and post-ingestion validation pipelines at scale. After the data is ingested, it's indexed into a format that you can search and filter.
+This article describes how to create a data store to search and filter medical data. It presents an architecture for ingesting DICOM-format medical imaging data and clinical data by using Azure Data Factory pipelines with pre-ingestion and post-ingestion validation pipelines at scale. After the data is ingested, it's indexed into a format that you can search and filter.
 
 ## Architecture
 
-:::image type="content" source="./media/data-factory-ingestion-pipeline.png" alt-text="{alt-text}" border="false" lightbox="./media/data-factory-ingestion-pipeline.png":::
+:::image type="content" source="./media/data-factory-ingestion-pipeline.png" alt-text="Diagram that shows the process of ingesting and indexing medical files." border="false" lightbox="./media/data-factory-ingestion-pipeline.png":::
 
 _Download a [Visio file](https://arch-center.azureedge.net/data-factory-ingestion-pipeline.vsdx) of this architecture._
 
