@@ -2,12 +2,36 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2023-07-11T15:23:47.158Z</updated>
+    <updated>2023-07-17T16:02:03.121Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Reliable web app pattern for Java - Apply the pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/guides/reliable-web-app/java/apply-pattern</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/guides/reliable-web-app/java/apply-pattern"/>
+        <updated>2023-07-13T18:06:49.000Z</updated>
+        <summary type="html"><![CDATA[Apply reliable web app pattern for Java. Essential implementation guidance for web apps moving to the cloud. How to update (re-platform) web apps to be successful in the cloud.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Reliable web app pattern for Java - Plan the implementation]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/guides/reliable-web-app/java/plan-implementation</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/guides/reliable-web-app/java/plan-implementation"/>
+        <updated>2023-07-13T18:06:49.000Z</updated>
+        <summary type="html"><![CDATA[Plan the implementation of the reliable web app pattern for Java. Essential implementation guidance for web apps moving to the cloud. How to update (re-platform) web apps to be successful in the cloud.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Reliable web app pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/guides/reliable-web-app/overview</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/guides/reliable-web-app/overview"/>
+        <updated>2023-07-13T18:06:49.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the reliable web app pattern.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Microsoft SaaS stories]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/saas/case-studies/saas-stories</id>
