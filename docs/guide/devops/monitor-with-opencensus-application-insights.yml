@@ -9,6 +9,7 @@ metadata:
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
+  ms.custom: devx-track-python
 products:
   - azure-application-insights
   - azure-event-hubs
