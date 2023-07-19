@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Medical data ingestion in Azure
-  description: 
+  description: Learn about medical data ingestion.
   author: dsutton-msft
   ms.author: dsutton, nabalas 
   ms.date: 07/19/2023
@@ -17,7 +17,7 @@ products:
   - azure-blob-storage
   - azure-files
 name: Medical data ingestion in Azure
-summary: 
+summary: Learn about medical data ingestion.
 thumbnailUrl: /azure/architecture/browse/thumbs/data-factory-pipeline.png
 content: |
   [!include[](medical-data-ingestion-content.md)]
