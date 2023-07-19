@@ -49,7 +49,7 @@ In order to address these concerns, you may need to implement additional logic a
 
 The following diagram illustrates this deployment model:
 
-![Diagram showing global shared Application Insights isolation model.](media/application-insights/global_shared_app_insights.png)
+![Diagram showing global shared Application Insights isolation model.](media/application-insights/global-shared-app-insights.png)
 
 ### Shared Application Insights per stamp
 Multitenant solutions often have multiple stamps, which might be deployed in different Azure regions. Stamps can enable you to serve tenants local to that particular region to offer better performance characteristics. A single stamp might serve a single tenant or a subset of your tenants. To learn more about stamps, see [Deployment stamps pattern](../approaches/overview.md#deployment-stamps-pattern).
@@ -58,7 +58,7 @@ You might choose to deploy an Application Insights instance into each stamp, whi
 
 The following diagram illustrates this deployment model:
 
-![Diagram showing global shared Application Insights per stamp isolation model.](media/application-insights/shared_app_insights_per_stamp.png)
+![Diagram showing global shared Application Insights per stamp isolation model.](media/application-insights/shared-app-insights-per-stamp.png)
 
 ### Dedicated Application Insights resource per tenant
 You might consider using a dedicated Application Insights resource for each tenant. This approach gives you more flexibility and control over the tenant's telemetry data, and provides you with the strongest data isolation. You can create different Application Insights resources allowing for configuring tenant specific settings and features. At the same time, it requires you to deploy large number of Application Insights resources, manage tenant specific settings in a tenant catalog, and make application code changes when new tenants are onboarded.  Not that the decision to have a dedicated Application Insights resource per tenant is different from the decision to deploy application tier separately for each tenant.  For example, you can decide to deploy a single application instance in a stamp that is shared by multiple tenants and then have an Application Insights instance for each tenant.
@@ -69,7 +69,7 @@ You may also have difficulty in aggregating and comparing the data across all te
 
 The following diagram illustrates this deployment model:
 
-![Diagram showing global dedicated Application Insights deployment model.](media/application-insights/dedicated_app_insights_per_tenant.png)
+![Diagram showing global dedicated Application Insights deployment model.](media/application-insights/dedicated-app-insights-per-tenant.png)
 
 ## Features of Application Insights that support multitenancy
 
