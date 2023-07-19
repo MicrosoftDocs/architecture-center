@@ -83,7 +83,7 @@ For example, you can use the following capabilities and configurations that the 
 
 Principal author:
 
-- [Roger Doherty](https://www.linkedin.com/in/roger-doherty-805635b/) | Cloud Solution Architect
+- [Roger Doherty](https://www.linkedin.com/in/roger-doherty-805635b/)
 
  *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
