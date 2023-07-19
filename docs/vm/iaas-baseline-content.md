@@ -422,7 +422,7 @@ The [Application Health extension](/azure/virtual-machine-scale-sets/virtual-mac
 
 [Azure boot diagnostics](/azure/virtual-machines/boot-diagnostics) is a debugging feature for Azure VMs that allows diagnosis of VM boot failures. Boot diagnostics enables a user to observe the state of their VM as it is booting up by collecting serial log information and screenshots. The diagnostics data is saved to a storage account.
 
-In the reference implementation, the virtual machines have boot diagnostics enabled. The diagnostic data is configured to use a managed storage account. To troubleshoot issues, you can access to the data through the Azure portal. You can also export the diagnostics log using [this Azure CLI command](/cli/azure/vm/boot-diagnostics?view=azure-cli-latest#az-vm-boot-diagnostics-get-boot-log).
+In the reference implementation, the virtual machines have boot diagnostics enabled. The diagnostic data is configured to use a managed storage account. To troubleshoot issues, you can access to the data through the Azure portal. You can also export the diagnostics log using [the Azure CLI vm boot-diagnostics get-boot-log command](/cli/azure/vm/boot-diagnostics?view=azure-cli-latest#az-vm-boot-diagnostics-get-boot-log).
 
 For greater control, a custom storage account can be used. Using your own provisioned storage account will give more control over the access permissions and set retention policy for the logs that align with requirements of your organization.
 
