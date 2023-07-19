@@ -4,7 +4,7 @@ metadata:
   description: Minimize private address space consumption when you build large networks in Azure. This article presents two methods to create more IPv4 address space.
   author: fguerri
   ms.author: fguerri khushal08
-  ms.date: 07/13/2023
+  ms.date: 07/19/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
