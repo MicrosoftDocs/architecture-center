@@ -9,9 +9,9 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
- - azure-front-door
+ - azure-application-insights
 categories:
- - networking
+ - monitoring
 ms.category:
   - fcp
 ms.custom:
@@ -56,7 +56,7 @@ The following diagram illustrates this deployment model:
 ![Diagram showing global shared Application Insights isolation model.](media/application-insights/global-shared-app-insights.png)
 
 ### Shared Application Insights per stamp
-Multitenant solutions often have multiple stamps, which might be deployed in different Azure regions. Stamps can enable you to serve tenants local to that particular region to offer better performance characteristics. A single stamp might serve a single tenant or a subset of your tenants. To learn more about stamps, see [Deployment stamps pattern](../approaches/overview-content.md#deployment-stamps-pattern).
+Multitenant solutions often have multiple stamps, which might be deployed in different Azure regions. Stamps can enable you to serve tenants local to that particular region to offer better performance characteristics. A single stamp might serve a single tenant or a subset of your tenants. To learn more about stamps, see [Deployment stamps pattern](../approaches/overview.ymld#deployment-stamps-pattern).
 
 You might choose to deploy an Application Insights instance into each stamp, which is shared by all of the tenants using the stamp. This approach provides more flexibility with resource limits given that there are several Application Insights resources to work with across stamps.
 
@@ -107,7 +107,7 @@ There are several ways to unify data from multiple Application Insights resource
 - [Azure Monitor Workboks](/training/modules/visualize-data-workbooks/) allow you to create interactive reports and dashboards using data from multiple sources, including Application Insights thus providing a way to visualize and analyze data from multiple Application Insights resources in a single view.
 
 ## Cost
-The main factor that determines the cost of Application Insights is the amount of data that you send to it and how long it is retained. Consequently, the use of dedicated or shared Application Insights instance in a multitenant application does not alter the overall cost profile. Please review the [Azure Monitor pricing page](/pricing/details/monitor/) for more information.
+The main factor that determines the cost of Application Insights is the amount of data that you send to it and how long it is retained. Consequently, the use of dedicated or shared Application Insights instance in a multitenant application does not alter the overall cost profile. Please review the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/) for more information.
 ## Latency
 The time between the creation of data on the monitored system and its availability for analysis is referred to as [Latency](/azure/azure-monitor/logs/data-ingestion-time). Use of dedicated or shared Application Insights instance in a multitenant application does not have any bearing on latency unless the shared instance gets throttled and prevents data from being ingested resulting in increased latency.
 ## Rate limiting on ingestion
@@ -121,7 +121,7 @@ Ingestion rate limiting in Application Insights can be achieved through [samplin
 - [Capture Application Insights custom metrics with .NET and .NET Core](/azure/azure-monitor/app/tutorial-asp-net-custom-metrics)
 - [Application Insights API for custom events and metrics](/azure/azure-monitor/app/api-custom-events-metrics)
 - [Application Insights telemetry data model](/azure/azure-monitor/app/data-model-complete)
-- [Azure Monitor Pricing](/pricing/details/monitor/)
+- [Azure Monitor Pricing](https://azure.microsoft.com/pricing/details/monitor/)
 - [Log data ingestion time in Azure Monitor](/azure/azure-monitor/logs/data-ingestion-time)
 - [Sampling in Application Insights](/azure/azure-monitor/app/sampling)
 - [Filtering and preprocess telemetry in the Application SDK](/azure/azure-monitor/app/api-filtering-sampling?tabs=sdkloaderscript)
