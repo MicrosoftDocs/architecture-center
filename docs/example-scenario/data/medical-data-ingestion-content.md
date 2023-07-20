@@ -104,3 +104,10 @@ Other contributors:
 - [Data Factory metrics and alerts](/azure/data-factory/monitor-metrics-alerts)
 - [Pipeline failures and error handling](/azure/data-factory/tutorial-pipeline-failure-error-handling)
 - [Open-source analytic pipelines](/azure/healthcare-apis/github-projects#analytic-pipelines)
+- [Overview of Dataverse healthcare APIs](/dynamics365/industry/healthcare/dataverse-healthcare-apis-overview)
+
+## Related resources
+
+- [Solutions for the healthcare industry](/../industries/healthcare.md)
+- [Health data consortium on Azure](/azure-health-data-consortium-content.md)
+- [HIPAA and HITRUST compliant health data AI](/../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai-content.md)
