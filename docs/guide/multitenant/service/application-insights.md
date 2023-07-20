@@ -88,9 +88,9 @@ The [telemetry client](/azure/azure-monitor/app/api-custom-events-metrics) is an
 #### Telemetry Initializers
 The [telemetry initializer](/azure/azure-monitor/app/api-filtering-sampling?tabs=sdkloaderscript#addmodify-properties-itelemetryinitializer) is used to add additional information to all telemetry, or to modify properties set by the standard telemetry modules.
 
-When you share an Application Insights instance across multiple tenants, the telemetry initializer is often a good place to inject the tenant ID into every telemetry item which can them be used to query and filter for reporting purposes. The advantage of using telemetry initializers is that you can apply custom properties to all or some of the telemetry items in one place without having to write code for each one. The disadvantage is that you have less control over what custom properties you want to add to each telemetry item and you may end up adding unnecessary or redundant data.
+When you share an Application Insights instance across multiple tenants, the telemetry initializer is often a good place to inject the tenant ID into every telemetry item, which can them be used to query and filter for reporting purposes. The advantage of using telemetry initializers is that you can apply custom properties to all or some of the telemetry items in one place without having to write code for each one. The disadvantage is that you have less control over what custom properties you want to add to each telemetry item and you may end up adding unnecessary or redundant data.
 
-By adding custom properties to the telemetry data, using either of the mechanisms above, you can leverage powerful features of Application Insights to monitor and analyze the multitenant application in a more granular and meaningful way. For example:
+By adding custom properties to the telemetry data, using either of the mechanisms, you can leverage powerful features of Application Insights to monitor and analyze the multitenant application in a more granular and meaningful way. For example:
 
 - They can use Metrics Explorer to create charts and graphs that show the performance and usage of the application for each tenant.
 - They can use Analytics to write complex queries that filter, aggregate, and join the telemetry data by tenant-specific properties or metrics.
