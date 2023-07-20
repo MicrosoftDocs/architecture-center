@@ -19,7 +19,7 @@ ms.custom:
 ---
 # Azure Application Insights considerations for multitenancy
 
-Application Insights is a service that monitors the performance, availability, and usage of your web applications. It helps you identify and diagnose issues, analyze user behavior, and track key metrics.  In this article, we describe some of the features of Application Insights that are useful when working with multitenanted systems, and we link to guidance and examples for how to use Application Insights in a multitenant solution.
+Application Insights is a service that monitors the performance, availability, and usage of your web applications. It helps you identify and diagnose issues, analyze user behavior, and track key metrics.  In this article, we describe some of the features of Application Insights that are useful when working with multitenanted systems. We link to guidance and examples for how to use Application Insights in a multitenant solution.
 
 > [!TIP]
 > Application Insights is designed and optimized for monitoring your solution. It is not meant for capturing every event that happens in a system to be used for auditing or billing purposes. See [considerations for measuring consumption in multitenant solutions](/azure/architecture/guide/multitenant/considerations/measure-consumption) for more information.
@@ -49,14 +49,14 @@ A single instance of Application Insights can be used to track telemetry for ten
 
 In addition, when using a shared Application Insights resource, you may find it more difficult to isolate and filter the data for each tenant, especially if you have a large number of tenants. You may also have security and privacy concerns, as all tenants share the same Log Analytics workspace and instrumentation keys.
 
-In order to address these concerns, you may need to implement additional logic and mechanisms to ensure that data can be filtered by tenant and your operations team, can properly see per-tenant data. This can be accomplished by adding a [custom property](#custom-properties-and-metrics) to capture the tenant ID as part of every telemetry item. The tenant ID can then be used to query the data.
+In order to address these concerns, you may need to implement extra logic and mechanisms to ensure that data can be filtered by tenant and your operations team, can properly see per-tenant data. Filtering can be accomplished by adding a [custom property](#custom-properties-and-metrics) to capture the tenant ID as part of every telemetry item. The tenant ID can then be used to query the data.
 
 The following diagram illustrates this deployment model:
 
 ![Diagram showing global shared Application Insights isolation model.](media/application-insights/global-shared-app-insights.png)
 
 ### Shared Application Insights per stamp
-Multitenant solutions often have multiple stamps, which might be deployed in different Azure regions. Stamps can enable you to serve tenants local to that particular region to offer better performance characteristics. A single stamp might serve a single tenant or a subset of your tenants. To learn more about stamps, see [Deployment stamps pattern](../approaches/overview.ymld#deployment-stamps-pattern).
+Multitenant solutions often have multiple stamps, which might be deployed in different Azure regions. Stamps can enable you to serve tenants local to that particular region to offer better performance characteristics. A single stamp might serve a single tenant or a subset of your tenants. To learn more about stamps, see [Deployment stamps pattern](../approaches/overview.yml#deployment-stamps-pattern).
 
 You might choose to deploy an Application Insights instance into each stamp, which is shared by all of the tenants using the stamp. This approach provides more flexibility with resource limits given that there are several Application Insights resources to work with across stamps.
 
