@@ -8,6 +8,10 @@ ms.date: 07/17/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+products:
+ - azure-front-door
+categories:
+ - networking
 ms.category:
   - fcp
 ms.custom:
