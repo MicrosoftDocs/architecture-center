@@ -418,7 +418,7 @@ The DCRs are applied to VMs through a built-in Azure Policy assignment to ensure
 
 The [Application Health extension](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension) is also deployed to the VMs. The Application Health extension is used by VMSS to monitor the binary health state of each VM instance in the scale set, and perform instance repairs if necessary by using Automatic Instance Repairs. The Application Health extension tests for the existence of the same file as the Application Gateway and Azure Load Balancer health probe, to determine if the application is responding.
 
-##### VM Boot diagnostics
+##### VM boot diagnostics
 
 [Azure boot diagnostics](/azure/virtual-machines/boot-diagnostics) is a debugging feature for Azure VMs that allows diagnosis of VM boot failures. Boot diagnostics enables a user to observe the state of their VM as it is booting up by collecting serial log information and screenshots. The diagnostics data is saved to a storage account.
 
