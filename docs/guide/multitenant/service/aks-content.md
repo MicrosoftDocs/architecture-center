@@ -107,6 +107,14 @@ Tenant workloads can be configured to run on separate agent nodes to avoid the [
 
 You can use [taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), [tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), [node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node), [node selectors](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node), and [node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node) to constrain tenants pods to run only on a particular set of nodes or node pools.
 
+In general, Azure Kubernetes Service (AKS) provides workload isolation at different levels:
+
+- At the kernel level by running tenant workloads in lightweight virtual machines on shared agent nodes using [Pod Sandboxing](#pod-sandboxing) based on [Kata Containers](https://katacontainers.io/)
+- At the physical level by hosting tenant applications on dedicated clusters or node pools.
+- At the hardware level by running tenant workloads on [Azure Dedicated Hosts](#azure-dedicated-hosts) that guarantee that agent node VMs run dedicated physical machines.
+
+These techniques can be combined. For example, you can run per-tenant clusters and node pools on an [Azure Dedicated Host Group](#azure-dedicated-hosts) to achieve workload segregation and physical isolation at the hardware level. You can also create shared or per-tenant node pools that support Enable [Federal Information Process Standard (FIPS)](#federal-information-process-standard-fips), [Confidential Virtual Machines (CVM)](#confidential-virtual-machines-cvm), or [Host-based encryption](#host-based-encryption).
+
 Node isolation allows you to  easily associate and charge back the cost of a set of nodes or node pool to a single tenant. It's strictly related to the tenancy model that's adopted by your solution.
 
 For more information, see [Node Isolation](https://kubernetes.io/docs/concepts/security/multi-tenancy/#node-isolation) in the Kubernetes documentation.
@@ -262,7 +270,7 @@ By utilizing Azure Dedicated Hosts with AKS, several benefits can be achieved. F
 
 Azure Dedicated Hosts can help SaaS providers ensure tenant applications meet regulatory, industry, and governance compliance requirements for securing sensitive information. For more information, see [Add Azure Dedicated Host to an Azure Kubernetes Service (AKS) cluster](/azure/aks/use-azure-dedicated-hosts).
 
-### Confidential Virtual Machines
+### Confidential Virtual Machines (CVM)
 
 You can use [Confidential Virtual Machines (CVM)](/azure/aks/use-cvm) to add one or more node pools to your AKS cluster to address tenants' strict isolation, privacy, and security requirements. [Confidential Virtual Machines (CVM)](https://techcommunity.microsoft.com/t5/azure-confidential-computing/azure-confidential-vms-using-sev-snp-dcasv5-ecasv5-are-now/ba-p/3573747) adopt VMs with a hardware-based [Trusted Execution Environment (TEE)](https://en.wikipedia.org/wiki/Trusted_execution_environment). [AMD Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP)](https://www.amd.com/system/files/TechDocs/SEV-SNP-strengthening-vm-isolation-with-integrity-protection-and-more.pdf) confidential VMs deny the hypervisor and other host management code access to VM memory and state, adding defense in-depth protections against operator access. For more information, see [Use Confidential Virtual Machines (CVM) in Azure Kubernetes Service (AKS) cluster](/azure/aks/use-cvm).
 
