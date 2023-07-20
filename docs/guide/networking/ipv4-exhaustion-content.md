@@ -9,13 +9,13 @@ In the cloud, large hybrid networks are easy to build, and some common architect
 
 ### Azure Virtual Network IP address ranges
 
-In your Azure virtual networks, we recommend that you use the RFC 1918-defined address blocks. These address blocks are for general-purpose private networks and are nonroutable on the public internet.
+In your Azure virtual networks, we recommend that you use the address blocks defined by RFC 1918. These address blocks are for general-purpose private networks and are nonroutable on the public internet.
 
 You can use other ranges, but before you use those ranges in your virtual network, read the Internet Assigned Numbers Authority (IANA) documentation to understand the potential implications to your environment. You can use the following ranges:
 
-- The shared, RFC 6598-defined address space for carrier-grade network address translation (NAT) is treated as private address space in Virtual Network. The address block is 100.64.0.0/10.
-- The public, internet-routable IP addresses that your organization doesn't own, but this practice is discouraged. When you use public address ranges, resources in the virtual network can’t access internet endpoints that are exposed over the public IP addresses.
-- The special-purpose, IANA-defined address blocks, like 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 198.18.0.0/15, 198.51.100.0/24, 203.0.113.0/24, 233.252.0.0/24, and 240.0.0.0/4.
+- Shared address space defined by RFC 6598 for carrier-grade network address translation (NAT) that's treated as private address space in Azure Virtual Network. The address block is 100.64.0.0/10.
+- Public, internet-routable IP addresses that your organization doesn't own. This practice is discouraged because resources in the virtual network can’t access internet endpoints that are exposed over the public IP addresses.
+- Special-purpose address blocks that are defined by IANA, like 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 198.18.0.0/15, 198.51.100.0/24, 203.0.113.0/24, 233.252.0.0/24, and 240.0.0.0/4.
 
 > [!NOTE]
 > The previous ranges don't provide a long-term solution for organizations that have IPv4 exhaustion issues. In that case, you should minimize private address space consumption.
@@ -38,10 +38,10 @@ The recommendations in this article are for scenarios that are based on the [Azu
 
 The following diagram shows an example architecture. The recommendations are equally applicable to networks that are built on top of Azure Virtual WAN, which also has hub-and-spoke networks in each region.
 
-:::image type="content" source="./images/ipv4-exhaustion-hub-spoke.png" alt-text="Diagram that shows the regional hub-and-spoke topology." border="false" lightbox="./images/ipv4-exhaustion-hub-spoke.png":::
+:::image type="content" source="./images/ipv4-exhaustion-hub-spoke.svg" alt-text="Diagram that shows the regional hub-and-spoke topology." border="false" lightbox="./images/ipv4-exhaustion-hub-spoke.svg":::
 *Download a [PowerPoint file](https://arch-center.azureedge.net/ipv4-hub-spoke-pp.pptx) of this architecture.*
 
-In a scenario that's based on the Azure landing zone architecture, applications are deployed in their own landing zone. Each landing zone contains a spoke virtual network that's peered to a regional hub. Spoke virtual networks are an integral part of the corporate network and are assigned routable IPv4 addresses. These addresses are unique across the entire corporate network. So, all architectural components that are deployed in Virtual Network consume IPv4 addresses in the corporate network’s address space even if only a few components expose endpoints that must be reachable from the entire corporate network. These architectural components might be virtual machines, first-party or third-party network virtual appliances (NVAs), or virtual network-injected platform-as-a-service (PaaS) services.
+In a scenario that's based on the Azure landing zone architecture, applications are deployed in their own landing zone. Each landing zone contains a spoke virtual network that's peered to a regional hub. Spoke virtual networks are an integral part of the corporate network and are assigned routable IPv4 addresses. These addresses are unique across the entire corporate network. So, all architectural components that are deployed in Azure Virtual Network consume IPv4 addresses in the corporate network’s address space even if only a few components expose endpoints that must be reachable from the entire corporate network. These architectural components might be virtual machines, first-party or third-party network virtual appliances (NVAs), or virtual network-injected platform-as-a-service (PaaS) services.
 
 For the remainder of this article, *front-end component* refers to an application component that's reachable from the entire corporate network, or from outside the component's landing zone. *Back-end component* refers to an application component that doesn't expose endpoints in the corporate network and only needs to be reachable from within its own landing zone. For example, a web application that exposes an endpoint is a front-end component, and a database that doesn't expose an endpoint is a back-end component.
 
@@ -57,6 +57,7 @@ RFC 1918 carves IP address blocks out of the IPv4 32-bit address space and makes
 In an Azure hub-and-spoke network that's customer-managed or based on Virtual WAN, two or more spoke virtual networks can't have overlapping IP address spaces. Nonroutable address blocks can't be assigned to a landing zone spoke. Virtual network peering is nontransitive, so a landing zone spoke virtual network can peer with a *second-level* spoke virtual network that has a nonroutable address space. The following diagram shows the dual virtual network topology for landing zones.
 
 :::image type="content" source="./images/ipv4-exhaustion-hub-spoke-vnet-peering.png" alt-text="Diagram that shows the dual virtual network topology for landing zones." border="false" lightbox="./images/ipv4-exhaustion-hub-spoke-vnet-peering.png":::
+*Download a [PowerPoint file](https://arch-center.azureedge.net/ipv4-exhaustion-hub-spoke-vnet-peering.pptx) of this architecture.*
 
 Each application landing zone contains two peered virtual networks. One virtual network has routable IP addresses and hosts front-end components. The other virtual network has nonroutable IP addresses and hosts back-end components. The routable landing zone spoke peers with the regional hub. The nonroutable landing zone spoke peers with the routable landing zone spoke. Virtual network peering is nontransitive, so nonroutable prefixes aren't visible to the regional hub or the rest of the corporate network. The routable virtual networks can't use the nonroutable address ranges. Some organizations have fragmented address space that’s already assigned to routable networks. It can be challenging to identify unused large address blocks and declare them nonroutable. In that case, consider unused addresses that aren’t included in the RFC 1918 address space. The previous diagram provides an example of carrier-grade NAT addresses, like RFC 6598, in nonroutable spoke virtual networks.
 
@@ -67,12 +68,14 @@ Virtual network peering provides full layer-3 connectivity between two peered vi
 The following applications are exposed via layer-7 application delivery controllers:
 
 :::image type="content" source="./images/ipv4-exhaustion-app-gw-l7.png" alt-text="Diagram that shows the migration pattern for applications that are exposed via layer-7 application delivery controllers." border="false" lightbox="./images/ipv4-exhaustion-app-gw-l7.png":::
+*Download a [PowerPoint file](https://arch-center.azureedge.net/ipv4-exhaustion-app-gw-l7.pptx) of this architecture.*
 
 Applications that are exposed via layer-7 application delivery controllers can be moved to the nonroutable spoke. The application delivery controller is the only front-end component that must reside in the routable landing zone spoke.
 
 The following applications are exposed via an Azure load balancer:
 
 :::image type="content" source="./images/ipv4-exhaustion-load-balancer-l4.png" alt-text="Diagram that shows the migration pattern for applications that are exposed via Azure Load Balancer." border="false" lightbox="./images/ipv4-exhaustion-load-balancer-l4.png":::
+*Download a [PowerPoint file](https://arch-center.azureedge.net/ipv4-exhaustion-load-balancer-l4.pptx) of this architecture.*
 
 If an application exposes its endpoints via an Azure load balancer, the compute instances that are part of the load balancer’s back-end pool must remain in the same virtual network. Azure load balancers only support back-end instances in their own virtual network.
 
@@ -83,6 +86,7 @@ An application’s back-end components don't need to be reachable, or receive in
 When services initiate connections in nonroutable spoke virtual networks, you must implement source NAT (SNAT) for connections behind a routable IP address. To implement SNAT, deploy a NAT-capable device in the routable spoke virtual network. Each landing zone runs its own dedicated NAT NVA. There are two options for implementing SNAT in a landing zone: Azure Firewall or third-party NVAs. In both cases, all subnets in the nonroutable spoke must be associated with a custom route table. As shown in the following diagram, the route table forwards traffic to destinations outside the landing zone to the SNAT device. Azure NAT Gateway doesn't support SNAT for traffic destined to private IP address space, such as RFC 1918 space.
 
 :::image type="content" source="./images/ipv4-exhaustion-snat-nva.png" alt-text="Diagram that shows how the custom route table forwards traffic to the SNAT device." border="false" lightbox="./images/ipv4-exhaustion-snat-nva.png":::
+*Download a [PowerPoint file](https://arch-center.azureedge.net/ipv4-exhaustion-snat-nva.pptx) of this architecture.*
 
 #### Implement SNAT via Azure Firewall
 
@@ -95,12 +99,14 @@ Azure Firewall:
 The following diagram shows the landing zone layout to implement SNAT in a hub-and-spoke network topology by using Azure Firewall.
 
 :::image type="content" source="./images/ipv4-exhaustion-snat-azfw.png" alt-text="Diagram that shows the SNAT implementation by using Azure Firewall." border="false" lightbox="./images/ipv4-exhaustion-snat-azfw.png":::
+*Download a [PowerPoint file](https://arch-center.azureedge.net/ipv4-exhaustion-snat-azfw.pptx) of this architecture.*
 
 You must associate all subnets in the nonroutable spoke with a custom route table to send traffic to destinations outside the landing zone to Azure Firewall.
 
 The following diagram shows the landing zone layout to implement SNAT *in a Virtual WAN-based* hub-and-spoke network by using Azure Firewall.
 
-:::image type="content" source="./images/ipv4-exhaustion-snat-azfw-vwan.png" alt-text="Diagram that shows the SNAT implementation in a Virtual WAN-based network by using Azure Firewall." border="false" lightbox="./images/ipv4-exhaustion-snat-azfw-vwan.png":::
+:::image type="content" source="./images/ipv4-exhaustion-snat-azfw-virtual-wan.png" alt-text="Diagram that shows the SNAT implementation in a Virtual WAN-based network by using Azure Firewall." border="false" lightbox="./images/ipv4-exhaustion-snat-azfw-virtual-wan.png":::
+*Download a [PowerPoint file](https://arch-center.azureedge.net/ipv4-exhaustion-snat-azfw-virtual-wan.pptx) of this architecture.*
 
 You must associate all subnets in the nonroutable spoke, or the spokes that aren't connected to Virtual WAN, with a custom route table to send traffic to destinations outside the landing zone to Azure Firewall.
 
@@ -124,10 +130,12 @@ Consider the following recommendations:
 The following diagram shows the landing zone layout to implement SNAT in a hub-and-spoke network topology by using third-party NVAs.
 
 :::image type="content" source="./images/ipv4-exhaustion-nva-snat-flow.png" alt-text="Diagram that shows the implementation of SNAT in a hub-and-spoke network topology by using third-party NVAs." border="false" lightbox="./images/ipv4-exhaustion-nva-snat-flow.png":::
+*Download a [PowerPoint file](https://arch-center.azureedge.net/ipv4-exhaustion-nva-snat-flow.pptx) of this architecture.*
 
 The following diagram shows the landing zone layout to implement SNAT *in a Virtual WAN-based* hub-and-spoke network topology by using third-party NVAs.
 
-:::image type="content" source="./images/ipv4-exhaustion-vwan-nva-snat-flow.png" alt-text="Diagram that shows the implementation of SNAT in a Virtual WAN-based hub-and-spoke network topology by using third-party NVAs." border="false" lightbox="./images/ipv4-exhaustion-vwan-nva-snat-flow.png":::
+:::image type="content" source="./images/ipv4-exhaustion-virtual-wan-nva-snat-flow.png" alt-text="Diagram that shows the implementation of SNAT in a Virtual WAN-based hub-and-spoke network topology by using third-party NVAs." border="false" lightbox="./images/ipv4-exhaustion-virtual-wan-nva-snat-flow.png":::
+*Download a [PowerPoint file](https://arch-center.azureedge.net/ipv4-exhaustion-virtual-wan-nva-snat-flow.pptx) of this architecture.*
 
 For both third-party NVA layouts, you must deploy multiple instances behind an Azure load balancer to provide high availability. Azure Load Balancer Standard SKU is required.
 
@@ -143,6 +151,7 @@ Private Link doesn't require a layer-3 connection between the client-side virtua
 The following diagram shows the Private Link-enabled landing zone topology.
 
 :::image type="content" source="./images/ipv4-exhaustion-private-link.png" alt-text="Diagram that shows the landing zone topology when Private Link services expose applications deployed in isolated virtual networks." border="false" lightbox="./images/ipv4-exhaustion-private-link.png":::
+*Download a [PowerPoint file](https://arch-center.azureedge.net/ipv4-exhaustion-private-link.pptx) of this architecture.*
 
 ### Use a Private Link service for outbound dependencies
 
@@ -158,6 +167,7 @@ In real-world, large-scale implementations, the Private Link method might not ap
 To overcome these two limitations, deploy a proxy/NAT solution in the routable spoke and make it accessible from the isolated virtual network by using Private Link.
 
 :::image type="content" source="./images/ipv4-exhaustion-private-link-flow.png" alt-text="Diagram that shows the architecture that uses a Private Link service for outbound dependencies." border="false" lightbox="./images/ipv4-exhaustion-private-link-flow.png":::
+*Download a [PowerPoint file](https://arch-center.azureedge.net/ipv4-exhaustion-private-link-flow.pptx) of this architecture.*
 
 Use a single private endpoint or Private Link service to expose a proxy/NAT solution that's deployed in the routable network. Port-translation and address-translation rules are defined on the NVAs. These rules allow the use of a single private endpoint in the isolated virtual network to access multiple dependencies in the routable network.
 
@@ -181,7 +191,7 @@ Use a single private endpoint or Private Link service to expose a proxy/NAT solu
 
 - [Deploy Azure Firewall in a virtual network](/azure/firewall/tutorial-firewall-deploy-portal-policy)
 - [Configure SNAT in Azure Firewall](/azure/firewall/snat-private-range)
-- [Supported IP addresses in Virtual Network](/azure/virtual-network/virtual-networks-faq#what-address-ranges-can-i-use-in-my-vnets)
+- [Supported IP addresses in Azure Virtual Network](/azure/virtual-network/virtual-networks-faq#what-address-ranges-can-i-use-in-my-vnets)
 - [Azure Private Link](/azure/private-link/private-link-overview)
 - [Azure Load Balancer](/azure/load-balancer/load-balancer-overview)
 - [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview)
