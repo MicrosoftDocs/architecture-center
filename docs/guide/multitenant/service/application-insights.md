@@ -22,7 +22,7 @@ ms.custom:
 Application Insights is a service that monitors the performance, availability, and usage of your web applications. It helps you identify and diagnose issues, analyze user behavior, and track key metrics.  In this article, we describe some of the features of Application Insights that are useful when working with multitenanted systems. We link to guidance and examples for how to use Application Insights in a multitenant solution.
 
 > [!TIP]
-> Application Insights is designed and optimized for monitoring your solution. It is not meant for capturing every event that happens in a system to be used for auditing or billing purposes. See [considerations for measuring consumption in multitenant solutions](/azure/architecture/guide/multitenant/considerations/measure-consumption) for more information.
+> Application Insights is designed and optimized for monitoring your solution. It is not meant for capturing every event that happens in a system to be used for auditing or billing purposes. For more information [considerations for measuring consumption in multitenant solutions](/azure/architecture/guide/multitenant/considerations/measure-consumption).
 
 
 ## Isolation models
@@ -31,7 +31,7 @@ When working with a multitenant system using Azure Application Insights, you nee
 - How many tenants do you plan to have?
 - Do you share your application tier between multiple tenants, or do you deploy separate deployment stamps for each tenant?
 - Are you sensitive about storing your data alongside with other tenant's data?
-- Is the application tier of your solution multitenanted but the data tier is single tenanted?
+- Is the application tier of your solution multitenant but the data tier is single tenant?
 - Do telemetry requirements vary between tenants?
 
 The following table summarizes the differences between the main tenancy models for Application Insights:
@@ -90,7 +90,7 @@ The [telemetry initializer](/azure/azure-monitor/app/api-filtering-sampling?tabs
 
 When you share an Application Insights instance across multiple tenants, the telemetry initializer is often a good place to inject the tenant ID into every telemetry item, which can them be used to query and filter for reporting purposes. The advantage of using telemetry initializers is that you can apply custom properties to all or some of the telemetry items in one place without having to write code for each one. The disadvantage is that you have less control over what custom properties you want to add to each telemetry item and you may end up adding unnecessary or redundant data.
 
-By adding custom properties to the telemetry data, using either of the mechanisms, you can leverage powerful features of Application Insights to monitor and analyze the multitenant application in a more granular and meaningful way. For example:
+By adding custom properties to the telemetry data, using either of the mechanisms, you can use powerful features of Application Insights to monitor and analyze the multitenant application in a more granular and meaningful way. For example:
 
 - They can use Metrics Explorer to create charts and graphs that show the performance and usage of the application for each tenant.
 - They can use Analytics to write complex queries that filter, aggregate, and join the telemetry data by tenant-specific properties or metrics.
@@ -102,12 +102,12 @@ By adding custom properties to the telemetry data, using either of the mechanism
 There are several ways to unify data from multiple Application Insights resources, depending on your needs and preferences. Here are some of the options.
 #### Cross-resource queries
 
-- Using cross-resource queries data can be [queried](/azure/azure-monitor/logs/cross-workspace-query) from multiple Application Insights resources in a single query. The resources can be in same resource group, another resource group, or another subscription. Note that as the number of Application Insights workspaces in a query increase, the query performance may degrade. There is a limit to the number of Application Insights workspaces that can be included in a single query. For more information, see [Query Across Multiple workspaces and apps](/azure/azure-monitor/logs/cross-workspace-query)
+- Using cross-resource queries data can be [queried](/azure/azure-monitor/logs/cross-workspace-query) from multiple Application Insights resources in a single query. The resources can be in same resource group, another resource group, or another subscription. As the number of Application Insights workspaces in a query increase, the query performance may degrade. There is a limit to the number of Application Insights workspaces that can be included in a single query. For more information, see [Query Across Multiple workspaces and apps](/azure/azure-monitor/logs/cross-workspace-query)
 #### Azure Monitor workbooks
 - [Azure Monitor Workboks](/training/modules/visualize-data-workbooks/) allow you to create interactive reports and dashboards using data from multiple sources, including Application Insights thus providing a way to visualize and analyze data from multiple Application Insights resources in a single view.
 
 ## Cost
-The main factor that determines the cost of Application Insights is the amount of data that you send to it and how long it is retained. Consequently, the use of dedicated or shared Application Insights instance in a multitenant application does not alter the overall cost profile. Please review the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/) for more information.
+The main factor that determines the cost of Application Insights is the amount of data that you send to it and how long it is retained. So, the use of dedicated or shared Application Insights instance in a multitenant application does not alter the overall cost profile. Review the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/) for more information.
 ## Latency
 The time between the creation of data on the monitored system and its availability for analysis is referred to as [Latency](/azure/azure-monitor/logs/data-ingestion-time). Use of dedicated or shared Application Insights instance in a multitenant application does not have any bearing on latency unless the shared instance gets throttled and prevents data from being ingested resulting in increased latency.
 ## Rate limiting on ingestion
