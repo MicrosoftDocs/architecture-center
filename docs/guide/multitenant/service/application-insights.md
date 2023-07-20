@@ -2,12 +2,16 @@
 title: Application Insights considerations for multitenancy
 titleSuffix: Azure Architecture Center
 description: This article describes the features of Application Insights that are useful when working with multitenanted systems, and it provides links to guidance and examples.
-author: rajnemni
+author: rajnemani
 ms.author: ranema
 ms.date: 07/17/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+products:
+ - azure-application-insights
+categories:
+ - Monitoring
 ms.category:
   - fcp
 ms.custom:
@@ -18,7 +22,7 @@ ms.custom:
 Application Insights is a service that monitors the performance, availability, and usage of your web applications. It helps you identify and diagnose issues, analyze user behavior, and track key metrics.  In this article, we describe some of the features of Application Insights that are useful when working with multitenanted systems, and we link to guidance and examples for how to use Application Insights in a multitenant solution.
 
 > [!TIP]
-> Application Insights is designed and optimized for monitoring your solution. It is not meant for capturing every event that happens in a system to be used for auditing or billing purposes. See [considerations for measuring consumption in multitenant solutions](https://learn.microsoft.com/azure/architecture/guide/multitenant/considerations/measure-consumption) for more information.
+> Application Insights is designed and optimized for monitoring your solution. It is not meant for capturing every event that happens in a system to be used for auditing or billing purposes. See [considerations for measuring consumption in multitenant solutions](/azure/architecture/guide/multitenant/considerations/measure-consumption) for more information.
 
 
 ## Isolation models
@@ -52,7 +56,7 @@ The following diagram illustrates this deployment model:
 ![Diagram showing global shared Application Insights isolation model.](media/application-insights/global-shared-app-insights.png)
 
 ### Shared Application Insights per stamp
-Multitenant solutions often have multiple stamps, which might be deployed in different Azure regions. Stamps can enable you to serve tenants local to that particular region to offer better performance characteristics. A single stamp might serve a single tenant or a subset of your tenants. To learn more about stamps, see [Deployment stamps pattern](../approaches/overview.md#deployment-stamps-pattern).
+Multitenant solutions often have multiple stamps, which might be deployed in different Azure regions. Stamps can enable you to serve tenants local to that particular region to offer better performance characteristics. A single stamp might serve a single tenant or a subset of your tenants. To learn more about stamps, see [Deployment stamps pattern](../approaches/overview-content.md#deployment-stamps-pattern).
 
 You might choose to deploy an Application Insights instance into each stamp, which is shared by all of the tenants using the stamp. This approach provides more flexibility with resource limits given that there are several Application Insights resources to work with across stamps.
 
