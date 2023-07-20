@@ -22,7 +22,7 @@ _Download a [Visio file](https://arch-center.azureedge.net/data-factory-ingestio
 ### Components
 
 - [Data Factory](/azure/data-factory/introduction) is a cloud-based platform for workloads that use the extract, transform, and load (ETL) process and store large amounts of data in data stores.
-- [Azure Data Explorer](/products/data-explorer/#overview) is a managed-data analytics service that performs real-time analysis of large volumes of data. In this scenario, Azure Data Explorer stores and queries large datasets that require a high data retrieval speed and a large index set.
+- [Azure Data Explorer](https://azure.microsoft.com/products/data-explorer) is a managed-data analytics service that performs real-time analysis of large volumes of data. In this scenario, Azure Data Explorer stores and queries large datasets that require a high data retrieval speed and a large index set.
 - [Azure Files](/azure/storage/files/storage-files-introduction) provides fully managed file shares in the cloud. In this scenario, medical image files that are to be ingested go in the file share.
 - An [Azure Automation runbook](/azure/automation/overview) handles large volumes of files, up to 30 terabytes (TB). In this scenario, use `AzCopy` with an Azure Automation runbook for better performance.
 - [Blob Storage](https://azure.microsoft.com/services/storage/blobs) is used for copying files from an Azure Files share, which triggers the Azure function to ingest data. During the ingestion process, Blob Storage also holds transient DICOM metadata files that are ingested into Azure Data Explorer clusters.
@@ -48,7 +48,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-Reliability ensures your application can recover from failures and continue to function as designed. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/reliability/overview).
+Reliability ensures your application can recover from failures and continue to function as designed. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
 In Data Factory, avoid data loss by [storing and replicating your data](/azure/data-factory/concepts-data-redundancy) in paired regions. This method is called zone redundancy. You can’t use zone redundancy in some regions due to data residency requirements. Zone redundancy with availability zones incurs extra costs. If a deployment doesn’t have zone redundancy, data isn’t protected. For example, an Azure datacenter outage also results in a cluster outage.
 
