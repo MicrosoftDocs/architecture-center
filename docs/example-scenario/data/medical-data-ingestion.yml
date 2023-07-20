@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
-  title: Medical data ingestion in Azure
-  description: Learn about medical data ingestion.
+  title: Ingest and store medical data in Azure
+  description: Create a data store to search and filter medical data by using Azure Data Factory pipelines with preingestion and postingestion validation pipelines. 
   author: dsutton-msft
   ms.author: dsutton, nabalas 
-  ms.date: 07/19/2023
+  ms.date: 07/20/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -16,8 +16,8 @@ products:
   - azure-queue-storage
   - azure-blob-storage
   - azure-files
-name: Medical data ingestion in Azure
-summary: Learn about medical data ingestion.
+name: Ingest and store medical data in Azure
+summary: Create a data store to search and filter medical data by using Azure Data Factory pipelines with preingestion and postingestion validation pipelines.
 thumbnailUrl: /azure/architecture/browse/thumbs/data-factory-pipeline.png
 content: |
   [!include[](medical-data-ingestion-content.md)]
