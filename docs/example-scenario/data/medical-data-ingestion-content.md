@@ -108,6 +108,6 @@ Other contributors:
 
 ## Related resources
 
-- [Solutions for the healthcare industry](/../industries/healthcare.md)
-- [Health data consortium on Azure](/azure-health-data-consortium-content.md)
-- [HIPAA and HITRUST compliant health data AI](/../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai-content.md)
+- [Solutions for the healthcare industry](../../industries/healthcare.md)
+- [Health data consortium on Azure](azure-health-data-consortium.yml)
+- [HIPAA and HITRUST compliant health data AI](../../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)
