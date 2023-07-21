@@ -8,7 +8,7 @@ Migrating workloads from mainframe to Azure as a part of application replatformi
 
 The following diagram shows how mLogica LIBER*IRIS integrates with Azure components to migrate mainframe data to Azure at scale.
 
-[ ![Architecture diagram shows the architecture of how mLogica LIBER*IRIS integrates with Azure components to migrate mainframe data.](media/mlogica-mainframe-data-migration-architecture-inline.png)](media/mlogica-mainframe-data-migration-architecture-inline.png#lightbox)
+:::image type="content" source="media/mlogica-mainframe-data-migration-architecture.svg" alt-text="Architecture diagram shows the architecture of how mLogica LIBER*IRIS integrates with Azure components to migrate mainframe data." lightbox="media/mlogica-mainframe-data-migration-architecture.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/mlogica-mainframe-data-migration-architecture.vsdx) of this architecture.*
 
