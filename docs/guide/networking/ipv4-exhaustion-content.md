@@ -112,7 +112,7 @@ You must associate all subnets in the nonroutable spoke, or the spokes that aren
 
 For both layouts, to provide resources in the nonroutable spoke access to routable IP addresses outside their landing zone, you must deploy Azure Firewall with the **Perform SNAT** option set to **Always** in each landing zone’s routable spoke. You can find instructions about how to configure Azure Firewall to implement SNAT on all received connections in public documentation. The following screenshot shows the required configuration for using Azure Firewall as a NAT device for connections initiated by resources in nonroutable spoke virtual networks.
 
-:::image type="content" source="./images/ipv4-exhaustion-azure-firewall-snat-behavior.svg" alt-text="Screenshot that shows the dialog for Azure Firewall Default SNAT Behavior. Always is selected for the Perform SNAT option." border="false" lightbox="./images/ipv4-exhaustion-azure-firewall-snat-behavior.svg":::
+:::image type="content" source="./images/ipv4-exhaustion-azure-firewall-snat-behavior.png" alt-text="Screenshot that shows the dialog for Azure Firewall Default SNAT Behavior. Always is selected for the Perform SNAT option." border="false" lightbox="./images/ipv4-exhaustion-azure-firewall-snat-behavior.png":::
 
 #### Implement SNAT via third-party NVAs
 
