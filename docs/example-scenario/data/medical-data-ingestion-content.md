@@ -2,7 +2,7 @@ This article describes how to create a data store to search and filter medical d
 
 ## Architecture
 
-:::image type="content" source="./media/data-factory-ingestion-pipeline.png" alt-text="Diagram that shows the process of ingesting and indexing medical files." border="false" lightbox="./media/data-factory-ingestion-pipeline.png":::
+:::image type="content" source="./media/data-factory-ingestion-pipeline.svg" alt-text="Diagram that shows the process of ingesting and indexing medical files." border="false" lightbox="./media/data-factory-ingestion-pipeline.svg":::
 
 _Download a [Visio file](https://arch-center.azureedge.net/data-factory-ingestion-pipeline.vsdx) of this architecture._
 
