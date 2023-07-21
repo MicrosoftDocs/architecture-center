@@ -157,7 +157,8 @@ The following diagram shows the Private Link-enabled landing zone topology.
 
 When you deploy applications in isolated spoke virtual networks, use a Private Link service for outbound dependencies. Define private endpoints in the isolated spoke virtual network and associate them with a Private Link service in routable virtual networks. The following diagram shows the conceptual approach.
 
-:::image type="content" source="./images/ipv4-exhaustion-private-link-isolated.png" alt-text="Diagram that shows Private Link services used for outbound dependencies for applications deployed in isolated virtual networks." border="false" lightbox="./images/ipv4-exhaustion-private-link-isolated.png":::
+:::image type="content" source="./images/ipv4-exhaustion-private-link-isolated.svg" alt-text="Diagram that shows Private Link services used for outbound dependencies for applications deployed in isolated virtual networks." border="false" lightbox="./images/ipv4-exhaustion-private-link-isolated.svg":::
+*Download a [PowerPoint file](https://arch-center.azureedge.net/ipv4-exhaustion-private-link-isolated.pptx) of this architecture.*
 
 In real-world, large-scale implementations, the Private Link method might not apply:
 
