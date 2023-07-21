@@ -4,7 +4,7 @@ metadata:
   description: Review proven practices for running SAP S/4HANA in a Linux environment on Azure, with high availability.
   author: bqtrinh
   ms.author: bentrin
-  ms.date: 08/05/2022
+  ms.date: 07/20/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide

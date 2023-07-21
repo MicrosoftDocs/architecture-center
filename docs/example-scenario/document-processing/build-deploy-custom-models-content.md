@@ -201,4 +201,4 @@ Principal author:
 - [Knowledge mining in contract management](../../solution-ideas/articles/contract-management.yml)
 - [Knowledge mining for content research](../../solution-ideas/articles/content-research.yml)
 - [Automate document processing by using Azure Form Recognizer](../ai/automate-document-processing-azure-form-recognizer.yml)
-- [Automate COVID-19 test forms](../ai/form-recognizer-covid.yml)
+- [Automate healthcare forms](../ai/form-recognizer-healthcare.yml)

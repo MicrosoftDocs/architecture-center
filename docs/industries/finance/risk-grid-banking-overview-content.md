@@ -150,5 +150,5 @@ Product documentation:
 
 - [Risk grid computing solution](risk-grid-banking-solution-guide.yml)
 - [HPC risk analysis template](../../solution-ideas/articles/hpc-risk-analysis.yml)
-- [Loan credit risk and default modeling](../../solution-ideas/articles/loan-credit-risk-analyzer-and-default-modeling.yml)
+- [Loan credit risk and default modeling](../../example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml)
 - [Actuarial risk analysis and financial modeling](./actuarial-risk-analysis-financial-model.yml)

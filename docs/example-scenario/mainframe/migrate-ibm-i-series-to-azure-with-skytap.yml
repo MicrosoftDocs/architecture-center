@@ -22,6 +22,6 @@ products:
   - azure-data-box-family
 name: Migrate IBM i series to Azure with Skytap
 summary: This example architecture shows how to use the native IBM i backup and recovery services with Microsoft Azure components.
-thumbnailUrl: /azure/architecture/browse/thumbs/migrate-ibm-i-series-applications.png
+thumbnailUrl: /azure/architecture/browse/thumbs/migrate-ibm-i-series-to-azure-with-skytap.png
 content: |
   [!include[](migrate-ibm-i-series-to-azure-with-skytap-content.md)]

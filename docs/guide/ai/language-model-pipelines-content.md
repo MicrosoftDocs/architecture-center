@@ -35,7 +35,7 @@ After the batch pipeline is complete, the ***real-time, asynchronous*** ***pipel
 
 - [LangChain](https://python.langchain.com/en/latest/index.html) is a third-party, open-source framework that you can use to develop applications that are powered by language models. LangChain makes the complexities of working and building with AI models easier by providing the pipeline orchestration framework and helper utilities to run powerful, multiple-model pipelines.
 
-- Memory refers to capturing information. By default, language modeling chains (or pipelines) and agents operate in a stateless manner. They handle each incoming query independently, just like the underlying language models and chat models that they use. But in certain applications, such as chatbots, it's crucial to retain information from past interactions in the short term and the long term. This area is where the concept of "memory" comes into play. LangChain provides convenient utility tools to manage and manipulate past chat messages. These utilities are designed to be modular regardless of their specific usage. LangChain also offers seamless methods to integrate these utilities into the memory of chains by using [language models](https://python.langchain.com/en/latest/modules/memory/how_to_guides.html).
+- Memory refers to capturing information. By default, language modeling chains (or pipelines) and agents operate in a stateless manner. They handle each incoming query independently, just like the underlying language models and chat models that they use. But in certain applications, such as chatbots, it's crucial to retain information from past interactions in the short term and the long term. This area is where the concept of "memory" comes into play. LangChain provides convenient utility tools to manage and manipulate past chat messages. These utilities are designed to be modular regardless of their specific usage. LangChain also offers seamless methods to integrate these utilities into the memory of chains by using [language models](https://python.langchain.com/docs/modules/memory/how_to/adding_memory).
 
 - [Semantic Kernel](/semantic-kernel) is an open-source software development kit (SDK) that you can use to orchestrate and deploy language models. You can explore Semantic Kernel as a potential alternative to LangChain.
 
@@ -74,7 +74,7 @@ Other contributor:
 - [Enterprise search with OpenAI architecture](https://github.com/MSUSAzureAccelerators/Knowledge-Mining-with-OpenAI)
 - [Generative AI for developers: Exploring new tools and APIs in Azure OpenAI Service](https://techcommunity.microsoft.com/t5/ai-cognitive-services-blog/generative-ai-for-developers-exploring-new-tools-and-apis-in/ba-p/3817003)
 - [LangChain](https://python.langchain.com/en/latest/index.html)
-- [Memory with language models](https://python.langchain.com/en/latest/modules/memory/how_to_guides.html)
+- [Memory with language models](https://python.langchain.com/docs/modules/memory/how_to/adding_memory)
 - [Quickstart: Get started generating text using Azure OpenAI Service](/azure/cognitive-services/openai/quickstart?pivots=programming-language-studio&tabs=command-line)
 - [Redis on Azure OpenAI](https://github.com/openai/openai-cookbook/tree/main/examples/vector_databases/redis)
 - [Revolutionize your enterprise data with ChatGPT: Next-gen apps with Azure OpenAI and Azure Cognitive Search](https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/revolutionize-your-enterprise-data-with-chatgpt-next-gen-apps-w/ba-p/3762087)

@@ -6,9 +6,9 @@ This solution is built with [Azure Stream Analytics](https://azure.microsoft.com
 
 ## Architecture
 
-![Architecture diagram: aircraft engine monitoring for predictive aircraft maintenance with Azure.](../media/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.svg)
+:::image type="content" source="../media/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.svg" alt-text="Architecture diagram: aircraft engine monitoring for predictive aircraft maintenance with Azure." lightbox="../media/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.svg" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/aircraft-engine-monitoring-for-predictive-maintenance.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.vsdx) of this architecture.*
 
 ### Components
 

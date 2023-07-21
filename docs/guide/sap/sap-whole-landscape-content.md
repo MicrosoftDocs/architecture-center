@@ -1,8 +1,8 @@
-This article provides a reference architecture for deploying an entire SAP landscape in Azure. The SAP landscape includes multiple SAP systems across hub, production, non-production, and disaster recovery environments. We provide recommendations that focus on network design and not specific SAP systems. The goal is to provide our recommendations for architecting a secure, high-performing, and resilient SAP landscape.
+This article provides best practices for architecting an entire SAP landscape in Azure. The SAP landscape includes multiple SAP systems across hub, production, non-production, and disaster recovery environments. We provide recommendations that focus on network design and not specific SAP systems. The goal is to provide our recommendations for architecting a secure, high-performing, and resilient SAP landscape.
 
 ## Architecture
 
-[![Diagram that shows a sample overall SAP landscape in Azure.](media/sap-whole-landscape.png)](media/sap-whole-landscape.png#lightbox)
+[![Diagram that shows a sample overall SAP landscape in Azure.](media/sap-whole-landscape.svg)](media/sap-whole-landscape.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/sap-whole-landscape.vsdx) of the architecture.*
 
@@ -71,11 +71,11 @@ Ensure the subnets have sufficient network address space. If you use SAP virtual
 
 ##### Application subnet
 
-The application subnet contains virtual machines running SAP application servers, SAP Central Services (ASCS), SAP Enqueue Replication Services (ERS), and SAP Web Dispatcher instances. The subnet also contains a private endpoint to Azure Files. In the diagram, we grouped the virtual machines by role. We recommend availability sets, load balancers, or availability zones for resilient deployment. For more information, see [next steps](#next-steps).
+The application subnet contains virtual machines running SAP application servers, SAP Central Services (ASCS), SAP Enqueue Replication Services (ERS), and SAP Web Dispatcher instances. The subnet also contains a private endpoint to Azure Files. In the diagram, we grouped the virtual machines by role. We recommend using virtual machine scale sets with flexible orchestration, availability zones or availability sets for resilient deployment. For more information, see [next steps](#next-steps).
 
 ##### Database subnet
 
-The database subnet holds virtual machines running databases. In the diagram, a pair of virtual machines with synchronous replication represents all the database virtual machines of one SAP environment.
+The database subnet holds virtual machines running databases. In the diagram, a pair of virtual machines with synchronous replication represent all the database virtual machines of one SAP environment.
 
 ##### Perimeter subnets
 
@@ -85,17 +85,17 @@ Perimeter subnets are internet facing and include an SAP perimeter subnet and an
 
 You can create separate set SAP perimeter subnet in the non-production subscription. We only recommend this approach for critical workloads or workloads that change frequently. A dedicated non-production SAP perimeter is helpful for testing and new feature deployment. Less critical applications or applications that will only have few modifications over time don't need a separate non-production SAP perimeter subnet.
 
-**Application Gateway subnet**: Azure Application Gateway requires its own subnet. Use it to allow traffic from the Internet that SAP services, such as SAP Fiori, can use. An Azure Application Gateway requires at least a /29 size subnet. We recommend size /27 or larger. You can't use both versions of Application Gateway (v1 and v2) in the same subnet. For more information, see [subnet for Azure Application Gateway](/azure/application-gateway/configuration-infrastructure#virtual-network-and-dedicated-subnet).
+**Application Gateway subnet**: Azure Application Gateway requires its own subnet. Use it to allow traffic from the Internet that SAP services, such as SAP Fiori, can use. The recommended architecture places Azure Application Gateway together with its frontend public IP address in the Hub virtual network. An Azure Application Gateway requires at least a /29 size subnet. We recommend size /27 or larger. You can't use both versions of Application Gateway (v1 and v2) in the same subnet. For more information, see [subnet for Azure Application Gateway](/azure/application-gateway/configuration-infrastructure#virtual-network-and-dedicated-subnet).
 
-**Place perimeter subnets in a separate virtual network for increased security**: For increased security, you can put the SAP perimeter subnet and Application Gateway subnet in a separate virtual network within the SAP production subscription. The SAP perimeter spoke virtual network is peered with the Hub virtual network, and all network traffic to public networks flows through the perimeter virtual network.
+**Place perimeter subnets in a separate virtual network for increased security**: For increased security, you can put the SAP perimeter subnet and Application Gateway subnet in a separate virtual network within the SAP production subscription. The SAP perimeter spoke virtual network is peered with the Hub virtual network, and all network traffic to public networks flows through the perimeter virtual network. This alternative approach shows Azure Application Gateway with its public IP address for inbound connections placed in a spoke virtual network for SAP use exclusively.
 
-[![Diagram showing network flow between virtual network spokes through the Hub virtual network.](media/sap-whole-landscape-secured-perimeter-peering.png)](media/sap-whole-landscape-secured-perimeter-peering.png#lightbox)
+[![Diagram showing network flow between virtual network spokes through the Hub virtual network.](media/sap-whole-landscape-secured-perimeter-peering.svg)](media/sap-whole-landscape-secured-perimeter-peering.svg#lightbox)
 
-*Download a [Visio file](https://arch-center.azureedge.net/sap-whole-landscape-secured.vsdx) of the full architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/sap-whole-landscape-secured.vsdx) including this alternative architecture.*
 
 This network design provides better incident response capabilities and fine-grained network access control. However, it also increases the management complexity, network latency, and cost of the deployment. Let's discuss each point.
 
-*Better incident response*: The SAP perimeter spoke virtual network allows quick isolation of compromised services if you detect a breach. You can remove virtual network peering from the SAP perimeter spoke virtual network to the hub and immediately isolate the SAP perimeter workloads and SAP application virtual network applications from the internet. You don't want to rely on network security group (NSG) rules changes for incident response. Changing or removing an NSG rule only affects new connections and doesn't cut existing malicious connections.
+*Better incident response*: The SAP perimeter spoke virtual network allows quick isolation of compromised services if you detect a breach. You can remove virtual network peering from the SAP perimeter spoke virtual network to the hub and immediately isolate the SAP perimeter workloads and SAP application virtual network applications from the internet. You don't want to rely on network security group (NSG) rules changes for incident response. Changing or removing an NSG rule only affects new connections and won't cut existing malicious connections.
 
 *Fine-grained network access control*: The SAP perimeter virtual network provides more stringent network access control to and from the SAP production spoke virtual network.
 
@@ -153,7 +153,7 @@ When architecting your SAP solution, you need to properly size the individual fi
 
 You can only share `saptrans` between different SAP environments, and, as such, you should carefully consider its placement. Avoid consolidating too many SAP systems into one `saptrans` share for scalability and performance reasons.
 
-The corporate security policies drive the architecture and separation of volumes between environments. A transport directory with separation per environment or tier still needs RFC communication between SAP environments to allow SAP transport groups or transport domain links. For more information, see:
+The corporate security policies will drive the architecture and separation of volumes between environments. A transport directory with separation per environment or tier needs RFC communication between SAP environments to allow SAP transport groups or transport domain links. For more information, see:
 
 - [SAP transport groups](https://help.sap.com/docs/SAP_NETWEAVER_750/4a368c163b08418890a406d413933ba7/44b4a0ce7acc11d1899e0000e829fbbd.html)
 - [Transport domain links](https://help.sap.com/docs/SAP_NETWEAVER_750/4a368c163b08418890a406d413933ba7/14c795388d62e450e10000009b38f889.html)
@@ -179,7 +179,7 @@ SAP solutions rely on shared services. Load balancer and application gateways ar
 
 **SAP Web Dispatcher virtual machines**: The architecture shows a pool of two or more SAP Web Dispatcher VMs. We recommend that you don't reuse SAP Web Dispatcher virtual machines between different SAP systems. Keeping them separate allows you to size the Web Dispatcher virtual machines to meet the needs of each SAP system. For smaller SAP solutions, we recommend embedding the Web Dispatcher services in the ASCS instance.
 
-**SAP services**: SAP services like SAProuter, Cloud Connector, and Analytics Cloud Agent, are deployed based on application requirements, either centrally or split up. No recommendation on reuse between SAP systems due to diverse customer requirements. Main decision to make is mentioned in networking section, if and when SAP perimeter subnet for non-production should be used. Otherwise, with just a production perimeter subnet for SAP, the entire SAP landscape consumes the SAP perimeter services.
+**SAP services**: SAP services like SAProuter, Cloud Connector, and Analytics Cloud Agent, are deployed based on application requirements, either centrally or split up. No recommendation on reuse between SAP systems due to diverse customer requirements. Main decision to make is mentioned in networking section, if and when SAP perimeter subnet for non-production should be used. Otherwise with just production perimeter subnet for SAP, the SAP perimeter services are consumed by entire SAP landscape.
 
 ### Disaster recovery
 
@@ -199,7 +199,7 @@ For more information, see [disaster recovery overview and infrastructure guideli
 
 ### Smaller SAP architecture
 
-For smaller SAP solutions, it might be beneficial to simply the network design. Each SAP environment's virtual network would then be subnets inside such combined virtual network. Any simplification of the network and subscription design needs can affect security. You should reevaluate the network routing, access to and from public networks, access to shared services (file shares), and access other Azure services. Here are some options for shrinking the architecture to better meet organizational needs.
+For smaller SAP solutions, it might be beneficial to simplify the network design. Each SAP environment's virtual network would then be subnets inside such combined virtual network. Any simplification of the network and subscription design needs can affect security. You should reevaluate the network routing, access to and from public networks, access to shared services (file shares), and access other Azure services. Here are some options for shrinking the architecture to better meet organizational needs.
 
 **Combine the SAP application and database subnets into one.** You can combine the application and database subnets to create one large SAP network. This network design mirrors many on-premises SAP networks. The combination of these two subnets requires higher attention to subnet security and network-security-group rules. Application security groups are important when using a single subnet for SAP application and database subnets.
 
@@ -209,7 +209,7 @@ For smaller SAP solutions, it might be beneficial to simply the network design. 
 
 ## Contributors
 
-*Microsoft maintains this article. The following contributors wrote the original version.*
+*Microsoft maintains this article. It was originally written by the following contributors.*
 
 **Principal authors:**
 

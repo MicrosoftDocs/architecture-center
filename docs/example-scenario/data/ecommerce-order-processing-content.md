@@ -112,12 +112,12 @@ See the related architectural content:
 
 - See the [Real time processing architecture](../../data-guide/big-data/real-time-processing.yml) in the [Azure Data Architecture Guide](../../data-guide/index.md).
 - [E-commerce front end](/azure/architecture/example-scenario/apps/ecommerce-scenario)
-- [Architect scalable e-commerce web app](/azure/architecture/solution-ideas/articles/scalable-ecommerce-web-app)
+- [Architect scalable e-commerce web app](/azure/architecture/web-apps/idea/scalable-ecommerce-web-app)
 - [Intelligent product search engine for e-commerce](/azure/architecture/example-scenario/apps/ecommerce-search)
 - [Retail and e-commerce using Azure MySQL](/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql)
 - [Retail and e-commerce using Azure PostgreSQL](/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql)
 - [Magento e-commerce platform in Azure Kubernetes Service](/azure/architecture/example-scenario/magento/magento-azure)
-- [E-commerce website running in secured App Service Environment](/azure/architecture/solution-ideas/articles/ecommerce-website-running-in-secured-ase)
+- [E-commerce website running in secured App Service Environment](/azure/architecture/web-apps/idea/ecommerce-website-running-in-secured-ase)
 - [Dynamics Business Central as a service on Azure](/azure/architecture/solution-ideas/articles/business-central)
 - [Scalable order processing](/azure/architecture/example-scenario/data/ecommerce-order-processing)
 

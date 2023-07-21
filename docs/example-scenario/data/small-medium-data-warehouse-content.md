@@ -2,7 +2,7 @@ This example workload shows several ways that small businesses (SMBs) can modern
 
 ## Architecture
 
-![Diagram showing how legacy data can migrate and modernize with Azure Synapse, SQL Database, Data Lake Storage Gen2, and other services.](media/small-medium-data-warehouse/small-medium-data-warehouse.svg)
+:::image type="content" border="false" source="media/small-medium-data-warehouse/small-medium-data-warehouse.svg" alt-text="Diagram that shows how SMBs can modernize legacy data stores." lightbox="media/small-medium-data-warehouse/small-medium-data-warehouse.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/modern-data-warehouse-small-business.vsdx) of this architecture.*
 

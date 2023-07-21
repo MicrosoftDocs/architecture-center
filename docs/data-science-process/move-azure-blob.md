@@ -10,9 +10,7 @@ ms.subservice: azure-guide
 ms.topic: conceptual
 ms.date: 12/16/2021
 ms.author: tdsp
-ms.custom:
-  - previous-author=deguhath
-  - previous-ms.author=deguhath
+ms.custom: previous-author=deguhath, previous-ms.author=deguhath, devx-track-python
 products:
   - azure-machine-learning
 categories:
