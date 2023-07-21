@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Migrate a web app using Azure APIM
-  description: In this scenario, an e-commerce company in the travel industry migrates a legacy web application with Azure API Management.
+  title: Migrate a web app by using Azure API Management
+  description: In this scenario, an e-commerce company in the travel industry uses Azure API Management to migrate a legacy web application.
   author: begim
   ms.author: begim
   ms.date: 12/01/2022
@@ -18,12 +18,12 @@ metadata:
     - app-modernization
     - example-scenario
     - internal-intro
-name: Migrate a web app using Azure API Management
+name: Migrate a web app by using Azure API Management
 azureCategories:
   - web
   - migration
   - integration
-summary: In this scenario, an e-commerce company in the travel industry migrates a legacy web application with Azure API Management.
+summary: In this scenario, an e-commerce company in the travel industry uses Azure API Management to migrate a legacy web application.
 products:
   - azure-api-management
   - azure-application-insights
