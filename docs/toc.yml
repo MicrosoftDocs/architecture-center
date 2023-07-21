@@ -1498,6 +1498,8 @@ items:
         href: example-scenario/data/azure-health-data-consortium.yml
       - name: Implement risk prediction for surgeries
         href: example-scenario/ai/risk-stratification-surgery.yml
+      - name: Ingest and store medical data
+        href: example-scenario/data/medical-data-ingestion.yml
       - name: Population health management
         href: solution-ideas/articles/population-health-management-for-healthcare.yml
       - name: Predict hospital readmissions with ML
