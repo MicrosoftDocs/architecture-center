@@ -2,9 +2,9 @@ This example architecture shows how to use the native IBM i backup and recovery 
 
 ## Architecture
 
-![Infographic of Microsoft Azure components used to migrate IBM i workloads to Skytap on Azure](media/migrate-ibm-i-series-applications-800.png)
+:::image type="content" source="media/migrate-ibm-i-series-to-azure-with-skytap.svg" alt-text="Diagram that shows the infographic of Microsoft Azure components used to migrate IBM i workloads to Skytap on Azure." lightbox="media/migrate-ibm-i-series-to-azure-with-skytap.svg" border="false":::
 
- [View a larger version of the image](media/migrate-ibm-i-series-applications-v2.png)
+*Download a [Visio file](https://arch-center.azureedge.net/migrate-ibm-i-series-to-azure-with-skytap.vsdx) of this architecture.*
 
 ### Workflow
 
