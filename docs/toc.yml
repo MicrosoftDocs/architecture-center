@@ -5913,6 +5913,8 @@ items:
           href: guide/networking/private-link-virtual-wan-dns-single-region-workload.yml
       - name: Virtual Network guidance
         items:
+        - name: Prevent IPv4 exhaustion
+          href: guide/networking/ipv4-exhaustion.yml        
         - name: Add IP spaces to peered virtual networks
           href: networking/prefixes/add-ip-space-peered-vnet.yml
         - name: Segment virtual networks
