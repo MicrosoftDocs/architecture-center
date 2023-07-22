@@ -194,6 +194,7 @@ Other contributors:
 [avnm_network_group]: /azure/virtual-network-manager/concept-network-groups
 [azfw]: /azure/firewall/overview
 [azfw_limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#azure-firewall-limits
+[azfw_multi_hub_and_spoke]: /azure/firewall/firewall-multi-hub-spoke
 [nva_ha]: ../reference-architectures/dmz/nva-ha.yml
 [vm_flows]: /azure/virtual-network/virtual-machine-network-throughput#flow-limits-and-active-connections-recommendations
 [vnet_to_vnet]: /azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal
