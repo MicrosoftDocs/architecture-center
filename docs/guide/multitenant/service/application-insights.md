@@ -133,7 +133,7 @@ Other contributors:
 - [Training: Monitor Application Performance](/training/modules/monitor-app-performance)
 - [What is Application Insights?](/azure/azure-monitor/app/app-insights-overview)
 
-## Next steps
+
  
 ## Related resources
 - [Application Insights limits](/azure/azure-monitor/service-limits#application-insights)
