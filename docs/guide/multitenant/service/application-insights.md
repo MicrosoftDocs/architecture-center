@@ -112,12 +112,33 @@ The main factor that determines the cost of Application Insights is the amount o
 The time between the creation of data on the monitored system and its availability for analysis is referred to as [Latency](/azure/azure-monitor/logs/data-ingestion-time). Use of dedicated or shared Application Insights instance in a multitenant application doesn't have any bearing on latency unless the shared instance gets throttled and prevents data from being ingested resulting in increased latency.
 ## Rate limiting on ingestion
 Ingestion rate limiting in Application Insights can be achieved through [sampling](/azure/azure-monitor/app/sampling) based on daily cap on the amount of telemetry data ingested by your service. Sampling helps in preventing Application Insights from throttling telemetry due to ingestion limits. Using fixed-rate sampling, you can determine an optimal sampling rate based on the number of tenants and the daily cap in order to say within the limits.  
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+Principal authors:
+
+ * [Raj Nemani](http://linkedin.com/in/rajnemani) | Director, Partner Technology Strategist, GPS-ISV
+
+Other contributors:
+
+* [John Downs](http://linkedin.com/in/john-downs) | Principal Program Manager, MCAPS
+* [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, Azure CXP
+* [Landon Pierce](http://linkedin.com/in/landon-pierce) | Customer Engineer, Azure CXP
+* [Daniel Scott-Raynsford](http://linkedin.com/in/dscottraynsford) | Partner Technology Strategist, OCP
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
+
+- [Training: Monitor Application Performance](/training/modules/monitor-app-performance)
+- [What is Application Insights?](/azure/azure-monitor/app/app-insights-overview)
+
 ## Next steps
  
 ## Related resources
 - [Application Insights limits](/azure/azure-monitor/service-limits#application-insights)
 - [Query Across Multiple workspaces and apps](/azure/azure-monitor/logs/cross-workspace-query)
-- [Visualize data combined from multiple data sources by using Azure Workbooks](/training/modules/visualize-data-workbooks/)
+- [Visualize data combined from multiple data sources by using Azure Workbooks](/training/modules/visualize-data-workbooks)
 - [Capture Application Insights custom metrics with .NET and .NET Core](/azure/azure-monitor/app/tutorial-asp-net-custom-metrics)
 - [Application Insights API for custom events and metrics](/azure/azure-monitor/app/api-custom-events-metrics)
 - [Application Insights telemetry data model](/azure/azure-monitor/app/data-model-complete)
