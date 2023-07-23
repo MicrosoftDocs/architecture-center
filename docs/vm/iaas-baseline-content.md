@@ -10,16 +10,12 @@ On-premises architecture are designed with a Capital Expense (CAPEX) mindset. Wh
 > The implementation includes an application that's a small test harness that will exercise the infrastructure set up end-to-end. 
 
 
-
 ## Architecture
 
 :::image type="content" source="./media/iaas-baseline-architecture.png" alt-text="IaaS baseline architectural diagram" lightbox="./media/iaas-baseline-architecture.png":::
 
 *Download a [Visio file](https://microsoft-my.sharepoint.com/:u:/r/personal/josev_microsoft_com/_layouts/15/doc2.aspx?sourcedoc=%7B07ba5bba-c61b-4b5e-bd37-1d4c20adf6b3%7D&action=view&share=IQG6W7oHG8ZeS703HUwgrfazAfcpYv2OBI9EIkxS8W1jamA&cid=12c82ef1-48e5-4fdf-b442-c52eb52ea874) of this architecture.*
 
-//TODO: Load final Visio into blob storage (ie: https://arch-center.azureedge.net/iaas-baseline.vsdx)  
-//TODO: Refresh all images from Visio and convert to .svg  
-//TODO: Create thumbnail for browser  
 
 #### Workload resources
 
@@ -49,10 +45,7 @@ On-premises architecture are designed with a Capital Expense (CAPEX) mindset. Wh
 
 ### Workflow
 
-<!-- FOR DRAFT REFERENCE ONLY - TO BE REMOVED -->
-THIS DIAGRAM IS TEMPORARY FOR REFERENCE ONLY:
-:::image type="content" source="./media/iaas-baseline-architecture-temp.png" alt-text="IaaS baseline architectural diagram" lightbox="./media/iaas-baseline-architecture-temp.png":::
-<!-- FOR DRAFT REFERENCE ONLY - TO BE REMOVED -->
+This image shows the user to the workload resources.
 
 ##### Workload user
 
@@ -158,6 +151,15 @@ One important factor to consider in your IaaS baseline is the configuration of f
 
 In the IaaS baseline for VMSS flexible orchestration, it is recommended to let Azure manage the allocation of fault domains. This allows Azure to maximize spreading of instances, providing greater resilience and availability.
 
+##### OS patching
+You can use Maintenance Configurations to control and manage updates for both Windows and Linux VMs. Maintenance Configurations provides a centralized view of the patch status of your VMs, and you can schedule patching to occur during a maintenance window that you define based on three supported scopes. For more information, check out the [Maintenance Configuration scopes.](/azure/virtual-machines/maintenance-configurations#scopes)
+
+##### Packaging/publishing workload artifacts
+VM Applications and Azure Compute Gallery are packaging and publishing options for workload artifacts. Use VM Applications to create and define your application as a packaged resource to globally distribute to your Windows and Linux VMs. Have Azure Compute Gallery act as your repository for managing and sharing the VM Application packages. For more information, see [VM Applications](/azure/virtual-machines/vm-applications) and [Azure Compute Gallery.](/azure/virtual-machines/azure-compute-gallery)
+
+##### Guest OS config
+VM extensions are small applications that provide post-deployment configuration and automation to Azure VMs. Azure VM extensions are used to customize the configuration of your VMs, such as installing software, configuring security settings, and joining a domain. For more information, see the [Extensions overview page.](/azure/virtual-machines/extensions/overview)
+
 ## Networking 
 
 This architecture uses a single virtual network (VNet) in which the workload resources are deployed. The purpose is to demonstrate basic controls needed to restrict traffic while maintaining focus on the compute layer. In an enterprise setup, this VNet can be integrated with an organization-provided topology. That example is shown in [Infrastructure as a Service (IaaS) baseline in Azure landing zones](./iaas-baseline-landing-zone.yml).
@@ -187,9 +189,7 @@ Subnets can be used as trust boundaries. _Colocate related resources needed for 
 
 _Restrict traffic flow between the subnets_ by applying granular security rules.
 
-Place [network security groups (NSGs)](/azure/virtual-network/network-security-groups-overview) to restrict traffic based on parameters such as IP address range, ports, and protocols. In this architecture, the following rules are implemented.
-
-//TODO: review rules and add details from the actual implementation
+Place [network security groups (NSGs)](/azure/virtual-network/network-security-groups-overview) to restrict traffic based on parameters such as IP address range, ports, and protocols. 
 
 Use [Application security groups (ASG)](/azure/virtual-network/application-security-groups) with NSGs. They enable you to specify named entities for IP address ranges. The benefit is that you don't need to change NSG rules if you want to modify addresses. It's also easier to review the rules.
 
@@ -197,8 +197,6 @@ Two ASGs are used in this scenario:
 
 - WebFrontend ASG - The network interface of the frontend VMs are assigned to this ASG. The AGS is referenced in NSGs to filter traffic to and from the frontend VMs.
 - ApiBackend ASG - The network interface of the backend VMs are assigned to this ASG. The AGS is referenced in NSGs to filter traffic to and from the frontend VMs.
-
-//TODO: review these rules and add details from the actual implementation
 
 Similar to VNets,  _subnets must be right-sized_. For example, you might want to take advantage of the maximum limit of the VMs supported by Flex orchestration to meet the scaling needs of the application. The workload subnets should be able to hold that limit. Another use case is VM upgrades. You might need temporary IP addresses when a VM is upgraded. 
 
@@ -296,40 +294,27 @@ The certificates stored in Key Vault are identified by the following common name
 
 It's also a good idea to use Key Vault for storage of secrets used for database encryption. For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure). We also recommend that you store application secrets, such as database connection strings, in Key Vault.
 
+## DDoS protection
+
+The Azure platform provides basic DDoS protection by default. This basic protection is targeted at protecting the Azure infrastructure. Although basic DDoS protection is automatically enabled, we recommend using [Azure DDoS Protection](/azure/virtual-network/ddos-protection-overview). DDoS Protection uses adaptive tuning, based on your application's network traffic patterns, to detect threats. This practice allows it to apply mitigations against DDoS attacks that might go unnoticed by the infrastructure-wide DDoS policies. DDoS Protection also provides alerting, telemetry, and analytics through Azure Monitor. For more information, see [Azure DDoS Protection: Best practices and reference architectures](/azure/security/fundamentals/ddos-best-practices).
+
 ## Monitoring
+
+Monitoring processes and components are discussed here primarily from a data collection perspective. Azure Log Analytics workspace is the recommended monitoring data sink used to collect logs and metrics from the Azure resources and Application Insights. 
 
 :::image type="content" source="./media/iaas-baseline-monitoring.png" alt-text="IaaS monitoring data flow  diagram" lightbox="./media/iaas-baseline-monitoring.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/xxx.vsdx) that contains the drawings in this architecture.*
 
-### Overview
-
-Monitoring processes and components are discussed here primarily from a data collection perspective. Where appropriate, the following subsections may provide links to options for data analysis by the respective log and metrics consumption tools. As mentioned previously, Azure Log Analytics workspace is the monitoring data sink used in this architecture to collect logs and metrics from the Azure resources and Application Insights. A Log Analytics workspace is the recommended way to capture all monitoring data in one place, for analyzing and correlation.
-
-Throughout each section, we assume that 2 types of data will be collected from various layers of the architecture that can be useful for diagnosing to understand performance, doing debugging, and many other activities:
-
-- **Metrics:** numerical values that describe an aspect of a system at a particular point in time for specific values being monitored, such as CPU percent, I/O metrics, etc. This type of data can be also useful for making auto scaling configuration decisions.
-- **Logs**: recorded system events that capture data over time for the purpose of trend analysis, which can be very useful for debugging and understanding performance. For example, web servers create log files which provide the ability to analyze traffic patterns. 
-
 Monitoring data is generated at multiple levels, all of which can be sources of important metrics and log files: 
+- Underlying infrastructure and components on which your system runs, like virtual machines, virtual networks, and storage services
+- Application level
+- Operating system where the application is running
+- Azure platform logs 
 
-- the application level
-- the operating system where the application is running
-- the underlying infrastructure and components on which your system runs, like virtual machines, virtual networks, and storage services
-- the Azure platform logs 
 
-The following sections will cover the services and considerations for collecting monitoring data across all of these levels.
-
-### Azure Monitor 
-
-The two pillars of observability we are interested in are metrics and logs, both of which are collected by Azure Monitor. You define [diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal#activity-log-settings) to send Azure platform metrics and logs to the Log Analytics Workspace:
-
-- Azure Monitor Metrics is a time-series database, optimized for analyzing time-stamped data. Azure Monitor collects metrics at regular intervals. Metrics are identified with a timestamp, a name, a value, and one or more defining labels. They can be aggregated using algorithms, compared to other metrics, and analyzed for trends over time. 
-- Azure Monitor Logs can contain different types of data, be structured or free-form text, and they contain a timestamp. Azure Monitor stores structured and unstructured log data of all types in Azure Monitor logs. 
-
-See [Azure Monitor metrics and logs overview](/azure/azure-monitor/data-platform#observability-data-in-azure-monitor) for a general discussion on observability data, including metrics and logs. See [Azure Monitor metric and log alerts](/azure/azure-monitor/alerts/alerts-overview) for the data source alerts available in Azure Monitor, which can help you proactively address issues before they impact users.
-
-Azure resources allow you to capture logs and metrics for that service, and subscribe to alerts. The following table links to additional details for the Azure resources included in this reference architecture:
+##### Infrastructure components
+Azure Monitor collects logs and metrics for services. Data source alerts available in Azure Monitor can help you proactively address issues before they impact users. The following table links to additional details for the Azure resources included in this reference architecture:
 
   | Azure resource | Metrics and logs | Alerts |
   | -------------- | ---------------- | ------ |
@@ -344,65 +329,19 @@ Azure resources allow you to capture logs and metrics for that service, and subs
 
 For more information on the cost of collecting metrics and logs, see [Log Analytics cost calculations and options](/azure/azure-monitor/logs/cost-logs) and [Pricing for Log Analytics workspace](https://azure.microsoft.com/pricing/details/monitor/). Metric and log collection costs are greatly impacted by the nature of the workload, and the frequency and number of metrics and logs collected.
 
-##### Application Insights
+##### Application-level monitoring data
 
-[Application Insights](/azure/azure-monitor/app/app-insights-overview) is an extension of Azure Monitor and provides Application Performance Monitoring (APM) features. APM tools monitor applications from development, through test, and into production to proactively understand how an application is performing, and reactively review application execution data to determine the cause of an incident.
+[Application Insights](/azure/azure-monitor/app/app-insights-overview) is used to collect data from applications to proactively understand how an application is performing, and reactively review application execution data to determine the cause of an incident.
 
-Application Insights enables [distributed tracing](/azure/azure-monitor/app/distributed-tracing-telemetry-correlation#enable-distributed-tracing), providing a performance profiler that works like call stacks for cloud and microservices architectures. Application Insights can monitor each component separately and detect which component is responsible for failures or performance degradation by using distributed telemetry correlation.
+##### Virtual machines data
 
-Azure Monitor provides two experiences for consuming distributed trace data: the transaction diagnostics view for a single transaction/request and the application map view to show how systems interact.
+[VM insights](/azure/azure-monitor/vm/vminsights-overview) agent is used to collect data from virtual machines and virtual machine scale sets. It displays an inventory of your existing VMs and provides a guided experience to enable base monitoring for them. It also monitors the performance and health. You can view trends of performance data, running processes on individual machines, and dependencies between machines. 
 
-##### VM insights
+In the reference implementation, the virtual machines have [Azure boot diagnostics](/azure/virtual-machines/boot-diagnostics) enabled. Boot diagnostics enables a user to observe the state of their VM as it is booting up by collecting serial log information and screenshots. The diagnostic data is configured to use a managed storage account. To troubleshoot issues, you can access to the data through the Azure portal. You can also export the diagnostics log using [the Azure CLI vm boot-diagnostics get-boot-log command](/cli/azure/vm/boot-diagnostics?view=azure-cli-latest#az-vm-boot-diagnostics-get-boot-log).
 
-[VM insights](/azure/azure-monitor/vm/vminsights-overview) is also a feature of Azure Monitor. It provides a quick and easy method for monitoring the client workloads on your virtual machines and virtual machine scale sets. It displays an inventory of your existing VMs and provides a guided experience to enable base monitoring for them. 
-
-It also monitors the performance and health of your virtual machines and virtual machine scale sets by collecting data on their running processes and dependencies on other resources. You can view trends of performance data, running processes on individual machines, and dependencies between machines. 
-
-To get started, see [Tutorial: Enable monitoring with VM insights for Azure virtual machine](/azure/azure-monitor/vm/tutorial-monitor-vm-enable-insights). Enabling VM insights also installs the Azure Monitoring Agent discussed in a following section.
-
-### Azure Load Balancer health probes
-
-The Application Gateway and Azure Load Balancer services require a health probe to detect the endpoint status. The probe is configured by specifying a request protocol, port, and probe interval. The configuration of the health probe and probe responses determines which VM instances receive new connections. When a health probe fails, the load balancer stops sending new connections to the respective unhealthy instance. Outbound connectivity isn't affected, only inbound.
-
-You use health probes to:
-- detect the failure of an application and allow the VM to be removed from rotation
-- generate a custom response to Azure Load Balancer for more advanced scenarios
-- probe for flow control to manage load or planned downtime
-
-In the reference implementation, health probes are configured to do a simple HTTP test for the existence of a file to see if the application is responding. If the request is successful, an HTTP 200 will be returned to Application Gateway or Azure Load Balancer. 
-
-### Managed disks
-
-Your workload will dictate the disk metrics to monitor, but most IaaS architectures will have some mix of the following common key metrics. You’ll also want to bring in items that represent where your application is most sensitive. 
-
-When designing your monitoring solution be aware that there is an Azure platform perspective on managed disks and there is the guest OS perspective on the managed disks. The Azure platform perspective represents the metrics that a SAN operator would view, regardless of what workloads are connected. The guest OS perspective represents the metrics that the workload operator would view, regardless of the underlying disk technology. In Azure, workload teams have the responsibility of monitoring both as part of their solution.
-
-##### Platform perspective
-
-The data disk performance (IOPS and throughput) metrics can be looked at individually (per disk) or rolled up to all disks attached to a VM. Both perspectives can be critical in troubleshooting a performance issue, as both the individual disks and the VM can cap total performance. 
-
-To troubleshoot suspected or alert on pending disk capping, use the *Storage IO utilization* metrics, which provide consumed percentage of the provisioned throughput for both virtual machines and disks. If your architecture uses bursting for cost optimization, then you’ll want to monitor your *Credits Percentage* metrics. Running out of credits can be an expected result, as consistently having left over credits is a sign that further cost optimization could occur on that disk. Meaning if you are using bursting as part of your cost optimization strategy, you should monitor how many credits you're consistently leaving unused and see if you can choose a lower performance tier.
-
-##### Guest OS perspective
-
-VM Insights is recommended for getting key metrics from an operating system perspective on attached disks. This is where you'll report or alert on disk/drive metrics like *logical disk space used*, and the operating system kernel's own perspective on disk IOPS and throughput. Combining these performance metrics with the platform performance metrics can help isolate OS or even application throughput issues on your disks vs platform bottlenecks.
-
-### Virtual Machines
-
-See [Monitor Azure virtual machines](/azure/virtual-machines/monitor-vm) for details on the monitoring data that's generated by Azure VMs, and a discussion of how to use the features of Azure Monitor to analyze and alert you about this data.
-
-##### Azure Monitor Agent
+For greater control, a custom storage account can be used. Using your own provisioned storage account will give more control over the access permissions and set retention policy for the logs that align with requirements of your organization.
 
 The [Azure Monitor Agent (AMA)](/azure/azure-monitor/agents/agents-overview) is deployed to VMs to collect monitoring data from the guest operating system. AMA supports [Data Collection Rules (DCR)](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent), which enables targeted and granular data collection for a machine or subset(s) of machines. DCR allows filtering rules and data transformations to reduce the overall data volume being uploaded, thus lowering ingestion and storage costs significantly.
-
-The table below lists the types of data you can currently collect with AMA and where you can send that data:
-
-| Data source | Destinations | Description |
-|:---|:---|:---|
-| Performance | Azure Monitor Metrics (Public preview) - Insights.virtualmachine namespace<br>Log Analytics workspace - [Perf](/azure/azure-monitor/reference/tables/perf) table | Numerical values measuring performance of different aspects of operating system and workloads |
-| Windows event logs (including sysmon events) | Log Analytics workspace - [Event](/azure/azure-monitor/reference/tables/Event) table | Information sent to the Windows event logging system |
-| Syslog | Log Analytics workspace - [Syslog](/azure/azure-monitor/reference/tables/syslog) table | Information sent to the Linux event logging system |
-|	Text logs and Windows IIS logs	|	Log Analytics workspace - custom table(s) created manually |	[Collect text logs with Azure Monitor Agent](/azure/azure-monitor/agents/data-collection-text-log)	|
 
 In the reference implementation, OS-specific DCRs are created and assigned to each VM according to the VM's OS. The AMA extension acts on the DCR's configuration, sending all requested data directly to the workload's log analytics workspace.  The DCRs are configured to collect:
 
@@ -414,17 +353,33 @@ In the reference implementation, OS-specific DCRs are created and assigned to ea
 
 The DCRs are applied to VMs through a built-in Azure Policy assignment to ensure that, as the scale set grows and adds nodes, the newly allocated VMs will be configured with the AMA settings.
 
+##### Azure Load Balancer health probes
+
+The Application Gateway and Azure Load Balancer services require a health probe to detect the endpoint status. When a health probe fails, the load balancer stops sending new connections to the respective unhealthy instance. Outbound connectivity isn't affected, only inbound.
+
+In the reference implementation, health probes are configured to do a simple HTTP test for the existence of a file to see if the application is responding. If the request is successful, an HTTP 200 will be returned to Application Gateway or Azure Load Balancer. 
+
+##### Managed disks
+
+Your workload will dictate the disk metrics to monitor, but most IaaS architectures will have some mix of the following common key metrics. You’ll also want to bring in items that represent where your application is most sensitive. 
+
+When designing your monitoring solution be aware that there is an Azure platform perspective and guest OS perspective on the managed disks. The Azure platform perspective represents the metrics that a SAN operator would view, regardless of what workloads are connected. The guest OS perspective represents the metrics that the workload operator would view, regardless of the underlying disk technology. In Azure, workload teams have the responsibility of monitoring both as part of their solution.
+
+- Platform perspective
+
+    The data disk performance (IOPS and throughput) metrics can be looked at individually (per disk) or rolled up to all disks attached to a VM. Both perspectives can be critical in troubleshooting a performance issue, as both the individual disks and the VM can cap total performance. 
+
+    To troubleshoot suspected or alert on pending disk capping, use the *Storage IO utilization* metrics, which provide consumed percentage of the provisioned throughput for both virtual machines and disks. If your architecture uses bursting for cost optimization, then you’ll want to monitor your *Credits Percentage* metrics. Running out of credits can be an expected result, as consistently having left over credits is a sign that further cost optimization could occur on that disk. Meaning if you are using bursting as part of your cost optimization strategy, you should monitor how many credits you're consistently leaving unused and see if you can choose a lower performance tier.
+
+- Guest OS perspective
+
+    VM Insights is recommended for getting key metrics from an operating system perspective on attached disks. This is where you'll report or alert on disk/drive metrics like *logical disk space used*, and the operating system kernel's own perspective on disk IOPS and throughput. Combining these performance metrics with the platform performance metrics can help isolate OS or even application throughput issues on your disks vs platform bottlenecks.
+
+
 ##### Application Health extension
 
 The [Application Health extension](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension) is also deployed to the VMs. The Application Health extension is used by VMSS to monitor the binary health state of each VM instance in the scale set, and perform instance repairs if necessary by using Automatic Instance Repairs. The Application Health extension tests for the existence of the same file as the Application Gateway and Azure Load Balancer health probe, to determine if the application is responding.
 
-##### VM boot diagnostics
-
-[Azure boot diagnostics](/azure/virtual-machines/boot-diagnostics) is a debugging feature for Azure VMs that allows diagnosis of VM boot failures. Boot diagnostics enables a user to observe the state of their VM as it is booting up by collecting serial log information and screenshots. The diagnostics data is saved to a storage account.
-
-In the reference implementation, the virtual machines have boot diagnostics enabled. The diagnostic data is configured to use a managed storage account. To troubleshoot issues, you can access to the data through the Azure portal. You can also export the diagnostics log using [the Azure CLI vm boot-diagnostics get-boot-log command](/cli/azure/vm/boot-diagnostics?view=azure-cli-latest#az-vm-boot-diagnostics-get-boot-log).
-
-For greater control, a custom storage account can be used. Using your own provisioned storage account will give more control over the access permissions and set retention policy for the logs that align with requirements of your organization.
 
 ## Redundancy
 
@@ -440,161 +395,6 @@ For more information about how availability zones work, see [Building solutions 
 
 - Application Gateway or a Standard Load Balancer are configured as zone-redundant. Traffic can be routed to VMs located across zones with a single IP address, which will survive zone failures. Both services use health probes to determine the availability of the VMs. One or more availability zones can fail but routing survives as long as one zone in the region remains healthy. Routing across zones has higher latency than routing within the zone.
 
-
-
-***
-***
-
-## Dump zone
-
-
-
-
-## Scalability
-
-## Patching and updates
-
-## Security
-
-#### Disk encryption
-
-##### Azure disk storage encryption
-
-At the infrastructure level, managed disks, by default are encrypted-at-rest with a platform-managed encryption solution (PMK). Unless your compliance requires an alternative, using this platform-managed encryption is recommended for most architectures. For situations that require the use of customer-managed encryption solutions (CMK) or even double encryption (PMK + CMK), you'll need to introduce a Disk Encryption Set and an Azure Key Vault for your key encryption key (KEK) into the solution architecture as a critical regional component. Disk encryption is applied at the individual disk level, so one virtual machine can support multiple combinations of disk encryption configurations to fit workload requirements. All disk encryption at the platform level is completely transparent to the virtual machine's OS.
-
-Azure disk storage encryption does not encrypt VM temp disks, ephemeral OS disks, disk caches, nor the SAN connection (encryption-at-flow) to disk storage. To extend encryption to the virtual machine's ephemeral disks and the SAN connection, use Encryption at host.
-
-##### Azure disk encryption (ADE)
-
-At the operating system level, there is no default encryption applied. OS-level encryption is provided by solutions such as DM-Crypt on Linux and BitLocker on Windows Server. If your solution absolutely requires OS-level/managed encryption on OS and/or data disks, it is recommended to manage these native OS encryption methods though the ADE virtual machine extension. This scenario is relatively niche and is not covered in the IaaS baseline architecture as it is not a common concern for many architectures.
-
-- PMK is used for server-side encryption, encryption at host nor ADE are enabled.
-
-##### Strategy
-
-Let your security and compliance requirements dictate your disk encryption strategy. Tradeoffs for introducing CMK in Azure disk storage encryption or ADE are additional critical infrastructure components to monitor and manage, additional cost, and potential impact to RTO related to human-error, backups, and failover. Most general-purpose IaaS solutions will find PMK Azure disk storage sufficient; extend to use CMK and/or encryption at host for added broad compliance coverage only when necessary.
-
-## Cost optimization
-
-It's recommended that bursting features of managed disks are considered as part of your SKU selection and cost optimization strategy for IaaS infrastructure. The free bursting credit feature of Premium SSD should be used to achieve desired performance characteristics without the need for excessive over-provisioning.
-
-Balance between disk and VM skus. Don't overprovision either resource because the overall cost will be impacted.
-
-#### Azure reservations
-
-Many IaaS workloads have prolonged expected deployment durations, often years. Ensure your IaaS lifecycle, resource SKUs, and disk needs are available to your cloud FinOps team for inclusion in your organization's pre-purchase reservation scopes.
-
-Resources in this architecture that can benefit from Azure reservations:
-
-- [Azure managed disks](/azure/virtual-machines/disks-reserved-capacity)
-
-
-
-
-
-
-### Compute
-
-#### Virtual Machine Scale Sets with flexible orchestration
-
-In this baseline architecture we are using Virtual Machine Scale Sets (VMSS) with [Flexible orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration) to facilitate the operation of virtual machines at cloud scale. Unlike uniform VMSS, with flexible orchestration Azure enables you to allocate and manage VMs individually. You have full control over the virtual machine lifecycle, as well as network interfaces and disks using the standard Azure VM APIs and commands. At the same time, by joining VM to a flexible VMSS, you get an orchestration layer that facilitates achieving high availability at scale with identical or multiple virtual machine types. Flexible orchestration offers high availability guarantees (up to 1000 VMs) by spreading VMs across fault domains in a region or within an Availability Zone. This enables you to scale out your application while maintaining fault domain isolation that is essential to run quorum-based or stateful workloads, including:
-
-##### Scale out with standard Azure virtual machines
-
-Virtual Machine Scale Sets in Flexible Orchestration mode manage standard Azure VMs. You have full control over the virtual machine lifecycle, as well as network interfaces and disks using the standard Azure VM APIs and commands. Individual instances are compatible with the standard Azure IaaS VM API commands, Azure management features such as Azure Resource Manager resource tagging RBAC permissions, Azure Backup, or Azure Site Recovery.
-
-
-##### Instance naming
-When you create a VM and add it to a Flexible scale set, you have full control over instance names within the Azure Naming convention rules. When VMs are automatically added to the scale set via autoscaling, you provide a prefix and Azure appends a unique number to the end of the name.
-
-##### Automatic instance repairs
-
-Enabling automatic instance repairs for Azure Virtual Machine Scale Sets helps achieve high availability for applications by maintaining a set of healthy instances. The Application Health extension or Load balancer health probes may find that an instance is unhealthy. Automatic instance repairs will automatically perform instance repairs by deleting the unhealthy instance and creating a new one to replace it. Automatic instance repair feature relies on health monitoring of individual instances in a scale set. VM instances in a scale set can be configured to emit application health status using either the Application Health extension or Load balancer health probes. If an instance is found to be unhealthy, then the scale set performs repair action by deleting the unhealthy instance and creating a new one to replace it.
-
-*Terminate notification and automatic repairs* If the terminate notification feature is enabled on a scale set, then during automatic repair operation, the deletion of an unhealthy instance follows the terminate notification configuration. A terminate notification is sent through Azure metadata service – scheduled events – and instance deletion is delayed during the configured delay timeout. However, the creation of a new instance to replace the unhealthy one doesn't wait for the delay timeout to complete.
-
-##### Fault domains in VMSS
-One important factor to consider in your IaaS baseline is the configuration of fault domains. Fault domains provides a way to limit the impact of potential physical hardware failures, network outages, or power interruptions. When using VMSS, Azure evenly spreads instances across fault domains. The even spreading ensures that a single hardware or infrastructure issue does not affect all instances.
-
-In the IaaS baseline for VMSS flexible orchestration, it is recommended to let Azure manage the allocation of fault domains. This allows Azure to maximize spreading of instances, providing greater resilience and availability.
-
-### DevOps
-DevOps plays a critical role in ensuring that the underlying infrastructure is properly configured and maintained. DevOps tasks include OS patching, packaging and publishing workload artifacts, and configuring the guest OS. Azure VMs have a variety of options for performing these tasks, including Maintenance Configuration for OS patching, VM Applications and Azure Compute Gallery for packaging and deploying workloads, and Azure VM extensions for configuring the guest OS.
-
-##### OS patching
-You can use Maintenance Configurations to control and manage updates for both Windows and Linux VMs. Maintenance Configurations provides a centralized view of the patch status of your VMs, and you can schedule patching to occur during a maintenance window that you define based on three supported scopes. For more information, check out the [Maintenance Configuration scopes.](/azure/virtual-machines/maintenance-configurations#scopes)
-
-##### Packaging/publishing workload artifacts
-VM Applications and Azure Compute Gallery are packaging and publishing options for workload artifacts. Use VM Applications to create and define your application as a packaged resource to globally distribute to your Windows and Linux VMs. Have Azure Compute Gallery act as your repository for managing and sharing the VM Application packages. For more information, see [VM Applications](/azure/virtual-machines/vm-applications) and [Azure Compute Gallery.](/azure/virtual-machines/azure-compute-gallery)
-
-##### Guest OS config
-VM extensions are small applications that provide post-deployment configuration and automation to Azure VMs. Azure VM extensions are used to customize the configuration of your VMs, such as installing software, configuring security settings, and joining a domain. For more information, see the [Extensions overview page.](/azure/virtual-machines/extensions/overview)
-
-#### Use Infrastructure as Code (IaC)
-
-Choose an idempotent declarative method over an imperative approach, where possible. Instead of writing a sequence of commands that specify configuration options, use declarative syntax that describes the resources and their properties. One option is an [Azure Resource Manager (ARM)](/azure/azure-resource-manager/templates/overview) templates. Another is Terraform.
-
-Make sure as you provision resources as per the governing policies. For example, when selecting the right VM sizes, stay within the cost constraints, availability zone options to match the requirements of your application.
-
-If you need to write a sequence of commands, use [Azure CLI](/cli/azure/what-is-azure-cli). These commands cover a range of Azure services and can be automated through scripting. Azure CLI is supported on Windows and Linux. Another cross-platform option is Azure PowerShell. Your choice will depend on preferred skillset.
-
-Store and version scripts and template files in your source control system.
-
-
-
-
-
-
-
-
-## Recommendations
-
-The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
-
-## Considerations
-
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
-
-
-```
-
-### Security
-
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
-
-#### DDoS protection
-
-The Azure platform provides basic DDoS protection by default. This basic protection is targeted at protecting the Azure infrastructure. Although basic DDoS protection is automatically enabled, we recommend using [Azure DDoS Protection](/azure/virtual-network/ddos-protection-overview). DDoS Protection uses adaptive tuning, based on your application's network traffic patterns, to detect threats. This practice allows it to apply mitigations against DDoS attacks that might go unnoticed by the infrastructure-wide DDoS policies. DDoS Protection also provides alerting, telemetry, and analytics through Azure Monitor. For more information, see [Azure DDoS Protection: Best practices and reference architectures](/azure/security/fundamentals/ddos-best-practices).
-
-### Cost optimization
-
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
-
-- Data transfers between availability zones in a region are not free. If your workload is multi-region or there are transfers across availability zones, then expect additional bandwidth cost. For more information, see [Traffic across billing zones and regions](/azure/architecture/framework/cost/design-regions?branch=master#traffic-across-billing-zones-and-regions).
-
-- Create budgets to stay within the cost constraints identified by the organization. One way is to create budgets through Azure Cost Management. You can also create alerts to get notifications when certain thresholds are exceeded. For more information, see [Create a budget using a template](/azure/cost-management-billing/costs/quick-create-budget-template).
-
-- [Azure Cost Management](/azure/cost-management-billing/costs/)
-
-#### Virtual Machine Scale Sets
-
-The Virtual Machine Scale Sets resource is available on all Windows VM sizes. You're charged only for the Azure VMs that you deploy, and for any additional underlying infrastructure resources consumed, such as storage and networking. There are no incremental charges for the Virtual Machine Scale Sets service.
-
-For single VMs pricing options, see [Windows VMs pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows).
-
-#### Load Balancer
-
-You're charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules are free. There's no hourly charge for the standard load balancer when no rules are configured.
-
-### Operational excellence
-
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
-
-- Use tags when you create the workload resourcess. Tags are useful in creating custom reports to track the incurred costs. Tags give the ability to track the total of expenses and map any cost to a specific resource or team. Also, if the environment is shared between teams, build chargeback reports per consumer to identify metered costs for shared cloud services.
-
-### Performance efficiency
-
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
 
 
