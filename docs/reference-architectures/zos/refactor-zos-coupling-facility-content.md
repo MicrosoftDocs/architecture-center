@@ -6,7 +6,9 @@ This architecture shows how Azure can provide scale-out performance and high ava
 
 The following diagram shows the architecture of an IBM z/OS mainframe system with Coupling Facility and Parallel Sysplex:
 
-![Diagram showing IBM z/OS mainframe architecture with Coupling Facility and Parallel Sysplex components.](media/ibm-mainframe.png)
+:::image type="content" source="media/refactor-zos-coupling-facility-1.svg" alt-text="Diagram showing IBM z/OS mainframe architecture with Coupling Facility and Parallel Sysplex components." lightbox="media/refactor-zos-coupling-facility-1.svg" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/refactor-zos-coupling-facility.vsdx) of this architecture.*
 
 #### Workflow
 
@@ -24,7 +26,9 @@ The following diagram shows the architecture of an IBM z/OS mainframe system wit
 
 The next diagram shows how Azure services can provide similar functionality and performance to z/OS mainframes with Parallel Sysplex and CFs:
 
-![Diagram showing how the IBM z/OS mainframe components can map to Azure capabilities.](media/refactor-azure.png)
+:::image type="content" source="media/refactor-zos-coupling-facility-2.svg" alt-text="Diagram showing how the IBM z/OS mainframe components can map to Azure capabilities." lightbox="media/refactor-zos-coupling-facility-2.svg" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/refactor-zos-coupling-facility.vsdx) of this architecture.*
 
 #### Workflow
 
