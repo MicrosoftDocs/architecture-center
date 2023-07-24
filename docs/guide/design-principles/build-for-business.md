@@ -4,7 +4,7 @@ titleSuffix: Azure Application Architecture Guide
 description: Use these recommendations to design and build cloud applications that meet functional and nonfunctional business requirements for performance, availability, scalability, growth, and cost management.
 author: martinekuan
 ms.author: pnp
-ms.date: 07/11/2023
+ms.date: 07/25/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -29,7 +29,7 @@ The following recommendations help you design and build solutions to meet busine
 
   For example, suppose your business requires a very low RTO and a very low RPO. You might choose to use a zone-redundant architecture to meet these requirements. If your business can tolerate a higher RTO and RPO, adding redundancy might add extra cost for no business benefit.
 
-- **Consider the failure risks you need to mitigate**. All solutions should tolerate some degree of failure, and by following the [Design for self-healing guidance](self-healing.md) you ensure your solution is resilient to many types of common failure modes. Consider whether you need to account for less likely situations, like a geographic area experiencing a major natural disaster that might affect all of the availability zones in the region. Mitigating these uncommon risks is generally more expensive and involves significant tradeoffs, so have a clear understanding of the business's tolerance for risk.
+- **Consider the failure risks you need to mitigate**. Follow the [Design for self-healing guidance](self-healing.md) to design your solution to be resilient to many types of common failure modes. Consider whether you need to account for less likely situations, like a geographic area experiencing a major natural disaster that might affect all of the availability zones in the region. Mitigating these uncommon risks is generally more expensive and involves significant tradeoffs, so have a clear understanding of the business's tolerance for risk.
 
 - **Document service level agreements (SLAs)** and service level objectives (SLOs), including availability and performance metrics. For example, a proposed solution might deliver 99.95% availability. Whether that SLO meets the SLA is a business decision.
 

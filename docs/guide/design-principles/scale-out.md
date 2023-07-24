@@ -4,7 +4,7 @@ titleSuffix: Azure Application Architecture Guide
 description: Use these recommendations to design your applications for horizontal scaling, which is the ability to use as much capacity as the application needs.
 author: martinekuan
 categories: azure
-ms.date: 07/11/2023
+ms.date: 07/25/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
