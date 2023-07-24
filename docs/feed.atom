@@ -2,12 +2,28 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2023-07-17T16:02:03.121Z</updated>
+    <updated>2023-07-24T16:09:02.418Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Ingest and store medical data in Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/data/medical-data-ingestion</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/data/medical-data-ingestion"/>
+        <updated>2023-07-21T20:10:29.000Z</updated>
+        <summary type="html"><![CDATA[Create a data store to search and filter medical data by using Azure Data Factory pipelines with preingestion and postingestion validation pipelines.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Prevent IPv4 exhaustion in Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/networking/ipv4-exhaustion</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/networking/ipv4-exhaustion"/>
+        <updated>2023-07-21T17:47:51.000Z</updated>
+        <summary type="html"><![CDATA[Minimize private address space consumption when you build large networks in Azure. This article presents two methods to create more IPv4 address space.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Reliable web app pattern for Java - Apply the pattern]]></title>
         <id>https://learn.microsoft.com/azure/architecture/web-apps/guides/reliable-web-app/java/apply-pattern</id>
@@ -31,6 +47,22 @@
         <updated>2023-07-13T18:06:49.000Z</updated>
         <summary type="html"><![CDATA[Learn about the reliable web app pattern.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choose an Azure data service]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/technology-choices/data-options</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/technology-choices/data-options"/>
+        <updated>2023-07-20T17:46:09.000Z</updated>
+        <summary type="html"><![CDATA[Use this guide to decide which data service best suits your application.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Sandbox]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/azure-sandbox/azure-sandbox</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/azure-sandbox/azure-sandbox"/>
+        <updated>2023-07-18T19:11:44.000Z</updated>
+        <summary type="html"><![CDATA[Accelerate your Azure project with a fully functional sandbox environment that includes virtual networks, virtual machines, and databases.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Microsoft SaaS stories]]></title>
