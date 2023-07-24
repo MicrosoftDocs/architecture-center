@@ -4,7 +4,9 @@ Astadia’s automated COBOL refactoring solution delivers cloud-enabled applicat
 
 Here's a mainframe architecture that represents the kind of system that's suitable for the Astadia refactoring solution.
 
-:::image type="content" source="media/refactor-mainframe-applications-astadia-pre.png" alt-text="Diagram for a mainframe architecture that's suitable for Astadia refactoring." lightbox="media/refactor-mainframe-applications-astadia-pre.png" :::
+:::image type="content" source="media/refactor-mainframe-applications-astadia-pre.svg" alt-text="Diagram for a mainframe architecture that's suitable for Astadia refactoring." lightbox="media/refactor-mainframe-applications-astadia-pre.svg" :::
+
+*Download a [Visio file](https://arch-center.azureedge.net/refactor-mainframe-applications-astadia.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -22,9 +24,9 @@ Here's a mainframe architecture that represents the kind of system that's suitab
 
 Here's an Azure architecture to replace the mainframe functionality with refactored applications.
 
-:::image type="content" source="media/refactor-mainframe-applications-astadia-post.png" alt-text="Architecture diagram for an Astadia refactoring solution." lightbox="media/refactor-mainframe-applications-astadia-post.png" :::
+:::image type="content" source="media/refactor-mainframe-applications-astadia-post.svg" alt-text="Architecture diagram for an Astadia refactoring solution." lightbox="media/refactor-mainframe-applications-astadia-post.svg" :::
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-1930135-refactor-mainframe-applications-astadia.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/refactor-mainframe-applications-astadia.vsdx) of this architecture.*
 
 ### Dataflow
 
