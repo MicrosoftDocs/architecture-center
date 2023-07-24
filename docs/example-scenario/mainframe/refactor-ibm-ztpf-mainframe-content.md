@@ -4,7 +4,9 @@ Organizations migrating from z/TPF mainframes to the cloud need a robust platfor
 
 ### Mainframe architecture
 
-:::image type="content" border="false" source="media/mainframe-migration-before.png" alt-text="Diagram that shows the mainframe architecture before migration." lightbox="media/mainframe-migration-before.png":::
+:::image type="content" border="false" source="media/mainframe-migration-before.svg" alt-text="Diagram that shows the mainframe architecture before migration." lightbox="media/mainframe-migration-before.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/mainframe-migration-after.vsdx) of this architecture.*
 
 #### Dataflow
 
@@ -19,7 +21,7 @@ Organizations migrating from z/TPF mainframes to the cloud need a robust platfor
 
 ### Azure architecture
 
-:::image type="content" border="false" source="media/mainframe-migration-after.png" alt-text="Diagram that shows the Azure architecture, after the migration." lightbox="media/mainframe-migration-after.png"::: 
+:::image type="content" border="false" source="media/mainframe-migration-after.svg" alt-text="Diagram that shows the Azure architecture, after the migration." lightbox="media/mainframe-migration-after.svg"::: 
 
 *Download a [Visio file](https://arch-center.azureedge.net/mainframe-migration-after.vsdx) of this architecture.*
 
