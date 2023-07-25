@@ -519,6 +519,8 @@ items:
           - name: Azure Cognitive Search
             href: /azure/search/search-modeling-multitenant-saas-applications
             maintainContext: true
+          - name: Azure OpenAI
+            href: guide/multitenant/service/openai.md
       - name: Multitenancy checklist
         href: guide/multitenant/checklist.md
       - name: Related resources
