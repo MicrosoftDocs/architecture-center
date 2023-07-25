@@ -28,7 +28,7 @@ azureCategories:
 summary: Use Azure Database for MySQL to develop sophisticated machine learning and visualization apps that provide analytics and information that you can act on.
 products:
   - azure-app-service
-  - azure-cognitive-services
+  - ai-services
   - azure-database-mysql
   - azure-machine-learning
   - power-bi
