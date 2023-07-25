@@ -68,7 +68,7 @@ The next diagram shows how Azure services can provide similar functionality and 
 
   Load Balancer operates at layer 4 of the Open Systems Interconnection (OSI) model. Both level 7 application level and level 4 network protocol level load balancers are available. The type to use depends on how the application input reaches the compute cluster's entry point.
 
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) are on-demand, scalable computing resources that allow the flexibility of virtualization without having to buy and maintain physical hardware. Azure VMs give you a choice of operating systems, including Windows and Linux.
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) provides on-demand, scalable computing resources that give you the flexibility of virtualization. Azure VMs give you a choice of operating systems, including Windows and Linux.
 
   Most Azure high-performance computing (HPC) VM sizes feature a network interface for [RDMA connectivity](/azure/virtual-machines/sizes-hpc#rdma-capable-instances).
 
@@ -82,7 +82,7 @@ The next diagram shows how Azure services can provide similar functionality and 
 
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed PaaS database engine that always runs the latest stable version of SQL Server and patched OS, with 99.99% availability. SQL Database handles upgrading, patching, backups, monitoring, and most other database management functions without user involvement. These PaaS capabilities let you focus on business critical, domain-specific database administration and optimization.
 
-- [Azure Private Link](https://azure.microsoft.com/products/private-link) for Azure SQL Database] provides a private, direct connection from Azure VMs to Azure SQL Database that is isolated to the Azure networking backbone.
+- [Azure Private Link](https://azure.microsoft.com/products/private-link) for Azure SQL Database provides a private, direct connection from Azure VMs to Azure SQL Database that is isolated to the Azure networking backbone.
 
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is an Azure PaaS service for NoSQL databases.
 

@@ -97,12 +97,12 @@
 			<use xlink:href="#lend2" transform="scale(2.68) "/>
 		</marker>
 	</defs>
-	<g v:mID="17" v:index="1" v:groupContext="backgroundPage">
+	<g v:mID="19" v:index="2" v:groupContext="backgroundPage">
 		<v:userDefs>
 			<v:ud v:nameU="msvThemeOrder" v:val="VT0(0):26"/>
 			<v:ud v:nameU="msvVisioCreated" v:prompt="" v:val="VT0(0):26"/>
 		</v:userDefs>
-		<title>VBackground-1</title>
+		<title>VBackground-2</title>
 		<v:pageProperties width="18" height="12" v:drawingScale="1" v:pageScale="1" v:drawingUnits="0" v:shadowOffsetX="9"
 				v:shadowOffsetY="-9"/>
 		<g id="shape1-1" v:mID="1" v:groupContext="shape">
@@ -688,14 +688,14 @@
 			<text x="436.79" y="847" class="st4" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>LPARS on CECs</text>		</g>
 		<g id="shape249-146" v:mID="249" v:groupContext="shape" transform="translate(683.691,-629.653)">
 			<title>Sheet.249</title>
-			<desc>Batch runs on app clones long queries/events</desc>
+			<desc>Batch runs on app clone long queries/events</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(32000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="99.1544" cy="827.653" width="198.31" height="72.6935"/>
 			<rect x="0" y="791.306" width="198.309" height="72.6935" class="st3"/>
-			<text x="4" y="823.45" class="st4" v:langID="1033"><v:paragraph/><v:tabList/>Batch runs on app clones <tspan x="4"
+			<text x="4" y="823.45" class="st4" v:langID="1033"><v:paragraph/><v:tabList/>Batch runs on app clone <tspan x="4"
 						dy="1.2em" class="st5">long queries/events</tspan></text>		</g>
 		<g id="group250-150" transform="translate(571.622,-637.069)" v:mID="250" v:groupContext="group">
 			<v:userDefs>
