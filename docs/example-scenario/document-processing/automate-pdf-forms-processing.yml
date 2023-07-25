@@ -12,7 +12,7 @@ metadata:
 azureCategories:
   - media
 products:
-  - azure-form-recognizer
+  - document-intelligence
   - azure-cognitive-services
   - azure-logic-apps
   - azure-functions
