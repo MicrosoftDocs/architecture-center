@@ -26,7 +26,7 @@ summary: Use Azure Bot and Cognitive Services to build enterprise bots for inter
 products:
   - azure-active-directory
   - azure-bot-service
-  - azure-cognitive-services
+  - ai-services
   - azure-language-understanding
   - azure-monitor
 thumbnailUrl: /azure/architecture/browse/thumbs/enterprise-productivity-chatbot-thumbnail.png

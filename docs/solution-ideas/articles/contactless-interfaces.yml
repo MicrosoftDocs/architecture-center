@@ -23,7 +23,7 @@ azureCategories:
   - ai-machine-learning
 summary: Create solutions with touch-free interfaces and other intelligent and perceptive IoT devices. The solutions are backed by the storage, compute, AI, and machine learning capabilities of the Azure cloud.
 products:
-  - azure-cognitive-services
+  - ai-services
   - azure-iot-edge
   - azure-iot-hub
   - azure-storage
