@@ -4,7 +4,7 @@ For decades, Software AG Adabas has been the adaptable database system behind ma
 
 This architecture shows a legacy Adabas & Natural architecture, before a rehost to the cloud:
 
-:::image type="content" border="false" source="media/mainframe-software-ag-rehost-before.png" alt-text="Diagram that shows the legacy mainframe architecture, before migration." lightbox="media/mainframe-software-ag-rehost-before.png ":::
+:::image type="content" border="false" source="media/mainframe-software-ag-rehost-before.svg" alt-text="Diagram that shows the legacy mainframe architecture, before migration." lightbox="media/mainframe-software-ag-rehost-before.svg ":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/mainframe-azure-rehost-before.vsdx) of this architecture.*
 
@@ -30,7 +30,7 @@ H. Partitions are used to run separate workloads or segregate work types within 
 
 This diagram shows the legacy architecture migrated to Azure. A rehost approach is used to migrate the system:
 
-:::image type="content" border="false" source="media/mainframe-software-ag-azure-rehost-after.png" alt-text="Diagram that shows the mainframe architecture rehosted on Azure." lightbox="media/mainframe-software-ag-azure-rehost-after.png "::: 
+:::image type="content" border="false" source="media/mainframe-software-ag-azure-rehost-after.svg" alt-text="Diagram that shows the mainframe architecture rehosted on Azure." lightbox="media/mainframe-software-ag-azure-rehost-after.svg "::: 
 
 *Download a [Visio file](https://arch-center.azureedge.net/mainframe-azure-rehost-after.vsdx) of this architecture.*
 
