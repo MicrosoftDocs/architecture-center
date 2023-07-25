@@ -16,11 +16,11 @@ The workload is a simple web application that employees can use to submit and vi
 
 **2.** The web app calls an API app to retrieve the employee's manager.
 
-**3.** The web app pushes a message that's generated for the creation of the expense report to a NATS queue.
+**3.** The web app pushes a message that's generated for the creation of the expense report to a Knative broker.
 
 **4.** The expense report is saved in MySQL.
 
-**5.** NATS Connector invokes the Email Dispatcher OpenFaaS function with the expense message as the payload.
+**5.** Knative triggers the Email Dispatcher function with the expense message as the payload.
 
 **6.** Email Dispatcher creates a SendGrid message.
 
@@ -32,9 +32,9 @@ The workload is a simple web application that employees can use to submit and vi
 
 **b.** Developers push the code to GitHub from their local workspace in Visual Studio Code.
 
-**c.** Tekton pipelines pull in the GitHub code.
+**c.** Github Webhook triggers Tekton pipelines which clones the GitHub code.
 
-**d.** Pipelines push and pull a container image from a Harbor registry.
+**d.** Pipelines build and push and the container images to a Harbor registry.
 
 **e.** Tekton deploys the web app, API app, and Email Dispatcher applications.
 
@@ -46,9 +46,9 @@ The workload is a simple web application that employees can use to submit and vi
 
 #### Infrastructure
 
-**i.** AKS cluster that's based on the infrastructure presented in the [AKS baseline](/azure/architecture/reference-architectures/containers/aks/baseline-aks).
+**i.** AKS cluster based on the infrastructure presented in the [AKS baseline](/azure/architecture/reference-architectures/containers/aks/baseline-aks).
 
-**ii.** Rook Ceph that's used for cluster storage.
+**ii.** Rook Ceph used for cluster storage.
 
 **iii.** Linkerd service mesh.
 
@@ -63,18 +63,17 @@ You might find it beneficial to manage clusters and cluster bootstrapping by usi
 #### Azure
 
 - [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service). Provides the managed cluster infrastructure.
-- [Azure App Service](https://azure.microsoft.com/services/app-service). Used to build the web app and API app.
 
 #### Open-source software (OSS)
 
 - [Kubernetes](https://kubernetes.io). CNCF. Automates deployment, scaling, and management of containerized applications.
+- [Flux](https://fluxcd.io/). CNCF. GitOps provider for infrastructure delivery.
 - [Rook](https://rook.io). CNCF. Provides storage management for the clusters.
 - [Harbor](https://goharbor.io). CNCF. Container registry for the images.
-- [NATS](https://nats.io). CNCF. Provides publish/subscribe messaging for messages that are generated to create the expense report.
 - [Linkerd](https://linkerd.io). CNCF. Service mesh that integrates with OpenFaaS, NGINX, Prometheus, and Jaeger.
 - [Prometheus](https://prometheus.io). CNCF. Captures application metrics.
 - [Jaeger](https://www.jaegertracing.io). CNCF. Provides overall application tracking on the Kubernetes cluster.
-- [OpenFaaS](https://www.openfaas.com). Used to deploy the Email Dispatcher function.
+- [Knative](https://knative.dev/). CNCF. Used to build serverless and Event Driven application. Deploys the Email Dispatcher function.
 - [MySQL](https://www.mysql.com). Database that stores the expense reports.
 - [NGINX](https://www.nginx.com). Kubernetes ingress controller that employees use to access the web app to submit expense reports.
 - [Tekton](https://tekton.dev). Continuous Delivery Foundation project that's used for continuous integration / continuous deployment (CI/CD). Deploys the web app, API app, and Email Dispatcher applications.
@@ -94,9 +93,9 @@ This project uses CNCF graduated and incubated projects. There could be multiple
 * [Monitoring your microservices by using Zipkin and OpenTracing](https://www.cncf.io/blog/2018/03/19/trace-your-microservices-application-with-zipkin-and-opentracing)
 * [GitOps with a developer-centric experience](https://www.cncf.io/blog/2020/12/22/argocd-kubevela-gitops-with-developer-centric-experience)
 
-You can consider various Azure services as alternatives. For example, Application Gateway Ingress Controller, Azure Container Registry, and Azure Monitor.
+You can consider various Azure services as alternatives. For example, Web Application Routing, Azure Container Registry, Azure Container Storage, Azure Monitor, Azure Monitor managed service for Prometheus, Azure Managed Grfana.
 
-Microsoft also supports OSS projects, including Open Service Mesh.
+Microsoft also supports OSS projects as Managed Addons/Derived projects in AKS, including Nginx, Istio, Prometheus, Grafana and OpenEBS.
 
 ## Scenario details
 
