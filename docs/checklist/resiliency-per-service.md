@@ -84,7 +84,7 @@ Resiliency is the ability of a system to recover from failures and continue to f
 
 ## Azure Cache for Redis
 
-**Configure zone redundancy.** When zone redundancy is enabled on your cache, Azure Cache for Redis spreads the virtual machines that host your cache across multiple availability zones. Zone redundancy provides high availablity and fault tolerance in the event of a data center outage. For more information, see [Enable zone redundancy for Azure Cache for Redis](/azure/azure-cache-for-redis/cache-how-to-zone-redundancy).
+**Configure zone redundancy.** When zone redundancy is enabled on your cache, Azure Cache for Redis spreads the virtual machines that host your cache across multiple availability zones. Zone redundancy provides high availability and fault tolerance in the event of a data center outage. For more information, see [Enable zone redundancy for Azure Cache for Redis](/azure/azure-cache-for-redis/cache-how-to-zone-redundancy).
 
 **Configure Geo-replication**. Geo-replication provides a mechanism for linking two Premium-tier Azure Cache for Redis instances. Data written to the primary cache is replicated to a secondary read-only cache. For more information, see [How to configure geo-replication for Azure Cache for Redis](/azure/redis-cache/cache-how-to-geo-replication)
 
@@ -96,7 +96,7 @@ If you are using Azure Cache for Redis as a temporary data cache and not as a pe
 
 **Provision more than one replica.** Use at least two replicas for read high-availability, or three for read-write high-availability.
 
-**Use zone redundancy.** You can deploy Cognitive Search replicas across multiple availability zones, which helps your service remain operational even when data center outages occur. For more information, see [Reliability in Azure Cognitive Search](/azure/search/search-reliability#availability-zone-support)
+**Use zone redundancy.** You can deploy Cognitive Search replicas across multiple availability zones. This approach helps your service to remain operational even when data center outages occur. For more information, see [Reliability in Azure Cognitive Search](/azure/search/search-reliability#availability-zone-support)
 
 **Configure indexers for multi-region deployments.** If you have a multi-region deployment, consider your options for continuity in indexing.
 
