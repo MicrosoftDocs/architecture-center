@@ -2,7 +2,7 @@
 metadata:
   title: Reliable web app pattern for .NET - Plan the implementation
   titleSuffix: Azure Reference Architectures
-  description: Plan the implementation of the reliable web app pattern for .NET. Essential implementation guidance for web apps moving to the cloud. How to update (re-platform) web apps to be successful in the cloud.
+  description: Plan the implementation of the reliable web app pattern for .NET. Find essential design guidance for web apps moving to the cloud. Learn how to update (re-platform) web apps to be successful in the cloud.
   author: stephen-sumner
   ms.author: keschlob
   ms.reviewer: ssumner
@@ -21,7 +21,7 @@ products:
   - azure-cache-redis
   - dotnet
 name: Reliable web app pattern for .NET - Plan the implementation
-summary: Plan the implementation of the reliable web app pattern for .NET. Essential implementation guidance for web apps moving to the cloud. How to update (re-platform) web apps to be successful in the cloud.
+summary: Plan the implementation of the reliable web app pattern for .NET. Find essential design guidance for web apps moving to the cloud. Learn how to update (re-platform) web apps to be successful in the cloud.
 thumbnailUrl: /azure/architecture/browse/thumbs/reliable-web-app-dotnet.png
 content: |
    [!include[](plan-implementation-content.md)]
