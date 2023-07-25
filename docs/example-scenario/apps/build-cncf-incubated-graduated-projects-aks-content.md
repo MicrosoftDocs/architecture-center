@@ -93,7 +93,7 @@ This project uses CNCF graduated and incubated projects. There could be multiple
 * [Monitoring your microservices by using Zipkin and OpenTracing](https://www.cncf.io/blog/2018/03/19/trace-your-microservices-application-with-zipkin-and-opentracing)
 * [GitOps with a developer-centric experience](https://www.cncf.io/blog/2020/12/22/argocd-kubevela-gitops-with-developer-centric-experience)
 
-You can consider various Azure services as alternatives. For example, Web Application Routing, Azure Container Registry, Azure Container Storage, Azure Monitor, Azure Monitor managed service for Prometheus, Azure Managed Grfana.
+You can consider various Azure services as alternatives. For example, Web Application Routing, Azure Container Registry, Azure Container Storage, Azure Monitor, Azure Monitor managed service for Prometheus, Azure Managed Grafana.
 
 Microsoft also supports OSS projects as Managed Addons/Derived projects in AKS, including Nginx, Istio, Prometheus, Grafana and OpenEBS.
 
