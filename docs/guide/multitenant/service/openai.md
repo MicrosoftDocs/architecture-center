@@ -39,7 +39,7 @@ The following table summarizes the differences between the main tenancy models f
 
 ### Azure OpenAI per tenant, in the provider's subscription
 
-If you are a service provider, you might consider deploying an Azure OpenAI Service instance for each of your tenants within your Azure subscription. This approach provides you with strong data isolation between each tenant's data, but it requires that you deploy and manage an increasing number of Azure OpenAI Service resources, as you increase the number of tenants.
+If you're a service provider, you might consider deploying an Azure OpenAI Service instance for each of your tenants within your Azure subscription. This approach provides you with strong data isolation between each tenant's data, but it requires that you deploy and manage an increasing number of Azure OpenAI Service resources, as you increase the number of tenants.
 
 This approach may make sense when you have separate application deployments for each tenant, or when you need to circumvent certain limitations, such us quota or Request Per Minute(RPM). This [article](/azure/ai-services/openai/quotas-limits#quota-and-limits-reference) contains a quick reference and a detailed description of the quotas and limits for Azure OpenAI.
 
@@ -55,7 +55,7 @@ To access an Azure OpenAI Service instance in your tenant's subscription, the te
 
 Alternatively, you might ask each tenant to create a service principal for your service to use, and to provide you with its credentials. However, this approach requires that you securely store and manage credentials for each tenant, which is a potential security liability.
 
-If your tenants configure network access controls on their Azure OpenAI, make sure you are be able to access it.
+If your tenants configure network access controls on their Azure OpenAI, make sure you're been able to access it.
 
 The following diagram illustrates the Azure OpenAI per tenant, in the tenant's subscription model.
 
@@ -63,11 +63,11 @@ The following diagram illustrates the Azure OpenAI per tenant, in the tenant's s
 
 ### Shared Azure OpenAI
 
-You might choose to share an instance of Azure OpenAI Service between multiple tenants. The Azure OpenAI resource is deployed in your (the solution provider's) Azure subscription, and you're responsible for managing it. This approach is the simplest solution you can implement, but it provides the least data isolation and performance isolation. Sharing the Azure OpenAI service does not offer access security at the model deployment level, which may make it easier for other tenants to use unauthorized models. Therefore, sharing an Azure OpenAI instance when using fine-tuned models is strongly discouraged, as it may expose sensitive information and allow unauthorized access to tenant-specific resources.
+You might choose to share an instance of Azure OpenAI Service between multiple tenants. The Azure OpenAI resource is deployed in your (the solution provider's) Azure subscription, and you're responsible for managing it. This approach is the simplest solution you can implement, but it provides the least data isolation and performance isolation. Sharing the Azure OpenAI service doesn't offer access security at the model deployment level, which may make it easier for other tenants to use unauthorized models. Therefore, sharing an Azure OpenAI instance when using fine-tuned models is strongly discouraged, as it may expose sensitive information and allow unauthorized access to tenant-specific resources.
 
 Sharing an instance of Azure OpenAI Service between multiple tenants can also lead to the [noisy neighbor](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor) problem, which might cause higher latency for some tenants. You also need to make your application code multitenancy-aware. For example, if you want to charge back your customers the consumption cost of a shared Azure OpenAI Service instance, you should keep track of the total number of tokens per tenant in your application.
 
-You might also choose to deploy multiple shared Azure OpenAI. For example, if you follow the [Deployment Stamps pattern](../approaches/overview.yml#deployment-stamps-pattern), you are likely to deploy a shared Azure OpenAI within each stamp. Similarly, if you deploy a multi-region solution, you should deploy Azure OpenAI into each region for the following reasons:
+You might also choose to deploy multiple shared Azure OpenAI. For example, if you follow the [Deployment Stamps pattern](../approaches/overview.yml#deployment-stamps-pattern), you're likely to deploy a shared Azure OpenAI within each stamp. Similarly, if you deploy a multi-region solution, you should deploy Azure OpenAI into each region for the following reasons:
 
 - To avoid cross-region traffic latency.
 - To support data residency requirements.
@@ -81,7 +81,7 @@ The following diagram illustrates the Shared Azure OpenAI model.
 
 #### Azure OpenAI model per tenant
 
-When using a shared Azure OpenAI Service, deploying individual instances of the same model for each tenant's exclusive use can offer significant benefits. This approach allows for enhanced parameter customization for each deployment and facilitates tenant-specific TPM allocation, which can help achieve more precise cost allocation and management. It clearly explains resource consumption and expenses associated with each tenant's usage. Furthermore, it can optimize resource utilization, ensuring that each tenant only pays for their required resources, leading to more cost-effective solutions. In addition, this method promotes scalability and adaptability, as tenants can adjust their resource allocation based on their evolving needs and usage patterns.
+When you use a shared Azure OpenAI Service, deploying individual instances of the same model for each tenant's exclusive use can offer significant benefits. This approach allows for enhanced parameter customization for each deployment and facilitates tenant-specific TPM allocation, which can help achieve more precise cost allocation and management. It clearly explains resource consumption and expenses associated with each tenant's usage. Furthermore, it can optimize resource utilization, ensuring that each tenant only pays for their required resources, leading to more cost-effective solutions. In addition, this method promotes scalability and adaptability, as tenants can adjust their resource allocation based on their evolving needs and usage patterns.
 
 > [!NOTE]
 > When customizing models for unique needs, it's essential to consider the different approaches available, keeping in mind that every tenant may have distinct requirements and use cases.. One aspect to keep in mind is that fine-tuning may not be the go-to choice for most use cases. Instead, it's worth exploring other options, such as grounding. Therefore, taking the time to evaluate these factors can help ensure you choose the best approach to meet your specific needs.
