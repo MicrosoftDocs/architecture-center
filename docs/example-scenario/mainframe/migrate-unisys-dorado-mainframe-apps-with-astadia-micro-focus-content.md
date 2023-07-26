@@ -6,7 +6,7 @@ This solution migrates Unisys Dorado mainframe systems to Azure with Astadia and
 
 This diagram shows the components that Unisys Sperry OS 1100/2200 mainframe systems typically contain:
 
-:::image type="complex" source="./media/migrate-unisys-dorado-mainframe-apps-original-architecture.png" alt-text="Architecture diagram showing the components that make up a Unisys Dorado mainframe system. Examples include users, middleware, servers, and data storage." border="false":::
+:::image type="complex" source="./media/migrate-unisys-dorado-mainframe-apps-original-architecture.svg" alt-text="Architecture diagram showing the components that make up a Unisys Dorado mainframe system. Examples include users, middleware, servers, and data storage." lightbox="./media/migrate-unisys-dorado-mainframe-apps-original-architecture.svg" border="false":::
    The main part of the diagram is a box that contains several smaller boxes. Those boxes represent communications standards, application servers, data storage, middleware, monitoring components, an operating system, and a printer system. Above the box, icons represent users. Arrows connect the users with the communications box. Below the box, icons represent printers. Arrows connect the printers with the printer system box. Letter labels link parts of the diagram with the description in the document.
 :::image-end:::
 
@@ -50,7 +50,7 @@ This diagram shows the components that Unisys Sperry OS 1100/2200 mainframe syst
 
 This architecture demonstrates the solution, after it was migrated to Azure:
 
-:::image type="complex" source="./media/migrate-unisys-dorado-mainframe-apps-architecture-diagram.png" alt-text="Architecture diagram showing a Unisys Dorado mainframe system working with Azure components and with Astadia and Micro Focus emulation technology." border="false":::
+:::image type="complex" source="./media/migrate-unisys-dorado-mainframe-apps-architecture-diagram.svg" alt-text="Architecture diagram showing a Unisys Dorado mainframe system working with Azure components and with Astadia and Micro Focus emulation technology." lightbox="./media/migrate-unisys-dorado-mainframe-apps-architecture-diagram.svg" border="false":::
    The diagram contains two areas, one for Azure components, and one for on-premises components. The on-premises area is simple, with icons for a user and a network service. The Azure area is complex. Boxes containing icons fill the Azure area. The boxes represent a virtual network, sets of virtual machines, third-party software, database services, storage solutions, and other components. Arrows connect some boxes. Number and letter labels link parts of the diagram with the description in the document.
 :::image-end:::
 
