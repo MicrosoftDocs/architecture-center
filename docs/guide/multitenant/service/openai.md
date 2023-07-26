@@ -17,7 +17,7 @@ categories:
 
 # Multitenancy and Azure OpenAI
 
-[Azure OpenAI Service](/azure/articles/ai-services/openai/overview.md) is a comprehensive offering that enables access to OpenAI's powerful language models. On this page, we highlight key features of the Azure OpenAI Service that are beneficial for multi-tenant solutions. Furthermore, we provide links to useful resources that can assist you in planning your approach to using this service.
+[Azure OpenAI Service](/azure/ai-services/openai/overview) is a comprehensive offering that enables access to OpenAI's powerful language models. On this page, we highlight key features of the Azure OpenAI Service that are beneficial for multi-tenant solutions. Furthermore, we provide links to useful resources that can assist you in planning your approach to using this service.
 
 ## Isolation models
 
@@ -65,7 +65,7 @@ The following diagram illustrates the Azure OpenAI per tenant, in the tenant's s
 
 You might choose to share an instance of Azure OpenAI Service between multiple tenants. The Azure OpenAI resource is deployed in your (the solution provider's) Azure subscription, and you're responsible for managing it. This approach is the simplest solution you can implement, but it provides the least data isolation and performance isolation. Sharing the Azure OpenAI service does not offer access security at the model deployment level, which may make it easier for other tenants to use unauthorized models. Therefore, sharing an Azure OpenAI instance when using fine-tuned models is strongly discouraged, as it may expose sensitive information and allow unauthorized access to tenant-specific resources.
 
-Sharing an instance of Azure OpenAI Service between multiple tenants can also lead to the [noisy neighbor](.../antipatterns/noisy-neighbor/noisy-neighbor.yml) problem, which might cause higher latency for some tenants. You also need to make your application code multitenancy-aware. For example, if you want to charge back your customers the consumption cost of a shared Azure OpenAI Service instance, you should keep track of the total number of tokens per tenant in your application.
+Sharing an instance of Azure OpenAI Service between multiple tenants can also lead to the [noisy neighbor](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor) problem, which might cause higher latency for some tenants. You also need to make your application code multitenancy-aware. For example, if you want to charge back your customers the consumption cost of a shared Azure OpenAI Service instance, you should keep track of the total number of tokens per tenant in your application.
 
 You might also choose to deploy multiple shared Azure OpenAI. For example, if you follow the [Deployment Stamps pattern](../approaches/overview.yml#deployment-stamps-pattern), you are likely to deploy a shared Azure OpenAI within each stamp. Similarly, if you deploy a multi-region solution, you should deploy Azure OpenAI into each region for the following reasons:
 
@@ -73,7 +73,7 @@ You might also choose to deploy multiple shared Azure OpenAI. For example, if yo
 - To support data residency requirements.
 - To enable the use of regional Azure OpenAI within other services that require same-region deployments.
 
-When you work with a shared Azure OpenAI, it's important to consider its [limits](azure/articles/cognitive-services/openai/quotas-limits.md#quotas-and-limits-reference) and [manage your quota](azure/articles/cognitive-services/openai/how-to/quota).
+When you work with a shared Azure OpenAI, it's important to consider its [limits](azure//cognitive-services/openai/quotas-limits.md#quotas-and-limits-reference) and [manage your quota](azure/cognitive-services/openai/how-to/quota).
 
 The following diagram illustrates the Shared Azure OpenAI model.
 
@@ -92,7 +92,7 @@ When using a shared Azure OpenAI Service, deploying individual instances of the 
 
 By using managed identities from Azure Active Directory (Azure AD), you can enable access to Azure OpenAI from other resources authenticated by Azure AD. When you use managed identities, you don't need to use an Azure OpenAI API key. You can grant specific permissions to your Azure OpenAI identity for role-based access control.
 
-When you use managed identities, keep your choice of isolation model in mind. For more information, see [Azure OpenAI Service with managed identities](azure/articles/cognitive-services/openai/how-to/managed-identity).
+When you use managed identities, keep your choice of isolation model in mind. For more information, see [Azure OpenAI Service with managed identities](azure/cognitive-services/openai/how-to/managed-identity).
 
 ## Contributors
 
