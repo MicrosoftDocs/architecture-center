@@ -2,7 +2,7 @@ This architecture describes how to implement an Information Management System (I
 
 ## IMS DB/DC workload architecture, before migration
 
-:::image type="content" source="media/pre-migration.png" alt-text="Diagram that shows the pre-migration IMS DB/DC workload architecture." lightbox="media/pre-migration.png" border="false":::
+:::image type="content" source="media/pre-migration.svg" alt-text="Diagram that shows the pre-migration IMS DB/DC workload architecture." lightbox="media/pre-migration.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/rehost-ims-raincode-imsql-ibm-ims-dbdc-zos.vsdx) of this architecture.*
 
@@ -17,7 +17,7 @@ This architecture describes how to implement an Information Management System (I
 
 ## IMSql architecture on Azure
 
-:::image type="content" source="media/imsql.png" alt-text="Diagram that shows the IMSql architecture on Azure." lightbox="media/imsql.png" border="false":::
+:::image type="content" source="media/imsql.svg" alt-text="Diagram that shows the IMSql architecture on Azure." lightbox="media/imsql.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/rehost-ims-raincode-imsql.vsdx) of this architecture.*
 
@@ -56,7 +56,7 @@ This architecture describes how to implement an Information Management System (I
 
 ## Data migration via IMSql
 
-:::image type="content" source="media/data-migration.png" alt-text="Diagram that shows the data migration via IMSql." lightbox="media/data-migration.png" border="false":::
+:::image type="content" source="media/data-migration.svg" alt-text="Diagram that shows the data migration via IMSql." lightbox="media/data-migration.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/rehost-ims-raincode-imsql-data-migration.vsdx) of this architecture.*
 
