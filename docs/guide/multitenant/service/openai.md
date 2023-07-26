@@ -41,7 +41,7 @@ The following table summarizes the differences between the main tenancy models f
 
 If you are a service provider, you might consider deploying an Azure OpenAI Service instance for each of your tenants within your Azure subscription. This approach provides you with strong data isolation between each tenant's data, but it requires that you deploy and manage an increasing number of Azure OpenAI Service resources, as you increase the number of tenants.
 
-This approach may make sense when you have separate application deployments for each tenant, or when you need to circumvent certain limitations, such us quota or Request Per Minute(RPM). This [article](/azure/cognitive-services/openai/quotas-limits#quota-and-limits-reference) contains a quick reference and a detailed description of the quotas and limits for Azure OpenAI.
+This approach may make sense when you have separate application deployments for each tenant, or when you need to circumvent certain limitations, such us quota or Request Per Minute(RPM). This [article](/azure/ai-services/openai/quotas-limits#quota-and-limits-reference) contains a quick reference and a detailed description of the quotas and limits for Azure OpenAI.
 
 The following diagram illustrates the Azure OpenAI per tenant, in the provider's subscription model.
 
@@ -73,7 +73,7 @@ You might also choose to deploy multiple shared Azure OpenAI. For example, if yo
 - To support data residency requirements.
 - To enable the use of regional Azure OpenAI within other services that require same-region deployments.
 
-When you work with a shared Azure OpenAI, it's important to consider its [limits](azure/cognitive-services/openai/quotas-limits#quotas-and-limits-reference) and [manage your quota](azure/cognitive-services/openai/how-to/quota).
+When you work with a shared Azure OpenAI, it's important to consider its [limits](azure/ai-services/openai/quotas-limits#quotas-and-limits-reference) and [manage your quota](azure/ai-services/openai/how-to/quota).
 
 The following diagram illustrates the Shared Azure OpenAI model.
 
@@ -92,7 +92,7 @@ When using a shared Azure OpenAI Service, deploying individual instances of the 
 
 By using managed identities from Azure Active Directory (Azure AD), you can enable access to Azure OpenAI from other resources authenticated by Azure AD. When you use managed identities, you don't need to use an Azure OpenAI API key. You can grant specific permissions to your Azure OpenAI identity for role-based access control.
 
-When you use managed identities, keep your choice of isolation model in mind. For more information, see [Azure OpenAI Service with managed identities](azure/cognitive-services/openai/how-to/managed-identity).
+When you use managed identities, keep your choice of isolation model in mind. For more information, see [Azure OpenAI Service with managed identities](azure/ai-services/openai/how-to/managed-identity).
 
 ## Contributors
 
