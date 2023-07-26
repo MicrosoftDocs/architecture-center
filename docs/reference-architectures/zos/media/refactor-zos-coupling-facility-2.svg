@@ -441,7 +441,7 @@
 			<rect x="0" y="0" width="1296" height="828" class="st1"/>
 		</g>
 	</g>
-	<g v:mID="15" v:index="4" v:groupContext="foregroundPage">
+	<g v:mID="15" v:index="3" v:groupContext="foregroundPage">
 		<v:userDefs>
 			<v:ud v:nameU="msvThemeOrder" v:val="VT0(0):26"/>
 			<v:ud v:nameU="visNavType" v:val="VT0(1):26"/>
@@ -3008,7 +3008,7 @@
 				<v:textRect cx="69.2971" cy="817.772" width="138.6" height="20.4483"/>
 				<rect x="0" y="807.552" width="138.594" height="20.4483" class="st31"/>
 				<text x="4" y="822.35" class="st41" v:langID="1033"><v:paragraph/><v:tabList/>Azure SQL Database <tspan x="4"
-							dy="1.2em" class="st36">logiacl</tspan><tspan class="st120"> </tspan><tspan class="st120">server</tspan></text>			</g>
+							dy="1.2em" class="st36">logical</tspan><tspan class="st120"> </tspan><tspan class="st120">server</tspan></text>			</g>
 			<g id="group2247-841" transform="translate(13.1324,-56.5391)" v:mID="2247" v:groupContext="group">
 				<v:userDefs>
 					<v:ud v:nameU="visNavOrder" v:val="VT0(363000):26"/>
@@ -4224,42 +4224,42 @@
 				<svg viewBox="0 0 755.45 802.67" enable-background="new" color-interpolation-filters="sRGB" height="37.056"
 						preserveAspectRatio="none" width="34.875" x="0" y="790.944">
 					<defs>
-						<clipPath id="mfid13">
-							<rect id="mfid14" x="0" y="0" width="755.45" height="802.67"/>
+						<clipPath id="mfid1">
+							<rect id="mfid2" x="0" y="0" width="755.45" height="802.67"/>
 						</clipPath>
 					</defs>
-					<g clip-path="url(#mfid13)">
+					<g clip-path="url(#mfid1)">
 						<defs>
-							<g id="mfid15">
+							<g id="mfid3">
 								<path d="M737,441 L737,563 L370,764 L0,563 L0,441 L369,251 Z"/>
 							</g>
 						</defs>
 						<g stroke="#000000" stroke-miterlimit="10" fill="#dc2126">
-							<use xlink:href="#mfid15" stroke="none"/>
+							<use xlink:href="#mfid3" stroke="none"/>
 						</g>
 						<defs>
-							<g id="mfid16">
+							<g id="mfid4">
 								<path d="M369,251 L738,441 L369,634 L0,441 Z"/>
 							</g>
 						</defs>
 						<g stroke="#000000" stroke-miterlimit="10" fill="#f0542d">
-							<use xlink:href="#mfid16" stroke="none"/>
+							<use xlink:href="#mfid4" stroke="none"/>
 						</g>
 						<defs>
-							<g id="mfid17">
+							<g id="mfid5">
 								<path d="M737,190 L737,312 L370,513 L0,312 L0,190 L369,0 Z"/>
 							</g>
 						</defs>
 						<g stroke="#000000" stroke-miterlimit="10" fill="#dc2126">
-							<use xlink:href="#mfid17" stroke="none"/>
+							<use xlink:href="#mfid5" stroke="none"/>
 						</g>
 						<defs>
-							<g id="mfid18">
+							<g id="mfid6">
 								<path d="M369,0 L738,190 L369,383 L0,190 Z"/>
 							</g>
 						</defs>
 						<g stroke="#000000" stroke-miterlimit="10" fill="#f0542d">
-							<use xlink:href="#mfid18" stroke="none"/>
+							<use xlink:href="#mfid6" stroke="none"/>
 						</g>
 					</g>
 				</svg>
