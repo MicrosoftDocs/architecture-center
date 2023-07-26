@@ -10,6 +10,7 @@ metadata:
   ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
+  ms.custom: devx-track-extended-java
 azureCategories:
   - migration
   - web

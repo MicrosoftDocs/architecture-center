@@ -12,6 +12,7 @@ metadata:
   ms.subservice: reference-architecture
   ms.category:
   - featured
+  ms.custom: devx-track-extended-java
 azureCategories:
   - migration
   - web
