@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Moodle deployment with Azure NetApp Files
+  title: Moodle deployment in Azure with Azure NetApp Files
   titleSuffix: Azure Architecture Center
-  description: Deploy Moodle with Azure NetApp Files for a resilient solution that offers high-throughput, low-latency access to scalable shared storage.
+  description: Deploy Moodle in Azure with Azure NetApp Files for a resilient solution that offers high-throughput, low-latency access to scalable shared storage for storing and accessing learning materials.
   author: arntdg
   ms.author: b-arntdegier
   ms.date: 12/16/2022
@@ -21,8 +21,8 @@ products:
   - azure-database-mysql
   - azure-netapp-files
   - azure-vm-scalesets
-name: Moodle deployment with Azure NetApp Files
-summary: Deploy Moodle with Azure NetApp Files for a resilient solution that offers high-throughput, low-latency access to scalable shared storage.
+name: Moodle deployment in Azure with Azure NetApp Files
+summary: Deploy Moodle in Azure with Azure NetApp Files for a resilient solution that offers high-throughput, low-latency access to scalable shared storage for storing and accessing learning materials.
 thumbnailUrl: /azure/architecture/browse/thumbs/moodle-azure-netapp-files-architecture-thumbnail.png
 content: |
   [!include[](moodle-azure-netapp-files-content.md)]
