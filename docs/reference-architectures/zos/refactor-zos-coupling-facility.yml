@@ -17,6 +17,6 @@ products:
   - azure-kubernetes-service
   - azure-virtual-machines
   - azure-virtual-network
-thumbnailUrl: /azure/architecture/browse/thumbs/ibm-mainframe.png
+thumbnailUrl: /azure/architecture/browse/thumbs/refactor-zos-coupling-facility.png
 content: |
    [!include[](refactor-zos-coupling-facility-content.md)]
