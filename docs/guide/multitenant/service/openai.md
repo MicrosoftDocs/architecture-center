@@ -73,7 +73,7 @@ You might also choose to deploy multiple shared Azure OpenAI. For example, if yo
 - To support data residency requirements.
 - To enable the use of regional Azure OpenAI within other services that require same-region deployments.
 
-When you work with a shared Azure OpenAI, it's important to consider its [limits](azure/ai-services/openai/quotas-limits#quotas-and-limits-reference) and [manage your quota](azure/ai-services/openai/how-to/quota).
+When you work with a shared Azure OpenAI, it's important to consider its [limits](/azure/ai-services/openai/quotas-limits#quotas-and-limits-reference) and [manage your quota](/azure/ai-services/openai/how-to/quota).
 
 The following diagram illustrates the Shared Azure OpenAI model.
 
@@ -92,7 +92,7 @@ When you use a shared Azure OpenAI Service, deploying individual instances of th
 
 By using managed identities from Azure Active Directory (Azure AD), you can enable access to Azure OpenAI from other resources authenticated by Azure AD. When you use managed identities, you don't need to use an Azure OpenAI API key. You can grant specific permissions to your Azure OpenAI identity for role-based access control.
 
-When you use managed identities, keep your choice of isolation model in mind. For more information, see [Azure OpenAI Service with managed identities](azure/ai-services/openai/how-to/managed-identity).
+When you use managed identities, keep your choice of isolation model in mind. For more information, see [Azure OpenAI Service with managed identities](/azure/ai-services/openai/how-to/managed-identity).
 
 ## Contributors
 
