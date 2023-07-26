@@ -73,7 +73,7 @@ You might also choose to deploy multiple shared Azure OpenAI. For example, if yo
 - To support data residency requirements.
 - To enable the use of regional Azure OpenAI within other services that require same-region deployments.
 
-When you work with a shared Azure OpenAI, it's important to consider its [limits](azure//cognitive-services/openai/quotas-limits.md#quotas-and-limits-reference) and [manage your quota](azure/cognitive-services/openai/how-to/quota).
+When you work with a shared Azure OpenAI, it's important to consider its [limits](azure/cognitive-services/openai/quotas-limits#quotas-and-limits-reference) and [manage your quota](azure/cognitive-services/openai/how-to/quota).
 
 The following diagram illustrates the Shared Azure OpenAI model.
 
