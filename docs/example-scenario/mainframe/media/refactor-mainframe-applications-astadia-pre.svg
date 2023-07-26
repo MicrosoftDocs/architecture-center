@@ -100,11 +100,11 @@
 			<use xlink:href="#lend2" transform="scale(3.52) "/>
 		</marker>
 	</defs>
-	<g v:mID="12" v:index="2" v:groupContext="backgroundPage">
+	<g v:mID="11" v:index="1" v:groupContext="backgroundPage">
 		<v:userDefs>
 			<v:ud v:nameU="msvVisioCreated" v:prompt="" v:val="VT0(0):26"/>
 		</v:userDefs>
-		<title>VBackground-2</title>
+		<title>VBackground-1</title>
 		<v:pageProperties width="16.4375" height="9.10937" v:drawingScale="1" v:pageScale="1" v:drawingUnits="19"
 				v:shadowOffsetX="9" v:shadowOffsetY="-9"/>
 		<g id="shape1-1" v:mID="1" v:groupContext="shape">
@@ -118,7 +118,7 @@
 			<rect x="0" y="0" width="1183.5" height="655.875" class="st1"/>
 		</g>
 	</g>
-	<g v:mID="8" v:index="4" v:groupContext="foregroundPage">
+	<g v:mID="8" v:index="3" v:groupContext="foregroundPage">
 		<v:userDefs>
 			<v:ud v:nameU="visNavType" v:val="VT0(1):26"/>
 		</v:userDefs>
@@ -534,7 +534,7 @@
 			<text x="4" y="632.48" class="st6" v:langID="1033"><v:paragraph/><v:tabList/>Integration middleware</text>		</g>
 		<g id="shape56-111" v:mID="56" v:groupContext="shape" transform="translate(438.015,-300.751)">
 			<title>Sheet.56</title>
-			<desc>Middleware (Web services, Management, Transaction management,...</desc>
+			<desc>Middleware (Web services, management, transaction management,...</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(25000):26"/>
 			</v:userDefs>
@@ -542,10 +542,10 @@
 			<v:textRect cx="94.5" cy="630.092" width="189" height="51.5664"/>
 			<path d="M0 655.87 L189 655.87 L189 604.31 L0 604.31 L0 655.87 Z" class="st21"/>
 			<text x="4" y="621.09" class="st16" v:langID="1033"><v:paragraph/><v:tabList/>Middleware<v:newlineChar/><tspan x="4"
-						dy="1.2em" class="st7">(Web services, Management, Transaction </tspan><tspan x="4" dy="1.2em" class="st7">management, Queueing)</tspan></text>		</g>
+						dy="1.2em" class="st7">(Web services, management, transaction </tspan><tspan x="4" dy="1.2em" class="st7">management, queueing)</tspan></text>		</g>
 		<g id="shape57-116" v:mID="57" v:groupContext="shape" transform="translate(438.015,-242.068)">
 			<title>Sheet.57</title>
-			<desc>Environment integrators (Queueing, Management, Output)</desc>
+			<desc>Environment integrators (Queueing, management, output)</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(26000):26"/>
 			</v:userDefs>
@@ -553,10 +553,10 @@
 			<v:textRect cx="94.5" cy="630.092" width="189" height="51.5664"/>
 			<path d="M0 655.87 L189 655.87 L189 604.31 L0 604.31 L0 655.87 Z" class="st21"/>
 			<text x="4" y="627.09" class="st16" v:langID="1033"><v:paragraph/><v:tabList/>Environment integrators<v:newlineChar/><tspan
-						x="4" dy="1.2em" class="st7">(Queueing, Management, Output)</tspan></text>		</g>
+						x="4" dy="1.2em" class="st7">(Queueing, management, output)</tspan></text>		</g>
 		<g id="shape58-120" v:mID="58" v:groupContext="shape" transform="translate(438.015,-184.785)">
 			<title>Sheet.58</title>
-			<desc>Other services (Tape storage, Monitoring, etc)</desc>
+			<desc>Other services (Tape storage, monitoring, etc)</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(27000):26"/>
 			</v:userDefs>
@@ -564,7 +564,7 @@
 			<v:textRect cx="94.5" cy="630.092" width="189" height="51.5664"/>
 			<path d="M0 655.87 L189 655.87 L189 604.31 L0 604.31 L0 655.87 Z" class="st21"/>
 			<text x="4" y="627.09" class="st16" v:langID="1033"><v:paragraph/><v:tabList/>Other services<v:newlineChar/><tspan
-						x="4" dy="1.2em" class="st7">(Tape storage, Monitoring, etc)</tspan></text>		</g>
+						x="4" dy="1.2em" class="st7">(Tape storage, monitoring, etc)</tspan></text>		</g>
 		<g id="shape59-124" v:mID="59" v:groupContext="shape" transform="translate(430.49,-410.137)">
 			<title>Sheet.59</title>
 			<v:userDefs>
@@ -584,7 +584,7 @@
 			<text x="4" y="632.48" class="st6" v:langID="1033"><v:paragraph/><v:tabList/>Communications</text>		</g>
 		<g id="shape61-129" v:mID="61" v:groupContext="shape" transform="translate(438.86,-419.321)">
 			<title>Sheet.61</title>
-			<desc>Communications standards (LU 6.2,Tn3270, FTP, Sockets, UTS)</desc>
+			<desc>Communications standards (LU 6.2,TN3270, FTP, Sockets, UTS)</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(30000):26"/>
 			</v:userDefs>
@@ -592,7 +592,7 @@
 			<v:textRect cx="94.5" cy="630.092" width="189" height="51.5664"/>
 			<path d="M0 655.87 L189 655.87 L189 604.31 L0 604.31 L0 655.87 Z" class="st21"/>
 			<text x="4" y="627.09" class="st16" v:langID="1033"><v:paragraph/><v:tabList/>Communications standards<v:newlineChar/><tspan
-						x="4" dy="1.2em" class="st7">(LU 6.2,Tn3270, FTP, Sockets, UTS)</tspan></text>		</g>
+						x="4" dy="1.2em" class="st7">(LU 6.2,TN3270, FTP, Sockets, UTS)</tspan></text>		</g>
 		<g id="group62-133" transform="translate(659.383,-294.019)" v:mID="62" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(31000):26"/>
@@ -798,14 +798,14 @@
 			<text x="334.93" y="634.73" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Partitions</text>		</g>
 		<g id="shape74-159" v:mID="74" v:groupContext="shape" transform="translate(740.675,-423.637)">
 			<title>Sheet.74</title>
-			<desc>Batch runs on app clones long queries/events</desc>
+			<desc>Batch runs on app clone long queries/events</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(35000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="96.75" cy="628.875" width="193.5" height="54"/>
 			<rect x="0" y="601.875" width="193.5" height="54" class="st2"/>
-			<text x="4" y="625.28" class="st6" v:langID="1033"><v:paragraph/><v:tabList/>Batch runs on app clones <v:newlineChar/><tspan
+			<text x="4" y="625.28" class="st6" v:langID="1033"><v:paragraph/><v:tabList/>Batch runs on app clone <v:newlineChar/><tspan
 						x="4" dy="1.2em" class="st4">long queries/events</tspan></text>		</g>
 		<g id="group75-163" transform="translate(657.425,-429.147)" v:mID="75" v:groupContext="group">
 			<v:userDefs>
@@ -1182,7 +1182,7 @@
 			<v:textRect cx="15.0375" cy="640.837" width="30.08" height="30.075"/>
 			<ellipse cx="15.0375" cy="640.837" rx="15.0375" ry="15.0375" class="st38"/>
 			<text x="11.01" y="645.04" class="st39" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>2</text>		</g>
-		<g id="shape132-241" v:mID="132" v:groupContext="shape" transform="translate(837.225,-462.262)">
+		<g id="shape132-241" v:mID="132" v:groupContext="shape" transform="translate(837.225,-466.462)">
 			<title>Sheet.132</title>
 			<desc>3</desc>
 			<v:userDefs>
@@ -1212,7 +1212,7 @@
 			<v:textRect cx="15.0375" cy="640.837" width="30.08" height="30.075"/>
 			<ellipse cx="15.0375" cy="640.837" rx="15.0375" ry="15.0375" class="st38"/>
 			<text x="11.01" y="645.04" class="st39" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>6</text>		</g>
-		<g id="shape135-250" v:mID="135" v:groupContext="shape" transform="translate(1064.67,-462.787)">
+		<g id="shape135-250" v:mID="135" v:groupContext="shape" transform="translate(1064.67,-466.462)">
 			<title>Sheet.135</title>
 			<desc>5</desc>
 			<v:userDefs>
