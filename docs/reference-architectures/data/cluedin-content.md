@@ -147,7 +147,7 @@ You can start a 7-day trial of CluedIn on their [website](https://www.cluedin.co
 
 - To deploy CluedIn for development and evaluation purposes using Docker, see [CluedIn with Docker](https://documentation.cluedin.net/deployment/docker-compose).
 
-- To install CluedIn quickly in a Kubernetes cluster, see [CluedIn with Kubernetes](https://documentation.cluedin.net/deployment/kubernetes). The [Helm chart](https://cluedin-io.github.io/Charts/) installs the CluedIn server, website, and other required services, like storage and queues.
+- To install CluedIn quickly in a Kubernetes cluster, see [CluedIn with Kubernetes](https://documentation.cluedin.net/deployment/local/step-2#authenticate-to-cluedin-acr). The [Helm chart](https://cluedin-io.github.io/Charts/) installs the CluedIn server, website, and other required services, like storage and queues.
 
 ## Next steps
 
