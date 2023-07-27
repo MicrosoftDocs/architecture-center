@@ -7163,12 +7163,12 @@
 							x="27.88" dy="1.2em" class="st29">Storage</tspan></text>			</g>
 			<g id="shape1220-408" v:mID="1220" v:groupContext="shape" transform="translate(119.425,0)">
 				<title>Sheet.1220</title>
-				<desc>Azure Database for Maria database</desc>
+				<desc>Azure Database for MariaDB</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="49.1632" cy="1028.63" width="98.33" height="16.7414"/>
 				<rect x="0" y="1020.26" width="98.3263" height="16.7414" class="st24"/>
 				<text x="7.01" y="1025.63" class="st27" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Database for <tspan
-							x="15.32" dy="1.2em" class="st29">Maria database</tspan></text>			</g>
+							x="30.26" dy="1.2em" class="st29">MariaDB</tspan></text>			</g>
 		</g>
 		<g id="shape1238-412" v:mID="1238" v:groupContext="shape" transform="translate(1341.66,-271.007)">
 			<title>Sheet.1238</title>
