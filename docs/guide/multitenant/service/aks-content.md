@@ -103,17 +103,17 @@ For more information, see [Storage isolation](https://kubernetes.io/docs/concept
 
 ### Node isolation
 
-You can configure tenant workloads to run on separate agent nodes to avoid the [Noisy Neighbor issue](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor) and the risk of information disclosure. In AKS, you can create a separate cluster, or just a dedicated node pool, for those tenants that have strict requirements in terms of isolation, security, regulatory compliance, and performance. 
+You can configure tenant workloads to run on separate agent nodes to avoid the [Noisy Neighbor problem](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor) and reduce the risk of information disclosure. In AKS, you can create a separate cluster, or just a dedicated node pool, for tenants that have strict requirements for isolation, security, regulatory compliance, and performance. 
 
-You can use [taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), [tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), [node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node), [node selectors](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node), and [node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node) to constrain tenants pods to run only on a particular set of nodes or node pools.
+You can use [taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), [tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration), [node labels](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node), [node selectors](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node), and [node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node) to constrain tenants' pods to run only on a particular set of nodes or node pools.
 
-In general, Azure Kubernetes Service (AKS) provides workload isolation at different levels:
+In general, AKS provides workload isolation at various levels:
 
-- At the kernel level by running tenant workloads in lightweight virtual machines on shared agent nodes using [Pod Sandboxing](#pod-sandboxing) based on [Kata Containers](https://katacontainers.io/)
-- At the physical level by hosting tenant applications on dedicated clusters or node pools.
-- At the hardware level by running tenant workloads on [Azure Dedicated Hosts](#azure-dedicated-hosts) that guarantee that agent node VMs run dedicated physical machines. Hardware isolation ensures that no other virtual machines are placed on the dedicated hosts, providing an additional layer of isolation for tenant workloads.
+- At the kernel level, by running tenant workloads in lightweight virtual machines on shared agent nodes and using [Pod Sandboxing](#pod-sandboxing) based on [Kata Containers](https://katacontainers.io/).
+- At the physical level, by hosting tenant applications on dedicated clusters or node pools.
+- At the hardware level, by running tenant workloads on [Azure dedicated hosts](#azure-dedicated-hosts) that guarantee that agent node VMs run dedicated physical machines. Hardware isolation ensures that no other virtual machines are placed on the dedicated hosts, providing an additional layer of isolation for tenant workloads.
 
-These techniques can be combined. For example, you can run per-tenant clusters and node pools on an [Azure Dedicated Host Group](#azure-dedicated-hosts) to achieve workload segregation and physical isolation at the hardware level. You can also create shared or per-tenant node pools that support Enable [Federal Information Process Standard (FIPS)](#federal-information-process-standard-fips), [Confidential Virtual Machines (CVM)](#confidential-virtual-machines-cvm), or [Host-based encryption](#host-based-encryption).
+You can combine these techniques. For example, you can run per-tenant clusters and node pools on an [Azure Dedicated Host Group](#azure-dedicated-hosts) to achieve workload segregation and physical isolation at the hardware level. You can also create shared or per-tenant node pools that support Enable [Federal Information Process Standard (FIPS)](#federal-information-process-standard-fips), [Confidential Virtual Machines (CVM)](#confidential-virtual-machines-cvm), or [Host-based encryption](#host-based-encryption).
 
 Node isolation allows you to  easily associate and charge back the cost of a set of nodes or node pool to a single tenant. It's strictly related to the tenancy model that's adopted by your solution.
 
