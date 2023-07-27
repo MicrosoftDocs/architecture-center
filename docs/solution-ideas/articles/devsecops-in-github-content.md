@@ -156,8 +156,8 @@ Principal author:
 
 ## Next steps
 
-- [Training materials, tools, and other resources on GitHub DevSecOps](https://github.com/devsecops/awesome-devsecops)
-- [Tips for getting started with GitHub DevSecOps](https://resources.github.com/devops/tools/)
+- [Training materials, tools, and other resources on GitHub DevSecOps][GitHub DevSecOps training materials]
+- [Tips for getting started with GitHub DevSecOps][GitHub DevSecOps getting started tips]
 
 ## Related resources
 
@@ -209,6 +209,6 @@ Principal author:
 [DevSecOps on AKS]: ../../guide/devsecops/devsecops-on-aks.yml
 [GitHub pricing]: https://github.com/pricing
 [GitHub DevSecOps training materials]: https://github.com/devsecops/awesome-devsecops
-[GitHub DevSecOps getting started tips]: https://resources.github.com/whitepapers/Architects-guide-to-DevOps
+[GitHub DevSecOps getting started tips]: https://resources.github.com/devops/tools/
 [SARIF]: https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/sarif-support-for-code-scanning
 [DevSecOps for Infrastructure as Code (IaC)]: ./devsecops-infrastructure-as-code.yml
