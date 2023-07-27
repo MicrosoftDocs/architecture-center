@@ -21,7 +21,7 @@ This architecture extends the hybrid network architecture shown in [Connect an o
 
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/products/active-directory) is an enterprise identity service that provides single sign-on, multifactor authentication, and conditional access.
 - [VPN Gateway](https://azure.microsoft.com/products/vpn-gateway) is a service that uses a virtual network gateway to send encrypted traffic between an Azure virtual network and on-premises locations over the public internet. 
-- [ExpressRoute](https://azure.microsoft.com/products/expressroute) enables you to extend your on-premises networks into the Microsoft Cloud over a private connection with the help of a connectivity provider.
+- [ExpressRoute](https://azure.microsoft.com/products/expressroute) enables you to extend your on-premises networks into the Microsoft cloud over a private connection with the help of a connectivity provider.
 - [Virtual Network](https://azure.microsoft.com/products/virtual-network) is the fundamental building block for private networks on Azure. You can use it to enable Azure resources, like virtual machines, to communicate with each other, the internet, and on-premises networks.
 
 ## Scenario details 
@@ -42,7 +42,7 @@ The following recommendations apply to most scenarios. Follow these recommendati
 
 Determine your [VM size][vm-windows-sizes] requirements based on the expected volume of authentication requests. Use the specifications of the machines hosting AD DS on-premises as a starting point and match them with the Azure VM sizes. Once deployed, monitor utilization and scale up or down based on the actual load on the VMs. For more information about sizing AD DS domain controllers, see [Capacity Planning for Active Directory Domain Services][capacity-planning-for-adds].
 
-Create a separate virtual data disk for storing the database, logs, and sysvol folder for Active Directory. Don't store these items on the same disk as the operating system. By default, data disks are attached to a VM using write-through caching. However, this caching form can conflict with AD DS's requirements. For this reason, set the *Host Cache Preference* setting on the data disk to *None*.
+Create a separate virtual data disk for storing the database, logs, and sysvol folder for Active Directory. Don't store these items on the same disk as the operating system. By default, data disks are attached to a VM using write-through caching. However, this form of caching can conflict with the requirements of AD DS. For this reason, set the *Host Cache Preference* setting on the data disk to *None*.
 
 Deploy at least two VMs running AD DS as domain controllers and add them to different [availability zones](/azure/availability-zones/az-overview). If not available in the region, deploy in an [availability set][availability-set].
 
@@ -60,7 +60,7 @@ If the new domain controller VMs also have the role of DNS servers, we recommend
 
 For initial configuration, you may need to adjust the Network Interface of one of your Domain Controllers in Azure, to point to a domain controller on-premises as the primary DNS source.
 
-The inclusion of its IP address in the list of DNS servers improves performance and increases the availability of DNS servers. However, if the DNS server is also a domain controller and points only to itself or points to itself first for name resolution, this can cause a delay during startup. For this reason, please be cautious when configuring the loopback address on an adapter if the server is also a domain controller. 
+The inclusion of its IP address in the list of DNS servers improves performance and increases the availability of DNS servers. However, a start-up delay can result if the DNS server is also a domain controller and points only to itself or points to itself first for name resolution. For this reason, be cautious when configuring the loopback address on an adapter if the server is also a domain controller. 
 
 This may mean overwriting the Network Interface DNS settings in Azure to point towards another Domain Controller hosted in Azure or on-premises for the primary DNS server. The loopback address should be configured only as a secondary or tertiary DNS server on a domain controller.
 
