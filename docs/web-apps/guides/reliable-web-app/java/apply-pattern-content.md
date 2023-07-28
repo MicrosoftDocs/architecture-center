@@ -93,9 +93,7 @@ A failover plan (disaster recovery plan) outlines how you'll respond to an outag
 
 **Test the failover plan.** You need to test the failover plan regularly. You should use a test environment to avoid production issues. The test environment should resemble the production environment as closely as possible.
 
-<!-- Uncomment when doc is ready in GitHub
-*Reference implementation.* We created a failover plan for Proseware. For more information, see [Proseware's failover plan](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/failover-plan.md#failover-plan).
--->
+*Reference implementation.* Proseware created a sample failover plan for the reference implementation. For more information, see [Proseware failover playbook](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/plan.md).
 
 ## Security
 
