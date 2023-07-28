@@ -2,7 +2,7 @@ This article describes how a cloud-based *security information and event managem
 
 ## Architecture
 
-![Diagram that shows Microsoft Sentinel data flow.](media/sentinel-threat-intelligence/sentinel-data-flow.png)
+:::image type="content" source="../media/sentinel-threat-intelligence/sentinel-data-flow.svg" alt-text="Diagram that shows Microsoft Sentinel data flow." lightbox="../media/sentinel-threat-intelligence/sentinel-data-flow.svg" border="false":::
 
 Download a [Visio file](https://arch-center.azureedge.net/sentinel-threat-intelligence.vsdx) of this architecture.
 
