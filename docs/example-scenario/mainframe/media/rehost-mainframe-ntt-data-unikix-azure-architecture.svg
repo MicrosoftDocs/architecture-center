@@ -183,7 +183,7 @@
 			<use xlink:href="#lend2" transform="scale(-3.52,-3.52) "/>
 		</marker>
 	</defs>
-	<g v:mID="16" v:index="1" v:groupContext="backgroundPage">
+	<g v:mID="18" v:index="1" v:groupContext="backgroundPage">
 		<v:userDefs>
 			<v:ud v:nameU="msvThemeOrder" v:val="VT0(0):26"/>
 			<v:ud v:nameU="msvVisioCreated" v:prompt="" v:val="VT0(0):26"/>
@@ -955,14 +955,14 @@
 		</g>
 		<g id="shape925-314" v:mID="925" v:groupContext="shape" transform="translate(515.25,-610.875)">
 			<title>Sheet.925</title>
-			<desc>Azure load balancer</desc>
+			<desc>Azure Load Balancer</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(149000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="78.75" cy="763.875" width="157.5" height="20.25"/>
 			<rect x="0" y="753.75" width="157.5" height="20.25" class="st27"/>
-			<text x="4" y="767.48" class="st36" v:langID="1033"><v:paragraph/><v:tabList/>Azure load balancer</text>		</g>
+			<text x="4" y="767.48" class="st36" v:langID="1033"><v:paragraph/><v:tabList/>Azure Load Balancer</text>		</g>
 		<g id="shape928-317" v:mID="928" v:groupContext="shape" transform="translate(-218.571,216) rotate(-90)">
 			<title>Sheet.928</title>
 			<v:userDefs>

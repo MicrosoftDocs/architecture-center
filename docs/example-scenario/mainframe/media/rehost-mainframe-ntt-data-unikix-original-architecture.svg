@@ -97,7 +97,7 @@
 			<use xlink:href="#lend2" transform="scale(2.68) "/>
 		</marker>
 	</defs>
-	<g v:mID="17" v:index="2" v:groupContext="backgroundPage">
+	<g v:mID="19" v:index="2" v:groupContext="backgroundPage">
 		<v:userDefs>
 			<v:ud v:nameU="msvThemeOrder" v:val="VT0(0):26"/>
 			<v:ud v:nameU="msvVisioCreated" v:prompt="" v:val="VT0(0):26"/>
@@ -283,14 +283,14 @@
 		</g>
 		<g id="shape25-69" v:mID="25" v:groupContext="shape" transform="translate(918.567,-628.181)">
 			<title>Sheet.25</title>
-			<desc>Data &#38; database with Coupling Facility</desc>
+			<desc>Data &#38; database</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(9000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="168.339" cy="737.653" width="336.68" height="72.6935"/>
 			<rect x="0" y="701.306" width="336.678" height="72.6935" class="st6"/>
-			<text x="4" y="741.85" class="st7" v:langID="1033"><v:paragraph/><v:tabList/><v:newlineChar/>Data &#38; database with Coupling Facility<v:newlineChar/></text>		</g>
+			<text x="4" y="741.85" class="st7" v:langID="1033"><v:paragraph/><v:tabList/><v:newlineChar/>Data &#38; database  <v:newlineChar/></text>		</g>
 		<g id="shape26-72" v:mID="26" v:groupContext="shape" transform="translate(696.936,-475.181)">
 			<title>Sheet.26</title>
 			<desc>Transaction monitoring facility</desc>
@@ -456,7 +456,7 @@
 		</g>
 		<g id="shape33-90" v:mID="33" v:groupContext="shape" transform="translate(581.8,-360.166)">
 			<title>Sheet.33</title>
-			<desc>Applications (COBOL, PL/I, Assembler, 4GL, fortran)</desc>
+			<desc>Applications (COBOL, PL/I, Assembler, 4GL, Fortran)</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(14000):26"/>
 			</v:userDefs>
@@ -464,7 +464,7 @@
 			<v:textRect cx="151.445" cy="745.396" width="302.89" height="57.2088"/>
 			<path d="M0 774 L302.89 774 L302.89 716.79 L0 716.79 L0 774 Z" class="st2"/>
 			<text x="118.85" y="741.8" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Applications<v:newlineChar/><tspan
-						x="51.21" dy="1.2em" class="st4">(COBOL, PL/I, Assembler, 4GL, fortran)</tspan></text>		</g>
+						x="50.16" dy="1.2em" class="st4">(COBOL, PL/I, Assembler, 4GL, Fortran)</tspan></text>		</g>
 		<g id="shape34-94" v:mID="34" v:groupContext="shape" transform="translate(584.449,-430.615)">
 			<title>Sheet.34</title>
 			<desc>TX</desc>
@@ -676,14 +676,14 @@
 			<text x="4" y="764.49" class="st26" v:langID="1033"><v:paragraph/><v:tabList/>General mainframe</text>		</g>
 		<g id="shape51-142" v:mID="51" v:groupContext="shape" transform="translate(571.245,-59.9704)">
 			<title>Sheet.51</title>
-			<desc>LPARS</desc>
+			<desc>Partitions</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(28000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="340.678" cy="752.798" width="681.36" height="42.4046"/>
 			<path d="M0 774 L681.36 774 L681.36 731.6 L0 731.6 L0 774 Z" class="st5"/>
-			<text x="319.38" y="757" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>LPARS</text>		</g>
+			<text x="308.81" y="757" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Partitions</text>		</g>
 		<g id="shape52-145" v:mID="52" v:groupContext="shape" transform="translate(696.936,-556.528)">
 			<title>Sheet.52</title>
 			<desc>Batch runs on app clone long queries/events</desc>
@@ -878,14 +878,14 @@
 			<text x="4" y="741.25" class="st17" v:langID="1033"><v:paragraph/><v:tabList/>Data files (index, flat, and others)</text>		</g>
 		<g id="shape65-181" v:mID="65" v:groupContext="shape" transform="translate(571.245,-129.375)">
 			<title>Sheet.65</title>
-			<desc>z/OS</desc>
+			<desc>Operating systems on partitions</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(35000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="340.679" cy="752.596" width="681.36" height="42.8084"/>
 			<path d="M0 774 L681.36 774 L681.36 731.19 L0 731.19 L0 774 Z" class="st5"/>
-			<text x="324.99" y="756.8" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>z/OS</text>		</g>
+			<text x="235.26" y="756.8" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Operating systems on partitions</text>		</g>
 		<g id="group66-184" transform="translate(639.018,-575.938)" v:mID="66" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(36000):26"/>
@@ -1950,24 +1950,24 @@
 		</g>
 		<g id="shape165-385" v:mID="165" v:groupContext="shape" transform="translate(278.561,-196.987)">
 			<title>Sheet.165</title>
-			<desc>Operations &#38; Monitoring</desc>
+			<desc>Operations &#38; monitoring</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(61000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="92.342" cy="751.612" width="184.69" height="44.7753"/>
 			<rect x="0" y="729.225" width="184.684" height="44.7753" class="st6"/>
-			<text x="4" y="755.81" class="st7" v:langID="1033"><v:paragraph/><v:tabList/>Operations &#38; Monitoring</text>		</g>
+			<text x="4" y="755.81" class="st7" v:langID="1033"><v:paragraph/><v:tabList/>Operations &#38; monitoring</text>		</g>
 		<g id="shape166-388" v:mID="166" v:groupContext="shape" transform="translate(297.566,-62.162)">
 			<title>Sheet.166</title>
-			<desc>Print service</desc>
+			<desc>Print services</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(62000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="114.339" cy="752.798" width="228.68" height="42.4046"/>
 			<path d="M0 774 L228.68 774 L228.68 731.6 L0 731.6 L0 774 Z" class="st5"/>
-			<text x="4" y="757" class="st7" v:langID="1033"><v:paragraph/><v:tabList/>Print service</text>		</g>
+			<text x="4" y="757" class="st7" v:langID="1033"><v:paragraph/><v:tabList/>Print services</text>		</g>
 		<g id="shape167-391" v:mID="167" v:groupContext="shape" transform="translate(297.566,-122.567)">
 			<title>Sheet.167</title>
 			<desc>Management &#38; monitoring</desc>
@@ -1987,7 +1987,7 @@
 		</g>
 		<g id="shape169-396" v:mID="169" v:groupContext="shape" transform="translate(288,-254.25)">
 			<title>Sheet.169</title>
-			<desc>Other services Tape storage, monitoring, and related service</desc>
+			<desc>Other services Tape storage, monitoring, and related services</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(65000):26"/>
 			</v:userDefs>
@@ -1996,7 +1996,7 @@
 			<path d="M0 774 L254.43 774 L254.43 709.08 L0 709.08 L0 774 Z" class="st2"/>
 			<text x="4" y="730.74" class="st17" v:langID="1033"><v:paragraph/><v:tabList/>Other services<v:newlineChar/><tspan
 						x="4" dy="1.2em" class="st8">Tape storage, monitoring, <v:newlineChar/></tspan><tspan x="4" dy="1.2em"
-						class="st8">and related service</tspan></text>		</g>
+						class="st8">and related services</tspan></text>		</g>
 		<g id="shape170-401" v:mID="170" v:groupContext="shape" transform="translate(487.125,-127.125)">
 			<title>Sheet.170</title>
 			<desc>D</desc>

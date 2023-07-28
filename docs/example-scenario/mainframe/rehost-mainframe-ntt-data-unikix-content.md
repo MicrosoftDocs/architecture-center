@@ -6,6 +6,8 @@ The following diagram shows a legacy mainframe system before it's rehosted to th
 
 :::image type="content" source="media/rehost-mainframe-ntt-data-unikix-original-architecture.svg" alt-text="Architecture diagram that shows a mainframe system. Components include middleware, monitoring systems, applications, and data." lightbox="media/rehost-mainframe-ntt-data-unikix-original-architecture.svg" border="false":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/rehost-mainframe-ntt-data-unikix-azure-architecture.vsdx) of this architecture.*
+
 ### Workflow
 
 - On-premises users interact with the mainframe by using TCP/IP (**A**):
@@ -31,7 +33,7 @@ The following diagram shows a legacy mainframe system before it's rehosted to th
 
 ## Azure architecture
 
-:::image type="content" source="media/rehost-mainframe-ntt-data-unikix-azure-architecture.svg" alt-text="Architecture diagram that shows a mainframe system rehosted on Azure by using N T T DATA UniKix." lightbox="media/rehost-mainframe-ntt-data-unikix-azure-architecture.svg" border="false":::
+:::image type="content" source="media/rehost-mainframe-ntt-data-unikix-azure-architecture.svg" alt-text="Architecture diagram that shows a mainframe system rehosted on Azure by using NTT DATA UniKix." lightbox="media/rehost-mainframe-ntt-data-unikix-azure-architecture.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/rehost-mainframe-ntt-data-unikix-azure-architecture.vsdx) of this architecture.*
 
