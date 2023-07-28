@@ -6,7 +6,7 @@ This architecture shows how the Raincode COBOL compiler modernizes mainframe leg
 
 The following diagram shows an example of a legacy COBOL-based mainframe architecture, before migration to Azure.
 
-:::image type="content" source="media/raincode-reference-architecture-01.svg" alt-text="Graphical example of legacy COBOL-based mainframe architecture." lightbox="media/raincode-reference-architecture-01.svg" border="false":::
+:::image type="content" source="media/raincode-reference-architecture-01.svg" alt-text="Diagram that shows a legacy COBOL-based mainframe architecture." lightbox="media/raincode-reference-architecture-01.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/raincode-reference-architecture.vsdx) of this architecture.*
 
