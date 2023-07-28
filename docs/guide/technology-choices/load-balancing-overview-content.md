@@ -25,7 +25,9 @@ The following table summarizes the Azure load-balancing services.
 | Azure Front Door          | Global          | HTTP(S)             |
 | Azure Traffic Manager     | Global          | Non-HTTP(S)         |
 | Azure Application Gateway | Regional        | HTTP(S)             |
-| Azure Load Balancer       | Regional        | Non-HTTP(S)         |
+| Azure Load Balancer       | Global        | Non-HTTP(S)         |
+
+## Azure Load Balncer for Global is Generally available Now. Please see --https://learn.microsoft.com/en-us/azure/load-balancer/cross-region-overview
 
 ## Azure load-balancing services
 
