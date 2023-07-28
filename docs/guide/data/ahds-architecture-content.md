@@ -1,6 +1,6 @@
 In today's healthcare landscape, secure and efficient management of health data is paramount. Azure Health Data Services (AHDS) provides a powerful platform for healthcare organizations to store, process, and analyze their sensitive data while adhering to stringent security and compliance standards. However, deploying AHDS in a complex enterprise environment can be challenging without a clear reference architecture and implementation guide.
 
-This solution provides [AHDS](/azure/healthcare-apis/healthcare-apis-overview) reference architecture and a comprehensive reference implementation. This aims to empower healthcare customers by providing them with a clear blueprint for deploying AHDS securely and integrating it with various Azure services. By following the recommended best practices outlined in this guide, organizations can gain confidence in their ability to safeguard their health data effectively.
+This solution provides [AHDS](/azure/healthcare-apis/healthcare-apis-overview) an example architecture and an accompanying example implementation. This solution aims to empower healthcare customers by providing them with a clear blueprint for deploying AHDS securely and integrating it with various Azure services. By following the recommended best practices outlined in this guide, organizations can gain confidence in their ability to safeguard their health data effectively.
 
 ## Architecture
 
@@ -8,18 +8,18 @@ This solution provides [AHDS](/azure/healthcare-apis/healthcare-apis-overview) r
 
 ## Workflow
 
-1. Azure Application Gateway receives individual (single) Fast Healthcare Interoperability Resources (FHIR®) data (example patient data) over a secure TLS connection using client credentials flow and sends it to [AHDS FHIR Service](/azure/healthcare-apis/fhir/overview) to persist via API Management.
-1. Simultaneously a client can read same FHIR data (example: patient data) over a secure TLS connection via Application Gateway and API Management using tools like Postman.
-1. For bulk data processing, Azure Application Gateway securely receives FHIR bundles over a TLS connection using client credentials flow and loads into storage account. VNet integrated [FHIR Loader](https://github.com/microsoft/fhir-loader) Function process FHIR bundles and loads it in to FHIR service.
-1. If the incoming data is in HL7 V2 or in C-CDA format, then it can be converted to FHIR format first using [$convert-data](/azure/healthcare-apis/fhir/convert-data) endpoint in the FHIR service then it can be posted to FHIR service via Application Gateway. Azure Container Registry (ACR) with private endpoint is used for securely storing customized liquid templates for converting HL7v2/C-CDA data to FHIR data. While ACR is shown in the architecture diagram, HL7v2/C-CDA to FHIR conversion using \$convert-data isn't implemented part of bicep reference implementation.
-1. FHIR to Synapse Sync Agent extracts data from FHIR service (regardless of how the data ingested through individual or bulk data flow), converts to hierarchical parquet files, and writes it to Azure Data Lake Gen2 (ADLS Gen2). While the data extraction shown in the architecture diagram, it's not implemented part of bicep reference implementation.
-1. Azure Synapse uses serverless SQL/Spark pool to connect to ADLS Gen2 to query and analyze FHIR data. While Azure Synapse shown in the architecture diagram, it's not implemented part of bicep reference implementation.
-1. Hub virtual network contains jumpbox VM along with Azure Bastion Host to securely access FHIR service configuration. Admins/operators can also use jumpbox VM for testing FHIR service endpoints without Application Gateway and bulk loading FHIR data manually through Azure storage bypassing Application Gateway.
-1. If on-premises network connectivity established over Site-to-Site VPN or Express Route then on-premises users/services can directly access FHIR service over this connection as needed, instead of connecting through Application Gateway or using jumpbox VM.
+1. Azure Application Gateway receives individual (single) Fast Healthcare Interoperability Resources (FHIR®) data (for example patient data) over a secure TLS connection using a client credentials flow and sends it to the [AHDS FHIR Service](/azure/healthcare-apis/fhir/overview) to persist via API Management.
+1. Simultaneously a client can read the same FHIR data (for example, patient data) over a secure TLS connection via Application Gateway and API Management using tools like Postman.
+2. For bulk data processing, Azure Application Gateway securely receives FHIR bundles over a TLS connection using a client credentials flow and loads the data into a storage account. A VNet integrated [FHIR Loader](https://github.com/microsoft/fhir-loader) Function processes FHIR bundles and loads the data into the FHIR service.
+3. If the incoming data is in HL7 V2 or in C-CDA format, then it can be converted to the FHIR format first using the [$convert-data](/azure/healthcare-apis/fhir/convert-data) endpoint in the FHIR service. The data can then be posted to the FHIR service via Application Gateway. Azure Container Registry (ACR) with private endpoint is used for securely storing customized liquid templates for converting HL7 V2/C-CDA data to FHIR data. While ACR is shown in the architecture diagram, HL7 V2/C-CDA to FHIR conversion using \$convert-data isn't implemented as part of the bicep implementation template.
+4. FHIR to Synapse Sync Agent extracts data from the FHIR service (regardless of how the data ingested through individual or bulk data flow), converts the extracted data to hierarchical parquet files, and writes it to Azure Data Lake Gen2 (ADLS Gen2) storage. While the data extraction is shown in the architecture diagram, it's not implemented as part of the bicep implementation template. 
+5. Azure Synapse uses serverless SQL/Spark pool to connect to ADLS Gen2 to query and analyze FHIR data. While Azure Synapse shown in the architecture diagram, it's not implemented as part of the bicep implementation template.
+6. Hub virtual network contains jumpbox VM along with Azure Bastion Host to securely access FHIR service configuration. Admins/operators can also use jumpbox VM for testing FHIR service endpoints without Application Gateway and bulk loading FHIR data manually through Azure storage bypassing Application Gateway.
+7. If on-premises network connectivity established over Express Route or Site-to-Site VPN then on-premises users/services can directly access FHIR service over this connection.
 
 ### Note
-1. Optionally Web Application Firewall(WAF) can be added to Application Gateway, but there are known limitations with WAF not recognizing FHIR objects and treating it as malicious code. If WAF is needed, then WAF ruleset needs to be manually tweaked to work with FHIR objects.
 
+1. Optionally Web Application Firewall(WAF) can be added to Application Gateway, but there are known limitations with WAF misidentifying FHIR objects as malicious code. If WAF is needed, then your WAF ruleset needs to be manually tweaked to work with FHIR objects.
 
 ## Components
 
@@ -45,18 +45,18 @@ This solution provides [AHDS](/azure/healthcare-apis/healthcare-apis-overview) r
 
 - [Azure Bastion](/azure/bastion/bastion-overview) lets you connect to a virtual machine using your browser, Azure portal, or via the native SSH/RDP client already installed on your computer. In this implementation, we use Azure Bastion service to securely access the jumpbox VM.
 
-- Microsoft Defender for Cloud along [HIPAA & HITRUST](https://learn.microsoft.com/en-us/azure/governance/policy/samples/hipaa-hitrust-9-2) compliance policy initiatives ensures Azure infrastructure deployment adheres to Microsoft Security Benchmark and Healthcare industry compliance requirements.
+- Microsoft Defender for Cloud along [HIPAA & HITRUST](/azure/governance/policy/samples/hipaa-hitrust-9-2) compliance policy initiatives ensures Azure infrastructure deployment adheres to Microsoft Security Benchmark and Healthcare industry compliance requirements.
 
 ## Scenario details
 
-This reference architecture provides guidance on how to securely deploy Azure Health Data Services, ingest individual & bulk FHIR data and persist the data into the AHDS FHIR service.
+This solution provides guidance on how to securely deploy Azure Health Data Services, ingest individual & bulk FHIR data and persist the data into the AHDS FHIR service.
 
 ### Potential use cases
 
-- Once the reference architecture deployed successfully, FHIR messages (individual/bulk) can be loaded in to FHIR service securely via Application Gateway.
+- Once the solution is deployed successfully, FHIR messages (individual/bulk) can be loaded into FHIR service securely via Application Gateway.
 - FHIR data can be retrieved securely via Application Gateway & API Management. APIM provides more capabilities to authenticate/authorize incoming calls and throttle requests as needed.
-- To analyze FHIR data and extract insights, FHIR Sync Agent can be deployed as shown in the architecture diagram (not deployed part of Bicep script). It reads data from FHIR service, converts to parquet files and writes it to Azure Data Lake Gen2 (ADLS Gen2). Azure Synapse can connect to ADLS Gen2 to query and analyze FHIR data.
-- This solution can be extended to receive medical devices/wearable data using MedTech service part of Azure Health Data Services and eventually persist in to FHIR service for extracting further insights using Synapse.
+- To analyze FHIR data and extract insights, the FHIR Sync Agent can be deployed as shown in the architecture diagram (not deployed part of Bicep script). The agent reads data from the FHIR service, converts that data to parquet files and writes it to Azure Data Lake Gen2 (ADLS Gen2) storage. Azure Synapse can connect to ADLS Gen2 to query and analyze FHIR data.
+- This solution can be extended to receive medical devices/wearable data using [MedTech service](/azure/healthcare-apis/iot/overview) in AHDS, transform the data to FHIR format and persist into FHIR service for extracting further insights using Synapse.
 - This solution can be extended to ingest non FHIR data (HL7 V2 & C-CDA), convert to FHIR standard using Liquid templates (can be stored in Azure Container Registry) and persist in FHIR service.
 
 ## Deploy this solution
