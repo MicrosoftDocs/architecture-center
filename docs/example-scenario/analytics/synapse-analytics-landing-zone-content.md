@@ -6,7 +6,7 @@ The article assumes that you've already implemented the platform foundation that
 
 ## Architecture
 
-:::image type="content" source="media/azure-synapse-landing-zone.svg" alt-text="Diagram that shows an Azure Synapse reference architecture." lightbox="media/azure-synapse-landing-zone.svg" border="false":::
+:::image type="content" source="media/azure-synapse-landing-zone.svg" alt-text="Diagram that shows an Azure Synapse Analytics reference architecture." lightbox="media/azure-synapse-landing-zone.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/SynapseESLZ-v1.vsdx) of this architecture.*
  
