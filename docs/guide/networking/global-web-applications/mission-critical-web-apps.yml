@@ -1,0 +1,28 @@
+### YamlMime:Architecture
+metadata:
+  title: Mission-critical baseline with Web Apps
+  description: Learn about multiple options for hosting WordPress on Azure. See guidance and tips for deploying a secure, scalable, and cost-effective WordPress installation.
+  author: aydinderya, heoelri
+  ms.author: deryaaydin 
+  ms.date: 07/31/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+  ms.category:
+    - web
+  ms.custom:
+    - web-apps
+    - scalability
+name: Mission-critical baseline with Web Apps
+azureCategories:
+  - web
+summary: Learn about multiple options for hosting WordPress on Azure. See guidance and tips for deploying a secure, scalable, and cost-effective WordPress installation.
+products:
+  - azure-app-service
+  - azure-front-door
+  - azure-kubernetes-service
+  - azure-web-application-firewall
+  - azure-private-link
+thumbnailUrl: /azure/architecture/browse/thumbs/.png
+content: |
+   [!include[](mission-critical-web-apps-content.md)]
