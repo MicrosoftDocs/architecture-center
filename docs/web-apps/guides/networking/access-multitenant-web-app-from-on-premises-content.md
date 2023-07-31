@@ -2,7 +2,7 @@ This article shows how to set up improved-security private connectivity to a mul
 
 ## Architecture
 
-![Diagram that shows the reference architecture for secure access to multitenant web apps from an on-premises network.](../_images//multitenant-web-apps.png)
+![Diagram that shows the reference architecture for secure access to multitenant web apps from an on-premises network.](../_images//multitenant-web-apps.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/multitenant-web-apps.vsdx) of this architecture.*
 
