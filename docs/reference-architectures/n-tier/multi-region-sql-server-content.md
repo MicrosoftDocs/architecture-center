@@ -227,7 +227,6 @@ The following architecture uses some of the same technologies:
 
 - [Multitier web application built for high availability and disaster recovery on Azure](../../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)
 - [Multi-region load balancing](../../high-availability/reference-architecture-traffic-manager-application-gateway.yml)
-- [SQL Server failover cluster in Azure](../../example-scenario/sql-failover/sql-failover-2008r2.yml)
 
 <!-- links -->
 
