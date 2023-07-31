@@ -2,10 +2,10 @@
 metadata:
   title: Enterprise deployment using Azure ASE
   titleSuffix: Azure Reference Architectures
-  description: Learn about the recommended architecture for deploying an enterprise application using App Services Environment in Azure.
-  author: martinekuan
-  ms.author: martinek
-  ms.date: 05/23/2022
+  description: Learn about the recommended architecture for deploying an enterprise application using App Services Environment (ASEv3) in Azure.
+  author: SuhasRao
+  ms.author: susudhee
+  ms.date: 04/17/2023
   ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
@@ -25,6 +25,7 @@ products:
   - azure-app-service
   - azure-firewall
   - azure-virtual-network
+  - azure-private-link
 thumbnailUrl: /azure/architecture/browse/thumbs/standard-ase-deployment.png
 content: |
    [!include[](ase-standard-deployment-content.md)]

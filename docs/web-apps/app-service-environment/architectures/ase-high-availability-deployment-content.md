@@ -1,4 +1,11 @@
-[Availability zones](/azure/availability-zones/az-overview) are physically separated collections of datacenters within a given region. Replicating your deployments across multiple zones, ensures that local outages limited to a zone do not negatively impact the availability of your application. This architecture shows how you can improve the resiliency of an ASE deployment by deploying in multiple availability zones. These zones are not related to proximity. They can map to different physical locations for different subscriptions. This architecture assumes a single subscription deployment.
+> [!NOTE]
+> The main component of this architecture is the [**App Service environment (ASEv3)**](/azure/app-service/environment/overview). The App Service Environment v3 (ASEv3) is now GA and both ASEv1 and ASEv2 will be [retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/).
+
+[Availability zones](/azure/availability-zones/az-overview) are physically separated collections of datacenters within a given region. Deploying resources across zones ensures that local outages limited to a zone do not negatively impact the availability of your application. This architecture shows how you can improve the resiliency of an ASE deployment by deploying it in a zone redudant architecture. These zones are not related to proximity. They can map to different physical locations for different subscriptions. This architecture assumes a single subscription deployment.
+
+When you configure your App Service Environment to be zone redundant, the platform automatically spreads the instances of the Azure App Service plan across three zones in the selected region. This means that the minimum App Service Plan instance count will always be three. If you specify a capacity larger than three, and the number of instances is divisible by three, the instances are spread evenly. Otherwise, instance counts beyond 3*N are spread across the remaining one or two zones.
+
+Azure services that support availability zones can be zonal, zone-redundant or both. Zonal services can be deployed to a specific zone, while zone-redundant services can be automatically deployed across zones. For detailed guidance and recommendations, read ![Availability Zone Support](/azure/reliability/availability-zones-service-support). The previous version of App Service Environments (ASEv2) only supported Zonal deployments, whereas current version of App Service Environment (ASEv3) support Zone-Redudant deployment.
 
 ![GitHub logo](../../../_images/github.png) A reference implementation for this architecture is available on [GitHub](https://github.com/mspnp/app-service-environments-ILB-deployments).
 
@@ -6,25 +13,27 @@
 
 ![Reference architecture for high availability ASE deployment](../_images/ha-ase-deployment.png)
 
-The contents of the ASE subnets used in this reference implementation are the same as the ones in the standard ASE deployment architecture [described here](./ase-standard-deployment.yml). This reference implementation replicates the deployment in two ASE subnets. Each subnet has its own web app, API, and function instances running in their individual App Service plans. The Redis cache required by the applications are also replicated for better performance. Note that the scope of this reference architecture is limited to a single region.
+*Download a [Visio file](../_files/ase-deployment.vsdx) of this architecture.*
+
+The contents of the ASE subnets used in this reference implementation are the same as the ones in the standard ASE deployment architecture [described here](./ase-standard-deployment.yml). This reference implementation uses zone-redudant capabilities of ASEv3 and Azure Redis Cache to provide a higher availability. Note that the scope of this reference architecture is limited to a single region.
 
 ### Workflow
 
 The following section shows the nature of availability for services used in this architecture:
 
-[**App Services Environments**](/azure/app-service/environment/intro) can be deployed to multiple availability zones, only in internal or ILB mode. This reference implementation deploys two ASE subnets, each one in a different availability zone. At the minimum, two availability zones are recommended for end-to-end resiliency of your application. All of the runtime ILB ASE resources will be located in the specified zone: the internal load balancer IP address of the ASE, the compute resources as well as the underlying file storage required by the ASE to run all the apps deployed on that ASE. For detailed guidance and recommendations, read [App Service Environment Support for Availability Zones](https://azure.github.io/AppService/2019/12/12/App-Service-Environment-Support-for-Availability-Zones.html).
+[**App Services Environments**](/azure/app-service/environment/intro) - You can deploy an App Service Environment v3 that's enabled for zone redundancy. You can only set zone redundancy during creation and only in regions that support all App Service Environment v3 dependencies. Each App Service Plan in a zone-redundant App Service Environment will need to have a minimum of three instances so that they can be spread across zones.  There's a minimum charge of nine instances. See [this article for pricing guidance](/azure/app-service/environment/overview#pricing). For detailed guidance and recommendations, read [App Service Environment Support for Availability Zones](https://azure.github.io/AppService/2019/12/12/App-Service-Environment-Support-for-Availability-Zones.html).
 
-[**Azure Virtual Network**](/azure/virtual-network/) or *Vnet* spans all availability zones limited to a single region. The subnets within the VNet also span across availability zones. This reference architecture creates a subnet for each ASE deployment created for an availability zone. For more information, read [the network requirements for App Service Environments](/azure/app-service/environment/network-info#ase-subnet-size).
+[**Azure Virtual Network**](/azure/virtual-network/) or *Vnet* spans all availability zones limited to a single region. The subnets within the VNet also span across availability zones. For more information, read [the network requirements for App Service Environments](/azure/app-service/environment/networking#subnet-requirements).
 
-[**Application Gateway**](/azure/application-gateway/overview) **v2** is *zone-redundant*. Like the virtual network, it spans multiple availability zones per region. This in turn means, a single application gateway is sufficient for a highly available system, as shown in this reference architecture. The v1 SKU does not support this. For more details, read [Autoscaling and Zone-redundant Application Gateway v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
+[**Application Gateway**](/azure/application-gateway/overview) **v2** is *zone-redundant*. Like the virtual network, it spans multiple availability zones per region. This in turn means, a single application gateway is sufficient for a highly available system, as shown in this reference architecture. The reference implementation uses the WAF SKU of application gateway, which provides protection against common threats and vulnerabilities based on the Core Rule Set (CRS) from the Open Web Application Security Project (OWASP). For more details, read [Autoscaling and Zone-redundant Application Gateway v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
 
-[**Azure Firewall**](/azure/firewall/overview) has built-in support for high availability. It can span across multiple zones without any additional configuration. This allows the usage of a single firewall for applications deployed in more than one zone, as done in this reference architecture. Although not used in this architecture, if necessary you can also configure a specific availability zone when deploying the firewall. Read [Azure Firewall and Availability Zones](/azure/firewall/overview#availability-zones) for more information.
+[**Azure Firewall**](/azure/firewall/overview) has built-in support for high availability. It can span across multiple zones without any additional configuration.  Although not used in this architecture, if necessary you can also configure a specific availability zone when deploying the firewall. Read [Azure Firewall and Availability Zones](/azure/firewall/overview#availability-zones) for more information.
 
 [**Azure Active Directory**](/azure/active-directory/) is a highly available, highly redundant, global service, spanning availability zones as well as regions. Read [Advancing Azure Active Directory availability](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability/) for more insights.
 
-[**Azure Pipelines**](/azure/devops/pipelines/) supports [parallel processing of CI/CD activities](/azure/devops/pipelines/licensing/concurrent-jobs). Use this in the deployment phase, to simultaneously deploy the built applications to multiple ASE subnets, through multiple *jumpbox* VMs or Bastion subnets. This architecture uses two jumpbox virtual machines to help with the simultaneous deployment. Note the number of parallel jobs is tied to the pricing tier. The basic free tier of a Microsoft-hosted CI/CD allows up to 10 tasks to be parallelized, each running up to 6 hours.
+[**Github Actions**](https://azure.microsoft.com/products/devops/pipelines) provides *Continuous Integration and Continuous Deployment* capabilities in this architecture. Since the ASE is internal to the virtual network, a **virtual machine** is used as a *jumpbox* inside the VNet to deploy apps in the App Service plans. The action builds the apps outside the VNet. For enhanced security and seamless RDP/SSH connectivity, consider using [Azure Bastion](/azure/bastion/bastion-overview) as the jumpbox.
 
-[**Azure Cache for Redis**](/azure/azure-cache-for-redis/) is not a zone-aware service. This architecture creates two subnets to hold the Redis Cache, each pinned down to the availability zone of an ASE subnet. This is recommended since the closer the cache to the application, the better the app performance. Note that this is a *preview* feature, available only for the Premium tier.
+[**Azure Cache for Redis**](/azure/azure-cache-for-redis/) is a zone redundant service. A zone-redundant cache runs on VMs spread across multiple Availability Zones. It provides higher resilience and availability.
 
 ## Considerations
 
@@ -34,25 +43,20 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 #### App Service Environments
 
-App Service environments with ILB can be deployed to a specific availability zone. Availability zones are geographically separated self-sustained datacenters within the same region. If one datacenter goes down, and if your architecture supports it, applications deployed to other datacenters can ensure availability.
+Azure App Service Environment can be deployed across availability zones (AZ) to help you achieve resiliency and reliability for your business-critical workloads. This architecture is also known as zone redundancy.
 
-Make use of this feature by:
+When you configure to be zone redundant, the platform automatically spreads the instances of the Azure App Service plan across three zones in the selected region. This means that the minimum App Service Plan instance count will always be three. If you specify a capacity larger than three, and the number of instances is divisible by three, the instances are spread evenly. Otherwise, instance counts beyond 3*N are spread across the remaining one or two zones.
 
-- deploying at least two such environments to two distinct zones, with applications duplicated in each ASE, and
-- load-balancing the traffic upstream to the ASEs, using a [zone-redundant App Gateway](/azure/application-gateway/application-gateway-autoscaling-zone-redundant), as demonstrated in this reference architecture.
+- You configure availability zones when you create your App Service Environment.
+- All App Service plans created in that App Service Environment will need a minimum of 3 instances and those will automatically be zone redundant.
+- You can only specify availability zones when creating a new App Service Environment. A pre-existing App Service Environment can't be converted to use availability zones.
+- Availability zones are only supported in a [subset of regions](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support).
 
-Some additional points to consider:
-
-- An ILB ASE deployed to a zone ensures uptime for already deployed apps and resources used by them. However, app service plan scaling, app creation, and app deployment may still be affected by outages in other zones.
-- An ARM template must be used for initial deployment of ILB ASE to an availability zone. Thereafter, it can be accessed through the portal or the command line. The *zones* property must be set to 1, 2, or 3 denoting the logical zones.
-- Virtual network by default is zone-redundant, hence all zone-deployed ASE subnets can reside in the same virtual network.
-- External-facing ASEs cannot be pinned to an availability zone.
-
-For more details, read [App Service Environment Support for Availability Zones](https://azure.github.io/AppService/2019/12/12/App-Service-Environment-Support-for-Availability-Zones.html).
+For more details, read [App Service Environment Support for Availability Zones](/azure/reliability/migrate-app-service-environment).
 
 ### Resiliency
 
-The applications in both the ASE subnets form the [backend pool](/azure/application-gateway/application-gateway-components#backend-pools) for the Application Gateway. When a request to the application is made from the public internet, the gateway can choose either of the two application instances. Application Gateway by default monitors the health of the backend pool resources, as described in [Application Gateway health monitoring overview](/azure/application-gateway/application-gateway-probe-overview). In the reference setup, a default health probe can only monitor the web frontend. Since this web frontend in turn uses other components, it might look healthy but still fail if the dependencies fail due to a partial failure of the datacenter in that zone. To avoid such failures, use a custom probe to control what application health really means. This reference architecture implements [Health Checks](/aspnet/core/host-and-deploy/health-checks?view=aspnetcore-3.1) within the main web frontend, the *votingApp*. This health probe checks if the web API as well as the Redis cache are healthy. See the snippet that implements this probe in the [Startup.cs](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/code/web-app-ri/VotingWeb/Startup.cs):
+The applications running in the App Service Environment form the [backend pool](/azure/application-gateway/application-gateway-components#backend-pools) for the Application Gateway. When a request to the application is made from the public internet, the gateway forwards the request to the application running in ASE. This reference architecture implements [Health Checks](/aspnet/core/host-and-deploy/health-checks?view=aspnetcore-3.1) within the main web frontend, the *votingApp*. This health probe checks if the web API as well as the Redis cache are healthy. See the snippet that implements this probe in the [Startup.cs](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/code/web-app-ri/VotingWeb/Startup.cs):
 
 ```dotnetcli
             var uriBuilder = new UriBuilder(Configuration.GetValue<string>("ConnectionStrings:VotingDataAPIBaseUri"))
@@ -65,30 +69,28 @@ The applications in both the ASE subnets form the [backend pool](/azure/applicat
                 .AddRedis(Configuration.GetValue<string>("ConnectionStrings:RedisConnectionString"));
 ```
 
-The following snippet shows how the [deploy_ha.sh](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/deploy_ha.sh) script configures the backend pools and the health probe for the App Gateway:
+The following snippet shows how the [commands_ha.azcli](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/commands_ha.azcli) script configures the backend pools and the health probe for the App Gateway:
 
 ```bash
 # Generates parameters file for appgw arm script
 cat <<EOF > appgwApps.parameters.json
 [
-  { 
-    "name": "votapp", 
-    "hostName": "${APPGW_APP1_URL}", 
-    "backendAddresses": [ 
-      { 
-        "fqdn": "${INTERNAL_APP1_URL1}" 
-      },
-      { 
-        "fqdn": "${INTERNAL_APP1_URL2}" 
-      } 
-    ], 
-    "certificate": { 
-      "data": "${CERT_DATA_1}", 
-      "password": "${PFX_PASSWORD}" 
-    }, 
-    "probePath": "/health" 
-  },
-...
+{
+    "name": "votapp",
+    "routingPriority": 100,
+    "hostName": "${APPGW_APP1_URL}",
+    "backendAddresses": [
+      {
+        "fqdn": "${INTERNAL_APP1_URL}"
+      }
+    ],
+    "certificate": {
+      "data": "${CERT_DATA_1}",
+      "password": "${PFX_PASSWORD}"
+    },
+    "probePath": "/health"
+  }
+]
 ```
 
 If either of the components fail in this health probe, that is the web frontend, the API, or the cache, the Application Gateway will route the request to the other application from the backend pool. This makes sure that the request is always routed to the application in a completely available ASE subnet.
@@ -103,21 +105,14 @@ The cost considerations for the high availability architecture are mostly simila
 
 The following differences can affect the cost:
 
-- Multiple deployments of App Service environments.
-- Multiple deployments of Azure Cache for Redis *Premium tier* instances. This reference architecture uses Premium tier, since:
-  - Only Premium tier Redis Cache can be used from within the virtual network, and
-  - Zonal pinning of Redis Cache, a public preview feature, is available only in the *Premium tier*.
+- There's a minimum charge of nine App Service plan instances in a zone redundant App Service Environment. See [App Service Environment pricing](/azure/app-service/environment/overview#pricing) for more information.
+- Azure Cache for Redis is also a zone redundant service. A zone-redundant cache runs on VMs spread across multiple Availability Zones to provide higher resilience and availability.
 
 The tradeoff for high availability, resilient, and secure system will be increased cost. Evaluate the enterprise needs with respect to the pricing, using the [pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
 ### Deployment considerations
 
-This reference implementation extends the production level CI/CD pipeline used in the standard deployment, by using one jumpbox virtual machine per availability zone. This serves two purposes:
-
-- Pins the virtual machines to the same availability zones used by the ASE resources, ensuring uptime in the deployment in case of a failure limited to one or two zones.
-- It also helps parallelize the deployment, by using the virtual machines as a pool of [Azure Pipelines agents](/azure/devops/pipelines/agents/agents?tabs=browser#install).
-
-The [azure-pipelines.yml](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/code/web-app-ri/VotingWeb/azure-pipelines.yml) file in this reference implementation illustrates this parallel deployment, by creating separate *deploy* stages for each zonal ASE.
+This reference implementation uses the same production level CI/CD pipeline used in the standard deployment, with just one jumpbox virtual machine. You may, however, decide to have one jumpbox across each of the three zones. This reference architecture simplifies by using just one jumpbox since it doesnt affect the actual availability of the app as the jumpbox is used only for deployment and testing purposes.
 
 ## Deploy this scenario
 
