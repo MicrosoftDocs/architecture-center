@@ -5,7 +5,7 @@
 
 When you configure an App Service Environment to be zone redundant, the platform automatically spreads the instances of the Azure App Service plan across three zones in the selected region. This means that the minimum App Service plan instance count is always three. If you specify a capacity larger than three, and the number of instances is divisible by three, the instances are spread evenly. Otherwise, any remaining instances are added to the remaining zone or spread across the remaining two zones.
 
-Azure services that support availability zones can be zonal, zone-redundant, or both. Zonal services can be deployed to a specific zone, while zone-redundant services can be automatically deployed across zones. For detailed guidance and recommendations, read ![Availability Zone Support](/azure/reliability/availability-zones-service-support). The previous version of App Service Environments (ASEv2) only supported Zonal deployments, whereas current version of App Service Environment (ASEv3) support Zone-Redudant deployment.
+Azure services that support availability zones can be zonal, zone-redundant, or both. Zonal services can be deployed to a specific zone. Zone-redundant services can be automatically deployed across zones. For detailed guidance and recommendations, see [Availability Zone Support](/azure/reliability/availability-zones-service-support). The previous version of App Service Environments (ASEv2) only supported Zonal deployments, whereas current version of App Service Environment (ASEv3) support Zone-Redudant deployment.
 
 ![GitHub logo](../../../_images/github.png) A reference implementation for this architecture is available on [GitHub](https://github.com/mspnp/app-service-environments-ILB-deployments).
 
