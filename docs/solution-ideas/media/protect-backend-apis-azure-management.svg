@@ -144,7 +144,7 @@
 			<v:ud v:nameU="msvVisioCreated" v:prompt="" v:val="VT0(0):26"/>
 		</v:userDefs>
 		<title>VBackground-1</title>
-		<v:pageProperties width="13.4065" height="7.16978" v:drawingScale="1" v:pageScale="1" v:drawingUnits="19"
+		<v:pageProperties width="13.7346" height="7.54947" v:drawingScale="1" v:pageScale="1" v:drawingUnits="19"
 				v:shadowOffsetX="9" v:shadowOffsetY="-9"/>
 		<g id="shape1-1" v:mID="1" v:groupContext="shape">
 			<title>Solid</title>
@@ -154,7 +154,7 @@
 				<v:ud v:nameU="msvShapeCategories" v:prompt="" v:val="VT4(DoNotContain)"/>
 				<v:ud v:nameU="msvVisioCreated" v:prompt="" v:val="VT0(0):26"/>
 			</v:userDefs>
-			<rect x="0" y="27.3372" width="965.268" height="516.224" class="st1"/>
+			<rect x="0" y="0" width="988.893" height="543.562" class="st1"/>
 		</g>
 	</g>
 	<g v:mID="22" v:index="2" v:groupContext="foregroundPage">
@@ -988,7 +988,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="116.713" cy="545.599" width="99.88" height="36.8038"/>
 			<path d="M0 545.6 L130.85 545.6 L130.85 559.52 L209.69 559.52" class="st36"/>
-			<rect v:rectContext="textBkgnd" x="72.9135" y="531.199" width="87.5981" height="28.8001" class="st4"/>
+			<rect v:rectContext="textBkgnd" x="72.9135" y="531.199" width="87.5981" height="28.8001" class="st27"/>
 			<text x="74.06" y="542" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Access app over <v:newlineChar/><tspan
 						x="72.91" dy="1.2em" class="st6">private endpoint</tspan></text>		</g>
 		<g id="shape1389-316" v:mID="1389" v:groupContext="shape" v:layerMember="0" transform="translate(543.767,-332.715)">
