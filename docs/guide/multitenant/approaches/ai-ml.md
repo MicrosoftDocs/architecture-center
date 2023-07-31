@@ -10,7 +10,7 @@ ms.service: architecture-center
 ms.subservice: azure-guide
 products:
   - azure
-  - azure-cognitive-services
+  - ai-services
   - azure-machine-learning
 categories:
   - ai-machine-learning
