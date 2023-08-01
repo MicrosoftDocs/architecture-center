@@ -81,7 +81,9 @@ As this type of customer call data is highly sensitive, security controls should
 
 For more information on Responsible AI, please visit https://www.microsoft.com/ai/responsible-ai?activetab=pivot1%3aprimaryr6
 
-### Resiliency
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](https://learn.microsoft.com/azure/well-architected/resiliency/overview).
 
 Here are some considerations if your scenario requires high-avaialbility and disaster recovery: 
