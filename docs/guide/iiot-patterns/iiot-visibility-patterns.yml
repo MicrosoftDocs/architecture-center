@@ -15,7 +15,7 @@ products:
   - azure-iot-edge
   - azure-iot-hub
   - azure-data-explorer
-  - azure-cognitive-services
+  - ai-services
 name: Industrial IoT visibility patterns
 summary: Learn about common visibility patterns to build, deploy, and manage Industrial IoT (IIoT) solutions.
 thumbnailUrl: /azure/architecture/browse/thumbs/anomaly-detection-thumbnail-new.png
