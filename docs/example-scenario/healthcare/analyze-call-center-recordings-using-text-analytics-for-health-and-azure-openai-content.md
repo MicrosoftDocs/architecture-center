@@ -77,6 +77,8 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 This solution can be optimized for cost in several ways. First, while developing analytics or adding new analytic results to the content, pipelines should run the Speech-to-Text transcription of the audio files only once. The stored content can then be processed by other services as part of other pipelines. Second, insights extracted from Text Analytics for Health should only be run once with the results being stored and re-used for development. This will enable OpenAI prompt engineering to be done quickly and cost effectively. Finally, we recommend using ephemeral compute resources (e.g., ephemeral Spark clusters) for analytics as these types of batch-based workloads are typically run periodically. Shutting down the cluster in between runs can significantly reduce the overall cost of the solution.
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 As this type of customer call data is highly sensitive, security controls should be enabled throughout the solution to ensure sensitive data remains secure. Similarly, we have included Azure Key Vault in the solution as a scalable service to enable end-users to securely store keys/secrets needed for the solution. Lastly, as this service uses OpenAI to extract insights from the unstructured data, case should be taken to ensure the overall insights derived follow Microsoft’s Responsible AI principles. 
 
 For more information on Responsible AI, please visit https://www.microsoft.com/ai/responsible-ai?activetab=pivot1%3aprimaryr6
