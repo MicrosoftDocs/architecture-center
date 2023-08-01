@@ -43,7 +43,6 @@ Key technologies used to implement this architecture:
 * **[Azure OpenAI](https://learn.microsoft.com/azure/cognitive-services/openai/overview)**: Azure OpenAI is a cloud-based service that provides advanced language AI with OpenAI GPT-3, Codex, and DALL-E models with the security and enterprise promise of Azure. Azure OpenAI co-develops the APIs with OpenAI, ensuring compatibility and a smooth transition from one to the other. With Azure OpenAI, customers get the security capabilities of Microsoft Azure while running the same models as OpenAI. Azure OpenAI offers private networking, regional availability, and responsible AI content filtering. The completions endpoint is the core component of the API service. This API provides access to the model's text-in, text-out interface. Users simply need to provide an input prompt containing the English text command, and the model will generate a text completion.
 * **[Azure Synapse Analytics](https://learn.microsoft.com/azure/synapse-analytics/overview-what-is)**: Azure Synapse Analytics is a one-stop-shop for analytics on Azure, providing data ingestion, orchestration, processing, and serving capabilities at scale.
 * **[Power BI](https://learn.microsoft.com/power-bi/developer/)**: Power BI is a best-in-class business dashboarding and visualization tool with integrated semantic modeling capabilities.
-<br><br>
 
 ## Scenario Details
 
