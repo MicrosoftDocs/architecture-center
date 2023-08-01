@@ -25,7 +25,7 @@ This section describes the nature of availability for services used in this arch
 
 - [**Azure Virtual Network**](https://azure.microsoft.com/products/virtual-network) contains all availability zones that are in a single region. The subnets in the virtual network also cross availability zones. For more information, see [the network requirements for App Service Environment](/azure/app-service/environment/networking#subnet-requirements).
 
-- [**Application Gateway v2**](https://azure.microsoft.com/products/application-gateway) is zone-redundant. Like the virtual network, it spans multiple availability zones per region. Therefore, a single application gateway is sufficient for a highly available system, as shown in the reference architecture. The reference architecture uses the WAF SKU of Application Gateway, which provides increased protection against common threats and vulnerabilities, based on an implementation of the Core Rule Set (CRS) of the Open Web Application Security Project (OWASP). For more details, see [Scaling Application Gateway v2 and WAF v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
+- [**Application Gateway v2**](https://azure.microsoft.com/products/application-gateway) is zone-redundant. Like the virtual network, it spans multiple availability zones per region. Therefore, a single application gateway is sufficient for a highly available system, as shown in the reference architecture. The reference architecture uses the WAF SKU of Application Gateway, which provides increased protection against common threats and vulnerabilities, based on an implementation of the Core Rule Set (CRS) of the Open Web Application Security Project (OWASP). For more information, see [Scaling Application Gateway v2 and WAF v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
 
 - [**Azure Firewall**](https://azure.microsoft.com/products/azure-firewall/) has built-in support for high availability. It can cross multiple zones without any additional configuration. 
  
@@ -33,7 +33,7 @@ This section describes the nature of availability for services used in this arch
 
 - [**Azure Active Directory**](https://azure.microsoft.com/products/active-directory/) is a highly available, highly redundant global service, spanning availability zones and regions. For more information, see [Advancing Azure Active Directory availability](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability/).
 
-- [**Github Actions**](https://azure.microsoft.com/products/devops/pipelines) provides continuous integration and continuous deployment capabilities in this architecture. Because App Service Environment is in the virtual network, a virtual machine is used as a jumpbox in the virtual network to deploy apps in the App Service plans. The deployment builds the apps outside the virtual network. For enhanced security and seamless RDP/SSH connectivity, consider using [Azure Bastion](/azure/bastion/bastion-overview) for the jumpbox.
+- [**GitHub Actions**](https://azure.microsoft.com/products/devops/pipelines) provides continuous integration and continuous deployment capabilities in this architecture. Because App Service Environment is in the virtual network, a virtual machine is used as a jumpbox in the virtual network to deploy apps in the App Service plans. The deployment builds the apps outside the virtual network. For enhanced security and seamless RDP/SSH connectivity, consider using [Azure Bastion](/azure/bastion/bastion-overview) for the jumpbox.
 
 - [**Azure Cache for Redis**](https://azure.microsoft.com/products/cache/) is a zone-redundant service. A zone-redundant cache runs on VMs spread across multiple availability zones. This service provides higher resilience and availability.
 
@@ -50,7 +50,7 @@ You can deploy App Service Environment across availability zones to provide resi
 When you implement zone redundancy, the platform automatically spreads the instances of the App Service plan across three zones in the selected region. Therefore, the minimum App Service plan instance count is always three. If you specify a capacity larger than three, and the number of instances is divisible by three, the instances are spread evenly. Otherwise, any remaining instances are added to the remaining zone or spread across the remaining two zones. 
 
 - You configure availability zones when you create your App Service Environment.
-- All App Service plans created in that App Service Environment require a minimum of three instances. They will automatically be zone redundant.
+- All App Service plans created in that App Service Environment require a minimum of three instances. They'll automatically be zone redundant.
 - You can specify availability zones only when you create a new App Service Environment. You can't convert a pre-existing App Service Environment to use availability zones.
 - Availability zones are supported only in a [subset of regions](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support).
 
@@ -95,31 +95,31 @@ cat <<EOF > appgwApps.parameters.json
 ]
 ```
 
-If any of the components (the web frontend, the API, or the cache) fails in the health probe, Application Gateway routes the request to the other application from the backend pool. This makes sure that the request is always routed to the application in a completely available ASE subnet.
+If any of the components (the web frontend, the API, or the cache) fails the health probe, Application Gateway routes the request to the other application in the backend pool. This configuration ensures that the request is always routed to the application in a completely available App Service Environment subnet.
 
-The health probe is also implemented in the standard reference implementation. There the gateway simply returns error if the health probe fails. However, in the highly available implementation, it improves the resiliency of the application and the quality of the user experience.
+The health probe is also implemented in the standard reference implementation. There, the gateway simply returns an error if the health probe fails. However, the highly available implementation improves the resiliency of the application and the quality of the user experience.
 
 ### Cost optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-The cost considerations for the high availability architecture are mostly similar to the standard deployment.
+The cost considerations for the high availability architecture are similar to those of the standard deployment.
 
 The following differences can affect the cost:
 
-- There's a minimum charge of nine App Service plan instances in a zone redundant App Service Environment. See [App Service Environment pricing](/azure/app-service/environment/overview#pricing) for more information.
-- Azure Cache for Redis is also a zone redundant service. A zone-redundant cache runs on VMs spread across multiple Availability Zones to provide higher resilience and availability.
+- You're charged for at least nine App Service plan instances in a zone-redundant App Service Environment. For more information, see [App Service Environment pricing](/azure/app-service/environment/overview#pricing) for more information.
+- Azure Cache for Redis is also a zone-redundant service. A zone-redundant cache runs on VMs that are deployed across multiple availability zones to provide higher resilience and availability.
 
-The tradeoff for high availability, resilient, and secure system will be increased cost. Evaluate the enterprise needs with respect to the pricing, using the [pricing calculator](https://azure.microsoft.com/pricing/calculator/).
+The tradeoff for a highly available, resilient, and highly secure system is increased cost. Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to evaluate your needs with respect to pricing.
 
 ### Deployment considerations
 
-This reference implementation uses the same production level CI/CD pipeline used in the standard deployment, with just one jumpbox virtual machine. You may, however, decide to have one jumpbox across each of the three zones. This reference architecture simplifies by using just one jumpbox since it doesnt affect the actual availability of the app as the jumpbox is used only for deployment and testing purposes.
+This reference implementation uses the same production-level CI/CD pipeline as the standard deployment, with only one jumpbox VM. You might, however, decide to use one jumpbox for each of the three zones. This architecture uses just one jumpbox because it doesn't affect the availability of the app. The jumpbox is used only for deployment and testing.
 
 ## Deploy this scenario
 
-To deploy the reference implementation for this architecture, see the [GitHub readme](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/README.md), and follow the script for *high availability deployment*.
+For information about deploying the reference implementation for this architecture, see the [GitHub readme](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/README.md). Use the script for high availability deployment.
 
 ## Next steps
 
-You can expand on the learnings demonstrated in this reference architecture, and horizontally scale your applications within the same region or across several regions, based on the expected peak load capacity. Replicating your applications on multiple regions may help mitigate the risks of wider geographical data center failures, such as due to earthquakes or other natural disasters. To learn more on horizontal scaling, read [Geo Distributed Scale with App Service Environments](/azure/app-service/environment/app-service-app-service-environment-geo-distributed-scale). For a global and highly-available routing solution, consider using [Azure Front Door](/azure/frontdoor/front-door-overview).
+You can modify this architecture by horizontally scaling your applications, within the same region or across several regions, based on the expected peak load capacity. Replicating your applications on multiple regions might help mitigate the risks of wider geographical datacenter failures, like those caused by earthquakes or other natural disasters. To learn more about horizontal scaling, see [Geo Distributed Scale with App Service Environments](/azure/app-service/environment/app-service-app-service-environment-geo-distributed-scale). For a global and highly available routing solution, consider using [Azure Front Door](/azure/frontdoor/front-door-overview).
