@@ -87,7 +87,7 @@ Reliability ensures your application can meet the commitments you make to your c
 Here are some considerations if your scenario requires high-avaialbility and disaster recovery: 
 * [At least 99.9% of the time client operations executed on a Azure Synapse Analytics will succeed.](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1)
 * [Logic Apps running in a customer subscription will be available 99.9% of the time.](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1)
-* Depending on the requirement for RTO (recovery time objective), Azure Blob Storage can either be configured as geo-redundant storage (GRS), or read-access geo-redundant storage (RA-GRS) that allows reads directly from the alternate region. To learn more, see the [Azure Storage redundancy](https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy) article.
+* Depending on the requirement for RTO (recovery time objective), Azure Blob Storage can either be configured as geo-redundant storage (GRS), or read-access geo-redundant storage (RA-GRS) that allows reads directly from the alternate region. To learn more, see the [Azure Storage redundancy](https://learn.microsoft.com/azure/storage/common/storage-redundancy) article.
 * Multiple layers of [availability and redundancy](https://learn.microsoft.com/en-us/azure/key-vault/general/disaster-recovery-guidance) are built in to the Azure Key Vault service.
 
 ## Contributors
