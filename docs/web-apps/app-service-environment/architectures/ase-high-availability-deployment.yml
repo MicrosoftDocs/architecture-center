@@ -5,7 +5,7 @@ metadata:
   description: Recommended architecture for deploying an enterprise application using App Services Environment in multiple availability zones.
   author: deepbhattacharyya
   ms.author: deepbh
-  ms.date: 31/07/2023
+  ms.date: 08/03/2023
   ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
@@ -25,6 +25,6 @@ products:
   - azure-firewall
   - azure-virtual-network
   - azure-app-service
-thumbnailUrl: /azure/architecture/browse/thumbs/ha-ase-deployment.png
+thumbnailUrl: /azure/architecture/browse/thumbs/app-service-environment-high-availability.png
 content: |
    [!include[](ase-high-availability-deployment-content.md)]
