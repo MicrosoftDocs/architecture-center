@@ -25,7 +25,7 @@ products:
   - azure-language-understanding
   - azure-active-directory-b2c
   - azure-app-service
-  - azure-cognitive-services
+  - ai-services
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-commerce-chatbot.png
 content: |
   [!include[](commerce-chatbot-content.md)]

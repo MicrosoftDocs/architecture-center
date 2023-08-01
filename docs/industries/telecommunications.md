@@ -13,7 +13,7 @@ keywords:
   - Azure
 products:
   - azure-machine-learning
-  - azure-cognitive-services
+  - ai-services
   - azure-stack-edge
   - azure-arc
   - azure-event-hubs

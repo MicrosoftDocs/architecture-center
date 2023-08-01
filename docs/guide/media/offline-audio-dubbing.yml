@@ -12,7 +12,7 @@ azureCategories:
   - ai-machine-learning
   - media
 products:
-  - azure-cognitive-services
+  - ai-services
   - azure-speech
   - azure-speech-text
   - azure-speech-translation

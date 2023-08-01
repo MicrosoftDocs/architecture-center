@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2023-07-24T16:09:02.418Z</updated>
+    <updated>2023-07-31T16:02:01.063Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
@@ -29,7 +29,7 @@
         <id>https://learn.microsoft.com/azure/architecture/web-apps/guides/reliable-web-app/java/apply-pattern</id>
         <link href="https://learn.microsoft.com/azure/architecture/web-apps/guides/reliable-web-app/java/apply-pattern"/>
         <updated>2023-07-13T18:06:49.000Z</updated>
-        <summary type="html"><![CDATA[Apply reliable web app pattern for Java. Essential implementation guidance for web apps moving to the cloud. How to update (re-platform) web apps to be successful in the cloud.]]></summary>
+        <summary type="html"><![CDATA[Apply the reliable web app pattern for Java to your web app. Find essential implementation guidance for web apps moving to the cloud. Learn how to update (re-platform) web apps to be successful in the cloud.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -37,7 +37,7 @@
         <id>https://learn.microsoft.com/azure/architecture/web-apps/guides/reliable-web-app/java/plan-implementation</id>
         <link href="https://learn.microsoft.com/azure/architecture/web-apps/guides/reliable-web-app/java/plan-implementation"/>
         <updated>2023-07-13T18:06:49.000Z</updated>
-        <summary type="html"><![CDATA[Plan the implementation of the reliable web app pattern for Java. Essential implementation guidance for web apps moving to the cloud. How to update (re-platform) web apps to be successful in the cloud.]]></summary>
+        <summary type="html"><![CDATA[Plan the implementation of the reliable web app pattern for Java. Find essential design guidance for web apps moving to the cloud. Learn how to update (re-platform) web apps to be successful in the cloud.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -47,6 +47,70 @@
         <updated>2023-07-13T18:06:49.000Z</updated>
         <summary type="html"><![CDATA[Learn about the reliable web app pattern.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Kubernetes Service (AKS) considerations for multitenancy]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/aks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/aks"/>
+        <updated>2023-07-28T21:03:32.000Z</updated>
+        <summary type="html"><![CDATA[This article describes the features of Azure Kubernetes Service (AKS) that are useful when working with multitenanted systems. It links to guidance and examples for how to use AKS in a multitenant solution.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy AD DS in an Azure virtual network]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/identity/adds-extend-domain</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/identity/adds-extend-domain"/>
+        <updated>2023-07-28T17:25:34.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to extend an on-premises Active Directory domain to Azure in order to provide distributed authentication services.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure DNS Private Resolver]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/networking/azure-dns-private-resolver</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/networking/azure-dns-private-resolver"/>
+        <updated>2023-07-28T15:56:08.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure DNS Private Resolver to simplify hybrid recursive domain name system (DNS) resolution for on-premises and Azure workloads.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Resiliency checklist for services]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/checklist/resiliency-per-service</id>
+        <link href="https://learn.microsoft.com/azure/architecture/checklist/resiliency-per-service"/>
+        <updated>2023-07-25T20:23:18.000Z</updated>
+        <summary type="html"><![CDATA[Resiliency is the ability to recover from failures and continue to function. Use this checklist to review the resiliency considerations for Azure services.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Make all things redundant]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/design-principles/redundancy</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/design-principles/redundancy"/>
+        <updated>2023-07-25T20:23:18.000Z</updated>
+        <summary type="html"><![CDATA[Use these recommendations to avoid having single points of failure, by building redundancy into your application.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Failure mode analysis]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/resiliency/failure-mode-analysis</id>
+        <link href="https://learn.microsoft.com/azure/architecture/resiliency/failure-mode-analysis"/>
+        <updated>2023-07-25T20:23:18.000Z</updated>
+        <summary type="html"><![CDATA[Get information about doing a failure mode analysis (FMA) for cloud solutions that are based on Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Citizen AI with Power Platform]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/ai/citizen-ai-power-platform</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/ai/citizen-ai-power-platform"/>
+        <updated>2023-07-24T17:55:56.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Azure Machine Learning and Microsoft Power Platform to quickly create a machine learning proof of concept and a production version.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Cyber threat intelligence in Microsoft Sentinel]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/data/sentinel-threat-intelligence</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/data/sentinel-threat-intelligence"/>
+        <updated>2023-07-24T17:55:56.000Z</updated>
+        <summary type="html"><![CDATA[Import threat indicators, view logs, and create rules to generate security alerts and incidents, and visualize threat intelligence data with Microsoft Sentinel.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Choose an Azure data service]]></title>

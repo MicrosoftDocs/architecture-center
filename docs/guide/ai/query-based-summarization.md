@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
-  - azure-cognitive-services 
+  - ai-services 
   - azure-cognitive-search
 categories:
   - ai-machine-learning

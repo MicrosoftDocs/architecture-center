@@ -12,7 +12,7 @@ metadata:
 azureCategories:
   - ai-machine-learning
 products:
-   - azure-cognitive-services
+   - ai-services
    - azure-speech
    - azure-speech-text
    - azure-machine-learning
