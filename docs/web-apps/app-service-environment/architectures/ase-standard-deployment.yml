@@ -5,7 +5,7 @@ metadata:
   description: Learn about the recommended architecture for deploying an enterprise application using App Services Environment (ASEv3) in Azure.
   author: SuhasRao
   ms.author: susudhee
-  ms.date: 04/17/2023
+  ms.date: 08/03/2023
   ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
