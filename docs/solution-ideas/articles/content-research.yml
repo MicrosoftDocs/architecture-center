@@ -21,7 +21,7 @@ azureCategories:
 summary: Use knowledge mining technologies such as key phrase extraction and entity recognition to quickly review dense technical material.
 products:
   - azure-cognitive-search
-  - azure-form-recognizer
+  - document-intelligence
   - azure-text-analytics
   - azure-translator
 thumbnailUrl: /azure/architecture/browse/thumbs/knowledge-mining-content-research-thumbnail.png
