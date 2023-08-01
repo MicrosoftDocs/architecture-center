@@ -26,6 +26,6 @@ products:
   - azure-firewall
   - azure-virtual-network
   - azure-private-link
-thumbnailUrl: /azure/architecture/browse/thumbs/standard-ase-deployment.png
+thumbnailUrl: /azure/architecture/browse/thumbs/app-service-environment.png
 content: |
    [!include[](ase-standard-deployment-content.md)]
