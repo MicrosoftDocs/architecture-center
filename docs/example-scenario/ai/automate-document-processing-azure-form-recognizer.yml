@@ -15,7 +15,7 @@ azureCategories:
   - ai-machine-learning
 products:
   - azure-cognitive-search
-  - azure-cognitive-services
+  - ai-services
   - azure-cosmos-db
   - azure-form-recognizer
   - azure-machine-learning
