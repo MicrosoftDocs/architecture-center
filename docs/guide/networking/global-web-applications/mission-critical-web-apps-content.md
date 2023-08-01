@@ -1,11 +1,6 @@
-This article provides guidance for deploying mission-critical web applications by using the Web Apps feature of Azure App Service. It builds on the [reliable web app pattern](/azure/architecture/reference-architectures/reliable-web-app/dotnet/pattern-overview) to support mission-critical workloads.
+This article provides guidance for deploying mission-critical web applications by using the Web Apps feature of Azure App Service. The architecture uses the [reliable web app pattern](/azure/architecture/reference-architectures/reliable-web-app/dotnet/pattern-overview) as a starting point. Use this architecture if you have a legacy workload and want to adopt platform-as-a-service (PaaS) services.
 
-> [!NOTE]
-> The [reliable web app pattern](/azure/architecture/reference-architectures/reliable-web-app/dotnet/pattern-overview#architecture-and-pattern) for .NET provides guidance for updating or replatforming web apps that you move to the cloud, minimizing required code changes, and targeting a service-level objective (SLO) of 99.9%.
-
-Start with the reliable web app pattern if you have a legacy workload and want to adopt platform-as-a-service (PaaS) services. 
-
-While that is sufficient for many scenarios, mission-critical workloads have greater reliability and availability requirements. To reach an SLO of 99.95%, 99.99%, or higher, you need to apply supplemental mission-critical design patterns and operational rigor. This article describes key technical areas and how to implement and introduce mission-critical design practices.
+[Reliable web app pattern for .NET](/azure/architecture/reference-architectures/reliable-web-app/dotnet/pattern-overview#architecture-and-pattern) provides guidance for updating or replatforming web apps that you move to the cloud, minimizing required code changes, and targeting a service-level objective (SLO) of 99.9%. The services that are used in this architecture are sufficient for many scenarios, but mission-critical workloads have high reliability and availability requirements. To reach an SLO of 99.95%, 99.99%, or higher, you need to apply supplemental mission-critical design patterns and operational rigor. This article describes key technical areas and how to implement and introduce mission-critical design practices.
 
 > [!NOTE]
 > The guidance in this article is based on the design methodology and best practices in the [Well-Architected mission-critical workload](/azure/architecture/framework/mission-critical/mission-critical-overview) series.
@@ -14,16 +9,16 @@ While that is sufficient for many scenarios, mission-critical workloads have gre
 
 The following sections describe how to:
 
-- Review the existing workload to understand its components, **user and system flows**, and the availability and scalability requirements.
-- Develop and implement a [**scale-unit architecture**](/azure/well-architected/mission-critical/mission-critical-application-design#scale-unit-architecture) to optimize end-to-end scalability through compartmentalization and to standardize the process of adding and removing capacity.
+- Review the existing workload to understand its components, user and system flows, and availability and scalability requirements.
+- Develop and implement a [scale-unit architecture](/azure/well-architected/mission-critical/mission-critical-application-design#scale-unit-architecture) to optimize end-to-end scalability through compartmentalization and to standardize the process of adding and removing capacity.
 - Implement stateless, ephemeral scale units or deployment stamps to enable scalability and zero-downtime deployments.
-- Determine if the workload can be split into components to prepare for scalability. Individual components are a key prerequisite for **scalability and decoupling flows**.
-- Prepare for [**global distribution**](/azure/well-architected/mission-critical/mission-critical-application-design#global-distribution) by deploying a workload across more than one Azure region to improve proximity to the end user and prepare for potential regional outages.
+- Determine if the workload can be split into components to prepare for scalability. Individual components are a key prerequisite for scalability and decoupling flows.
+- Prepare for [global distribution](/azure/well-architected/mission-critical/mission-critical-application-design#global-distribution) by deploying a workload across more than one Azure region to improve proximity to the end user and prepare for potential regional outages.
 - Decouple components and implement an event-driven architecture.
 
 The following diagram applies the previous considerations to the [reliable web app pattern](/azure/architecture/reference-architectures/reliable-web-app/dotnet/pattern-overview#architecture-and-pattern).
 
-![](RackMultipart20230731-1-egai8a_html_15a60303a5c8aebf.png)
+:::image type="content" source="./media/mission-critical-web-apps/scale-unit-architecture.svg" alt-text="{alt-text}" lightbox="./media/mission-critical-web-apps/scale-unit-architecture.svg":::
 
 The red box represents a scale unit. The scale-unit services should scale together. Optimize each service's sizing, SKU, and available IP addresses to scale together. For example, the maximum number of requests App Configuration can serve impacts the numbers of requests per second a scale unit can provide. The process of adding new capacity in a region translates into adding an additional scale unit.
 
@@ -64,7 +59,7 @@ The level of availability depends on your choice and configuration of the applic
 
 The database platform you choose has key implications on the overall workload architecture, especially the platform's support for an active-active or active-passive configuration. The reliable web app pattern uses Azure SQL, which doesn't natively support active-active deployments with write operations in more than one instance. The database level is limited to an active-passive strategy. An active-active strategy on the application level is possible if there are read-only replicas  and you write to a single region only.
 
-![](RackMultipart20230731-1-egai8a_html_fa7865485aad3796.png)
+:::image type="content" source="./media/mission-critical-web-apps/data-replication-workload.svg" alt-text="{alt-text}" lightbox="./media/mission-critical-web-apps/data-replication-workload.svg":::
 
 Multiple databases are common in complex architectures, such as a microservices architecture that has a database for each service. This allows the adoption of a multi-master write database like Azure Cosmos DB, which enhances high availability and low latency, but limitations exist due to cross-region latency. It is crucial to consider nonfunctional requirements alongside factors like consistency, operability, cost, and complexity. By enabling individual services to use separate data stores and specialized data technologies, their unique requirements can be effectively met. For more information, see [Data platform considerations for mission-critical workloads on Azure](/azure/well-architected/mission-critical/mission-critical-data-platform).
 
@@ -72,11 +67,11 @@ Multiple databases are common in complex architectures, such as a microservices 
 
 In complex multitier workloads that spread across multiple datacenters and geographical regions, you must define a health model. Define user and system flows, specify and understand the dependencies between the services, understand the impact that outages or a performance degradation on one of the services can have on the overall workload, and monitor and visualize the end user experience to enable proper monitoring and improve manual and automated actions.
 
-![](RackMultipart20230731-1-egai8a_html_e6f20040182e88b0.png)
+:::image type="content" source="./media/mission-critical-web-apps/outage-example.svg" alt-text="{alt-text}" lightbox="./media/mission-critical-web-apps/outage-example.svg":::
 
 The previous diagram shows how an outage or a degradation of a single component, like App Configuration, can bubble up to the top and cause potential performance degradation for the end user.
 
-![](RackMultipart20230731-1-egai8a_html_e9604882d49ba167.png)
+:::image type="content" source="./media/mission-critical-web-apps/outage-example-2.svg" alt-text="{alt-text}" lightbox="./media/mission-critical-web-apps/outage-example-2.svg":::
 
 A potential resolution is to stop sending traffic to the affected part of the application, such as an affected scale unit or the complete region.
 
@@ -90,7 +85,7 @@ Identity is often the primary security perimeter for cloud-native patterns. Ente
 
 All services are accessible via private endpoints only. The only public, internet-facing endpoint is Azure Front Door.
 
-![](RackMultipart20230731-1-egai8a_html_561c646b8522ab48.png)
+:::image type="content" source="./media/mission-critical-web-apps/front-end-workload.svg" alt-text="{alt-text}" lightbox="./media/mission-critical-web-apps/front-end-workload.svg":::
 
 For the reliable web app pattern to set up a network as a security perimeter, it must use:
 
