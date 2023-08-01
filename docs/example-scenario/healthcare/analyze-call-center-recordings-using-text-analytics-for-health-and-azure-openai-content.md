@@ -49,7 +49,7 @@ Key technologies used to implement this architecture:
 
 In this scenario, based on a real customer use case, users first upload their audio data to an Azure Storage account for analysis. An automated trigger kicks of an Azure Function to transcribe the data using the Azure Speech Service as well as keys stored securely in Azure Key Vault. Once the data has been transcribed, an Azure Synapse Analytics Pipeline-based analysis pipeline uses Text Analytics for Health as well as Azure Open AI to extract key health information (e.g., diagnosis, patient medications) and summarize the overall content. Finally, this data is aggregated and transformed as needed for end-user consumption via PowerBI dashboards using Azure Synapse Analytics.
 
-The above scenario makes several assumptions. First, as this is highly sensitive data, we assume all storage accounts and services have been securely deployed following widely available best practices for working with sensitive data in the cloud (e.g., all data at rest is encrypted, account keys are securely stored). Along those lines we also assume appropriate security-centric personnel have been consulted for enterprise-centric security best practices. Second, although this architecture can be automatically deployed, that process is out of scope of this article.
+The above scenario makes several assumptions. As this is highly sensitive data, we assume all storage accounts and services have been securely deployed following widely available best practices for working with sensitive data in the cloud (e.g., all data at rest is encrypted, account keys are securely stored). We also assume appropriate security-centric personnel have been consulted for enterprise-centric security best practices. 
 
 ## Alternatives
 
