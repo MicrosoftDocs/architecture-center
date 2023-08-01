@@ -79,7 +79,7 @@ This solution can be optimized for cost in several ways. First, while developing
 ### Security
 As this type of customer call data is highly sensitive, security controls should be enabled throughout the solution to ensure sensitive data remains secure. Similarly, we have included Azure Key Vault in the solution as a scalable service to enable end-users to securely store keys/secrets needed for the solution. Lastly, as this service uses OpenAI to extract insights from the unstructured data, case should be taken to ensure the overall insights derived follow Microsoft’s Responsible AI principles. 
 
-For more information on Responsible AI, please visit https://www.microsoft.com/en-us/ai/responsible-ai?activetab=pivot1%3aprimaryr6
+For more information on Responsible AI, please visit https://www.microsoft.com/ai/responsible-ai?activetab=pivot1%3aprimaryr6
 
 ### Resiliency
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](https://learn.microsoft.com/en-us/azure/well-architected/resiliency/overview).
