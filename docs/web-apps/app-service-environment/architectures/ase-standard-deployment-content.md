@@ -181,7 +181,7 @@ Some services support managed identities but use Azure RBAC to set up permission
 - For Service Bus, it's [shared access signatures](/azure/service-bus-messaging/service-bus-authentication-and-authorization#shared-access-signature).
 - For Azure Cosmos DB, it's [keys](/azure/cosmos-db/secure-access-to-data#master-keys).
 
-The connection strings for these access control policies are then stored in Key Vault. The vault itself is accessed through managed identities, which doesn't require Azure RBAC. Set the access policy for these connection strings appropriately. For example, read-only for the backend, write-only for the frontend, and so on, instead of using default root access policy.
+The connection strings for these access control policies are then stored in Key Vault. The vault itself is accessed through managed identities, which require Azure RBAC. Set the access policy for these connection strings appropriately. For example, read-only for the backend, write-only for the frontend, and so on, instead of using default root access policy.
 
 The following code in [services.bicep](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/deployment/templates/services.bicep) shows the Key Vault configuration for these services:
 
