@@ -115,7 +115,7 @@ This reference implementation uses self-signed certificates for Application Gate
         }]
 ```
 
-The reference implementation demonstrates end-to-end encryption for traffic between Application Gateway and the web apps on the App Service Environment. The default SSL certificates are used. The backend pools in this implementation are configured to redirect HTTPS traffic with host name overridden by the default domain names associated to the web apps. Application Gateway trusts the default SSL certificates because they're issued by Microsoft. See [Configure App Service with Application Gateway](/azure/application-gateway/configure-web-app-portal) for information about how these configurations are made. The following code from appgw.bicep show how this is configured in the reference implementation:
+The reference implementation demonstrates end-to-end encryption for traffic between Application Gateway and the web apps on the App Service Environment. The default SSL certificates are used. The backend pools in this implementation are configured to redirect HTTPS traffic with host name overridden by the default domain names associated to the web apps. Application Gateway trusts the default SSL certificates because they're issued by Microsoft. See [Configure App Service with Application Gateway](/azure/application-gateway/configure-web-app-portal) for information about how these configurations are made. The following code from appgw.bicep shows how this is configured in the reference implementation:
 
 ```bicep
         backendHttpSettingsCollection: [for item in appgwApplications: {
