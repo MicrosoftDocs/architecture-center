@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Contact Center Analytics using Azure OpenAI, Azure Speech & Azure Language Services
+  titleSuffix: Azure Architecture Center
+  description: Use Azure sentiment analysis and face recognition services with open-source solutions like Apache NiFi and Azure HDInsight to gauge public opinion in tweets.
+  author: jmendezde
+  ms.author: josemendez, katienovotny 
+  ms.date: 08/03/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - analytics
+  - ai-machine-learning
+products:
+  - ai-services
+  - azure-cosmos-db
+  - azure-cosmos-db
+  - azure-hdinsight
+  - azure-synapse-analytics
+name: Contact center analytics
+summary:
+thumbnailUrl: /azure/architecture/browse/thumbs/.png
+content: |
+   [!include[](openai-analytics-content.md)]
