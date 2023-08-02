@@ -2,9 +2,9 @@
 metadata:
   title: Contact Center Analytics using Azure OpenAI, Azure Speech & Azure Language Services
   titleSuffix: Azure Architecture Center
-  description: Use Azure sentiment analysis and face recognition services with open-source solutions like Apache NiFi and Azure HDInsight to gauge public opinion in tweets.
-  author: jmendezde
-  ms.author: josemendez, katienovotny 
+  description: Learn how Azure AI services could be used both in real-time and post-call analytics scenarios for an intelligent Contact Center.
+  author: DixitArora-MSFT
+  ms.author: dixitaro, jyravi  
   ms.date: 08/03/2023
   ms.topic: conceptual
   ms.service: architecture-center
@@ -19,7 +19,7 @@ products:
   - azure-hdinsight
   - azure-synapse-analytics
 name: Contact center analytics
-summary:
+summary: Learn how Azure AI services could be used both in real-time and post-call analytics scenarios for an Intelligent Contact Center.
 thumbnailUrl: /azure/architecture/browse/thumbs/.png
 content: |
    [!include[](openai-analytics-content.md)]
