@@ -25,7 +25,7 @@ The red box represents a scale unit with services that scale together. To effect
 
 These individual scale units don't have any inter-dependencies and only communicate with shared services outside of the individual scale unit. You can test independent scale units upfront. To avoid affecting other areas of deployment, roll out independent scale units and introduce the option to replace services in a new release.
 
-For mission-critical workloads, independent scale units are temporary, which optimizes the rollout processes and provides scalability within and across regions. Avoid storing state in independent scale units. Consider using Azure Cache for Redis for storage in the scale unit, and only store critical state or data that's also stored in the database. If there's a scale-unit outage or you switch to another scale unit, there might be a slowdown or a new sign in required, but Azure Cache for Redis still runs.
+For mission-critical workloads, independent scale units are temporary, which optimizes the rollout processes and provides scalability within and across regions. Avoid storing state in independent scale units. Consider using Azure Cache for Redis for storage in the scale unit, and only store critical state or data that's also stored in the database. If there's a scale-unit outage or you switch to another scale unit, there might be a slowdown or a new sign-in required, but Azure Cache for Redis still runs.
 
 Application Insights is excluded from the scale unit. Exclude services that store or monitor data. Separate them into their own resource group with their own lifecycle.
 
@@ -131,7 +131,6 @@ Principal authors:
 
 - [Learning path: Build mission-critical workloads on Azure](/training/paths/build-mission-critical-workloads)
 - [Challenge project: Design a mission-critical web application](/training/modules/azure-mission-critical)
-- [The Azure enablement show: Designing a mission-critical workload on Azure](/shows/azure-enablement/designing-a-mission-critical-workload-on-azure)
 - [Learn module: Design a health model for your mission-critical workload](/training/modules/design-health-model-mission-critical-workload)
 
 ## Related resources
