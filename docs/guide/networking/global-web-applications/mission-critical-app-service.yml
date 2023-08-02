@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Mission-critical baseline with Web Apps
+  title: Mission-critical baseline with App Service
   description: Learn how to deploy mission-critical web applications by using the Web Apps feature of Azure App Service.
   author: heoelri
   ms.author: deryaaydin, heoelri
@@ -16,8 +16,8 @@ products:
   - azure-cache-redis
   - azure-app-configuration
   - azure-application-insights
-name: Mission-critical baseline with Web Apps
+name: Mission-critical baseline with App Service
 summary: Learn how to deploy mission-critical web applications by using the Web Apps feature of Azure App Service.
 thumbnailUrl: /azure/architecture/browse/thumbs/scale-unit-architecture-thumbnail.png
 content: |
-   [!include[](mission-critical-web-apps-content.md)]
+   [!include[](mission-critical-app-service-content.md)]

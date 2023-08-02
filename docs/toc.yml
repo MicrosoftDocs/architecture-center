@@ -531,8 +531,8 @@ items:
       href: reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture.yml
     - name: Mission-critical baseline architecture in Azure landing zones
       href: reference-architectures/containers/aks-mission-critical/mission-critical-landing-zone.yml
-    - name: Mission-critical baseline with Web Apps
-      href: guide/networking/global-web-applications/mission-critical-web-apps.yml
+    - name: Mission-critical baseline with App Service
+      href: guide/networking/global-web-applications/mission-critical-app-service.yml
     - name: Design areas
       items:
       - name: Application platform
