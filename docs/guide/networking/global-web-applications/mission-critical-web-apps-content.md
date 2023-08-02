@@ -3,7 +3,7 @@ This article describes how to deploy mission-critical web applications by using 
 [Reliable web app pattern for .NET](/azure/architecture/reference-architectures/reliable-web-app/dotnet/pattern-overview#architecture-and-pattern) provides guidance for updating or replatforming web apps that you move to the cloud, minimizing required code changes, and targeting a service-level objective (SLO) of 99.9%. The services that are used in this architecture are sufficient for many scenarios, but mission-critical workloads have high reliability and availability requirements. To reach an SLO of 99.95%, 99.99%, or higher, you need to apply supplemental mission-critical design patterns and operational rigor. This article describes key technical areas and how to implement and introduce mission-critical design practices.
 
 > [!NOTE]
-> The guidance in this article is based on the design methodology and best practices in the [Well-Architected mission-critical workload](/azure/architecture/framework/mission-critical/mission-critical-overview) series.
+> The guidance in this article is based on the design methodology and best practices in the [Well-Architected Framework mission-critical workload](/azure/architecture/framework/mission-critical/mission-critical-overview) series.
 
 The following sections describe how to:
 
@@ -34,7 +34,7 @@ For more information, see [Application design of mission-critical workloads on A
 
 ## Components
 
-In this example:
+This architecture uses the following components.
 
 - [App Service](https://azure.microsoft.com/products/app-service) is the application-hosting platform.
 - [Azure Cache for Redis](https://azure.microsoft.com/products/cache) caches requests.
@@ -113,7 +113,7 @@ Downtime caused by erroneous releases or human error can be an issue for a workl
 
 [Zero-downtime deployments](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#zero-downtime-deployment) are key for mission-critical workloads. A workload that needs to always be up and running can't have a maintenance window to rollout newer versions. To work around this limitation, the Azure mission-critical architecture follows the *zero-downtime deployments* pattern. Changes are rolled out as new scale units or stamps that are tested end to end before traffic is incrementally routed to them. After all traffic is routed to the new stamp, old stamps are disabled and removed.
 
-For more information, see [Deployment and testing for mission-critical workloads on Azure](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#zero-downtime-deployment).
+For more information, see [Deployment and testing for mission-critical workloads on Azure](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing).
 
 ## Contributors
 
@@ -128,4 +128,14 @@ Principal authors:
 
 ## Next steps
 
+- [Learning path: Build mission-critical workloads on Azure](/training/paths/build-mission-critical-workloads)
+- [Challenge project: Design a mission-critical web application](/training/modules/azure-mission-critical)
+- [The Azure enablement show: Designing a mission-critical workload on Azure](/shows/azure-enablement/designing-a-mission-critical-workload-on-azure)
+- [Learn module: Design a health model for your mission-critical workload](/training/modules/design-health-model-mission-critical-workload)
+
 ## Related resources
+
+- [Mission-critical baseline architecture on Azure](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro)
+- [Mission-critical baseline architecture with network controls](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture)
+- [Mission-critical baseline architecture in an Azure landing zone](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-landing-zone)
+- [Continuous validation with Azure Load Testing and Azure Chaos Studio](/azure/architecture/guide/testing/mission-critical-deployment-testing)
