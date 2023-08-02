@@ -1,4 +1,4 @@
-This article describes how Azure AI services could be used both in real-time and post-call analytics scenarios for an Intelligent Contact Center. By combining [Azure Speech](/azure/cognitive-services/speech-service/), [Azure Language](/azure/cognitive-services/language-service/) and [Azure OpenAI Service](/azure/ai-services/openai/overview)to extract rich insights from customer conversation, you can improve your call center efficiency and customer satisfaction.
+This article describes how to extract insights from customer conversations at a contact center by using Azure AI services. Use these real-time and post-call analytics to improve call center efficiency and customer satisfaction.
 
 ## Architecture
 
@@ -45,9 +45,7 @@ You can add more workflows to this scenario based on specific use cases.
 
 ## Scenario details
 
-Customer care centers are an integral part of the success of many businesses in many industries. This solution uses [Speech service](/azure/cognitive-services/speech-service/) to convert the audio into written text. [Azure Language](/azure/cognitive-services/language-service/) redacts sensitive information in the conversation transcription. Azure OpenAI extracts insights from customer conversation to improve call center efficiency and customer satisfaction.
-
-Use this solution to process transcribed text, recognize and remove sensitive information, and perform sentiment analysis. Scale the services and the pipeline to accommodate any volume of recorded data.
+Customer care centers are an integral part of the success of many businesses in many industries. This solution uses [Speech service](/azure/cognitive-services/speech-service/) to convert the audio into written text. [Azure Language](/azure/cognitive-services/language-service/) redacts sensitive information in the conversation transcription. Azure OpenAI extracts insights from customer conversation to improve call center efficiency and customer satisfaction. Use this solution to process transcribed text, recognize and remove sensitive information, and perform sentiment analysis. Scale the services and the pipeline to accommodate any volume of recorded data.
 
 ### Potential use cases
 
@@ -65,44 +63,44 @@ Reliability ensures your application can meet the commitments you make to your c
 
 #### Availability
 
-- See the availability service level agreements (SLAs) for each component Azure services:
-  - Azure OpenAI – [SLA for Azure OpenAI](/azure/cognitive-services/openai/faq#what-are-the-slas-for-api-responses-in-azure-openai-)
-  - Azure Speech Service - [SLA for Azure Speech Service](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1)
+- See the availability service level agreements (SLA) for each component:
+  - [SLA for Azure OpenAI](/azure/cognitive-services/openai/faq#what-are-the-slas-for-api-responses-in-azure-openai-)
+  - [SLA for Azure Speech Service](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1)
   - AI services for Language - [SLA for AI services](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1)
-  - Azure Functions - [SLA for Azure Functions](https://azure.microsoft.com/support/legal/sla/functions/v1_2)
-  - Storage - [SLA for Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5/)
-- For configuration options to design high availability applications with Storage accounts, see [Use geo-redundancy to design highly available applications](/azure/storage/common/geo-redundant-design).
-- Handle failure modes of individual services like Azure Functions and Storage to ensure resiliency of the compute services and data stores in this scenario. For more information, see [Resiliency checklist for specific Azure services](/azure/architecture/checklist/resiliency-per-service).
-- For Form Recognizer, [back up and recover your Form Recognizer models](/azure/applied-ai-services/form-recognizer/disaster-recovery).
+  - [SLA for Azure Functions](https://azure.microsoft.com/support/legal/sla/functions/v1_2)
+  - [SLA for Storage accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5/)
+- To design high-availability applications with Storage accounts, see the configuration options in [Use geo-redundancy to design highly available applications](/azure/storage/common/geo-redundant-design).
+- To ensure resiliency of the compute services and datastores in this scenario, use failure mode for services like Azure Functions and Storage. For more information, see [Resiliency checklist for Azure services](/azure/architecture/checklist/resiliency-per-service).
+- [Back up and recover your Form Recognizer models](/azure/applied-ai-services/form-recognizer/disaster-recovery).
 
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- Implement data protection, identity and access management, and network security recommendations for [Blob Storage](/azure/storage/blobs/security-recommendations), [Cognitive Services](/security/benchmark/azure/baselines/cognitive-services-security-baseline) and [Azure Open AI Service](/azure/cognitive-services/openai/how-to/managed-identity).
-- [AI services virtual network configuration](/azure/cognitive-services/cognitive-services-virtual-networks?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext&tabs=portal)
+- Implement data protection, identity and access management, and network security recommendations for [Blob Storage](/azure/storage/blobs/security-recommendations), [AI services](/security/benchmark/azure/baselines/cognitive-services-security-baseline), and [Azure Open AI](/azure/cognitive-services/openai/how-to/managed-identity).
+- [Configure AI services virtual network](/azure/cognitive-services/cognitive-services-virtual-networks?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext&tabs=portal).
 
 ### Cost optimization
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-The total cost of implementing this solution depends on the pricing tier of the services you choose.
+The total cost of this solution depends on the pricing tier of the services that you choose.
 
-Many factors that can affect the price of each component:
+Factors that can affect the price of each component are:
 
-- The number of documents that you process
-- The number of concurrent requests that your application receives
-- The size of the data that you store after processing
-- Your deployment region
+- The number of documents that you process.
+- The number of concurrent requests that your application receives.
+- The size of the data that you store after processing.
+- Your deployment region.
 
-For more information on pricing for specific components, see the following resources:
+For more information on pricing for components, see the following resources:
 
 - [Azure OpenAI pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service)
 - [Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs)
-- [Language Service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service)
+- [Language service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service)
 - [Azure Machine Learning pricing](https://azure.microsoft.com/pricing/details/machine-learning/#overview)
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to add your selected component options and estimate the overall solution cost.
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate your solution cost.
 
 ### Performance efficiency
 
