@@ -19,6 +19,7 @@ The following sections describe how to:
 The following diagram applies the previous considerations to the [reliable web app pattern](/azure/architecture/reference-architectures/reliable-web-app/dotnet/pattern-overview#architecture-and-pattern).
 
 :::image type="content" source="./media/mission-critical-web-apps/scale-unit-architecture.svg" alt-text="A diagram that shows the reliable we app pattern with a scale unit applied." lightbox="./media/mission-critical-web-apps/scale-unit-architecture.svg" border="false":::
+*Download a [Visio file](https://arch-center.azureedge.net/reliable-webapp-pattern.vsdx) of this architecture.*
 
 The red box represents a scale unit with services that scale together. To effectively scale them together, optimize each service's size, SKU, and available IP addresses. For example, the maximum number of requests that Azure App Configuration serves correlates to the number of requests per second that a scale unit provides. When you add more capacity in a region, you must also add more individual scale units.
 
@@ -66,6 +67,7 @@ The level of availability depends on your choice and configuration of the applic
 The database platform you choose affects the overall workload architecture, especially the platform's active-active or active-passive configuration support. The reliable web app pattern uses Azure SQL, which doesn't natively support active-active deployments with write operations in more than one instance. So the database level is limited to an active-passive strategy. An active-active strategy on the application level is possible if there are read-only replicas and you write to a single region only.
 
 :::image type="content" source="./media/mission-critical-web-apps/data-replication-workload.svg" alt-text="A diagram that shows the architecture with SQL Database replicated in each region." lightbox="./media/mission-critical-web-apps/data-replication-workload.svg" border="false":::
+*Download a [Visio file](https://arch-center.azureedge.net/reliable-webapp-pattern.vsdx) of this architecture.*
 
 Multiple databases are common in complex architectures, such as microservices architectures that have a database for each service. Multiple databases allow the adoption of a multi-primary write database like Azure Cosmos DB, which improves high availability and low latency. Cross-region latency can create limitations. It's crucial to consider nonfunctional requirements and factors like consistency, operability, cost, and complexity. Enable individual services to use separate data stores and specialized data technologies to meet their unique requirements. For more information, see [Data platform considerations for mission-critical workloads on Azure](/azure/well-architected/mission-critical/mission-critical-data-platform).
 
@@ -90,6 +92,7 @@ There are strict networking and security requirements for workloads that migrate
 Identity is often the primary security perimeter for cloud-native patterns. Enterprise customers might need more substantial security measures. To address their network security requirements, most of the Azure PaaS services can use Azure Private Link to implement the network as a security perimeter. Private Link can ensure that services are only accessible from within a virtual network. All services are accessible via private endpoints only. The following diagram shows how the only public internet-facing endpoint is Azure Front Door.
 
 :::image type="content" source="./media/mission-critical-web-apps/front-end-workload.svg" alt-text="A diagram that shows the internet-facing endpoints in the architecture." lightbox="./media/mission-critical-web-apps/front-end-workload.svg" border="false":::
+*Download a [Visio file](https://arch-center.azureedge.net/reliable-webapp-pattern.vsdx) of this architecture.*
 
 For the reliable web app pattern to set up a network as a security perimeter, it must use:
 
