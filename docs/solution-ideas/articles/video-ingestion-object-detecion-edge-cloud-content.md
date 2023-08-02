@@ -52,7 +52,7 @@ This architecture demonstrates a system that processes a real-time video stream,
 
 The architecture uses Stack Edge to ensure that the most resource-intensive processes are performed on-premises, close to the source of the video. This design significantly improves the response time of the system, which is important when the system is part of a wider security setup, where immediate response to an anomaly is critical.
 
-Because the components of the system are deployed as independent containers in a Kubernetes cluster, you can scale only the required subsystems according to the demand. For example, when the security video feed is sourced from multiple  cameras, the container responsible for video ingestion and processing can be scaled to handle the demand while the rest of the cluster stays at the original level.
+Because the components of the system are deployed as independent containers in a Kubernetes cluster, you can scale only the required subsystems according to the demand. For example, if the security video feed is sourced from multiple  cameras, the container responsible for video ingestion and processing can be scaled to handle the demand while the rest of the cluster stays at the original level.
 
 Offloading the object detection functionality to Azure AI services significantly reduces the expertise that you need to deploy this architecture. Unless your requirements for object detection are highly specialised, the out-of-the-box approach you get from the Image Analysis service is sufficient and doesn't require knowledge of machine learning.
 
