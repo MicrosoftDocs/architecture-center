@@ -14,7 +14,7 @@ azureCategories:
   - media
 products:
   - azure-machine-learning
-  - azure-cognitive-services
+  - ai-services
   - azure-logic-apps
   - azure-synapse-analytics
   - azure-data-lake-storage

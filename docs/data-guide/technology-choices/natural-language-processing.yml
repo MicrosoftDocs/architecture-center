@@ -15,7 +15,7 @@ azureCategories:
   - analytics
   - compute
 products:
-  - azure-cognitive-services
+  - ai-services
   - azure-databricks
   - azure-hdinsight
   - azure-synapse-analytics
