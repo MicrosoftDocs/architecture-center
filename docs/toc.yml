@@ -776,9 +776,6 @@ items:
             maintainContext: true
       - name: Azure Databricks for AWS
         items:
-        - name: Connect to Amazon Kinesis
-          href: /azure/databricks/structured-streaming/kinesis
-          maintainContext: true
         - name: Repo access with AWS CodeCommit
           href: /azure/databricks/repos/set-up-git-provider-access
           maintainContext: true
