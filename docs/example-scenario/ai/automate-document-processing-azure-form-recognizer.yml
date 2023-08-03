@@ -17,7 +17,7 @@ products:
   - azure-cognitive-search
   - ai-services
   - azure-cosmos-db
-  - azure-form-recognizer
+  - document-intelligence
   - azure-machine-learning
 name: Automate document processing by using Azure Form Recognizer
 summary: Build an automated document processing pipeline. Use Azure Form Recognizer to extract data and natural language processing models to enrich the data.
