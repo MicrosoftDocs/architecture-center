@@ -2,22 +2,23 @@
 metadata:
   title: Video ingestion and object detection on the edge and in the cloud
   titleSuffix: Azure Architecture Center
-  description: <Write a 100-160 character description that ends with a period and starts with a call to action. This becomes the browse card description.>
-  author: <Contributor's GitHub username. If no GitHub account, use martinekuan>
-  ms.author: <Contributor's Microsoft alias. Can include multiple contributors, separated by commas. If there's no alias, use the Microsoft email alias "architectures".>
-  ms.date: <Publish or major update date - mm/dd/yyyy>
+  description: Learn how to use a robot to monitor of the perimeter of a secured location.
+  author: ncksol
+  ms.author: nicksologoub
+  ms.date: 08/07/2023 
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
 azureCategories:
-  - <Choose at least one category from the list at https://review.learn.microsoft.com/help/contribute/architecture-center/aac-browser-authoring#azure-categories>
-  - <There can be more than one category>
+  - ai-machine-learning
+  - containers
 products:
-  - <Choose 1-5 products from the list at https://review.learn.microsoft.com/help/contribute/architecture-center/aac-browser-authoring#products>
-  - <Don't use "azure" unless there is nothing else>
-  - <1-5 products--no more than 5!>
-name: <The H1 title is a phrase with a present tense verb that describes the scenario (no gerunds, "-ing" verbs). Example: "Use Azure monitoring to integrate security components">
-summary: <Write a summary. Can be same as description.>
-thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
+  - azure-stack-edge
+  - azure-kubernetes-service
+  - azure-sql-edge
+  - azure-container-registry
+name: Video ingestion and object detection on the edge and in the cloud
+summary: Learn how to use a robot to monitor of the perimeter of a secured location.
+thumbnailUrl: /azure/architecture/browse/thumbs/video-ingestion.png
 content: |
-  [!include[](<solution-idea>-content.md)]
+  [!include[](video-ingestion-object-detection-edge-cloud-content.md)]

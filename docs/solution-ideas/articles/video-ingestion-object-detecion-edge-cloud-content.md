@@ -1,4 +1,4 @@
-This scenario describes how to organize regular monitoring of the perimeter of a secured location. It includes a robot that patrols the premises with a live streaming camera, a system that runs locally on Azure Stack Edge to ingest and process the video stream, and Azure AI services that perform object detection.
+This scenario describes how to implement regular monitoring of the perimeter of a secured location. It includes a robot that patrols the premises with a live streaming camera, a system that runs locally on Azure Stack Edge to ingest and process the video stream, and Azure AI services that perform object detection.
 
 ## Architecture
 
@@ -52,7 +52,7 @@ This architecture demonstrates a system that processes a real-time video stream,
 
 The architecture uses Stack Edge to ensure that the most resource-intensive processes are performed on-premises, close to the source of the video. This design significantly improves the response time of the system, which is important when the system is part of a wider security setup, where immediate response to an anomaly is critical.
 
-Because the components of the system are deployed as independent containers in a Kubernetes cluster, you can scale only the required subsystems according to the demand. For example, if the security video feed is sourced from multiple  cameras, the container responsible for video ingestion and processing can be scaled to handle the demand while the rest of the cluster stays at the original level.
+Because the parts of the system are deployed as independent containers in a Kubernetes cluster, you can scale only the required subsystems according to the demand. For example, if you increase the number of cameras for the security video feed, you can scale the container that's responsible for video ingestion and processing to handle the demand but keep the rest of the cluster at the original level.
 
 Offloading the object detection functionality to Azure AI services significantly reduces the expertise that you need to deploy this architecture. Unless your requirements for object detection are highly specialised, the out-of-the-box approach you get from the Image Analysis service is sufficient and doesn't require knowledge of machine learning.
 
@@ -87,18 +87,18 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-To explore the cost of running this scenario, use the [Azure pricing calculator](https://azure.com/e/b5c7bb040b2f448389aec624b77bd85a). The most expensive components in the scenario are Stack Edge and Azure Kubernetes Service. Although expensive, they provide capacity for scaling the system to address increased demand in the future.
+To explore the cost of running this scenario, use the [Azure pricing calculator](https://azure.com/e/b5c7bb040b2f448389aec624b77bd85a). The most expensive components in the scenario are Stack Edge and Azure Kubernetes Service. These services provide capacity for scaling the system to address increased demand in the future.
 
-It is also worth noting the costs of using Azure Cognitive Services for object detection. The example provided above is based on the system that produces 1 image per second and operates for 8 hours a day. 1 FPS is plenty for this scenario and 8 hours a day was a rough estimate of the workload required. However, if your system needs to run for longer periods of time, the cost of utilizing Azure Cognitive Services is going to be higher:
+The costs of using Azure AI services for object detection varies based on how long the system runs. The preceding pricing example is based on a system that produces one image per second and operates for 8 hours per day. One FPS is sufficient for this scenario. However, if your system needs to run for longer periods of time, the cost of using Azure AI services is higher:
 
--   [Medium workload. 12 hours a day](https://azure.com/e/ab250e01d61b44f794fb9237d144e59a)
--   [High workload. 24 hours a day]( https://azure.com/e/06e155e46e6546b79fa07824f2c124f7)
+-   [Medium workload. 12 hours per day](https://azure.com/e/ab250e01d61b44f794fb9237d144e59a)
+-   [High workload. 24 hours per day]( https://azure.com/e/06e155e46e6546b79fa07824f2c124f7)
 
 ### Performance efficiency
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-By deploying our code in a Kubernetes cluster, we take advantage of the powerful orchestration system. Separating different subsystems in containers allows us to scale only the most demanding parts of the application. At the very basic level with one incoming video feed this scenario can start with just one node in a cluster, which greatly simplifies initial setup. As demand for data processing grows, it is easy to scale the cluster by adding more nodes.
+Because the code is deployed in a Kubernetes cluster, you can take advantage of the benefits of this powerful orchestration system. Because the various  subsystems are separated into containers, you can scale only the most demanding parts of the application. At a basic level, with one incoming video feed, the system can contain just one node in a cluster. This design significantly simplifies the initial configuration. As demand for data processing grows, you can easily scale the cluster by adding nodes.
 
 ## Contributors
 
@@ -110,21 +110,24 @@ Principal author:
 
 Other contributors:
 
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer 
 -   [Frédéric Le Coquil](https://www.linkedin.com/in/frederic-le-coquil-449a4b) | Principal Software Engineer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
 Product documentation:
 
--   [Object detection](/azure/cognitive-services/computer-vision/concept-object-detection?tabs=3-2)
+-   [Object detection](/azure/cognitive-services/computer-vision/concept-object-detection)
 
--   [Responsible use of AI](/legal/cognitive-services/computer-vision/imageanalysis-transparency-note?context=%2Fazure%2Fcognitive-services%2Fcomputer-vision%2Fcontext%2Fcontext)
+-   [Responsible use of AI](/legal/cognitive-services/computer-vision/imageanalysis-transparency-note)
 
--   [What is Azure Stack Edge Pro 2](/azure/databox-online/azure-stack-edge-pro-2-overview)
+-   [What is Azure Stack Edge Pro 2?](/azure/databox-online/azure-stack-edge-pro-2-overview)
 
 -   [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
 
--   [Azure Arc Overview](/azure/azure-arc/overview)
+-   [Azure Arc overview](/azure/azure-arc/overview)
 
 Guided learning path:
 
@@ -138,4 +141,4 @@ Guided learning path:
 
 ## Related resources
 
--   [Image classification on Azure](/azure/architecture/example-scenario/ai/intelligent-apps-image-processing)
+-   [Image classification on Azure](../../example-scenario/ai/intelligent-apps-image-processing.yml)
