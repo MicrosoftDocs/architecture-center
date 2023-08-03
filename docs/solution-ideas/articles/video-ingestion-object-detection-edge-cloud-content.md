@@ -30,13 +30,13 @@ This workflow describes how the system processes the incoming data:
 
 -   [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge) is used to host running Azure services on-premises, close to the location where anomaly detection occurs, which reduces latency.
 
--   [Azure Kubernetes Service on Azure Stack Edge](/azure/databox-online/azure-stack-edge-deploy-aks-on-azure-stack-edge) is used to run a Kubernetes cluster of containers with the system's logic on Azure Stack Edge in a simple and managed way.
+-   [Azure Kubernetes Service on Azure Stack Edge](/azure/databox-online/azure-stack-edge-deploy-aks-on-azure-stack-edge) is used to run a Kubernetes cluster of containers that contain the system's logic on Azure Stack Edge in a simple and managed way.
 
 -   [Azure Arc](https://azure.microsoft.com/products/azure-arc/) controls the Kubernetes cluster that runs on the edge device.
 
--   [Azure AI Vision](https://azure.microsoft.com/products/ai-services/ai-vision) is used to detect objects in key frames of a video stream.
+-   [Azure AI Vision](https://azure.microsoft.com/products/ai-services/ai-vision) is used to detect objects in key frames of the video stream.
 
--   [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs/) is used to store images of key frames that are extracted from a video stream.
+-   [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs/) is used to store images of key frames that are extracted from the video stream.
 
 -   [Azure SQL Edge]( https://azure.microsoft.com/products/azure-sql/edge/) is used to store data on the edge, close to the service that consumes and processes it.
 
@@ -52,7 +52,7 @@ This architecture demonstrates a system that processes a real-time video stream,
 
 The architecture uses Stack Edge to ensure that the most resource-intensive processes are performed on-premises, close to the source of the video. This design significantly improves the response time of the system, which is important when an immediate response to an anomaly is critical.
 
-Because the parts of the system are deployed as independent containers in a Kubernetes cluster, you can scale only the required subsystems according to the demand. For example, if you increase the number of cameras for the video feed, you can scale the container that's responsible for video ingestion and processing to handle the demand but keep the rest of the cluster at the original level.
+Because the parts of the system are deployed as independent containers in a Kubernetes cluster, you can scale only the required subsystems according to demand. For example, if you increase the number of cameras for the video feed, you can scale the container that's responsible for video ingestion and processing to handle the demand but keep the rest of the cluster at the original level.
 
 Offloading the object detection functionality to Azure AI services significantly reduces the expertise that you need to deploy this architecture. Unless your requirements for object detection are highly specialized, the out-of-the-box approach you get from the Image Analysis service is sufficient and doesn't require knowledge of machine learning.
 
@@ -91,8 +91,8 @@ To explore the cost of running this scenario, use the [Azure pricing calculator]
 
 The cost of using Azure AI services for object detection varies based on how long the system runs. The preceding pricing example is based on a system that produces one image per second and operates for 8 hours per day. One FPS is sufficient for this scenario. However, if your system needs to run for longer periods of time, the cost of using Azure AI services is higher:
 
--   [Medium workload. 12 hours per day](https://azure.com/e/ab250e01d61b44f794fb9237d144e59a)
--   [High workload. 24 hours per day]( https://azure.com/e/06e155e46e6546b79fa07824f2c124f7)
+-   [Medium workload. 12 hours per day](https://azure.com/e/ab250e01d61b44f794fb9237d144e59a).
+-   [High workload. 24 hours per day]( https://azure.com/e/06e155e46e6546b79fa07824f2c124f7).
 
 ### Performance efficiency
 
