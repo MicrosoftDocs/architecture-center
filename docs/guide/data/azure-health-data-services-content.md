@@ -1,16 +1,18 @@
-Secure and efficient management of health data is critical for healthcare organizations. Azure Health Data Services provides a powerful platform for healthcare organizations to store, process, and analyze their sensitive data while adhering to stringent security and compliance standards. However, deploying Health Data Services in a complex enterprise environment can be challenging without a clear reference architecture and implementation guide.
+Secure and efficient management of health data is critical for healthcare organizations. [Azure Health Data Services](/azure/healthcare-apis/healthcare-apis-overview) provides a powerful platform that these organizations can use to store, process, and analyze sensitive data while adhering to stringent security and compliance standards. However, deploying Health Data Services in a complex enterprise environment can be challenging if you don't have a reference architecture and implementation guide.
 
-This solution provides [Health Data Services](/azure/healthcare-apis/healthcare-apis-overview) an example architecture and an accompanying example implementation. This solution aims to empower healthcare customers by providing them with a clear blueprint for deploying Health Data Services securely and integrating it with various Azure services. By following the recommended best practices outlined in this guide, organizations can gain confidence in their ability to safeguard their health data effectively.
+This article provides a sample architecture, an accompanying sample implementation, and a blueprint for deploying Health Data Services with enhanced security and integrating it with other Azure services. Following the practices outlined in this guide can improve your ability to safeguard your health data.
 
 ## Architecture
 
-:::image type="content" source="./media/ahds-reference-architecture.png" alt-text="Architecture diagram showing how to deploy Azure Health Data Services securely on Azure and integrate with various Azure services." border="false":::
+:::image type="content" source="./media/ahds-reference-architecture.png" alt-text="Architecture diagram that shows how to deploy Health Data Services on Azure and integrate with other Azure services." border="false":::
+
+link 
 
 ## Workflow
 
-1. Azure Application Gateway receives individual (single) Fast Healthcare Interoperability Resources (FHIR®) data (for example patient data) over a secure TLS connection using a client credentials flow and sends it to the [Health Data Services FHIR Service](/azure/healthcare-apis/fhir/overview) to persist via API Management.
+1. Azure Application Gateway receives individual Fast Healthcare Interoperability Resources (FHIR) messages (for example, patient data) over an enhanced-security TLS connection that uses a Client Credentials Flow. Application Gateway sends the data to the [Health Data Services FHIR service](/azure/healthcare-apis/fhir/overview) to persist via API Management.
 1. Simultaneously a client can read the same FHIR data (for example, patient data) over a secure TLS connection via Application Gateway and API Management using tools like Postman.
-2. For bulk data processing, Azure Application Gateway securely receives FHIR bundles over a TLS connection using a client credentials flow and loads the data into a storage account. A VNet integrated [FHIR Loader](https://github.com/microsoft/fhir-loader) Function processes FHIR bundles and loads the data into the FHIR service.
+2. For bulk data processing, Azure Application Gateway securely receives FHIR bundles over a TLS connection that uses a Client Credentials Flow and loads the data into a storage account. A VNet integrated [FHIR Loader](https://github.com/microsoft/fhir-loader) Function processes FHIR bundles and loads the data into the FHIR service.
 3. If the incoming data is in HL7 V2 or in C-CDA format, then it can be converted to the FHIR format first using the [$convert-data](/azure/healthcare-apis/fhir/convert-data) endpoint in the FHIR service. The data can then be posted to the FHIR service via Application Gateway. Azure Container Registry (ACR) with private endpoint is used for securely storing customized liquid templates for converting HL7 V2/C-CDA data to FHIR data. While ACR is shown in the architecture diagram, HL7 V2/C-CDA to FHIR conversion using \$convert-data isn't implemented as part of the bicep implementation template.
 4. FHIR to Synapse Sync Agent extracts data from the FHIR service (regardless of how the data ingested through individual or bulk data flow), converts the extracted data to hierarchical parquet files, and writes it to Azure Data Lake Gen2 (ADLS Gen2) storage. While the data extraction is shown in the architecture diagram, it's not implemented as part of the bicep implementation template. 
 5. Azure Synapse uses serverless SQL/Spark pool to connect to ADLS Gen2 to query and analyze FHIR data. While Azure Synapse shown in the architecture diagram, it's not implemented as part of the bicep implementation template.
@@ -68,15 +70,17 @@ Follow the steps in the Getting Started section in GitHub to deploy this solutio
 
 _This article is maintained by Microsoft. It was originally written by the following contributors._
 
-**Principal authors:**
+Principal author:
 
 - [Umar Mohamed Usman](https://www.linkedin.com/in/umarmohamed/) | Principal Engineer
 
-**Other contributors:**
+Other contributors:
 
-- [Victor Santana](https://www.linkedin.com/in/victorwelascosantana/) | Senior Engineer
-- [Sonalika Roy](https://www.linkedin.com/in/sonalika-roy-27138319/) | Senior Engineer
 - [Srini Padala](https://www.linkedin.com/in/srinivasa-padala/) | Senior Engineer
+- [Sonalika Roy](https://www.linkedin.com/in/sonalika-roy-27138319/) | Senior Engineer
+- [Victor Santana](https://www.linkedin.com/in/victorwelascosantana/) | Senior Engineer
+
+line
 
 ## Next steps
 
