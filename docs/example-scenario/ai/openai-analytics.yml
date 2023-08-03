@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Contact Center Analytics using Azure OpenAI, Azure Speech & Azure Language Services
+  title: Extract and analyze contact center data by using Azure OpenAI Service, Speech services, and Language services
   titleSuffix: Azure Architecture Center
-  description: Learn how Azure AI services could be used both in real-time and post-call analytics scenarios for an intelligent Contact Center.
+  description: Learn how to extract insights from customer conversations at a contact center by using Azure AI services and Azure OpenAI Service.
   author: DixitArora-MSFT
   ms.author: dixitaro, jyravi  
   ms.date: 08/03/2023
@@ -13,13 +13,13 @@ azureCategories:
   - analytics
   - ai-machine-learning
 products:
-  - ai-services
-  - azure-cosmos-db
-  - azure-cosmos-db
-  - azure-hdinsight
-  - azure-synapse-analytics
-name: Contact center analytics
-summary: Learn how Azure AI services could be used both in real-time and post-call analytics scenarios for an Intelligent Contact Center.
-thumbnailUrl: /azure/architecture/browse/thumbs/.png
+  - azure-blob-storage
+  - azure-speech
+  - azure-language-understanding
+  - power-bi
+  - azure-speech-text
+name: Extract and analyze contact center data
+summary: Learn how to extract insights from customer conversations at a contact center by using Azure AI services and Azure OpenAI Service.
+thumbnailUrl: /azure/architecture/browse/thumbs/contact-center-analytics.png
 content: |
    [!include[](openai-analytics-content.md)]
