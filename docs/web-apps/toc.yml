@@ -20,7 +20,7 @@ items:
           href: app-service/architectures/baseline-zone-redundant.yml
         - name: Active-passive multi-region web app
           href: app-service/architectures/multi-region.yml
-      - name: Host web apps with App Service Environments
+      - name: Host web apps with App Service Environment
         items:
         - name: Standard deployment
           href: app-service-environment/architectures/ase-standard-deployment.yml

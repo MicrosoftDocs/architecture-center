@@ -23,7 +23,7 @@ azureCategories:
 summary: Learn how to build an enterprise-grade conversational bot (chatbot) using the Azure Bot Framework.
 products:
   - azure-bot-service
-  - azure-cognitive-services
+  - ai-services
 thumbnailUrl: /azure/architecture/browse/thumbs/conversational-bot-logical.png
 content: |
   [!include[](conversational-bot-content.md)]

@@ -6,7 +6,7 @@ This example scenario helps secure the connection to a Microsoft Teams channel b
 
 ## Architecture
 
-:::image type="content" alt-text="Diagram showing the Teams-to-Azure Firewall flowchart." source="media/securing-bot-image-001.png" lightbox="media/securing-bot-image-001.png":::
+:::image type="content" alt-text="Diagram showing the Teams-to-Azure Firewall flowchart." source="media/securing-bot-image-001.svg" lightbox="media/securing-bot-image-001.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/Securing-bot-image-001.vsdx) of this architecture.*
 

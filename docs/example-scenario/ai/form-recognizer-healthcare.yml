@@ -13,7 +13,7 @@ metadata:
 azureCategories:
   - ai-machine-learning
 products:
-  - azure-form-recognizer
+  - document-intelligence
   - azure-custom-vision
   - azure-logic-apps
   - azure-functions

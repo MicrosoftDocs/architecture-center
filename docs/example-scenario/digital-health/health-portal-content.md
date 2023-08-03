@@ -41,14 +41,12 @@ The primary backend data service used in this architecture is Azure Cosmos DB. T
 
 - [Azure Notification Hub](https://azure.microsoft.com/services/notification-hubs) is a simple and scalable push notification engine that enables the ability to send notifications to any mobile platform. A consumer health portal, which uses a mobile app, can integrate with Azure Notification Hub for a cost-effective way to push notifications to users who have installed the app on their mobiles. In this architecture, notifications can be sent to remind users of their appointments, to enter information for disconnected devices, to reach certain health goals, and so on.
 
-- [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center) is the core of security monitoring and posture management for this entire cloud-native solution. Microsoft Defender for Cloud integrates with almost all major services on the Azure platform. Its capabilities include security alerts, anomaly detection, best practice recommendations, regulatory compliance scores, and threat detection. In addition to HIPAA/HITRUST compliance monitoring, and overall Azure Security best practice monitoring, this solution uses the following feature sets:
-  - [Microsoft Defender for App Service](/azure/security-center/defender-for-app-service-introduction)
-  - [Microsoft Defender for Storage](/azure/security-center/defender-for-storage-introduction)
-  - [Microsoft Defender for KeyVault](/azure/security-center/defender-for-key-vault-introduction)
-  - [Microsoft Defender for Resource Manager (Preview)](/azure/security-center/defender-for-resource-manager-introduction)
-  - [Microsoft Defender for DNS](/azure/security-center/defender-for-dns-introduction)
-  - [Threat Protections for Azure WAF](/azure/security-center/other-threat-protections#threat-protection-for-other-microsoft-services-)
-  - [Threat Protections for Azure Cosmos DB (Preview)](/azure/security-center/other-threat-protections#threat-protection-for-azure-cosmos-db-preview)
+- [Microsoft Defender for Cloud](https://azure.microsoft.com/products/defender-for-cloud/)) is the core of security monitoring and posture management for this entire cloud-native solution. Microsoft Defender for Cloud integrates with almost all major services on the Azure platform. Its capabilities include security alerts, anomaly detection, best practice recommendations, regulatory compliance scores, and threat detection. In addition to HIPAA/HITRUST compliance monitoring, and overall Azure Security best practice monitoring, this solution uses the following feature sets:
+  - [Microsoft Defender for App Service](/azure/defender-for-cloud/defender-for-app-service-introduction)
+  - [Microsoft Defender for Storage](/azure/defender-for-cloud/defender-for-storage-introduction)
+  - [Microsoft Defender for Key Vault](/azure/defender-for-cloud/defender-for-key-vault-introduction)
+  - [Microsoft Defender for Resource Manager](/azure/defender-for-cloud/defender-for-resource-manager-introduction)
+  - [Microsoft Defender for Azure Cosmos DB](/azure/defender-for-cloud/concept-defender-for-cosmos)
 
 ### Alternatives
 
@@ -103,7 +101,7 @@ All traffic to APIM should be authenticated, either by using [Azure AD B2C APIM 
 
 #### Azure App Service
 
-All traffic to this architecture, including the App service, should be secured end-to-end with [TLS](/azure/app-service/overview-security#https-and-certificates). The App Service should [deny insecure protocols](/azure/app-service/overview-security#insecure-protocols-http-tls-10-ftp) to tighten the attack surface. Additionally, APIM should pass back the client's authentication to the App Service to allow it to validate against its own [client authentication and authorization](/azure/app-service/overview-security#client-authentication-and-authorization). All [secrets used in App Service](/azure/app-service/overview-security#application-secrets) should be stored in Key Vault, using a [managed service identity](/azure/active-directory/managed-identities-azure-resources/overview) where possible. The App Service should also [store diagnostic logs](/azure/app-service/troubleshoot-diagnostic-logs) to support any security diagnostic efforts, and should be integrated with [Microsoft Defender for App Service](/azure/security-center/defender-for-app-service-introduction). You can read more at [Security practices for Azure App Service](/azure/app-service/overview-security)
+All traffic to this architecture, including the App service, should be secured end-to-end with [TLS](/azure/app-service/overview-security#https-and-certificates). The App Service should [deny insecure protocols](/azure/app-service/overview-security#insecure-protocols-http-tls-10-ftp) to tighten the attack surface. Additionally, APIM should pass back the client's authentication to the App Service to allow it to validate against its own [client authentication and authorization](/azure/app-service/overview-security#client-authentication-and-authorization). All [secrets used in App Service](/azure/app-service/overview-security#application-secrets) should be stored in Key Vault, using a [managed service identity](/azure/active-directory/managed-identities-azure-resources/overview) where possible. The App Service should also [store diagnostic logs](/azure/app-service/troubleshoot-diagnostic-logs) to support any security diagnostic efforts, and should be integrated with [Microsoft Defender for App Service](/azure/defender-for-cloud/defender-for-app-service-introduction). You can read more at [Security practices for Azure App Service](/azure/app-service/overview-security)
 
 #### Azure Functions
 
@@ -113,7 +111,7 @@ All requests to the Azure Functions in this solution should [require HTTPS](/azu
 
 Where possible, restrict access to blob storage by using [Azure Active Directory](/azure/storage/common/storage-auth-aad) to authorize user access, and [Managed Service Identities](/azure/storage/common/storage-auth-aad-msi) for resource access to blob storage. If these authentication types might not work for your application, use a [Shared Access Signature (SAS)](/azure/storage/common/storage-sas-overview) token at the most granular level, instead of an account key. SAS tokens are invalidated after rotating account keys.
 
-Make sure to also use a [role-based access control](/azure/storage/common/storage-sas-overview) for the blob storage. Use [Azure Storage Firewalls](/azure/storage/common/storage-network-security) to disallow network traffic, other than traffic from *Trusted Microsoft Services*. Always integrate [Azure Storage with Microsoft Defender for Cloud](/azure/security-center/defender-for-storage-introduction) and configure the [monitoring](/azure/storage/blobs/monitor-blob-storage?tabs=azure-portal). You can read more at [Security practices for Azure Blob Storage](/azure/storage/blobs/security-recommendations).
+Make sure to also use a [role-based access control](/azure/storage/common/storage-sas-overview) for the blob storage. Use [Azure Storage Firewalls](/azure/storage/common/storage-network-security) to disallow network traffic, other than traffic from *Trusted Microsoft Services*. Always integrate [Azure Storage with Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-storage-introduction) and configure the [monitoring](/azure/storage/blobs/monitor-blob-storage?tabs=azure-portal). You can read more at [Security practices for Azure Blob Storage](/azure/storage/blobs/security-recommendations).
 
 #### Azure Cosmos DB
 
@@ -121,7 +119,7 @@ Make sure to also use a [role-based access control](/azure/storage/common/storag
 
 #### Azure Key Vault
 
-Requests made to the Azure Key Vault should [be authenticated using Azure AD or MSI](/azure/key-vault/general/authentication) in addition to [privileged access controls](/azure/key-vault/general/security-overview#privileged-access). Integrate [Key Vault with Microsoft Defender for Cloud](/azure/security-center/defender-for-key-vault-introduction) in addition to [logging Key Vault actions](/azure/key-vault/general/logging?tabs=Vault) in Azure Monitor. You can read more at [Security practices for Azure Key Vault](/azure/key-vault/general/security-overview).
+Requests made to the Azure Key Vault should [be authenticated using Azure AD or MSI](/azure/key-vault/general/authentication) in addition to [privileged access controls](/azure/key-vault/general/security-overview#privileged-access). Integrate [Key Vault with Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-key-vault-introduction) in addition to [logging Key Vault actions](/azure/key-vault/general/logging?tabs=Vault) in Azure Monitor. You can read more at [Security practices for Azure Key Vault](/azure/key-vault/general/security-overview).
 
 #### Azure AD B2C
 

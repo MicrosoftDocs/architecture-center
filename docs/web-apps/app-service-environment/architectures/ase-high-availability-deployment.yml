@@ -3,9 +3,9 @@ metadata:
   title: HA enterprise deployment using ASE
   titleSuffix: Azure Architecture Center
   description: Recommended architecture for deploying an enterprise application using App Services Environment in multiple availability zones.
-  author: martinekuan
-  ms.author: martinek
-  ms.date: 07/11/2022
+  author: deepbhattacharyya
+  ms.author: deepbh
+  ms.date: 08/03/2023
   ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
@@ -25,6 +25,6 @@ products:
   - azure-firewall
   - azure-virtual-network
   - azure-app-service
-thumbnailUrl: /azure/architecture/browse/thumbs/ha-ase-deployment.png
+thumbnailUrl: /azure/architecture/browse/thumbs/app-service-environment-high-availability.png
 content: |
    [!include[](ase-high-availability-deployment-content.md)]

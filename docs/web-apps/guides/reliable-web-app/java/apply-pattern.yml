@@ -2,7 +2,7 @@
 metadata:
   title: Reliable web app pattern for Java - Apply the pattern
   titleSuffix: Azure Reference Architectures
-  description: Apply reliable web app pattern for Java. Essential implementation guidance for web apps moving to the cloud. How to update (re-platform) web apps to be successful in the cloud.
+  description: Apply the reliable web app pattern for Java to your web app. Find essential implementation guidance for web apps moving to the cloud. Learn how to update (re-platform) web apps to be successful in the cloud.
   author: stephen-sumner
   ms.author: ndalalelis
   ms.reviewer: ssumner
@@ -12,6 +12,7 @@ metadata:
   ms.subservice: reference-architecture
   ms.category:
   - featured
+  ms.custom: devx-track-extended-java
 azureCategories:
   - migration
   - web
@@ -21,7 +22,7 @@ products:
   - azure-cache-redis
   - msal-java
 name: Reliable web app pattern for Java - Apply the pattern
-summary: Apply reliable web app pattern for Java. Essential implementation guidance for web apps moving to the cloud. How to update (re-platform) web apps to be successful in the cloud.
+summary: Apply the reliable web app pattern for Java to your web app. Find essential implementation guidance for web apps moving to the cloud. Learn how to update (re-platform) web apps to be successful in the cloud.
 thumbnailUrl: /azure/architecture/browse/thumbs/reliable-web-app-java.png
 content: |
    [!include[](apply-pattern-content.md)]

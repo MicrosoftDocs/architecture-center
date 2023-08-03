@@ -2,7 +2,7 @@ This reference architecture outlines an implementation plan for replicating and 
 
 ## Architecture
 
-:::image type="complex" source="./images/sync-mainframe-data-with-azure.png" alt-text="Architecture diagram showing how to sync on-premises and Azure databases during mainframe modernization." border="false" lightbox="./images/sync-mainframe-data-with-azure.png":::
+:::image type="complex" source="./images/sync-mainframe-data-with-azure.svg" alt-text="Architecture diagram showing how to sync on-premises and Azure databases during mainframe modernization." border="false" lightbox="./images/sync-mainframe-data-with-azure.svg":::
    The diagram contains two parts, one for on-premises components, and one for Azure components. The on-premises part contains rectangles, one that pictures databases and one that contains integration tools. A server icon that represents the self-hosted integration runtime is also located in the on-premises part. The Azure part also contains rectangles. One is for pipelines. Others are for services that the solution uses for staging and preparing data. Another contains Azure databases. Arrows point from on-premises components to Azure components. These arrows represent the flow of data in the replication and sync processes. One of the arrows goes through the on-premises data gateway.
 :::image-end:::
 
