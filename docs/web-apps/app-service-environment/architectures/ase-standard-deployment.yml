@@ -2,7 +2,7 @@
 metadata:
   title: Enterprise deployment using Azure ASE
   titleSuffix: Azure Reference Architectures
-  description: Learn about the recommended architecture for deploying an enterprise application using App Services Environment (ASEv3) in Azure.
+  description: Learn about the recommended architecture for deploying an enterprise application by using App Services Environment version 3 in Azure.
   author: SuhasRao
   ms.author: susudhee
   ms.date: 08/03/2023
