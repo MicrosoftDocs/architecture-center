@@ -3,18 +3,19 @@ This article describes how to extract insights from customer conversations at a 
 ## Architecture
 
 :::image type="content" source="./media/contact-center-analytics.svg" alt-text="Diagram that shows the contact center AI architecture." border="false" lightbox="./media/contact-center-analytics.svg":::
+*Download a [Visio file](https://arch-center.azureedge.net/[file-name].vsdx) of this architecture.*
 
 ## Workflow
 
-1. Phone calls between an agent and a customer are recorded and stored in Azure Blob Storage. Audio files are uploaded to an Azure Storage account via a supported method, such as the UI-based tool, [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer), or a [storage SDK or API](/azure/storage/blobs/reference).
+1. Phone calls between an agent and a customer are recorded and stored in Azure Blob Storage. Audio files are uploaded to an Azure Storage account via a supported method, such as the UI-based tool, [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer), or a [Storage SDK or API](/azure/storage/blobs/reference).
 
-1. Audio files are transcribed by using the [Azure Speech service](/azure/cognitive-services/speech-service/) in [batch mode](/azure/cognitive-services/speech-service/batch-transcription) asynchronously with speaker diarization enabled. The transcription results are persisted in Blob Storage.
+1. Audio files are transcribed by using the [Azure Speech service](/azure/ai-services/speech-service/overview) in [batch mode](/azure/ai-services/speech-service/batch-transcription) asynchronously with speaker diarization enabled. The transcription results are persisted in Blob Storage.
 
-1. [Personally identifiable information detection and redaction](/azure/cognitive-services/language-service/personally-identifiable-information/how-to-call-for-conversations) is performed by using the [Azure Language service](/azure/cognitive-services/language-service/) to identify, categorize, and redact sensitive information in the transcript.
+1. [Personally identifiable information detection and redaction](/azure/ai-services/language-service/personally-identifiable-information/how-to-call-for-conversations) is performed by using the [Azure Language service](/azure/ai-services/language-service/) to identify, categorize, and redact sensitive information in the transcript.
 
-   For batch mode transcription and personally identifiable information detection and redaction, use the [AI services Ingestion Client tool](/azure/cognitive-services/speech-service/ingestion-client). The Ingestion Client tool uses a no-code approach to call center transcription.
+   For batch mode transcription and personally identifiable information detection and redaction, use the [AI services Ingestion Client tool](/azure/ai-services/speech-service/ingestion-client). The Ingestion Client tool uses a no-code approach to call center transcription.
 
-1. The transcripts are processed to extract entities, [summarize conversations](/azure/cognitive-services/openai/quickstart?tabs=command-line&pivots=programming-language-studio#try-text-summarization), and analyze sentiments by using [Azure OpenAI](/azure/cognitive-services/openai/). The processed output is stored in Blob Storage and then analyzed and visualized by using other services. You can also store the output in a datastore to keep track of metadata and for reporting needs. Use Azure OpenAI to process the information from the stored transcriptions.
+1. The transcripts are processed to extract entities, [summarize conversations](/azure/ai-services/openai/quickstart?tabs=command-line&pivots=programming-language-studio#try-text-summarization), and analyze sentiments by using [Azure OpenAI](/azure/ai-services/openai/). The processed output is stored in Blob Storage and then analyzed and visualized by using other services. You can also store the output in a datastore to keep track of metadata and for reporting needs. Use Azure OpenAI to process the information from the stored transcriptions.
 
 1. The output is visualized by using [Power BI](/power-bi/fundamentals/power-bi-overview) or a custom web application that's hosted by [App Service](/azure/app-service/). Both options provide near real-time insights. You can store this output in a CRM, so agents have contextual information about reasons why a customer called and can quickly solve problems. This process is fully automated, which saves the agents time and effort.
 
@@ -26,7 +27,7 @@ This article describes how to extract insights from customer conversations at a 
 
 - The [Speech service](https://azure.microsoft.com/services/cognitive-services/speech-services) is an an AI-based API that provides speech capabilities like speech-to-text, text-to-speech, speech translation, and speaker recognition. This architecture uses the Speech service batch transcription functionality.
 
-- The [Language service](https://azure.microsoft.com/services/cognitive-services/language-service) consolidates the Azure natural-language-processing services. The suite offers prebuilt and customizable options. For more information, see the [AI services for language available features](/azure/cognitive-services/language-service/overview#available-features).
+- The [Language service](https://azure.microsoft.com/services/cognitive-services/language-service) consolidates the Azure natural-language-processing services. The suite offers prebuilt and customizable options. For more information, see the [AI services for language available features](/azure/ai-services/language-service/overview#available-features).
 
 - [Language Studio](https://aka.ms/languageStudio) provides a UI for exploring and analyzing AI services for language features. Language Studio provides options for building, tagging, training, and deploying custom models.
 
@@ -36,14 +37,14 @@ This article describes how to extract insights from customer conversations at a 
 
 You can add more workflows to this scenario based on specific use cases.
 
-- You can do [conversation summarization](/azure/cognitive-services/language-service/text-summarization/overview) by using the prebuilt model in the Language service.
+- You can do [conversation summarization](/azure/ai-services/language-service/text-summarization/overview) by using the prebuilt model in the Language service.
 - Depending on the size and scale of your workload, you can use [Azure Functions](/azure/azure-functions/create-first-function-vs-code-python?source=recommendations&pivots=python-mode-configuration) as a code-first integration tool to do the text-processing steps like text summarization on extracted data .
 - You can use the [Speech service](/azure/architecture/solution-ideas/articles/speech-services) to transcribe calls, run full-text searches, detect sentiment and language, and create custom language and acoustic models.
 - Deploy and implement a [custom speech-to-text solution](/azure/architecture/guide/ai/custom-speech-text-deploy).
 
 ## Scenario details
 
-Customer care centers are an integral part of the success of many businesses in many industries. This solution uses the [Speech service](/azure/cognitive-services/speech-service/) to convert audio into written text. The [Language service](/azure/cognitive-services/language-service/) redacts sensitive information in the conversation transcription. Azure OpenAI extracts insights from customer conversation to improve call center efficiency and customer satisfaction. Use this solution to process transcribed text, recognize and remove sensitive information, and perform sentiment analysis. Scale the services and the pipeline to accommodate any volume of recorded data.
+Customer care centers are an integral part of the success of many businesses in many industries. This solution uses the [Speech service](/azure/ai-services/speech-service/) to convert audio into written text. The [Language service](/azure/ai-services/language-service/) redacts sensitive information in the conversation transcription. Azure OpenAI extracts insights from customer conversation to improve call center efficiency and customer satisfaction. Use this solution to process transcribed text, recognize and remove sensitive information, and perform sentiment analysis. Scale the services and the pipeline to accommodate any volume of recorded data.
 
 ### Potential use cases
 
@@ -68,8 +69,8 @@ Reliability ensures your application can meet the commitments you make to your c
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- Implement data protection, identity and access management, and network security recommendations for [Blob Storage](/azure/storage/blobs/security-recommendations), [AI services](/security/benchmark/azure/baselines/cognitive-services-security-baseline), and [Azure Open AI](/azure/cognitive-services/openai/how-to/managed-identity).
-- [Configure AI services virtual networks](/azure/cognitive-services/cognitive-services-virtual-networks).
+- Implement data protection, identity and access management, and network security recommendations for [Blob Storage](/azure/storage/blobs/security-recommendations), [AI services](/security/benchmark/azure/baselines/cognitive-services-security-baseline), and [Azure Open AI](/azure/ai-services/openai/how-to/managed-identity).
+- [Configure AI services virtual networks](/azure/ai-services/cognitive-services-virtual-networks).
 
 ### Cost optimization
 
@@ -95,9 +96,9 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 Performance efficiency is the ability of your workload to meet the demands placed on it by users in an efficient manner. For more information, see [Overview of the performance efficiency pillar](/azure/architecture/framework/scalability/overview).
 
-When high volumes of data are processed, it can expose performance bottlenecks. To ensure proper performance efficiency, understand and plan for the [scaling options](/azure/azure-functions/functions-scale#scale) to use with the [AI services autoscale feature](/azure/cognitive-services/autoscale).
+When high volumes of data are processed, it can expose performance bottlenecks. To ensure proper performance efficiency, understand and plan for the [scaling options](/azure/azure-functions/functions-scale#scale) to use with the [AI services autoscale feature](/azure/ai-services/autoscale).
 
-The batch speech API is designed for high volumes, but other AI services APIs might have request limits depending on the subscription tier. Consider containerizing AI services APIs to avoid slowing down large-volume processing. Containers provide deployment flexibility in the cloud and on-premises. Mitigate side effects of new version rollouts by using containers. For more information, see [Container support in AI services](/azure/cognitive-services/cognitive-services-container-support).
+The batch speech API is designed for high volumes, but other AI services APIs might have request limits depending on the subscription tier. Consider containerizing AI services APIs to avoid slowing down large-volume processing. Containers provide deployment flexibility in the cloud and on-premises. Mitigate side effects of new version rollouts by using containers. For more information, see [Container support in AI services](/azure/ai-services/cognitive-services-container-support).
 
 ## Contributors
 
@@ -105,22 +106,22 @@ The batch speech API is designed for high volumes, but other AI services APIs mi
 
 Principal authors:
 
-- [Dixit Arora](http://linkedin.com/ProfileURL) | Senior Customer Engineer
-- [Jyotsna Ravi](https://www.linkedin.com/in/jyotsna-ravi-50182624) | Principal Customer Engineer
+- Dixit Arora | Senior Customer Engineer, FastTrack for Azure
+- [Jyotsna Ravi](https://www.linkedin.com/in/jyotsna-ravi-50182624) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-- [What is the Speech service?](/azure/cognitive-services/speech-service/overview)
+- [What is the Speech service?](/azure/ai-services/speech-service/overview)
 - [What is Azure OpenAI?](/azure/ai-services/openai/overview)
 - [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-ml)
 - [Introduction to Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
-- [What are the Language services?](/azure/cognitive-services/language-service/overview)
+- [What are the Language services?](/azure/ai-services/language-service/overview)
 - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
-- [Ingestion Client with AI services](/azure/cognitive-services/speech-service/ingestion-client)
-- [Post-call transcription and analytics](/azure/cognitive-services/speech-service/call-center-quickstart)
+- [Ingestion Client with AI services](/azure/ai-services/speech-service/ingestion-client)
+- [Post-call transcription and analytics](/azure/ai-services/speech-service/call-center-quickstart)
 
 ## Related resources
 

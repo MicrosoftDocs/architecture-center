@@ -3240,6 +3240,8 @@ items:
       items: 
       - name: Architectures 
         items:      
+        - name: Extract and analyze contact center data
+          href: example-scenario/ai/contact-center-openai-analytics.yml
         - name: Monitor OpenAI models
           href: example-scenario/ai/log-monitor-azure-openai.yml
       - name: Guides

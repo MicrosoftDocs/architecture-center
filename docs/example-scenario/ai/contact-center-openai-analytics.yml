@@ -22,4 +22,4 @@ name: Extract and analyze contact center data
 summary: Learn how to extract insights from customer conversations at a contact center by using Azure AI services and Azure OpenAI Service.
 thumbnailUrl: /azure/architecture/browse/thumbs/contact-center-analytics.png
 content: |
-   [!include[](openai-analytics-content.md)]
+   [!include[](contact-center-openai-analytics-content.md)]
