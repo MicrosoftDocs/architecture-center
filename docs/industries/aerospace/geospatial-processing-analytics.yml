@@ -16,7 +16,7 @@ azureCategories:
   - integration
 products:
   - azure-synapse-analytics
-  - azure-cognitive-services
+  - ai-services
   - azure-computer-vision
   - azure-batch
   - azure-storage  

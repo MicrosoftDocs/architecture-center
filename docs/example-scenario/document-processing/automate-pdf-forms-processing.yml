@@ -13,7 +13,7 @@ azureCategories:
   - media
 products:
   - document-intelligence
-  - azure-cognitive-services
+  - ai-services
   - azure-logic-apps
   - azure-functions
 name: Automate PDF forms processing

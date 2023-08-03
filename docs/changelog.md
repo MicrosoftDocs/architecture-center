@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 07/17/2023
+ms.date: 07/31/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -27,12 +27,24 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Ingest and store medical data in Azure](./example-scenario/data/medical-data-ingestion.yml)
+- [Prevent IPv4 exhaustion in Azure](./guide/networking/ipv4-exhaustion.yml)
 - [Reliable web app pattern for Java - Apply the pattern](./web-apps/guides/reliable-web-app/java/apply-pattern.yml)
 - [Reliable web app pattern for Java - Plan the implementation](./web-apps/guides/reliable-web-app/java/plan-implementation.yml)
 - [Reliable web app pattern](./web-apps/guides/reliable-web-app/overview.md)
 
 ### Updated articles
 
+- [Azure Kubernetes Service (AKS) considerations for multitenancy](./guide/multitenant/service/aks.yml)  ([#5b5f7779a3](https://github.com/MicrosoftDocs/architecture-center/commit/5b5f7779a3))
+- [Deploy AD DS in an Azure virtual network](./example-scenario/identity/adds-extend-domain.yml)  ([#02e49e31ef](https://github.com/MicrosoftDocs/architecture-center/commit/02e49e31ef))
+- [Azure DNS Private Resolver](./example-scenario/networking/azure-dns-private-resolver.yml)  ([#8527f21cd1](https://github.com/MicrosoftDocs/architecture-center/commit/8527f21cd1))
+- [Resiliency checklist for services](./checklist/resiliency-per-service.md)  ([#203ec6e76b](https://github.com/MicrosoftDocs/architecture-center/commit/203ec6e76b))
+- [Make all things redundant](./guide/design-principles/redundancy.md)  ([#203ec6e76b](https://github.com/MicrosoftDocs/architecture-center/commit/203ec6e76b))
+- [Failure mode analysis](./resiliency/failure-mode-analysis.md)  ([#203ec6e76b](https://github.com/MicrosoftDocs/architecture-center/commit/203ec6e76b))
+- [Citizen AI with Power Platform](./example-scenario/ai/citizen-ai-power-platform.yml)  ([#9f3fe8f36b](https://github.com/MicrosoftDocs/architecture-center/commit/9f3fe8f36b))
+- [Cyber threat intelligence in Microsoft Sentinel](./example-scenario/data/sentinel-threat-intelligence.yml)  ([#9f3fe8f36b](https://github.com/MicrosoftDocs/architecture-center/commit/9f3fe8f36b))
+- [Choose an Azure data service](./guide/technology-choices/data-options.md)  ([#feca78f312](https://github.com/MicrosoftDocs/architecture-center/commit/feca78f312))
+- [Azure Sandbox](./guide/azure-sandbox/azure-sandbox.yml)  ([#d3f4ce60d5](https://github.com/MicrosoftDocs/architecture-center/commit/d3f4ce60d5))
 - [Microsoft SaaS stories](./guide/saas/case-studies/saas-stories.md)  ([#ab9015d14a](https://github.com/MicrosoftDocs/architecture-center/commit/ab9015d14a))
 - [Azure Database for PostgreSQL considerations for multitenancy](./guide/multitenant/service/postgresql.md)  ([#4438c7638c](https://github.com/MicrosoftDocs/architecture-center/commit/4438c7638c))
 - [Multi-region load balancing](./high-availability/reference-architecture-traffic-manager-application-gateway.yml)  ([#a2b159dbbb](https://github.com/MicrosoftDocs/architecture-center/commit/a2b159dbbb))

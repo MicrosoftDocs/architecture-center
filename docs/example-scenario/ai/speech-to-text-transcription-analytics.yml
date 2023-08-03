@@ -17,7 +17,7 @@ azureCategories:
 products:
   - azure-speech-text
   - azure-text-analytics
-  - azure-cognitive-services
+  - ai-services
   - azure-synapse-analytics
   - azure-logic-apps
 name: Use a speech-to-text transcription pipeline to analyze recorded conversations

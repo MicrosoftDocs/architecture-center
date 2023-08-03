@@ -11,7 +11,7 @@ metadata:
 azureCategories:
   - ai-machine-learning
 products:
-  - azure-cognitive-services
+  - ai-services
 name: Conversation summarization
 summary: Learn how to generate summaries of customer–agent interactions by using the Azure OpenAI GPT-3 model. 
 thumbnailUrl: /azure/architecture/browse/thumbs/conversation-summarization-overview.png

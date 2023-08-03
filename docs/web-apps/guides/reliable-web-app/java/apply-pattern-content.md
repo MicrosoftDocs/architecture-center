@@ -1,3 +1,6 @@
+---
+ms.custom: devx-track-extended-java
+---
 The reliable web app pattern provides essential implementation guidance for web apps moving to the cloud. It defines how you should update (re-platform) your web app to be successful in the cloud.
 
 There are two articles on the reliable web app pattern for Java. This article provides code and architecture implementation guidance. The companion article provides [planning guidance](plan-implementation.yml). There's a [reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java) (sample web app) of the pattern that you can deploy.
@@ -90,9 +93,7 @@ A failover plan (disaster recovery plan) outlines how you'll respond to an outag
 
 **Test the failover plan.** You need to test the failover plan regularly. You should use a test environment to avoid production issues. The test environment should resemble the production environment as closely as possible.
 
-<!-- Uncomment when doc is ready in GitHub
-*Reference implementation.* We created a failover plan for Proseware. For more information, see [Proseware's failover plan](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/failover-plan.md#failover-plan).
--->
+*Reference implementation.* Proseware created a sample failover plan for the reference implementation. For more information, see [Proseware failover playbook](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/plan.md).
 
 ## Security
 

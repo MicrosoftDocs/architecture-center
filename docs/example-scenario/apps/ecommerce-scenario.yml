@@ -23,7 +23,7 @@ summary: This example scenario implements an e-commerce front end using Azure pl
 products:
   - azure-active-directory-b2c
   - azure-cdn
-  - azure-cognitive-services
+  - ai-services
   - azure-traffic-manager
   - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-ecommerce-scenario.png
