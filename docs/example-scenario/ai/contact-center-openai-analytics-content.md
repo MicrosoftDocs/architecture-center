@@ -3,7 +3,7 @@ This article describes how to extract insights from customer conversations at a 
 ## Architecture
 
 :::image type="content" source="./media/call-center-analytics.svg" alt-text="Diagram that shows the contact center AI architecture." border="false" lightbox="./media/call-center-analytics.svg":::
-*Download a [PowerPoint file](https://arch-center.azureedge.net/call-center-analytics.vsdx) of this architecture.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/call-center-analytics.pptx) of this architecture.*
 
 ## Dataflow
 
@@ -27,15 +27,15 @@ This article describes how to extract insights from customer conversations at a 
 
 - [Azure AI Speech](https://azure.microsoft.com/products/ai-services/ai-speech) is an AI-based API that provides speech capabilities like speech-to-text, text-to-speech, speech translation, and speaker recognition. This architecture uses the Azure AI Speech batch transcription functionality.
 
-- [Azure AI Language](https://azure.microsoft.com/products/ai-services/ai-language) consolidates the Azure natural-language-processing services. The suite offers prebuilt and customizable options. For more information, see [Azure AI Language available features](/azure/ai-services/language-service/overview#available-features).
+- [Azure AI Language](https://azure.microsoft.com/products/ai-services/ai-language) consolidates the Azure natural-language processing services. For information about prebuilt and customizable options, see [Azure AI Language available features](/azure/ai-services/language-service/overview#available-features).
 
 - [Language Studio](https://aka.ms/languageStudio) provides a UI for exploring and analyzing AI services for language features. Language Studio provides options for building, tagging, training, and deploying custom models.
 
-- [Power BI](https://powerbi.microsoft.com) is a software-as-a-service (SaaS) for business analytics that provides visual and interactive insights. It provides connectors to various data sources, transformation capabilities, and sophisticated visualization.
+- [Power BI](https://powerbi.microsoft.com) is a software-as-a-service (SaaS) that provides visual and interactive insights for business analytics. It provides transformation capabilities and connects to other data sources.
 
 ### Alternatives
 
-Depending on your scenario, you can add more workflows.
+Depending on your scenario, you can add the following workflows.
 
 - Perform [conversation summarization](/azure/ai-services/language-service/summarization/overview) by using the prebuilt model in Azure AI Language.
 - Depending on the size and scale of your workload, you can use [Azure Functions](/azure/azure-functions/create-first-function-vs-code-python?source=recommendations&pivots=python-mode-configuration) as a code-first integration tool to perform text-processing steps, like text summarization on extracted data.
@@ -44,7 +44,7 @@ Depending on your scenario, you can add more workflows.
 
 ## Scenario details
 
-Customer care centers are an integral part of the success of many businesses in many industries. This solution uses Azure AI Speech to convert audio into written text. Azure AI Language redacts sensitive information in the conversation transcription. Azure OpenAI extracts insights from customer conversation to improve call center efficiency and customer satisfaction. Use this solution to process transcribed text, recognize and remove sensitive information, and perform sentiment analysis. Scale the services and the pipeline to accommodate any volume of recorded data.
+This solution uses Azure AI Speech to convert audio into written text. Azure AI Language redacts sensitive information in the conversation transcription. Azure OpenAI extracts insights from customer conversation to improve call center efficiency and customer satisfaction. Use this solution to process transcribed text, recognize and remove sensitive information, and perform sentiment analysis. Scale the services and the pipeline to accommodate any volume of recorded data.
 
 ### Potential use cases
 
