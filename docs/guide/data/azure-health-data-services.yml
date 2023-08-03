@@ -23,4 +23,4 @@ name: Azure Health Data Services Architecture Guide
 summary: Deploy Azure Health Data Services securely on Azure and integrate with various Azure services.
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-health-data-services.png
 content: |
-  [!include[](azure-health-data-services.md)]
+  [!include[](azure-health-data-services-content.md)]
