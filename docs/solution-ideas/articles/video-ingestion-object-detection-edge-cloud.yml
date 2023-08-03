@@ -2,7 +2,7 @@
 metadata:
   title: Video ingestion and object detection on the edge and in the cloud
   titleSuffix: Azure Architecture Center
-  description: Learn how to use a robot to monitor of the perimeter of a secured location.
+  description: Learn how to to use a mobile robot with a live streaming camera and object detection to implement various use cases.
   author: ncksol
   ms.author: nicksologoub
   ms.date: 08/07/2023 
@@ -18,7 +18,7 @@ products:
   - azure-sql-edge
   - azure-container-registry
 name: Video ingestion and object detection on the edge and in the cloud
-summary: Learn how to use a robot to monitor of the perimeter of a secured location.
+summary: Learn how to to use a mobile robot with a live streaming camera to implement various use cases.
 thumbnailUrl: /azure/architecture/browse/thumbs/video-ingestion.png
 content: |
   [!include[](video-ingestion-object-detection-edge-cloud-content.md)]

@@ -1,4 +1,4 @@
-This scenario describes how to implement regular monitoring of the perimeter of a secured location. It includes a robot that patrols the premises with a live streaming camera, a system that runs locally on Azure Stack Edge to ingest and process the video stream, and Azure AI services that perform object detection.
+This article describes how to use a mobile robot with a live streaming camera to implement various use cases.  The solution implements a system that runs locally on Azure Stack Edge to ingest and process the video stream and Azure AI services that perform object detection.
 
 ## Architecture
 
@@ -24,7 +24,7 @@ This workflow describes how the system processes the incoming data:
 
 7.  The anomaly detection container stores the results of image analysis and anomaly detection in the local Stack Edge Azure SQL database for future reference. Using a local instance of the database improves access time, which helps to minimize delays in data access.
 
-8.  Data processing is run to detect any security anomalies in the incoming real-time video stream. If anomalies are detected, an alert is raised for the security personnel via a front-end UI.
+8.  Data processing is run to detect any anomalies in the incoming real-time video stream. If anomalies are detected, an alert is raised via a front-end UI.
 
 ### Components
 
@@ -50,11 +50,11 @@ This workflow describes how the system processes the incoming data:
 
 This architecture demonstrates a system that processes a real-time video stream, compares the extracted real-time data with a set of reference data, and makes decisions based on the results. For example, it could be used to provide scheduled inspections of a fenced perimeter around a secured location.
 
-The architecture uses Stack Edge to ensure that the most resource-intensive processes are performed on-premises, close to the source of the video. This design significantly improves the response time of the system, which is important when the system is part of a wider security setup, where immediate response to an anomaly is critical.
+The architecture uses Stack Edge to ensure that the most resource-intensive processes are performed on-premises, close to the source of the video. This design significantly improves the response time of the system, which is important when an immediate response to an anomaly is critical.
 
-Because the parts of the system are deployed as independent containers in a Kubernetes cluster, you can scale only the required subsystems according to the demand. For example, if you increase the number of cameras for the security video feed, you can scale the container that's responsible for video ingestion and processing to handle the demand but keep the rest of the cluster at the original level.
+Because the parts of the system are deployed as independent containers in a Kubernetes cluster, you can scale only the required subsystems according to the demand. For example, if you increase the number of cameras for the video feed, you can scale the container that's responsible for video ingestion and processing to handle the demand but keep the rest of the cluster at the original level.
 
-Offloading the object detection functionality to Azure AI services significantly reduces the expertise that you need to deploy this architecture. Unless your requirements for object detection are highly specialised, the out-of-the-box approach you get from the Image Analysis service is sufficient and doesn't require knowledge of machine learning.
+Offloading the object detection functionality to Azure AI services significantly reduces the expertise that you need to deploy this architecture. Unless your requirements for object detection are highly specialized, the out-of-the-box approach you get from the Image Analysis service is sufficient and doesn't require knowledge of machine learning.
 
 ### Potential use cases
 
@@ -89,7 +89,7 @@ Cost optimization is about reducing unnecessary expenses and improving operation
 
 To explore the cost of running this scenario, use the [Azure pricing calculator](https://azure.com/e/b5c7bb040b2f448389aec624b77bd85a). The most expensive components in the scenario are Stack Edge and Azure Kubernetes Service. These services provide capacity for scaling the system to address increased demand in the future.
 
-The costs of using Azure AI services for object detection varies based on how long the system runs. The preceding pricing example is based on a system that produces one image per second and operates for 8 hours per day. One FPS is sufficient for this scenario. However, if your system needs to run for longer periods of time, the cost of using Azure AI services is higher:
+The cost of using Azure AI services for object detection varies based on how long the system runs. The preceding pricing example is based on a system that produces one image per second and operates for 8 hours per day. One FPS is sufficient for this scenario. However, if your system needs to run for longer periods of time, the cost of using Azure AI services is higher:
 
 -   [Medium workload. 12 hours per day](https://azure.com/e/ab250e01d61b44f794fb9237d144e59a)
 -   [High workload. 24 hours per day]( https://azure.com/e/06e155e46e6546b79fa07824f2c124f7)
