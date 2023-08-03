@@ -1,8 +1,8 @@
-This article describes how to extract insights from customer conversations at a contact center by using Azure AI services and Azure OpenAI Service. Use these real-time and post-call analytics to improve call center efficiency and customer satisfaction.
+This article describes how to extract insights from customer conversations at a call center by using Azure AI services and Azure OpenAI Service. Use these real-time and post-call analytics to improve call center efficiency and customer satisfaction.
 
 ## Architecture
 
-:::image type="content" source="./media/call-center-analytics.svg" alt-text="Diagram that shows the contact center AI architecture." border="false" lightbox="./media/call-center-analytics.svg":::
+:::image type="content" source="./media/call-center-analytics.svg" alt-text="Diagram that shows the call center AI architecture." border="false" lightbox="./media/call-center-analytics.svg":::
 *Download a [PowerPoint file](https://arch-center.azureedge.net/call-center-analytics.pptx) of this architecture.*
 
 ## Dataflow
