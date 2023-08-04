@@ -22,7 +22,7 @@ summary: Control smart devices by using Azure Speech Service, Language Understan
 products:
   - azure-bot-service
   - azure-iot-hub
-  - azure-language-understanding
+  - ai-services
   - azure-speech
 thumbnailUrl: /azure/architecture/browse/thumbs/controlling-iot-devices-using-voice-thumbnail-new.png
 content: |
