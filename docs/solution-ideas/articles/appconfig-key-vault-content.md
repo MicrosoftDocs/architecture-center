@@ -10,7 +10,7 @@ The following diagrams show how App Configuration and Key Vault can work togethe
 
 In the development environment, the app uses an identity via Visual Studio or version 2.0 of the Azure CLI to sign in and send an authentication request to Azure Active Directory (Azure AD).
 
-:::image type="content" alt-text="Architecture diagram that shows how an app signs in and authenticates in a development environment." source="../media/appconfig-development.svg" lightbox="../media/appconfig-development.svg" border="false":::
+:::image type="content" alt-text="Architecture diagram that shows how an app signs in and authenticates in a development environment." source="../media/app-configuration-development.svg" lightbox="../media/app-configuration-development.svg" border="false":::
 
 [Download a Visio file](https://arch-center.azureedge.net/AppConfig_Development.vsdx) of this architecture.
 
@@ -18,7 +18,7 @@ In the development environment, the app uses an identity via Visual Studio or ve
 
 The Azure staging and production environments use a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) for sign-in and authentication.
 
-:::image type="content" alt-text="Architecture diagram that shows how an app signs in and authenticates in a staging or production environment." source="../media/appconfig-azure.svg" lightbox="../media/appconfig-azure.svg" border="false":::
+:::image type="content" alt-text="Architecture diagram that shows how an app signs in and authenticates in a staging or production environment." source="../media/app-configuration-azure.svg" lightbox="../media/app-configuration-azure.svg" border="false":::
 
 [Download a Visio file](https://arch-center.azureedge.net/AppConfig_Development.vsdx) of this architecture.
 
