@@ -17,7 +17,7 @@ XFdtd is used for antenna design and analysis, antenna modeling, 5G array analys
 
 ## Architecture
 
-:::image type="content" source="media/remcom-xfdtd/architecture.png" alt-text="Diagram that shows an architecture for deploying Remcom XFdtd." lightbox="media/remcom-xfdtd/architecture.png" border="false":::
+:::image type="content" source="media/remcom-xfdtd/remcom-xfdtd-architecture.svg" alt-text="Diagram that shows an architecture for deploying Remcom XFdtd." lightbox="media/remcom-xfdtd/remcom-xfdtd-architecture.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/remcom-xfdtd.vsdx) of this
 architecture.*

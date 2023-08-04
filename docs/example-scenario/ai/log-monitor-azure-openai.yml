@@ -14,7 +14,7 @@ azureCategories:
   - management-and-governance
   - security
 products:
-  - azure-cognitive-services
+  - ai-services
   - azure-api-management
   - azure-monitor
   - azure-active-directory

@@ -21,7 +21,7 @@ Sandi HiFUN is used in the aerospace, automotive, industrial, and wind/turbine i
 
 ## Architecture
 
-:::image type="content" source="media/hpc-sandi-hifun.png" alt-text="Diagram that shows an architecture for running HiFUN on a virtual machine." lightbox="media/hpc-sandi-hifun.png" border="false":::
+:::image type="content" source="media/hpc-sandi-hifun.svg" alt-text="Diagram that shows an architecture for running HiFUN on a virtual machine." lightbox="media/hpc-sandi-hifun.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/hpc-sandi-hifun.vsdx) of this architecture.* 
 

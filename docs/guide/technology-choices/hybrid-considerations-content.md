@@ -4,17 +4,14 @@ Azure offers several hybrid solutions that can host applications and workloads, 
 
 Hybrid environments include the following types of hosting locations and infrastructure:
 
-- *Hybrid cloud* environments combine public cloud services with on-premises infrastructure. This hybrid strategy is common for organizations that have strict data sovereignty regulations, low latency requirements, or crucial resiliency and business continuity needs.
-
-- *Edge* environments host devices that provide on-premises computing and data storage. This approach is common for organizations and applications that need to remain close to the data, reduce latency, or compute data in near real time.
-
-- *Multicloud* environments use multiple cloud computing services and providers. This strategy provides flexibility, can reduce risk, and lets organizations investigate and use different providers for specific applications. But this approach often requires cloud-specific knowledge and adds complexity to management, operations, and security.
+- **Hybrid cloud**: These environments combine public cloud services with on-premises infrastructure. This hybrid strategy is common for organizations that have strict data sovereignty regulations, low latency requirements, or crucial resiliency and business continuity needs.
+- **Edge**: These environments host devices that provide on-premises computing and data storage. This approach is common for organizations and applications that need to remain close to the data, reduce latency, or compute data in near real time.
+- **Multicloud**: These environments use multiple cloud computing services and providers. This strategy provides flexibility, can reduce risk, and lets organizations investigate and use different providers for specific applications. But this approach often requires cloud-specific knowledge and adds complexity to management, operations, and security.
 
 Hybrid solutions encompass a system's [control plane and data plane](/azure/azure-resource-manager/management/control-plane-and-data-plane).
 
-- The *control plane* refers to resource management operations, such as creating Azure virtual machines (VMs). Azure uses [Azure Resource Manager](/azure/azure-resource-manager/management/overview) to handle the control plane.
-
-- The *data plane* uses the capabilities of resource instances that the control plane creates, such as accessing Azure VMs over remote desktop protocol (RDP).
+- **Control plane**: This plane refers to resource management operations, such as creating Azure virtual machines (VMs). Azure uses [Azure Resource Manager](/azure/azure-resource-manager/management/overview) to handle the control plane.
+- **Data plane**: This plane uses the capabilities of resource instances that the control plane creates, such as accessing Azure VMs over remote desktop protocol (RDP).
 
 Azure hybrid solutions can extend Azure control plane operations outside of Azure datacenters, or run dedicated control plane instances, to provide data plane capabilities.
 
@@ -48,17 +45,17 @@ If you need to deploy models built and trained in the cloud and run them on-prem
 
 All the preceding factors are important for the final solution, but depending on requirements, background, and expertise, organizations might approach solution evaluation from different perspectives. Organizations might start with their hardware and hosting requirements and constraints, or by investigating Azure services from an application and workload perspective. DevOps teams might focus on mass deployments and restricted or purpose-built hardware, while systems administrators might emphasize hosting location or hardware and hypervisor usage.
 
-The following sections present a hybrid solution decision tree based on deployment model, and an Azure hybrid service matrix describing supported workloads, hardware types, and deployment models. Work through these illustrations to choose a candidate solution. Then, carry out a detailed evaluation of the candidate services to see if they meet your needs.
+The following sections present a hybrid solution decision tree based on deployment model and an Azure hybrid service matrix describing supported workloads, hardware types, and deployment models. Work through these illustrations to choose a candidate solution. Then, carry out a detailed evaluation of the candidate services to see if they meet your needs.
 
 ### Hybrid solution decision tree
 
 The following decision tree starts with choosing an existing or custom, multicloud, or Azure-specified hybrid solution. The tree proceeds through decision points to select an appropriate Azure hybrid service.
 
-[ ![Diagram that shows a decision tree for selecting Azure hybrid services.](./images/hybrid-decision-tree.svg) ](./images/hybrid-decision-tree.svg#lightbox)
+[![Diagram that shows a decision tree for selecting Azure hybrid services.](./images/hybrid-decision-tree.svg) ](./images/hybrid-decision-tree.svg#lightbox)
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/choose-azure-hybrid-service.pptx) of all diagrams in this article.*
+Download a [PowerPoint file](https://arch-center.azureedge.net/choose-azure-hybrid-service.pptx) of all diagrams in this article.
 
-For **existing or custom** deployments:
+For *existing or custom* deployments:
 
 1. Decide whether the hardware is **restricted** or deployed in a **datacenter**.
 
@@ -70,32 +67,30 @@ For **existing or custom** deployments:
 
 1. **Container-based** deployments can use Azure Arc-enabled Kubernetes. **VM-based** deployments can use Azure Arc-enabled servers. **SQL** database deployments can use Azure Arc-enabled data services.
 
-For **Azure-specified** deployments:
+For *Azure-specified* deployments:
 
 1. Decide whether you want **hardware as a service** or **Azure datacenter-like** deployments. Azure **datacenter-like** deployments can use [Azure Stack Hub](/azure-stack/operator/azure-stack-overview).
 
-1. For **hardware as a service**, decide whether your workload type uses **data transfer and compute**, or a [hyperconverged](/windows-server/hyperconverged) infrastructure (HCI). For a **hyperconverged** solution, you can use [Azure Stack HCI](/azure-stack/hci).
+1. For **hardware as a service**, decide whether your workload type uses **data transfer and compute** or a [hyperconverged](/windows-server/hyperconverged) infrastructure (HCI). For a **hyperconverged** solution, you can use [Azure Stack HCI](/azure-stack/hci).
 
-1. **Data transfer and compute** workloads can use [Azure Stack Edge](/azure/databox-online). **Datacenter** deployments can use [Azure Stack Edge Pro 2](/azure/databox-online/azure-stack-edge-pro-2-overview), **portable** deployments can use [Azure Stack Edge Mini R](/azure/databox-online/azure-stack-edge-mini-r-overview), and **ruggedized** deployments can use [Azure Stack Edge Pro R](/azure/databox-online/azure-stack-edge-pro-r-overview).
+1. **Data transfer and compute** workloads can use [Azure Stack Edge](/azure/databox-online). **Datacenter** deployments can use [Azure Stack Edge Pro 2](/azure/databox-online/azure-stack-edge-pro-2-overview). **Portable** deployments can use [Azure Stack Edge Mini R](/azure/databox-online/azure-stack-edge-mini-r-overview). **Ruggedized** deployments can use [Azure Stack Edge Pro R](/azure/databox-online/azure-stack-edge-pro-r-overview).
 
 ## Azure hybrid services matrix
 
 The following decision matrix presents supported workloads, hardware capabilities, and deployment models for several Azure hybrid services. All Azure services include the Azure portal and other Azure operations and management tools.
 
-[ ![Diagram that shows Azure hybrid services capabilities and characteristics.](./images/hybrid-choices.svg) ](./images/hybrid-choices.svg#lightbox)
+[![Diagram that shows Azure hybrid services capabilities and characteristics.](./images/hybrid-choices.svg) ](./images/hybrid-choices.svg#lightbox)
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/choose-azure-hybrid-service.pptx) of all diagrams in this article.*
+Download a [PowerPoint file](https://arch-center.azureedge.net/choose-azure-hybrid-service.pptx) of all diagrams in this article.
 
-- The **Azure cloud** provides cloud-based software as a service (SaaS), infrastructure as a service (IaaS), and PaaS compute, storage, and network services. The services run on Microsoft hardware in Azure datacenters.
-
+- The *Azure cloud* provides cloud-based software as a service (SaaS), infrastructure as a service (IaaS), and PaaS compute, storage, and network services. The services run on Microsoft hardware in Azure datacenters.
 - [Azure Stack](/azure-stack/) is a family of products and solutions that extend Azure to the edge or to on-premises datacenters. Azure Stack provides several solutions for various use cases.
 
-  - [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub) extends Azure to run apps in on-premises environments. Azure Stack Hub provides SaaS, IaaS, and PaaS hyperconverged compute, storage, and network services, and runs on industry-standard hardware on-premises or in multicloud datacenters. Azure Stack Hub delivers Azure services to datacenters with integrated systems, and can run on connected or disconnected environments.
-  - [Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci) is a hyperconverged solution that uses validated hardware to run virtualized and containerized workloads on-premises. Azure Stack HCI provides VM-based and AKS-based hyperconverged compute, storage, and network services, and runs on industry-standard hardware on-premises or in multicloud datacenters. Azure Stack HCI connects workloads to Azure for cloud services and management.
-  - [Azure Stack Edge](/azure/databox-online/) delivers Azure capabilities such as compute, storage, networking, and hardware-accelerated machine learning to edge locations. Azure Stack Edge provides VM-based, AKS-based, machine learning, and data transfer services on industry-standard hardware as a service, and runs on-premises or in multicloud datacenters.
+  - [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub) extends Azure to run apps in on-premises environments. Azure Stack Hub provides SaaS, IaaS, and PaaS hyperconverged compute, storage, and network services and runs on industry-standard hardware on-premises or in multicloud datacenters. Azure Stack Hub delivers Azure services to datacenters with integrated systems and can run on connected or disconnected environments.
+  - [Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci) is a hyperconverged solution that uses validated hardware to run virtualized and containerized workloads on-premises. Azure Stack HCI provides VM-based and AKS-based hyperconverged compute, storage, and network services and runs on industry-standard hardware on-premises or in multicloud datacenters. Azure Stack HCI connects workloads to Azure for cloud services and management.
+  - [Azure Stack Edge](/azure/databox-online/) delivers Azure capabilities such as compute, storage, networking, and hardware-accelerated machine learning to edge locations. Azure Stack Edge provides VM-based, AKS-based, machine learning, and data transfer services on industry-standard hardware as a service and runs on-premises or in multicloud datacenters.
 
-- [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) and [IoT Hub](https://azure.microsoft.com/services/iot-hub) deploy custom functionality to mass devices. IoT Edge natively integrates with IoT Hub to provide DevOps, PaaS, and containerized services on custom and industry-standard hardware, and runs on-premises or in multicloud datacenters.
-
+- [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) and [IoT Hub](https://azure.microsoft.com/services/iot-hub) deploy custom functionality to mass devices. IoT Edge natively integrates with IoT Hub to provide DevOps, PaaS, and containerized services on custom and industry-standard hardware and runs on-premises or in multicloud datacenters.
 - [Azure Arc](https://azure.microsoft.com/services/azure-arc) provides application delivery and management by using Azure Arc-enabled services for VMs, SQL databases, and Kubernetes. Azure Arc projects existing bare metal, VM, and Kubernetes infrastructure resources into Azure to handle operations with Azure management and security tools. Azure Arc simplifies governance and management by delivering a consistent multicloud and on-premises management platform for Azure services.
 
   Azure Arc runs on existing industry-standard hardware, hypervisors, Azure Stack HCI, or Azure Stack Edge, on-premises or in multicloud datacenters. Azure Arc includes the following capabilities:
@@ -111,16 +106,14 @@ The following decision matrix presents supported workloads, hardware capabilitie
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
-
-**Principal authors:**
+This article is maintained by Microsoft. It was originally written by the following contributors:
 
 - [Robert Eichenseer](https://www.linkedin.com/in/roberteichenseer) | Sr Service Engineer
 - [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Sr Software Engineer
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
- 
- ## Next steps
+To see nonpublic LinkedIn profiles, sign in to LinkedIn.
+
+## Next steps
 
 - [Overview of a hybrid workload](/azure/architecture/framework/hybrid/hybrid-overview)
 - [Azure hybrid and multicloud patterns and solutions documentation](/hybrid/app-solutions)

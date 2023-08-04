@@ -1,3 +1,7 @@
+---
+ms.custom:
+  - devx-track-extended-java
+---
 Azure offers many options for teams to build and deploy Java applications. This article covers mainstream scenarios for Java on Azure and provides high-level planning suggestions and considerations.
 
 *Apache®, [Apache Kafka](https://kafka.apache.org), [Apache Struts](https://struts.apache.org), [Apache Tomcat](https://tomcat.apache.org), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
@@ -169,7 +173,7 @@ Principal authors:
 
 ## Related resources
 
-- [Expose Azure Spring Apps through a reverse proxy](../../reference-architectures/microservices/spring-cloud-reverse-proxy.yml)
+- [Expose Azure Spring Apps through a reverse proxy](../../web-apps/spring-apps/guides/spring-cloud-reverse-proxy.yml)
 - [Java CI/CD using Jenkins and Azure Web Apps](../../solution-ideas/articles/java-cicd-using-jenkins-and-azure-web-apps.yml)
 - [Microservices architecture design](../../microservices/index.yml)
 - [Multicloud solutions with the Serverless Framework](../../example-scenario/serverless/serverless-multicloud.yml)

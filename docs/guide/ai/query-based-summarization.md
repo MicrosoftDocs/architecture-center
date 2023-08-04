@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
-  - azure-cognitive-services 
+  - ai-services 
   - azure-cognitive-search
 categories:
   - ai-machine-learning
@@ -147,15 +147,15 @@ openai.api_base = RESOURCE_ENDPOINT
 openai.api_version = "2022-12-01-preview"
 prompt_i = 'Summarize the legislative bill given the title and the text.\n\nTitle:\n'+" ".join([normalize_text(bill_title_1)])+ '\n\nText:\n'+ " ".join([normalize_text(bill_text_1)])+'\n\nSummary:\n'
 response = openai.Completion.create(
-    engine= TEXT_DAVINCI_001
-    prompt = prompt_i,
-    temperature = 0.4,
-    max_tokens = 500,
-    top_p = 1.0,
+    engine=TEXT_DAVINCI_001
+    prompt=prompt_i,
+    temperature=0.4,
+    max_tokens=500,
+    top_p=1.0,
     frequency_penalty=0.5,
-    presence_penalty = 0.5,
-    stop=['\n\n###\n\n'], #The ending token used during inference. Once it reaches this token, GPT-3 knows the completion is over.
-    best_of = 1
+    presence_penalty=0.5,
+    stop=['\n\n###\n\n'], # The ending token used during inference. Once it reaches this token, GPT-3 knows the completion is over.
+    best_of=1
     )
  = 1
 ```
@@ -211,9 +211,6 @@ Next, you can use the OpenAI CLI to help with some of the data preparation steps
 openai tools fine_tunes.prepare_data -f data/billsum_v4_1/prompt_completion_staged_train.csv
 
 openai tools fine_tunes.prepare_data -f data/billsum_v4_1/prompt_completion_staged_val.csv
-
-openai tools fine_tunes.prepare_data -f data/billsum_v4_1/prompt_completion_staged_val.csv
-
 ```
 
 ##### Fine-tune the dataset
@@ -246,7 +243,6 @@ print('Endpoint Called: {endpoint}'.format(endpoint = url))
 print('Status Code: {status}'.format(status= r.status_code))
 print('Fine tuning job ID: {id}'.format(id=fine_tune_id))
 print('Response Information \n\n {text}'.format(text=r.text))
-
 ```
 
 ##### Evaluate the fine-tuned model
@@ -258,7 +254,6 @@ This section demonstrates how to evaluate the fine-tuned model.
 url = RESOURCE_ENDPOINT + "openai/fine-tunes/<--insert fine-tune id-->?api-version=2022-12-01-preview"
 r = requests.get(url, 
     headers={
-
     "api-key": API_KEY,
     "Content-Type": "application/json"
     }
@@ -270,7 +265,6 @@ print('Status Code: {status}'.format(status= r.status_code))
 print('Fine tuning ID: {id}'.format(id=fine_tune_id))
 print('Status: {status}'.format(status = data['status'])) 
 print('Response Information \n\n {text}'.format(text=r.text))
-
 ```
 
 **Original text:** [SAMPLE_BILL_1](https://github.com/Azure/openai-solutions/blob/main/Solution_Notebooks/Summarization/SummarizationOverview.md#sample_bill_1).
@@ -326,20 +320,6 @@ t = extract_text(name
 )
 print("Text extracted from " + name)
 t
-
-openai.api_version = "2022-12-01-preview"
-name = os.path.abspath(os.path.join(os.getcwd(), '---INSERT PATH OF LOCALLY DOWNLOADED RATHBONES_2020_PRELIM_RESULTS---')).replace('\\', '/')
-
-pages_to_summarize = [0]
-# Using pdfminer.six to extract the text 
-# !pip install pdfminer.six
-from pdfminer.high_level import extract_text
-t = extract_text(name
-, page_numbers=pages_to_summarize
-)
-
-print("Text extracted from " + name)
-t
 ```
 
 ##### Zero-shot approach
@@ -355,13 +335,13 @@ prompt_i = 'Summarize the key financial information in the report using qualitat
 
 response = openai.Completion.create(
         engine="davinci-instruct",
-        prompt = prompt_i,
-        temperature = 0,
-        max_tokens = 2048-int(len(prompt_i.split())*1.5),
-        top_p = 1.0,
+        prompt=prompt_i,
+        temperature=0,
+        max_tokens=2048-int(len(prompt_i.split())*1.5),
+        top_p=1.0,
         frequency_penalty=0.5,
-        presence_penalty = 0.5,
-        best_of = 1
+        presence_penalty=0.5,
+        best_of=1
     )
 print(response.choices[0].text)
 >>>
@@ -369,19 +349,19 @@ print(response.choices[0].text)
 - Operating income totalled £366.1 million, 5.2% ahead of the prior year (2019: £348.1 million)
 - Underlying1 profit before tax totalled £92.5 million, an increase of 4.3% (2019: £88.7 million); underlying operating margin of 25.3% (2019: 25.5%)
 
-#Different prompt
+# Different prompt
 
 prompt_i = 'Extract most significant money related values of financial performance of the business like revenue, profit, etc. from the below text in about two hundred words.\n\nText:\n'+" ".join([normalize_text(t)])+'\n\nKey metrics:\n'
 
 response = openai.Completion.create(
         engine="davinci-instruct",
-        prompt = prompt_i,
-        temperature = 0,
-        max_tokens = 2048-int(len(prompt_i.split())*1.5),
-        top_p = 1.0,
+        prompt=prompt_i,
+        temperature=0,
+        max_tokens=2048-int(len(prompt_i.split())*1.5),
+        top_p=1.0,
         frequency_penalty=0.5,
-        presence_penalty = 0.5,
-        best_of = 1
+        presence_penalty=0.5,
+        best_of=1
     )
 print(response.choices[0].text)
 >>>
@@ -421,41 +401,32 @@ res_lis = []
 for i in range(len(r)):
     prompt_i = f'Extract and summarize the key financial numbers and percentages mentioned in the Text in less than {tok_l_w} 
 words.\n\nText:\n'+normalize_text(r[i])+'\n\nSummary in one paragraph:'
-    response = openai.Completion.create(
-        engine=TEXT_DAVINCI_001,
-    prompt_i = f'Extract and summarize the key financial numbers and percentages mentioned in the Text in less than {tok_l_w}
-words.\n\nText:\n'+normalize_text(r[i])+'\n\nSummary in one paragraph:'
-    response = openai.Completion.create(
-        engine=TEXT_DAVINCI_001,
-    prompt_i = f'Extract and summarize the key financial numbers and percentages mentioned in the Text in less than {tok_l_w}
-words.\n\nText:\n'+normalize_text(r[i])+'\n\nSummary in one paragraph:'
 
     response = openai.Completion.create(
         engine=TEXT_DAVINCI_001,
-        prompt = prompt_i,
-        temperature = 0,
-        max_tokens = tok_l,
-        top_p = 1.0,
+        prompt=prompt_i,
+        temperature=0,
+        max_tokens=tok_l,
+        top_p=1.0,
         frequency_penalty=0.5,
-        presence_penalty = 0.5,
-        best_of = 1
+        presence_penalty=0.5,
+        best_of=1
     )
-    t = response.choices[0].text
-        t = trim_incomplete(t)
-res_lis.append(t)
+    t = trim_incomplete(response.choices[0].text)
+    res_lis.append(t)
 
 # Stage 2: Summary of summaries
 prompt_i = 'Summarize the financial performance of the business like revenue, profit, etc. in less than one hundred words. Do not make up values that are not mentioned in the Text.\n\nText:\n'+" ".join([normalize_text(res) for res in res_lis])+'\n\nSummary:\n'
 
 response = openai.Completion.create(
         engine=TEXT_DAVINCI_001,
-        prompt = prompt_i,
-        temperature = 0,
-        max_tokens = 200,
-        top_p = 1.0,
+        prompt=prompt_i,
+        temperature=0,
+        max_tokens=200,
+        top_p=1.0,
         frequency_penalty=0.5,
-        presence_penalty = 0.5,
-        best_of = 1
+        presence_penalty=0.5,
+        best_of=1
 )
 
 print(trim_incomplete(response.choices[0].text))
@@ -508,13 +479,13 @@ rouge.get_scores(generated_summary, reference_summary)
 Here's an example:
 
 ```python
-  import torchmetrics
-  from torchmetrics.text.bert import BERTScore
-  preds = "You should have ice cream in the summer"
-  target = "Ice creams are great when the weather is hot"
-  bertscore = BERTScore()
-  score = bertscore(preds, target)
-  print(score)
+import torchmetrics
+from torchmetrics.text.bert import BERTScore
+preds = "You should have ice cream in the summer"
+target = "Ice creams are great when the weather is hot"
+bertscore = BERTScore()
+score = bertscore(preds, target)
+print(score)
 ```
 
 **Similarity matrix.** A similarity matrix is a representation of the similarities between different entities in a summarization evaluation. You can use it to compare different summaries of the same text and measure their similarity. It's represented by a two-dimensional grid, where each cell contains a measure of the similarity between two summaries. You can measure the similarity by using various methods, like cosine similarity, Jaccard similarity, and edit distance. You then use the matrix to compare the summaries and determine which one is the most accurate representation of the original text.

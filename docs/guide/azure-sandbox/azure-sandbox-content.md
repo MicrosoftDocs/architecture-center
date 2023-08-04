@@ -4,7 +4,7 @@ Depending on your Azure offer type and region, a fully provisioned Azure Sandbox
   
 ## Architecture
 
-[![Diagram that shows the Azure Sandbox environment.](images/create-azure-sandbox.png)](images/create-azure-sandbox.png#lightbox)
+[![Diagram that shows the Azure Sandbox environment.](images/create-azure-sandbox.svg)](images/create-azure-sandbox.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/create-an-azure-sandbox.vsdx) of this architecture.*
 ### Components
@@ -29,6 +29,17 @@ The Azure Sandbox environment requires the following prerequisites:
 - A [configured client environment](https://github.com/Azure-Samples/azuresandbox#configure-client-environment)
 
 For more information about how to prepare for a sandbox deployment, see [Prerequisites](https://github.com/Azure-Samples/azuresandbox#prerequisites).
+
+To integrate [AzureSandbox](https://github.com/Azure-Samples/azuresandbox) with an [Azure landing zone](/azure/cloud-adoption-framework/ready/landing-zone) consider doing the following:
+
+- Place the sandbox subscription in the *Sandboxes* management group.
+- Keep the sandbox isolated from your private network.
+- Audit sandbox subscription activity.
+- Limit sandbox access, and remove access when it is no longer required.
+- Decomission sandboxes after an expiration period to control costs.
+- Create a budget on sandbox subscriptions to control costs.
+
+See [Landing zone sandbox environments](/azure/cloud-adoption-framework/ready/considerations/sandbox-environments) for more information.
 
 To deploy Azure Sandbox, go to the [AzureSandbox](https://github.com/Azure-Samples/azuresandbox) GitHub repository and begin with [Getting started](https://github.com/Azure-Samples/azuresandbox#getting-started). See [Default Sandbox Deployment](https://github.com/Azure-Samples/azuresandbox#perform-default-sandbox-deployment) to deploy your Azure Sandbox environment. For more information, see [Known issues](https://github.com/Azure-Samples/azuresandbox#known-issues).
 
@@ -72,7 +83,7 @@ For example, you can use the following capabilities and configurations that the 
 
 Principal author:
 
-- [Roger Doherty](https://www.linkedin.com/in/roger-doherty-805635b/) | Cloud Solution Architect
+- [Roger Doherty](https://www.linkedin.com/in/roger-doherty-805635b/)
 
  *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: Prevent IPv4 exhaustion in Azure
+  description: Minimize private address space consumption when you build large networks in Azure. This article presents two methods to create more IPv4 address space.
+  author: fguerri
+  ms.author: fguerri khushal08
+  ms.date: 07/19/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+name: Prevent IPv4 exhaustion in Azure
+azureCategories:
+  - networking
+summary: Minimize private address space consumption when you build large networks in Azure. This article presents two methods to create more IPv4 address space.
+products:
+  - azure-firewall
+  - azure-virtual-network
+  - azure-private-link
+thumbnailUrl: /azure/architecture/browse/thumbs/ipv4-hub-spoke.png
+content: |
+   [!include[](ipv4-exhaustion-content.md)]

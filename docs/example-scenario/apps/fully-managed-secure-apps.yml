@@ -17,7 +17,6 @@ metadata:
     - security
     - web-apps
     - example-scenario
-  social_image_url: /azure/architecture/example-scenario/apps/media/ilb-ase-architecture.png
 name: Securely managed web applications
 azureCategories:
   - security
@@ -29,6 +28,6 @@ products:
   - azure-sql-database
   - azure-vpn-gateway
   - azure-web-application-firewall
-thumbnailUrl: /azure/architecture/browse/thumbs/ilb-ase-architecture.png
+thumbnailUrl: /azure/architecture/browse/thumbs/fully-managed-secure-apps-thumb.png
 content: |
    [!include[](fully-managed-secure-apps-content.md)]

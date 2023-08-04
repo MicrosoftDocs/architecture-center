@@ -2,9 +2,9 @@ Large enterprises need to consider many factors when modernizing their existing 
 
 ## Architecture
 
-:::image type="content" source="media/enterprise-monitoring.png" alt-text="Architectural diagram that shows enterprise workspaces and monitoring capabilities." border="false" lightbox="media/enterprise-monitoring.png":::
+:::image type="content" source="media/enterprise-monitoring.svg" alt-text="Architectural diagram that shows enterprise workspaces and monitoring capabilities." border="false" lightbox="media/enterprise-monitoring.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/EnterpriseMonitoringFinal.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/enterprise-monitoring.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -64,7 +64,7 @@ This architecture includes the following components:
 
 In this solution, Monitor supports or integrates with the following Azure and Microsoft services:
 
-- [Azure Arc](https://azure.microsoft.com/services/azure-arc) simplifies governance and management by delivering a consistent multi-cloud and on-premises management platform.
+- [Azure Arc](https://azure.microsoft.com/services/azure-arc) simplifies governance and management by delivering a consistent multicloud and on-premises management platform.
 - [Azure Automation](https://azure.microsoft.com/services/automation) delivers cloud-based automation, operating system updates, and configuration to support consistent management across environments. [Change Tracking](/azure/automation/change-tracking/overview) tracks changes in cloud and on-premises VMs to help you identify software issues. Change Tracking forwards the data to Monitor Logs and stores the data in a Log Analytics workspace.
 - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends on-premises networks into the Microsoft cloud. ExpressRoute uses private connections with the help of connectivity providers.
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) provides secure, scalable, cost-effective cloud storage for big data analytics.
@@ -271,4 +271,4 @@ A Log Analytics gateway sends data to Azure Automation and a Monitor Log Analyti
 - [Monitoring for DevOps](/azure/architecture/framework/devops/checklist)
 - [Alerting](/azure/architecture/framework/devops/monitor-alerts)
 - [Hybrid availability and performance monitoring](../../hybrid/hybrid-perf-monitoring.yml)
-- [Web application monitoring on Azure](../../reference-architectures/app-service-web-app/app-monitoring.yml)
+- [Web application monitoring on Azure](../../web-apps/guides/monitoring/app-monitoring.yml)

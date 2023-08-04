@@ -95,11 +95,11 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 ## Deploy this scenario
 
-To get started and better understand the specifics of this implementation, review the reference implementation resources, at [User Guide for Reference Implementation Deployment](https://github.com/Azure/appservice-landing-zone-accelerator/tree/docs-update/docs).
+To get started and better understand the specifics of this implementation, review the reference implementation resources, at [User Guide for Reference Implementation Deployment](https://github.com/Azure/appservice-landing-zone-accelerator/tree/main/docs).
 
 - We recommend that you clone this repo and modify the reference implementation resources to suit your requirements and your organization's specific landing zone guidelines.
 - Before deploying, ensure that the service principal that's used to deploy the solution has the required permissions to create the resource types that we listed above.
-- Consider the CI/CD service that you'll use to deploy the reference implementation. As this reference implementation is an internal ASE, you'll need a self-hosted agent to execute the deployment pipelines. You have the choice to use either a DevOps agent or a GitHub runner. Refer to the [user guide](https://github.com/Azure/appservice-landing-zone-accelerator/tree/docs-update/docs) on the specific configuration values that are required.
+- Consider the CI/CD service that you'll use to deploy the reference implementation. As this reference implementation is an internal ASE, you'll need a self-hosted agent to execute the deployment pipelines. You have the choice to use either a DevOps agent or a GitHub runner. Refer to the [user guide](https://github.com/Azure/appservice-landing-zone-accelerator/tree/main/docs) on the specific configuration values that are required.
 - Consider the region(s) to which you intend to deploy this reference implementation. Consult the [ASEv3 Regions list](/azure/app-service/environment/overview#regions) to ensure the selected region(s) are enabled for deployment.
 
 ## Contributors
@@ -130,7 +130,7 @@ Learn more about these key services:
 
 ## Related resources
 
-* [High availability enterprise deployment using App Services Environment](/azure/architecture/reference-architectures/enterprise-integration/ase-high-availability-deployment)
-* [Enterprise deployment using App Service Environment](/azure/architecture/reference-architectures/enterprise-integration/ase-standard-deployment)
-* [High availability enterprise deployment using App Service Environment](/azure/architecture/reference-architectures/enterprise-integration/ase-high-availability-deployment)
-* [E-commerce website running in secured App Service Environment](/azure/architecture/solution-ideas/articles/ecommerce-website-running-in-secured-ase)
+* [High availability enterprise deployment using App Services Environment](/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment)
+* [Enterprise deployment using App Service Environment](/azure/architecture/web-apps/app-service-environment/architectures/ase-standard-deployment)
+* [High availability enterprise deployment using App Service Environment](/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment)
+* [E-commerce website running in secured App Service Environment](/azure/architecture/web-apps/idea/ecommerce-website-running-in-secured-ase)

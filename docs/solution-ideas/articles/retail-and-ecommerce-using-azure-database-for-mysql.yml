@@ -21,7 +21,6 @@ metadata:
     - azure
     - solutions
     - "https://azure.microsoft.com/solutions/architecture/retail-and-ecommerce-using-azure-database-for-mysql"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/retail-and-ecommerce-using-azure-database-for-mysql.png
 name: Retail and e-commerce using Azure Database for MySQL
 azureCategories:
   - databases
@@ -31,7 +30,7 @@ products:
   - azure-app-service
   - azure-database-mysql
   - azure-hdinsight
-  - azure-search
+  - azure-cognitive-search
   - azure-storage
 thumbnailUrl: /azure/architecture/browse/thumbs/retail-and-ecommerce-using-azure-database-for-mysql.png
 content: |

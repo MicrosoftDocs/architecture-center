@@ -22,7 +22,6 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/interactive-price-analytics"
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/interactive-price-analytics.png
 name: Interactive price analytics using transaction history data
 azureCategories:
   - analytics
@@ -34,6 +33,6 @@ products:
   - office-excel
   - azure-blob-storage
   - azure-sql-database
-thumbnailUrl: /azure/architecture/browse/thumbs/interactive-price-analytics-thumbnail.png
+thumbnailUrl: /azure/architecture/browse/thumbs/interactive-price-analytics.png
 content: |
   [!include[](interactive-price-analytics-content.md)]

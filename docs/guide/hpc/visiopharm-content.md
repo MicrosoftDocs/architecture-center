@@ -18,7 +18,7 @@ Visiopharm is used in academic institutions, the biopharmaceutical industry, and
 
 ## Architecture
 
-:::image type="content" source="media/visiopharm/architecture.png" alt-text="Diagram that shows an architecture for deploying Visiopharm." lightbox="media/visiopharm/architecture.png" border="false":::
+:::image type="content" source="media/visiopharm/visiopharm-architecture.svg" alt-text="Diagram that shows an architecture for deploying Visiopharm." lightbox="media/visiopharm/visiopharm-architecture.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/visiopharm.vsdx) of this
 architecture.*

@@ -31,7 +31,7 @@ suited for simulation of free surface oiling, sloshing, and mixing.
 
 ## Architecture
 
-:::image type="content" source="media/hpc-nanofluidx.png" alt-text="Diagram that shows an architecture for deploying Altair nanoFluidX." lightbox="media/hpc-nanofluidx.png" border="false":::
+:::image type="content" source="media/hpc-nanofluidx.svg" alt-text="Diagram that shows an architecture for deploying Altair nanoFluidX." lightbox="media/hpc-nanofluidx.svg" border="false":::
 
 *Download a [Visio
 file](https://arch-center.azureedge.net/hpc-nanofluidx.vsdx) of this

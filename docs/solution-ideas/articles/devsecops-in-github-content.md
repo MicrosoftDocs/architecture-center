@@ -2,7 +2,7 @@ DevSecOps makes security best practices an integral part of DevOps while maintai
 
 ## Architecture
 
-:::image type="complex" source="../media/devsecops-in-github-data-flow.png" alt-text="Architecture diagram highlighting the security checks that run in various GitHub and Azure components in a GitHub DevSecOps environment." border="false":::
+:::image type="complex" source="../media/devsecops-in-github-data-flow.svg" alt-text="Architecture diagram highlighting the security checks that run in various GitHub and Azure components in a GitHub DevSecOps environment." border="false":::
    Architecture diagram highlighting security checks that run in a GitHub DevSecOps environment. After Azure Active Directory (Azure AD) authenticates developers, Codespaces runs security scans. GitHub Actions then test security and encrypt sensitive data. In production, Azure Policy, Microsoft Defender for Cloud, and Azure Monitor evaluate deployed software for risks.
 :::image-end:::
 
@@ -21,7 +21,7 @@ DevSecOps makes security best practices an integral part of DevOps while maintai
 
 When GitHub Security identifies a vulnerability, it takes the steps illustrated in the following diagram:
 
-   :::image type="complex" source="../media/devsecops-in-github-vulnerability-management-data-flow.png" alt-text="Architecture diagram illustrating the chain of events that the identification of a vulnerability triggers, including alerts, upgrades, and deployment." border="false":::
+   :::image type="complex" source="../media/devsecops-in-github-vulnerability-management-data-flow.svg" alt-text="Architecture diagram illustrating the chain of events that the identification of a vulnerability triggers, including alerts, upgrades, and deployment." border="false":::
 Architecture diagram illustrating a chain of events in a GitHub DevSecOps implementation. At the outset, GitHub identifies a vulnerability and sends an email alert. Dependabot then creates a branch, updates the vulnerability source, and creates a PR. The branch merges. In the final step, GitHub Actions deploy the new app.
    :::image-end:::
   
@@ -209,6 +209,6 @@ Principal author:
 [DevSecOps on AKS]: ../../guide/devsecops/devsecops-on-aks.yml
 [GitHub pricing]: https://github.com/pricing
 [GitHub DevSecOps training materials]: https://github.com/devsecops/awesome-devsecops
-[GitHub DevSecOps getting started tips]: https://resources.github.com/whitepapers/Architects-guide-to-DevOps
+[GitHub DevSecOps getting started tips]: https://resources.github.com/devops/tools/
 [SARIF]: https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/sarif-support-for-code-scanning
 [DevSecOps for Infrastructure as Code (IaC)]: ./devsecops-infrastructure-as-code.yml

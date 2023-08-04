@@ -18,7 +18,7 @@ products:
   - azure-active-directory
   - azure-bastion
   - azure-rbac
-  - azure-security-center
+  - defender-for-cloud
 name: Multilayered protection for Azure virtual machine access
 summary: Apply the defense in depth strategy by challenging users with multiple lines of defense before they can access your Azure VMs. Ensure that users are legitimate, have legal intentions, and communicate securely. Grant users access only when needed.
 thumbnailUrl: /azure/architecture/browse/thumbs/multilayered-protection-azure-vm-architecture-diagram-thumbnail.png

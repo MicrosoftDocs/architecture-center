@@ -25,14 +25,13 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/website-content-tag-suggestion-with-deep-learning-and-nlp"
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/website-content-tag=suggestion-with-deep-learning-and-nlp.png
 name: Suggest content tags with NLP using deep learning
 azureCategories:
   - ai-machine-learning
 summary: Use Microsoft AI to improve website content tagging accuracy by combining deep learning and natural language processing (NLP) with data on site-specific search terms.
 products:
   - azure-container-registry
-  - azure-search 
+  - azure-cognitive-search 
   - azure-kubernetes-service
   - azure-machine-learning
 thumbnailUrl: /azure/architecture/browse/thumbs/website-content-tag-suggestion-with-deep-learning-and-nlp-thumbnail.png

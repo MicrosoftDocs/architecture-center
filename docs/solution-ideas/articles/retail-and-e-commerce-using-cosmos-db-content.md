@@ -4,9 +4,9 @@ This solution idea shows how to deploy an e-commerce web site on Azure.
 
 ## Architecture
 
-![Architecture diagram shows data into Azure App Services, through Azure Storage and Azure Cosmos D B, to Azure Search.](../media/retail-and-e-commerce-using-cosmos-db.png)
+![Architecture diagram shows data into Azure App Service, through Azure Storage and Azure Cosmos DB, to Azure Search.](../media/retail-and-e-commerce-using-cosmos-db.svg)
 
-*Access the [Visio diagram](https://office.live.com/start/Visio.aspx?omkt=en-us&templatetitle=Retail%20and%20e-commerce%20solution%20using%20Azure%20Cosmos%20Db&templateid=TM11321057) online, through Microsoft 365. Note that you must have a Visio license to access this diagram. Or, download an [SVG file](../media/retail-and-e-commerce-using-cosmos-db.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/retail-e-commerce-cosmos-db.vsdx) of this architecture.*
 
 ### Dataflow
 

@@ -12,8 +12,8 @@ metadata:
 azureCategories:
   - media
 products:
-  - azure-form-recognizer
-  - azure-cognitive-services
+  - document-intelligence
+  - ai-services
   - azure-logic-apps
   - azure-functions
 name: Automate PDF forms processing

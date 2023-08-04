@@ -17,7 +17,6 @@ metadata:
     - event-grid
     - azure
     - "https://azure.microsoft.com/solutions/architecture/application-integration-using-event-grid"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/application-integration-using-event-grid.png
 name: Application integration using Azure Event Grid
 azureCategories:
   - analytics

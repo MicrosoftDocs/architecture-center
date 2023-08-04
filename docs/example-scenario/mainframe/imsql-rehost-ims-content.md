@@ -4,7 +4,7 @@ This architecture shows how to use Raincode's IMSql to rehost IMS Database Man
 
 ### IBM z/OS architecture, before migration
 
-:::image type="content" source="media/mainframe-architecture.png" alt-text="Diagram that shows the mainframe architecture before migration." lightbox="media/mainframe-architecture.png" border="false":::
+:::image type="content" source="media/mainframe-architecture.svg" alt-text="Diagram that shows the mainframe architecture before migration." lightbox="media/mainframe-architecture.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/imsql-rehosting-ims-pre-migration-mainframe.vsdx) of this architecture.*
 
@@ -15,6 +15,7 @@ A. Users connect via TCP/IP by using protocols like TN3270 and HTTPS.
 B. Input into the mainframe uses standard mainframe communication protocols.  
 
 C. Applications receive the data. These applications are either batch or online systems.  
+
 D. COBOL, PL/I, Assembler, or other compatible languages run in an enabled environment.  
 
 E. Database systems, commonly hierarchical/network and relational systems, store data.  
@@ -29,7 +30,7 @@ I. Partitions run separate workloads and segregate work types within the environ
 
 ### Azure architecture, after migration  
 
-:::image type="content" source="media/imsql-virtual-machines.png" alt-text="Diagram that shows the IMSql architecture after migration to virtual machines." lightbox="media/imsql-virtual-machines.png" border="false":::
+:::image type="content" source="media/imsql-virtual-machines.svg" alt-text="Diagram that shows the IMSql architecture after migration to virtual machines." lightbox="media/imsql-virtual-machines.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/imsql-rehosting-raincode-app-modernization.vsdx) of this architecture.*
 

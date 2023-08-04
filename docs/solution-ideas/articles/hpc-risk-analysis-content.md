@@ -4,8 +4,9 @@ This templated risk analysis solution uses Azure HPC compute and GPU virtual mac
 
 ## Architecture
 
-![Architecture diagram](../media/hpc-risk-analysis.png)
-*Download an [SVG](../media/hpc-risk-analysis.svg) of this architecture.*
+:::image type="content" border="false" source="../media/hpc-risk-analysis.svg" alt-text="Diagram showing a flowchart of risk analysis solution." lightbox="../media/hpc-risk-analysis.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/hpc-risk-analysis.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -39,4 +40,4 @@ This templated risk analysis solution uses Azure HPC compute and GPU virtual mac
 - [High-performance computing (HPC) on Azure](../../topics/high-performance-computing.md)
 - [Risk grid computing solution](../../industries/finance/risk-grid-banking-solution-guide.yml)
 - [Risk grid computing in banking](../../industries/finance/risk-grid-banking-overview.yml)
-- [Loan credit risk and default modeling](../../solution-ideas/articles/loan-credit-risk-analyzer-and-default-modeling.yml)
+- [Loan credit risk and default modeling](../../example-scenario/ai/loan-credit-risk-analyzer-default-modeling)

@@ -1,0 +1,29 @@
+### YamlMime:Architecture
+metadata:
+  title: Reliable web app pattern for .NET - Apply the pattern
+  titleSuffix: Azure Reference Architectures
+  description: Apply the reliable web app pattern for .NET to your web app. Find essential implementation guidance for web apps moving to the cloud. Learn how to update (re-platform) web apps to be successful in the cloud.
+  author: stephen-sumner
+  ms.author: keschlob
+  ms.reviewer: ssumner
+  ms.date: 07/17/2023
+  ms.topic: reference-architecture
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.category:
+  - featured
+  ms.custom:
+    - devx-track-dotnet
+azureCategories:
+  - migration
+  - web
+products:
+  - azure-app-service
+  - azure-front-door
+  - azure-cache-redis
+  - dotnet
+name: Reliable web app pattern for .NET - Apply the pattern
+summary: Apply the reliable web app pattern for .NET to your web app. Find essential implementation guidance for web apps moving to the cloud. Learn how to update (re-platform) web apps to be successful in the cloud.
+thumbnailUrl: /azure/architecture/browse/thumbs/reliable-web-app-dotnet.png
+content: |
+   [!include[](apply-pattern-content.md)]

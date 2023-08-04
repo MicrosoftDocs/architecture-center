@@ -10,10 +10,6 @@ metadata:
   ms.custom: fcp
   ms.service: architecture-center
   ms.subservice: solution-idea
-  adobe-target: true
-  adobe-target-activity: DocsExp-450939-A/B-Docs/Architecture-ArchDiagrams-FY22Q4
-  adobe-target-experience: Experience B
-  adobe-target-content: ./azure-databricks-modern-analytics-architecture-experiment
 azureCategories:
   - ai-machine-learning
   - analytics
@@ -25,6 +21,6 @@ products:
   - power-bi
 name: Modern analytics architecture with Azure Databricks
 summary: Create a modern analytics architecture with Azure Databricks, Data Lake Storage, and other Azure services. Unify data, analytics, and AI workloads at any scale.
-thumbnailUrl: /azure/architecture/browse/thumbs/azure-databricks-modern-analytics-architecture-diagram-thumbnail.png
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-databricks-modern-analytics-architecture.png
 content: |
   [!include[](azure-databricks-modern-analytics-architecture-content.md)]

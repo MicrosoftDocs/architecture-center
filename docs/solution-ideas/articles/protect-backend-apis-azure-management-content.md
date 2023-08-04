@@ -4,7 +4,7 @@ In this article, we'll look at an architecture that protects backend APIs in Azu
 
 ## Architecture
 
-:::image type="content" source="../media/protect-backend-apis-azure-management.png" alt-text="Diagram of an architecture that protects backend APIs by using API Management and Azure AD B2C to validate bearer tokens. The APIs can be in Azure or other environments." border="false" lightbox="../media/protect-backend-apis-azure-management.png":::
+:::image type="content" source="../media/protect-backend-apis-azure-management.svg" alt-text="Diagram of an architecture that protects backend APIs by using API Management and Azure AD B2C to validate bearer tokens. The APIs can be in Azure or other environments." border="false" lightbox="../media/protect-backend-apis-azure-management.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1932168-protect-backend-apis-azure-management.vsdx) of this architecture.*
 
@@ -84,5 +84,5 @@ Other contributors:
 
 ## Related resources
 
-- [Protect APIs with Application Gateway and API Management](../../reference-architectures/apis/protect-apis.yml)
+- [Protect APIs with Application Gateway and API Management](../../web-apps/api-management/architectures/protect-apis.yml)
 - [Automated API deployments with APIOps](../../example-scenario/devops/automated-api-deployments-apiops.yml)

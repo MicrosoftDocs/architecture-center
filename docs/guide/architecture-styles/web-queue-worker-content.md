@@ -99,4 +99,4 @@ For more information, see the [App Service web application reference architectur
 [cdn]: ../../best-practices/cdn.yml
 [data-partition]: ../../best-practices/data-partitioning.yml
 [polyglot]: /azure/architecture/guide/design-principles/use-best-data-store
-[scalable-web-app]: ../../reference-architectures/app-service-web-app/scalable-web-app.yml
+[scalable-web-app]: ../../web-apps/app-service/architectures/baseline-zone-redundant.yml

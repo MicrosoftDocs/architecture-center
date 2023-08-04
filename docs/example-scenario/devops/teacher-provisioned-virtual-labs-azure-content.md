@@ -115,7 +115,7 @@ Principal author:
   - [Sheffield Hallam University](https://customers.microsoft.com/story/1410363304401416399-sheffield-hallam-university-higher-education-azure-virtual-desktop)
   - [Imperial College London](https://customers.microsoft.com/story/1373865514221253184-imperial-college-london-higher-education-azure-virtual-desktop)
   - [College of Professional and Continuing Education (CPCE) of PolyU - Hong Kong SAR](https://news.microsoft.com/en-hk/2021/04/13/polyu-cpce-and-microsoft-hong-kong-launch-virtual-labs-for-limitless-learning)
-  - [Institute of Technology Sligo - Ireland](https://pulse.microsoft.com/making-a-difference-en-ie/na/fa2-it-sligo-levelling-the-playing-field-in-education-with-cloud-technology-2).
+  - [Institute of Technology Sligo - Ireland](https://pulse.microsoft.com/en/making-a-difference-en/education-en/fa1-it-sligo-levelling-the-playing-field-in-education-with-cloud-technology/).
 
 ## Related resources
 

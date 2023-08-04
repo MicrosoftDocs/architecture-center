@@ -17,7 +17,7 @@ KeyShot customers include product and industrial designers, vehicle design compa
 
 ## Architecture
 
-:::image type="content" source="media/keyshot/architecture.png" alt-text="Diagram that shows an architecture for deploying KeyShot." lightbox="media/keyshot/architecture.png" border="false":::
+:::image type="content" source="media/keyshot/keyshot-architecture.svg" alt-text="Diagram that shows an architecture for deploying KeyShot." lightbox="media/keyshot/keyshot-architecture.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/keyshot.vsdx) of this
 architecture.*

@@ -17,7 +17,6 @@ metadata:
     - media
     - "https://azure.microsoft.com/solutions/architecture/digital-media-video"
     - internal-intro
-  social_image_url: /azure/architecture/solution-ideas/articles/media-video.png
 name: Video-on-demand digital media
 azureCategories:
   - media
@@ -26,7 +25,7 @@ summary: Upload, encode, and distribute video files with Azure services. Stream 
 products:
   - azure-blob-storage
   - azure-cdn
-  - azure-encoding
+  - azure
   - azure-media-player
 thumbnailUrl: /azure/architecture/browse/thumbs/digital-media-video.png
 content: |

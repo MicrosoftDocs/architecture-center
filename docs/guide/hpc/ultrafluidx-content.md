@@ -19,7 +19,7 @@ Altair ultraFluidX is used in the automotive, building, facilities, energy, and 
 
 ## Architecture
 
-:::image type="content" source="media/ultrafluidx/hpc-ultrafluidx.png" alt-text="Diagram that shows an architecture for deploying Altair ultraFluidX." lightbox="media/ultrafluidx/hpc-ultrafluidx.png" border="false":::
+:::image type="content" source="media/ultrafluidx/hpc-ultrafluidx.svg" alt-text="Diagram that shows an architecture for deploying Altair ultraFluidX." lightbox="media/ultrafluidx/hpc-ultrafluidx.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/hpc-ultrafluidx.vsdx) of this
 architecture.*

@@ -22,7 +22,7 @@ summary: Use Azure Data Explorer in a hybrid monitoring solution that includes M
 products:
   - azure-data-explorer
   - azure-monitor
-  - azure-sentinel
+  - microsoft-sentinel
 thumbnailUrl: /azure/architecture/browse/thumbs/monitor-azure-data-explorer.png
 content: |
    [!include[](monitor-azure-data-explorer-content.md)]

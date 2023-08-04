@@ -13,7 +13,6 @@ metadata:
     - fasttrack
     - ecommerce
     - web-app
-  social_image_url: /azure/architecture/example-scenario/apps/media/architecture-ecommerce-search.png
 name: Intelligent product search engine for e-commerce
 summary: This example scenario shows how using a dedicated search service can dramatically increase the relevance of search results for your e-commerce customers.
 azureCategories:
@@ -22,7 +21,7 @@ azureCategories:
 products:
   - azure-bot-service
   - azure-cognitive-search
-  - azure-cognitive-services
+  - ai-services
   - azure-sql-database
   - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-ecommerce-search.png

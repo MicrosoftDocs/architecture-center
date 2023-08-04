@@ -23,14 +23,13 @@ metadata:
     - lift and shift strategy
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/onboarding-customers-with-a-cloud-native-serverless-architecture"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/onboarding-customers-with-a-cloud-native-serverless-architecture.png
 name: Serverless computing solution for LOB apps
 azureCategories:
   - migration
   - developer-tools
 summary: Build and run customer onboarding applications without managing or maintaining infrastructure. Improve developer productivity with this serverless architecture.
 products:
-  - azure-cognitive-services
+  - ai-services
   - azure-cosmos-db
   - dynamics-365
   - power-bi
