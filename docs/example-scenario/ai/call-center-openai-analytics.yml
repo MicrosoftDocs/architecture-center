@@ -5,7 +5,7 @@ metadata:
   description: Learn how to extract insights from customer conversations at a call center by using Azure AI services and Azure OpenAI Service.
   author: DixitArora-MSFT
   ms.author: dixitaro, jyravi  
-  ms.date: 08/03/2023
+  ms.date: 08/04/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
