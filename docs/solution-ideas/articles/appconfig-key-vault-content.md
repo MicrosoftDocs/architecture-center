@@ -10,13 +10,15 @@ The following diagrams show how App Configuration and Key Vault can work togethe
 
 In the development environment, the app uses an identity via Visual Studio or version 2.0 of the Azure CLI to sign in and send an authentication request to Azure Active Directory (Azure AD).
 
-:::image type="content" alt-text="Architecture diagram that shows how an app signs in and authenticates in a development environment." source="../media/appconfig-development.png" border="false":::
+:::image type="content" alt-text="Architecture diagram that shows how an app signs in and authenticates in a development environment." source="../media/app-configuration-development.svg" lightbox="../media/app-configuration-development.svg" border="false":::
+
+[Download a Visio file](https://arch-center.azureedge.net/AppConfig_Development.vsdx) of this architecture.
 
 ### Azure staging or production environment
 
-The Azure staging and production environments use an [Azure Managed Service Identity (MSI)](/azure/active-directory/managed-identities-azure-resources/overview) for sign-in and authentication.
+The Azure staging and production environments use a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) for sign-in and authentication.
 
-:::image type="content" alt-text="Architecture diagram that shows how an app signs in and authenticates in a staging or production environment." source="../media/appconfig-azure.png" border="false":::
+:::image type="content" alt-text="Architecture diagram that shows how an app signs in and authenticates in a staging or production environment." source="../media/app-configuration-azure.svg" lightbox="../media/app-configuration-azure.svg" border="false":::
 
 [Download a Visio file](https://arch-center.azureedge.net/AppConfig_Development.vsdx) of this architecture.
 
@@ -33,7 +35,7 @@ The Azure staging and production environments use an [Azure Managed Service Iden
 
 * [Azure AD](https://azure.microsoft.com/services/active-directory) is a universal platform for managing and securing identities.
 * [App Configuration](https://azure.microsoft.com/services/app-configuration) provides a way to store configurations for all your Azure apps in a universal, hosted location.
-* [Azure Managed Service Identity](/azure/active-directory/managed-identities-azure-resources) offers managed identities that provide an identity for applications to use when connecting to resources that support Azure AD authentication.
+* [Managed identities](/azure/active-directory/managed-identities-azure-resources) provide an identity for applications to use when connecting to resources that support Azure AD authentication.
 * [Key Vault](https://azure.microsoft.com/services/key-vault) safeguards cryptographic keys and other secrets that are used by cloud apps and services.
 
 ## Scenario details
@@ -73,7 +75,7 @@ Learn more about the component technologies:
 * [Azure App Configuration](/azure/azure-app-configuration)
 * [Azure Key Vault](/azure/key-vault/general/basic-concepts)
 * [Use Key Vault references for App Service and Azure Functions](/azure/app-service/app-service-key-vault-references)
-* [App Configuration and Managed Service Identity](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity?tabs=core2x)
+* [Use managed identities to access App Configuration](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity?tabs=core2x)
 * [Local development and security](/aspnet/core/security/app-secrets?tabs=windows&view=aspnetcore-3.1)
 
 ## Related resources
