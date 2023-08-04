@@ -116,17 +116,6 @@ Downtime caused by erroneous releases or human error can be an issue for a workl
 
 For more information, see [Deployment and testing for mission-critical workloads on Azure](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing).
 
-## Contributors
-
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
-
-Principal authors:
-
-- [Derya Aydin](https://www.linkedin.com/in/deryaaydin1) | Principal Technical Program Manager
-- [Heyko Oelrichs](https://www.linkedin.com/in/heyko) | Senior Software Engineer
-
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
-
 ## Next steps
 
 - [Learning path: Build mission-critical workloads on Azure](/training/paths/build-mission-critical-workloads)
