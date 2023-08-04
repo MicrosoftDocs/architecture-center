@@ -20,7 +20,6 @@ azureCategories:
 summary: Learn about scaling up and managing IoT device populations with deployment stamps, and see how to move devices and applications between stamps.
 products:
   - azure-event-hubs
-  - azure-iot-dps
   - azure-iot-hub
   - azure-traffic-manager
 thumbnailUrl: /azure/architecture/browse/thumbs/scale-iot-deployment-stamps-thumbnail.png

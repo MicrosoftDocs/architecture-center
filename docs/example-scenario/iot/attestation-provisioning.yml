@@ -20,7 +20,6 @@ azureCategories:
 summary: Learn how devices attest their identity, authenticate, and get provisioned within Azure IoT Hubs.
 products:
   - azure-iot-hub
-  - azure-iot-dps
 thumbnailUrl: /azure/architecture/browse/thumbs/late-binding-with-dps.png
 content: |
    [!include[](attestation-provisioning-content.md)]
