@@ -101,9 +101,6 @@ After you assess these aspects, go to the [Azure Pricing Calculator](https://azu
 
 ## Deploy this scenario 
 
-> [!NOTE]
-> This scenario assumes you already have a virtual network in place. If you need help creating a virtual network, see [Create a virtual network using PowerShell](/azure/virtual-network/quick-create-powershell).
-
 ### Deployment with PowerShell
 
 The following deployment steps use PowerShell. You could also use the [Azure portal](/azure/application-gateway/create-url-route-portal) or [Azure CLI](/azure/application-gateway/tutorial-url-redirect-cli) to get the same results.
