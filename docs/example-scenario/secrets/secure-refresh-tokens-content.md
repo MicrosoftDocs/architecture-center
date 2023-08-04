@@ -15,7 +15,9 @@ This solution uses Azure Key Vault, Azure Functions, and Azure DevOps to securel
 
 ## Architecture
 
-![Diagram showing the key and token refresh processes.](./media/refresh-diagram.png)
+:::image type="content" source="./media/refresh-diagram.svg" alt-text="Diagram showing the key and token refresh processes." lightbox="./media/refresh-diagram.svg" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/secure-OBO-refresh-tokens.vsdx) of this architecture.*
 
 ### Dataflow
 
