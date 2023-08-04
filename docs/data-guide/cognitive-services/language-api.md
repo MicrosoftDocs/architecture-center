@@ -11,7 +11,6 @@ ms.service: architecture-center
 ms.subservice: azure-guide
 products:
   - ai-services
-  - azure-qna-maker
 ms.custom:
   - analytics
   - guide
