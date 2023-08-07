@@ -2,9 +2,9 @@ This article describes how to use a mobile robot with a live streaming camera to
 
 ## Architecture
 
-image
+video-ingestion.svg
 
-*Download a [Visio file](https://arch-center.azureedge.net/\[filename\].vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/video-ingestion.vsdx) of this architecture.*
 
 ### Workflow
 
