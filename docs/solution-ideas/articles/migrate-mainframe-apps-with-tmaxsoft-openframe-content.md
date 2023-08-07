@@ -18,7 +18,12 @@ Many scenarios can benefit from TmaxSoft OpenFrame lift and shift. Possibilities
 
 ## Architecture
 
-:::image type="complex" source="../media/migrate-mainframe-application-to-azure.png" alt-text="Architecture diagram showing a lift and shift implementation that migrates IBM zSeries mainframes to Azure." border="false":::
+The following diagram shows the patient record creation request flow:
+
+:::image type="content" alt-text="Architecture diagram showing a lift and shift implementation that migrates IBM zSeries mainframes to Azure." source="../media/migrate-mainframe-application-to-azure.svg" lightbox="../media/migrate-mainframe-application-to-azure.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/migrate-mainframe-application-to-azure.vsdx) of this architecture.*
+
    At the center of the diagram are two virtual machines. Labeled boxes indicate that TmaxSoft OpenFrame software runs on the machines, and each box represents a different type of software. These programs migrate applications to Azure and handle transaction processes. They also manage batch programs and provide security. A load balancer is pictured above the virtual machines. Arrows show that it distributes incoming traffic between the machines. Below the virtual machines, a file sharing system is pictured, and to the right is a database. From arrows, it's clear that the virtual machines communicate with the file share and the database. A dotted line surrounds all these components. Outside that line are on-premises users, Azure users, and disaster recovery services. Arrows show the users interacting with the system.
 :::image-end:::
 
