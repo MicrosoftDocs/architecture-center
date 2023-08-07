@@ -9,7 +9,7 @@
 	<v:documentProperties v:langID="1033" v:viewMarkup="false">
 		<v:userDefs>
 			<v:ud v:nameU="msvNoAutoConnect" v:val="VT0(1):26"/>
-			<v:ud v:nameU="msvWarnOnPersonalInfo" v:val="VT0(1):5"/>
+			<v:ud v:nameU="msvWarnOnPersonalInfo" v:val="VT0(0):5"/>
 		</v:userDefs>
 	</v:documentProperties>
 
@@ -1620,10 +1620,10 @@
 				<v:ud v:nameU="visNavOrder" v:val="VT0(42000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
-			<v:textRect cx="71.9032" cy="846.167" width="143.81" height="35.6662"/>
-			<rect x="0" y="828.334" width="143.806" height="35.6662" class="st64"/>
-			<text x="47.39" y="842.57" class="st80" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Defender <v:newlineChar/><tspan
-						x="47.17" dy="1.2em" class="st16">for Cloud</tspan></text>		</g>
+			<v:textRect cx="63" cy="846.167" width="126" height="35.6662"/>
+			<rect x="0" y="828.334" width="126" height="35.6662" class="st64"/>
+			<text x="38.49" y="842.57" class="st80" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Defender <v:newlineChar/><tspan
+						x="38.26" dy="1.2em" class="st16">for Cloud</tspan></text>		</g>
 		<g id="group1571-444" transform="translate(931.33,-431.96)" v:mID="1571" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(44000):26"/>
