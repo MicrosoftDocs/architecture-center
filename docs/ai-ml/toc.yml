@@ -3,9 +3,13 @@ items:
   href: index.md
   items: 
     - name: Explore ideas about
-      items: 
+      items:
       - name: AI at the edge
-        href: idea/ai-at-the-edge.yml
+        items:
+        - name: AI at the edge with Azure Stack Hub
+          href: idea/ai-at-the-edge.yml
+        - name: Disconnected AI at the edge with Azure Stack Hub
+          href: idea/ai-at-the-edge-disconnected.yml          
     # - name: Design architectures
     #   items:
     #   - name: Host web apps with App Service

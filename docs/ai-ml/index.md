@@ -21,7 +21,7 @@ categories:
 
 *Artificial intelligence* (AI) is the capability of a computer to imitate intelligent human behavior. Through AI, machines can analyze images, comprehend speech, interact in natural ways, and make predictions using data.
 
-![Illustration depicting the relationship of artificial intelligence as a parent concept. Within AI is machine learning. Within machine learning is deep learning.](./images/ai-overview-img-001.png)
+![Illustration depicting the relationship of artificial intelligence as a parent concept. Within AI is machine learning. Within machine learning is deep learning.](_images/ai-overview-img-001.png)
 
 ## AI concepts
 
@@ -35,9 +35,9 @@ An *algorithm* is a sequence of calculations and rules used to solve a problem o
 
 The predictive models are validated against known data, measured by performance metrics selected for specific business scenarios, and then adjusted as needed. This process of learning and validation is called *training*. Through periodic retraining, ML models are improved over time.
 
-- [Machine learning at scale](../../data-guide/big-data/machine-learning-at-scale.md)
+- [Machine learning at scale](../data-guide/big-data/machine-learning-at-scale.md)
 
-- [What are the machine learning products at Microsoft?](../../data-guide/technology-choices/data-science-and-machine-learning.md)
+- [What are the machine learning products at Microsoft?](../data-guide/technology-choices/data-science-and-machine-learning.md)
 
 ### Deep learning
 
@@ -49,13 +49,13 @@ With many layers in each neural network-and sometimes using multiple neural netw
 
 - [Deep learning versus machine learning](/azure/machine-learning/concept-deep-learning-vs-machine-learning)
 
-- [Distributed training of deep learning models on Azure](../../reference-architectures/ai/training-deep-learning.yml)
+- [Distributed training of deep learning models on Azure](../reference-architectures/ai/training-deep-learning.yml)
 
-- [Batch scoring of deep learning models on Azure](../../reference-architectures/ai/batch-scoring-deep-learning.yml)
+- [Batch scoring of deep learning models on Azure](../reference-architectures/ai/batch-scoring-deep-learning.yml)
 
 - [Training of Python scikit-learn and deep learning models on Azure](/azure/architecture/example-scenario/ai/training-python-models)
 
-- [Real-time scoring of Python scikit-learn and deep learning models on Azure](../../reference-architectures/ai/real-time-scoring-machine-learning-models.yml)
+- [Real-time scoring of Python scikit-learn and deep learning models on Azure](../reference-architectures/ai/real-time-scoring-machine-learning-models.yml)
 
 ### Bots
 
@@ -69,9 +69,9 @@ Microsoft offers the Azure Bot Service, a managed service purpose-built for ente
 
 - [Ten guidelines for responsible bots](https://www.microsoft.com/research/publication/responsible-bots/)
 
-- [Azure reference architecture: Enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
+- [Azure reference architecture: Enterprise-grade conversational bot](../reference-architectures/ai/conversational-bot.yml)
 
-- [Example workload: Conversational chatbot for hotel reservations on Azure](../../example-scenario/ai/commerce-chatbot.yml)
+- [Example workload: Conversational chatbot for hotel reservations on Azure](../example-scenario/ai/commerce-chatbot.yml)
 
 ### Autonomous systems
 
@@ -95,7 +95,7 @@ Learn more about Microsoft AI, and keep up-to-date with related news:
 
 - [Microsoft AI on GitHub: Samples, reference architectures, and best practices](https://github.com/microsoft/AI)
 
-- [Azure Architecture Center](../../index.yml)
+- [Azure Architecture Center](../index.yml)
 
 ## High-level architectural types
 
@@ -113,9 +113,9 @@ One example of prebuilt AI might be a pretrained model that can be incorporated 
 
 - [Try Azure Cognitive Services for free](https://azure.microsoft.com/try/cognitive-services/)
 
-- [Choosing an Azure Cognitive Services technology](../../data-guide/technology-choices/cognitive-services.md)
+- [Choosing an Azure Cognitive Services technology](../data-guide/technology-choices/cognitive-services.md)
 
-- [Choosing a natural language processing technology in Azure](../../data-guide/technology-choices/natural-language-processing.yml)
+- [Choosing a natural language processing technology in Azure](../data-guide/technology-choices/natural-language-processing.yml)
 
 #### Prebuilt AI models in AI Builder
 
@@ -229,11 +229,11 @@ Following is a breakdown of Azure technologies, platforms, and services you can 
 
 This is an enterprise-grade machine learning service to build and deploy models faster. Azure Machine Learning offers web interfaces and SDKs so you can quickly train and deploy your machine learning models and pipelines at scale. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn.
 
-- [What are the machine learning products at Microsoft?](../../data-guide/technology-choices/data-science-and-machine-learning.md)
+- [What are the machine learning products at Microsoft?](../data-guide/technology-choices/data-science-and-machine-learning.md)
 
 - [Azure Machine Learning product home page](https://azure.microsoft.com/services/machine-learning/)
 
-- [Azure Machine Learning Data Architecture Guide overview](../../data-guide/big-data/machine-learning-at-scale.md)
+- [Azure Machine Learning Data Architecture Guide overview](../data-guide/big-data/machine-learning-at-scale.md)
 
 - [Azure Machine Learning documentation overview](/azure/machine-learning/)
 
@@ -243,25 +243,25 @@ This is an enterprise-grade machine learning service to build and deploy models 
 
 - [Training of Python scikit-learn and deep learning models on Azure](/azure/architecture/example-scenario/ai/training-python-models)
 
-- [Distributed training of deep learning models on Azure](../../reference-architectures/ai/training-deep-learning.yml)
+- [Distributed training of deep learning models on Azure](../reference-architectures/ai/training-deep-learning.yml)
 
-- [Batch scoring of Python machine learning models on Azure](../../reference-architectures/ai/batch-scoring-python.yml)
+- [Batch scoring of Python machine learning models on Azure](../reference-architectures/ai/batch-scoring-python.yml)
 
-- [Batch scoring of deep learning models on Azure](../../reference-architectures/ai/batch-scoring-deep-learning.yml)
+- [Batch scoring of deep learning models on Azure](../reference-architectures/ai/batch-scoring-deep-learning.yml)
 
-- [Real-time scoring of Python scikit-learn and deep learning models on Azure](../../reference-architectures/ai/real-time-scoring-machine-learning-models.yml)
+- [Real-time scoring of Python scikit-learn and deep learning models on Azure](../reference-architectures/ai/real-time-scoring-machine-learning-models.yml)
 
-- [Machine learning operationalization (MLOps) for Python models using Azure Machine Learning](../../reference-architectures/ai/mlops-python.yml)
+- [Machine learning operationalization (MLOps) for Python models using Azure Machine Learning](../reference-architectures/ai/mlops-python.yml)
 
-- [Batch scoring of R machine learning models on Azure](../../reference-architectures/ai/batch-scoring-r-models.yml)
+- [Batch scoring of R machine learning models on Azure](../reference-architectures/ai/batch-scoring-r-models.yml)
 
-- [Real-time scoring of R machine learning models on Azure](../../reference-architectures/ai/realtime-scoring-r.yml)
+- [Real-time scoring of R machine learning models on Azure](../reference-architectures/ai/realtime-scoring-r.yml)
 
-- [Batch scoring of Spark machine learning models on Azure Databricks](../../reference-architectures/ai/batch-scoring-databricks.yml)
+- [Batch scoring of Spark machine learning models on Azure Databricks](../reference-architectures/ai/batch-scoring-databricks.yml)
 
-- [Enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
+- [Enterprise-grade conversational bot](../reference-architectures/ai/conversational-bot.yml)
 
-- [Build a real-time recommendation API on Azure](../../reference-architectures/ai/real-time-recommendation.yml)
+- [Build a real-time recommendation API on Azure](../reference-architectures/ai/real-time-recommendation.yml)
 
 ### Azure automated machine learning
 
@@ -299,7 +299,7 @@ This is an AI-powered cloud search service for mobile and web app development. T
 
 - [Azure Cognitive Search documentation overview](/azure/search/)
 
-- [Choosing a natural language processing technology in Azure](../../data-guide/technology-choices/natural-language-processing.yml)
+- [Choosing a natural language processing technology in Azure](../data-guide/technology-choices/natural-language-processing.yml)
 
 - [Quickstart: Create an Azure Cognitive Search cognitive skill set in the Azure portal](/azure/search/cognitive-search-quickstart-blob)
 
@@ -311,9 +311,9 @@ This is a purpose-built bot development environment with out-of-the-box template
 
 - [Azure Bot Service documentation overview](/azure/bot-service/bot-service-overview-introduction)
 
-- [Azure reference architecture: Enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
+- [Azure reference architecture: Enterprise-grade conversational bot](../reference-architectures/ai/conversational-bot.yml)
 
-- [Example workload: Conversational chatbot for hotel reservations on Azure](../../example-scenario/ai/commerce-chatbot.yml)
+- [Example workload: Conversational chatbot for hotel reservations on Azure](../example-scenario/ai/commerce-chatbot.yml)
 
 - [Microsoft Bot Framework](https://dev.botframework.com/)
 
@@ -325,7 +325,7 @@ Apache Spark is a parallel processing framework that supports in-memory processi
 
 [Apache Spark in Azure HDInsight](/azure/hdinsight/spark/apache-spark-overview) is the Microsoft implementation of Apache Spark in the cloud. Spark clusters in HDInsight are compatible with Azure Storage and Azure Data Lake Storage, so you can use HDInsight Spark clusters to process your data stored in Azure.
 
-The Microsoft Machine Learning library for Apache Spark is [MMLSpark](https://github.com/Azure/mmlspark) (Microsoft ML for Apache Spark). It is an open-source library that adds many deep learning and data science tools, networking capabilities, and production-grade performance to the Spark ecosystem. [Learn more about MMLSpark features and capabilities.](../../data-guide/technology-choices/data-science-and-machine-learning.md#mmlspark)
+The Microsoft Machine Learning library for Apache Spark is [MMLSpark](https://github.com/Azure/mmlspark) (Microsoft ML for Apache Spark). It is an open-source library that adds many deep learning and data science tools, networking capabilities, and production-grade performance to the Spark ecosystem. [Learn more about MMLSpark features and capabilities.](../data-guide/technology-choices/data-science-and-machine-learning.md#mmlspark)
 
 - [Azure HDInsight overview.](/azure/hdinsight/hdinsight-overview) Basic information about features, cluster architecture, and use cases, with pointers to quickstarts and tutorials.
 
@@ -355,7 +355,7 @@ The Microsoft Machine Learning library for Apache Spark is [MMLSpark](https://gi
 
 - [How-to guide: Databricks Runtime for Machine Learning](/azure/databricks/runtime/mlruntime)
 
-- [Batch scoring of Spark machine learning models on Azure Databricks](../../reference-architectures/ai/batch-scoring-databricks.yml)
+- [Batch scoring of Spark machine learning models on Azure Databricks](../reference-architectures/ai/batch-scoring-databricks.yml)
 
 - [Deep learning overview for Azure Databricks](/azure/databricks/applications/deep-learning/)
 

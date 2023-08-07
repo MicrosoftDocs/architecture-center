@@ -6,7 +6,7 @@ This article outlines a solution for using edge AI when you're disconnected from
 
 ## Architecture
 
-:::image type="content" source="../media/ai-at-the-edge-disconnected.png" alt-text="Architecture diagram that shows an AI-enabled application running at the edge with Azure Stack Hub and hybrid connectivity." lightbox="../media/ai-at-the-edge-disconnected.png" border="false":::
+:::image type="content" source="_images/ai-at-the-edge-disconnected.png" alt-text="Architecture diagram that shows an AI-enabled application running at the edge with Azure Stack Hub and hybrid connectivity." lightbox="_images/ai-at-the-edge-disconnected.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ai-at-the-edge-disconnected.vsdx) of this architecture.*
 
@@ -78,7 +78,7 @@ For samples, see the following resources:
 For related solutions, see the following articles:
 
 * [AI at the edge with Azure Stack Hub](./ai-at-the-edge.yml)
-* [AI-based footfall detection](./hybrid-footfall-detection.yml)
+* [AI-based footfall detection](../../solution-ideas/articles/hybrid-footfall-detection.yml)
 * [Deploy AI and machine learning computing on-premises and to the edge](../../hybrid/deploy-ai-ml-azure-stack-edge.yml)
 * [Azure public multi-access edge compute deployment](../../example-scenario/hybrid/public-multi-access-edge-compute-deployment.yml)
 * [Choose a bare-metal Kubernetes at the edge platform option](../../operator-guides/aks/choose-bare-metal-kubernetes.yml)

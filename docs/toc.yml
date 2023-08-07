@@ -1288,8 +1288,8 @@ items:
         href: solution-ideas/articles/defect-prevention-with-predictive-maintenance.yml
       - name: Digital asset management
         href: solution-ideas/articles/digital-asset-management.yml
-      - name: Disconnected AI at the edge
-        href: solution-ideas/articles/ai-at-the-edge-disconnected.yml
+      # - name: Disconnected AI at the edge
+      #   href: solution-ideas/articles/ai-at-the-edge-disconnected.yml
       - name: E-commerce chatbot
         href: solution-ideas/articles/commerce-chatbot.yml
       - name: Energy demand forecasting
