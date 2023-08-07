@@ -226,4 +226,4 @@ For architectures that involve distributed training or deep learning, see the fo
 [train-compute-intensive-models-with-azure-machine-learning]: /training/paths/train-compute-intensive-models-azure-machine-learning
 [train-and-evaluate-deep-learning-models]: /training/modules/train-evaluate-deep-learn-models
 [build-a-content-based-recommendation-system]: /azure/architecture/solution-ideas/articles/build-content-based-recommendation-system-using-recommender
-[suggest-content-tags-with-nlp-using-deep-learning]: ../../solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.yml
+[suggest-content-tags-with-nlp-using-deep-learning]: ../../ai-ml/idea/website-content-tag-suggestion-with-deep-learning-and-nlp.yml

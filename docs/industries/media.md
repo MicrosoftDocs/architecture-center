@@ -65,5 +65,5 @@ The following are other ideas that you can use as a starting point for your medi
 
 - [Knowledge mining in digital asset management](../solution-ideas/articles/digital-asset-management.yml)
 - [HPC Media Rendering](../solution-ideas/articles/azure-batch-rendering.yml)
-- [Suggest content tags with deep learning and NLP](../solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.yml)
+- [Suggest content tags with deep learning and NLP](../ai-ml/idea/website-content-tag-suggestion-with-deep-learning-and-nlp.yml)
 - [Keyword search/speech-to-text/OCR digital media](../solution-ideas/articles/digital-media-speech-text.yml)
