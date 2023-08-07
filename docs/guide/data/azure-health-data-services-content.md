@@ -4,7 +4,7 @@ This article provides a sample architecture, an accompanying sample implementati
 
 ## Architecture
 
-:::image type="content" source="media/azure-health-data-services.svg" alt-text="Architecture diagram that shows how to deploy Health Data Services on Azure and integrate with other Azure services." border="false":::
+:::image type="content" source="media/azure-health-data-services.svg" alt-text="Architecture diagram that shows how to deploy Health Data Services on Azure and integrate with other Azure services." lightbox="media/azure-health-data-services.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-health-data-services.vsdx) of this architecture.* 
 
