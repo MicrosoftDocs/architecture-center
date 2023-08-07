@@ -12,6 +12,8 @@ While the current scenario focuses on network restrictions, many organizations n
 In the network layer step 1, Service A uses client credentials to request and receive an OAuth 2.0 token for Service B from Azure Active Directory. In step 2, Service A injects the token into a communications request toward Service B. In step 3, Service B evaluates the access token's aud claim and validates the token. In the application layer, Service A is in an integration subnet in a virtual network. In step 1, Service A uses App Service Regional VNet Integration to communicate only from a private IP address in its integration subnet. In step 2, Service B uses service endpoints to accept communications only from IP addresses in the Service A integration subnet.
 :::image-end:::
 
+[Download a Visio file](https://arch-center.azureedge.net/service-to-service-architecture.vsdx) of this architecture.
+
 ### Dataflow
 
 The diagram shows restricted communications from Service A to Service B. Token-based authorization restricts access on the application layer, and service endpoints restrict access on the network layer.
