@@ -8,7 +8,7 @@ This article provides a sample architecture, an accompanying sample implementati
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-health-data-services.vsdx) of this architecture.* 
 
-## Workflow
+### Workflow
 
 1. Azure Application Gateway receives individual Fast Healthcare Interoperability Resources (FHIR) messages (for example, patient data) over an enhanced-security TLS connection that uses a Client Credentials Flow. Application Gateway sends the data via Azure API Management to the [Health Data Services FHIR service](/azure/healthcare-apis/fhir/overview), where it's persisted.
 1. Simultaneously, a client can read the same FHIR data over a TLS connection via Application Gateway and API Management by using a tool like Postman.
@@ -22,7 +22,7 @@ This article provides a sample architecture, an accompanying sample implementati
 > [!Note]
 > You can optionally add Web Application Firewall (WAF) to Application Gateway, but there's a known issue of WAF misidentifying FHIR objects and treating them as malicious code. If you need WAF, you need to manually modify your WAF ruleset to enable WAF to work with FHIR objects.
 
-## Components
+### Components
 
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/products/active-directory) is a multitenant cloud-based directory and identity management service. [Client applications are registered](/azure/healthcare-apis/register-application) in the Azure AD and can be used to access the Azure Health Data Services FHIR service.
 
@@ -40,7 +40,7 @@ This article provides a sample architecture, an accompanying sample implementati
 
 - [FHIR to Synapse Sync Agent](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Deploy-FhirToDatalake.md) is an [Azure container app](/azure/container-apps/) that extracts data from a FHIR server by using FHIR resource APIs, converts it to hierarchical Parquet files, and writes it to Data Lake Storage in near-real time. It also contains a script for creating external tables and views in Azure Synapse Analytics serverless SQL pool that point to the Parquet files. Although the architecture diagram shows FHIR to Synapse Sync Agent, Data Lake Storage, and Azure Synapse Analytics, the Bicep implementation doesn't currently include the code to deploy these services.
 
-- [Azure Firewall](https://azure.microsoft.com/products/azure-firewall) is a cloud-native intelligent network firewall service that provides threat protection for your cloud workloads in Azure. In this architecture, a route table is used to route egress traffic from the hub virtual network through Azure Firewall to help ensure data exfiltration doesn't occur. Similarly, you an create route table routes and attach them to spoke virtual network subnets as needed to help prevent exfiltration of public health information data.
+- [Azure Firewall](https://azure.microsoft.com/products/azure-firewall) is a cloud-native intelligent network firewall service that provides threat protection for your cloud workloads in Azure. In this architecture, a route table is used to route egress traffic from the hub virtual network through Azure Firewall to help ensure data exfiltration doesn't occur. Similarly, you can create route table routes and attach them to spoke virtual network subnets as needed to help prevent exfiltration of public health information data.
 
 - The jumpbox is an Azure VM running Linux or Windows that administrators and operators can connect to by using Remote Desktop Protocol (RDP) or Secure Shell (SSH). Because most of the services (Health Data Services, API Management, Key Vault, and others) in this architecture are deployed with private endpoint, you need a jumpbox VM to make configuration changes or test these services. The jumpbox can only be accessed via Azure Bastion.
 
@@ -52,7 +52,7 @@ This article provides a sample architecture, an accompanying sample implementati
 
 This solution provides guidance on how to deploy Azure Health Data Services with enhanced security, ingest individual and bulk FHIR data, and persist the data into the Health Data Services FHIR service.
 
-You can use the the solution to load FHIR messages, individually and in bulk, into the FHIR service by using an enhanced-security Application Gateway connection.
+You can use the solution to load FHIR messages, individually and in bulk, into the FHIR service by using an enhanced-security Application Gateway connection.
 
 To analyze FHIR data and extract insights, you can deploy the FHIR to Synapse Sync Agent as shown in the diagram. Azure Synapse Analytics can connect to Data Lake Storage to query and analyze FHIR data.
 
