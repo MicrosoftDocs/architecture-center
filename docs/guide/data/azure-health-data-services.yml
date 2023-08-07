@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
-  title: Azure Health Data Services Architecture
-  description: Deploy Azure Health Data Services securely on Azure and integrate with various Azure services.
-  author: umarmohamedusman
-  ms.author: umarm,vsantana,sonalikaroy,srpadala
-  ms.date: 05/17/2023
+  title: Azure Health Data Services architecture guide
+  description: Deploy Azure Health Data Services on Azure and integrate with various Azure services.
+  author: UmarMohamedUsman
+  ms.author: umarm, vsantana, sonalikaroy, srpadala
+  ms.date: 08/09/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
@@ -17,10 +17,9 @@ products:
   - azure-api-management
   - azure-application-gateway
   - azure-synapse-analytics
-  - azure-functions
-
-name: Azure Health Data Services Architecture Guide
-summary: Deploy Azure Health Data Services securely on Azure and integrate with various Azure services.
+  - azure-firewall
+name: Azure Health Data Services architecture guide
+summary: Deploy Azure Health Data Services on Azure and integrate with various Azure services.
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-health-data-services.png
 content: |
   [!include[](azure-health-data-services-content.md)]

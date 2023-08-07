@@ -40,13 +40,13 @@ This article provides a sample architecture, an accompanying sample implementati
 
 - [FHIR to Synapse Sync Agent](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Deploy-FhirToDatalake.md) is an [Azure container app](/azure/container-apps/) that extracts data from a FHIR server by using FHIR resource APIs, converts it to hierarchical Parquet files, and writes it to Data Lake Storage in near-real time. It also contains a script for creating external tables and views in Azure Synapse Analytics serverless SQL pool that point to the Parquet files. Although the architecture diagram shows FHIR to Synapse Sync Agent, Data Lake Storage, and Azure Synapse Analytics, the Bicep implementation doesn't currently include the code to deploy these services.
 
-- [Azure Firewall](/azure/firewall/overview) is a cloud-native intelligent network firewall service that provides threat protection for your cloud workloads in Azure. In this architecture, a route table is used to route egress traffic from the hub virtual network through Azure Firewall to help ensure data exfiltration doesn't occur. Similarly, you an create route table routes and attach them to spoke virtual network subnets as needed to help prevent exfiltration of public health information data.
+- [Azure Firewall](https://azure.microsoft.com/products/azure-firewall) is a cloud-native intelligent network firewall service that provides threat protection for your cloud workloads in Azure. In this architecture, a route table is used to route egress traffic from the hub virtual network through Azure Firewall to help ensure data exfiltration doesn't occur. Similarly, you an create route table routes and attach them to spoke virtual network subnets as needed to help prevent exfiltration of public health information data.
 
 - The jumpbox is an Azure VM running Linux or Windows that administrators and operators can connect to by using Remote Desktop Protocol (RDP) or Secure Shell (SSH). Because most of the services (Health Data Services, API Management, Key Vault, and others) in this architecture are deployed with private endpoint, you need a jumpbox VM to make configuration changes or test these services. The jumpbox can only be accessed via Azure Bastion.
 
-- [Azure Bastion](/azure/bastion/bastion-overview) enables you to connect to a VM by using a browser, the Azure portal, or via the native SSH/RDP client on your computer. In this implementation, Azure Bastion provides enhanced-security access to the jumpbox VM.
+- [Azure Bastion](https://azure.microsoft.com/products/azure-bastion/) enables you to connect to a VM by using a browser, the Azure portal, or via the native SSH/RDP client on your computer. In this implementation, Azure Bastion provides enhanced-security access to the jumpbox VM.
 
-- Defender for Cloud and [HIPAA and HITRUST](/azure/governance/policy/samples/hipaa-hitrust-9-2) compliance policy initiatives ensure that the Azure infrastructure deployment adheres to Microsoft cloud security benchmark and Healthcare industry compliance requirements.
+- [Defender for Cloud](https://azure.microsoft.com/products/defender-for-cloud/) and [HIPAA and HITRUST](/azure/governance/policy/samples/hipaa-hitrust-9-2) compliance policy initiatives ensure that the Azure infrastructure deployment adheres to Microsoft cloud security benchmark and Healthcare industry compliance requirements.
 
 ## Scenario details
 
@@ -92,5 +92,5 @@ Other contributors:
 
 ## Related resources
 
-- [Solutions for the healthcare industry](us/azure/architecture/industries/healthcare)
+- [Solutions for the healthcare industry](../../industries/healthcare.md)
 - [What is Azure Health Data Services?](/azure/healthcare-apis/healthcare-apis-overview?toc=https%3A%2F%2Freview.learn.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.learn.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
