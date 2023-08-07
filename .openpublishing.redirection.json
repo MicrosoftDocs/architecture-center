@@ -3034,6 +3034,16 @@
       "source_path": "docs/serverless/code.yml",
       "redirect_url": "/azure/architecture/web-apps/serverless/architectures/code",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/data-guide/big-data/ai-overview.md",
+      "redirect_url": "/azure/architecture/ai-ml/index",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/ai-at-the-edge.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/ai-at-the-edge",
+      "redirect_document_id": true
     }
   ]
 }

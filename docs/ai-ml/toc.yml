@@ -1,0 +1,21 @@
+items:
+- name: AI + Machine Learning
+  href: index.md
+  items: 
+    - name: Explore ideas about
+      items: 
+      - name: AI at the edge
+        href: idea/ai-at-the-edge.yml
+    # - name: Design architectures
+    #   items:
+    #   - name: Host web apps with App Service
+    #     items:
+    #     - name: Basic web application
+    #       href: app-service/architectures/basic-web-app.yml
+    # - name: Apply guidance
+    #   items:
+    #   - name: Networking guidance for web apps
+    #     items:
+    #     - name: Securing access to multitenant web apps from on prem
+    #       href: guides/networking/access-multitenant-web-app-from-on-premises.yml
+    #     - name: Automate Application Gateway reconfiguration for web apps

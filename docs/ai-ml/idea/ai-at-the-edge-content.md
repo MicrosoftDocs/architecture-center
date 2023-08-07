@@ -4,7 +4,7 @@ This architecture shows how you can bring your trained AI model to the edge with
 
 ## Architecture
 
-:::image type="content" alt-text="Architecture diagram showing an AI -enabled application that's running at the edge with Azure Stack Hub." source="../media/ai-at-the-edge.png" lightbox="../media/ai-at-the-edge.png":::
+:::image type="content" alt-text="Architecture diagram showing an AI -enabled application that's running at the edge with Azure Stack Hub." source="_images/ai-at-the-edge.png" lightbox="_images/ai-at-the-edge.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ai-at-the-edge.vsdx) of this architecture.*
 
