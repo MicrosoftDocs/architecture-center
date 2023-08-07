@@ -4,6 +4,15 @@ items:
   items: 
     - name: Explore ideas about
       items:
+      - name: Document processing
+        items:
+        - name: Content tagging with NLP
+          href: idea/website-content-tag-suggestion-with-deep-learning-and-nlp.yml
+        - name: Knowledge mining for customer feedback
+          href: idea/customer-feedback-and-analytics.yml   
+        - name: Large-scale custom NLP
+          href: idea/large-scale-custom-natural-language-processing.yml                 
+          # href: solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.yml
       - name: AI at the edge
         items:
         - name: AI at the edge with Azure Stack Hub

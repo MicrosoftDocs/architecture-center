@@ -6,7 +6,7 @@ Implement a custom natural language processing (NLP) solution in Azure. Use Spar
 
 ## Architecture
 
-:::image type="content" source="../media/large-scale-custom-natural-language-processing-architecture.png" alt-text="Diagram that shows the flow of data through an N L P pipeline. Stages include ingesting, storing, processing, and serving." border="false" lightbox="../media/large-scale-custom-natural-language-processing-architecture.png":::
+:::image type="content" source="_images/large-scale-custom-natural-language-processing-architecture.png" alt-text="Diagram that shows the flow of data through an N L P pipeline. Stages include ingesting, storing, processing, and serving." border="false" lightbox="_images/large-scale-custom-natural-language-processing-architecture.png":::
 
 *Download a [Visio file][Visio version of architecture diagram] of this architecture.*
 
@@ -69,7 +69,7 @@ Besides excellent performance, Spark NLP also delivers state-of-the-art accuracy
 
 For the execution order of an NLP pipeline, Spark NLP follows the same development concept as traditional Spark ML machine learning models. But Spark NLP applies NLP techniques. The following diagram shows the core components of a Spark NLP pipeline.
 
-:::image type="content" source="../media/spark-natural-language-processing-pipeline.png" alt-text="Diagram that shows N L P pipeline stages, such as document assembly, sentence detection, tokenization, normalization, and word embedding." border="false":::
+:::image type="content" source="_images/spark-natural-language-processing-pipeline.png" alt-text="Diagram that shows N L P pipeline stages, such as document assembly, sentence detection, tokenization, normalization, and word embedding." border="false":::
 
 ## Contributors
 

@@ -3047,7 +3047,17 @@
     },
     {
       "source_path": "docs/solution-ideas/articles/ai-at-the-edge-disconnected.yml",
-      "redirect_url": "/azure/architecture/ai-ml/idea/ai-at-the-edge-disconnected.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/ai-at-the-edge-disconnected",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/customer-feedback-and-analytics.yml  ",
+      "redirect_url": "/azure/architecture/ai-ml/idea/customer-feedback-and-analytics",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/large-scale-custom-natural-language-processing.yml ",
+      "redirect_url": "/azure/architecture/ai-ml/idea/large-scale-custom-natural-language-processing",
       "redirect_document_id": true
     }
   ]

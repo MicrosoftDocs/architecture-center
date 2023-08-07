@@ -4,7 +4,7 @@ This article describes how you can use Microsoft AI to improve website content t
 
 ## Architecture
 
-[![Architecture diagram: overview of using Azure Machine Learning to help suggest content tags for websites.](../media/website-content-tag-suggestion-with-deep-learning-and-nlp.png)](../media/website-content-tag-suggestion-with-deep-learning-and-nlp.png#lightbox)
+[![Architecture diagram: overview of using Azure Machine Learning to help suggest content tags for websites.](_images_/website-content-tag-suggestion-with-deep-learning-and-nlp.png)](_images_/website-content-tag-suggestion-with-deep-learning-and-nlp.png#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/website-content-tag-suggestion-with-deep-learning-and-nlp.vsdx) of this architecture.*
 

@@ -6,7 +6,7 @@ This architecture shows how [knowledge mining](https://azure.microsoft.com/solut
 
 There are three steps in knowledge mining: ingest, enrich, and explore.
 
-[ ![Architecture diagram: knowledge mining for customer feedback and analytics with 3 steps: ingest, enrich, explore.](../media/knowledge-mining-customer-feedback-and-analytics.png)](../media/knowledge-mining-customer-feedback-and-analytics.png#lightbox)
+[ ![Architecture diagram: knowledge mining for customer feedback and analytics with 3 steps: ingest, enrich, explore.](_images/knowledge-mining-customer-feedback-and-analytics.png)](_images/knowledge-mining-customer-feedback-and-analytics.png#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/knowledge-mining-customer-feedback-and-analytics.vsdx) of this architecture.*
 
@@ -59,8 +59,5 @@ With queries using the search index, companies can discover trends about what cu
 
 ## Related resources
 
-- [Knowledge mining in auditing, risk, and compliance management](./auditing-and-risk-compliance.yml)
-- [Knowledge mining in business process management](./business-process-management.yml)
-- [Knowledge mining for content research](./content-research.yml)
-- [Knowledge mining in contract management](./contract-management.yml)
-- [Knowledge mining in digital asset management](./digital-asset-management.yml)
+- [Azure Cognitive Search](https://azure.microsoft.com/services/search)
+- [Text analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics)
