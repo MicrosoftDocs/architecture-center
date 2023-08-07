@@ -6,7 +6,7 @@ This article and the [associated code project](https://github.com/mspnp/vnet-int
 
 The following diagram shows the patient record creation request flow:
 
-:::image type="content" alt-text="Diagram showing virtual network integrated microservices." source="virtual-network-microservices.png" lightbox="virtual-network-microservices.png":::
+:::image type="content" alt-text="Diagram showing virtual network integrated microservices." source="virtual-network-microservices.svg" lightbox="virtual-network-microservices.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/virtual-network-microservices.vsdx) of this architecture.*
 
