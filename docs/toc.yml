@@ -448,6 +448,8 @@ items:
           href: guide/multitenant/approaches/deployment-configuration.yml
         - name: Compute
           href: guide/multitenant/approaches/compute.md
+        - name: Control planes 
+          href: guide/multitenant/approaches/control-planes.md
         - name: Networking
           href: guide/multitenant/approaches/networking.md
         - name: Storage and data
