@@ -4,7 +4,7 @@ This architecture uses Custom Vision to classify images taken by a simulated dro
 
 ## Architecture
 
-![Diagram of the Search and Rescue Lab architecture to create an image classifier model.](media/drone-rescue.png)
+![Diagram of the Search and Rescue Lab architecture to create an image classifier model.](_images/drone-rescue.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/vision-classifier-model-with-custom-vision.vsdx) of this architecture.*
 
