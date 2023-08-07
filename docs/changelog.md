@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 07/31/2023
+ms.date: 08/07/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -22,6 +22,14 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWxOYN]
 
 The following new and updated articles have recently been published in the Azure Architecture Center.
+
+## August 2023
+
+### New articles
+
+- [Extract and analyze call center data by using Azure OpenAI Service, Speech services, and Language services](./example-scenario/ai/call-center-openai-analytics.yml)
+- [Mission-critical baseline with App Service](./guide/networking/global-web-applications/mission-critical-app-service.yml)
+
 
 ## July 2023
 
@@ -109,39 +117,4 @@ The following new and updated articles have recently been published in the Azure
 - [Troubleshoot Databricks performance issues](./databricks-monitoring/performance-troubleshooting.md)  ([#a468053fea](https://github.com/MicrosoftDocs/architecture-center/commit/a468053fea))
 - [Deploy SAS Grid 9.4 on Azure NetApp Files](./guide/hpc/netapp-files-sas.yml)  ([#171bf64397](https://github.com/MicrosoftDocs/architecture-center/commit/171bf64397))
 - [AKS triage - cluster health](./operator-guides/aks/aks-triage-cluster-health.md)  ([#7761b27710](https://github.com/MicrosoftDocs/architecture-center/commit/7761b27710))
-
-## April 2023
-
-### New articles
-
-- [SaaS and multitenant solution architecture](./guide/saas/overview.md)
-- [Overview of the journey for designing SaaS and multitenant solutions](./guide/saas/plan-journey-saas.md)
-- [SMA OpCon in Azure](./solution-ideas/articles/sma-opcon-azure.yml)
-- [Query-based document summarization](./guide/ai/query-based-summarization.md)
-- [Guide to Private Link and DNS in Azure Virtual WAN](./guide/networking/private-link-virtual-wan-dns-guide.yml)
-- [Single region scenario - Private Link and DNS in Azure Virtual WAN](./guide/networking/private-link-virtual-wan-dns-single-region-workload.yml)
-- [Virtual hub extension pattern](./guide/networking/private-link-virtual-wan-dns-virtual-hub-extension-pattern.yml)
-- [Automated scheduling and dispatching for semiconductor manufacturing](./example-scenario/manufacturing/fab-scheduling-azure.yml)
-- [Secure tunneling with Azure Relay](./example-scenario/networking/secure-tunneling-azure-relay.yml)
-- [Azure landing zones - Azure Virtual Desktop landing zone design considerations](./landing-zones/azure-virtual-desktop/design-guide.md)
-- [Migrate a simple app from Service Fabric to AKS](./guide/aks/migrate-app-service-fabric-azure-kubernetes-service.md)
-- [Migrate your workload from Service Fabric to AKS](./guide/aks/service-fabric-azure-kubernetes-service.md)
-- [Mission-critical global content delivery](./guide/networking/global-web-applications/mission-critical-content-delivery.md)
-- [Mission-critical global HTTP ingress](./guide/networking/global-web-applications/mission-critical-global-http-ingress.md)
-- [Global routing redundancy for mission-critical web applications](./guide/networking/global-web-applications/overview.md)
-- [Scale out an Azure IoT solution to support millions of devices](./guide/iot/scale-iot-solution-azure.md)
-- [Use AI to forecast customer orders](./solution-ideas/articles/next-order-forecasting.yml)
-
-### Updated articles
-
-- [Azure VMware Solution networking](./solution-ideas/articles/azure-vmware-solution-foundation-networking.yml)  ([#5708b592c7](https://github.com/MicrosoftDocs/architecture-center/commit/5708b592c7))
-- [Use Profisee MDM to migrate SQL Server Master Data Services to Azure](./example-scenario/profisee-mds/profisee-mds-migration-utility.yml)  ([#d93744236e](https://github.com/MicrosoftDocs/architecture-center/commit/d93744236e))
-- [Publish internal APIs to external users](./example-scenario/apps/publish-internal-apis-externally.yml)  ([#74f8e24988](https://github.com/MicrosoftDocs/architecture-center/commit/74f8e24988))
-- [High-performance computing (HPC) on Azure](./topics/high-performance-computing.md)  ([#f34a7a3b66](https://github.com/MicrosoftDocs/architecture-center/commit/f34a7a3b66))
-- [Elastic Enterprise Search on Azure](./solution-ideas/articles/elastic-workplace-search.yml)  ([#a00457730b](https://github.com/MicrosoftDocs/architecture-center/commit/a00457730b))
-- [Data governance with Profisee and Microsoft Purview](./reference-architectures/data/profisee-master-data-management-purview.yml)  ([#c87d140e94](https://github.com/MicrosoftDocs/architecture-center/commit/c87d140e94))
-- [Extend on-premises AD FS to Azure](./reference-architectures/identity/adfs.yml)  ([#a8c7e97189](https://github.com/MicrosoftDocs/architecture-center/commit/a8c7e97189))
-- [Baseline architecture for an AKS cluster](./reference-architectures/containers/aks/baseline-aks.yml)  ([#5e982b9d0d](https://github.com/MicrosoftDocs/architecture-center/commit/5e982b9d0d))
-- [Basic enterprise integration on Azure](./reference-architectures/enterprise-integration/basic-enterprise-integration.yml)  ([#14cfddb151](https://github.com/MicrosoftDocs/architecture-center/commit/14cfddb151))
-- [Enhanced-security hybrid messaging — client access](./example-scenario/hybrid/secure-hybrid-messaging-client.yml)  ([#79eb9b90e8](https://github.com/MicrosoftDocs/architecture-center/commit/79eb9b90e8))
 
