@@ -4,7 +4,7 @@ This solution idea uses Azure services with a bot assistant to improve interacti
 
 ## Architecture
 
-[ ![Architecture diagram that shows how data flows between a user, a bot, and other components, such as language understanding and search services.](../media/retail-assistant-or-vacation-planner-with-visual-capabilities.svg)](../media/retail-assistant-or-vacation-planner-with-visual-capabilities.svg#lightbox)
+[ ![Architecture diagram that shows how data flows between a user, a bot, and other components, such as language understanding and search services.](_images/retail-assistant-or-vacation-planner-with-visual-capabilities.svg)](_images/retail-assistant-or-vacation-planner-with-visual-capabilities.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/retail-assistant-or-vacation-planner-with-visual-capabilities.vsdx) of this architecture.*
 
@@ -50,8 +50,8 @@ This solution can be used broadly, but is ideal for the retail industry and the 
 
 ## Related resources
 
-- [Commerce chatbot](./commerce-chatbot.yml)
-- [Product recommendations for retail using Azure](./product-recommendations.yml)
-- [Visual assistant](./visual-assistant.yml)
+- [Commerce chatbot](../../solution-ideas/articles/commerce-chatbot.yml)
+- [Product recommendations for retail using Azure](../../solution-ideas/articles/product-recommendations.yml)
+- [Visual assistant](../../solution-ideas/articles/visual-assistant.yml)
 - [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
 - [Choose a Microsoft Azure Cognitive Services technology](../../data-guide/technology-choices/cognitive-services.md)

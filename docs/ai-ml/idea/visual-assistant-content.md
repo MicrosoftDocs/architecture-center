@@ -4,7 +4,7 @@ This solution presents a visual assistant that provides rich information that's 
 
 ## Architecture
 
-[ ![Architecture diagram that shows the flow of data between a browser and a bot, and between the bot and search services.](../media/visual-assistant.svg)](../media/visual-assistant.svg#lightbox)
+[ ![Architecture diagram that shows the flow of data between a browser and a bot, and between the bot and search services.](_images/visual-assistant.svg)](_images/visual-assistant.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/visual-assistant.vsdx) of this architecture.*
 
@@ -68,5 +68,5 @@ Organizations can use this solution to provide:
 
 - [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
 - [Image classification on Azure](../../example-scenario/ai/intelligent-apps-image-processing.yml)
-- [Interactive voice response application with bot](./interactive-voice-response-bot.yml)
+- [Interactive voice response application with bot](../../solution-ideas/articles/interactive-voice-response-bot.yml)
 - [Retail assistant with visual capabilities](./retail-assistant-or-vacation-planner-with-visual-capabilities.yml)

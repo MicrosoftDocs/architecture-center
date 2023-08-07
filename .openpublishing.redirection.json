@@ -3064,6 +3064,26 @@
       "source_path": "docs/solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.yml",
       "redirect_url": "/azure/architecture/ai-ml/idea/website-content-tag-suggestion-with-deep-learning-and-nlp",
       "redirect_document_id": true
-    }
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/image-classification-with-convolutional-neural-networks.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/image-classification-with-convolutional-neural-networks",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/retail-assistant-or-vacation-planner-with-visual-capabilities",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/docs/solution-ideas/articles/visual-assistant.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/visual-assistant",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/dronerescue/vision-classifier-model-with-custom-vision.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/vision-classifier-model-with-custom-vision",
+      "redirect_document_id": true
+    } 
   ]
 }

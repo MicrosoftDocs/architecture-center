@@ -1305,8 +1305,8 @@ items:
       - name: FAQ chatbot
         href: solution-ideas/articles/faq-chatbot-with-data-champion-model.yml
       - name: Image classification with CNNs
-        href: solution-ideas/articles/image-classification-with-convolutional-neural-networks.yml
-      - name: Interactive voice response bot
+      #   href: solution-ideas/articles/image-classification-with-convolutional-neural-networks.yml
+      # - name: Interactive voice response bot
         href: solution-ideas/articles/interactive-voice-response-bot.yml
       - name: Keyword digital text processing
         href: solution-ideas/articles/digital-media-speech-text.yml
@@ -1328,8 +1328,8 @@ items:
         href: solution-ideas/articles/predictive-maintenance.yml
       - name: Predictive marketing
         href: solution-ideas/articles/predictive-marketing-campaigns-with-machine-learning-and-spark.yml
-      - name: Retail assistant with visual capabilities
-        href: solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml
+      # - name: Retail assistant with visual capabilities
+      #   href: solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml
       - name: Retail product recommendations
         href: solution-ideas/articles/product-recommendations.yml
       - name: Speech services
@@ -1338,10 +1338,10 @@ items:
         href: solution-ideas/articles/predictive-insights-with-vehicle-telematics.yml
       - name: Video ingestion and object detection on the edge 
         href: solution-ideas/articles/video-ingestion-object-detection-edge-cloud.yml
-      - name: Vision classifier model
-        href: example-scenario/dronerescue/vision-classifier-model-with-custom-vision.yml
-      - name: Visual assistant
-        href: solution-ideas/articles/visual-assistant.yml
+      # - name: Vision classifier model
+      #   href: example-scenario/dronerescue/vision-classifier-model-with-custom-vision.yml
+      # - name: Visual assistant
+      #   href: solution-ideas/articles/visual-assistant.yml
     - name: OpenAI
       items: 
       - name: Architectures 

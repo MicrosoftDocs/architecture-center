@@ -11,8 +11,17 @@ items:
         - name: Knowledge mining for customer feedback
           href: idea/customer-feedback-and-analytics.yml   
         - name: Large-scale custom NLP
-          href: idea/large-scale-custom-natural-language-processing.yml                 
-          # href: solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.yml
+          href: idea/large-scale-custom-natural-language-processing.yml
+      - name: Image processing
+        items:
+        - name: Image classification with CNNs
+          href: idea/image-classification-with-convolutional-neural-networks.yml
+        - name: Retail assistant with visual capabilities
+          href: idea/retail-assistant-or-vacation-planner-with-visual-capabilities.yml    
+        - name: Visual assistant
+          href: idea/visual-assistant.yml
+        - name: Vision classifier model
+          href: idea/vision-classifier-model-with-custom-vision.yml                        
       - name: AI at the edge
         items:
         - name: AI at the edge with Azure Stack Hub
