@@ -1,8 +1,8 @@
-This article describes how to use a mobile robot with a live streaming camera to implement various use cases.  The solution implements a system that runs locally on Azure Stack Edge to ingest and process the video stream and Azure AI services that perform object detection.
+This article describes how to use a mobile robot with a live streaming camera to implement various use cases. The solution implements a system that runs locally on Azure Stack Edge to ingest and process the video stream and Azure AI services that perform object detection.
 
 ## Architecture
 
-video-ingestion.svg
+![Diagram that shows an architecture for video ingestion and object detection.](../media/video-ingestion.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/video-ingestion.vsdx) of this architecture.*
 
