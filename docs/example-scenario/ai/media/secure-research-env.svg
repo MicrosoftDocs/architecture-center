@@ -420,12 +420,12 @@
 			</g>
 			<g id="shape1275-43" v:mID="1275" v:groupContext="shape">
 				<title>Sheet.1275</title>
-				<desc>Azure machine learning compute</desc>
+				<desc>Azure Machine Learning compute</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="55.53" cy="600.112" width="111.07" height="23.7757"/>
 				<rect x="0" y="588.224" width="111.06" height="23.7757" class="st10"/>
-				<text x="22.85" y="597.11" class="st11" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure machine <tspan
-							x="16.61" dy="1.2em" class="st12">learning compute</tspan></text>			</g>
+				<text x="22.66" y="597.11" class="st11" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Machine <tspan
+							x="15.47" dy="1.2em" class="st12">Learning compute</tspan></text>			</g>
 		</g>
 		<g id="group1277-47" transform="translate(167.22,-375.616)" v:mID="1277" v:groupContext="group">
 			<v:userDefs>
@@ -517,11 +517,11 @@
 			</g>
 			<g id="shape1242-78" v:mID="1242" v:groupContext="shape">
 				<title>Sheet.1242</title>
-				<desc>Data factory</desc>
+				<desc>Data Factory</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="36" cy="606.656" width="72.01" height="10.6875"/>
 				<rect x="0" y="601.312" width="72" height="10.6875" class="st10"/>
-				<text x="9.14" y="609.66" class="st11" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Data factory</text>			</g>
+				<text x="8.27" y="609.66" class="st11" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Data Factory</text>			</g>
 		</g>
 		<g id="group1279-81" transform="translate(459,-244.879)" v:mID="1279" v:groupContext="group">
 			<v:userDefs>
@@ -2044,15 +2044,15 @@
 			<text x="8.1" y="610.29" class="st11" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Virtual network</text>		</g>
 		<g id="shape1273-649" v:mID="1273" v:groupContext="shape" transform="translate(631.397,-408.414)">
 			<title>Sheet.1273</title>
-			<desc>Azure virtual desktop</desc>
+			<desc>Azure Virtual Desktop</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(52000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="36" cy="605.404" width="72.01" height="13.1927"/>
 			<rect x="0" y="598.807" width="72" height="13.1927" class="st10"/>
-			<text x="8.34" y="602.4" class="st11" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure virtual <tspan
-						x="18.27" dy="1.2em" class="st12">desktop</tspan></text>		</g>
+			<text x="7.63" y="602.4" class="st11" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Virtual <tspan
+						x="17.71" dy="1.2em" class="st12">Desktop</tspan></text>		</g>
 		<g id="shape1406-653" v:mID="1406" v:groupContext="shape" v:layerMember="1" transform="translate(688.333,-448.875)">
 			<title>Directed line 1.1406</title>
 			<v:userDefs>
