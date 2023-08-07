@@ -5118,8 +5118,6 @@ items:
         - name: Overview
           href: /industry/healthcare/overview
           maintainContext: true
-        - name: Azure Health Data Services 
-          href: guide/data/azure-health-data-services.yml
         - name: Azure setup
           href: /industry/healthcare/configure-cloud-for-healthcare
           maintainContext: true
@@ -5172,6 +5170,8 @@ items:
         - name: Overview
           href: /azure/healthcare-apis/healthcare-apis-overview
           maintainContext: true
+        - name: Azure Health Data Services architecture  
+          href: guide/data/azure-health-data-services.yml
         - name: Azure Health Data Services workspace
           href: /azure/healthcare-apis/workspace-overview
           maintainContext: true
