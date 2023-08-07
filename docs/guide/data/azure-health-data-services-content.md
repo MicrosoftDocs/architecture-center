@@ -6,7 +6,7 @@ This article provides a sample architecture, an accompanying sample implementati
 
 :::image type="content" source="media/azure-health-data-services.svg" alt-text="Architecture diagram that shows how to deploy Health Data Services on Azure and integrate with other Azure services." border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/.vsdx) of this architecture.* 
+*Download a [Visio file](https://arch-center.azureedge.net/azure-health-data-services.vsdx) of this architecture.* 
 
 ## Workflow
 
@@ -36,34 +36,34 @@ This article provides a sample architecture, an accompanying sample implementati
 
 - [Azure Key Vault](https://azure.microsoft.com/products/key-vault) is an Azure service for storing and accessing secrets, keys, and certificates with improved security. Key Vault provides HSM-backed security and audited access via role-based access controls that are integrated with Azure AD. In this architecture, Key Vault stores jumpbox credentials, Application Gateway certificates, FHIR service details, and FHIR Loader details.
 
-- [Azure Container Registry](https://azure.microsoft.com/products/container-registry/) is a managed registry service that's based on the open-source Docker Registry 2.0. In this architecture, it's used to host [Liquid](https://shopify.github.io/liquid/) templates. You can use the $convert-data custom endpoint in the FHIR service to convert health data from HL7 v2 and C-CDA to FHIR. The $convert-data operation uses Liquid templates from [FHIR Converter](https://github.com/microsoft/FHIR-Converter) for FHIR data conversion.
+- [Container Registry](https://azure.microsoft.com/products/container-registry/) is a managed registry service that's based on the open-source Docker Registry 2.0. In this architecture, it's used to host [Liquid](https://shopify.github.io/liquid/) templates. You can use the $convert-data custom endpoint in the FHIR service to convert health data from HL7 v2 and C-CDA to FHIR. The $convert-data operation uses Liquid templates from [FHIR Converter](https://github.com/microsoft/FHIR-Converter) for FHIR data conversion.
 
 - [FHIR to Synapse Sync Agent](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Deploy-FhirToDatalake.md) is an [Azure container app](/azure/container-apps/) that extracts data from a FHIR server by using FHIR resource APIs, converts it to hierarchical Parquet files, and writes it to Data Lake Storage in near-real time. It also contains a script for creating external tables and views in Azure Synapse Analytics serverless SQL pool that point to the Parquet files. Although the architecture diagram shows FHIR to Synapse Sync Agent, Data Lake Storage, and Azure Synapse Analytics, the Bicep implementation doesn't currently include the code to deploy these services.
 
 - [Azure Firewall](/azure/firewall/overview) is a cloud-native intelligent network firewall service that provides threat protection for your cloud workloads in Azure. In this architecture, a route table is used to route egress traffic from the hub virtual network through Azure Firewall to help ensure data exfiltration doesn't occur. Similarly, you an create route table routes and attach them to spoke virtual network subnets as needed to help prevent exfiltration of public health information data.
 
-- The jumpbox is an Azure VM running Linux or Windows that users can connect to using Remote Desktop Protocol (RDP) or Secure Shell (SSH). Given most services (Health Data Services, APIM, Key Vault, etc.) in this architecture are deployed using private endpoint, we need a jumpbox VM to make more configuration changes or test these services. The jumpbox VM can only be accessed through the Azure Bastion service.
+- The jumpbox is an Azure VM running Linux or Windows that administrators and operators can connect to by using Remote Desktop Protocol (RDP) or Secure Shell (SSH). Because most of the services (Health Data Services, API Management, Key Vault, and others) in this architecture are deployed with private endpoint, you need a jumpbox VM to make configuration changes or test these services. The jumpbox can only be accessed via Azure Bastion.
 
-- [Azure Bastion](/azure/bastion/bastion-overview) lets you connect to a virtual machine using your browser, Azure portal, or via the native SSH/RDP client already installed on your computer. In this implementation, we use Azure Bastion service to securely access the jumpbox VM.
+- [Azure Bastion](/azure/bastion/bastion-overview) enables you to connect to a VM by using a browser, the Azure portal, or via the native SSH/RDP client on your computer. In this implementation, Azure Bastion provides enhanced-security access to the jumpbox VM.
 
-- Microsoft Defender for Cloud along [HIPAA & HITRUST](/azure/governance/policy/samples/hipaa-hitrust-9-2) compliance policy initiatives ensures Azure infrastructure deployment adheres to Microsoft Security Benchmark and Healthcare industry compliance requirements.
+- Defender for Cloud and [HIPAA and HITRUST](/azure/governance/policy/samples/hipaa-hitrust-9-2) compliance policy initiatives ensure that the Azure infrastructure deployment adheres to Microsoft cloud security benchmark and Healthcare industry compliance requirements.
 
 ## Scenario details
 
-This solution provides guidance on how to securely deploy Azure Health Data Services, ingest individual & bulk FHIR data and persist the data into the Health Data Services FHIR service.
+This solution provides guidance on how to deploy Azure Health Data Services with enhanced security, ingest individual and bulk FHIR data, and persist the data into the Health Data Services FHIR service.
 
-### Potential use cases
+You can use the the solution to load FHIR messages, individually and in bulk, into the FHIR service by using an enhanced-security Application Gateway connection.
 
-- Once the solution is deployed successfully, FHIR messages (individual/bulk) can be loaded into FHIR service securely via Application Gateway.
-- FHIR data can be retrieved securely via Application Gateway & API Management. APIM provides more capabilities to authenticate/authorize incoming calls and throttle requests as needed.
-- To analyze FHIR data and extract insights, the FHIR Sync Agent can be deployed as shown in the architecture diagram (not deployed part of Bicep script). The agent reads data from the FHIR service, converts that data to parquet files and writes it to Azure Data Lake Gen2 (ADLS Gen2) storage. Azure Synapse can connect to ADLS Gen2 to query and analyze FHIR data.
-- This solution can be extended to receive medical devices/wearable data using [MedTech service](/azure/healthcare-apis/iot/overview) in Health Data Services, transform the data to FHIR format and persist into FHIR service for extracting further insights using Synapse.
-- This solution can be extended to ingest non FHIR data (HL7 V2 & C-CDA), convert to FHIR standard using Liquid templates (can be stored in Azure Container Registry) and persist in FHIR service.
+To analyze FHIR data and extract insights, you can deploy the FHIR to Synapse Sync Agent as shown in the diagram. Azure Synapse Analytics can connect to Data Lake Storage to query and analyze FHIR data.
+
+You can extend the solution to receive data from medical and wearable devices by using the Health Data Services [MedTech service](/azure/healthcare-apis/iot/overview). You can use this service to transform data to FHIR format and persist it to the FHIR service so that you can extract insights by using Azure Synapse Analytics.
+
+You can also extend the solution to ingest non-FHIR data (HL7 v2 and C-CDA), convert it to FHIR by using Liquid templates, which you can store in Container Registry, and persist it in the FHIR service.
 
 ## Deploy this solution
 
-Follow the steps in the Getting Started section in GitHub to deploy this solution.
-[Health Data Services Reference Architecture](https://github.com/Azure/ahds-reference-architecture)
+To deploy this solution, follow the steps in 
+[Getting Started](https://github.com/Azure/ahds-reference-architecture#getting-started).
 
 ## Contributors
 
@@ -75,19 +75,22 @@ Principal author:
 
 Other contributors:
 
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer 
 - [Srini Padala](https://www.linkedin.com/in/srinivasa-padala/) | Senior Engineer
 - [Sonalika Roy](https://www.linkedin.com/in/sonalika-roy-27138319/) | Senior Engineer
 - [Victor Santana](https://www.linkedin.com/in/victorwelascosantana/) | Senior Engineer
 
-line
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
 - [Azure Health Data Services Workshop](https://github.com/microsoft/azure-health-data-services-workshop)
-
-## Related resources
-
 - [Get started with Azure Health Data Services](/azure/healthcare-apis/get-started-with-health-data-services)
 - [FHIR-Bulk Loader & Export](https://github.com/microsoft/fhir-loader)
 - [FHIR server Swagger generation for API Management](https://fhir2apim.azurewebsites.net/)
-- [FHIR Converter to convert HL7 V2 & C-CDA to FHIR](https://github.com/microsoft/FHIR-Converter)
+- [Use FHIR Converter to convert HL7 v2 and C-CDA data](https://github.com/microsoft/FHIR-Converter)
+
+## Related resources
+
+- [Solutions for the healthcare industry](us/azure/architecture/industries/healthcare)
+- [What is Azure Health Data Services?](/azure/healthcare-apis/healthcare-apis-overview?toc=https%3A%2F%2Freview.learn.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.learn.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
