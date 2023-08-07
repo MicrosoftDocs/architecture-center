@@ -4,9 +4,9 @@ This article provides a sample architecture, an accompanying sample implementati
 
 ## Architecture
 
-:::image type="content" source="./media/ahds-reference-architecture.png" alt-text="Architecture diagram that shows how to deploy Health Data Services on Azure and integrate with other Azure services." border="false":::
+:::image type="content" source="media/azure-health-data-services.svg" alt-text="Architecture diagram that shows how to deploy Health Data Services on Azure and integrate with other Azure services." border="false":::
 
-link 
+*Download a [Visio file](https://arch-center.azureedge.net/.vsdx) of this architecture.* 
 
 ## Workflow
 
@@ -30,7 +30,7 @@ link
 
 - [API Management](https://azure.microsoft.com/products/api-management/) is a hybrid multicloud  platform for managing APIs across all environments. You can import FHIR APIs into API Management by using the [Swagger API definition](https://fhir2apim.azurewebsites.net/). You can use API Management to throttle inbound calls, authenticate/authorize users, and perform other tasks.
 
-- [Azure Health Data Services](https://azure.microsoft.com/products/health-data-services) is a set of managed API services based on open standards and frameworks that enable workflows that improve healthcare and offer scalable, enhanced-security healthcare solutions. Azure Health Data Services FHIR service is deployed with private endpoint to help ensure that it can be accessed only from your virtual network or by external users over the internet via Application Gateway.
+- [Health Data Services](https://azure.microsoft.com/products/health-data-services) is a set of managed API services based on open standards and frameworks that enable workflows that improve healthcare and offer scalable, enhanced-security healthcare solutions. Health Data Services FHIR service is deployed with private endpoint to help ensure that it can be accessed only from your virtual network or by external users over the internet via Application Gateway.
 
 - [FHIR Loader](https://github.com/microsoft/fhir-loader) is an Azure Functions solution that provides services for importing FHIR bundles (compressed and non-compressed) and NDJSON files into a FHIR service.
 
