@@ -1276,8 +1276,8 @@ items:
         href: solution-ideas/articles/contract-management.yml
       - name: Custom speech-to-text
         href: guide/ai/custom-speech-text-deploy.yml
-      - name: Customer churn prediction
-        href: solution-ideas/articles/customer-churn-prediction.yml
+      # - name: Customer churn prediction
+      #   href: solution-ideas/articles/customer-churn-prediction.yml
       # - name: Customer feedback
       #   href: solution-ideas/articles/customer-feedback-and-analytics.yml
       - name: Customer order forecasting
@@ -1312,16 +1312,16 @@ items:
       #   href: solution-ideas/articles/digital-media-speech-text.yml
       # - name: Large-scale custom NLP
       #   href: solution-ideas/articles/large-scale-custom-natural-language-processing.yml
-      - name: Marketing optimization
-        href: solution-ideas/articles/optimize-marketing-with-machine-learning.yml
+      # - name: Marketing optimization
+      #   href: solution-ideas/articles/optimize-marketing-with-machine-learning.yml
       - name: Model deployment to AKS
         href: solution-ideas/articles/machine-learning-model-deployment-aks.yml
       - name: Orchestrate MLOps with Azure Databricks
         href: reference-architectures/ai/orchestrate-mlops-azure-databricks.yml
       - name: Personalized marketing solutions
         href: solution-ideas/articles/personalized-marketing.yml
-      - name: Personalized offers
-        href: solution-ideas/articles/personalized-offers.yml
+      # - name: Personalized offers
+      #   href: solution-ideas/articles/personalized-offers.yml
       - name: Population health management
         href: solution-ideas/articles/population-health-management-for-healthcare.yml
       - name: Predictive maintenance
@@ -1341,7 +1341,7 @@ items:
       # - name: Vision classifier model
       #   href: example-scenario/dronerescue/vision-classifier-model-with-custom-vision.yml
       # - name: Visual assistant
-      #   href: solution-ideas/articles/visual-assistant.yml
+      #   href: solution-ideas/articles/visual-assistant.yml 
     - name: OpenAI
       items: 
       - name: Architectures 

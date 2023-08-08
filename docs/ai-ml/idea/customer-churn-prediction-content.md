@@ -4,7 +4,7 @@ Customer Churn Prediction uses Azure AI platform to predict churn probability, a
 
 ## Architecture
 
-[ ![Architecture diagram: predicting customer churn with machine learning.](../media/customer-churn-prediction.png)](../media/customer-churn-prediction.png#lightbox)
+[ ![Architecture diagram: predicting customer churn with machine learning.](_images/customer-churn-prediction.png)](_images/customer-churn-prediction.png#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/customer-churn-prediction.vsdx) of this architecture.*
 

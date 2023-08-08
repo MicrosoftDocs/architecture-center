@@ -26,12 +26,20 @@ items:
         items:
         - name: Keyword digital text processing
           href: idea/digital-media-speech-text.yml
+      - name: Predictive analytics
+        items:
+        - name: Customer churn prediction
+          href: idea/customer-churn-prediction.yml
+        - name: Personalized offers
+          href: idea/personalized-offers.yml
+        - name: Marketing optimization
+          href: idea/optimize-marketing-with-machine-learning.yml          
       - name: AI at the edge
         items:
         - name: AI at the edge with Azure Stack Hub
           href: idea/ai-at-the-edge.yml
         - name: Disconnected AI at the edge with Azure Stack Hub
-          href: idea/ai-at-the-edge-disconnected.yml
+          href: idea/ai-at-the-edge-disconnected.yml 
 
     # - name: Design architectures
     #   items:
