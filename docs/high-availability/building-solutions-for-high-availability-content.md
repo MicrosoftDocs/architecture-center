@@ -1,12 +1,13 @@
-Microsoft Azure global infrastructure is designed and constructed at every layer to deliver the highest levels of redundancy and resiliency to its customers. Azure infrastructure is composed of geographies, regions, and availability zones, which limit the blast radius of a failure and therefore limit potential impact to customer applications and data. The Azure availability zones construct was developed to provide a software and networking solution to protect against datacenter failures and to provide increased high availability (HA) to our customers.
+Microsoft Azure global infrastructure is designed and constructed at every layer to deliver the highest levels of redundancy and resiliency. Azure infrastructure is composed of geographies, regions, and availability zones, which limit the blast radius of a failure and therefore limit potential impact to customer applications and data. Azure availability zones provide help to protect against datacenter failures and to provide increased high availability (HA).
 
 Availability zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters with independent power, cooling, and networking. The physical separation of availability zones within a region limits the impact to applications and data from zone failures, such as large-scale flooding, major storms and superstorms, and other events that could disrupt site access, safe passage, extended utilities uptime, and the availability of resources. Availability zones and their associated datacenters are designed such that if one zone is compromised, the services, capacity, and availability are supported by the other availability zones in the region.
 
-Availability zones can be used to spread a solution across multiple zones within a region, allowing for an application to continue functioning when one zone fails. With availability zones, Azure offers industry best 99.99% [Virtual Machine (VM) uptime service-level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/). Zone-redundant services replicate your services and data across availability zones to protect from single points of failure. If you are designing highly available solutions on Azure that are mission-critical in nature, in addition to using availability zones, [global distribution across multiple Azure regions](/azure/architecture/framework/mission-critical/mission-critical-application-design#global-distribution) is highly recommended.
+Availability zones can be used to spread a solution across multiple zones within a region, allowing for an application to continue functioning when one zone fails. When you use availability zones, Azure offers an industry-best 99.99% [Virtual Machine (VM) uptime service-level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/). Zone-redundant services replicate your services and data across availability zones to protect from single points of failure. If you are designing highly available solutions on Azure that are mission-critical in nature, you can extend the reliability provided by availability zones by [globally distributing your solution across multiple Azure regions](/azure/architecture/framework/mission-critical/mission-critical-application-design#global-distribution).
 
 ![Diagram showing Azure availability zones 1-3.](./images/high-availability-001.png)
 
-For additional information on availability zones, including service support by region and pricing, see [What are availability zones in Azure?](/azure/availability-zones/az-overview).
+For additional information about availability zones, see [What are availability zones in Azure?](/azure/availability-zones/az-overview). For information about which regions support availability zones, see [
+Azure regions with availability zone support](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support).
 
 ## Availability zones reference architectures
 
@@ -18,10 +19,12 @@ The following architectures feature high-availability scenarios:
 - [Multi-region load balancing with Traffic Manager and Application Gateway](./reference-architecture-traffic-manager-application-gateway.yml)
 - [Multi-region web app with private connectivity to database](../example-scenario/sql-failover/app-service-private-sql-multi-region.yml)
 - [Multi-tier web application built for HA/DR](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)
+- [Baseline highly available zone-redundant web application](../web-apps/app-service/architectures/baseline-zone-redundant.yml)
+- [Azure Spring Apps baseline architecture](../web-apps/spring-apps/architectures/spring-apps-multi-zone.yml)
 
 ## Delivering reliability in Azure
 
-Designing solutions that continue to function in spite of failure is key to improving the reliability of a solution. In cloud-based solutions, building to survive failure is a shared responsibility. This can be viewed at three levels: a resilient foundation, resilient services, and resilient applications. The foundation is the Microsoft investment in the platform, including availability zones. On top of this foundation are the Azure services that customers can enable to support high availability, such as zone-redundant storage (ZRS), which replicates data across zones. The customer builds applications upon the enabled services supported by the foundation. The applications should be architected to support resiliency.
+Designing solutions that continue to function in spite of failure is key to improving the reliability of a solution. In cloud-based solutions, building to survive failure is a shared responsibility. This can be viewed at three levels: a resilient foundation, resilient services, and resilient applications. The foundation is the Microsoft investment in the platform, including availability zones. On top of this foundation are the Azure services that customers can enable to support high availability, such as zone-redundant storage (ZRS), which replicates data across zones. The customer builds applications upon the enabled services supported by the foundation. The applications should be designed to support resiliency.
 
 <div align="center"> 
 <hr />
@@ -41,7 +44,8 @@ Designing solutions that continue to function in spite of failure is key to impr
 <hr />
 </div>
 
-When architecting for resilience, all three layers-foundation, services, and applications-should be considered to achieve the highest level of reliability. Since a solution can be made up of many components, each component should be designed for reliability.
+When designing a resilent architecture, consider all three layers - foundation, services, and applications - so that you can achieve highest level of reliability. Because a solution can be made up of many components, each component should be designed for reliability.
+
 
 ## Zonal vs. zone-redundant architecture
 
