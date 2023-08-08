@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Azure Health Data Services architecture guide
-  description: Deploy Azure Health Data Services on Azure and integrate it with various Azure services.
+  description: Deploy Azure Health Data Services on Azure to improve your ability to safeguard your organization's health data.
   author: UmarMohamedUsman
   ms.author: umarm, vsantana, sonalikaroy, srpadala
   ms.date: 08/09/2023
