@@ -126,7 +126,7 @@ Every organization has unique requirements, and you should design your applicati
 
 For additional guidance, see [Principles of the reliability pillar](/azure/architecture/framework/resiliency/principles).
 
-Depending on the availability needs of an application, the cost and design complexity varies. When you build a VM workload, there's a cost associated with each VM. For example, two VMs per zone across three active zones means you need to pay for a total of six VMs. For pricing of VM workloads, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=virtual-machines).
+Depending on the availability needs of an application, the cost and design complexity varies. When you build a VM workload, there's a cost associated with each VM. For example, suppose you deploy two VMs into each of three availability zones. In this scenario, you need to pay for a total of six VMs. For pricing of VM workloads, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=virtual-machines).
 
 ## Next steps
 
