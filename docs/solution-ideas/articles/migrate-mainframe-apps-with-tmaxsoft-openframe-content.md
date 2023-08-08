@@ -35,7 +35,7 @@ The following diagram shows the patient record creation request flow:
 
 1. Azure ExpressRoute creates private connections between the on-premises infrastructure and Azure. Transport Layer Security (TLS) connections that use port 443 provide access to web-based applications:
    - After migration, the web application presentation layer remains virtually unchanged. As a result, end users require minimal retraining. Alternatively, the web application presentation layer can be updated to align with UX goals.
-   - [Azure VM Bastion hosts][What is Azure Bastion] work to maximize security. While giving administrators access to VMs, these hosts minimize the number of open ports.
+   - [Azure Bastion hosts][What is Azure Bastion] work to maximize security. While giving administrators access to VMs, these hosts minimize the number of open ports.
    - OpenFrame provides middleware integration. For instance, this functionality works with web services and [message queues (MQs)][Message queues].
 
 1. The TmaxSoft solution uses two VMs. Each one runs an application server, and an Azure Load Balancer manages approaching traffic. OpenFrame supports both [active-active][Active-active definition] and [active-passive][Active-passive definition] configurations.
@@ -52,7 +52,7 @@ The following diagram shows the patient record creation request flow:
 
 - [Azure ExpressRoute][Azure ExpressRoute] extends on-premises networks into the Microsoft cloud by using a connectivity provider. ExpressRoute establishes private connections to Microsoft cloud services like [Microsoft Azure][What is Azure] and [Microsoft 365][What is Microsoft 365].
 
-- [Azure VM Bastion][What is Azure Bastion] provides secure and seamless [Remote Desktop Protocol (RDP)][RDP] and [Secure Shell (SSH)][SSH] connectivity to VMs in a network. Instead of using a public IP address, users connect to the VMs directly from the Azure portal.
+- [Azure Bastion][What is Azure Bastion] provides secure and seamless [Remote Desktop Protocol (RDP)][RDP] and [Secure Shell (SSH)][SSH] connectivity to VMs in a network. Instead of using a public IP address, users connect to the VMs directly from the Azure portal.
 
 - [Azure Load Balancer][Azure Load Balancer] operates at layer four of the [Open Systems Interconnection (OSI)][OSI model] model. As the single point of contact for clients, Load Balancer distributes inbound traffic to back-end pool instances. It directs traffic according to configured load-balancing rules and health probes. The back-end pool instances can be Azure VMs or instances in a virtual machine scale set.
 
