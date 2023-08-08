@@ -3076,7 +3076,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "docs/solution-ideas/articles/docs/solution-ideas/articles/visual-assistant.yml",
+      "source_path": "/docs/solution-ideas/articles/visual-assistant.yml",
       "redirect_url": "/azure/architecture/ai-ml/idea/visual-assistant",
       "redirect_document_id": true
     },
@@ -3084,6 +3084,12 @@
       "source_path": "docs/example-scenario/dronerescue/vision-classifier-model-with-custom-vision.yml",
       "redirect_url": "/azure/architecture/ai-ml/idea/vision-classifier-model-with-custom-vision",
       "redirect_document_id": true
-    } 
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/digital-media-speech-text.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/digital-media-speech-text",
+      "redirect_document_id": true
+    }
+    
   ]
 }

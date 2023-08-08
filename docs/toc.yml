@@ -1304,12 +1304,12 @@ items:
         href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
       - name: FAQ chatbot
         href: solution-ideas/articles/faq-chatbot-with-data-champion-model.yml
-      - name: Image classification with CNNs
+      # - name: Image classification with CNNs
       #   href: solution-ideas/articles/image-classification-with-convolutional-neural-networks.yml
-      # - name: Interactive voice response bot
+      - name: Interactive voice response bot
         href: solution-ideas/articles/interactive-voice-response-bot.yml
-      - name: Keyword digital text processing
-        href: solution-ideas/articles/digital-media-speech-text.yml
+      # - name: Keyword digital text processing
+      #   href: solution-ideas/articles/digital-media-speech-text.yml
       # - name: Large-scale custom NLP
       #   href: solution-ideas/articles/large-scale-custom-natural-language-processing.yml
       - name: Marketing optimization
@@ -3602,7 +3602,7 @@ items:
       - name: HPC media rendering
         href: solution-ideas/articles/azure-batch-rendering.yml
       - name: Keyword search and speech-to-text
-        href: solution-ideas/articles/digital-media-speech-text.yml
+        href: ai-ml/idea/digital-media-speech-text.yml
       - name: SMB disaster recovery with Site Recovery
         href: solution-ideas/articles/disaster-recovery-smb-azure-site-recovery.yml
       - name: SMB disaster recovery with Double-Take DR
@@ -3695,7 +3695,7 @@ items:
       - name: Instant broadcasting with serverless
         href: /azure/architecture/serverless-quest/serverless-overview
       - name: Keyword search in videos
-        href: solution-ideas/articles/digital-media-speech-text.yml
+        href: ai-ml/idea/digital-media-speech-text.yml
       - name: Live streaming digital media
         href: solution-ideas/articles/digital-media-live-stream.yml
       - name: Video-on-demand digital media

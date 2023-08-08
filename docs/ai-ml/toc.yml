@@ -22,12 +22,17 @@ items:
           href: idea/visual-assistant.yml
         - name: Vision classifier model
           href: idea/vision-classifier-model-with-custom-vision.yml                        
+      - name: Audio processing
+        items:
+        - name: Keyword digital text processing
+          href: idea/digital-media-speech-text.yml
       - name: AI at the edge
         items:
         - name: AI at the edge with Azure Stack Hub
           href: idea/ai-at-the-edge.yml
         - name: Disconnected AI at the edge with Azure Stack Hub
-          href: idea/ai-at-the-edge-disconnected.yml          
+          href: idea/ai-at-the-edge-disconnected.yml
+
     # - name: Design architectures
     #   items:
     #   - name: Host web apps with App Service

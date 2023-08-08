@@ -4,7 +4,7 @@ This solution idea identifies speech in static video files to manage speech as s
 
 ## Architecture
 
-[ ![Architecture diagram shows the flow from the source through Azure blob storage and live encoder to the streaming endpoint.](../media/digital-media-speech-text.svg)](../media/digital-media-speech-text.svg#lightbox)
+[ ![Architecture diagram shows the flow from the source through Azure blob storage and live encoder to the streaming endpoint.](_images/digital-media-speech-text.svg)](_images/digital-media-speech-text.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/digital-media-speech-text.vsdx) of this architecture.*
 
@@ -61,5 +61,5 @@ This solution applies to scenarios that can benefit from the ability to search r
 ## Related resources
 
 - [Gridwich cloud media system](../../reference-architectures/media-services/gridwich-architecture.yml)
-- [Live stream digital media](./digital-media-live-stream.yml)
+- [Live stream digital media](../../solution-ideas/articles/digital-media-live-stream.yml)
 - [Video-on-demand digital media](/azure/architecture/solution-ideas/articles/digital-media-video)
