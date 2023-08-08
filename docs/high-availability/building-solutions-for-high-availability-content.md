@@ -46,51 +46,62 @@ Designing solutions that continue to function in spite of failure is key to impr
 
 When designing a resilent architecture, consider all three layers - foundation, services, and applications - so that you can achieve highest level of reliability. Because a solution can be made up of many components, each component should be designed for reliability.
 
+## Zonal and zone-redundant architectures
 
-## Zonal vs. zone-redundant architecture
+Azure services supporting availability zones fall into two categories: *zonal* and *zone-redundant*. You can select an approach to meet your performance and durability requirements. Some Azure services support one approach, and other services support both approaches. For a list of Azure services that support availability zones, see the [availability zones documentation](/azure/availability-zones/az-region).
 
-An Availability Zone in an Azure region is a combination of a fault domain and an update domain. For example, if you create three or more VMs across three zones in an Azure region, your VMs are effectively distributed across three fault domains and three update domains. The Azure platform recognizes this distribution across update domains to take care that VMs in different zones are not updated at the same time.
+By designing your solution to use multiple availability zones, you can protect your applications and data from a zone becoming unavailable. For example if one zone is compromised by a power failure, replicated apps and data are instantly available in another zone.
 
-Azure services supporting availability zones fall into two categories: zonal and zone redundant. Customer workloads can be categorized to utilize either architecture scenario to meet application performance and durability requirements.
+### Zonal architecture
 
-With *zonal* architecture, a resource can be deployed to a specific, self-selected Availability Zone to achieve more stringent latency or performance requirements. Resiliency is self-architected by replicating applications and data to one or more zones within the region. You can choose specific availability zones for synchronous replication, providing high availability, or asynchronous replication, providing backup or cost advantage. You can pin resources-for example, virtual machines, managed disks, or standard IP addresses-to a specific zone, allowing for increased resilience by having one or more instances of resources spread across zones.
+When you deploy a *zonal* component, it's deployed to a specific, self-selected availability zone. You can pin resources like virtual machines, managed disks, and standard IP addresses to a specific availability zone. This approach helps you to achieve strict latency or performance requirements, because traffic within the zone doesn't have to travel far.
 
-With *zone-redundant* architecture, the Azure platform automatically replicates the resource and data across zones. Microsoft manages the delivery of high availability, since Azure automatically replicates and distributes instances within the region.
+By itself, a zonal approach doesn't give you resiliency. In the case of an availability zone failure, the zonal services in the failed zone become unavailable until the zone has recovered. You need to replicate your applications and data to one or more zones within the region so that you're resilient to a zone outage. This approach allows for increased resilience by having one or more instances of resources spread across zones.
 
-A failure to a zone affects zonal and zone-redundant services differently. In the case of a zone failure, the zonal services in the failed zone become unavailable until the zone has recovered. By architecting your solutions to use replicated VMs in zones, you can protect your applications and data from a zone becoming unavailable-for example, due to a power outage. If one zone is compromised, replicated apps and data are instantly available in another zone.
-
-Zonal architecture applies to a specific resource, typically an infrastructure as a service (IaaS) resource, like a VM or managed disk, as illustrated.
+In general, zonal configuration is supported by infrastructure as a service (IaaS) resources, like a VM or managed disk, as illustrated.
 
 ![Diagram showing zonal architecture.](./images/high-availability-002.png)
 
-*For example, zonal load balancer, VM, managed disks, virtual machine scale sets.*
+In the illustration, each VM and load balancer (LB) are deployed to a specific availability zone.
 
-In the illustration, each VM and load balancer (LB) are deployed to a specific zone.
+When you configure a zonal solution, you can typically decide how you want to replicate your data:
 
-With zone-redundant services, the distribution of the workload is a feature of the service and is handled by Azure. Azure automatically replicates the resource across zones without requiring your intervention. ZRS, for example, replicates the data across three zones so a zone failure does not impact the HA of the data.
+- **Synchronous replication** ensures that your data is always up-to-date across each availability zone, which minimizes the risk of any data loss during an outage. However, for some workloads, synchronous replication might increase the latency of your application because changes to your data have to be confirmed by multiple places before the write operation can be completed.
+- **Asynchronous replication** updates secondary copies of your data after the write has already completed, so this approach doesn't introduce latency into your transactions. However, if an outage happens of one availability zone, you might lose any data that hasn't already been replicated.
 
-The following illustration is of a zone-redundant load balancer.
+> [!TIP]
+> For most scenarios, it's a good idea to use synchronous replication across availability zones. Most applications aren't sensitive enough to be affected by the small amount of latency required for synchronous replication.
+
+### Zone-redundant architecture
+
+With a *zone-redundant* architecture, Azure automatically replicates a resource and its configuration and data across mulitple availablity zones. Microsoft manages the delivery of high availability, including distributing traffic between the availability zones, synchronously replicating data, and managing failover if an availability zone has an outage.
+
+For example, when you configure an Azure Storage account to use zone-redundant storage (ZRS), Azure replicates the data across three zones so a zone failure does not impact the availability of the data.
+
+In general, zone-redundant configuration is supported by platform as a service (PaaS) services, including Azure Storage, Azure Service Bus, Azure Application Gateway, virtual private network (VPN) gateways, Azure ExpressRoute gateways, Azure Event Hubs, Azure Cosmos DB. Standard load balancers also support zone redundancy, as illustrated in the following figure:
 
 ![Diagram showing a zone-redundant load balancer.](./images/high-availability-003.png)
 
-*For example, zone-redundant load balancer, Azure Application Gateway, Azure Service Bus, virtual private network (VPN), zone-redundant storage, Azure ExpressRoute, Azure Event Hubs, Azure Cosmos DB.*
-
-A few resources, like the load balancer and subnets, support both zonal and zone-redundant deployments. An important consideration in HA is distributing the traffic effectively across resources in the different availability zones. For information on how availability zones apply to the load balancer resources for both zonal and zone-redundant resources, see [Standard Load Balancer and availability zones](/azure/load-balancer/load-balancer-standard-availability-zones).
-
-For a list of Azure services that support availability zones, see the [availability zones documentation](/azure/availability-zones/az-region).
+Some resources, like load balancers, support both zonal and zone-redundant deployments. You can select an approach that makes sense for the rest of your solution.  For information on how availability zones apply to load balancers in both zonal and zone-redundant configurations, see [Standard Load Balancer and availability zones](/azure/load-balancer/load-balancer-standard-availability-zones).
 
 ## SLA offered by availability zones
 
-With availability zones, Azure offers industry best 99.99% VM uptime SLA. The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/) explains the guaranteed availability of Azure as a whole.
+With availability zones, Azure offers an industry-best 99.99% VM uptime SLA. For more information, see the [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/).
 
-The following diagram illustrates the different levels of HA offered by a single VM, Availability Sets, and availability zones.
+The following diagram illustrates the different levels of HA offered by a single VM, availability sets, and availability zones:
 
-![Diagram showing levels of HA that are offered by a single VM, Availability Sets, and availability zones.](./images/high-availability-004.png)
+![Diagram showing levels of HA that are offered by a single VM, availability sets, and availability zones.](./images/high-availability-004.png)
 
-Using a VM workload as an example, a single VM has an SLA of 99.9%. This means the VM will be available 99.9% of the time. Within a single datacenter, the use of Availability Sets can increase the level of SLA to 99.95% by protecting a set of VMs, ensuring they will not all be on the same hardware. Within a region, VM workloads can be distributed across availability zones to increase the SLA to
-99.99%. For more information, see [Availability options for VMs in Azure](/azure/virtual-machines/availability).
+For example, consider a VM-based workload. You have multiple ways that you can configure the VM:
+- If you deploy it as a single VM, it has an SLA of 99.9%. This means the VM will be available 99.9% of the time.
+- If you deploy it into an availability set, Azure provides a higher SLA. Azure guarantees that a VM within the availability set will be available 99.95% of the time, and it ensures they're no all on the same hardware to meet this guarantee.
+- Within a region, VM workloads can be distributed across multiple availability zones to increase the SLA to 99.99%. Azure guarantees that a VM instance will be available 99.99% of the time.
 
-Every organization has unique requirements, and you should design your applications to best meet your complex business needs. Defining a target SLA will make it possible to evaluate whether the architecture meets your business requirements. Some things to consider include:
+For more information, see [Availability options for VMs in Azure](/azure/virtual-machines/availability).
+
+Other services provide different guarantees based on their own use of availability zones. For example, Azure Cosmos DB provides a higher SLA when you configure it to use zone redundancy compared to when you don't use zone redundancy.
+
+Every organization has unique requirements, and you should design your applications to best meet your own business needs. Defining a target SLA will make it possible to evaluate whether the architecture meets your business requirements. Some things to consider include:
 
 - What are the availability requirements?
 
@@ -99,6 +110,8 @@ Every organization has unique requirements, and you should design your applicati
 - How much will potential downtime cost your business?
 
 - How much should you invest in making the application highly available?
+
+- In the event of a disaster, how much data loss is acceptable?
 
 - What are the data backup requirements?
 
