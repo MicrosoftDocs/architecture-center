@@ -2231,14 +2231,14 @@
 						x="27.93" dy="1.2em" class="st46">Subnet 10.0.0.0/24</tspan></text>		</g>
 		<g id="shape407-441" v:mID="407" v:groupContext="shape" transform="translate(606.6,-676.105)">
 			<title>Sheet.407</title>
-			<desc>Users from Azure Systems</desc>
+			<desc>Users from Azure systems</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(91000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="73.0312" cy="707.053" width="146.07" height="25.895"/>
 			<rect x="0" y="694.105" width="146.062" height="25.895" class="st7"/>
-			<text x="10.02" y="710.35" class="st45" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Users from Azure Systems</text>		</g>
+			<text x="10.61" y="710.35" class="st45" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Users from Azure systems</text>		</g>
 		<g id="shape408-444" v:mID="408" v:groupContext="shape" transform="translate(607.482,-635.314)">
 			<title>Sheet.408</title>
 			<desc>Peer virtual network</desc>
@@ -2251,14 +2251,14 @@
 			<text x="10.08" y="710.35" class="st45" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Peer virtual network</text>		</g>
 		<g id="shape409-447" v:mID="409" v:groupContext="shape" transform="translate(495,-586.087)">
 			<title>Sheet.409</title>
-			<desc>Azure load balancer</desc>
+			<desc>Azure Load Balancer</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(93000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="58.5181" cy="707.053" width="117.04" height="25.895"/>
 			<rect x="0" y="694.105" width="117.036" height="25.895" class="st7"/>
-			<text x="10.37" y="710.35" class="st45" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure load balancer</text>		</g>
+			<text x="9.2" y="710.35" class="st45" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Load Balancer</text>		</g>
 		<g id="group410-450" transform="translate(452.64,-558)" v:mID="410" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
@@ -2323,16 +2323,16 @@
 				<ellipse cx="4.0493" cy="715.951" rx="4.0493" ry="4.0493" class="st29"/>
 			</g>
 		</g>
-		<g id="shape417-465" v:mID="417" v:groupContext="shape" transform="translate(18,-612)">
+		<g id="shape417-465" v:mID="417" v:groupContext="shape" transform="translate(4.5,-612)">
 			<title>Sheet.417</title>
-			<desc>Express route</desc>
+			<desc>ExpressRoute</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(95000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="40.5" cy="707.053" width="81" height="25.895"/>
 			<rect x="0" y="694.105" width="81" height="25.895" class="st7"/>
-			<text x="8.01" y="710.35" class="st45" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Express route</text>		</g>
+			<text x="8.14" y="710.35" class="st45" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>ExpressRoute</text>		</g>
 		<g id="shape418-468" v:mID="418" v:groupContext="shape" transform="translate(-3.79813,-681.678)">
 			<title>Sheet.418</title>
 			<desc>On-premises</desc>
@@ -2355,7 +2355,7 @@
 			<text x="13.34" y="710.35" class="st45" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure</text>		</g>
 		<g id="shape420-474" v:mID="420" v:groupContext="shape" transform="translate(85.4819,-624.835)">
 			<title>Sheet.420</title>
-			<desc>Web browsing, TLS over Port 443 Bastion host, TLS over Port 4...</desc>
+			<desc>Web browsing, TLS over port 443 bastion host, TLS over port 4...</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(98000):26"/>
 			</v:userDefs>
@@ -2363,8 +2363,8 @@
 			<v:textRect cx="58.5181" cy="707.053" width="117.04" height="25.895"/>
 			<rect x="0" y="694.105" width="117.036" height="25.895" class="st7"/>
 			<text x="12.31" y="690.55" class="st45" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Web browsing, TLS <tspan
-						x="6.56" dy="1.2em" class="st46">over Port 443 Bastion </tspan><tspan x="13.16" dy="1.2em" class="st46">host, TLS over Port </tspan><tspan
-						x="6.25" dy="1.2em" class="st46">443 Webservices, MQ</tspan></text>		</g>
+						x="6.33" dy="1.2em" class="st46">over port 443 bastion </tspan><tspan x="13" dy="1.2em" class="st46">host, TLS over port </tspan><tspan
+						x="5.9" dy="1.2em" class="st46">443 web services, MQ</tspan></text>		</g>
 		<g id="shape421-480" v:mID="421" v:groupContext="shape" transform="translate(57.8825,-450)">
 			<title>Sheet.421</title>
 			<desc>3270 WebTerminal</desc>
