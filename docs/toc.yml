@@ -1330,6 +1330,8 @@ items:
         href: solution-ideas/articles/speech-services.yml
       - name: Vehicle telematics
         href: solution-ideas/articles/predictive-insights-with-vehicle-telematics.yml
+      - name: Video ingestion and object detection on the edge 
+        href: solution-ideas/articles/video-ingestion-object-detection-edge-cloud.yml
       - name: Vision classifier model
         href: example-scenario/dronerescue/vision-classifier-model-with-custom-vision.yml
       - name: Visual assistant
