@@ -1,4 +1,4 @@
-Microsoft Azure's global infrastructure is designed and constructed at every layer to deliver the highest levels of redundancy and resiliency. Azure infrastructure is composed of geographies, regions, and availability zones. Each of these components help you to limit the blast radius of a failure, and therefore limit potential impact to your applications and data. Azure availability zones provide help to protect against datacenter failures and to provide increased high availability (HA).
+Microsoft Azure's global infrastructure is designed and constructed at every layer to deliver the highest levels of redundancy and resiliency. Azure infrastructure is composed of geographies, regions, and availability zones. Each of these components helps you to limit the blast radius of a failure, and therefore limit potential impact to your applications and data. Azure availability zones provide help to protect against datacenter failures and to provide increased high availability (HA).
 
 Availability zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters with independent power, cooling, and networking. The physical separation of availability zones within a region limits the impact to applications and data from zone failures, such as power and cooling failures, large-scale flooding, major storms and superstorms, and other events that could disrupt site access, safe passage, extended utilities uptime, and the availability of resources. Availability zones and their associated datacenters are designed such that if one zone is compromised, the services, capacity, and availability are supported by the other availability zones in the region.
 
@@ -24,7 +24,7 @@ The following architectures feature high-availability scenarios:
 
 ## Delivering reliability in Azure
 
-The key to improving the reliability of a solution is to design it to continue to function in spite of failure. In cloud-based solutions, building to survive failure is a shared responsibility. These resposibilities can be viewed at three levels: a resilient foundation, resilient services, and resilient applications. The foundation is Microsoft's investment in the platform, including availability zones. On top of this foundation are the Azure services that you use and configure to support high availability. For example, when you use Azure Storage, you can use zone-redundant storage (ZRS), which automatically replicates data across zones. You then builds your applications on top of the foundation and your chosen services. You need to design your applications to support resiliency.
+The key to improving the reliability of a solution is to design it to continue to function in spite of failure. In cloud-based solutions, building to survive failure is a shared responsibility. These responsibilities can be viewed at three levels: a resilient foundation, resilient services, and resilient applications. The foundation is Microsoft's investment in the platform, including availability zones. On top of this foundation are the Azure services that you use and configure to support high availability. For example, when you use Azure Storage, you can use zone-redundant storage (ZRS), which automatically replicates data across zones. You then build your applications on top of the foundation and your chosen services. You need to design your applications to support resiliency.
 
 <div align="center"> 
 <hr />
@@ -77,7 +77,7 @@ When you configure a zonal solution, you can typically decide how you want to re
 
 ### Zone-redundant architecture
 
-With a *zone-redundant* architecture, Azure automatically replicates a resource and its configuration and data across mulitple availablity zones. Microsoft manages the delivery of high availability, including distributing traffic between the availability zones, synchronously replicating data, and failing over if an availability zone has an outage.
+With a *zone-redundant* architecture, Azure automatically replicates a resource and its configuration and data across multiple availability zones. Microsoft manages the delivery of high availability, including distributing traffic between the availability zones, synchronously replicating data, and failing over if an availability zone has an outage.
 
 For example, when you configure an Azure Storage account to use zone-redundant storage (ZRS), Azure replicates the data in your storage account across multiple zones. ZRS means that a zone failure doesn't impact the availability of the data.
 
@@ -126,7 +126,7 @@ Every organization has unique requirements, and you should design your applicati
 
 For additional guidance, see [Principles of the reliability pillar](/azure/architecture/framework/resiliency/principles).
 
-Depending on the availability needs of an application, the cost and design complexity varies. When building for a VM workload, there's be a cost associated with each VM. For example, two VMs per zone across three active zones has have a cost for six VMs. For pricing of VM workloads, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=virtual-machines).
+Depending on the availability needs of an application, the cost and design complexity varies. When you build a VM workload, there's a cost associated with each VM. For example, two VMs per zone across three active zones means you need to pay for a total of six VMs. For pricing of VM workloads, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=virtual-machines).
 
 ## Next steps
 
