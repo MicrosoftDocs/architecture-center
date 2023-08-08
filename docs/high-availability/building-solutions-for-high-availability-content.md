@@ -65,7 +65,7 @@ When you deploy a *zonal* component, it's deployed to a specific availability zo
 
 In the illustration above, each VM and load balancer (LB) are deployed to a specific availability zone.
 
-This approach helps you to achieve strict latency or performance requirements, because traffic within the zone doesn't have to travel far.
+This approach helps you to achieve strict latency or performance requirements by allowing you to pin multiple resources to a specific zone, ensuring traffic between them doesn't have to travel far.
 
 By itself, a zonal approach doesn't give you resiliency. In the case of an availability zone failure, the zonal services in the failed zone become unavailable until the zone has recovered. You need to replicate your applications and data to one or more zones within the region so that you're resilient to a zone outage.
 
@@ -79,7 +79,7 @@ When you configure a zonal solution, you can typically decide how you want to re
 
 ### Zone-redundant architecture
 
-With a *zone-redundant* architecture, Azure automatically replicates a resource and its configuration and data across multiple availability zones. Microsoft manages the delivery of high availability, including distributing traffic between the availability zones, synchronously replicating data, and failing over if an availability zone has an outage.
+With a *zone-redundant* architecture, Azure automatically replicates a resource and its configuration and data across multiple availability zones. Microsoft manages distributing traffic between the availability zones, synchronously replicating data, and failing over if an availability zone has an outage.
 
 For example, when you configure an Azure Storage account to use zone-redundant storage (ZRS), Azure replicates the data in your storage account across multiple zones. ZRS means that a zone failure doesn't impact the availability of the data.
 
