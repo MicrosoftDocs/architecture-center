@@ -53,7 +53,9 @@ Azure services supporting availability zones fall into two categories: *zonal* a
 By designing your solution to use multiple availability zones, you can protect your applications and data from a zone becoming unavailable. For example, if one zone is compromised by a power failure, replicated apps and data are instantly available in another zone.
 
 > [!TIP]
-> TODO
+> For many production workloads, a zone-redundant deployment provides the best balance of tradeoffs. If you aren't sure which approach to select, start with this type of deployment.
+>
+> Consider other workload approaches when you need the specific benefits that those approaches bring, but it's important to be aware of the tradeoffs involved.
 
 ### Zonal architecture
 
