@@ -12,9 +12,9 @@ This workflow describes how the system processes the incoming data:
 
 1.  A camera that's installed on the robot streams video in real time by using Real Time Streaming Protocol ([RTSP](/openspecs/windows_protocols/ms-dmct/fee912b4-f90e-458c-b44d-a03821c23fc3)).
 
-2.  A container in the Kubernetes cluster on Azure Stack Edge reads the incoming stream and splits video into separate images. An open-source software tool called [ffmpeg](https://ffmpeg.org/about.html) ingests and processes the video stream.
+2.  A container in the Kubernetes cluster on Azure Stack Edge reads the incoming stream and splits video into separate images. An open-source software tool called [FFmpeg](https://ffmpeg.org/about.html) ingests and processes the video stream.
 
-3.  Images are stored in the local Stack Edge storage account.
+3.  Images are stored in the local Azure Stack Edge storage account.
 
 4.  Each time a new key frame is saved in the storage account, an AI Vision container picks it up. For information about the separation of logic into multiple containers, see [Scenario details](#scenario-details).
 
@@ -22,9 +22,9 @@ This workflow describes how the system processes the incoming data:
 
 6.  The results of image analysis (detected objects and a confidence rating) are sent to the anomaly detection container.
 
-7.  The anomaly detection container stores the results of image analysis and anomaly detection in the local Stack Edge Azure SQL database for future reference. Using a local instance of the database improves access time, which helps to minimize delays in data access.
+7.  The anomaly detection container stores the results of image analysis and anomaly detection in the local Azure Stack Edge Azure SQL database for future reference. Using a local instance of the database improves access time, which helps to minimize delays in data access.
 
-8.  Data processing is run to detect any anomalies in the incoming real-time video stream. If anomalies are detected, an alert is raised via a front-end UI.
+8.  Data processing is run to detect any anomalies in the incoming real-time video stream. If anomalies are detected, a front-end UI shows an alert.
 
 ### Components
 
@@ -73,7 +73,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-One of the biggest advantages to using Stack Edge is that you get fully managed components on your on-premises hardware. All fully managed Azure components are automatically resilient at a regional level.
+One of the biggest advantages of using Azure Stack Edge is that you get fully managed components on your on-premises hardware. All fully managed Azure components are automatically resilient at a regional level.
 
 In addition, running the system in a Kubernetes cluster enables you to offload the responsibility for keeping the subsystems healthy to the Kubernetes orchestration system.
 
@@ -87,7 +87,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-To explore the cost of running this scenario, use the [Azure pricing calculator](https://azure.com/e/b5c7bb040b2f448389aec624b77bd85a). The most expensive components in the scenario are Stack Edge and Azure Kubernetes Service. These services provide capacity for scaling the system to address increased demand in the future.
+To see a pricing example for this scenario, use the [Azure pricing calculator](https://azure.com/e/b5c7bb040b2f448389aec624b77bd85a). The most expensive components in the scenario are Azure Stack Edge and Azure Kubernetes Service. These services provide capacity for scaling the system to address increased demand in the future.
 
 The cost of using Azure AI services for object detection varies based on how long the system runs. The preceding pricing example is based on a system that produces one image per second and operates for 8 hours per day. One FPS is sufficient for this scenario. However, if your system needs to run for longer periods of time, the cost of using Azure AI services is higher:
 
@@ -120,23 +120,16 @@ Other contributors:
 Product documentation:
 
 -   [Object detection](/azure/cognitive-services/computer-vision/concept-object-detection)
-
 -   [Responsible use of AI](/legal/cognitive-services/computer-vision/imageanalysis-transparency-note)
-
 -   [What is Azure Stack Edge Pro 2?](/azure/databox-online/azure-stack-edge-pro-2-overview)
-
 -   [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
-
 -   [Azure Arc overview](/azure/azure-arc/overview)
 
 Guided learning path:
 
 -   [Bring Azure innovation to your hybrid environments with Azure Arc](/training/paths/manage-hybrid-infrastructure-with-azure-arc/)
-
 -   [Introduction to Azure Kubernetes Service](/training/modules/intro-to-azure-kubernetes-service/)
-
 -   [Introduction to Azure Stack](/training/modules/intro-to-azure-stack/)
-
 -   [Analyze images with the Computer Vision service](/training/modules/analyze-images-computer-vision/)
 
 ## Related resources
