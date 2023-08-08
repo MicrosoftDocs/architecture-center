@@ -1,4 +1,4 @@
-Microsoft Azure global infrastructure is designed and constructed at every layer to deliver the highest levels of redundancy and resiliency. Azure infrastructure is composed of geographies, regions, and availability zones, which limit the blast radius of a failure and therefore limit potential impact to customer applications and data. Azure availability zones provide help to protect against datacenter failures and to provide increased high availability (HA).
+Microsoft Azure's global infrastructure is designed and constructed at every layer to deliver the highest levels of redundancy and resiliency. Azure infrastructure is composed of geographies, regions, and availability zones. Each of these components help you to limit the blast radius of a failure, and therefore limit potential impact to your applications and data. Azure availability zones provide help to protect against datacenter failures and to provide increased high availability (HA).
 
 Availability zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters with independent power, cooling, and networking. The physical separation of availability zones within a region limits the impact to applications and data from zone failures, such as large-scale flooding, major storms and superstorms, and other events that could disrupt site access, safe passage, extended utilities uptime, and the availability of resources. Availability zones and their associated datacenters are designed such that if one zone is compromised, the services, capacity, and availability are supported by the other availability zones in the region.
 
@@ -6,7 +6,7 @@ Availability zones can be used to spread a solution across multiple zones within
 
 ![Diagram showing Azure availability zones 1-3.](./images/high-availability-001.png)
 
-For additional information about availability zones, see [What are availability zones in Azure?](/azure/availability-zones/az-overview). For information about which regions support availability zones, see [
+For additional information about availability zones, see [What are availability zones in Azure?](/azure/availability-zones/az-overview) For information about which regions support availability zones, see [
 Azure regions with availability zone support](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support).
 
 ## Availability zones reference architectures
@@ -24,7 +24,7 @@ The following architectures feature high-availability scenarios:
 
 ## Delivering reliability in Azure
 
-Designing solutions that continue to function in spite of failure is key to improving the reliability of a solution. In cloud-based solutions, building to survive failure is a shared responsibility. This can be viewed at three levels: a resilient foundation, resilient services, and resilient applications. The foundation is the Microsoft investment in the platform, including availability zones. On top of this foundation are the Azure services that customers can enable to support high availability, such as zone-redundant storage (ZRS), which replicates data across zones. The customer builds applications upon the enabled services supported by the foundation. The applications should be designed to support resiliency.
+Designing solutions that continue to function in spite of failure is key to improving the reliability of a solution. In cloud-based solutions, building to survive failure is a shared responsibility. This can be viewed at three levels: a resilient foundation, resilient services, and resilient applications. The foundation is the Microsoft investment in the platform, including availability zones. On top of this foundation are the Azure services that you use and configure to support high availability. For example, when you use Azure Storage, you can use zone-redundant storage (ZRS), which replicates data across zones. You then builds your applications on top of the foundation and your chosen services. You need to design your applications to support resiliency.
 
 <div align="center"> 
 <hr />
