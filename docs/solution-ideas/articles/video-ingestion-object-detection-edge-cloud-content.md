@@ -98,7 +98,7 @@ The cost of using Azure AI services for object detection varies based on how lon
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-Because the code is deployed in a Kubernetes cluster, you can take advantage of the benefits of this powerful orchestration system. Because the various  subsystems are separated into containers, you can scale only the most demanding parts of the application. At a basic level, with one incoming video feed, the system can contain just one node in a cluster. This design significantly simplifies the initial configuration. As demand for data processing grows, you can easily scale the cluster by adding nodes.
+Because the code is deployed in a Kubernetes cluster, you can take advantage of the benefits of this powerful orchestration system. Because the various subsystems are separated into containers, you can scale only the most demanding parts of the application. At a basic level, with one incoming video feed, the system can contain just one node in a cluster. This design significantly simplifies the initial configuration. As demand for data processing grows, you can easily scale the cluster by adding nodes.
 
 ## Contributors
 
