@@ -30,7 +30,7 @@ products:
   - azure-app-service
   - azure-bot-service
   - azure-language-understanding
-  - azure-qna-maker
+  - ai-services
   - azure-application-insights
 thumbnailUrl: /azure/architecture/browse/thumbs/faq-chatbot-with-data-champion-model-thumbnail.png
 content: |
