@@ -1264,8 +1264,8 @@ items:
         href: solution-ideas/articles/autonomous-systems.yml
       - name: Azure Machine Learning architecture
         href: solution-ideas/articles/azure-machine-learning-solution-architecture.yml
-      - name: Business process management
-        href: solution-ideas/articles/business-process-management.yml
+      # - name: Business process management
+      #   href: solution-ideas/articles/business-process-management.yml
       - name: Content-based recommendations
         href: solution-ideas/articles/build-content-based-recommendation-system-using-recommender.yml
       - name: Content research
