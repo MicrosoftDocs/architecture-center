@@ -3184,6 +3184,11 @@
       "source_path": "docs/solution-ideas/articles/product-recommendations.yml",
       "redirect_url": "/azure/architecture/ai-ml/idea/personalized-offers",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/speech-services.yml",
+      "redirect_url": "/azure/architecture/data-guide/cognitive-services/speech-api",
+      "redirect_document_id": false
     }
   ]
 }

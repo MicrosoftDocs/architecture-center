@@ -1332,8 +1332,8 @@ items:
       #   href: solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml
       # - name: Retail product recommendations
       #   href: solution-ideas/articles/product-recommendations.yml
-      - name: Speech services
-        href: solution-ideas/articles/speech-services.yml
+      # - name: Speech services
+      #   href: solution-ideas/articles/speech-services.yml
       - name: Vehicle telematics
         href: solution-ideas/articles/predictive-insights-with-vehicle-telematics.yml
       # - name: Video ingestion and object detection on the edge 
