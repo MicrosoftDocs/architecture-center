@@ -1330,8 +1330,8 @@ items:
       #   href: solution-ideas/articles/predictive-marketing-campaigns-with-machine-learning-and-spark.yml
       # - name: Retail assistant with visual capabilities
       #   href: solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml
-      - name: Retail product recommendations
-        href: solution-ideas/articles/product-recommendations.yml
+      # - name: Retail product recommendations
+      #   href: solution-ideas/articles/product-recommendations.yml
       - name: Speech services
         href: solution-ideas/articles/speech-services.yml
       - name: Vehicle telematics
