@@ -188,7 +188,7 @@ Principal author:
 
  Other contributor:
 
-  * [Nelson Del Villar](https://www.linkedin.com/in/nelsondelvillar/) | Senior Customer Engineer, Azure Core Infrastructure
+  * [Nelson Del Villar](https://www.linkedin.com/in/nelsondelvillar/) | Cloud Solution Architect, Azure Core Infrastructure
 
 ## Next steps
 
