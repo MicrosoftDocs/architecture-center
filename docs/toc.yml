@@ -1272,8 +1272,8 @@ items:
         href: solution-ideas/articles/content-research.yml
       # - name: Content tagging with NLP
       #   href: solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.yml
-      - name: Contract management
-        href: solution-ideas/articles/contract-management.yml
+      # - name: Contract management
+      #   href: solution-ideas/articles/contract-management.yml
       - name: Custom speech-to-text
         href: guide/ai/custom-speech-text-deploy.yml
       # - name: Customer churn prediction

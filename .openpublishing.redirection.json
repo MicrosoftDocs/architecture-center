@@ -3129,6 +3129,12 @@
       "source_path": "docs/solution-ideas/articles/business-process-management.yml",
       "redirect_url": "https://azure.microsoft.com/solutions/knowledge-mining/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/contract-management.yml",
+      "redirect_url": "https://azure.microsoft.com/solutions/knowledge-mining/",
+      "redirect_document_id": false
     }
+    
   ]
 }
