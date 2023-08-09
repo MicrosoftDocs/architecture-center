@@ -4,7 +4,7 @@ This article presents a solution for real-time inferencing on [Azure Kubernetes 
 
 ## Architecture
 
-[ ![Architecture diagram that shows how machine learning models are deployed to Azure Kubernetes Services (AKS).](../media/machine-learning-model-deployment-to-aks.svg)](../media/machine-learning-model-deployment-to-aks.svg#lightbox)
+[ ![Architecture diagram that shows how machine learning models are deployed to Azure Kubernetes Services (AKS).](_images/machine-learning-model-deployment-to-aks.svg)](_images/machine-learning-model-deployment-to-aks.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/machine-learning-model-deployment-to-aks.vsdx) of this architecture.*
 

@@ -39,8 +39,13 @@ items:
         - name: AI at the edge with Azure Stack Hub
           href: idea/ai-at-the-edge.yml
         - name: Disconnected AI at the edge with Azure Stack Hub
-          href: idea/ai-at-the-edge-disconnected.yml 
-
+          href: idea/ai-at-the-edge-disconnected.yml
+      - name: MLOps
+        items:
+        - name: Model deployment to AKS
+          href: idea/machine-learning-model-deployment-aks.yml
+        - name: Orchestrate MLOps with Azure Databricks
+          href: idea/orchestrate-mlops-azure-databricks.yml          
     # - name: Design architectures
     #   items:
     #   - name: Host web apps with App Service

@@ -3104,6 +3104,16 @@
       "source_path": "docs/solution-ideas/articles/optimize-marketing-with-machine-learning.yml",
       "redirect_url": "/azure/architecture/ai-ml/idea/optimize-marketing-with-machine-learning",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/machine-learning-model-deployment-aks.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/machine-learning-model-deployment-aks",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/orchestrate-mlops-azure-databricks.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/orchestrate-mlops-azure-databricks",
+      "redirect_document_id": true
     }
     
   ]
