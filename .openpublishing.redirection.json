@@ -3119,6 +3119,11 @@
       "source_path": "docs/solution-ideas/articles/video-ingestion-object-detection-edge-cloud.yml",
       "redirect_url": "/azure/architecture/ai-ml/idea/video-ingestion-object-detection-edge-cloud",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/auditing-and-risk-compliance.yml",
+      "redirect_url": "https://azure.microsoft.com/solutions/knowledge-mining",
+      "redirect_document_id": false
     }
     
   ]
