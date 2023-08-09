@@ -3122,7 +3122,7 @@
     },
     {
       "source_path": "docs/solution-ideas/articles/auditing-and-risk-compliance.yml",
-      "redirect_url": "https://azure.microsoft.com/solutions/knowledge-mining",
+      "redirect_url": "https://azure.microsoft.com/solutions/knowledge-mining/",
       "redirect_document_id": false
     },
     {
@@ -3139,8 +3139,11 @@
       "source_path": "docs/solution-ideas/articles/defect-prevention-with-predictive-maintenance.yml",
       "redirect_url": "/industries/manufacturing/predictive-maintenance-overview/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/digital-asset-management.yml",
+      "redirect_url": "https://azure.microsoft.com/solutions/knowledge-mining/",
+      "redirect_document_id": false
     }
-    
-    
   ]
 }

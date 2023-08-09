@@ -1286,8 +1286,8 @@ items:
         href: solution-ideas/articles/azure-databricks-data-science-machine-learning.yml
       # - name: Defect prevention
       #   href: solution-ideas/articles/defect-prevention-with-predictive-maintenance.yml
-      - name: Digital asset management
-        href: solution-ideas/articles/digital-asset-management.yml
+      # - name: Digital asset management
+      #   href: solution-ideas/articles/digital-asset-management.yml
       # - name: Disconnected AI at the edge
       #   href: solution-ideas/articles/ai-at-the-edge-disconnected.yml
       - name: E-commerce chatbot
