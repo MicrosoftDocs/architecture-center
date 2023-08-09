@@ -3164,6 +3164,11 @@
       "source_path": "docs/solution-ideas/articles/faq-chatbot-with-data-champion-model.yml",
       "redirect_url": "/azure/ai-services/openai/chatgpt-quickstart",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/interactive-voice-response-bot.yml",
+      "redirect_url": "/azure/ai-services/openai/chatgpt-quickstart",
+      "redirect_document_id": false
     }
   ]
 }
