@@ -3144,6 +3144,11 @@
       "source_path": "docs/solution-ideas/articles/digital-asset-management.yml",
       "redirect_url": "https://azure.microsoft.com/solutions/knowledge-mining/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/commerce-chatbot.yml",
+      "redirect_url": "/azure/ai-services/openai/chatgpt-quickstart",
+      "redirect_document_id": false
     }
   ]
 }

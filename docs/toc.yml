@@ -1190,8 +1190,8 @@ items:
         href: reference-architectures/ai/batch-scoring-databricks.yml
       - name: Build custom document processing models
         href: example-scenario/document-processing/build-deploy-custom-models.yml
-      - name: Chatbot for hotel booking
-        href: example-scenario/ai/commerce-chatbot.yml
+      # - name: Chatbot for hotel booking
+      #   href: example-scenario/ai/commerce-chatbot.yml
       - name: Citizen AI with the Power Platform
         href: example-scenario/ai/citizen-ai-power-platform.yml
       - name: Deploy AI and ML at the edge
@@ -1290,8 +1290,8 @@ items:
       #   href: solution-ideas/articles/digital-asset-management.yml
       # - name: Disconnected AI at the edge
       #   href: solution-ideas/articles/ai-at-the-edge-disconnected.yml
-      - name: E-commerce chatbot
-        href: solution-ideas/articles/commerce-chatbot.yml
+      # - name: E-commerce chatbot
+      #   href: solution-ideas/articles/commerce-chatbot.yml
       - name: Energy demand forecasting
         href: solution-ideas/articles/forecast-energy-power-demand.yml
       - name: Energy supply optimization
@@ -6400,12 +6400,12 @@ items:
         items:
         - name: All travel and hospitality architectures
           href: /azure/architecture/browse/?terms=travel
-        - name: Build a chatbot for hotel booking
-          href: example-scenario/ai/commerce-chatbot.yml
+        # - name: Build a chatbot for hotel booking
+        #   href: example-scenario/ai/commerce-chatbot.yml
         - name: Build a delta lake in leisure and travel
           href: solution-ideas/articles/build-data-lake-support-adhoc-queries-online.yml
-        - name: Commerce chatbot as a hotel concierge
-          href: solution-ideas/articles/commerce-chatbot.yml
+        # - name: Commerce chatbot as a hotel concierge
+        #   href: solution-ideas/articles/commerce-chatbot.yml
         - name: Custom business processes for airlines
           href: solution-ideas/articles/custom-business-processes.yml
         - name: Migrate a travel web app with APIM
