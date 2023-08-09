@@ -3174,6 +3174,11 @@
       "source_path": "docs/solution-ideas/articles/predictive-maintenance.yml",
       "redirect_url": "/industries/manufacturing/predictive-maintenance-overview/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/predictive-marketing-campaigns-with-machine-learning-and-spark.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/optimize-marketing-with-machine-learning",
+      "redirect_document_id": false
     }
   ]
 }

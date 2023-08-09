@@ -1326,8 +1326,8 @@ items:
         href: solution-ideas/articles/population-health-management-for-healthcare.yml
       # - name: Predictive maintenance
       #   href: solution-ideas/articles/predictive-maintenance.yml
-      - name: Predictive marketing
-        href: solution-ideas/articles/predictive-marketing-campaigns-with-machine-learning-and-spark.yml
+      # - name: Predictive marketing
+      #   href: solution-ideas/articles/predictive-marketing-campaigns-with-machine-learning-and-spark.yml
       # - name: Retail assistant with visual capabilities
       #   href: solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml
       - name: Retail product recommendations
