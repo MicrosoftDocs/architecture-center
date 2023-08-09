@@ -61,7 +61,13 @@ This pattern might not be suitable:
 
 ## Example
 
-_Include a working sample that shows the reader how the pattern solution is used in a real-world situation. The sample should be specific and provide code snippets when appropriate._
+There is a legacy application written in .NET Framework for managing production site hosted on site. The application is well-structured with separate components communicating via Microsoft Message Queueing (MSMQ). The application works just fine and the company has no intention of re-writing it, but the IT strategy calls for building new software as cloud-native applications in order to optimize the costs and delivery time.
+
+Single the asynchronous queue-based architecture worked well for the company in the past, the new components are going to use the same architectural approach but with modern technology -- Azure ServiceBus. The implementation does not want to introduce new concepts, such as REST/HTTP communication, just to integrate the two sides and would rather take advantage of the existing mechanisms.
+
+The decision is to use the Messaging Bridge pattern to connect the two systems. It consists of two parts. One part receives messages from a MSMQ queue and forwards them to Azure ServiceBus and the other does the opposite -- takes messages from the Azure ServiceBus and forwards to a destination MSMQ queue.
+
+By taking this approach the implementation team can utilize existing infrastructure in the legacy appication to integrate with the new components. The application is not even aware of the fact that the new components are hosted in Azure. Similarly, the new components can communicate with the legacy application in the same way as they communicate between themselves -- by sending Azure ServiceBus messages. The bridge takes care of the forwarding.
 
 ## Next steps
 
