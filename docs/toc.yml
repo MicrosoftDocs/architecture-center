@@ -1298,8 +1298,8 @@ items:
       #   href: solution-ideas/articles/energy-supply-optimization.yml
       # - name: Enterprise chatbot disaster recovery
       #   href: solution-ideas/articles/enterprise-chatbot-disaster-recovery.yml
-      - name: Enterprise productivity chatbot
-        href: solution-ideas/articles/enterprise-productivity-chatbot.yml
+      # - name: Enterprise productivity chatbot
+      #   href: solution-ideas/articles/enterprise-productivity-chatbot.yml
       - name: Environment monitoring
         href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
       - name: FAQ chatbot

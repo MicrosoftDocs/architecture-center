@@ -3154,6 +3154,11 @@
       "source_path": "docs/solution-ideas/articles/enterprise-chatbot-disaster-recovery.yml",
       "redirect_url": "/azure/ai-services/openai/chatgpt-quickstart",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/enterprise-productivity-chatbot.yml",
+      "redirect_url": "/azure/ai-services/openai/chatgpt-quickstart",
+      "redirect_document_id": false
     }
   ]
 }
