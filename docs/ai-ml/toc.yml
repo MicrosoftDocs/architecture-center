@@ -40,6 +40,8 @@ items:
           href: idea/ai-at-the-edge.yml
         - name: Disconnected AI at the edge with Azure Stack Hub
           href: idea/ai-at-the-edge-disconnected.yml
+        - name: Video ingestion and object detection on the edge 
+          href: idea/video-ingestion-object-detection-edge-cloud.yml          
       - name: MLOps
         items:
         - name: Model deployment to AKS

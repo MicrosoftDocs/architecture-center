@@ -2,7 +2,7 @@ This article describes how to use a mobile robot with a live streaming camera to
 
 ## Architecture
 
-![Diagram that shows an architecture for video ingestion and object detection.](../media/video-ingestion.svg)
+![Diagram that shows an architecture for video ingestion and object detection.](_images/video-ingestion.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/video-ingestion.vsdx) of this architecture.*
 

@@ -3114,6 +3114,11 @@
       "source_path": "docs/reference-architectures/ai/orchestrate-mlops-azure-databricks.yml",
       "redirect_url": "/azure/architecture/ai-ml/idea/orchestrate-mlops-azure-databricks",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/video-ingestion-object-detection-edge-cloud.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/video-ingestion-object-detection-edge-cloud",
+      "redirect_document_id": true
     }
     
   ]
