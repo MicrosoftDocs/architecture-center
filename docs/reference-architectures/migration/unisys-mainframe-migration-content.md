@@ -58,7 +58,7 @@ The second diagram shows how the Unisys mainframe components can map and migrate
 
 ### Components
 
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) are on-demand, scalable computing resources. Azure Virtual Machines give you the flexibility of virtualization without having to buy and maintain physical hardware.
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) provides on-demand, scalable computing resources. Azure Virtual Machines gives you the flexibility of virtualization without requiring you to buy and maintain physical hardware.
 
 - [Azure Virtual Networks](https://azure.microsoft.com/products/virtual-network) are the fundamental building blocks for Azure private networks. Virtual networks let Azure resources like VMs securely communicate with each other, the internet, and on-premises networks. Although an Azure Virtual Network is similar to a traditional network on premises, it offers the extra benefits of Azure's infrastructure, such as scalability, availability, and isolation.
 
