@@ -1294,8 +1294,8 @@ items:
       #   href: solution-ideas/articles/commerce-chatbot.yml
       - name: Energy demand forecasting
         href: solution-ideas/articles/forecast-energy-power-demand.yml
-      - name: Energy supply optimization
-        href: solution-ideas/articles/energy-supply-optimization.yml
+      # - name: Energy supply optimization
+      #   href: solution-ideas/articles/energy-supply-optimization.yml
       - name: Enterprise chatbot disaster recovery
         href: solution-ideas/articles/enterprise-chatbot-disaster-recovery.yml
       - name: Enterprise productivity chatbot
@@ -5797,6 +5797,10 @@ items:
       - name: NERC (US) overview
         href: /azure/compliance/offerings/offering-nerc
         maintainContext: true
+    - name: Solution ideas
+      items:
+      - name: Energy supply optimization
+        href: solution-ideas/articles/energy-supply-optimization.yml        
   - name: Telecommunications
     items:
     - name: Overview
