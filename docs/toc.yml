@@ -1324,8 +1324,8 @@ items:
       #   href: solution-ideas/articles/personalized-offers.yml
       - name: Population health management
         href: solution-ideas/articles/population-health-management-for-healthcare.yml
-      - name: Predictive maintenance
-        href: solution-ideas/articles/predictive-maintenance.yml
+      # - name: Predictive maintenance
+      #   href: solution-ideas/articles/predictive-maintenance.yml
       - name: Predictive marketing
         href: solution-ideas/articles/predictive-marketing-campaigns-with-machine-learning-and-spark.yml
       # - name: Retail assistant with visual capabilities
@@ -6541,8 +6541,8 @@ items:
         - name: Organize spaceborne geospatial data
           href: /azure/orbital/organize-stac-data
           maintainContext: true
-        - name: Predictive maintenance for aircraft
-          href: solution-ideas/articles/predictive-maintenance.yml
+        # - name: Predictive maintenance for aircraft
+        #   href: solution-ideas/articles/predictive-maintenance.yml
         - name: SAR reference architecture
           href: /azure/orbital/sar-reference-architecture
           maintainContext: true

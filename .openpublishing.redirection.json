@@ -3169,6 +3169,11 @@
       "source_path": "docs/solution-ideas/articles/interactive-voice-response-bot.yml",
       "redirect_url": "/azure/ai-services/openai/chatgpt-quickstart",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/predictive-maintenance.yml",
+      "redirect_url": "/industries/manufacturing/predictive-maintenance-overview/",
+      "redirect_document_id": false
     }
   ]
 }
