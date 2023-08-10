@@ -67,6 +67,8 @@ Single the asynchronous queue-based architecture worked well for the company in 
 
 The decision is to use the Messaging Bridge pattern to connect the two systems. It consists of two parts. One part receives messages from a MSMQ queue and forwards them to Azure ServiceBus and the other does the opposite -- takes messages from the Azure ServiceBus and forwards to a destination MSMQ queue.
 
+![Messaging bridge integrating MSMQ and Azure ServiceBus](_images/messaging-bridge-sample.png)
+
 By taking this approach the implementation team can utilize existing infrastructure in the legacy appication to integrate with the new components. The application is not even aware of the fact that the new components are hosted in Azure. Similarly, the new components can communicate with the legacy application in the same way as they communicate between themselves -- by sending Azure ServiceBus messages. The bridge takes care of the forwarding.
 
 ## Next steps
