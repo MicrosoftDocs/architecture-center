@@ -53,10 +53,11 @@ Use the Messaging Bridge pattern when you need to:
 - Connect geo-distributed systems when Internet connection is not stable
 - Migrate a single distributed system from one messaging infrastructure to another without the need to stop and re-deploy the whole system
 
-This pattern might not be suitable:
+This pattern might not be suitable if:
 
 - At least one of the systems involved relies on specific feature of one messaging infrastructure not present in the other
 - Integration is synchronous in nature (the initiating system requires immediate response)
+- Integration has specific functional or non-functional requirements (e.g. security or privacy concerns)
 - The volume of data for the integration exceeds the capacity of the messaging system or makes messaging not a cost-effective solution to the problem
 
 ## Example
@@ -72,8 +73,6 @@ The decision is to use the Messaging Bridge pattern to connect the two systems. 
 By taking this approach the implementation team can utilize existing infrastructure in the legacy appication to integrate with the new components. The application is not even aware of the fact that the new components are hosted in Azure. Similarly, the new components can communicate with the legacy application in the same way as they communicate between themselves -- by sending Azure ServiceBus messages. The bridge takes care of the forwarding.
 
 ## Next steps
-
-_Provide links to other topics that provide additional information about the pattern covered in the article. Topics can include links to pages that provide additional context for the pattern discussed in the article or links to pages that may be useful in a next-steps context. Use the following boilerplate sentence followed by a bulleted list._
 
 The following information may be relevant when implementing this pattern:
 
