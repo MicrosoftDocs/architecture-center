@@ -3194,6 +3194,11 @@
       "source_path": "docs/solution-ideas/articles/personalized-marketing.yml",
       "redirect_url": "/azure/architecture/ai-ml/idea/personalized-marketing",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/ai/automate-document-classification-durable-functions.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/automate-document-classification-durable-functions",
+      "redirect_document_id": true
     }
   ]
 }

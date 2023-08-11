@@ -60,8 +60,12 @@ items:
           href: idea/machine-learning-model-deployment-aks.yml
         - name: Orchestrate MLOps with Azure Databricks
           href: idea/orchestrate-mlops-azure-databricks.yml          
-    # - name: Design architectures
-    #   items:
+    - name: Design architectures
+      items:
+      - name: Document processing
+        items:
+        - name: Automate document classification
+          href: architecture/automate-document-classification-durable-functions.yml
     #   - name: Host web apps with App Service
     #     items:
     #     - name: Basic web application

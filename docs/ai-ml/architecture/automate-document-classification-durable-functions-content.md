@@ -133,6 +133,6 @@ Product documentation:
 
 ## Related resources
 
-- [Custom document processing models on Azure](../document-processing/build-deploy-custom-models.yml)
-- [Automate document processing by using Azure Form Recognizer](automate-document-processing-azure-form-recognizer.yml)
+- [Custom document processing models on Azure](../../example-scenario/document-processing/build-deploy-custom-models.yml)
+- [Automate document processing by using Azure Form Recognizer](../../example-scenario/ai/automate-document-processing-azure-form-recognizer.yml)
 - [Image classification on Azure](/azure/architecture/example-scenario/ai/intelligent-apps-image-processing)
