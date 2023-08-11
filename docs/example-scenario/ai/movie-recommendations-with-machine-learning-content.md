@@ -138,7 +138,6 @@ Follow these steps to run the [ALS quickstart notebook][als-quickstart]:
 [ms-learn]: /training/modules/intro-to-azure-data-science-virtual-machine
 [ndcg]: https://en.wikipedia.org/wiki/Discounted_cumulative_gain
 [ref-arch]: ../../reference-architectures/ai/real-time-recommendation.yml
-[ref-sol-idea]: ../../solution-ideas/articles/product-recommendations.yml
 [regions]: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all
 [setup]: https://github.com/microsoft/recommenders/blob/master/SETUP.md
 [sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8

@@ -88,7 +88,6 @@ For information about solution components, see these resources:
 
 ## Related resources
 
-- [Predictive marketing with machine learning](../../solution-ideas/articles/predictive-marketing-campaigns-with-machine-learning-and-spark.yml)
 - [Face recognition and sentiment analysis](../../example-scenario/ai/nifi-sentiment-analysis-face-recognition.yml)
 - [Customer churn prediction using real-time analytics](./customer-churn-prediction.yml)
 
