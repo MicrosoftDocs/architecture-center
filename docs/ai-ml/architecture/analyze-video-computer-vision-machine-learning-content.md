@@ -4,7 +4,7 @@ This article describes an architecture that you can use to replace the manual an
 
 ## Architecture
 
-:::image type="content" source="media/analyze-video-content.png" alt-text="Diagram that shows an architecture for analyzing video content." lightbox="media/analyze-video-content.png":::
+:::image type="content" source="_images/analyze-video-content.png" alt-text="Diagram that shows an architecture for analyzing video content." lightbox="_images/analyze-video-content.png":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/analyze-video-content.pptx) of this architecture.* 
 

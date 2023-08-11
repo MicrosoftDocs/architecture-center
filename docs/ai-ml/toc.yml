@@ -73,7 +73,11 @@ items:
         - name: Build custom document processing models
           href: architecture/build-deploy-custom-models.yml                        
         - name: Multiple indexers with Azure Cognitive Search
-          href: architecture/search-blob-metadata.yml          
+          href: architecture/search-blob-metadata.yml
+      - name: Video and image classification
+        items:
+        - name: Automate video analysis
+          href: architecture/analyze-video-computer-vision-machine-learning.yml
     #   - name: Host web apps with App Service
     #     items:
     #     - name: Basic web application

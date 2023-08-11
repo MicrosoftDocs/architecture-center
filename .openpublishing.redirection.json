@@ -3219,6 +3219,11 @@
       "source_path": "docs/example-scenario/data/search-blob-metadata.yml",
       "redirect_url": "/azure/architecture/ai-ml/architecture/search-blob-metadata",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/ai/analyze-video-computer-vision-machine-learning.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/analyze-video-computer-vision-machine-learning",
+      "redirect_document_id": true
     }
   ]
 }
