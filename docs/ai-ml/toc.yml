@@ -35,7 +35,7 @@ items:
         - name: Marketing optimization
           href: idea/optimize-marketing-with-machine-learning.yml    
         - name: Personalized marketing solutions
-          href: idea//personalized-marketing.yml      
+          href: idea/personalized-marketing.yml      
       - name: AI at the edge
         items:
         - name: AI at the edge with Azure Stack Hub
@@ -47,13 +47,13 @@ items:
       - name: Document enrichment
         items:
         - name: AI enrichment with Cognitive Search
-          href: solution-ideas/articles/cognitive-search-with-skillsets.yml
+          href: ../solution-ideas/articles/cognitive-search-with-skillsets.yml
       - name: Other solutions
         items:
         - name: Autonomous systems
-          href: solution-ideas/articles/autonomous-systems.yml        
+          href: ../solution-ideas/articles/autonomous-systems.yml        
         - name: Data science and machine learning
-          href: solution-ideas/articles/azure-databricks-data-science-machine-learning.yml          
+          href: ../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml          
       - name: MLOps
         items:
         - name: Model deployment to AKS
