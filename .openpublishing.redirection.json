@@ -3224,6 +3224,11 @@
       "source_path": "docs/example-scenario/ai/analyze-video-computer-vision-machine-learning.yml",
       "redirect_url": "/azure/architecture/ai-ml/architecture/analyze-video-computer-vision-machine-learning",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/ai/intelligent-apps-image-processing.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/intelligent-apps-image-processing",
+      "redirect_document_id": true
     }
   ]
 }

@@ -1214,8 +1214,8 @@ items:
         href: reference-architectures/ai/conversational-bot.yml
       - name: Extract text with Power Automate
         href: example-scenario/ai/extract-object-text.yml
-      - name: Image classification
-        href: example-scenario/ai/intelligent-apps-image-processing.yml
+      # - name: Image classification
+      #   href: example-scenario/ai/intelligent-apps-image-processing.yml
       - name: Implement risk prediction for surgeries
         href: example-scenario/ai/risk-stratification-surgery.yml
       - name: Implement the healthcare blueprint for AI
@@ -6146,7 +6146,7 @@ items:
             href: /gaming/azure/reference-architectures/cognitive-css-bot
             maintainContext: true
           - name: Image classification
-            href: example-scenario/ai/intelligent-apps-image-processing.yml
+            href: ai-ml/architecture/intelligent-apps-image-processing.yml
           - name: Speech to text for gaming
             href: /gaming/azure/reference-architectures/cognitive-speech-to-text
             maintainContext: true
@@ -6343,7 +6343,7 @@ items:
         - name: HPC media rendering
           href: solution-ideas/articles/azure-batch-rendering.yml
         - name: Image classification on Azure
-          href: example-scenario/ai/intelligent-apps-image-processing.yml
+          href: ai-ml/architecture/intelligent-apps-image-processing.yml
         - name: Live streaming digital media
           href: solution-ideas/articles/digital-media-live-stream.yml
         - name: Mixed reality solutions

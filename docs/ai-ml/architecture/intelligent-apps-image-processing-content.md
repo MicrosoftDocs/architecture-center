@@ -124,7 +124,7 @@ Before deploying this example scenario in a production environment, review recom
 [AI enrichment with image and natural language processing in Azure Cognitive Search](../../solution-ideas/articles/cognitive-search-with-skillsets.yml)
 
 <!-- links -->
-[architecture]: ./media/architecture-intelligent-apps-image-processing.png
+[architecture]: _images/architecture-intelligent-apps-image-processing.png
 [small-pricing]: https://azure.com/e/db65c031511b4b3dadf5d143e1d80b0b
 [medium-pricing]: https://azure.com/e/a7705630b96f4ef7bedb39b2a870ceb5
 [large-pricing]: https://azure.com/e/22d0db3728bd4f78bdd709ff652b73ac
