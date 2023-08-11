@@ -72,6 +72,8 @@ items:
           href: architecture/automate-pdf-forms-processing.yml     
         - name: Build custom document processing models
           href: architecture/build-deploy-custom-models.yml                        
+        - name: Multiple indexers with Azure Cognitive Search
+          href: architecture/search-blob-metadata.yml          
     #   - name: Host web apps with App Service
     #     items:
     #     - name: Basic web application

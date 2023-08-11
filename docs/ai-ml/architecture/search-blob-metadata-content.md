@@ -6,7 +6,7 @@ This article uses an example workload to demonstrate how to create a single [sea
 
 ## Architecture
 
-![Diagram that shows an architecture that enables search based on file content and metadata.](./media/search-blob-metadata.png)
+![Diagram that shows an architecture that enables search based on file content and metadata.](_images/search-blob-metadata.png)
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/search-blob-metadata.pptx) of this architecture.*
 
@@ -129,5 +129,5 @@ Other contributor:
 ## Related resources
 
 - [Choose a search data store in Azure](../../data-guide/technology-choices/search-options.md)
-- [Intelligent product search engine for e-commerce](../apps/ecommerce-search.yml)
-- [Process free-form text for search](../../data-guide/scenarios/search.yml) 
+- [Intelligent product search engine for e-commerce](../../example-scenario/apps/ecommerce-search.yml)
+- [Process free-form text for search](../../data-guide/scenarios/search.yml)

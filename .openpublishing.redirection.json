@@ -3214,6 +3214,11 @@
       "source_path": "docs/example-scenario/document-processing/build-deploy-custom-models.yml",
       "redirect_url": "/azure/architecture/ai-ml/architecture/build-deploy-custom-models",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/data/search-blob-metadata.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/search-blob-metadata",
+      "redirect_document_id": true
     }
   ]
 }
