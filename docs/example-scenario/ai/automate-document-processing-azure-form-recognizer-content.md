@@ -329,9 +329,7 @@ Principal author:
 [How to use named entity recognition (NER) - Data limits]: /azure/cognitive-services/language-service/named-entity-recognition/how-to-call#data-limits
 [How to use Text Analytics for health - Data limits]: /azure/cognitive-services/language-service/text-analytics-for-health/how-to/call-api?tabs=ner#data-limits
 [Introduction to Azure Functions]: /azure/azure-functions/functions-overview
-[Knowledge mining in business process management]: ../../solution-ideas/articles/business-process-management.yml
 [Knowledge mining for content research]: ../../solution-ideas/articles/content-research.yml
-[Knowledge mining in contract management]: ../../solution-ideas/articles/contract-management.yml
 [Language Service pricing]: https://azure.microsoft.com/pricing/details/cognitive-services/language-service
 [Load data into Azure Data Lake Storage Gen2 with Azure Data Factory]: /azure/data-factory/load-azure-data-lake-storage-gen2
 [Manage access to an Azure Machine Learning workspace]: /azure/machine-learning/how-to-assign-roles

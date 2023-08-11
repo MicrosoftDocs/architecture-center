@@ -1258,8 +1258,8 @@ items:
       #   href: solution-ideas/articles/ai-at-the-edge.yml
       - name: AI enrichment with Cognitive Search
         href: solution-ideas/articles/cognitive-search-with-skillsets.yml
-      - name: Auditing and risk management
-        href: solution-ideas/articles/auditing-and-risk-compliance.yml
+      # - name: Auditing and risk management
+      #   href: solution-ideas/articles/auditing-and-risk-compliance.yml
       - name: Autonomous systems
         href: solution-ideas/articles/autonomous-systems.yml
       - name: Azure Machine Learning architecture

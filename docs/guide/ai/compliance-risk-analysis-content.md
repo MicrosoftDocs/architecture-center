@@ -727,10 +727,8 @@ Principal authors:
 
 ## Related resources
 
-- [Knowledge mining in auditing, risk, and compliance management](/azure/architecture/solution-ideas/articles/auditing-and-risk-compliance)
 - [Knowledge mining for customer support and feedback analysis](/azure/architecture/solution-ideas/articles/customer-feedback-and-analytics)
 - [Natural language processing technology](/azure/architecture/data-guide/technology-choices/natural-language-processing)
 - [Large-scale custom natural language processing](/azure/architecture/solution-ideas/articles/large-scale-custom-natural-language-processing)
 - [Knowledge mining for content research](/azure/architecture/solution-ideas/articles/content-research)
-- [Knowledge mining in contract management](/azure/architecture/solution-ideas/articles/contract-management)
 - [Knowledge mining in digital asset management](/azure/architecture/solution-ideas/articles/digital-asset-management)

@@ -131,6 +131,4 @@ For more information, see the following articles:
 
 - [Automate document processing by using Azure Form Recognizer](../../example-scenario/ai/automate-document-processing-azure-form-recognizer.yml)
 - [Extract text from objects using Power Automate and AI Builder](../../example-scenario/ai/extract-object-text.yml)
-- [Knowledge mining in contract management](../../solution-ideas/articles/contract-management.yml)
-- [Knowledge mining in business process management](../../solution-ideas/articles/business-process-management.yml)
 - [Knowledge mining for content research](../../solution-ideas/articles/content-research.yml)

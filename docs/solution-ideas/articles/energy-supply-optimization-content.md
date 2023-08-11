@@ -66,5 +66,4 @@ Microsoft Learn modules:
 - [Data science and machine learning with Azure Databricks](azure-databricks-data-science-machine-learning.yml)
 - [Defect prevention with predictive maintenance](defect-prevention-with-predictive-maintenance.yml)
 - [Forecast energy and power demand with machine learning](forecast-energy-power-demand.yml)
-- [Knowledge mining in business process management](business-process-management.yml)
 - [Predictive maintenance](predictive-maintenance.yml)

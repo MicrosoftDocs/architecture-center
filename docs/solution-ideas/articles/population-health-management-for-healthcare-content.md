@@ -91,6 +91,5 @@ Product documentation:
 ## Related resources
 
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
-* [Business process management](./business-process-management.yml)
 * [Predict length of stay and patient flow](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)
 * [Remote patient monitoring solutions](/azure/architecture/example-scenario/digital-health/remote-patient-monitoring)
