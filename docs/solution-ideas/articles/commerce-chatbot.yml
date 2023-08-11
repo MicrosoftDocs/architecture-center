@@ -30,7 +30,6 @@ products:
   - azure-active-directory-b2c
   - azure-app-service
   - azure-bot-service
-  - azure-language-understanding
   - ai-services
 thumbnailUrl: /azure/architecture/browse/thumbs/commerce-chatbot-customer-service-thumbnail.png
 content: |

@@ -28,7 +28,7 @@ summary: A visual assistant identifies image content and delivers related inform
 products:
   - azure-app-service
   - azure-bot-service
-  - azure-language-understanding
+  - ai-services
 thumbnailUrl: /azure/architecture/browse/thumbs/visual-assistant.png
 content: |
   [!include[](visual-assistant-content.md)]

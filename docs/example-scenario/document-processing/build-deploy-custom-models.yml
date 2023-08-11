@@ -13,7 +13,7 @@ azureCategories:
   - ai-machine-learning
 products:
   - document-intelligence
-  - azure-language-understanding
+  - ai-services
   - azure-logic-apps
   - azure-machine-learning-studio
   - azure-storage

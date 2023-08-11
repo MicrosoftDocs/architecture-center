@@ -27,7 +27,6 @@ products:
   - azure-active-directory
   - azure-bot-service
   - ai-services
-  - azure-language-understanding
   - azure-monitor
 thumbnailUrl: /azure/architecture/browse/thumbs/enterprise-productivity-chatbot-thumbnail.png
 content: |
