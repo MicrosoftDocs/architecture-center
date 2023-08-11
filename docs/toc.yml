@@ -1250,8 +1250,8 @@ items:
         href: example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml
       - name: Secure research for regulated data
         href: example-scenario/ai/secure-compute-for-research.yml
-      - name: Speech transcription pipeline
-        href: example-scenario/ai/speech-to-text-transcription-analytics.yml
+      # - name: Speech transcription pipeline
+      #   href: example-scenario/ai/speech-to-text-transcription-analytics.yml
       - name: Social media analytics solution
         href: example-scenario/ai/build-deploy-social-media-analytics-solution.yml
     - name: Solution ideas

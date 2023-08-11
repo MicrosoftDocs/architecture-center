@@ -79,7 +79,11 @@ items:
         - name: Automate video analysis
           href: architecture/analyze-video-computer-vision-machine-learning.yml
         - name: Image classification
-          href: architecture/intelligent-apps-image-processing.yml          
+          href: architecture/intelligent-apps-image-processing.yml   
+      - name: Audio processing
+        items:
+        - name: Speech transcription pipeline
+          href: architecture/speech-to-text-transcription-analytics.yml
     #   - name: Host web apps with App Service
     #     items:
     #     - name: Basic web application
