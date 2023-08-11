@@ -85,7 +85,6 @@ The following are other ideas that you can use as a starting point for your reta
 
 **AI**:
 
-- [Commerce Chatbot with Azure Bot Service](../solution-ideas/articles/commerce-chatbot.yml)
 - [Customer Feedback and Analytics](../solution-ideas/articles/customer-feedback-and-analytics.yml)
 - [FAQ Chatbot with data champion model](../solution-ideas/articles/faq-chatbot-with-data-champion-model.yml)
 - [Interactive Voice Response Bot](../solution-ideas/articles/interactive-voice-response-bot.yml)

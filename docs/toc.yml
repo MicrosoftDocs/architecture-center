@@ -1190,8 +1190,8 @@ items:
         href: reference-architectures/ai/batch-scoring-databricks.yml
       - name: Build custom document processing models
         href: example-scenario/document-processing/build-deploy-custom-models.yml
-      # - name: Chatbot for hotel booking
-      #   href: example-scenario/ai/commerce-chatbot.yml
+      - name: Chatbot for hotel booking
+        href: example-scenario/ai/commerce-chatbot.yml
       - name: Citizen AI with the Power Platform
         href: example-scenario/ai/citizen-ai-power-platform.yml
       - name: Deploy AI and ML at the edge
@@ -6404,8 +6404,8 @@ items:
         items:
         - name: All travel and hospitality architectures
           href: /azure/architecture/browse/?terms=travel
-        # - name: Build a chatbot for hotel booking
-        #   href: example-scenario/ai/commerce-chatbot.yml
+        - name: Build a chatbot for hotel booking
+          href: example-scenario/ai/commerce-chatbot.yml
         - name: Build a delta lake in leisure and travel
           href: solution-ideas/articles/build-data-lake-support-adhoc-queries-online.yml
         # - name: Commerce chatbot as a hotel concierge
