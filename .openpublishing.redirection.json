@@ -3204,6 +3204,11 @@
       "source_path": "docs/example-scenario/ai/automate-document-processing-azure-form-recognizer.yml",
       "redirect_url": "/azure/architecture/ai-ml/architecture/automate-document-processing-azure-form-recognizer",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/document-processing/automate-pdf-forms-processing.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/automate-pdf-forms-processing",
+      "redirect_document_id": true
     }
   ]
 }

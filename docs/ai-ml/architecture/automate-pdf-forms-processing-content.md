@@ -2,7 +2,7 @@ This article describes an Azure architecture that you can use to replace costly 
 
 ## Architecture
 
-:::image type="content" source="images/automate-pdf-forms-processing.png" alt-text="Diagram of the architecture for PDF forms processing":::
+:::image type="content" source="_images/automate-pdf-forms-processing.png" alt-text="Diagram of the architecture for PDF forms processing":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/automate-pdf-forms-processing.pptx) of this architecture.*
 

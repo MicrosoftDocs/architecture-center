@@ -67,7 +67,9 @@ items:
         - name: Automate document classification
           href: architecture/automate-document-classification-durable-functions.yml
         - name: Automate document processing
-          href: architecture/automate-document-processing-azure-form-recognizer.yml          
+          href: architecture/automate-document-processing-azure-form-recognizer.yml 
+        - name: Automate PDF form processing
+          href: architecture/automate-pdf-forms-processing.yml                   
     #   - name: Host web apps with App Service
     #     items:
     #     - name: Basic web application
