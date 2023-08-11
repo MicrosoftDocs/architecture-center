@@ -3231,7 +3231,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "example-scenario/ai/speech-to-text-transcription-analytics.yml",
+      "source_path": "docs/example-scenario/ai/speech-to-text-transcription-analytics.yml",
       "redirect_url": "/azure/architecture/ai-ml/architecture/speech-to-text-transcription-analytics",
       "redirect_document_id": true
     }

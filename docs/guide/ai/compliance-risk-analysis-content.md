@@ -198,7 +198,7 @@ After the files are uploaded, an Azure Event Grid trigger is emitted to invoke a
 >
 > Refer to the following article for details on integrating speech transcription:
 >
-> - [Use a speech-to-text transcription pipeline to analyze recorded conversations](../../example-scenario/ai/speech-to-text-transcription-analytics.yml)
+> - [Use a speech-to-text transcription pipeline to analyze recorded conversations](../../ai-ml/architecture/speech-to-text-transcription-analytics.yml)
 
 ## Search solution
 

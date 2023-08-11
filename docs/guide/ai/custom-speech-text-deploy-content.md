@@ -169,6 +169,6 @@ Other contributors:
 ## Related resources
 
 - [Artificial intelligence (AI) architecture design](../../data-guide/big-data/ai-overview.md)
-- [Use a speech-to-text transcription pipeline to analyze recorded conversations](../../example-scenario/ai/speech-to-text-transcription-analytics.yml)
+- [Use a speech-to-text transcription pipeline to analyze recorded conversations](../../ai-ml/architecture/speech-to-text-transcription-analytics.yml)
 - [Control IoT devices with a voice assistant app](../../solution-ideas/articles/iot-controlling-devices-with-voice-assistant.yml)
 - [Implement custom speech-to-text](../../guide/ai/custom-speech-text.yml) 
