@@ -3199,6 +3199,11 @@
       "source_path": "docs/example-scenario/ai/automate-document-classification-durable-functions.yml",
       "redirect_url": "/azure/architecture/ai-ml/architecture/automate-document-classification-durable-functions",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/ai/automate-document-processing-azure-form-recognizer.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/automate-document-processing-azure-form-recognizer",
+      "redirect_document_id": true
     }
   ]
 }

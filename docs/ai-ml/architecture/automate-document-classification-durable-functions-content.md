@@ -3,7 +3,7 @@ This article describes an architecture for processing document files that contai
 
 ## Architecture
 
-:::image type="content" source="media/automate-document-classification-durable-functions.png" alt-text="Diagram of the architecture for identifying, classifying, and searching documents."  lightbox="media/automate-document-classification-durable-functions.png" border="false":::
+:::image type="content" source="_images/automate-document-classification-durable-functions.png" alt-text="Diagram of the architecture for identifying, classifying, and searching documents."  lightbox="_images/automate-document-classification-durable-functions.png" border="false":::
 
 *Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/US-2015210-automate-document-classification-durable-functions.vsdx) of this architecture.*
 

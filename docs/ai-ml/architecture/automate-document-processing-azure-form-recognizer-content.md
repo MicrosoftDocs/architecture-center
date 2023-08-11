@@ -2,7 +2,7 @@ This article outlines a scalable and secure solution for building an automated d
 
 ## Architecture
 
-:::image type="content" source="./media/automate-document-processing-form-recognizer-architecture.svg" alt-text="Architecture diagram that shows how data flows through the extraction, enrichment, and analytics stages of document processing." border="false" lightbox="./media/automate-document-processing-form-recognizer-architecture.svg":::
+:::image type="content" source="_images/automate-document-processing-form-recognizer-architecture.svg" alt-text="Architecture diagram that shows how data flows through the extraction, enrichment, and analytics stages of document processing." border="false" lightbox="_images/automate-document-processing-form-recognizer-architecture.svg":::
 
 *Download a [Visio file][Visio version of architecture diagram] of this architecture.*
 
@@ -313,7 +313,7 @@ Principal author:
 [Deploy a model to an Azure Kubernetes Service cluster - Autoscaling]: /azure/machine-learning/how-to-deploy-azure-kubernetes-service?tabs=python#autoscaling
 [Deploy and score a machine learning model by using an online endpoint (preview)]: /azure/machine-learning/how-to-deploy-managed-online-endpoints
 [Durability and availability parameters]: /azure/storage/common/storage-redundancy#durability-and-availability-parameters
-[Extract text from objects using Power Automate and AI Builder]: ./extract-object-text.yml
+[Extract text from objects using Power Automate and AI Builder]: ../../example-scenario/ai/extract-object-text.yml
 [Failover for business continuity and disaster recovery]: /azure/machine-learning/how-to-high-availability-machine-learning
 [Form Recognizer business card model]: /azure/applied-ai-services/form-recognizer/concept-business-card
 [Form Recognizer general document model (preview)]: /azure/applied-ai-services/form-recognizer/concept-general-document

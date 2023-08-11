@@ -1172,8 +1172,8 @@ items:
         href: example-scenario/ai/real-time-anomaly-detection-conveyor-belt.yml
       # - name: Automate document classification
       #   href: example-scenario/ai/automate-document-classification-durable-functions.yml
-      - name: Automate document processing
-        href: example-scenario/ai/automate-document-processing-azure-form-recognizer.yml
+      # - name: Automate document processing
+      #   href: example-scenario/ai/automate-document-processing-azure-form-recognizer.yml
       - name: Automate healthcare forms
         href: example-scenario/ai/form-recognizer-healthcare.yml
       - name: Automate PDF form processing
