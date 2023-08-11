@@ -56,5 +56,4 @@ Following are some other ideas that you can use as a starting point for your aer
 
 - [Data cache](../solution-ideas/articles/data-cache-with-redis-cache.yml)
 - [Predictive aircraft engine monitoring](../solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)
-- [Predictive maintenance](../solution-ideas/articles/predictive-maintenance.yml)
 - [Vision classifier model with Azure Custom Vision Cognitive Service](../example-scenario/dronerescue/vision-classifier-model-with-custom-vision.yml)

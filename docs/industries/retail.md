@@ -86,7 +86,6 @@ The following are other ideas that you can use as a starting point for your reta
 **AI**:
 
 - [Customer Feedback and Analytics](../solution-ideas/articles/customer-feedback-and-analytics.yml)
-- [Interactive Voice Response Bot](../solution-ideas/articles/interactive-voice-response-bot.yml)
 - [Optimize Marketing with Machine Learning](../solution-ideas/articles/optimize-marketing-with-machine-learning.yml)
 - [Personalized marketing solutions](../solution-ideas/articles/personalized-marketing.yml)
 - [Personalized Offers](../solution-ideas/articles/personalized-offers.yml)

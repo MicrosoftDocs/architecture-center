@@ -68,5 +68,4 @@ Organizations can use this solution to provide:
 
 - [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
 - [Image classification on Azure](../../example-scenario/ai/intelligent-apps-image-processing.yml)
-- [Interactive voice response application with bot](../../solution-ideas/articles/interactive-voice-response-bot.yml)
 - [Retail assistant with visual capabilities](./retail-assistant-or-vacation-planner-with-visual-capabilities.yml)
