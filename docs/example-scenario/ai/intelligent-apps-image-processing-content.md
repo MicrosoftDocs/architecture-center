@@ -121,8 +121,7 @@ Before deploying this example scenario in a production environment, review recom
 
 ## Related resources
 
-- [Knowledge mining in digital asset management](../../solution-ideas/articles/digital-asset-management.yml)
-- [AI enrichment with image and natural language processing in Azure Cognitive Search](../../solution-ideas/articles/cognitive-search-with-skillsets.yml)
+[AI enrichment with image and natural language processing in Azure Cognitive Search](../../solution-ideas/articles/cognitive-search-with-skillsets.yml)
 
 <!-- links -->
 [architecture]: ./media/architecture-intelligent-apps-image-processing.png

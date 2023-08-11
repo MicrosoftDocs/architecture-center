@@ -68,5 +68,4 @@ Industries that rely on knowledge mining include:
 
 ## Related resources
 
-- [Knowledge mining for customer support and feedback analysis](./customer-feedback-and-analytics.yml)
-- [Knowledge mining in digital asset management](./digital-asset-management.yml)
+[Knowledge mining for customer support and feedback analysis](./customer-feedback-and-analytics.yml)

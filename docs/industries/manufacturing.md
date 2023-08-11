@@ -80,7 +80,6 @@ The following are other ideas that you can use as a starting point for your manu
 - [Condition monitoring for industrial IoT](/azure/architecture/solution-ideas/articles/condition-monitoring)
 - [COVID-19 safe environments with IoT Edge monitoring and alerting](/azure/architecture/solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection)
 - [Create personalized marketing solutions in near real time](../solution-ideas/articles/personalized-marketing.yml)
-- [Defect prevention with predictive maintenance](../solution-ideas/articles/defect-prevention-with-predictive-maintenance.yml)
 - [Demand forecasting](../solution-ideas/articles/demand-forecasting.yml)
 - [Demand forecasting for shipping and distribution](../solution-ideas/articles/demand-forecasting-for-shipping-and-distribution.yml)
 - [Environment monitoring and supply chain optimization with IoT](/azure/architecture/solution-ideas/articles/environment-monitoring-and-supply-chain-optimization)
