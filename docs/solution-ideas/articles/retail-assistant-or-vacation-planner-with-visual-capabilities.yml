@@ -34,7 +34,7 @@ products:
   - azure-bing-custom
   - azure-bing-visual
   - azure-bot-service
-  - azure-language-understanding
+  - ai-services
 thumbnailUrl: /azure/architecture/browse/thumbs/bot-assistant-architecture.png
 content: |
   [!include[](retail-assistant-or-vacation-planner-with-visual-capabilities-content.md)]

@@ -29,7 +29,6 @@ summary: Use QnA Maker to create a FAQ bot that extracts questions and answers f
 products:
   - azure-app-service
   - azure-bot-service
-  - azure-language-understanding
   - ai-services
   - azure-application-insights
 thumbnailUrl: /azure/architecture/browse/thumbs/faq-chatbot-with-data-champion-model-thumbnail.png
