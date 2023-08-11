@@ -2,7 +2,7 @@ Decouple backend processing from a frontend host, where backend processing needs
 
 ## Context and problem
 
-In modern application development, it's normal for client applications &mdash; often code running in a web-client (browser) &mdash; to depend on remote APIs to provide business logic and compose functionality. These APIs may be directly related to the application or may be shared services provided by a third party. Commonly these API calls take place over the HTTP(S) protocol and follow REST semantics.
+In modern application development, it's normal for client applications &mdash; often code running in a web-client (browser) &mdash; to depend on remote APIs to provide business logic and compose functionality. Commonly these API calls take place over the HTTP(S) protocol and follow REST semantics.
 
 In most cases, APIs for a client application are designed to respond quickly, on the order of 100 ms or less. Many factors can affect the response latency, including:
 
