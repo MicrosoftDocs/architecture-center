@@ -70,7 +70,6 @@ The following sections provide links to reference architectures in some key mana
 - [Enterprise-scale disaster recovery](../../solution-ideas/articles/disaster-recovery-enterprise-scale-dr.yml)
 - [SMB disaster recovery with Azure Site Recovery](../../solution-ideas/articles/disaster-recovery-smb-azure-site-recovery.yml)
 - [SMB disaster recovery with Double-Take DR](../../solution-ideas/articles/disaster-recovery-smb-double-take-dr.yml)
-- [Disaster recovery for enterprise bots](../../solution-ideas/articles/enterprise-chatbot-disaster-recovery.yml)
 - [Use Azure Stack HCI stretched clusters for disaster recovery](../../hybrid/azure-stack-hci-dr.yml)
 
 ### High availability
