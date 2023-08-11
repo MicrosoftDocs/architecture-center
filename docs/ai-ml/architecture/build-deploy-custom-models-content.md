@@ -2,7 +2,7 @@ This article describes Azure solutions for building, training, deploying, and us
 
 ## Architecture
 
-[ ![Architecture diagram showing several alternatives for a custom document processing model build and deployment process.](images/build-deploy-custom-models.svg)](images/build-deploy-custom-models.svg#lightbox)
+[ ![Architecture diagram showing several alternatives for a custom document processing model build and deployment process.](_images/build-deploy-custom-models.svg)](_images/build-deploy-custom-models.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/BuildandDeployCustomModels.vsdx) of this architecture.*
 
@@ -196,8 +196,8 @@ Principal author:
 
 ## Related resources
 
-- [Extract text from objects using Power Automate and AI Builder](../ai/extract-object-text.yml)
+- [Extract text from objects using Power Automate and AI Builder](../../example-scenario/ai/extract-object-text.yml)
 - [Suggest content tags with NLP using deep learning](../../solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.yml)
 - [Knowledge mining for content research](../../solution-ideas/articles/content-research.yml)
-- [Automate document processing by using Azure Form Recognizer](../ai/automate-document-processing-azure-form-recognizer.yml)
-- [Automate healthcare forms](../ai/form-recognizer-healthcare.yml)
+- [Automate document processing by using Azure Form Recognizer](../../example-scenario/ai/automate-document-processing-azure-form-recognizer.yml)
+- [Automate healthcare forms](../../example-scenario/ai/form-recognizer-healthcare.yml)

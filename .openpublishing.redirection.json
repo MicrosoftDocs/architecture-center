@@ -3209,6 +3209,11 @@
       "source_path": "docs/example-scenario/document-processing/automate-pdf-forms-processing.yml",
       "redirect_url": "/azure/architecture/ai-ml/architecture/automate-pdf-forms-processing",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/document-processing/build-deploy-custom-models.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/build-deploy-custom-models",
+      "redirect_document_id": true
     }
   ]
 }

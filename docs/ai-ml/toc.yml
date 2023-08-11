@@ -69,7 +69,9 @@ items:
         - name: Automate document processing
           href: architecture/automate-document-processing-azure-form-recognizer.yml 
         - name: Automate PDF form processing
-          href: architecture/automate-pdf-forms-processing.yml                   
+          href: architecture/automate-pdf-forms-processing.yml     
+        - name: Build custom document processing models
+          href: architecture/build-deploy-custom-models.yml                        
     #   - name: Host web apps with App Service
     #     items:
     #     - name: Basic web application
