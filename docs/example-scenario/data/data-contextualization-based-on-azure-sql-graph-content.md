@@ -34,13 +34,13 @@ Many other graph databases are available. For more information, see:
 - [Graph processing with SQL Database](/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver16)
 - [Azure Cosmos DB for Apache Gremlin](/azure/cosmos-db/gremlin/)
 - [Neo4J](https://neo4j.com/docs/operations-manual/current/introduction/)
-- [Redis Graph](https://redis.io/docs/stack/graph/)
+- [RedisGraph](https://redis.io/docs/stack/graph/)
 - [Apache Age for PostgreSQL](https://age.apache.org/age-manual/master/intro/overview.html)
 
 There are pros and cons associated with each of these products and services. Some of them are Azure managed services, and some aren't. This architecture uses Azure SQL Database Graph capability, because:
 
 * It's an Azure-managed relational database service that has graph capabilities.
-* It's easy to get started if you're familiar with Azure SQL Database.
+* It's easy to get started if you're familiar with Azure SQL Database and SQL Server.
 * Solutions often benefit from the use of Transact-SQL in parallel. SQL Database graph relationships are integrated into Transact-SQL.
 
 ## Scenario details
@@ -70,9 +70,9 @@ The solution assumes that a graph has already been created in a graph database. 
 
 The solution uses Azure Databricks for the data contextualization process.
 
-### Graph data
+### Graph databases
 
-The graph database is the database that stores the graph data/models. As noted earlier, there are many graph databases available. In this solution, we use Azure SQL Database and the [graph capabilities of SQL Server](/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver16) are used to create the graph.
+The graph database is the database that stores the graph data/models. As noted earlier, there are many graph databases available. In this solution, we use Azure SQL Database and the [graph capabilities of SQL Server](/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver16) to create the graph.
 
 ### Optional data mart
 
