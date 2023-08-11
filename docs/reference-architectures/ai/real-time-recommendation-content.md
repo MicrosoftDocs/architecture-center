@@ -135,7 +135,7 @@ Principal authors:
 - [Build a movie recommendation system using machine learning](../../example-scenario/ai/movie-recommendations-with-machine-learning.yml)
 - [Personalization using Cosmos DB](../../solution-ideas/articles/personalization-using-cosmos-db.yml)
 - [Retail assistant with visual capabilities](../../solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml)
-- [Create personalized marketing solutions in near real time](../../solution-ideas/articles/personalized-marketing.yml)
+- [Create personalized marketing solutions in near real time](../../ai-ml/idea/personalized-marketing.yml)
 - [Personalized offers](../../solution-ideas/articles/personalized-offers.yml)
 
 <!-- links -->

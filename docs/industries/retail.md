@@ -87,7 +87,7 @@ The following are other ideas that you can use as a starting point for your reta
 
 - [Customer Feedback and Analytics](../solution-ideas/articles/customer-feedback-and-analytics.yml)
 - [Optimize Marketing with Machine Learning](../solution-ideas/articles/optimize-marketing-with-machine-learning.yml)
-- [Personalized marketing solutions](../solution-ideas/articles/personalized-marketing.yml)
+- [Personalized marketing solutions](../ai-ml/idea/personalized-marketing.yml)
 - [Personalized Offers](../solution-ideas/articles/personalized-offers.yml)
 - [Retail Assistant with Visual Capabilities](../solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml)
 

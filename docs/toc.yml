@@ -950,6 +950,8 @@ items:
     #   href: data-guide/big-data/ai-overview.md
     - name: Guides
       items:
+      - name: Custom speech-to-text
+        href: guide/ai/custom-speech-text-deploy.yml      
       - name: Automate PDF forms processing
         href: example-scenario/document-processing/automate-pdf-forms-processing.yml
       - name: Cognitive services
@@ -1256,34 +1258,34 @@ items:
       items:
       # - name: AI at the edge
       #   href: solution-ideas/articles/ai-at-the-edge.yml
-      - name: AI enrichment with Cognitive Search
-        href: solution-ideas/articles/cognitive-search-with-skillsets.yml
+      # - name: AI enrichment with Cognitive Search
+      #   href: solution-ideas/articles/cognitive-search-with-skillsets.yml
       # - name: Auditing and risk management
       #   href: solution-ideas/articles/auditing-and-risk-compliance.yml
-      - name: Autonomous systems
-        href: solution-ideas/articles/autonomous-systems.yml
+      # - name: Autonomous systems
+      #   href: solution-ideas/articles/autonomous-systems.yml
       - name: Azure Machine Learning architecture
         href: solution-ideas/articles/azure-machine-learning-solution-architecture.yml
       # - name: Business process management
       #   href: solution-ideas/articles/business-process-management.yml
-      - name: Content-based recommendations
-        href: solution-ideas/articles/build-content-based-recommendation-system-using-recommender.yml
-      - name: Content research
-        href: solution-ideas/articles/content-research.yml
+      # - name: Content-based recommendations
+      #   href: solution-ideas/articles/build-content-based-recommendation-system-using-recommender.yml
+      # - name: Content research
+      #   href: solution-ideas/articles/content-research.yml
       # - name: Content tagging with NLP
       #   href: solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.yml
       # - name: Contract management
       #   href: solution-ideas/articles/contract-management.yml
-      - name: Custom speech-to-text
-        href: guide/ai/custom-speech-text-deploy.yml
+      # - name: Custom speech-to-text
+      #   href: guide/ai/custom-speech-text-deploy.yml
       # - name: Customer churn prediction
       #   href: solution-ideas/articles/customer-churn-prediction.yml
       # - name: Customer feedback
       #   href: solution-ideas/articles/customer-feedback-and-analytics.yml
-      - name: Customer order forecasting
-        href: solution-ideas/articles/next-order-forecasting.yml
-      - name: Data science and machine learning
-        href: solution-ideas/articles/azure-databricks-data-science-machine-learning.yml
+      # - name: Customer order forecasting
+      #   href: solution-ideas/articles/next-order-forecasting.yml
+      # - name: Data science and machine learning
+      #   href: solution-ideas/articles/azure-databricks-data-science-machine-learning.yml
       # - name: Defect prevention
       #   href: solution-ideas/articles/defect-prevention-with-predictive-maintenance.yml
       # - name: Digital asset management
@@ -1292,16 +1294,16 @@ items:
       #   href: solution-ideas/articles/ai-at-the-edge-disconnected.yml
       # - name: E-commerce chatbot
       #   href: solution-ideas/articles/commerce-chatbot.yml
-      - name: Energy demand forecasting
-        href: solution-ideas/articles/forecast-energy-power-demand.yml
+      # - name: Energy demand forecasting
+      #   href: solution-ideas/articles/forecast-energy-power-demand.yml
       # - name: Energy supply optimization
       #   href: solution-ideas/articles/energy-supply-optimization.yml
       # - name: Enterprise chatbot disaster recovery
       #   href: solution-ideas/articles/enterprise-chatbot-disaster-recovery.yml
       # - name: Enterprise productivity chatbot
       #   href: solution-ideas/articles/enterprise-productivity-chatbot.yml
-      - name: Environment monitoring
-        href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
+      # - name: Environment monitoring
+      #   href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
       # - name: FAQ chatbot
       #   href: solution-ideas/articles/faq-chatbot-with-data-champion-model.yml
       # - name: Image classification with CNNs
@@ -1318,12 +1320,12 @@ items:
       #   href: solution-ideas/articles/machine-learning-model-deployment-aks.yml
       # - name: Orchestrate MLOps with Azure Databricks
       #   href: reference-architectures/ai/orchestrate-mlops-azure-databricks.yml
-      - name: Personalized marketing solutions
-        href: solution-ideas/articles/personalized-marketing.yml
+      # - name: Personalized marketing solutions
+      #   href: solution-ideas/articles/personalized-marketing.yml
       # - name: Personalized offers
       #   href: solution-ideas/articles/personalized-offers.yml
-      - name: Population health management
-        href: solution-ideas/articles/population-health-management-for-healthcare.yml
+      # - name: Population health management
+      #   href: solution-ideas/articles/population-health-management-for-healthcare.yml
       # - name: Predictive maintenance
       #   href: solution-ideas/articles/predictive-maintenance.yml
       # - name: Predictive marketing
@@ -1334,8 +1336,8 @@ items:
       #   href: solution-ideas/articles/product-recommendations.yml
       # - name: Speech services
       #   href: solution-ideas/articles/speech-services.yml
-      - name: Vehicle telematics
-        href: solution-ideas/articles/predictive-insights-with-vehicle-telematics.yml
+      # - name: Vehicle telematics
+      #   href: solution-ideas/articles/predictive-insights-with-vehicle-telematics.yml
       # - name: Video ingestion and object detection on the edge 
       #   href: solution-ideas/articles/video-ingestion-object-detection-edge-cloud.yml
       # - name: Vision classifier model
@@ -5800,7 +5802,9 @@ items:
     - name: Solution ideas
       items:
       - name: Energy supply optimization
-        href: solution-ideas/articles/energy-supply-optimization.yml        
+        href: solution-ideas/articles/energy-supply-optimization.yml      
+      - name: Energy demand forecasting
+        href: solution-ideas/articles/forecast-energy-power-demand.yml          
   - name: Telecommunications
     items:
     - name: Overview

@@ -33,7 +33,9 @@ items:
         - name: Personalized offers
           href: idea/personalized-offers.yml
         - name: Marketing optimization
-          href: idea/optimize-marketing-with-machine-learning.yml          
+          href: idea/optimize-marketing-with-machine-learning.yml    
+        - name: Personalized marketing solutions
+          href: idea//personalized-marketing.yml      
       - name: AI at the edge
         items:
         - name: AI at the edge with Azure Stack Hub
@@ -41,7 +43,17 @@ items:
         - name: Disconnected AI at the edge with Azure Stack Hub
           href: idea/ai-at-the-edge-disconnected.yml
         - name: Video ingestion and object detection on the edge 
-          href: idea/video-ingestion-object-detection-edge-cloud.yml          
+          href: idea/video-ingestion-object-detection-edge-cloud.yml     
+      - name: Document enrichment
+        items:
+        - name: AI enrichment with Cognitive Search
+          href: solution-ideas/articles/cognitive-search-with-skillsets.yml
+      - name: Other solutions
+        items:
+        - name: Autonomous systems
+          href: solution-ideas/articles/autonomous-systems.yml        
+        - name: Data science and machine learning
+          href: solution-ideas/articles/azure-databricks-data-science-machine-learning.yml          
       - name: MLOps
         items:
         - name: Model deployment to AKS
