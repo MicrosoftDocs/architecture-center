@@ -14,7 +14,7 @@ metadata:
 name: Move Azure resources across regions
 summary: Move Azure resources across regions efficiently, securely, and seamlessly. See key steps, considerations, and strategies for planning and carrying out a move.
 products:
-  - azure-active-directory-domain
+  - entra
   - azure-expressroute
   - azure-load-balancer
   - azure-vpn-gateway
