@@ -18,7 +18,7 @@ azureCategories:
 summary: This is a solution idea that builds on the multiple forests scenario by using Azure Virtual Desktop and Azure Active Directory Domain Services.
 products:
   - azure-active-directory
-  - azure-active-directory-domain
+  - entra
   - azure-files
   - azure-virtual-desktop
 thumbnailUrl: /azure/architecture/browse/thumbs/wvd-multi-forest-aadds-thumb.png

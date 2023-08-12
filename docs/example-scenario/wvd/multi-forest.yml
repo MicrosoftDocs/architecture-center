@@ -19,7 +19,7 @@ summary: This article describes an example workload of creating multiple Active 
 products:
   - azure-virtual-desktop
   - azure-active-directory
-  - azure-active-directory-domain
+  - entra
   - azure-expressroute
   - azure-storage
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-virtual-desktop-multi-forest-adds.png
