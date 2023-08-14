@@ -3269,6 +3269,11 @@
       "source_path": "docs/example-scenario/ai/analyze-browser-info-for-security-insights.yml",
       "redirect_url": "/azure/architecture/ai-ml/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/ai/form-recognizer-healthcare.yml",
+      "redirect_url": "/azure/architecture/ai-ml/automate-document-processing-azure-form-recognizer",
+      "redirect_document_id": false
     }
   ]
 }
