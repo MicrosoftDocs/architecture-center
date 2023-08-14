@@ -51,7 +51,7 @@ With many layers in each neural network-and sometimes using multiple neural netw
 
 - [Distributed training of deep learning models on Azure](../reference-architectures/ai/training-deep-learning.yml)
 
-- [Batch scoring of deep learning models on Azure](../reference-architectures/ai/batch-scoring-deep-learning.yml)
+- [Batch scoring of deep learning models on Azure](../ai-ml/architecture/batch-scoring-deep-learning.yml)
 
 - [Training of Python scikit-learn and deep learning models on Azure](/azure/architecture/example-scenario/ai/training-python-models)
 
@@ -247,7 +247,7 @@ This is an enterprise-grade machine learning service to build and deploy models 
 
 - [Batch scoring of Python machine learning models on Azure](../reference-architectures/ai/batch-scoring-python.yml)
 
-- [Batch scoring of deep learning models on Azure](../reference-architectures/ai/batch-scoring-deep-learning.yml)
+- [Batch scoring of deep learning models on Azure](../ai-ml/architecture/batch-scoring-deep-learning.yml)
 
 - [Real-time scoring of Python scikit-learn and deep learning models on Azure](../reference-architectures/ai/real-time-scoring-machine-learning-models.yml)
 

@@ -124,7 +124,7 @@ Principal author:
 
 <!-- links -->
 
-[aac-batch-deep]: ../../reference-architectures/ai/batch-scoring-deep-learning.yml
+[aac-batch-deep]: ../../ai-ml/architecture/batch-scoring-deep-learning.yml
 [aac-batch-python]: ../../reference-architectures/ai/batch-scoring-python.yml
 [aac-recommendation]: ../../reference-architectures/ai/real-time-recommendation.yml
 [adf]: https://azure.microsoft.com/blog/operationalize-azure-databricks-notebooks-using-data-factory

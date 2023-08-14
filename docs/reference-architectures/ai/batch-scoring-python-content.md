@@ -116,7 +116,7 @@ Microsoft Learn modules:
 ## Related resources
 
 - [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
-- [Batch scoring for deep learning models using Azure Machine Learning pipelines](batch-scoring-deep-learning.yml)
+- [Batch scoring for deep learning models using Azure Machine Learning pipelines](../../ai-ml/architecture/batch-scoring-deep-learning.yml)
 - [Batch scoring of Spark models on Azure Databricks](batch-scoring-databricks.yml)
 - [MLOps for Python models using Azure Machine Learning](mlops-python.yml)
 - [Real-time scoring of machine learning models in Python](real-time-scoring-machine-learning-models.yml)
@@ -127,7 +127,7 @@ Microsoft Learn modules:
 [batch-scoring]: /azure/machine-learning/service/how-to-run-batch-predictions
 [cli]: /cli/azure
 [create-resources]: https://github.com/microsoft/az-ml-batch-score/blob/master/01_DataPrep.ipynb
-[deep]: ./batch-scoring-deep-learning.yml
+[deep]: ../../ai-ml/architecture/batch-scoring-deep-learning.yml
 [event-hubs]: /azure/event-hubs/event-hubs-geo-dr
 [explorer]: https://azure.microsoft.com/features/storage-explorer
 [github]: https://github.com/Microsoft/AMLBatchScoringPipeline

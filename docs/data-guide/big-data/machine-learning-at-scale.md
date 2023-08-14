@@ -92,5 +92,5 @@ Principal author:
 
 The following reference architectures show machine learning scenarios in Azure:
 
-- [Batch scoring on Azure for deep learning models](../../reference-architectures/ai/batch-scoring-deep-learning.yml)
+- [Batch scoring on Azure for deep learning models](../../ai-ml/architecture/batch-scoring-deep-learning.yml)
 - [Real-time scoring of Python Scikit-Learn and Deep Learning Models on Azure](../../reference-architectures/ai/real-time-scoring-machine-learning-models.yml)

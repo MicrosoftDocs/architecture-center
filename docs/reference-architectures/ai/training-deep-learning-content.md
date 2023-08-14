@@ -195,7 +195,7 @@ For architectures that involve distributed training or deep learning, see the fo
 [az-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines
 [azure-blob]: /azure/storage/blobs/storage-blobs-introduction
 [blobfuse]: https://github.com/Azure/azure-storage-fuse
-[batch-scoring]: ../../reference-architectures/ai/batch-scoring-deep-learning.yml
+[batch-scoring]: ../../ai-ml/architecture/batch-scoring-deep-learning.yml
 [benchmark]: https://github.com/msalvaris/BatchAIHorovodBenchmark
 [blobfuse]: https://github.com/Azure/azure-storage-fuse
 [block-blob-pricing]: https://azure.microsoft.com/pricing/details/storage/blobs

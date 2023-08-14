@@ -2,7 +2,7 @@ This reference architecture shows how to apply neural-style transfer to a video,
 
 ## Architecture
 
-![Architecture diagram for deep learning models using Azure Machine Learning.](./_images/azure-machine-learning-deep-learning-scoring-pipeline.png)
+![Architecture diagram for deep learning models using Azure Machine Learning.](_images/azure-machine-learning-deep-learning-scoring-pipeline.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-machine-learning-deep-learning-scoring-pipeline.vsdx) of this architecture.*
 

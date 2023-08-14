@@ -1182,8 +1182,8 @@ items:
       #   href: example-scenario/ai/analyze-video-computer-vision-machine-learning.yml
       - name: Baseball decision analysis with ML.NET
         href: data-guide/big-data/baseball-ml-workload.yml
-      - name: Batch scoring for deep learning
-        href: reference-architectures/ai/batch-scoring-deep-learning.yml
+      # - name: Batch scoring for deep learning
+      #   href: reference-architectures/ai/batch-scoring-deep-learning.yml
       - name: Batch scoring with Python
         href: reference-architectures/ai/batch-scoring-python.yml
       - name: Batch scoring with R
@@ -3647,7 +3647,7 @@ items:
       - name: 3D video rendering
         href: example-scenario/infrastructure/video-rendering.yml
       - name: Batch scoring for media
-        href: reference-architectures/ai/batch-scoring-deep-learning.yml
+        href: ai-ml/architecture/batch-scoring-deep-learning.yml
       - name: Gridwich media processing system
         items:
         - name: Gridwich architecture

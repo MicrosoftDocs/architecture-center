@@ -84,6 +84,10 @@ items:
         items:
         - name: Speech transcription pipeline
           href: architecture/speech-to-text-transcription-analytics.yml
+      - name: Batch scoring
+        items:
+        - name: Batch scoring for deep learning
+          href: architecture/batch-scoring-deep-learning.yml
     #   - name: Host web apps with App Service
     #     items:
     #     - name: Basic web application
