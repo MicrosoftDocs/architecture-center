@@ -3259,6 +3259,11 @@
       "source_path": "docs/reference-architectures/ai/conversational-bot.yml",
       "redirect_url": "/azure/architecture/ai-ml/architecture/conversational-bot",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/real-time-recommendation.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/real-time-recommendation",
+      "redirect_document_id": true
     }
   ]
 }

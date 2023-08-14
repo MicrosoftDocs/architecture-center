@@ -1240,8 +1240,8 @@ items:
         href: solution-ideas/articles/quality-assurance.yml
       - name: Real-time machine learning on Azure
         href: example-scenario/ai/deploy-real-time-machine-learning-model-application-ui.yml
-      - name: Real-time recommendation API
-        href: reference-architectures/ai/real-time-recommendation.yml
+      # - name: Real-time recommendation API
+      #   href: reference-architectures/ai/real-time-recommendation.yml
       - name: Real-time scoring Python models
         href: reference-architectures/ai/real-time-scoring-machine-learning-models.yml
       - name: Real-time scoring R models

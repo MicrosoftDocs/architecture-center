@@ -98,6 +98,10 @@ items:
         items:
         - name: Enterprise-grade conversational bot
           href: architecture/conversational-bot.yml
+      - name: Recommendations
+        items:
+        - name: Real-time recommendation API
+          href: architecture/real-time-recommendation.yml
     #   - name: Host web apps with App Service
     #     items:
     #     - name: Basic web application
