@@ -30,7 +30,7 @@ When working with a multitenant system using Azure Application Insights, you nee
 
 - How many tenants do you plan to have?
 - Do you share your application tier between multiple tenants, or do you deploy separate deployment stamps for each tenant?
-- Are you sensitive about storing your data alongside with other tenant's data?
+- Are you or your customers sensitive about storing data alongside other tenant's data?
 - Is the application tier of your solution multitenant but the data tier is single tenant?
 - Do telemetry requirements vary between tenants?
 
