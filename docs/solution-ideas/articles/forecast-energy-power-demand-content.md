@@ -82,6 +82,5 @@ Learn more:
 ## Related resources
 
 * [Solutions for the energy and environment industries](/azure/architecture/industries/energy-environment)
-* [Batch scoring with R models to forecast sales](/azure/architecture/ai-ml/architecture/batch-scoring-r-models)
 * [Oil and gas tank level forecasting](/azure/architecture/solution-ideas/articles/oil-and-gas-tank-level-forecasting)
 * [Demand forecasting for shipping and distribution](/azure/architecture/solution-ideas/articles/demand-forecasting-for-shipping-and-distribution)
