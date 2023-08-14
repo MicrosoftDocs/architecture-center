@@ -1166,8 +1166,8 @@ items:
             href: data-science-process/sqldw-walkthrough.md
     - name: Architectures
       items:
-      - name: Analyze browser information
-        href: example-scenario/ai/analyze-browser-info-for-security-insights.yml
+      # - name: Analyze browser information
+      #   href: example-scenario/ai/analyze-browser-info-for-security-insights.yml
       - name: Anomaly detection for conveyor belts
         href: example-scenario/ai/real-time-anomaly-detection-conveyor-belt.yml
       # - name: Automate document classification

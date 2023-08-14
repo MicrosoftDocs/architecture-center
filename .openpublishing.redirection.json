@@ -3264,6 +3264,11 @@
       "source_path": "docs/reference-architectures/ai/real-time-recommendation.yml",
       "redirect_url": "/azure/architecture/ai-ml/architecture/real-time-recommendation",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/ai/analyze-browser-info-for-security-insights.yml",
+      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_document_id": false
     }
   ]
 }
