@@ -94,4 +94,3 @@ Principal author:
 
 - [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
 - [Azure Machine Learning documentation](/azure/machine-learning)
-- [Movie recommendations on Azure](../../example-scenario/ai/movie-recommendations-with-machine-learning.yml)

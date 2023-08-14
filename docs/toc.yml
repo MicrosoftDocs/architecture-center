@@ -1226,8 +1226,8 @@ items:
         href: example-scenario/ai/many-models-machine-learning-azure-machine-learning.yml
       - name: MLOps for Python models
         href: reference-architectures/ai/mlops-python.yml
-      - name: Movie recommendations
-        href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
+      # - name: Movie recommendations
+      #   href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
       # - name: Multiple indexers with Azure Cognitive Search
       #   href: example-scenario/data/search-blob-metadata.yml
       - name: Network security for MLOps
@@ -4860,8 +4860,8 @@ items:
         href: example-scenario/apps/ecommerce-search.yml
       - name: Magento e-commerce platform in AKS
         href: example-scenario/magento/magento-azure.yml
-      - name: Movie recommendations on Azure
-        href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
+      # - name: Movie recommendations on Azure
+      #   href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
       - name: Optimize inventory and forecast demand
         href: example-scenario/analytics/optimize-inventory-forecast-demand.yml
       - name: Out of stock detection (retail)
@@ -6352,8 +6352,8 @@ items:
             href: solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml
           - name: Training and procedural guidance
             href: solution-ideas/articles/training-and-procedural-guidance-powered-by-mixed-reality.yml
-        - name: Movie recommendations on Azure
-          href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
+        # - name: Movie recommendations on Azure
+        #   href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
         - name: Real-time monitoring and observable systems for media
           href: example-scenario/monitoring/monitoring-observable-systems-media.yml
       - name: Datasets

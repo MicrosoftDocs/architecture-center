@@ -171,9 +171,9 @@ conceptualContent:
       - text: Natural language processing
         itemType: concept
         url: ./data-guide/technology-choices/natural-language-processing.yml
-      - text: Movie recommendation
-        itemType: get-started
-        url: ./example-scenario/ai/movie-recommendations-with-machine-learning.yml
+      # - text: Movie recommendation
+      #   itemType: get-started
+      #   url: ./example-scenario/ai/movie-recommendations-with-machine-learning.yml
       - text: Cognitive services options
         itemType: concept
         url: ./data-guide/technology-choices/cognitive-services.md

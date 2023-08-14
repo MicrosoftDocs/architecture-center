@@ -3289,6 +3289,11 @@
       "source_path": "docs/example-scenario/ai/multiline-model-deployment.yml",
       "redirect_url": "/azure/architecture/ai-ml/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/ai/movie-recommendations-with-machine-learning.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/real-time-recommendation",
+      "redirect_document_id": false
     }
   ]
 }
