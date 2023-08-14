@@ -1204,8 +1204,8 @@ items:
         href: example-scenario/ai/customer-lifecycle-churn.yml
       # - name: Distributed deep learning training
       #   href: reference-architectures/ai/training-deep-learning.yml
-      - name: Distributed model hyperparameter tuning
-        href: example-scenario/ai/training-python-models.yml
+      # - name: Distributed model hyperparameter tuning
+      #   href: example-scenario/ai/training-python-models.yml
       - name: Donor-patient cross matching
         href: example-scenario/machine-learning/donor-patient-cross-match.yml
       - name: End-to-end computer vision at the edge

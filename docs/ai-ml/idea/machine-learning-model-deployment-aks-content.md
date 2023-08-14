@@ -49,5 +49,4 @@ This solution applies to scenarios that use AKS and GPU-enabled VMs for machine 
 
 ## Related resources
 
-- [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
-- [Training Python models on Azure](/azure/architecture/example-scenario/ai/training-python-models)
+[Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)

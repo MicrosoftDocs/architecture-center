@@ -150,9 +150,6 @@ conceptualContent:
       - text: Artificial intelligence (AI) architecture design
         itemType: concept
         url: ./data-guide/big-data/ai-overview.md
-      - text: Training of Python scikit-learn models
-        itemType: architecture
-        url: /azure/architecture/example-scenario/ai/training-python-models
       - text: Batch scoring of Python models
         itemType: architecture
         url: ./ai-ml/architecture/batch-scoring-python.yml

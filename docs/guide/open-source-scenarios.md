@@ -148,7 +148,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](../example-scenario/mlops/mlops-technical-paper.yml)|Learn how to apply the MLOps maturity model to implement a machine learning solution for predicting product shipping levels. Initial experimental models are developed in Jupyter Notebook. |AI|
 [Many models machine learning with Spark](../example-scenario/ai/many-models-machine-learning-azure-spark.yml)|Learn about many models machine learning in Azure. Azure Machine Learning provides a hosted Jupyter Notebook environment.|AI|
 [Precision medicine pipeline with genomics](../example-scenario/precision-medicine/genomic-analysis-reporting.yml)|Build a precision medicine pipeline for genomic analysis and reporting. Use Microsoft Genomics for efficient secondary and tertiary analysis. Jupyter Notebook is used to annotate Microsoft Genomics output, merge output files with other data, and analyze data.|Analytics|
-[Tune hyperparameters for machine learning models in Python](/azure/architecture/example-scenario/ai/training-python-models)|Learn recommended practices for tuning hyperparameters (training parameters) of scikit-learn and deep-learning machine learning models in Python. A Jupyter widget is used to monitor the progress of hyperparameter tuning runs.|AI|
 
 ## KEDA
 
