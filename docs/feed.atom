@@ -2,12 +2,28 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2023-08-07T16:01:40.580Z</updated>
+    <updated>2023-08-14T16:02:09.947Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Azure Health Data Services architecture guide]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/data/azure-health-data-services</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/data/azure-health-data-services"/>
+        <updated>2023-08-08T21:38:16.000Z</updated>
+        <summary type="html"><![CDATA[Deploy Azure Health Data Services on Azure to improve your ability to safeguard your organization's health data.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Video ingestion and object detection on the edge and in the cloud]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/video-ingestion-object-detection-edge-cloud</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/video-ingestion-object-detection-edge-cloud"/>
+        <updated>2023-08-08T18:49:51.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to to use a mobile robot with a live streaming camera and object detection to implement various use cases.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Extract and analyze call center data by using Azure OpenAI Service, Speech services, and Language services]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/ai/call-center-openai-analytics</id>
@@ -23,6 +39,14 @@
         <updated>2023-08-02T22:14:28.000Z</updated>
         <summary type="html"><![CDATA[Learn how to deploy mission-critical web applications by using the Web Apps feature of Azure App Service.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Build solutions with availability zones]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability</id>
+        <link href="https://learn.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability"/>
+        <updated>2023-08-08T23:00:38.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the Azure availability zones construct, a software and networking solution for high availability (HA) that protects against datacenter failures.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Ingest and store medical data in Azure]]></title>
