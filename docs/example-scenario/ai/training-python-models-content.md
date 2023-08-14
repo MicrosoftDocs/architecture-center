@@ -131,6 +131,6 @@ Principal authors:
 - [Distributed training of deep learning models on Azure](../../reference-architectures/ai/training-deep-learning.yml)
 - [Machine learning at scale](../../data-guide/big-data/machine-learning-at-scale.md)
 - [Real-time scoring of Python models](../../reference-architectures/ai/real-time-scoring-machine-learning-models.yml)
-- [Batch scoring of Python models on Azure](../../reference-architectures/ai/batch-scoring-python.yml)
+- [Batch scoring of Python models on Azure](../../ai-ml/architecture/batch-scoring-python.yml)
 - [Many models machine learning with Spark](many-models-machine-learning-azure-spark.yml)
 - [Azure Machine Learning decision guide for optimal tool selection](../mlops/aml-decision-tree.yml)

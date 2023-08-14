@@ -4,7 +4,7 @@ This reference architecture shows how to build a scalable solution for batch sco
 
 ## Architecture
 
-![Diagram showing batch scoring of Apache Spark classification models on Azure Databricks.](./_images/batch-scoring-spark-models-databricks.svg)
+![Diagram showing batch scoring of Apache Spark classification models on Azure Databricks.](_images/batch-scoring-spark-models-databricks.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/batch-scoring-spark-models-databricks.vsdx) of this architecture.*
 
@@ -125,7 +125,7 @@ Principal author:
 <!-- links -->
 
 [aac-batch-deep]: ../../ai-ml/architecture/batch-scoring-deep-learning.yml
-[aac-batch-python]: ../../reference-architectures/ai/batch-scoring-python.yml
+[aac-batch-python]: ../../ai-ml/architecture/batch-scoring-python.yml
 [aac-recommendation]: ../../reference-architectures/ai/real-time-recommendation.yml
 [adf]: https://azure.microsoft.com/blog/operationalize-azure-databricks-notebooks-using-data-factory
 [ai-guide]: /azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance

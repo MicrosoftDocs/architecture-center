@@ -1184,12 +1184,12 @@ items:
         href: data-guide/big-data/baseball-ml-workload.yml
       # - name: Batch scoring for deep learning
       #   href: reference-architectures/ai/batch-scoring-deep-learning.yml
-      - name: Batch scoring with Python
-        href: reference-architectures/ai/batch-scoring-python.yml
-      - name: Batch scoring with R
-        href: reference-architectures/ai/batch-scoring-R-models.yml
-      - name: Batch scoring with Spark on Databricks
-        href: reference-architectures/ai/batch-scoring-databricks.yml
+      # - name: Batch scoring with Python
+      #   href: reference-architectures/ai/batch-scoring-python.yml
+      # - name: Batch scoring with R
+      #   href: reference-architectures/ai/batch-scoring-R-models.yml
+      # - name: Batch scoring with Spark on Databricks
+      #   href: reference-architectures/ai/batch-scoring-databricks.yml
       # - name: Build custom document processing models
       #   href: example-scenario/document-processing/build-deploy-custom-models.yml
       - name: Chatbot for hotel booking

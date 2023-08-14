@@ -6,7 +6,7 @@ This architecture guide shows how to build a scalable solution for batch scoring
 
 ## Architecture
 
-:::image type="content" alt-text="Architecture diagram that shows the batch scoring of Python models on Azure" source="./_images/batch-scoring-python.png" lightbox="./_images/batch-scoring-python.png":::
+:::image type="content" alt-text="Architecture diagram that shows the batch scoring of Python models on Azure" source="_images/batch-scoring-python.png" lightbox="_images/batch-scoring-python.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/batch-scoring-python.vsdx) of this architecture.*
 

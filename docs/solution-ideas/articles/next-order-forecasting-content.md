@@ -187,7 +187,7 @@ Other contributors:
 
 - [Many models machine learning at scale with Azure Machine Learning](../../example-scenario/ai/many-models-machine-learning-azure-machine-learning.yml)
 - [Solutions for the energy and environment industries](../../industries/energy-environment.md)
-- [Batch scoring with R models to forecast sales](../../reference-architectures/ai/batch-scoring-R-models.yml)
+- [Batch scoring with R models to forecast sales](../../ai-ml/architecture/batch-scoring-R-models.yml)
 - [Oil and gas tank level forecasting](../../solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml)
 - [Demand forecasting for shipping and distribution](../../solution-ideas/articles/demand-forecasting-for-shipping-and-distribution.yml) 
 - [Forecast energy and power demand with machine learning](../../solution-ideas/articles/forecast-energy-power-demand.yml)

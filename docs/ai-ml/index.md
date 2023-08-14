@@ -245,7 +245,7 @@ This is an enterprise-grade machine learning service to build and deploy models 
 
 - [Distributed training of deep learning models on Azure](../reference-architectures/ai/training-deep-learning.yml)
 
-- [Batch scoring of Python machine learning models on Azure](../reference-architectures/ai/batch-scoring-python.yml)
+- [Batch scoring of Python machine learning models on Azure](../ai-ml/architecture/batch-scoring-python.yml)
 
 - [Batch scoring of deep learning models on Azure](../ai-ml/architecture/batch-scoring-deep-learning.yml)
 
@@ -253,11 +253,11 @@ This is an enterprise-grade machine learning service to build and deploy models 
 
 - [Machine learning operationalization (MLOps) for Python models using Azure Machine Learning](../reference-architectures/ai/mlops-python.yml)
 
-- [Batch scoring of R machine learning models on Azure](../reference-architectures/ai/batch-scoring-r-models.yml)
+- [Batch scoring of R machine learning models on Azure](../ai-ml/architecture/batch-scoring-r-models.yml)
 
 - [Real-time scoring of R machine learning models on Azure](../reference-architectures/ai/realtime-scoring-r.yml)
 
-- [Batch scoring of Spark machine learning models on Azure Databricks](../reference-architectures/ai/batch-scoring-databricks.yml)
+- [Batch scoring of Spark machine learning models on Azure Databricks](../ai-ml/architecture/batch-scoring-databricks.yml)
 
 - [Enterprise-grade conversational bot](../reference-architectures/ai/conversational-bot.yml)
 
@@ -355,7 +355,7 @@ The Microsoft Machine Learning library for Apache Spark is [MMLSpark](https://gi
 
 - [How-to guide: Databricks Runtime for Machine Learning](/azure/databricks/runtime/mlruntime)
 
-- [Batch scoring of Spark machine learning models on Azure Databricks](../reference-architectures/ai/batch-scoring-databricks.yml)
+- [Batch scoring of Spark machine learning models on Azure Databricks](../ai-ml/architecture/batch-scoring-databricks.yml)
 
 - [Deep learning overview for Azure Databricks](/azure/databricks/applications/deep-learning/)
 

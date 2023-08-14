@@ -158,7 +158,7 @@ conceptualContent:
         url: ./reference-architectures/ai/training-deep-learning.yml
       - text: Batch scoring of Python models
         itemType: architecture
-        url: ./reference-architectures/ai/batch-scoring-python.yml
+        url: ./ai-ml/architecture/batch-scoring-python.yml
       - text: Conversational bot
         itemType: architecture
         url: ./reference-architectures/ai/conversational-bot.yml

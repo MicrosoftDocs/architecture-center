@@ -146,7 +146,7 @@ Principal authors:
 [als]: https://spark.apache.org/docs/latest/ml-collaborative-filtering.html
 [als-example]: https://github.com/Microsoft/Recommenders/blob/master/examples/05_operationalize/als_movie_o16n.ipynb
 [autoscaling]: /azure/databricks/clusters/configure#autoscaling
-[batch-scoring]: ../../reference-architectures/ai/batch-scoring-databricks.yml
+[batch-scoring]: ../../ai-ml/architecture/batch-scoring-databricks.yml
 [blog]: /azure/machine-learning/how-to-deploy-azure-kubernetes-service?tabs=python#autoscaling
 [cosmosdb]: /azure/cosmos-db/introduction
 [cosmosdb-service-page]: https://azure.microsoft.com/products/cosmos-db

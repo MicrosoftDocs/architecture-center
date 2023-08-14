@@ -124,12 +124,12 @@ Principal author:
 - [Artificial intelligence architecture](/azure/architecture/data-guide/big-data/ai-overview)
 - [Batch scoring of Spark models on Azure Databricks](batch-scoring-databricks.yml)
 - [Batch scoring of Python models on Azure](batch-scoring-python.yml)
-- [Batch scoring for deep learning models](../../ai-ml/architecture/batch-scoring-deep-learning.yml)
+- [Batch scoring for deep learning models](batch-scoring-deep-learning.yml)
 
 <!-- links -->
 
-[0]: ./_images/batch-scoring-r-models.png
-[1]: ./_images/batch-scoring-sales-forecasts.png
+[0]: _images/batch-scoring-r-models.png
+[1]: _images/batch-scoring-sales-forecasts.png
 [aci]: /azure/container-instances/container-instances-overview
 [autoscale]: /azure/batch/batch-automatic-scaling
 [batch]: /azure/batch/batch-technical-overview

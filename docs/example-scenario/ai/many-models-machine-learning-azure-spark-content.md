@@ -113,4 +113,4 @@ Principal author:
 - [Choose an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
 - [Choose a data analytics technology in Azure](../../data-guide/technology-choices/analysis-visualizations-reporting.md)
 - [Many models machine learning (ML) at scale with Azure Machine Learning](many-models-machine-learning-azure-machine-learning.yml)
-- [Batch scoring of Spark models on Azure Databricks](../../reference-architectures/ai/batch-scoring-databricks.yml)
+- [Batch scoring of Spark models on Azure Databricks](../../ai-ml/architecture/batch-scoring-databricks.yml)
