@@ -66,4 +66,3 @@ Principal author:
 
 - [Real-time scoring of machine learning models in Python](../../reference-architectures/ai/real-time-scoring-machine-learning-models.yml)
 - [Visual search in retail with Azure Cosmos DB](../../industries/retail/visual-search-use-case-overview.yml)
-- [Distributed training of deep learning models on Azure](../../reference-architectures/ai/training-deep-learning.yml)

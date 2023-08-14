@@ -153,9 +153,6 @@ conceptualContent:
       - text: Training of Python scikit-learn models
         itemType: architecture
         url: /azure/architecture/example-scenario/ai/training-python-models
-      - text: Distributed training of deep learning models
-        itemType: architecture
-        url: ./reference-architectures/ai/training-deep-learning.yml
       - text: Batch scoring of Python models
         itemType: architecture
         url: ./ai-ml/architecture/batch-scoring-python.yml
@@ -171,9 +168,6 @@ conceptualContent:
       - text: Natural language processing
         itemType: concept
         url: ./data-guide/technology-choices/natural-language-processing.yml
-      # - text: Movie recommendation
-      #   itemType: get-started
-      #   url: ./example-scenario/ai/movie-recommendations-with-machine-learning.yml
       - text: Cognitive services options
         itemType: concept
         url: ./data-guide/technology-choices/cognitive-services.md

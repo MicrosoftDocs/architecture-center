@@ -113,7 +113,6 @@ Microsoft Learn modules:
 
 ## Related resources
 
- - [Distributed training of deep learning models on Azure](../reference-architectures/ai/training-deep-learning.yml)
  - [Build an enterprise-grade conversational bot](../ai-ml/architecture/conversational-bot.yml)
  - [Image classification on Azure](../example-scenario/ai/intelligent-apps-image-processing.yml)
 
