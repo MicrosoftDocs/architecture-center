@@ -34,6 +34,9 @@ When working with a multitenant system using Azure Application Insights, you nee
 - Is the application tier of your solution multitenant but the data tier is single tenant?
 - Do telemetry requirements vary between tenants?
 
+> [!TIP]
+> The main factor that determines the cost of Application Insights is the amount of data that you send to it and how long it's retained. So, the use of dedicated or shared Application Insights instance in a multitenant application doesn't alter the overall cost profile. Review the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/) for more information.
+
 The following table summarizes the differences between the main tenancy models for Application Insights:
 
 | Consideration | Global shared Application Insights | Shared Application Insights per region/stamp | Dedicated Application Insights per tenant |
@@ -106,8 +109,7 @@ Using cross-resource queries, data can be [queried](/azure/azure-monitor/logs/cr
 #### Azure Monitor workbooks
 [Azure Monitor Workbooks](/training/modules/visualize-data-workbooks/) allow you to create interactive reports and dashboards using data from multiple sources, including Application Insights, thus providing a way to visualize and analyze data from multiple Application Insights resources in a single view.
 
-## Cost
-The main factor that determines the cost of Application Insights is the amount of data that you send to it and how long it's retained. So, the use of dedicated or shared Application Insights instance in a multitenant application doesn't alter the overall cost profile. Review the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/) for more information.
+
 ## Latency
 The time between the creation of data on the monitored system and its availability for analysis is referred to as [Latency](/azure/azure-monitor/logs/data-ingestion-time). Use of dedicated or shared Application Insights instance in a multitenant application doesn't have any bearing on latency unless the shared instance gets throttled and prevents data from being ingested resulting in increased latency.
 ## Rate limiting on ingestion
@@ -125,6 +127,8 @@ Other contributors:
 * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, Azure CXP
 * [Landon Pierce](http://linkedin.com/in/landon-pierce) | Customer Engineer, Azure CXP
 * [Daniel Scott-Raynsford](http://linkedin.com/in/dscottraynsford) | Partner Technology Strategist, OCP
+* [Rob Bagby](http://linkedin.com/in/robbagby/) | Principal Content Developer, C+E Skilling Content R&D
+* [Rick Hallihan](http://linkedin.com/in/hallihan/) | Senior Software Engineer, C+E Skilling Content R&D
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
