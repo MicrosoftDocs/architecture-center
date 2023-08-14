@@ -69,7 +69,7 @@ Microsoft offers the Azure Bot Service, a managed service purpose-built for ente
 
 - [Ten guidelines for responsible bots](https://www.microsoft.com/research/publication/responsible-bots/)
 
-- [Azure reference architecture: Enterprise-grade conversational bot](../reference-architectures/ai/conversational-bot.yml)
+- [Azure reference architecture: Enterprise-grade conversational bot](../ai-ml/architecture/conversational-bot.yml)
 
 - [Example workload: Conversational chatbot for hotel reservations on Azure](../example-scenario/ai/commerce-chatbot.yml)
 
@@ -259,7 +259,7 @@ This is an enterprise-grade machine learning service to build and deploy models 
 
 - [Batch scoring of Spark machine learning models on Azure Databricks](../ai-ml/architecture/batch-scoring-databricks.yml)
 
-- [Enterprise-grade conversational bot](../reference-architectures/ai/conversational-bot.yml)
+- [Enterprise-grade conversational bot](../ai-ml/architecture/conversational-bot.yml)
 
 - [Build a real-time recommendation API on Azure](../reference-architectures/ai/real-time-recommendation.yml)
 
@@ -311,7 +311,7 @@ This is a purpose-built bot development environment with out-of-the-box template
 
 - [Azure Bot Service documentation overview](/azure/bot-service/bot-service-overview-introduction)
 
-- [Azure reference architecture: Enterprise-grade conversational bot](../reference-architectures/ai/conversational-bot.yml)
+- [Azure reference architecture: Enterprise-grade conversational bot](../ai-ml/architecture/conversational-bot.yml)
 
 - [Example workload: Conversational chatbot for hotel reservations on Azure](../example-scenario/ai/commerce-chatbot.yml)
 

@@ -161,7 +161,7 @@ conceptualContent:
         url: ./ai-ml/architecture/batch-scoring-python.yml
       - text: Conversational bot
         itemType: architecture
-        url: ./reference-architectures/ai/conversational-bot.yml
+        url: ./ai-ml/architecture/conversational-bot.yml
       - text: Machine learning options
         itemType: reference
         url: ./data-guide/technology-choices/data-science-and-machine-learning.md

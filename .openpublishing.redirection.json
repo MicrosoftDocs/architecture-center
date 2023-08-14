@@ -3254,6 +3254,11 @@
       "source_path": "docs/reference-architectures/ai/batch-scoring-databricks.yml",
       "redirect_url": "/azure/architecture/ai-ml/architecture/batch-scoring-databricks",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/conversational-bot.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/conversational-bot",
+      "redirect_document_id": true
     }
   ]
 }

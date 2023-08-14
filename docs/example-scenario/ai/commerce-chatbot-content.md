@@ -130,7 +130,7 @@ Microsoft Learn modules:
 
 ## Related resources
 
-- [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
+- [Build an enterprise-grade conversational bot](../../ai-ml/architecture/conversational-bot.yml)
 - [Speech-to-text conversion](/azure/architecture/example-scenario/ai/speech-to-text-transcription-analytics)
 
 <!-- links -->

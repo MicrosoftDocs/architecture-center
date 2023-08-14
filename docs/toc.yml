@@ -1210,8 +1210,8 @@ items:
         href: example-scenario/machine-learning/donor-patient-cross-match.yml
       - name: End-to-end computer vision at the edge
         href: reference-architectures/ai/end-to-end-smart-factory.yml
-      - name: Enterprise-grade conversational bot
-        href: reference-architectures/ai/conversational-bot.yml
+      # - name: Enterprise-grade conversational bot
+      #   href: reference-architectures/ai/conversational-bot.yml
       - name: Extract text with Power Automate
         href: example-scenario/ai/extract-object-text.yml
       # - name: Image classification

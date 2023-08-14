@@ -2,7 +2,7 @@ This reference architecture describes how to build an enterprise-grade conversat
 
 ## Architecture
 
-[![Diagram showing the architecture of a conversational bot.][0]](./_images/conversational-bot.svg#lightbox)
+[![Diagram showing the architecture of a conversational bot.][0]](_images/conversational-bot.svg#lightbox)
 
 *Download a [Visio file][visio-download] of this architecture.*
 
@@ -76,7 +76,7 @@ This solution is ideal for the telecommunications industry. This article covers 
 
 At a high level, a conversational bot can be divided into the bot functionality (the "brain") and a set of surrounding requirements (the "body"). The brain includes the domain-aware components, including the bot logic and ML capabilities. Other components are domain agnostic and address non-functional requirements such as CI/CD, quality assurance, and security.
 
-![Logical diagram of bot functionality](./_images/conversational-bot-logical.png)
+![Logical diagram of bot functionality](_images/conversational-bot-logical.png)
 
 Before getting into the specifics of this architecture, let's start with the data flow through each subcomponent of the design. The data flow includes user-initiated and system-initiated data flows.
 
@@ -271,7 +271,7 @@ Microsoft Learn Training modules:
 
 <!-- links -->
 
-[0]: ./_images/conversational-bot.svg
+[0]: _images/conversational-bot.svg
 [aad]: /azure/active-directory
 [aaf-cost]: /azure/architecture/framework/cost/overview
 [activities]: /azure/bot-service/rest-api/bot-framework-rest-connector-concepts#activity

@@ -129,6 +129,6 @@ The container can be run locally (offline) in your own environment. It can also 
 
 ## Related resources
 
-- [Build an enterprise-grade conversational bot](/azure/architecture/reference-architectures/ai/conversational-bot)
+- [Build an enterprise-grade conversational bot](/azure/architecture/ai-ml/architecture/conversational-bot)
 - [Scale AI and machine learning initiatives in regulated industries](/azure/architecture/example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries)
 - [Homomorphic encryption with SEAL](/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal)

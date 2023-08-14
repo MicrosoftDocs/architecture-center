@@ -94,6 +94,10 @@ items:
           href: architecture/batch-scoring-R-models.yml
         - name: Batch scoring with Spark on Databricks
           href: architecture/batch-scoring-databricks.yml
+      - name: Chat bots
+        items:
+        - name: Enterprise-grade conversational bot
+          href: architecture/conversational-bot.yml
     #   - name: Host web apps with App Service
     #     items:
     #     - name: Basic web application
