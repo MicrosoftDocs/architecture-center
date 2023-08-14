@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 08/07/2023
+ms.date: 08/14/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -27,9 +27,14 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Azure Health Data Services architecture guide](./guide/data/azure-health-data-services.yml)
+- [Video ingestion and object detection on the edge and in the cloud](./solution-ideas/articles/video-ingestion-object-detection-edge-cloud.yml)
 - [Extract and analyze call center data by using Azure OpenAI Service, Speech services, and Language services](./example-scenario/ai/call-center-openai-analytics.yml)
 - [Mission-critical baseline with App Service](./guide/networking/global-web-applications/mission-critical-app-service.yml)
 
+### Updated articles
+
+- [Build solutions with availability zones](./high-availability/building-solutions-for-high-availability.yml)  ([#bf5377d475](https://github.com/MicrosoftDocs/architecture-center/commit/bf5377d475))
 
 ## July 2023
 
