@@ -104,7 +104,7 @@ There are several ways to unify data from multiple Application Insights resource
 
 - Using cross-resource queries data can be [queried](/azure/azure-monitor/logs/cross-workspace-query) from multiple Application Insights resources in a single query. The resources can be in same resource group, another resource group, or another subscription. As the number of Application Insights workspaces in a query increase, the query performance may degrade. There's a limit to the number of Application Insights workspaces that can be included in a single query. For more information, see [Query Across Multiple workspaces and apps](/azure/azure-monitor/logs/cross-workspace-query)
 #### Azure Monitor workbooks
-- [Azure Monitor Workboks](/training/modules/visualize-data-workbooks/) allow you to create interactive reports and dashboards using data from multiple sources, including Application Insights thus providing a way to visualize and analyze data from multiple Application Insights resources in a single view.
+[Azure Monitor Workbooks](/training/modules/visualize-data-workbooks/) allow you to create interactive reports and dashboards using data from multiple sources, including Application Insights, thus providing a way to visualize and analyze data from multiple Application Insights resources in a single view.
 
 ## Cost
 The main factor that determines the cost of Application Insights is the amount of data that you send to it and how long it's retained. So, the use of dedicated or shared Application Insights instance in a multitenant application doesn't alter the overall cost profile. Review the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/) for more information.
