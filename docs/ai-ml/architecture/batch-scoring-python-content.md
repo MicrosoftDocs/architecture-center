@@ -119,7 +119,6 @@ Microsoft Learn modules:
 - [Batch scoring for deep learning models using Azure Machine Learning pipelines](../../ai-ml/architecture/batch-scoring-deep-learning.yml)
 - [Batch scoring of Spark models on Azure Databricks](batch-scoring-databricks.yml)
 - [MLOps for Python models using Azure Machine Learning](../../reference-architectures/ai/mlops-python.yml)
-- [Real-time scoring of machine learning models in Python](../../reference-architectures/ai/real-time-scoring-machine-learning-models.yml)
 
 [acr]: /azure/container-registry/container-registry-intro
 [amls]: /azure/machine-learning/overview-what-is-azure-machine-learning

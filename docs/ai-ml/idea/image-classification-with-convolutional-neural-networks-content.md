@@ -64,5 +64,4 @@ Principal author:
 
 ## Related resources
 
-- [Real-time scoring of machine learning models in Python](../../reference-architectures/ai/real-time-scoring-machine-learning-models.yml)
-- [Visual search in retail with Azure Cosmos DB](../../industries/retail/visual-search-use-case-overview.yml)
+[Visual search in retail with Azure Cosmos DB](../../industries/retail/visual-search-use-case-overview.yml)

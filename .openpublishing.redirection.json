@@ -3304,6 +3304,11 @@
       "source_path": "docs/example-scenario/ai/training-python-models.yml",
       "redirect_url": "/azure/architecture/ai-ml/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/ai/real-time-scoring-machine-learning-models.yml",
+      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_document_id": false
     }
   ]
 }

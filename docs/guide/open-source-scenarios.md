@@ -291,7 +291,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |[Application data protection for AKS workloads on Azure NetApp Files](../example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)|Deploy Astra Control Service with Azure NetApp Files for data protection, disaster recovery, and mobility for AKS applications. This solution applies to systems that run AI and machine learning components like PyTorch.|Containers|
 |[Data science and machine learning with Azure Databricks](../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)|Improve operations by using Azure Databricks, Delta Lake, and MLflow for data science and machine learning. Azure Databricks uses pre-installed, optimized machine learning frameworks, including PyTorch. |AI|
 |[Machine learning in IoT Edge vision](../guide/iot-edge-vision/machine-learning.yml)|Learn about machine learning data and models in Azure IoT Edge vision AI solutions. Includes information about PyTorch.|IoT|
-|[Real-time scoring of machine learning models](../reference-architectures/ai/real-time-scoring-machine-learning-models.yml)|Deploy Python machine learning models as web services to make real-time predictions by using Azure Machine Learning and AKS. Learn about an image classification scenario that uses PyTorch.|AI|
 
 ## RabbitMQ
 
@@ -352,7 +351,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |[Application data protection for AKS workloads on Azure NetApp Files](../example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)|Deploy Astra Control Service with Azure NetApp Files for data protection, disaster recovery, and mobility for AKS applications. This solution applies to systems that run AI and machine learning components like TensorFlow.|Containers|
 |[Data science and machine learning with Azure Databricks](../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)|Improve operations by using Databricks, Delta Lake, and MLflow for data science and machine learning. Develop, train, and deploy machine learning models. Azure Databricks uses pre-installed, optimized machine learning frameworks, including TensorFlow.|AI|
 |[Machine learning in IoT Edge vision](../guide/iot-edge-vision/machine-learning.yml)|Learn about machine learning data and models in Azure IoT Edge vision AI solutions. Includes information about TensorFlow.|IoT|
-|[Real-time scoring of machine learning models](../reference-architectures/ai/real-time-scoring-machine-learning-models.yml)|Deploy Python machine learning models as web services to make real-time predictions by using Azure Machine Learning and AKS. Learn about an image classification scenario that uses TensorFlow.|AI|
 |[Vision classifier model with Azure Cognitive Services Custom Vision](../example-scenario/dronerescue/vision-classifier-model-with-custom-vision.yml)|Create an image classifier with a solution architecture that includes Microsoft AirSim Drones simulator, Azure Cognitive Services Custom Vision, and TensorFlow.|AI|
 
 ## Terraform

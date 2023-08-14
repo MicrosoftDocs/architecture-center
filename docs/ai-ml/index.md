@@ -51,8 +51,6 @@ With many layers in each neural network-and sometimes using multiple neural netw
 
 - [Batch scoring of deep learning models on Azure](../ai-ml/architecture/batch-scoring-deep-learning.yml)
 
-- [Real-time scoring of Python scikit-learn and deep learning models on Azure](../reference-architectures/ai/real-time-scoring-machine-learning-models.yml)
-
 ### Bots
 
 A *bot* is an automated software program designed to perform a particular task. Think of it as a robot without a body. Early bots were comparatively simple, handling repetitive and voluminous tasks with relatively straightforward algorithmic logic. An example would be web crawlers used by search engines to automatically explore and catalog web content.
@@ -238,8 +236,6 @@ This is an enterprise-grade machine learning service to build and deploy models 
 - [Batch scoring of Python machine learning models on Azure](../ai-ml/architecture/batch-scoring-python.yml)
 
 - [Batch scoring of deep learning models on Azure](../ai-ml/architecture/batch-scoring-deep-learning.yml)
-
-- [Real-time scoring of Python scikit-learn and deep learning models on Azure](../reference-architectures/ai/real-time-scoring-machine-learning-models.yml)
 
 - [Machine learning operationalization (MLOps) for Python models using Azure Machine Learning](../reference-architectures/ai/mlops-python.yml)
 
