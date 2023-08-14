@@ -2,7 +2,7 @@
 title: Solutions for the sports industry
 description: See architectures and ideas that use Azure services to build efficient, scalable, and reliable solutions in the sports industry.
 author: martinekuan
-ms.author: architectures
+ms.author: robbag
 ms.date: 10/27/2022
 ms.topic: conceptual
 ms.service: architecture-center

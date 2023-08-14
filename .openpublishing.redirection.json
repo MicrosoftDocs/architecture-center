@@ -3279,6 +3279,11 @@
       "source_path": "docs//data-guide/big-data/baseball-ml-workload.yml",
       "redirect_url": "/azure/architecture/ai-ml/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/ai/commerce-chatbot.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/conversational-bot",
+      "redirect_document_id": false
     }
   ]
 }

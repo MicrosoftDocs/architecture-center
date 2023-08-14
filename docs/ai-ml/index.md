@@ -71,8 +71,6 @@ Microsoft offers the Azure Bot Service, a managed service purpose-built for ente
 
 - [Azure reference architecture: Enterprise-grade conversational bot](../ai-ml/architecture/conversational-bot.yml)
 
-- [Example workload: Conversational chatbot for hotel reservations on Azure](../example-scenario/ai/commerce-chatbot.yml)
-
 ### Autonomous systems
 
 *Autonomous systems* are part of an evolving new class that goes beyond basic automation. Instead of performing a specific task repeatedly with little or no variation (like bots do), autonomous systems bring intelligence to machines so they can adapt to changing environments to accomplish a desired goal.
@@ -312,8 +310,6 @@ This is a purpose-built bot development environment with out-of-the-box template
 - [Azure Bot Service documentation overview](/azure/bot-service/bot-service-overview-introduction)
 
 - [Azure reference architecture: Enterprise-grade conversational bot](../ai-ml/architecture/conversational-bot.yml)
-
-- [Example workload: Conversational chatbot for hotel reservations on Azure](../example-scenario/ai/commerce-chatbot.yml)
 
 - [Microsoft Bot Framework](https://dev.botframework.com/)
 

@@ -55,7 +55,6 @@ The following articles provide detailed analysis of architectures created and re
 
 | Architecture | Summary | Technology focus
 | ------- | ------- | ------- |
-|[Build a chatbot for hotel booking](../example-scenario/ai/commerce-chatbot.yml)|Integrate a conversational chatbot into your applications. Chatbots can supplement your customer service agents, by responding to customer requests.|AI|
 |[Build a delta lake to support ad hoc queries in online leisure and travel booking](../solution-ideas/articles/build-data-lake-support-adhoc-queries-online.yml)|Make raw data easily accessible. This data is important to technical and customer support teams, data engineers, and legal teams.|Databases|
 |[Custom business processes for airlines](../solution-ideas/articles/custom-business-processes.yml)|Monitor customer flight data, when a traveler selects or is assigned a flight.|Integration|
 |[Data science and machine learning with Azure Databricks](../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)|Improve efficiency, enhance customer experiences, and predict changes in your business with data science and machine learning.|AI|
