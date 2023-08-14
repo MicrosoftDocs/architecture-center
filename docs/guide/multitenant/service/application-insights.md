@@ -22,7 +22,7 @@ ms.custom:
 Application Insights is a service that monitors the performance, availability, and usage of your web applications. It helps you identify and diagnose issues, analyze user behavior, and track key metrics.  In this article, we describe some of the features of Application Insights that are useful when working with multitenanted systems. We link to guidance and examples for how to use Application Insights in a multitenant solution.
 
 > [!TIP]
-> Application Insights is designed and optimized for monitoring your solution. It is not meant for capturing every event that happens in a system to be used for auditing or billing purposes. For more information [considerations for measuring consumption in multitenant solutions](/azure/architecture/guide/multitenant/considerations/measure-consumption).
+> Application Insights is designed and optimized for monitoring your solution. It is not meant for capturing every event that happens in a system to be used for auditing or billing purposes. To learn more about how you can measure usage for billing purposes, see [Considerations for measuring consumption in multitenant solutions](../considerations/measure-consumption.md).
 
 
 ## Isolation models
