@@ -70,7 +70,7 @@ The solution assumes that a graph has already been created in a graph database. 
 
 The solution uses Azure Databricks for the data contextualization process.
 
-### Graph databases
+### Graph database
 
 The graph database is the database that stores the graph data/models. As noted earlier, there are many graph databases available. In this solution, we use Azure SQL Database and the [graph capabilities of SQL Server](/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver16) to create the graph.
 
