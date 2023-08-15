@@ -8,6 +8,8 @@ metadata:
   ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
+  ms.custom:
+    - has-azure-ad-ps-ref
 name: Architecture of an AKS regulated cluster for PCI-DSS 3.2.1 (Part 2 of 9)
 azureCategories:
   - containers
