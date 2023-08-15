@@ -3317,7 +3317,7 @@
     },
     {
       "source_path": "docs/example-scenario/ai/customer-lifecycle-churn.yml",
-      "redirect_url": "/azure/architecture/ai-ml/architecture/customer-lifecycle-churn.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/customer-lifecycle-churn",
       "redirect_document_id": true
     }
   ]
