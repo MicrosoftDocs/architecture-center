@@ -3311,8 +3311,13 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "hybrid/deploy-ai-ml-azure-stack-edge.yml",
+      "source_path": "docs/hybrid/deploy-ai-ml-azure-stack-edge.yml",
       "redirect_url": "/azure/architecture/ai-ml/idea/deploy-ai-ml-azure-stack-edge",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/ai/customer-lifecycle-churn.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/customer-lifecycle-churn.yml",
       "redirect_document_id": true
     }
   ]

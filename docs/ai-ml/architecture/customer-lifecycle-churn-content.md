@@ -2,7 +2,7 @@ This scenario shows a solution for creating predictive models of [customer lifet
 
 ## Architecture
 
-[ ![Architecture diagram for scenario to determine customer lifetime and churn by using Azure AI services.](./media/architecture-customer-lifetime-churn.svg)](./media/architecture-customer-lifetime-churn.svg#lightbox)
+[ ![Architecture diagram for scenario to determine customer lifetime and churn by using Azure AI services.](_images/architecture-customer-lifetime-churn.svg)](_images/architecture-customer-lifetime-churn.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/architecture-customer-lifetime-churn.vsdx) of this architecture.*
 
@@ -135,4 +135,4 @@ Principal author:
 - [Artificial intelligence](../../data-guide/big-data/ai-overview.md)
 - [MLOps for Python models using Azure Machine Learning](../../reference-architectures/ai/mlops-python.yml)
 - [Customer churn prediction using real-time analytics](../../solution-ideas/articles/customer-churn-prediction.yml)
-- [Predict Length of Stay and Patient Flow](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)
+- [Predict Length of Stay and Patient Flow](../../example-scenario/digital-health/predict-patient-length-of-stay)

@@ -86,6 +86,10 @@ items:
         items:
         - name: Speech transcription pipeline
           href: architecture/speech-to-text-transcription-analytics.yml
+        - name: Predictive analytics
+          items:
+          - name: Determine customer lifetime and churn
+            href: architecture/customer-lifecycle-churn.yml
       - name: Batch scoring
         items:
         - name: Batch scoring for deep learning

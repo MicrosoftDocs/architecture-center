@@ -113,8 +113,8 @@ Microsoft Learn modules:
 
 ## Related resources
 
- - [Build an enterprise-grade conversational bot](../ai-ml/architecture/conversational-bot.yml)
- - [Image classification on Azure](../example-scenario/ai/intelligent-apps-image-processing.yml)
+ - [Build an enterprise-grade conversational bot](../architecture/conversational-bot.yml)
+ - [Image classification on Azure](../../example-scenario/ai/intelligent-apps-image-processing.yml)
 
 [architectural-diagram]: _images/deploy-ai-ml-azure-stack-edge.svg
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/deploy-ai-ml-azure-stack-edge.vsdx
