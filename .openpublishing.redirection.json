@@ -3309,6 +3309,11 @@
       "source_path": "docs/reference-architectures/ai/real-time-scoring-machine-learning-models.yml",
       "redirect_url": "/azure/architecture/ai-ml/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "hybrid/deploy-ai-ml-azure-stack-edge.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/deploy-ai-ml-azure-stack-edge",
+      "redirect_document_id": true
     }
   ]
 }

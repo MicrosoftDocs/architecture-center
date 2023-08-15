@@ -79,6 +79,6 @@ For related solutions, see the following articles:
 
 * [AI at the edge with Azure Stack Hub](./ai-at-the-edge.yml)
 * [AI-based footfall detection](../../solution-ideas/articles/hybrid-footfall-detection.yml)
-* [Deploy AI and machine learning computing on-premises and to the edge](../../hybrid/deploy-ai-ml-azure-stack-edge.yml)
+* [Deploy AI and machine learning computing on-premises and to the edge](../../ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml)
 * [Azure public multi-access edge compute deployment](../../example-scenario/hybrid/public-multi-access-edge-compute-deployment.yml)
 * [Choose a bare-metal Kubernetes at the edge platform option](../../operator-guides/aks/choose-bare-metal-kubernetes.yml)

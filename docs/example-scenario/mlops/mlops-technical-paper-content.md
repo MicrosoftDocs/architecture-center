@@ -475,4 +475,4 @@ Here you'll find a list of considerations to explore. They're based on the lesso
 * [MLOps for Python models using Azure Machine Learning](../../reference-architectures/ai/mlops-python.yml)
 * [Data science and machine learning with Azure Databricks](../../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)
 * [Citizen AI with the Power Platform](../../example-scenario/ai/citizen-ai-power-platform.yml)
-* [Deploy AI and machine learning computing on-premises and to the edge](/azure/architecture/hybrid/deploy-ai-ml-azure-stack-edge)
+* [Deploy AI and machine learning computing on-premises and to the edge](/azure/architecture/ai-ml/idea/deploy-ai-ml-azure-stack-edge)

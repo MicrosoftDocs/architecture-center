@@ -59,7 +59,9 @@ items:
         - name: Model deployment to AKS
           href: idea/machine-learning-model-deployment-aks.yml
         - name: Orchestrate MLOps with Azure Databricks
-          href: idea/orchestrate-mlops-azure-databricks.yml          
+          href: idea/orchestrate-mlops-azure-databricks.yml    
+        - name: Deploy AI and ML at the edge
+          href: idea/deploy-ai-ml-azure-stack-edge.yml                
     - name: Design architectures
       items:
       - name: Document processing

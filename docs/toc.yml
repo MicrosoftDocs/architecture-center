@@ -1196,8 +1196,8 @@ items:
       #   href: example-scenario/ai/commerce-chatbot.yml
       # - name: Citizen AI with the Power Platform
       #   href: example-scenario/ai/citizen-ai-power-platform.yml
-      - name: Deploy AI and ML at the edge
-        href: hybrid/deploy-ai-ml-azure-stack-edge.yml
+      # - name: Deploy AI and ML at the edge
+      #   href: hybrid/deploy-ai-ml-azure-stack-edge.yml
       # - name: Deploy models to multiple data sources
       #   href: example-scenario/ai/multiline-model-deployment.yml
       - name: Determine customer lifetime and churn
@@ -2976,7 +2976,7 @@ items:
       - name: Connect standalone servers
         href: hybrid/azure-network-adapter.yml
       - name: Deploy AI and ML with Azure Stack Edge
-        href: hybrid/deploy-ai-ml-azure-stack-edge.yml
+        href: ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml
       - name: Design a hybrid Domain Name System
         href: hybrid/hybrid-dns-infra.yml
       - name: 'Enhanced-security hybrid: client access'

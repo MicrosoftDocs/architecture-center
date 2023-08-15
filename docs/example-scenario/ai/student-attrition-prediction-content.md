@@ -223,5 +223,5 @@ Other contributors:
 - [Solutions for the education industry](../../industries/education.md)
 - [Batch scoring of Python models on Azure](../../ai-ml/architecture/batch-scoring-python.yml)
 - [Citizen AI with the Power Platform](./citizen-ai-power-platform.yml)
-- [Deploy AI and machine learning computing on-premises and to the edge](../../hybrid/deploy-ai-ml-azure-stack-edge.yml)
+- [Deploy AI and machine learning computing on-premises and to the edge](../../ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml)
 - [MLOps for Python models using Azure Machine Learning](../../reference-architectures/ai/mlops-python.yml)

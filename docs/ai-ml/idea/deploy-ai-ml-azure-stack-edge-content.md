@@ -2,7 +2,7 @@ This reference architecture illustrates how to use [Azure Stack Edge][azure-stac
 
 ## Architecture
 
-:::image type="content" border="false" source="./images/deploy-ai-ml-azure-stack-edge.svg" alt-text="Architecture diagram: on-premises data training a model in Azure Machine Learning, with model deployed back to the edge for inference." lightbox="./images/deploy-ai-ml-azure-stack-edge.svg":::
+:::image type="content" border="false" source="_images/deploy-ai-ml-azure-stack-edge.svg" alt-text="Architecture diagram: on-premises data training a model in Azure Machine Learning, with model deployed back to the edge for inference." lightbox="_images/deploy-ai-ml-azure-stack-edge.svg":::
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
@@ -116,7 +116,7 @@ Microsoft Learn modules:
  - [Build an enterprise-grade conversational bot](../ai-ml/architecture/conversational-bot.yml)
  - [Image classification on Azure](../example-scenario/ai/intelligent-apps-image-processing.yml)
 
-[architectural-diagram]: ./images/deploy-ai-ml-azure-stack-edge.svg
+[architectural-diagram]: _images/deploy-ai-ml-azure-stack-edge.svg
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/deploy-ai-ml-azure-stack-edge.vsdx
 [azure-container-instances]: /azure/container-instances/
 [azure-container-registry]: /azure/container-registry/
