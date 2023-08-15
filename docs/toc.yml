@@ -1168,8 +1168,8 @@ items:
       items:
       # - name: Analyze browser information
       #   href: example-scenario/ai/analyze-browser-info-for-security-insights.yml
-      - name: Anomaly detection for conveyor belts
-        href: example-scenario/ai/real-time-anomaly-detection-conveyor-belt.yml
+      # - name: Anomaly detection for conveyor belts
+      #   href: example-scenario/ai/real-time-anomaly-detection-conveyor-belt.yml
       # - name: Automate document classification
       #   href: example-scenario/ai/automate-document-classification-durable-functions.yml
       # - name: Automate document processing
@@ -1194,8 +1194,8 @@ items:
       #   href: example-scenario/document-processing/build-deploy-custom-models.yml
       # - name: Chatbot for hotel booking
       #   href: example-scenario/ai/commerce-chatbot.yml
-      - name: Citizen AI with the Power Platform
-        href: example-scenario/ai/citizen-ai-power-platform.yml
+      # - name: Citizen AI with the Power Platform
+      #   href: example-scenario/ai/citizen-ai-power-platform.yml
       - name: Deploy AI and ML at the edge
         href: hybrid/deploy-ai-ml-azure-stack-edge.yml
       # - name: Deploy models to multiple data sources
@@ -1206,20 +1206,20 @@ items:
       #   href: reference-architectures/ai/training-deep-learning.yml
       # - name: Distributed model hyperparameter tuning
       #   href: example-scenario/ai/training-python-models.yml
-      - name: Donor-patient cross matching
-        href: example-scenario/machine-learning/donor-patient-cross-match.yml
-      - name: End-to-end computer vision at the edge
-        href: reference-architectures/ai/end-to-end-smart-factory.yml
+      # - name: Donor-patient cross matching
+      #   href: example-scenario/machine-learning/donor-patient-cross-match.yml
+      # - name: End-to-end computer vision at the edge
+      #   href: reference-architectures/ai/end-to-end-smart-factory.yml
       # - name: Enterprise-grade conversational bot
       #   href: reference-architectures/ai/conversational-bot.yml
-      - name: Extract text with Power Automate
-        href: example-scenario/ai/extract-object-text.yml
+      # - name: Extract text with Power Automate
+      #   href: example-scenario/ai/extract-object-text.yml
       # - name: Image classification
       #   href: example-scenario/ai/intelligent-apps-image-processing.yml
-      - name: Implement risk prediction for surgeries
-        href: example-scenario/ai/risk-stratification-surgery.yml
-      - name: Implement the healthcare blueprint for AI
-        href: industries/healthcare/healthcare-ai-blueprint.yml
+      # - name: Implement risk prediction for surgeries
+      #   href: example-scenario/ai/risk-stratification-surgery.yml
+      # - name: Implement the healthcare blueprint for AI
+      #   href: industries/healthcare/healthcare-ai-blueprint.yml
       - name: Many models ML with Spark
         href: example-scenario/ai/many-models-machine-learning-azure-spark.yml
       - name: Many models with Machine Learning
@@ -1232,22 +1232,22 @@ items:
       #   href: example-scenario/data/search-blob-metadata.yml
       - name: Network security for MLOps
         href: example-scenario/ai/network-security-mlops.yml
-      - name: Predict hospital readmissions with ML
-        href: example-scenario/ai/predict-hospital-readmissions-machine-learning.yml
-      - name: Predict student attrition
-        href: example-scenario/ai/student-attrition-prediction.yml
-      - name: Quality assurance
-        href: solution-ideas/articles/quality-assurance.yml
-      - name: Real-time machine learning on Azure
-        href: example-scenario/ai/deploy-real-time-machine-learning-model-application-ui.yml
+      # - name: Predict hospital readmissions with ML
+      #   href: example-scenario/ai/predict-hospital-readmissions-machine-learning.yml
+      # - name: Predict student attrition
+      #   href: example-scenario/ai/student-attrition-prediction.yml
+      # - name: Quality assurance
+      #   href: solution-ideas/articles/quality-assurance.yml
+      # - name: Real-time machine learning on Azure
+      #   href: example-scenario/ai/deploy-real-time-machine-learning-model-application-ui.yml
       # - name: Real-time recommendation API
       #   href: reference-architectures/ai/real-time-recommendation.yml
       # - name: Real-time scoring Python models
       #   href: reference-architectures/ai/real-time-scoring-machine-learning-models.yml
       - name: Real-time scoring R models
         href: reference-architectures/ai/realtime-scoring-r.yml
-      - name: Scale AI and ML in regulated industries
-        href: example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml
+      # - name: Scale AI and ML in regulated industries
+      #   href: example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml
       - name: Secure research for regulated data
         href: example-scenario/ai/secure-compute-for-research.yml
       # - name: Speech transcription pipeline
