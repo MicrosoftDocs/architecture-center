@@ -3026,6 +3026,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/example-scenario/sql-failover/sql-failover-2008r2.yml",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-prepare-vm",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/serverless/code.yml",
       "redirect_url": "/azure/architecture/web-apps/serverless/architectures/code",
       "redirect_document_id": true
