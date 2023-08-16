@@ -9,20 +9,14 @@ This article provides implementation guidance for subscription vending automatio
 
 ## Architecture
 
-You should architect your subscription vending automation to accomplish three primary tasks. Subscription vending automation should:
-
-- Collect subscription request data.
-- Initiate platform automation.
-- Create the subscription by using infrastructure-as-code.
+You should architect your subscription vending automation to accomplish three primary tasks. Subscription vending automation should (1) collect subscription request data, (2) initiate platform automation, and (3) create the subscription by using infrastructure-as-code. There are several approaches for implementing subscription vending automation to accomplish these three tasks. The example implementation (*figure 2*) shows one approach that uses a Gitflow. The Gitflow design aligns with the declarative approach that many platform teams use to manage the platform.
 
 [![Diagram showing the example implementation of subscription vending automation.](images/subscription-vending-components.png)](images/subscription-vending-components.png)
 *Figure 2. Example implementation of subscription vending automation.*
 
-Numerous approaches exist for implementing subscription vending automation to accomplish these three tasks. The example implementation shows one approach that uses a Gitflow (*see Figure 2*). The Gitflow design aligns with the declarative approach that many platform teams use to manage the platform.
+In the example implementation (*figure 2*), the *data collection tool* gathers subscription request data. When the subscription request receives approval, it initiates the platform automation. The *platform automation* consists of the request pipeline, source control, and deployment pipeline. The *request pipeline* creates a JSON or YAML subscription parameter file with the data from the data collection tool. The request pipeline also creates a new branch, commits the subscription parameter file, and opens a pull request in *source control*. The new branch merges with the main branch in source control. The merge triggers the *deployment pipeline* to create the subscription with the infrastructure-as-code modules.
 
-In the example implementation, the *data collection tool* gathers subscription request data. When the subscription request receives approval, it initiates the platform automation. The *platform automation* consists of the request pipeline, source control, and deployment pipeline. The *request pipeline* creates a JSON or YAML subscription parameter file with the data from the data collection tool. The request pipeline also creates a new branch, commits the subscription parameter file, and opens a pull request in *source control*. The new branch merges with the main branch in source control. The merge triggers the *deployment pipeline* to create the subscription with the infrastructure-as-code modules.
-
-The deployment should place the *subscription* in the correct management group based on the governance requirements (*see Figure 1*). The deployment creates a preliminary subscription budget as the foundation for cost management. Based on the needs of the workload, the deployment could create an empty virtual network and configure peering to a regional hub. The platform team should hand off the subscription to the application team after creation and configuration. The application team should update the subscription budget and create the workload resources.
+The deployment should place the *subscription* in the correct management group based on the governance requirements (*see figure 1*). The deployment creates a preliminary subscription budget as the foundation for cost management. Based on the needs of the workload, the deployment could create an empty virtual network and configure peering to a regional hub. The platform team should hand off the subscription to the application team after creation and configuration. The application team should update the subscription budget and create the workload resources.
 
 ## Collect data
 
@@ -42,7 +36,7 @@ The goal of collecting data is to receive business approval and define the value
 
 ## Initiate platform automation
 
-The notification and data from the data collection tool should trigger the platform automation. The goal of platform automation is to create a JSON/YAML subscription parameter file, merge the file to the main branch, and deploy it with the infrastructure-as-code modules to create the subscription. The platform team should own and maintain the platform automation. The platform automation in the example implementation consists of the request pipeline, source control, and deployment pipeline (*see Figure 2*).
+The notification and data from the data collection tool should trigger the platform automation. The goal of platform automation is to create a JSON/YAML subscription parameter file, merge the file to the main branch, and deploy it with the infrastructure-as-code modules to create the subscription. The platform team should own and maintain the platform automation. The platform automation in the example implementation consists of the request pipeline, source control, and deployment pipeline (*see figure 2*).
 
 **Use JSON or YAML files.** You should use structured data files (JSON or YAML) to store the data to create a subscription. You should document the structure of the file and make it extensible to support future needs. For example, the following JSON code snippet defines the subscription parameter values for one of the Bicep modules in GitHub.
 
@@ -76,7 +70,7 @@ The notification and data from the data collection tool should trigger the platf
 1. Create a pull request from your branch into `main`.
 1. Update the data collection tool with a state change and reference to this pull request.
 
-The *request pipeline* in the example implementation executes these steps (*see Figure 2*). You could also use a code-based solution hosted in Azure if the workflow is complex.
+The *request pipeline* in the example implementation executes these steps (*see figure 2*). You could also use a code-based solution hosted in Azure if the workflow is complex.
 
 **Validate the subscription parameter file.** The pull request should trigger a linting process to validate the request data. The goal is to ensure the deployment is successful. It should validate the YAML/JSON subscription parameter file. It could also verify that the IP address range is still available. You might also want to add a manual review gate with human intervention. They could perform the final review and make changes to the subscription parameter file. The output should be a JSON/YAML subscription parameter file with all the data to create a subscription.
 
@@ -84,7 +78,7 @@ The *request pipeline* in the example implementation executes these steps (*see 
 
 ## Create a subscription
 
-The last task of the subscription vending automation is to create and configure the new subscription. The example implementation uses the *deployment pipeline* to deploy the infrastructure-as-code module with the JSON/YAML subscription parameter file (*see Figure 2*).
+The last task of the subscription vending automation is to create and configure the new subscription. The example implementation uses the *deployment pipeline* to deploy the infrastructure-as-code module with the JSON/YAML subscription parameter file (*see figure 2*).
 
 **Use infrastructure as code.** Your deployment should use infrastructure as code to create the subscription. The platform team should create and maintain these templates to ensure proper governance. You should use the subscription vending [Bicep](https://aka.ms/lz-vending/bicep) and [Terraform](https://aka.ms/lz-vending/tf) modules and modify them to fit your implementation needs.
 
