@@ -163,9 +163,9 @@ Azure Monitor provides key metrics for all Azure services, including container m
 
 ![Screenshot of an Azure Monitor monitoring dashboard.](media/monitor-dashboard.png)
 
-Besides using Azure Monitor for containers, you can now enable [managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview) to collect and analyze metrics at scale by using a Prometheus-compatible monitoring solution.
+Besides using Azure Monitor for containers, you can now use [managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview) to collect and analyze metrics at scale via a Prometheus-compatible monitoring solution.
 
-You can also use [Azure Managed Grafana](/azure/managed-grafana/overview) (or self-managed [Grafana](https://grafana.com)) to visualize Prometheus metrics. When you use Azure Managed Grafana, connecting your Azure Monitor workspace to the Azure Managed Grafana workspace enables Grafana to use the Azure Monitor workspace data in a Grafana dashboard. You then have access to multiple prebuilt dashboards that use Prometheus metrics, you can also create custom dashboards.
+You can also use [Azure Managed Grafana](/azure/managed-grafana/overview) (or self-managed [Grafana](https://grafana.com)) to visualize Prometheus metrics. When you use Azure Managed Grafana, connecting your Azure Monitor workspace to the Azure Managed Grafana workspace enables Grafana to use the Azure Monitor workspace data in a Grafana dashboard. You then have access to multiple prebuilt dashboards that use Prometheus metrics, and you can also create custom dashboards.
 
 ![Screenshot of a Grafana dashboard.](media/grafana.png)
 
@@ -173,7 +173,7 @@ You can also use [Azure Managed Grafana](/azure/managed-grafana/overview) (or se
 
 Use [Magento Performance Toolkit](https://github.com/magento/magento2/tree/2.4-develop/setup/performance-toolkit) for performance testing. The toolkit uses [Apache JMeter](https://jmeter.apache.org) to simulate customer behaviors like signing in, browsing products, and checking out.
 
-You should also consider using [Azure Load Testing](https://azure.microsoft.com/products/load-testing/), a fully managed load-testing service that enables you to generate high-scale load. With Azure Load Testing, you can quickly create a load test for your web application by using a URL. Alternatvely, for more advanced load testing scenarios, you can create a load test by reusing an existing JMeter test script.
+You should also consider using [Azure Load Testing](https://azure.microsoft.com/products/load-testing/), a fully managed load-testing service that enables you to generate high-scale load. With Azure Load Testing, you can quickly create a load test for your web application by using a URL. Alternatively, for more advanced load testing scenarios, you can create a load test by reusing an existing JMeter test script.
 
 ### Cost optimization
 
