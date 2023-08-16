@@ -12,7 +12,7 @@ This article is about the open-source version of Magento, an e-commerce platform
 - AKS creates a [virtual network](https://azure.microsoft.com/products/virtual-network) to deploy the agent nodes. Create the virtual network in advance to set up subnet configuration, private link, and egress restriction.
 - [Varnish](https://varnish-cache.org/intro/index.html#intro) installs in front of the HTTP servers to act as a full-page cache.
 - [Azure Database for MySQL](https://azure.microsoft.com/products/mysql) stores transaction data like orders and catalogs. Version 8.0 is recommended.
-- [Azure Files Premium](https://azure.microsoft.com/products/storage/files), [Azure NetApp Files](https://azure.microsoft.com/products/netapp), or an equivalent *network-attached storage (NAS)* system stores media files like product images. Magento needs a Kubernetes-compatible file system that can mount a volume in *ReadWriteMany* mode, like Azure Files Premium or Azure NetApp Files. [Storage options for applications in Azure Kubernetes Service (AKS)](/azure/aks/concepts-storage). It is highly recommended that you test input/output operations per second (IOPS) throughput and choose the options which work for you. 
+- [Azure Files Premium](https://azure.microsoft.com/products/storage/files), [Azure NetApp Files](https://azure.microsoft.com/products/netapp), or an equivalent *network-attached storage (NAS)* system stores media files like product images. Magento needs a Kubernetes-compatible file system that can mount a volume in *ReadWriteMany* mode, like Azure Files Premium or Azure NetApp Files. [Storage options for applications in Azure Kubernetes Service (AKS)](/azure/aks/concepts-storage). It is highly recommended that you test input/output operations per second (IOPS) throughput and choose the options which work for you.
 - A [content delivery network (CDN)](https://azure.microsoft.com/products/cdn) serves static content like CSS, JavaScript, and images. Serving content through a CDN minimizes network latency between users and the datacenter. A CDN can remove significant load from NAS by caching and serving static content.
 - [Redis](https://redis.io) stores session data. Hosting Redis on containers is recommended for performance reasons.
 - AKS uses an [Azure Active Directory (Azure AD)](https://azure.microsoft.com/products/active-directory) identity to create and manage other Azure resources like Azure load balancers, user authentication, role-based access control, and managed identity.
@@ -49,8 +49,8 @@ Here are some security considerations for this scenario:
 
 - Configure a [private link](https://azure.microsoft.com/products/private-link) for MySQL so that the traffic between clients and MySQL isn't exposed to the public internet. For more information, see [What is Azure Private Link](/azure/private-link/private-link-overview).
 
-- You could add [Azure Application Gateway](https://azure.microsoft.com/products/application-gateway) ingress to support secure socket layer (SSL) termination.
-- You could also enable [Azure Web Application Firewall (WAF)](azure/web-application-firewall/ag/ag-overview) along with your Azure Application Gateway to protect the ingress traffic for your web application hosted in your AKS cluster. 
+- You can add [Azure Application Gateway](https://azure.microsoft.com/products/application-gateway) ingress to support secure socket layer (SSL) termination.
+- You can also enable [Azure Web Application Firewall (WAF)](/azure/web-application-firewall/ag/ag-overview) along with your Azure Application Gateway to protect the ingress traffic for your web application hosted in your AKS cluster.
 
 #### Role-based access control (RBAC)
 
@@ -67,6 +67,7 @@ AKS integrates the Azure and Kubernetes RBAC mechanisms. To assign AKS permissio
 - Role binding assigns users or groups to roles.
 
 - A *ClusterRole* object defines a role that applies to the entire AKS cluster, across all namespaces. To assign users or groups to a ClusterRole, create a *ClusterRoleBinding*.
+
 - Alternatively, you can use [Azure RBAC for Kubernetes Authorization](/azure/aks/manage-azure-rbac) that allows for the unified management and access control across Azure Resources, AKS, and Kubernetes resources.
 
 When you create the AKS cluster, you can configure it to use Azure AD for user authentication.
@@ -162,10 +163,9 @@ Azure Monitor provides key metrics for all Azure services, including container m
 
 ![Screenshot of an Azure Monitor monitoring dashboard.](media/monitor-dashboard.png)
 
-Besides using Azure monitor for containers, you now have the option to enable [Azure Managed Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview) to collect and analyze metrics at scale using a Prometheus-compatible monitoring solution. 
+Besides using Azure monitor for containers, you now have the option to enable [Azure Managed Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview) to collect and analyze metrics at scale using a Prometheus-compatible monitoring solution.
 
-You can also use [Azure Managed Grafana](/azure/managed-grafana/overview) (or self-managed [Grafana](https://grafana.com)) to visualize the Prometheus metrics. For Azure Managed Grafana, connect your Azure Monitor workspace to the Azure Managed Grafana workspace will allow Grafana to use the Azure Monitor workspace data in a Grafana dashboard.You then have access to multiple prebuilt dashboards that use Prometheus metrics and the ability to create any number of custom dashboards.
-
+You can also use [Azure Managed Grafana](/azure/managed-grafana/overview) (or self-managed [Grafana](https://grafana.com)) to visualize the Prometheus metrics. For Azure Managed Grafana, connecting your Azure Monitor workspace to the Azure Managed Grafana workspace allows Grafana to use the Azure Monitor workspace data in a Grafana dashboard. You then have access to multiple prebuilt dashboards that use Prometheus metrics and the ability to create any number of custom dashboards.
 
 ![Screenshot of a Grafana dashboard.](media/grafana.png)
 
@@ -173,7 +173,7 @@ You can also use [Azure Managed Grafana](/azure/managed-grafana/overview) (or se
 
 Use [Magento Performance Toolkit](https://github.com/magento/magento2/tree/2.4-develop/setup/performance-toolkit) for performance testing. The toolkit uses [Apache JMeter](https://jmeter.apache.org) to simulate customer behaviors like signing in, browsing products, and checking out.
 
-You can also consider using [Azure Load Testing](https://azure.microsoft.com/en-us/products/load-testing/) which is a fully managed load-testing service that enables you to generate high-scale load. With Azure Load Testing, you can either quickly create a load test for your web application by using a URL, or you can also create a load test by reusing an existing JMeter test script for more advanced load testing scenarios.
+Consider also using [Azure Load Testing](https://azure.microsoft.com/products/load-testing/), a fully managed load-testing service that enables you to generate high-scale load. With Azure Load Testing, you can either quickly create a load test for your web application using a URL or create a load test by reusing an existing JMeter test script for more advanced load testing scenarios.
 
 ### Cost optimization
 
