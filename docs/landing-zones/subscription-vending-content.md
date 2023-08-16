@@ -3,9 +3,7 @@ This article provides implementation guidance for subscription vending automatio
 [![Diagram showing how the subscriptions vending fits in an organization.](images/sample-subscription-vending-architecture.png)](images/sample-subscription-vending-architecture.png)
 *Figure 1. A subscription vending implementation in an example Azure environment.*
 
-![GitHub icon](../_images/github.png) We created subscription vending [Bicep](https://aka.ms/lz-vending/bicep) and [Terraform](https://aka.ms/lz-vending/tf) modules that you should use as a starting point. You should modify the templates to fit your implementation needs.
-
-For more information on the subscription vending process, see [Subscription vending overview](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending).
+![GitHub icon](../_images/github.png) We created subscription vending [Bicep](https://aka.ms/lz-vending/bicep) and [Terraform](https://aka.ms/lz-vending/tf) modules that you should use as a starting point. You should modify the templates to fit your implementation needs. For more information on the subscription vending process, see [Subscription vending overview](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending).
 <br/><br/>
 > [!VIDEO https://www.youtube.com/embed/OoC_0afxACg]
 
@@ -100,7 +98,7 @@ The last task of the subscription vending automation is to create and configure 
 | Budgets |• Create budgets for the subscription owners by using the collected data.<br>|
 | Reporting |• Update external systems, such as IPAM, to commit to IP reservations.<br>• Update the data collection tool request with final subscription name and globally unique identifier (GUID).<br>• Notify the application team that the subscription is ready.<br>
 
-You need a commercial agreement to create a subscription programmatically. If you don't have a commercial agreement, you need to introduce a manual process to create the subscription. You can automate all other aspects of subscription configuration.
+You need a commercial agreement to create a subscription programmatically. If you don't have a commercial agreement, you need to introduce a manual process to create the subscription but can still automate all other aspects of subscription configuration.
 
 **Establish a workload identity.** The deployment pipeline needs permission to perform these operations with all the systems it interfaces with. You should either use managed identity or OpenID Connect (OIDC) to authenticate to Azure.
 
@@ -108,18 +106,14 @@ You need a commercial agreement to create a subscription programmatically. If yo
 
 The subscription vending automation ends with subscription creation and configuration. The platform team should hand off the new subscription to the application team after creation. The application team should update the subscription budget, create the workload resources, and deploy the workload. The platform team controls the governance of the subscription and manages changes to subscription governance over time.
 
-**Enforce cost management.** Subscription budgets provide notifications that are critical to cost management. The deployment should create a preliminary subscription budget based on the subscription request data. The application team receives the subscription. They should update the budget to meet the needs of the workload. 
-
-For more information, see:
+**Enforce cost management.** Subscription budgets provide notifications that are critical to cost management. The deployment should create a preliminary subscription budget based on the subscription request data. The application team receives the subscription. They should update the budget to meet the needs of the workload. For more information, see:
 
 - [Create and manage budgets](/azure/cost-management-billing/costs/tutorial-acm-create-budgets)
 - [Manage costs with Azure Budgets](/azure/cost-management-billing/manage/cost-management-budget-scenario)
 - [Cost allocation](/azure/cost-management-billing/costs/allocate-costs)
 - [Track costs across business units, environments, or projects](/azure/cloud-adoption-framework/ready/azure-best-practices/track-costs)
 
-**Manage subscription governance.** You should update the subscription as the governance requirements of the workload change. For example, you might need to move a subscription to a different management group. You should build automation for some of these routine operations.
-
-For more information, see:
+**Manage subscription governance.** You should update the subscription as the governance requirements of the workload change. For example, you might need to move a subscription to a different management group. You should build automation for some of these routine operations. For more information, see:
 
 - [Moving management groups and subscription](/azure/governance/management-groups/overview#moving-management-groups-and-subscriptions)
 - [Keep policies and policy initiatives up to date](/azure/cloud-adoption-framework/govern/resource-consistency/keep-azure-landing-zone-up-to-date#keep-policies-and-policy-initatives-up-to-date)
@@ -128,9 +122,7 @@ For more information, see:
 
 ## Next steps
 
-Subscription vending simplifies and standardizes the subscription creation process and places it under the governance of the organization. You should implement subscription vending automation to help your application teams access application landing zones faster and onboard workloads quicker.
-
-For more information, see:
+Subscription vending simplifies and standardizes the subscription creation process and places it under the governance of the organization. You should implement subscription vending automation to help your application teams access application landing zones faster and onboard workloads quicker. For more information, see:
 
 - [Bicep modules](https://aka.ms/lz-vending/bicep)
 - [Terraform modules](https://aka.ms/lz-vending/tf)
