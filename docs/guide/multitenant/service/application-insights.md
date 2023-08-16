@@ -17,6 +17,7 @@ ms.category:
 ms.custom:
   - guide
 ---
+
 # Azure Application Insights considerations for multitenancy
 
 Application Insights is a service that monitors the performance, availability, and usage of your web applications. It helps you identify and diagnose issues, analyze user behavior, and track key metrics.  In this article, we describe some of the features of Application Insights that are useful when working with multitenanted systems. We link to guidance and examples for how to use Application Insights in a multitenant solution.
