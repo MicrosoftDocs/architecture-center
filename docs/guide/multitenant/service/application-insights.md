@@ -1,44 +1,39 @@
 ---
-title: Application Insights considerations for multitenancy
-titleSuffix: Azure Architecture Center
-description: This article describes the features of Application Insights that are useful when working with multitenanted systems, and it provides links to guidance and examples.
+title: Multitenancy and Application Insights
+description: Learn about the features of Application Insights that are useful when you work with multitenant systems.
 author: rajnemani
 ms.author: ranema
-ms.date: 07/17/2023
+ms.date: 08/21/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
  - azure-application-insights
 categories:
- - monitoring
-ms.category:
-  - fcp
-ms.custom:
-  - guide
+ - analytics
 ---
 
-# Azure Application Insights considerations for multitenancy
+# Multitenancy and Application Insights
 
-Application Insights is a service that monitors the performance, availability, and usage of your web applications. It helps you identify and diagnose issues, analyze user behavior, and track key metrics.  In this article, we describe some of the features of Application Insights that are useful when working with multitenanted systems. We link to guidance and examples for how to use Application Insights in a multitenant solution.
+Application Insights is a service that monitors the performance, availability, and usage of your web applications. It can help you identify and diagnose problems, analyze user behavior, and track key metrics. This article describes some of the features of Application Insights that are useful for multitenant systems. It also provides links to guidance and examples.
 
 > [!TIP]
-> Application Insights is designed and optimized for monitoring your solution. It is not meant for capturing every event that happens in a system to be used for auditing or billing purposes. To learn more about how you can measure usage for billing purposes, see [Considerations for measuring consumption in multitenant solutions](../considerations/measure-consumption.md).
-
+> Application Insights is designed and optimized for monitoring solutions. It's not intended to be used to capture every event that happens in a system, as you might need to do for auditing or billing. To learn about how you can measure usage for billing purposes, see [Considerations for measuring consumption in multitenant solutions](../considerations/measure-consumption.md).
 
 ## Isolation models
-When working with a multitenant system using Azure Application Insights, you need to make a decision about the level of isolation that you want to use. There are several isolation models you can choose from. Your choice might depend on many questions, such as the following factors:
+
+When you work with a multitenant system that uses Application Insights, you need to determine the required level of isolation. There are several isolation models that you can choose from. Here are some factors that might influence your choice:
 
 - How many tenants do you plan to have?
-- Do you share your application tier between multiple tenants, or do you deploy separate deployment stamps for each tenant?
-- Are you or your customers sensitive about storing data alongside other tenant's data?
-- Is the application tier of your solution multitenant but the data tier is single tenant?
-- Do telemetry requirements vary between tenants?
+- Do you share your application tier among multiple tenants, or do you deploy separate deployment stamps for each tenant?
+- Are you or your customers sensitive about storing data alongside other tenants' data?
+- Is the application tier of your solution multitenant, and the data tier single tenant?
+- Do telemetry requirements vary among tenants?
 
 > [!TIP]
-> The main factor that determines the cost of Application Insights is the amount of data that you send to it and how long it's retained. So, the use of dedicated or shared Application Insights instance in a multitenant application doesn't alter the overall cost profile. Review the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/) for more information.
+> The main factors that determine the cost of Application Insights are the amount of data that you send to it and how long the data is retained. In a multitenant application, the overall cost is the same for a dedicated Application Insights instance as it is for a shared instance. For more information, see the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 
-The following table summarizes the differences between the main tenancy models for Application Insights:
+This table summarizes the differences between the main tenancy models for Application Insights:
 
 | Consideration | Global shared Application Insights | Shared Application Insights per region/stamp | Dedicated Application Insights per tenant |
 |-|-|-|-|
