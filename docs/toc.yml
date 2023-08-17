@@ -468,6 +468,8 @@ items:
           href: guide/multitenant/service/overview.md
         - name: Deployment and configuration
           items:
+          - name: Application Insights
+            href: guide/multitenant/service/application-insights.md
           - name: Azure App Configuration
             href: guide/multitenant/service/app-configuration.md
           - name: Azure Resource Manager
