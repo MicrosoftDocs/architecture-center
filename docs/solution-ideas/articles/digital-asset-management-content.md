@@ -28,7 +28,7 @@ The following key technologies are used to implement tools for technical content
 
 - [Azure Cognitive Search](https://azure.microsoft.com/services/search) is a cloud search service that supplies infrastructure, APIs, and tools for searching. You can use Azure Cognitive Search to build search experiences over private, heterogeneous content in web, mobile, and enterprise applications.
 - The [Azure Cognitive Search custom skill interface](/azure/search/cognitive-search-custom-skill-interface) is used to integrate a custom skill into an Azure Cognitive Search enrichment pipeline.
-- [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision) uses text recognition APIs to extract text from images. Computer Vision is part of [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services).
+- [Computer Vision](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-computer-vision/) uses text recognition APIs to extract text from images. Computer Vision is part of [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services).
 - [Face API](https://azure.microsoft.com/services/cognitive-services/face) is AI service that analyzes faces in images. Face API is part of Cognitive Services.
 
 ## Scenario details
