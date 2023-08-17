@@ -71,8 +71,6 @@ The options below provide an opinionated approach to deploy and operate the [Azu
 Through its sophisticated dependency checking, true desired state management and operational scripts it is suited for environments with any complexity level; however, to decide if this option is right for you see the [guidance in EPAC](https://azure.github.io/enterprise-azure-policy-as-code/#who-should-use-epac). 
 
 
-
-
 ## Subscription Vending
 
 Once the platform landing zone is in place, the next step is to create and operationalize application landing zones for workload owners. Subscription democratization is a [design principle](/azure/cloud-adoption-framework/ready/landing-zone/design-principles) of Azure landing zones that uses subscriptions as units of management and scale. This approach accelerates application migrations and new application development.
