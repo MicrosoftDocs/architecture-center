@@ -120,6 +120,17 @@ This reference implementation uses the same production-level CI/CD pipeline as t
 
 For information about deploying the reference implementation for this architecture, see the [GitHub readme](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/README.md). Use the script for high-availability deployment.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+- [Deep Bhattacharya](https://www.linkedin.com/in/deeplydiligent/) | Cloud Solution Architect
+- [Suhas Rao](https://www.linkedin.com/in/suhasaraos/) | Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 You can modify this architecture by horizontally scaling your applications, within the same region or across several regions, based on the expected peak load capacity. Replicating your applications on multiple regions might help mitigate the risks of wider geographical datacenter failures, like those caused by earthquakes or other natural disasters. To learn more about horizontal scaling, see [Geo Distributed Scale with App Service Environments](/azure/app-service/environment/app-service-app-service-environment-geo-distributed-scale). For a global and highly available routing solution, consider using [Azure Front Door](/azure/frontdoor/front-door-overview).
