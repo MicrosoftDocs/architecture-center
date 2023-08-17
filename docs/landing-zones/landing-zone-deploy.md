@@ -49,6 +49,8 @@ The table below outlines the key roles for each of the cloud operating models.
 | Subscription owner | [Workload team](/azure/cloud-adoption-framework/organize/cloud-adoption) | [Central IT](/azure/cloud-adoption-framework/organize/central-it) | [Central IT](/azure/cloud-adoption-framework/organize/central-it) + [Application Owners](/azure/cloud-adoption-framework/organize/central-it) | [CCoE](/azure/cloud-adoption-framework/organize/cloud-center-of-excellence) + [Application Owners](/azure/cloud-adoption-framework/organize/central-it) |
 | Application owners (DevOps, AppOps) | [Workload team](/azure/cloud-adoption-framework/organize/cloud-adoption) | [Workload team](/azure/cloud-adoption-framework/organize/cloud-adoption) | [Central IT](/azure/cloud-adoption-framework/organize/central-it) + [Application Owners](/azure/cloud-adoption-framework/organize/central-it) | [CCoE](/azure/cloud-adoption-framework/organize/cloud-center-of-excellence) + [Application Owners](/azure/cloud-adoption-framework/organize/central-it) |
 
+In addition, after deploying the landing zone, you will need to plan to operate it and maintain it.  Review the guidance on how to [Keep your Azure landing zone up to date](/azure/cloud-adoption-framework/govern/resource-consistency/keep-azure-landing-zone-up-to-date).
+
 ## Platform
 
 The options below provide an opinionated approach to deploy and operate the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone#azure-landing-zone-conceptual-architecture) as detailed in the Cloud Adoption Framework (CAF). It's important to note that, depending upon customizations, the resulting architecture might not be the same for all the options listed below. The differences between the options are how you deploy the architecture. They use differing technologies, take different approaches and are customized differently.
@@ -58,8 +60,18 @@ The options below provide an opinionated approach to deploy and operate the [Azu
 | [Azure landing zone Portal accelerator](/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-accelerator) | An Azure portal-based deployment that provides a full implementation of the conceptual architecture, along with opinionated configurations for key components such as management groups and policies. |
 | [Azure landing zone Terraform accelerator](terraform/landing-zone-terraform.md) | This accelerator provides an orchestrator module, but also allows you to deploy each capability individually or in part. |
 | [Azure landing zone Bicep accelerator](bicep/landing-zone-bicep.md)  | A modular accelerator where each module encapsulates a core capability of the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone#azure-landing-zone-conceptual-architecture). While the modules can be deployed individually, the design proposes the use of orchestrator modules to encapsulate the complexity of deploying different topologies with the modules. |
+| [Deploy Policy with Enterprise Policy as Code (EPAC) accelerator](epac/landing-zone-policy-epac.md) | This accelerator provides a set of policies that can be used to deploy the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone#azure-landing-zone-conceptual-architecture) using [Enterprise Policy as Code (EPAC)](https://aka.ms/epac). It focuses exclusively on deploying and operating guardrails with Azure Policy. It replaces the Policy module in Bicep and Terraform. Decide if this option is right for you see the [guidance in EPAC](https://azure.github.io/enterprise-azure-policy-as-code/#who-should-use-epac).  |
 
-In addition, after deploying the landing zone, you will need to plan to operate it and maintain it.  Review the guidance on how to [Keep your Azure landing zone up to date](/azure/cloud-adoption-framework/govern/resource-consistency/keep-azure-landing-zone-up-to-date).
+
+
+### Alternative Platform Deployment for Policies with Enterprise Policy as Code (EPAC)
+
+[Enterprise Policy as Code (EPAC)](https://aka.ms/epac) is an alternative method to deploy the Azure landing zone Policies. It focuses exclusively on deploying and operating guardrails with Azure Policy. EPAC provides full integration with the ALZ defined Policies. It replaces the Policy module in Bicep or Terraform. The integration approach is documented here: [Integrating EPAC with Azure Landing Zones]( https://azure.github.io/enterprise-azure-policy-as-code/integrating-with-alz/). 
+
+Through its sophisticated dependency checking, true desired state management and operational scripts it is suited for environments with any complexity level; however, to decide if this option is right for you see the [guidance in EPAC](https://azure.github.io/enterprise-azure-policy-as-code/#who-should-use-epac). 
+
+
+
 
 ## Subscription Vending
 
