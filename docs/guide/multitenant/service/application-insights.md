@@ -49,7 +49,7 @@ You can use a single instance of Application Insights to track telemetry for ten
 
 ![Diagram that shows the globally shared Application Insights isolation model.](media/application-insights/global-shared-app-insights.png)
 
-Benefits of this approach include simplified configuration and management of the application, because you only need to instrument the application code  once. Drawbacks of this approach include the limits and quotas that are associated with a single Application Insights instance. To determine whether limits might affect your multitenant application, see the [Application Insights limits](/azure/azure-monitor/service-limits#application-insights).
+Benefits of this approach include simplified configuration and management of the application, because you only need to instrument the application code once. Drawbacks of this approach include the limits and quotas that are associated with a single Application Insights instance. To determine whether limits might affect your multitenant application, see the [Application Insights limits](/azure/azure-monitor/service-limits#application-insights).
 
 When you use a shared Application Insights resource, it might also be more difficult to isolate and filter the data for each tenant, especially if you have a large number of tenants. Because all tenants share the same Log Analytics workspace and instrumentation keys, security and privacy might also be a concern.
 
