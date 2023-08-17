@@ -31,7 +31,7 @@ Azure Cognitive Search works with other Azure components to provide this solutio
 
 #### Azure Computer Vision
 
-[Azure Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision) uses [text recognition](/azure/cognitive-services/computer-vision/overview-ocr) to extract and recognize text information from images. The [Read API](/azure/cognitive-services/computer-vision/overview-ocr#read-api) uses the latest OCR recognition models, and is optimized for large, text-heavy documents and noisy images.
+[Azure Computer Vision](https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-computer-vision/) uses [text recognition](/azure/cognitive-services/computer-vision/overview-ocr) to extract and recognize text information from images. The [Read API](/azure/cognitive-services/computer-vision/overview-ocr#read-api) uses the latest OCR recognition models, and is optimized for large, text-heavy documents and noisy images.
 
 The [legacy OCR API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f20d) isn't optimized for large documents, but supports more languages. OCR results can vary depending on scan and image quality. The current solution idea uses OCR to produce data in the [hOCR format](https://en.wikipedia.org/wiki/HOCR).
 
