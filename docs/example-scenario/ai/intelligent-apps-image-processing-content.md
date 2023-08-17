@@ -18,7 +18,7 @@ This scenario covers the back-end components of a web or mobile application. Dat
 
 ### Components
 
-- [Computer Vision API](https://azure.microsoft.com/services/cognitive-services/computer-vision) is part of the Cognitive Services suite and is used to retrieve information about each image.
+- [Computer Vision API](https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-computer-vision/) is part of the Cognitive Services suite and is used to retrieve information about each image.
 - [Azure Functions](https://azure.microsoft.com/services/functions) provides the back-end API for the web application. This platform also provides event processing for uploaded images.
 - [Azure Event Grid](https://azure.microsoft.com/services/event-grid) triggers an event when a new image is uploaded to blob storage. The image is then processed with Azure functions.
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) stores all of the image files that are uploaded into the web application, as well any static files that the web application consumes.
