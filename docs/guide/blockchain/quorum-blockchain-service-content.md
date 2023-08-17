@@ -120,13 +120,6 @@ Other contributor:
 ## Next steps
 
 - [Azure App Service overview](/azure/app-service/overview)
-- [Create a network - Quorum Blockchain Service](https://docs.qbs.consensys.net/Get-Started/Create-a-Network/)
-- [Monitor nodes - Quorum Blockchain Service](https://docs.qbs.consensys.net/howto/configure-a-member/metrics)
-- [Create, build, and deploy smart contracts tutorial](https://docs.qbs.consensys.net/Tutorials/Deploy-Smart-Contract/VSCode/)
-- [Using MetaMask - Quorum Blockchain Service](https://docs.qbs.consensys.net/HowTo/Connect-to-Network/MetaMask/)
-- [Use Geth to attach to Quorum Blockchain Service](https://docs.qbs.consensys.net/HowTo/Connect-to-Network/Geth/)
-- [Using Truffle - Quorum Blockchain Service](https://docs.qbs.consensys.net/HowTo/Connect-to-Network/Truffle/)
-- [Migrate - Quorum Blockchain Service](https://docs.qbs.consensys.net/get-started/overview)
 - [Introduction to blockchain on Azure](/training/modules/intro-to-blockchain/)
 
 ## Related resources
