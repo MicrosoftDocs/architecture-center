@@ -1,6 +1,6 @@
 ---
 title: Multitenancy and Application Insights
-description: Learn about the features of Application Insights that are useful when you work with multitenant systems.
+description: Learn about tenancy models that you can use with Application Insights and features that are useful when use this service in multitenant systems.
 author: rajnemani
 ms.author: ranema
 ms.date: 08/21/2023
@@ -15,14 +15,14 @@ categories:
 
 # Multitenancy and Application Insights
 
-Application Insights is a service that monitors the performance, availability, and usage of your web applications. It can help you identify and diagnose problems, analyze user behavior, and track key metrics. This article describes some of the features of Application Insights that are useful for multitenant systems. It also provides links to guidance and examples.
+Application Insights is a service that monitors the performance, availability, and usage of your web applications. It can help you identify and diagnose problems, analyze user behavior, and track key metrics. This article describes some of the features of Application Insights that are useful for multitenant systems. It also describes various tenancy models.
 
 > [!TIP]
 > Application Insights is designed and optimized for monitoring solutions. It's not intended to be used to capture every event that happens in a system, as you might need to do for auditing or billing. To learn about how you can measure usage for billing purposes, see [Considerations for measuring consumption in multitenant solutions](../considerations/measure-consumption.md).
 
 ## Isolation models
 
-When you work with a multitenant system that uses Application Insights, you need to determine the required level of isolation. There are several isolation models that you can choose from. Here are some factors that might influence your choice:
+When you implement a multitenant system that uses Application Insights, you need to determine the required level of isolation. There are several isolation models that you can choose from. Here are some factors that might influence your choice:
 
 - How many tenants do you plan to have?
 - Do you share your application tier among multiple tenants, or do you deploy separate deployment stamps for each tenant?
@@ -49,7 +49,7 @@ You can use a single instance of Application Insights to track telemetry for ten
 
 ![Diagram that shows the globally shared Application Insights isolation model.](media/application-insights/global-shared-app-insights.png)
 
-Benefits of this approach include simplified configuration and management of the application, because you need to instrument the application code only once. Drawbacks of this approach include the limits and quotas that are associated with a single Application Insights instance. To determine whether limits might affect your multitenant application, see the [Application Insights limits](/azure/azure-monitor/service-limits#application-insights).
+Benefits of this approach include simplified configuration and management of the application, because you only need to instrument the application code  once. Drawbacks of this approach include the limits and quotas that are associated with a single Application Insights instance. To determine whether limits might affect your multitenant application, see the [Application Insights limits](/azure/azure-monitor/service-limits#application-insights).
 
 When you use a shared Application Insights resource, it might also be more difficult to isolate and filter the data for each tenant, especially if you have a large number of tenants. Because all tenants share the same Log Analytics workspace and instrumentation keys, security and privacy might also be a concern.
 
@@ -71,7 +71,7 @@ You might decide to use a dedicated Application Insights instance for each tenan
 
 ![Diagram that shows one instance per tenant.](media/application-insights/dedicated-app-insights-per-tenant.png)
 
-This approach gives you more flexibility and control over the tenant's telemetry data and provides the strongest data isolation. When you use this model, you can configure tenant-specific settings and retention policies. 
+This approach gives you more flexibility and control over tenants' telemetry data and provides the strongest data isolation. When you use this model, you can configure tenant-specific settings and retention policies. 
 
 When you use this approach, however, you need to deploy a large number of Application Insights instances, manage-tenant specific settings in a tenant catalog, and change application code when new tenants are onboarded. Note that the decision to deploy a dedicated Application Insights instance per tenant is separate from the decision to deploy an application tier for each tenant. For example, you can decide to deploy a single application instance in a stamp that's shared by multiple tenants but deploy one Application Insights instance for each tenant.
 
@@ -83,7 +83,7 @@ With this approach, it might be difficult to aggregate data and compare it acros
 
 ### Custom properties and metrics
 
-Application Insights provides a way to enrich telemetry data with custom properties and metrics. *Custom properties* are key-value pairs that you can attach to any telemetry item, like a request or an event. *Custom metrics* are numerical values that you can track over time, like a score or the length of a queue. You can use custom properties and metrics to add tenant-specific information, like tenant ID, tenant name, tenant location, and deployment stamp ID, to telemetry data.
+Application Insights provides a way to enrich telemetry data with custom properties and metrics. *Custom properties* are key-value pairs that you can attach to any telemetry item, such as requests or events. *Custom metrics* are numerical values that you can track over time, like a score or the length of a queue. You can use custom properties and metrics to add tenant-specific information, like tenant ID, tenant name, tenant location, and deployment stamp ID, to telemetry data.
 
 There are two ways to add custom properties to your telemetry: by using `TelemetryClient` or by using telemetry initializers.
 
@@ -101,7 +101,7 @@ When you add custom properties to telemetry data, by using either mechanism, you
 
 - Use metrics explorer to create charts and graphs that show the performance and usage of the application for each tenant.
 - Use Log Analytics to write complex queries that filter, aggregate, and join telemetry data based on tenant-specific properties or metrics.
-- Use alerts to set up rules that notify you when certain conditions are met or exceeded for a tenant.
+- Use alerts to set up rules that notify you when certain conditions are met for a tenant.
 - Use Azure Monitor workbooks to create interactive reports and dashboards that visualize the health and status of the application for each tenant.
 
 ### Unify multiple Application Insights instances into a single view
