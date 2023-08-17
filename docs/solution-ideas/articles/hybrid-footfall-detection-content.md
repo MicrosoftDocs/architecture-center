@@ -33,7 +33,7 @@ _Download a [Visio file](https://arch-center.azureedge.net/hybrid-footfall-detec
 * [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub) broadens Azure, to let you run apps in an on-premises environment and to deliver Azure services in your datacenter.
 * The [App Service](https://azure.microsoft.com/services/app-service) resource provider (RP) provides a base for edge components, including hosting and management features for web apps, APIs, and Functions.
 * The [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service) (AKS) engine. The AKS RP with an AKS-engine cluster is deployed into Azure Stack Hub, to provide a scalable, resilient engine that runs the Face API container.
-* [Face API containers](https://azure.microsoft.com/services/cognitive-services/face). The Azure Cognitive Services RP, with Face API containers, provides demographic, emotion, and unique visitor detection.
+* [Face API containers](https://github.com/cmcclister/architecture-center-pr/tree/Broken-link-fix-ronmiab). The Azure Cognitive Services RP, with Face API containers, provides demographic, emotion, and unique visitor detection.
 * [Blob storage](https://azure.microsoft.com/services/storage/blobs). Images captured from the AI Dev Kit are uploaded to Azure Stack Hub's Blob storage.
 * [Azure Functions](https://azure.microsoft.com/services/functions). An Azure Function running on Azure Stack Hub receives input from Blob storage and manages the interactions with the Face API. It emits anonymized data to an Event Hubs cluster that's located in Azure.
 
