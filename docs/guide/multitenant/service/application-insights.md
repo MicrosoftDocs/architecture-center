@@ -35,18 +35,19 @@ When you work with a multitenant system that uses Application Insights, you need
 
 This table summarizes the differences between the main tenancy models for Application Insights:
 
-| Consideration | Global shared Application Insights | Shared Application Insights per region/stamp | Dedicated Application Insights per tenant |
+| Consideration | Globally shared Application Insights | Shared Application Insights per region/stamp | Dedicated Application Insights per tenant |
 |-|-|-|-|
 | **Data isolation** | Low | Low | High |
 | **Performance isolation** | Low | Medium | High |
-| **Deployment complexity** | Low-medium, depending on the number of tenants | Medium, depending on the number of tenants | High |
+| **Deployment complexity** | Low to medium, depending on the number of tenants | Medium, depending on the number of tenants | High |
 | **Operational complexity** | Low |Medium | High |
-| **Example scenario** | Large multitenant solution with a shared application tier | Multitenant solution with regional deployments to better serve global customer base | Individual application instances per tenant |
+| **Example scenario** | Large multitenant solution with a shared application tier | Multitenant solution with regional deployments to better serve a global customer base | Individual application instances per tenant |
 
-### Global shared Application Insights instance
-A single instance of Application Insights can be used to track telemetry for tenants in a multitenant application.  Benefits of this approach include simplified configuration and management of the application given that you have to instrument the application code only once.  Some of the drawbacks of this approach include limits and quotas associated with a single Application Insights instance. Review the [Application Insights limits](/azure/azure-monitor/service-limits#application-insights) to understand whether limits might affect your multitenant application.
+### Globally shared Application Insights instance
 
-In addition, when using a shared Application Insights resource, you may find it more difficult to isolate and filter the data for each tenant, especially if you have a large number of tenants. You may also have security and privacy concerns, as all tenants share the same Log Analytics workspace and instrumentation keys.
+You can use a single instance of Application Insights to track telemetry for tenants in a multitenant application. Benefits of this approach include simplified configuration and management of the application, because you need to instrument the application code only once. Drawbacks of this approach include the limits and quotas that are associated with a single Application Insights instance. To determine whether limits might affect your multitenant application, see the [Application Insights limits](/azure/azure-monitor/service-limits#application-insights).
+
+In addition, when using a shared Application Insights resource, you might find it more difficult to isolate and filter the data for each tenant, especially if you have a large number of tenants. You may also have security and privacy concerns, as all tenants share the same Log Analytics workspace and instrumentation keys.
 
 In order to address these concerns, you may need to implement extra logic and mechanisms to ensure that data can be filtered by tenant and your operations team, can properly see per-tenant data. Filtering can be accomplished by adding a [custom property](#custom-properties-and-metrics) to capture the tenant ID as part of every telemetry item. The tenant ID can then be used to query the data.
 
