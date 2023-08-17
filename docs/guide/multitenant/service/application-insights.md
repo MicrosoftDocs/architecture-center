@@ -67,7 +67,7 @@ This approach provides more flexibility with resource limits because the limits 
 
 ### One Application Insights instance per tenant
 
-You might decide to use a dedicated Application Insights istance for each tenant:
+You might decide to use a dedicated Application Insights instance for each tenant:
 
 ![Diagram that shows one instance per tenant.](media/application-insights/dedicated-app-insights-per-tenant.png)
 
@@ -95,7 +95,7 @@ There are two ways to add custom properties to your telemetry: by using `Telemet
 
 You can use [telemetry initializers](/azure/azure-monitor/app/api-filtering-sampling?tabs=sdkloaderscript#addmodify-properties-itelemetryinitializer) to add information to all telemetry items, or to modify properties that are set by the standard telemetry modules.
 
-When you share an Application Insights instance across multiple tenants, a telemetry initializer often privides a good way to inject the tenant ID into every telemetry item. You can then use the ID to query and filter for reporting. The advantage of using telemetry initializers is that you can apply custom properties to all or some of the telemetry items in one place without needing to write code for each item. The disadvantage is that you have less control over which custom properties to add to each telemetry item, so you might add unnecessary or redundant data.
+When you share an Application Insights instance across multiple tenants, a telemetry initializer often provides a good way to inject the tenant ID into every telemetry item. You can then use the ID to query and filter for reporting. The advantage of using telemetry initializers is that you can apply custom properties to all or some of the telemetry items in one place without needing to write code for each item. The disadvantage is that you have less control over which custom properties to add to each telemetry item, so you might add unnecessary or redundant data.
 
 When you add custom properties to telemetry data, by using either mechanism, you can use powerful features of Application Insights to monitor and analyze multitenant applications in a more granular and meaningful way. For example, you can:
 
@@ -118,11 +118,11 @@ You can use [Azure Monitor workbooks](/training/modules/visualize-data-workbooks
 
 ## Latency
 
-The time it takes for data on a monitored system to become available for analysis is referred to as [latency](/azure/azure-monitor/logs/data-ingestion-time). A shared Application Insights instance in a multitenant application doesn't incur more latency than a decdicated one unless the shared instance is throttled and the throttling prevents data from being ingested. In that scenario, latency increases.
+The time it takes for data on a monitored system to become available for analysis is referred to as [latency](/azure/azure-monitor/logs/data-ingestion-time). A shared Application Insights instance in a multitenant application doesn't incur more latency than a dedicated one unless the shared instance is throttled and the throttling prevents data from being ingested. In that scenario, latency increases.
 
 ## Rate limiting on ingestion
 
-You can perfrom ingestion rate limiting in Application Insights by using [sampling](/azure/azure-monitor/app/sampling) to limit the the amount of telemetry data that's ingested by your service per day. Sampling helps prevent Application Insights from throttling telemetry due to ingestion limits. You can use fixed-rate sampling to determine an optimal sampling rate, based on the number of tenants and the daily cap, in order to say within the limits.  
+You can perform ingestion rate limiting in Application Insights by using [sampling](/azure/azure-monitor/app/sampling) to limit the amount of telemetry data that's ingested by your service per day. Sampling helps prevent Application Insights from throttling telemetry due to ingestion limits. You can use fixed-rate sampling to determine an optimal sampling rate, based on the number of tenants and the daily cap, in order to say within the limits.  
 
 ## Contributors
 
