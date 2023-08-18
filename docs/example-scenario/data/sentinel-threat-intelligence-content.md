@@ -109,7 +109,7 @@ The following sections provide steps on how to:
 
 TAXII 2.x servers advertise API roots, which are URLs that host threat intelligence collections. If you already know the TAXII server **API root** and **Collection ID** you want to work with, you can skip ahead and enable the TAXII connector in Microsoft Sentinel.
 
-If you don't have the API root, you can usually get it from the threat intelligence provider's documentation page, but sometimes the only information available is the discovery endpoint URL. You can find the API root by using the discovery endpoint. The following example uses the discovery endpoint of the [Anomali Limo](https://www.anomali.com/community/limo) ThreatStream TAXII 2.0 server.
+If you don't have the API root, you can usually get it from the threat intelligence provider's documentation page, but sometimes the only information available is the discovery endpoint URL. You can find the API root by using the discovery endpoint. The following example uses the discovery endpoint of the [Anomali Limo](https://www.anomali.com/resources/what-are-stix-taxii) ThreatStream TAXII 2.0 server.
 
 1. From a browser, go to the ThreatStream TAXII 2.0 server discovery endpoint, `https://limo.anomali.com/taxii`. Sign in by using the username *guest* and password *guest*. After you sign in, you see the following information:
 
