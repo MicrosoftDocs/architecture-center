@@ -68,7 +68,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 These articles have security information for Azure components:
 
 - [Azure security baseline for Azure Storage](/security/benchmark/azure/baselines/storage-security-baseline)
-- [Azure security baseline for Azure Private Link](/azure/azure-arc/servers/private-link-security)
+- [Azure security baseline for Azure Private Link](/security/benchmark/azure/baselines/azure-private-link-security-baseline)
 - [Azure security baseline for Virtual Network](/security/benchmark/azure/baselines/virtual-network-security-baseline)
 - [Azure security baseline for Azure Firewall](/security/benchmark/azure/baselines/firewall-security-baseline)
 

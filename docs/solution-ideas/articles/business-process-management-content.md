@@ -37,7 +37,7 @@ There are three steps in knowledge mining: ingest, enrich, and explore.
 These are the key technologies used for this technical content review and research:
 
 * [Form Recognizer](https://azure.microsoft.com/services/form-recognizer)
-* [Azure Computer Vision](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-computer-vision/)
+* [Azure Computer Vision](/azure/ai-services/computer-vision/overview)
 * [Azure Cognitive Search](https://azure.microsoft.com/services/search)
 * [Web API custom skills](/azure/search/cognitive-search-custom-skill-interface)
 
