@@ -49,9 +49,6 @@ The table below outlines the key roles for each of the cloud operating models.
 | Subscription owner | [Workload team](/azure/cloud-adoption-framework/organize/cloud-adoption) | [Central IT](/azure/cloud-adoption-framework/organize/central-it) | [Central IT](/azure/cloud-adoption-framework/organize/central-it) + [Application Owners](/azure/cloud-adoption-framework/organize/central-it) | [CCoE](/azure/cloud-adoption-framework/organize/cloud-center-of-excellence) + [Application Owners](/azure/cloud-adoption-framework/organize/central-it) |
 | Application owners (DevOps, AppOps) | [Workload team](/azure/cloud-adoption-framework/organize/cloud-adoption) | [Workload team](/azure/cloud-adoption-framework/organize/cloud-adoption) | [Central IT](/azure/cloud-adoption-framework/organize/central-it) + [Application Owners](/azure/cloud-adoption-framework/organize/central-it) | [CCoE](/azure/cloud-adoption-framework/organize/cloud-center-of-excellence) + [Application Owners](/azure/cloud-adoption-framework/organize/central-it) |
 
-
-
-
 ## Platform
 
 The options below provide an opinionated approach to deploy and operate the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone#azure-landing-zone-conceptual-architecture) as detailed in the Cloud Adoption Framework (CAF). It's important to note that, depending upon customizations, the resulting architecture might not be the same for all the options listed below. The differences between the options are how you deploy the architecture. They use differing technologies, take different approaches and are customized differently.
