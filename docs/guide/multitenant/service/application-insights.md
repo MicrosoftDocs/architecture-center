@@ -122,7 +122,7 @@ The time it takes for data on a monitored system to become available for analysi
 
 ## Rate limiting on ingestion
 
-You can perform ingestion rate limiting in Application Insights by using [sampling](/azure/azure-monitor/app/sampling) to limit the amount of telemetry data that's ingested by your service per day. Sampling helps prevent Application Insights from throttling telemetry due to ingestion limits. You can use fixed-rate sampling to determine an optimal sampling rate, based on the number of tenants and the daily cap, in order to say within the limits.  
+You can perform ingestion rate limiting in Application Insights by using [sampling](/azure/azure-monitor/app/sampling) to limit the amount of telemetry data that's ingested by your service per day. Sampling helps prevent Application Insights from throttling telemetry due to ingestion limits. You can use fixed-rate sampling to determine an optimal sampling rate, based on the number of tenants and the daily cap, in order to stay within the limits.  
 
 ## Contributors
 
