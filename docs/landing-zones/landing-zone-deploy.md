@@ -70,10 +70,12 @@ In addition, after deploying the landing zone, you will need to plan to operate 
 
 ### Alternative Platform Deployment for Policies with Enterprise Policy as Code (EPAC)
 
-[Enterprise Policy as Code (EPAC)](https://aka.ms/epac) is an alternative method to deploy the Azure landing zone Policies. It focuses exclusively on deploying and operating guardrails with Azure Policy. EPAC provides full integration with the ALZ defined Policies. It replaces the Policy module in Bicep or Terraform. The integration approach is documented here: [Integrating EPAC with Azure Landing Zones]( https://azure.github.io/enterprise-azure-policy-as-code/integrating-with-alz/). 
+[Enterprise Policy as Code (EPAC)](https://aka.ms/epac) is an alternative method to deploy, manage and operate Azure Policies in your environment. EPAC can be used instead of the [platform options](#platform) above to manage the Policies in an Azure Landing Zones environment. The integration approach is documented here: [Integrating EPAC with Azure Landing Zones]( https://azure.github.io/enterprise-azure-policy-as-code/integrating-with-alz/). 
 
-Through its sophisticated dependency checking, true desired state management and operational scripts it is suited for environments with any complexity level; however, to decide if this option is right for you see the [guidance in EPAC](https://azure.github.io/enterprise-azure-policy-as-code/#who-should-use-epac). 
+EPAC is best suited to more advanced and mature DevOps and Infrastructure-as-Code customers. However, customers of any size can use EPAC if they desire after assessing it. Customers should review [Who Should use EPAC?](https://azure.github.io/enterprise-azure-policy-as-code#who-should-use-epac) first to ensure they are aligned.
 
+>[!NOTE]
+> Customers should evaluate and consider both options carefully and potentially run through an MVP or PoC before deciding on what to use in the long-term.
 
 ## Subscription Vending
 
