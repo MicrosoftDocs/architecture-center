@@ -305,7 +305,6 @@ Principal author:
 [Azure Storage service page]: https://azure.microsoft.com/products/category/storage
 [Azure Web Application Firewall service page]: https://azure.microsoft.com/products/web-application-firewall
 [Back up and recover your Form Recognizer models]: /azure/applied-ai-services/form-recognizer/disaster-recovery
-[Characteristics and limitations of Form Recognizer - Customer evaluation]: /legal/cognitive-services/form-recognizer/fr-characteristics-and-limitations?context=/azure/applied-ai-services/form-recognizer/context/context#customer-evaluation
 [Choose the right VM for your workload and reduce costs]: https://azure.microsoft.com/services/virtual-machines/#overview
 [Create an Autoscale Setting for Azure resources based on performance data or a schedule]: /azure/azure-monitor/autoscale/tutorial-autoscale-performance-schedule
 [Create an Azure support request]: /azure/azure-portal/supportability/how-to-create-azure-support-request
@@ -322,7 +321,7 @@ Principal author:
 [Form Recognizer invoice model]: /azure/applied-ai-services/form-recognizer/concept-invoice
 [Form Recognizer layout model]: /azure/applied-ai-services/form-recognizer/concept-layout
 [Form Recognizer receipt model]: /azure/applied-ai-services/form-recognizer/concept-receipt
-[Get started: Form Recognizer Studio]: /azure/applied-ai-services/form-recognizer/quickstarts/try-v3-form-recognizer-studio
+[Get started: Form Recognizer Studio]: /azure/ai-services/document-intelligence/quickstarts/try-document-intelligence-studio?view=doc-intel-3.1.0
 [Get started with AzCopy]: /azure/storage/common/storage-use-azcopy-v10
 [How to: Use Sentiment analysis and Opinion Mining - Data limits]: /azure/cognitive-services/language-service/sentiment-opinion-mining/how-to/call-api#data-limits
 [How to configure Azure Functions with a virtual network]: /azure/azure-functions/configure-networking-how-to

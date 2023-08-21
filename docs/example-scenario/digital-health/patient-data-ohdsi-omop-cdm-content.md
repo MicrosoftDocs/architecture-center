@@ -106,7 +106,6 @@ See these resources for more information on deploying an OHDSI tool suite and fo
 
 - [OHDSI on Azure OSS project](https://github.com/microsoft/OHDSIonAzure)
 - [OHDSI on Azure – Introduction](https://github.com/microsoft/OHDSIonAzure/blob/main/README.md)
-- [Creating your OHDSI CDM environment](https://github.com/microsoft/OHDSIonAzure/blob/main/docs/creating_your_environment.md)
 
 ## Contributors
 
