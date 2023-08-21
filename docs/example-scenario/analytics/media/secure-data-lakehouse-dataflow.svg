@@ -630,81 +630,81 @@
 			<!-- Unsupported Record: EmfPlusRecordTypeSetPixelOffsetMode  -->
 			<svg viewBox="-0.70833 -0.70968 184.17 225.2" height="26.9858" preserveAspectRatio="none" width="22.1102" x="0"
 					y="471.951">
-				<clipPath id="mfid211">
-					<rect x="-0.70833" y="-0.70968" width="184.17" height="225.2" id="mfid212"/>
+				<clipPath id="mfid89">
+					<rect x="-0.70833" y="-0.70968" width="184.17" height="225.2" id="mfid90"/>
 				</clipPath>
-				<g clip-path="url(#mfid211)">
-					<mask id="mfid213">
+				<g clip-path="url(#mfid89)">
+					<mask id="mfid91">
 						<rect width="184" height="225" fill="white" stroke="none"/>
 					</mask>
-					<mask id="mfid214" fill="white" stroke="none">
+					<mask id="mfid92" fill="white" stroke="none">
 						<g>
-							<g mask="url(#mfid213)">
-								<use xlink:href="#mfid212"/>
+							<g mask="url(#mfid91)">
+								<use xlink:href="#mfid90"/>
 							</g>
 						</g>
 					</mask>
 					<!-- GetDC -->
-					<mask id="mfid215" fill-rule="evenodd" fill="white" stroke="none">
+					<mask id="mfid93" fill-rule="evenodd" fill="white" stroke="none">
 						<rect x="0" y="0" width="184" height="225"/>
 					</mask>
 					<!-- Released DC -->
 					<defs>
-						<path id="mfid216" d="M0,0 L280420,0 L280420,342900 L0,342900 Z"/>
+						<path id="mfid94" d="M0,0 L280420,0 L280420,342900 L0,342900 Z"/>
 					</defs>
-					<mask id="mfid217">
-						<use xlink:href="#mfid216" fill-rule="evenodd" fill="white" stroke="none"
+					<mask id="mfid95">
+						<use xlink:href="#mfid94" fill-rule="evenodd" fill="white" stroke="none"
 								transform="matrix(0.00065617, 0, 0, 0.00065617, 0, 0)"/>
 					</mask>
-					<mask id="mfid218" fill="white" stroke="none">
-						<g mask="url(#mfid214)">
-							<g mask="url(#mfid217)">
-								<use xlink:href="#mfid212"/>
+					<mask id="mfid96" fill="white" stroke="none">
+						<g mask="url(#mfid92)">
+							<g mask="url(#mfid95)">
+								<use xlink:href="#mfid90"/>
 							</g>
 						</g>
 					</mask>
 					<defs>
 						<!-- Unsupported Record: EmfPlusRecordTypeSetPixelOffsetMode  -->
-						<svg viewBox="-0.70833 -0.70968 108.14 132" height="132" id="mfid219" width="108">
-							<clipPath id="mfid220">
-								<rect x="-0.70833" y="-0.70968" width="108.14" height="132" id="mfid221"/>
+						<svg viewBox="-0.70833 -0.70968 108.14 132" height="132" id="mfid97" width="108">
+							<clipPath id="mfid98">
+								<rect x="-0.70833" y="-0.70968" width="108.14" height="132" id="mfid99"/>
 							</clipPath>
-							<g clip-path="url(#mfid220)">
-								<mask id="mfid222">
+							<g clip-path="url(#mfid98)">
+								<mask id="mfid100">
 									<rect width="108" height="132" fill="white" stroke="none"/>
 								</mask>
-								<mask id="mfid223" fill="white" stroke="none">
+								<mask id="mfid101" fill="white" stroke="none">
 									<g>
-										<g mask="url(#mfid222)">
-											<use xlink:href="#mfid221"/>
+										<g mask="url(#mfid100)">
+											<use xlink:href="#mfid99"/>
 										</g>
 									</g>
 								</mask>
 								<defs>
-									<path id="mfid224" d="M0,68.525 L3.4562,68.525 L3.4562,98.98 L-0.00000047684,98.98 Z"/>
+									<path id="mfid102" d="M0,68.525 L3.4562,68.525 L3.4562,98.98 L-0.00000047684,98.98 Z"/>
 								</defs>
-								<g mask="url(#mfid223)">
+								<g mask="url(#mfid101)">
 									<g transform="matrix(1.3336, 0, 0, 1.3336, 51.695, -67.484)">
 										<g fill="#7a7a7a">
-											<use xlink:href="#mfid224" fill-rule="evenodd" stroke="none"/>
+											<use xlink:href="#mfid102" fill-rule="evenodd" stroke="none"/>
 											<defs>
-												<path id="mfid225"
+												<path id="mfid103"
 														d="M12.44,92.84 C12.44,96.17 9.6,98.98 6.22,98.98 C2.84,98.98 0,96.17 0,92.84 C0,89.51 2.84,86.71 6.22,86.71 C9.6,86.71 12.44,89.51 12.44,92.84 Z"/>
 											</defs>
 										</g>
 									</g>
 									<g transform="matrix(1.3336, 0, 0, 1.3336, 45.703, -59.907)">
 										<g fill="#57a300">
-											<use xlink:href="#mfid225" fill-rule="evenodd" stroke="none"/>
+											<use xlink:href="#mfid103" fill-rule="evenodd" stroke="none"/>
 											<defs>
-												<path id="mfid226"
+												<path id="mfid104"
 														d="M33.41,52.96 C33.41,55.67 31.09,57.96 28.34,57.96 C25.59,57.96 23.27,55.67 23.27,52.96 C23.27,50.24 25.59,47.96 28.34,47.96 C31.09,47.96 33.41,50.24 33.41,52.96 Z M40.47,98.98 C40.043,98.984 39.632,98.818 39.33,98.52 C38.671,97.864 38.671,96.806 39.33,96.15 L51.51,84.14 C51.897,83.762 51.9,83.146 51.516,82.764 C51.515,82.763 51.513,82.761 51.511,82.759 L39.55,71.17 C39.22,70.907 39.02,70.518 39,70.1 C38.98,69.63 39.18,69.16 39.54,68.79 C39.885,68.436 40.374,68.256 40.87,68.3 C41.3,68.3 41.71,68.48 42.03,68.79 L53.45,79.75 L56,82.26 C56.51,82.89 56.69,83.95 56,84.64 L53.24,87.35 L41.81,98.52 C41.495,98.817 41.076,98.982 40.64,98.98 L40.65,98.98 L40.47,98.98 Z M16.05,98.98 C15.614,98.983 15.194,98.818 14.88,98.52 L3.24,87.46 L0.69,84.62 C0,83.95 0.17,82.92 0.67,82.29 L3.24,79.75 L14.67,68.79 C15.014,68.435 15.504,68.255 16,68.3 C16.42,68.3 16.83,68.48 17.15,68.79 C17.52,69.15 17.71,69.63 17.69,70.1 C17.666,70.524 17.463,70.92 17.13,71.19 L5.4,82.76 C5.0132,83.135 5.0081,83.749 5.3888,84.131 C5.3921,84.134 5.3955,84.137 5.3988,84.141 L17.37,96.14 C18.03,96.801 18.025,97.864 17.36,98.52 C17.06,98.82 16.66,98.98 16.23,98.98 L16.05,98.98 Z"/>
 											</defs>
 										</g>
 									</g>
 									<g transform="matrix(1.3336, 0, 0, 1.3336, 16.203, -47.632)">
 										<g fill="#3999c6">
-											<use xlink:href="#mfid226" fill-rule="evenodd" stroke="none"/>
+											<use xlink:href="#mfid104" fill-rule="evenodd" stroke="none"/>
 										</g>
 									</g>
 								</g>
@@ -712,15 +712,15 @@
 						</svg>
 					</defs>
 					<!-- Unsupported Record: EmfPlusRecordTypeSetObject Obj_ImageAttributes -->
-					<g mask="url(#mfid218)">
+					<g mask="url(#mfid96)">
 						<g transform="matrix(1.6859, 0, 0, 1.6917, 1.1942, 1.2006)">
-							<clipPath id="mfid227">
+							<clipPath id="mfid105">
 								<rect x="-0.70833" y="-0.70968" width="109.14" height="133"/>
 							</clipPath>
-							<use xlink:href="#mfid219" clip-path="url(#mfid227)" transform="matrix(1, 0, 0, 1, 0, -0.0000008142)"/>
+							<use xlink:href="#mfid97" clip-path="url(#mfid105)" transform="matrix(1, 0, 0, 1, 0, -0.0000008142)"/>
 						</g>
 					</g>
-					<mask id="mfid228">
+					<mask id="mfid106">
 						<rect width="184" height="225" fill="white" stroke="none"/>
 					</mask>
 				</g>
@@ -738,47 +738,47 @@
 			<!-- Unsupported Record: EmfPlusRecordTypeSetPixelOffsetMode  -->
 			<svg viewBox="-0.70833 -0.70968 231.15 230.17" height="27.5811" preserveAspectRatio="none" width="27.7512" x="0"
 					y="471.356">
-				<clipPath id="mfid229">
-					<rect x="-0.70833" y="-0.70968" width="231.15" height="230.17" id="mfid230"/>
+				<clipPath id="mfid107">
+					<rect x="-0.70833" y="-0.70968" width="231.15" height="230.17" id="mfid108"/>
 				</clipPath>
-				<g clip-path="url(#mfid229)">
-					<mask id="mfid231">
+				<g clip-path="url(#mfid107)">
+					<mask id="mfid109">
 						<rect width="231" height="230" fill="white" stroke="none"/>
 					</mask>
-					<mask id="mfid232" fill="white" stroke="none">
+					<mask id="mfid110" fill="white" stroke="none">
 						<g>
-							<g mask="url(#mfid231)">
-								<use xlink:href="#mfid230"/>
+							<g mask="url(#mfid109)">
+								<use xlink:href="#mfid108"/>
 							</g>
 						</g>
 					</mask>
 					<defs>
-						<path id="mfid233" d="M0,0 L352040,0 L352040,350520 L0,350520 Z"/>
+						<path id="mfid111" d="M0,0 L352040,0 L352040,350520 L0,350520 Z"/>
 					</defs>
-					<mask id="mfid234">
-						<use xlink:href="#mfid233" fill-rule="evenodd" fill="white" stroke="none"
+					<mask id="mfid112">
+						<use xlink:href="#mfid111" fill-rule="evenodd" fill="white" stroke="none"
 								transform="matrix(0.00065617, 0, 0, 0.00065617, 0, 0)"/>
 					</mask>
-					<mask id="mfid235" fill="white" stroke="none">
-						<g mask="url(#mfid232)">
-							<g mask="url(#mfid234)">
-								<use xlink:href="#mfid230"/>
+					<mask id="mfid113" fill="white" stroke="none">
+						<g mask="url(#mfid110)">
+							<g mask="url(#mfid112)">
+								<use xlink:href="#mfid108"/>
 							</g>
 						</g>
 					</mask>
 					<defs>
-						<image id="mfid236" width="89" height="89" xlink:href="data:image/png;base64,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"/>
+						<image id="mfid114" width="89" height="89" xlink:href="data:image/png;base64,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"/>
 					</defs>
 					<!-- Unsupported Record: EmfPlusRecordTypeSetObject Obj_ImageAttributes -->
-					<g mask="url(#mfid235)">
+					<g mask="url(#mfid113)">
 						<g transform="matrix(2.5955, 0, 0, 2.5843, 0, 0)">
-							<clipPath id="mfid237">
+							<clipPath id="mfid115">
 								<rect x="-0.5" y="-0.5" width="89" height="89"/>
 							</clipPath>
-							<use xlink:href="#mfid236" clip-path="url(#mfid237)" transform="matrix(1, 0, 0, 1, 0.5, 0.5)"/>
+							<use xlink:href="#mfid114" clip-path="url(#mfid115)" transform="matrix(1, 0, 0, 1, 0.5, 0.5)"/>
 						</g>
 					</g>
-					<mask id="mfid238">
+					<mask id="mfid116">
 						<rect width="231" height="230" fill="white" stroke="none"/>
 					</mask>
 				</g>
@@ -1322,7 +1322,7 @@
 			<text x="5.6" y="496.17" class="st13">Managed VNet</text>		</g>
 		<g id="group1038-257" transform="translate(377.315,-403.086)">
 			<title>SQL Data Warehouses.1060</title>
-			<desc>Dedicate SQL pool</desc>
+			<desc>Dedicated SQL pool</desc>
 			<g id="shape1039-258" transform="translate(0,-8.68066)">
 				<title>Sheet.1039</title>
 				<path d="M13.86 473.06 L0 480.95 L0 482.9 L2.55 482.9 L2.55 497.7 L5.06 497.7 L5.06 482.9 L22.67 482.9 L22.67 498.94
@@ -1357,7 +1357,7 @@
 							 0 10.53 498.27 A17.798 17.463 -180 0 0 5.26 497.62 Z" class="st48"/>
 			</g>
 			<g id="shape1038-275">
-				<text x="-4.1" y="508.84" class="st13">Dedicate <tspan x="-4.9" dy="1.2em" class="st4">SQL </tspan>pool</text>			</g>
+				<text x="-7.34" y="508.84" class="st13">Dedicated <tspan x="-4.9" dy="1.2em" class="st4">SQL </tspan>pool</text>			</g>
 		</g>
 		<g id="group1045-278" transform="translate(297.272,-309.577)">
 			<title>Azure Data Pipelines.1110</title>
@@ -1782,39 +1782,39 @@
 			<!-- Unsupported Record: EmfPlusRecordTypeSetPixelOffsetMode  -->
 			<svg viewBox="-0.70833 -0.70968 91.139 352" clip="rect(0 0 0 0)" height="32.2069" overflow="hidden"
 					preserveAspectRatio="none" width="10.6225" x="0" y="466.73">
-				<mask id="mfid239">
+				<mask id="mfid117">
 					<rect width="91" height="352" fill="white" stroke="none"/>
 				</mask>
-				<mask id="mfid240" fill="white" stroke="none">
+				<mask id="mfid118" fill="white" stroke="none">
 					<g>
-						<g mask="url(#mfid239)">
-							<rect x="-0.70833" y="-0.70968" width="91.139" height="352" id="mfid241"/>
+						<g mask="url(#mfid117)">
+							<rect x="-0.70833" y="-0.70968" width="91.139" height="352" id="mfid119"/>
 						</g>
 					</g>
 				</mask>
 				<defs>
-					<path id="mfid242"
+					<path id="mfid120"
 							d="M0,55098 C-0.000000000083431,85529 28316,110200 63246,110200 C98176,110200 126490,85529 126490,55098 L126490,469160 C126490,499590 98176,524260 63246,524260 C28316,524260 -0.57333,499590 -0.57333,469160 Z"/>
 				</defs>
-				<g mask="url(#mfid240)">
+				<g mask="url(#mfid118)">
 					<g
 							transform="matrix(-0.00065617, 0.000000000000000000080357, -0.00000000000000000080357, -0.00065617, 87, 348)">
 						<g fill="#4472c4">
-							<use xlink:href="#mfid242" fill-rule="evenodd" stroke="none"/>
+							<use xlink:href="#mfid120" fill-rule="evenodd" stroke="none"/>
 							<defs>
-								<path id="mfid243"
+								<path id="mfid121"
 										d="M0,55098 C0,24668 28316,-0.00000000016686 63246,-0.00000000016686 C98176,-0.00000000025029 126490,24668 126490,55098 C126490,85529 98176,110200 63246,110200 C28316,110200 -0.00000000050059,85529 0,55098 Z"/>
 							</defs>
 						</g>
 						<g fill="#8faadc">
-							<use xlink:href="#mfid243" fill-rule="evenodd" stroke="none"/>
+							<use xlink:href="#mfid121" fill-rule="evenodd" stroke="none"/>
 							<defs>
-								<path id="mfid244"
+								<path id="mfid122"
 										d="M126490,55098 C126490,85529 98176,110200 63246,110200 C28316,110200 -0.57333,85529 -0.57333,55098 C-0.57333,24668 28316,-0.00000000016686 63246,-0.00000000016686 C98176,-0.00000000025029 126490,24668 126490,55098 L126490,469160 C126490,499590 98176,524260 63246,524260 C28316,524260 -0.57333,499590 -0.57333,469160 L0,55098"/>
 							</defs>
 						</g>
 						<g fill="#8faadc" stroke-width="12700" stroke="#2f528f" stroke-miterlimit="8">
-							<use xlink:href="#mfid244" fill="none"/>
+							<use xlink:href="#mfid122" fill="none"/>
 						</g>
 					</g>
 				</g>

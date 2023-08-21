@@ -810,39 +810,39 @@
 			<!-- Unsupported Record: EmfPlusRecordTypeSetPixelOffsetMode  -->
 			<svg viewBox="-0.70833 -0.70968 91.139 352" clip="rect(0 0 0 0)" height="24.3339" overflow="hidden"
 					preserveAspectRatio="none" width="10.6225" x="0" y="500.078">
-				<mask id="mfid1">
+				<mask id="mfid123">
 					<rect width="91" height="352" fill="white" stroke="none"/>
 				</mask>
-				<mask id="mfid2" fill="white" stroke="none">
+				<mask id="mfid124" fill="white" stroke="none">
 					<g>
-						<g mask="url(#mfid1)">
-							<rect x="-0.70833" y="-0.70968" width="91.139" height="352" id="mfid3"/>
+						<g mask="url(#mfid123)">
+							<rect x="-0.70833" y="-0.70968" width="91.139" height="352" id="mfid125"/>
 						</g>
 					</g>
 				</mask>
 				<defs>
-					<path id="mfid4"
+					<path id="mfid126"
 							d="M0,55098 C-0.000000000083431,85529 28316,110200 63246,110200 C98176,110200 126490,85529 126490,55098 L126490,469160 C126490,499590 98176,524260 63246,524260 C28316,524260 -0.57333,499590 -0.57333,469160 Z"/>
 				</defs>
-				<g mask="url(#mfid2)">
+				<g mask="url(#mfid124)">
 					<g
 							transform="matrix(-0.00065617, 0.000000000000000000080357, -0.00000000000000000080357, -0.00065617, 87, 348)">
 						<g fill="#4472c4">
-							<use xlink:href="#mfid4" fill-rule="evenodd" stroke="none"/>
+							<use xlink:href="#mfid126" fill-rule="evenodd" stroke="none"/>
 							<defs>
-								<path id="mfid5"
+								<path id="mfid127"
 										d="M0,55098 C0,24668 28316,-0.00000000016686 63246,-0.00000000016686 C98176,-0.00000000025029 126490,24668 126490,55098 C126490,85529 98176,110200 63246,110200 C28316,110200 -0.00000000050059,85529 0,55098 Z"/>
 							</defs>
 						</g>
 						<g fill="#8faadc">
-							<use xlink:href="#mfid5" fill-rule="evenodd" stroke="none"/>
+							<use xlink:href="#mfid127" fill-rule="evenodd" stroke="none"/>
 							<defs>
-								<path id="mfid6"
+								<path id="mfid128"
 										d="M126490,55098 C126490,85529 98176,110200 63246,110200 C28316,110200 -0.57333,85529 -0.57333,55098 C-0.57333,24668 28316,-0.00000000016686 63246,-0.00000000016686 C98176,-0.00000000025029 126490,24668 126490,55098 L126490,469160 C126490,499590 98176,524260 63246,524260 C28316,524260 -0.57333,499590 -0.57333,469160 L0,55098"/>
 							</defs>
 						</g>
 						<g fill="#8faadc" stroke-width="12700" stroke="#2f528f" stroke-miterlimit="8">
-							<use xlink:href="#mfid6" fill="none"/>
+							<use xlink:href="#mfid128" fill="none"/>
 						</g>
 					</g>
 				</g>
@@ -1010,7 +1010,7 @@
 		</g>
 		<g id="group1077-150" transform="translate(306.883,-409.748)">
 			<title>SQL Data Warehouses.1060</title>
-			<desc>Dedicate SQL pool</desc>
+			<desc>Dedicated SQL pool</desc>
 			<g id="shape1078-151" transform="translate(0,-8.68066)">
 				<title>Sheet.1078</title>
 				<path d="M13.86 498.53 L0 506.42 L0 508.37 L2.55 508.37 L2.55 523.17 L5.06 523.17 L5.06 508.37 L22.67 508.37 L22.67
@@ -1045,7 +1045,7 @@
 							 0 10.53 523.74 A17.798 17.463 -180 0 0 5.26 523.09 Z" class="st38"/>
 			</g>
 			<g id="shape1077-168">
-				<text x="-4.1" y="534.31" class="st15">Dedicate <tspan x="-4.9" dy="1.2em" class="st18">SQL </tspan>pool</text>			</g>
+				<text x="-7.34" y="534.31" class="st15">Dedicated <tspan x="-4.9" dy="1.2em" class="st18">SQL </tspan>pool</text>			</g>
 		</g>
 		<g id="group1084-171" transform="translate(304.609,-22.3444)">
 			<title>Azure DevOps.1067</title>
@@ -2230,39 +2230,39 @@
 			<!-- Unsupported Record: EmfPlusRecordTypeSetPixelOffsetMode  -->
 			<svg viewBox="-0.70833 -0.70968 91.139 352" clip="rect(0 0 0 0)" height="32.2069" overflow="hidden"
 					preserveAspectRatio="none" width="10.6225" x="0" y="492.205">
-				<mask id="mfid7">
+				<mask id="mfid129">
 					<rect width="91" height="352" fill="white" stroke="none"/>
 				</mask>
-				<mask id="mfid8" fill="white" stroke="none">
+				<mask id="mfid130" fill="white" stroke="none">
 					<g>
-						<g mask="url(#mfid7)">
-							<rect x="-0.70833" y="-0.70968" width="91.139" height="352" id="mfid9"/>
+						<g mask="url(#mfid129)">
+							<rect x="-0.70833" y="-0.70968" width="91.139" height="352" id="mfid131"/>
 						</g>
 					</g>
 				</mask>
 				<defs>
-					<path id="mfid10"
+					<path id="mfid132"
 							d="M0,55098 C-0.000000000083431,85529 28316,110200 63246,110200 C98176,110200 126490,85529 126490,55098 L126490,469160 C126490,499590 98176,524260 63246,524260 C28316,524260 -0.57333,499590 -0.57333,469160 Z"/>
 				</defs>
-				<g mask="url(#mfid8)">
+				<g mask="url(#mfid130)">
 					<g
 							transform="matrix(-0.00065617, 0.000000000000000000080357, -0.00000000000000000080357, -0.00065617, 87, 348)">
 						<g fill="#4472c4">
-							<use xlink:href="#mfid10" fill-rule="evenodd" stroke="none"/>
+							<use xlink:href="#mfid132" fill-rule="evenodd" stroke="none"/>
 							<defs>
-								<path id="mfid11"
+								<path id="mfid133"
 										d="M0,55098 C0,24668 28316,-0.00000000016686 63246,-0.00000000016686 C98176,-0.00000000025029 126490,24668 126490,55098 C126490,85529 98176,110200 63246,110200 C28316,110200 -0.00000000050059,85529 0,55098 Z"/>
 							</defs>
 						</g>
 						<g fill="#8faadc">
-							<use xlink:href="#mfid11" fill-rule="evenodd" stroke="none"/>
+							<use xlink:href="#mfid133" fill-rule="evenodd" stroke="none"/>
 							<defs>
-								<path id="mfid12"
+								<path id="mfid134"
 										d="M126490,55098 C126490,85529 98176,110200 63246,110200 C28316,110200 -0.57333,85529 -0.57333,55098 C-0.57333,24668 28316,-0.00000000016686 63246,-0.00000000016686 C98176,-0.00000000025029 126490,24668 126490,55098 L126490,469160 C126490,499590 98176,524260 63246,524260 C28316,524260 -0.57333,499590 -0.57333,469160 L0,55098"/>
 							</defs>
 						</g>
 						<g fill="#8faadc" stroke-width="12700" stroke="#2f528f" stroke-miterlimit="8">
-							<use xlink:href="#mfid12" fill="none"/>
+							<use xlink:href="#mfid134" fill="none"/>
 						</g>
 					</g>
 				</g>
