@@ -59,7 +59,20 @@ The options below provide an opinionated approach to deploy and operate the [Azu
 | [Azure landing zone Terraform accelerator](terraform/landing-zone-terraform.md) | This accelerator provides an orchestrator module, but also allows you to deploy each capability individually or in part. |
 | [Azure landing zone Bicep accelerator](bicep/landing-zone-bicep.md)  | A modular accelerator where each module encapsulates a core capability of the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone#azure-landing-zone-conceptual-architecture). While the modules can be deployed individually, the design proposes the use of orchestrator modules to encapsulate the complexity of deploying different topologies with the modules. |
 
+### Operating ALZ
+
 In addition, after deploying the landing zone, you will need to plan to operate it and maintain it.  Review the guidance on how to [Keep your Azure landing zone up to date](/azure/cloud-adoption-framework/govern/resource-consistency/keep-azure-landing-zone-up-to-date).
+
+[Azure Governance Visualizer](https://github.com/JulianHayward/Azure-MG-Sub-Governance-Reporting#azure-governance-visualizer-aka-azgovviz) is intended to help you to get a holistic overview on your technical Azure Governance implementation by connecting the dots and providing sophisticated reports.
+
+### Alternative Platform Deployment for Policies with Enterprise Policy as Code (EPAC)
+
+[Enterprise Policy as Code (EPAC)](https://aka.ms/epac) is an alternative method to deploy, manage and operate Azure Policies in your environment. EPAC can be used instead of the [platform options](#platform) above to manage the Policies in an Azure Landing Zones environment. The integration approach is documented here: [Integrating EPAC with Azure Landing Zones]( https://azure.github.io/enterprise-azure-policy-as-code/integrating-with-alz/). 
+
+EPAC is best suited to more advanced and mature DevOps and Infrastructure-as-Code customers. However, customers of any size can use EPAC if they desire after assessing it. Customers should review [Who Should use EPAC?](https://azure.github.io/enterprise-azure-policy-as-code#who-should-use-epac) first to ensure they are aligned.
+
+>[!NOTE]
+> Customers should evaluate and consider both options carefully and potentially run through an MVP or PoC before deciding on what to use in the long-term.
 
 ## Subscription Vending
 

@@ -702,7 +702,7 @@ This guide provides comprehensive guidance for setting up a solution that uses A
 You can extend the architecture to include other data sources and AI capabilities, such as:
 
 - Ingesting structured data, such as market data (for example, stock quotes) and transaction information.
-- Attaching classification models that are designed to extract content from paper-based sources, by using capabilities such as the [Azure Form Recognizer](/azure/applied-ai-services/form-recognizer/quickstarts/try-v3-form-recognizer-studio) and the Azure Read API.
+- Attaching classification models that are designed to extract content from paper-based sources, by using capabilities such as the [Azure Form Recognizer](/azure/ai-services/document-intelligence/quickstarts/try-document-intelligence-studio?view=doc-intel-3.1.0) and the Azure Read API.
 - Ingesting social networking information by using Azure Language Studio capabilities to categorize and filter relevant topics, or Azure Sentiment Analysis to capture opinion trends.
 - Using Microsoft Graph to assemble and consolidate information from Microsoft 365, such as interpersonal interactions, companies that people work with, or information that they access. When you save this data in Azure Storage, you can easily search it.
 
