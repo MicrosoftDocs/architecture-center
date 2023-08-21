@@ -105,7 +105,7 @@ You can find example code for this approach [here][example-4].
 - The Enterprise Integration Patterns site has a [description][enterprise-integration-patterns] of this pattern.
 - For another example, see [Dealing with large Service Bus messages using claim check pattern](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern) (blog post).
 - An alternative pattern for handling large messages is [Split][splitter] and [Aggregate][aggregator].
-- Libraries like NServiceBus provide support for this pattern out-of-the-box with their ["data bus" functionality](https://docs.particular.net/samples/azure/blob-storage-databus/).
+- Libraries like NServiceBus provide support for this pattern out-of-the-box with their ["data bus" functionality](https://docs.particular.net/nservicebus/messaging/databus/azure-blob-storage).
 
 ## Related resources
 
