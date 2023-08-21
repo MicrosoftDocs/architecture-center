@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 08/14/2023
+ms.date: 08/21/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -34,6 +34,10 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [Deploy Azure landing zones](./landing-zones/landing-zone-deploy.md)  ([#7d7643bb4a](https://github.com/MicrosoftDocs/architecture-center/commit/7d7643bb4a))
+- [HA enterprise deployment using ASE](./web-apps/app-service-environment/architectures/ase-high-availability-deployment.yml)  ([#f63a699611](https://github.com/MicrosoftDocs/architecture-center/commit/f63a699611))
+- [Magento e-commerce platform in Azure Kubernetes Service](./example-scenario/magento/magento-azure.yml)  ([#4206ea3f14](https://github.com/MicrosoftDocs/architecture-center/commit/4206ea3f14))
+- [Considerations for multitenant control planes](./guide/multitenant/considerations/control-planes.yml)  ([#2afb001272](https://github.com/MicrosoftDocs/architecture-center/commit/2afb001272))
 - [Build solutions with availability zones](./high-availability/building-solutions-for-high-availability.yml)  ([#bf5377d475](https://github.com/MicrosoftDocs/architecture-center/commit/bf5377d475))
 
 ## July 2023
