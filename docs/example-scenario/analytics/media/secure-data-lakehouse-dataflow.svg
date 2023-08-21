@@ -1315,11 +1315,11 @@
 			<rect x="0" y="455" width="72.8778" height="43.937" class="st2"/>
 			<text x="13.44" y="467.07" class="st43">Managed <tspan x="19.79" dy="1.2em" class="st4">p</tspan>rivate <tspan
 						x="14.45" dy="1.2em" class="st4">e</tspan>ndpoint</text>		</g>
-		<g id="shape1036-254" transform="translate(433.524,-287.318)">
+		<g id="shape1036-254" transform="translate(367.835,-287.318)">
 			<title>Sheet.1036</title>
-			<desc>Managed VNet</desc>
-			<rect x="0" y="486.793" width="84.7559" height="12.1437" class="st2"/>
-			<text x="5.6" y="496.17" class="st13">Managed VNet</text>		</g>
+			<desc>Managed Virtual network</desc>
+			<rect x="0" y="486.793" width="150.445" height="12.1437" class="st2"/>
+			<text x="13.74" y="496.17" class="st13">Managed Virtual network</text>		</g>
 		<g id="group1038-257" transform="translate(377.315,-403.086)">
 			<title>SQL Data Warehouses.1060</title>
 			<desc>Dedicated SQL pool</desc>
@@ -1870,7 +1870,7 @@
 		</g>
 		<g id="group1151-499" transform="translate(621.025,-193.007)">
 			<title>Network Security Groups.1340</title>
-			<desc>Network Security Groups</desc>
+			<desc>network security groups</desc>
 			<g id="shape1152-500">
 				<title>Sheet.1152</title>
 				<path d="M28.8 480.51 C28.8 489.8 17.35 497.29 14.87 498.81 a0.9 0.883319 0 0 1 -0.93913 0 C11.45 497.29 0 489.8
@@ -1898,8 +1898,8 @@
 							 a0.763043 0.748901 -180 0 0 0.352174 -0.115216 C15.78 497.5 25.53 491.12 26.31 483.09 Z" class="st11"/>
 			</g>
 			<g id="shape1151-510">
-				<text x="-6.3" y="508.84" class="st13">Network <tspan x="-4.82" dy="1.2em" class="st4">Security </tspan><tspan
-							x="-3.19" dy="1.2em" class="st4">Groups</tspan></text>			</g>
+				<text x="-5.3" y="508.84" class="st13">network <tspan x="-4.23" dy="1.2em" class="st4">security</tspan> <tspan
+							x="-2.65" dy="1.2em" class="st4">groups</tspan></text>			</g>
 		</g>
 		<g id="shape1171-514" transform="translate(631.651,-351.199)">
 			<title>Rectangle.1171</title>
@@ -1907,7 +1907,7 @@
 		</g>
 		<g id="group1156-516" transform="translate(624.37,-350.116)">
 			<title>Network Security Groups.1156</title>
-			<desc>Network Security Groups</desc>
+			<desc>network security groups</desc>
 			<g id="shape1157-517">
 				<title>Sheet.1157</title>
 				<path d="M28.8 480.51 C28.8 489.8 17.35 497.29 14.87 498.81 a0.9 0.883319 0 0 1 -0.93913 0 C11.45 497.29 0 489.8
@@ -1935,8 +1935,8 @@
 							 a0.763043 0.748901 -180 0 0 0.352174 -0.115216 C15.78 497.5 25.53 491.12 26.31 483.09 Z" class="st11"/>
 			</g>
 			<g id="shape1156-526">
-				<text x="-6.3" y="508.84" class="st13">Network <tspan x="-4.82" dy="1.2em" class="st4">Security </tspan><tspan
-							x="-3.19" dy="1.2em" class="st4">Groups</tspan></text>			</g>
+				<text x="-5.3" y="508.84" class="st13">network <tspan x="-4.23" dy="1.2em" class="st4">security</tspan> <tspan
+							x="-2.65" dy="1.2em" class="st4">groups</tspan></text>			</g>
 		</g>
 		<g id="shape1172-530" transform="translate(738.508,-344.233)">
 			<title>Sheet.1172</title>

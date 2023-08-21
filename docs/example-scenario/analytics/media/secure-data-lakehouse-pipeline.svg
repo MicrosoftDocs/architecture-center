@@ -653,9 +653,9 @@
 		</g>
 		<g id="shape1017-13" transform="translate(988.656,362.118) rotate(90)">
 			<title>Sheet.1017</title>
-			<desc>DevOp</desc>
+			<desc>DevOps</desc>
 			<path d="M53.42 505.69 L0 505.69 L0 524.41 L53.42 524.41 L53.42 505.69" class="st4"/>
-			<text x="9.58" y="518.35" class="st5">DevOp</text>		</g>
+			<text x="7.21" y="518.35" class="st5">DevOps</text>		</g>
 		<g id="shape1018-17" transform="translate(183.942,-292.626)">
 			<title>Rectangle.1005</title>
 			<rect x="0" y="368.152" width="289.701" height="156.26" class="st6"/>
@@ -810,39 +810,39 @@
 			<!-- Unsupported Record: EmfPlusRecordTypeSetPixelOffsetMode  -->
 			<svg viewBox="-0.70833 -0.70968 91.139 352" clip="rect(0 0 0 0)" height="24.3339" overflow="hidden"
 					preserveAspectRatio="none" width="10.6225" x="0" y="500.078">
-				<mask id="mfid123">
+				<mask id="mfid252">
 					<rect width="91" height="352" fill="white" stroke="none"/>
 				</mask>
-				<mask id="mfid124" fill="white" stroke="none">
+				<mask id="mfid253" fill="white" stroke="none">
 					<g>
-						<g mask="url(#mfid123)">
-							<rect x="-0.70833" y="-0.70968" width="91.139" height="352" id="mfid125"/>
+						<g mask="url(#mfid252)">
+							<rect x="-0.70833" y="-0.70968" width="91.139" height="352" id="mfid254"/>
 						</g>
 					</g>
 				</mask>
 				<defs>
-					<path id="mfid126"
+					<path id="mfid255"
 							d="M0,55098 C-0.000000000083431,85529 28316,110200 63246,110200 C98176,110200 126490,85529 126490,55098 L126490,469160 C126490,499590 98176,524260 63246,524260 C28316,524260 -0.57333,499590 -0.57333,469160 Z"/>
 				</defs>
-				<g mask="url(#mfid124)">
+				<g mask="url(#mfid253)">
 					<g
 							transform="matrix(-0.00065617, 0.000000000000000000080357, -0.00000000000000000080357, -0.00065617, 87, 348)">
 						<g fill="#4472c4">
-							<use xlink:href="#mfid126" fill-rule="evenodd" stroke="none"/>
+							<use xlink:href="#mfid255" fill-rule="evenodd" stroke="none"/>
 							<defs>
-								<path id="mfid127"
+								<path id="mfid256"
 										d="M0,55098 C0,24668 28316,-0.00000000016686 63246,-0.00000000016686 C98176,-0.00000000025029 126490,24668 126490,55098 C126490,85529 98176,110200 63246,110200 C28316,110200 -0.00000000050059,85529 0,55098 Z"/>
 							</defs>
 						</g>
 						<g fill="#8faadc">
-							<use xlink:href="#mfid127" fill-rule="evenodd" stroke="none"/>
+							<use xlink:href="#mfid256" fill-rule="evenodd" stroke="none"/>
 							<defs>
-								<path id="mfid128"
+								<path id="mfid257"
 										d="M126490,55098 C126490,85529 98176,110200 63246,110200 C28316,110200 -0.57333,85529 -0.57333,55098 C-0.57333,24668 28316,-0.00000000016686 63246,-0.00000000016686 C98176,-0.00000000025029 126490,24668 126490,55098 L126490,469160 C126490,499590 98176,524260 63246,524260 C28316,524260 -0.57333,499590 -0.57333,469160 L0,55098"/>
 							</defs>
 						</g>
 						<g fill="#8faadc" stroke-width="12700" stroke="#2f528f" stroke-miterlimit="8">
-							<use xlink:href="#mfid128" fill="none"/>
+							<use xlink:href="#mfid257" fill="none"/>
 						</g>
 					</g>
 				</g>
@@ -860,15 +860,15 @@
 		</g>
 		<g id="shape1043-75" transform="translate(943.465,142.706) rotate(90)">
 			<title>Sheet.1043</title>
-			<desc>Managed private endpoint</desc>
+			<desc>managed private endpoint</desc>
 			<rect x="0" y="480.474" width="72.8778" height="43.937" class="st14"/>
-			<text x="13.44" y="492.54" class="st17">Managed <tspan x="19.79" dy="1.2em" class="st18">p</tspan>rivate <tspan
+			<text x="13.64" y="492.54" class="st17">managed <tspan x="19.79" dy="1.2em" class="st18">p</tspan>rivate <tspan
 						x="14.45" dy="1.2em" class="st18">e</tspan>ndpoint</text>		</g>
-		<g id="shape1044-80" transform="translate(363.092,-293.98)">
+		<g id="shape1044-80" transform="translate(302.563,-293.98)">
 			<title>Sheet.1044</title>
-			<desc>Managed VNet</desc>
-			<rect x="0" y="512.268" width="84.7559" height="12.1437" class="st14"/>
-			<text x="5.6" y="521.64" class="st15">Managed VNet</text>		</g>
+			<desc>Managed Virtual network</desc>
+			<rect x="0" y="512.268" width="145.285" height="12.1437" class="st14"/>
+			<text x="11.16" y="521.64" class="st15">Managed Virtual network</text>		</g>
 		<g id="group1045-83" transform="translate(342.653,-22.0207)">
 			<title>Sheet.1045</title>
 			<desc>Azure Pipeline</desc>
@@ -1481,7 +1481,7 @@
 		</g>
 		<g id="group1153-336" transform="translate(232.259,-135.253)">
 			<title>Sheet.1153</title>
-			<desc>SQL dedicate</desc>
+			<desc>SQL dedicated</desc>
 			<g id="shape1154-337" transform="translate(7.1541,-4.02877)">
 				<title>Sheet.1154</title>
 				<path d="M0 516.15 L0 524.41 L0.93 524.41 L0.93 516.15 L0 516.15 L0 516.15 Z" class="st57"/>
@@ -1506,7 +1506,7 @@
 							 524.12 4.64 524.3 C4.56 524.37 4.45 524.41 4.34 524.41 L4.28 524.41 Z" class="st53"/>
 			</g>
 			<g id="shape1153-343">
-				<text x="538.45" y="-12.41" transform="rotate(90)" class="st15">SQL  <tspan x="527.35" dy="1.282em" class="st18">dedicate</tspan></text>			</g>
+				<text x="541.44" y="-12.41" transform="rotate(90)" class="st15">SQL  <tspan x="527.09" dy="1.282em" class="st18">dedicated</tspan></text>			</g>
 		</g>
 		<g id="group1157-346" transform="translate(215.312,-394.933)">
 			<title>Sheet.1157</title>
@@ -2230,39 +2230,39 @@
 			<!-- Unsupported Record: EmfPlusRecordTypeSetPixelOffsetMode  -->
 			<svg viewBox="-0.70833 -0.70968 91.139 352" clip="rect(0 0 0 0)" height="32.2069" overflow="hidden"
 					preserveAspectRatio="none" width="10.6225" x="0" y="492.205">
-				<mask id="mfid129">
+				<mask id="mfid258">
 					<rect width="91" height="352" fill="white" stroke="none"/>
 				</mask>
-				<mask id="mfid130" fill="white" stroke="none">
+				<mask id="mfid259" fill="white" stroke="none">
 					<g>
-						<g mask="url(#mfid129)">
-							<rect x="-0.70833" y="-0.70968" width="91.139" height="352" id="mfid131"/>
+						<g mask="url(#mfid258)">
+							<rect x="-0.70833" y="-0.70968" width="91.139" height="352" id="mfid260"/>
 						</g>
 					</g>
 				</mask>
 				<defs>
-					<path id="mfid132"
+					<path id="mfid261"
 							d="M0,55098 C-0.000000000083431,85529 28316,110200 63246,110200 C98176,110200 126490,85529 126490,55098 L126490,469160 C126490,499590 98176,524260 63246,524260 C28316,524260 -0.57333,499590 -0.57333,469160 Z"/>
 				</defs>
-				<g mask="url(#mfid130)">
+				<g mask="url(#mfid259)">
 					<g
 							transform="matrix(-0.00065617, 0.000000000000000000080357, -0.00000000000000000080357, -0.00065617, 87, 348)">
 						<g fill="#4472c4">
-							<use xlink:href="#mfid132" fill-rule="evenodd" stroke="none"/>
+							<use xlink:href="#mfid261" fill-rule="evenodd" stroke="none"/>
 							<defs>
-								<path id="mfid133"
+								<path id="mfid262"
 										d="M0,55098 C0,24668 28316,-0.00000000016686 63246,-0.00000000016686 C98176,-0.00000000025029 126490,24668 126490,55098 C126490,85529 98176,110200 63246,110200 C28316,110200 -0.00000000050059,85529 0,55098 Z"/>
 							</defs>
 						</g>
 						<g fill="#8faadc">
-							<use xlink:href="#mfid133" fill-rule="evenodd" stroke="none"/>
+							<use xlink:href="#mfid262" fill-rule="evenodd" stroke="none"/>
 							<defs>
-								<path id="mfid134"
+								<path id="mfid263"
 										d="M126490,55098 C126490,85529 98176,110200 63246,110200 C28316,110200 -0.57333,85529 -0.57333,55098 C-0.57333,24668 28316,-0.00000000016686 63246,-0.00000000016686 C98176,-0.00000000025029 126490,24668 126490,55098 L126490,469160 C126490,499590 98176,524260 63246,524260 C28316,524260 -0.57333,499590 -0.57333,469160 L0,55098"/>
 							</defs>
 						</g>
 						<g fill="#8faadc" stroke-width="12700" stroke="#2f528f" stroke-miterlimit="8">
-							<use xlink:href="#mfid134" fill="none"/>
+							<use xlink:href="#mfid263" fill="none"/>
 						</g>
 					</g>
 				</g>
