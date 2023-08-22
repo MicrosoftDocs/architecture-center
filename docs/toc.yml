@@ -1248,12 +1248,12 @@ items:
       #   href: reference-architectures/ai/realtime-scoring-r.yml
       # - name: Scale AI and ML in regulated industries
       #   href: example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml
-      - name: Secure research for regulated data
-        href: example-scenario/ai/secure-compute-for-research.yml
+      # - name: Secure research for regulated data
+      #   href: example-scenario/ai/secure-compute-for-research.yml
       # - name: Speech transcription pipeline
       #   href: example-scenario/ai/speech-to-text-transcription-analytics.yml
-      - name: Social media analytics solution
-        href: example-scenario/ai/build-deploy-social-media-analytics-solution.yml
+      # - name: Social media analytics solution
+      #   href: example-scenario/ai/build-deploy-social-media-analytics-solution.yml
     - name: Solution ideas
       items:
       # - name: AI at the edge
@@ -4434,7 +4434,7 @@ items:
       - name: Secure a Microsoft Teams channel bot
         href: example-scenario/teams/securing-bot-teams-channel.yml
       - name: Secure research for regulated data
-        href: example-scenario/ai/secure-compute-for-research.yml
+        href: ai-ml/architecture/secure-compute-for-research.yml
       - name: SQL Managed Instance with CMK
         href: example-scenario/data/sql-managed-instance-cmk.yml
       - name: Virtual network integrated microservices
@@ -6009,7 +6009,7 @@ items:
       - name: Predict student attrition
         href: example-scenario/ai/student-attrition-prediction.yml
       - name: Secure research for regulated data
-        href: example-scenario/ai/secure-compute-for-research.yml
+        href: ai-ml/architecture/secure-compute-for-research.yml
       - name: Scalable secure open source Capture the Flag (CTF)
         href: example-scenario/apps/capture-the-flag-platform-on-azure-paas.yml
       - name: Teacher-provisioned virtual labs in Azure

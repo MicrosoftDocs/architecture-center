@@ -95,4 +95,4 @@ See related guidance on the Azure Architecture Center:
 * [Many models machine learning (ML) at scale with Azure Machine Learning](/azure/architecture/ai-ml/idea/many-models-machine-learning-azure-machine-learning)
 * [Scale AI and machine learning initiatives in regulated industries](/azure/architecture/example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries)
 * [Predict hospital readmissions by using traditional and automated machine learning techniques](/azure/architecture/example-scenario/ai/predict-hospital-readmissions-machine-learning)
-* [Secure research environment for regulated data](/azure/architecture/example-scenario/ai/secure-compute-for-research)
+* [Secure research environment for regulated data](/azure/architecture/ai-ml/architecture/secure-compute-for-research)

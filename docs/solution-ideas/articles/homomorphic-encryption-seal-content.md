@@ -63,4 +63,4 @@ See the following resources about security in Azure:
 
 - [Centralized app configuration and security](appconfig-key-vault.yml)
 - [Confidential computing on a healthcare platform](../../example-scenario/confidential/healthcare-inference.yml)
-- [Secure research environment for regulated data](../../example-scenario/ai/secure-compute-for-research.yml)
+- [Secure research environment for regulated data](../../ai-ml/architecture/secure-compute-for-research.yml)

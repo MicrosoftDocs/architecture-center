@@ -4,7 +4,7 @@ To best address customer needs, organizations need to extract insights from soci
 
 ## Architecture
 
-:::image type="content" source="./media/build-deploy-social-media-analytics-solution-architecture.png" alt-text="Architecture diagram that shows how data flows from news and Twitter feeds to dashboards and inferencing apps in a social media analytics solution." lightbox="./media/build-deploy-social-media-analytics-solution-architecture.png" border="false":::
+:::image type="content" source="_images/build-deploy-social-media-analytics-solution-architecture.png" alt-text="Architecture diagram that shows how data flows from news and Twitter feeds to dashboards and inferencing apps in a social media analytics solution." lightbox="_images/build-deploy-social-media-analytics-solution-architecture.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1996849-build-deploy-social-media-analytics-solution.vsdx) of this architecture.*
 
@@ -58,7 +58,7 @@ To best address customer needs, organizations need to extract insights from soci
 
 You can simplify this solution by eliminating Machine Learning and the custom machine learning models, as the following diagram shows. For more information, see [Deploy this scenario](#deploy-this-scenario), later in this article.
 
-:::image type="content" source="./media/build-deploy-social-media-analytics-solution-alternative.png" alt-text="Architecture diagram that shows how data flows from news and Twitter feeds to dashboards in a social media analytics solution." lightbox="./media/build-deploy-social-media-analytics-solution-alternative.png" border="false":::
+:::image type="content" source="_images/build-deploy-social-media-analytics-solution-alternative.png" alt-text="Architecture diagram that shows how data flows from news and Twitter feeds to dashboards in a social media analytics solution." lightbox="_images/build-deploy-social-media-analytics-solution-alternative.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1996849-build-deploy-social-media-analytics-solution.vsdx) of this architecture.*
 

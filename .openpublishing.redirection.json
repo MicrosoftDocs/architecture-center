@@ -3344,6 +3344,16 @@
       "source_path": "docs/reference-architectures/ai/realtime-scoring-r.yml",
       "redirect_url": "/azure/architecture/ai-ml/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/ai/secure-compute-for-research.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/secure-compute-for-research",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/ai/build-deploy-social-media-analytics-solution.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/build-deploy-social-media-analytics-solution",
+      "redirect_document_id": true
     }
   ]
 }

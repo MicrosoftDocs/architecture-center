@@ -112,6 +112,12 @@ items:
         items:
         - name: Real-time recommendation API
           href: architecture/real-time-recommendation.yml
+        - name: Social media analytics solution
+          href: architecture/build-deploy-social-media-analytics-solution.yml
+      - name: Regulatory
+        items:
+        - name: Secure research for regulated data
+          href: architecture/secure-compute-for-research.yml
     - name: Apply guidance
       items:
       - name: MLOps
