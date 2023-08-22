@@ -158,7 +158,7 @@ conceptualContent:
         url: ./ai-ml/architecture/conversational-bot.yml
       - text: Machine learning options
         itemType: reference
-        url: ./data-guide/technology-choices/data-science-and-machine-learning.md
+        url: ./ai-ml/guide/data-science-and-machine-learning.md
       - text: Machine learning at scale
         itemType: concept
         url: ./data-guide/big-data/machine-learning-at-scale.md

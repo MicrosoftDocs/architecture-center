@@ -238,7 +238,7 @@ items:
       - name: Natural language processing
         href: data-guide/technology-choices/natural-language-processing.yml
       - name: Machine learning
-        href: data-guide/technology-choices/data-science-and-machine-learning.md
+        href: ai-ml/guide/data-science-and-machine-learning.md
       - name: Machine learning tools
         href: example-scenario/mlops/aml-decision-tree.yml
       - name: Compare MLflow and Azure ML
@@ -966,8 +966,8 @@ items:
       #   href: guide/ai/conversation-summarization.yml  
       - name: Machine learning
         items:
-        - name: Machine learning options
-          href: data-guide/technology-choices/data-science-and-machine-learning.md
+        # - name: Machine learning options
+        #   href: data-guide/technology-choices/data-science-and-machine-learning.md
         - name: ML resources and assets
           href: /azure/machine-learning/concept-azure-machine-learning-v2
           maintainContext: true

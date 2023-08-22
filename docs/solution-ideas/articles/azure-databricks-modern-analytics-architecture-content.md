@@ -176,7 +176,7 @@ To learn about related solutions, see this information:
 [Azure Synapse Analytics]: https://azure.microsoft.com/services/synapse-analytics
 [Batch scoring of Spark models on Azure Databricks]: ../../ai-ml/architecture/batch-scoring-databricks.yml
 [Build a Real-time Recommendation API on Azure]: ../../reference-architectures/ai/real-time-recommendation.yml
-[Compare the machine learning products and technologies from Microsoft]: ../../data-guide/technology-choices/data-science-and-machine-learning.md
+[Compare the machine learning products and technologies from Microsoft]: ../../ai-ml/guide/data-science-and-machine-learning.md
 [Choosing a natural language processing technology in Azure]: ../../data-guide/technology-choices/natural-language-processing.yml
 [Choosing a stream processing technology in Azure]: ../../data-guide/technology-choices/stream-processing.md
 [Databricks Delta Lake]: https://databricks.com/product/delta-lake-on-databricks

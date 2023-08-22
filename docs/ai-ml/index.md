@@ -37,7 +37,7 @@ The predictive models are validated against known data, measured by performance 
 
 - [Machine learning at scale](../data-guide/big-data/machine-learning-at-scale.md)
 
-- [What are the machine learning products at Microsoft?](../data-guide/technology-choices/data-science-and-machine-learning.md)
+- [What are the machine learning products at Microsoft?](../ai-ml/guide/data-science-and-machine-learning.md)
 
 ### Deep learning
 
@@ -221,7 +221,7 @@ Following is a breakdown of Azure technologies, platforms, and services you can 
 
 This is an enterprise-grade machine learning service to build and deploy models faster. Azure Machine Learning offers web interfaces and SDKs so you can quickly train and deploy your machine learning models and pipelines at scale. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn.
 
-- [What are the machine learning products at Microsoft?](../data-guide/technology-choices/data-science-and-machine-learning.md)
+- [What are the machine learning products at Microsoft?](../ai-ml/guide/data-science-and-machine-learning.md)
 
 - [Azure Machine Learning product home page](https://azure.microsoft.com/services/machine-learning/)
 
@@ -307,7 +307,7 @@ Apache Spark is a parallel processing framework that supports in-memory processi
 
 [Apache Spark in Azure HDInsight](/azure/hdinsight/spark/apache-spark-overview) is the Microsoft implementation of Apache Spark in the cloud. Spark clusters in HDInsight are compatible with Azure Storage and Azure Data Lake Storage, so you can use HDInsight Spark clusters to process your data stored in Azure.
 
-The Microsoft Machine Learning library for Apache Spark is [MMLSpark](https://github.com/Azure/mmlspark) (Microsoft ML for Apache Spark). It is an open-source library that adds many deep learning and data science tools, networking capabilities, and production-grade performance to the Spark ecosystem. [Learn more about MMLSpark features and capabilities.](../data-guide/technology-choices/data-science-and-machine-learning.md#mmlspark)
+The Microsoft Machine Learning library for Apache Spark is [MMLSpark](https://github.com/Azure/mmlspark) (Microsoft ML for Apache Spark). It is an open-source library that adds many deep learning and data science tools, networking capabilities, and production-grade performance to the Spark ecosystem. [Learn more about MMLSpark features and capabilities.](../ai-ml/guide/data-science-and-machine-learning.md#mmlspark)
 
 - [Azure HDInsight overview.](/azure/hdinsight/hdinsight-overview) Basic information about features, cluster architecture, and use cases, with pointers to quickstarts and tutorials.
 

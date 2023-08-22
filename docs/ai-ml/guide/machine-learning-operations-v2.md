@@ -266,7 +266,7 @@ Principal authors:
 
 - [Choose a Microsoft cognitive services technology](../../data-guide/technology-choices/cognitive-services.md)
 - [Natural language processing technology](../../data-guide/technology-choices/natural-language-processing.yml)
-- [Compare the machine learning products and technologies from Microsoft](../../data-guide/technology-choices/data-science-and-machine-learning.md)
+- [Compare the machine learning products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)
 - [How Azure Machine Learning works: resources and assets (v2)](/azure/machine-learning/concept-azure-machine-learning-v2)
 - [Azure Machine Learning decision guide for optimal tool selection](../../example-scenario/mlops/aml-decision-tree.yml)
 - [Machine learning at scale](../../data-guide/big-data/machine-learning-at-scale.md)

@@ -181,6 +181,6 @@ This article is maintained by Microsoft. It was originally written by:
 - [Analytics end-to-end with Azure Synapse Analytics](../dataplate2e/data-platform-end-to-end.yml)
 - [End-to-end manufacturing using computer vision on the edge](../../reference-architectures/ai/end-to-end-smart-factory.yml)
 - [Artificial intelligence (AI)](/azure/architecture/data-guide/big-data/ai-overview)
-- [Compare the ML products and technologies from Microsoft](../../data-guide/technology-choices/data-science-and-machine-learning.md)
+- [Compare the ML products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)
 - [Machine learning at scale](../../data-guide/big-data/machine-learning-at-scale.md)
 - [Machine learning operations (MLOps) framework to upscale ML lifecycle with Machine Learning](../mlops/mlops-technical-paper.yml)

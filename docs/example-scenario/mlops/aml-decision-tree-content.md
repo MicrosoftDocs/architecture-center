@@ -175,7 +175,7 @@ This table adds scheduling options to the triggers.
 
 - [Technical Paper: MLOps framework to upscale machine learning lifecycle with Azure Machine Learning](mlops-technical-paper.yml)
 - [MLOps maturity model](mlops-maturity-model.yml)
-- [Compare Microsoft machine learning products and technologies](../../data-guide/technology-choices/data-science-and-machine-learning.md)
+- [Compare Microsoft machine learning products and technologies](../../ai-ml/guide/data-science-and-machine-learning.md)
 - [MLflow and Azure Machine Learning](/azure/machine-learning/concept-mlflow)
 - [Artificial intelligence (AI) architecture design](../../data-guide/big-data/ai-overview.md)
 - [How Azure Machine Learning works: resources and assets](/azure/machine-learning/concept-azure-machine-learning-v2)
