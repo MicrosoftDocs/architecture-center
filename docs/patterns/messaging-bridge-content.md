@@ -83,6 +83,7 @@ The following information may be relevant when implementing this pattern:
 
 ## External links
 
+- [Messaging Bridge pattern description](https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessagingBridge.html) from the Enterprise Integration Patterns community.
 - [Message Bridge implementation from Microsoft](https://github.com/Microsoft/Microsoft-Message-Bridge) is a good reference but is no longer actively maintained.
 - [QPid bridge](https://openmama.finos.org/openmama_qpid_bridge.html) can be used to bridge AMQP-enabled messaging technologies.
 - [Messaging Bridge](https://docs.particular.net/nservicebus/bridge/) is an example of a queue-to-queue bridge that supports a range of messaging infrastructures, including MSMQ, Azure Service Bus and Azure Storage Queues.
