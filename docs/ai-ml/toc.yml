@@ -136,7 +136,10 @@ items:
           href: guide/mlops-python.yml
         - name: Network security for MLOps
           href: guide/network-security-mlops.yml          
-
+        - name: MLOps maturity model
+          href: guide/mlops-maturity-model.yml
+        - name: Upscale ML lifecycle with MLOps
+          href: guide/mlops-technical-paper.yml
       - name: Team Data Science Process
         items:
         - name: Overview

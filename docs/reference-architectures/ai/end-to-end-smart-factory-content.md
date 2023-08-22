@@ -169,4 +169,4 @@ Principal Author:
 - [Azure IoT reference architecture](../iot.yml)
 - [Azure Machine Learning decision guide for optimal tool selection](../../example-scenario/mlops/aml-decision-tree.yml)
 - [DevOps Checklist](../../checklist/dev-ops.md)
-- [MLOps maturity model](../../example-scenario/mlops/mlops-technical-paper.yml)
+- [MLOps maturity model](../../ai-ml/guide/mlops-technical-paper.yml)

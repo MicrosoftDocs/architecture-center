@@ -71,7 +71,7 @@ See the following related architectural articles:
 * [Natural language processing technology](/azure/architecture/data-guide/technology-choices/natural-language-processing)
 * [Build a delta lake to support ad hoc queries in online leisure and travel booking](/azure/architecture/solution-ideas/articles/build-data-lake-support-adhoc-queries-online)
 * [Query a data lake or lakehouse by using Azure Synapse serverless](/azure/architecture/example-scenario/data/synapse-exploratory-data-analytics)
-* [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](/azure/architecture/example-scenario/mlops/mlops-technical-paper)
+* [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](/azure/architecture/ai-ml/guide/mlops-technical-paper)
 * [High-performance computing for manufacturing](/azure/architecture/industries/manufacturing/compute-manufacturing-overview)
 * [Introduction to predictive maintenance in manufacturing](/azure/architecture/industries/manufacturing/predictive-maintenance-overview)
 * [Predictive maintenance solution](/azure/architecture/industries/manufacturing/predictive-maintenance-solution)

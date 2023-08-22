@@ -3369,6 +3369,16 @@
       "source_path": "docs/guide/ai/conversation-summarization.yml",
       "redirect_url": "/azure/architecture/ai-ml/guide/conversation-summarization",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/mlops/mlops-technical-paper.yml",
+      "redirect_url": "/azure/architecture/ai-ml/guide/mlops-technical-paper",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/mlops/mlops-maturity-model.yml",
+      "redirect_url": "/azure/architecture/ai-ml/guide/mlops-maturity-model",
+      "redirect_document_id": true
     }
   ]
 }

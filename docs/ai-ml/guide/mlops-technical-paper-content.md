@@ -97,7 +97,7 @@ The team had to meet several key requirements to scale up the solution from the 
 
 The machine learning lifecycle, also known as the data science lifecycle, fits roughly into the following high-level process flow:
 
-![data science lifecycle model process flow](./media/data-sciene-lifecycle-model-flow.png)
+![data science lifecycle model process flow](_images/data-sciene-lifecycle-model-flow.png)
 
 *Deploy Model* here can represent any operational use of the validated machine learning model. Compared to DevOps, MLOps presents the additional challenge of integrating the machine learning lifecycle into the typical CI/CD process.
 
@@ -105,7 +105,7 @@ The [data science lifecycle](/azure/machine-learning/team-data-science-process/o
 
 Batch processing of data is the basis of the architecture. Two Azure Machine Learning pipelines are central to the process, one for training and the other for scoring. This diagram shows the data science methodology that was used for the initial phase of the client project:
 
-![Phase 1 data science methodology](./media/data-science-initial-methodology.png)
+![Phase 1 data science methodology](_images/data-science-initial-methodology.png)
 
 The team tested several algorithms. They ultimately chose an ensemble design of a LASSO linear regression model and a neural network with categorical embeddings. The team used the same model, defined by the level of product that the client could store on site, for both large and small stores. The team further subdivided the model into fast-moving and slow-moving products.
 
@@ -202,15 +202,15 @@ Multiple pipelines were used to meet all process requirements. For more informat
 
 The basic machine learning process resembles traditional software development, but there are significant differences. This diagram illustrates the major steps in the machine learning process:
 
-![A diagram of the basic machine learning process flow.](./media/basic-ml-process-flow.png)
+![A diagram of the basic machine learning process flow.](_images/basic-ml-process-flow.png)
 
 The Experiment phase is unique to the data science lifecycle, which reflects how data scientists traditionally do their work. It differs from how code developers do their work. The following diagram illustrates this lifecycle in more detail.
 
-![A diagram of the data science lifecycle.](./media/data-science-lifecycle-diag.png)
+![A diagram of the data science lifecycle.](_images/data-science-lifecycle-diag.png)
 
 Integrating this data development process into MLOps poses a challenge. Here you see the pattern that the team used to integrate the process into a form that MLOps can support:
 
-![A diagram of the pattern for integrating the data development process and MLOps.](./media/mlops-integrated-pattern.png)
+![A diagram of the pattern for integrating the data development process and MLOps.](_images/mlops-integrated-pattern.png)
 
 The role of MLOps is to create a coordinated process that can efficiently support the large-scale CI/CD environments that are common in production level systems. Conceptually, the MLOps model must include all process requirements from experimentation to scoring.
 
@@ -220,7 +220,7 @@ Another fundamental change was that the data scientists needed the capability to
 
 Here is the final MLOps process model concept:
 
-![A diagram of the final MLOps model concept.](./media/mlops-conceptual-model.png)
+![A diagram of the final MLOps model concept.](_images/mlops-conceptual-model.png)
 
 > [!IMPORTANT]
 > Scoring is the final step. The process runs the machine learning model to make predictions. This addresses the basic business use case requirement for demand forecasting. The team rates the quality of the predictions using the MAPE, which is a measure of prediction accuracy of statistical forecasting methods and a loss function for regression problems in machine learning. In this project, the team considered a MAPE of <= 45% significant.
@@ -229,7 +229,7 @@ Here is the final MLOps process model concept:
 
 The following diagram describes how to apply CI/CD development and release workflows to the machine learning lifecycle:
 
-![MLOps process flow archetype diagram](./media/mlops-process-flow.png)
+![MLOps process flow archetype diagram](_images/mlops-process-flow.png)
 
 * When a pull request (PR) is created from a feature branch, the pipeline runs [code validation tests](#code-validation-tests) to validate the quality of the code via unit tests and code quality tests. To validate quality upstream, the pipeline also runs [basic model validation tests](#basic-model-validation-tests) to validate the end-to-end training and scoring steps with a sample set of mocked data.
 * When the PR is merged into the main branch, the CI pipeline will run the same code validation tests and basic model validation tests with increased epoch. The pipeline will then package the artifacts, which include the code and binaries, to run in the machine learning environment.
@@ -300,7 +300,7 @@ Other teams will certainly come across similar issues in other machine learning 
 
 ### Logical architecture
 
-![Diagram of logical MLOps architecture.](./media/mlops-logical-architecture.png)
+![Diagram of logical MLOps architecture.](_images/mlops-logical-architecture.png)
 
 The data comes from many sources in many different formats, so it's conditioned before it's inserted into the data lake. The conditioning is done by using microservices operating as Azure Functions. The clients customize the microservices to fit the data sources and transform them into a standardized csv format that the training and scoring pipelines consume.
 
@@ -308,13 +308,13 @@ The data comes from many sources in many different formats, so it's conditioned 
 
 There were many design options available for the system architecture. The following diagram shows the end result of the decision-making process described in [Azure Machine Learning decision guide for optimal tool selection](aml-decision-tree.yml).
 
-![Diagram of system architecture supported by MLOps](./media/system-architecture.png)
+![Diagram of system architecture supported by MLOps](_images/system-architecture.png)
 
 ### Batch processing architecture
 
 The team devised the architectural design to support a batch data processing scheme. There are alternatives, but whatever is used must support MLOps processes. Full use of available Azure services was a design requirement. The following diagram shows the architecture:
 
-![A diagram of the batch processing architecture.](./media/batch-processing-architecture.png)
+![A diagram of the batch processing architecture.](_images/batch-processing-architecture.png)
 
 ## Solution overview
 
@@ -391,9 +391,9 @@ The team developed end-user UIs for observability, monitoring, and instrumentati
 
 The application populates the dashboards according to the nature of the data and how it processes and analyzes the data. As such, the team must design the exact layout of the dashboards for each use case. Here are two sample dashboards:
 
-![sample screenshot of machine learning training dashboard](./media/ml-training-dashboard.png)
+![sample screenshot of machine learning training dashboard](_images/ml-training-dashboard.png)
 
-![sample screenshot of machine learning monitoring dashboard](./media/ml-monitoring-dashboard.png)
+![sample screenshot of machine learning monitoring dashboard](_images/ml-monitoring-dashboard.png)
 
 The dashboards were designed to provide readily usable information for consumption by the end user of the machine learning model predictions.
 

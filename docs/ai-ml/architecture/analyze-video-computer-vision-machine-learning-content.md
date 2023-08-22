@@ -146,4 +146,4 @@ Other contributors:
 
 - [Image classification with convolutional neural networks (CNNs)](../../solution-ideas/articles/image-classification-with-convolutional-neural-networks.yml)
 - [Image classification on Azure](../../solution-ideas/articles/image-classification-with-convolutional-neural-networks.yml)
-- [MLOps framework to upscale machine learning lifecycle](../../example-scenario/mlops/mlops-technical-paper.yml)
+- [MLOps framework to upscale machine learning lifecycle](../../ai-ml/guide/mlops-technical-paper.yml)

@@ -272,5 +272,5 @@ Principal authors:
 - [Azure Machine Learning decision guide for optimal tool selection](../../example-scenario/mlops/aml-decision-tree.yml)
 - [Machine learning at scale](../big-data/machine-learning-at-scale.md)
 - [What are Azure Machine Learning pipelines?](/azure/machine-learning/concept-ml-pipelines)
-- [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](../../example-scenario/mlops/mlops-technical-paper.yml)
+- [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](../../ai-ml/guide/mlops-technical-paper.yml)
 - [What is the Team Data Science Process?](/azure/architecture/data-science-process/overview)

@@ -475,6 +475,6 @@ Other contributors:
 
 ## Related resources
 
-- [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](/azure/architecture/example-scenario/mlops/mlops-technical-paper)
+- [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](/azure/architecture/ai-ml/guide/mlops-technical-paper)
 - [Secure an Azure Machine Learning workspace with virtual networks](/azure/machine-learning/how-to-secure-workspace-vnet?tabs=pe)
 - [Azure Pipelines agents](/azure/devops/pipelines/agents/agents?tabs=browser&view=azure-devops)
