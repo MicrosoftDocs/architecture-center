@@ -69,7 +69,7 @@ If a prebuilt model does not fit your data or your scenario, options in Azure in
 For a list of technology choices for ML in Azure, see:
 
 - [Choosing a cognitive services technology](../technology-choices/cognitive-services.md)
-- [Choosing a machine learning technology](../technology-choices/data-science-and-machine-learning.md)
+- [Choosing a machine learning technology](../../ai-ml/guide/technology-choices/data-science-and-machine-learning.md)
 - [Choosing a natural language processing technology](../technology-choices/natural-language-processing.yml)
 
 ## Contributors

@@ -95,4 +95,4 @@ Relevant Azure services:
 
 - [Choosing a cognitive services technology](../technology-choices/cognitive-services.md)
 
-- [Choosing a machine learning technology](../technology-choices/data-science-and-machine-learning.md)
+- [Choosing a machine learning technology](../../ai-ml/guide/data-science-and-machine-learning.md)
