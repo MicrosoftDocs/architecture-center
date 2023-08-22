@@ -151,7 +151,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 - For information about Spark pool scaling and node sizes, see [Apache Spark pool configurations in Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-pool-configurations).
 - You can scale Machine Learning training pipelines up and down based on data size and other configuration parameters.
-- Serverless SQL pools are available on demand. [They don't require scaling up, down, in, or out](../data/synapse-exploratory-data-analytics.yml#availability).
+- Serverless SQL pools are available on demand. [They don't require scaling up, down, in, or out](../../example-scenario/data/synapse-exploratory-data-analytics.yml#availability).
 - Azure Synapse Analytics supports [Apache Spark 3.1.2, which delivers significant performance improvements over its predecessors](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/speed-up-your-data-workloads-with-performance-updates-to-apache/ba-p/2769467).
 
 ## Deploy this scenario
