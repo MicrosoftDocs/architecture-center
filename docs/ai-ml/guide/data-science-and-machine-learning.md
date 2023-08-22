@@ -189,4 +189,3 @@ Principal author:
 - [Choose a Microsoft cognitive services technology](../../data-guide/technology-choices/cognitive-services.md)
 - [Artificial intelligence (AI) architecture design](../../data-guide/big-data/ai-overview.md)
 - [How Azure Machine Learning works: resources and assets](/azure/machine-learning/concept-azure-machine-learning-v2)
-- [Machine learning at scale](../../data-guide/big-data/machine-learning-at-scale.md)

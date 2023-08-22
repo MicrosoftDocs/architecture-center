@@ -157,5 +157,4 @@ Other contributors:
 - [Artificial intelligence (AI) architecture design](/azure/architecture/data-guide/big-data/ai-overview)
 - [Compare the machine learning products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)
 - [End-to-end computer vision at the edge for manufacturing](../../reference-architectures/ai/end-to-end-smart-factory.yml)
-- [Machine learning at scale](../../data-guide/big-data/machine-learning-at-scale.md)
 - [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](../mlops/mlops-technical-paper.yml)

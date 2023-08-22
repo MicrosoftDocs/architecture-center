@@ -395,4 +395,3 @@ Learn more about machine teaching:
 - [Artificial intelligence (AI) architecture design](../../data-guide/big-data/ai-overview.md)
 - [Compare Microsoft machine learning products and technologies](../../ai-ml/guide/data-science-and-machine-learning.md)
 - [How Azure Machine Learning works: resources and assets](/azure/machine-learning/concept-azure-machine-learning-v2)
-- [Machine learning at scale](../../data-guide/big-data/machine-learning-at-scale.md)

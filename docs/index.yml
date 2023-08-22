@@ -159,9 +159,6 @@ conceptualContent:
       - text: Machine learning options
         itemType: reference
         url: ./ai-ml/guide/data-science-and-machine-learning.md
-      - text: Machine learning at scale
-        itemType: concept
-        url: ./data-guide/big-data/machine-learning-at-scale.md
       - text: Natural language processing
         itemType: concept
         url: ./data-guide/technology-choices/natural-language-processing.yml
@@ -172,9 +169,6 @@ conceptualContent:
         itemType: concept
         url: ./data-science-process/overview.yml
       # footerLink (optional)
-      footerLink:
-        url: ./data-guide/big-data/machine-learning-at-scale.md
-        text: See more
 
     - title: Analytics
       links:

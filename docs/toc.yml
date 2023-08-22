@@ -971,8 +971,8 @@ items:
         - name: ML resources and assets
           href: /azure/machine-learning/concept-azure-machine-learning-v2
           maintainContext: true
-        - name: Machine learning at scale
-          href: data-guide/big-data/machine-learning-at-scale.md
+        # - name: Machine learning at scale
+        #   href: data-guide/big-data/machine-learning-at-scale.md
         - name: ML pipelines
           href: /azure/machine-learning/concept-ml-pipelines
           maintainContext: true

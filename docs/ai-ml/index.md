@@ -35,8 +35,6 @@ An *algorithm* is a sequence of calculations and rules used to solve a problem o
 
 The predictive models are validated against known data, measured by performance metrics selected for specific business scenarios, and then adjusted as needed. This process of learning and validation is called *training*. Through periodic retraining, ML models are improved over time.
 
-- [Machine learning at scale](../data-guide/big-data/machine-learning-at-scale.md)
-
 - [What are the machine learning products at Microsoft?](../ai-ml/guide/data-science-and-machine-learning.md)
 
 ### Deep learning
@@ -224,8 +222,6 @@ This is an enterprise-grade machine learning service to build and deploy models 
 - [What are the machine learning products at Microsoft?](../ai-ml/guide/data-science-and-machine-learning.md)
 
 - [Azure Machine Learning product home page](https://azure.microsoft.com/services/machine-learning/)
-
-- [Azure Machine Learning Data Architecture Guide overview](../data-guide/big-data/machine-learning-at-scale.md)
 
 - [Azure Machine Learning documentation overview](/azure/machine-learning/)
 

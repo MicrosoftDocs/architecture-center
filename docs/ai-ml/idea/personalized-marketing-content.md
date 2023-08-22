@@ -68,5 +68,4 @@ Try a learning path:
 Read other Azure Architecture Center articles:
 
 * [Big data architecture style](../../guide/architecture-styles/big-data.yml)
-* [Machine learning at scale](../../data-guide/big-data/machine-learning-at-scale.md)
 * [Scalable personalization on Azure](/azure/architecture/solution-ideas/articles/build-content-based-recommendation-system-using-recommender)

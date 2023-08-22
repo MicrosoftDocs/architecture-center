@@ -269,7 +269,6 @@ Principal authors:
 - [Compare the machine learning products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)
 - [How Azure Machine Learning works: resources and assets (v2)](/azure/machine-learning/concept-azure-machine-learning-v2)
 - [Azure Machine Learning decision guide for optimal tool selection](../../example-scenario/mlops/aml-decision-tree.yml)
-- [Machine learning at scale](../../data-guide/big-data/machine-learning-at-scale.md)
 - [What are Azure Machine Learning pipelines?](/azure/machine-learning/concept-ml-pipelines)
 - [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](mlops-technical-paper.yml)
 - [What is the Team Data Science Process?](/azure/architecture/data-science-process/overview)
