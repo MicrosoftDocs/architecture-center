@@ -956,14 +956,14 @@ items:
         href: example-scenario/document-processing/automate-pdf-forms-processing.yml
       - name: Cognitive services
         href: data-guide/technology-choices/cognitive-services.md
-      - name: Custom speech-to-text overview
-        href: guide/ai/custom-speech-text.yml
+      # - name: Custom speech-to-text overview
+      #   href: guide/ai/custom-speech-text.yml
       - name: Natural language processing
         href: data-guide/technology-choices/natural-language-processing.yml
-      - name: OpenAI GPT-3 summarization
-        href: guide/ai/query-based-summarization.md
-      - name: Conversation summarization
-        href: guide/ai/conversation-summarization.yml  
+      # - name: OpenAI GPT-3 summarization
+      #   href: guide/ai/query-based-summarization.md
+      # - name: Conversation summarization
+      #   href: guide/ai/conversation-summarization.yml  
       - name: Machine learning
         items:
         - name: Machine learning options

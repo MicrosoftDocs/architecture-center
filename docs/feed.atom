@@ -506,8 +506,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Conversation summarization]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/ai/conversation-summarization</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/ai/conversation-summarization"/>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/conversation-summarization</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/conversation-summarization"/>
         <updated>2023-05-09T19:19:45.000Z</updated>
         <summary type="html"><![CDATA[Learn how to generate summaries of customer–agent interactions by using the Azure OpenAI GPT-3 model.]]></summary>
         <category label="new" term="new"/>

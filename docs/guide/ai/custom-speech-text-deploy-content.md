@@ -163,7 +163,7 @@ Other contributors:
 - [What is Custom Speech?](/azure/cognitive-services/speech-service/custom-speech-overview)
 - [What is text-to-speech?](/azure/cognitive-services/speech-service/text-to-speech)
 - [Train a Custom Speech model](/azure/cognitive-services/speech-service/how-to-custom-speech-train-model?pivots=speech-studio)
-- [Implement custom speech-to-text](../../guide/ai/custom-speech-text.yml) 
+- [Implement custom speech-to-text](../../ai-ml/guide/custom-speech-text.yml) 
 - [Azure/custom-speech-stt on GitHub](https://github.com/Azure/custom-speech-stt)
 
 ## Related resources
@@ -171,4 +171,4 @@ Other contributors:
 - [Artificial intelligence (AI) architecture design](../../data-guide/big-data/ai-overview.md)
 - [Use a speech-to-text transcription pipeline to analyze recorded conversations](../../ai-ml/architecture/speech-to-text-transcription-analytics.yml)
 - [Control IoT devices with a voice assistant app](../../solution-ideas/articles/iot-controlling-devices-with-voice-assistant.yml)
-- [Implement custom speech-to-text](../../guide/ai/custom-speech-text.yml) 
+- [Implement custom speech-to-text](../../ai-ml/guide/custom-speech-text.yml) 

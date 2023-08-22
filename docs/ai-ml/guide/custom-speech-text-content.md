@@ -6,7 +6,7 @@ This article describes the problem space and decision-making process for designi
 
 The pre-built and custom AI spectrum represents multiple AI model customization and development effort tiers, ranging from ready-to-use pre-built models to fully customized AI solutions.
 
-:::image type="complex" source="media/spectrum.png" alt-text="Diagram that shows the spectrum of customization tiers." lightbox="media/spectrum.png":::
+:::image type="complex" source="_images/spectrum.png" alt-text="Diagram that shows the spectrum of customization tiers." lightbox="_images/spectrum.png":::
 Pre-built and pre-trained models are on the left side, customized pre-built models are in the middle, and customized models tailored to your scenario and data are on the right side.
 :::image-end:::
 
@@ -40,7 +40,7 @@ So there are three approaches to implementing Azure speech-to-text:
 - A **custom model** augments the baseline model to include domain-specific vocabulary that's shared across all areas of the custom domain.
 - **Multiple custom models** make sense when the custom domain has numerous areas, each with a specific vocabulary.
 
-:::image type="content" source="media/three-approaches.png" alt-text="Diagram that summarizes the three approaches to implementing Azure speech-to-text." lightbox="media/three-approaches.png":::
+:::image type="content" source="_images/three-approaches.png" alt-text="Diagram that summarizes the three approaches to implementing Azure speech-to-text." lightbox="_images/three-approaches.png":::
 
 ## Potential use cases
 
