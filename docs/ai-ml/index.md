@@ -241,8 +241,6 @@ This is an enterprise-grade machine learning service to build and deploy models 
 
 - [Batch scoring of R machine learning models on Azure](../ai-ml/architecture/batch-scoring-r-models.yml)
 
-- [Real-time scoring of R machine learning models on Azure](../reference-architectures/ai/realtime-scoring-r.yml)
-
 - [Batch scoring of Spark machine learning models on Azure Databricks](../ai-ml/architecture/batch-scoring-databricks.yml)
 
 - [Enterprise-grade conversational bot](../ai-ml/architecture/conversational-bot.yml)

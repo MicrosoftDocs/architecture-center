@@ -120,8 +120,3 @@ items:
           href: guide/mlops-python.yml
         - name: Network security for MLOps
           href: guide/network-security-mlops.yml          
-    #   - name: Networking guidance for web apps
-    #     items:
-    #     - name: Securing access to multitenant web apps from on prem
-    #       href: guides/networking/access-multitenant-web-app-from-on-premises.yml
-    #     - name: Automate Application Gateway reconfiguration for web apps

@@ -3339,6 +3339,11 @@
       "source_path": "docs/reference-architectures/ai/mlops-python.yml",
       "redirect_url": "/azure/architecture/ai-ml/guide/mlops-python",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/realtime-scoring-r.yml",
+      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_document_id": false
     }
   ]
 }

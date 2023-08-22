@@ -1244,8 +1244,8 @@ items:
       #   href: reference-architectures/ai/real-time-recommendation.yml
       # - name: Real-time scoring Python models
       #   href: reference-architectures/ai/real-time-scoring-machine-learning-models.yml
-      - name: Real-time scoring R models
-        href: reference-architectures/ai/realtime-scoring-r.yml
+      # - name: Real-time scoring R models
+      #   href: reference-architectures/ai/realtime-scoring-r.yml
       # - name: Scale AI and ML in regulated industries
       #   href: example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml
       - name: Secure research for regulated data
