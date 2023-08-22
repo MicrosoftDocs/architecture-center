@@ -2,7 +2,7 @@
 title: Machine learning operations (MLOps) v2
 description: Learn about a single  deployable set of repeatable, and maintainable patterns for creating machine learning CI/CD and retraining pipelines.
 author: sdonohoo
-ms.author: sdonohoo
+ms.author: robbag
 ms.date: 08/04/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -75,7 +75,7 @@ The architectures currently covered by MLOps v2 and discussed in this article ar
 
 ### Classical machine learning architecture
 
-:::image type="content" source="../images/classical-ml-architecture.png" lightbox="../images/classical-ml-architecture.png" alt-text="Diagram for the classical machine learning architecture." border="false":::
+:::image type="content" source="_images/classical-ml-architecture.png" lightbox="_images/classical-ml-architecture.png" alt-text="Diagram for the classical machine learning architecture." border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/machine-learning-operation-classical-ml.vsdx) of this architecture.*
 
@@ -137,7 +137,7 @@ The architectures currently covered by MLOps v2 and discussed in this article ar
 
 ### Machine Learning CV architecture
 
-:::image type="content" source="../images/computer-vision-architecture.png" lightbox="../images/computer-vision-architecture.png" alt-text="Diagram for the computer vision architecture." border="false":::
+:::image type="content" source="_images/computer-vision-architecture.png" lightbox="_images/computer-vision-architecture.png" alt-text="Diagram for the computer vision architecture." border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/machine-learning-operation-computer-vision.vsdx) of this architecture.*
 
@@ -187,7 +187,7 @@ The Machine Learning CV architecture is based on the classical machine learning 
 
 ### Machine Learning NLP architecture
 
-:::image type="content" source="../images/natural-language-processing-architecture.png" lightbox="../images/natural-language-processing-architecture.png" alt-text="Diagram for the N L P architecture." border="false":::
+:::image type="content" source="_images/natural-language-processing-architecture.png" lightbox="_images/natural-language-processing-architecture.png" alt-text="Diagram for the N L P architecture." border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/machine-learning-operation-natural-language-processing.vsdx) of this architecture.*
 
@@ -264,13 +264,12 @@ Principal authors:
 
 ## Related resources
 
-- [Artificial intelligence (AI) architecture design](../big-data/ai-overview.md)
-- [Choose a Microsoft cognitive services technology](cognitive-services.md)
-- [Natural language processing technology](natural-language-processing.yml)
-- [Compare the machine learning products and technologies from Microsoft](data-science-and-machine-learning.md)
+- [Choose a Microsoft cognitive services technology](../../data-guide/technology-choices/cognitive-services.md)
+- [Natural language processing technology](../../data-guide/technology-choices/natural-language-processing.yml)
+- [Compare the machine learning products and technologies from Microsoft](../../data-guide/technology-choices/data-science-and-machine-learning.md)
 - [How Azure Machine Learning works: resources and assets (v2)](/azure/machine-learning/concept-azure-machine-learning-v2)
 - [Azure Machine Learning decision guide for optimal tool selection](../../example-scenario/mlops/aml-decision-tree.yml)
-- [Machine learning at scale](../big-data/machine-learning-at-scale.md)
+- [Machine learning at scale](../../data-guide/big-data/machine-learning-at-scale.md)
 - [What are Azure Machine Learning pipelines?](/azure/machine-learning/concept-ml-pipelines)
-- [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](../../ai-ml/guide/mlops-technical-paper.yml)
+- [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](mlops-technical-paper.yml)
 - [What is the Team Data Science Process?](/azure/architecture/data-science-process/overview)

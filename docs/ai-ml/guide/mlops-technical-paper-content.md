@@ -196,7 +196,7 @@ MLOps includes all activities from acquiring raw data to delivering model output
 * Deployment
 * Scoring
 
-Multiple pipelines were used to meet all process requirements. For more information, see the [MLOps Process Decision Tree](aml-decision-tree.yml) article.
+Multiple pipelines were used to meet all process requirements. For more information, see the [MLOps Process Decision Tree](../../example-scenario/mlops/aml-decision-tree.yml) article.
 
 ## Basic machine learning process
 
@@ -306,7 +306,7 @@ The data comes from many sources in many different formats, so it's conditioned 
 
 ### System architecture
 
-There were many design options available for the system architecture. The following diagram shows the end result of the decision-making process described in [Azure Machine Learning decision guide for optimal tool selection](aml-decision-tree.yml).
+There were many design options available for the system architecture. The following diagram shows the end result of the decision-making process described in [Azure Machine Learning decision guide for optimal tool selection](../../example-scenario/mlops/aml-decision-tree.yml).
 
 ![Diagram of system architecture supported by MLOps](_images/system-architecture.png)
 
@@ -419,7 +419,7 @@ The dashboards were designed to provide readily usable information for consumpti
 * [Power BI](https://powerbi.microsoft.com)
 
 > [!NOTE]
-> To learn how to select the correct pipeline services to use for a specific process, see [Azure Machine Learning decision guide for optimal tool selection](aml-decision-tree.yml).
+> To learn how to select the correct pipeline services to use for a specific process, see [Azure Machine Learning decision guide for optimal tool selection](../../example-scenario/mlops/aml-decision-tree.yml).
 
 ## Considerations
 
