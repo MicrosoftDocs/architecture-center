@@ -1,6 +1,6 @@
 This two-part guide describes various approaches for efficiently implementing high-quality speech-aware applications. It focuses on extending and customizing the baseline model of speech-to-text functionality that's provided by the [Azure Cognitive Services Speech service](/azure/cognitive-services/speech-service/custom-speech-overview).
 
-This article describes the problem space and decision-making process for designing your solution. The second article, [Deploy a custom speech-to-text solution](custom-speech-text-deploy.yml), provides a use case for applying these instructions and recommended practices.
+This article describes the problem space and decision-making process for designing your solution. The second article, [Deploy a custom speech-to-text solution](../../guide/ai/custom-speech-text-deploy.yml), provides a use case for applying these instructions and recommended practices.
 
 ## The pre-built and custom AI spectrum
 
@@ -63,7 +63,7 @@ This section describes some design considerations for building a speech-based ap
 
 ### Baseline model vs. custom model
 
-Azure Speech includes baseline models that support various languages. These models are pre-trained with a vast amount of vocabulary and domains. However, you might have a specialized vocabulary that needs recognition. In these situations, baseline models might fall short. The best way to determine if the base model will suffice is to analyze the transcription that's produced from the baseline model and compare it to a human-generated transcript for the same audio. The [deployment article](custom-speech-text-deploy.yml) in this guide describes using Speech Studio to compare the transcripts and obtain a word error rate (WER) score. If there are multiple incorrect word substitutions in the results, we recommend that you train a custom model to recognize those words.
+Azure Speech includes baseline models that support various languages. These models are pre-trained with a vast amount of vocabulary and domains. However, you might have a specialized vocabulary that needs recognition. In these situations, baseline models might fall short. The best way to determine if the base model will suffice is to analyze the transcription that's produced from the baseline model and compare it to a human-generated transcript for the same audio. The [deployment article](../../guide/ai/custom-speech-text-deploy.yml) in this guide describes using Speech Studio to compare the transcripts and obtain a word error rate (WER) score. If there are multiple incorrect word substitutions in the results, we recommend that you train a custom model to recognize those words.
 
 ### One vs. many custom models
 
@@ -116,10 +116,10 @@ After you build your model, keep the following recommendations in mind:
  
     When display text seems wrong, review the detailed recognition result from the SDK, which includes lexical text, in which everything is spelled out. If the lexical text is correct, the recognition is accurate. You can then resolve inaccuracies in the display text (the final recognized result) by adding post-processing rules.
 
--	**Manage datasets, models, and their versions.** In Speech Studio, when you create projects, datasets, and models, there are only two fields: name and description. When you build datasets and models iteratively, you need to follow a good naming and versioning scheme to make it easy to identify the contents of a dataset and which model reflects which version of the dataset. For more details about this recommendation, see [Deploy a custom speech-to-text solution](custom-speech-text-deploy.yml).
+-	**Manage datasets, models, and their versions.** In Speech Studio, when you create projects, datasets, and models, there are only two fields: name and description. When you build datasets and models iteratively, you need to follow a good naming and versioning scheme to make it easy to identify the contents of a dataset and which model reflects which version of the dataset. For more details about this recommendation, see [Deploy a custom speech-to-text solution](../../guide/ai/custom-speech-text-deploy.yml).
 
 > [!div class="nextstepaction"]
-> [Go to part two of this guide: deployment](custom-speech-text-deploy.yml)
+> [Go to part two of this guide: deployment](../../guide/ai/custom-speech-text-deploy.yml)
 
 ## Contributors
 
@@ -141,7 +141,7 @@ Other contributors:
 - [What is Custom Speech?](/azure/cognitive-services/speech-service/custom-speech-overview)
 - [What is text-to-speech?](/azure/cognitive-services/speech-service/text-to-speech)
 - [Train a Custom Speech model](/azure/cognitive-services/speech-service/how-to-custom-speech-train-model?pivots=speech-studio)
-- [Deploy a custom speech-to-text solution](custom-speech-text-deploy.yml)
+- [Deploy a custom speech-to-text solution](../../guide/ai/custom-speech-text-deploy.yml)
 
 ## Related resources
 
