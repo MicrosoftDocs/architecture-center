@@ -472,7 +472,7 @@ Here you'll find a list of considerations to explore. They're based on the lesso
 
 * [MLOps maturity model](mlops-maturity-model.yml)
 * [Orchestrate MLOps on Azure Databricks using Databricks Notebook](../../reference-architectures/ai/orchestrate-mlops-azure-databricks.yml)
-* [MLOps for Python models using Azure Machine Learning](../../reference-architectures/ai/mlops-python.yml)
+* [MLOps for Python models using Azure Machine Learning](../../ai-ml/guide/mlops-python.yml)
 * [Data science and machine learning with Azure Databricks](../../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)
 * [Citizen AI with the Power Platform](../../example-scenario/ai/citizen-ai-power-platform.yml)
 * [Deploy AI and machine learning computing on-premises and to the edge](/azure/architecture/ai-ml/idea/deploy-ai-ml-azure-stack-edge)

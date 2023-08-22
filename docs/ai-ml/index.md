@@ -237,7 +237,7 @@ This is an enterprise-grade machine learning service to build and deploy models 
 
 - [Batch scoring of deep learning models on Azure](../ai-ml/architecture/batch-scoring-deep-learning.yml)
 
-- [Machine learning operationalization (MLOps) for Python models using Azure Machine Learning](../reference-architectures/ai/mlops-python.yml)
+- [Machine learning operationalization (MLOps) for Python models using Azure Machine Learning](../ai-ml/guide/mlops-python.yml)
 
 - [Batch scoring of R machine learning models on Azure](../ai-ml/architecture/batch-scoring-r-models.yml)
 

@@ -3329,6 +3329,16 @@
       "source_path": "docs/example-scenario/ai/many-models-machine-learning-azure-machine-learning.yml",
       "redirect_url": "/azure/architecture/ai-ml/idea/many-models-machine-learning-azure-machine-learning",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/ai/network-security-mlops.yml",
+      "redirect_url": "/azure/architecture/ai-ml/guide/network-security-mlops",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/mlops-python.yml",
+      "redirect_url": "/azure/architecture/ai-ml/guide/mlops-python",
+      "redirect_document_id": true
     }
   ]
 }

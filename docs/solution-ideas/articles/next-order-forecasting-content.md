@@ -192,4 +192,4 @@ Other contributors:
 - [Demand forecasting for shipping and distribution](../../solution-ideas/articles/demand-forecasting-for-shipping-and-distribution.yml) 
 - [Forecast energy and power demand with machine learning](../../solution-ideas/articles/forecast-energy-power-demand.yml)
 - [Interactive price analytics using transaction history data](../../solution-ideas/articles/interactive-price-analytics.yml)
-- [MLOps for Python models using Azure Machine Learning](../../reference-architectures/ai/mlops-python.yml)
+- [MLOps for Python models using Azure Machine Learning](../../ai-ml/guide/mlops-python.yml)

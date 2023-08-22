@@ -112,12 +112,14 @@ items:
         items:
         - name: Real-time recommendation API
           href: architecture/real-time-recommendation.yml
-    #   - name: Host web apps with App Service
-    #     items:
-    #     - name: Basic web application
-    #       href: app-service/architectures/basic-web-app.yml
-    # - name: Apply guidance
-    #   items:
+    - name: Apply guidance
+      items:
+      - name: MLOps
+        items:
+        - name: MLOps for Python models
+          href: guide/mlops-python.yml
+        - name: Network security for MLOps
+          href: guide/network-security-mlops.yml          
     #   - name: Networking guidance for web apps
     #     items:
     #     - name: Securing access to multitenant web apps from on prem

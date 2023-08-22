@@ -196,4 +196,4 @@ Other contributor:
 - [Clinical insights with Microsoft Cloud for Healthcare](../../example-scenario/mch-health/medical-data-insights.yml)
 - [Confidential computing on a healthcare platform](../../example-scenario/confidential/healthcare-inference.yml)
 - [HIPAA and HITRUST compliant health data AI](../../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)
-- [MLOps for Python models using Azure Machine Learning](../../reference-architectures/ai/mlops-python.yml)
+- [MLOps for Python models using Azure Machine Learning](../../ai-ml/guide/mlops-python.yml)

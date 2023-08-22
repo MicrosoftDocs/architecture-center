@@ -168,4 +168,4 @@ Other contributors:
 - [Enterprise business intelligence](/azure/architecture/reference-architectures/data/enterprise-bi-synapse)
 - [Forecast energy and power demand with machine learning](/azure/architecture/solution-ideas/articles/forecast-energy-power-demand)
 - [Interactive price analytics using transaction history data](/azure/architecture/solution-ideas/articles/interactive-price-analytics)
-- [MLOps for Python models using Azure Machine Learning](/azure/architecture/reference-architectures/ai/mlops-python)
+- [MLOps for Python models using Azure Machine Learning](/azure/architecture/ai-ml/guide/mlops-python)
