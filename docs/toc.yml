@@ -1220,10 +1220,10 @@ items:
       #   href: example-scenario/ai/risk-stratification-surgery.yml
       # - name: Implement the healthcare blueprint for AI
       #   href: industries/healthcare/healthcare-ai-blueprint.yml
-      - name: Many models ML with Spark
-        href: example-scenario/ai/many-models-machine-learning-azure-spark.yml
-      - name: Many models with Machine Learning
-        href: example-scenario/ai/many-models-machine-learning-azure-machine-learning.yml
+      # - name: Many models ML with Spark
+      #   href: example-scenario/ai/many-models-machine-learning-azure-spark.yml
+      # - name: Many models with Machine Learning
+      #   href: example-scenario/ai/many-models-machine-learning-azure-machine-learning.yml
       - name: MLOps for Python models
         href: reference-architectures/ai/mlops-python.yml
       # - name: Movie recommendations

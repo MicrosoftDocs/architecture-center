@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article describes how merchandise distributors can use AI and machine learning to predict a customer's future order quantity for a specific SKU (stock-keeping unit). By using Next Order Forecasting (NOF), distributors can provide customers with product recommendations and suggest optimal quantities. This article builds on the concepts described in the [many models machine learning architecture](../../example-scenario/ai/many-models-machine-learning-azure-machine-learning.yml). 
+This article describes how merchandise distributors can use AI and machine learning to predict a customer's future order quantity for a specific SKU (stock-keeping unit). By using Next Order Forecasting (NOF), distributors can provide customers with product recommendations and suggest optimal quantities. This article builds on the concepts described in the [many models machine learning architecture](../../ai-ml/idea/many-models-machine-learning-azure-machine-learning.yml). 
 
 ## Architecture
 
@@ -185,7 +185,7 @@ Other contributors:
 
 ## Related resources
 
-- [Many models machine learning at scale with Azure Machine Learning](../../example-scenario/ai/many-models-machine-learning-azure-machine-learning.yml)
+- [Many models machine learning at scale with Azure Machine Learning](../../ai-ml/idea/many-models-machine-learning-azure-machine-learning.yml)
 - [Solutions for the energy and environment industries](../../industries/energy-environment.md)
 - [Batch scoring with R models to forecast sales](../../ai-ml/architecture/batch-scoring-R-models.yml)
 - [Oil and gas tank level forecasting](../../solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml)

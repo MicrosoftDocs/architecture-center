@@ -184,4 +184,4 @@ Principal author:
 - [Machine learning at scale](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
 - [Azure Machine Learning architecture](/azure/architecture/solution-ideas/articles/azure-machine-learning-solution-architecture)
 - [Scale AI and machine learning initiatives in regulated industries](/azure/architecture/example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries)
-- [Many models machine learning (ML) at scale with Azure Machine Learning](/azure/architecture/example-scenario/ai/many-models-machine-learning-azure-machine-learning)
+- [Many models machine learning (ML) at scale with Azure Machine Learning](/azure/architecture/ai-ml/idea/many-models-machine-learning-azure-machine-learning)
