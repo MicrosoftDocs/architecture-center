@@ -7,7 +7,7 @@ Note that guidance for the following items is out of scope for this article:
 
 ## Architecture
 
-:::image type="content" source="./media/iaas-baseline.png" alt-text="IaaS baseline architectural diagram" lightbox="./media/iaas-baseline.png":::
+:::image type="content" source="./media/iaas-baseline-landing-zone.png" alt-text="IaaS baseline architectural diagram" lightbox="./media/iaas-baseline.png":::
 
 *Download a [Visio file](https://microsoft-my.sharepoint.com/:u:/r/personal/josev_microsoft_com/_layouts/15/doc2.aspx?sourcedoc=%7B07ba5bba-c61b-4b5e-bd37-1d4c20adf6b3%7D&action=view&share=IQG6W7oHG8ZeS703HUwgrfazAfcpYv2OBI9EIkxS8W1jamA&cid=12c82ef1-48e5-4fdf-b442-c52eb52ea874) of this architecture.*
 
