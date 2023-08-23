@@ -3,7 +3,7 @@ title: Resiliency checklist for services
 titleSuffix: Azure Architecture Center
 description: Resiliency is the ability to recover from failures and continue to function. Use this checklist to review the resiliency considerations for Azure services.
 author: martinekuan
-ms.date: 07/25/2022
+ms.date: 07/25/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -34,6 +34,8 @@ Resiliency is the ability of a system to recover from failures and continue to f
 
 **Separate web apps from web APIs.** If your solution has both a web front end and a web API, consider decomposing them into separate App Service apps. This design makes it easier to decompose the solution by workload. You can run the web app and the API in separate App Service plans, so they can be scaled independently. If you don't need that level of scalability at first, you can deploy the apps into the same plan, and move them into separate plans later, if needed.
 
+**Deploy zone-redundant App Service plans.** In supported regions, App Service plans can be deployed as zone redundant, which means that the instances are automatically distributed across availability zones. App Service automatically distributes traffic between the zones, and handles failover if a zone experiences an outage. For more information, see [Migrate App Service to availability zone support](/azure/reliability/migrate-app-service).
+
 **Avoid using the App Service backup feature to back up Azure SQL databases.** Instead, use [SQL Database automated backups][sql-backup]. App Service backup exports the database to a SQL BACPAC file, which costs DTUs.
 
 **Deploy to a staging slot.** Create a deployment slot for staging. Deploy application updates to the staging slot, and verify the deployment before swapping it into production. This reduces the chance of a bad update in production. It also ensures that all instances are warmed up before being swapped into production. Many applications have a significant warmup and cold-start time. For more information, see [Set up staging environments for web apps in Azure App Service](/azure/app-service-web/web-sites-staged-publishing).
@@ -50,17 +52,19 @@ Resiliency is the ability of a system to recover from failures and continue to f
 
 ## Azure Load Balancer
 
-**Select Standard SKU** Standard Load Balancer provides a dimension of reliability that Basic does not - that of availability zones and zone resiliency. This means when a zone goes down, your zone-redundant Standard Load Balancer will not be impacted. This ensures your deployments can withstand zone failures within a region. In addition, Standard Load Balancer supports global load balancing ensuring your application is not impacted by region failures either.
+**Select Standard SKU.** Standard Load Balancer provides a dimension of reliability that Basic does not - that of availability zones and zone resiliency. This means when a zone goes down, your zone-redundant Standard Load Balancer will not be impacted. This ensures your deployments can withstand zone failures within a region. In addition, Standard Load Balancer supports global load balancing ensuring your application is not impacted by region failures either.
 
-**Provision at least two instances** Deploy Azure LB with at least two instances in the backend. A single instance could result in a single point of failure. In order to build for scale, you might want to pair LB with Virtual Machine Scale Sets.
+**Provision at least two instances.** Deploy Azure LB with at least two instances in the backend. A single instance could result in a single point of failure. In order to build for scale, you might want to pair LB with Virtual Machine Scale Sets.
 
-**Use outbound rules** Outbound rules ensure that you are not faced with connection failures as a result of SNAT port exhaustion. [Learn more about outbound connectivity.](/azure/load-balancer/outbound-rules) While outbound rules will help improve the solution for small to mid size deployments, for production workloads, we recommend coupling Standard Load Balancer or any subnet deployment with [VNet NAT](/azure/virtual-network/nat-overview).
+**Use outbound rules.** Outbound rules ensure that you are not faced with connection failures as a result of SNAT port exhaustion. [Learn more about outbound connectivity.](/azure/load-balancer/outbound-rules) While outbound rules will help improve the solution for small to mid size deployments, for production workloads, we recommend coupling Standard Load Balancer or any subnet deployment with [VNet NAT](/azure/virtual-network/nat-overview).
 
 ## Application Gateway
 
 **Provision at least two instances.** Deploy Application Gateway with at least two instances. A single instance is a single point of failure. Use two or more instances for redundancy and scalability. In order to qualify for the [SLA](https://azure.microsoft.com/support/legal/sla/application-gateway), you must provision two or more medium or larger instances.
 
 ## Azure Cosmos DB
+
+**Configure zone redundancy.** When you use zone redundancy, Azure Cosmos DB synchronously replicates all writes across availability zones. It automatically fails over in the event of a zone outage. For more information, see [Achieve high availability with Azure Cosmos DB](/azure/cosmos-db/high-availability).
 
 **Replicate the database across regions.** Azure Cosmos DB allows you to associate any number of Azure regions with an Azure Cosmos DB database account. An Azure Cosmos DB database can have one write region and multiple read regions. If there is a failure in the write region, you can read from another replica. The Client SDK handles this automatically. You can also fail over the write region to another region. For more information, see [How to distribute data globally with Azure Cosmos DB](/azure/cosmos-db/distribute-data-globally).
 
@@ -74,9 +78,13 @@ Resiliency is the ability of a system to recover from failures and continue to f
 
 **Use a dead-letter queue.** If processing a message results in a nontransient failure, put the message onto a dead-letter queue, so that you can track the status. Depending on the scenario, you might retry the message later, apply a compensating transaction, or take some other action. Note that Event Hubs does not have any built-in dead-letter queue functionality. You can use Azure Queue Storage or Service Bus to implement a dead-letter queue, or use Azure Functions or some other eventing mechanism.
 
+**Configure zone redundancy**. When zone redundancy is enabled on your namespace, Event Hubs automatically replicates changes between multiple availability zones. If one availability zone fails, failover happens automatically. For more information, see [Availability zones](/azure/event-hubs/event-hubs-geo-dr?tabs=portal#availability-zones).
+
 **Implement disaster recovery by failing over to a secondary Event Hubs namespace.** For more information, see [Azure Event Hubs Geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr).
 
 ## Azure Cache for Redis
+
+**Configure zone redundancy.** When zone redundancy is enabled on your cache, Azure Cache for Redis spreads the virtual machines that host your cache across multiple availability zones. Zone redundancy provides high availability and fault tolerance in the event of a data center outage. For more information, see [Enable zone redundancy for Azure Cache for Redis](/azure/azure-cache-for-redis/cache-how-to-zone-redundancy).
 
 **Configure Geo-replication**. Geo-replication provides a mechanism for linking two Premium-tier Azure Cache for Redis instances. Data written to the primary cache is replicated to a secondary read-only cache. For more information, see [How to configure geo-replication for Azure Cache for Redis](/azure/redis-cache/cache-how-to-geo-replication)
 
@@ -84,15 +92,17 @@ Resiliency is the ability of a system to recover from failures and continue to f
 
 If you are using Azure Cache for Redis as a temporary data cache and not as a persistent store, these recommendations may not apply.
 
-## Search
+## Cognitive Search
 
 **Provision more than one replica.** Use at least two replicas for read high-availability, or three for read-write high-availability.
 
+**Use zone redundancy.** You can deploy Cognitive Search replicas across multiple availability zones. This approach helps your service to remain operational even when data center outages occur. For more information, see [Reliability in Azure Cognitive Search](/azure/search/search-reliability#availability-zone-support)
+
 **Configure indexers for multi-region deployments.** If you have a multi-region deployment, consider your options for continuity in indexing.
 
-- If the data source is geo-replicated, you should generally point each indexer of each regional Azure Search service to its local data source replica. However, that approach is not recommended for large datasets stored in Azure SQL Database. The reason is that Azure Search cannot perform incremental indexing from secondary SQL Database replicas, only from primary replicas. Instead, point all indexers to the primary replica. After a failover, point the Azure Search indexers at the new primary replica.
+- If the data source is geo-replicated, you should generally point each indexer of each regional Azure Cognitive Search service to its local data source replica. However, that approach is not recommended for large datasets stored in Azure SQL Database. The reason is that Azure Cognitive Search cannot perform incremental indexing from secondary SQL Database replicas, only from primary replicas. Instead, point all indexers to the primary replica. After a failover, point the Azure Cognitive Search indexers at the new primary replica.
 
-- If the data source is not geo-replicated, point multiple indexers at the same data source, so that Azure Search services in multiple regions continuously and independently index from the data source. For more information, see [Azure Search performance and optimization considerations][search-optimization].
+- If the data source is not geo-replicated, point multiple indexers at the same data source, so that Azure Cognitive Search services in multiple regions continuously and independently index from the data source. For more information, see [Azure Search performance and optimization considerations][search-optimization].
 
 ## Service Bus
 
@@ -106,11 +116,15 @@ If you are using Azure Cache for Redis as a temporary data cache and not as a pe
 
 **Use a dead-letter queue**. If a message cannot be processed or delivered to any receiver after multiple retries, it is moved to a dead letter queue. Implement a process to read messages from the dead letter queue, inspect them, and remediate the problem. Depending on the scenario, you might retry the message as-is, make changes and retry, or discard the message. For more information, see [Overview of Service Bus dead-letter queues](/azure/service-bus-messaging/service-bus-dead-letter-queues).
 
+**Use zone redundancy**. When zone redundancy is enabled on your namespace, Service Bus automatically replicates changes between multiple availability zones. If one availability zone fails, failover happens automatically. For more information, see [Best practices for insulating applications against Service Bus outages and disasters](/azure/service-bus-messaging/service-bus-outages-disasters).
+
 **Use Geo-Disaster Recovery**. Geo-disaster recovery ensures that data processing continues to operate in a different region or datacenter if an entire Azure region or datacenter becomes unavailable due to a disaster. For more information, see [Azure Service Bus Geo-disaster recovery](/azure/service-bus-messaging/service-bus-geo-dr).
 
 ## Storage
 
-**Configure your storage account for read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS).** With RA-GRS or RA-GZRS, your data is replicated to a secondary region. RA-GRS uses locally redundant storage (LRS) in the primary region, while RA-GZRS uses zone-redundant storage in the primary region. Both configurations provide read-only access to your data in the secondary region. If there is a storage outage in the primary region, the application can read the data from the secondary region if you have designed it for this possibility. For more information, see [Azure Storage redundancy](/azure/storage/storage-redundancy).
+**Use zone-redundant storage.** Zone-redundant storage (ZRS) copies your data synchronously across three Azure availability zones in the primary region. If an availability zone experiences an outage, Azure Storage automatically fails over to an alternative zone. For more information, see [Azure Storage redundancy](/azure/storage/storage-redundancy).
+
+**When using geo-redundancy, configure read-access.** If you use a multi-region architecture, use a suitable storage tier for global redundancy. With RA-GRS or RA-GZRS, your data is replicated to a secondary region. RA-GRS uses locally redundant storage (LRS) in the primary region, while RA-GZRS uses zone-redundant storage (ZRS) in the primary region. Both configurations provide read-only access to your data in the secondary region. If there is a storage outage in the primary region, the application can read the data from the secondary region if you have designed it for this possibility. For more information, see [Azure Storage redundancy](/azure/storage/storage-redundancy).
 
 **For VM disks, use managed disks.** [Managed disks][managed-disks] provide better reliability for VMs in an availability set, because the disks are sufficiently isolated from each other to avoid single points of failure. Also, managed disks aren't subject to the IOPS limits of VHDs created in a storage account. For more information, see [Manage the availability of Windows virtual machines in Azure][vm-manage-availability].
 

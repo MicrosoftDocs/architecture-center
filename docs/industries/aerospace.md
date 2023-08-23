@@ -10,7 +10,7 @@ ms.subservice: azure-guide
 products:
   - azure-machine-learning
   - azure-speech
-  - azure-cognitive-services
+  - ai-services
   - azure-anomaly-detector
   - azure-synapse-analytics
 categories:

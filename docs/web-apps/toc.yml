@@ -20,7 +20,7 @@ items:
           href: app-service/architectures/baseline-zone-redundant.yml
         - name: Active-passive multi-region web app
           href: app-service/architectures/multi-region.yml
-      - name: Host web apps with App Service Environments
+      - name: Host web apps with App Service Environment
         items:
         - name: Standard deployment
           href: app-service-environment/architectures/ase-standard-deployment.yml
@@ -76,12 +76,20 @@ items:
           items:
           - name: Reliable web app pattern
             items:
+            - name: Overview
+              href: guides/reliable-web-app/overview.md
             - name: .NET
               items:
               - name: Plan the implementation
-                href: guides/reliable-web-app/pattern-overview.yml
+                href: guides/reliable-web-app/dotnet/plan-implementation.yml
               - name: Apply the pattern
-                href: guides/reliable-web-app/apply-pattern.yml
+                href: guides/reliable-web-app/dotnet/apply-pattern.yml
+            - name: Java
+              items:
+              - name: Plan the implementation
+                href: guides/reliable-web-app/java/plan-implementation.yml
+              - name: Apply the pattern
+                href: guides/reliable-web-app/java/apply-pattern.yml
     - name: Hosting applications
       items:
       - name: WordPress

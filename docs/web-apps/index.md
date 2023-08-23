@@ -32,6 +32,7 @@ Azure provides a wide range of tools and capabilities for creating, hosting, and
 - [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service) enables you to easily add real-time web functionalities.
 - [Static Web Apps](https://azure.microsoft.com/services/app-service/static) provides streamlined full-stack development, from source code to global high availability.
 - [Web App for Containers](https://azure.microsoft.com/services/app-service/containers) enables you to run containerized web apps on Windows and Linux.
+- [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) enables you to integrate with other web apps using loosely coupled event-driven patterns.
 
 ## Introduction to web apps on Azure
 

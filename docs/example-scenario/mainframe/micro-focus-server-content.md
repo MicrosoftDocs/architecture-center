@@ -2,7 +2,9 @@ This sample solution is a prescriptive, well-architected example of a Micro Focu
 
 ## Architecture
 
-![Diagram showing Micro Focus Enterprise Server 6.0 deployed in a hybrid configuration with Azure VMs and regional disaster recovery.](media/micro-focus-enterprise-server.png)
+:::image type="content" source="media/micro-focus-enterprise-server.svg" alt-text="Diagram that shows Micro Focus Enterprise Server 6.0 deployed in a hybrid configuration with Azure VMs and regional disaster recovery." lightbox="media/micro-focus-enterprise-server.svg" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/micro-focus-enterprise-server.vsdx) of this architecture.*
 
 ### Workflow
 

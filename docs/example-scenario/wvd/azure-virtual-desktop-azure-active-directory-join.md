@@ -16,7 +16,7 @@ categories:
   - windows-virtual-desktop
 products:
   - azure-active-directory
-  - azure-active-directory-domain
+  - entra
   - azure-rbac
   - azure-virtual-machines
   - azure-virtual-desktop

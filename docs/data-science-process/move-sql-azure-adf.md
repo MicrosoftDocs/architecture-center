@@ -86,7 +86,7 @@ The step-by-step procedure for creating linked services is provided in [Create l
 Create tables that specify the structure, location, and availability of the datasets with the following script-based procedures. JSON files are used to define the tables. For more information on the structure of these files, see [Datasets](/azure/data-factory/concepts-datasets-linked-services).
 
 > [!NOTE]
-> You should execute the `Add-AzureAccount` cmdlet before executing the [New-AzureDataFactoryTable](/previous-versions/azure/dn835096(v=azure.100)) cmdlet to confirm that the right Azure subscription is selected for the command execution. For documentation of this cmdlet, see [Add-AzureAccount](/powershell/module/servicemanagement/azure/add-azureaccount).
+> You should execute the `Add-AzureAccount` cmdlet before executing the [New-AzureDataFactoryTable](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-4.0.0) cmdlet to confirm that the right Azure subscription is selected for the command execution. For documentation of this cmdlet, see [Add-AzureAccount](/powershell/module/servicemanagement/azure/add-azureaccount).
 >
 >
 

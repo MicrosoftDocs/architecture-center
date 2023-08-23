@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
-  - azure-cognitive-services
+  - ai-services
 ms.custom:
   - analytics
   - guide

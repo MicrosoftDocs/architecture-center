@@ -119,7 +119,7 @@ These solution ideas are some of the example approaches that you can adapt to yo
 
 - [Data cache](../solution-ideas/articles/data-cache-with-redis-cache.yml)
 - [Enterprise data warehouse](../solution-ideas/articles/enterprise-data-warehouse.yml)
-- [Loan credit risk and default modeling](../example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml)
+- [Loan credit risk and default modeling](../example-scenario/ai/loan-credit-risk-analyzer-default-modeling)
 - [Messaging](../solution-ideas/articles/messaging.yml)
 - [Mining equipment monitoring](../solution-ideas/articles/monitor-mining-equipment.yml)
 - [Multi-region web app with private connectivity to database](../example-scenario/sql-failover/app-service-private-sql-multi-region.yml)

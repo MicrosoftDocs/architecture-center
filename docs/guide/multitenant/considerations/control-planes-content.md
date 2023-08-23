@@ -17,7 +17,7 @@ There's no single template for a control plane or its responsibilities. Your sol
 In general, a control plane might have many of the following core responsibilities:
 
 - Provision and manage the system resources that the system needs to serve the workload, including tenant-specific resources. Your control plane might [invoke and orchestrate a deployment pipeline](../approaches/deployment-configuration.yml#tenant-lists-as-configuration-or-data) that's responsible for deployments, or it might run the deployment operations itself.
-- Reconfigure shared resources to be aware of new tenants. For example, your control plane might configure network routing to ensure that incoming traffic is [mapped to the correct tenant's resources](map-requests.yml).
+- [Reconfigure shared resources](#manage-shared-components) to be aware of new tenants. For example, your control plane might configure network routing to ensure that incoming traffic is [mapped to the correct tenant's resources](map-requests.yml), or you might need to scale your resource capacity.
 - Store and manage the configuration of each tenant.
 - Handle [tenant lifecycle events](tenant-lifecycle.md), including onboarding, moving, and offboarding tenants.
 - Track each tenant's use of your features and the performance of the system.
@@ -129,6 +129,16 @@ If any step in the sequence fails, you need to consider what to do, such as:
 
 You also need to consider what the user experience is like for each failure scenario.
 
+## Manage shared components
+
+A control plane needs to be aware of any components that aren't dedicated to specific tenants, but instead are shared. Some components might be shared among all tenants within a stamp. Other components might be shared among all stamps in a region, or even shared globally across all regions and stamps. Whenever a tenant is onboarded, reconfigured, or offboarded, your control plane needs to know what to do with these shared components.
+
+Some shared components might need to be reconfigured whenever a tenant is added or removed. For example, suppose you have a globally shared Azure Front Door profile. If you add a tenant with a custom domain name, your control plane might need to update the profile's configuration to route requests for that domain name to the correct application. Similarly, when a tenant is offboarded, your control plane might need to remove the custom domain name from the Azure Front Door profile to avoid [subdomain takeover attacks](domain-names.yml#dangling-dns-and-subdomain-takeover-attacks).
+
+Shared components might have complex scaling rules that your control plane needs to follow. For example, suppose that you follow a [bin packing](../approaches/resource-organization.yml#bin-packing) approach to deploy your tenants' databases. When a new tenant is onboarded, you add a new Azure SQL database for that tenant, and then you assign it to an Azure SQL elastic pool. You might have determined that you need to increase the resources allocated to your pool for every tenth database that you add. When you add or remove a tenant, your control plane needs to re-evaluate the pool's configuration and decide whether to change the pool's resources. When you reach the maximum number of databases that you can assign to a single elastic pool, you need to create a new pool and start to use that pool for new tenant databases. Your control plane needs to take responsibility for managing each of these shared components, scaling and reconfiguring them whenever something changes.
+
+When your control plane manages shared components, it's important to be aware of race conditions, which can occur when multiple operations happen in parallel. For example, if you onboard a new tenant at the same time that you offboard a different tenant, you need to ensure that your ultimate end state is consistent and meets your scaling requirements.
+
 ## Use multiple control planes
 
 In a complex environment, you might need to use multiple control planes, each with different areas of responsibility. Many multitenant solutions follow the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) and shard tenants across multiple stamps. When you use this pattern, you might create separate control planes for global and stamp responsibilities.
@@ -148,7 +158,7 @@ A global control plane is typically responsible for the overall management and t
 A stamp control plane is deployed into each deployment stamp and is responsible for the tenants and resources allocated to that stamp. A stamp control plane might have these responsibilities:
 
 - **Creating and managing tenant-specific resources within the stamp**, like databases and storage containers
-- **Managing shared resources**, including monitoring the consumption of shared resources and deploying new instances when they're approaching their maximum capacity
+- [**Managing shared resources**](#manage-shared-components), including monitoring the consumption of shared resources and deploying new instances when they're approaching their maximum capacity
 - **Performing maintenance operations within the stamp**, like database index management and cleanup operations
 
 Each stamp's control plane coordinates with the global control plane. For example, suppose a new tenant signs up. The global control plane is initially responsible for selecting a stamp for the tenant's resources. Then, the global control plane prompts the stamp's control plane to create the necessary resources for the tenant.

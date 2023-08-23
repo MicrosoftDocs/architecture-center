@@ -2,11 +2,11 @@
 
 This article is a solution idea for creating and maintaining a data pipeline by using a configuration file. The file can, for example, contain a configuration that's specified by using JSON format. The file defines the ingestion, transformations, and curation of the data. It's the only file that needs to be maintained for data processing, so the business users or operations team can manage the data pipeline without the aid of a developer.
 
-*[Apache](https://www.apache.org)®, [Apache Spark®](https://spark.apache.org), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
+*[Apache](https://www.apache.org)®, [Apache Spark™](https://spark.apache.org), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 ## Architecture
 
-:::image type="content" source="../media/configuration-driven-data-pipeline-architecture.png" alt-text="Diagram of the architecture for configuration-driven data pipeline." lightbox="../media/configuration-driven-data-pipeline-architecture.png" :::
+:::image type="content" source="../media/configuration-driven-data-pipeline-architecture.svg" alt-text="Diagram of the architecture for configuration-driven data pipeline." lightbox="../media/configuration-driven-data-pipeline-architecture.svg" border="false" :::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/US-2003744-configuration-driven-data-pipelines.pptx) of this architecture.*
 

@@ -111,7 +111,7 @@ The following diagram shows this configuration:
 
 #### Pattern 2: Multiple regions
 
-You can extend the same configuration to multiple regions. For example, in a hub-and-spoke design that uses Azure Firewall, you should apply additional route tables to the Azure Firewall subnets in each hub for the spokes in the remote region. This configuration ensures that inter-region traffic can be forwarded between the Azure firewalls in each hub virtual network. Inter-regional traffic between spoke virtual networks then traverses both Azure firewalls:
+You can extend the same configuration to multiple regions. For example, in a hub-and-spoke design that uses Azure Firewall, you should apply additional route tables to the Azure Firewall subnets in each hub for the spokes in the remote region. This configuration ensures that inter-region traffic can be forwarded between the Azure firewalls in each hub virtual network. Inter-regional traffic between spoke virtual networks then traverses both Azure firewalls. For more information, see [Azure Firewall to route a multi hub and spoke topology][azfw_multi_hub_and_spoke]:
 
 :::image type="content" source="media/spoke-to-spoke-via-nva-2-hubs.svg" alt-text="Network diagram that shows a two-region hub-and-spoke design via NVAs in the hubs." lightbox="media/spoke-to-spoke-via-nva-2-hubs.svg" border="false":::
 
@@ -194,6 +194,7 @@ Other contributors:
 [avnm_network_group]: /azure/virtual-network-manager/concept-network-groups
 [azfw]: /azure/firewall/overview
 [azfw_limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#azure-firewall-limits
+[azfw_multi_hub_and_spoke]: /azure/firewall/firewall-multi-hub-spoke
 [nva_ha]: ../reference-architectures/dmz/nva-ha.yml
 [vm_flows]: /azure/virtual-network/virtual-machine-network-throughput#flow-limits-and-active-connections-recommendations
 [vnet_to_vnet]: /azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal

@@ -188,7 +188,7 @@ Principal author:
 
 ## Next steps
 
-- [Get started: Form Recognizer Studio](/azure/applied-ai-services/form-recognizer/quickstarts/try-v3-form-recognizer-studio)
+- [Get started: Form Recognizer Studio](/azure/ai-services/document-intelligence/quickstarts/try-document-intelligence-studio?view=doc-intel-3.1.0)
 - [Use Form Recognizer SDKs or REST API](/azure/applied-ai-services/form-recognizer/how-to-guides/use-sdk-rest-api)
 - [Quickstart: Get started with Language Studio](/azure/cognitive-services/language-service/language-studio)
 - [What is optical character recognition (OCR)?](/azure/cognitive-services/computer-vision/overview-ocr)
@@ -201,4 +201,4 @@ Principal author:
 - [Knowledge mining in contract management](../../solution-ideas/articles/contract-management.yml)
 - [Knowledge mining for content research](../../solution-ideas/articles/content-research.yml)
 - [Automate document processing by using Azure Form Recognizer](../ai/automate-document-processing-azure-form-recognizer.yml)
-- [Automate COVID-19 test forms](../ai/form-recognizer-covid.yml)
+- [Automate healthcare forms](../ai/form-recognizer-healthcare.yml)

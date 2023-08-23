@@ -12,8 +12,8 @@ metadata:
 azureCategories:
   - ai-machine-learning
 products:
-  - azure-form-recognizer
-  - azure-language-understanding
+  - document-intelligence
+  - ai-services
   - azure-logic-apps
   - azure-machine-learning-studio
   - azure-storage

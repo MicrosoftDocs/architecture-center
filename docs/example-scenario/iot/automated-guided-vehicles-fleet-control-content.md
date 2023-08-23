@@ -89,7 +89,7 @@ Another option to run these services is in [Azure Kubernetes Service (AKS)](/azu
 
 Also consider using [Azure Monitor](https://azure.microsoft.com/services/monitor/) in combination with Application Insights to analyze and optimize the performance of your applications, containers, databases, and other resources and to monitor and diagnose networking issues.
 
-This architecture uses RabbitMQ as the message broker. Microsoft Azure also has native support for messaging solutions, such as [Azure Queue Storage](/azure/storage/queues/storage-dotnet-how-to-use-queues?tabs=dotnet)
+This architecture uses RabbitMQ as the message broker. Microsoft Azure also has native support for messaging solutions, such as [Azure Queue Storage](/azure/storage/queues/storage-quickstart-queues-dotnet?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli)
 or [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview).
 For a comparison, see [Azure Storage queues and Service Bus queues - compared and contrasted](/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
 

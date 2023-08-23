@@ -21,7 +21,7 @@ azureCategories:
 summary: Learn how to use knowledge mining in contract management to help your organization scour thousands of pages to create an accurate bid.
 products:
   - azure-cognitive-search
-  - azure-form-recognizer
+  - document-intelligence
   - azure-text-analytics
 thumbnailUrl: /azure/architecture/browse/thumbs/knowledge-mining-contract-management-thumbnail.png
 content: |

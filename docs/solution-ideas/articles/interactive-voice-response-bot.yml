@@ -28,7 +28,7 @@ summary: Process customer requests with an intelligent interactive voice respons
 products:
   - azure-bot-service
   - azure-cognitive-search
-  - azure-language-understanding
+  - ai-services
   - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/interactive-voice-response-bot.png
 content: |

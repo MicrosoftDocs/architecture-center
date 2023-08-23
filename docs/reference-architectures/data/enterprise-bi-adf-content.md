@@ -1,6 +1,6 @@
-This reference architecture shows how to perform incremental loading in an [extract, load, and transform (ELT)](../../data-guide/relational-data/etl.yml#extract-load-and-transform-elt) pipeline. It uses Azure Data Factory to automate the ELT pipeline. The pipeline incrementally moves the latest OLTP data from an on-premises SQL Server database into Azure Synapse. Transactional data is transformed into a tabular model for analysis.
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github].
+This example is about how to perform incremental loading in an [extract, load, and transform (ELT)](../../data-guide/relational-data/etl.yml#extract-load-and-transform-elt) pipeline. It uses Azure Data Factory to automate the ELT pipeline. The pipeline incrementally moves the latest OLTP data from an on-premises SQL Server database into Azure Synapse. Transactional data is transformed into a tabular model for analysis.
 
 ## Architecture
 
@@ -21,7 +21,7 @@ The architecture consists of the following services and components.
 
 #### Data sources
 
-**On-premises SQL Server**. The source data is located in a SQL Server database on premises. To simulate the on-premises environment, the deployment scripts for this architecture provision a virtual machine in Azure with SQL Server installed. The [Wide World Importers OLTP sample database][wwi] is used as the source database.
+**On-premises SQL Server**. The source data is located in a SQL Server database on premises. To simulate the on-premises environment. The [Wide World Importers OLTP sample database][wwi] is used as the source database.
 
 **External data**. A common scenario for data warehouses is to integrate multiple data sources. This reference architecture loads an external data set that contains city populations by year, and integrates it with the data from the OLTP database. You can use this data for insights such as: "Does sales growth in each region match or exceed population growth?"
 
@@ -43,7 +43,7 @@ The architecture consists of the following services and components.
 
 **Azure Active Directory** (Azure AD) authenticates users who connect to the Analysis Services server through Power BI.
 
-Data Factory can also use Azure AD to authenticate to Azure Synapse, by using a service principal or Managed Service Identity (MSI). For simplicity, the example deployment uses SQL Server authentication.
+Data Factory can also use Azure AD to authenticate to Azure Synapse, by using a service principal or Managed Service Identity (MSI). 
 
 ### Components
 
@@ -96,26 +96,16 @@ After a new batch of data is loaded into the warehouse, refresh the Analysis Ser
 
 Data cleansing should be part of the ELT process. In this reference architecture, one source of bad data is the city population table, where some cities have zero population, perhaps because no data was available. During processing, the ELT pipeline removes those cities from the city population table. Perform data cleansing on staging tables, rather than external tables.
 
-Here is the stored procedure that removes the cities with zero population from the City Population table. (You can find the source file [here](https://github.com/mspnp/azure-data-factory-sqldw-elt-pipeline/blob/master/azure/sqldw_scripts/citypopulation/%5BIntegration%5D.%5BMigrateExternalCityPopulationData%5D.sql).)
-
-```sql
-DELETE FROM [Integration].[CityPopulation_Staging]
-WHERE RowNumber in (SELECT DISTINCT RowNumber
-FROM [Integration].[CityPopulation_Staging]
-WHERE POPULATION = 0
-GROUP BY RowNumber
-HAVING COUNT(RowNumber) = 4)
-```
 
 ### External data sources
 
-Data warehouses often consolidate data from multiple sources. This reference architecture loads an external data source that contains demographics data. This dataset is available in Azure blob storage as part of the [WorldWideImportersDW](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases/wide-world-importers/sample-scripts/load-sample-data-using-polybase) sample.
+Data warehouses often consolidate data from multiple sources. For example, an external data source that contains demographics data. This dataset is available in Azure blob storage as part of the [WorldWideImportersDW](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases/wide-world-importers/sample-scripts/load-sample-data-using-polybase) sample.
 
 Azure Data Factory can copy directly from blob storage, using the [blob storage connector](/azure/data-factory/connector-azure-blob-storage). However, the connector requires a connection string or a shared access signature, so it can't be used to copy a blob with public read access. As a workaround, you can use PolyBase to create an external table over Blob storage and then copy the external tables into Azure Synapse.
 
 ### Handling large binary data
 
-In the source database, the Cities table has a Location column that holds a [geography](/sql/t-sql/spatial-geography/spatial-types-geography) spatial data type. Azure Synapse doesn't support the **geography** type natively, so this field is converted to a **varbinary** type during loading. (See [Workarounds for unsupported data types](/azure/sql-data-warehouse/sql-data-warehouse-tables-data-types#unsupported-data-types).)
+For example, in the source database, a City table has a Location column that holds a [geography](/sql/t-sql/spatial-geography/spatial-types-geography) spatial data type. Azure Synapse doesn't support the **geography** type natively, so this field is converted to a **varbinary** type during loading. (See [Workarounds for unsupported data types](/azure/sql-data-warehouse/sql-data-warehouse-tables-data-types#unsupported-data-types).)
 
 However, PolyBase supports a maximum column size of `varbinary(8000)`, which means some data could be truncated. A workaround for this problem is to break the data up into chunks during export, and then reassemble the chunks, as follows:
 
@@ -125,7 +115,7 @@ However, PolyBase supports a maximum column size of `varbinary(8000)`, which mea
 
 3. To reassemble the chunks, use the T-SQL [PIVOT](/sql/t-sql/queries/from-using-pivot-and-unpivot) operator to convert rows into columns and then concatenate the column values for each city.
 
-The challenge is that each city will be split into a different number of rows, depending on the size of geography data. For the PIVOT operator to work, every city must have the same number of rows. To make this work, the T-SQL query (which you can view [here][MergeLocation]) does some tricks to pad out the rows with blank values, so that every city has the same number of columns after the pivot. The resulting query turns out to be much faster than looping through the rows one at a time.
+The challenge is that each city will be split into a different number of rows, depending on the size of geography data. For the PIVOT operator to work, every city must have the same number of rows. To make this work, the T-SQL query does some tricks to pad out the rows with blank values, so that every city has the same number of columns after the pivot. The resulting query turns out to be much faster than looping through the rows one at a time.
 
 The same approach is used for image data.
 
@@ -135,7 +125,7 @@ Dimension data is relatively static, but it can change. For example, a product m
 
 In order to implement the Type 2 approach, dimension tables need additional columns that specify the effective date range for a given record. Also, primary keys from the source database will be duplicated, so the dimension table must have an artificial primary key.
 
-The following image shows the Dimension.City table. The `WWI City ID` column is the primary key from the source database. The `City Key` column is an artificial key generated during the ETL pipeline. Also notice that the table has `Valid From` and `Valid To` columns, which define the range when each row was valid. Current values have a `Valid To` equal to '9999-12-31'.
+For example, the following image shows the Dimension.City table. The `WWI City ID` column is the primary key from the source database. The `City Key` column is an artificial key generated during the ETL pipeline. Also notice that the table has `Valid From` and `Valid To` columns, which define the range when each row was valid. Current values have a `Valid To` equal to '9999-12-31'.
 
 ![Screenshot of the city dimension table](./images/city-dimension-table.png)
 
@@ -144,35 +134,6 @@ The advantage of this approach is that it preserves historical data, which can b
 ![Second screenshot of the city dimension table](./images/city-dimension-table-2.png)
 
 For each Sales fact, you want to associate that fact with a single row in City dimension table, corresponding to the invoice date.
-
-The following T-SQL query creates a temporary table that associates each invoice with the correct City Key from the City dimension table.
-
-```sql
-CREATE TABLE CityHolder
-WITH (HEAP , DISTRIBUTION = HASH([WWI Invoice ID]))
-AS
-SELECT DISTINCT s1.[WWI Invoice ID] AS [WWI Invoice ID],
-                c.[City Key] AS [City Key]
-    FROM [Integration].[Sale_Staging] s1
-    CROSS APPLY (
-                SELECT TOP 1 [City Key]
-                    FROM [Dimension].[City]
-                WHERE [WWI City ID] = s1.[WWI City ID]
-                    AND s1.[Last Modified When] > [Valid From]
-                    AND s1.[Last Modified When] <= [Valid To]
-                ORDER BY [Valid From], [City Key] DESC
-                ) c
-
-```
-
-This table is used to populate a column in the Sales fact table:
-
-```sql
-UPDATE [Integration].[Sale_Staging]
-SET [Integration].[Sale_Staging].[WWI Customer ID] =  CustomerHolder.[WWI Customer ID]
-```
-
-This column enables a Power BI query to find the correct City record for a given sales invoice.
 
 ## Considerations
 
@@ -197,8 +158,6 @@ Be aware of the following limitations:
 ### DevOps
 
 - Create separate resource groups for production, development, and test environments. Separate resource groups make it easier to manage deployments, delete test deployments, and assign access rights.
-
-- Use the [Azure Building blocks][azbb] templates provided in this architecture or create [Azure Resource Manager template][arm-template] to deploy the Azure resources following the infrastructure as Code (IaC) Process. With templates,  automating deployments using [Azure DevOps Services][az-devops], or other CI/CD solutions is easier.
 
 - Put each workload in a separate deployment template and store the resources in source control systems. You can deploy the templates together or individually as part of a CI/CD process, making the automation process easier.
 
@@ -227,7 +186,7 @@ Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. 
 
 #### Azure Data Factory
 
-In this architecture, Azure Data Factory automates the ELT pipeline. The pipeline moves the data from an on-premises SQL Server database into Azure Synapse. The data is then transformed into a tabular model for analysis. For this scenario, pricing starts from $ 0.001 activity runs per month that includes activity, trigger, and debug runs. That price is the base charge only for orchestration. You are also charged for execution activities, such as copying data, lookups, and external activities. Each activity is individually priced. You are also charged for pipelines with no associated triggers or runs within the month. All activities are prorated by the minute and rounded up.
+Azure Data Factory automates the ELT pipeline. The pipeline moves the data from an on-premises SQL Server database into Azure Synapse. The data is then transformed into a tabular model for analysis. For this scenario, pricing starts from $ 0.001 activity runs per month that includes activity, trigger, and debug runs. That price is the base charge only for orchestration. You are also charged for execution activities, such as copying data, lookups, and external activities. Each activity is individually priced. You are also charged for pipelines with no associated triggers or runs within the month. All activities are prorated by the minute and rounded up.
 
 ##### Example cost analysis
 
@@ -269,16 +228,6 @@ Consider using the Azure Storage reserved capacity feature to lower cost on stor
 
 For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
-## Deploy this scenario
-
-To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github]. It deploys the following:
-
-- A Windows VM to simulate an on-premises database server. It includes SQL Server 2017 and related tools, along with Power BI Desktop.
-- An Azure storage account that provides Blob storage to hold data exported from the SQL Server database.
-- An Azure Synapse instance.
-- An Azure Analysis Services instance.
-- Azure Data Factory and the Data Factory pipeline for the ELT job.
-
 ## Next steps
 
 - [Introduction to Azure Synapse Analytics](/training/modules/introduction-azure-synapse-analytics)
@@ -299,24 +248,14 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 
 [AAF-devops]: /azure/architecture/framework/devops/overview
 [adf]: /azure/data-factory
-[arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
-[az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
-[azbb]: https://github.com/mspnp/template-building-blocks/wiki
 [azure-monitor]: https://azure.microsoft.com/services/monitor
 [blue-green-dep]: https://martinfowler.com/bliki/BlueGreenDeployment.html
 [cannary-releases]: https://martinfowler.com/bliki/CanaryRelease.html
-[github]: https://github.com/mspnp/azure-data-factory-sqldw-elt-pipeline
-[MergeLocation]: https://github.com/mspnp/azure-data-factory-sqldw-elt-pipeline/blob/master/azure/sqldw_scripts/city/%5BIntegration%5D.%5BMergeLocation%5D.sql
 [synapse-analytics]: /azure/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity
 [wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [aaf-cost]: /azure/architecture/framework/cost/overview
-[adf]: /azure/data-factory
 [adf-calculator]: https://azure.microsoft.com/pricing/calculator/?service=data-factory
 [az-as-pricing]: https://azure.microsoft.com/pricing/details/analysis-services
 [az-storage-reserved]: /azure/storage/blobs/storage-blob-reserved-capacity
 [az-synapse-pricing]: https://azure.microsoft.com/pricing/details/synapse-analytics
-[azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[github]: https://github.com/mspnp/azure-data-factory-sqldw-elt-pipeline
-[MergeLocation]: https://github.com/mspnp/azure-data-factory-sqldw-elt-pipeline/blob/master/azure/sqldw_scripts/city/%5BIntegration%5D.%5BMergeLocation%5D.sql
-[wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database

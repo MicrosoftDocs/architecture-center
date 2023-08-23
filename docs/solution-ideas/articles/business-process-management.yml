@@ -21,7 +21,7 @@ azureCategories:
 summary: This architecture demonstrates how to use knowledge mining in business process management.
 products:
   - azure-cognitive-search
-  - azure-form-recognizer
+  - document-intelligence
 thumbnailUrl: /azure/architecture/browse/thumbs/knowledge-mining-business-process-management-thumb.png
 content: |
   [!include[](business-process-management-content.md)]

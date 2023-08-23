@@ -21,7 +21,7 @@ azureCategories:
 products:
   - azure-bot-service
   - azure-cognitive-search
-  - azure-cognitive-services
+  - ai-services
   - azure-sql-database
   - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-ecommerce-search.png

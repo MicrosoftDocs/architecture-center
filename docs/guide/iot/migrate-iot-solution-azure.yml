@@ -12,7 +12,6 @@ azureCategories:
   - iot
 products:
   - azure-iot
-  - azure-iot-dps
   - azure-iot-hub
   - azure-iot-sdk
 name: Migrate your IoT solutions to Azure

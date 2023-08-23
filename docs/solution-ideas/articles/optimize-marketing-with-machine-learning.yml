@@ -26,7 +26,7 @@ azureCategories:
   - analytics
 summary: Extract insights from social media for your big data marketing campaigns by using Azure Synapse Analytics, Azure Machine Learning, and Azure Cognitive Services.
 products:
-  - azure-cognitive-services
+  - ai-services
   - azure-synapse-analytics
   - azure-machine-learning
   - azure-data-lake

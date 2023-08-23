@@ -203,12 +203,12 @@ Principal author:
 [About billing for GitHub actions]: https://docs.github.com/billing/managing-billing-for-github-actions/about-billing-for-github-actions
 [About self-hosted runners]: https://docs.github.com/actions/hosting-your-own-runners/about-self-hosted-runners
 [GitHub Enterprise Server]: https://azuremarketplace.microsoft.com/marketplace/apps/github.githubenterprise
-[GitHub Enterprise highly available failover configuration]: https://docs.github.com/enterprise-server@3.5/admin/enterprise-management/configuring-high-availability
+[GitHub Enterprise highly available failover configuration]: https://docs.github.com/en/enterprise-server@3.5/
 [GitHub Advanced Security]: https://docs.github.com/enterprise-server@3.5/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise
 [Configure Dependabot security updates]: https://docs.github.com/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates
 [DevSecOps on AKS]: ../../guide/devsecops/devsecops-on-aks.yml
 [GitHub pricing]: https://github.com/pricing
 [GitHub DevSecOps training materials]: https://github.com/devsecops/awesome-devsecops
-[GitHub DevSecOps getting started tips]: https://resources.github.com/whitepapers/Architects-guide-to-DevOps
+[GitHub DevSecOps getting started tips]: https://resources.github.com/devops/tools/
 [SARIF]: https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/sarif-support-for-code-scanning
 [DevSecOps for Infrastructure as Code (IaC)]: ./devsecops-infrastructure-as-code.yml

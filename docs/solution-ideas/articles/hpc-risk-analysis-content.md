@@ -40,4 +40,4 @@ This templated risk analysis solution uses Azure HPC compute and GPU virtual mac
 - [High-performance computing (HPC) on Azure](../../topics/high-performance-computing.md)
 - [Risk grid computing solution](../../industries/finance/risk-grid-banking-solution-guide.yml)
 - [Risk grid computing in banking](../../industries/finance/risk-grid-banking-overview.yml)
-- [Loan credit risk and default modeling](../../example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml)
+- [Loan credit risk and default modeling](../../example-scenario/ai/loan-credit-risk-analyzer-default-modeling)

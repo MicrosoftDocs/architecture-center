@@ -131,7 +131,7 @@ Depending on the volume of data and complexity of your geospatial analysis, you 
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-If the amount of input data is large, consider using [Ray Dataset](https://docs.ray.io/en/latest/data/dataset.html) along with Ray framework. Ray datasets provide distributed data transformations on various file formats and are easily integrated with other Ray libraries and applications.
+If the amount of input data is large, consider using [Ray Dataset](https://docs.ray.io/en/latest/data/data.html) along with Ray framework. Ray datasets provide distributed data transformations on various file formats and are easily integrated with other Ray libraries and applications.
 
 If you use mapping data flows in Azure Data Factory for ETL, follow [the performance and tuning guide](/azure/data-factory/concepts-data-flow-performance) to optimize your data pipeline and ensure that your dataflows meet your performance benchmarks.
 

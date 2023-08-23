@@ -14,7 +14,7 @@ azureCategories:
 products:
   - azure-functions
   - azure-app-service
-  - azure-cognitive-services
+  - ai-services
   - azure-cognitive-search
   - azure-kubernetes-service
 name: Automate document identification, classification, and search by using Durable Functions

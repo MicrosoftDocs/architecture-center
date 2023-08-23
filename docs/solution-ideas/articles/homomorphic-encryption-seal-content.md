@@ -2,7 +2,9 @@ This article discusses how and when to use homomorphic encryption and how to imp
 
 ## Architecture
 
-![Diagram showing traditional and SEAL encryption.](../media/seal.png)
+:::image type="content" source="../media/homomorphic-encryption-seal.svg" alt-text="Diagram showing traditional and SEAL encryption." lightbox="../media/homomorphic-encryption-seal.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/homomorphic-encryption-seal.vsdx) of this architecture.*
 
 ### Workflow
 

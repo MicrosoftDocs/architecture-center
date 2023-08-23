@@ -154,7 +154,7 @@ Principal author:
 [azure-networking]: /azure/virtual-network/virtual-networks-overview
 [sql-service-endpoint]: /azure/sql-database/sql-database-vnet-service-endpoint-rule-overview
 
-[architecture]: ./media/ilb-ase-architecture.png
+[architecture]: ./media/fully-managed-secure-apps.svg
 [small-pricing]: https://azure.com/e/22e2c9d300ee425a89a001726221c7b2
 [medium-pricing]: https://azure.com/e/c280777e16bd4fd5bc9c23f3b8caf91f
 [large-pricing]: https://azure.com/e/294d5b09fa064ced87d6422826f2a0fc

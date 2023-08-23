@@ -6,7 +6,7 @@ This article describes the design process, principles, and technology choices fo
 
 The following diagram shows the architecture of the data lakehouse solution. It's designed to control the interactions among the services in order to mitigate security threats. Solutions will vary depending on functional and security requirements.
 
-:::image type="content" source="media/secure-data-lakehouse-architecture.png" alt-text="Diagram that shows the detailed architecture." border="false" lightbox="media/secure-data-lakehouse-architecture.png" :::
+:::image type="content" source="media/secure-data-lakehouse-architecture.svg" alt-text="Diagram that shows the detailed architecture." border="false" lightbox="media/secure-data-lakehouse-architecture.svg" :::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1946993-secure-data-lakehouse-synapse.vsdx) of this architecture.*
 
@@ -14,7 +14,7 @@ The following diagram shows the architecture of the data lakehouse solution. It'
 
 The dataflow for the solution is shown in the following diagram:
 
-:::image type="content" source="media/secure-data-lakehouse-dataflow.png" alt-text="Diagram that shows the data flow in the solution." border="false" lightbox="media/secure-data-lakehouse-dataflow.png" :::
+:::image type="content" source="media/secure-data-lakehouse-dataflow.svg" alt-text="Diagram that shows the data flow in the solution." border="false" lightbox="media/secure-data-lakehouse-dataflow.svg" :::
 
 1. Data is uploaded from the data source to the data landing zone, either to Azure Blob storage or to a file share that's provided by Azure Files. The data is uploaded by a batch uploader program or system. Streaming data is captured and stored in Blob Storage by using the Capture feature of Azure Event Hubs. There can be multiple data sources. For example, several different factories can upload their operations data. For information about securing access to Blob Storage, file shares, and other storage resources, see [Security recommendations for Blob Storage](/azure/storage/blobs/security-recommendations) and [Planning for an Azure Files deployment](/azure/storage/files/storage-files-planning).
 1. The arrival of the data file triggers Azure Data Factory to process the data and store it in the data lake in the core data zone. Uploading data to the core data zone in Azure Data Lake protects against data exfiltration.
@@ -80,8 +80,6 @@ This article describes the design process, principles, and technology choices fo
 
 The goal is to provide guidance on building a secure and cost-effective data lakehouse platform for enterprise use and on making the technologies work together seamlessly and securely.
 
-*Apache®, [Apache Spark®](https://spark.apache.org), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
-
 ### Potential use cases
 
  A data lakehouse is a modern data management architecture that combines the cost-efficiency, scale, and flexibility features of a data lake with the data and transaction management capabilities of a data warehouse. A data lakehouse can handle a vast amount of data and support business intelligence and machine learning scenarios. It can also process data from diverse data structures and data sources. For more information, see [What is the Databricks Lakehouse?](/azure/databricks/lakehouse).
@@ -101,7 +99,7 @@ This solution focuses on the security design and implementation practices in the
 
 Here is the high-level solution design architecture:
 
-:::image type="content" source="media/secure-data-lakehouse-high-level-design.png" alt-text="Diagram that shows high-level data lakehouse solution design architecture." border="false" :::
+:::image type="content" source="media/secure-data-lakehouse-high-level-design.svg" alt-text="Diagram that shows high-level data lakehouse solution design architecture." border="false" :::
 
 ### Choose security focus
 
@@ -219,7 +217,7 @@ There are several components in the system. Each one requires a different identi
     - Azure Synapse access external resource layer: choose the identity solution to access external resources.
     - Data Lake Storage access layer: choose the identity solution to control file access in the storage.
 
-  :::image type="content" source="media/secure-data-lakehouse-access-control.png" alt-text="Diagram that shows Azure Synapse and its capabilities." lightbox="media/secure-data-lakehouse-access-control.png"border="false" :::
+  :::image type="content" source="media/secure-data-lakehouse-access-control.svg" alt-text="Diagram that shows Azure Synapse Analytics and its capabilities." lightbox="media/secure-data-lakehouse-access-control.svg"border="false" :::
 
   A crucial part of identity and access control is choosing the right identity solution for each access control layer. The [security design principles](/azure/architecture/framework/security/security-principles) of the Azure Well-Architected Framework suggest using native controls and driving simplicity. Therefore, this solution uses the Azure AD User Account of the end user in the application and Azure Synapse DB access layers. It leverages the native first-party IAM solutions and provides fine-grained access control. The Azure Synapse access external resource layer and Data Lake access layer use managed identity in Azure Synapse to simplify the authorization process.
 - **Consider least-privileged access**
@@ -271,7 +269,7 @@ For information about the operational excellence pillar of the Well-Architected 
 
   The default Azure DevOps pipeline agent doesn't support virtual network communication because it uses a very wide IP address range. This solution implements an Azure DevOps [self-hosted agent](/azure/devops/pipelines/agents/v2-linux) in the virtual network so that the DevOps processes can smoothly communicate with the other services in the solution. The connection strings and secrets for running the CI/CD services are stored in an independent key vault. During the deployment process, the self-hosted agent accesses the key vault in the core data zone to update resource configurations and secrets. For more information, see the [Use separate key vaults](/azure/key-vault/general/best-practices#use-separate-key-vaults) document. This solution also uses [VM scale sets](/azure/virtual-machine-scale-sets/overview) to ensure that the DevOps engine can automatically scale up and down based on the workload.
 
-:::image type="content" source="media/secure-data-lakehouse-pipeline.png" alt-text="Diagram that shows Azure Synapse and its capabilities." border="false" lightbox="media/secure-data-lakehouse-pipeline.png" :::
+:::image type="content" source="media/secure-data-lakehouse-pipeline.svg" alt-text="Diagram that shows Azure Synapse Analytics and its capabilities." border="false" lightbox="media/secure-data-lakehouse-pipeline.svg" :::
 
 #### Implement infrastructure security scanning and security smoke testing in the CI/CD pipeline
 
@@ -291,9 +289,9 @@ Principal author:
 
 Other contributors:
 
-- Ian Chen | PRINCIPAL SOFTWARE ENGINEER LEAD
-- [Jose Contreras](https://www.linkedin.com/in/josedanielcontreras) | PRINCIPAL SOFTWARE ENGINEERING
-- Roy Chan | PRINCIPAL SOFTWARE ENGINEER MANAGER
+- Ian Chen | Principal Software Engineer Lead
+- [Jose Contreras](https://www.linkedin.com/in/josedanielcontreras) | Principal Software Engineering
+- Roy Chan | Principal Software Engineer Manager
 
 ## Next steps
 
