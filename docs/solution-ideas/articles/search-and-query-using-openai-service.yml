@@ -1,25 +1,25 @@
 ### YamlMime:Architecture
 metadata:
-  title: Search and Query Enterprise Knowledge Base using Azure OpenAI
+  title: Search and query an enterprise knowledge base by using Azure OpenAI Service
   titleSuffix: Azure Architecture Center
   description: Learn how to extract insights from customer conversations at a call center by using Azure AI services and Azure OpenAI Service.
   author: DixitArora-MSFT
   ms.author: dixitaro, jyravi  
-  ms.date: 08/22/2023
+  ms.date: 08/24/2023
   ms.topic: conceptual
   ms.service: architecture-center
-  ms.subservice: example-scenario
+  ms.subservice: solution-idea
 azureCategories:
   - analytics
   - ai-machine-learning
 products:
   - azure-blob-storage
-  - azure-speech
+  - azure-cache-redis
+  - azure-cognitive-search
   - azure-language-understanding
-  - power-bi
-  - azure-speech-text
-name: Extract and analyze call center data
+  - document-intelligence
+name: Search and query an enterprise knowledge base by using Azure OpenAI Service
 summary: Learn how to extract insights from customer conversations at a call center by using Azure AI services and Azure OpenAI Service.
 thumbnailUrl: /azure/architecture/browse/thumbs/call-center-analytics.png
 content: |
-   [!include[](search-and-query.md)]
+   [!include[](search-and-query-using-openai-service.md)]
