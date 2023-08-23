@@ -7,7 +7,7 @@ This article is an implementation guide and example scenario that provides a sam
 
 ## Architecture
 
-:::image type="content" source="media/custom-speech-text.png" alt-text="Diagram that shows an architecture for implementing custom speech-to-text.":::
+:::image type="content" source="_images/custom-speech-text.png" alt-text="Diagram that shows an architecture for implementing custom speech-to-text.":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/custom-speech-text.vsdx) of this architecture.*
 
@@ -163,12 +163,12 @@ Other contributors:
 - [What is Custom Speech?](/azure/cognitive-services/speech-service/custom-speech-overview)
 - [What is text-to-speech?](/azure/cognitive-services/speech-service/text-to-speech)
 - [Train a Custom Speech model](/azure/cognitive-services/speech-service/how-to-custom-speech-train-model?pivots=speech-studio)
-- [Implement custom speech-to-text](../../ai-ml/guide/custom-speech-text.yml) 
+- [Implement custom speech-to-text](custom-speech-text.yml) 
 - [Azure/custom-speech-stt on GitHub](https://github.com/Azure/custom-speech-stt)
 
 ## Related resources
 
 - [Artificial intelligence (AI) architecture design](../../data-guide/big-data/ai-overview.md)
-- [Use a speech-to-text transcription pipeline to analyze recorded conversations](../../ai-ml/architecture/speech-to-text-transcription-analytics.yml)
+- [Use a speech-to-text transcription pipeline to analyze recorded conversations](../architecture/speech-to-text-transcription-analytics.yml)
 - [Control IoT devices with a voice assistant app](../../solution-ideas/articles/iot-controlling-devices-with-voice-assistant.yml)
-- [Implement custom speech-to-text](../../ai-ml/guide/custom-speech-text.yml) 
+- [Implement custom speech-to-text](custom-speech-text.yml) 
