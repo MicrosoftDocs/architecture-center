@@ -4,7 +4,7 @@ This architecture shows you the components used to build, deploy, and manage hig
 
 ## Architecture
 
-![Diagram of a machine learning solution architecture using Azure Machine Learning with Azure services for storage, data analysis, monitoring, authenticating, and secure deployment.](../media/azure-machine-learning-solution-architecture.svg)
+![Diagram of a machine learning solution architecture using Azure Machine Learning with Azure services for storage, data analysis, monitoring, authenticating, and secure deployment.](_images/azure-machine-learning-solution-architecture.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-machine-learning-solution-architecture.vsdx) of this architecture.*
 

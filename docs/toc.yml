@@ -948,18 +948,18 @@ items:
     items:
     # - name: Get started
     #   href: data-guide/big-data/ai-overview.md
-    - name: Guides
-      items:
+    # - name: Guides
+    #   items:
       # - name: Custom speech-to-text
       #   href: guide/ai/custom-speech-text-deploy.yml      
-      - name: Automate PDF forms processing
-        href: example-scenario/document-processing/automate-pdf-forms-processing.yml
-      - name: Cognitive services
-        href: data-guide/technology-choices/cognitive-services.md
+      # - name: Automate PDF forms processing
+      #   href: example-scenario/document-processing/automate-pdf-forms-processing.yml
+      # - name: Cognitive services
+      #   href: data-guide/technology-choices/cognitive-services.md
       # - name: Custom speech-to-text overview
       #   href: guide/ai/custom-speech-text.yml
-      - name: Natural language processing
-        href: data-guide/technology-choices/natural-language-processing.yml
+      # - name: Natural language processing
+      #   href: data-guide/technology-choices/natural-language-processing.yml
       # - name: OpenAI GPT-3 summarization
       #   href: guide/ai/query-based-summarization.md
       # - name: Conversation summarization
@@ -1164,8 +1164,8 @@ items:
       #       href: data-science-process/deploy-models-in-production.md
       #     - name: Build and deploy a model using Azure Synapse Analytics
       #       href: data-science-process/sqldw-walkthrough.md
-    - name: Architectures
-      items:
+    # - name: Architectures
+    #   items:
       # - name: Analyze browser information
       #   href: example-scenario/ai/analyze-browser-info-for-security-insights.yml
       # - name: Anomaly detection for conveyor belts
@@ -1254,8 +1254,8 @@ items:
       #   href: example-scenario/ai/speech-to-text-transcription-analytics.yml
       # - name: Social media analytics solution
       #   href: example-scenario/ai/build-deploy-social-media-analytics-solution.yml
-    - name: Solution ideas
-      items:
+    # - name: Solution ideas
+    #   items:
       # - name: AI at the edge
       #   href: solution-ideas/articles/ai-at-the-edge.yml
       # - name: AI enrichment with Cognitive Search
@@ -1264,8 +1264,8 @@ items:
       #   href: solution-ideas/articles/auditing-and-risk-compliance.yml
       # - name: Autonomous systems
       #   href: solution-ideas/articles/autonomous-systems.yml
-      - name: Azure Machine Learning architecture
-        href: solution-ideas/articles/azure-machine-learning-solution-architecture.yml
+      # - name: Azure Machine Learning architecture
+      #   href: solution-ideas/articles/azure-machine-learning-solution-architecture.yml
       # - name: Business process management
       #   href: solution-ideas/articles/business-process-management.yml
       # - name: Content-based recommendations
