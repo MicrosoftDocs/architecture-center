@@ -34,8 +34,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Extract and analyze call center data by using Azure OpenAI Service, Speech services, and Language services]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/ai/call-center-openai-analytics</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/ai/call-center-openai-analytics"/>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/openai/architecture/call-center-openai-analytics</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/openai/architecture/call-center-openai-analytics"/>
         <updated>2023-08-04T20:50:58.000Z</updated>
         <summary type="html"><![CDATA[Learn how to extract insights from customer conversations at a call center by using Azure AI services and Azure OpenAI Service.]]></summary>
         <category label="new" term="new"/>
