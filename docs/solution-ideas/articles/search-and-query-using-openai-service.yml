@@ -22,4 +22,4 @@ name: Search and query an enterprise knowledge base by using Azure OpenAI or Azu
 summary: Learn how to use Azure OpenAI and Azure Cognitive Search to search documents in your enterprise data and retrieve results.
 thumbnailUrl: /azure/architecture/browse/thumbs/call-center-analytics.png
 content: |
-   [!include[](search-and-query-using-openai-service.md)]
+   [!include[](search-and-query-using-openai-service-content.md)]
