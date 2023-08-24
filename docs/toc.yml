@@ -1346,6 +1346,8 @@ items:
           href: example-scenario/ai/call-center-openai-analytics.yml
         - name: Monitor OpenAI models
           href: example-scenario/ai/log-monitor-azure-openai.yml
+        - name: Search and query a knowledge base
+          href: solution-ideas/articles/search-and-query-using-openai-service.yml
       - name: Guides
         items:
         - name: Build language model pipelines

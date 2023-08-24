@@ -25,7 +25,7 @@ Embedding creation:
 
 1. The extracted text is then [chunked](/azure/search/vector-search-how-to-chunk-documents) appropriately, and an [Azure OpenAI embedding model](/azure/cognitive-services/openai/concepts/models#embeddings-models) is used to convert each chunk to embeddings.
 
-1. These embeddings are persisted to the vector database. This solution uses [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-redis-modules), but any vector database can be used.
+1. These embeddings are persisted to the vector database. This solution uses the Enterprise tier of [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-redis-modules), but any vector database can be used.
 
 Query and retrieval:
 
@@ -45,14 +45,18 @@ Query and retrieval:
 
 Index creation:
 
-1. [Azure Cognitive Search](/azure/search/search-what-is-azure-search) is used to create [a search index](/azure/search/search-how-to-create-search-index) of the documents in Blob Storage. Blob Storage is a [service that’s supported](/azure/search/search-indexer-overview#supported-data-sources) by Azure Cognitive Search, so the [pull model](/azure/search/search-indexer-overview) is used to crawl the content, and the capability is implemented through [indexers](/azure/search/search-indexer-overview).
+1. [Azure Cognitive Search](/azure/search/search-what-is-azure-search) is used to create [a search index](/azure/search/search-how-to-create-search-index) of the documents in Blob Storage. Blob Storage is a [service that’s supported](/azure/search/search-indexer-overview#supported-data-sources) by Azure Cognitive Search, so the [pull model](/azure/search/search-indexer-overview) is used to crawl the content, and the capability is implemented via [indexers](/azure/search/search-indexer-overview).
 
    > [!NOTE]
-   > Other [data sources](/azure/search/search-data-sources-gallery) are supported by Azure Cognitive Search for indexing using the pull model. You can also index documents from [multiple data sources](/azure/search/tutorial-multiple-data-sources) into a single consolidated index.
+   > Azure Cognitive Search supports other [data sources](/azure/search/search-data-sources-gallery) for indexing with the pull model. You can also index documents from [multiple data sources](/azure/search/tutorial-multiple-data-sources) into a single consolidated index.
 
-   If the documents are non-searchable, like scanned PDFs or images, AI can be applied by using [built-in](/azure/search/cognitive-search-predefined-skills) or [custom](/azure/search/cognitive-search-custom-skill-interface) skills as skillsets in Azure Cognitive Search. Applying AI over content that isn't full text searchable is called [AI enrichment](/azure/search/cognitive-search-concept-intro). Depending on the requirement, [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) can be added as a custom skill to extract text from PDFs or images via [document analysis models](/azure/ai-services/document-intelligence/overview#document-analysis-models), [prebuilt models](/azure/ai-services/document-intelligence/overview), or [custom extraction](/azure/ai-services/document-intelligence/overview) models. If certain scenarios require translation of documents, [Azure Translator](/azure/search/cognitive-search-skill-text-translation) can be used, which is a part of the built-in skill. If AI enrichment is a requirement, pull model (indexers) must be used to load an index.
+1. If certain scenarios require translation of documents, [Azure Translator](/azure/search/cognitive-search-skill-text-translation) can be used, which is a part of the built-in skill. 
 
-   Vector search can be enabled by [indexing the vector data](/azure/search/vector-search-how-to-create-index) where vector fields are added to index schema, which subsequently loads the vector data for indexing. Vector data can be generated via Azure OpenAI embeddings.
+1. If the documents are non-searchable, like scanned PDFs or images, AI can be applied by using [built-in](/azure/search/cognitive-search-predefined-skills) or [custom](/azure/search/cognitive-search-custom-skill-interface) skills as skillsets in Azure Cognitive Search. Applying AI over content that isn't full-text searchable is called [AI enrichment](/azure/search/cognitive-search-concept-intro). Depending on the requirement, [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) can be added as a custom skill to extract text from PDFs or images via [document analysis models](/azure/ai-services/document-intelligence/overview#document-analysis-models), [prebuilt models](/azure/ai-services/document-intelligence/overview), or [custom extraction](/azure/ai-services/document-intelligence/overview) models.
+
+   If AI enrichment is a requirement, pull model (indexers) must be used to load an index.
+
+   If vector fields are added to the index schema, which subsequently loads the vector data for indexing, vector search can be enabled by [indexing that vector data](/azure/search/vector-search-how-to-create-index). Vector data can be generated via Azure OpenAI embeddings.
 
 Query and retrieval:
 
@@ -72,7 +76,9 @@ If the data source isn't supported, you can use the [push model](/azure/search/t
 
 Index creation:
 
-1. If the document to be ingested must be translated, [Azure Translator](/azure/ai-services/translator/translator-overview) can be used to translate. If the document is in an unsearchable format, like PDF or image, [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) can be used to extract text. The extracted text can be vectorized via Azure OpenAI embeddings [vector search](/azure/search/vector-search-overview), and the data can be pushed to Azure Cognitive Search index via a [Rest API](/rest/api/searchservice/AddUpdate-or-Delete-Documents) or an [Azure SDK](/azure/search/search-get-started-text).
+1. If the document to be ingested must be translated, [Azure Translator](/azure/ai-services/translator/translator-overview) can be used to translate. 
+1. If the document is in an unsearchable format, like PDF or image, [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) can be used to extract text.
+1. The extracted text can be vectorized via Azure OpenAI embeddings [vector search](/azure/search/vector-search-overview), and the data can be pushed to Azure Cognitive Search index via a [Rest API](/rest/api/searchservice/AddUpdate-or-Delete-Documents) or an [Azure SDK](/azure/search/search-get-started-text).
 
 Query and retrieval:
 
