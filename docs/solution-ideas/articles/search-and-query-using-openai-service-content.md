@@ -20,9 +20,9 @@ Embedding creation:
 
 1. The document is ingested into Blob Storage, and an Azure function is triggered to extract text from the documents.
 
-1. If documents are in a non-English language and translation is required, [Azure Translator](/azure/cognitive-services/translator/translator-overview) can be called by the Azure function to perform the translation.
+1. If documents are in a non-English language and translation is required, an Azure function can call [Azure Translator](/azure/cognitive-services/translator/translator-overview) to perform the translation.
 
-1. If the documents are PDFs or images, [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) can be called by the Azure function to extract the text. If the document is an Excel, CSV, Word, or text file, python code can be used to extract the text.
+1. If the documents are PDFs or images, an Azure function can call [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) to extract the text. If the document is an Excel, CSV, Word, or text file, python code can be used to extract the text.
 
 1. The extracted text is then [chunked](/azure/search/vector-search-how-to-chunk-documents) appropriately, and an [Azure OpenAI embedding model](/azure/cognitive-services/openai/concepts/models#embeddings-models) is used to convert each chunk to embeddings.
 
@@ -47,24 +47,24 @@ Query and retrieval:
 
 Index creation:
 
-1. [Azure Cognitive Search](/azure/search/search-what-is-azure-search) is used to create a [search index](/azure/search/search-how-to-create-search-index) of the documents in Blob Storage. Blob Storage is a [service that’s supported](/azure/search/search-indexer-overview#supported-data-sources) by Azure Cognitive Search, so the pull model is used to crawl the content, and the capability is implemented via [indexers](/azure/search/search-indexer-overview).
+1. [Azure Cognitive Search](/azure/search/search-what-is-azure-search) is used to create a [search index](/azure/search/search-how-to-create-search-index) of the documents in Blob Storage. Azure Cognitive Search [supports Blob Storage](/azure/search/search-indexer-overview#supported-data-sources), so the pull model is used to crawl the content, and the capability is implemented via [indexers](/azure/search/search-indexer-overview).
 
    > [!NOTE]
    > Azure Cognitive Search supports other [data sources](/azure/search/search-data-sources-gallery) for indexing when using the pull model. Documents can also be indexed from [multiple data sources](/azure/search/tutorial-multiple-data-sources) and consolidated into a single index.
 
 1. If certain scenarios require translation of documents, [Azure Translator](/azure/search/cognitive-search-skill-text-translation) can be used, which is a feature that's included in the built-in skill. 
 
-1. If the documents are non-searchable, like scanned PDFs or images, AI can be applied by using [built-in](/azure/search/cognitive-search-predefined-skills) or [custom](/azure/search/cognitive-search-custom-skill-interface) skills as skillsets in Azure Cognitive Search. Applying AI over content that isn't full-text searchable is called [AI enrichment](/azure/search/cognitive-search-concept-intro). Depending on the requirement, [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) can be used as a custom skill to extract text from PDFs or images via [document analysis models](/azure/ai-services/document-intelligence/overview#document-analysis-models), [prebuilt models](/azure/ai-services/document-intelligence/overview#prebuilt-models), or [custom extraction](/azure/ai-services/document-intelligence/overview#custom-models) models.
+1. If the documents are nonsearchable, like scanned PDFs or images, AI can be applied by using [built-in](/azure/search/cognitive-search-predefined-skills) or [custom](/azure/search/cognitive-search-custom-skill-interface) skills as skillsets in Azure Cognitive Search. Applying AI over content that isn't full-text searchable is called [AI enrichment](/azure/search/cognitive-search-concept-intro). Depending on the requirement, [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) can be used as a custom skill to extract text from PDFs or images via [document analysis models](/azure/ai-services/document-intelligence/overview#document-analysis-models), [prebuilt models](/azure/ai-services/document-intelligence/overview#prebuilt-models), or [custom extraction](/azure/ai-services/document-intelligence/overview#custom-models) models.
 
    If AI enrichment is a requirement, pull model (indexers) must be used to load an index.
 
-   If vector fields are added to the index schema, which subsequently loads the vector data for indexing, vector search can be enabled by [indexing that vector data](/azure/search/vector-search-how-to-create-index). Vector data can be generated via Azure OpenAI embeddings.
+   If vector fields are added to the index schema, which loads the vector data for indexing, vector search can be enabled by [indexing that vector data](/azure/search/vector-search-how-to-create-index). Vector data can be generated via Azure OpenAI embeddings.
 
 Query and retrieval:
 
 1. A user sends a query via a user application.
 
-1. The query is passed to Azure Cognitive Search via the [search documents REST API](/rest/api/searchservice/search-documents). The query type can be [simple](/azure/search/search-query-simple-examples), which is optimal for full-text search, or [full](/azure/search/search-query-lucene-examples), which is for advanced query constructs like regular expressions, fuzzy and wild card search, and proximity search. If the query type is set to semantic, a [semantic search](/azure/search/semantic-search-overview) is performed on the documents and the relevant content is retrieved. Azure Cognitive Search also supports [vector search](/azure/search/vector-search-overview) and [hybrid search](/azure/search/vector-search-ranking#hybrid-search), which requires the user query to be converted to vector embeddings.
+1. The query is passed to Azure Cognitive Search via the [search documents REST API](/rest/api/searchservice/search-documents). The query type can be [simple](/azure/search/search-query-simple-examples), which is optimal for full-text search, or [full](/azure/search/search-query-lucene-examples), which is for advanced query constructs like regular expressions, fuzzy and wild card search, and proximity search. If the query type is set to semantic, a [semantic search](/azure/search/semantic-search-overview) is performed on the documents, and the relevant content is retrieved. Azure Cognitive Search also supports [vector search](/azure/search/vector-search-overview) and [hybrid search](/azure/search/vector-search-ranking#hybrid-search), which requires the user query to be converted to vector embeddings.
 
 1. The retrieved content and the system prompt are sent to the Azure OpenAI language model, like [GPT-3.5 Turbo or GPT-4](/azure/cognitive-services/openai/how-to/chatgpt).
 
@@ -80,7 +80,7 @@ If the data source isn't supported, you can use the [push model](/azure/search/t
 Index creation:
 
 1. If the document to be ingested must be translated, [Azure Translator](/azure/ai-services/translator/translator-overview) can be used.
-1. If the document is in a non-searchable format, like a PDF or image, [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) can be used to extract text.
+1. If the document is in a nonsearchable format, like a PDF or image, [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) can be used to extract text.
 1. The extracted text can be vectorized via Azure OpenAI embeddings [vector search](/azure/search/vector-search-overview), and the data can be pushed to an Azure Cognitive Search index via a [Rest API](/rest/api/searchservice/AddUpdate-or-Delete-Documents) or an [Azure SDK](/azure/search/search-get-started-text).
 
 Query and retrieval:
