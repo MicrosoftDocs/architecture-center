@@ -5,10 +5,9 @@ This article demonstrates how to contextualize data by looking up relevant conte
 ## Architecture
 
 :::image type="content" source="media/data-contextualization.png" alt-text="Diagram that shows an architecture for data contextualization." lightbox="media/data-contextualization.png" border="false":::
-
 *Download a [Visio file](https://arch-center.azureedge.net/data-contextualization.vsdx) of this architecture.*
 
-In this architecture, data stored in Delta Lake in the silver layer is read incrementally, contextualized based on a graph lookup, and merged into another Delta Lake instance in the gold layer. The same data can be stored to Azure SQL Database as data mart if other system requires it.
+In this architecture, data stored in Delta Lake in the silver layer is read incrementally, contextualized based on a graph lookup, and merged into another Delta Lake instance in the gold layer. That data can be stored as a data mart in SQL Database if another system requires it.
 
 ### Dataflow
 
@@ -18,16 +17,16 @@ The following dataflow corresponds to the preceding diagram:
 1. The incoming data is incrementally loaded into Azure Databricks.
 1. Contextual information is retrieved from a graph database.
 1. The incoming data is contextualized.
-1. (Optionally), the contextualized data is merged into the corresponding table in Azure SQL Database.
+1. Optionally, the contextualized data is merged into the corresponding table in SQL Database.
 1. The contextualized data is appended into the corresponding Delta table in the gold layer.
 
 ### Components
 
 * [Azure Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) is a scalable data lake for high-performance analytics workloads. In this solution, it stores input data and contextualized data in Delta tables.
 * [Azure Databricks](https://azure.microsoft.com/products/databricks) is a unified set of tools for building, deploying, sharing, and maintaining enterprise-grade data solutions at scale. In this solution, it provides the platform on which Python notebook files are used to contextualize data.
-* [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is an always-up-to-date, fully managed relational database service that's built for the cloud. In this solution, it stores a graph data and contextualized data.
+* [SQL Database](https://azure.microsoft.com/products/azure-sql/database) is an always-up-to-date, fully managed relational database service that's built for the cloud. In this solution, it stores graph data and contextualized data.
 
-### Graph Database Alternatives
+### Graph database alternatives
 
 Many other graph databases are available. For more information, see:
 
@@ -37,10 +36,10 @@ Many other graph databases are available. For more information, see:
 - [RedisGraph](https://redis.io/docs/stack/graph/)
 - [Apache Age for PostgreSQL](https://age.apache.org/age-manual/master/intro/overview.html)
 
-There are pros and cons associated with each of these products and services. Some of them are Azure managed services, and some aren't. This architecture uses Azure SQL Database Graph capability, because:
+There are pros and cons associated with each of these products and services. Some of them are Azure managed services, and some aren't. This architecture uses SQL Database, because:
 
 * It's an Azure-managed relational database service that has graph capabilities.
-* It's easy to get started if you're familiar with Azure SQL Database and SQL Server.
+* It's easy to get started if you're familiar with SQL Database and SQL Server.
 * Solutions often benefit from the use of Transact-SQL in parallel. SQL Database graph relationships are integrated into Transact-SQL.
 
 ## Scenario details
@@ -49,16 +48,16 @@ There are pros and cons associated with each of these products and services. Som
 
 This solution is based on the Databricks [medallion architecture](https://www.databricks.com/glossary/medallion-architecture). In this design pattern, data is logically organized in various layers. The goal is to incrementally and progressively improve the structure and quality of the data as it moves from one layer to the next.
 
-For simplicity, this architecture has only two layers: 
+For simplicity, this architecture has only two layers:
 
 - The silver layer stores the input data.
 - The gold layer stores the contextualized data.
 
 The data in the silver layer is stored in [Delta Lake](https://docs.databricks.com/delta/index.html) and exposed as Delta tables.
 
-### Incremental data load 
+### Incremental data load
 
-This solution implements incremental data processing, so only data that has been modified or added since the previous run is processed. Incremental data load is typical in batch processing because it helps keep data processing fast and economical. 
+This solution implements incremental data processing, so only data that has been modified or added since the previous run is processed. Incremental data load is typical in batch processing because it helps keep data processing fast and economical.
 
 For more information, see [incremental data load](#incremental-data-load-1).
 
@@ -72,11 +71,11 @@ The solution uses Azure Databricks for the data contextualization process.
 
 ### Graph database
 
-The graph database is the database that stores the graph data/models. As noted earlier, there are many graph databases available. In this solution, we use Azure SQL Database and the [graph capabilities of SQL Server](/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver16) to create the graph.
+The graph database is the database that stores the graph data and models. As noted earlier, there are many graph databases available. In this solution, SQL Database and the [graph capabilities of SQL Server](/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver16) are used to create the graph.
 
 ### Optional data mart
 
-In this architecture, [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) is used to store the contextualized data as a data mart, but you can use any storage option. To ensure idempotent processing, the data is merged into the system rather than appended. The reason why you may need separate data marts in addition to the Delta Lake in the gold layer varies, such as integration system requirements, security, performance, cost, etc.
+In this architecture, [SQL Database](/azure/azure-sql/database/sql-database-paas-overview) is used to store the contextualized data as a data mart, but you can use any storage option. To ensure idempotent processing, the data is merged into the system rather than appended. In addition to Delta Lake in the gold layer, you might need to separate data marts due to integration system requirements, security, performance, cost, or other reasons.
 
 ### Contoso scenario
 
@@ -217,7 +216,7 @@ Enabling change data feed doesn't have a significant effect on system performanc
 ### Potential use cases
 
 * A manufacturing solution provider wants to continuously contextualize the data and events that are provided by its customers. Because the context information is too complicated to represent in relational tables, the company uses graph models for data contextualization.
-* A process engineer in a factory needs to troubleshoot a problem with factory equipment. The graph model stores all data, directly or indirectly related, from troubleshooting equipment to get information for root cause analysis. 
+* A process engineer in a factory needs to troubleshoot a problem with factory equipment. The graph model stores all data, directly or indirectly related, from troubleshooting equipment to get information for root cause analysis.
 
 ## Considerations
 
@@ -227,36 +226,36 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-For this scenario, you need to consider the security of data at rest (that is, data that's stored in Azure Data Lake Storage, Azure SQL Database, and Azure Databricks) and data that's in transit between the storage solutions.
+For this scenario, you need to consider the security of data at rest (that is, data that's stored in Data Lake Storage, SQL Database, and Azure Databricks) and data that's in transit between the storage solutions.
 
-For Azure Data Lake Storage:
+For Data Lake Storage:
 
 * Azure Storage service-side encryption (SSE) is enabled to help protect data at rest.
-* Use managed identity and role-based access control (RBAC) if data is accessed via supported Azure Resources.
-* If managed identity is not supported, you should use shared access signature (SAS) to restrict access and permissions to data. Use HTTPS to protect data in transit.
-* See [Azure security baseline for Storage](/security/benchmark/azure/baselines/storage-security-baseline) for more inforamtion.
+* Use managed identity and role-based access control (RBAC) if data is accessed via supported Azure resources.
+* If managed identity is not supported, use shared access signature (SAS) to restrict access and permissions to data. Use HTTPS to protect data in transit.
+* For more information, see [Azure security baseline for Storage](/security/benchmark/azure/baselines/storage-security-baseline).
 
-For Azure SQL Database:
+For SQL Database:
 
 * Use managed identity and RBAC to limit access to specific operations and resources within a database.
-* If you access it by username and password, then use strong passwords to access Azure SQL Database. Save passwords in Azure Key Vault.
-* Enable TLS to help secure in-transit data between Azure SQL Database and Azure Databricks.
+* If you access it by username and password, then use strong passwords to access SQL Database. Save passwords in Azure Key Vault.
+* Enable TLS to help secure in-transit data between SQL Database and Azure Databricks.
 * See [Azure security baseline for Azure SQL](/security/benchmark/azure/baselines/azure-sql-security-baseline) for more information.
 
 For Azure Databricks:
 
 * Use RBAC.
 * Enable Azure Monitor to monitor your Azure Databricks workspace for unusual activity. Enable logging to track user activity and security events.
-* To provide a layer of protection for data in transit, enable TLS for the JDBC connection to Azure SQL Database.
+* To provide a layer of protection for data in transit, enable TLS for the JDBC connection to SQL Database.
 * See [Azure security baseline for Azure Databricks](/security/benchmark/azure/baselines/azure-databricks-security-baseline) for more information.
 
-In your production environment, put these resources into an [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) that isolates them from the public internet to reduce the attack surface and help protect against data exfiltration.
+In your production environment, put these resources into an [Azure virtual network](/azure/virtual-network/virtual-networks-overview) that isolates them from the public internet to reduce the attack surface and help protect against data exfiltration.
 
 ### Cost optimization
 
 Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-Cost optimization for Azure SQL Database:
+Cost optimization for SQL Database:
 
 * Because solution performance isn't a goal for this architecture, it uses the lowest pricing tier that meets requirements.
 * You should use the serverless compute tier, which is billed per second based on the number of compute cores that are used.
@@ -271,33 +270,34 @@ For more information about the cost of this scenario, see [this monthly cost est
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors: 
+Principal authors:
 
-- [Hong Bu](https://www.linkedin.com/in/hongbu/) | Senior Program Manager
-- [Chenshu Cai](https://www.linkedin.com/in/chenshu-cai-703481170/) | Software Engineer
-- [Anuj Parashar](https://www.linkedin.com/in/promisinganuj/) | Senior Data Engineer
-- [Bo Wang](https://www.linkedin.com/in/bo-wang-67755673/) | Software Engineer
-- [Gary Wang](https://www.linkedin.com/in/gang-gary-wang/) | Principal Software Engineer
-- [Kenichiro Nakamura](https://www.linkedin.com/in/kenakamu108/) | Senior Software Engineer
+- [Hong Bu](https://www.linkedin.com/in/hongbu) | Senior Program Manager
+- [Chenshu Cai](https://www.linkedin.com/in/chenshu-cai-703481170) | Software Engineer
+- [Kenichiro Nakamura](https://www.linkedin.com/in/kenakamu108) | Senior Software Engineer
+- [Anuj Parashar](https://www.linkedin.com/in/promisinganuj) | Senior Data Engineer
+- [Bo Wang](https://www.linkedin.com/in/bo-wang-67755673) | Software Engineer
+- [Gary Wang](https://www.linkedin.com/in/gang-gary-wang) | Principal Software Engineer
+
 
 Other contributor:
 
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
 * [What is Azure Cosmos DB for Apache Gremlin?](/azure/cosmos-db/gremlin/introduction)
-* [The Leading Graph Data Platform on Microsoft Azure](https://neo4j.com/partners/microsoft/)
-* [Graph processing with SQL Server and Azure SQL Database](/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver16)
-* [Use Delta Lake change data feed on Azure Databricks](/azure/databricks/delta/delta-change-data-feed) 
-* [How to Simplify CDC With Delta Lake's Change Data Feed](https://www.databricks.com/blog/2021/06/09/how-to-simplify-cdc-with-delta-lakes-change-data-feed.html)
-* [PostgreSQL Graph Search Practices - 10 Billion-Scale Graph with Millisecond Response](https://www.alibabacloud.com/blog/postgresql-graph-search-practices---10-billion-scale-graph-with-millisecond-response_595039)
+* [The leading graph data platform on Microsoft Azure](https://neo4j.com/partners/microsoft/)
+* [Graph processing with SQL Server and SQL Database](/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver16)
+* [Use Delta Lake change data feed on Azure Databricks](/azure/databricks/delta/delta-change-data-feed)
+* [How to simplify CDC with Delta Lake's change data feed](https://www.databricks.com/blog/2021/06/09/how-to-simplify-cdc-with-delta-lakes-change-data-feed.html)
+* [PostgreSQL graph search practices - 10-billion-scale graph with millisecond response](https://www.alibabacloud.com/blog/postgresql-graph-search-practices---10-billion-scale-graph-with-millisecond-response_595039)
+* [Azure security baseline for Azure Databricks](/security/benchmark/azure/baselines/azure-databricks-security-baseline)
 
 ## Related resources
 
-- [Azure security baseline for Azure Databricks](/security/benchmark/azure/baselines/azure-databricks-security-baseline?toc=https%3A%2F%2Freview.learn.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.learn.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Fbread%2Ftoc.json&branch=main)
-- [Databases architecture design](/azure/architecture/data-guide/databases-architecture-design?branch=main)
+* [Databases architecture design](/azure/architecture/data-guide/databases-architecture-design?branch=main)
