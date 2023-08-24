@@ -231,14 +231,14 @@ For this scenario, you need to consider the security of data at rest (that is, d
 For Data Lake Storage:
 
 * Azure Storage service-side encryption (SSE) is enabled to help protect data at rest.
-* Use managed identity and role-based access control (RBAC) if data is accessed via supported Azure resources.
-* If managed identity is not supported, use shared access signature (SAS) to restrict access and permissions to data. Use HTTPS to protect data in transit.
+* Use a managed identity and role-based access control (RBAC) if data is accessed via supported Azure resources.
+* If a managed identity is not supported, use shared access signature (SAS) to restrict access and permissions to data. Use HTTPS to protect data in transit.
 * For more information, see [Azure security baseline for Storage](/security/benchmark/azure/baselines/storage-security-baseline).
 
 For SQL Database:
 
-* Use managed identity and RBAC to limit access to specific operations and resources within a database.
-* If you access it by username and password, then use strong passwords to access SQL Database. Save passwords in Azure Key Vault.
+* Use a managed identity and RBAC to limit access to specific operations and resources within a database.
+* If you access SQL Database by using a sign-in, use a strong password. Save passwords in Azure Key Vault.
 * Enable TLS to help secure in-transit data between SQL Database and Azure Databricks.
 * See [Azure security baseline for Azure SQL](/security/benchmark/azure/baselines/azure-sql-security-baseline) for more information.
 
