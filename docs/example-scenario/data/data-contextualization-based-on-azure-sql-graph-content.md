@@ -8,28 +8,28 @@ This article demonstrates how to contextualize data by looking up relevant conte
 
 *Download a [Visio file](https://arch-center.azureedge.net/data-contextualization.vsdx) of this architecture.*
 
-In this architecture, data stored in Delta Lake in the silver layer is read incrementally, contextualized based on a graph lookup, and merged into Azure SQL Database and another Delta Lake instance in the gold layer.
+In this architecture, data stored in Delta Lake in the silver layer is read incrementally, contextualized based on a graph lookup, and merged into another Delta Lake instance in the gold layer. The same data can be stored to Azure SQL Database as data mart if other system requires it.
 
 ### Dataflow
 
 The following dataflow corresponds to the preceding diagram:
 
 1. The incoming data that needs to be contextualized is appended into the Delta table in the silver layer.
-2. The incoming data is incrementally loaded into Azure Databricks.
-3. Contextual information is retrieved from a graph database.
-4. The incoming data is contextualized.
-5. The contextualized data is merged into the corresponding table in SQL Database.
-6. Optionally, the contextualized data is appended into the corresponding Delta table in the gold layer.
+1. The incoming data is incrementally loaded into Azure Databricks.
+1. Contextual information is retrieved from a graph database.
+1. The incoming data is contextualized.
+1. (Optionally), the contextualized data is merged into the corresponding table in Azure SQL Database.
+1. The contextualized data is appended into the corresponding Delta table in the gold layer.
 
 ### Components
 
 * [Azure Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) is a scalable data lake for high-performance analytics workloads. In this solution, it stores input data and contextualized data in Delta tables.
 * [Azure Databricks](https://azure.microsoft.com/products/databricks) is a unified set of tools for building, deploying, sharing, and maintaining enterprise-grade data solutions at scale. In this solution, it provides the platform on which Python notebook files are used to contextualize data.
-* [SQL Database](https://azure.microsoft.com/products/azure-sql/database) is an always-up-to-date, fully managed relational database service that's built for the cloud. In this solution, it stores a graph database and contextualized data.
+* [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is an always-up-to-date, fully managed relational database service that's built for the cloud. In this solution, it stores a graph data and contextualized data.
 
-### Alternatives
+### Graph Database Alternatives
 
-Many graph databases are available. For more information, see:
+Many other graph databases are available. For more information, see:
 
 - [Graph processing with SQL Database](/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver16)
 - [Azure Cosmos DB for Apache Gremlin](/azure/cosmos-db/gremlin/)
@@ -37,10 +37,10 @@ Many graph databases are available. For more information, see:
 - [RedisGraph](https://redis.io/docs/stack/graph/)
 - [Apache Age for PostgreSQL](https://age.apache.org/age-manual/master/intro/overview.html)
 
-There are pros and cons associated with each of these products and services. Some of them are Azure managed services, and some aren't. This architecture uses SQL Database, because:
+There are pros and cons associated with each of these products and services. Some of them are Azure managed services, and some aren't. This architecture uses Azure SQL Database Graph capability, because:
 
 * It's an Azure-managed relational database service that has graph capabilities.
-* It's easy to get started if you're familiar with SQL Server or SQL Database.
+* It's easy to get started if you're familiar with Azure SQL Database and SQL Server.
 * Solutions often benefit from the use of Transact-SQL in parallel. SQL Database graph relationships are integrated into Transact-SQL.
 
 ## Scenario details
@@ -72,11 +72,11 @@ The solution uses Azure Databricks for the data contextualization process.
 
 ### Graph database
 
-The graph database is the database that stores the graph models. As noted earlier, there are many graph databases available. In this solution, the [graph capabilities of SQL Server](/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver16) are used to create the graph.
+The graph database is the database that stores the graph data/models. As noted earlier, there are many graph databases available. In this solution, we use Azure SQL Database and the [graph capabilities of SQL Server](/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver16) to create the graph.
 
-### SQL Database
+### Optional data mart
 
-In this architecture, [SQL database](/azure/azure-sql/database/sql-database-paas-overview) is used to store the contextualized data, but you can use any storage option. To ensure idempotent processing, the data is merged into the system rather than appended.
+In this architecture, [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) is used to store the contextualized data as a data mart, but you can use any storage option. To ensure idempotent processing, the data is merged into the system rather than appended. The reason why you may need separate data marts in addition to the Delta Lake in the gold layer varies, such as integration system requirements, security, performance, cost, etc.
 
 ### Contoso scenario
 
@@ -227,39 +227,43 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-For this scenario, you need to consider the security of data at rest (that is, data that's stored in Data Lake Storage, SQL Database, and Azure Databricks) and data that's in transit between the storage solutions.
+For this scenario, you need to consider the security of data at rest (that is, data that's stored in Azure Data Lake Storage, Azure SQL Database, and Azure Databricks) and data that's in transit between the storage solutions.
 
-For Data Lake Storage:
+For Azure Data Lake Storage:
 
 * Azure Storage service-side encryption (SSE) is enabled to help protect data at rest.
-* You should use shared access signature (SAS) to restrict access and permissions to data. Use HTTPS to protect data in transit.
+* Use managed identity and role-based access control (RBAC) if data is accessed via supported Azure Resources.
+* If managed identity is not supported, you should use shared access signature (SAS) to restrict access and permissions to data. Use HTTPS to protect data in transit.
+* See [Azure security baseline for Storage](/security/benchmark/azure/baselines/storage-security-baseline) for more inforamtion.
 
-For SQL Database:
+For Azure SQL Database:
 
-* Use role-based access control (RBAC) to limit access to specific operations and resources within a database.
-* Use strong passwords to access SQL Database. Save passwords in Azure Key Vault.
-* Enable TLS to help secure in-transit data between SQL Database and Azure Databricks.
+* Use managed identity and RBAC to limit access to specific operations and resources within a database.
+* If you access it by username and password, then use strong passwords to access Azure SQL Database. Save passwords in Azure Key Vault.
+* Enable TLS to help secure in-transit data between Azure SQL Database and Azure Databricks.
+* See [Azure security baseline for Azure SQL](/security/benchmark/azure/baselines/azure-sql-security-baseline) for more information.
 
 For Azure Databricks:
 
 * Use RBAC.
 * Enable Azure Monitor to monitor your Azure Databricks workspace for unusual activity. Enable logging to track user activity and security events.
-* To provide a layer of protection for data in transit, enable TLS for the JDBC connection to SQL Database.
+* To provide a layer of protection for data in transit, enable TLS for the JDBC connection to Azure SQL Database.
+* See [Azure security baseline for Azure Databricks](/security/benchmark/azure/baselines/azure-databricks-security-baseline) for more information.
 
-In your production environment, put these resources into an Azure virtual network that isolates them from the public internet to reduce the attack surface and help protect against data exfiltration.
+In your production environment, put these resources into an [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) that isolates them from the public internet to reduce the attack surface and help protect against data exfiltration.
 
 ### Cost optimization
 
 Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-Cost optimization for SQL Database:
+Cost optimization for Azure SQL Database:
 
 * Because solution performance isn't a goal for this architecture, it uses the lowest pricing tier that meets requirements.
 * You should use the serverless compute tier, which is billed per second based on the number of compute cores that are used.
 
 Cost optimization for Azure Databricks:
 
-* Use the All-Purpose Compute workload and the Premium tier. Choose the instance type  that meets your workload requirements while minimizing costs.
+* Use the All-Purpose Compute workload and the Premium tier. Choose the instance type that meets your workload requirements while minimizing costs.
 * Use autoscaling to scale the number of nodes based on workload demand.
 * Turn off clusters when they aren't in use.
 
@@ -276,6 +280,7 @@ Principal authors:
 - [Anuj Parashar](https://www.linkedin.com/in/promisinganuj/) | Senior Data Engineer
 - [Bo Wang](https://www.linkedin.com/in/bo-wang-67755673/) | Software Engineer
 - [Gary Wang](https://www.linkedin.com/in/gang-gary-wang/) | Principal Software Engineer
+- [Kenichiro Nakamura](https://www.linkedin.com/in/kenakamu108/) | Senior Software Engineer
 
 Other contributor:
 
