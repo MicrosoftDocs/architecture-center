@@ -7,7 +7,7 @@ This article describes how to use [Azure OpenAI Service](/azure/ai-services/open
 > [!NOTE]
 > In Azure Cognitive Search, the [semantic search](/azure/search/semantic-search-overview) and [vector search](/azure/search/vector-search-overview) features are currently in public preview.
 
-## Architecture: Embeddings approach
+## Architecture: Embedding approach
 
 :::image type="content" source="../media/embedding-approach.svg" alt-text="Diagram that shows the embeddings approach." lightbox="../media/embedding-approach.svg" border="false":::
 *Download a [Visio file](https://arch-center.azureedge.net/search-and-query.vsdx) of this architecture.*
