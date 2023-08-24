@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Search and query an enterprise knowledge base by using Azure OpenAI and Azure Cognitive Search
+  title: Search and query an enterprise knowledge base by using Azure OpenAI or Azure Cognitive Search
   titleSuffix: Azure Architecture Center
-  description: Learn how to extract insights from customer conversations at a call center by using Azure AI services and Azure OpenAI Service.
+  description: Learn how to use Azure OpenAI and Azure Cognitive Search to search documents in your enterprise data and retrieve results.
   author: DixitArora-MSFT
   ms.author: dixitaro, jyravi  
   ms.date: 08/24/2023
@@ -18,8 +18,8 @@ products:
   - azure-cognitive-search
   - azure-language-understanding
   - document-intelligence
-name: Search and query an enterprise knowledge base by using Azure OpenAI and Azure Cognitive Search
-summary: Learn how to extract insights from customer conversations at a call center by using Azure AI services and Azure OpenAI Service.
+name: Search and query an enterprise knowledge base by using Azure OpenAI or Azure Cognitive Search
+summary: Learn how to use Azure OpenAI and Azure Cognitive Search to search documents in your enterprise data and retrieve results.
 thumbnailUrl: /azure/architecture/browse/thumbs/call-center-analytics.png
 content: |
    [!include[](search-and-query-using-openai-service.md)]
