@@ -1,4 +1,4 @@
-This article describes how to use [Azure OpenAI Service](/azure/ai-services/openai/overview) or [Azure Cognitive Search](/azure/search/search-what-is-azure-search) to search documents in your enterprise data and retrieve results to provide a question and answer or ChatGPT-style experience. This solution describes two approaches:
+This article describes how to use [Azure OpenAI Service](/azure/ai-services/openai/overview) or [Azure Cognitive Search](/azure/search/search-what-is-azure-search) to search documents in your enterprise data and retrieve results to provide a ChatGPT-style question and answer experience. This solution describes two approaches:
 
 - **Embeddings approach:** Use the Azure OpenAI embedding model to create vectorized data. Vector search is a technique that significantly increases the semantic relevance of search results.
 
@@ -45,7 +45,7 @@ Query and retrieval:
 
 Index creation:
 
-1. In this flow, [a search index](/azure/search/search-how-to-create-search-index) will be created in [Azure Cognitive Search](/azure/search/search-what-is-azure-search) on the documents in the Blob Storage. Since Blob Storage is a [source supported](/azure/search/search-indexer-overview#supported-data-sources) by Azure Cognitive Search, the content will be crawled using the [pull model](/azure/search/search-indexer-overview) and the capability is implemented through [indexers](/azure/search/search-indexer-overview).
+1. [Azure Cognitive Search](/azure/search/search-what-is-azure-search) is used to create [a search index](/azure/search/search-how-to-create-search-index) of the documents in Blob Storage. Blob Storage is a [service that’s supported](/azure/search/search-indexer-overview#supported-data-sources) by Azure Cognitive Search, so the [pull model](/azure/search/search-indexer-overview) is used to crawl the content, and the capability is implemented through [indexers](/azure/search/search-indexer-overview).
 
    > [!NOTE]
    > Other [data sources](/azure/search/search-data-sources-gallery) are supported by Azure Cognitive Search for indexing using the pull model. You can also index documents from [multiple data sources](/azure/search/tutorial-multiple-data-sources) into a single consolidated index.
@@ -66,15 +66,17 @@ Query and retrieval:
 
 ## Architecture: Azure Cognitive Search push approach
 
+If the data source isn't supported, you can use the [push model](/azure/search/tutorial-optimize-indexing-push-api) to upload the data to [Azure Cognitive Search](/azure/search/search-what-is-azure-search).
+
 :::image type="content" source="{source}" alt-text="{alt-text}" lightbox="" border="false":::
 
 Index creation:
 
-1. If the data source isn't supported, you can use the [push model](/azure/search/tutorial-optimize-indexing-push-api) to upload the data to [Azure Cognitive Search](/azure/search/search-what-is-azure-search). If the document must be translated, [Azure Translator](/azure/ai-services/translator/translator-overview) can be used to translate. If the document is in an unsearchable format, like PDF or image, [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) can be used to extract text. The extracted text can be vectorized via Azure OpenAI embeddings [vector search](/azure/search/vector-search-overview) and the data can be pushed to Azure Cognitive Search index via [Rest API](/rest/api/searchservice/AddUpdate-or-Delete-Documents) or [Azure SDKs](/azure/search/search-get-started-text).
+1. If the document to be ingested must be translated, [Azure Translator](/azure/ai-services/translator/translator-overview) can be used to translate. If the document is in an unsearchable format, like PDF or image, [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) can be used to extract text. The extracted text can be vectorized via Azure OpenAI embeddings [vector search](/azure/search/vector-search-overview), and the data can be pushed to Azure Cognitive Search index via a [Rest API](/rest/api/searchservice/AddUpdate-or-Delete-Documents) or an [Azure SDK](/azure/search/search-get-started-text).
 
 Query and retrieval:
 
-The query and retrieval in this approach is the same as the previous pull approach.
+The query and retrieval in this approach is the same as the pull approach earlier in this article.
 
 ### Components
 
@@ -103,11 +105,8 @@ Depending on your scenario, you can add the following workflows.
 - You can use any database for persistent storage of the extracted embeddings, including:
 
   - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database)
-
   - [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db)
-
   - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql)
-
   - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql)
 
 ## Scenario details
@@ -120,7 +119,7 @@ Organizations already have their own knowledge base of information, which can be
 
 ### Potential use cases
 
-This solution provides value to organizations in industries like pharmaceutical companies and financial services. It applies to any company that has a large number of documents with embedded information. This AI-powered end-to-end search solution can be used to extract meaningful information from the documents based on the user query to provide a ChatGPT-style QnA experience.
+This solution provides value to organizations in industries like pharmaceutical companies and financial services. It applies to any company that has a large number of documents with embedded information. This AI-powered end-to-end search solution can be used to extract meaningful information from the documents based on the user query to provide a ChatGPT-style question and answer experience.
 
 ## Contributors
 
@@ -141,7 +140,7 @@ Principal authors:
 - [Introduction to Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
 - [What is Azure AI Language?](/azure/ai-services/language-service/overview)
 - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
-- [QnA Maker client library](/azure/ai-services/qnamaker/quickstarts/quickstart-sdk)
+- [Azure QnA Maker client library](/azure/ai-services/qnamaker/quickstarts/quickstart-sdk)
 - [Create, train, and publish your QnA Maker knowledge base](/azure/ai-services/qnamaker/quickstarts/create-publish-knowledge-base)
 - [What is question answering?](/azure/ai-services/language-service/question-answering/overview)
 
