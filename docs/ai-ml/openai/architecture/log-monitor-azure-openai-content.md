@@ -2,7 +2,7 @@ This solution provides comprehensive logging and monitoring and enhanced securit
 
 ## Architecture
 
-:::image type="content" source="media/openai-monitor-log.png" alt-text="Diagram that shows an architecture that provides monitoring and logging for Azure OpenAI." lightbox="media/openai-monitor-log.png" border="false":::
+:::image type="content" source="_images/openai-monitor-log.png" alt-text="Diagram that shows an architecture that provides monitoring and logging for Azure OpenAI." lightbox="_images/openai-monitor-log.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-openai-monitor-log.vsdx) of this architecture.*
  
@@ -83,7 +83,7 @@ ApiManagementGatewayLogs
 
 Output:
 
-:::image type="content" source="media/monitor-usage.png" alt-text="Screenshot that shows the output of usage monitoring." lightbox="media/monitor-usage.png":::
+:::image type="content" source="_images/monitor-usage.png" alt-text="Screenshot that shows the output of usage monitoring." lightbox="_images/monitor-usage.png":::
 
 **Example query for prompt usage monitoring**
 
@@ -97,7 +97,7 @@ ApiManagementGatewayLogs
 
 Output: 
 
-:::image type="content" source="media/prompt-usage.png" alt-text="Screenshot that shows the output of prompt usage monitoring." lightbox="media/prompt-usage.png":::
+:::image type="content" source="_images/prompt-usage.png" alt-text="Screenshot that shows the output of prompt usage monitoring." lightbox="_images/prompt-usage.png":::
 
 
 ### Potential use cases
@@ -159,6 +159,6 @@ Other contributors:
 
 ## Related resources
 
-- [Protect APIs with Azure Application Gateway and Azure API Management](../../web-apps/api-management/architectures/protect-apis.yml)
+- [Protect APIs with Azure Application Gateway and Azure API Management](../../../web-apps/api-management/architectures/protect-apis.yml)
 - [Query-based document summarization](/azure/architecture/ai-ml/guide/query-based-summarization)
-- [AI architecture design](../../data-guide/big-data/ai-overview.md)
+- [AI architecture design](../../../data-guide/big-data/ai-overview.md)

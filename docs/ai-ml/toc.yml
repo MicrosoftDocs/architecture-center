@@ -300,3 +300,5 @@ items:
         items:      
         - name: Extract and analyze call center data
           href: openai/architecture/call-center-openai-analytics.yml
+        - name: Monitor OpenAI models
+          href: openai/architecture/log-monitor-azure-openai.yml          
