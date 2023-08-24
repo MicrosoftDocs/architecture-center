@@ -3399,6 +3399,11 @@
       "source_path": "docs/solution-ideas/articles/azure-machine-learning-solution-architecture.yml",
       "redirect_url": "/azure/architecture/ai-ml/idea/azure-machine-learning-solution-architecture",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/ai/call-center-openai-analytics.yml",
+      "redirect_url": "/azure/architecture/ai-ml/openai/architecture/call-center-openai-analytics",
+      "redirect_document_id": true
     }
   ]
 }

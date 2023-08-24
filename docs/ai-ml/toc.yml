@@ -294,3 +294,9 @@ items:
             href: ../data-science-process/deploy-models-in-production.md
           - name: Build and deploy a model using Azure Synapse Analytics
             href: ../data-science-process/sqldw-walkthrough.md
+    - name: OpenAI
+      items: 
+      - name: Architectures 
+        items:      
+        - name: Extract and analyze call center data
+          href: openai/architecture/call-center-openai-analytics.yml

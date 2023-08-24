@@ -2,7 +2,7 @@ This article describes how to extract insights from customer conversations at a 
 
 ## Architecture
 
-:::image type="content" source="./media/call-center-analytics.svg" alt-text="Diagram that shows the call center AI architecture." border="false" lightbox="./media/call-center-analytics.svg":::
+:::image type="content" source="_images/call-center-analytics.svg" alt-text="Diagram that shows the call center AI architecture." border="false" lightbox="_images/call-center-analytics.svg":::
 *Download a [PowerPoint file](https://arch-center.azureedge.net/call-center-analytics.pptx) of this architecture.*
 
 ## Dataflow
