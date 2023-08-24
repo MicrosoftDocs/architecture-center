@@ -9,7 +9,7 @@ This article describes how to use [Azure OpenAI Service](/azure/ai-services/open
 
 ## Architecture: Embeddings approach
 
-:::image type="content" source="../media/embedding-approach.svg" alt-text="{alt-text}" lightbox="../media/embedding-approach.svg" border="false":::
+:::image type="content" source="../media/embedding-approach.svg" alt-text="Diagram that shows the embeddings approach." lightbox="../media/embedding-approach.svg" border="false":::
 *Download a [Visio file](https://arch-center.azureedge.net/search-and-query.vsdx) of this architecture.*
 
 ### Dataflow
@@ -42,7 +42,7 @@ Query and retrieval:
 
 ## Architecture: Azure Cognitive Search pull approach
 
-:::image type="content" source="../media/pull-approach.svg" alt-text="{alt-text}" lightbox="../media/pull-approach.svg" border="false":::
+:::image type="content" source="../media/pull-approach.svg" alt-text="Diagram that shows the pull approach." lightbox="../media/pull-approach.svg" border="false":::
 *Download a [Visio file](https://arch-center.azureedge.net/search-and-query.vsdx) of this architecture.*
 
 Index creation:
@@ -52,7 +52,7 @@ Index creation:
    > [!NOTE]
    > Azure Cognitive Search supports other [data sources](/azure/search/search-data-sources-gallery) for indexing when using the pull model. Documents can also be indexed from [multiple data sources](/azure/search/tutorial-multiple-data-sources) and consolidated into a single index.
 
-1. If certain scenarios require translation of documents, [Azure Translator](/azure/search/cognitive-search-skill-text-translation) can be used, which is a feature that's included in the built-in skill. 
+1. If certain scenarios require translation of documents, [Azure Translator](/azure/search/cognitive-search-skill-text-translation) can be used, which is a feature that's included in the built-in skill.
 
 1. If the documents are nonsearchable, like scanned PDFs or images, AI can be applied by using [built-in](/azure/search/cognitive-search-predefined-skills) or [custom](/azure/search/cognitive-search-custom-skill-interface) skills as skillsets in Azure Cognitive Search. Applying AI over content that isn't full-text searchable is called [AI enrichment](/azure/search/cognitive-search-concept-intro). Depending on the requirement, [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/overview) can be used as a custom skill to extract text from PDFs or images via [document analysis models](/azure/ai-services/document-intelligence/overview#document-analysis-models), [prebuilt models](/azure/ai-services/document-intelligence/overview#prebuilt-models), or [custom extraction](/azure/ai-services/document-intelligence/overview#custom-models) models.
 
@@ -74,7 +74,7 @@ Query and retrieval:
 
 If the data source isn't supported, you can use the [push model](/azure/search/tutorial-optimize-indexing-push-api) to upload the data to Azure Cognitive Search.
 
-:::image type="content" source="../media/push-approach.svg" alt-text="{alt-text}" lightbox="../media/push-approach.svg" border="false":::
+:::image type="content" source="../media/push-approach.svg" alt-text="Diagram that shows the push approach.s" lightbox="../media/push-approach.svg" border="false":::
 *Download a [Visio file](https://arch-center.azureedge.net/search-and-query.vsdx) of this architecture.*
 
 Index creation:
