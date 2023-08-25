@@ -17,7 +17,7 @@ Rocky is used in industries like food processing, manufacturing, pharmaceutical 
 
 ## Architecture
 
-:::image type="content" source="media/ansys-rocky/architecture.png" alt-text="Diagram that shows an architecture for deploying Ansys Rocky." lightbox="media/ansys-rocky/architecture.png" border="false":::
+:::image type="content" source="media/ansys-rocky/ansys-rocky-architecture.svg" alt-text="Diagram that shows an architecture for deploying Ansys Rocky." lightbox="media/ansys-rocky/ansys-rocky-architecture.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ansys-rocky.vsdx) of this
 architecture.*

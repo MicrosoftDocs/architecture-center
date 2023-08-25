@@ -178,7 +178,7 @@ Although the security considerations are not fully pertaining to multitenancy in
 - Use Azure RBAC to define the minimum required permissions that users or groups have to AKS resources in one or more subscriptions. For more information, see [Kubernetes RBAC](/azure/aks/operator-best-practices-identity#use-kubernetes-role-based-access-control-kubernetes-rbac) and [Use Azure RBAC for Kubernetes authorization](/azure/aks/manage-azure-rbac).
 - Consider using [Azure AD workload identity](/azure/aks/workload-identity-overview) to assign a managed identity for an Azure resource to individual microservices, which they can then use to access managed resources (such as Azure Key Vault, SQL Database, Service Bus, and Cosmos DB). All without the need to store and retrieve use connection strings or credentials from Kubernetes secrets.
 - Consider using the [Secret Store CSI Driver for Azure Key Vault](/azure/key-vault/general/key-vault-integrate-kubernetes) to access secrets, such as credentials and connections strings from Key Vault, rather than from Kubernetes secrets.
-- Consider using the [Dapr Secrets Stores](https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/) building block, with the [Azure Key Vault store with Managed Identities on Kubernetes](https://docs.dapr.io/developing-applications/integrations/azure/authenticating-azure/), to retrieve secrets (such as credentials and connection strings) from Key Vault.
+- Consider using the [Dapr Secrets Stores](https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/) building block, with the [Azure Key Vault store with Managed Identities on Kubernetes](https://docs.dapr.io/developing-applications/integrations/azure/azure-authentication/authenticating-azure/), to retrieve secrets (such as credentials and connection strings) from Key Vault.
 
 #### Workload and cluster
 
@@ -397,5 +397,5 @@ Principal authors:
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
 - [Microservices architecture on Azure Kubernetes Service (AKS)](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)
-- [CI/CD pipeline for container-based workloads](../apps/devops-with-aks.yml)
+- [CI/CD pipeline for container-based workloads](../../guide/aks/aks-cicd-github-actions-and-gitops.yml)
 - [Building a telehealth system on Azure](../apps/telehealth-system.yml)

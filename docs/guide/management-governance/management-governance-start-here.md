@@ -2,8 +2,8 @@
 title: Management and governance architecture design
 description: Get an overview of Azure management and governance technologies, guidance offerings, solution ideas, and reference architectures.
 author: martinekuan
-ms.author: architectures
-ms.date: 07/26/2022
+ms.author: robbag
+ms.date: 06/16/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -77,8 +77,9 @@ The following sections provide links to reference architectures in some key mana
 
 - [Build high availability into your BCDR strategy](../../solution-ideas/articles/build-high-availability-into-your-bcdr-strategy.yml)
 - [High availability and disaster recovery scenarios for IaaS apps](../../example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml)
-- [High availability enterprise deployment using App Service Environment](../../reference-architectures/enterprise-integration/ase-high-availability-deployment.yml)
-- [Highly available multi-region web application](../../reference-architectures/app-service-web-app/multi-region.yml)
+- [High availability enterprise deployment using App Service Environment](../../web-apps/app-service-environment/architectures/ase-high-availability-deployment.yml)
+- [Baseline zone-redundant web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml)
+- [Highly available multi-region web application](../../web-apps/app-service/architectures/multi-region.yml)
 - [Deploy highly available NVAs](../../reference-architectures/dmz/nva-ha.yml)
 - [Highly available SharePoint farm](../../solution-ideas/articles/highly-available-sharepoint-farm.yml)
 - [Run a highly available SharePoint Server 2016 farm in Azure](../../reference-architectures/sharepoint/index.yml)

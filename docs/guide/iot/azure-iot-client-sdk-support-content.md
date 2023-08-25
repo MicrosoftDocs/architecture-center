@@ -55,33 +55,24 @@ The following approach can be utilized in device applications built using the Az
 SAS tokens can be used via the *IOTHUB\_CLIENT\_CONFIG* structure by setting the
 *deviceSasToken* member to the token and making the *deviceKey* null. Other unused values, such as *protocolGatewayHostName*, must also be set to null.
 
-```
-CONFIG = (IOTHUB\_CLIENT\_CONFIG\*)MALLOC(SIZEOF (IOTHUB\_CLIENT\_CONFIG));
+```c
+IOTHUB_CLIENT_CONFIG* CONFIG = (IOTHUB_CLIENT_CONFIG*)malloc(sizeof(IOTHUB_CLIENT_CONFIG));
 
-CONFIG-\>PROTOCOL = PROTOCOL;
+CONFIG->PROTOCOL = PROTOCOL;
+CONFIG->DEVICEID = DEVICEID;
+CONFIG->IOTHUBNAME = IOTHUBNAME;
+CONFIG->IOTHUBSUFFIX = IOTHUBSUFFIX;
+CONFIG->DEVICEKEY = 0;
+CONFIG->DEVICESASTOKEN = TOKEN;
+CONFIG->PROTOCOLGATEWAYHOSTNAME = 0;
 
-CONFIG-\>DEVICEID = DEVICEID;
-
-CONFIG-\>IOTHUBNAME = IOTHUBNAME;
-
-CONFIG-\>IOTHUBSUFFIX = IOTHUBSUFFIX;
-
-CONFIG-\>DEVICEKEY = 0;
-
-CONFIG-\>DEVICESASTOKEN = TOKEN;
-
-CONFIG-\>PROTOCOLGATEWAYHOSTNAME = 0;
-`The created IOTHUB\_CLIENT\_CONFIG can then be provided to the IoTHubDeviceClient\_Create function to establish a DeviceClient instance.`
-IF ((IOTHUBCLIENTHANDLE = IOTHUBDEVICECLIENT\_CREATE(CONFIG)) == NULL)
-
-{
-
-(VOID)PRINTF("ERROR: IOTHUBCLIENTHANDLE IS NULL!\\R\\N");
-
+// The created IOTHUB_CLIENT_CONFIG can then be provided to the IoTHubDeviceClient_Create function to establish a DeviceClient instance.
+if ((IOTHUBCLIENTHANDLE = IoTHubDeviceClient_Create(CONFIG)) == NULL) {
+    (void)printf("ERROR: IOTHUBCLIENTHANDLE IS NULL!\r\n");
 }
-`To capture SAS token authentication failures, a handler needs to be implemented for the IoTHubDeviceClient\_SetConnectionStatusCallback.`
-(VOID)IOTHUBDEVICECLIENT\_SETCONNECTIONSTATUSCALLBACK(IOTHUBCLIENTHANDLE,
-CONNECTION\_STATUS\_CALLBACK, NULL);
+
+// To capture SAS token authentication failures, a handler needs to be implemented for the IoTHubDeviceClient_SetConnectionStatusCallback.
+(void)IoTHubDeviceClient_SetConnectionStatusCallback(IOTHUBCLIENTHANDLE, CONNECTION_STATUS_CALLBACK, NULL);
 ```
 
 The connection\_status\_callback can catch the IOTHUB\_CLIENT\_CONNECTION\_STATUS\_REASON of IOTHUB\_CLIENT\_CONNECTION\_EXPIRED\_SAS\_TOKEN to trigger a renewal of the SAS token via the third-party token service. This is required for all transports to capture connection issues but is specifically required by transports which do not support proactive SAS token renewal. Proactive SAS token lifetime management can be implemented as a function repeatedly run during the device applications
@@ -95,95 +86,62 @@ SAS token authentication implementation summary for C SDKs:
 
 3.  Implement proactive SAS token lifetime management as part of the device application's operation loop.
 
-### Azure IoT Hub device SDK for .Net
+### Azure IoT Hub device SDK for .NET
 
-The Azure IoT client SDK for .Net implements support for SAS token lifetime management through the abstract DeviceAuthenticationWithTokenRefresh class. A concrete implementation of this class, adding token renewal functionality, can be provided as the authentication method to a DeviceClient.Create method. The transport implementations will automatically renew the token via the authentication method as required. A ConnectionStatusChangesHandler is required to capture connection changes and prevent exceptions being raised by the transports.
+The Azure IoT client SDK for .NET implements support for SAS token lifetime management through the abstract DeviceAuthenticationWithTokenRefresh class. A concrete implementation of this class, adding token renewal functionality, can be provided as the authentication method to a DeviceClient.Create method. The transport implementations will automatically renew the token via the authentication method as required. A ConnectionStatusChangesHandler is required to capture connection changes and prevent exceptions being raised by the transports.
 
-Example implementation based on the DeviceAuthenticationWithTokenRefreash class
+Example implementation based on the DeviceAuthenticationWithTokenRefreash class:
 
-```
-INTERNAL CLASS STSDEVICEAUTHENTICATIONWITHTOKENREFRESH :
-DEVICEAUTHENTICATIONWITHTOKENREFRESH
-
+```c#
+internal class StsDeviceAuthenticationWithTokenRefresh : DeviceAuthenticationWithTokenRefresh
 {
 
-PRIVATE READONLY STRING \_STSCONNECTURL =
-"HTTP://LOCALHOST:8080/STS/AZURE/TOKEN/OPERATIONS?SR={0}/DEVICES/{1}";
+    private readonly string _stsConnectUrl = "http://localhost:8080/sts/azure/token/operations?sr={0}/devices/{1}";
 
-PRIVATE CONST INT DEFAULTTIMETOLIVESECONDS = 1 \* 60 \* 60;
+    private const int DEFAULTTIMETOLIVESECONDS = 1 * 60 * 60;
 
-PRIVATE CONST INT DEFAULTBUFFERPERCENTAGE = 15;
+    private const int DEFAULTBUFFERPERCENTAGE = 15;
 
-PUBLIC STSDEVICEAUTHENTICATIONWITHTOKENREFRESH(STRING DEVICEID, INT
-SUGGESTEDTIMETOLIVESECONDS, INT TIMEBUFFERPERCENTAGE) : BASE(DEVICEID,
-SUGGESTEDTIMETOLIVESECONDS, TIMEBUFFERPERCENTAGE)
+    public StsDeviceAuthenticationWithTokenRefresh(string deviceId, int suggestedTimeToLiveSeconds, int timeBufferPercentage) : BASE(deviceId, suggestedTimeToLiveSeconds, timeBufferPercentage)
+    {
+        If(String.IsNullOrWhitespace(deviceId)){
+            throw new ArgumentNullException(nameof(deviceId));
+        }
+    }
 
-{
+    protected override async Task<string> SafeCreateNewToken(string iotHub, int suggestedTimeToLive)
+    {
+        string result;
+        string url = string.Format(_stsConnectUrl, iotHub, deviceId);
 
-IF (STRING.ISNULLORWHITESPACE(DEVICEID))
+        using (HttpClientHandler handler = new HttpClientHandler())
+        using (HttpClient client = new HttpClient(handler))
+        {
+            try
+            {
+                HttpResponseMessage response = await client.GetAsync(url);
+                if (response.IsSuccessStatusCode)
+                {
+                    result = await response.Content.ReadAsStringAsync();
+                }
+                else
+                {
+                    throw new HttpRequestException($"Request failed with status code {response.StatusCode}.");
+                }
+            }
+            catch (HttpRequestException)
+            {
+                result = null;
+            }
+        }
 
-{
-
-THROW NEW ARGUMENTNULLEXCEPTION(NAMEOF(DEVICEID));
-
-}
-
-}
-
-PROTECTED OVERRIDE TASK\<STRING\> SAFECREATENEWTOKEN(STRING IOTHUB, INT
-SUGGESTEDTIMETOLIVE)
-
-{
-
-STRING RESULT;
-
-STRING URL = STRING.FORMAT(\_STSCONNECTURL, IOTHUB, DEVICEID);
-
-HTTPCLIENTHANDLER HANDLER = NEW HTTPCLIENTHANDLER();
-
-HTTPCLIENT = NEW HTTPCLIENT(HANDLER);
-
-TRY
-
-{
-
-VAR APIRESPONSE = HTTPCLIENT.GETASYNC(URL).RESULT;
-
-IF (APIRESPONSE.ISSUCCESSSTATUSCODE)
-
-{
-
-RESULT = APIRESPONSE.CONTENT.READASSTRINGASYNC().RESULT;
-
-}
-
-ELSE
-
-{
-
-THROW NEW HTTPREQUESTEXCEPTION();
-
-}
-
-}
-
-CATCH (HTTPREQUESTEXCEPTION)
-
-{
-
-RESULT = NULL;
-
-}
-
-RETURN TASK.FROMRESULT(RESULT);
-
-}
-
+        return result;
+    }
 }
 ```
 
 SAS token authentication implementation summary for Azure IoT Hub device SDK for
-.Net:
+.NET:
 
 1.  Implement a concrete class based on the DeviceAuthenticationWithTokenRefresh abstract class, which implements token renewal functionality.
 
@@ -200,125 +158,67 @@ SAS token authentication implementation summary for Azure IoT Hub device SDK for
 The Azure IoT Client SDK for Java implements support for SAS token lifetime management through the [SasTokenProvider Interface](/java/api/com.microsoft.azure.sdk.iot.service.digitaltwin.authentication.sastokenprovider?view=azure-java-stable&preserve-view=true). A class that implements this interface with SAS token renewal functionality can be used as the SecurityProvider in a DeviceClient constructor. The transport implementations will automatically renew the token via the security provider as required. A ConnectionStatusChangeCallback needs to be registered to capture connection changes and prevent exceptions being raised by the transports.
 
 Example implementation of the security provider implementing the SasTokenProvider interface:
-```
-IMPORT JAVA.IO.IOEXCEPTION;
+```java
+import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.time.Duration;
 
-IMPORT JAVA.NET.URI;
+public class StsSecurityProvider implements SasTokenProvider {
+    private final String hostname;
+    private final String deviceId;
+    private int renewalBufferSeconds;
+    private long expiryTimeSeconds;
+    private char[] sasToken;
 
-IMPORT JAVA.NET.HTTP.HTTPCLIENT;
+    public StsSecurityProvider(String hostname, String deviceId) {
+        this.hostname = hostname;
+        this.deviceId = deviceId;
+        this.renewalBufferSeconds = 120;
+        this.expiryTimeSeconds = (System.currentTimeMillis() / 1000);
+    }
 
-IMPORT JAVA.NET.HTTP.HTTPREQUEST;
+    @Override
+    public char[] getSasToken() {
+        long currentTimeSeconds = (System.currentTimeMillis() / 1000);
+        try {
+            if (this.sasToken == null || this.expiryTimeSeconds + this.renewalBufferSeconds >= currentTimeSeconds) {
+                this.sasToken = stsGetToken();
+                assert this.sasToken != null;
+                String t = String.copyValueOf(this.sasToken);
+                String[] bits = t.split("SE=");
+                long l = Long.parseLong(bits[1]);
+                this.expiryTimeSeconds = l; // the SE= number
+                this.renewalBufferSeconds = (int)(l * 0.15); // renew within 15% of expiry
+            }
+        } catch (InterruptedException | IOException e) {
+            e.printStackTrace();
+        }
+        return this.sasToken;
+    }
 
-IMPORT JAVA.NET.HTTP.HTTPRESPONSE;
-
-IMPORT JAVA.TIME.DURATION;
-
-PUBLIC CLASS STSSECURITYPROVIDER IMPLEMENTS SASTOKENPROVIDER {
-
-PRIVATE FINAL STRING HOSTNAME;
-
-PRIVATE FINAL STRING DEVICEID;
-
-PRIVATE INT RENEWALBUFFERSECONDS;
-
-PRIVATE LONG EXPIRYTIMESECONDS;
-
-PRIVATE CHAR[] SASTOKEN;
-
-PUBLIC STSSECURITYPROVIDER(STRING HOSTNAME, STRING DEVICEID)
-
-{
-
-THIS.HOSTNAME = HOSTNAME;
-
-THIS.DEVICEID = DEVICEID;
-
-THIS.RENEWALBUFFERSECONDS = 120;
-
-THIS.EXPIRYTIMESECONDS = (SYSTEM.CURRENTTIMEMILLIS() / 1000);
-
-}
-
-\@OVERRIDE
-
-PUBLIC CHAR[] GETSASTOKEN() {
-
-LONG CURRENTTIMESECONDS = (SYSTEM.CURRENTTIMEMILLIS() / 1000);
-
-TRY {
-
-IF (THIS.SASTOKEN == NULL \|\| THIS.EXPIRYTIMESECONDS +
-THIS.RENEWALBUFFERSECONDS \>= CURRENTTIMESECONDS) {
-
-THIS.SASTOKEN = STSGETTOKEN();
-
-ASSERT THIS.SASTOKEN != NULL;
-
-STRING T = STRING.COPYVALUEOF(THIS.SASTOKEN);
-
-STRING[] BITS = T.SPLIT("SE=");
-
-LONG L = LONG.PARSELONG(BITS[1]);
-
-THIS.EXPIRYTIMESECONDS = L; // THE SE= NUMBER
-
-THIS.RENEWALBUFFERSECONDS = (INT) (L \* 0.15); // RENEW WITHIN 15% OF EXPIRY
-
-}
-
-} CATCH (INTERRUPTEDEXCEPTION \| IOEXCEPTION E) {
-
-E.PRINTSTACKTRACE();
-
-}
-
-RETURN THIS.SASTOKEN;
-
-}
-
-PRIVATE CHAR[] STSGETTOKEN() THROWS IOEXCEPTION, INTERRUPTEDEXCEPTION {
-
-STRING STSURL =
-STRING.FORMAT("HTTP://LOCALHOST:8080/STS/AZURE/TOKEN/OPERATIONS?SR=%S/DEVICES/%S",
-THIS.HOSTNAME, THIS.DEVICEID);
-
-HTTPREQUEST REQUEST = HTTPREQUEST.NEWBUILDER()
-
-.URI(URI.CREATE(STSURL))
-
-.TIMEOUT(DURATION.OFMINUTES(2))
-
-.HEADER("CONTENT-TYPE", "APPLICATION/JSON")
-
-.BUILD();
-
-HTTPCLIENT CLIENT = HTTPCLIENT.NEWBUILDER()
-
-.VERSION(HTTPCLIENT.VERSION.HTTP\_1\_1)
-
-.CONNECTTIMEOUT(DURATION.OFSECONDS(20))
-
-.BUILD();
-
-HTTPRESPONSE\<STRING\> RESPONSE = CLIENT.SEND(REQUEST,
-HTTPRESPONSE.BODYHANDLERS.OFSTRING());
-
-IF(RESPONSE.STATUSCODE() \<200 \|\| RESPONSE.STATUSCODE()\>=300) {
-
-RETURN NULL;
-
-}
-
-IF(RESPONSE.BODY().ISEMPTY()) {
-
-RETURN NULL;
-
-}
-
-RETURN RESPONSE.BODY().TOCHARARRAY();
-
-}
-
+    private char[] stsGetToken() throws IOException, InterruptedException {
+        String stsUrl = String.format("http://localhost:8080/sts/azure/token/operations?sr=%s/devices/%s", this.hostname, this.deviceId);
+        HttpRequest request = HttpRequest.newBuilder()
+            .uri(URI.create(stsUrl))
+            .timeout(Duration.ofMinutes(2))
+            .header("Content-Type", "application/json")
+            .build();
+        HttpClient client = HttpClient.newBuilder()
+            .version(HttpClient.Version.HTTP_1_1)
+            .connectTimeout(Duration.ofSeconds(20))
+            .build();
+        HttpResponse < String > response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        if (response.statusCode() < 200 || response.statusCode() >= 300) {
+            return null;
+        }
+        if (response.body().isEmpty()) {
+            return null;
+        }
+        return response.body().toCharArray();
+    }
 }
 ```
 SAS token authentication implementation summary for Azure IoT Hub device SDK for Java:
@@ -340,48 +240,38 @@ SAS token authentication implementation summary for Azure IoT Hub device SDK for
 The Azure IoT Hub device SDK for Python implements SAS token support through methods on the IoTHubDeviceClient object. These methods enable the creation of a device client using a token, and the ability to supply an updated token once the device client has been created. They do not implement token lifetime management, but this can be implemented easily as an asynchronous operation.
 
 A Python 3.7 example implementation showing just the outline of functionality:
-```
-ASYNC DEF MAIN():
+```python
+import asyncio
+import iothub_device_client
 
-\# GET A SASTOKEN YOU GENERATED
+async def main():
+    # Get a SAS token you generated
+    sastoken = get_new_sastoken()
+    # The client object is used to interact with your Azure IoT Hub.
+    device_client = iothub_device_client.create_from_sastoken(sastoken)
 
-SASTOKEN = GET\_NEW\_SASTOKEN()
+    # Connect the client
+    await device_client.connect()
 
-\# THE CLIENT OBJECT IS USED TO INTERACT WITH YOUR AZURE IOT HUB.
+    # Define behavior for providing new SAS tokens to prevent expiry
+    async def sastoken_keepalive():
+        while True:
+            await asyncio.sleep(new_token_interval)
+            sastoken = get_new_sastoken()
+            await device_client.update_sastoken(sastoken)
 
-DEVICE\_CLIENT = IOTHUBDEVICECLIENT.CREATE\_FROM\_SASTOKEN(SASTOKEN)
+    # Also run the SAS token keepalive in the event loop
+    keepalive_task = asyncio.create_task(sastoken_keepalive())
 
-\# CONNECT THE CLIENT.
+    # Cancel the SAS token update task
+    keepalive_task.cancel()
 
-AWAIT DEVICE\_CLIENT.CONNECT()
+    # Finally, shut down the client
+    await device_client.shutdown()
 
-\# DEFINE BEHAVIOR FOR PROVIDING NEW SASTOKENS TO PREVENT EXPIRY
+if __name__ == "main":
+    asyncio.run(main())
 
-ASYNC DEF SASTOKEN\_KEEPALIVE():
-
-WHILE TRUE:
-
-AWAIT ASYNCIO.SLEEP(NEW\_TOKEN\_INTERVAL)
-
-SASTOKEN = GET\_NEW\_SASTOKEN()
-
-AWAIT DEVICE\_CLIENT.UPDATE\_SASTOKEN(SASTOKEN)
-
-\# ALSO RUN THE SASTOKEN KEEPALIVE IN THE EVENT LOOP
-
-KEEPALIVE\_TASK = ASYNCIO.CREATE\_TASK(SASTOKEN\_KEEPALIVE())
-
-\# CANCEL THE SASTOKEN UPDATE TASK
-
-KEEPALIVE\_TASK.CANCEL()
-
-\# FINALLY, SHUT DOWN THE CLIENT
-
-AWAIT DEVICE\_CLIENT.SHUTDOWN()
-
-IF \_\_NAME\_\_ == "\_\_MAIN\_\_":
-
-ASYNCIO.RUN(MAIN())
 ```
 Summary of Azure IoT Hub device SDK for Python SAS token authentication:
 
@@ -404,7 +294,7 @@ Use the device client methods fromSharedAccessSignature and updateSharedAccessSi
 A basic SAS token sample is provided in the
 [simple\_sample\_device\_with\_sas.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/javascript/simple_sample_device_with_sas.js) example.
 
-Summary of Azure IoT Hub device SDK for Node.JS/JavaScript
+Summary of Azure IoT Hub device SDK for Node.JS/JavaScript:
 
 1.  Implement SAS token lifetime management and renewal.
 

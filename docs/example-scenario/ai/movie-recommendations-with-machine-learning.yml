@@ -17,7 +17,6 @@ metadata:
     - example-scenario
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/example-scenario/ai/media/architecture-movie-recommender.png
 name: Build a movie recommendation system using machine learning
 azureCategories:
   - ai-machine-learning

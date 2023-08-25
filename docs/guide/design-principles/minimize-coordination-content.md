@@ -34,8 +34,6 @@ These two patterns complement each other. If the write-only store in CQRS uses e
 
 **Design idempotent operations.** When possible, design operations to be idempotent. That way, they can be handled using at-least-once semantics. For example, you can put work items on a queue. If a worker crashes in the middle of an operation, another worker simply picks up the work item.
 
-**Use asynchronous parallel processing.** If an operation requires multiple steps that are performed asynchronously (such as remote service calls), you might be able to call them in parallel, and then aggregate the results. This approach assumes that each step does not depend on the results of the previous step.
-
 **Use optimistic concurrency when possible.** Pessimistic concurrency control uses database locks to prevent conflicts. This can cause poor performance and reduce availability. With optimistic concurrency control, each transaction modifies a copy or snapshot of the data. When the transaction is committed, the database engine validates the transaction and rejects any transactions that would affect database consistency.
 
 Azure SQL Database and SQL Server support optimistic concurrency through [snapshot isolation][sql-snapshot-isolation]. Some Azure storage services support optimistic concurrency through the use of Etags, including [Azure Cosmos DB][cosmos-db-faq] and [Azure Storage][storage-concurrency].

@@ -3,7 +3,7 @@ title: Solutions for the travel and hospitality industries
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas for using Azure services to build solutions in the travel and hospitality industries.
 author: martinekuan
-ms.author: architectures
+ms.author: robbag
 ms.date: 07/26/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -67,7 +67,6 @@ The following articles provide detailed analysis of architectures created and re
 
 The following are other ideas that you can use as a starting point for your travel and hospitality solution.
 
-- [Build web and mobile applications](../solution-ideas/articles/webapps.yml)
 - [Cognizant Safe Buildings with IoT and Azure](../solution-ideas/articles/safe-buildings.yml)
 - [Data science and machine learning with Azure Databricks](../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)
 - [Facilities management powered by mixed reality and IoT](../solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml)

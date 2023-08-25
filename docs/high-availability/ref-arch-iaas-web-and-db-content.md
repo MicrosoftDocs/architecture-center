@@ -2,9 +2,9 @@ This solution provides best practices for applying availability zones to a web a
 
 ## Architecture
 
-:::image type="content" source="images/ref-arch-iaas.png" alt-text="Architecture diagram that shows virtual machines that host web apps and SQL Server databases and are spread over three zones." lightbox="images/ref-arch-iaas.png":::
+:::image type="content" source="images/ref-arch-iaas.svg" alt-text="Architecture diagram that shows virtual machines that host web apps and SQL Server databases and are spread over three zones." lightbox="images/ref-arch-iaas.svg" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/ref-arch-iaas.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/reference-architecture-iaas.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -14,9 +14,7 @@ If the active SQL Server instance becomes unavailable, either due to a zone fail
 
 The following diagram illustrates a failure of zone 1.
 
-![Architecture diagram that shows a failure in zone 1.](./images/ref-arch-iaas-zone-one-failure.png)
-
-*Download a [Visio file](https://arch-center.azureedge.net/US-1838039-PR-2986-ref-arch-iaas-zone-one-failure.vsdx) of this architecture.*
+![Architecture diagram that shows a failure in zone 1.](./images/ref-arch-iaas-zone-one-failure.svg)
 
 The Application Gateway instance is zone-redundant. It isn't affected by the failure of zone 1, and uses health probes to determine the available VMs. With zone 1 unavailable, it routes traffic only to the remaining two zones. The zone-redundant load balancer is also unaffected by the failure of zone 1, and uses health probes to determine the location of the active SQL Server instance. In this example, the load balancer detects that SQL Server is active in zone 3 and routes traffic to it.
 

@@ -23,7 +23,7 @@ azureCategories:
 summary: Implement a secure hybrid network architecture with Active Directory Federation Service authorization in Azure.
 products:
   - azure-active-directory
-  - azure-active-directory-domain
+  - entra
   - azure-load-balancer
 thumbnailUrl: /azure/architecture/browse/thumbs/adfs.png
 content: |

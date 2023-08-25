@@ -87,7 +87,7 @@ Get the latest updates on [Azure security services and features](https://azure.m
 ### Example solutions 
 
 - [Hybrid Security Monitoring using Microsoft Defender for Cloud and Microsoft Sentinel](../../hybrid/hybrid-security-monitoring.yml)
-- [Improved-security access to multitenant web apps from an on-premises network](../../example-scenario/security/access-multitenant-web-app-from-on-premises.yml)
+- [Improved-security access to multitenant web apps from an on-premises network](../../web-apps/guides/networking/access-multitenant-web-app-from-on-premises.yml)
 - [Restrict interservice communications](../../example-scenario/service-to-service/restrict-communications.yml)
 - [Securely managed web applications](../../example-scenario/apps/fully-managed-secure-apps.yml)
 - [Secure your Microsoft Teams channel bot and web app behind a firewall](../../example-scenario/teams/securing-bot-teams-channel.yml)

@@ -15,7 +15,6 @@ metadata:
     - devops
     - example-scenario
     - devx-track-jenkins
-  social_image_url: /azure/architecture/example-scenario/apps/media/architecture-jenkins.png
 name: Run a Jenkins server on Azure
 azureCategories:
   - devops

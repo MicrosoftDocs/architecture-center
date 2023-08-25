@@ -2,9 +2,11 @@ This solution runs SAS analytics workloads on Azure. The guidance covers various
 
 ## Architecture
 
-:::image type="complex" source="./images/sas-azure-guide-architecture-diagram.png" alt-text="Architecture diagram showing how to deploy SAS products on Azure." border="false":::
-   The diagram contains a large rectangle with the label Azure Virtual Network. Inside it, another large rectangle has the label Proximity placement group. Two rectangles are inside it. They're stacked vertically, and each has the label Network security group. Each security group rectangle contains several computer icons that are arranged in rows. In the upper rectangle, the computer icons on the left side of the upper row have the label Mid tier. The icons on the right have the label Metadata tier. The lower row of icons has the label Compute tier. In the lower rectangle, the upper row of computer icons has the label M G S and M D S servers. The lower row has the label O S Ts and O S S servers.
+:::image type="complex" source="./images/sas-azure-guide-architecture-diagram.svg" alt-text="Architecture diagram showing how to deploy SAS products on Azure." border="false":::
+   The diagram contains a large rectangle with the label Azure Virtual Network. Inside it, another large rectangle has the label Proximity placement group. Two rectangles are inside it. They're stacked vertically, and each has the label Network security group. Each security group rectangle contains several computer icons that are arranged in rows. In the upper rectangle, the computer icons on the left side of the upper row have the label Mid tier. The icons on the right have the label Metadata tier. The lower row of icons has the label Compute tier. In the lower rectangle, the upper row of computer icons has the label MGS and MDS servers. The lower row has the label OSTs and OSS servers.
 :::image-end:::
+
+*Download a [Visio file](https://arch-center.azureedge.net/sas-overview.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -241,7 +243,7 @@ For best performance:
 
 SAS and Microsoft have tested a series of data platforms that you can use to host SAS datasets. The SAS blogs document the results in detail, including performance characteristics. The tests include the following platforms:
 
-- [Sycomp Storage Fueled by IBM Spectrum Scale](https://azuremarketplace.microsoft.com/marketplace/apps/sycompatechnologycompanyinc1588192103892.sycompstoragefueledbyibmspectrumscalewithrhel?tab=overview), which uses General Parallel File System (GPFS)
+- [Sycomp Storage Fueled by IBM Spectrum Scale](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=Sycomp%20Storage&page=1), which uses General Parallel File System (GPFS)
 - [EXAScaler Cloud by DataDirect Networks (DDN)](https://azuremarketplace.microsoft.com/marketplace/apps/ddn-whamcloud-5345716.exascaler_cloud_app?tab=overview), which is based on the Lustre file system
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/), which supports NFS file-storage protocols
 

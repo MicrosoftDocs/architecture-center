@@ -93,7 +93,7 @@ This pattern is useful for:
 
 You can use the [ASP.NET health checks](/aspnet/core/host-and-deploy/health-checks) middleware and libraries to report the health of app infrastructure components. This framework provides a way to report health checks in a consistent way. It implements many of the practices that this article describes. For instance, the ASP.NET health checks include external checks like database connectivity and specific concepts like liveness and readiness probes.
 
-:::image type="icon" source="../_images/github.png"::: Several example implementations that use ASP.NET health checks are available on [GitHub](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/host-and-deploy/health-checks/samples/5.x/HealthChecksSample).
+Several example implementations that use ASP.NET health checks are available on [GitHub](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/host-and-deploy/health-checks/samples/5.x/HealthChecksSample).
 
 ## Monitor endpoints in Azure-hosted applications
 

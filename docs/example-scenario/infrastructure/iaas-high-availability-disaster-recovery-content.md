@@ -127,5 +127,6 @@ Principal author:
 
 - [N-tier architecture style](../../guide/architecture-styles/n-tier.yml)
 - [Multitier web application built for high availability and disaster recovery on Azure](../../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)
-- [Run a web application in multiple Azure regions for high availability](../../reference-architectures/app-service-web-app/multi-region.yml)
+- [Run a zone-redundant web application for high availability](../../web-apps/app-service/architectures/baseline-zone-redundant.yml)
+- [Run a web application in multiple Azure regions for high availability](../../web-apps/app-service/architectures/multi-region.yml)
 - [Run an N-tier application in multiple Azure regions for high availability](../../reference-architectures/n-tier/multi-region-sql-server.yml)

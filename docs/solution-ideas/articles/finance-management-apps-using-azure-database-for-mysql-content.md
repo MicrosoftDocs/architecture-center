@@ -4,9 +4,9 @@ This article outlines a three-tier application for securely storing data and pro
 
 ## Architecture
 
-:::image type="content" source="../media/finance-management-apps-using-azure-database-for-mysql.png" alt-text="Architecture diagram of a three-tier application. Data flows from a browser and other sources to hosts, into a database, and on to analytics services." border="false":::
+:::image type="content" source="../media/finance-management-apps-using-azure-database-for-mysql.svg" alt-text="Architecture diagram of a three-tier application. Data flows from a browser and other sources to hosts, into a database, and on to analytics services." border="false":::
 
-*Download an [SVG](../media/finance-management-apps-using-azure-database-for-mysql.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/finance-management-apps-mysql.vsdx) of this architecture.*
 
 ### Dataflow
 

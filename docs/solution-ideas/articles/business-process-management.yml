@@ -15,14 +15,13 @@ metadata:
     - acom-architecture
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/knowledge-mining-business-process-management.png
 name: Knowledge mining in business process management
 azureCategories:
   - ai-machine-learning
 summary: This architecture demonstrates how to use knowledge mining in business process management.
 products:
   - azure-cognitive-search
-  - azure-form-recognizer
+  - document-intelligence
 thumbnailUrl: /azure/architecture/browse/thumbs/knowledge-mining-business-process-management-thumb.png
 content: |
   [!include[](business-process-management-content.md)]

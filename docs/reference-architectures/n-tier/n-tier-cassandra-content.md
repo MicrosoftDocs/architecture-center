@@ -2,7 +2,7 @@ This reference architecture shows how to deploy virtual machines (VMs) and a vir
 
 ## Architecture
 
-[![Diagram that shows the N-tier architecture using Microsoft Azure.](./images/n-tier-cassandra.png)](./images/n-tier-cassandra.png)
+[![Diagram that shows the N-tier architecture using Microsoft Azure.](./images/n-tier-cassandra.svg)](./images/n-tier-cassandra.svg)
 
 *Download a [Visio file][visio-download] of this architecture.*
 
@@ -250,6 +250,6 @@ For more information, see the Operational Excellence section in [Microsoft Azure
 [public IP address]: /azure/virtual-network/virtual-network-ip-addresses-overview-arm
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
 [subscription-limits]: /azure/azure-subscription-service-limits
-[visio-download]: https://arch-center.azureedge.net/vm-reference-architectures.vsdx
+[visio-download]: https://arch-center.azureedge.net/vm-reference-n-tier-cassandra.vsdx
 [vmss-design]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview
 [vmss]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview

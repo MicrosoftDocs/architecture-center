@@ -20,7 +20,6 @@ metadata:
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/personalized-offers"
     - ai-machine-learning
-  social_image_url: /azure/architecture/solution-ideas/articles/media/personalized-offers.png
 name: Personalized offers
 azureCategories:
   - ai-machine-learning

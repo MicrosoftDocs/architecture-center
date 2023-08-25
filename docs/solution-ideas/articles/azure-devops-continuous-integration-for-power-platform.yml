@@ -21,7 +21,6 @@ metadata:
     - CI/CD
     - continuous deployment
     - pricing-calculator
-  social_image_url: /azure/architecture/solution-ideas/articles/media/azure-devops-continuous-integration-and-continuous-deployment-for-power-apps.png
 name: Build CI/CD with Azure for Microsoft Power Platform
 azureCategories:
   - devops
@@ -34,6 +33,6 @@ products:
   - azure-web-apps
   - power-apps
   - azure-repos
-thumbnailUrl: /azure/architecture/browse/thumbs/azure-devops-continuous-integration-and-continuous-deployment-for-power-apps.png
+thumbnailUrl: /azure/architecture/browse/thumbs/devops-cicd-for-power-apps.png
 content: |
    [!include[](azure-devops-continuous-integration-for-power-platform-content.md)]

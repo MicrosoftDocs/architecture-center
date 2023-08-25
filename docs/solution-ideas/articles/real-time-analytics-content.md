@@ -4,7 +4,7 @@ This solution idea describes how you can get insights from live streaming data. 
 
 ## Architecture
 
-:::image type="content" source="../media/real-time-analytics.png" alt-text="Diagram of a real-time analytics solution on big data architecture using Azure Synapse Analytics with Azure Data Lake Storage Gen2, Event Hubs, Azure Analysis Services, Azure Cosmos DB, and Power BI." border="false":::
+:::image type="content" source="../media/real-time-analytics.svg" alt-text="Diagram of a real-time analytics solution on a big data architecture that uses Azure Synapse Analytics with Azure Data Lake Storage, Event Hubs, Azure Analysis Services, Azure Cosmos DB, and Power BI." lightbox="../media/real-time-analytics.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/real-time-analytics.vsdx) of this architecture.*
 

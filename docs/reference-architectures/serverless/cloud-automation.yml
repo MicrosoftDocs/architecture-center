@@ -13,6 +13,7 @@ metadata:
     - developer-tools
   ms.custom:
     - reference-architecture
+    - has-azure-ad-ps-ref
 name: Event-based cloud automation
 azureCategories:
   - developer-tools

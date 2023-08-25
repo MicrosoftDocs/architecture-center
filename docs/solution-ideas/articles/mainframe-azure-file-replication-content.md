@@ -16,7 +16,9 @@ On-premises file replication and sync use cases include:
 
 The following diagram shows some of the options for replicating and syncing on-premises files to Azure:
 
-![Diagram showing the three steps of migrating on-premises files to Azure: moving, conversion and transformation, and storing in persistent storage.](../media/mainframe-azure-file-replication.svg)
+:::image type="content" border="false" source="../media/mainframe-azure-file-replication.svg" alt-text="Diagram showing the three steps of migrating on-premises files to Azure: moving, conversion and transformation, and storing in persistent storage." lightbox="../media/mainframe-azure-file-replication.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/mainframe-azure-file-replication.vsdx) of this architecture.*
 
 ### Dataflow
 

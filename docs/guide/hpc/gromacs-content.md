@@ -18,7 +18,7 @@ GROMACS is used across the healthcare industry by biotechnology organizations, u
 
 ## Architecture
 
-:::image type="content" source="media/gromacs/gromacs.png" alt-text="Diagram that shows an architecture for deploying GROMACS." border="false":::
+:::image type="content" source="media/gromacs/gromacs.svg" alt-text="Diagram that shows an architecture for deploying GROMACS." border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/gromacs.vsdx) of this
 architecture.*

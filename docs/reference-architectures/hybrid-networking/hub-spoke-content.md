@@ -364,8 +364,7 @@ Select the following button to deploy the reference architecture as an ARM templ
 
 ---
 
-
-<!-- For detailed information and extra deployment options, see the [Hub and Spoke ARM and Bicep templates](/samples/mspnp/samples/hub-and-spoke-deployment-with-connected-groups/) that deploy this solution.-->
+For detailed information and extra deployment options, see the [Hub and Spoke ARM and Bicep templates](/samples/mspnp/samples/hub-and-spoke-deployment-with-connected-groups/) that deploy this solution.
 
 ## Contributors
 

@@ -49,7 +49,7 @@ This article provides a summary of architectures and solutions that use Azure to
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Scalable web application](../reference-architectures/app-service-web-app/scalable-web-app.yml) |Use the proven practices in this reference architecture to improve scalability and performance in an Azure App Service web application. CouchDB is a recommended document database.|Web
+|[Baseline web application with zone redundancy](../web-apps/app-service/architectures/baseline-zone-redundant.yml) |Use the proven practices in this reference architecture to improve redundancy, scalability and performance in an Azure App Service web application. CouchDB is a recommended document database.|Web
 
 ## Apache Hadoop
 
@@ -136,7 +136,6 @@ This article provides a summary of architectures and solutions that use Azure to
 |[Data streaming with AKS](../solution-ideas/articles/data-streaming-scenario.yml)|Use AKS to easily ingest and process a real-time data stream with millions of data points collected via sensors. Kafka stores data for analysis.|Containers|
 |[Extract actionable insights from IoT data](../industries/manufacturing/extract-insights-iot-data.yml)|Extract insights from IoT data by using Azure services. Kafka on HDInsight is one option for ingesting the data stream.|Serverless|
 |[Ingestion, ETL, and stream processing pipelines with Azure Databricks](../solution-ideas/articles/ingest-etl-stream-with-adb.yml)|Create ETL pipelines for batch and streaming data with Azure Databricks to simplify data lake ingestion at any scale. Kafka is one option for ingesting data.|Analytics|
-|[Instant IoT data streaming with AKS](../solution-ideas/articles/aks-iot-data-streaming.yml)|Learn how to ingest and analyze high volumes of IoT data and generate real-time recommendations and insights. In this solution, Kafka stores data for analysis.|Containers|
 |[Integrate Event Hubs with Azure Functions](../serverless/event-hubs-functions/event-hubs-functions.yml)|Learn how to architect, develop, and deploy efficient and scalable code that runs on Azure Functions and responds to Azure Event Hubs events. Learn how events can be persisted in Kafka topics. |Serverless|
 |[IoT analytics with Azure Data Explorer](../solution-ideas/articles/iot-azure-data-explorer.yml)|Use Azure Data Explorer for near real-time IoT telemetry analytics on fast-flowing, high-volume streaming data from a variety of data sources, including Kafka.|Analytics|
 |[JMeter implementation for a load testing pipeline](../example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml)|Get an overview of an implementation for a scalable cloud load-testing pipeline. The implementation supports reporting on the Kafka partitioning strategies used. |Migration|
@@ -202,7 +201,6 @@ This article provides a summary of architectures and solutions that use Azure to
 |[Big data analytics on confidential computing](../example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml)|Use confidential computing on Kubernetes to run big data analytics with Spark inside confidential containers that are protected by Intel Software Guard Extensions.|Databases|
 |[Big data architectures](../data-guide/big-data/index.yml)|Learn about big data architectures that handle the ingestion, processing, and analysis of data that's too large or complex for traditional database systems. You can use Spark for batch or stream processing and as an analytical data store.|Databases|
 |[Build a content-based recommendation system](/azure/architecture/solution-ideas/articles/build-content-based-recommendation-system-using-recommender)|Create content-based recommendation systems that can deliver personalized recommendations to your customers by using Spark, Azure Machine Learning, and Azure Databricks.|Analytics|
-|[Build cloud-native applications](../solution-ideas/articles/cloud-native-apps.yml)|Learn how to build cloud-native applications with Azure Cosmos DB, Azure Database for PostgreSQL, and Azure Cache for Redis. Analyze your data by using Azure Synapse, with natively integrated Spark for big data processing and machine learning.|Containers|
 |[Campaign optimization with HDInsight Spark](/azure/architecture/solution-ideas/articles/optimize-marketing-with-machine-learning)|Build and deploy a machine learning model to maximize the purchase rate of leads that are targeted by a marketing campaign.|Databases|
 |[Choose a batch processing technology](../data-guide/technology-choices/batch-processing.md)|Compare technology choices for big data batch processing in Azure, including options for implementing Spark.|Analytics|
 |[Choose a stream processing technology](../data-guide/technology-choices/stream-processing.md)|Compare options for real-time message stream processing in Azure, including options for implementing Spark.|Analytics|

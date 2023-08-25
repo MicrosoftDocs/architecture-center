@@ -23,7 +23,6 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/machine-learning-model-deployment-aks"
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/machine-learning-model-deployment-to-aks.png
 name: Deploy machine learning models to AKS with Kubeflow
 azureCategories:
   - ai-machine-learning

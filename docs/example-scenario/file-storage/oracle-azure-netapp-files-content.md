@@ -82,9 +82,9 @@ As a simple-to-consume Azure native service, Azure NetApp Files runs within the 
 
 ### Highly performant systems
 
-[Azure NetApp Files][What is Azure NetApp Files] uses a bare-metal fleet of all-flash storage. Besides using shared and highly scalable storage, Azure NetApp Files provides latencies of less than 1 millisecond. These factors make this service well suited for using the NFS protocol to run Oracle Database workloads over networks.
+[Azure NetApp Files][What is Azure NetApp Files] uses a bare-metal fleet of all-flash storage. Besides using shared and highly scalable storage, Azure NetApp Files provides latencies of less than 1 millisecond. These factors make this service well-suited for using the NFS protocol to run Oracle Database workloads over networks.
 
-Azure DCsv2-series VMs have built-in high-performance, all-flash ONTAP enterprise systems. These systems are also integrated in the Azure software-defined networking (SDN) and Azure Resource Manager frameworks. As a result, you get high-bandwidth, low-latency shared storage that's comparable to an on-premises solution. The performance of this architecture meets the requirements of the most demanding, business-critical enterprise workloads. For more information on the performance benefits of Azure NetApp Files, see [Benefits of using Azure NetApp Files with Oracle Database][Benefits of using Azure NetApp Files with Oracle Database].
+The Azure DCsv2-series VMs can use high-performance, all-flash NetApp storage systems. These systems are also integrated into the Azure software-defined networking (SDN) and Azure Resource Manager frameworks. As a result, you get high-bandwidth, low-latency shared storage that's comparable to an on-premises solution. The performance of this architecture meets the requirements of the most demanding, business-critical enterprise workloads. For more information on the performance benefits of Azure NetApp Files, see [Benefits of using Azure NetApp Files with Oracle Database][Benefits of using Azure NetApp Files with Oracle Database].
 
 Azure NetApp Files offers on-demand scalability. You can enlarge or reduce deployments to optimize each workload's configuration.
 

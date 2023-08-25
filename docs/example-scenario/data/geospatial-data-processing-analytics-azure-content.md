@@ -2,7 +2,7 @@ This article outlines a manageable solution for making large volumes of geospati
 
 ## Architecture
 
-![Architecture diagram showing how geospatial data flows through an Azure system. Various components receive, process, store, analyze, and publish the data.](./media/geospatial-data-processing-analytics-azure-architecture-new.png)
+:::image type="content" source="./media/geospatial-data-processing-analytics-azure-architecture-new.svg" alt-text="Architecture diagram showing how geospatial data flows through an Azure system. Various components receive, process, store, analyze, and publish the data." lightbox="./media/geospatial-data-processing-analytics-azure-architecture-new.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/geospatial-data-processing-analytics-azure-architecture.vsdx)* of this architecture.  
 
@@ -151,7 +151,7 @@ The following considerations, based on the [Microsoft Azure Well-Architected Fra
 
 - [App Service diagnostics][Azure App Service diagnostics overview] alerts you to problems in apps, such as downtime. Use this service to identify, troubleshoot, and resolve issues like outages.
 
-- Consider using [App Service to back up application files][Basic web app availability considerations]. But be careful with backed-up files, which include app settings in plain text. Those settings can contain secrets like connection strings.
+- Consider using [App Service to back up application files][Basic web application scalability considerations]. But be careful with backed-up files, which include app settings in plain text. Those settings can contain secrets like connection strings.
 
 ### Scalability
 
@@ -239,7 +239,7 @@ To start implementing this solution, see this information:
 
 - [Connect a WFS to Azure Maps][Connect to a WFS service]
 - [Process OpenStreetMap data][Frameworks - OpenStreetMap Wiki] with Spark.
-- Explore ways to [display data with Azure Maps][Azure Maps Web SDK Samples].
+- Explore ways to display data with Azure Maps.
 
 ### Information on processing geospatial data
 
@@ -284,13 +284,11 @@ To start implementing this solution, see this information:
 [Azure Event Hubs — A big data streaming platform and event ingestion service]: /azure/event-hubs/event-hubs-about
 [Azure Event Hubs - Geo-disaster recovery]: /azure/event-hubs/event-hubs-geo-dr
 [Azure Machine Learning decision guide for optimal tool selection]: ../mlops/aml-decision-tree.yml
-[Azure Maps Web SDK Samples]: https://azuremapscodesamples.azurewebsites.net/
 [Azure Monitor Logs overview]: /azure/azure-monitor/logs/data-platform-logs
 [Azure Monitor Metrics overview]: /azure/azure-monitor/essentials/data-platform-metrics
 [Azure Monitor overview]: /azure/azure-monitor/overview
-[Basic web app availability considerations]: ../../reference-architectures/app-service-web-app/basic-web-app.yml?=cli#reliability
-[Basic web application scalability considerations]: ../../reference-architectures/app-service-web-app/basic-web-app.yml?tabs=cli#performance-efficiency
 [Basic web application authentication]: ../../reference-architectures/app-service-web-app/basic-web-app.yml?tabs=cli#authentication
+[Basic web application scalability considerations]: ../../reference-architectures/app-service-web-app/basic-web-app.yml?tabs=cli#performance-efficiency
 [Big data analytics with Azure Data Explorer]: ../../solution-ideas/articles/big-data-azure-data-explorer.yml
 [Chapter 4. PostGIS Usage]: https://postgis.net/docs/using_raster_dataman.html#RT_Loading_Rasters
 [Compare the machine learning products and technologies from Microsoft - Azure Databricks]: ../../data-guide/technology-choices/data-science-and-machine-learning.md#azure-databricks
@@ -305,6 +303,8 @@ To start implementing this solution, see this information:
 [GeoJSON format]: https://tools.ietf.org/html/rfc7946
 [GeoPandas 0.8.0 — GeoPandas 0.8.0 documentation]: https://geopandas.org/
 [GeoServer]: https://en.wikipedia.org/wiki/GeoServer
+[Geospatial analysis for telecom]: /azure/architecture/example-scenario/data/geospatial-analysis-telecommunications-industry
+[Geospatial reference architecture - Azure Orbital]: /azure/orbital/geospatial-reference-architecture
 [Getting started with the Azure Maps Power BI visual]: /azure/azure-maps/power-bi-visual-getting-started
 [GitHub - mapbox/tippecanoe]: https://github.com/mapbox/tippecanoe
 [Health data consortium on Azure]: ./azure-health-data-consortium.yml
@@ -331,6 +331,7 @@ To start implementing this solution, see this information:
 [Scalability considerations]: #scalability
 [Scaling with Event Hubs partitions]: /azure/event-hubs/event-hubs-scalability#partitions
 [Security in Azure App Service]: /azure/app-service/overview-security
+[Spaceborne data analysis with Azure Synapse Analytics]: /azure/architecture/industries/aerospace/geospatial-processing-analytics
 [ST_AsMVT (postgis.net)]: https://postgis.net/docs/ST_AsMVT.html
 [Throughput units]: /azure/event-hubs/event-hubs-scalability#throughput-units
 [Urbica Martin]: https://github.com/urbica/node-martin

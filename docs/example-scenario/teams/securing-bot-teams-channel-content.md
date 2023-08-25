@@ -1,8 +1,12 @@
+---
+ms.custom:
+  - devx-track-azurecli
+---
 This example scenario helps secure the connection to a Microsoft Teams channel bot's web app by using Azure Private Link and Azure Private Endpoint. At the same time, it enables channels in the Teams client to communicate with the bot through an IP that's exposed through an Azure Firewall instance.
 
 ## Architecture
 
-:::image type="content" alt-text="Diagram showing the Teams-to-Azure Firewall flowchart." source="media/securing-bot-image-001.png" lightbox="media/securing-bot-image-001.png":::
+:::image type="content" alt-text="Diagram showing the Teams-to-Azure Firewall flowchart." source="media/securing-bot-image-001.svg" lightbox="media/securing-bot-image-001.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/Securing-bot-image-001.vsdx) of this architecture.*
 
@@ -100,7 +104,7 @@ You must have an existing Azure account. If you don't have an Azure subscription
     export SUBNET_INT_NAME='VnetIntegrationSubnet'
     export SUBNET_PVT_NAME='PrivateEndpointSubnet'
     export LOCATION='eastus'
-    export TEAMS_IP_RANGE='52.112.0.0/14'
+    export TEAMS_IP_RANGE='13.107.64.0/18 52.112.0.0/14 52.122.0.0/15'
     export FIREWALL_NAME='afw-'${LOCATION}'-'${PREFIX}
 
     # Create a resource group

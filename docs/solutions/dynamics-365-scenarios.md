@@ -2,8 +2,8 @@
 title: Azure and Dynamics 365 scenarios
 description: Learn about architectures and solutions that use Azure together with Dynamics 365. 
 author: martinekuan
-ms.author: architectures
-ms.date: 07/28/2022
+ms.author: robbag
+ms.date: 06/14/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -80,7 +80,6 @@ Watch this short video to learn how Dynamics 365 can help you streamline busines
 |[Eventual consistency between multiple Power Apps instances](/azure/architecture/guide/power-platform/eventual-consistency)|Handle dependent data in a resilient way in Power Apps. Includes information about replicating data between Dynamics 365 instances.|Web|
 |[Migrate master data services to Azure with CluedIn and Azure Purview](../reference-architectures/data/migrate-master-data-services-with-cluedin.yml)|Use CluedIn and Azure Purview to migrate your master data services solution to Azure. Dynamics 365 users can natively use data from CluedIn without any extra setup or integration.| Databases|
 |[Multitenancy and identity management](../multitenant-identity/index.yml) |Learn authentication, authorization, and identity management best practices for multitenant applications. In these architectures, Dynamics CRM tenants store user profiles in Azure AD. |Identity|
-|[Modern customer support portal](../solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.yml) |Monitor and respond to customer feedback with this line-of-business application solution. When a customer submits feedback, sentiment and keywords are extracted and a new case is created in Dynamics CRM.|Migration|
 |[SAP on Azure architecture design](../reference-architectures/sap/sap-overview.yml) |Review a set of guiding tenets that you can use to help ensure the quality of SAP workloads that run on Azure. A recommended identity management system, Azure Active Directory, integrates with Dynamics CRM Online.|SAP|
 |[Serverless computing solution for LOB apps](../solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture.yml)|Build and run customer onboarding applications without managing or maintaining infrastructure. Customer information is stored in Dynamics 365. |Serverless|
 
@@ -114,7 +113,6 @@ Watch this short video to learn how Dynamics 365 can help you streamline busines
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Dynamics 365 Business Central as a service on Azure](../solution-ideas/articles/business-central.yml)|Learn how to establish the production environment for Business Central in a partner's private Azure environment.| Web|
 |[Modern data warehouse for small and medium business](../example-scenario/data/small-medium-data-warehouse.yml) |Use Azure Synapse Analytics, Azure SQL Database, and Data Lake Storage to modernize SMB legacy and on-premises data. These solutions integrate easily with Dynamics 365.|Analytics|
 
 ## Related resources

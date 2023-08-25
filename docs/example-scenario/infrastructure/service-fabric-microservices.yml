@@ -17,7 +17,6 @@ metadata:
     - application-development
     - app-modernization
     - example-scenario
-  social_image_url: /azure/architecture/example-scenario/infrastructure/media/architecture-service-fabric-complete.png
 name: Using Service Fabric to decompose applications
 azureCategories:
   - migration

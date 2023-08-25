@@ -21,7 +21,6 @@ metadata:
     - app-dev
     - "https://azure.microsoft.com/solutions/architecture/intelligent-apps-using-azure-database-for-postgresql"
     - ai-machine-learning
-  social_image_url: /azure/architecture/solution-ideas/articles/media/intelligent-apps-using-azure-database-for-postgresql.png
 name: Intelligent apps using Azure Database for PostgreSQL
 azureCategories:
   - databases
@@ -29,7 +28,7 @@ azureCategories:
 summary: Use Azure Database for PostgreSQL to develop sophisticated machine learning and visualization apps that provide analytics and information that you can act on.
 products:
   - azure-app-service
-  - azure-cognitive-services
+  - ai-services
   - azure-database-postgresql
   - azure-machine-learning
   - power-bi

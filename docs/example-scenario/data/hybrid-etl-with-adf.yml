@@ -17,7 +17,6 @@ metadata:
     - data
     - example-scenario
     - e2e-hybrid
-  social_image_url: /azure/architecture/example-scenario/data/media/architecture-diagram-hybrid-etl-with-adf-new.png
 name: Hybrid ETL with Azure Data Factory
 azureCategories:
   - databases

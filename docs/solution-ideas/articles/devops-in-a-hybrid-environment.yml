@@ -15,7 +15,6 @@ metadata:
   ms.custom:
     - acom-architecture
     - e2e-hybrid
-  social_image_url: /azure/architecture/solution-ideas/articles/media/devops-in-a-hybrid-environment.png
 name: DevOps in a hybrid environment
 azureCategories:
   - devops

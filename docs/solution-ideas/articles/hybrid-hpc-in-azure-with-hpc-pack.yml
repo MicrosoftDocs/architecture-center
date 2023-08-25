@@ -23,7 +23,6 @@ metadata:
     - hpc
     - e2e-hybrid
     - "https://azure.microsoft.com/solutions/architecture/hybrid-hpc-in-azure-with-hpc-pack"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/hybrid-hpc-in-azure-with-hpc-pack.png
 name: Hybrid HPC in Azure with HPC Pack
 azureCategories:
   - compute

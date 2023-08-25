@@ -6,7 +6,7 @@ This solution migrates Unisys Dorado mainframe systems to Azure with Astadia and
 
 This diagram shows the components that Unisys Sperry OS 1100/2200 mainframe systems typically contain:
 
-:::image type="complex" source="./media/migrate-unisys-dorado-mainframe-apps-original-architecture.png" alt-text="Architecture diagram showing the components that make up a Unisys Dorado mainframe system. Examples include users, middleware, servers, and data storage." border="false":::
+:::image type="complex" source="./media/migrate-unisys-dorado-mainframe-apps-original-architecture.svg" alt-text="Architecture diagram showing the components that make up a Unisys Dorado mainframe system. Examples include users, middleware, servers, and data storage." lightbox="./media/migrate-unisys-dorado-mainframe-apps-original-architecture.svg" border="false":::
    The main part of the diagram is a box that contains several smaller boxes. Those boxes represent communications standards, application servers, data storage, middleware, monitoring components, an operating system, and a printer system. Above the box, icons represent users. Arrows connect the users with the communications box. Below the box, icons represent printers. Arrows connect the printers with the printer system box. Letter labels link parts of the diagram with the description in the document.
 :::image-end:::
 
@@ -50,7 +50,7 @@ This diagram shows the components that Unisys Sperry OS 1100/2200 mainframe syst
 
 This architecture demonstrates the solution, after it was migrated to Azure:
 
-:::image type="complex" source="./media/migrate-unisys-dorado-mainframe-apps-architecture-diagram.png" alt-text="Architecture diagram showing a Unisys Dorado mainframe system working with Azure components and with Astadia and Micro Focus emulation technology." border="false":::
+:::image type="complex" source="./media/migrate-unisys-dorado-mainframe-apps-architecture-diagram.svg" alt-text="Architecture diagram showing a Unisys Dorado mainframe system working with Azure components and with Astadia and Micro Focus emulation technology." lightbox="./media/migrate-unisys-dorado-mainframe-apps-architecture-diagram.svg" border="false":::
    The diagram contains two areas, one for Azure components, and one for on-premises components. The on-premises area is simple, with icons for a user and a network service. The Azure area is complex. Boxes containing icons fill the Azure area. The boxes represent a virtual network, sets of virtual machines, third-party software, database services, storage solutions, and other components. Arrows connect some boxes. Number and letter labels link parts of the diagram with the description in the document.
 :::image-end:::
 
@@ -61,7 +61,7 @@ This architecture demonstrates the solution, after it was migrated to Azure:
 1. Transport Layer Security (TLS) connections that use port 443 provide access to web-based applications:
 
    - To minimize the need for retraining, you can avoid modifying the web application presentation layer during migration. But you can also update the presentation layer to align with UX requirements.
-   - Azure Bastion hosts help to maximize security. When giving administrators access to VMs, these hosts minimize the number of open ports.
+   - Azure Bastion hosts help to maximize security. When you give administrators access to VMs, these hosts minimize the number of open ports.
    - Azure ExpressRoute securely connects on-premises and Azure components.
 
 1. The solution uses two sets of two Azure Virtual Machines (VMs):
@@ -91,7 +91,7 @@ This architecture demonstrates the solution, after it was migrated to Azure:
    - High input/output operations per second (IOPS).
    - High uptime SLA.
 
-   Azure Private Link provides a private, direct connection from VMs to SQL Database through the Azure network backbone. An autofailover group manages database replication.
+   Azure Private Link provides a private, direct connection from VMs to SQL Database through the Azure network backbone. An auto-failover group manages database replication.
 
 1. Data Factory version 2 (V2) provides data movement pipelines that events can trigger. After data from external sources lands in Azure Blob Storage, these pipelines move that data into Azure Files storage. Emulated COBOL programs then process the files.
 
@@ -138,7 +138,7 @@ This architecture uses the following components:
 
 - [Azure Site Recovery](https://azure.microsoft.com/products/site-recovery) keeps applications and workloads running during outages. This service works by replicating VMs from a primary site to a secondary location.
 
-- An [autofailover group](/azure/azure-sql/database/auto-failover-group-overview) manages the replication and failover of databases to another region. With this feature, you can start failover manually. You can also set up a user-defined policy to delegate failover to Azure.
+- An [auto-failover group](/azure/azure-sql/database/auto-failover-group-overview) manages the replication and failover of databases to another region. With this feature, you can start failover manually. You can also set up a user-defined policy to delegate failover to Azure.
 
 ## Scenario details
 
@@ -284,7 +284,7 @@ For more information about the services featured in this solution, see the follo
 - [Private Link][What is Azure Private Link?]
 - [Azure network security groups][Network security groups]
 - [Site Recovery][About Site Recovery]
-- An [autofailover group][Use auto-failover groups to enable transparent and coordinated failover of multiple databases]
+- An [auto-failover group][Use auto-failover groups to enable transparent and coordinated failover of multiple databases]
 
 ## Related resources
 

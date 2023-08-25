@@ -14,7 +14,7 @@ azureCategories:
   - ai-machine-learning
 products:
   - ai-builder
-  - azure-form-recognizer
+  - document-intelligence
   - power-automate
   - power-platform
   - azure-functions

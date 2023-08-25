@@ -75,7 +75,7 @@ To help secure resources, consider these methods:
 
 - Policy and monitoring
 
-  - Use [Azure Policy](https://azure.microsoft.com/products/azure-policy/) and Azure Security Center to enforce policies.
+  - Use [Azure Policy](https://azure.microsoft.com/products/azure-policy/) and Microsoft Defender for Cloud to enforce policies.
   - Use [Azure Monitor](https://azure.microsoft.com/services/monitor) to collect and aggregate data (such as metrics and logs) from various sources into a common data platform for analysis, visualization, and alerting.
 
 The Azure Machine Learning workspace is the top-level resource for Azure Machine Learning and the core component of an MLOps solution. The workspace provides a centralized place to work with all the artifacts that you create when you use Azure Machine Learning.

@@ -8,9 +8,9 @@ This article presents a solution for deriving insights from MongoDB Atlas operat
 
 The following diagram shows how to sync MongoDB Atlas data to Azure Synapse Analytics in real time.
 
-:::image type="content" source="./media/azure-synapse-analytics-integrate-mongodb-atlas-architecture.png" alt-text="Architecture diagram that shows data flow from MongoDB Atlas to analysis apps. Interim stages include a change stream API and Azure Synapse Analytics." lightbox="./media/azure-synapse-analytics-integrate-mongodb-atlas-architecture.png" border="false":::
+:::image type="content" source="./media/azure-synapse-analytics-integrate-mongodb-atlas-architecture.svg" alt-text="Architecture diagram that shows data flow from MongoDB Atlas to analysis apps. Interim stages include a change stream API and Azure Synapse Analytics." lightbox="./media/azure-synapse-analytics-integrate-mongodb-atlas-architecture.svg" border="false":::
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/US-1987245-azure-synapse-analytics-integrate-mongodb-atlas.pptx) of this architecture.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/azure-synapse-analytics-integrate-mongodb-atlas.pptx) of all diagrams in this article.*
 
 ### Dataflow
 
@@ -67,7 +67,7 @@ In Azure Synapse Analytics, you can seamlessly integrate MongoDB on-premises ins
 
 With historical data, you can retrieve all the data at once. You can also retrieve data incrementally for specific periods by using a filter in batch mode. Then you can use SQL pools and Apache Spark pools in Azure Synapse Analytics to transform and analyze the data. If you need to store the analytics or query results in an analytics data store, you can use the sink resource in Azure Synapse Analytics.
 
-:::image type="content" source="./media/azure-synapse-analytics-mongodb-connectors.png" alt-text="Architecture diagram that shows the source and sink connectors that connect data from consumers to Azure Synapse Analytics and MongoDB data storage." lightbox="./media/azure-synapse-analytics-mongodb-connectors.png" border="false":::
+:::image type="content" source="./media/azure-synapse-analytics-mongodb-connectors.svg" alt-text="Architecture diagram that shows the source and sink connectors that connect data from consumers to Azure Synapse Analytics and MongoDB data storage." lightbox="./media/azure-synapse-analytics-mongodb-connectors.svg" border="false":::
 
 For more information about how to set up and configure the connectors, see these resources:
 

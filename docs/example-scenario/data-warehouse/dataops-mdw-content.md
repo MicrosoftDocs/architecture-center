@@ -4,9 +4,9 @@ This article describes how a fictional city planning office could use this solut
 
 The following diagram shows the overall architecture of the solution.
 
-[![Architecture diagram demonstrating DataOps for the modern data warehouse.](./media/architecture-diagram-new.png)](./media/architecture-diagram-new.png#lightbox)
+:::image type="content" source="./media/architecture-diagram-demonstrating-dataops-for-the-modern-data-warehouse.svg" lightbox="./media/architecture-diagram-demonstrating-dataops-for-the-modern-data-warehouse.svg" alt-text="Architecture diagram demonstrating DataOps for the modern data warehouse." border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/architecture-diagram.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/architecture-diagram-demonstrating-dataops-for-the-modern-data-warehouse.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -140,7 +140,7 @@ For a detailed list of all resources, see the [Deployed Resources](https://githu
 
 The diagram below demonstrates the CI/CD process and sequence for the build and release pipelines.
 
-[![Figure Process and Sequence for Build and Release.](./media/ci-cd-process-diagram-new.png)](./media/ci-cd-process-diagram-new.png#lightbox)
+:::image type="content" source="./media/ci-cd-process-diagram-new.svg" lightbox="./media/ci-cd-process-diagram-new.svg" alt-text="Diagram that shows the process and sequence for build and release." border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ci-cd-process-diagram.vsdx) of this architecture.*
 

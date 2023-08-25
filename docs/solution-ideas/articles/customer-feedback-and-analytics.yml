@@ -15,7 +15,6 @@ metadata:
     - acom-architecture
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/knowledge-mining-customer-feedback-and-analytics.png
 name: Knowledge mining for customer support and feedback analysis
 azureCategories:
   - ai-machine-learning

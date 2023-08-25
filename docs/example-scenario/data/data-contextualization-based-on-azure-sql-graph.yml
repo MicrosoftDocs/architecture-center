@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Contextualize data by using graph in SQL Database
+  titleSuffix: Azure Architecture Center
+  description: Learn how to contextualize data by looking up context that's stored in a graph database in SQL Database. 
+  author: gary918
+  ms.author: anujparashar,chenshucai,bwa,hobu,ganwa
+  ms.date: 05/23/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - analytics
+  - databases
+products:
+  - azure-sql-database
+  - azure-databricks
+  - azure-data-lake-gen2
+name: Contextualize data by using graph in SQL Database
+summary: Learn how to contextualize data by looking up context that's stored in a graph database in SQL Database. 
+thumbnailUrl: /azure/architecture/browse/thumbs/data-contextualization.png
+content: |
+  [!include[](data-contextualization-based-on-azure-sql-graph-content.md)]

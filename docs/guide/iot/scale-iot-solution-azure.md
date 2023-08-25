@@ -9,7 +9,6 @@ ms.service: architecture-center
 ms.subservice: azure-guide
 products:
   - azure-iot
-  - azure-iot-dps
   - azure-iot-hub
   - azure-iot-sdk
 categories:

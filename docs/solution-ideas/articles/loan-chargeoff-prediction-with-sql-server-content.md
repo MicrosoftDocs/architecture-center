@@ -4,12 +4,13 @@ This solution template demonstrates a solution end to end, to run predictive ana
 
 ## Architecture
 
-![Architecture diagram of building and deploying an ML model to predict a bank loan.](../media/loan-chargeoff-prediction-with-sql-server.png)
+![Diagram that shows an architecture diagram of building and deploying a machine learning model to predict a bank loan.](../media/loan-chargeoff-prediction-with-sql-server.svg)
+
 *Download a [Visio file](https://arch-center.azureedge.net/loan-chargeoff-prediction.vsdx) for this architecture.*
 
 ### Dataflow
 
-1. Develop and deploy R code into R Studio IDE, which is installed on a VM or Data Scientist workstation. It's connected to a Data Science VM, where SQL Server is installed.
+1. Develop and deploy R code into RStudio IDE, which is installed on a VM or Data Scientist workstation. It's connected to a Data Science VM, where SQL Server is installed.
 
 1. Predict and score the model. The prediction and scored data can be visualized into Power BI.
 

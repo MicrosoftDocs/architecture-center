@@ -135,7 +135,7 @@ To deploy, you need an Azure subscription. For information about free subscripti
 
 To learn about the services that are used in the accelerator, see the overview and reference articles that are listed in:
 
-- [Azure Form Recognizer documentation](/azure/applied-ai-products/form-recognizer)
+- [Azure Form Recognizer documentation](/azure/applied-ai-services/form-recognizer/?view=form-recog-3.0.0)
 - [Azure Logic Apps documentation](/azure/logic-apps)
 - [Azure Functions documentation](/azure/azure-functions)
 - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)

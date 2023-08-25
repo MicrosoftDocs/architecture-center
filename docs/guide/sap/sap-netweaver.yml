@@ -4,7 +4,7 @@ metadata:
   description: Learn proven practices for running SAP NetWeaver in a Windows environment on Azure, with high availability.
   author: bqtrinh
   ms.author: bentrin
-  ms.date: 08/05/2022
+  ms.date: 07/20/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
@@ -28,6 +28,6 @@ products:
   - azure-virtual-machines
   - azure-virtual-network
   - azure-netapp-files
-thumbnailUrl: /azure/architecture/browse/thumbs/sap-netweaver-avset-afs-ppg-thumbnail.png
+thumbnailUrl: /azure/architecture/browse/thumbs/sap-netweaver-windows.png
 content: |
    [!include[](sap-netweaver-content.md)]

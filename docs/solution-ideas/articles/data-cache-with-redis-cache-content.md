@@ -4,8 +4,9 @@ Azure Cache for Redis perfectly complements Azure database services such as Azur
 
 ## Architecture
 
-![Diagram shows the Azure Cache for Redis architecture.](../media/data-cache-with-redis-cache.png)
-*Download an [SVG](../media/data-cache-with-redis-cache.svg) of this architecture.*
+![Diagram shows the Azure Cache for Redis architecture.](../media/data-cache-with-redis-cache.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/data-cache-with-redis-cache.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -51,6 +52,5 @@ Principal author:
 
 * [Cache-Aside Pattern](../../patterns/cache-aside.yml)
 * [Caching Best Practice](../../best-practices/caching.yml)
-* [Build cloud native applications](/azure/architecture/solution-ideas/articles/cloud-native-apps)
 * [Data streaming with AKS](/azure/architecture/solution-ideas/articles/data-streaming-scenario)
 * [Messaging](/azure/architecture/solution-ideas/articles/messaging)

@@ -1,3 +1,7 @@
+---
+ms.custom:
+  - devx-track-python
+---
 Microsoft Azure offers a myriad of services and capabilities. Building an end-to-end machine learning pipeline from experimentation to deployment often requires bringing together a set of services from across Azure. While it may be possible to have one pipeline do it all, there are tradeoffs when you don't use the services for what they're best at.
 
 So, then you have to ask the question: When is it worth it to adopt each service for your use case? The answer often depends on different details that are not necessarily related to the functional requirements. The main factors are:

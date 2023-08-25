@@ -14,7 +14,7 @@ azureCategories:
   - integration
   - security
 products:
-  - azure-sentinel
+  - microsoft-sentinel
   - azure-monitor
   - defender-for-cloud
   - azure-log-analytics

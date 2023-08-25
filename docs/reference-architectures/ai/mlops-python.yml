@@ -17,6 +17,7 @@ metadata:
     - azcat-ai
     - reference-architecture
     - ai-machine-learning
+    - devx-track-python
 name: MLOps for Python models using Azure Machine Learning
 azureCategories:
   - ai-machine-learning

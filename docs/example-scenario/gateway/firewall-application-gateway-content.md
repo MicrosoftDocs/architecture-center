@@ -384,8 +384,8 @@ Explore related architectures:
 - [Consumer health portal on Azure](../digital-health/health-portal.yml)
 - [Security considerations for highly sensitive IaaS apps in Azure](../../reference-architectures/n-tier/high-security-iaas.yml)
 - [Multitenant SaaS on Azure](../multi-saas/multitenant-saas.yml)
-- [Enterprise deployment using App Services Environment](../../reference-architectures/enterprise-integration/ase-standard-deployment.yml)
-- [High availability enterprise deployment using App Services Environment](../../reference-architectures/enterprise-integration/ase-high-availability-deployment.yml)
+- [Enterprise deployment using App Services Environment](../../web-apps/app-service-environment/architectures/ase-standard-deployment.yml)
+- [High availability enterprise deployment using App Services Environment](../../web-apps/app-service-environment/architectures/ase-high-availability-deployment.yml)
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
 
 [azfw-overview]: /azure/firewall/overview

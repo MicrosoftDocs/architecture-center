@@ -4,7 +4,7 @@ This solution idea describes how to extend your on-premises big data investments
 
 ## Architecture
 
-[ ![Architecture diagram that shows the big data architecture.](../media/extend-your-on-premises-big-data-investments-with-hdinsight.svg)](../media/extend-your-on-premises-big-data-investments-with-hdinsight.svg#lightbox)
+:::image type="content" source="../media/extend-your-on-premises-big-data-investments-with-hdinsight.svg" alt-text="Architecture diagram that shows the big data architecture." lightbox="../media/extend-your-on-premises-big-data-investments-with-hdinsight.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/extend-your-on-premises-big-data-investments-with-hdinsight.vsdx) of this architecture.*
 

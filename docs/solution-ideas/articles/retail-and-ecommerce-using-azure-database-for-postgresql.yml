@@ -21,7 +21,6 @@ metadata:
     - azure
     - solutions
     - "https://azure.microsoft.com/solutions/architecture/retail-and-ecommerce-using-azure-database-for-postgresql"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/retail-and-ecommerce-using-azure-database-for-postgresql.svg
 name: Retail and e-commerce using Azure Database for PostgreSQL
 azureCategories:
   - databases
@@ -31,8 +30,8 @@ products:
   - azure-app-service
   - azure-database-postgresql
   - azure-hdinsight
-  - azure-search
+  - azure-cognitive-search
   - azure-storage
-thumbnailUrl: /azure/architecture/browse/thumbs/retail-and-ecommerce-using-azure-database-for-postgresql.svg
+thumbnailUrl: /azure/architecture/browse/thumbs/retail-and-ecommerce-using-azure-database-for-postgresql.png
 content: |
    [!include[](retail-and-ecommerce-using-azure-database-for-postgresql-content.md)]

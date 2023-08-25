@@ -20,6 +20,7 @@ ms.custom:
   - previous-author=deguhath
   - previous-ms.author=deguhath
   - azure-machine-learning
+  - devx-track-python
 ---
 
 # Scalable data science with Azure Data Lake

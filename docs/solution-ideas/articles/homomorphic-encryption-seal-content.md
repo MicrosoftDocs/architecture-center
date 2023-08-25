@@ -2,7 +2,9 @@ This article discusses how and when to use homomorphic encryption and how to imp
 
 ## Architecture
 
-![Diagram showing traditional and SEAL encryption.](../media/seal.png)
+:::image type="content" source="../media/homomorphic-encryption-seal.svg" alt-text="Diagram showing traditional and SEAL encryption." lightbox="../media/homomorphic-encryption-seal.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/homomorphic-encryption-seal.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -10,12 +12,7 @@ Traditional encryption schemes consist of three functionalities: key generation,
 
 You can use traditional encryption for secure storage and communication, but outsourced computation has required the removal of encryption layers. Cloud services that provide outsourced computation must implement access policies to prevent unauthorized access to the data and keys. Data privacy relies on the access control policies that are imposed by the cloud provider and trusted by the customer.
 
-With SEAL homomorphic encryption, cloud providers never have unencrypted access to the data they store and compute on. Computations can be performed directly on encrypted data. The results of such encrypted computations remain encrypted, and can be decrypted only by the data owner by using the secret key. Most homomorphic encryption uses public-key encryption schemes, although the public-key functionality may not always be needed.
-
-### Components
-
-- [.NET Core 2.2](https://dotnet.microsoft.com/download/dotnet/2.2)
-- [Microsoft SEAL](https://www.microsoft.com/research/project/microsoft-seal)
+With [Microsoft SEAL](https://www.microsoft.com/research/project/microsoft-seal) homomorphic encryption, cloud providers never have unencrypted access to the data they store and compute on. Computations can be performed directly on encrypted data. The results of such encrypted computations remain encrypted, and can be decrypted only by the data owner by using the secret key. Most homomorphic encryption uses public-key encryption schemes, although the public-key functionality may not always be needed.
 
 ## Scenario details
 
@@ -41,10 +38,6 @@ Companies often send, receive, and store their cloud data in encrypted form. But
 - It isn't always easy or straightforward to translate an unencrypted computation into a computation on encrypted data. Even if new users can program and run a computation using Microsoft SEAL, there can be a great difference between efficient and inefficient implementation. It can be hard to know how to improve performance.
 
 - While the homomorphic encryption primitive itself is secure, it doesn't guarantee that the apps and protocols that use it are secure.
-
-## Deploy this scenario
-
-The [sample code](https://zarmada.blob.core.windows.net/ai-school-module-updates/ai-school-lab-seal.zip) includes a console app, an API to implement a basic client-server interaction with homomorphic encryption, and complete instructions. To use the code, download and extract the ZIP to a local folder. The code project requires [Visual Studio 2019](https://www.visualstudio.com/downloads) and [.NET Core version 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2).
 
 ## Contributors
 

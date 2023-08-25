@@ -21,7 +21,6 @@ metadata:
     - pricing-calculator
     - "https://azure.microsoft.com/solutions/architecture/modern-data-warehouse"
     - internal-intro
-  social_image_url: /azure/architecture/solution-ideas/articles/media/enterprise-data-warehouse.png
 name: Enterprise data warehouse
 azureCategories:
   - databases

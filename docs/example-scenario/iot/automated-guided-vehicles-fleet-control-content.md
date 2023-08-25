@@ -89,7 +89,7 @@ Another option to run these services is in [Azure Kubernetes Service (AKS)](/azu
 
 Also consider using [Azure Monitor](https://azure.microsoft.com/services/monitor/) in combination with Application Insights to analyze and optimize the performance of your applications, containers, databases, and other resources and to monitor and diagnose networking issues.
 
-This architecture uses RabbitMQ as the message broker. Microsoft Azure also has native support for messaging solutions, such as [Azure Queue Storage](/azure/storage/queues/storage-dotnet-how-to-use-queues?tabs=dotnet)
+This architecture uses RabbitMQ as the message broker. Microsoft Azure also has native support for messaging solutions, such as [Azure Queue Storage](/azure/storage/queues/storage-quickstart-queues-dotnet?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli)
 or [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview).
 For a comparison, see [Azure Storage queues and Service Bus queues - compared and contrasted](/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
 
@@ -152,7 +152,7 @@ Use Azure Active Directory for identity and access control and use Azure Key Vau
 
 ### DevOps
 
-For deploying the microservices to Kubernetes or Azure App Service automatically, it's best to use [CI/CD processes](/azure/architecture/example-scenario/apps/devops-with-aks).
+For deploying the microservices to Kubernetes or Azure App Service automatically, it's best to use [CI/CD processes](/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops).
 Consider using a solution such as Azure DevOps or GitHub Actions.
 
 ### Cost optimization
@@ -202,12 +202,13 @@ Azure Architecture Center overview articles:
 
 - [Microservices architecture style](/azure/architecture/guide/architecture-styles/microservices)
 - [Choosing an Azure compute option for microservices](/azure/architecture/microservices/design/compute-options)
-- [Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region)
+- [Baseline zone-redundant web application](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant)
+- [Highly available multi-region web application](/azure/architecture/web-apps/app-service/architectures/multi-region)
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)
-- [Microservices with Azure Kubernetes Service (AKS)](/azure/architecture/solution-ideas/articles/microservices-with-aks)
+- [CI/CD for AKS apps with Azure Pipelines](/azure/architecture/guide/aks/aks-cicd-azure-pipelines)
 
 Related architectures:
 
 - [Building blocks for autonomous-driving simulation environments](/azure/architecture/industries/automotive/building-blocks-autonomous-driving-simulation-environments)
 - [Running CFD simulations](/azure/architecture/example-scenario/infrastructure/hpc-cfd)
-- [Industrial services on Azure Kubernetes](https://github.com/Azure/Industrial-IoT/tree/master/docs/services)
+- [Industrial services on Azure Kubernetes](https://github.com/Azure/Industrial-IoT/blob/main/docs/web-api/readme.md)

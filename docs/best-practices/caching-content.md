@@ -262,7 +262,7 @@ Additionally, you can create alerts that send email messages to an administrator
 
 You can also monitor the CPU, memory, and network usage for the cache.
 
-For further information and examples showing how to create and configure an Azure Cache for Redis, visit the page [Lap around Azure Cache for Redis](https://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview) on the Azure blog.
+For further information and examples showing how to create and configure an Azure Cache for Redis, visit the page Lap around Azure Cache for Redis on the Azure blog.
 
 ## Caching session state and HTML output
 

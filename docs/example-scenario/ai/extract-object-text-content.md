@@ -69,7 +69,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Use standard security practices for the components that you use, and for the SharePoint document library that you store the metadata in.
 
-Form Recognizer is designed with compliance, privacy, and security in mind.  It authenticates access by using an API key, encrypts data during transit and storage, and returns results by using the API key. For more information, see [Data, privacy, and security for Form Recognizer](/legal/cognitive-services/form-recognizer/fr-data-privacy-security).
+Form Recognizer is designed with compliance, privacy, and security in mind.  It authenticates access by using an API key, encrypts data during transit and storage, and returns results by using the API key. For more information, see [Data, privacy, and security for Form Recognizer](/legal/cognitive-services/document-intelligence/data-privacy-security).
 
 AI Builder relies on environment security and Dataverse security roles and privileges to grant access to AI features in Power Apps. Privileges are set by default in Dataverse. System administrators can use the default built-in security roles without further actions. For more information, see [Security overview](/power-platform/admin/wp-security).
 

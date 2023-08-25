@@ -6,7 +6,7 @@ This article and the [associated code project](https://github.com/mspnp/vnet-int
 
 The following diagram shows the patient record creation request flow:
 
-:::image type="content" alt-text="Diagram showing virtual network integrated microservices." source="virtual-network-microservices.png" lightbox="virtual-network-microservices.png":::
+:::image type="content" alt-text="Diagram showing virtual network integrated microservices." source="virtual-network-microservices.svg" lightbox="virtual-network-microservices.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/virtual-network-microservices.vsdx) of this architecture.*
 
@@ -205,7 +205,7 @@ Principal author:
 The following architectures cover key API Management scenarios:
 
 - [Migrate a web app using Azure API Management](/azure/architecture/example-scenario/apps/apim-api-scenario)
-- [Protect APIs with Application Gateway and API Management](/azure/architecture/reference-architectures/apis/protect-apis)
+- [Protect APIs with Application Gateway and API Management](/azure/architecture/web-apps/api-management/architectures/protect-apis)
 - [Azure API Management landing zone accelerator](/azure/architecture/example-scenario/integration/app-gateway-internal-api-management-function)
 
 The following articles cover key functions scenarios:
@@ -214,5 +214,5 @@ The following articles cover key functions scenarios:
 - [Monitor Azure Functions and Event Hubs](/azure/architecture/serverless/event-hubs-functions/observability)
 - [Azure Functions in a hybrid environment](/azure/architecture/hybrid/azure-functions-hybrid)
 - [Performance and scale for Event Hubs and Azure Functions](/azure/architecture/serverless/event-hubs-functions/performance-scale)
-- [Code walkthrough: Serverless application with Functions](/azure/architecture/serverless/code)
+- [Code walkthrough: Serverless application with Functions](/azure/architecture/web-apps/serverless/architectures/code)
 - [Azure App Service and Azure Functions considerations for multitenancy](/azure/architecture/guide/multitenant/service/app-service)

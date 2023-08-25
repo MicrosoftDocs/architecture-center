@@ -2,7 +2,7 @@ The following architecture outlines the use of Delphix Continuous Compliance in 
 
 ## Architecture
 
-:::image type="content" source="./media/delphix-continuous-compliance-architecture.png" lightbox="./media/delphix-continuous-compliance-architecture.png" alt-text="Diagram showing the Delphix Continuous Compliance architecture.":::
+:::image type="content" source="./media/delphix-continuous-compliance-architecture.svg" lightbox="./media/delphix-continuous-compliance-architecture.svg" alt-text="Diagram showing the Delphix Continuous Compliance architecture.":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/delphix-continuous-compliance-architecture.vsdx) of this architecture.*
 

@@ -57,7 +57,7 @@ The mobile client app works in offline mode, which allows you to view and upload
 * [Azure Functions Documentation](/azure/azure-functions/functions-triggers-bindings)
 * [Application Insights Documentation](/azure/application-insights)
 * [Azure Cosmos DB Documentation](/azure/cosmos-db)
-* [Queue Storage Documentation](/azure/storage/queues/storage-dotnet-how-to-use-queues)
+* [Queue Storage Documentation](/azure/storage/queues/storage-quickstart-queues-dotnet?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli)
 * [Blob Storage Documentation](/azure/storage/blobs/storage-dotnet-how-to-use-blobs)
 * [Notification Hubs Documentation](/azure/notification-hubs)
 * [Traffic Manager Documentation](/azure/traffic-manager/traffic-manager-overview)

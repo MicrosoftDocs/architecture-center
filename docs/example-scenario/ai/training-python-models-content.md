@@ -1,3 +1,7 @@
+---
+ms.custom:
+  - devx-track-python
+---
 This article describes distributed hyperparameter tuning for Python machine learning models. Hyperparameters are adjustable parameters that control machine learning model training. Machine learning model performance depends heavily on hyperparameters.
 
 Hyperparameter tuning, also called hyperparameter optimization, is the process of finding hyperparameter configurations that produce the best model training performance. [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) can help automate and distribute hyperparameter tuning.

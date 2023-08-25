@@ -13,7 +13,9 @@ Running applications in an emulator on Azure has several benefits, such as reduc
 
 ## Architecture
 
-![Diagram showing the Charon-SSP and Solaris architecture.](../media/solaris.png)
+:::image type="content" border="false" source="../media/solaris.svg" alt-text="Diagram showing the Charon-SSP and Solaris architecture." lightbox="../media/solaris.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/solaris-emulator-azure.vsdx) of this architecture.*
 
 ### Dataflow
 

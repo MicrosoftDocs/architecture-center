@@ -21,7 +21,6 @@ metadata:
     - Mobile Workforce Management Solution
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/custom-mobile-workforce-app"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/custom-mobile-workforce-app.png
 name: Custom mobile workforce app
 azureCategories:
   - mobile

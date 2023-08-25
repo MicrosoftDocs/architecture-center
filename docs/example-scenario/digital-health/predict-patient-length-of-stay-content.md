@@ -104,7 +104,7 @@ In this scenario, data pre-processing is performed in Azure Machine Learning. Wh
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 > [!IMPORTANT]
-> This architecture will work with both anonymized and non-anonymized health data. However, for the sake of a secure implementation, we recommend that health data is sourced in anonyized form from EHR and EMR sources.
+> This architecture will work with both anonymized and non-anonymized health data. However, for the sake of a secure implementation, we recommend that health data is sourced in anonymized form from EHR and EMR sources.
 
 For more information on security and governance features available for Azure Machine Learning, see [Enterprise security and governance for Azure Machine Learning](/azure/machine-learning/concept-enterprise-security)
 

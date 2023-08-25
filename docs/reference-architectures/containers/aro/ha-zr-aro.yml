@@ -1,0 +1,31 @@
+### YamlMime:Architecture
+metadata:
+  title: Deploy web apps by using zone-redundant Azure Red Hat OpenShift
+  titleSuffix: Azure Reference Architectures
+  description: Run an application on Azure Red Hat OpenShift in a zone-redundant configuration to achieve high availability.
+  author: hitarusa
+  ms.author: hitarusa, daniem
+  ms.date: 06/27/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.category:
+    - containers
+    - web
+    - management-and-governance
+  ms.custom:
+    - reference-architecture
+    - internal-intro
+azureCategories:
+  - containers
+  - web
+  - management-and-governance
+products:
+  - azure-redhat-openshift
+  - azure-cosmos-db
+  - azure-front-door
+name: Deploy web apps by using zone-redundant Azure Red Hat OpenShift
+summary: Run an application on Azure Red Hat OpenShift in a zone-redundant configuration to achieve high availability.
+thumbnailUrl: /azure/architecture/browse/thumbs/openshift-architecture.png
+content: |
+  [!include[](./ha-zr-aro-content.md)]

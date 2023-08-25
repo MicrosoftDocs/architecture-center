@@ -21,7 +21,6 @@ metadata:
     - interactive-diagram
     - e2e-hybrid
     - "https://azure.microsoft.com/solutions/architecture/build-high-availability-into-your-bcdr-strategy"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/build-high-availability-into-your-bcdr-strategy.png
 name: Build high availability into your BCDR strategy
 azureCategories:
   - management-and-governance

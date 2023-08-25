@@ -22,7 +22,6 @@ metadata:
     - medical data storage
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/security-compliance-blueprint-hipaa-hitrust-health-data-ai"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/security-compliance-blueprint-hipaa-hitrust-health-data-ai.png
 name: HIPAA and HITRUST compliant health data AI
 azureCategories:
   - storage

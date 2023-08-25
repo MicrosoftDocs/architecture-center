@@ -52,8 +52,10 @@ Principal author:
 
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
 - [Microservices architecture on Azure Kubernetes Service](../reference-architectures/containers/aks-microservices/aks-microservices.yml)
-- [CI/CD pipeline for container-based workloads](../example-scenario/apps/devops-with-aks.yml)
+- [CI/CD pipeline for container-based workloads](../guide/aks/aks-cicd-github-actions-and-gitops.yml)
 - [Cross-cloud scaling with Azure Functions](../solution-ideas/articles/cross-cloud-scaling.yml)
 - [Run a Linux VM on Azure](../reference-architectures/n-tier/linux-vm.yml)
-- [Basic web application](../reference-architectures/app-service-web-app/basic-web-app.yml)
+- [Basic web application](../web-apps/app-service/architectures/basic-web-app.yml)
+- [Baseline App Service web application with zone redundancy](../web-apps/app-service/architectures/baseline-zone-redundant.yml)
+- [Active-passive multi-region App Service web application](../web-apps/app-service/architectures/multi-region.yml)
 - [Social app for mobile and web with authentication](../solution-ideas/articles/social-mobile-and-web-app-with-authentication.yml)

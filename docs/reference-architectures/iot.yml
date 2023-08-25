@@ -20,7 +20,6 @@ azureCategories:
 products:
   - azure-functions
   - azure-iot-hub
-  - azure-iot-dps
   - azure-stream-analytics
   - azure-digital-twins
 name: Azure IoT reference architecture

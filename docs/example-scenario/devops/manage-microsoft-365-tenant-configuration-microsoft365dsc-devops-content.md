@@ -2,9 +2,9 @@ The solution described here tracks changes made by service administrators and ad
 
 ## Architecture
 
-:::image type="content" border="false" source="./media/manage-microsoft-365-tenant-configuration-microsoft365dsc-azure-devops.png" alt-text="Diagram that shows the architecture for automating changes to Microsoft 365 tenant configurations." lightbox="./media/manage-microsoft-365-tenant-configuration-microsoft365dsc-azure-devops.png":::
+:::image type="content" border="false" source="./media/manage-microsoft-365-tenant-configuration-microsoft365dsc-azure-devops.svg" alt-text="Diagram that shows the architecture for automating changes to Microsoft 365 tenant configurations." lightbox="./media/manage-microsoft-365-tenant-configuration-microsoft365dsc-azure-devops.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/M365DevOps.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/m365-dev-ops.vsdx) of this architecture.*
 
 ### Workflow
 

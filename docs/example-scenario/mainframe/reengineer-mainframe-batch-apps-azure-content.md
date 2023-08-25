@@ -4,7 +4,7 @@ This reference architecture shows how you can use Azure to re-engineer a z/OS ma
 
 The first diagram shows the architecture of a typical batch application running on a z/OS mainframe.
 
-:::image type="content" source="media/mainframe-batch-application-diagram.png" alt-text="Diagram of a typical batch application running on a z/OS mainframe.":::
+:::image type="content" source="media/mainframe-batch-application-diagram.svg" alt-text="Diagram of a typical batch application running on a z/OS mainframe." lightbox="media/mainframe-batch-application-diagram.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/us-1858749-pr-3417-mainframe-batch-application-example.vsdx) of this architecture.*
 
@@ -31,7 +31,7 @@ The first diagram shows the architecture of a typical batch application running 
 
 The second diagram shows how you can use Azure services to re-engineer a similar application with added capabilities and flexibility.
 
-:::image type="content" source="media/azure-reengineered-mainframe-batch-application-architecture.png" alt-text="Diagram of a batch application re-engineered using Azure services. Multiple example services are included." lightbox="media/azure-reengineered-mainframe-batch-application-architecture-expanded.png":::
+:::image type="content" source="media/azure-reengineered-mainframe-batch-application-architecture.svg" alt-text="Diagram of a batch application re-engineered using Azure services. Multiple example services are included." lightbox="media/azure-reengineered-mainframe-batch-application-architecture.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/us-1858749-pr-3417-azure-reengineer-mainframe-batch-example.vsdx) of this architecture.*
 

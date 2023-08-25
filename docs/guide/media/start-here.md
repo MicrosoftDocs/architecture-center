@@ -12,7 +12,7 @@ products:
   - azure-media-services
   - azure-cdn
   - azure-content-protection
-  - azure-encoding
+  - azure
 categories:
   - media
 ---

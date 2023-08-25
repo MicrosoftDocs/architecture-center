@@ -249,3 +249,5 @@ _themes*/
 docs/.vscode/settings.json
 .gitignore
 .temp
+.env
+.cache_ggshield

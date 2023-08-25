@@ -21,7 +21,6 @@ metadata:
     - sharepoint farm solution
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/highly-available-sharepoint-farm"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/highly-available-sharepoint-farm.png
 name: Highly available SharePoint farm
 azureCategories:
   - web

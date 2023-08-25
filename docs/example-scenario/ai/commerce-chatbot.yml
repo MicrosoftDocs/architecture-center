@@ -15,7 +15,6 @@ metadata:
     - example-scenario
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/example-scenario/ai/media/architecture-commerce-chatbot.png
 name: Build a chatbot for hotel booking
 azureCategories:
   - ai-machine-learning
@@ -23,10 +22,9 @@ azureCategories:
 summary: Build a conversational chatbot for common business scenarios with Azure Bot Service. This example scenario shows a chatbot for hotel booking.
 products:
   - azure-bot-service
-  - azure-language-understanding
   - azure-active-directory-b2c
   - azure-app-service
-  - azure-cognitive-services
+  - ai-services
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-commerce-chatbot.png
 content: |
   [!include[](commerce-chatbot-content.md)]

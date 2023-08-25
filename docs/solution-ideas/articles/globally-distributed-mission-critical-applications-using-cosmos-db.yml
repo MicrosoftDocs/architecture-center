@@ -17,7 +17,6 @@ metadata:
     - app-dev
     - Cosmos DB
     - "https://azure.microsoft.com/solutions/architecture/globally-distributed-mission-critical-applications-using-cosmos-db"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/globally-distributed-mission-critical-applications-using-cosmos-db.png
 name: Globally distributed applications using Azure Cosmos DB
 azureCategories:
   - databases

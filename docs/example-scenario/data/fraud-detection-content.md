@@ -116,7 +116,7 @@ Principal author:
 [small-pricing]: https://azure.com/e/74149ec312c049ccba79bfb3cfa67606
 [medium-pricing]: https://azure.com/e/4fc94f7376de484d8ae67a6958cae60a
 [large-pricing]: https://azure.com/e/7da8804396f9428a984578700003ba42
-[architecture]: ./media/architecture-fraud-detection-new.png
+[architecture]: ./media/architecture-fraud-detection-new.svg
 [docs-event-hubs]: /azure/event-hubs/event-hubs-what-is-event-hubs
 [docs-event-hubs-security-model]: /azure/event-hubs/event-hubs-authentication-and-security-model-overview
 [docs-stream-analytics]: /azure/stream-analytics/stream-analytics-introduction

@@ -4,7 +4,9 @@ This article presents a DevOps approach to setting up a continuous integration a
 
 ## Architecture
 
-![Architectural diagram: deployment of a chatbot with continuous integration and continuous deployment (CI/CD) using Azure Pipelines and ARM templates.](./media/ci-cd-pipeline-deployment-arm-templates.png)
+[ ![Architectural diagram: deployment of a chatbot with continuous integration and continuous deployment (CI/CD) using Azure Pipelines and ARM templates.](./media/ci-cd-pipeline-deployment-arm-templates.svg)](./media/ci-cd-pipeline-deployment-arm-templates.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/devops-cicd-chatbot.vsdx) of this architecture.*
 
 ### Workflow
 

@@ -23,7 +23,6 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/ai-at-the-edge-disconnected"
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/ai-at-the-edge-disconnected.png
 name: Disconnected AI at the edge with Azure Stack Hub
 azureCategories:
   - ai-machine-learning

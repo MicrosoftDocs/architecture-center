@@ -23,7 +23,6 @@ metadata:
     - interactive-diagram
     - e2e-hybrid
     - "https://azure.microsoft.com/solutions/architecture/sharepoint-farm-microsoft-365"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/sharepoint-farm-microsoft-365.png
 name: Hybrid SharePoint farm with Microsoft 365
 azureCategories:
   - web

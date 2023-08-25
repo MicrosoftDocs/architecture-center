@@ -13,9 +13,9 @@ This article provides general information for running SAS Grid 9.4 on Azure, usi
 
 ## Architecture
 
-:::image type="content" source="media/main-architecture.png" alt-text="Diagram that shows an architecture for running SAS Grid on Azure." lightbox="media/main-architecture.png" border="false":::
+:::image type="content" source="media/main-architecture.svg" alt-text="Diagram that shows an architecture for running SAS Grid on Azure." lightbox="media/main-architecture.svg" border="false":::
  
-*Download a [PowerPoint file](https://arch-center.azureedge.net/sas-grid.pptx) of the architectures in this article.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/sas-grid.pptx) of all diagrams in this article.*
 
 ### Dataflow 
 
@@ -47,6 +47,9 @@ SASDATA, the main shared workload of SAS 9.4, has an 80:20 read/write ratio. The
 - 2,400 MiB/s of read throughput and 600 MiB/s of write throughput running concurrently (~3,000 MiB/s combined).
 
 For more information, see [Azure NetApp Files performance benchmarks for Linux](/azure/azure-netapp-files/performance-benchmarks-linux).
+
+> [!NOTE]
+> Azure NetApp Files large volumes feature is now available. This feature provides higher per-volume throughput than regular Azure NetApp Files volumes do. This capability can be considered in case more performance is required for your SASDATA (or SASWORK) volumes. See [this documentation](/azure/azure-netapp-files/large-volumes-requirements-considerations#requirements-and-considerations) for details.
 
 ### Capacity recommendations
 
@@ -89,7 +92,7 @@ Learn more about the [Azure NetApp Files cost model](/azure/azure-netapp-files/a
 
 Azure NetApp Files uses [snapshots](/azure/azure-netapp-files/snapshots-introduction) to help you protect your data. Snapshots provide space-efficient, crash-consistent, near-instantaneous images of your Azure NetApp Files volumes. You can create snapshots manually at any time or schedule them by using a [snapshot policy](/azure/azure-netapp-files/snapshots-manage-policy) on the volume.
 
-Use a snapshot policy to add automated data protection to your volumes. You can restore snaphots in place quickly by using [snapshot revert](/azure/azure-netapp-files/snapshots-revert-volume). Or you can [restore a snapshot to a new volume](/azure/azure-netapp-files/snapshots-restore-new-volume) for fast data recovery. You can also use [restore to new volume functionality](/azure/azure-netapp-files/snapshots-introduction#restoring-cloning-an-online-snapshot-to-a-new-volume) to provide test/dev environments with current data.
+Use a snapshot policy to add automated data protection to your volumes. You can restore snapshots in place quickly by using [snapshot revert](/azure/azure-netapp-files/snapshots-revert-volume). Or you can [restore a snapshot to a new volume](/azure/azure-netapp-files/snapshots-restore-new-volume) for fast data recovery. You can also use [restore to new volume functionality](/azure/azure-netapp-files/snapshots-introduction#restoring-cloning-an-online-snapshot-to-a-new-volume) to provide test/dev environments with current data.
 
 For extra levels of data protection, you can use data protection solutions that use [Azure NetApp Files backup](/azure/azure-netapp-files/backup-introduction) or partner backup software.
 
@@ -148,9 +151,7 @@ The options in the table correspond to deployments described in the architecture
 
 ## Temporary storage architecture
 
-:::image type="content" source="media/temporary-storage.png" alt-text="Diagram that shows a temporary storage architecture." lightbox="media/temporary-storage.png" border="false":::
-
-*Download a [PowerPoint file](https://arch-center.azureedge.net/sas-grid.pptx) of the architectures in this article.* 
+:::image type="content" source="media/temporary-storage.svg" alt-text="Diagram that shows a temporary storage architecture." lightbox="media/temporary-storage.svg" border="false":::
 
 For smaller SASWORK capacity requirements, Azure VM temporary storage is a fast and cost-effective solution. In this architecture, each VM in the compute tier is equipped with some temporary storage. To determine the temporary storage sizes for the VMs you use, see the [Azure VM documentation](/azure/virtual-machines/sizes).
 
@@ -162,9 +163,7 @@ For smaller SASWORK capacity requirements, Azure VM temporary storage is a fast 
 
 ## Managed disk architecture
 
-:::image type="content" source="media/managed-disk.png" alt-text="Diagram that shows a managed disk architecture." lightbox="media/managed-disk.png" border="false":::
-
-*Download a [PowerPoint file](https://arch-center.azureedge.net/sas-grid.pptx) of the architectures in this article.* 
+:::image type="content" source="media/managed-disk.svg" alt-text="Diagram that shows a managed disk architecture." lightbox="media/managed-disk.svg" border="false":::
 
 If your capacity requirements for SASWORK exceed the capacities available in temporary storage, Azure managed disks are a good alternative. Managed disks are available in various sizes and performance levels. For more information, see [Scalability and performance targets for VM disks](/azure/virtual-machines/disks-scalability-targets).
 
@@ -176,9 +175,7 @@ If your capacity requirements for SASWORK exceed the capacities available in tem
 
 ## Azure NetApp Files architecture
 
-:::image type="content" source="media/azure-netapp-files.png" alt-text="Diagram that shows an Azure NetApp Files architecture." lightbox="media/azure-netapp-files.png" border="false":::
-
-*Download a [PowerPoint file](https://arch-center.azureedge.net/sas-grid.pptx) of the architectures in this article.*
+:::image type="content" source="media/azure-netapp-files.svg" alt-text="Diagram that shows an Azure NetApp Files architecture." lightbox="media/azure-netapp-files.svg" border="false":::
 
 For higher SASWORK capacity and/or medium performance requirements, consider using Azure NetApp Files. Azure NetApp Files provides volume capacities as high as 100 TiB. Each node in the compute tier should have its own SASWORK volume. The volumes shouldn't be shared. 
 
@@ -304,9 +301,7 @@ The storage contents are replicated without the use of any compute infrastructur
 
 The following architecture shows how the storage content on Azure NetApp Files is replicated to a second region, where the storage is populated with a replica of the production data. If there's a failover, the secondary region is brought online, and the VMs are started so production can resume in the second region. You need to reroute traffic to the second region by reconfiguring load balancers that aren't shown in the diagram.
 
-:::image type="content" source="media/replication.png" alt-text="Diagram that shows an architecture with cross-region replication." lightbox="media/replication.png" border="false":::
-
-*Download a [PowerPoint file](https://arch-center.azureedge.net/sas-grid.pptx) of the architectures in this article.*
+:::image type="content" source="media/replication.svg" alt-text="Diagram that shows an architecture with cross-region replication." lightbox="media/replication.svg" border="false":::
 
 The typical RPO for this solution is less than 20 minutes when the cross-region replication update interval is set to 10 minutes. 
 
@@ -348,6 +343,9 @@ Depending on your requirements for throughput and capacity, keep the following c
 -	The [performance considerations for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-performance-considerations).
 - The required Azure NetApp Files capacity and service levels for SASDATA.
 - The guidance in this article for choosing a storage type for SASWORK.
+
+> [!NOTE]
+> Azure NetApp Files large volumes feature is now available. This feature provides higher per-volume throughput than regular Azure NetApp Files volumes do. This capability can be considered in case more performance is required for your SASDATA (or SASWORK) volumes. See [this documentation](/azure/azure-netapp-files/large-volumes-requirements-considerations#requirements-and-considerations) for details.
 
 #### Scalability
 

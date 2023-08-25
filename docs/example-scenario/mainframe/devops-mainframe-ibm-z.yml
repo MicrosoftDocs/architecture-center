@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Implement Azure DevOps for mainframe applications that use IBM Z and Cloud Modernization Stack
+  titleSuffix: Azure Architecture Center
+  description: Implement Azure DevOps for z/OS mainframe applications that use IBM Z and Cloud Modernization Stack.
+  author: vatseyb
+  ms.author: bhbandam
+  ms.date: 06/13/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - devops
+products:
+  - azure-devops
+  - azure-repos
+  - azure-pipelines
+  - azure-boards
+  - azure-test-plans
+name: Implement Azure DevOps for mainframe applications that use IBM Z and Cloud Modernization Stack
+summary: Implement Azure DevOps for z/OS mainframe applications that use IBM Z and Cloud Modernization Stack.
+thumbnailUrl: /azure/architecture/browse/thumbs/devops-mainframe-ibm-stack.png
+content: |
+  [!include[](devops-mainframe-ibm-z-content.md)]

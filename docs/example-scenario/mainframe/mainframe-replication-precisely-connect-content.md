@@ -4,7 +4,7 @@ This article describes how to use Precisely Connect to migrate mainframe and mid
 
 ## Architecture
 
-:::image type="content" source="media/mainframe-midrange-data-replication-azure-precisely.png" alt-text="Diagram that shows an architecture for migrating mainframe and midrange systems to Azure." lightbox="media/mainframe-midrange-data-replication-azure-precisely.png" border="false":::
+:::image type="content" source="media/mainframe-midrange-data-replication-azure-precisely.svg" alt-text="Diagram that shows an architecture for migrating mainframe and midrange systems to Azure." lightbox="media/mainframe-midrange-data-replication-azure-precisely.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/mainframe-midrange-data-replication-azure-precisely1.vsdx) of this architecture.*
 

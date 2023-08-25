@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Monitor a distributed system by using Application Insights and OpenCensus
+  titleSuffix: Azure Architecture Center
+  description: Learn how to monitor an end-to-end distributed system by using OpenCensus for Python and Application Insights.
+  author: raliouat
+  ms.author: raoufaliouat
+  ms.date: 06/20/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+  ms.custom: devx-track-python
+products:
+  - azure-application-insights
+  - azure-event-hubs
+  - azure-functions
+  - azure-service-bus
+  - azure-monitor
+azureCategories:
+  - security
+  - devops
+name: Monitor a distributed system by using Application Insights and OpenCensus
+summary: Learn how to monitor an end-to-end distributed system by using OpenCensus for Python and Application Insights.
+thumbnailUrl: /azure/architecture/browse/thumbs/monitor-with-opencensus-application-insights.png
+content: |
+  [!include[](monitor-with-opencensus-application-insights-content.md)]

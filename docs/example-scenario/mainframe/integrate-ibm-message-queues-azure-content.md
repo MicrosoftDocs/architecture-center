@@ -2,7 +2,9 @@ When using Azure as a modern data platform, you have your choice of platform as 
 
 ## Architecture
 
-![Infographic showing the Azure set-up for the IBM MQ](media/integrate-ibm-message-queues-azure-01.png)
+:::image type="content" source="media/integrate-ibm-message-queues-azure-01.svg" alt-text="Diagram that shows an architecture for the Azure set-up for the IBM MQ workload." lightbox="media/integrate-ibm-message-queues-azure-01.svg" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/integrate-ibm-message-queues-azure.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -87,7 +89,9 @@ Make sure to test the throughput and performance of your data transformation lay
 In this example architecture, Logic Apps connectors can be used to send messages directly to [Azure Storage](/azure/storage/common/storage-introduction) and [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction). For example, Logic Apps includes the [Azure Blob Storage connector](/connectors/azureblob/) as the following figure shows. The connector makes it easy to store massive amounts of unstructured data in [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction). Your data becomes accessible from anywhere in the world via HTTP or HTTPS. Blob storage also supports [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction), a big data analytics solution for the cloud. Data is loaded into storage using an Azure service such as the
 [AzCopy](/azure/storage/common/storage-ref-azcopy) tool, [Azure Data Factory](/azure/data-factory/introduction), or another solution that can connect to storage.
 
-![Infographic showing the relationship of IBM MQ and Azure Logic Apps](media/integrate-ibm-message-queues-azure-02.png)
+:::image type="content" source="media/integrate-ibm-message-queues-azure-02.svg" alt-text="Diagram that shows an architecture for the relationship of IBM MQ and Azure Logic Apps workload." lightbox="media/integrate-ibm-message-queues-azure-02.svg" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/integrate-ibm-message-queues-azure.vsdx) of this architecture.*
 
 Both the PaaS and IaaS architecture options support many popular managed database services. You can load data using a custom-built loader, a vendor solution, or a managed service such as [Azure Data Factory](/azure/data-factory/introduction). Database options include:
 

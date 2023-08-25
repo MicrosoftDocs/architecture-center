@@ -136,6 +136,6 @@ The file Index.cshtml in the Views\Home folder contains an image element that us
 ## Related resources
 
 - [Valet Key pattern](./valet-key.yml). If the target resources aren't supposed to be available to anonymous users, use this pattern to restrict direct access.
-- [Serverless web application on Azure](../reference-architectures/serverless/web-app.yml). A reference architecture that uses static website hosting with Azure Functions to implement a serverless web app.
+- [Serverless web application on Azure](../web-apps/serverless/architectures/web-app.yml). A reference architecture that uses static website hosting with Azure Functions to implement a serverless web app.
 
 [sample-app]: https://github.com/mspnp/cloud-design-patterns/tree/master/static-content-hosting

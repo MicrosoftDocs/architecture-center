@@ -18,7 +18,6 @@ metadata:
     - Cosmos DB
     - mode-api
     - "https://azure.microsoft.com/solutions/architecture/gaming-using-cosmos-db"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/gaming-using-cosmos-db.png
 name: Gaming using Azure Cosmos DB
 azureCategories:
   - databases

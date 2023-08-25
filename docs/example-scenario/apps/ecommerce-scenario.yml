@@ -16,7 +16,6 @@ metadata:
     - web-apps
     - ecommerce
     - example-scenario
-  social_image_url: /azure/architecture/example-scenario/apps/media/architecture-ecommerce-scenario.png
 name: E-commerce front end
 azureCategories:
   - web
@@ -24,7 +23,7 @@ summary: This example scenario implements an e-commerce front end using Azure pl
 products:
   - azure-active-directory-b2c
   - azure-cdn
-  - azure-cognitive-services
+  - ai-services
   - azure-traffic-manager
   - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-ecommerce-scenario.png

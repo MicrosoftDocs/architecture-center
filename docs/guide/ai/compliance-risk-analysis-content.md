@@ -672,7 +672,7 @@ This section summarizes organizational and technical best practices for developi
 - Inclusiveness
 - Transparency and accountability
 
-The evaluation of employee communications requires special attention and raises ethical concerns. In some countries, automated monitoring of employees is subject to strict legal restrictions. For all these reasons, make responsible innovation a cornerstone of your project plan. Microsoft offers several frameworks and tools for this purpose. For more information, refer to the **Tip** box at the end of this section.
+The evaluation of employee communications requires special attention and raises ethical concerns. In some countries/regions, automated monitoring of employees is subject to strict legal restrictions. For all these reasons, make responsible innovation a cornerstone of your project plan. Microsoft offers several frameworks and tools for this purpose. For more information, refer to the **Tip** box at the end of this section.
 
 **Automate your development iterations:** The Import data wizard makes it easy to get started, but for more complex solutions and productive use cases, we recommend that you create assets such as data sources, indexers, indexes, and skillsets in code. Automation dramatically speeds up development cycles and ensures a consistent deployment to production. The assets are specified in JSON format. You can copy JSON definitions from the portal, modify them as needed, and then provide them in the request body of calls to the Azure Cognitive Search REST APIs.
 
@@ -702,7 +702,7 @@ This guide provides comprehensive guidance for setting up a solution that uses A
 You can extend the architecture to include other data sources and AI capabilities, such as:
 
 - Ingesting structured data, such as market data (for example, stock quotes) and transaction information.
-- Attaching classification models that are designed to extract content from paper-based sources, by using capabilities such as the [Azure Form Recognizer](/azure/applied-ai-services/form-recognizer/quickstarts/try-v3-form-recognizer-studio) and the Azure Read API.
+- Attaching classification models that are designed to extract content from paper-based sources, by using capabilities such as the [Azure Form Recognizer](/azure/ai-services/document-intelligence/quickstarts/try-document-intelligence-studio?view=doc-intel-3.1.0) and the Azure Read API.
 - Ingesting social networking information by using Azure Language Studio capabilities to categorize and filter relevant topics, or Azure Sentiment Analysis to capture opinion trends.
 - Using Microsoft Graph to assemble and consolidate information from Microsoft 365, such as interpersonal interactions, companies that people work with, or information that they access. When you save this data in Azure Storage, you can easily search it.
 

@@ -2,7 +2,7 @@ This reference architecture shows how to deploy virtual machines (VMs) and a vir
 
 ## Architecture
 
-[![N-tier architecture using Microsoft Azure](./images/n-tier-sql-server.png)](./images/n-tier-sql-server.png)
+[![Diagram that shows an N-tier architecture using Microsoft Azure.](./images/n-tier-sql-server.svg)](./images/n-tier-sql-server.svg)
 
 *Download a [Visio file][visio-download] of this architecture.*
 
@@ -194,7 +194,7 @@ For single VMs pricing options See [Windows VMs pricing][Windows-vm-pricing]
 
 #### SQL server
 
-If you choose Azure SQL DBaas, you can save on cost because don't need to configure an Always On Availability Group and domain controller machines. There are several deployment options starting from single database up to managed instance, or elastic pools. For more information see [Azure SQL pricing](https://azure.microsoft.com/pricing/details/sql-database/managed/).
+If you choose Azure SQL DBaaS, you can save on cost because don't need to configure an Always On Availability Group and domain controller machines. There are several deployment options starting from single database up to managed instance, or elastic pools. For more information see [Azure SQL pricing](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 
 For SQL server VMs pricing options see [SQL VMs pricing][Managed-Sql-pricing].
 
@@ -271,7 +271,7 @@ For more information, see the Operational Excellence section in [Azure Well-Arch
 [sql-keyvault]: /azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure
 [Managed-Sql-pricing]: https://azure.microsoft.com/pricing/details/sql-database/managed
 [subscription-limits]: /azure/azure-subscription-service-limits
-[visio-download]: https://arch-center.azureedge.net/vm-reference-architectures.vsdx
+[visio-download]: https://arch-center.azureedge.net/vm-reference-n-tier-sql-server.vsdx
 [vmss-design]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview
 [vmss]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
 [Windows-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows
