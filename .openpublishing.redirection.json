@@ -3419,6 +3419,11 @@
       "source_path": "docs/guide/ai/language-model-pipelines.yml",
       "redirect_url": "/azure/architecture/ai-ml/openai/guide/language-model-pipelines",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/mlops/aml-decision-tree.yml",
+      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_document_id": false
     }
   ]
 }

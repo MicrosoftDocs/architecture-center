@@ -185,7 +185,6 @@ Principal author:
 
 ## Related resources
 
-- [Azure Machine Learning decision guide for optimal tool selection](../../example-scenario/mlops/aml-decision-tree.yml)
 - [Choose a Microsoft cognitive services technology](../../data-guide/technology-choices/cognitive-services.md)
 - [Artificial intelligence (AI) architecture design](../../data-guide/big-data/ai-overview.md)
 - [How Azure Machine Learning works: resources and assets](/azure/machine-learning/concept-azure-machine-learning-v2)

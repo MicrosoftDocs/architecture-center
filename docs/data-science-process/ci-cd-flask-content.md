@@ -60,4 +60,3 @@ Principal author:
 - [What are Azure Machine Learning pipelines?](/azure/machine-learning/concept-ml-pipelines)
 - [Compare Microsoft machine learning products and technologies](../ai-ml/guide/data-science-and-machine-learning.md)
 - [Machine learning operations (MLOps) v2](../data-guide/technology-choices/machine-learning-operations-v2.md)
-- [Azure Machine Learning decision guide for optimal tool selection](../example-scenario/mlops/aml-decision-tree.yml)

@@ -196,8 +196,6 @@ MLOps includes all activities from acquiring raw data to delivering model output
 * Deployment
 * Scoring
 
-Multiple pipelines were used to meet all process requirements. For more information, see the [MLOps Process Decision Tree](../../example-scenario/mlops/aml-decision-tree.yml) article.
-
 ## Basic machine learning process
 
 The basic machine learning process resembles traditional software development, but there are significant differences. This diagram illustrates the major steps in the machine learning process:
@@ -305,8 +303,6 @@ Other teams will certainly come across similar issues in other machine learning 
 The data comes from many sources in many different formats, so it's conditioned before it's inserted into the data lake. The conditioning is done by using microservices operating as Azure Functions. The clients customize the microservices to fit the data sources and transform them into a standardized csv format that the training and scoring pipelines consume.
 
 ### System architecture
-
-There were many design options available for the system architecture. The following diagram shows the end result of the decision-making process described in [Azure Machine Learning decision guide for optimal tool selection](../../example-scenario/mlops/aml-decision-tree.yml).
 
 ![Diagram of system architecture supported by MLOps](_images/system-architecture.png)
 
@@ -417,9 +413,6 @@ The dashboards were designed to provide readily usable information for consumpti
 * [Azure SQL Database](https://azure.microsoft.com/services/sql-database)
 * [Azure Dashboards](/azure/azure-portal/azure-portal-dashboards)
 * [Power BI](https://powerbi.microsoft.com)
-
-> [!NOTE]
-> To learn how to select the correct pipeline services to use for a specific process, see [Azure Machine Learning decision guide for optimal tool selection](../../example-scenario/mlops/aml-decision-tree.yml).
 
 ## Considerations
 

@@ -283,7 +283,6 @@ To start implementing this solution, see this information:
 [Azure Databricks Workspace concepts]: /azure/databricks/getting-started/concepts
 [Azure Event Hubs — A big data streaming platform and event ingestion service]: /azure/event-hubs/event-hubs-about
 [Azure Event Hubs - Geo-disaster recovery]: /azure/event-hubs/event-hubs-geo-dr
-[Azure Machine Learning decision guide for optimal tool selection]: ../mlops/aml-decision-tree.yml
 [Azure Monitor Logs overview]: /azure/azure-monitor/logs/data-platform-logs
 [Azure Monitor Metrics overview]: /azure/azure-monitor/essentials/data-platform-metrics
 [Azure Monitor overview]: /azure/azure-monitor/overview

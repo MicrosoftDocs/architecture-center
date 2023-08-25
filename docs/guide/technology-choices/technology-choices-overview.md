@@ -125,7 +125,6 @@ AI is the capability of a computer to imitate intelligent human behavior. Throug
 |[Choose an Azure Cognitive Services technology](../../data-guide/technology-choices/cognitive-services.md)|     Learn about cognitive services that you can use in AI applications and data flows.    |
 |[Natural language processing technology](../../data-guide/technology-choices/natural-language-processing.yml)     |     Choose a natural language processing service for sentiment analysis, topic and language detection, key phrase extraction, and document categorization.    |
 |[Compare machine learning products and technologies](../../ai-ml/guide/data-science-and-machine-learning.md)     |  Compare options for building, deploying, and managing your machine learning models. Decide which products to use for your solution.       |
-|[Azure Machine Learning guide for tool selection](../../example-scenario/mlops/aml-decision-tree.yml)     |     Choose the best services for building an end-to-end machine learning pipeline, from experimentation to deployment.    |
 |[MLflow and Azure Machine Learning](/azure/machine-learning/concept-mlflow?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |     Learn about how Azure Machine Learning uses MLflow to log metrics and artifacts from machine learning models and deploy your machine learning models to an endpoint.    |
 
 ## Choose a networking service
