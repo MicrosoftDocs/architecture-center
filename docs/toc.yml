@@ -944,8 +944,8 @@ items:
   items:
   - name: AI + Machine Learning
     href: ai-ml/index.md  
-  - name: AI + Machine Learning
-    items:
+  # - name: AI + Machine Learning
+  #   items:
     # - name: Get started
     #   href: data-guide/big-data/ai-overview.md
     # - name: Guides

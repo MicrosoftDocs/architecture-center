@@ -60,7 +60,7 @@ items:
           href: idea/many-models-machine-learning-azure-spark.yml
         - name: Many models with Machine Learning
           href: idea/many-models-machine-learning-azure-machine-learning.yml                   
-      - name: Other solutions
+      - name: Other ideas
         items:
         - name: Azure Machine Learning architecture
           href: idea/azure-machine-learning-solution-architecture.yml        
@@ -92,10 +92,10 @@ items:
         items:
         - name: Speech transcription pipeline
           href: architecture/speech-to-text-transcription-analytics.yml
-        - name: Predictive analytics
-          items:
-          - name: Determine customer lifetime and churn
-            href: architecture/customer-lifecycle-churn.yml
+      - name: Predictive analytics
+        items:
+        - name: Determine customer lifetime and churn
+          href: architecture/customer-lifecycle-churn.yml
       - name: Batch scoring
         items:
         - name: Batch scoring for deep learning
