@@ -33,6 +33,9 @@
     - name: Cloud Design Patterns
       tocHref: /azure/architecture/patterns/
       topicHref: /azure/architecture/patterns
+    - name: AI + Machine Learning
+      tocHref: /azure/architecture/ai-ml
+      topicHref: /azure/architecture/ai-ml/index
     - name: Web Apps
       tocHref: /azure/architecture/web-apps
       topicHref: /azure/architecture/web-apps/index
