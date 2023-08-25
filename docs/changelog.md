@@ -81,7 +81,7 @@ The following new and updated articles have recently been published in the Azure
 - [Deploy Autodesk Maya on a virtual machine](./guide/hpc/autodesk-maya.yml)
 - [Offline audio dubbing](./guide/media/offline-audio-dubbing.yml)
 - [Deploy LAMMPS on an Azure virtual machine](./guide/hpc/hpc-lammps.yml)
-- [Build language model pipelines with memory](./guide/ai/language-model-pipelines.yml)
+- [Build language model pipelines with memory](./ai-ml/openai/guide/language-model-pipelines.yml)
 - [Implement Azure DevOps for mainframe applications that use IBM Z and Cloud Modernization Stack](./example-scenario/mainframe/devops-mainframe-ibm-z.yml)
 - [Siemens Teamcenter baseline architecture on Azure](./example-scenario/manufacturing/teamcenter-baseline.yml)
 - [DataOps for autonomous vehicle operations](./example-scenario/automotive/autonomous-vehicle-operations-dataops.yml)

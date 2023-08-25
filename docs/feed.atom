@@ -314,8 +314,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Build language model pipelines with memory]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/ai/language-model-pipelines</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/ai/language-model-pipelines"/>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/openai/guide/language-model-pipelines</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/openai/guide/language-model-pipelines"/>
         <updated>2023-06-13T18:34:44.000Z</updated>
         <summary type="html"><![CDATA[Learn how to use an AI/ML pipeline, LangChain, and language models to create an analysis of how your product compares to competitor's similar products.]]></summary>
         <category label="new" term="new"/>

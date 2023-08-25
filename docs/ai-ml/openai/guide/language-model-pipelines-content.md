@@ -5,7 +5,7 @@ Stay ahead of the competition by being informed and having a deep understanding 
 
 ## Architecture
 
-:::image type="content" source="media/language-model-pipelines-architecture.png" alt-text="{alt-text}" lightbox="media/language-model-pipelines-architecture.png" border="false":::
+:::image type="content" source="_images/language-model-pipelines-architecture.png" alt-text="{alt-text}" lightbox="_images/language-model-pipelines-architecture.png" border="false":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/language-model-pipelines-architecture.pptx) of this architecture.*
 

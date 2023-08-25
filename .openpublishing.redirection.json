@@ -3404,6 +3404,21 @@
       "source_path": "docs/example-scenario/ai/call-center-openai-analytics.yml",
       "redirect_url": "/azure/architecture/ai-ml/openai/architecture/call-center-openai-analytics",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/ai/log-monitor-azure-openai.yml",
+      "redirect_url": "/azure/architecture/ai-ml/openai/architecture/log-monitor-azure-openai",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/guide/ai/custom-speech-text-deploy.yml",
+      "redirect_url": "/azure/architecture/ai-ml/guide/custom-speech-text-deploy",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/guide/ai/language-model-pipelines.yml",
+      "redirect_url": "/azure/architecture/ai-ml/openai/guide/custom-speech-text-deploy",
+      "redirect_document_id": true
     }
   ]
 }
