@@ -1,14 +1,14 @@
-IPv6 is a Microsoft Promise. A Microsoft Promise is a commitment we, Microsoft, make to our customers about behaviors and capabilities they should expect from our cloud(s). A Promise represents the top-level commitment which reflects key capability development across the platform.
+IPv6 is a Microsoft Promise. A Microsoft Promise is a commitment we, Microsoft, make to our customers about behaviors and capabilities they should expect from our cloud(s). A Promise represents the top-level commitment, which reflects key capability development across the platform.
 
 ## Azure Approach to IPv6
 
-Azure will use a Dual Stack  during Phase 1 and move towards an Ipv6-Only model as platform services mature.
+Azure uses a Dual Stack  during Phase 1 and move towards an Ipv6-Only model as platform services mature.
 
 ![Diagram that showcases the Phase 1 and Phase 2 IPv6 Approaches.](media/ipv6-azure-approach.png)
 
 ## Private Connectivity
 
-Private Connectivity to our on-premise can be achieved by following the below example.
+Private Connectivity to our on-premises can be achieved by following the below example.
 
 ![Diagram that demonstrates private connectivity.](media/ipv6-private-connectivity.png)
 
@@ -37,7 +37,7 @@ Public/Internet Connectivity can be achieved by following the below example.
 The below services are generally available for use with Ipv6 in Azure:
 
 - [Virtual Machines](https://azure.microsoft.com/services/virtual-machines)
-- [Virtual Machine Scale Set (VMSS)](https://azure.microsoft.com/products/virtual-machine-scale-sets/)
+- [Virtual Machine Scale Set](https://azure.microsoft.com/products/virtual-machine-scale-sets/)
 - [Kubernetes Service](https://azure.microsoft.com/products/kubernetes-service/)
 - [Azure Service Fabric](https://azure.microsoft.com/products/service-fabric/)
 - [Azure Data Explorer (Kusto)](https://azure.microsoft.com/products/data-explorer/)
@@ -51,13 +51,13 @@ The below services are generally available for use with Ipv6 in Azure:
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*Microsoft maintains this article. The following contributors wrote it.*
 
 Principal author:
 
 - [Werner Rall](https://www.linkedin.com/in/werner-rall/) | Senior Cloud Solutions Architect Engineer
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
