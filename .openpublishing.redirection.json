@@ -3417,7 +3417,7 @@
     },
     {
       "source_path": "docs/guide/ai/language-model-pipelines.yml",
-      "redirect_url": "/azure/architecture/ai-ml/openai/guide/custom-speech-text-deploy",
+      "redirect_url": "/azure/architecture/ai-ml/openai/guide/language-model-pipelines",
       "redirect_document_id": true
     }
   ]
