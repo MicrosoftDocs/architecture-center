@@ -109,7 +109,7 @@ Depending on your scenario, you can add the following workflows.
 
 - To create vectorized data, you can use any embedding model. You can also use the [Azure AI services Vision image retrieval API](/azure/ai-services/computer-vision/how-to/image-retrieval) to vectorize images. This tool is available in private preview.
 
-- Use the [Durable Functions extension](/azure/azure-functions/durable/durable-functions-overview) for [Azure Functions](/azure/azure-functions/create-first-function-vs-code-python) as a code-first integration tool to perform text-processing steps, like reading handwriting, text, tables, and processing language to extract entities on data based on the size and scale of the workload.
+- Use the [Durable Functions extension](/azure/azure-functions/durable/durable-functions-overview) for [Azure Functions](/azure/azure-functions/create-first-function-vs-code-python) as a code-first integration tool to perform text-processing steps, like reading handwriting, text, and tables, and processing language to extract entities on data based on the size and scale of the workload.
 
 - You can use any database for persistent storage of the extracted embeddings, including:
 
