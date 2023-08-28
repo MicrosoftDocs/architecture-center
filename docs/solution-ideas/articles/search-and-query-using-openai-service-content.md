@@ -42,7 +42,7 @@ Query and retrieval:
 
 ## Architecture: Azure Cognitive Search pull approach
 
-:::image type="content" source="../media/pull-approach.svg" alt-text=" the pull approach." lightbox="../media/pull-approach.svg" border="false":::
+:::image type="content" source="../media/pull-approach.svg" alt-text="Diagram that shows the pull approach." lightbox="../media/pull-approach.svg" border="false":::
 *Download a [Visio file](https://arch-center.azureedge.net/search-and-query.vsdx) of this architecture.*
 
 Index creation:
