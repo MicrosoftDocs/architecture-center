@@ -63,15 +63,15 @@ This pattern might not be suitable if:
 
 ## Example
 
-There is a legacy application written in .NET Framework for managing production site hosted on site. The application is well-structured with separate components communicating via Microsoft Message Queueing (MSMQ). The application works just fine and the company has no intention of re-writing it, but the IT strategy calls for building new software as cloud-native applications in order to optimize the costs and delivery time.
+There is an application written in .NET Framework for managing employee scheduling hosted on-premises. The application is well-structured with separate components communicating via Microsoft Message Queueing (MSMQ). The application works fine, and the company has no intention of re-writing it. A new consumer of the scheduling data needs to be built to meet a business need, and the IT strategy calls for building new software as cloud-native applications in order to optimize the costs and delivery time.
 
 Since the asynchronous queue-based architecture worked well for the company in the past, the new components are going to use the same architectural approach but with modern technology -- Azure Service Bus. The company does not want to introduce new concepts, such as REST/HTTP communication, just to integrate the two sides and would rather take advantage of the existing infrastructure.
 
-A decision it made to use the Messaging Bridge pattern to connect the two systems. It consists of two parts. One part receives messages from an MSMQ queue and forwards them to Azure Service Bus and the other does the opposite -- takes messages from the Azure Service Bus and forwards to a destination MSMQ queue.
+A decision is made to use the Messaging Bridge pattern to connect the two systems. It consists of two parts. One part receives messages from the existing MSMQ queue and forwards them to Azure Service Bus and the other does the opposite -- takes messages from the Azure Service Bus and forwards to the existing MSMQ queue.
 
 ![Messaging bridge integrating MSMQ and Azure Service Bus](_images/messaging-bridge-sample.png)
 
-By taking this approach the implementation team can utilize existing infrastructure in the legacy appication to integrate with the new components. The application is not even aware of the fact that the new components are hosted in Azure. Similarly, the new components can communicate with the legacy application in the same way as they communicate between themselves -- by sending Azure Service Bus messages. The bridge takes care of forwarding messages between the two systems.
+By taking this approach the implementation team can utilize existing infrastructure in the existing application to integrate with the new components. The existing application is not even aware of the fact that the new components are hosted in Azure. Similarly, the new components can communicate with the legacy application in the same way as they communicate between themselves -- by sending Azure Service Bus messages. The bridge takes care of forwarding messages between the two systems.
 
 ## Next steps
 
@@ -81,10 +81,10 @@ The following information may be relevant when implementing this pattern:
 - [Retry](../../patterns/retry.yml) lets the Messaging Bridge handle transient failures.
 - [Circuit breaker](../../patterns/circuit-breaker.yml) can be used to conserve resources when either side of the bridge is experiencing downtime.
 
-## External links
+## Related resources
 
 - [Messaging Bridge pattern description](https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessagingBridge.html) from the Enterprise Integration Patterns community.
-- [Message Bridge implementation from Microsoft](https://github.com/Microsoft/Microsoft-Message-Bridge) is a good reference but is no longer actively maintained.
+- Learn how to implement a [Messaging Bridge](https://docs.spring.io/spring-integration/docs/current/reference/html/bridge.html) in the Spring Java framework.
 - [QPid bridge](https://openmama.finos.org/openmama_qpid_bridge.html) can be used to bridge AMQP-enabled messaging technologies.
 - [Messaging Bridge](https://docs.particular.net/nservicebus/bridge/) is an example of a queue-to-queue bridge that supports a range of messaging infrastructures, including MSMQ, Azure Service Bus and Azure Storage Queues.
 - [Router](https://github.com/SzymonPobiega/NServiceBus.Router) is an open source project that implements the Messaging Bridge pattern, allows bridging more than two technologies in a single instance, and has advanced message routing capabilities.
