@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 08/21/2023
+ms.date: 08/28/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -27,6 +27,7 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Multitenancy and Application Insights](./guide/multitenant/service/application-insights.md)
 - [Azure Health Data Services architecture guide](./guide/data/azure-health-data-services.yml)
 - [Video ingestion and object detection on the edge and in the cloud](./solution-ideas/articles/video-ingestion-object-detection-edge-cloud.yml)
 - [Extract and analyze call center data by using Azure OpenAI Service, Speech services, and Language services](./example-scenario/ai/call-center-openai-analytics.yml)
