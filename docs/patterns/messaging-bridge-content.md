@@ -28,15 +28,15 @@ Neither of the systems being integrated needs to know about the other, nor the b
 ### Drawbacks
 
 - Advanced features of one or both messaging technologies might not be available on the bridged route.
-- The bridged route needs to consider both technologies' limitations (e.g., maximum message size may not be a problem on MSMQ but can be an issue when the bridged route leads via Azure Storage Queues).
+- The bridged route needs to consider both technologies' limitations (e.g., maximum message size may be 4 MB on MSMQ but only 64 KiB on Azure Storage Queues).
 
 ## Issues and considerations
 
 Consider the following points when implementing the Messaging Bridge pattern:
 
-- If one of the integrated systems relies on the distributed transactions (e.g. via Microsoft Distributed Transaction Coordinator, DTC) for correctness, a deduplication mechanism must be put in place in the bridge.
+- If one of the integrated systems relies on distributed transactions (e.g. via Microsoft Distributed Transaction Coordinator, DTC) for correctness, a deduplication mechanism must be put in place in the bridge.
 
-- If one of the systems being integrated does not currently use any messaging infrastructure and cannot be modified, the Messaging Bridge might be built between the infrastructure used by the other system and a SQL Server-emulated queue. The legacy system can be made to send its messages by inserting to a dedicated queue-table, and the bridge can take these messages and forward them to the actual messaging infrastructure.
+- If one of the systems being integrated does not currently use any messaging infrastructure and cannot be modified, the Messaging Bridge might be built between the infrastructure used by the other system and a SQL Server-emulated queue. The legacy system can be made to send messages by using [Change Data capture](/sql/relational-databases/track-changes/about-change-data-capture-sql-server) for SQL Server to push its changes to a dedicated queue-table, and the bridge can take these messages and forward them to the actual messaging infrastructure.
 
 - Using a single queue in each messaging infrastructure (designated as _bridging queue_) is a natural choice. In this topology the sending system must be configured to use that specific queue as destination for message types that are sent to the other system. Alternatively, using multiple pairs of queues in each messaging infrastructure allows the sender to be completely unaware of the bridge. A _shadow queue_ is created for each destination queue in the destination system's messaging infrastructure and the bridge is responsible for forwarding messages between the shadow queues and their counterparts.
 
@@ -49,10 +49,10 @@ Consider the following points when implementing the Messaging Bridge pattern:
 Use the Messaging Bridge pattern when you need to:
 
 - Integrate existing systems with minimal need for modification
-- Integrate legacy applications that cannot be changed to use any messaging technology
+- Integrate legacy applications that cannot be changed to use other messaging technologies
 - Extend existing on-premises applications with cloud-hosted components
 - Connect geo-distributed systems when Internet connection is not stable
-- Migrate a single distributed system from one messaging infrastructure to another without the need to stop and re-deploy the whole system
+- Migrate a single distributed system from one messaging infrastructure to another incrementally without the need to migrate the whole system in one effort
 
 This pattern might not be suitable if:
 
@@ -65,7 +65,7 @@ This pattern might not be suitable if:
 
 There is an application written in .NET Framework for managing employee scheduling hosted on-premises. The application is well-structured with separate components communicating via Microsoft Message Queueing (MSMQ). The application works fine, and the company has no intention of re-writing it. A new consumer of the scheduling data needs to be built to meet a business need, and the IT strategy calls for building new software as cloud-native applications in order to optimize the costs and delivery time.
 
-Since the asynchronous queue-based architecture worked well for the company in the past, the new components are going to use the same architectural approach but with modern technology -- Azure Service Bus. The company does not want to introduce new concepts, such as REST/HTTP communication, just to integrate the two sides and would rather take advantage of the existing infrastructure.
+Since the asynchronous queue-based architecture worked well for the company in the past, the new components are going to use the same architectural approach but with modern technology -- Azure Service Bus. The company does not want to introduce synchronous communication between the cloud and their on-premises to mitigate the latency or unavailability of one from impacting the other.
 
 A decision is made to use the Messaging Bridge pattern to connect the two systems. It consists of two parts. One part receives messages from the existing MSMQ queue and forwards them to Azure Service Bus and the other does the opposite -- takes messages from the Azure Service Bus and forwards to the existing MSMQ queue.
 
@@ -86,5 +86,5 @@ The following information may be relevant when implementing this pattern:
 - [Messaging Bridge pattern description](https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessagingBridge.html) from the Enterprise Integration Patterns community.
 - Learn how to implement a [Messaging Bridge](https://docs.spring.io/spring-integration/docs/current/reference/html/bridge.html) in the Spring Java framework.
 - [QPid bridge](https://openmama.finos.org/openmama_qpid_bridge.html) can be used to bridge AMQP-enabled messaging technologies.
-- [Messaging Bridge](https://docs.particular.net/nservicebus/bridge/) is an example of a queue-to-queue bridge that supports a range of messaging infrastructures, including MSMQ, Azure Service Bus and Azure Storage Queues.
+- [NServiceBus Messaging Bridge](https://docs.particular.net/nservicebus/bridge/) - a .NET implementation of a queue-to-queue bridge that supports a range of messaging infrastructures including MSMQ, Azure Service Bus, and Azure Storage Queues.
 - [Router](https://github.com/SzymonPobiega/NServiceBus.Router) is an open source project that implements the Messaging Bridge pattern, allows bridging more than two technologies in a single instance, and has advanced message routing capabilities.
