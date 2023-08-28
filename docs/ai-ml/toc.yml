@@ -12,6 +12,8 @@ items:
           href: idea/customer-feedback-and-analytics.yml   
         - name: Large-scale custom NLP
           href: idea/large-scale-custom-natural-language-processing.yml
+        - name: Build language model pipelines
+          href: openai/guide/language-model-pipelines.yml          
       - name: Image processing
         items:
         - name: Image classification with CNNs
@@ -135,7 +137,9 @@ items:
         - name: Custom speech-to-text
           href: guide/custom-speech-text-deploy.yml            
         - name: Conversation summarization
-          href: guide/conversation-summarization.yml            
+          href: guide/conversation-summarization.yml      
+        - name: Extract and analyze call center data
+          href: openai/architecture/call-center-openai-analytics.yml                
       - name: MLOps
         items:
         - name: Machine learning operations (MLOps) v2
@@ -148,6 +152,10 @@ items:
           href: guide/mlops-maturity-model.yml
         - name: Upscale ML lifecycle with MLOps
           href: guide/mlops-technical-paper.yml
+      - name: Monitoring
+        items:
+        - name: Monitor OpenAI models
+          href: openai/architecture/log-monitor-azure-openai.yml        
       - name: Team Data Science Process
         items:
         - name: Overview
@@ -302,6 +310,10 @@ items:
           href: openai/architecture/call-center-openai-analytics.yml
         - name: Monitor OpenAI models
           href: openai/architecture/log-monitor-azure-openai.yml
+        - name: OpenAI GPT-3 summarization
+          href: guide/query-based-summarization.md   
+        - name: Conversation summarization
+          href: guide/conversation-summarization.yml                     
       - name: Apply guidance
         items:
         - name: Build language model pipelines
