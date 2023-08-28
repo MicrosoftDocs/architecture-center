@@ -2,12 +2,12 @@ The Messaging Bridge design pattern is a way to integrate disparate systems buil
 
 ## Context and problem
 
-Many organizations end up in a situation in which their portfolio of IT systems uses multiple messaging infrastructures, e.g. by way of mergers and acquisitions. Others try to extend their current on-premises systems with cloud-hosted components for ease of maintenance, cost-effectiveness or other reasons. Yet others find themselves in a position where they need to integrate their newer systems with legacy ones. 
+Many organizations end up in a situation in which their portfolio of IT systems uses multiple messaging infrastructures like MSMQ, RabbitMQ, Azure Service Bus, and Amazon SQS. This could be due to mergers and acquisitions, or even by extending their current on-premises systems with cloud-hosted components for ease of maintenance, cost-effectiveness or other reasons.
 
-One common solution to these challenges is dedicated integration through HTTP-based web services. In that approach systems being integrated are modified to include HTTP endpoints and/or clients in order to exchange the data.
+One common way developers try to tackle these challenges is by modifying the systems being integrated to communicate using HTTP-based web services.
 
 This approach has a number of drawbacks:
-- the applications being integrated must be modified (by adding an HTTP client on one side and an HTTP request handler on the other)
+- the systems must be modified (by adding an HTTP client on one side and an HTTP request handler on the other), retested, and redeployed.
 - HTTP endpoints must be hosted, adding to the complexity for making these services secure and highly-available
 - it is prone to network connectivity problems, requiring custom-build retry mechanisms
 
