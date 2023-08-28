@@ -2,8 +2,8 @@
 title: AKS Day-2 - Patch and upgrade guidance
 titleSuffix: Azure Architecture Center
 description: Learn about day-2 patching and upgrading practices for Azure Kubernetes Service (AKS) worker nodes and Kubernetes (K8S) versions.
-author: rishabhsaha
-ms.date: 09/16/2022
+author: anevico
+ms.date: 08/28/2023
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -20,9 +20,59 @@ ms.custom:
 
 This section of the Azure Kubernetes Service (AKS) day-2 operations guide describes patching and upgrading practices for AKS worker nodes and Kubernetes (K8S) versions.
 
-## Node image upgrades
+## Background and Types of Updates
 
-Microsoft provides patches and new images for image nodes weekly. For AKS Linux nodes, we have two mechanisms to patch the nodes: unattended updates and node image upgrade. **Unattended updates** are automatic, but they don’t account for kernel level patches. You're required to use something like KURED or node image upgrade to reboot the node and complete the cycle. For node image upgrade, we create a patched node every week for customers to use, which would require applying that patched virtual hard disk (VHD). Auto-upgrade with the node image update SKU can automate the process. 
+AKS Updates come in four forms:
+
+1. Security patches to the OS of the node image (Linux only)
+2. Weekly Updates to the [Node images](https://github.com/Azure/AKS/releases)
+3. Weekly Updates to the [AKS release](https://github.com/Azure/AKS/releases)
+4. Trimesterly [Kubernetes releases](https://kubernetes.io/releases/release/#the-release-cycle)
+
+For Linux Nodes both [Ubuntu](https://ubuntu.com/server) and [Azure Linux Container Host](https://learn.microsoft.com/en-us/azure/azure-linux/intro-azure-linux), patches are scanned for and deployed nightly; however if a patch requires a reboot this process is not automatic and must be managed. For Windows Nodes monthly patches are included in the node image builds.
+
+The following table summarizes the details of updating each component:
+
+|Component name|Frequency of upgrade|Planned Maintenance supported|Supported operation methods|Documentation link|
+|--|--|--|--|--|
+|Security patches and hot fixes for node images|As-necessary|No|Manual|[AKS node security patches](https://learn.microsoft.com/en-us/azure/aks/concepts-vulnerability-management#worker-nodes)|
+|Node image version upgrade|**Linux**: weekly<br>**Windows**: monthly|Yes|Automatic, Manual|[AKS node image upgrade](https://learn.microsoft.com/en-us/azure/aks/node-image-upgrade)|
+|Cluster Kubernetes version upgrade to supported patch version|Approximately weekly. To determine the latest applicable version in your region, see the [AKS release tracker](https://releases.aks.azure.com/)|Yes|Automatic, Manual|[Upgrade an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/upgrade-cluster?tabs=azure-cli)|
+|Cluster Kubernetes version (minor) upgrade|Roughly every three months|Yes| Automatic, Manual|[Upgrade an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/upgrade-cluster?tabs=azure-cli)|
+
+### Managing the reboot process for Linux nodes
+
+By default for Linux nodes receive nightly security patches; however, if these security patches require a reboot (e.g., for a kernel patch) the reboot must be managed.  This can be accomplished automatically (recommended) by leveraging a solution like [Kured](https://learn.microsoft.com/en-us/azure/aks/node-updates-kured) or manually leveraging the Azure Portal or [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-upgrade).
+
+Kured can be deployed via [helm chart](https://github.com/kubereboot/charts/tree/main/charts/kured) key consideration for configuration in this helm chart include:
+
+- Configure the date/times Kured is allowed to reboot nodes by leveraging
+- [`configuration.rebootDays`] to specify days when kured is allowed to reboot nodes
+- Setting [`configuration.startTime`], [`configuration.endTime`], and [`configuration.timeZone`] to configure times Kured is allowed to reboot nodes
+- Setting a [`configuration.notifyUrl`] to enable webhook based alerting of rebooting activities
+- Consider adjusting [`configuration.drainTimeout`] and [`configurtation.lockTtl`] to customize locking and unlocking behaviors
+- Consider enabling the Prometheus provider [`configuration.prometheusUrl`], [`metrics.create`], [`metrics.namespace`]
+- If running mixed windows and Linux clusters configure [`nodeSelector`] to restrict the daemonset to Linux only nodes.
+
+Descriptions of the various configuration options can be found [here](https://kured.dev/docs/configuration/)
+
+### Managing the weekly updates to Node Images and AKS
+
+Microsoft provides patches and new images for image nodes weekly.  These images include OS security patches, kernel updates, Kubernetes security updates, updated binaries like `kublet` and other fixes details about these updates are available in the AKS [release notes](https://github.com/Azure/AKS/releases).
+
+Managing the weekly update process can be managed automatically (recommended) by leveraging [GitHub Actions](https://learn.microsoft.com/en-us/azure/aks/node-upgrade-github-actions) or manually through Azure cli.
+
+#### Manual Update Process
+
+Port + Upgrade the cli descriptions
+
+#### Note
+
+There is also a preview available for Automatically upgrading AKS OS Images available via this [link](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image).
+Currently this preview only supports Linux nodes, and should be paired with a [Planned Maintenance](https://learn.microsoft.com/en-us/azure/aks/planned-maintenance) with a window size of four hours or more.
+
+
+## How to Apply Updates
 
 AKS supports upgrading node images by using [az aks nodepool upgrade](/cli/azure/aks/nodepool#az-aks-nodepool-upgrade), so you can keep up with the newest OS and runtime updates. To keep your agent node OS and runtime components patched, consider checking and applying node image upgrades every two weeks, or automating the node image upgrade process. For more information about automating node image upgrades, see [Node upgrade GitHub Actions](/azure/aks/node-upgrade-github-actions).
 
@@ -124,7 +174,7 @@ MasterVersion  Upgrades
 Check the Kubernetes versions of the nodes in your node pools to determine the node pools that need to be upgraded.
 
 ```azurecli
-az aks nodepool list \  
+az aks nodepool list \
    --resource-group <ResourceGroupName> --cluster-name <AKSClusterName> \
    --query "[].{Name:name,k8version:orchestratorVersion}" --output table
 ```
@@ -198,7 +248,7 @@ The following table describes characteristics of various AKS upgrade and patchin
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
