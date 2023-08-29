@@ -2,12 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2023-08-21T16:09:57.735Z</updated>
+    <updated>2023-08-28T16:01:54.827Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Multitenancy and Application Insights]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/application-insights</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/application-insights"/>
+        <updated>2023-08-21T17:04:10.000Z</updated>
+        <summary type="html"><![CDATA[Learn about tenancy models that you can use with Application Insights and features that are useful when you use this service in multitenant systems.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Azure Health Data Services architecture guide]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/data/azure-health-data-services</id>
@@ -45,7 +53,7 @@
         <id>https://learn.microsoft.com/azure/architecture/landing-zones/landing-zone-deploy</id>
         <link href="https://learn.microsoft.com/azure/architecture/landing-zones/landing-zone-deploy"/>
         <updated>2023-08-21T14:43:45.000Z</updated>
-        <summary type="html"><![CDATA[Deployment options for platform and application landing zones in Azure.]]></summary>
+        <summary type="html"><![CDATA[Learn about the deployment options for platform and application landing zones in Azure.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
