@@ -33,12 +33,12 @@ For Linux Nodes both [Ubuntu](https://ubuntu.com/server) and [Azure Linux Contai
 
 The following table summarizes the details of updating each component:
 
-|Component name|Frequency of upgrade|Planned Maintenance supported|Supported operation methods|Documentation link|
+|Component name|Frequency of upgrade|[Planned Maintenance](https://learn.microsoft.com/en-us/azure/aks/planned-maintenance) supported|Supported operation methods|Documentation link|
 |--|--|--|--|--|
-|Security patches and hot fixes for node images|As-necessary|No|Manual|[AKS node security patches](https://learn.microsoft.com/en-us/azure/aks/concepts-vulnerability-management#worker-nodes)|
-|Node image version upgrade|**Linux**: weekly<br>**Windows**: monthly|Yes|Automatic, Manual|[AKS node image upgrade](https://learn.microsoft.com/en-us/azure/aks/node-image-upgrade)|
-|Cluster Kubernetes version upgrade to supported patch version|Approximately weekly. To determine the latest applicable version in your region, see the [AKS release tracker](https://releases.aks.azure.com/)|Yes|Automatic, Manual|[Upgrade an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/upgrade-cluster?tabs=azure-cli)|
-|Cluster Kubernetes version (minor) upgrade|Roughly every three months|Yes| Automatic, Manual|[Upgrade an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/upgrade-cluster?tabs=azure-cli)|
+|Security patches and hot fixes for node images|[As-necessary](https://learn.microsoft.com/en-us/azure/aks/concepts-vulnerability-management#worker-nodes)|Yes (Preview)|Automatic, Manual|[AKS Upgrades](https://learn.microsoft.com/en-us/azure/aks/upgrade)|
+|Node image version upgrade|**Linux**: [weekly](https://releases.aks.azure.com/)<br>**Windows**: [monthly](https://releases.aks.azure.com/)|Yes|Automatic, Manual|[AKS node image upgrade](https://learn.microsoft.com/en-us/azure/aks/node-image-upgrade)|
+|Cluster Kubernetes version upgrade to supported patch version|[Approximately weekly](https://releases.aks.azure.com/)|Yes|Automatic, Manual|[Upgrade an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/upgrade-cluster?tabs=azure-cli)|
+|Cluster Kubernetes version (minor) upgrade|[Roughly every three months](https://kubernetes.io/releases/)|Yes| Automatic, Manual|[Upgrade an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/upgrade-cluster?tabs=azure-cli)|
 
 ### Managing the reboot process for Linux nodes
 
@@ -54,37 +54,19 @@ Kured can be deployed via [helm chart](https://github.com/kubereboot/charts/tree
 - Consider enabling the Prometheus provider [`configuration.prometheusUrl`], [`metrics.create`], [`metrics.namespace`]
 - If running mixed windows and Linux clusters configure [`nodeSelector`] to restrict the daemonset to Linux only nodes.
 
-Descriptions of the various configuration options can be found [here](https://kured.dev/docs/configuration/)
+Descriptions of the various Kured configuration options can be found [here](https://kured.dev/docs/configuration/)
 
 ### Managing the weekly updates to Node Images and AKS
 
-Microsoft provides patches and new images for image nodes weekly.  These images include OS security patches, kernel updates, Kubernetes security updates, updated binaries like `kublet` and other fixes details about these updates are available in the AKS [release notes](https://github.com/Azure/AKS/releases).
+Microsoft provides patches and new images for image nodes weekly.  An updated node image contains up-to-date OS security patches, kernel updates, Kubernetes security updates, updated versions of binaries like `kubelet`, and component version updates listed in the [release notes](https://github.com/Azure/AKS/releases). Node image updates have all relevant and validated security updates and feature updates.
 
-Managing the weekly update process can be managed automatically (recommended) by leveraging [GitHub Actions](https://learn.microsoft.com/en-us/azure/aks/node-upgrade-github-actions) or [AKS planned maintenance](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image).  Alternatively the process can be managed manually through the portal or command line.
+Managing the weekly update process can be managed automatically (recommended) by leveraging [GitHub Actions](https://learn.microsoft.com/en-us/azure/aks/node-upgrade-github-actions) or [AKS planned maintenance](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image).  Timing for [AKS planned maintenance](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image) can be controlled by configurated a maintenance window (please note window must be at least 4 hours long).
+
+Alternatively the weekly process can be managed manually through the portal or command line.
 
 #### Manual Process
 
 AKS also supports upgrading node images by using [az aks nodepool upgrade](https://learn.microsoft.com/en-us/azure/aks/node-image-upgrade) command.  You can leverage the [kubectl describe nodes](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe) command to check the OS kernel version and the OS image version of the nodes in your cluster:
-
-```kubectl
-kubectl describe nodes <NodeName>
-```
-
-
-#### Notes
-
-Windows and Linux nodes have a different patching process.  By default, Linux nodes receive updates nightly, while Windows nodes receive patches monthly on [patch Tuesday](https://msrc.microsoft.com/update-guide/).
-
-
-## How to Apply Updates
-
-AKS supports upgrading node images by using [az aks nodepool upgrade](/cli/azure/aks/nodepool#az-aks-nodepool-upgrade), so you can keep up with the newest OS and runtime updates. To keep your agent node OS and runtime components patched, consider checking and applying node image upgrades every two weeks, or automating the node image upgrade process. For more information about automating node image upgrades, see [Node upgrade GitHub Actions](/azure/aks/node-upgrade-github-actions).
-
-An updated node image contains up-to-date OS security patches, kernel updates, Kubernetes security updates, newer versions of binaries like `kubelet`, and component version updates listed in the [release notes](https://github.com/Azure/AKS/releases). Node image updates have all relevant and validated security updates and feature updates. Using the node image upgrade method ensures you get only tested kernels and components that are compatible with those kernels.
-
-You can use node image upgrades to streamline upgrades for both Windows and Linux node pools, but the processes differ slightly. Linux might receive daily security updates, but Windows Server nodes update by performing an AKS upgrade that deploys new nodes with the latest base Window Server image and patches.
-
-Use [kubectl describe nodes](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe) to check the OS kernel version and the OS image version of the nodes in your cluster:
 
 ```kubectl
 kubectl describe nodes <NodeName>
@@ -106,7 +88,7 @@ System Info:
   Kube-Proxy Version:         v1.26.6
 ```
 
-Use the Azure CLI [az aks nodepool list](/cli/azure/aks/nodepool#az-aks-nodepool-list) command to check the current node image versions of the nodes in a cluster:
+Use the Azure CLI [az aks nodepool list](https://learn.microsoft.com/en-us/cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-list) command to check the current node image versions of the nodes in a cluster:
 
 ```azurecli
 az aks nodepool list \
@@ -136,8 +118,15 @@ Sample output:
 ```output
 KubernetesVersion    LatestNodeImageVersion                         Name     OsType    ResourceGroup
 -------------------  ---------------------------------------------  -------  --------  ---------------
-1.26.6               AKSUbuntu-2204gen2arm64containerd-202308.10.0  default  Linux     aks-sample
+1.26.6               AKSUbuntu-2204gen2arm64containerd-202308.10.0  default  Linux     aks-demo
 ```
+
+#### Notes
+
+Windows and Linux nodes have a different patching process.  By default, Linux nodes receive updates nightly, while Windows nodes receive patches through updates to the node image monthly after [patch Tuesday](https://msrc.microsoft.com/update-guide/).
+
+
+
 
 To upgrade node pools to the latest node image version:
 
@@ -146,7 +135,7 @@ To upgrade node pools to the latest node image version:
 - [Automate node pool upgrades using GitHub Actions](/azure/aks/node-upgrade-github-actions).
 - [Automate node pool upgrades using auto-upgrade channels](/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
 
-## Cluster upgrades
+## xxxCluster upgradesxxxx
 
 The Kubernetes community releases minor K8S versions roughly every three months. The [AKS GitHub release notes page](https://github.com/Azure/AKS/releases) publishes information about new AKS versions and releases, the latest AKS features, behavioral changes, bug fixes, and component updates. You can also subscribe to the [GitHub AKS RSS feed](https://github.com/Azure/AKS/releases.atom).
 
