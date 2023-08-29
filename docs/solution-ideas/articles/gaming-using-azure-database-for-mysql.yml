@@ -25,7 +25,7 @@ azureCategories:
   - databases
 summary: Use Azure Database for MySQL for gaming solutions so that databases scale elastically with traffic bursts and deliver low-latency multi-player experiences.
 products:
-  - azure-api-apps
+  - azure-app-service
   - azure-cdn
   - azure-database-mysql
   - azure-hdinsight
