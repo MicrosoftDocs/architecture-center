@@ -42,7 +42,7 @@ The following table summarizes the details of updating each component:
 
 ### Managing the reboot process for Linux nodes
 
-By default for Linux nodes receive nightly security patches; however, if these security patches require a reboot (e.g., for a kernel patch) the reboot must be managed.  This can be accomplished automatically (recommended) by leveraging a solution like [Kured](https://learn.microsoft.com/en-us/azure/aks/node-updates-kured) or manually leveraging the Azure Portal or [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-upgrade).
+By default Linux nodes receive nightly security patches; however, if these security patches require a reboot (e.g., for a kernel patch) the reboot must be managed.  This can be accomplished automatically (recommended) by leveraging a solution like [Kured](https://learn.microsoft.com/en-us/azure/aks/node-updates-kured) or manually leveraging the Azure Portal or [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-upgrade).
 
 Kured can be deployed via [helm chart](https://github.com/kubereboot/charts/tree/main/charts/kured) key consideration for configuration in this helm chart include:
 
@@ -60,16 +60,20 @@ Descriptions of the various configuration options can be found [here](https://ku
 
 Microsoft provides patches and new images for image nodes weekly.  These images include OS security patches, kernel updates, Kubernetes security updates, updated binaries like `kublet` and other fixes details about these updates are available in the AKS [release notes](https://github.com/Azure/AKS/releases).
 
-Managing the weekly update process can be managed automatically (recommended) by leveraging [GitHub Actions](https://learn.microsoft.com/en-us/azure/aks/node-upgrade-github-actions) or manually through Azure cli.
+Managing the weekly update process can be managed automatically (recommended) by leveraging [GitHub Actions](https://learn.microsoft.com/en-us/azure/aks/node-upgrade-github-actions) or [AKS planned maintenance](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image).  Alternatively the process can be managed manually through the portal or command line.
 
-#### Manual Update Process
+#### Manual Process
 
-Port + Upgrade the cli descriptions
+AKS also supports upgrading node images by using [az aks nodepool upgrade](https://learn.microsoft.com/en-us/azure/aks/node-image-upgrade) command.  You can leverage the [kubectl describe nodes](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe) command to check the OS kernel version and the OS image version of the nodes in your cluster:
 
-#### Note
+```kubectl
+kubectl describe nodes <NodeName>
+```
 
-There is also a preview available for Automatically upgrading AKS OS Images available via this [link](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image).
-Currently this preview only supports Linux nodes, and should be paired with a [Planned Maintenance](https://learn.microsoft.com/en-us/azure/aks/planned-maintenance) with a window size of four hours or more.
+
+#### Notes
+
+Windows and Linux nodes have a different patching process.  By default, Linux nodes receive updates nightly, while Windows nodes receive patches monthly on [patch Tuesday](https://msrc.microsoft.com/update-guide/).
 
 
 ## How to Apply Updates
@@ -86,20 +90,20 @@ Use [kubectl describe nodes](https://kubernetes.io/docs/reference/generated/kube
 kubectl describe nodes <NodeName>
 ```
 
-Example output:
+Sample output (truncated):
 
 ```output
 System Info:
-  Machine ID:                 12345678-1234-1234-1234-0123456789ab
-  System UUID:                abcdefga-abcd-abcd-abcd-abcdefg01234
-  Boot ID:                    abcd0123-ab01-01ab-ab01-abcd01234567
-  Kernel Version:             4.15.0-1096-azure
-  OS Image:                   Ubuntu 16.04.7 LTS
+  Machine ID:                 bb2e85e682ae475289f2e2ca4ed6c579
+  System UUID:                6f80de9d-91ba-490c-8e14-9e68b7b82a76
+  Boot ID:                    3aed0fd5-5d1d-4e43-b7d6-4e840c8ee3cf
+  Kernel Version:             5.15.0-1041-azure
+  OS Image:                   Ubuntu 22.04.2 LTS
   Operating System:           linux
-  Architecture:               amd64
-  Container Runtime Version:  docker://19.3.12
-  Kubelet Version:            v1.17.9
-  Kube-Proxy Version:         v1.17.9
+  Architecture:               arm64
+  Container Runtime Version:  containerd://1.7.1+azure-1
+  Kubelet Version:            v1.26.6
+  Kube-Proxy Version:         v1.26.6
 ```
 
 Use the Azure CLI [az aks nodepool list](/cli/azure/aks/nodepool#az-aks-nodepool-list) command to check the current node image versions of the nodes in a cluster:
@@ -113,14 +117,13 @@ az aks nodepool list \
 Example output:
 
 ```output
-Name          NodeImageVersion
-------------  -------------------------
-systempool    AKSUbuntu-1604-2020.09.30
-usernodepool  AKSUbuntu-1604-2020.09.30
-usernp179     AKSUbuntu-1604-2020.10.28
+Name       NodeImageVersion
+---------  ---------------------------------------------
+agentpool  AKSUbuntu-2204gen2containerd-202307.12.0
+user       AKSUbuntu-2204gen2arm64containerd-202307.12.0
 ```
 
-Use [az aks nodepool get-upgrades](/cli/azure/aks/nodepool#az-aks-nodepool-get-upgrades) to find out the latest available node image version:
+Use [az aks nodepool get-upgrades](https://learn.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest#az-aks-get-upgrades) to find out the latest available node image version:
 
 ```azurecli
 az aks nodepool get-upgrades \
@@ -128,12 +131,12 @@ az aks nodepool get-upgrades \
    --nodepool-name <NodePoolName> --output table
 ```
 
-Example output:
+Sample output:
 
 ```output
-KubernetesVersion  LatestNodeImageVersion     Name     OsType
------------------  -------------------------  -------  ------
-1.16.13            AKSUbuntu-1604-2020.11.11  default  Linux
+KubernetesVersion    LatestNodeImageVersion                         Name     OsType    ResourceGroup
+-------------------  ---------------------------------------------  -------  --------  ---------------
+1.26.6               AKSUbuntu-2204gen2arm64containerd-202308.10.0  default  Linux     aks-sample
 ```
 
 To upgrade node pools to the latest node image version:
