@@ -32,7 +32,10 @@ highlightedContent:
     - title: See what's new
       url: ./changelog.md
       itemType: whats-new
-
+    # Card
+    - title: Find partner-led workshops
+      url: ./changelog.md
+      itemType: learn
 # productDirectory section (optional)
 productDirectory:
   title: Architecting applications on Azure # < 60 chars (optional)
