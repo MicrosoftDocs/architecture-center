@@ -104,7 +104,7 @@ You must have an existing Azure account. If you don't have an Azure subscription
     export SUBNET_INT_NAME='VnetIntegrationSubnet'
     export SUBNET_PVT_NAME='PrivateEndpointSubnet'
     export LOCATION='eastus'
-    export TEAMS_IP_RANGE='52.112.0.0/14'
+    export TEAMS_IP_RANGE='13.107.64.0/18 52.112.0.0/14 52.122.0.0/15'
     export FIREWALL_NAME='afw-'${LOCATION}'-'${PREFIX}
 
     # Create a resource group
