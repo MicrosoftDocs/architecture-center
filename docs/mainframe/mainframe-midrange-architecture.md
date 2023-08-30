@@ -102,7 +102,7 @@ Consider the following details about endianness:
 
 - RISC and x86 processors differ in *endianness*, a term used to describe how a system stores bytes in computer memory.
 - RISC-based computers are known as big endian systems, because they store the most significant ("big") value first—that is, in the lowest storage address.
-- Most Linux computers are based on the x86 processor, which are little endian systems, meaning they store the least significant ("little") value) first.
+- Most Linux computers are based on the x86 processor, which are little endian systems, meaning they store the least significant ("little") value first.
 
 The following figure visually shows you the difference between big endian and little endian.
 
