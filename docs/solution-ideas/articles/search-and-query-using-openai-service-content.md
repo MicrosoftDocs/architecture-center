@@ -136,8 +136,8 @@ This solution provides value to organizations in industries like pharmaceutical 
 
 Principal authors:
 
-- Dixit Arora | Senior Customer Engineer, FastTrack for Azure
-- [Jyotsna Ravi](https://www.linkedin.com/in/jyotsna-ravi-50182624) | Principal Customer Engineer, FastTrack for Azure
+- Dixit Arora | Senior Customer Engineer, ISV DN CoE
+- [Jyotsna Ravi](https://www.linkedin.com/in/jyotsna-ravi-50182624) | Principal Customer Engineer, ISV DN CoE
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
