@@ -21,17 +21,22 @@ highlightedContent:
     - title: Browse Azure architectures
       itemType: architecture
       url: browse/index.yml
+    # Card
     - title: Explore cloud best practices 
       itemType: concept
       url: guide/index.md
     # Card
-    - title: Assess, optimize, and review your workload
-      url: /azure/architecture/framework
-      itemType: how-to-guide
-    # Card
     - title: See what's new
       url: ./changelog.md
       itemType: whats-new
+    # Card
+    - title: Well Architected Framework (WAF)
+      url: /azure/architecture/framework
+      itemType: how-to-guide
+    # Card
+    - title: Cloud Adoption Framework (CAF)
+      url: https://azure.microsoft.com/solutions/cloud-enablement/cloud-adoption-framework/
+      itemType: how-to-guide
     # Card
     - title: Find partner-led workshops
       url: ./changelog.md
