@@ -36,6 +36,10 @@ items:
           href: idea/optimize-marketing-with-machine-learning.yml    
         - name: Personalized marketing solutions
           href: idea/personalized-marketing.yml      
+      - name: Chat bots
+        items:
+        - name: Search and query a knowledge base
+          href: openai/idea/search-and-query-using-openai-service.yml          
       - name: AI at the edge
         items:
         - name: AI at the edge with Azure Stack Hub
@@ -304,6 +308,10 @@ items:
             href: ../data-science-process/sqldw-walkthrough.md
     - name: OpenAI
       items: 
+      - name: Explore ideas about
+        items:
+        - name: Search and query a knowledge base
+          href: openai/idea/search-and-query-using-openai-service.yml           
       - name: Design architectures 
         items:      
         - name: Extract and analyze call center data

@@ -9,7 +9,7 @@ This article describes how to use [Azure OpenAI Service](/azure/ai-services/open
 
 ## Architecture: Embedding approach
 
-:::image type="content" source="../media/embedding-approach.svg" alt-text="Diagram that shows the embeddings approach." lightbox="../media/embedding-approach.svg" border="false":::
+:::image type="content" source="_images/embedding-approach.svg" alt-text="Diagram that shows the embeddings approach." lightbox="_images/embedding-approach.svg" border="false":::
 *Download a [Visio file](https://arch-center.azureedge.net/search-and-query.vsdx) of this architecture.*
 
 ### Dataflow
@@ -42,7 +42,7 @@ Query and retrieval:
 
 ## Architecture: Azure Cognitive Search pull approach
 
-:::image type="content" source="../media/pull-approach.svg" alt-text="Diagram that shows the pull approach." lightbox="../media/pull-approach.svg" border="false":::
+:::image type="content" source="_images/pull-approach.svg" alt-text="Diagram that shows the pull approach." lightbox="_images/pull-approach.svg" border="false":::
 *Download a [Visio file](https://arch-center.azureedge.net/search-and-query.vsdx) of this architecture.*
 
 Index creation:
@@ -74,7 +74,7 @@ Query and retrieval:
 
 If the data source isn't supported, you can use the [push model](/azure/search/tutorial-optimize-indexing-push-api) to upload the data to Azure Cognitive Search.
 
-:::image type="content" source="../media/push-approach.svg" alt-text="Diagram that shows the push approach." lightbox="../media/push-approach.svg" border="false":::
+:::image type="content" source="_images/push-approach.svg" alt-text="Diagram that shows the push approach." lightbox="_images/push-approach.svg" border="false":::
 *Download a [Visio file](https://arch-center.azureedge.net/search-and-query.vsdx) of this architecture.*
 
 Index creation:

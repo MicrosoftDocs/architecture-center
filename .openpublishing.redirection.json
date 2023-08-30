@@ -3424,6 +3424,11 @@
       "source_path": "docs/example-scenario/mlops/aml-decision-tree.yml",
       "redirect_url": "/azure/architecture/ai-ml/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/search-and-query-using-openai-service.yml",
+      "redirect_url": "/azure/architecture/ai-ml/openai/idea/search-and-query-using-openai-service",
+      "redirect_document_id": true
     }
   ]
 }
