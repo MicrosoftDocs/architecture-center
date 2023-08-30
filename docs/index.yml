@@ -40,7 +40,7 @@ highlightedContent:
     # Card
     - title: Find partner-led workshops
       url: ./changelog.md
-      itemType: learn
+      itemType: learn 
 # productDirectory section (optional)
 productDirectory:
   title: Architecting applications on Azure # < 60 chars (optional)
