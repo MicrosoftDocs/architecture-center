@@ -155,7 +155,7 @@ Principal authors:
 
 ## Related resources
 
-- [Query-based document summarization](../../guide/ai/query-based-summarization.md)
-- [Automate document identification, classification, and search by using Durable Functions](../../example-scenario/ai/automate-document-classification-durable-functions.yml)
-- [Index file content and metadata by using Azure Cognitive Search](../../example-scenario/data/search-blob-metadata.yml)
-- [AI enrichment with image and text processing](../../solution-ideas/articles/cognitive-search-with-skillsets.yml)
+- [Query-based document summarization](../../guide/query-based-summarization.md)
+- [Automate document identification, classification, and search by using Durable Functions](../../architecture/automate-document-classification-durable-functions.yml)
+- [Index file content and metadata by using Azure Cognitive Search](../../architecture/search-blob-metadata.yml)
+- [AI enrichment with image and text processing](../../../solution-ideas/articles/cognitive-search-with-skillsets.yml)
