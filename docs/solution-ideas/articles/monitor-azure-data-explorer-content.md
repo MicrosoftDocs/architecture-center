@@ -11,7 +11,6 @@ This solution demonstrates how to use the Azure Data Explorer platform in synerg
 *Download a [Visio file](https://arch-center.azureedge.net/monitor-azure-data-explorer.vsdx) of this architecture.*
 
 ### Scenario details
-Azure Data Explorer is a Platform as a Service (PaaS) offering that enables ingesting, storing, querying, and visualizing large volumes of data in near-real time. It offers a powerful query language called Kusto Query Language (KQL), used by all Azure services built on top of the platform, and automatically manages its underlying infrastructure to ensure performance and availability.
 
 Platform as a Service (PaaS) and Software as a Service (SaaS) offerings provide you with different levels of control and management:
 
