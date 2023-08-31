@@ -51,9 +51,9 @@ If worker nodes are healthy, examine the connectivity between the managed AKS co
 **Tools:**
 
 - `kubectl`
-- **Azure Monitor container insights**
+- Azure Monitor container insights
 
-![Sample aks-link Pod](images/aks-link-pod.png)
+![Sample konnectivity agent pod](images/konnectivity-pod-health.png)
 
 If control plane and worker node connectivity is not working, establish connectivity after checking that the appropriate AKS egress traffic rules have been allowed. Please check [/azure-kubernetes/tunnel-connectivity-issues](tunnel connectivity issues) for common issues.  Here are the steps:
 
