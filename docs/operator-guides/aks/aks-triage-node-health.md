@@ -116,11 +116,11 @@ Check to see that file operations (IOPS) are not getting throttled and impacting
 
 - **[Azure Monitor container insights Disk IO Workbook](/azure/azure-monitor/insights/container-insights-analyze#workbooks)**
 
-    ![Azure Monitor container insights - Disk IO Workbook](images/aks-diskioworkbook.png)
+    ![Azure Monitor container insights - Disk IO Workbook](images/node-disk-io-workbook.png)
 
 - **Prometheus and Grafana Dashboard:** Node Disk Dashboard
   
-    ![Prometheus and Grafana Dashboard - Node Disk](images/node-disk-io-workbook.png)
+    ![Prometheus and Grafana Dashboard - Node Disk](images/node-diskio.png)
 
 Physical storage devices have limitations, bandwidth, and total number of file operations. Azure Disks are used to store the OS running on the AKS nodes. They are subject to the same physical storage limitations.
 
