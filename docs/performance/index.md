@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn how to performance tune a distributed application by walking through several scenarios that use load tests and metrics to diagnose performance issues.
 author: martinekuan
 ms.author: architectures
-ms.date: 07/28/2022
+ms.date: 08/31/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -48,6 +48,8 @@ It can be especially challenging to diagnose performance issues in a distributed
 - Resource consumption is distributed across multiple nodes. To get a consistent view, you need to aggregate logs and metrics in one place.
 
 - The cloud offers elastic scale. Autoscaling is an important technique for handling spikes in load, but it can also mask underlying issues. Also, it can be hard to know which components need to scale and when.
+
+- Workloads often do not scale across cores or threads. It's important to understand the requirements of your workloads and look into better optimized sizes. Some sizes offer constrained cores and disabled hyperthreading to improve single core oriented and per core licensed workloads. 
 
 - Cascading failures can cause failures upstream of the root problem. As a result, the first signal of the problem may appear in a different component than the root cause.
 
