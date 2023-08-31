@@ -55,6 +55,22 @@ In this episode, we're exploring how Vocean built their SaaS application that ch
 
 > [!VIDEO https://www.youtube.com/embed/VsAHrPvbeBg]
 
+## Episode 5: Access Infinity
+
+In this episode, we talk to Access Infinity's Managing Director, Keshav Nagaraja. We explore how Access Infinity saw an opportunity in their consulting business to create platforms that help their customers at scale, and how they came up with a pricing model that drives positive user behaviors.
+
+<br/>
+
+> [!VIDEO https://www.youtube.com/embed/28OQ0rVAbLY]
+
+## Episode 6: Sage
+
+In this episode, we learn how Sage embraced the opportunities to shift their application to SaaS, how they used SaaS as an opportunity to simplify their pricing model, and how they use a simple set of principles to guide complex changes.
+
+<br/>
+
+> [!VIDEO https://www.youtube.com/embed/Oeh2y-giKmw]
+
 ## Next steps
 
 - [Plan your own journey to SaaS](../plan-journey-saas.md)
