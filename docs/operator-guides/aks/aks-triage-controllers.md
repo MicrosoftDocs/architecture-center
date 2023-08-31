@@ -48,7 +48,7 @@ gatekeeper-controller-78797d4687-splzh   1/1     Running   0          163m
 If this command doesn't run as expected, it could indicate that an admission controller, API service, or CRD isn't functioning correctly.
 
 ```bash
-# Check that all API Resources are working correctly.
+# Check that all API Resources are working correctly. The following command can be used to list all API resources.
 kubectl api-resources
 
 # Sample Output
