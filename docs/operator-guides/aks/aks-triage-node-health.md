@@ -73,33 +73,7 @@ If control plane and worker node connectivity is not working, establish connecti
 
    ![Sample `konnectivity agent pod` logs](images/konnectivity-pod-logs.png)
 
-You can also retrieve those logs by searching the container logs in the logging and monitoring service. This example searches [Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-log-search) to check for **konnectivity-agent** connectivity errors.
-
-```kusto
-let ContainerIDs = KubePodInventory
-| where ClusterId =~ "/subscriptions/YOUR_SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP/providers/Microsoft.ContainerService/managedClusters/YOUR_CLUSTER_ID"
-| where Name has "konnectivity-agent"
-| distinct ContainerID;
-ContainerLog
-| where ContainerID in (ContainerIDs)
-| project LogEntrySource, LogEntry, TimeGenerated, Computer, Image, Name, ContainerID
-| order by TimeGenerated desc
-| limit 200
-```
-
-If you can't get the logs through the kubectl or queries, use [SSH into the node](/azure/aks/ssh). This example finds the **tunnelfront** pod after connecting to the node through SSH.
-
-```bash
-kubectl pods -n kube-system -o wide | grep tunnelfront
-ssh azureuser@<agent node pod is on, output from step above>
-docker ps | grep tunnelfront
-docker logs …
-nslookup <ssh-server_fqdn>
-ssh -vv azureuser@<ssh-server_fqdn> -p 9000
-docker exec -it <tunnelfront_container_id> /bin/bash -c "ping bing.com"
-kubectl get pods -n kube-system -o wide | grep <agent_node_where_tunnelfront_is_running>
-kubectl delete po <kube_proxy_pod> -n kube-system
-```
+You can also retrieve those logs by searching the container logs in the logging and monitoring service. Please see [Azure container insights log search](/azure/azure-monitor/insights/container-insights-log-search) for details.
 
 ## 3- Validate DNS resolution when restricting egress
 
@@ -114,7 +88,7 @@ Follow these steps to make sure that DNS resolution is working.
 
 1. Exec into the pod to examine and use `nslookup` or `dig` if those tools are installed on the pod.
 2. If the pod doesn't have those tools, start a utility pod in the same namespace and retry with the tools.
-3. If those steps don't show insights, SSH to one of the nodes and try resolution from there. This step will help determine if the issue is related to AKS related or networking configuration.
+3. If those steps don't show insights, [/aks/node-access#create-an-interactive-shell-connection-to-a-linux-node](connect to one of the nodes) and try resolution from there. This step will help determine if the issue is related to AKS related or networking configuration.
 4. If DNS resolves from the node, then the issue is related to Kubernetes DNS and not a networking issue. Restart Kubernetes DNS and check whether the issue is resolved. If not, open a Microsoft support ticket.
 5. If DNS doesn't resolve from the node, then check the networking setup again to make sure that the appropriate routing paths and ports are open.
 
