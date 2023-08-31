@@ -1506,7 +1506,7 @@ items:
           href: solution-ideas/articles/interactive-azure-data-explorer.yml
         - name: IoT analytics with Data Explorer
           href: solution-ideas/articles/iot-azure-data-explorer.yml
-        - name: Monitoring with Data Explorer
+        - name: Augmented monitoring and analytics
           href: solution-ideas/articles/monitor-azure-data-explorer.yml
       - name: Big data analytics with enterprise security
         href: solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml
