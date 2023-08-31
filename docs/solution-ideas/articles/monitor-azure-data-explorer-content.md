@@ -20,7 +20,7 @@ Platform as a Service (PaaS) and Software as a Service (SaaS) offerings provide 
 -	Azure Data Explorer is the Platform as a Service offering on which Azure Monitor and Microsoft Sentinel are built, which provides you with greater flexibility over the storage and analysis capabilities all three services share. 
 
     Azure Data Explorer:
-    - Enables query data in Azure Monitor and Microsoft Sentinel and other services that are built on top of Data Explorer clusters.
+    - Enables querying data in Azure Monitor, Microsoft Sentinel, and other services that are built on top of Data Explorer clusters.
     - Provides connectors for various types of IT and non-IT data – for example, business, user, and geospatial data.
     - Suports the full set of KQL capabilities, some of which aren't required or supported for IT and security monitoring. 
     - Automatically scales horizontally as data volumes increase. 
