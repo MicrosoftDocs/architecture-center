@@ -102,6 +102,7 @@ Check the kubelet process running on each worker node and make sure it's not exp
 ![AKS - Kubelet Workbook](images/aks-kubeletworkbook.png)
 
 - **Prometheus and Grafana Dashboard:** Kubelet Dashboard
+  
 ![Prometheus and Grafana Dashboard - Kubelet](images/kubelet-conditions.png)
 
 The pressure increases when kubelet restarts and causes some sporadic, unpredictable behavior. Make sure that the error count isn't continuously growing. An occasional error is acceptable but a constant growth indicates an underlying issue that needs to be investigated and resolved.
