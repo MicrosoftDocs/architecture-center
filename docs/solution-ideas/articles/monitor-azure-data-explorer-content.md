@@ -1,13 +1,13 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution idea demonstrates a hybrid end-to-end monitoring solution integrated with Microsoft Sentinel and Azure Monitor for ingesting streamed and batched logs from diverse sources, on-premises, or any cloud, within an enterprise ecosystem.
+Azure Monitor and Microsoft Sentinel – Azure’s managed services for end-to-end IT, application performance, and security monitoring – are built on top of the Azure Data Explorer platform, which enables processing and analyzing large volumes of data streamed in from multiple sources in near-real time.
 
-*Apache®, [Apache Nifi®](https://projects.apache.org/project.html?nifi) and Apache Kafka are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks. 
-[Fluentd](https://www.fluentd.org/),  [Logstash](https://www.elastic.co/logstash/), [Grafana](https://grafana.com/), and [Jupyter Notebooks](https://jupyter.org/) are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
+This solution demonstrates how you can use the Azure Data Explorer platform in synergy with Azure Monitoring and Microsoft Sentinel to make optimal use of your data estate and augment your monitoring and analytics capabilities.
+
 
 ## Architecture
 
-:::image type="content" source="../media/monitor-azure-data-explorer.svg" alt-text="Monitoring solution with Azure Data Explorer." lightbox="../media/monitor-azure-data-explorer.svg" border="false":::
+:::image type="content" source="../media/azure-augmented-monitoring.svg" alt-text="Augmented monitoring solution with Azure Monitor, Microsoft Sentinel, and Azure Data Explorer." lightbox="../media/azure-augmented-monitoring.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/monitor-azure-data-explorer.vsdx) of this architecture.*
 
