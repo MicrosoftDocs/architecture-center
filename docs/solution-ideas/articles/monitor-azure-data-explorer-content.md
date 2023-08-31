@@ -24,6 +24,7 @@ Platform as a Service and Software as a Service offerings provide you with diffe
 Azure Monitor and Microsoft Sentinel have query and service limits, based on customers’ real-world needs.    
 
 Incorporating the features and flexibility of all three services in your architecture, gives you:
+
 -	A broad range of data ingestion options that span various types of data and data sources.
 -	The ability to query all three services from Azure Data Explorer. This enables a single-pane-of-glass view of your data by:
     -	Querying IT monitoring and non-IT data.
