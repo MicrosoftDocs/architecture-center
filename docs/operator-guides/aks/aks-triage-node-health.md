@@ -46,7 +46,7 @@ You can check node health in one of these ways:
 
 ## 2- Verify the control plane and worker node connectivity
 
-If worker nodes are healthy, examine the connectivity between the managed AKS control plane and the worker nodes. Depending on the age and type of cluster configuration, the connectivity pods are either **tunnelfront** or **aks-link**, and located in the **kube-system** namespace.
+If worker nodes are healthy, examine the connectivity between the managed AKS control plane and the worker nodes. The connectivity pod in Azure Kubernetes Service is **konnectivity-agent**. Older versions of the cluster may use **tunnelfront** or **aks-link** instead of **konnectivity-agent**. 
 
 **Tools:**
 
@@ -55,12 +55,12 @@ If worker nodes are healthy, examine the connectivity between the managed AKS co
 
 ![Sample aks-link Pod](images/aks-link-pod.png)
 
-If **tunnelfront** or **aks-link** connectivity is not working, establish connectivity after checking that the appropriate AKS egress traffic rules have been allowed. Here are the steps:
+If control plane and worker node connectivity is not working, establish connectivity after checking that the appropriate AKS egress traffic rules have been allowed. Please check [/azure-kubernetes/tunnel-connectivity-issues](tunnel connectivity issues) for common issues.  Here are the steps:
 
-1. Restart **tunnelfront** or **aks-link**.
+1. Restart **konnectivity-agent**.
 
    ```bash
-   kubectl rollout restart deploy aks-link
+   kubectl rollout restart deploy konnectivity-agent
    ```
 
    If restarting the pods doesn't fix the connection, continue to the next step.
@@ -68,35 +68,20 @@ If **tunnelfront** or **aks-link** connectivity is not working, establish connec
 2. Check the logs and look for abnormalities. This output shows logs for a working connection.
 
    ```bash
-   kubectl logs -l app=aks-link -c openvpn-client --tail=50
+   kubectl logs -l app=konnectivity-agent -n kube-system --tail=50
    ```
 
    ![Sample `aks-link` logs](images/aks-link-logs.png)
 
-You can also retrieve those logs by searching the container logs in the logging and monitoring service. This example searches [Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-log-search) to check for **aks-link** connectivity errors.
+You can also retrieve those logs by searching the container logs in the logging and monitoring service. This example searches [Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-log-search) to check for **konnectivity-agent** connectivity errors.
 
 ```kusto
 let ContainerIDs = KubePodInventory
 | where ClusterId =~ "/subscriptions/YOUR_SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP/providers/Microsoft.ContainerService/managedClusters/YOUR_CLUSTER_ID"
-| where Name has "aks-link"
+| where Name has "konnectivity-agent"
 | distinct ContainerID;
 ContainerLog
 | where ContainerID in (ContainerIDs)
-| project LogEntrySource, LogEntry, TimeGenerated, Computer, Image, Name, ContainerID
-| order by TimeGenerated desc
-| limit 200
-```
-
-Here's another example query to check for **tunnelfront** connectivity errors.
-
-```kusto
-let ContainerIDs = KubePodInventory
-| where ClusterId =~ "/subscriptions/YOUR_SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP/providers/Microsoft.ContainerService/managedClusters/YOUR_CLUSTER_ID"
-| where Name has "tunnelfront"
-| distinct ContainerID;
-ContainerLog
-| where ContainerID in (ContainerIDs)
-| where LogEntry has "ssh to tunnelend is not connected"
 | project LogEntrySource, LogEntry, TimeGenerated, Computer, Image, Name, ContainerID
 | order by TimeGenerated desc
 | limit 200
