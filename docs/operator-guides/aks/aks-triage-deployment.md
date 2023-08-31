@@ -24,7 +24,7 @@ _This article is part of a series. Read the introduction [here](aks-triage-pract
 **Tools:**
 
 - **Azure Portal**. In Azure portal, navigate to the AKS cluster resource. Select **Workloads** from the **Kubernetes Resources** menu.
-![AKS - Workloads](images/aks-workloads.png)
+![AKS - Workloads](images/aks-triage-workloads.png)
 
 - **Kubectl**. Kubectl commands could be used to check the pod / replicaset / daemonset / deployment status.
   
