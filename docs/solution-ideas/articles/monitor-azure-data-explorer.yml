@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Augmented monitoring and analytics with Azure Monitor, Microsoft Sentinel, and Azure Data Explorer
+  title: Augmented monitoring and analytics with Azure Monitor, Microsoft Sentinel, and Azure Data Explorer 
   titleSuffix: Azure Architecture Center
   description: Use the underlying capabilities of the Azure Data Explorer platform in synergy with Azure Monitoring and Microsoft Sentinel to make optimal use of your data estate and augment your monitoring and analytics capabilities.
   author: orspod
