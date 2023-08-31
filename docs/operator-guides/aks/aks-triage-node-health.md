@@ -32,8 +32,8 @@ In private clusters, control plane communication may be broken due to DNS resolu
 
 You can check node health in one of these ways:
 
-- **AKS - Nodes view:** In Azure portal, open navigate to the cluster. Select **Insights** under **Monitoring**. View **Nodes** on the right pane.
-![AKS - Nodes View](images/aks-nodehealth.png)
+- **AKS - Nodes view:** In Azure portal, open navigate to the cluster. Select **Nodepools** under **Settings**. View **Nodes** on the right pane.
+![AKS - Nodes View](images/aks-node-health.png)
 
 - **Prometheus and Grafana Dashboard**. Open the **Node Conditions** dashboard.
 ![Prometheus and Grafana Dashboard - Node](images/node-conditions.png)
