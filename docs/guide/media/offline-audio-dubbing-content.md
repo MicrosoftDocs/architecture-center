@@ -467,4 +467,4 @@ Other contributors:
 ## Related resources
 
 - [Choose an Azure Cognitive Services technology](../../data-guide/technology-choices/cognitive-services.md)
-- [Implement custom speech-to-text](../../guide/ai/custom-speech-text.yml)
+- [Implement custom speech-to-text](../../ai-ml/guide/custom-speech-text.yml)

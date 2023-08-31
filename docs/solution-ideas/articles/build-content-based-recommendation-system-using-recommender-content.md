@@ -82,10 +82,8 @@ Other contributor:
 ## Related resources
 
 - [Build a real-time recommendation API on Azure](../../reference-architectures/ai/real-time-recommendation.yml)
-- [Build a movie recommendation system using machine learning](../../example-scenario/ai/movie-recommendations-with-machine-learning.yml)
-- [Product recommendations for retail using Azure](../../solution-ideas/articles/product-recommendations.yml)
 - [Personalization using Azure Cosmos DB](../../solution-ideas/articles/personalization-using-cosmos-db.yml)
-- [Batch scoring of Spark models on Azure Databricks](../../reference-architectures/ai/batch-scoring-databricks.yml)
+- [Batch scoring of Spark models on Azure Databricks](../../ai-ml/architecture/batch-scoring-databricks.yml)
 - [Retail assistant with visual capabilities](../../solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml)
-- [Create personalized marketing solutions in near real time](../../solution-ideas/articles/personalized-marketing.yml)
+- [Create personalized marketing solutions in near real time](../../ai-ml/idea/personalized-marketing.yml)
 - [Personalized offers](../../solution-ideas/articles/personalized-offers.yml)

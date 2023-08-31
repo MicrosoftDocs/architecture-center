@@ -143,7 +143,6 @@ Other contributor:
 
 ## Related resources
 
-- [Baseball decision analysis with ML.NET and Blazor](../../data-guide/big-data/baseball-ml-workload.yml)
 - [IoT and data analytics](../data/big-data-with-iot.yml)
 - [Monitoring Azure Databricks](../../databricks-monitoring/index.md)
 - [Stream processing with Azure Databricks](../../reference-architectures/data/stream-processing-databricks.yml)

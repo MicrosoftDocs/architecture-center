@@ -165,5 +165,5 @@ For more computer vision architectures, examples, and ideas that use Azure IoT, 
 - [Connected factory hierarchy service](../../solution-ideas/articles/connected-factory-hierarchy-service.yml)
 - [Connected factory signal pipeline](../../example-scenario/iot/connected-factory-signal-pipeline.yml)
 - [Create smart places by using Azure Digital Twins](../../example-scenario/iot/smart-places.yml)
-- [Deploy AI and ML computing on-premises and to the edge](../../hybrid/deploy-ai-ml-azure-stack-edge.yml)
+- [Deploy AI and ML computing on-premises and to the edge](../../ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml)
 
