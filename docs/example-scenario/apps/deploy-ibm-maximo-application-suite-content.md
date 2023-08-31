@@ -78,7 +78,7 @@ Find more information about use cases for MAS on IBM's website at [IBM Maximo Ap
 
 ## Recommendations
 
-We recommend installing the latest stable version of MAS because it provides the best integration options with Azure. Pay close attention to the versions of OpenShift that are supported, because the supported versions vary with the specific version of MAS. Currently the sliding window release cycle of Azure Red Hat OpenShift is too frequent for it to be supported by IBM Maximo Application Suite.
+We recommend installing the latest stable version of MAS because it provides the best integration options with Azure. Pay close attention to the versions of OpenShift that are supported, because the supported versions vary with the specific version of MAS.
 
 Use of earlier or later major versions of OpenShift can result in falling out of official support for MAS. Before building out your own deployment, we recommend using the quickstart guide to deploy MAS so that you understand how the deployment and configuration works. Knowing how this is done speeds creation of the design requirements for your implementation. For more information, see [QuickStart Guide: Maximo Application Suite on Azure](https://github.com/Azure/maximo).
 
@@ -121,7 +121,7 @@ Some of the services might require other IBM tools and services, such as IBM Wat
 ### OpenShift
 
 > [!NOTE]
-> Running MAS on Azure Red Hat OpenShift is not supported.
+> IBM Maximo Application Suite supports Azure Red Hat OpenShift, provided that the underlying versions of OpenShift and Cloud Pak for Data (CP4D) align.
 
 Before you install OpenShift, you need to determine which method you'll be using:
 
@@ -138,7 +138,7 @@ When installing OpenShift, you must resolve the following considerations:
 
 - **Region selection**. We recommend using a region with [availability zones](/azure/availability-zones/az-overview#azure-regions-with-availability-zones). During deployment, OpenShift automatically attempts to create nodes across zones based on the configuration in the configuration file, *install-config.yaml*. By default, OpenShift balances workloads across all available nodes and across the availability zones. If there's an outage in a zone, your solution can continue functioning by having nodes in other zones that can take over the work.
 
-- **Backup & recovery**. Although MAS isn't supported on Azure Red Hat OpenShift, you can use the instructions for Azure Red Hat OpenShift for backup and recovery. For more information, see [Create an Azure Red Hat OpenShift 4 cluster Application Backup](/azure/openshift/howto-create-a-backup). If you use this method for back-up and recovery, you must provide another method of disaster recovery for the database. 
+- **Backup & recovery**. You can use the instructions for Azure Red Hat OpenShift for backup and recovery. For more information, see [Create an Azure Red Hat OpenShift 4 cluster Application Backup](/azure/openshift/howto-create-a-backup). If you use this method for back-up and recovery, you must provide another method of disaster recovery for the database. 
 
 - **Failover**. Consider deploying OpenShift in two regions and using [Red Hat Advanced Cluster Management](https://www.redhat.com/en/technologies/management/advanced-cluster-management). If your solution has public endpoints, you can place [Azure Traffic Manager](/azure/traffic-manager) between them and the internet to redirect traffic to the appropriate cluster when there's an outage of a region. In such a situation, you must also migrate your applications' states and persistent volumes.
 
