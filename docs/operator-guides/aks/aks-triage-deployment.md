@@ -28,27 +28,27 @@ _This article is part of a series. Read the introduction [here](aks-triage-pract
 
 - **Kubectl**. Kubectl commands could be used to check the pod / replicaset / daemonset / deployment status.
 
-1. Get deployments in all namespaces 
+Get deployments in all namespaces 
    ```bash
    kubectl get deploy -A
    ```
-2. Get pods in all namespaces
+Get pods in all namespaces
    ```bash
    kubectl get po -A
    ```
-3. Get daemonsets in all namespaces
+Get daemonsets in all namespaces
    ```bash
    kubectl get daemonsets -A
    ```
-4. If any of the pods or daemonsets are not starting, view the kubernetes events
+If any of the pods or daemonsets are not starting, view the kubernetes events
    ```bash
    kubectl get events
    ```
-   or check the events for a specific namespace.
+You can also check the events for a specific namespace.
    ```bash
    kubectl get events -n kube-system
    ```
-   You can also describe a pod to view the events specific to the pod.
+Alternately, you can describe a pod to view the events specific to the pod.
    
    ```bash
    kubectl describe pod <pod-name> -n <namespace>
