@@ -173,7 +173,6 @@ Microsoft learning paths:
 - [Predictive maintenance for industrial IoT](/azure/architecture/solution-ideas/articles/iot-predictive-maintenance)
 - [Condition monitoring for industrial IoT](/azure/architecture/solution-ideas/articles/condition-monitoring)
 - [IoT and data analytics](/azure/architecture/example-scenario/data/big-data-with-iot)
-- [Predictive maintenance](/azure/architecture/solution-ideas/articles/predictive-maintenance)
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)
 - [CI/CD for AKS apps with Azure Pipelines](/azure/architecture/guide/aks/aks-cicd-azure-pipelines)
 - [Stream processing with Azure Stream Analytics](/azure/architecture/reference-architectures/data/stream-processing-stream-analytics)

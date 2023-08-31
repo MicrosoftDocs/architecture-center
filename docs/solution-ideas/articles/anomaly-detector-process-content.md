@@ -110,7 +110,6 @@ Principal author:
 * [Supply chain track and trace](/azure/architecture/solution-ideas/articles/supply-chain-track-and-trace)
 * [Introduction to predictive maintenance in manufacturing](/azure/architecture/industries/manufacturing/predictive-maintenance-overview)
 * [Predictive maintenance solution](/azure/architecture/industries/manufacturing/predictive-maintenance-solution)
-* [Predictive maintenance](/azure/architecture/solution-ideas/articles/predictive-maintenance)
 * [Predictive maintenance with the intelligent IoT Edge](/azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance)
 * [Stream processing with fully managed open-source data engines](/azure/architecture/example-scenario/data/open-source-data-engine-stream-processing)
 * [Connected factory hierarchy service](/azure/architecture/solution-ideas/articles/connected-factory-hierarchy-service)
