@@ -25,7 +25,7 @@ azureCategories:
   - ai-machine-learning
 summary: Generate personalized recommendations for customers in real time by using low-latency and tunable consistency settings for immediate insights.
 products:
-  - azure-api-apps
+  - azure-app-service
   - azure-container-instances
   - azure-cosmos-db
 thumbnailUrl: /azure/architecture/browse/thumbs/personalization-using-cosmos-db.png

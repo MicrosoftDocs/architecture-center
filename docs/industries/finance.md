@@ -58,8 +58,6 @@ The following articles provide detailed analysis of architectures recommended fo
 
 The following are some additional ideas that you can use as a starting point for your finance solution.
 
-- [Auditing, risk, and compliance management](../solution-ideas/articles/auditing-and-risk-compliance.yml)
-- [Business Process Management](../solution-ideas/articles/business-process-management.yml)
 - [HPC System and Big Compute Solutions](../solution-ideas/articles/big-compute-with-azure-batch.yml)
 - [HPC Risk Analysis Template](../solution-ideas/articles/hpc-risk-analysis.yml)
 - [Loan ChargeOff Prediction with Azure HDInsight Spark Clusters](../solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.yml)

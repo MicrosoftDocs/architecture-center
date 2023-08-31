@@ -75,4 +75,4 @@ Principal author:
 ## Related resources
 
 - [Manage configurations for Azure Arc enabled servers](../../hybrid/azure-arc-hybrid-config.yml)
-- [Deploy AI and ML computing on-premises and to the edge](../../hybrid/deploy-ai-ml-azure-stack-edge.yml)
+- [Deploy AI and ML computing on-premises and to the edge](../../ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml)

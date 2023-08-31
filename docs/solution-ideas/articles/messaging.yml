@@ -21,7 +21,7 @@ azureCategories:
   - databases
 summary: Azure Cache for Redis routes real-time messages in publish and subscribe systems. It also scales up web communication frameworks like Azure SignalR Service.
 products:
-  - azure-api-apps
+  - azure-app-service
   - azure-cache-redis
   - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/messaging.png

@@ -55,7 +55,6 @@ The following articles provide detailed analysis of architectures developed and 
 | [3D video rendering with Azure Batch](../example-scenario/infrastructure/video-rendering.yml) | Use Azure Batch as a powerful yet cost-effective alternative to expensive high end computing resources, for 3D video rendering. | Compute |
 | [Digital image-based modeling on Azure](../example-scenario/infrastructure/image-modeling.yml) | Build a high-performance and scalable image-based modeling architecture using Azure infrastructure-as-a-service (IaaS). | Compute |
 | [Image classification on Azure](../example-scenario/ai/intelligent-apps-image-processing.yml) | Quickly build an architecture to process, classify, and analyze images, using Azure Computer Vision API. | AI/ML |
-| [Movie recommendations on Azure](../example-scenario/ai/movie-recommendations-with-machine-learning.yml) | Automate movie and product recommendations by using an Azure Data Science Virtual Machine to train an Azure Machine Learning model. | AI/ML |
 | [Scalable personalization on Azure](/azure/architecture/solution-ideas/articles/build-content-based-recommendation-system-using-recommender) | Build a *content-based* personalized recommendation system for customers by learning their preferences from past purchases and interactions. | AI/ML |
 | [Analyze news feeds with near real-time analytics](../example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml) | Build a pipeline for mass ingestion and near real-time analysis of documents coming from public RSS news feeds using Azure services. | Analytics |
 
@@ -63,7 +62,6 @@ The following articles provide detailed analysis of architectures developed and 
 
 The following are other ideas that you can use as a starting point for your media and entertainment solution.
 
-- [Knowledge mining in digital asset management](../solution-ideas/articles/digital-asset-management.yml)
 - [HPC Media Rendering](../solution-ideas/articles/azure-batch-rendering.yml)
-- [Suggest content tags with deep learning and NLP](../solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.yml)
+- [Suggest content tags with deep learning and NLP](../ai-ml/idea/website-content-tag-suggestion-with-deep-learning-and-nlp.yml)
 - [Keyword search/speech-to-text/OCR digital media](../solution-ideas/articles/digital-media-speech-text.yml)

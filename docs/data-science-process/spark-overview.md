@@ -199,4 +199,3 @@ Principal author:
 
 - [What is the Team Data Science Process?](/azure/architecture/data-science-process/overview)
 - [Compare the machine learning products and technologies from Microsoft](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
-- [Machine learning at scale](/azure/architecture/data-guide/big-data/machine-learning-at-scale)

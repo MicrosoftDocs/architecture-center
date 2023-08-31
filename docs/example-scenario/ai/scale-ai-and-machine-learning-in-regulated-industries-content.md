@@ -266,6 +266,5 @@ Product documentation:
 
 Azure Architecture Center overview articles:
 
-- [Machine learning at scale](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
 - [Implementing the Azure blueprint for AI](/previous-versions/azure/industry-marketing/health/sg-healthcare-ai-blueprint)
 - [Microsoft Azure Well-Architected Framework](/azure/architecture/framework)

@@ -214,6 +214,4 @@ Principal author:
 
 - [Predictive maintenance for industrial IoT](../../solution-ideas/articles/iot-predictive-maintenance.yml)
 - [Introduction to predictive maintenance in manufacturing](predictive-maintenance-overview.yml)
-- [Predictive maintenance](../../solution-ideas/articles/predictive-maintenance.yml)
 - [IoT Edge railroad maintenance and safety system](../../example-scenario/predictive-maintenance/iot-predictive-maintenance.yml)
-- [Defect prevention with predictive maintenance using analytics and machine learning](../../solution-ideas/articles/defect-prevention-with-predictive-maintenance.yml)
