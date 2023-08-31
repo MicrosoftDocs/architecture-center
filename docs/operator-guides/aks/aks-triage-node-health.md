@@ -60,7 +60,7 @@ If control plane and worker node connectivity is not working, establish connecti
 1. Restart **konnectivity-agent**.
 
    ```bash
-   kubectl rollout restart deploy konnectivity-agent
+   kubectl rollout restart deploy konnectivity-agent -n kube-system
    ```
 
    If restarting the pods doesn't fix the connection, continue to the next step.
