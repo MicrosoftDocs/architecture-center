@@ -32,15 +32,17 @@ In private clusters, control plane communication may be broken due to DNS resolu
 
 You can check node health in one of these ways:
 
-- **Azure Monitor - Containers health view**. In Azure portal, open Azure Monitor. Select **Containers**.  On the right pane, select **Monitored clusters**. Select the cluster to view the health of the nodes, user pods, and system pods.
-
-    ![Azure Monitor - Containers Health View](images/azuremonitor-containershealth.png)
-
 - **AKS - Nodes view:** In Azure portal, open navigate to the cluster. Select **Insights** under **Monitoring**. View **Nodes** on the right pane.
 ![AKS - Nodes View](images/aks-nodehealth.png)
 
 - **Prometheus and Grafana Dashboard**. Open the **Node Conditions** dashboard.
 ![Prometheus and Grafana Dashboard - Node](images/node-conditions.png)
+
+- **Azure Monitor - Containers health view**. In Azure portal, open Azure Monitor. Select **Containers**.  On the right pane, select **Monitored clusters**. Select the cluster to view the health of the nodes, user pods, and system pods.
+
+    ![Azure Monitor - Containers Health View](images/azuremonitor-containershealth.png)
+
+
 
 ## 2- Verify the control plane and worker node connectivity
 
