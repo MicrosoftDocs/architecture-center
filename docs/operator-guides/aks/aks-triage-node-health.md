@@ -100,7 +100,7 @@ Check the kubelet process running on each worker node and make sure it's not exp
 **Tools:**
 
 - **AKS - Kubelet Workbook**
-![AKS - Kubelet Workbook](images/aks-kubeletworkbook.png)
+![AKS - Kubelet Workbook](images/kubelet-workbook.png)
 
 - **Prometheus and Grafana Dashboard:** Kubelet Dashboard
   
