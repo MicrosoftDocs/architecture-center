@@ -16,7 +16,7 @@ Platform as a Service (PaaS) and Software as a Service (SaaS) offerings provide 
 
 -	Azure Monitor and Microsoft Sentinel are Azure’s native Software as a Service solutions for IT and application monitoring and security, which Microsoft develops, manages, and hones to the needs of Azure customers monitoring their Azure and hybrid IT deployments. 
     
-    Both services store data in Log Analytics workspaces, which are partitions of Azure Data Explorer clusters and support the subset of KQL capabilities that are relevant for IT and security monitoring. You can query from one Log Analytics workspace to other workspaces and across monitored resources. This means your analysis in these services is limited to IT and security data and is subject to the services' query and service limits. 
+    Both services store data in Log Analytics workspaces, which are partitions of Azure Data Explorer clusters, and both support the subset of KQL capabilities that are relevant for IT and security monitoring. You can query from one Log Analytics workspace to other workspaces and across monitored resources. This means your analysis in these services is limited to IT and security data and is subject to the services' query and service limits. 
 -	Azure Data Explorer is the Platform as a Service offering on which Azure Monitor and Microsoft Sentinel are built, which provides you with greater flexibility over the storage and analysis capabilities all three services share. 
 
     Azure Data Explorer:
