@@ -11,17 +11,18 @@ This solution demonstrates how to use the Azure Data Explorer platform in synerg
 *Download a [Visio file](https://arch-center.azureedge.net/monitor-azure-data-explorer.vsdx) of this architecture.*
 
 ### Scenario details
-Azure Data Explorer is a Platform as a Service offering that enables ingesting, storing, querying, and visualizing large volumes of data in near-real time. It offers a powerful query language called Kusto Query Language (KQL), used by all Azure services built on top of the platform, and automatically manages its underlying infrastructure to ensure performance and availability.
-Azure Monitor and Microsoft Sentinel are Azure’s native Software as a Service solutions for IT and application monitoring and security, which Microsoft develops and hones to the needs of Azure customers monitoring their Azure and hybrid IT deployments.
+Azure Data Explorer is a Platform as a Service (PaaS) offering that enables ingesting, storing, querying, and visualizing large volumes of data in near-real time. It offers a powerful query language called Kusto Query Language (KQL), used by all Azure services built on top of the platform, and automatically manages its underlying infrastructure to ensure performance and availability.
+Azure Monitor and Microsoft Sentinel are Azure’s native Software as a Service (SaaS) solutions for IT and application monitoring and security, which Microsoft develops and hones to the needs of Azure customers monitoring their Azure and hybrid IT deployments.
 
 :::image type="content" source="../media/azure-monitor-micorosoft-sentinel-azure-data-explorer.svg" alt-text="A diagram that illustrates how Azure Monitor and Microsoft are built on top of Azure Data Explorer and share visualization and alerting capabilities." lightbox="../media/azure-monitor-micorosoft-sentinel-azure-data-explorer.svg" border="false":::
 
 ### More value together 
 
-Platform as a Service (PaaS) and Software as a Service (SaaS) offerings provide you with different levels of control and management:
--	Azure Data Explorer is a Platform as a Service (PaaS) that provides flexibility with the platform’s underlying storage and analysis capabilities, and automatically scales horizontally as data volumes increase. It provides connectors that let you ingest and store various types of data – for example, business, user, and geospatial data – and provides a full set of KQL capabilities, some of which aren't required or supported for IT and security monitoring. It also provides you with the flexibility to query data in other services that are built on top of Data Explorer clusters.
--	Azure Monitor and Microsoft Sentinel are Software as a Service (SaaS) solutions that  store data in Log Analytics workspaces, which are partitions of Azure Data Explorer clusters. You can query from one Log Analytics workspace to other workspaces and across monitored resources, which means your analysis in these services is limited to IT and security data.
+Platform as a Service and Software as a Service offerings provide you with different levels of control and management:
+-	Azure Data Explorer provides flexibility with the platform’s underlying storage and analysis capabilities, and automatically scales horizontally as data volumes increase. It provides connectors that let you ingest and store various types of data – for example, business, user, and geospatial data – and provides a full set of KQL capabilities, some of which aren't required or supported for IT and security monitoring. It also provides you with the flexibility to query data in other services that are built on top of Data Explorer clusters.
+-	Azure Monitor and Microsoft Sentinel (SaaS) store data in Log Analytics workspaces, which are partitions of Azure Data Explorer clusters. You can query from one Log Analytics workspace to other workspaces and across monitored resources, which means your analysis in these services is limited to IT and security data.
 Azure Monitor and Microsoft Sentinel have query and service limits, based on customers’ real-world needs.    
+
 Incorporating the features and flexibility of all three services in your architecture, gives you:
 -	A broad range of data ingestion options that span various types of data and data sources.
 -	The ability to query all three services from Azure Data Explorer. This enables a single-pane-of-glass view of your data by:
