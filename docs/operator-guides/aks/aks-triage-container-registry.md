@@ -18,15 +18,17 @@ ms.custom:
 
 # Verify the connection to the container registry
 
-Make sure that the worker nodes have the correct permission to pull the necessary container images from the container registry.
+Make sure that the worker nodes have the right permission to pull the necessary container images from the container registry.
 
 _This article is part of a series. Read the introduction [here](aks-triage-practices.md)._
 
-A common symptom of this issue is receiving **ImagePullBackoff** errors when getting or describing a pod. Be sure that the registry and image name are correct. Also, the cluster has permissions to pull from the appropriate container registry.
+A common symptom of this issue is receiving **ImagePullBackoff** errors when getting or describing a pod. Be sure that the registry and image name are correct. Also, ensure that the cluster has permissions to pull from the appropriate container registry.
 
 If you are using Azure Container Registry (ACR), the cluster service principal or managed identity should be granted **AcrPull** permissions against the registry.
 
-One way is to run this command using the managed identity of the AKS cluster node pool. This command gets a list of its permissions.
+Attaching a registry to an existing kubernetes cluster automatically assigns AcrPull permissions to the registry. [The AKS to ACR integration](/aks/cluster-container-registry-integration?tabs=azure-cli) assigns the AcrPull role to the Azure Active Directory (Azure AD) managed identity associated with the agent pool in your AKS cluster.
+
+You can retrieve the managed identity of Kubernetes cluster and it's current role assignments as follows.
 
 ```azurecli
 # Get Kubelet Identity (Nodepool MSI)
@@ -34,14 +36,13 @@ ASSIGNEE=$(az aks show -g $RESOURCE_GROUP -n $NAME --query identityProfile.kubel
 az role assignment list --assignee $ASSIGNEE --all -o table
 ```
 
-```output
-# Expected Output
-...
-e5615a90-1767-4a4f-83b6-cecfa0675970  AcrPull  /subscriptions/.../providers/Microsoft.ContainerRegistry/registries/akskhacr
-...
+You can create the acrPull role assignment as follows: 
+
+```
+az role assignment create --assignee $ASSIGNEE --scope $AZURE_CONTAINER_REGISTRY_ID --role acrpull
 ```
 
-If you're using another container registry, check the appropriate **ImagePullSecret** credentials for the registry.
+If you're using a third party container registry, [create the appropriate **ImagePullSecret** credentials](/container-registry/container-registry-auth-kubernetes#create-an-image-pull-secret) for the registry.
 
 ## Related links
 
