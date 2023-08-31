@@ -34,8 +34,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Extract and analyze call center data by using Azure OpenAI Service, Speech services, and Language services]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/ai/call-center-openai-analytics</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/ai/call-center-openai-analytics"/>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/openai/architecture/call-center-openai-analytics</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/openai/architecture/call-center-openai-analytics"/>
         <updated>2023-08-04T20:50:58.000Z</updated>
         <summary type="html"><![CDATA[Learn how to extract insights from customer conversations at a call center by using Azure AI services and Azure OpenAI Service.]]></summary>
         <category label="new" term="new"/>
@@ -314,8 +314,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Build language model pipelines with memory]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/ai/language-model-pipelines</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/ai/language-model-pipelines"/>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/openai/guide/language-model-pipelines</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/openai/guide/language-model-pipelines"/>
         <updated>2023-06-13T18:34:44.000Z</updated>
         <summary type="html"><![CDATA[Learn how to use an AI/ML pipeline, LangChain, and language models to create an analysis of how your product compares to competitor's similar products.]]></summary>
         <category label="new" term="new"/>
@@ -506,8 +506,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Conversation summarization]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/ai/conversation-summarization</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/ai/conversation-summarization"/>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/conversation-summarization</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/conversation-summarization"/>
         <updated>2023-05-09T19:19:45.000Z</updated>
         <summary type="html"><![CDATA[Learn how to generate summaries of customer–agent interactions by using the Azure OpenAI GPT-3 model.]]></summary>
         <category label="new" term="new"/>
@@ -522,8 +522,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Implement logging and monitoring for Azure OpenAI large language models]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/ai/log-monitor-azure-openai</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/ai/log-monitor-azure-openai"/>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/openai/architecture/log-monitor-azure-openai</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/openai/architecture/log-monitor-azure-openai"/>
         <updated>2023-05-02T22:19:10.000Z</updated>
         <summary type="html"><![CDATA[Implement comprehensive logging and monitoring and enhanced security for Azure OpenAI Service large language models.]]></summary>
         <category label="new" term="new"/>

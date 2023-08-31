@@ -197,9 +197,8 @@ Principal authors:
 
 - [Large-scale custom natural language processing in Azure](../../solution-ideas/articles/large-scale-custom-natural-language-processing.yml)
 - [Choose a Microsoft cognitive services technology](./cognitive-services.md)
-- [Compare the machine learning products and technologies from Microsoft](./data-science-and-machine-learning.md)
-- [Azure Machine Learning decision guide for optimal tool selection](../../example-scenario/mlops/aml-decision-tree.yml)
+- [Compare the machine learning products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)
 - [MLflow and Azure Machine Learning](/azure/machine-learning/concept-mlflow?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [AI enrichment with image and natural language processing in Azure Cognitive Search](../../solution-ideas/articles/cognitive-search-with-skillsets.yml)
 - [Analyze news feeds with near real-time analytics using image and natural language processing](../../example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml)
-- [Suggest content tags with NLP using deep learning](../../solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.yml)
+- [Suggest content tags with NLP using deep learning](../../ai-ml/idea/website-content-tag-suggestion-with-deep-learning-and-nlp.yml)
