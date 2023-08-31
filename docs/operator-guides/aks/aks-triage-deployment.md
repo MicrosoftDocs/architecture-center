@@ -17,14 +17,17 @@ ms.custom:
 
 # Check the workload deployments
 
-Check to see that all deployments and daemonSets are running. The **Ready** and the **Available** matches the expected count.
+Check to see that all deployments and daemonSets are running. Please validate if the **Ready** and the **Available** matches the expected count.
 
 _This article is part of a series. Read the introduction [here](aks-triage-practices.md)._
 
 **Tools:**
 
-- **AKS - Workloads**. In Azure portal, navigate to the AKS cluster resource. Select **Workloads**.
+- **Azure Portal**. In Azure portal, navigate to the AKS cluster resource. Select **Workloads** from the **Kubernetes Resources** menu.
 ![AKS - Workloads](images/aks-workloads.png)
+
+- **Kubectl**. Kubectl commands could be used to check the pod / replicaset / daemonset / deployment status.
+  
 
 - **Prometheus and Grafana Dashboard**. Deployment Status Dashboard. This image is from Grafana Community Chart 10856.
 ![Prometheus and Grafana Dashboard - Deployment Status](images/deployment-conditions.png)
