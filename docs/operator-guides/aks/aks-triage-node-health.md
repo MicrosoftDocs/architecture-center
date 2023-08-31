@@ -71,7 +71,7 @@ If control plane and worker node connectivity is not working, establish connecti
    kubectl logs -l app=konnectivity-agent -n kube-system --tail=50
    ```
 
-   ![Sample `aks-link` logs](images/aks-link-logs.png)
+   ![Sample `konnectivity agent pod` logs](images/konnectivity-pod-logs.png)
 
 You can also retrieve those logs by searching the container logs in the logging and monitoring service. This example searches [Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-log-search) to check for **konnectivity-agent** connectivity errors.
 
