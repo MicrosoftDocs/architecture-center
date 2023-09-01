@@ -28,7 +28,7 @@ azureCategories:
   - featured
 summary: Learn how to create an Azure CI/CD pipeline to manage your Power Platform application lifecycle.
 products:
-  - azure-application-insights
+  - azure-monitor
   - azure-devops
   - azure-web-apps
   - power-apps
