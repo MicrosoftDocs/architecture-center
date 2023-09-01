@@ -14,7 +14,7 @@ azureCategories:
   - ai-machine-learning
 products:
   - azure-data-factory
-  - azure-data-lake-gen2
+  - azure-data-lake-storage
   - azure-databricks
   - azure-event-hubs
   - power-bi
