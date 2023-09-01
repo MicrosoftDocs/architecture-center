@@ -22,7 +22,6 @@ azureCategories:
 summary: Learn about the monitoring services and a dataflow model for use with multiple data sources.
 products:
   - azure-app-service
-  - azure-application-insights
   - azure-log-analytics
   - azure-monitor
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-diagram-app-monitoring-thumbnail.png
