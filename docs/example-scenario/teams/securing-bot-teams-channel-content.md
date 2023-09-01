@@ -94,7 +94,7 @@ You must have an existing Azure account. If you don't have an Azure subscription
 
 1. Run the following Azure CLI commands in Azure Cloud Shell or your preferred deployment shell.
 
-    This set of commands creates the necessary resource group, virtual network, and subnets that are required for this walkthrough. The IP range used by Teams is [52.112.0.0/14](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide#skype-for-business-online-and-microsoft-teams).
+    This set of commands creates the necessary resource group, virtual network, and subnets that are required for this walkthrough. The IP range used by Teams is [52.112.0.0/14,52.122.0.0/15](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide#skype-for-business-online-and-microsoft-teams).
 
     ```azurecli
     # Declare variables (bash syntax)
@@ -104,7 +104,7 @@ You must have an existing Azure account. If you don't have an Azure subscription
     export SUBNET_INT_NAME='VnetIntegrationSubnet'
     export SUBNET_PVT_NAME='PrivateEndpointSubnet'
     export LOCATION='eastus'
-    export TEAMS_IP_RANGE='13.107.64.0/18 52.112.0.0/14 52.122.0.0/15'
+    export TEAMS_IP_RANGE='52.112.0.0/14 52.122.0.0/15'
     export FIREWALL_NAME='afw-'${LOCATION}'-'${PREFIX}
 
     # Create a resource group
