@@ -16,7 +16,7 @@ azureCategories:
   - security
 products:
   - azure-synapse-analytics
-  - azure-data-lake-gen2
+  - azure-data-lake-storage
   - azure-virtual-network
   - power-bi
 name: Secure a data lakehouse with Azure Synapse Analytics
