@@ -19,7 +19,6 @@ categories:
   - compute
 products:
   - azure-monitor
-  - azure-application-insights
   - azure-event-hubs
   - azure-functions
 ms.custom:
