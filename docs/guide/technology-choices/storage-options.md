@@ -11,7 +11,7 @@ ms.subservice: azure-guide
 ms.custom: fcp
 categories: storage
 products:
-- azure-data-lake-gen2
+- azure-data-lake-storage
 - azure-queue-storage
 - azure-table-storage
 - azure-blob-storage
