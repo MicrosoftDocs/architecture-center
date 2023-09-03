@@ -57,17 +57,6 @@ An architecture built on the features and flexibility of provided by the three s
 1. You can also continuously export data to Azure Storage in compressed, partitioned parquet format and seamlessly query from Azure Data Explorer.
 
 
-
-### Components
-
-- [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs): Fully managed, real-time data ingestion service that's simple, trusted, and scalable.
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub): Managed service to enable bi-directional communication between IoT devices and Azure.
-- [Kafka on HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction): Easy, cost-effective, enterprise-grade service for open source analytics with Apache Kafka.
-- [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer): Fast, fully managed and highly scalable data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more.
-- [Azure Data Explorer Dashboards](/azure/data-explorer/azure-data-explorer-dashboards): Natively export Kusto queries that were explored in the Web UI to optimized dashboards.
-- [Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel): Intelligent security analytics for your entire enterprise.
-- [Azure Monitor](https://azure.microsoft.com/services/monitor): Full observability into your applications, infrastructure, and network
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
