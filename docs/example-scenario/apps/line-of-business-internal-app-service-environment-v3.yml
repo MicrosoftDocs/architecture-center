@@ -16,7 +16,7 @@ azureCategories:
 products:
   - azure-app-service
   - azure-dns
-  - azure-application-insights
+  - azure-monitor
   - azure-log-analytics
   - azure-key-vault
 name: Deploy a line-of-business application using Azure App Service Environment v3

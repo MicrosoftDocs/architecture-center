@@ -14,7 +14,6 @@ azureCategories:
   - management-and-governance
 products:
   - azure-app-service
-  - azure-application-insights
   - azure-front-door
   - azure-monitor
   - azure-traffic-manager

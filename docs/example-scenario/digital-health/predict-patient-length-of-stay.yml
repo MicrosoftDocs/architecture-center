@@ -17,7 +17,7 @@ azureCategories:
   - storage
 products:
   - azure-data-factory
-  - azure-data-lake-gen2
+  - azure-data-lake-storage
   - azure-machine-learning
   - azure-synapse-analytics
   - power-bi

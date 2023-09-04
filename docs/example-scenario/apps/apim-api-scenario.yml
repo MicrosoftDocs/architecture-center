@@ -26,7 +26,6 @@ azureCategories:
 summary: In this scenario, an e-commerce company in the travel industry uses Azure API Management to migrate a legacy web application.
 products:
   - azure-api-management
-  - azure-application-insights
   - azure-monitor
   - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-apim-api-scenario.png
