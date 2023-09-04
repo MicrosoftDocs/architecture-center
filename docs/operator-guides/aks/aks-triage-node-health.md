@@ -26,7 +26,7 @@ _This article is part of a series. Read the introduction [here](aks-triage-pract
 
 A node can be unhealthy because of various reasons. A common reason is when the control plane to node communication is broken as a result of misconfiguration of routing and firewall rules. As a fix, you can allow the necessary ports and fully qualified domain names through the firewall according to the [AKS egress traffic guidance](/azure/aks/limit-egress-traffic). Another reason can be kubelet pressures. In that case, add more compute, memory, or storage resources.
 
-In private clusters, control plane communication may be broken due to DNS resolution issues as well. You can check if the Kubernetes API server DNS name resolves to the private IP of the API server. One common cause of DNS resolution failure is misconfiguration of custom DNS server. Please check if the custom DNS servers are specified on the VNET where nodes are provisioned, and if custom DNS server is used, please ensure that AKS private API server resolves through the custom DNS server. 
+In private clusters, control plane communication may be broken due to DNS resolution issues as well. You can check if the Kubernetes API server DNS name resolves to the private IP of the API server. common cause of DNS resolution failure is misconfiguration of custom DNS server. Please check if the custom DNS servers are specified on the VNET where nodes are provisioned, and if custom DNS server is used, please ensure that AKS private API server resolves through the custom DNS server. 
 
 **Tools:**
 
