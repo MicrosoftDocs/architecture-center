@@ -108,7 +108,12 @@ Check the kubelet process running on each worker node and make sure it's not exp
 
 The pressure increases when kubelet restarts and causes some sporadic, unpredictable behavior. Make sure that the error count isn't continuously growing. An occasional error is acceptable but a constant growth indicates an underlying issue that needs to be investigated and resolved.
 
-## 5- Check disk IOPS for throttling
+## 5- Check node health using Node Problem Detector (NPD)
+
+Node Problem Detector (NPD) is an open source Kubernetes component that detects node-related problems and reports on them. It runs as a systemd serviced on each node in the cluster and collects various metrics and system information, such as CPU usage, disk usage, and network connectivity. When it detects a problem, it generates events and/or node conditions. Azure Kubernetes Service (AKS) uses NPD to monitor and manage nodes in a Kubernetes cluster running on the Azure cloud platform. You can find out more about using node problem detector with AKS [here](/aks/node-problem-detector?source=recommendations). 
+
+
+## 6- Check disk IOPS for throttling
 
 Check to see that file operations (IOPS) are not getting throttled and impacting services in the cluster.
 
