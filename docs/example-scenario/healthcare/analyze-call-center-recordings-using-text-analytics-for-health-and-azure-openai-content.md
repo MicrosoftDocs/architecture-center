@@ -9,7 +9,7 @@ The architecture consists of two pipelines:
 
 ### Transcription pipeline
 
-![Transcription pipeline](media/transcriptionv3.png)
+![Transcription pipeline](media/transcriptionv4.png)
 
 ### Dataflow
 
