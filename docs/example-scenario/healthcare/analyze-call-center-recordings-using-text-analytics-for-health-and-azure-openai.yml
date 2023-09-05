@@ -22,4 +22,4 @@ name: Analyze Call Center Recordings using Text Analytics for Health and Azure O
 summary: Automate transcription of healthcare-specific audio data and serving of that data to end-users.
 thumbnailUrl: ./media/analysisv9.png
 content: |
-  [!include[](analyze-call-center-recordings-using-text-analytics-for-health-and-azure-openai.md)]
+  [!include[](analyze-call-center-recordings-using-text-analytics-for-health-and-azure-openai-content.md)]
