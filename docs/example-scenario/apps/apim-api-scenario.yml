@@ -27,7 +27,7 @@ summary: In this scenario, an e-commerce company in the travel industry uses Azu
 products:
   - azure-api-management
   - azure-monitor
-  - azure-web-apps
+  - azure-app-service
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-apim-api-scenario.png
 content: |
    [!include[](apim-api-scenario-content.md)]
