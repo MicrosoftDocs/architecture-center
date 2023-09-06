@@ -62,7 +62,7 @@ The above scenario makes several assumptions. As this is highly sensitive data, 
 ## Potential Use cases
 
 * Smart analysis of telehealth data: This pattern can be used to extract insights from the audio collected from remote/telehealth use cases where patients are interacting with providers remotely to discuss results.
-* Smart analysis of healthcare-centric call center data: This pattern can be used to analyze call center data from healthcare providers providing at-home or remote care to patients to extract valuable information (e.g., adverse events) that are resulting from the products each customer is calling about
+* Smart analysis of healthcare-centric call center data: This pattern can be used to analyze call center data from healthcare providers providing at-home or remote care to patients to extract valuable information about the products each customer is calling about (for example, any adverse results).
 * Smart analysis of clinical trials data: This pattern can be used to collect valuable insights from external touchpoints that may occur during clinical trials, automatically extracting and correlating medical terminology to desired insights for large-scale analysis.
 
 ## Considerations
