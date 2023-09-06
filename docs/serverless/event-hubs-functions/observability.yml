@@ -17,7 +17,6 @@ azureCategories:
 products:
   - azure-event-hubs
   - azure-functions
-  - azure-application-insights
   - azure-monitor
 name: Monitor Azure Functions and Event Hubs 
 summary: Learn how to monitor an Azure Functions topology that uses Event Hubs.

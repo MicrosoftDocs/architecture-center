@@ -389,7 +389,7 @@ Other contributor:
 ## Related resources
 
 - [AI architecture design](../../data-guide/big-data/ai-overview.md)
-- [Compare Microsoft machine learning products and technologies](../../data-guide/technology-choices/data-science-and-machine-learning.md)
+- [Compare Microsoft machine learning products and technologies](../../ai-ml/guide/data-science-and-machine-learning.md)
 - [Performance and scale guidance for Event Hubs with Azure Functions](../../serverless/event-hubs-functions/performance-scale.yml)
 - [Monitor Azure Functions and Event Hubs](../../serverless/event-hubs-functions/observability.yml)
 - [What are Azure Machine Learning pipelines?](/azure/machine-learning/concept-ml-pipelines)

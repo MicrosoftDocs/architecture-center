@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 08/14/2023
+ms.date: 08/28/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -27,13 +27,18 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Multitenancy and Application Insights](./guide/multitenant/service/application-insights.md)
 - [Azure Health Data Services architecture guide](./guide/data/azure-health-data-services.yml)
 - [Video ingestion and object detection on the edge and in the cloud](./solution-ideas/articles/video-ingestion-object-detection-edge-cloud.yml)
-- [Extract and analyze call center data by using Azure OpenAI Service, Speech services, and Language services](./example-scenario/ai/call-center-openai-analytics.yml)
+- [Extract and analyze call center data by using Azure OpenAI Service, Speech services, and Language services](./ai-ml/openai/architecture/call-center-openai-analytics.yml)
 - [Mission-critical baseline with App Service](./guide/networking/global-web-applications/mission-critical-app-service.yml)
 
 ### Updated articles
 
+- [Deploy Azure landing zones](./landing-zones/landing-zone-deploy.md)  ([#7d7643bb4a](https://github.com/MicrosoftDocs/architecture-center/commit/7d7643bb4a))
+- [HA enterprise deployment using ASE](./web-apps/app-service-environment/architectures/ase-high-availability-deployment.yml)  ([#f63a699611](https://github.com/MicrosoftDocs/architecture-center/commit/f63a699611))
+- [Magento e-commerce platform in Azure Kubernetes Service](./example-scenario/magento/magento-azure.yml)  ([#4206ea3f14](https://github.com/MicrosoftDocs/architecture-center/commit/4206ea3f14))
+- [Considerations for multitenant control planes](./guide/multitenant/considerations/control-planes.yml)  ([#2afb001272](https://github.com/MicrosoftDocs/architecture-center/commit/2afb001272))
 - [Build solutions with availability zones](./high-availability/building-solutions-for-high-availability.yml)  ([#bf5377d475](https://github.com/MicrosoftDocs/architecture-center/commit/bf5377d475))
 
 ## July 2023
@@ -76,7 +81,7 @@ The following new and updated articles have recently been published in the Azure
 - [Deploy Autodesk Maya on a virtual machine](./guide/hpc/autodesk-maya.yml)
 - [Offline audio dubbing](./guide/media/offline-audio-dubbing.yml)
 - [Deploy LAMMPS on an Azure virtual machine](./guide/hpc/hpc-lammps.yml)
-- [Build language model pipelines with memory](./guide/ai/language-model-pipelines.yml)
+- [Build language model pipelines with memory](./ai-ml/openai/guide/language-model-pipelines.yml)
 - [Implement Azure DevOps for mainframe applications that use IBM Z and Cloud Modernization Stack](./example-scenario/mainframe/devops-mainframe-ibm-z.yml)
 - [Siemens Teamcenter baseline architecture on Azure](./example-scenario/manufacturing/teamcenter-baseline.yml)
 - [DataOps for autonomous vehicle operations](./example-scenario/automotive/autonomous-vehicle-operations-dataops.yml)

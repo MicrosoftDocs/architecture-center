@@ -40,7 +40,7 @@ In addition to your application requirements, also consider these few things tha
 - [Microsoft SaaS Academy](https://www.microsoft.com/en-us/saas-academy/main) - Free SaaS learning courses.
 - [Pricing model considerations](../multitenant/considerations/pricing-models.md) - Important technical considerations to keep in mind when deciding on a pricing strategy.
 - [Microsoft for Startups Founders Hub](https://www.microsoft.com/startups) - A resource center for startups building solutions on Azure that provides business and technical mentoring, such as Microsoft software for running your business including LinkedIn, Microsoft 365 and GitHub Enterprise, and Azure credits.
-- [Microsoft SaaS Stories](https://aka.ms/saasstories) - A series of video interviews with some of Microsoft's ISV partners that highlight their experiences building SaaS.
+- [Microsoft SaaS Stories](https://aka.ms/saas-stories) - A series of video interviews with some of Microsoft's ISV partners that highlight their experiences building SaaS.
 
 ## 2. Design and architect a SaaS solution
 

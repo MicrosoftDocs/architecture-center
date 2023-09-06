@@ -2,12 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2023-08-14T16:02:09.947Z</updated>
+    <updated>2023-08-28T16:01:54.827Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Multitenancy and Application Insights]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/application-insights</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/application-insights"/>
+        <updated>2023-08-21T17:04:10.000Z</updated>
+        <summary type="html"><![CDATA[Learn about tenancy models that you can use with Application Insights and features that are useful when you use this service in multitenant systems.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Azure Health Data Services architecture guide]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/data/azure-health-data-services</id>
@@ -26,8 +34,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Extract and analyze call center data by using Azure OpenAI Service, Speech services, and Language services]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/ai/call-center-openai-analytics</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/ai/call-center-openai-analytics"/>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/openai/architecture/call-center-openai-analytics</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/openai/architecture/call-center-openai-analytics"/>
         <updated>2023-08-04T20:50:58.000Z</updated>
         <summary type="html"><![CDATA[Learn how to extract insights from customer conversations at a call center by using Azure AI services and Azure OpenAI Service.]]></summary>
         <category label="new" term="new"/>
@@ -39,6 +47,38 @@
         <updated>2023-08-02T22:14:28.000Z</updated>
         <summary type="html"><![CDATA[Learn how to deploy mission-critical web applications by using the Web Apps feature of Azure App Service.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Azure landing zones]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/landing-zones/landing-zone-deploy</id>
+        <link href="https://learn.microsoft.com/azure/architecture/landing-zones/landing-zone-deploy"/>
+        <updated>2023-08-21T14:43:45.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the deployment options for platform and application landing zones in Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[HA enterprise deployment using ASE]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment"/>
+        <updated>2023-08-18T19:33:58.000Z</updated>
+        <summary type="html"><![CDATA[Recommended architecture for deploying an enterprise application using App Services Environment in multiple availability zones.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Magento e-commerce platform in Azure Kubernetes Service]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/magento/magento-azure</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/magento/magento-azure"/>
+        <updated>2023-08-17T16:46:32.000Z</updated>
+        <summary type="html"><![CDATA[Deploy the Magento e-commerce platform to Azure Kubernetes Service (AKS), and learn about considerations for hosting Magento on Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Considerations for multitenant control planes]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/considerations/control-planes</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/considerations/control-planes"/>
+        <updated>2023-08-15T03:14:33.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the responsibilities of control planes in multitenant solutions and how to design a control plane that meets your needs.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Build solutions with availability zones]]></title>
@@ -274,8 +314,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Build language model pipelines with memory]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/ai/language-model-pipelines</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/ai/language-model-pipelines"/>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/openai/guide/language-model-pipelines</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/openai/guide/language-model-pipelines"/>
         <updated>2023-06-13T18:34:44.000Z</updated>
         <summary type="html"><![CDATA[Learn how to use an AI/ML pipeline, LangChain, and language models to create an analysis of how your product compares to competitor's similar products.]]></summary>
         <category label="new" term="new"/>
@@ -466,8 +506,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Conversation summarization]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/ai/conversation-summarization</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/ai/conversation-summarization"/>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/guide/conversation-summarization</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/guide/conversation-summarization"/>
         <updated>2023-05-09T19:19:45.000Z</updated>
         <summary type="html"><![CDATA[Learn how to generate summaries of customer–agent interactions by using the Azure OpenAI GPT-3 model.]]></summary>
         <category label="new" term="new"/>
@@ -482,8 +522,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Implement logging and monitoring for Azure OpenAI large language models]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/ai/log-monitor-azure-openai</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/ai/log-monitor-azure-openai"/>
+        <id>https://learn.microsoft.com/azure/architecture/ai-ml/openai/architecture/log-monitor-azure-openai</id>
+        <link href="https://learn.microsoft.com/azure/architecture/ai-ml/openai/architecture/log-monitor-azure-openai"/>
         <updated>2023-05-02T22:19:10.000Z</updated>
         <summary type="html"><![CDATA[Implement comprehensive logging and monitoring and enhanced security for Azure OpenAI Service large language models.]]></summary>
         <category label="new" term="new"/>

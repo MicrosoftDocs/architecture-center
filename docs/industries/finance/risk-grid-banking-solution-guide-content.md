@@ -338,5 +338,4 @@ Product documentation:
 
 - [Risk grid computing in banking](risk-grid-banking-overview.yml)
 - [HPC risk analysis template](../../solution-ideas/articles/hpc-risk-analysis.yml)
-- [Knowledge mining in auditing, risk, and compliance management](../../solution-ideas/articles/auditing-and-risk-compliance.yml)
 - [Actuarial risk analysis and financial modeling](./actuarial-risk-analysis-financial-model.yml)

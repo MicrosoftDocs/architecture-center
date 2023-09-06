@@ -191,6 +191,6 @@ Other contributor:
 
 ## Related resources
 
-- [MLOps framework](../../example-scenario/mlops/mlops-technical-paper.yml)
+- [MLOps framework](../../ai-ml/guide/mlops-technical-paper.yml)
 - [Responsible AI](/azure/cloud-adoption-framework/strategy/responsible-ai)
 - [Responsible and trusted AI](/azure/cloud-adoption-framework/innovate/best-practices/trusted-ai) 

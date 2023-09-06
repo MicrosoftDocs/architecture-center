@@ -12,7 +12,7 @@ metadata:
 azureCategories:
   - analytics
 products:
-  - azure-app-service-web
+  - azure-app-service
   - azure-data-lake-storage
   - azure-event-grid
   - azure-synapse-analytics

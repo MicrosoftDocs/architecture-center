@@ -30,7 +30,7 @@ azureCategories:
   - identity
 summary: Build and implement a mobile client app architecture that offers authentication abilities and social image sharing with a companion web app, even while offline.
 products:
-  - azure-app-service-mobile
+  - azure-app-service
   - azure-functions
   - azure-traffic-manager
   - vs
