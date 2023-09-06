@@ -56,7 +56,7 @@ The above scenario makes several assumptions. As this is highly sensitive data, 
 * [Azure Databricks](https://learn.microsoft.com/azure/databricks/introduction/) can be used instead of Synapse Analytics for the analysis.
 * [Azure Data Factory](https://learn.microsoft.com/azure/data-factory/introduction) can be used instead of Synapse Pipeline.
 * Azure Data Factory or Synapse pipeline can also be used instead of a trigger-based approach to process as a scheduled batch.
-* If EHR (or other data) is needed as part of the analysis (e.g., FHIR data stored in the [Azure API for FHIR](https://learn.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/overview)), that data can be ingested/extracted into the Azure Storage account/container located between steps 8 & 9 in the Dataflow diagram where it can then be used as part of the analysis. 
+* If EHR (or other data) is needed as part of the analysis (for example, FHIR data stored in the [Azure API for FHIR](https://learn.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/overview)), that data can be ingested/extracted into the Azure Storage account/container located between steps 8 & 9 in the Dataflow diagram where it can then be used as part of the analysis. 
 * Machine learning methods can be applied to the data as part of the analysis at Step 9 in the Dataflow diagram directly using Synapse Analytics or through the use of an external service (e.g., [Azure Machine Learning](https://learn.microsoft.com/azure/machine-learning/overview-what-is-azure-machine-learning?view=azureml-api-2)).
 
 ## Potential Use cases
