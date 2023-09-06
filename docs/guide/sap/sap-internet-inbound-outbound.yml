@@ -22,7 +22,6 @@ azureCategories:
 summary: Learn proven practices for enabling improved-security inbound and outbound internet connections for your SAP on Azure infrastructure.
 products:
   - azure-virtual-machines
-  - azure-linux-vm
   - azure-virtual-network
   - azure-application-gateway
   - azure-load-balancer
