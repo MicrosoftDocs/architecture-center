@@ -28,7 +28,7 @@ products:
   - azure-cache-redis
   - azure-sql-database
   - azure-storage-accounts
-  - azure-web-apps
+  - azure-app-service
 thumbnailUrl: /azure/architecture/browse/thumbs/medium-umbraco-web-app.png
 content: |
    [!include[](medium-umbraco-web-app-content.md)]
