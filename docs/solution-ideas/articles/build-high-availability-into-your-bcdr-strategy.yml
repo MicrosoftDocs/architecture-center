@@ -32,7 +32,7 @@ products:
   - azure-sql-database
   - azure-virtual-machines
   - azure-virtual-network
-  - azure-web-apps
+  - azure-app-service
 thumbnailUrl: /azure/architecture/browse/thumbs/build-high-availability-into-your-bcdr-strategy.png
 content: |
    [!include[](build-high-availability-into-your-bcdr-strategy-content.md)]
