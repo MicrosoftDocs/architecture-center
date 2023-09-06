@@ -21,7 +21,6 @@ products:
   - azure-app-service
   - azure-private-link
   - azure-sql-database
-  - azure-web-apps
 name: Multi-region web app with private connectivity to a database
 summary: Lock down access to a highly available Azure SQL Database. Connect multi-tenant Azure App Service web apps in different Azure regions to the database privately.
 thumbnailUrl: /azure/architecture/browse/thumbs/app-service-private-sql-multi-region-solution-architecture-thumbnail.png
