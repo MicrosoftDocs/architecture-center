@@ -25,7 +25,7 @@ products:
   - azure-cdn
   - ai-services
   - azure-traffic-manager
-  - azure-web-apps
+  - azure-app-service
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-ecommerce-scenario.png
 content: |
    [!include[](ecommerce-scenario-content.md)]

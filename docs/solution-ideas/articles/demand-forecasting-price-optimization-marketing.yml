@@ -28,7 +28,7 @@ products:
   - azure-blob-storage
   - azure-data-factory
   - azure-hdinsight
-  - azure-web-apps
+  - azure-app-service
   - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/demand-forecasting-price-optimization-marketing.png
 content: |
