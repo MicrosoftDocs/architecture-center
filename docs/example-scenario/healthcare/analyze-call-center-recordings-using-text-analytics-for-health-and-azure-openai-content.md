@@ -30,7 +30,7 @@ The architecture consists of two pipelines:
 7. The Synapse Pipeline also calls the Azure OpenAI API (via an Azure Function) to use GPT to generate a human readable summary of the call content. If the call content also needs to be used for machine learning (ML), we can also use GPT to extract a ML-friendly representation of the data using the <i>embeddings</i> API.
 8. The processed data is stored in an Azure Storage account.
 9. Data is analyzed at scale with Azure Synapse Analytics.
-10. The resulting content is served to visualization tools (e.g., Power BI) using a serving layer (e.g., SQL Dedicated Pools).
+10. The resulting content is served to visualization tools like Power BI using a serving layer like SQL Dedicated Pools.
 	
 ## Components
 Key technologies used to implement this architecture:
