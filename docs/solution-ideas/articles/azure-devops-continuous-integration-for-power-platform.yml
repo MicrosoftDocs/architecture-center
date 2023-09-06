@@ -30,7 +30,7 @@ summary: Learn how to create an Azure CI/CD pipeline to manage your Power Platfo
 products:
   - azure-monitor
   - azure-devops
-  - azure-web-apps
+  - azure-app-service
   - power-apps
   - azure-repos
 thumbnailUrl: /azure/architecture/browse/thumbs/devops-cicd-for-power-apps.png
