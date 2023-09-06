@@ -20,14 +20,13 @@ The architecture consists of two pipelines:
 
 ### Analysis and visualization pipeline for healthcare analysis
 
-![Analysis](media/analysisv9.png)
+![Analysis](media/analysisv10.png)
 
 ### Dataflow
 
 5. An Azure Synapse Analytics pipeline runs to retrieve and process the transcribed audio text.
-6. The pipeline sends processed text via an API call to Text Analytics for Health using an Azure Function. The service provides healthcare-centric analysis of the text extracting not only entities (medications and diagnoses for example) but also related metadata like SNOWMED code and ICD-10 code, as well as any identified relationships among those entities.<br /><br />
-<i>6a. (Optional)</i> Depending on the type of data & analysis needed, some of the content extracted by the Text Analytics for Health service can be passed as context information to the Open AI service. This can be done using an Azure Function and allows for the generation of text summaries with specific content.
-7. The Synapse Pipeline also calls the Azure OpenAI API (via an Azure Function) to use GPT to generate a human readable summary of the call content. If the call content also needs to be used for machine learning (ML), we can also use GPT to extract a ML-friendly representation of the data using the <i>embeddings</i> API.
+6. The pipeline sends processed text via an API call to Text Analytics for Health using an Azure Function. The service provides healthcare-centric analysis of the text extracting not only entities (medications and diagnoses for example) but also related metadata like SNOWMED code and ICD-10 code, as well as any identified relationships among those entities.<br />
+7. The Synapse Pipeline also calls the Azure OpenAI API (via an Azure Function) to use GPT to generate a human readable summary of the call content. Depending on the type of data & analysis needed, some of the content extracted by the Text Analytics for Health service (Step 6) can be passed as context information to the Open AI service to provide additional context information. If the call content also needs to be used for machine learning (ML), we can also use GPT to extract a ML-friendly representation of the data using the <i>embeddings</i> API.
 8. The processed data is stored in an Azure Storage account.
 9. Data is analyzed at scale with Azure Synapse Analytics.
 10. The resulting content is served to visualization tools like Power BI using a serving layer like SQL Dedicated Pools.
