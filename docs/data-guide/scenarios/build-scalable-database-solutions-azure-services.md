@@ -17,7 +17,7 @@ products:
   - azure-data-factory
   - azure-data-lake-storage
   - azure-table-storage
-  - azure-web-apps
+  - azure-app-service
 ms.custom:
   - fcp
   - guide
