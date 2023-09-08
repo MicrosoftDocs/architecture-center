@@ -250,13 +250,8 @@ items:
         href: reference-architectures/hybrid-networking/vnet-peering.yml
     - name: Choose a messaging service
       items:
-      - name: Compare messaging services
-        href: /azure/event-grid/compare-messaging-services
-        maintainContext: true
       - name: Asynchronous messaging
         href: guide/technology-choices/messaging.yml
-      - name: Real-time message ingestion
-        href: data-guide/technology-choices/real-time-ingestion.md
     - name: Choose an IoT option
       items:
       - name: IoT solutions in Azure
