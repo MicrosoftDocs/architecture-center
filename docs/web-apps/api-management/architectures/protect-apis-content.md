@@ -12,7 +12,7 @@ This article doesn't address the application's underlying services, like App Ser
 
 - The Application Gateway receives HTTP requests that have been allowed by its subnet's Network Security Group (NSG).
 
-- The Web Application Firewall (WAF) on Application Gateway then checks the request against WAF rules, including [Geomatch filtering](azure/web-application-firewall/ag/geomatch-custom-rules). If the request is valid, the request proceeds.
+- The Web Application Firewall (WAF) on Application Gateway then checks the request against WAF rules, including [Geomatch filtering](/azure/web-application-firewall/ag/geomatch-custom-rules). If the request is valid, the request proceeds.
 
 - Application Gateway sets up a URL proxy mechanism that sends the request to the proper [backend pool](/azure/application-gateway/application-gateway-components#backend-pools). For example, depending on the URL format of the API call:
 
