@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Protect APIs with Azure Application Gateway and Azure API Management
-  titleSuffix: Azure Reference Architectures
+  titleSuffix: Azure Architecture Center
   description: See how to protect APIs with API Management and Application Gateway.
   author: fabriciosanchez
   ms.author: robbag
@@ -12,7 +12,6 @@ metadata:
   ms.custom:
     - reference-architecture
     - fcp
-    - devx-track-azurepowershell
 azureCategories:
   - web
   - security
