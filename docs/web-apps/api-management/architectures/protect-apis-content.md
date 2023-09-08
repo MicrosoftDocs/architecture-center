@@ -1,4 +1,4 @@
-With more companies adhering to the [API-first approach](https://swagger.io/resources/articles/adopting-an-api-first-approach/) for their internal applications, and the growing number and severity of threats to web applications over the internet, it's critical to have a security strategy to protect APIs. One step toward API security is protecting the network traffic by using a the [Gateway Routing pattern](../../../patterns/gateway-routing.yml). You use the gateway to restrict traffic source locations and traffic quality in addition to supporting flexible routing rules. This article describes how to use Azure Application Gateway and Azure API Management to protect API access.
+With more workloads adhering to the [API-first approach](https://swagger.io/resources/articles/adopting-an-api-first-approach/) for their design, and the growing number and severity of threats to web applications over the internet, it's critical to have a security strategy to protect APIs. One step toward API security is protecting the network traffic by using the [Gateway Routing pattern](../../../patterns/gateway-routing.yml). You use the gateway to restrict traffic source locations and traffic quality in addition to supporting flexible routing rules. This article describes how to use Azure Application Gateway and Azure API Management to protect API access.
 
 ## Architecture
 
@@ -37,7 +37,7 @@ This article doesn't address the application's underlying services, like App Ser
 
 - [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) is a web traffic load balancer that manages traffic to web applications. This type of routing is known as application layer (OSI layer 7) load balancing. It hosts a Web Application Firewall (WAF) to protect against common web-based attack vectors.
 
-- [Azure API Management](https://azure.microsoft.com/services/api-management/) is a hybrid, multi-cloud management platform for APIs across all environments. API Management creates consistent, modern API gateways for existing backend services.
+- [Azure API Management](https://azure.microsoft.com/services/api-management/) is a hybrid, multicloud management platform for APIs across all environments. API Management creates consistent, modern API gateways for existing backend services.
 
 ## Recommendations
 
@@ -89,7 +89,7 @@ After you assess these aspects, go to the [Azure Pricing Calculator](https://azu
 
 ### Performance Efficiency
 
-Application Gateway is the entry point for this architecture, and the WAF feature requires additional processing power for each request analysis. To allow Application Gateway to expand its computational capacity on the spot, it's important to enable autoscaling. For more information, see [Specify autoscale](/azure/application-gateway/tutorial-autoscale-ps#specify-autoscale). Follow product documentation recommendations the [size of the subnet](/azure/application-gateway/configuration-infrastructure#size-of-the-subnet) for Application Gateway. This ensures subnet is large enough to support full scale out.
+Application Gateway is the entry point for this architecture, and the WAF feature requires additional processing power for each request analysis. To allow Application Gateway to expand its computational capacity on the spot, it's important to enable autoscaling. For more information, see [Specify autoscale](/azure/application-gateway/tutorial-autoscale-ps#specify-autoscale). Follow product documentation recommendations the [size of the subnet](/azure/application-gateway/configuration-infrastructure#size-of-the-subnet) for Application Gateway. This ensures subnet is large enough to support full scale-out.
 
 To support highly concurrent scenarios, turn on API Management autoscaling. Autoscaling expands API Management capabilities in response to growing numbers of incoming requests. For more information, see [Automatically scale an Azure API Management instance](/azure/api-management/api-management-howto-autoscale).
 
