@@ -23,7 +23,6 @@ summary: Azure Cache for Redis routes real-time messages in publish and subscrib
 products:
   - azure-app-service
   - azure-cache-redis
-  - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/messaging.png
 content: |
    [!include[](messaging-content.md)]

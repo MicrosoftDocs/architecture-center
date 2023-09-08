@@ -1,4 +1,4 @@
-Data is often considered the most valuable part of a solution, because it represents your - and your customers' - valuable business information. So, it's important to carefully manage your data. When planning storage or data components for a mulittenant system, you need to decide on an approach for sharing or isolating your tenants' data.
+Data is often considered the most valuable part of a solution, because it represents your - and your customers' - valuable business information. So, it's important to carefully manage your data. When planning storage or data components for a multitenant system, you need to decide on an approach for sharing or isolating your tenants' data.
 
 In this article, we provide guidance about the key considerations and requirements that are essential for solution architects when deciding on an approach to store data in a multitenant system. We then suggest some common patterns for applying multitenancy to storage and data services, and some antipatterns to avoid. Finally, we provide targeted guidance for some specific situations.
 
