@@ -70,7 +70,7 @@ The networking components include the following resources:
 - **Public IP address**. A public IP address is needed to communicate with the VM &mdash; for example, via remote desktop (RDP). The public IP address can be dynamic or static. The default is dynamic.
 
 - Reserve a [static IP address][static-ip] if you need a fixed IP address that won't change &mdash; for example, if you need to create a DNS 'A' record or add the IP address to a safe list.
-- You can also create a fully qualified domain name (FQDN) for the IP address. You can then register a [CNAME record][cname-record] in DNS that points to the FQDN. For more information, see [Create a fully qualified domain name for a VM in the Azure portal](/azure/virtual-machines/create-fqdn).
+- You can also create a fully qualified domain name (FQDN) for the IP address. You can then register a [CNAME record][cname-record] in DNS that points to the FQDN. For more information, see [Create a fully qualified domain name for a VM in the Azure portal][fqdn].
 
 - **Network security group (NSG)**. [Network security groups][nsg] are used to allow or deny network traffic to VMs. NSGs can be associated either with subnets or with individual VM instances.
 
@@ -170,7 +170,7 @@ Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the pe
 [data-disk]: /azure/virtual-machines/windows/disks-types
 [disk-encryption]: /azure/security/fundamentals/azure-disk-encryption-vms-vmss
 [enable-monitoring]: /azure/monitoring-and-diagnostics/insights-how-to-use-diagnostics
-[fqdn]: /azure/virtual-machines/linux/quick-create-portal
+[fqdn]: /azure/virtual-machines/create-fqdn
 [group-policy]: /windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates
 [iostat]: https://en.wikipedia.org/wiki/Iostat
 [linux-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
