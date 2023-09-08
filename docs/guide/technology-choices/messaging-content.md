@@ -1,4 +1,4 @@
-This article describes the different types of messages and the entities that participate in a messaging infrastructure. Based on the requirements of each message type, the article recommends Azure messaging services. The options include [Azure Service Bus Messaging](#azure-service-bus-messaging), [Azure Event Grid](#azure-event-grid), and [Azure Event Hubs](#azure-event-hubs).
+This article describes the different types of messages and the entities that participate in a messaging infrastructure. Based on the requirements of each message type, the article recommends Azure messaging services. The options include Azure Service Bus Messaging, Azure Event Grid, and Azure Event Hubs. For product comparison, see [Compare messaging services](/azure/service-bus-messaging/compare-messaging-services).
 
 At an architectural level, a message is a datagram created by an entity (_producer_), to distribute information so that other entities (_consumers_) can be aware and act accordingly. The producer and the consumer can communicate directly or optionally through an intermediary entity (_message broker_). This article focuses on asynchronous messaging using a message broker.
 
