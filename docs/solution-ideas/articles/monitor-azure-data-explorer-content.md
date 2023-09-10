@@ -50,7 +50,7 @@ An architecture built on the features and flexibility of provided by the three s
 1. Use Azure Data Explorer to analyze other streamed data.
 1. Apply the flexibility of Azure Data Explorer to augment monitoring and analytics capabilities:
    
-     - Use [Azure Data Explorer proxy](/azure/data-explorer/query-monitor-data) to analyze data from Microsoft Sentinel, Azure Monitor, and Azure Data Explorer in a single query without moving the data.
+     - [Run cross-service queries from Azure Data Explorer](/azure/data-explorer/query-monitor-data) to analyze data from Microsoft Sentinel, Azure Monitor, and Azure Data Explorer in a single query without moving the data.
      - Apply advanced machine learning on a broad data set to discover patterns, detect anomalies, forecast, and gain other insights. Azure Data Explorer is well integrated with ML services such as Azure Machine Learning and Azure Synapse Analytics. This integration allows you to build models using other tools and services and export ML models to Azure Data Explorer for scoring data.
      - Consolidate a single-pane-of-glass view of your data estate with customized cross-service workbooks, dashboards, and reports.
      - Overcome Azure Monitor and Microsoft Sentinel service limits when you require exceptionally large and complex queries. 
