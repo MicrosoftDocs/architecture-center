@@ -41,6 +41,7 @@ In the logical diagram above, each type of consumer is shown as a single box. In
 
 - Guaranteed delivery. In some systems, especially in IoT scenarios, it's crucial to guarantee that events are delivered.
 - Processing events in order or exactly once. Each consumer type typically runs in multiple instances, for resiliency and scalability. This can create a challenge if the events must be processed in order (within a consumer type), or if the processing logic isn't idempotent.
+- Multiple events related to a single business process. [Workflow patterns](https://docs.particular.net/architecture/workflows/) can be used to reliably coordinate message flows across various services.
 
 ### Additional considerations
 
