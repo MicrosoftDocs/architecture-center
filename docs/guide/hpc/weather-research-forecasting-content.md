@@ -62,7 +62,7 @@ For deploying Azure CycleCloud and HPC cluster, see the below articles:
 2. Configure and compile WRF. For detailed compiling folllow the steps provided in [here](https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compilation_tutorial.php).
 3. Configuring option for WRF: For the current performance tests, we have selected option 16 as shown below in the image
 
-    :::code language="console" source="example/WRF-compilation-1.console" highlight="7,25":::
+    :::code language="console" source="ddocs/guide/hpc/media/wrf/WRF-snip-1.console" highlight="7,25":::
 
 4. Download static geographic data (for geogrid.exe) from [here](http://www2.mmm.ucar.edu/wrf/users/download/get_sources_wps_geog.html).
 5. For Real time cases, WRF model requires up-to-date meteorological information for both an initial condition and also for lateral boundary conditions. The real time data can be downloaded from [here](https://nomads.ncep.noaa.gov/).
@@ -76,7 +76,7 @@ Files:
 7. One must successfully run WPS, and create met_em. * file for more than one-time period and link or copy WPS output files to the WRF run directory. To run WPS refer the respective steps from [here](https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compilation_tutorial.php).
 8. Configuring option for WPS: For current performance test option 19 was selected as shown below
 
-    :::code language="console" source="example/WRF-compilation-2.console" highlight="22,45":::
+    :::code language="console" source="docs/guide/hpc/media/wrf/WRF-snip-2.console" highlight="22,45":::
 
 9. WRF model (In current case CONUS 2.5 km) is defined by the namelist.input file which will have the model geometric details.
 10. Edit namelist.input file for runtime options (at minimum, one must edit &time control for start, end and integration times, and &domains for grid dimensions).
