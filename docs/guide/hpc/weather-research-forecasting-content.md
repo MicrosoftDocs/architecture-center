@@ -118,7 +118,7 @@ Standard_HB120-64rs_v3 VM with 64 vCPUs is considerd for the cluster runs. The s
 
 The following graph shows the mean times per step, in seconds. 
 
-:::image type="content" source="media/wrf/Cluster-meantime.png" alt-text="Graph that shows the mean times per step." border="false":::
+:::image type="content" source="docs/guide/hpc/media/wrf/Multi-node-results.svg" alt-text="Graph that shows the mean times per step." border="false":::
 
 
 
