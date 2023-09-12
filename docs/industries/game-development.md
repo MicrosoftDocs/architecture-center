@@ -13,7 +13,6 @@ keywords:
   - Azure
 products:
 - azure-speech
-- azure-speech-translation
 - azure-functions
 - azure-cache-redis
 - azure-kubernetes-service
