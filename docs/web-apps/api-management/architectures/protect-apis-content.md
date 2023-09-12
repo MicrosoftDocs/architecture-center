@@ -78,7 +78,7 @@ For more information about API Management security, see [Azure security baseline
 
 [Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
-### Cost Optimization
+### Cost optimization
 
 The cost of this architecture depends on configuration aspects like:
 - Service tiers
@@ -87,7 +87,7 @@ The cost of this architecture depends on configuration aspects like:
 
 After you assess these aspects, go to the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to estimate pricing.
 
-### Performance Efficiency
+### Performance efficiency
 
 Application Gateway is the entry point for this architecture, and the WAF feature requires additional processing power for each request analysis. To allow Application Gateway to expand its computational capacity on the spot, it's important to enable autoscaling. For more information, see [Specify autoscale](/azure/application-gateway/tutorial-autoscale-ps#specify-autoscale). Follow product documentation recommendations the [size of the subnet](/azure/application-gateway/configuration-infrastructure#size-of-the-subnet) for Application Gateway. This ensures subnet is large enough to support full scale-out.
 

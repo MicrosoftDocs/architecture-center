@@ -13,7 +13,6 @@ azureCategories:
 products:
   - ai-services
   - azure-speech
-  - azure-speech-text
   - azure-machine-learning
 name: Implement custom speech-to-text
 summary: Learn about approaches for implementing high-quality speech-aware applications.
