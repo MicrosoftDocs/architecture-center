@@ -17,7 +17,6 @@ products:
   - azure-speech
   - azure-language-understanding
   - power-bi
-  - azure-speech-text
 name: Extract and analyze call center data
 summary: Learn how to extract insights from customer conversations at a call center by using Azure AI services and Azure OpenAI Service.
 thumbnailUrl: /azure/architecture/browse/thumbs/call-center-analytics.png

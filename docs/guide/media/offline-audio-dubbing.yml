@@ -14,7 +14,6 @@ azureCategories:
 products:
   - ai-services
   - azure-speech
-  - azure-speech-text
 name: Offline audio dubbing
 summary: Use Azure Cognitive Services AI tools to automate the offline dubbing process and ensure a high-quality dubbed version of original input.
 thumbnailUrl: /azure/architecture/browse/thumbs/audio-dubbing-architecture.png
