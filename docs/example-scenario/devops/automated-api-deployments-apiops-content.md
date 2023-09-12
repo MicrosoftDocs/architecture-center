@@ -172,7 +172,6 @@ Principal author:
 
 - [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
 - [APIOps for Azure API Management](https://azure.github.io/apiops/)
-- [APIM resources currently managed by APIOps](https://github.com/Azure/apiops/wiki/APIM-resources)
 - [CI/CD for API Management using Azure Resource Manager templates](/azure/api-management/devops-api-development-templates)
 - [GitOps Overview](https://www.gitops.tech)
 - [Guide to GitOps](https://www.weave.works/technologies/gitops)
