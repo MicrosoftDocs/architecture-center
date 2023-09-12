@@ -21,7 +21,6 @@ summary: Learn the best practices for running a Linux virtual machine on Azure, 
 products:
   - azure-backup
   - azure-blob-storage
-  - azure-linux-vm
   - azure-storage
   - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/single-vm-diagram.png
