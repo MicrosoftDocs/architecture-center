@@ -14,7 +14,6 @@ azureCategories:
 products:
    - ai-services
    - azure-speech
-   - azure-speech-text
    - azure-machine-learning
 name: Deploy a custom speech-to-text solution
 summary: Deploy high-quality speech-aware applications that use AI. This article provides details about how to deploy the solution described in part one of this guide.
