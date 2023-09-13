@@ -67,7 +67,7 @@ You might choose to share an instance of Azure OpenAI Service between multiple t
 
 Sharing an instance of Azure OpenAI Service between multiple tenants can also lead to the [noisy neighbor](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor) problem, which might cause higher latency for some tenants. You also need to make your application code multitenancy-aware. For example, if you want to charge back your customers the consumption cost of a shared Azure OpenAI Service instance, you should keep track of the total number of tokens per tenant in your application.
 
-You might also choose to deploy multiple shared Azure OpenAI. For example, if you follow the [Deployment Stamps pattern](../approaches/overview.yml#deployment-stamps-pattern), you're likely to deploy a shared Azure OpenAI within each stamp. Similarly, if you deploy a multi-region solution, you should deploy Azure OpenAI into each region for the following reasons:
+You might also choose to deploy multiple shared Azure OpenAI instances. For example, if you follow the [Deployment Stamps pattern](../approaches/overview.yml#deployment-stamps-pattern), you're likely to deploy a shared Azure OpenAI within each stamp. Similarly, if you deploy a multi-region solution, you should deploy Azure OpenAI into each region for the following reasons:
 
 - To avoid cross-region traffic latency.
 - To support data residency requirements.
