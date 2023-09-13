@@ -17,7 +17,7 @@ categories:
 
 # Multitenancy and Azure OpenAI
 
-[Azure OpenAI Service](/azure/ai-services/openai/overview) is a comprehensive offering that enables access to OpenAI's powerful language models. On this page, we highlight key features of the Azure OpenAI Service that are beneficial for multi-tenant solutions. Furthermore, we provide links to useful resources that can assist you in planning your approach to using this service.
+[Azure OpenAI Service](/azure/ai-services/openai/overview) is a comprehensive offering that enables access to OpenAI's powerful language models. In this article, we highlight key features of the Azure OpenAI Service that are beneficial for multi-tenant solutions. Furthermore, we provide links to useful resources that can assist you in planning your approach to using this service.
 
 ## Isolation models
 
