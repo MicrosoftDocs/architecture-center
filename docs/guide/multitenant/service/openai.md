@@ -63,7 +63,9 @@ The following diagram illustrates the Azure OpenAI per tenant, in the tenant's s
 
 ### Shared Azure OpenAI
 
-You might choose to share an instance of Azure OpenAI Service between multiple tenants. The Azure OpenAI resource is deployed in your (the solution provider's) Azure subscription, and you're responsible for managing it. This approach is the simplest solution you can implement, but it provides the least data isolation and performance isolation. Sharing the Azure OpenAI service doesn't offer access security at the model deployment level, which may make it easier for other tenants to use unauthorized models. Therefore, sharing an Azure OpenAI instance when using fine-tuned models is strongly discouraged, as it may expose sensitive information and allow unauthorized access to tenant-specific resources.
+You might choose to share an instance of Azure OpenAI Service between multiple tenants. The Azure OpenAI resource is deployed in your (the solution provider's) Azure subscription, and you're responsible for managing it. This approach is the simplest solution you can implement, but it provides the least data isolation and performance isolation. 
+
+Sharing the Azure OpenAI service doesn't offer access security at the model deployment level, which makes it possible for other tenants to use unauthorized models. Therefore, sharing an Azure OpenAI instance when using fine-tuned models is strongly discouraged, as it may expose sensitive information and allow unauthorized access to tenant-specific resources.
 
 Sharing an instance of Azure OpenAI Service between multiple tenants can also lead to the [noisy neighbor](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor) problem, which might cause higher latency for some tenants. You also need to make your application code multitenancy-aware. For example, if you want to charge back your customers the consumption cost of a shared Azure OpenAI Service instance, you will have to implement the logic to keep track of the total number of tokens per tenant in your application.
 
