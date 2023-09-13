@@ -38,8 +38,8 @@ highlightedContent:
       url: https://azure.microsoft.com/solutions/cloud-enablement/cloud-adoption-framework/
       itemType: how-to-guide
     # Card
-    - title: Learn from experienced partners in interactive sessions
-      url: ./changelog.md
+    - title: Find partner-led workshops
+      url: https://www.microsoft.com/azure/partners/ammp-w/events/?utm_source=email&utm_medium=email&utm_id=email2
       itemType: learn 
 # productDirectory section (optional)
 productDirectory:
