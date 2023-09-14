@@ -155,7 +155,9 @@ In addition to these Microsoft resources, consider leveraging open-source tools 
 
 ### To minimize disruptions to workloads during an upgrade
 
-- Ensure your deployments have a [pod disruption budget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) defined PDBs ensure that there are a minimum number of replicas available for application to ensure functionality during a [disruption event](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/)
+To ensure the smooth operation of your AKS cluster during maintenance events and to optimize its performance, it's recommended to follow these best practices:
+
+- **Define Pod Disruption Budgets (PDBs)**: It is essential to set up [Pod Disruption Budgets](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) for your deployments. PDBs enforce a minimum number of available replicas for applications, ensuring their continuous functionality during [disruption events](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/). Pod Disruption Budgets help maintain the stability of your cluster during maintenance or node failures.
 - Check for avaiable computer and network limits in your subscription [az quota](/cli/azure/quota/usage?view=azure-cli-latest#az-quota-usage-list)
 - **Check Available IP Space in Node Subnets**: It's important to monitor and ensure sufficient available IP address space in your node subnets. This prevents any IP address exhaustion issues when upgrading or scaling your cluster.
 - Set up multiple environments.
