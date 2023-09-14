@@ -75,7 +75,7 @@ Network security groups restrict access to each tier. For example, the database 
 
 - Tiers are the boundary of scalability, reliability, and security. Consider having separate tiers for services with different requirements in those areas.
 
-- Use virtual machine scale sets for [autoscaling][auto-scaling].
+- Use virtual machine scale sets for [autoscaling][autoscaling].
 
 - Look for places in the architecture where you can use a managed service without significant refactoring. In particular, look at caching, messaging, storage, and databases.
 
