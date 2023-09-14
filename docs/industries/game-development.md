@@ -12,8 +12,7 @@ ms.custom: fcp
 keywords:
   - Azure
 products:
-- azure-speech-text
-- azure-speech-translation
+- azure-speech
 - azure-functions
 - azure-cache-redis
 - azure-kubernetes-service

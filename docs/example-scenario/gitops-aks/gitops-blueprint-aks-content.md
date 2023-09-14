@@ -96,46 +96,6 @@ This scenario is a pull-based DevOps pipeline for a typical web application. The
 
 Any repository that's compatible with Git, including Azure DevOps, can serve as the configuration source repository.
 
-### Scenario 5: Use Syncier Tower and GitOps operator to enforce policies
-
-:::image type="content" source="media/gitops-blueprint-aks-new.png" alt-text="Diagram of GitOps for AKS, with GitHub source control, Flux GitOps controller, Syncier Security Tower GitOps control kit, and Gatekeeper admission controller." border="false":::
-
-*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/gitops-blueprint-aks-content.md.vsdx) of this architecture.*
-
-#### Dataflow for scenario 5
-
-This solution follows a strong GitOps approach.
-
-1. The single source of truth is the GitHub repository that holds the provisioned AKS cluster configurations. The repository stores all AKS application manifests and all cluster infrastructure desired states. Every change to the cluster happens under version control.
-
-   GitHub functionality:
-   - Ensures review for changes.
-   - Prevents unintended or unauthorized changes.
-   - Enforces desired quality checks.
-1. Flux is the GitOps operator and controller, and is the only component that can make changes to the cluster. Flux pulls cluster desired state changes from GitHub, and syncs them into AKS. Flux:
-   - Pulls desired changes from GitHub.
-   - Detects any configuration drift.
-   - Reconciles the state in the Kubernetes cluster.
-   - Manages Gatekeeper and the applications.
-   - Updates itself.
-1. Open Policy Agent (OPA) Gatekeeper enforces policies with a validating admission webhook. Gatekeeper validates cluster configuration changes against provisioned policies, and applies the changes only if they comply with policies.
-1. Syncier Security Tower is a GitOps control kit that provides an overview of all AKS clusters and helps manage policies. Syncier Security Tower:
-   - Assembles all cluster images in an overview that shows which versions are deployed and identifies outdated images.
-   - Provides feedback on policy violations via pull request (PR) feedback before changes are applied.
-   - Introduces risk acceptance whenever policies aren't applied for good reasons.
-   - Provides security policies to OPA Gatekeeper.
-
-### Components
-
-The architecture scenarios use one or more of the following components:
-
-1. [AKS](https://azure.microsoft.com/products/kubernetes-service) is a highly available, secure, and fully managed Kubernetes service in Azure. In AKS, Azure manages the Kubernetes API server. Cluster owners and operators access and manage the Kubernetes nodes and node pools.
-1. [GitHub](https://github.com) is a code hosting platform for version control and collaboration. GitHub provides Git distributed version control, source code management, and other features.
-1. [Flux](https://fluxcd.io) is a GitOps tool that automates the deployment of applications on Kubernetes. Flux automates configuration updates when there's new code to deploy. Flux is provided as a native extension to AKS.
-1. [Argo CD](https://argo-cd.readthedocs.io) is a declarative GitOps continuous-delivery tool for Kubernetes.
-1. [OPA Gatekeeper](https://github.com/open-policy-agent/gatekeeper) is a project that integrates the open-source OPA admission controller with Kubernetes. Kubernetes admission controllers enforce policies on objects during create, update, and delete operations, and are fundamental to Kubernetes policy enforcement.
-1. [Syncier Security Tower](https://securitytower.syncier.com) is a publicly available tool from Syncier that helps overcome GitOps security and compliance challenges. To help ensure that only trusted images run in the cluster, Syncier Security Tower comes with a set of best-practice policies that are grouped according to well-known security standards.
-
 ## Scenario details
 
 GitOps is a set of principles for operating and managing a software system.
@@ -233,8 +193,6 @@ GitOps can increase DevOps productivity. One of the most useful features is the 
 
 GitOps teams often manage multiple environments for the same application. It's typical to have several stages of an application that are deployed to different Kubernetes clusters or namespaces. The Git repository, which is the single source of truth, shows which versions of applications are currently deployed to a cluster.
 
-You can use Syncier Security Tower to simplify cluster operations. It can extract the application versions that are deployed to multiple clusters from the repository and display the results in a user-friendly way. DevOps teams can use advanced Syncier Security Tower features to get insights into who changed what, and when, in an application. Teams can browse and filter based on factors like change type and resource kind. Syncier Security Tower provides a control center to activate policies and compare compliance state over different clusters.
-
 ## Deploy a scenario
 
 The following list provides references for information about deploying the five scenarios:
@@ -242,7 +200,6 @@ The following list provides references for information about deploying the five 
 - **Scenario 1:** For guidance on using GitOps with Flux v2 to deploy applications to AKS, see [Tutorial: Deploy applications using GitOps with Flux v2](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2?tabs=azure-cli). For an example of how to use the Flux extension to bootstrap AKS cluster deployment, see the [reference implementation for the AKS baseline](https://github.com/mspnp/aks-baseline/tree/main/cluster-manifests).
 - **Scenario 2:** For guidance on using GitOps with Flux v2 on AKS to deploy applications and to implement CI/CD, see: [Tutorial: Implement CI/CD with GitOps (Flux v2)](/azure/azure-arc/kubernetes/tutorial-gitops-flux2-ci-cd).
 - **Scenarios 3 and 4:** For step-by-step guidance on deploying a sample workload with Argo CD and AKS, see the pull-based CI/CD scenario in [AKS Baseline Automation](https://github.com/Azure/aks-baseline-automation#deploy-sample-applications-using-gitops-pull-method).
-- **Scenario 5:** For guidance on deploying scenario 5 to AKS, see [Syncier Security Tower - Getting Started](https://securitytower.syncier.com/docs/guide/get-started).
 
 ## Contributors
 
@@ -270,4 +227,4 @@ Principal author:
 - [DevSecOps for infrastructure as code (IaC)](../../solution-ideas/articles/devsecops-infrastructure-as-code.yml)
 - [Enterprise infrastructure as code using Bicep and Azure Container Registry](../../guide/azure-resource-manager/advanced-templates/enterprise-infrastructure-bicep-container-registry.yml)
 - [DevSecOps with GitHub Security](../../solution-ideas/articles/devsecops-in-github.yml)
-- [Automate infrastructure reconfiguration by using Azure](../../example-scenario/serverless/automation-application-gateway.yml)
+- [Automate infrastructure reconfiguration by using Azure](../../web-apps/guides/networking/automation-application-gateway.yml)

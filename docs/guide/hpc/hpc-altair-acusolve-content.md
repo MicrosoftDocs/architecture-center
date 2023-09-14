@@ -21,16 +21,13 @@ AcuSolve is finite-element based and uses distinct methods to solve all fluid pr
 
 This diagram shows a multi-node configuration:
 
-:::image type="content" source="media/acusolve-cluster-architecture.png" alt-text="Diagram that shows a multi-node configuration." lightbox="media/acusolve-cluster-architecture.png" border="false":::
-
-*Download a* *[Visio file](https://arch-center.azureedge.net/acusolve-cluster-architecture.vsdx) of this architecture.*
+:::image type="content" source="media/acusolve-cluster-architecture.svg" alt-text="Diagram that shows a multi-node configuration." lightbox="media/acusolve-cluster-architecture.svg" border="false":::
 
 This diagram shows a single-node configuration:
 
-:::image type="content" source="media/hpc-acusolve.png" alt-text="Diagram that shows a single-node configuration." lightbox="media/hpc-acusolve.png" border="false":::
+:::image type="content" source="media/hpc-acusolve.svg" alt-text="Diagram that shows a single-node configuration." lightbox="media/hpc-acusolve.svg" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/hpc-acusolve.vsdx) of this
-architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/hpc-altair-acusolve.vsdx) of all diagrams in this article.*
 
 ### Components
 

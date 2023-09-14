@@ -10,7 +10,7 @@ IIoT analytics applications can support the following business practices:
 - Predictive maintenance
 - Forecasting
 
-The IIoT analytics architecture in these articles uses [Azure Industrial IoT](https://github.com/Azure/Industrial-IoT/blob/master/docs/deploy/readme.md) components. Not all Azure IIoT analytics solutions use all these services, and the articles mention alternatives where applicable.
+The IIoT analytics architecture in these articles uses [Azure Industrial IoT](https://github.com/Azure/Industrial-IoT/blob/main/deploy/helm/azure-industrial-iot/README.md) components. Not all Azure IIoT analytics solutions use all these services, and the articles mention alternatives where applicable.
 
 ## Architecture
 
@@ -107,15 +107,15 @@ OPC UA bases industry and domain-specific information models on the OPC UA data 
 
 ### Azure Industrial IoT
 
-Microsoft based the following open-source [Azure Industrial IoT](https://github.com/Azure/Industrial-IoT/blob/master/docs/deploy/readme.md) components on OPC UA to implement identity translation:
+Microsoft based the following open-source [Azure Industrial IoT](https://github.com/Azure/Industrial-IoT/blob/main/deploy/helm/azure-industrial-iot/README.md) components on OPC UA to implement identity translation:
 
-- [OPC Twin](https://github.com/Azure/Industrial-IoT/tree/main/docs/api/twin) uses microservices and an Azure IoT Edge module to connect the cloud to a factory network. OPC Twin provides discovery, registration, and synchronous remote control of industrial devices through REST APIs. OPC Twin also supports the OPC HDA profile for historical data.
+- [OPC Twin](https://github.com/Azure/Industrial-IoT/tree/main/docs/opc-publisher#opc-ua-client-opc-twin) uses microservices and an Azure IoT Edge module to connect the cloud to a factory network. OPC Twin provides discovery, registration, and synchronous remote control of industrial devices through REST APIs. OPC Twin also supports the OPC HDA profile for historical data.
 
 - [OPC Publisher](/azure/industrial-iot/overview-what-is-opc-publisher) is an Azure IoT Edge module that publishes telemetry data from OPC UA servers in OPC UA PubSub format, in both JSON and binary.
 
 - [OPC Vault](https://github.com/Azure/azure-iiot-opc-vault-service/blob/main/docs/opcvault-services-overview.md) is a cloud microservice that can configure, register, and manage certificate lifecycle for OPC UA server and client applications.
 
-- [Discovery Services](https://azure.github.io/Industrial-IoT/modules/discovery.html) is an Azure IoT Edge module that supports network scanning and OPC UA discovery.
+- [Discovery Services](https://azure.github.io/Industrial-IoT/web-api/#discovery) is an Azure IoT Edge module that supports network scanning and OPC UA discovery.
 
 See the [Microsoft Azure IIoT solution](https://azure.github.io/Industrial-IoT) on GitHub for more open-source services, REST APIs, deployment scripts, and configuration tools.
 

@@ -4,7 +4,9 @@ In many enterprises, SAP is the most mission-critical application and the primar
 
 The following architecture outlines the use of Delphix CC in an Azure Data Factory/Azure Synapse pipeline to identify and mask sensitive data.
 
-:::image type="content" source="media/data-scrambling-for-sap-using-delphix-and-azure-data-factory-architecture.png" lightbox="media/data-scrambling-for-sap-using-delphix-and-azure-data-factory-architecture.png" alt-text="Diagram showing the architecture of the environment required to use Delphix to scramble SAP data for use with Azure Data Factory.":::
+:::image type="content" source="media/data-scrambling-for-sap-using-delphix-and-azure-data-factory-architecture.svg" lightbox="media/data-scrambling-for-sap-using-delphix-and-azure-data-factory-architecture.svg" alt-text="Diagram showing the architecture of the environment required to use Delphix to scramble SAP data for use with Azure Data Factory.":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/data-scrambling-for-sap-using-delphix-and-azure-data-factory-architecture.vsdx) of this architecture.*
 
 ## What is Azure Data Factory?
 

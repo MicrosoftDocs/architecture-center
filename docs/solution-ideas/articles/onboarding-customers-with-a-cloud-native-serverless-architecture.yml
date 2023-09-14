@@ -29,7 +29,7 @@ azureCategories:
   - developer-tools
 summary: Build and run customer onboarding applications without managing or maintaining infrastructure. Improve developer productivity with this serverless architecture.
 products:
-  - azure-cognitive-services
+  - ai-services
   - azure-cosmos-db
   - dynamics-365
   - power-bi

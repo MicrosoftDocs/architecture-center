@@ -6,8 +6,9 @@ This article presents a solution for performing fast, interactive, SQL-like quer
 
 ## Architecture
 
-![Architecture diagram that shows data from various sources flowing through a pipeline that provides interactive querying.](../media/interactive-querying-with-hdinsight.png)
-*Download an [SVG](../media/interactive-querying-with-hdinsight.svg) of this architecture.*
+![Architecture diagram that shows data from various sources flowing through a pipeline that provides interactive querying.](../media/interactive-querying-with-hdinsight.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/interactive-querying-hdinsight.vsdx) of this architecture.*
 
 ### Dataflow
 

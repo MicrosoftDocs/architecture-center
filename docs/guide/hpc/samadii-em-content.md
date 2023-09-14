@@ -15,7 +15,7 @@ Samadii EM is used in wireless communications and by manufacturers of radar devi
 
 ## Architecture
 
-:::image type="content" source="media/samadii-em/architecture.png" alt-text="Diagram that shows an architecture for deploying Samadii EM." lightbox="media/samadii-em/architecture.png" border="false":::
+:::image type="content" source="media/samadii-em/samadii-em-architecture.svg" alt-text="Diagram that shows an architecture for deploying Samadii EM." lightbox="media/samadii-em/samadii-em-architecture.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/samadii-em.vsdx) of this
 architecture.*

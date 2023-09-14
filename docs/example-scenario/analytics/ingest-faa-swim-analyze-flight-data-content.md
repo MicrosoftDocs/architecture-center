@@ -147,6 +147,5 @@ Other contributor:
 ## Related resources
 
 - [All aerospace architectures](/azure/architecture/browse/?terms=aircraft)
-- [Predictive maintenance for aircraft monitoring](../../solution-ideas/articles/predictive-maintenance.yml)
 - [Publisher-Subscriber pattern](../../patterns/publisher-subscriber.yml)
 - [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)

@@ -6,13 +6,13 @@ What does CI/CD actually stand for?
 - Continuous Integration allows development teams to integrate code changes in a shared repository almost instantaneously. This ability, coupled with automated build and testing before the changes are integrated, ensures that only fully functional application code is available for deployment.
 - Continuous Delivery allows changes in the source code, configuration, content, and other artifacts to be delivered to production, and ready to be deployed to end-users, as quickly and safely as possible. The process keeps the code in a *deployable state* at all times. A special case of this is *Continuous Deployment*, which includes actual deployment to end users.
 
-This article discusses a CI/CD pipeline for the web frontend of a [serverless reference implementation](../../reference-architectures/serverless/web-app.yml). This pipeline is developed using Azure services. The web frontend demonstrates a modern web application, with client-side JavaScript, reusable server-side APIs, and pre-built Markup, alternatively called [Jamstack](https://jamstack.org). You can find the code in [this GitHub repository](https://github.com/mspnp/serverless-reference-implementation/tree/master/src/ClientApp). The readme describes the steps to download, build, and deploy the application.
+This article discusses a CI/CD pipeline for the web frontend of a [serverless reference implementation](../../web-apps/serverless/architectures/web-app.yml). This pipeline is developed using Azure services. The web frontend demonstrates a modern web application, with client-side JavaScript, reusable server-side APIs, and pre-built Markup, alternatively called [Jamstack](https://jamstack.org). You can find the code in [this GitHub repository](https://github.com/mspnp/serverless-reference-implementation/tree/master/src/ClientApp). The readme describes the steps to download, build, and deploy the application.
 
 The following diagram describes the CI/CD pipeline used in this sample frontend:
 
 ![CI/CD pipeline in Serverless App using Azure services](./images/cicd-serverless-frontend.png)
 
-This article does not discuss the [backend deployment](../../reference-architectures/serverless/web-app.yml#back-end-deployment).
+This article does not discuss the [backend deployment](../../web-apps/serverless/architectures/web-app.yml#back-end-deployment).
 
 ## Prerequisites
 

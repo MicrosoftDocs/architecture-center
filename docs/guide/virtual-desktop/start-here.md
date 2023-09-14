@@ -76,7 +76,7 @@ FSLogix is designed for roaming profiles in remote computing environments like A
 
 ## Stay current with virtual desktop technologies on Azure
 
-Get the [latest updates on Azure virtual desktop technologies](https://azure.microsoft.com/updates/?category=windows-virtual-desktop).
+Get the [latest updates on Azure Virtual Desktop technologies](https://azure.microsoft.com/updates/?category=windows-virtual-desktop).
 
 ## Additional resources
 

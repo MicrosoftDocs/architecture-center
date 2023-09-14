@@ -578,13 +578,13 @@ ms.service: architecture-center
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="~/example-scenario/infrastructure/wordpress.yml" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="~/web-apps/hosting-applications/wordpress.yml" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="~/example-scenario/infrastructure/media/secure-scalable-wordpress.png" alt="Architecture diagram for Highly scalable and secure WordPress websites" height="140px" />
+                            <img src="~/web-apps/hosting-applications/images/secure-scalable-wordpress.png" alt="Architecture diagram for Highly scalable and secure WordPress websites" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">

@@ -18,7 +18,7 @@ azureCategories:
   - hybrid
 summary: Learn how to extend an on-premises Active Directory domain to Azure in order to provide distributed authentication services.
 products:
-  - azure-active-directory-domain
+  - entra
   - azure-virtual-network
 thumbnailUrl: /azure/architecture/browse/thumbs/ad-ds-extend-domain.png
 content: |

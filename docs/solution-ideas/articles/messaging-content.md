@@ -4,8 +4,9 @@ This solution uses Azure Cache for Redis to route real-time messages in publish 
 
 ## Architecture
 
-![Architecture diagram of Azure Cache for Redis as a message broker. Messages arrive at the cache, go to web apps and web APIs, and then go to users.](../media/messaging.png)
-*Download an [SVG](../media/messaging.svg) of this architecture.*
+[ ![Architecture diagram of Azure Cache for Redis as a message broker. Messages arrive at the cache, go to web apps and web APIs, and then go to users.](../media/messaging.svg)](../media/messaging.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/messaging.vsdx) of this architecture.*
 
 ### Dataflow
 

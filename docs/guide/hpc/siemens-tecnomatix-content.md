@@ -18,7 +18,7 @@ Tecnomatix is used in the automotive, electronics, manufacturing, and aerospace 
 
 ## Architecture
 
-:::image type="content" source="media/tecnomatix/tecnomatix.png" alt-text="Diagram that shows an architecture for deploying Tecnomatix." lightbox="media/tecnomatix/tecnomatix.png" border="false":::
+:::image type="content" source="media/tecnomatix/tecnomatix.svg" alt-text="Diagram that shows an architecture for deploying Tecnomatix." lightbox="media/tecnomatix/tecnomatix.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/tecnomatix.vsdx) of this
 architecture.*

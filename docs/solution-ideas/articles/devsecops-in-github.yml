@@ -24,7 +24,7 @@ products:
   - azure-active-directory
   - azure-monitor
   - azure-policy
-  - azure-security-center
+  - defender-for-cloud
   - github
 thumbnailUrl: /azure/architecture/browse/thumbs/devsecops-in-github-data-flow.png
 content: |

@@ -16,7 +16,7 @@ This solution architecture models a development and deployment environment that 
 
 ## Architecture
 
-![Diagram showing the configuration of DevTest and DevOps for a microservice application.](../media/dev-test-microservice.svg)
+:::image type="content" border="false" source="../media/dev-test-microservice.svg" alt-text="Diagram showing the configuration of DevTest and DevOps for a microservice application." lightbox="../media/dev-test-microservice.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/dev-test-microservice.vsdx) of this architecture.*
 

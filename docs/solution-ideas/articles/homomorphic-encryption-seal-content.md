@@ -2,7 +2,9 @@ This article discusses how and when to use homomorphic encryption and how to imp
 
 ## Architecture
 
-![Diagram showing traditional and SEAL encryption.](../media/seal.png)
+:::image type="content" source="../media/homomorphic-encryption-seal.svg" alt-text="Diagram showing traditional and SEAL encryption." lightbox="../media/homomorphic-encryption-seal.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/homomorphic-encryption-seal.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -61,4 +63,4 @@ See the following resources about security in Azure:
 
 - [Centralized app configuration and security](appconfig-key-vault.yml)
 - [Confidential computing on a healthcare platform](../../example-scenario/confidential/healthcare-inference.yml)
-- [Secure research environment for regulated data](../../example-scenario/ai/secure-compute-for-research.yml)
+- [Secure research environment for regulated data](../../ai-ml/architecture/secure-compute-for-research.yml)

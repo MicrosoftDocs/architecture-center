@@ -6,7 +6,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/solution-ideas/articles/solaris-azure"><img src="/azure/architecture/browse/thumbs/solaris-azure.png" class="diagram" alt="Thumbnail of Stromasys Charon-SSP Solaris emulator on Azure VMs Architectural Diagram." data-linktype="relative-path"></a>
+            <a href="/azure/architecture/solution-ideas/articles/solaris-azure"><img src="/azure/architecture/browse/thumbs/solaris.png" class="diagram" alt="Thumbnail of Stromasys Charon-SSP Solaris emulator on Azure VMs Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">

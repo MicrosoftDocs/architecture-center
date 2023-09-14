@@ -28,6 +28,6 @@ products:
   - azure-sql-database
   - azure-vpn-gateway
   - azure-web-application-firewall
-thumbnailUrl: /azure/architecture/browse/thumbs/ilb-ase-architecture.png
+thumbnailUrl: /azure/architecture/browse/thumbs/fully-managed-secure-apps-thumb.png
 content: |
    [!include[](fully-managed-secure-apps-content.md)]

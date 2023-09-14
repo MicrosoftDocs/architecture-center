@@ -4,7 +4,7 @@ This reference architecture shows an end-to-end [stream processing](../../data-g
 
 ## Architecture
 
-![Diagram showing reference architecture for creating a stream processing pipeline with Azure Stream Analytics.](./images/stream-processing-asa/stream-processing-asa.png)
+:::image type="content" source="./images/stream-processing-asa/stream-processing-stream-analytics.svg" alt-text="Diagram showing reference architecture for creating a stream processing pipeline with Azure Stream Analytics." lightbox="./images/stream-processing-asa/stream-processing-stream-analytics.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/stream-processing-stream-analytics.vsdx) of this architecture.*
 

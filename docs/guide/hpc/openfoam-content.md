@@ -15,7 +15,7 @@ OpenFOAM is used in academia/education and in industries like transportation, au
 
 ## Architecture
 
-:::image type="content" source="media/openfoam/architecture.png" alt-text="Diagram that shows an architecture for deploying OpenFOAM." lightbox="media/openfoam/architecture.png" border="false":::
+:::image type="content" source="media/openfoam/openfoam-architecture.svg" alt-text="Diagram that shows an architecture for deploying OpenFOAM." lightbox="media/openfoam/openfoam-architecture.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/openfoam.vsdx) of this
 architecture.*

@@ -23,7 +23,7 @@ _This article is part of a series. Read the introduction [here](aks-triage-pract
 
 Issues because of admission controllers are an edge case but they should be considered. Here are some examples:
 
-- Mutating and validating webhooks. Be careful when you add mutating and validating webhooks in your cluster. Make sure that they're highly available so that an unhealthy node doesn't cause API server requests to be blocked. AKS Policy, also known as OPA Gatekeeper, is an example of this type of webhooks. If there are problems in the admission control pipeline, it can block a large number of requests to the API server.
+- Mutating and validating webhooks. Be careful when you add mutating and validating webhooks in your cluster. Make sure that they're highly available so that an unhealthy node doesn't cause API server requests to be blocked. AKS Policy, built around OPA Gatekeeper, is an example of this type of webhook. Kyverno is an example of another policy engine that uses such webhooks. If there are problems in the admission control pipeline, it can block a large number of requests to the API server.
 
 - Service meshes. They use admission controllers to automatically inject sidecars for example.
 

@@ -130,4 +130,4 @@ A secondary benefit of blue-green deployment is the ability to use the failover 
 
 - [Serverless functions architecture design](../../serverless-quest/serverless-overview.md)
 - [Serverless functions reference architectures](../../serverless-quest/reference-architectures.md)
-- [Code walkthrough: Serverless application with Functions](../../serverless/code.yml)
+- [Code walkthrough: Serverless application with Functions](../../web-apps/serverless/architectures/code.yml)

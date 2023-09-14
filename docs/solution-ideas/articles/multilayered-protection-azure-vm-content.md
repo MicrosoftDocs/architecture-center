@@ -46,7 +46,7 @@ The defense in depth strategy and the solution in this article apply to many sce
 
 ## Architecture
 
-:::image type="content" source="../media/multilayered-protection-azure-vm-architecture-diagram.svg" alt-text="Architecture diagram showing how a user gains temporary access to an Azure V M." border="false" lightbox="../media/multilayered-protection-azure-vm-architecture-diagram-lightbox.png":::
+:::image type="content" source="../media/multilayered-protection-azure-vm-architecture-diagram.svg" alt-text="Architecture diagram showing how a user gains temporary access to an Azure V M." border="false" lightbox="../media/multilayered-protection-azure-vm-architecture-diagram.svg":::
 
 *Download a [Visio file][Visio version of architecture diagram] of this architecture.*
 

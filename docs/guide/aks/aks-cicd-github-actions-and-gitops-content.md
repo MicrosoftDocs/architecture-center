@@ -24,7 +24,7 @@ This scenario covers a push-based DevOps pipeline for a two-tier web application
 1. The app code is developed.
 2. The app code is committed to a GitHub git repository.
 3. GitHub Actions builds a container image from the app code and pushes the container image to Azure Container Registry.
-4. A GitHub Actions job deploys, or pushes, the app to the Azure Kubernetes Service (AKS) cluster using kubectl deployment of the Kubernetes manifest files.
+4. A GitHub Actions job deploys, or pushes, the app, as described in the manifest files, to the Azure Kubernetes Service (AKS) cluster using kubectl or the [Deploy to Kubernetes cluster](https://github.com/marketplace/actions/deploy-to-kubernetes-cluster) action.
 
 ### Option 2: Pull-based CI/CD (GitOps)
 
@@ -144,7 +144,7 @@ For general guidance on securing applications on AKS clusters, see [Security con
 For separation of concerns, the guidance is to separate the compute that runs the business application from the CD agents, or GitOps operator, by running the business application and the GitOps operator in separate namespaces on the Kubernetes cluster. For further separation of concerns, the GitOps operator can be run on a Kubernetes cluster that's dedicated to the GitOps instance separate from the production Kubernetes cluster that runs the business application.
 
 > [!NOTE]
-> This article doesn't directly address how to secure a CI/CD pipeline. For information on securing a CI/CD pipeline, see [Secure DevOps for AKS](/azure/architecture/solution-ideas/articles/secure-devops-for-kubernetes).
+> This article doesn't directly address how to secure a CI/CD pipeline.
 
 ### Performance efficiency
 
@@ -202,5 +202,4 @@ Microsoft Learn modules:
 - [CI/CD for microservices architectures](/azure/architecture/microservices/ci-cd)
 - [CI/CD pipeline for container-based workloads](/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops)
 - [Build a CI/CD pipeline for microservices on Kubernetes](/azure/architecture/microservices/ci-cd-kubernetes)
-- [Secure DevOps for AKS](/azure/architecture/solution-ideas/articles/secure-devops-for-kubernetes)
 - [Advanced AKS microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)

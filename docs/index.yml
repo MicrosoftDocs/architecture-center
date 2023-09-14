@@ -150,33 +150,18 @@ conceptualContent:
       - text: Artificial intelligence (AI) architecture design
         itemType: concept
         url: ./data-guide/big-data/ai-overview.md
-      - text: Training of Python scikit-learn models
-        itemType: architecture
-        url: /azure/architecture/example-scenario/ai/training-python-models
-      - text: Distributed training of deep learning models
-        itemType: architecture
-        url: ./reference-architectures/ai/training-deep-learning.yml
       - text: Batch scoring of Python models
         itemType: architecture
-        url: ./reference-architectures/ai/batch-scoring-python.yml
+        url: ./ai-ml/architecture/batch-scoring-python.yml
       - text: Conversational bot
         itemType: architecture
-        url: ./reference-architectures/ai/conversational-bot.yml
+        url: ./ai-ml/architecture/conversational-bot.yml
       - text: Machine learning options
         itemType: reference
-        url: ./data-guide/technology-choices/data-science-and-machine-learning.md
-      - text: Machine learning at scale
-        itemType: concept
-        url: ./data-guide/big-data/machine-learning-at-scale.md
+        url: ./ai-ml/guide/data-science-and-machine-learning.md
       - text: Natural language processing
         itemType: concept
         url: ./data-guide/technology-choices/natural-language-processing.yml
-      - text: R developer's guide to Azure
-        itemType: concept
-        url: ./data-guide/technology-choices/r-developers-guide.md
-      - text: Movie recommendation
-        itemType: get-started
-        url: ./example-scenario/ai/movie-recommendations-with-machine-learning.yml
       - text: Cognitive services options
         itemType: concept
         url: ./data-guide/technology-choices/cognitive-services.md
@@ -184,9 +169,6 @@ conceptualContent:
         itemType: concept
         url: ./data-science-process/overview.yml
       # footerLink (optional)
-      footerLink:
-        url: ./data-guide/big-data/machine-learning-at-scale.md
-        text: See more
 
     - title: Analytics
       links:
@@ -426,17 +408,17 @@ conceptualContent:
     - title: Serverless applications
       links:
         - text: Code walkthrough
-          url: serverless/code.yml
+          url: web-apps/serverless/architectures/code.yml
           itemType: how-to-guide
         - text: Serverless event processing
           itemType: architecture
           url: reference-architectures/serverless/event-processing.yml
         - text: Serverless web application
           itemType: architecture
-          url: reference-architectures/serverless/web-app.yml
+          url: web-apps/serverless/architectures/web-app.yml
       footerLink:
         text: Introduction to Serverless Applications on Azure
-        url: ./serverless/code.yml
+        url: web-apps/serverless/architectures/code.yml
 
     - title: VM workloads
       links:
@@ -457,7 +439,7 @@ conceptualContent:
           url: reference-architectures/n-tier/multi-region-sql-server.yml
         - text: Highly scalable WordPress
           itemType: get-started
-          url:  example-scenario/infrastructure/wordpress.yml
+          url: web-apps/hosting-applications/wordpress.yml
         - text: Multi-tier Windows
           itemType: get-started
           url:  ./reference-architectures/n-tier/n-tier-sql-server.yml
@@ -496,16 +478,16 @@ conceptualContent:
       links:
         - text: Basic web application
           itemType: architecture
-          url: reference-architectures/app-service-web-app/basic-web-app.yml
-        - text: Improved scalability
+          url: web-apps/app-service/architectures/basic-web-app.yml
+        - text: Baseline zone-redundant web application
           itemType: architecture
-          url: reference-architectures/app-service-web-app/scalable-web-app.yml
+          url: web-apps/app-service/architectures/baseline-zone-redundant.yml
         - text: Multi-region deployment
           itemType: architecture
-          url: reference-architectures/app-service-web-app/multi-region.yml
+          url: web-apps/app-service/architectures/multi-region.yml
         - text: Web application monitoring
           itemType: architecture
-          url: reference-architectures/app-service-web-app/app-monitoring.yml
+          url: web-apps/guides/monitoring/app-monitoring.yml
         - text: E-commerce API management
           itemType: get-started
           url:  example-scenario/apps/apim-api-scenario.yml

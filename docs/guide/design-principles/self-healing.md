@@ -3,7 +3,7 @@ title: Design for self healing
 titleSuffix: Azure Application Architecture Guide
 description: Learn to design resilient applications that can recover from failures without manual intervention through self-healing.
 author: martinekuan
-ms.date: 11/07/2022
+ms.date: 07/25/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
@@ -20,7 +20,7 @@ categories:
 
 ## Design your application to be self healing when failures occur
 
-In a distributed system, failures can happen. Hardware can fail. The network can have transient failures. Rarely, an entire service or region may experience a disruption, but even those must be planned for.
+In a distributed system, failures can happen. Hardware can fail. The network can have transient failures. Rarely, an entire service, data center, or even Azure region may experience a disruption, but even those must be planned for.
 
 Therefore, design an application to be self healing when failures occur. This requires a three-pronged approach:
 
@@ -28,7 +28,7 @@ Therefore, design an application to be self healing when failures occur. This re
 - Respond to failures gracefully.
 - Log and monitor failures, to give operational insight.
 
-How you respond to a particular type of failure may depend on your application's availability requirements. For example, if you require very high availability, you might automatically fail over to a secondary region during a regional outage. However, that will incur a higher cost than a single-region deployment.
+How you respond to a particular type of failure may depend on your application's availability requirements. For example, if you require high availability, you might deploy to multiple availability zones in a region. To avoid outages even in the unlikely event of an entire Azure region experiencing disruption, you can automatically fail over to a secondary region during a regional outage. However, that will incur a higher cost and potentially lower performance than a single-region deployment.
 
 Also, don't just consider big events like regional outages, which are generally rare. You should focus as much, if not more, on handling local, short-lived failures, such as network connectivity failures or failed database connections.
 
@@ -59,6 +59,8 @@ Also, don't just consider big events like regional outages, which are generally 
 **Test with fault injection**. All too often, the success path is well tested but not the failure path. A system could run in production for a long time before a failure path is exercised. Use fault injection to test the resiliency of the system to failures, either by triggering actual failures or by simulating them.
 
 **Embrace chaos engineering**. Chaos engineering extends the notion of fault injection, by randomly injecting failures or abnormal conditions into production instances.
+
+**Consider using availability zones**. Many Azure regions provide [availability zones](/azure/reliability/availability-zones-overview), which are isolated sets of data centers within the region. Some Azure services can be deployed *zonally*, which ensures they are placed in a specific zone, and can help to reduce latency in communicating between components in the same workload. Alternatively, some services can be deployed with *zone redundancy*, which means that Azure automatically replicates the resource across zones for high availability. Consider which approach makes provides the best set of tradeoffs for your solution.
 
 For a structured approach to making your applications self healing, see [Design reliable applications for Azure][resiliency-overview].
 

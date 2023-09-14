@@ -1,0 +1,33 @@
+### YamlMime:Architecture
+metadata:
+  title: Running Windows containers on AKS
+  description: Supplementary article to the AKS Baseline reference architecture providing guidance on running Windows containers on AKS
+  author: claytonsiemens77
+  ms.author: claytonsiemens77
+  ms.date: 12/31/2022
+  ms.topic: reference-architecture
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.category:
+    - containers
+    - kubernetes
+    - aks
+  ms.custom:
+    - seojul20
+    - containers
+    - reference-architecture
+    - internal-intro
+    - e2e-aks
+name: Running Windows containers on AKS
+azureCategories:
+  - containers
+summary: Supplementary article to the AKS Baseline reference architecture providing guidance on running Windows containers on AKS.
+products:
+  - azure-application-gateway
+  - azure-container-registry
+  - azure-firewall
+  - azure-kubernetes-service
+  - azure-rbac
+thumbnailUrl: /azure/architecture/browse/thumbs/secure-baseline-architecture.png
+content: |
+   [!include[](windows-containers-on-aks-content.md)]

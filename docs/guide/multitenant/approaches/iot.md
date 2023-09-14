@@ -12,7 +12,6 @@ products:
   - azure
   - azure-iot
   - azure-iot-central
-  - azure-iot-dps
   - azure-iot-hub
 categories:
   - iot

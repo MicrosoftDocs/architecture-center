@@ -4,7 +4,7 @@ metadata:
   description: This article describes how to organize your Azure resources in a multitenant solution.
   author: martinekuan
   ms.author: architectures
-  ms.date: 07/26/2022
+  ms.date: 05/24/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide

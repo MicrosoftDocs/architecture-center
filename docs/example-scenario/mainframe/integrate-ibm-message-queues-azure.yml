@@ -22,6 +22,6 @@ products:
   - azure-database-postgresql
 name: Integrate IBM mainframe and midrange message queues with Azure
 summary: This example describes a data-first approach to middleware integration that enables IBM message queues (MQs).
-thumbnailUrl: /azure/architecture/browse/thumbs/integrate-ibm-message-queues-azure-01.png
+thumbnailUrl: /azure/architecture/browse/thumbs/integrate-ibm-message-queues-azure.png
 content: |
   [!include[](integrate-ibm-message-queues-azure-content.md)]

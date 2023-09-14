@@ -23,7 +23,7 @@ IoT Edge is made up of three components:
 
 - IoT Edge *modules* are containers that can run Azure, third-party, or custom components.
 
-  IoT Edge ML modules can support [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning), third-party ML models, or custom code. The current solution uses a third-party open-source ML model called [Cogniac](https://cogniac.co/) to score train wheel data and recognize potential defects. The ML software uses historical samples of high- and low-confidence failure images to retrain its ML model.
+  IoT Edge ML modules can support [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning), third-party ML models, or custom code. The current solution uses a third-party open-source ML model called [Cogniac](https://cogniac.ai/) to score train wheel data and recognize potential defects. The ML software uses historical samples of high- and low-confidence failure images to retrain its ML model.
 
 - The IoT Edge *runtime*, consisting of the *IoT Agent* and *IoT Edge Hub*, runs on the IoT Edge devices to manage and coordinate the deployed modules.
 
@@ -156,10 +156,8 @@ Security and monitoring are considerations for IoT Edge systems. For this exampl
 ## Related resources
 
 - [Introduction to predictive maintenance in manufacturing](../../industries/manufacturing/predictive-maintenance-overview.yml)
-- [Predictive maintenance for industrial IoT](../../solution-ideas/articles/predictive-maintenance.yml)
 - [Predictive maintenance solution](../../industries/manufacturing/predictive-maintenance-solution.yml)
 - [Predictive aircraft engine monitoring](../../solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)
-- [Defect prevention with predictive maintenance using analytics and machine learning](../../solution-ideas/articles/defect-prevention-with-predictive-maintenance.yml)
 - [Anomaly detector process](../../solution-ideas/articles/anomaly-detector-process.yml)
 - [Quality assurance](../../solution-ideas/articles/quality-assurance.yml)
 - [Connected factory signal pipeline](../iot/connected-factory-signal-pipeline.yml)

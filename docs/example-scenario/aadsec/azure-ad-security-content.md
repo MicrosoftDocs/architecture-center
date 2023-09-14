@@ -26,7 +26,9 @@ This article advances the zero-trust, adaptive security approach to IDaaS, empha
 
 ## Architecture
 
-![Azure AD related security capabilities](./media/architecture.png)
+:::image type="content" source="./media/architecture.svg" alt-text="Azure AD related security capabilities" lightbox="./media/architecture.svg" border="false":::
+
+[Download a Visio file](https://arch-center.azureedge.net/azure-ad-security.vsdx) of this architecture.
 
 ### Workflow
 

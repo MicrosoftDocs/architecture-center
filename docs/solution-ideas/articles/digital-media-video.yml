@@ -25,7 +25,7 @@ summary: Upload, encode, and distribute video files with Azure services. Stream 
 products:
   - azure-blob-storage
   - azure-cdn
-  - azure-encoding
+  - azure
   - azure-media-player
 thumbnailUrl: /azure/architecture/browse/thumbs/digital-media-video.png
 content: |

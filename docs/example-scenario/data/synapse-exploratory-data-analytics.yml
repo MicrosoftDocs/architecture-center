@@ -17,7 +17,6 @@ azureCategories:
 products:
   - azure-data-lake
   - azure-data-lake-storage
-  - azure-data-lake-gen2
   - azure-synapse-analytics
   - azure-blob-storage
 name: Query a data lake or lakehouse by using Azure Synapse serverless

@@ -15,7 +15,7 @@ azureCategories:
   - developer-tools
 products:
   - azure-app-service
-  - azure-application-insights
+  - azure-monitor
   - azure-devops
   - azure-logic-apps
   - azure-pipelines

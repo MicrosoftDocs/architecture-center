@@ -17,7 +17,7 @@ Inventor software is primarily used by mechanical engineers to quickly model, si
 
 ## Architecture
 
-:::image type="content" source="media/hpc-inventor.png" alt-text="Diagram that shows an architecture for deploying Autodesk Inventor." lightbox="media/hpc-inventor.png" border="false":::
+:::image type="content" source="media/hpc-inventor.svg" alt-text="Diagram that shows an architecture for deploying Autodesk Inventor." lightbox="media/hpc-inventor.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/hpc-inventor.vsdx) of this architecture.*
 

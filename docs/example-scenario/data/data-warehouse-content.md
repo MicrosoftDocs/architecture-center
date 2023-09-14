@@ -2,7 +2,7 @@ This example scenario demonstrates a data pipeline that integrates large amounts
 
 ## Architecture
 
-![Architecture for a data warehousing and analysis scenario in Azure](./media/architecture-data-warehousing.png)
+![Architecture for a data warehousing and analysis scenario in Azure](./media/architecture-data-warehousing.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/architecture-data-warehousing.vsdx) of this architecture.*
 

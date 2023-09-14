@@ -2,7 +2,7 @@
 metadata:
   title: Multi-region load balancing
   titleSuffix: Azure Reference Architectures
-  description: Learn how to build an Azure system that serves web workloads with resilient multitier applications in multiple Azure regions.
+  description: Learn how to build an Azure system that serves web and non-web workloads with resilient multi-tier applications in multiple Azure regions.
   author: martinekuan
   ms.author: ssumner
   ms.date: 09/12/2022
@@ -14,12 +14,13 @@ azureCategories:
   - networking
   - web
 products:
+  - azure-firewall
   - azure-application-gateway
   - azure-bastion
   - azure-load-balancer
   - azure-traffic-manager
-name: Multi-region load balancing with Traffic Manager and Application Gateway
-summary: Multi-region load balancing with Application Gateway and Traffic Manager.
-thumbnailUrl: /azure/architecture/browse/thumbs/high-availability-multi-region-v-9.png
+name: Multi-region load balancing with Traffic Manager, Azure Firewall, and Application Gateway
+summary: Multi-region load balancing with Traffic Manager, Azure Firewall, and Application Gateway.
+thumbnailUrl: /azure/architecture/browse/thumbs/high-availability-multi-region-v-10.png
 content: |
   [!include[](reference-architecture-traffic-manager-application-gateway-content.md)]

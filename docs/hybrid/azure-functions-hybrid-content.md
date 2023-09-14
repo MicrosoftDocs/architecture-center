@@ -116,7 +116,7 @@ See the following architectural guidance for Azure Functions:
 - [Serverless event processing](/azure/architecture/reference-architectures/serverless/event-processing)
 - [Azure Functions in a hybrid environment](/azure/architecture/hybrid/azure-functions-hybrid)
 - [Cross-cloud scaling with Azure Functions](/azure/architecture/solution-ideas/articles/cross-cloud-scaling)
-- [Code walkthrough: Serverless application with Functions](/azure/architecture/serverless/code)
+- [Code walkthrough: Serverless application with Functions](/azure/architecture/web-apps/serverless/architectures/code)
 
 See the following architectural guidance for Azure Virtual Networks:
 

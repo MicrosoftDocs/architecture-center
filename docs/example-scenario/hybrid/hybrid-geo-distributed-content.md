@@ -87,7 +87,7 @@ Principal author:
 
 ## Related resources
 
-* [Highly available multi-region web application](../../reference-architectures/app-service-web-app/multi-region.yml)
+* [Highly available multi-region web application](../../web-apps/app-service/architectures/multi-region.yml)
 * [Architect Azure applications for resiliency and availability](/azure/architecture/reliability/architect)
 * [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
 * [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)

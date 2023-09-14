@@ -28,7 +28,7 @@ The techniques described in this article apply whenever you need to implement an
 
 ## Architecture
 
-:::image type="content" source="../media/microsoft-sentinel-automated-response-architecture.png" lightbox="../media/microsoft-sentinel-automated-response-architecture.png" alt-text="Microsoft Sentinel architecture using playbooks.":::
+:::image type="content" border="false" source="../media/microsoft-sentinel-automated-response-architecture.svg" lightbox="../media/microsoft-sentinel-automated-response-architecture.svg" alt-text="Microsoft Sentinel architecture using playbooks.":::
 
 Download a [Visio file](https://arch-center.azureedge.net/US-1938642-microsoft-sentinel-automated-response.vsdx) of this architecture.
 

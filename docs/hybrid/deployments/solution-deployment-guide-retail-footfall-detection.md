@@ -11,7 +11,7 @@ ms.lastreviewed: 11/05/2019
 products:
   - azure-stack-hubx
   - azure-app-service
-  - azure-cognitive-services
+  - ai-services
   - azure-iot-edge
   - azure-iot-hub
 categories:

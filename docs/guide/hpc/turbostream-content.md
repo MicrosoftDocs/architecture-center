@@ -16,7 +16,7 @@ Turbostream is used by NASA and in the design of aircraft engines, turbomachiner
 
 ## Architecture
 
-:::image type="content" source="media/turbostream/architecture.png" alt-text="Diagram that shows an architecture for deploying Turbostream." lightbox="media/turbostream/architecture.png" border="false":::
+:::image type="content" source="media/turbostream/turbostream-architecture.svg" alt-text="Diagram that shows an architecture for deploying Turbostream." lightbox="media/turbostream/turbostream-architecture.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/turbostream.vsdx) of this
 architecture.*

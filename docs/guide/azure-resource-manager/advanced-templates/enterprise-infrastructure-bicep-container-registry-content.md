@@ -1,3 +1,7 @@
+---
+ms.custom:
+  - devx-track-bicep
+---
 Modularizing the management of your Azure Resource Manager templates (ARM templates) enables you to reduce repetition, model best practices in infrastructure development, and have consistent standard deployments. 
 
 An example use case for implementing this kind of modularization is deployment of virtual machines (VMs) by using the metaphor of t-shirt sizes. Suppose you have deployed dozens or hundreds of VMs. Those deployments use version 1.0.0 of your templates and have a standard *medium* size of an older series. To transition to a new series might require a brief outage of service if you simply deployed new templates. However, by building version 1.5.0 and using modularization, you can deploy new infrastructure with the updated standard while keeping the old infrastructure in a deployable state. By having old versions of the infrastructure available, your product and application teams have a known good configuration to rely on while upgrading to the new version as they have time.

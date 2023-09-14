@@ -2,7 +2,7 @@ This solution migrates an Oracle database and its applications to Azure. We use 
 
 ## Architecture
 
-![Architecture diagram shows completing a database migration from Oracle to Azure.](../media/reference-architecture-for-oracle-database-migration-to-azure.png)
+![Architecture diagram shows completing a database migration from Oracle to Azure.](../media/oracle-database-migration-to-azure.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/oracle-database-migration-to-azure.vsdx) of this architecture.*
 

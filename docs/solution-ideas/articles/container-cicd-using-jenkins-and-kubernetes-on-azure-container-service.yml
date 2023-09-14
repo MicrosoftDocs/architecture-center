@@ -18,6 +18,7 @@ metadata:
     - continuous delivery
     - CI/CD
     - continuous deployment
+    - devx-track-jenkins
 name: Container CI/CD using Jenkins and Kubernetes on Azure Kubernetes Service (AKS)
 azureCategories:
   - devops

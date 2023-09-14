@@ -5,9 +5,9 @@ The architecture uses AKS to implement compute clusters of the applications that
 
 ## Architecture
 
-:::image type="content" source="media/process-batch-transactions.png" alt-text="Diagram of an architecture implemented by using AKS and Service Bus":::
+:::image type="content" source="media/process-batch-transactions.svg" alt-text="Diagram of an architecture implemented by using AKS and Service Bus." lightbox="media/process-batch-transactions.svg" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-1813862-PR-2603-process-batch-transactions.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/process-batch-transactions.vsdx) of this architecture.*
 
 ### Workflow
 

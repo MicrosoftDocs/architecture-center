@@ -6,9 +6,9 @@ This article presents a solution for generating personalized recommendations for
 
 ## Architecture
 
-![Architecture diagram that shows how recommendations reach a customer when data flows from an e-commerce app through an API app to a database.](../media/personalization-using-cosmos-db.png)
+![Architecture diagram that shows how recommendations reach a customer when data flows from an e-commerce app through an API app to a database.](../media/personalization-using-cosmos-db.svg)
 
-*Download an [SVG](../media/personalization-using-cosmos-db.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/personalization-using-cosmos-db.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -75,6 +75,8 @@ Scale the AKS cluster to meet your performance and throughput requirements. Take
 
 ## Related resources
 
-- [Basic web application](../../reference-architectures/app-service-web-app/basic-web-app.yml)
+- [Basic web application](../../web-apps/app-service/architectures/basic-web-app.yml)
+- [Baseline zone-redundant web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml)
+- [Multi-region active-passive web application](../../web-apps/app-service/architectures/multi-region.yml)
 - [Design great API developer experiences using API Management and GitHub](../../example-scenario/web/design-api-developer-experiences-management-github.yml)
 - [Stream processing with Azure Databricks](../../reference-architectures/data/stream-processing-databricks.yml)

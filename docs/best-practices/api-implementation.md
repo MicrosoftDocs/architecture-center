@@ -14,7 +14,7 @@ azureCategories:
   - web
 products:
   - aspnet
-  - azure-encoding
+  - azure
 ms.custom:
   - best-practice
 ---

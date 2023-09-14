@@ -11,7 +11,7 @@ metadata:
 azureCategories:
   - storage
 products:
-  - azure-encoding
+  - azure
 name: Batch processing
 summary: Learn about big data batch processing solutions to load, transform, and prepare data at rest for analytics and reporting.
 thumbnailUrl: /azure/architecture/browse/thumbs/batch-pipeline.png

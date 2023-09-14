@@ -61,7 +61,7 @@ The following guidance might also be relevant when implementing this pattern:
 - [Asynchronous message-based communication](/dotnet/architecture/microservices/architect-microservice-container-applications/asynchronous-message-based-communication).
 
 ## Related resources
-- [Improve scalability in an Azure web application](../reference-architectures/app-service-web-app/scalable-web-app.yml). This reference architecture includes queue-based load leveling as part of the architecture.
+
 - [Web-Queue-Worker architecture style](/azure/architecture/guide/architecture-styles/web-queue-worker). The web and worker are both stateless. Session state can be stored in a distributed cache. Any long-running work is done asynchronously by the worker. The worker can be triggered by messages on the queue, or run on a schedule for batch processing. 
 
 The following patterns might also be relevant when implementing this pattern:

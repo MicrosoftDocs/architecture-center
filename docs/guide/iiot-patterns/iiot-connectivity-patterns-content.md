@@ -45,7 +45,7 @@ Connect to manufacturing machines by using OPC UA standards and an Azure IoT Edg
 ### Considerations
 
   - To deploy an IoT Edge solution, see [Prepare to deploy your IoT Edge solution in production](/azure/iot-edge/production-checklist?view=iotedge-2018-06).
-  - To configure your OPC publisher, see the [OPC publisher module configuration guide](https://github.com/Azure/Industrial-IoT/blob/main/docs/modules/publisher.md).
+  - To configure your OPC publisher, see the [OPC publisher module configuration guide](https://github.com/Azure/Industrial-IoT/tree/main/docs/opc-publisher#configuring-opc-publisher).
   - For security considerations, see [Azure security baseline for IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json).
   - You can install an IoT Edge runtime on a Linux or Windows virtual machine (VM) and dedicated hardware like [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/#overview).
   - To learn when to use IoT Hub instead of Azure IoT Central, see the [Cloud gateway options](#cloud-gateway-options).

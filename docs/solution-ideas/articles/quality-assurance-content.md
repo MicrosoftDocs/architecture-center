@@ -81,7 +81,6 @@ For general guidance on designing resilient solutions, see [Reliability design p
 ## Related resources
 
 - [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
-- [Defect prevention with predictive maintenance](defect-prevention-with-predictive-maintenance.yml)
 - [Predictive Maintenance](predictive-maintenance.yml)
 
 <!-- links -->

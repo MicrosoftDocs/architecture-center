@@ -27,6 +27,6 @@ products:
   - azure-iot-hub
   - azure-sql-database
   - azure-table-storage
-thumbnailUrl: /azure/architecture/browse/thumbs/architecture-big-data-with-iot.svg
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-big-data-with-iot.png
 content: |
    [!include[](big-data-with-iot-content.md)]
