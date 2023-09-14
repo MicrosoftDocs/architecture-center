@@ -60,8 +60,6 @@ Manufacturers can monitor their equipment's key parameters to discover anomalies
 ## Next steps
 
 - For a detailed view of the Industrial Modules and Services, see the Azure Industrial IoT Platform [architecture](https://github.com/Azure/Industrial-IoT/blob/main/docs/web-api/readme.md).
-- For a detailed view of all the individual microservices and agent processes, see [Architectural details](https://github.com/Azure/Industrial-IoT/blob/master/docs/architecture-details.md).
-- You can find more information on how to get started with the Azure Industrial IoT Platform in the [Industrial IoT GitHub repository](https://github.com/Azure/Industrial-IoT/blob/master/docs/architecture-details.md).
 
 ## Related resources
 
