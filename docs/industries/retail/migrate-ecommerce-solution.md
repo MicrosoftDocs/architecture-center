@@ -154,8 +154,6 @@ Principal authors:
 
 Many development teams are tempted to do rehost and refactor simultaneously to address technical debt and better leverage capacity. There are benefits to rehosting before jumping into the next steps.  Any issues in the deployment to the new environment will be easier to diagnose and fix. This in turn gives your development and support teams time to ramp up with Azure as the new environment. As you begin to refactor and rebuild the system, you are building on a stable, working application. This allows for smaller, targeted changes and more frequent updates.
 
-We have published a more general whitepaper on migrating to the cloud: [Cloud Migration Essentials](https://azure.microsoft.com/resources/cloud-migration-essentials-e-book/?_lrsc=9618a836-9f81-4087-901f-51058783c3a8&WT.mc_id=retailecomm-docs-scseely). This is a great piece to read through as you plan out your migration.
-
 Product documentation:
 
 - [Introduction to Azure Advisor](/azure/advisor/advisor-overview?WT.mc_id=retailecomm-docs-scseely)

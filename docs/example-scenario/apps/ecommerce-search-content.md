@@ -141,7 +141,7 @@ To find out more about other Azure components, see these resources:
 [docs-cognitive]: /azure/cognitive-services/what-are-cognitive-services
 [docs-cognitive-service-page]: https://azure.microsoft.com/products/cognitive-services
 [apache-lucene]: https://lucene.apache.org/
-[elastic-marketplace]: https://azuremarketplace.microsoft.com/marketplace/apps/elastic.elasticsearch
+[elastic-marketplace]: https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp
 [end-to-end-walkthrough]: https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs
 [search-sla]: https://go.microsoft.com/fwlink/?LinkId=716855
 [search-tier]: /azure/search/search-sku-tier

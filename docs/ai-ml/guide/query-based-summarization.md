@@ -163,8 +163,6 @@ response = openai.Completion.create(
  = 1
 ```
 
-**Original text:** [SAMPLE_BILL_1](https://github.com/Azure/openai-solutions/blob/main/Solution_Notebooks/Summarization/SummarizationOverview.md#sample_bill_1).
-
 **Ground truth:** National Science Education Tax Incentive for Businesses Act of 2007 - Amends the Internal Revenue Code to allow a general business tax credit for contributions of property or services to elementary and secondary schools and for teacher training to promote instruction in science, technology, engineering, or mathematics.
 
 **Zero-shot model summary:** The National Science Education Tax Incentive for Businesses Act of 2007 would create a new tax credit for businesses that make contributions to science, technology, engineering, and mathematics (STEM) education at the elementary and secondary school level. The credit would be equal to 100 percent of the qualified STEM contributions of the taxpayer for the taxable year. Qualified STEM contributions would include STEM school contributions, STEM teacher externship expenses, and STEM teacher training expenses.
@@ -270,13 +268,9 @@ print('Status: {status}'.format(status = data['status']))
 print('Response Information \n\n {text}'.format(text=r.text))
 ```
 
-**Original text:** [SAMPLE_BILL_1](https://github.com/Azure/openai-solutions/blob/main/Solution_Notebooks/Summarization/SummarizationOverview.md#sample_bill_1).
-
 **Ground truth:** National Science Education Tax Incentive for Businesses Act of 2007 - Amends the Internal Revenue Code to allow a general business tax credit for contributions of property or services to elementary and secondary schools and for teacher training to promote instruction in science, technology, engineering, or mathematics.
 
 **Fine-tuned model summary:** This bill provides a tax credit for contributions to elementary and secondary schools that benefit science, technology, engineering, and mathematics education. The credit is equal to 100% of qualified STEM contributions made by taxpayers during the taxable year. Qualified STEM contributions include: (1) STEM school contributions, (2) STEM teacher externship expenses, and (3) STEM teacher training expenses. The bill also provides a tax credit for contributions to elementary and secondary schools that benefit science, technology, engineering, or mathematics education. The credit is equal to 100% of qualified STEM service contributions made by taxpayers during the taxable year. Qualified STEM service contributions include: (1) STEM service contributions paid or incurred during the taxable year for services provided in the United States or on a military base outside the United States; and (2) STEM inventory property contributed during the taxable year which is used by an educational organization located in the United States or on a military base outside the United States in providing education in grades K-12 in science, technology, engineering or mathematics.
-
-For the results of summarizing a few more bills by using the zero-shot and fine-tune approaches, see [Results for BillSum Dataset](https://github.com/Azure/openai-solutions/blob/main/Solution_Notebooks/Summarization/SummarizationOverview.md#results-for-billsum-dataset).
 
 **Observations:** Overall, the fine-tuned model does an excellent job of summarizing the bill. It captures domain-specific jargon and the key points that are represented but not explained in the human-written ground truth. It differentiates itself from the zero-shot model by providing a more detailed and comprehensive summary.
 
@@ -445,8 +439,6 @@ The input prompt includes the original text from Rathbone's financial report for
 
 The zero-shot model works well for summarizing mainstream documents. If the data is industry-specific or topic-specific, contains industry-specific jargon, or requires industry-specific knowledge, fine-tuning performs best. For example, this approach works well for medical journals, legal forms, and financial statements. You can use the few-shot approach instead of zero-shot to provide the model with examples of how to formulate a summary, so it can learn to mimic the summary provided. For the zero-shot approach, this solution doesn't retrain the model. The model's knowledge is based on the GPT-3 training. GPT-3 is trained with almost all available data from the internet. It performs well for tasks that don't require specific knowledge.
 
-For the results of using the zero-shot summary of summaries approach on a few reports in the financial dataset, see [Results for Summary of Summaries](https://github.com/Azure/openai-solutions/blob/main/Solution_Notebooks/Summarization/SummarizationOverview.md#results-for-summary-of-summaries).
-
 ## Recommendations
 
 There are many ways to approach summarization by using GPT-3, including zero-shot, few-shot, and fine-tuning. The approaches produce summaries of varying quality. You can explore which approach produces the best results for your intended use case.
@@ -530,7 +522,6 @@ Other contributors:
 - [Azure OpenAI - Documentation, quickstarts, API reference](/azure/cognitive-services/openai/)
 - [What are intents in LUIS?](/azure/cognitive-services/LUIS/concepts/intents) 
 - [Conversational language understanding](/azure/cognitive-services/language-service/conversational-language-understanding/overview) 
-- [Jupyter Notebook with technical details and execution of this use case](https://github.com/Azure/openai-solutions/blob/main/Solution_Notebooks/Summarization/SummarizationOverview.md)
 
 ## Related resources 
 
