@@ -97,7 +97,7 @@ Network security groups restrict access to each tier. For example, the database 
 - [Windows N-tier application on Azure with SQL Server][n-tier-windows-SQL]
 - [Microsoft Learn module: Tour the N-tier architecture style](/training/modules/n-tier-architecture/)
 - [Azure Bastion](/azure/bastion/bastion-overview)
-- More information on using [message in N-Tier architectures](https://docs.particular.net/architecture/azure/n-tier)
+- More information on using [messaging in N-Tier architectures](https://docs.particular.net/architecture/azure/n-tier)
 
 
 [autoscaling]: ../../best-practices/auto-scaling.md
