@@ -16,7 +16,7 @@ ms.custom:
   - devx-track-azurecli
 ---
 
-# Patch and upgrade AKS worker nodes
+# Patch and upgrade AKS Guidance
 
 This section of the Azure Kubernetes Service (AKS) day-2 operations guide describes patching and upgrading practices for AKS worker nodes and Kubernetes (K8S) versions. As a cluster operator is crucial to have a strategy for keeping your clusters up to date and monitoring Kubernetes API changes and deprecations over time.
 
@@ -129,8 +129,6 @@ KubernetesVersion    LatestNodeImageVersion                         Name     OsT
 
 You can use node image upgrades to streamline upgrades for both Windows and Linux node pools, but the processes differ slightly. Linux might receive daily security updates, but Windows Server nodes update by performing an AKS upgrade that deploys new nodes with the latest base Window Server image and patches. For more information, see [Patch and upgrade AKS worker nodes](/azure/architecture/operator-guides/aks/aks-upgrade-practices).
 
-
-
 ## Cluster upgrades
 
 ### Background
@@ -234,8 +232,7 @@ For troubleshooting cluster upgrade issues, see [Azure Kubernetes Troubleshootin
 AKS also offers an [automatic cluster upgrade solution](/azure/aks/auto-upgrade-cluster) to keep your cluster up to date.  If you choose to leverage this solution, you should pair it with a [maintenance window](/azure/aks/planned-maintenance) to control upgrade timing.  The upgrade window must be four hours or more.
 When you enroll a cluster in a release channel, Microsoft automatically manages the version and upgrade cadence for the cluster and its node pools.
 
-The cluster auto upgrade offers different release channel options. Below is a recommended enviroment and release channel configuration:
-
+The cluster auto upgrade offers different release channel options. Below is a recommended environment and release channel configuration:
 
 | Environment                     | Upgrade Channel    | Description                                                                                                                                                                                                                                            |
 |---------------------------------|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -258,7 +255,6 @@ The following table describes characteristics of various AKS upgrade and patchin
 |Node image upgrade | Yes  | No | Yes, if an updated node image uses an updated kernel.| Yes  |
 |Cluster auto upgrade | No  | Yes | Yes, if an updated node image uses an updated kernel.  | Yes, if a new release is available.  |
 
-
 - It's possible that an OS security patch applied as part of a node image upgrade will install a later version of the kernel than creating a new cluster.
 - Node pool scale up uses the model that is currently associated with the virtual machine scale set. The OS kernels upgrade when security patches are applied and the nodes reboot.
 - Node pool scale-up uses the model that is associated with the virtual machine scale set at creation. The OS kernels upgrade when the security patches are applied and the nodes reboot.
@@ -269,12 +265,12 @@ The following table describes characteristics of various AKS upgrade and patchin
 
 Principal author:
 
- - [Anthony Nevico](https://www.linkedin.com/in/anthonynevico/) | Principal Cloud Solution Architect
+- [Anthony Nevico](https://www.linkedin.com/in/anthonynevico/) | Principal Cloud Solution Architect
 
 Other contributors:
 
-[Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
- - [Ali Yousefi](https://www.linkedin.com/in/iamaliyousefi/) | Cloud Solution Architect
+- [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
+- [Ali Yousefi](https://www.linkedin.com/in/iamaliyousefi/) | Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
