@@ -26,15 +26,15 @@ This workflow corresponds to the previous diagram:
 
 1. The internal load balancer is used to route the traffic to the back-end services.
 
-1. While the request is processing, the application communicates with other Azure services inside the virtual network. For example, the application might receive secrets from Azure Key Vault or the storing state from the database.
+1. While the request is being processed, the application communicates with other Azure services inside the virtual network. For example, the application might receive secrets from Azure Key Vault or the storing state from the database.
 
 ### Components
 
 The following Azure services are the components in this architecture:
 
-- [Azure Spring Apps Standard](https://azure.microsoft.com/products/spring-apps) is used to host a sample Java Spring Boot application that's implemented as microservices.
+- The standard version of [Azure Spring Apps](https://azure.microsoft.com/products/spring-apps) is used to host a sample Java Spring Boot application that's implemented as microservices.
 
-- [Application Gateway Standard_v2](https://azure.microsoft.com/pricing/details/application-gateway) is the load balancer. It's used to manage traffic to the applications. It acts as a local reverse proxy in the region that your application runs.
+- The standard v2 version of [Application Gateway](https://azure.microsoft.com/products/application-gateway) is the load balancer. It's used to manage traffic to the applications. It acts as a local reverse proxy in the region that your application runs.
 
     This SKU has [Web Application Firewall](https://azure.microsoft.com/products/web-application-firewall) integrated to help protect your web applications from exploits and vulnerabilities. Web Application Firewall on Application Gateway tracks Open Web Application Security Project (OWASP) exploits.
 
@@ -56,7 +56,7 @@ Azure Database for MySQL isn't the only option for a database. You can also use:
 
 Build redundancy in your workload to minimize single points of failure. In this architecture, you replicate components across zones within a region. In your architecture, ensure that you use availability zones for all components in your setup.
 
-Azure services aren't supported in all regions and not all regions support zones. Before you select a region, verify their [regional](https://azure.microsoft.com/global-infrastructure/services) and [zone support](/azure/reliability/availability-zones-service-support#azure-services-with-availability-zone-support).
+Azure services aren't supported in all regions and not all regions support zones. Before you select a region, verify its [regional](https://azure.microsoft.com/global-infrastructure/services) and [zone support](/azure/reliability/availability-zones-service-support#azure-services-with-availability-zone-support).
 
 Zone-redundant services automatically replicate or distribute resources across zones. Always-available services are always available across all Azure geographies and are resilient to zone-wide and region-wide outages.
 
@@ -78,7 +78,7 @@ Multiple availability zones are set up for Application Gateway, including the pu
 
 This architecture uses Azure Database for MySQL with the Flexible Server deployment option to support high availability with automatic failover. Depending on your latency requirements, choose *zone-redundant high availability* or *same-zone high availability*. With a high-availability configuration, the Flexible Server option automatically provisions and manages a standby replica. If there's an outage, committed data isn't lost.
 
-Key Vault is automatically zone redundant in any region in which availability zones are available. The Key Vault instance that's used in this architecture is deployed to enable to secrets for back-end services.
+Key Vault is automatically zone redundant in any region in which availability zones are available. The Key Vault instance that's used in this architecture is deployed to store secrets for back-end services.
 
 ## Scalability
 
@@ -86,7 +86,7 @@ Scalability indicates the ability of the workload to efficiently meet the demand
 
 This architecture has several components that can autoscale based on metrics:
 
-- Application Gateway supports autoscaling. For more information, see [Scale Application Gateway_v2 and Web Application Firewall_v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
+- Application Gateway supports automatic scaling. For more information, see [Scale Application Gateway v2 and Web Application Firewall v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
 
 - Azure Spring Apps supports autoscaling. For more information, see [Set up autoscale for applications](/azure/spring-apps/how-to-setup-autoscale).
 
@@ -134,13 +134,13 @@ For information about reverse proxy scenarios, how to set them up, and their sec
 
 ## Identity and access management
 
-In addition to network controls, strengthen the security posture by using identity as the perimeter.
+In addition to using network controls, strengthen the security posture by using identity as the perimeter.
 
-The application should authenticate itself when it connects with the back-end services, like if the application retrieves secrets from Key Vault. In the application, the recommended approach is to enable [Microsoft Entra ID managed-identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview). This method of configuration assigns an identity to the application and so it can obtain [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) tokens, which reduces the overhead of managing credentials.
+The application should authenticate itself when it connects with the back-end services, like if the application retrieves secrets from Key Vault. In the application, the recommended approach is to enable [Microsoft Entra ID managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview). This method of configuration assigns an identity to the application so it can obtain [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) tokens, which reduces the overhead of managing credentials.
 
 This architecture uses [system-assigned managed identities](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) for several interactions.
 
-The back-end services should allow access to the service principal that's allocated to the managed identity. The service should define minimal access policies for certain actions. In this architecture, Key Vault is used to provide the application access to retrieve and list the secrets, certificates, and keys.  
+The back-end services should allow access to the service principal that's allocated to the managed identity. The service should define minimal access policies for certain actions. In this architecture, Key Vault is used to give the application access to the secrets, certificates, and keys.  
 
 ## Secret management
 
@@ -154,7 +154,7 @@ Add instrumentation to your application to emit logs and metrics at the code lev
 
 Use platform diagnostics to get logs and metrics from all Azure services, such as Azure Database for MySQL. Integrate all data with [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) to provide end-to-end insight into your application and the platform services.  
 
-[Azure Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview) is the monitoring data sink that collects logs and metrics from the Azure resources and Application Insights. This logging solution provides visibility, which helps automation scale components in real time. Analyzing log data can also reveal inefficiencies in application code that you can address to improve costs and performance.
+[Azure Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview) is the monitoring data sink that collects logs and metrics from the Azure resources and Application Insights. This logging solution provides visibility, which helps automation processes to scale components in real time. Analyzing log data can also reveal inefficiencies in application code that you can address to improve costs and performance.
 
 For Spring App-specific monitoring guidance, see [Monitor applications end-to-end](/azure/spring-apps/quickstart-monitor-end-to-end-enterprise) and [Monitor with Dynatrace Java OneAgent](/azure/spring-apps/how-to-dynatrace-one-agent-monitor).
 
@@ -192,7 +192,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Implement the following suggestions to create a more secure application:
 
-- Use mature identity and access management (IAM) solutions, like Microsoft Entra ID. Enable multi-factor authentication (MFA). For more information, see:
+- Use mature identity and access management (IAM) solutions, like Microsoft Entra ID. Enable multifactor authentication. For more information, see:
   - [Add sign-in with a Microsoft Entra ID account to a Spring Boot web app](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory)
   - [Add sign-in with Azure Active Directory B2C (Azure AD B2C) to a Spring Boot web app](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc).
 
