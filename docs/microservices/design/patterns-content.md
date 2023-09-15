@@ -16,6 +16,8 @@ The goal of microservices is to increase the velocity of application releases, b
 
 [**Gateway Routing**](../../patterns/gateway-routing.yml) routes requests to multiple microservices using a single endpoint, so that consumers don't need to manage many separate endpoints.
 
+[**Messaging Bridge**](../../patterns/messaging-bridge.yml) integrates disparate systems built with different messaging infrastructures.
+
 [**Sidecar**](../../patterns/sidecar.yml) deploys helper components of an application as a separate container or process to provide isolation and encapsulation.
 
 [**Strangler Fig**](../../patterns/strangler-fig.yml) supports incremental refactoring of an application, by gradually replacing specific pieces of functionality with new services.
