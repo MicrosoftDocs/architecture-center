@@ -2568,6 +2568,8 @@ items:
         href: reference-architectures/hybrid-networking/expressroute.yml
       - name: Hybrid availability and monitoring
         href: hybrid/hybrid-perf-monitoring.yml
+      - name: Hybrid cross cluster scaling
+        href: hybrid/hybrid-cross-cluster-scaling.yml
       - name: Hybrid file services
         href: hybrid/hybrid-file-services.yml
       - name: Hybrid file share with disaster recovery
