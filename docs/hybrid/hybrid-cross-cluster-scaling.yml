@@ -25,6 +25,6 @@ products:
   - azure-expressroute
   - azure-files
   - azure-storage-accounts
-thumbnailUrl: /azure/architecture/docs/browse/thumbs/hybrid-cross-cluster-scaling-with-azure-arc.png
+thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-cross-cluster-scaling-with-azure-arc.png
 content: |
    [!include[](hybrid-cross-cluster-scaling-content.md)]
