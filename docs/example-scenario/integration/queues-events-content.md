@@ -139,6 +139,7 @@ For more information, see the Service Bus documentation:
 - [Basic enterprise integration on Azure](../../reference-architectures/enterprise-integration/basic-enterprise-integration.yml)
 - [Enterprise business intelligence](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse)
 - [Custom Business Processes](../../solution-ideas/articles/custom-business-processes.yml)
+- [A code-centric tutorial that uses messaging for integrating 3rd party systems using NServiceBus](https://docs.particular.net/tutorials/nservicebus-sagas/3-integration/)
 
 [aaf-cost]: /azure/architecture/framework/cost/overview
 [apim]: /azure/api-management
