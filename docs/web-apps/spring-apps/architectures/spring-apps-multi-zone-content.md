@@ -22,7 +22,7 @@ The following Azure services are the components in this architecture. For produc
 
 - **Azure Spring Apps Standard** hosts a sample Java Spring Boot application implemented as microservices. 
 
-- **Azure Application Gateway Standard_v2** is the load balancer and manages traffic to the applications. It acts a local reverse proxy in a region where your application runs. 
+- **Azure Application Gateway Standard_v2** is the load balancer and manages traffic to the applications. It acts as a local reverse proxy in a region where your application runs. 
 
     This SKU has the integrated Azure Web Application Firewall that provides centralized protection of your web applications from common exploits and vulnerabilities. Web Application Firewall on Application Gateway tracks Open Web Application Security Project (OWASP) exploits.
 
@@ -43,6 +43,14 @@ The reference architecture implements the following workflow:
 1. The internal load balancer routes the traffic to the back-end services.
 
 1. As part of processing the request, the application communicates with other Azure services inside the virtual network. Examples include the application communicating with Key Vault for secrets and the database for storing state. 
+
+### Alternatives
+
+Azure Database for MySQL is not the only option for a database. You can choose other options, for example:
+
+- [Azure Database for PostgreSQL](https://azure.microsoft.com/products/postgresql).
+- [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db).
+- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/).
 
 ## Redundancy
 
@@ -139,11 +147,15 @@ This architecture stores the application secrets and certificates in a single ke
 
 ## Monitoring
 
-Add instrumentation to your application to emit log and metrics at the code level. Also consider enabling distributed tracing for observability across different services within the Azure Spring Apps instance. Use an Application Performance Management (APM) tool to collect that data. The [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview) Java agent for [Azure Monitor](/azure/azure-monitor/overview) is a good choice for the APM tool.
+[Azure Monitor](/azure/azure-monitor/overview) is a comprehensive monitoring solution for collecting, analyzing, and responding to monitoring data from your cloud and on-premises environments. 
 
-In addition, use platform diagnostics to get logs and metrics from all the Azure services. Integrate all data with [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) to provide end-to-end insight into your application.
+Add instrumentation to your application to emit logs and metrics at the code level. Also consider enabling distributed tracing for observability across different services within the Azure Spring Apps instance. Use an Application Performance Management (APM) tool to collect logs and metrics data. The [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview) Java agent for Azure Monitor is a good choice for the APM tool.
 
-This comprehensive logging solution provides visibility for automation to scale components in real time. Analyzing log data can also reveal inefficiencies in application code that you can address to improve costs and performance.
+In addition, use platform diagnostics to get logs and metrics from all the Azure services, such as Azure Database for MySQL. Integrate all data with [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) to provide end-to-end insight into your application and the platform services.  
+
+[Azure Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview) is the monitoring data sink that collects logs and metrics from the Azure resources and Application Insights. This comprehensive logging solution provides visibility for automation to scale components in real time. Analyzing log data can also reveal inefficiencies in application code that you can address to improve costs and performance. 
+
+For Spring App specific monitoring guidance, see [Monitor application end-to-end](/azure/spring-apps/quickstart-monitor-end-to-end-enterprise) and [Monitor with Dynatrace Java OneAgent](/azure/spring-apps/how-to-dynatrace-one-agent-monitor).
 
 ## Automated deployment
 
@@ -153,7 +165,38 @@ Automating infrastructure deployments guarantees that infrastructure is configur
 
 You can also use a [blue-green](/azure/architecture/web-apps/spring-apps/guides/blue-green-spring) or canary deployment strategy for your applications.
 
-## Cost considerations
+## Considerations
+
+This architecture is designed in alignment with the pillars of the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework), which is a set of guiding tenets that can be used to improve the quality of a workload. The following considerations provide guidance for implementing the pillars of the Azure Well-Architected Framework in the context of this architecture. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Reliability
+
+Reliability ensures that your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+
+The following suggestions can help you provide a more reliable application:
+
+- [Deploy Azure Spring Apps to multiple regions](/azure/architecture/web-apps/spring-apps/architectures/spring-apps-multi-region).
+- Use [blue-green deployment](/azure/spring-apps/concepts-blue-green-deployment-strategies), to make it easy to roll back to a previous healthy state if critical issues occur.
+- [Set up autoscale for applications](/azure/spring-apps/how-to-setup-autoscale) to help your application perform better when demand changes.
+- Enable [Spring Boot web graceful shutdown](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#web.graceful-shutdown), and configure [Azure Spring Apps graceful termination](/azure/spring-apps/how-to-configure-health-probes-graceful-termination?tabs=azure-portal#graceful-termination) to forcibly halt processes running in the app instance. 
+
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
+The following suggestions can help you provide a more secure application:
+
+- Use mature Identity and Access Management solutions like Azure Active Directory and enable multi-factor authentication (MFA). Refer to the following resources for more implementation details:
+  - [Add sign-in with Azure AD to a Spring web app](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory).
+  - [Add sign-in with Azure AD B2C to a Spring web app](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc).
+- Avoid using passwords when possible:
+  - [Migrate an application to use passwordless connections with Azure Database for PostgreSQL](/azure/developer/java/spring-framework/migrate-postgresql-to-passwordless-connection?tabs=sign-in-azure-cli%2Cjava%2Capp-service%2Cassign-role-service-connector).
+  - [Load a secret from Azure Key Vault in a Spring Boot application](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault).
+- Refer to [Azure security baseline for Azure Spring Apps](/security/benchmark/azure/baselines/azure-spring-apps-security-baseline) for recommendations on how you can secure your Azure Spring App.
+
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 There's a tradeoff on cost. Expect higher cost because the components are deployed in multiple zones. Instead of one instance of Spring Apps, they run two or even three instances. However, there's no extra cost for enabling zone redundancy on the service. For more information, see [Spring Apps - Pricing](/azure/spring-apps/how-to-enable-redundancy-and-disaster-recovery?tabs=azure-cli#pricing).
 
@@ -162,8 +205,32 @@ Consider the following implementation choices to address costs:
 - You can deploy different applications and application types to a single instance of Spring Apps. When you deploy multiple applications, the cost of the underlying infrastructure is shared across applications.
 - Spring Apps supports application autoscaling triggered by metrics or schedules, which can improve utilization and cost efficiency.
 - You can use Application Insights in Azure Monitor to lower operational costs. Continuous monitoring can help address issues quicker and improve costs and performance.
+- Choose the best pricing tier based on your requirements:
+  - [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/)
+  - [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/server/)
+- Use [autoscale for applications](/azure/spring-apps/how-to-setup-autoscale) to scale up and down based on demand.
 
 We estimated the cost of services in this architecture with the [Azure pricing calculator](https://azure.com/e/414c5e0b15494e5081cc9f008d82fdaa) by using reasonable default values for a small-scale application. You can update this estimate based on the expected throughput values for your application.
+
+### Operational excellence
+
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+
+In addition to the [monitoring guidance](#monitoring) covered previously, following these suggestions can help you deploy and monitor your application easier:
+
+- Automate app deployments [with Azure DevOps](/azure/spring-apps/how-to-cicd) or [with GitHub Actions](/azure/spring-apps/how-to-github-actions).
+- [Monitoring Azure Spring Apps apps with logs, metrics, and tracing](/azure/spring-apps/quickstart-logs-metrics-tracing?tabs=Azure-CLI&pivots=programming-language-java).
+- [Monitor metrics on Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/concepts-monitoring).
+- Use [Azure Managed Grafana](/azure/managed-grafana/overview) to view and analyze application and infrastructure telemetry data in real-time.
+
+### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+
+Consider the following suggestions to improve your application's performance efficiency:
+
+- Scale apps [manually](/azure/spring-apps/how-to-scale-manual) or [automatically](/azure/spring-apps/how-to-setup-autoscale).
+- [Scale Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-scale-compute-storage-portal).
 
 ## Scenario deployment
 
@@ -212,4 +279,4 @@ We recommend the following guides for a deeper understanding about the configura
 - [Expose Azure Spring Apps through a reverse proxy](../guides/spring-cloud-reverse-proxy.yml)
 - [High-availability blue/green deployment for applications](../../../example-scenario/blue-green-spring/blue-green-spring.yml)
 
-This architecture is designed in alignment with the pillars of the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework). We recommend that you review the design principles for each pillar.
+To learn about the fundamental steps required to build your own Spring App, see [Quickstart: Deploy your first web application to Azure Spring Apps](/azure/spring-apps/quickstart-deploy-web-app).
