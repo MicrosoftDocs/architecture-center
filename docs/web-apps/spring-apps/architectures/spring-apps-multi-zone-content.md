@@ -1,14 +1,14 @@
-This reference architecture describes an approach for running Java Spring Boot workloads on Azure Spring Apps. The design focuses on achieving high availability by using zone redundancy. The intent of the design is to prevent the application from failing if there's an outage in all datacenters in a zone.
+This reference architecture describes how to run Java Spring Boot workloads on Azure Spring Apps. The design uses zone redundancy to achieve high availability. Implement this design to prevent an application from failing if there's an outage in all datacenters in a zone.
 
-This architecture helps you meet the following goals:
+This architecture helps you:
 
 - Increase the availability of your application over a single-zone deployment.
 - Increase the overall resilience and service-level objective (SLO) of your application.
 
-This solution presents a baseline strategy for Azure Spring Apps deployment. Other solutions that build on this architecture are [deployment to multiple regions](spring-apps-multi-region.yml) and [deployment with integrated landing zones](spring-apps-landing-zone.yml).
+This solution presents a baseline strategy for Azure Spring Apps deployment. For other solutions that build on this architecture, see [Deploy Azure Spring Apps to multiple regions](spring-apps-multi-region.yml) and [Azure Spring Apps integrated with landing zones](spring-apps-landing-zone.yml).
 
 > [!TIP]
-> ![GitHub logo](../../../_images/github.svg) See an [example implementation](https://github.com/Azure-Samples/azure-spring-apps-multi-zone) on GitHub that illustrates some of the design choices of this architecture. Consider the implementation as your first step toward production.
+> ![GitHub logo](../../../_images/github.svg) See an [example implementation](https://github.com/Azure-Samples/azure-spring-apps-multi-zone) that illustrates some of the design choices of this architecture. Consider this implementation as your first step toward production.
 
 ## Architecture
 
@@ -20,25 +20,25 @@ The following diagram shows the architecture for this approach:
 
 This workflow corresponds to the previous diagram:
 
-1. The user accesses the application by using the HTTP host name of the application such as `www.contoso.com`. Azure DNS is used to resolve the request for this host name to the Azure Application Gateway public endpoint.
+1. The user accesses the application by using the HTTP host name of the application, such as `www.contoso.com`. Azure DNS is used to resolve the request for this host name to the Azure Application Gateway public endpoint.
 
-1. Application Gateway is used to inspect the request and forwards the allowed traffic to the IP address of the load balancer in the provisioned Azure Spring Apps instance. Application Gateway is integrated with Azure Web Application Firewall.
+1. Application Gateway is used to inspect the request. It's also used to forward the allowed traffic to the IP address of the load balancer that's in the provisioned Azure Spring Apps instance. Application Gateway is integrated with Azure Web Application Firewall.
 
 1. The internal load balancer is used to route the traffic to the back-end services.
 
-1. As part of processing the request, the application communicates with other Azure services inside the virtual network. For example, the application might receive secrets from Azure Key Vault, and it might receive the storing state from the database.
+1. While the request is processing, the application communicates with other Azure services inside the virtual network. For example, the application might receive secrets from Azure Key Vault or the storing state from the database.
 
 ### Components
 
-The following Azure services are the components in this architecture.
+The following Azure services are the components in this architecture:
 
 - [Azure Spring Apps Standard](https://azure.microsoft.com/products/spring-apps) is used to host a sample Java Spring Boot application that's implemented as microservices.
 
 - [Application Gateway Standard_v2](https://azure.microsoft.com/pricing/details/application-gateway) is the load balancer. It's used to manage traffic to the applications. It acts as a local reverse proxy in the region that your application runs.
 
-    This SKU has [Web Application Firewall](https://azure.microsoft.com/products/web-application-firewall) integrated to protect your web applications from common exploits and vulnerabilities. Web Application Firewall on Application Gateway tracks the Open Web Application Security Project (OWASP) exploits.
+    This SKU has [Web Application Firewall](https://azure.microsoft.com/products/web-application-firewall) integrated to help protect your web applications from exploits and vulnerabilities. Web Application Firewall on Application Gateway tracks Open Web Application Security Project (OWASP) exploits.
 
-- [Azure DNS](https://azure.microsoft.com/products/dns) is used to resolve requests that are sent to the host name of the application to the Application Gateway public endpoint. [Azure DNS private zones](/azure/dns/private-dns-privatednszone) are used to resolve requests to the private endpoints that access the named [Azure Private Link](https://azure.microsoft.com/products/private-link) resources.
+- [Azure DNS](https://azure.microsoft.com/products/dns) is used to resolve requests that are sent to the host name of the application. It resolves those requests to the Application Gateway public endpoint. [Azure DNS private zones](/azure/dns/private-dns-privatednszone) are used to resolve requests to the private endpoints that access the named [Azure Private Link](https://azure.microsoft.com/products/private-link) resources.
 
 - [Azure Database for MySQL](https://azure.microsoft.com/products/mysql) is used to store state in a back-end relational database.
 
@@ -54,13 +54,13 @@ Azure Database for MySQL isn't the only option for a database. You can also use:
 
 ## Redundancy
 
-Build redundancy in your workload to minimize single points of failure. In this architecture, you replicate components across zones within the selected region. When you use availability zones in your architecture, ensure that you use availability zones for all components in your setup.
+Build redundancy in your workload to minimize single points of failure. In this architecture, you replicate components across zones within a region. In your architecture, ensure that you use availability zones for all components in your setup.
 
-Azure services aren't supported in all regions and not all regions support zones. Before you select a region, check their [regional](https://azure.microsoft.com/global-infrastructure/services) and [zone support](/azure/reliability/availability-zones-service-support#azure-services-with-availability-zone-support).
+Azure services aren't supported in all regions and not all regions support zones. Before you select a region, verify their [regional](https://azure.microsoft.com/global-infrastructure/services) and [zone support](/azure/reliability/availability-zones-service-support#azure-services-with-availability-zone-support).
 
 Zone-redundant services automatically replicate or distribute resources across zones. Always-available services are always available across all Azure geographies and are resilient to zone-wide and region-wide outages.
 
-The following table shows the resiliency types for the services in this architecture.
+The following table shows the resiliency types for the services in this architecture:
 
 |Service|Resiliency|
 |---|---|
@@ -72,17 +72,17 @@ The following table shows the resiliency types for the services in this architec
 |Azure Virtual Network|Zone redundant|
 |Azure private endpoints|Zone redundant|
 
-Azure Spring Apps supports zonal redundancy. With zone redundancy, all underlying infrastructure of the service is spread across multiple availability zones, which provides higher availability for the application. Applications are scaled horizontally without any code changes. Azure availability zones are connected by a high-performance network and have a roundtrip latency of less than 2 milliseconds (ms). You don't have to rely on asynchronous replication for data workloads, which often presents extra design challenges.
+Azure Spring Apps supports zone redundancy. With zone redundancy, all underlying infrastructure of the service is spread across multiple availability zones, which provides higher availability for the application. Applications scale horizontally without any code changes. A high-performance network connects Azure availability zones. The connection has a roundtrip latency of less than 2 milliseconds (ms). You don't have to rely on asynchronous replication for data workloads, which often presents design challenges.
 
-Multiple availability zones are set up for Application Gateway including the public IP address that Application Gateway uses. There's [availability zone](/azure/virtual-network/ip-services/public-ip-addresses#availability-zone) support for public IP addresses with a standard SKU.
+Multiple availability zones are set up for Application Gateway, including the public IP address that Application Gateway uses. Public IP addresses with a standard SKU support [availability zones](/azure/virtual-network/ip-services/public-ip-addresses#availability-zone).
 
-This architecture uses Azure Database for MySQL with the flexible server deployment option to support high availability with automatic failover. Depending on your latency requirements, you can choose between *zone-redundant high availability* and *same-zone high availability*. With the high-availability configuration, the flexible server option automatically provisions and manages a standby replica. If there's an outage, committed data isn't lost.
+This architecture uses Azure Database for MySQL with the Flexible Server deployment option to support high availability with automatic failover. Depending on your latency requirements, choose *zone-redundant high availability* or *same-zone high availability*. With a high-availability configuration, the Flexible Server option automatically provisions and manages a standby replica. If there's an outage, committed data isn't lost.
 
-Key Vault is automatically zone redundant in any region in which availability zones are available. The Key Vault instance that's used in this architecture is deployed to enable back-end services access to secrets.
+Key Vault is automatically zone redundant in any region in which availability zones are available. The Key Vault instance that's used in this architecture is deployed to enable to secrets for back-end services.
 
 ## Scalability
 
-Scalability indicates the ability of the workload to efficiently meet the demands that are placed on it by users. The multi-zone approach is better for scalability than a single-zone deployment because it spreads the load across availability zones.
+Scalability indicates the ability of the workload to efficiently meet the demands that users place on it. The multi-zone approach is better for scalability than a single-zone deployment because it spreads the load across availability zones.
 
 This architecture has several components that can autoscale based on metrics:
 
@@ -94,9 +94,9 @@ Depending on your database setup, you might incur extra latency when you need to
 
 ## Network security
 
-Protect the application from unauthorized access from the internet, systems in private networks, other Azure services, and some tightly coupled dependencies.
+Protect your application from unauthorized access from the internet, systems in private networks, other Azure services, and tightly coupled dependencies.
 
-[Virtual Network](https://azure.microsoft.com/products/virtual-network) is the fundamental building block for a private network in Azure. This architecture uses a virtual network for your deployment's region. Place components in subnets to create further isolation. Azure Spring Apps requires a dedicated subnet for the service runtime and a separate subnet for Java Spring Boot applications.
+[Virtual Network](https://azure.microsoft.com/products/virtual-network) is the fundamental building block for a private network in Azure. This architecture uses a virtual network for the deployment's region. Place components in subnets to create further isolation. Azure Spring Apps requires a dedicated subnet for the service runtime and a separate subnet for Java Spring Boot applications.
 
 Protect your virtual networks with [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview). Combine distributed denial of service (DDoS) protection with application design best practices to provide enhanced mitigations to defend against DDoS attacks.
 
@@ -106,13 +106,13 @@ The architecture design incorporates several platform as a service (PaaS) soluti
 
 Use private endpoints or network integration to provide communication from Azure Spring Apps to supporting services, like Key Vault and Azure Database for MySQL.
 
-You can control access by using private endpoints. These network interfaces use private IP addresses to transfer the services into the virtual network. The architecture has Azure services that automatically set up the private endpoints.
+Use private endpoints to control access. The network interfaces use private IP addresses to transfer the services into the virtual network. This architecture uses Azure services that automatically set up the private endpoints.
 
-Deploy Azure Spring Apps into the network via the [Virtual network injection](/azure/spring-apps/how-to-deploy-in-azure-virtual-network) process. The application is accessed by reaching the private IP address.
+Deploy Azure Spring Apps into the network via the [virtual network injection process](/azure/spring-apps/how-to-deploy-in-azure-virtual-network). The application is accessed by reaching the private IP address.
 
-The database also follows a similar model. The [flexible server deployment mode of Azure Database for MySQL](/azure/mysql/flexible-server/overview) supports virtual network integration via a dedicated subnet.
+The database follows a similar model. The [Flexible Server deployment mode of Azure Database for MySQL](/azure/mysql/flexible-server/overview) supports virtual network integration via a dedicated subnet.
 
-There are other services, such as Key Vault, that are connected to the virtual network via [Private Link](/azure/private-link/private-link-overview). For Private Link, you need to enable a private endpoint to disable public network access. For more information, see [Integrate Key Vault with Private Link](/azure/key-vault/general/private-link-service).
+Other services, such as Key Vault, are connected to the virtual network via [Private Link](/azure/private-link/private-link-overview). For Private Link, you need to enable a private endpoint to disable public network access. For more information, see [Integrate Key Vault with Private Link](/azure/key-vault/general/private-link-service).
 
 Private endpoints don't require a dedicated subnet, but it's good practice to place them in a separate subnet. Private IP addresses to the private endpoints are assigned from that subnet.
 
@@ -120,7 +120,7 @@ The private endpoint and network-integrated connections use an [Azure DNS privat
 
 ### Controls on the traffic flow
 
-With this architecture, incoming requests are only allowed through the public endpoint that's exposed by Application Gateway. The traffic still needs to be inspected to block common exploits and vulnerabilities. Web Application Firewall on the Application Gateway tracks OWASP vulnerabilities. Incoming traffic is inspected based on the configured rules with an action to follow.
+With this architecture, incoming requests are allowed only through the public endpoint that's exposed by Application Gateway. The traffic still needs to be inspected to block exploits and vulnerabilities. Web Application Firewall on the Application Gateway tracks OWASP vulnerabilities. Incoming traffic is inspected based on the configured rules with an action to follow.
 
 The Azure Spring Apps instance has an internal load balancer that routes and distributes traffic to the back-end services. The load balancer is configured to accept traffic only from Application Gateway.
 
@@ -176,7 +176,7 @@ The following considerations provide guidance for implementing the pillars of th
 
 Reliability ensures that your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-Implement following suggestions to create a more reliable application.
+Implement the following suggestions to create a more reliable application:
 
 - [Deploy Azure Spring Apps to multiple regions](/azure/architecture/web-apps/spring-apps/architectures/spring-apps-multi-region).
 
@@ -190,7 +190,7 @@ Implement following suggestions to create a more reliable application.
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-Implement following suggestions to create a more secure application.
+Implement the following suggestions to create a more secure application:
 
 - Use mature identity and access management (IAM) solutions, like Microsoft Entra ID. Enable multi-factor authentication (MFA). For more information, see:
   - [Add sign-in with a Microsoft Entra ID account to a Spring Boot web app](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory)
@@ -208,7 +208,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 For this architecture, expect higher cost because you deploy components in multiple zones. Instead of one instance of Azure Spring Apps, you run two or even three instances. But there's no extra cost for enabling zone redundancy on the service. For more information, see [Azure Spring Apps pricing](/azure/spring-apps/how-to-enable-redundancy-and-disaster-recovery#pricing).
 
-Consider the following implementation choices to address costs.
+Consider the following implementation choices to address costs:
 
 - You can deploy different applications and application types to a single instance of Azure Spring Apps. When you deploy multiple applications, the cost of the underlying infrastructure is shared across applications.
 
@@ -242,7 +242,7 @@ In addition to the [monitoring guidance](#monitoring) covered previously, implem
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Overview of the performance efficiency pillar](/azure/architecture/framework/scalability/overview).
 
-Implement following suggestions to create a more efficient application.
+Implement the following suggestions to create a more efficient application:
 
 - Scale apps [manually](/azure/spring-apps/how-to-scale-manual) or [automatically](/azure/spring-apps/how-to-setup-autoscale).
 
@@ -264,14 +264,13 @@ Principal author:
 
 ## Next steps
 
-- [Deploy Azure Spring Apps to multiple regions](spring-apps-multi-region.yml)
-- [Azure Spring Apps integrated with landing zones](spring-apps-landing-zone.yml)
-- [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview)
-- [Expose Azure Spring Apps through a reverse proxy](../guides/spring-cloud-reverse-proxy.yml)
-- [High-availability blue/green deployment for applications](../../../example-scenario/blue-green-spring/blue-green-spring.yml)
 - [Quickstart: Deploy your first web application to Azure Spring Apps](/azure/spring-apps/quickstart-deploy-web-app)
+- [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview)
 
 ## Related resources
 
+- [Azure Spring Apps integrated with landing zones](spring-apps-landing-zone.yml)
+- [Deploy Azure Spring Apps to multiple regions](spring-apps-multi-region.yml)
+- [Expose Azure Spring Apps through a reverse proxy](../guides/spring-cloud-reverse-proxy.yml)
+- [High-availability blue-green deployments for applications](../../../example-scenario/blue-green-spring/blue-green-spring.yml)
 - [Identity and access management for the Azure Spring Apps landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/identity-and-access-management)
-- 
