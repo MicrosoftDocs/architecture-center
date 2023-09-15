@@ -4,7 +4,7 @@ This solution demonstrates how to achieve cross-cluster scaling of workloads dep
 
 The architecture shows the deployment of hybrid solutions by using Azure Arc-enabled services on Azure Stack HCI, Azure Pipelines, and the integration of a global load balancer and an Azure Function App.
 
-![Diagram of the <solution name> architecture.](./images/hybrid-cross-cluster-scaling-with-azure-arc.png)
+![Diagram of the hybrid cross cluster scaling architecture.](./images/hybrid-cross-cluster-scaling-with-azure-arc.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/hybrid-cross-cluster-scaling-with-azure-arc.vsdx) of this architecture.*
 
