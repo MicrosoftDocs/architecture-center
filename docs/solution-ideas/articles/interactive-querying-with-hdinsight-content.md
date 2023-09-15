@@ -64,6 +64,6 @@ Use cases for this solution range from ETL workloads and data warehousing to mac
 ## Related resources
 
 - [Extract, transform, and load (ETL) using HDInsight](./extract-transform-and-load-using-hdinsight.yml)
-- [Predictive maintenance](./predictive-maintenance.yml)
+- [Predictive maintenance](../../industries/manufacturing/predictive-maintenance-overview.yml)
 - [Batch processing](../../data-guide/big-data/batch-processing.yml)
 - [Use a demand forecasting model for price optimization](./demand-forecasting-price-optimization-marketing.yml)

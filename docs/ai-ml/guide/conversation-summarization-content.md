@@ -12,8 +12,6 @@ This guide focuses on the process for summarizing transcripts by using Azure Ope
 
 On average, it takes an agent 5 to 6 minutes to summarize a single agent-customer conversation. Given the high volumes of requests service teams handle on any given day, this additional task can overburden the team. OpenAI is a good way to help agents with summarization-related activities. It can improve the efficiency of the customer support process and provide better precision. Conversation summarization can be applied to any customer support task that involves agent-customer interaction. 
 
-For a demonstration of how to use the Azure OpenAI GPT-3 model for conversation summarization, see this [Jupyter Notebook](https://github.com/Azure/openai-solutions/tree/conversational-summarization-v0/Solution_Notebooks/Conversational%20Summarization). You can use the notebook to experiment with summarization on your datasets.
-
 ### Conversation summarization service
 
 Conversation summarization is suitable in scenarios where customer support conversations follow a question-and-answer format.
@@ -451,7 +449,6 @@ Other contributor:
 
 ## Next steps
 
-- [Jupyter Notebook with technical details and execution of the use case described in this article](https://github.com/Azure/openai-solutions/tree/conversational-summarization-v0/Solution_Notebooks/Conversational%20Summarization)
 - [More information about Azure OpenAI](/azure/cognitive-services/openai/)
 - [ROUGE reference article](https://aclanthology.org/W04-1013.pdf)
 - [Training module: Introduction to Azure OpenAI Service](/training/modules/explore-azure-openai/)

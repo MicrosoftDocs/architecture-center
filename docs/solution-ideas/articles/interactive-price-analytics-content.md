@@ -147,6 +147,6 @@ Explore related architectures:
 
 - [Demand forecasting for shipping and distribution](./demand-forecasting-for-shipping-and-distribution.yml)
 - [Use a demand forecasting model for price optimization](./demand-forecasting-price-optimization-marketing.yml)
-- [Predictive maintenance](./predictive-maintenance.yml)
+- [Predictive maintenance](../../industries/manufacturing/predictive-maintenance-overview.yml)
 - [Predictive insights with vehicle telematics](./predictive-insights-with-vehicle-telematics.yml)
 - [Predictive aircraft engine monitoring](./aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)
