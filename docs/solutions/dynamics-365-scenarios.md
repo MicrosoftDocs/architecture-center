@@ -10,7 +10,7 @@ ms.subservice: azure-guide
 products:
   - dynamics-365
   - dynamics-customer-engagement
-  - dynamics-cust-insights
+  - customer-insights-data
   - dynamics-sales
   - dynamics-cust-svc-insights
 categories:

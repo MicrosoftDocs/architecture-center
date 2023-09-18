@@ -13,7 +13,7 @@ azureCategories:
   - analytics
   - ai-machine-learning
 products:
-  - dynamics-cust-insights
+  - customer-insights-data
   - azure-synapse-analytics
   - azure-machine-learning
   - power-bi
