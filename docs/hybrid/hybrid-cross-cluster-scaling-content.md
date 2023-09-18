@@ -242,12 +242,12 @@ Other contributors:
 
 ## Next steps
 
-- /azure/architecture/hybrid/deployments/solution-deployment-guide-highly-available-kubernetes?toc=/hybrid/app-solutions/toc.json&bc=/hybrid/breadcrumb/toc.json 
-
-- [High availability Kubernetes pattern using Azure and Azure Stack Hub - Azure Hybrid App Solutions](/hybrid/app-solutions/pattern-highly-available-kubernetes)
+- [Deploy a high availability Kubernetes cluster on Azure Stack Hub](/azure/architecture/hybrid/deployments/solution-deployment-guide-highly-available-kubernetes?toc=/hybrid/app-solutions/toc.json&bc=/hybrid/breadcrumb/toc.json)
+- [High availability Kubernetes pattern using Azure and Azure Stack Hub](/hybrid/app-solutions/pattern-highly-available-kubernetes)
+- [Azure Kubernetes Service (AKS) documentation](/azure/aks)
 
 ## Related resources
 
 - [Cross-cloud scaling (on-premises data) pattern](/hybrid/app-solutions/pattern-cross-cloud-scale-onprem-data)
-
-- []https://microsoftapc-my.sharepoint.com/personal/mabhavsar_microsoft_com/Documents/Azure%20HCI%20Stack%20-%20High%20Availability%20of%20On-premise%20Workloads%20with%20Cross-Cluster%20scaling.docx
+- [Cross-cloud scaling pattern](/hybrid/app-solutions/pattern-cross-cloud-scale)
+- [Cross-cloud scaling with Azure Functions](/azure/architecture/solution-ideas/articles/cross-cloud-scaling)
