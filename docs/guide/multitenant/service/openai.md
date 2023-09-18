@@ -81,9 +81,9 @@ The following diagram illustrates the Shared Azure OpenAI model.
 
 ![Shared Azure OpenAI](./media/openai/shared-openai.png)
 
-#### Azure OpenAI model per tenant
+#### Shared Azure OpenAI instance with model per tenant
 
-When you use a shared Azure OpenAI Service, deploying individual instances of the same model for each tenant's exclusive use can offer significant benefits. This approach allows for enhanced parameter customization for each deployment and facilitates tenant-specific TPM allocation, which can help achieve more precise cost allocation and management. It clearly explains resource consumption and expenses associated with each tenant's usage. Furthermore, it can optimize resource utilization, ensuring that each tenant only pays for their required resources, leading to more cost-effective solutions. In addition, this method promotes scalability and adaptability, as tenants can adjust their resource allocation based on their evolving needs and usage patterns.
+When you use a shared Azure OpenAI Service, deploying individual instances of the same model for each tenant's exclusive use can offer significant benefits. This approach allows for enhanced parameter customization for each deployment. This approach also facilitates tenant-specific TPM allocation, by tracking the number of tokens used per model. This can help achieve more precise cost allocation and management associated with each tenant's usage. Furthermore, it can optimize resource utilization, ensuring that each tenant only pays for their required resources, leading to more cost-effective solutions. In addition, this method promotes scalability and adaptability, as tenants can adjust their resource allocation based on their evolving needs and usage patterns.
 
 > [!NOTE]
 > When customizing models for unique needs, it's essential to consider the different approaches available, keeping in mind that every tenant may have distinct requirements and use cases. One aspect to keep in mind is that fine-tuning may not be the go-to choice for most use cases. Instead, it's worth exploring other options, such as grounding. Therefore, taking the time to evaluate these factors can help ensure you choose the best approach to meet your specific needs.
