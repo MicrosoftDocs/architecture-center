@@ -152,5 +152,5 @@ Principal authors:
 
 - [Build a telehealth system on Azure](../apps/telehealth-system.yml)
 - [Clinical insights with Microsoft Cloud for Healthcare](../mch-health/medical-data-insights.yml)
-- [Precision medicine pipeline with genomics](../example-scenario/precision-medicine/genomic-analysis-reporting.yml)
-- [Other healthcare architectures](../../browse/?terms=healthcare)
+- [Precision medicine pipeline with genomics](../precision-medicine/genomic-analysis-reporting.yml)
+- [Other healthcare architectures](../../browse/index.yml?terms=healthcare)
