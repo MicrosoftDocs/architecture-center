@@ -2,7 +2,7 @@
 title: AKS Day-2 - Patch and upgrade guidance
 titleSuffix: Azure Architecture Center
 description: Learn about day-2 patching and upgrading practices for Azure Kubernetes Service (AKS) worker nodes and Kubernetes (K8S) versions.
-author: anevico
+author: aionic
 ms.date: 08/28/2023
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -42,7 +42,7 @@ The following table summarizes the details of updating each component:
 
 ### Managing the reboot process for Linux nodes
 
-By default Linux nodes receive nightly security patches; however, if these security patches require a reboot (for example, for a kernel patch) the reboot must be managed.  The reboot process can be accomplished automatically (recommended) by using a solution like [Kured](/azure/aks/node-updates-kured) or manually by using the Azure portal or [Azure CLI](/cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-upgrade).
+By default Linux nodes receive nightly security patches; however, if these security patches require a reboot (for example, for a kernel patch) the reboot must be managed.  The reboot process can be accomplished automatically (recommended) by using a solution like [Kured](/azure/aks/node-updates-kured) or manually by using the Azure portal or [Azure CLI](/cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-upgrade&preserve-view=true).
 
 Kured can be deployed via [helm chart](https://github.com/kubereboot/charts/tree/main/charts/kured). Key considerations for configuration in this helm chart include:
 
@@ -91,7 +91,7 @@ System Info:
   Kube-Proxy Version:         v1.26.6
 ```
 
-Use the Azure CLI [az aks nodepool list](/cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-list) command to check the current node image versions of the nodes in a cluster:
+Use the Azure CLI [az aks nodepool list](/cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-list&preserve-view=true) command to check the current node image versions of the nodes in a cluster:
 
 ```azurecli
 az aks nodepool list \
@@ -108,7 +108,7 @@ agentpool  AKSUbuntu-2204gen2containerd-202307.12.0
 user       AKSUbuntu-2204gen2arm64containerd-202307.12.0
 ```
 
-Use [az aks nodepool get-upgrades](/cli/azure/aks?view=azure-cli-latest#az-aks-get-upgrades) to find out the latest available node image version:
+Use [az aks nodepool get-upgrades](/cli/azure/aks?view=azure-cli-latest#az-aks-get-upgrades&preserve-view=true) to find out the latest available node image version:
 
 ```azurecli
 az aks nodepool get-upgrades \
@@ -156,7 +156,7 @@ In addition to these Microsoft resources, consider using open-source tools to op
 To ensure the smooth operation of your AKS cluster during maintenance events and to optimize its performance, it's recommended to follow these best practices:
 
 - **Define Pod Disruption Budgets (PDBs)**: It's essential to set up [Pod Disruption Budgets](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) for your deployments. PDBs enforce a minimum number of available replicas for applications, ensuring their continuous functionality during [disruption events](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/). Pod Disruption Budgets help maintain the stability of your cluster during maintenance or node failures.
-- **Check Available Compute and Network Limits**: Before performing any cluster upgrades or scaling operations, verify the available compute and network limits in your Azure subscription using the [az quota](/cli/azure/quota/usage?view=azure-cli-latest#az-quota-usage-list) command. This ensures that you don't encounter any capacity issues during these operations.
+- **Check Available Compute and Network Limits**: Before performing any cluster upgrades or scaling operations, verify the available compute and network limits in your Azure subscription using the [az quota](/cli/azure/quota/usage?view=azure-cli-latest#az-quota-usage-list&preserve-view=true) command. This ensures that you don't encounter any capacity issues during these operations.
 - **Check Available IP Space in Node Subnets**: It's important to monitor and ensure sufficient available IP address space in your node subnets. This prevents any IP address exhaustion issues when upgrading or scaling your cluster.
 - **Set Up Multiple Environments**: Establishing separate environments such as development, staging, and production is recommended. This allows you to test and validate changes in lower environments before rolling them out to the production environment.
 - Plan and schedule maintenance windows.
@@ -164,7 +164,7 @@ To ensure the smooth operation of your AKS cluster during maintenance events and
 
 ### Upgrade Process
 
-To check when your cluster requires an upgrade, use [az aks get-upgrades](/cli/azure/aks?view=azure-cli-latest#az-aks-get-upgrades) to get a list of available target upgrade versions for your AKS control plane. Determine the target version for your control plane from the results.
+To check when your cluster requires an upgrade, use [az aks get-upgrades](/cli/azure/aks?view=azure-cli-latest#az-aks-get-upgrades&preserve-view=true) to get a list of available target upgrade versions for your AKS control plane. Determine the target version for your control plane from the results.
 
 ```azurecli
 az aks get-upgrades \
@@ -206,7 +206,7 @@ To minimize disruptions and ensure a smooth upgrade process for your AKS cluster
 
 By following this approach, you can minimize disruptions during the upgrade process and maintain the availability of your applications.
 
-1. Run the [az aks upgrade](/cli/azure/aks?view=azure-cli-latest#az-aks-upgrade) command with the `--control-plane-only` flag to upgrade only the cluster control plane, and not any of the associated node pools:
+1. Run the [az aks upgrade](/cli/azure/aks?view=azure-cli-latest#az-aks-upgrade&preserve-view=true) command with the `--control-plane-only` flag to upgrade only the cluster control plane, and not any of the associated node pools:
 
    ```azurecli
    az aks upgrade \
@@ -215,7 +215,7 @@ By following this approach, you can minimize disruptions during the upgrade proc
       --kubernetes-version <KubernetesVersion>
    ```
 
-2. Run [az aks nodepool upgrade](/cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-upgrade) to upgrade node pools to the target version:
+2. Run [az aks nodepool upgrade](/cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-upgrade&preserve-view=true) to upgrade node pools to the target version:
 [During the node pool upgrade](/azure/aks/upgrade-cluster?tabs=azure-cli#upgrade-an-aks-cluster) AKS creates a surge node, [cordon and drain](/azure/aks/concepts-security#cordon-and-drain) pods from the node to be upgraded, reimage the node, and then uncordon it.  This process then repeats for any nodes remaining in the node pool.
 
    ```azurecli
