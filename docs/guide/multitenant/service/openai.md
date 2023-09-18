@@ -53,9 +53,7 @@ In some situations, your tenants might create the Azure OpenAI Service instance 
 
 To access an Azure OpenAI Service instance in your tenant's subscription, the tenant must provide your application with access to this resource. This process requires that your application authenticates through their Azure AD instance. One approach is to publish a [multitenant Azure AD application](/azure/active-directory/develop/single-and-multi-tenant-apps). Your tenants must perform a one-time consent process. They first register the multitenant Azure AD application in their own Azure AD tenant. Then, they grant your multitenant Azure AD application the appropriate level of access to their Azure OpenAI resource, for example, assigning the application to the "Cognitive Services User" role via Azure RBAC. They also need to provide you with the resource ID of the Azure OpenAI  Service resource that they've created. Then, your application code can use a service principal that's associated with the multitenant Azure AD application in your own Azure AD to access each tenant's Azure OpenAI Service.
 
-Alternatively, you might ask each tenant to create a service principal for your service to use, and to provide you with its credentials. However, this approach requires that you securely store and manage credentials for each tenant, which is a potential security liability.
-
-If your tenants configure network access controls on their Azure OpenAI, make sure you're been able to access it.
+Alternatively, you might ask each tenant to create a service principal for your service to use, and to provide you with its credentials. However, this approach requires that you securely store and manage credentials for each tenant, which is a potential security liability. If your tenants configure network access controls on their Azure OpenAI intance, make sure you're able to access it.
 
 The following diagram illustrates the Azure OpenAI per tenant, in the tenant's subscription model.
 
