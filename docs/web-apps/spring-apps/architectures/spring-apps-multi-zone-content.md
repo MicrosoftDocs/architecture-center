@@ -34,7 +34,7 @@ The following Azure services are the components in this architecture:
 
 - The standard version of [Azure Spring Apps](https://azure.microsoft.com/products/spring-apps) is used to host a sample Java Spring Boot application that's implemented as microservices.
 
-- The standard v2 version of [Application Gateway](https://azure.microsoft.com/products/application-gateway) is the load balancer. It's used to manage traffic to the applications. It acts as a local reverse proxy in the region that your application runs.
+- The standard v2 version of [Application Gateway](https://azure.microsoft.com/products/application-gateway) is used to manage traffic to the applications. It acts as a local reverse proxy in the region that your application runs.
 
     This SKU has [Web Application Firewall](https://azure.microsoft.com/products/web-application-firewall) integrated to help protect your web applications from exploits and vulnerabilities. Web Application Firewall on Application Gateway tracks Open Web Application Security Project (OWASP) exploits.
 
