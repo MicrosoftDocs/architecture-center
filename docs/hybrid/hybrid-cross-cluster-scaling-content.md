@@ -50,7 +50,7 @@ Overall, this workflow involves building and deploying applications, load balanc
 
 ### Components
 
-- [Azure Front Door]( https://azure.microsoft.com/en-us/products/frontdoor/) is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web applications deployed on Stack HCI Cluster. You can also use a [web application firewall (WAF)](/azure/frontdoor/waf-overview) with Azure Front Door that protects the application from common exploits and vulnerabilities, and a [Content Delivery Network (CDN)](/azure/frontdoor/front-door-overview#global-delivery-scale-using-microsofts-network) solution in this design to reduce latency and to improve content load time by caching the content at the edge locations.
+- [Azure Front Door]( https://azure.microsoft.com/products/frontdoor/) is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web applications deployed on Stack HCI Cluster. You can also use a [web application firewall (WAF)](/azure/frontdoor/waf-overview) with Azure Front Door that protects the application from common exploits and vulnerabilities, and a [Content Delivery Network (CDN)](/azure/frontdoor/front-door-overview#global-delivery-scale-using-microsofts-network) solution in this design to reduce latency and to improve content load time by caching the content at the edge locations.
 
 - [Traffic Manager](https://azure.microsoft.com/products/traffic-manager) is a DNS-based traffic load balancer and a viable load-balancing option. Use it to control the distribution of application traffic to service endpoints in different data centers. Here's how the Traffic Manager configuration works:
 
@@ -78,18 +78,18 @@ Overall, this workflow involves building and deploying applications, load balanc
 
 - [Azure Pipelines](https://azure.microsoft.com/products/devops/pipelines) is a service that provides CI/CD and manages hosted build and release agents and definitions. Development pipeline can use various code repositories, including GitHub, Bitbucket, Dropbox, OneDrive, and [Azure Repos]( https://azure.microsoft.com/products/devops/repos).
 - [Azure Monitor](https://azure.microsoft.com/services/monitor) collects telemetry data and monitors the performance of clusters and workloads. It also lets you configure alerts to trigger an Azure Function or to notify an administrator if any cluster becomes unhealthy or if predefined thresholds are exceeded. You can use Azure Automation or Azure Logic Apps to automate scaling actions based on the monitoring data.
-- [Azure Policy](https://azure.microsoft.com/en-us/products/azure-policy/) acts as a governance and compliance enforcer, guaranteeing that Stack HCI clusters and associated SDN resources operate within the defined guidelines and standards. Here are some examples to enhance the security of the environment through Azure Policy:
+- [Azure Policy](https://azure.microsoft.com/products/azure-policy/) acts as a governance and compliance enforcer, guaranteeing that Stack HCI clusters and associated SDN resources operate within the defined guidelines and standards. Here are some examples to enhance the security of the environment through Azure Policy:
   - Enforcing Container Insight Addon
   - Installation of essential extensions within Stack HCI clusters
   - Enforcing resources tagging
   - Policy-based access control
   - Networking and Monitoring related Policies
 
-- [Azure Container Registry](https://azure.microsoft.com/en-us/products/container-registry/) is a managed, private Docker registry service on Azure. Use the Container Registry to store private Docker images, which are deployed to the cluster.
-- [Azure Arc](https://azure.microsoft.com/en-us/products/azure-arc/) extends Azure services to on-premises environments, allowing organizations to benefit from cloud capabilities while keeping sensitive data within their own infrastructure.
+- [Azure Container Registry](https://azure.microsoft.com/products/container-registry/) is a managed, private Docker registry service on Azure. Use the Container Registry to store private Docker images, which are deployed to the cluster.
+- [Azure Arc](https://azure.microsoft.com/products/azure-arc/) extends Azure services to on-premises environments, allowing organizations to benefit from cloud capabilities while keeping sensitive data within their own infrastructure.
 - [Container insights](/azure/azure-monitor/containers/container-insights-overview) is a monitoring and observability solution provided by Azure Monitor that lets you gain insights into the performance and health of containers running in AKS clusters. With Azure Arc enabled for AKS, you can extend the capabilities of Container insights to monitor and manage your AKS clusters that are running outside of Azure, such as for on-premises or multicloud environments.
-- [Arc-Enabled SQL Managed Instances](https://azure.microsoft.com/en-us/products/azure-arc/hybrid-data-services/) is an Azure SQL data service that can be created on the Stack HCI infrastructure and managed by using Azure Arc.
-- [Azure Key Vault](https://azure.microsoft.com/en-us/products/key-vault/) lets you securely store and manage cryptographic keys, secrets, and certificates. While Azure Key Vault is primarily a cloud service, it can also be used with Azure Stack HCI deployments to store and manage sensitive information securely on-premises.
+- [Arc-Enabled SQL Managed Instances](https://azure.microsoft.com/products/azure-arc/hybrid-data-services/) is an Azure SQL data service that can be created on the Stack HCI infrastructure and managed by using Azure Arc.
+- [Azure Key Vault](https://azure.microsoft.com/products/key-vault/) lets you securely store and manage cryptographic keys, secrets, and certificates. While Azure Key Vault is primarily a cloud service, it can also be used with Azure Stack HCI deployments to store and manage sensitive information securely on-premises.
 - [SDN Infrastructure](/azure-stack/hci/concepts/plan-software-defined-networking-infrastructure). In an AKS hybrid deployment on Azure Stack HCI, load balancing is achieved through the Software Load Balancer SDN (SLB). SLB manages the AKS-HCI infrastructure and applications within the SDN (Software-Defined Networking) Virtual Network, including the necessary SDN network infrastructure resources like Mux load balancer VMs, Gateway VMs, and Network Controllers.
 
 Here's a breakdown of the components involved:
@@ -187,7 +187,7 @@ When deploying AKS-HCI, it's essential to consider security practices to help pr
 
 - **Compliance and regulatory considerations**
 
-  - Understand and comply with relevant industry-specific security and compliance regulations (such as GDPR, HIPAA, or PCI DSS) based on your organization's requirements.
+  - Understand and comply with relevant industry-specific security and compliance regulations (such as HIPAA or PCI DSS) based on your organization's requirements.
   - Implement security controls and practices to meet the compliance standards applicable to your industry.
 
 ### Cost optimization
@@ -206,7 +206,7 @@ Some cost optimization considerations for deploying Arc-enabled services on Azur
   - Implement consistent resource tagging to track and categorize resources.
   - Use resource groups to logically organize resources, making it easier to manage and track costs.
 - **Continuous cost monitoring and optimization**:
-  - Regularly review cost reports and dashboards provided by Azure Cost Management to identify cost-saving opportunities and optimize spending.
+  - Regularly review cost reports and dashboards provided by Microsoft Cost Management to identify cost-saving opportunities and optimize spending.
   - Use tools like Azure Advisor to receive recommendations to optimize resource utilization, improve security, and reduce costs.
 - Reduce deployment and maintenance efforts with Azure DevOps Services.
 
