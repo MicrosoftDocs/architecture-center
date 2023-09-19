@@ -2568,6 +2568,8 @@ items:
         href: reference-architectures/hybrid-networking/expressroute.yml
       - name: Hybrid availability and monitoring
         href: hybrid/hybrid-perf-monitoring.yml
+      - name: Hybrid cross cluster scaling
+        href: hybrid/hybrid-cross-cluster-scaling.yml
       - name: Hybrid file services
         href: hybrid/hybrid-file-services.yml
       - name: Hybrid file share with disaster recovery
@@ -4710,6 +4712,8 @@ items:
       items:
       - name: All healthcare architectures
         href: /azure/architecture/browse/?terms=healthcare
+      - name: Analysis using text analytics for health and Azure OpenAI
+        href: example-scenario/healthcare/analyze-recordings-text-analytics-azure-openai.yml
       - name: Analyze observational patient data
         href: example-scenario/digital-health/patient-data-ohdsi-omop-cdm.yml
       - name: Build a telehealth system with Azure
