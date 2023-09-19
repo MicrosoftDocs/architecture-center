@@ -41,7 +41,7 @@ The solution consists of two pipelines:
 
 1. An Azure Synapse Analytics pipeline runs to retrieve and process the transcribed audio text.
 
-1. An Azure function app in the pipeline uses an API call to send the processed text to text analytics for health. This feature runs a healthcare-centric analysis of the text. The analysis extracts the following information:
+1. An Azure function app in the pipeline uses an API call to send the processed text to the text analytics for health feature of Azure AI Language. This feature runs a healthcare-centric analysis of the text. The analysis extracts the following information:
 
    - Entities such as medications and diagnoses
    - Related metadata like Systematized Nomenclature of Medicine (SNOMED) codes and International Classification of Diseases (ICD)-10 codes
@@ -56,16 +56,16 @@ The solution consists of two pipelines:
 
 1. Azure Synapse Analytics is used to analyze the data at scale.
 
-1. The resulting content is served to visualization tools like Power BI by using a serving layer like a SQL dedicated pool.
+1. The resulting content is served to visualization tools like Power BI via a serving layer like a SQL dedicated pool.
 
 ### Components
 
 - [Azure Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) provides massively scalable cloud-native object storage. As a data lake that's built on top of [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs), Data Lake Storage offers optimized cost and performance for data that's used in analytics, machine learning, and other applications.
-- [Azure Functions](https://azure.microsoft.com/products/functions) is an Azure-native serverless solution that hosts lightweight code that's used in analytics pipelines. Functions supports various languages including .NET, Java, and Python. By using lightweight virtualization technology, Functions can quickly scale out to support a large number of concurrent requests while maintaining enterprise-grade service-level agreements (SLAs).
+- [Azure Functions](https://azure.microsoft.com/products/functions) is an Azure-native serverless solution that hosts lightweight code that's used in analytics pipelines. Functions supports various languages and frameworks, including .NET, Java, and Python. By using lightweight virtualization technology, Functions can quickly scale out to support a large number of concurrent requests while maintaining enterprise-grade service-level agreements (SLAs).
 - [Key Vault](https://azure.microsoft.com/products/key-vault) stores secrets such as tokens, passwords, and client keys. To help control access to secrets, Key Vault provides fine-grained authorization and authentication that's based on Microsoft Entra ID. Key Vault also supports native integrations to many Azure services.
 - [Azure AI Speech](https://azure.microsoft.com/products/ai-services/ai-speech) provides speech capabilities such as speech-to-text, text-to-speech, speech translation, and speaker recognition services. As part of [Azure AI Services](https://azure.microsoft.com/products/ai-services), this speech service helps you create applications by offering out-of-the-box, prebuilt, customizable APIs and models.
 - [Text analytics for health](https://azure.microsoft.com/products/ai-services/text-analytics) is a feature of [Azure AI Language](https://azure.microsoft.com/products/ai-services/ai-language) that you can use to extract, classify, and understand text within healthcare documents. You can use text analytics for health to extract medical entities, medical entity metadata like SNOMED codes, and medical entity relationships from complex natural language that involves medicine, such as medical notes.
-- [Azure OpenAI](https://azure.microsoft.com/products/ai-services/openai-service) is a cloud-based service that offers advanced language AI by providing REST API access to OpenAI models like GPT-3, Codex, and DALL-E. The Azure OpenAI APIs are developed with OpenAI to help ensure compatibility with OpenAI. With Azure OpenAI, customers benefit from the security capabilities of Azure during model runs. Azure OpenAI offers private networking, regional availability, and responsible AI content filtering. The completions endpoint is the core component of the API service. This API provides access to the model's text-in, text-out interface. When users provide an input prompt that contains an English text command, the model generates a text completion.
+- [Azure OpenAI](https://azure.microsoft.com/products/ai-services/openai-service) is a cloud-based service that offers advanced language AI by providing REST API access to OpenAI models like GPT-3, Codex, and DALL-E. The Azure OpenAI APIs are developed with OpenAI to help ensure compatibility with OpenAI. With Azure OpenAI, you benefit from the security capabilities of Azure during model runs. Azure OpenAI offers private networking, regional availability, and responsible AI content filtering. The completions endpoint is the core component of the API service. This API provides access to the model's text-in, text-out interface. When you provide an input prompt that contains an English text command, the model generates a text completion.
 - [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics) is a full-featured enterprise analytics platform that provides data ingestion, orchestration, processing, and serving capabilities at scale.
 - [Power BI](https://powerbi.microsoft.com) is a business dashboard and visualization tool with integrated semantic modeling capabilities.
 
@@ -80,15 +80,15 @@ The solution consists of two pipelines:
 
 ## Scenario details
 
-This solution is based on a real customer use case. Users first upload their audio data to a Storage account for analysis. An automated trigger kicks off an Azure function app to use Azure AI Speech to transcribe the data. This step uses keys that are stored in Key Vault. After the data has been transcribed, an analysis pipeline extracts key health information from the data. The pipeline is based on an Azure Synapse Analytics pipeline. It uses text analytics for health and Azure Open AI to summarize the overall content and extract information like diagnosis and patient medications. Azure Synapse Analytics then aggregates and transforms this data as needed for end-user consumption via Power BI dashboards.
+This solution is based on a real customer use case. Users first upload their audio data to a Storage account for analysis. An automated trigger kicks off an Azure function app to use Azure AI Speech to transcribe the data. This step uses keys that are stored in Key Vault. After the data is transcribed, an analysis pipeline extracts key health information from the data. The pipeline is based on an Azure Synapse Analytics pipeline. It uses text analytics for health and Azure Open AI to summarize the overall content and extract information like diagnosis and patient medications. Azure Synapse Analytics then aggregates and transforms this data as needed for end-user consumption via Power BI dashboards.
 
-The solution is based on several assumptions. Because the data is highly sensitive, it's assumed that you securely deploy all storage accounts and services by following widely available best practices for working with sensitive data in the cloud. For example, you should encrypt all data at rest, and you should securely store account keys. It's also assumed that you consult appropriate information-security personnel about enterprise security best practices.
+The solution is based on several assumptions. Because the data is highly sensitive, it's assumed that you securely deploy all storage accounts and services by following available best practices for working with sensitive data in the cloud. For example, you should encrypt all data at rest, and you should securely store account keys. It's also assumed that you consult appropriate information-security personnel about enterprise security best practices.
 
 ### Potential use cases
 
 You can use this solution for many purposes, including:
 
-- Smart analysis of telehealth data. You can extract insights from the audio that you collect from telehealth sessions where patients interact with providers remotely to discuss results.
+- Smart analysis of telehealth data. You can extract insights from the audio that you collect from telehealth sessions in which patients interact with providers remotely to discuss results.
 - Smart analysis of healthcare-centric call center data. The solution can analyze call center data from healthcare providers who provide at-home or remote care to patients. As part of the analysis, you can extract valuable information about products, such as adverse results, that customers call about.
 - Smart analysis of clinical trials data. You can collect valuable insights from external touchpoints of clinical trials. The solution can automatically extract and correlate medical terminology to produce desired insights for large-scale analysis.
 
@@ -111,7 +111,7 @@ Consider the following points if your scenario requires a solution for high avai
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-The type of customer call data that this solution uses is highly sensitive. To help ensure this sensitive data remains secure, turn on security controls throughout the solution. Also use Key Vault as a scalable service that helps end users securely store keys and secrets that they need for the solution. Because the solution uses OpenAI to extract insights from unstructured data, take care to ensure that the overall insights that you derive follow the Microsoft principles for responsible AI. For more information about responsible AI, see [Empowering responsible AI practices](https://www.microsoft.com/ai/responsible-ai).
+The type of customer call data that this solution uses is highly sensitive. To help ensure this sensitive data remains secure, enable security controls throughout the solution. Also use Key Vault as a scalable service that helps end users securely store keys and secrets that they need for the solution. Because the solution uses OpenAI to extract insights from unstructured data, ensure that the overall insights that you derive follow the Microsoft principles for responsible AI. For more information about responsible AI, see [Empowering responsible AI practices](https://www.microsoft.com/ai/responsible-ai).
 
 ### Cost optimization
 
