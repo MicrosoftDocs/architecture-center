@@ -1,5 +1,5 @@
-###YAMLMime:Architecture
-Metadata:
+###YamlMime:Architecture
+metadata:
   title: Windows 365 Azure network connection  
   description: Learn how Windows 365 delivers highly optimized and personalized computing instances that are purpose built for each user's requirements.
   author: ravisha22
@@ -13,7 +13,7 @@ products:
   - azure-virtual-desktop
   - azure-virtual-machines
   - azure-virtual-network
-categories:
+azureCategories:
   - azure-virtual-desktop
   - windows-virtual-desktop
 name: Windows 365 Azure network connection
