@@ -4231,6 +4231,9 @@ items:
       - name: Authentication in Azure Virtual Desktop
         href: /azure/virtual-desktop/authentication
         maintainContext: true
+      - name: Windows 365 Azure network connection
+        href: /azure/virtual-desktop/windows-365-azure-network-connection
+        maintainContext: true
       - name: Network connectivity
         items:
         - name: Overview
