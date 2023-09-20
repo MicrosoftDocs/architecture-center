@@ -4612,6 +4612,8 @@ items:
           href: example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml
         - name: SWIFT Alliance Message Hub
           href: example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml
+        - name: SWIFT Alliance Connect Virtual with Gateway
+          href: example-scenario/finance/swift-alliance-access-connect-gateway.yml
     - name: Datasets
       items:
       - name: US Consumer Price Index
