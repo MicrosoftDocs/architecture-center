@@ -78,6 +78,18 @@ If your configuration is based on Alliance Cloud, you need these components:
 - A SWIFT Integration Layer (SIL) virtual machine and an Alliance Connect Virtual network connectivity solution
 - Physical token management from on-premises
 
+### Deploying Swift Solutions on Azure Confidential Compute
+
+Confidential Computing (CC) protects data when in use, along with existing means of protecting data at rest and in transit, thanks to Trusted Execution Environments (TEEs) that encrypt and isolate code and data in a Zero Trust environment which can be configured so that even Azure, as the cloud provider, is prevented from having access. With confidential computing, customers can now have verifiable assurance that their workload data+code are under their control from the time it is created until it is destroyed. 
+ 
+Customers want their cloud operating environment to give them the assurance that their data is always protected even during rare events such as lawful data access or against a rogue employee. As a result, customers would like their data protected during its entire lifecycle. Azure confidential VMs with AMD processors with SEV-SNP technology are generally available. These VMs provide a strong, hardware-enforced boundary to help meet your security needs. You can migrate your workloads to confidential VMs without making changes to your code, with the platform protecting your VM's state from being read or modified. 
+ 
+Azure confidential VMs (DCasv5/ECasv5) are designed to offer a new, hardware-based TEE leveraging SEV-SNP , where VM memory will be encrypted with integrity guaranteed, and memory encryption key is hardware generated/safeguarded to prevent potential neighbor attack. hardens guest protections to deny the hypervisor and other host management code access to VM memory and state, protecting against operator access.  Customers in regulated industries such as banking, healthcare, and public sector, can easily migrate their legacy workloads from on-prem environments to the cloud with minimal performance impact and without code changes.
+ 
+Additional key features such as verifiable Remote Attestation, vTPM and secure boot, full OS disk confidential encryption provide enhanced security posture to confidential systems such as SWIFT Messaging components.
+
+Some customers (e.g., Microsoft Treasury) have used Azure Confidential Compute to host the SWIFT connectivity modules for meeting higher security requirements. Please note that only the connectivity modules can be deployed using Azure Confidential Compute, Alliance Connect Virtual (ACV) virtual appliance cannot be hosted in ACC as of now. 
+
 ### Shared Azure services (optional)
 
 This section describes shared services that complement all SWIFT components. Shared services can include monitoring, security, compliance, and other key management and operational services. Some of the key services are shown here:
