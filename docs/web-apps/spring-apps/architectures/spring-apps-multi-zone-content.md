@@ -14,7 +14,8 @@ This solution presents a baseline strategy for Azure Spring Apps deployment. For
 
 The following diagram shows the architecture for this approach:
 
-:::image type="content" source="../_images/spring-apps-reference-architecture-single-region-zone-redundant.png" alt-text="Diagram that shows a multi-region Azure Spring Apps reference architecture." lightbox="../_images/spring-apps-reference-architecture-single-region-zone-redundant.png" border="false":::
+:::image type="content" source="../_images/deploy-spring-web-applications.svg" alt-text="Diagram that shows a multi-region Azure Spring Apps reference architecture." lightbox="../_images/deploy-spring-web-applications.svg" border="false":::
+*Download a [Visio file](https://arch-center.azureedge.net/deploy-spring-web-applications.vsdx) of this architecture.*
 
 ### Workflow
 
