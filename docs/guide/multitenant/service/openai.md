@@ -45,7 +45,7 @@ Use this approach if you have separate application deployments for each tenant, 
 
 The following diagram illustrates the model for Azure OpenAI for each tenant in the provider's subscription.
 
-:::image type="content" source="./media/openai/openai-per-tenant-providers-subscription.png" alt-text="Diagram that shows the model for Azure OpenAI for each tenant in the provider's subscription." border="false" lightbox="./media/openai/openai-per-tenant-providers-subscription.png":::
+:::image type="content" source="./media/openai/openai-providers-subscription.svg" alt-text="Diagram that shows the model for Azure OpenAI for each tenant in the provider's subscription." border="false" lightbox="./media/openai/openai-providers-subscription.svg":::
 
 ### Azure OpenAI for each tenant in the tenant's subscription
 
@@ -62,11 +62,11 @@ Alternatively, you might ask each tenant to create a service principal for your 
 
 The following diagram illustrates the model for Azure OpenAI for each tenant in the tenant's subscription.
 
-:::image type="content" source="./media/openai/openai-per-tenant-tenants-subscription.png" alt-text="Diagram that shows the model for Azure OpenAI for each tenant in the tenant's subscription." border="false" lightbox="./media/openai/openai-per-tenant-tenants-subscription.png":::
+:::image type="content" source="./media/openai/openai-tenants-subscription.svg" alt-text="Diagram that shows the model for Azure OpenAI for each tenant in the tenant's subscription." border="false" lightbox="./media/openai/openai-tenants-subscription.svg":::
 
 ### Shared Azure OpenAI
 
-You might choose to share an instance of Azure OpenAI between multiple tenants. The Azure OpenAI resource is deployed in your, or the solution provider's, Azure subscription. You're responsible for managing it. This is the simplest solution to implement, but it provides the least data isolation and performance isolation.
+You might choose to share an instance of Azure OpenAI between multiple tenants. The Azure OpenAI resource is deployed in your, or the solution provider's, Azure subscription. You're responsible for managing it. This solution is the easiest to implement, but it provides the least data isolation and performance isolation.
 
 Sharing Azure OpenAI doesn't offer access security at the model deployment level. Other tenants can use unauthorized models. It's strongly discourage to share an Azure OpenAI instance when you use fine-tuned models. It can expose sensitive information and allow unauthorized access to tenant-specific resources.
 
@@ -82,7 +82,7 @@ When you have a shared Azure OpenAI instance, it's important to consider its [li
 
 The following diagram illustrates the shared Azure OpenAI model.
 
-:::image type="content" source="./media/openai/shared-openai.png" alt-text="Diagram that shows the shared Azure OpenAI model." border="false" lightbox="./media/openai/shared-openai.png":::
+:::image type="content" source="./media/openai/openai-shared.svg" alt-text="Diagram that shows the shared Azure OpenAI model." border="false" lightbox="./media/openai/openai-shared.svg":::
 
 #### Shared Azure OpenAI instance with the same model for each tenant
 
