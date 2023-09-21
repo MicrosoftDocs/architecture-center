@@ -99,7 +99,7 @@ Principal author:
 
 Other contributors:
 
- * [Sherri Babylon](https://www.linkedin.com/in/sbabylon) | Senior Customer Engineer, FastTrack for Azure
+ * [Sherri Babylon](http://www.linkedin.com/in/sbabylon) | Senior Customer Engineer, FastTrack for Azure
  * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
