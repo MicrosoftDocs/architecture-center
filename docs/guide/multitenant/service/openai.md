@@ -32,7 +32,7 @@ The following table summarizes the main tenancy models for Azure OpenAI.
 | Consideration | Azure OpenAI for each tenant in the provider's subscription | Azure OpenAI for each tenant in the tenant's subscription | Shared Azure OpenAI |
 |-|-|-|-|
 | **Data isolation** | High | Very high | Low |
-| **Performance isolation** | High | High | Low-medium, depending on the Trusted Platform Module (TPM) usage for each tenant. |
+| **Performance isolation** | High | High | Low-medium, depending on the token per minute (TPM) usage for each tenant. |
 | **Deployment complexity** | Low-medium, depending on the number of tenants. | High. The tenant must correctly grant access to the provider. | Low |
 | **Operational complexity** | High | Low for the provider, higher for the tenant. | Low |
 | **Example scenario** | Individual application instances for each tenant. | Tenants with specific compliance requirements or custom models. | Large multitenant solution with a shared application tier. |
@@ -41,7 +41,7 @@ The following table summarizes the main tenancy models for Azure OpenAI.
 
 If you're a service provider, consider deploying an Azure OpenAI instance for each tenant in your Azure subscription. This approach provides data isolation for each tenant. It requires that you deploy and manage an increasing number of Azure OpenAI resources as you increase the number of tenants.
 
-Use this approach if you have separate application deployments for each tenant, or if you need to circumvent limitations, such us the quota or request per minute (RPM). For more information, see [Azure OpenAI quotas and limits](/azure/ai-services/openai/quotas-limits#quota-and-limits-reference).
+Use this approach if you have separate application deployments for each tenant, or if you need to circumvent limitations, such us the quota or request per minute. For more information, see [Azure OpenAI quotas and limits](/azure/ai-services/openai/quotas-limits#quota-and-limits-reference).
 
 The following diagram illustrates the model for Azure OpenAI for each tenant in the provider's subscription.
 
@@ -86,14 +86,14 @@ The following diagram illustrates the shared Azure OpenAI model.
 
 #### Shared Azure OpenAI instance with the same model for each tenant
 
-When you use a shared Azure OpenAI instance, deploy individual instances of the same model for each tenant. This approach provides enhanced parameter customization for each deployment. It facilitates tenant-specific TPM allocation by tracking the number of tokens each model uses, which enables you to precisely cost allocate and manage each tenant's usage. This model can optimize resource utilization to ensure that each tenant only pays for their required resources, which ensures a cost-effective solution. This model promotes scalability and adaptability because tenants can adjust their resource allocation based on their evolving needs and usage patterns.
+When you use a shared Azure OpenAI instance, deploying individual instances of the same model for each tenant can offer significant benefits. This approach provides enhanced parameter customization for each deployment. It facilitates tenant-specific TPM allocation by tracking the number of tokens each model uses, which enables you to precisely cost allocate and manage each tenant's usage. This approach can optimize resource utilization to ensure that each tenant only pays for their required resources, which ensures a cost-effective solution. This approach also promotes scalability and adaptability because tenants can adjust their resource allocation based on their evolving needs and usage patterns.
 
 > [!NOTE]
 > When you customize models for unique needs, you need to consider the approaches that are available. Every tenant might have distinct requirements and use cases. You might not use fine-tuning for most use cases. Explore other options, such as grounding. Take the time to evaluate these factors to help ensure that you choose the approach that best meets your needs.
 
 ## Managed identities
 
-Use Microsoft Entra ID managed identities to provide access to Azure OpenAI from other resources that are authenticated by Microsoft Entra ID. You don't need an Azure OpenAI API key for managed identities. Grant permissions to your Azure OpenAI identity for RBAC.
+Use Microsoft Entra ID managed identities to provide access to Azure OpenAI from other resources that are authenticated by Microsoft Entra ID. When you use managed identities, you don't need to use an Azure OpenAI API key. You can also use managed identities to grant fine-grained permissions to your Azure OpenAI identity using RBAC.
 
 When you use managed identities, consider your isolation model. For more information, see [Azure OpenAI with managed identities](/azure/ai-services/openai/how-to/managed-identity).
 
