@@ -4613,7 +4613,7 @@ items:
         - name: SWIFT Alliance Message Hub
           href: example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml
         - name: SWIFT Alliance Remote Gateway with Alliance Connect Virtual
-          href: example-scenario/finance/swift-alliance-remote-gateway-with-alliance-connect-virtual.yml
+          href: example-scenario/finance/swift-alliance-remote-gateway-with-alliance-connect-virtual-gateway-content.yml
     - name: Datasets
       items:
       - name: US Consumer Price Index
