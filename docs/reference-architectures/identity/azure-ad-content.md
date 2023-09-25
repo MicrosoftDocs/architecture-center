@@ -215,7 +215,7 @@ There are two aspects to managing Azure AD:
 
 Azure AD provides the following options for managing domains and directories in the cloud:
 
-- **[Azure Active Directory PowerShell Module][aad-powershell]** - used to script common Azure AD administrative tasks such as user management, domain management, and configuring single sign-on.
+- **[Microsoft Graph PowerShell Module][microsoft-graph-powershell]** - used to script common Azure AD administrative tasks such as user management, domain management, and configuring single sign-on.
 - **[Azure AD management blade in the Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade)** - provides an interactive management view of the directory, and enables you to control and configure most aspects of Azure AD.
 
 Azure AD Connect installs the following tools to maintain Azure AD Connect sync services from your on-premises machines:
@@ -267,43 +267,83 @@ Principal author:
 <!-- links -->
 
 [aaf-cost]: /azure/architecture/framework/cost/overview
+
 [implementing-a-multi-tier-architecture-on-Azure]: ../n-tier/n-tier-sql-server.yml#cost-optimization
 
 [aad-agent-installation]: /azure/active-directory/active-directory-aadconnect-health-agent-install
+
 [aad-application-proxy]: /azure/active-directory/active-directory-application-proxy-enable
+
 [aad-conditional-access]: /azure/active-directory//active-directory-conditional-access
+
 [aad-connect-sync-default-rules]: /azure/active-directory/hybrid/concept-azure-ad-connect-sync-default-configuration
+
 [aad-connect-sync-operational-tasks]: /azure/active-directory/hybrid/how-to-connect-sync-operations
+
 [aad-dynamic-memberships]: https://youtu.be/Tdiz2JqCl9Q
+
 [aad-dynamic-membership-rules]: /azure/active-directory/active-directory-accessmanagement-groups-with-advanced-rules
+
 [aad-filtering]: /azure/active-directory/hybrid/how-to-connect-sync-configure-filtering
+
 [aad-health]: /azure/active-directory/active-directory-aadconnect-health-sync
+
 [aad-health-adds]: /azure/active-directory/active-directory-aadconnect-health-adds
+
 [aad-health-adfs]: /azure/active-directory/active-directory-aadconnect-health-adfs
+
 [aad-identity-protection]: /azure/active-directory/active-directory-identityprotection
+
 [aad-password-management]: /azure/active-directory/active-directory-passwords-customize
+
 [aad-powershell]: /powershell/module/azuread/?view=azureadps-2.0
+
+[microsoft-graph-powershell]: /powershell/module/?view=graph-powershell-1.0
+
 [aad-reporting-guide]: /azure/active-directory/active-directory-reporting-guide
+
 [aad-scalability]: /azure/active-directory/fundamentals/active-directory-architecture
+
 [aad-sync-best-practices]: /azure/active-directory/hybrid/how-to-connect-sync-best-practices-changing-default-configuration
+
 [aad-sync-disaster-recovery]: /azure/active-directory/hybrid/how-to-connect-sync-operations#disaster-recovery
+
 [aad-sync-requirements]: /azure/active-directory/active-directory-hybrid-identity-design-considerations-directory-sync-requirements
+
 [aad-topologies]: /azure/active-directory/hybrid/plan-connect-topologies
+
 [aad-user-sign-in]: /azure/active-directory/hybrid/plan-connect-user-signin
+
 [AAF-devops]: /azure/architecture/framework/devops/overview
+
 [azure-active-directory]: /azure/active-directory-domain-services/active-directory-ds-overview
+
 [azure-ad-connect]: /azure/active-directory/hybrid/whatis-hybrid-identity
+
 [Azure-AD-pricing]: https://azure.microsoft.com/pricing/details/active-directory
+
 [azure-multifactor-authentication]: /azure/multi-factor-authentication/multi-factor-authentication
+
 [considerations]: ./index.yml
+
 [sla-aad]: https://azure.microsoft.com/support/legal/sla/active-directory
+
 [visio-download]: https://arch-center.azureedge.net/identity-architectures.vsdx
+
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[AAF-devops]: /azure/architecture/framework/devops/overview
+
 [hybrid-identity-design]: /azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-overview
+
 [aad-ca-plan]: /azure/active-directory/conditional-access/plan-conditional-access
+
 [adds-azure-design]: ./index.yml
+
 [identity-best-practices]: /azure/security/fundamentals/identity-management-best-practices
+
 [security-compass-paw]: /security/compass/overview
+
 [security-compass]:/security/compass/compass
+
 [azure-ad-connect-cloud-sync]:/azure/active-directory/cloud-sync/what-is-cloud-sync
+
+
