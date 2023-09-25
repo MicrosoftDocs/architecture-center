@@ -159,7 +159,7 @@ When deploying AKS-HCI, it's essential to consider security practices to help pr
 - **Network security**
 
   - Implement network segmentation and isolation within the AKS-HCI cluster using Kubernetes network policies or Azure network security groups.
-  - Control inbound and outbound traffic with network-level firewalls, such as Azure Firewall, and restrict access based on IP whitelisting or virtual network peering.
+  - Control inbound and outbound traffic with network-level firewalls, such as Azure Firewall, and restrict access based on IP allow list or virtual network peering.
   - Encrypt network traffic between services using Transport Layer Security (TLS) or mutual TLS (mTLS) authentication.
 
 - **Container image security**
