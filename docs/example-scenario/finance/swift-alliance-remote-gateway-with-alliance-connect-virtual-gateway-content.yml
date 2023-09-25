@@ -26,4 +26,4 @@ products:
   - azure-firewall
 thumbnailUrl: /azure/architecture/browse/thumbs/alliance-access-with-alliance-connect-virtual.png
 content: |
-   [!include[](swift-alliance-remote-gateway-with-alliance-connect-virtual-content.md)]
+   [!include[](swift-alliance-remote-gateway-with-alliance-connect-virtual-gateway-content.md)]
