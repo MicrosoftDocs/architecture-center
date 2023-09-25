@@ -122,7 +122,6 @@ For information about factors that impact Functions app scalability, see:
 ### Implement SRE practices
 Site Reliability Engineering (SRE) is a proven approach to maintaining crucial system and application reliability, while iterating at the speed the marketplace demands. For more information, see:
 - [Introduction to Site Reliability Engineering (SRE)](/training/modules/intro-to-site-reliability-engineering)
-- [DevOps at Microsoft: Game streaming SRE](https://azure.microsoft.com/resources/devops-at-microsoft-game-streaming-sre)
 
 ## Next steps
 

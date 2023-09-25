@@ -91,7 +91,7 @@ A microservices architecture is flexible and adaptable. During assessment, drive
 Consider these factors:
 - Is the service independently deployable?
 - Does the service follow DDD principles?
-- Does the service follow [SOLID](https://azure.microsoft.com/resources/cloud-solid-cloud-architecture-and-the-single-responsibility-principle) principles?
+- Does the service follow SOLID principles?
 - Is the database private to the service?
 - Did you build the service by using the supported microservices chassis pattern?
 
