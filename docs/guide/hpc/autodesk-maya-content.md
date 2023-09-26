@@ -165,9 +165,11 @@ The following charts shows the relative speed increase for the model as the numb
 
 #### Maya 2023.1
 
-:::image type="content" source="media/autodesk-maya/autodesk-maya-render-speedup.png" alt-text="Chart that compares the rendering speed of various CPU configurations with the rendering speed of six vCPUs.":::
+:::image type="content" source="media/autodesk-maya/autodesk-maya-render-speedup.png" alt-text="Chart that compares the rendering speed of various CPU configurations with the rendering speed of six vCPUs on Maya 2023.1.":::
 
 #### Maya 2024
+
+:::image type="content" source="media/autodesk-maya/results-new-version.png" alt-text="Chart that compares the rendering speed of various CPU configurations with the rendering speed of six vCPUs on Maya 2024.":::
 
 The following image shows the rendered output:
 
