@@ -65,7 +65,7 @@ Virtual Desktop is an Azure-based virtual desktop infrastructure (VDI) solution.
 
 For more information, see [Azure Virtual Desktop for the enterprise](/azure/architecture/example-scenario/wvd/windows-virtual-desktop).
 
-:::image type="content" source="./images/wvdatscale.vsdx" alt-text="A diagram of Windows Virtual Desktop Control Plane components." lightbox="./images/wvdatscale.vsdx" border="false":::
+:::image type="content" source="W365-Placement-Diagrams-updated-5.svg" alt-text="A diagram of Windows Virtual Desktop Control Plane components." lightbox="W365-Placement-Diagrams-updated-5.svg" border="false":::
 *Download a [PowerPoint file](https://arch-center.azureedge.net/W365-Placement-Diagrams-updated.pptx) of this architecture.*
 
 > [!NOTE]
@@ -179,12 +179,12 @@ Windows 365 usage in an Azure network connection architecture pattern involves t
 
 Windows 365 uses the *Hosted on behalf of* model to deliver services to Windows 365 customers. In this model, the Cloud PC is provisioned and run in Azure subscriptions owned by Microsoft, while the network adapter of the Cloud PC is provisioned in a customer's Azure subscription. The following diagrams show two Azure network connection architecture patterns. Customers use their own Azure subscription and virtual network.
 
-:::image type="content" source="./images/W365-Placement-Diagrams-updated-6.png" alt-text="A diagram of the architecture pattern using the Microsoft Entra join identity." lightbox="./images/W365-Placement-Diagrams-updated-6.png" border="false":::
+:::image type="content" source="./images/W365-Placement-Diagrams-updated-6.svg" alt-text="A diagram of the architecture pattern using the Microsoft Entra join identity." lightbox="./images/W365-Placement-Diagrams-updated-6.svg" border="false":::
 *Download a [PowerPoint file](https://arch-center.azureedge.net/W365-Placement-Diagrams-updated.pptx) of this architecture.*
 
 The previous architecture pattern uses the Microsoft Entra join identity to manage the Cloud PC.
 
-:::image type="content" source="./images/W365-Placement-Diagrams-updated-7.png" alt-text="A diagram of the architecture pattern using the Microsoft Entra hybrid join identity." lightbox="./images/W365-Placement-Diagrams-updated-7.png" border="false":::
+:::image type="content" source="./images/W365-Placement-Diagrams-updated-7.svg" alt-text="A diagram of the architecture pattern using the Microsoft Entra hybrid join identity." lightbox="./images/W365-Placement-Diagrams-updated-7.svg" border="false":::
 *Download a [PowerPoint file](https://arch-center.azureedge.net/W365-Placement-Diagrams-updated.pptx) of this architecture.*
 
 The previous architecture pattern uses Microsoft Entra hybrid join identity to manage the Cloud PC and requires a *line of sight* network communication with Active Directory Domain Services (AD DS) domain controllers in on-premises environments.
