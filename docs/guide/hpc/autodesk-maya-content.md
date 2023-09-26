@@ -76,9 +76,10 @@ This performance analysis uses the Autodesk Maya 2023.1 trial version on Windows
 
 The following table provides details about the testing operating system:
 
-| Operating system | Architecture | Processor |
-| --- | --- | --- |
-| Windows 10 Pro-20H2 | x86-64 | AMD EPYC 74F3V (Milan) |
+| Version | Operating system | Architecture | Processor |
+| --- | --- | --- | --- |
+| Maya 2023.1 | Windows 10 Pro-20H2 | x86-64 | AMD EPYC 74F3V (Milan) |
+| Maya 2024 | Windows 11 Pro-22H2 | x86-64 | AMD EPYC 74F3V (Milan) |
 
 The tests use the following model:
 
@@ -94,11 +95,21 @@ The following sections provide information about four metrics that measure the p
 
 The following table lists times for reading the model file with various GPU configurations. The time that it takes to load a test scene is the time that it takes to read a file.
 
+#### Results on Maya 2023.1
+
 | Number of GPUs | File read time (seconds) |
 | --- | --- |
 | 1/3 | 15 |
 | 1/2 | 13.3 |
 | 1 | 12.9 |
+
+#### Results on Maya 2024
+
+| Number of GPUs | File read time (seconds) |
+| --- | --- |
+| 1/3 | 13.1 |
+| 1/2 | 15.4 |
+| 1 | 12.1 |
 
 On tests with 1/6 GPUs, Maya reports an error about not enough free memory remaining in the GPU.
 
@@ -110,17 +121,29 @@ The following image shows the loading view, which is the view that the independe
 
 The following table lists playback times and rates for various GPU configurations when a MEL script is used:
 
+#### Results on Maya 2023.1
+
 | Number of GPUs | Playback rate (frames/second) | Total playback time (seconds) |
 | --- | --- | --- |
 | 1/3 | 23.89 | 17.79 |
 | 1/2 | 24.02 | 17.69 |
 | 1 | 24.02 | 17.69 |
 
+#### Results on Maya 2024
+
+| Number of GPUs | Playback rate (frames/second) | Total playback time (seconds) |
+| --- | --- | --- |
+| 1/3 | 27.74 | 15.32 |
+| 1/2 | 28.46 | 14.93 |
+| 1 | 43.41 | 9.79 |
+
 The model contains 425 frames. The playback time and rate are almost identical for all tested GPU configurations.
 
 ### Measurement 3: Arnold renderer performance
 
 The following table shows the rendering time for various GPU configurations. Results from tests with six vCPUs (cores) are used as the baseline for determining speedup.
+
+#### Results on Maya 2023.1
 
 | Number of GPUs | Rendering time (seconds) | Relative speedup |
 | --- | --- | --- |
@@ -129,9 +152,22 @@ The following table shows the rendering time for various GPU configurations. Res
 | 1/2 | 96 | 13.28 |
 | 1 | 27 | 47.22 |
 
-The following chart shows the relative speed increase for the model as the number of GPUs increases:
+#### Results on Maya 2024
+
+| Number of GPUs | Rendering time (seconds) | Relative speedup |
+| --- | --- | --- |
+| 6 vCPUs (cores) | 1,314 | 1.00 |
+| 1/3 | 115 | 11.43 |
+| 1/2 | 91 | 14.44 |
+| 1 | 35 | 37.54 |
+
+The following charts shows the relative speed increase for the model as the number of GPUs increases:
+
+#### Maya 2023.1
 
 :::image type="content" source="media/autodesk-maya/autodesk-maya-render-speedup.png" alt-text="Chart that compares the rendering speed of various CPU configurations with the rendering speed of six vCPUs.":::
+
+#### Maya 2024
 
 The following image shows the rendered output:
 
@@ -141,11 +177,21 @@ The following image shows the rendered output:
 
 The following table lists performance data for caching via a Python script. When you use the Cached Playback feature, you can view changes that you make to the animation without having to create a new playblast.
 
+#### Results on Maya 2023.1
+
 | Number of GPUs | Filling playback (frames/second) | Cached playback (frames/second) | Fill time (seconds) |
 | --- | --- | --- | --- |
 | 1/3 | 6.19 | 21.31 | 0.88 |
 | 1/2 | 17.09 | 24.11 | 0.67 |
 | 1 | 18.86 | 24.11 | 0.60 |
+
+#### Results on Maya 2024
+
+| Number of GPUs | Filling playback (frames/second) | Cached playback (frames/second) | Fill time (seconds) |
+| --- | --- | --- | --- |
+| 1/3 | 14.38 | 45.72 | 0.91 |
+| 1/2 | 14.70 | 49.40 | 0.75 |
+| 1 | 18.34 | 52.80 | 0.62 |
 
 ### Additional notes about tests
 
@@ -157,12 +203,23 @@ The following table lists performance data for caching via a Python script. When
 
 The following table lists the elapsed times in hours for running the model with various GPU configurations. To compute the total cost, multiply these times by the Azure VM hourly cost for an NVadsA10_v5 VM. For the current hourly cost, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing) and [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing).
 
+#### Maya 2023.1
+
 | Number of GPUs or CPUs | Elapsed time (hours) |
 | --- | --- |
 | 1/3 GPUs | 0.038 |
-| 1/2 GPUs | 0.0267 |
-| 1 GPU | 0.0075 |
-| 6 vCPUs | 0.3542 |
+| 1/2 GPUs | 0.027 |
+| 1 GPU | 0.008 |
+| 6 vCPUs | 0.354 |
+
+#### Maya 2024
+
+| Number of GPUs or CPUs | Elapsed time (hours) |
+| --- | --- |
+| 1/3 GPUs | 0.031 |
+| 1/2 GPUs | 0.025 |
+| 1 GPU | 0.009 |
+| 6 vCPUs | 0.365 |
 
 For these cost calculations, only the model rendering time is considered, measured in wall-clock time. The application installation time isn't considered. The calculations are indicative of your potential results, but actual values depend on the size of your model.
 
