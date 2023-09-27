@@ -28,7 +28,7 @@ Another important aspect of this architecture is that SWIM uses Solace, so Kafka
 
 1. SWIM provides data. The architecture diagram shows three of the most common data sources (TFMS, TBFM, and STDDS). The type of information that you want to analyze dictates the data source from SWIM that you need to subscribe to.
 1. A Solace source connector connects and ingests the data into Kafka.
-1. Messages from Kafka are cleaned, prepped, and parsed in a workspace in Azure Databricks. This Azure DataBricks workspace is where data scientists do their work. They use notebooks written in Python, Scala, and/or R that contain the logic they need to parse the data or even train models based on it.
+1. Messages from Kafka are cleaned, prepped, and parsed in a workspace in Azure Databricks. This Azure Databricks workspace is where data scientists do their work. They use notebooks written in Python, Scala, and/or R that contain the logic they need to parse the data or even train models based on it.
 1. Azure Data Lake provides storage.
 1. Power BI or Tableau displays the final data.
 
@@ -105,7 +105,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 A key requirement for this architecture is that all traffic must be internal and highly secure. To meet this requirement:
 
-- VNet injection is used to deploy Azure Databricks. This deployment method keeps communication between the cluster and Kafka internal.
+- Virtual network injection is used to deploy Azure Databricks. This deployment method keeps communication between the cluster and Kafka internal.
 - The Azure Databricks workspace uses your Azure identity for authentication.
 - Network security groups (NSGs) filter network traffic to and from Azure Databricks and Kafka VMs.
 
@@ -115,7 +115,7 @@ For more information about improving the security of your solution, see [Overvie
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-If you run this project, your account will be billed. For information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+If you run this project, your account is billed. For information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 ## Deploy this scenario
 
@@ -132,7 +132,7 @@ The deployment process is divided into three parts: infrastructure, configuratio
    - An Azure storage account  
    - Azure Data Lake Storage on top of the storage account
    - NSGs
-   - An Azure Databricks workspace created with VNet injection, so that keeps the traffic internal
+   - An Azure Databricks workspace created with virtual network injection, so that keeps the traffic internal
 1. The configuration part configures the resources that are required to connect to TFMS, TBFM and STDDS and others if needed. Connecting Kafka to SWIM; Request access to SWIM and specify the data source to connect to. Once approved, FAA sends a link to the data source endpoint, user name, password, and port for connection. Here are three of the most common data sources:
    - [STDDS](https://www.faa.gov/air_traffic/technology/swim/stdds). SWIM Terminal Data Distribution System.
    - [TFMS](https://aviationsystems.arc.nasa.gov/atd2-industry-workshop/fuser/TFMS_85328087.html). Traffic Flow Management Service.
