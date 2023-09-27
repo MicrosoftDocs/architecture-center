@@ -32,7 +32,7 @@ In private clusters, control plane communication may be broken due to DNS resolu
 
 You can check node health in one of these ways:
 
-- **AKS - Nodes view:** In Azure portal, open navigate to the cluster. Select **Nodepools** under **Settings**. View **Nodes** on the right pane.
+- **AKS - Nodes view:** In the Azure portal, navigate to your Azure Kubernetes Service (AKS) cluster. Select **Node pools** under **Settings**, and select the **Nodes** tab on the right pane.
   
 ![AKS - Nodes View](images/aks-node-health.png)
 
