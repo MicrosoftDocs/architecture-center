@@ -58,7 +58,7 @@ To learn more about this feature, see [Azure Resource Health overview](/azure/se
 
 To learn more about this feature, see [Azure Advisor overview](/azure/advisor/advisor-overview).
 
-**Log Analytics** offers insights into the cluster's health. To acces log analytics workspace, navigate to your Azure Kubernetes Service cluster and select "Logs". You may be prompted to configure Azure Application insights / Managed prometheus / managed grafana if none of these resources are already configured. 
+[Azure Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) offers insights into the cluster's health. To access the Azure Log Analytics workspace, navigate to your Azure Kubernetes Service cluster and select "Logs". You may be prompted to configure Azure Application Insights, Azure Monitor managed service for Prometheus, and Azure Managed Grafana if none of these resources are already configured. 
 
 In the logs view, pre-defined queries in the following categories may be useful to analyze cluster health. 
 - Availability (to run queries such as readiness status per node)
