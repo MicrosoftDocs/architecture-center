@@ -24,7 +24,7 @@ _This article is part of a series. Read the introduction [here](aks-triage-pract
 
 **Tools:**
 
-- **AKS Diagnose and Solve Problems**. In the Azure portal, navigate to your AKS cluster resource and select **Diagnose and solve problems**.
+- **AKS Diagnose and Solve Problems**. In the Azure portal, navigate to your AKS cluster resource and select [Diagnose and solve problems]/azure/aks/aks-diagnostics). This tool provides an intelligent, self-diagnostic experience that helps you identify and resolve problems in your cluster at no additional cost.
 - **Resource Health**. In the Azure portal, navigate to your AKS cluster resource and select **Resource Health**.
 - **Azure Advisor**. In the Azure portal, navigate to your AKS cluster resource and select the **Overview** tab, then click on **Recommendations**, or on the **Advisor Recommendations** blade on the left navigation panel.
 - **Log Analytics Workspace**. In Azure portal, navigate to your AKS cluster resource and select the **Monitoring** tab, then click on **Logs** blade on the left navigation panel. 
