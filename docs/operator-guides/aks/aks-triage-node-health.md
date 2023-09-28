@@ -69,16 +69,13 @@ If **tunnelfront** or **aks-link** connectivity is not working, establish connec
 
    ![Sample `aks-link` logs](images/aks-link-logs.png)
 
-You can also retrieve those logs by searching the container logs in the logging and monitoring service. This example searches [Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-log-search) to check for **aks-link** connectivity errors.
+You can also retrieve those logs by searching the container logs in the logging and monitoring service. This example searches [Azure Monitor container insights](/azure/azure-monitor/containers/container-insights-log-query) to check for **aks-link** connectivity errors.
 
 ```kusto
-let ContainerIDs = KubePodInventory
-| where ClusterId =~ "/subscriptions/YOUR_SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP/providers/Microsoft.ContainerService/managedClusters/YOUR_CLUSTER_ID"
-| where Name has "aks-link"
-| distinct ContainerID;
-ContainerLog
-| where ContainerID in (ContainerIDs)
-| project LogEntrySource, LogEntry, TimeGenerated, Computer, Image, Name, ContainerID
+ContainerLogV2 
+| where _ResourceId =~ "/subscriptions/YOUR_SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP/providers/Microsoft.ContainerService/managedClusters/YOUR_CLUSTER_ID"
+| where ContainerName has "aks-link"
+| project LogSource,LogMessage, TimeGenerated, Computer, PodName, ContainerName, ContainerId
 | order by TimeGenerated desc
 | limit 200
 ```
@@ -86,14 +83,11 @@ ContainerLog
 Here's another example query to check for **tunnelfront** connectivity errors.
 
 ```kusto
-let ContainerIDs = KubePodInventory
-| where ClusterId =~ "/subscriptions/YOUR_SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP/providers/Microsoft.ContainerService/managedClusters/YOUR_CLUSTER_ID"
-| where Name has "tunnelfront"
-| distinct ContainerID;
-ContainerLog
-| where ContainerID in (ContainerIDs)
-| where LogEntry has "ssh to tunnelend is not connected"
-| project LogEntrySource, LogEntry, TimeGenerated, Computer, Image, Name, ContainerID
+ContainerLogV2 
+| where _ResourceId =~ "/subscriptions/YOUR_SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP/providers/Microsoft.ContainerService/managedClusters/YOUR_CLUSTER_ID"
+| where ContainerName has "tunnelfront"
+| where LogMessage has "ssh to tunnelend is not connected"
+| project LogSource,LogMessage, TimeGenerated, Computer, PodName, ContainerName, ContainerId
 | order by TimeGenerated desc
 | limit 200
 ```
