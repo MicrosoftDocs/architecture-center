@@ -8,7 +8,7 @@ IBM Z and Cloud Modernization Stack and z/OS Connect are easily deployed on Azur
 
 ## Architecture
 
-:::image type="content" source="./media/extend-mainframes-to-digital-channels-by-using-standards-based-rest-apis.svg" alt-text="A diagram of the responsibility matrix, showing a deployment using an Azure network connection." lightbox="./media/rest-apis-for-mainframe-applications-using-ibm-zos-connect.svg" border="false":::
+:::image type="content" source="./media/extend-mainframes-to-digital-channels-by-using-standards-based-rest-apis.svg" alt-text="A diagram of the responsibility matrix, showing a deployment using an Azure network connection." lightbox="./media/extend-mainframes-to-digital-channels-by-using-standards-based-rest-apis.svg" border="false":::
 *Download a [Visio file](https://arch-center.azureedge.net/extend-mainframes-to-digital-channels-by-using-standards-based-rest-apis.vsdx) of this architecture.*
 
 ## Workflow
