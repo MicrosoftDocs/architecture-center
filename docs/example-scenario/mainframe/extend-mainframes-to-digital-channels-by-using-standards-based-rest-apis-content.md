@@ -8,8 +8,8 @@ IBM Z and Cloud Modernization Stack and z/OS Connect are easily deployed on Azur
 
 ## Architecture
 
-:::image type="content" source="./media/rest-apis-for-mainframe-applications-using-ibm-zos-connect.svg" alt-text="A diagram of the responsibility matrix, showing a deployment using an Azure network connection." lightbox="./media/rest-apis-for-mainframe-applications-using-ibm-zos-connect.svg" border="false":::
-*Download a [Visio file](https://arch-center.azureedge.net/rest-apis-for-mainframe-applications-using-ibm-zos-connect.vsdx) of this architecture.*
+:::image type="content" source="./media/extend-mainframes-to-digital-channels-by-using-standards-based-rest-apis.svg" alt-text="A diagram of the responsibility matrix, showing a deployment using an Azure network connection." lightbox="./media/rest-apis-for-mainframe-applications-using-ibm-zos-connect.svg" border="false":::
+*Download a [Visio file](https://arch-center.azureedge.net/extend-mainframes-to-digital-channels-by-using-standards-based-rest-apis.vsdx) of this architecture.*
 
 ## Workflow
 
@@ -24,14 +24,14 @@ Take the following steps to create and deploy APIs for mainframe applications by
 
 Access mainframe applications through Azure by:
 
-- Signing in to Microsoft Entra ID, which provides access to the client application. The client applications also communicate with Microsoft Entra ID for authentication and authorization of access to resources.
-- Accessing client applications such as Power Apps or a custom web app, which then access the mainframe applications through REST API access to IBM Z and Cloud Modernization Stack.
+6. Signing in to Microsoft Entra ID, which provides access to the client application. The client applications also communicate with Microsoft Entra ID for authentication and authorization of access to resources.
+7. Accessing client applications such as Power Apps or a custom web app, which then access the mainframe applications through REST API access to IBM Z and Cloud Modernization Stack.
 
 The steps taken by IT staff to monitor the system with Azure tools and implement disaster recovery measures by using Azure Site Recovery include:
 
-- Deploy new or enhanced applications to consume the REST API interfaces exposed through API Management.
-- Use Azure Application Monitor and Application Insights to monitor Power Platform, the application APIs, and security.
-- Use Azure Site Recovery for disaster recovery.
+7. Deploy new or enhanced applications to consume the REST API interfaces exposed through API Management.
+8. Use Azure Application Monitor and Application Insights to monitor Power Platform, the application APIs, and security.
+9. Use Azure Site Recovery for disaster recovery.
 
 ## Components
 
