@@ -77,7 +77,6 @@ In Kubernetes, the standard approach to logging is for a container to write logs
 
 Azure Monitor integrates with AKS to support this approach. Monitor collects container logs and sends them to a Log Analytics workspace. From there, you can use the [Kusto Query Language](/azure/kusto/query/) to write queries across the aggregated logs. For example, here's a [Kusto query for showing the container logs](/azure/azure-monitor/containers/container-insights-log-query#container-logs) for a specified pod:
 
-
 ```kusto
 ContainerLogV2
 | where PodName == "podName" //update with target pod
