@@ -149,6 +149,4 @@ For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure@m
 
 ## Related resources
 
-- [Integration architecture design](/azure/architecture/integration/integration-start-here)
-- [Publish internal APIs to external users](/azure/architecture/example-scenario/apps/publish-internal-apis-externally)
-- [Custom business processes](/azure/architecture/solution-ideas/articles/custom-business-processes)
+- [Implement Azure DevOps for mainframe applications that use IBM Z and Cloud Modernization Stack](/azure/architecture/example-scenario/mainframe/devops-mainframe-ibm-z)
