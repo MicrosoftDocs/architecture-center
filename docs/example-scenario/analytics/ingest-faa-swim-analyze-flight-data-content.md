@@ -28,7 +28,7 @@ Another important aspect of this architecture is that SWIM uses Solace, so Kafka
 
 1. SWIM provides data. The architecture diagram shows three of the most common data sources (TFMS, TBFM, and STDDS). The type of information that you want to analyze dictates the data source from SWIM that you need to subscribe to.
 1. A Solace source connector connects and ingests the data into Kafka.
-1. Messages from Kafka are cleaned, prepped, and parsed in a workspace in Azure Databricks. This Azure Databricks workspace is where data scientists do their work. They use notebooks written in Python, Scala, and/or R that contain the logic they need to parse the data or even train models based on it.
+1. Messages from Kafka are cleaned, prepped, and parsed in a workspace in Azure Databricks. This Azure Databricks workspace is where data scientists do their work. They use notebooks written in Python, Scala, or R that contain the logic they need to parse the data or even train models based on it.
 1. Azure Data Lake provides storage.
 1. Power BI or Tableau displays the final data.
 
@@ -55,11 +55,11 @@ As an alternative to Power BI, you can use Tableau or another visualization opti
 
 ### Potential use cases
 
-This solution consumes multiple data sources for flight data patterns. It's ideal for the aerospace, aircraft, and aviation industries. It can be used to analyze flight data patterns and to predict future flight patterns. It can also be used to analyze flight data to improve flight safety.
+This solution consumes multiple data sources for flight data patterns. It's ideal for the aerospace, aircraft, and aviation industries. It can be used to analyze flight data patterns and to predict future flight patterns. For example, It can also be used to analyze flight data to improve flight safety.
 
 The solution environment is flexible, so it can be extended to analyze other SWIM data sources or similar streamed data sources.
 
-It also shows how to automate and create data analytics environments by using Chef Infra, Chef InSpec, Test Kitchen, Terraform, Terraform Cloud, and GitHub Actions. This automation can be extended to other data analytics environments. For example, you can use it to automate the deployment of an Azure Databricks cluster that analyzes data from a different source.
+This solution also shows how to automate and create data analytics environments by using Chef Infra, Chef InSpec, Test Kitchen, Terraform, Terraform Cloud, and GitHub Actions. This automation can be extended to other data analytics environments. For example, you can use it to automate the deployment of an Azure Databricks cluster that analyzes data from a different source.
 
 ### SWIM architecture
 
@@ -83,9 +83,21 @@ This architecture uses GitHub Actions to orchestrate the CI/CD pipeline:
 
 *Download a [Visio file](https://arch-center.azureedge.net/ci-cd-architecture.vsdx) of this architecture.*
 
-- Developers push code to GitHub, either for the infrastructure via Terraform or for configuration via Chef.
-- If the GitHub pull request is approved, it triggers a GitHub Actions workflow.
-- The Actions workflow pushes changes in either the infrastructure or in the configurations for Kafka, Azure Databricks, and so on.
+#### Dataflow
+
+1. Developers work on either the Infrastructure or the Configuration code.
+
+   1.1 Infrastructure code uses Terraform.
+
+   1.2 Configuration code uses Chef.
+
+2. Developers push their code to the GitHub repository using a GitHub pull request.
+
+3. The pull request triggers a GitHub Actions workflow. The workflow runs the code through a series of tests. If the changes are configuration-related, the workflow runs Chef InSpec and Test Kitchen to test the code. Once the tests are completed, it reports the results back to GitHub. If the changes are infrastructure-related, the workflow also creates a Terraform plan and posts it as a comment in the pull request. The plan shows the changes that would be applied to the infrastructure if the pull request is approved.
+
+4. If the changes are infrastructure-related, the workflow runs Terraform Cloud's remote state. Terraform Cloud is a hosted service that provides remote state management, locking, and other features.
+
+5. If the tests pass, and the pull request is approved, the workflow merges the code into the `main` branch. Once merged the Actions workflow pushes changes in either the infrastructure or in the configurations for Kafka, Azure Databricks, and so on.
 
 #### GitHub workflows
 
