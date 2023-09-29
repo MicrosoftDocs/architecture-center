@@ -88,7 +88,7 @@ Azure confidential virtual machines (DCasv5/ECasv5) offer a new, hardware-based 
  
 Additional key features such as verifiable remote attestation, vTPM, secure boot, and full OS disk confidential encryption provide enhanced security posture to confidential systems such as SWIFT Messaging components.
 
-Customers, including Microsoft's own Microsoft Treasury group, have used Azure confidential compute to host the SWIFT connectivity modules for meeting higher security requirements. As of the time of this writing, only the connectivity modules can be deployed using Azure confidential compute, Alliance Connect Virtual (ACV) virtual appliance cannot be hosted in using Azure confidential compute.
+Customers, including Microsoft's own Microsoft Treasury group, have used Azure confidential compute to host the SWIFT connectivity modules for meeting higher security requirements. As of the time of this writing, only the connectivity modules can be deployed using Azure confidential compute. Alliance Connect Virtual (ACV) virtual appliance cannot be hosted in using Azure confidential compute.
 
 ### Shared Azure services (optional)
 
