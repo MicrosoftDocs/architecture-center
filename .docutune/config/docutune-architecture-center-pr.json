@@ -1,0 +1,22 @@
+{
+  "BaseConfiguration": "docutune-default.json",
+  "DocSets": [
+    {
+      "DocsetName": "azure-architecture-center-pr2",
+      "BasePath": "/azure/architecture"
+  } ],
+  "MetadataMultilineValues": true,
+  "MarkdownListIndicator": "-",
+  "Exclude": [
+    "architecture_index.md",
+    "hybrid_architecture_index.md",
+    "index.liquid.md",
+    "changelog.md"
+  ],
+  "TermFiles": [
+    "Bundle-Standard.txt",
+    "Bundle-Cloud.txt",
+    "Dictionary-AAC.ps1"
+  ],
+  "ApplyPolicies": []
+}
