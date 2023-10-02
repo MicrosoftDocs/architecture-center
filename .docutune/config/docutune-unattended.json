@@ -15,7 +15,7 @@
     "requestReview": true,
     "signOff": false,
     "properties": {
-      "pointOfContact": "RobBagby"
+      "pointOfContact": "@RobBagby"
     },
     "sleepInterval": 15
   },
