@@ -63,7 +63,7 @@ The following options provide an opinionated approach to deploy and operate the 
 
 After you deploy the landing zone, you need to operate and maintain it. For more information, see the guidance on how to [Keep your Azure landing zone up to date](/azure/cloud-adoption-framework/govern/resource-consistency/keep-azure-landing-zone-up-to-date).
 
-[Azure Governance Visualizer](https://github.com/JulianHayward/Azure-MG-Sub-Governance-Reporting#azure-governance-visualizer-aka-azgovviz) is intended to help you get a holistic overview on your technical Azure governance implementation by connecting the dots and providing sophisticated reports.
+[Azure Governance Visualizer](https://aka.ms/alz/azgovviz) is intended to help you get a holistic overview on your technical Azure governance implementation by connecting the dots and providing sophisticated reports.
 
 ### Alternative platform deployment for policies with Enterprise Policy as Code (EPAC)
 
