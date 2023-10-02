@@ -32,7 +32,7 @@ The workload is hosted in Azure infrastructure and several Azure services partic
 
 ### Global resources
 
-These resources provide functionality that is shared by resources deployed in all regions. For instance, the global load balancer that distributes traffic to multiple regions. Foundational services that other services depend on, such as the Identity platform (Azure Active Directory) and DNS. Global resources also include services that maintain functional consistency across regions, such as shared state stores and databases. 
+These resources provide functionality that is shared by resources deployed in all regions. For instance, the global load balancer that distributes traffic to multiple regions. Foundational services that other services depend on, such as the Identity platform (Microsoft Entra ID) and DNS. Global resources also include services that maintain functional consistency across regions, such as shared state stores and databases. 
 
 **Azure Traffic Manager**
 
