@@ -10,7 +10,7 @@ This architecture is for a high-availability solution that handles massive amoun
 
 The application data is stored in Azure Cosmos DB, which replicates data to different Azure regions, with the chosen consistency level. The data replication can be achieved with a one-click operation that simplifies the overall implementation of the solution. Azure Data Factory is used to move historical data from Azure Cosmos DB to Azure Table Storage to reduce cost. You can also move data to any other storage, like Azure Data Lake, for reporting. Later, you can archive data using backup or the Azure Storage archive tier, to further reduce cost.
 
-1. The client authenticates with Azure Active Directory (Azure AD) and is granted access to web applications hosted on Azure App Service.
+1. The client authenticates with Microsoft Entra ID and is granted access to web applications hosted on Azure App Service.
 1. Azure Front Door, a firewall and layer 7 load balancer, switches user traffic to a different Azure region if there is a regional outage.
 1. Azure App Service hosts websites and RESTful web APIs. Browser clients run AJAX applications that use the APIs.
 1. Web APIs delegate function apps to handle background tasks. The tasks are queued in Azure Queue Storage queues.
@@ -21,7 +21,7 @@ The application data is stored in Azure Cosmos DB, which replicates data to diff
 
 ### Components
 
-- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) is a multi-tenant identity and access management service that can synchronize with an on-premises directory.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is a multi-tenant identity and access management service that can synchronize with an on-premises directory.
 - [Azure DNS](https://azure.microsoft.com/services/dns) is a high-availability hosting service for DNS domains that provides apps with fast DNS queries and quick updates to DNS records. Managing Azure DNS is like managing other Azure services, and uses the same credentials, APIs, tools, and billing.
 - [Azure Front Door](https://azure.microsoft.com/services/frontdoor) is a secure content delivery network (CDN) and load balancer with instant failover. It operates at the edge close to users, accelerating content delivery while protecting apps, APIs, and websites from cyber threats.
 - [Azure App Service](https://azure.microsoft.com/services/app-service) is a fully managed service for building, deploying, and scaling web apps. You can build apps using .NET, .NET Core, Node.js, Java, Python, or PHP. Apps can run in containers or on Windows or Linux. In a mainframe migration, the front-end screens or web interface can be coded as HTTP-based REST APIs. They can be segregated and can be stateless to orchestrate a microservices-based system. For more information on web APIs, see [RESTful web API design](../../best-practices/api-design.md).
