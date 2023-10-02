@@ -125,7 +125,7 @@ The following list contains the high-level steps required to set up the Parking 
 ### Setup and deployment
 
 1. **Initial setup**: Install any prerequisites, import the Azure Samples GitHub repository into your own repository, and set required environment variables.
-1. **Deploy Azure resources**: The solution comes with an automated deployment script. It deploys all necessary Azure resources and Microsoft Azure Active Directory service principals per environment. The script also deploys Azure Pipelines, variable groups, and service connections.
+1. **Deploy Azure resources**: The solution comes with an automated deployment script. It deploys all necessary Azure resources and Microsoft Entra service principals per environment. The script also deploys Azure Pipelines, variable groups, and service connections.
 1. **Set up git integration in dev Data Factory**: Configure git integration to work with the imported GitHub repository.
 
 1. **Carry out an initial build and release**: Create a sample change in Data Factory, like enabling a schedule trigger, then watch the change automatically deploy across environments.

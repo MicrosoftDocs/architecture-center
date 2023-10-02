@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Azure Active Directory IDaaS in security operations
+  title: Microsoft Entra IDaaS in security operations
   titleSuffix: Azure Architecture Center
-  description: Learn how security operations teams can use Azure Active Directory identity and access features in an adaptive, integrated zero-trust security architecture.
+  description: Learn how security operations teams can use Microsoft Entra identity and access features in an adaptive, integrated zero-trust security architecture.
   author: martinekuan
   ms.author: architectures
   ms.date: 08/23/2022
@@ -14,10 +14,10 @@ metadata:
   ms.custom:
     - fcp
     - example-scenario
-name: Azure Active Directory IDaaS in security operations
+name: Microsoft Entra IDaaS in security operations
 azureCategories:
   - security
-summary: Learn how security operations teams can use Azure Active Directory identity and access features in an adaptive, integrated zero-trust security architecture.
+summary: Learn how security operations teams can use Microsoft Entra identity and access features in an adaptive, integrated zero-trust security architecture.
 products:
   - azure-active-directory
   - microsoft-sentinel
