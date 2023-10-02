@@ -235,7 +235,9 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-* TBD
+* Consider Azure Arc enabled infrastructure to simplify governance and management across Azure cloud, on-premises environments and Hardware-in-the-Loop testing and validation farms.
+
+* The Automotive Software Defined Vehicle (SDV) Toolchain embraces key software engineering disciplines like infrastructure as code environment provisioning, continuous integration and continuous delivery (CI/CD) pipelines for automotive software stacks build and release, automated testing to transition to a shift-left approach and configuration as code to avoid environments configuration drift. Consider adopting the above key principles across all your workloads for consistency, repetition and early detection of issues. 
 
 ### Performance efficiency
 
