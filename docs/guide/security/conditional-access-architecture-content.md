@@ -14,13 +14,13 @@ A device-based sign-in command is run on the given device, and a code is shown t
 
 The challenge with this sign-in is that it doesn't support device-based Conditional Access. This means that nobody can use the tools and commands if you apply a baseline policy that requires known user and known device for all cloud apps. There are other applications that have the same problem with device-based Conditional Access.
 
-The other architecture, the *targeted* one, is built on the principle that you target only individual apps that you want to protect in Conditional Access policies. In this case, device-login for endpoints previously covered by all cloud apps, such as graph calls to Azure Active Directory, is not protected by the Conditional Access policies, so they continue to work.
+The other architecture, the *targeted* one, is built on the principle that you target only individual apps that you want to protect in Conditional Access policies. In this case, device-login for endpoints previously covered by all cloud apps, such as graph calls to Microsoft Entra ID, is not protected by the Conditional Access policies, so they continue to work.
 
 When using device-login as an example to differentiate the two architectures, you can authenticate with device-login. Device-login can potentially be allowed for one or a few individual applications, given that each application is targetable and thereby can be excluded in a Conditional Access policy that requires device-based login.
 
 The challenge with the *targeted* architecture is that you might forget to protect all your cloud apps. Even so, you would choose all the selectable applications in the Conditional Access policies. You leave access to the applications that can't be selected unprotected. Examples include access to the Office portal, the Azure EA (Enterprise Agreement) portal, and the security information portal, which are all very sensitive portals. 
 
-Another consideration is that the number of Office 365 and Azure Active Directory (Azure AD) apps increases over time, as Microsoft and partners release new features and as your IT admins integrate various applications with Azure AD. Access to all such applications is protected only if you have a mechanism that detects any new app that supports Conditional Access and that automatically applies a policy to it. Creating and maintaining such a script might be difficult.
+Another consideration is that the number of Office 365 and Microsoft Entra apps increases over time, as Microsoft and partners release new features and as your IT admins integrate various applications with Microsoft Entra ID. Access to all such applications is protected only if you have a mechanism that detects any new app that supports Conditional Access and that automatically applies a policy to it. Creating and maintaining such a script might be difficult.
 
 Also, the maximum supported number of apps for any one Conditional Access policy is approximately 250. You might be able to add as many as 600 apps before you get an error about payload being exceeded, but that number isn't supported.
 
@@ -50,13 +50,13 @@ Global is a persona/placeholder for policies that are general in nature. It's us
 
 For example, assume that you want to use one policy to block legacy authentication for all users. You can make it a global policy instead of using a group of legacy policies that might be different for various personas. 
 
-Another example: you want to block a given account or user from specific applications, and the user or account isn't part of any of the personas. For example, if you create a cloud identity in the Azure AD tenant, this identity isn't part of any of the other personas because it isn't assigned any Azure AD roles. You still might want to block the identity from access to Office 365 services. 
+Another example: you want to block a given account or user from specific applications, and the user or account isn't part of any of the personas. For example, if you create a cloud identity in the Microsoft Entra tenant, this identity isn't part of any of the other personas because it isn't assigned any Microsoft Entra roles. You still might want to block the identity from access to Office 365 services. 
 
 You might want to block all access from identities that aren't covered by any persona group. Or you might just want to enforce multi-factor authentication.
 
 **Admins** 
 
-In this context, an admin is any non-guest identity, cloud or synced, that has any Azure AD or other Microsoft 365 admin role (for example, in Microsoft Defender for Cloud Apps, Exchange, Defender for Endpoint, or Compliance Manager). Because guests who have these roles are covered in a different persona, guests are excluded from this persona. 
+In this context, an admin is any non-guest identity, cloud or synced, that has any Microsoft Entra ID or other Microsoft 365 admin role (for example, in Microsoft Defender for Cloud Apps, Exchange, Defender for Endpoint, or Compliance Manager). Because guests who have these roles are covered in a different persona, guests are excluded from this persona. 
 
 Some companies have separate accounts for the sensitive admin roles that this persona is based on. Optimally, admins use these sensitive accounts from a Privileged Access Workstation (PAW). But we often see that admin accounts are used on standard workstations, where the user just switches between accounts on one device. 
 
@@ -64,44 +64,44 @@ You might want to differentiate based on the sensitivity of cloud admin roles an
 
 **Developers**
 
-The Developers persona contains users who have unique needs. They're based on Active Directory accounts that are synced to Azure AD, but they need special access to services like Azure DevOps, CI/CD pipelines, device code flow, and GitHub. The Developers persona can include users who are considered internal and others considered external, but a person should be in only one of the personas.
+The Developers persona contains users who have unique needs. They're based on Active Directory accounts that are synced to Microsoft Entra ID, but they need special access to services like Azure DevOps, CI/CD pipelines, device code flow, and GitHub. The Developers persona can include users who are considered internal and others considered external, but a person should be in only one of the personas.
 
 **Internals**
 
-Internals contains all users who have an Active Directory account synced to Azure AD, who are employees of the company, and who work in a standard end-user role. We recommend that you add internal users who are developers to the Developers persona.
+Internals contains all users who have an Active Directory account synced to Microsoft Entra ID, who are employees of the company, and who work in a standard end-user role. We recommend that you add internal users who are developers to the Developers persona.
 
 **Externals**
 
-This persona holds all external consultants who have an Active Directory account synced to Azure AD. We recommend that you add external users who are developers to the Developers persona.
+This persona holds all external consultants who have an Active Directory account synced to Microsoft Entra ID. We recommend that you add external users who are developers to the Developers persona.
 
 **Guests**
 
-Guests holds all users who have an Azure AD guest account that's been invited to the customer tenant.
+Guests holds all users who have a Microsoft Entra guest account that's been invited to the customer tenant.
 
 **GuestAdmins**
 
-The GuestAdmins persona holds all users who have an Azure AD guest account that's assigned any of the previously mentioned admin roles.
+The GuestAdmins persona holds all users who have a Microsoft Entra guest account that's assigned any of the previously mentioned admin roles.
 
 **Microsoft365ServiceAccounts**
 
-This persona contains cloud (Azure AD) user-based service accounts that are used to access Microsoft 365 services when no other solution meets the need, like using a managed service identity.
+This persona contains cloud (Microsoft Entra ID) user-based service accounts that are used to access Microsoft 365 services when no other solution meets the need, like using a managed service identity.
 
 **AzureServiceAccounts**
 
-This persona contains cloud (Azure AD) user-based service accounts that are used to access Azure (IaaS/PaaS) services when no other solution meets the need, like using a managed service identity.
+This persona contains cloud (Microsoft Entra ID) user-based service accounts that are used to access Azure (IaaS/PaaS) services when no other solution meets the need, like using a managed service identity.
 
 **CorpServiceAccounts**
 
 This persona contains user-based service accounts that have all of these characteristics: 
 - Originate from on-premises Active Directory. 
 - Are used from on-premises or from an IaaS-based virtual machine in another (cloud) datacenter, like Azure.
-- Are synced to an Azure AD instance that accesses any Azure or Microsoft 365 service.
+- Are synced to a Microsoft Entra instance that accesses any Azure or Microsoft 365 service.
  
  This scenario should be avoided.
 
 **WorkloadIdentities**
 
-This persona contains machine identities, like Azure AD service principals and managed identities. Conditional Access now supports protecting access to resources from these accounts, with some limitations in regards to which conditions and grant controls are available.
+This persona contains machine identities, like Microsoft Entra service principals and managed identities. Conditional Access now supports protecting access to resources from these accounts, with some limitations in regards to which conditions and grant controls are available.
 
 ## Access template cards
 
@@ -135,4 +135,4 @@ Principal author:
 - [Conditional Access overview](/azure/architecture/guide/security/conditional-access-zero-trust)
 - [Conditional Access design principles and dependencies](/azure/architecture/guide/security/conditional-access-design)
 - [Conditional Access framework and policies](/azure/architecture/guide/security/conditional-access-framework)
-- [Azure Active Directory IDaaS in security operations](/azure/architecture/example-scenario/aadsec/azure-ad-security)
+- [Microsoft Entra IDaaS in security operations](/azure/architecture/example-scenario/aadsec/azure-ad-security)
