@@ -22,5 +22,6 @@ products:
   - azure-expressroute
 name: Use a Software Defined Vehicle DevOps Toolchain to accelerate the development of connected vehicle applications and services
 summary: This reference architecture is designed to support automotive OEMs in the development of advanced connected vehicle applications and services. It provides a DevOps toolchain that enables the rapid development of connected vehicle applications and services, and the deployment of those applications and services to a vehicle. The toolchain is designed to support the development of applications and services that run in the vehicle, in the cloud, or both.
+thumbnailUrl: /azure/architecture/browse/thumbs/analytics-dataflow.png
 content: |
   [!include[](sdv-e2e-reference-architecture-content.md)]
