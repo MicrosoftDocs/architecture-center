@@ -131,7 +131,7 @@ If you want to enforce that only GitOps can change the cluster state, you can re
 
 It's possible to have a need to deploy AKS clusters as part of the baseline configuration. An example is that you have to deploy a set of shared services or a configuration before you deploy workloads. These shared-services can configure AKS add-ons such as:
 
-- [Azure AD workload identity](/azure/aks/workload-identity-overview).
+- [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview).
 - [Secret Store CSI Driver Provider](https://github.com/Azure/secrets-store-csi-driver-provider-azure).
 - Partner tools such as:
   - [Prisma Cloud Defender](https://docs.paloaltonetworks.com/prisma/prisma-cloud).
