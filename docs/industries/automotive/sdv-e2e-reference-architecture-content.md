@@ -16,7 +16,7 @@ The Architecture consists of six key building blocks:
 
 1. The **Automotive Software Defined Vehicle (SDV) Toolchain** is a plug-and-play approach that is open and configurable using our developer and DevOps assets. It reduces reliance on in-vehicle silicon by establishing highly configurable and flexible **virtual Electronic Control Units (vECU)** as well as **virtual High Performance Computers (vHPC)** environments on Azure to accelerate development, testing and validation of automotive software. The approach also ensures compatibility with edge / in-vehicle silicon to ensure bit, timing, and code parity. 
 
-2. An **Automotive Software Stack** which encompasses a diverse range of technologies and frameworks, often governed by industry standards and collaborative efforts such as the *Eclipse Foundation Software Defined Vehicle Working Group*. Eclipse projects include nondifferentiating components for vehicle connectivity, messaging and communications protocol, in-vehicle digital twin abstraction layer, advanced driver-assistance systems (ADAS), and autonomous driving solutions. Automotive Software Stacks are designed to provide a robust foundation for automakers and software developers, ensuring seamless integration and compatibility across the automotive ecosystem with a community-driven approach to technological advancements.
+2. An **Automotive Software Stack** which encompasses a diverse range of technologies and frameworks, often governed by industry standards and collaborative efforts such as the *Eclipse Foundation Software Defined Vehicle Working Group*. Eclipse projects include non-differentiating components for vehicle connectivity, messaging and communications protocol, in-vehicle digital twin abstraction layer, advanced driver-assistance systems (ADAS), and autonomous driving solutions. Automotive Software Stacks are designed to provide a robust foundation for automakers and software developers, ensuring seamless integration and compatibility across the automotive ecosystem with a community-driven approach to technological advancements.
 
 3. The **GitHub and Azure Marketplace** enable partners such as Tier I and automotive software tool vendors to offer solutions such as managed automotive software stacks, virtual ECUs and developer tooling and integrate them with the SDV Toolchain.
 
@@ -212,18 +212,15 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](https://learn.microsoft.com/azure/architecture/framework/resiliency/overview).
 
-* Hardware in the Loop (HiL) testing is an indispensable and critical part of the automotive software development process and test strategy. When designing and implementing the network architecture to the HiL farms consider [Designing for high availability with ExpressRoute](https://learn.microsoft.com/en-us/azure/expressroute/designing-for-high-availability-with-expressroute) to reduce single point of failure and maximize availability of remote environments to your development and test teams.
-
 * Running an end-to-end service-oriented application infrastructure to support the implementation of a distributed communication protocol platform on Azure with modern continuous integration and continuous deployment (CI/CD) requires a reliable and high available architecture. The [Azure Well-Architected Framework review - Azure Kubernetes Service (AKS)](https://learn.microsoft.com/en-us/azure/well-architected/services/compute/azure-kubernetes-service/azure-kubernetes-service) provides architectural guidance and best practices for managing and running services on Azure Kubernetes Service (AKS).
+* Hardware in the Loop (HiL) testing is an indispensable and critical part of the automotive software development process and test strategy. When designing and implementing the network architecture to the HiL farms consider [Designing for high availability with ExpressRoute](https://learn.microsoft.com/en-us/azure/expressroute/designing-for-high-availability-with-expressroute) to reduce single point of failure and maximize availability of remote environments to your development and test teams.
 
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](https://learn.microsoft.com/azure/architecture/framework/security/overview).
 
-* Security is one of the most important aspects of any architecture and ensuring security in complex systems depends on understanding different contexts like business, social and technical. Consider adopting GitHub’s code scanning capabilities to find and fix security issues and critical defects earlier like [GitHub enables the development of functional safety applications by adding support for coding standards AUTOSAR C++ and CERT C++](https://github.blog/2022-06-20-adding-support-for-coding-standards-autosar-c-and-cert-c/ ) in the development process. 
-
-* Consider the following best practices to [secure your end-to-end supply chain on GitHub](https://docs.github.com/en/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview). 
-
+* Security is one of the most important aspects of any architecture and ensuring security in complex systems depends on understanding different contexts like business, social and technical. Consider adopting GitHub’s code scanning capabilities to find and fix security issues and critical defects earlier [GitHub enables the development of functional safety applications by adding support for coding standards AUTOSAR C++ and CERT C++](https://github.blog/2022-06-20-adding-support-for-coding-standards-autosar-c-and-cert-c/ ) in the development process. 
+* Consider adopting the following best practices to [Secure your end-to-end supply chain on GitHub](https://docs.github.com/en/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview). 
 
 ### Cost optimization
 
@@ -238,9 +235,8 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-* Consider Azure Arc enabled infrastructure to simplify governance and management across Azure cloud, on-premises environments and Hardware-in-the-Loop testing and validation farms.
-
 * The Automotive Software Defined Vehicle (SDV) Toolchain embraces key software engineering disciplines like infrastructure as code environment provisioning, continuous integration and continuous delivery (CI/CD) pipelines for automotive software stacks build and release, automated testing to transition to a shift-left approach and configuration as code to avoid environments configuration drift. Consider adopting the above key principles across all your workloads for consistency, repetition and early detection of issues. 
+* Consider Azure Arc enabled infrastructure to simplify governance and management across Azure cloud, on-premises environments and Hardware-in-the-Loop testing and validation farms.
 
 ### Performance efficiency
 
@@ -255,12 +251,12 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 Principal authors:
 
-* [Daniel Lueddecke](https://www.linkedin.com/in/daniellueddecke/) | Cloud Solution Architect, Automotive
-* [Mario Ortegon Cabrera](http://www.linkedin.com/in/marioortegon) | Principal Program Manager, MCI SDV & Mobility
-* [Filipe Prezado](https://www.linkedin.com/in/filipe-prezado-9606bb14) | Principal Program Manager, MCI SDV & Mobility
-* [Sandeep Pujar](https://www.linkedin.com/in/spujar/) | Principal PM Manager, Azure Messaging
 * [Ashita Rastogi](https://www.linkedin.com/in/ashitarastogi/) | Principal Program Manager, Azure Messaging
 * [Boris Scholl](https://www.linkedin.com/in/bscholl/) | General Manager, Partner Architect - Azure Cloud & AI
+* [Daniel Lueddecke](https://www.linkedin.com/in/daniellueddecke/) | Cloud Solution Architect, Automotive
+* [Filipe Prezado](https://www.linkedin.com/in/filipe-prezado-9606bb14) | Principal Program Manager, MCI SDV & Mobility
+* [Mario Ortegon Cabrera](http://www.linkedin.com/in/marioortegon) | Principal Program Manager, MCI SDV & Mobility
+* [Sandeep Pujar](https://www.linkedin.com/in/spujar/) | Principal PM Manager, Azure Messaging
 
 Other contributors:
 
