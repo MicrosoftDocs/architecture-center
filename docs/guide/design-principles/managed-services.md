@@ -38,7 +38,7 @@ Your application might have specific requirements that make IaaS a more suitable
 
 | Instead of running ... | Consider using ... |
 |-----------------------|-------------|
-| Active Directory | [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) |
+| Active Directory | [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) |
 | Elasticsearch | [Azure Cognitive Search](/azure/search/search-what-is-azure-search) |
 | Hadoop | [Azure HDInsight](/azure/hdinsight/hdinsight-overview) |
 | IIS | [Azure App Service](/azure/app-service/overview) |

@@ -283,7 +283,7 @@ For an HBase cluster to operate, it must be able to communicate with other VMs i
 There are various ways to make it possible for servers to authenticate to each other seamlessly. The most common patterns are:
 
 - [Kerberized Linux servers that are domain-joined to a Windows domain controller](#kerberized-linux-servers-domain-joined-to-a-windows-domain-controller)
-- [A Kerberized Linux environment that uses Azure Active Directory Domain Services (Azure AD DS)](#a-kerberized-linux-environment-that-uses-azure-active-directory-domain-services-azure-ad-ds)
+- [A Kerberized Linux environment that uses Microsoft Entra Domain Services (Microsoft Entra Domain Services)](#a-kerberized-linux-environment-that-uses-azure-active-directory-domain-services-azure-ad-ds)
 - [A standalone MIT Kerberos domain controller](#a-standalone-mit-kerberos-domain-controller)
 - [Authorization by using Apache Ranger](#authorization-by-using-apache-ranger)
 
@@ -298,15 +298,17 @@ Considerations:
 
 If the domain controller is located on-premises or outside of an Azure region or in a non-Azure cloud, latency must be considered for operations that require interaction with the domain controller. One option is to host a second [domain controller on Azure](/azure/architecture/reference-architectures/identity/adds-extend-domain). The Azure-based domain controller is then used for all authentication and authorization scenarios for workloads that run on Azure. We recommend against assigning [operations masters roles](/windows-server/identity/ad-ds/plan/planning-operations-master-role-placement) to the domain controllers that are deployed in Azure. In such a scenario, the primary domain controller is hosted on-premises.
 
-##### A Kerberized Linux environment that uses Azure Active Directory Domain Services (Azure AD DS)
+<a name='a-kerberized-linux-environment-that-uses-azure-active-directory-domain-services-azure-ad-ds'></a>
 
-[Azure Active Directory Domain Services](/azure/active-directory-domain-services/overview) provides managed domain services such as domain join, group policy, lightweight directory access protocol (LDAP), and Kerberos and NTLM authentication. You can use Azure AD DS without the need to deploy, manage, and patch domain controllers in the cloud.
+##### A Kerberized Linux environment that uses Microsoft Entra Domain Services (Microsoft Entra Domain Services)
+
+[Microsoft Entra Domain Services](/azure/active-directory-domain-services/overview) provides managed domain services such as domain join, group policy, lightweight directory access protocol (LDAP), and Kerberos and NTLM authentication. You can use Microsoft Entra Domain Services without the need to deploy, manage, and patch domain controllers in the cloud.
 
 Considerations:
 
-- Regional availability of Azure AD DS
-- Networking requirements for Azure AD DS
-- High availability, disaster recovery, and uptime SLA for Azure AD DS
+- Regional availability of Microsoft Entra Domain Services
+- Networking requirements for Microsoft Entra Domain Services
+- High availability, disaster recovery, and uptime SLA for Microsoft Entra Domain Services
 
 ##### A standalone MIT Kerberos domain controller
 
@@ -462,7 +464,7 @@ Other contributors:
 
 ### Azure product reference
 
-- [Azure Active Directory documentation](/azure/active-directory)
+- [Microsoft Entra documentation](/azure/active-directory)
 - [Azure Cosmos DB documentation](/azure/cosmos-db)
 - [Azure Data Factory documentation](/azure/data-factory)
 - [Azure Databricks documentation](/azure/databricks)
@@ -488,4 +490,3 @@ Other contributors:
 - [Apache HDFS migration to Azure](apache-HDFS-migration.yml)
 - [Apache Kafka migration to Azure](apache-kafka-migration.yml)
 - [Apache Sqoop migration to Azure](apache-sqoop-migration.yml)
-
