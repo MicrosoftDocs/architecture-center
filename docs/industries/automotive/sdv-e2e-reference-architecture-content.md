@@ -244,6 +244,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
 * Consider what tasks can be parallelized as part of your build / test pipelines.
+* Consider implementing [Performance efficiency patterns](https://learn.microsoft.com/en-us/azure/well-architected/scalability/performance-efficiency-patterns ) for performant applications and workloads based on the Distributed Communication Protocol example. 
 
 ## Contributors
 
