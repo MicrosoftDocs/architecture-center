@@ -12,13 +12,13 @@ Applications need to be highly responsive and always online. This article presen
 1. Azure Traffic Manager uses a routing profile or nested profiles to route the user's connection to the best location for accessing the application.
 1. In the region that the user gets routed to, the application establishes a database session and connection.
 1. The solution can accommodate applications of various complexities. For instance, the app might be a basic, static page. Or it might be a microservices-oriented application that's hosted in Kubernetes.
-1. The connection between the application landscape and Azure Cosmos DB is handled through an Azure Active Directory (Azure AD) user who retrieves keys to Azure Cosmos DB keys from Azure Key Vault.
+1. The connection between the application landscape and Azure Cosmos DB is handled through a Microsoft Entra user who retrieves keys to Azure Cosmos DB keys from Azure Key Vault.
 1. The application is aware of the nearest region and can send requests to that region by using the Azure Cosmos DB multi-homing APIs. The nearest region is identified without any configuration changes. As you add and remove regions to and from your Azure Cosmos DB account, your application doesn't need to be redeployed or paused. The application continues to be highly available. Beneath the hood, Azure Cosmos DB handles the global distribution and replication of the data based on the number of defined regions. If the automatic failover option is turned on and a region becomes unavailable, the system fails over to the region with the highest failover priority. No user action is required for this failover. The region priorities can be modified when automatic failover is turned on.
 
 ### Components
 
 - [Traffic Manager](https://azure.microsoft.com/services/traffic-manager): is a DNS-based traffic load balancer. You can use Traffic Manager to create load balancing options for your applications by using various DNS-based traffic routing options that can be nested.
-- [Azure AD](https://azure.microsoft.com/services/active-directory): is a multi-tenant, cloud-based identity and access management service. You can use Azure AD to synchronize on-premises directories and enable single sign-on.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory): is a multi-tenant, cloud-based identity and access management service. You can use Microsoft Entra ID to synchronize on-premises directories and enable single sign-on.
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a globally distributed, multi-model database for any scale.
 
 ### Alternatives
@@ -71,9 +71,9 @@ For higher resiliency, you can use availability zones for Azure Cosmos DB deploy
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-From a security perspective, strive for an identity-based system, where Azure AD can be used to secure access to the environment. In the backend, access the application through managed identities. As an alternative, consider using Azure AD users and Key Vault for securing access. The Azure Cosmos DB instance should be further secured. Make the various backends that are deployed to different regions the only entities that are capable of reading and writing to the database instance. Apply IP address restriction to the account by using the built-in [firewall](/azure/cosmos-db/how-to-configure-firewall).
+From a security perspective, strive for an identity-based system, where Microsoft Entra ID can be used to secure access to the environment. In the backend, access the application through managed identities. As an alternative, consider using Microsoft Entra users and Key Vault for securing access. The Azure Cosmos DB instance should be further secured. Make the various backends that are deployed to different regions the only entities that are capable of reading and writing to the database instance. Apply IP address restriction to the account by using the built-in [firewall](/azure/cosmos-db/how-to-configure-firewall).
 
-Azure Cosmos DB also supports role-based access control with Azure AD. For more information, see [Configure role-based access control with Azure Active Directory for your Azure Cosmos DB account](/azure/cosmos-db/how-to-setup-rbac).
+Azure Cosmos DB also supports role-based access control with Microsoft Entra ID. For more information, see [Configure role-based access control with Microsoft Entra ID for your Azure Cosmos DB account](/azure/cosmos-db/how-to-setup-rbac).
 
 ### Performance efficiency
 

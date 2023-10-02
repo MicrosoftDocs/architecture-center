@@ -24,7 +24,7 @@ This solution is optimized for employees that work from the field and don't regu
 
 1. Create the app using Visual Studio and Xamarin.
 1. Add the Azure App Service Mobile Apps back end service to the app solution.
-1. Implement authentication through Azure Active Directory.
+1. Implement authentication through Microsoft Entra ID.
 1. Connect to business data in external systems like SAP using Azure API Management.
 1. Implement offline sync to make the mobile app functional without a network connection.
 1. Build and test the app through Visual Studio App Center and publish it.
@@ -39,7 +39,7 @@ This solution is optimized for employees that work from the field and don't regu
 * An [App Service](https://azure.microsoft.com/services/app-service) web app can host a customer-facing web app and a service that is used by both the web and mobile client.
 * [Application Insights (via Azure Monitor)](https://azure.microsoft.com/services/application-insights): Detect issues, diagnose crashes, and track usage in your web app with Application Insights. Make informed decisions throughout the development lifecycle.
 * [API Management](https://azure.microsoft.com/services/api-management): Publish APIs to external, partner, and employee developers securely and at scale.
-* [Azure Active Directory](https://azure.microsoft.com/services/active-directory) is used for secure, enterprise-grade authentication.
+* [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is used for secure, enterprise-grade authentication.
 
 ## Next steps
 
@@ -49,4 +49,4 @@ This solution is optimized for employees that work from the field and don't regu
 * [App Service](https://azure.microsoft.com/services/app-service)
 * [Application Insights Documentation](/azure/application-insights)
 * [API Management documentation](/azure/api-management)
-* [Azure Active Directory Documentation](/azure/active-directory)
+* [Microsoft Entra Documentation](/azure/active-directory)
