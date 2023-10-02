@@ -37,15 +37,14 @@ The telemetry ingestion layer is responsible for receiving messages from the veh
 1. Telemetry **messages from the vehicle** contain headers (metadata) and a payload that can either protobuf encoded or JSON. These messages are sent via MQTT to the cloud broker. Headers include such fields as vehicle UUID, message type, supplier, correlation identifier, message version, message UUID and a standard timestamp in UTC. Headers are used for message type validation and routing.
 1. The message is processed in a pipeline performing the following steps:
       1. **Metadata Validation** validates message headers including such activities as confirming the device is authorized to send the type of message and required header fields.
-      1. The **Decode** step translates the input schema into a standardized format that's used by the cloud. The **Decode** step also provides an abstraction layer between the device and the cloud if there's any versioning changes between devices types or years. The decoding implementation can either be inline, as part of the function for better performance, or it can be a separate function call for added modularity.
+      1. The **decode** step translates the input schema into a standardized format that's used by the cloud. The **decode** step also provides an abstraction layer between the device and the cloud if there's any versioning changes between devices types or years. The decoding implementation can either be inline, as part of the function for better performance, or it can be a separate function call for added modularity.
       1. **Enrichment** involves data value manipulation and additions of new data fields. Sample enrichment workloads include unit conversions, such as miles to kilometers, reverse geocoding, Vehicle Diagnostic Trouble Code description lookup, enrich with more data, derive, and calculate extra values. Enrichment steps are invoked according to the message type.
-      1. The **Routing** step distributes the messages to the fleet integration layer event hubs based on message type. The fleet integration layer is a *warm* path, which is required for integrations that require near-real time access to the message data.
+      1. The **routing** step distributes the messages to the fleet integration layer event hubs based on message type. The fleet integration layer is a *warm* path, which is required for integrations that require near-real time access to the message data.
 1. **Configuration** is managed in Cosmos DB. The Message Processing app reads the known message types, device authorization claims, and step configuration, to process and route incoming messages.
 1. For **data analytics and debugging**, messages are stored in the customer’s data lake in separate tables. Some example messages are:
       1. Original raw messages from Azure IoT Hub including headers.
       1. Decoded and enriched messages.
-
-   Exceptions include messages that can't be validated against the schema and failed decoding activities and messages that don't match existing vehicle or failed enrichment cases.
+      1. Exceptions include messages that can't be validated against the schema and failed decoding activities and messages that don't match existing vehicle or failed enrichment cases.
 1. **Vehicle and Device Management** is accessible to external systems with a managed API. The message processing function uses vehicle data stored in Cosmos DB to validate that the messages are registered to a vehicle.
 
 Event Grid provides an industry-compliant MQTT broker that supports version 3.1.1 and 5.0. For more information, see [Overview of the MQTT Support in Azure Event Grid (Preview)](/azure/event-grid/mqtt-overview) and [Client authentication using CA certificate chain](/azure/event-grid/mqtt-certificate-chain-client-authentication). Clients can be restricted to publish or subscribe to specific topics by using Azure Role-based access control. For more information, see [Azure AD JWT authentication and Azure RBAC authorization to publish or subscribe MQTT messages](/azure/event-grid/mqtt-client-azure-ad-token-and-rbac).
@@ -76,7 +75,7 @@ The following architecture diagram explains the dataflow for these messages:
 1. A standardized message arrives to the fleet integration Event Hubs Namespace.
 1. Periodical status messages are processed and sent directly to the analytics layer by using native Azure Data Explorer data ingestion
 1. Messages received as events, alerts, and notifications add rows to the corresponding Events data table.
-1. Messages containing Trips create entries in the Trips table.
+1. Messages containing trips create entries in the trips table.
 
 ### Business automation dataflow
 
@@ -84,8 +83,8 @@ Line of business integration is achieved by using a Power Platform data connecto
 
 Data connectors have two concepts:
 
-- *Triggers* notify Power Platform when specific events occur. A trigger starts a business workflow as a reaction to a message of a vehicle status change.
-- *Actions* are changes directed by the user. Actions allow interaction from Power Platform to the fleet integration layer.
+- **Triggers** notify Power Platform when specific events occur. A trigger starts a business workflow as a reaction to a message of a vehicle status change.
+- **Actions** are changes directed by the user. Actions allow interaction from Power Platform to the fleet integration layer.
 
 :::image type="content" source="./images/automotive-connected-fleets-business-automation.svg" alt-text="Diagram of the business automation workflow." border="false" lightbox="./images/automotive-connected-fleets-business-automation.svg":::
 
