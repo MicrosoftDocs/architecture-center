@@ -212,7 +212,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](https://learn.microsoft.com/azure/architecture/framework/resiliency/overview).
 
-* TBD
+* Hardware in the Loop (HiL) testing is an indispensable and critical part of the automotive software development process and test strategy. When designing and implementing the network architecture to the HiL farms consider [Designing for high availability with ExpressRoute](https://learn.microsoft.com/en-us/azure/expressroute/designing-for-high-availability-with-expressroute) to reduce single point of failure and maximize availability of remote environments to your development and test teams.
 
 ### Security
 
