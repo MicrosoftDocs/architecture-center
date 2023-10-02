@@ -83,7 +83,7 @@ The represented stack has the following components:
 * The **In-Vehicle Digital Twin** service maintains the state of the vehicle, including signals from Electronic Control Units and compute units such as AD/ADAS and Infotainment.
 * The **Digital Twin Cloud Synchronization** synchronizes the local state of the vehicle with the state in the cloud to enable digital products and services that don't require a direct connection to the car.
 
-:::image type="content" source="images/sdv-e2e-ref-architecture-automotive-software-stack.svg" alt-text="Software Stack" lightbox="images/sdv-e2e-ref-architecture-automotive-software-stack.png":::
+:::image type="content" source="images/sdv-e2e-ref-architecture-automotive-software-stack.svg" alt-text="Software Stack" lightbox="images/sdv-e2e-ref-architecture-automotive-software-stack.svg":::
 
 1. All components register their capabilities using the **Service Registry**.
 1. **Vehicle Compute** register the state descriptions to the *Digital Twin Provider* of the *In-Vehicle Digital Twin* service. After registration, the compute units can publish updates on their state.
@@ -155,7 +155,7 @@ The following suggested services are relevant to a *uProtocol* implementation on
 
 ### Eclipse Automotive Software Stack Example
 
-The following architecture describes a Automotive Software Stack based on Eclipse project components. It can also leverage Eclipse uProtocol as a communication protocol.
+The following architecture describes an Automotive Software Stack based on Eclipse project components. It can also use Eclipse uProtocol as a communication protocol.
 
 :::image type="content" source="images/sdv-e2e-ref-architecture-sample-automotive-stack.svg" alt-text="Eclipse Software Defined Vehicle based automotive software stack" lightbox="images/sdv-e2e-ref-architecture-sample-automotive-stack.svg":::
 
