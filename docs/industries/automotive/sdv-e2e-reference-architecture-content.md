@@ -214,6 +214,8 @@ Reliability ensures your application can meet the commitments you make to your c
 
 * Hardware in the Loop (HiL) testing is an indispensable and critical part of the automotive software development process and test strategy. When designing and implementing the network architecture to the HiL farms consider [Designing for high availability with ExpressRoute](https://learn.microsoft.com/en-us/azure/expressroute/designing-for-high-availability-with-expressroute) to reduce single point of failure and maximize availability of remote environments to your development and test teams.
 
+* Running an end-to-end service-oriented application infrastructure to support the implementation of a distributed communication protocol platform on Azure with modern continuous integration and continuous deployment (CI/CD) requires a reliable and high available architecture. The [Azure Well-Architected Framework review - Azure Kubernetes Service (AKS)](https://learn.microsoft.com/en-us/azure/well-architected/services/compute/azure-kubernetes-service/azure-kubernetes-service) provides architectural guidance and best practices for managing and running services on Azure Kubernetes Service (AKS).
+
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](https://learn.microsoft.com/azure/architecture/framework/security/overview).
