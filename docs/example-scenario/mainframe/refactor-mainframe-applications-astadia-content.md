@@ -46,7 +46,7 @@ Here's an Azure architecture to replace the mainframe functionality with refacto
    - Azure Blob Storage serves as a landing zone for data from external data sources.
    - Azure Data Factory ingests data and synchronizes multiple Azure and external data sources.
 1. Azure Site Recovery provides disaster recovery for virtual machines (VMs) and container cluster components.
-1. Services like Azure Active Directory, Azure Networking, Azure DevOps, Azure Stream Analytics, Azure Databricks, GitHub, and Power BI are easily integrated with the modernized system.
+1. Services like Microsoft Entra ID, Azure Networking, Azure DevOps, Azure Stream Analytics, Azure Databricks, GitHub, and Power BI are easily integrated with the modernized system.
 
 ### Components
 

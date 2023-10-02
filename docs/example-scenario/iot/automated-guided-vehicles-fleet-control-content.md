@@ -45,7 +45,7 @@ In this architecture, you can see an overview of the different services and comp
 - Azure Key Vault stores passwords, keys, and certificates.
 - Application Insights implements logging and monitoring for the applications that run as back-end services.
 - [Managed identities](/azure/active-directory/managed-identities-azure-resources/overview)
-    connect to the different services and resources in Azure, eliminating the need for developers to manage credentials. They provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication.
+    connect to the different services and resources in Azure, eliminating the need for developers to manage credentials. They provide an identity for applications to use when connecting to resources that support Microsoft Entra authentication.
 
 ### Components
 
@@ -61,7 +61,7 @@ is the fundamental building block for your private network in Azure. This servic
 [Azure Container Registry](https://azure.microsoft.com/services/container-registry/#overview)
 is a managed, private Docker registry service based on the open-source Docker Registry 2.0. You can use Azure container registries with your existing container development and deployment pipelines, or you can use Azure Container Registry Tasks to build container images in Azure. Build on demand, or fully automate builds with triggers, such as source code commits and base image updates.
 
-[Azure Active Directory](https://azure.microsoft.com/services/active-directory/#overview)
+[Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/#overview)
 is the cloud-based identity and access management service that authenticates users, services, and applications.
 
 [Azure Storage](https://azure.microsoft.com/services/storage/) offers a durable, highly available, and massively scalable cloud storage solution. It includes object, file, disk, queue, and table storage capabilities.
@@ -148,7 +148,7 @@ The applications and services that make up the AGV fleet control solution are de
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-Use Azure Active Directory for identity and access control and use Azure Key Vault to manage keys and secrets.
+Use Microsoft Entra ID for identity and access control and use Azure Key Vault to manage keys and secrets.
 
 ### DevOps
 
@@ -175,7 +175,7 @@ Principal author:
 Product documentation:
 
 - [Application Insights](/azure/azure-monitor/app/app-insights-overview)
-- [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)
+- [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis)
 - [Azure App Service](/azure/app-service/overview)
 - [Azure Container Instances](/azure/container-instances/container-instances-overview)
 - [Azure Container Registry](/azure/container-registry/container-registry-intro)
