@@ -1,4 +1,4 @@
-Microsoft Connected Fleets reference architecture enables customers and partners to build composable, data-centric solutions. You can manage all aspects of your connected fleets, generate data-driven insights, and integrate fleet solutions with critical business processes. Microsoft Connected Fleets reference architecture is applicable to automotive OEMs, including small and emerging, fleet operators, fleet solution providers, and mobility service providers.
+Microsoft Connected Fleets reference architecture enables customers and partners to build composable, data-centric solutions. You can manage all aspects of your connected fleets, generate data-driven insights, and integrate fleet solutions with critical business processes. Microsoft Connected Fleets reference architecture is applicable to automotive original equipment manufacturers (OEMs). These OEMs include small and emerging, fleet operators, fleet solution providers, and mobility service providers.
 
 ## Architecture
 
@@ -40,12 +40,12 @@ The telemetry ingestion layer is responsible for receiving messages from the veh
       1. The **Decode** step translates the input schema into a standardized format that's used by the cloud. The **Decode** step also provides an abstraction layer between the device and the cloud if there's any versioning changes between devices types or years. The decoding implementation can either be inline, as part of the function for better performance, or it can be a separate function call for added modularity.
       1. **Enrichment** involves data value manipulation and additions of new data fields. Sample enrichment workloads include unit conversions, such as miles to kilometers, reverse geocoding, Vehicle Diagnostic Trouble Code description lookup, enrich with more data, derive, and calculate extra values. Enrichment steps are invoked according to the message type.
       1. The **Routing** step distributes the messages to the fleet integration layer event hubs based on message type. The fleet integration layer is a *warm* path, which is required for integrations that require near-real time access to the message data.
-1. **Configuration** is managed in Cosmos DB. The Message Processing app reads the known message types, device authorization claims, and step configuration, in order to securely process and route incoming messages.
+1. **Configuration** is managed in Cosmos DB. The Message Processing app reads the known message types, device authorization claims, and step configuration, to process and route incoming messages.
 1. For **data analytics and debugging**, messages are stored in the customer’s data lake in separate tables. Some example messages are:
       1. Original raw messages from Azure IoT Hub including headers.
       1. Decoded and enriched messages.
 
-   Exceptions include messages that can't be validated against the schema and failed decoding activities, and messages that don't match any existing vehicle or failed enrichment cases.
+   Exceptions include messages that can't be validated against the schema and failed decoding activities and messages that don't match existing vehicle or failed enrichment cases.
 1. **Vehicle and Device Management** is accessible to external systems with a managed API. The message processing function uses vehicle data stored in Cosmos DB to validate that the messages are registered to a vehicle.
 
 Event Grid provides an industry-compliant MQTT broker that supports version 3.1.1 and 5.0. For more information, see [Overview of the MQTT Support in Azure Event Grid (Preview)](/azure/event-grid/mqtt-overview) and [Client authentication using CA certificate chain](/azure/event-grid/mqtt-certificate-chain-client-authentication). Clients can be restricted to publish or subscribe to specific topics by using Azure Role-based access control. For more information, see [Azure AD JWT authentication and Azure RBAC authorization to publish or subscribe MQTT messages](/azure/event-grid/mqtt-client-azure-ad-token-and-rbac).
@@ -74,7 +74,7 @@ The following architecture diagram explains the dataflow for these messages:
 *Download a [Visio file](https://arch-center.azureedge.net/connected-fleets-diagrams.vsdx) of the diagrams in the architecture.*
 
 1. A standardized message arrives to the fleet integration Event Hubs Namespace.
-1. Periodical status messages are processed and sent directly to the analytics layer byusing native Azure Data Explorer data ingestion
+1. Periodical status messages are processed and sent directly to the analytics layer by using native Azure Data Explorer data ingestion
 1. Messages received as events, alerts, and notifications add rows to the corresponding Events data table.
 1. Messages containing Trips create entries in the Trips table.
 
@@ -100,7 +100,7 @@ The following triggers and actions are recommended:
     1. Access *Vehicle Last Known Values* and *History*: Allow you to read the last known values store and the message history.
     1. *Provisioning*: Contains functions to provision and deprovision vehicles and devices.
 
-The data connector can be used independently from the Dynamics 365 integration. The connector enables business applications to be integrated with the architecture through the use of Power Platform.
+The data connector can be used independently from the Dynamics 365 integration. The connector enables business applications to be integrated with the architecture by using Power Platform.
 
 ### Data analytics and visualization workflow
 
@@ -197,7 +197,7 @@ Solution integrators (SIs) combine capabilities to develop segment-specific scen
 - **Mobile field service** supports companies operating *Fleet as a Service* or full-service OEMs in fields like agriculture and off-highway that have no fixed workshops. It enables dispatching *flying doctors*, also known as *technicians*, to the location of the vehicle if there are problems. Remote diagnostics can help you to determine the cause of the error and bring the right spare parts and repair manuals. An integrated service architecture might combine mobile service and service in static workshops.
 - **Engineering self-service analytics** enable engineers working in automotive OEMs to generate actionable insights by using the data generated by vehicle fleet operation and tasks. Analytics includes vehicle performance, error root cause analysis, ML model training, and geospatial analytics. The scope includes production and preproduction test fleets where payloads and analysis are more dynamic.
 - **Shared vehicle services** are a collection of services for taxi dispatching, self-service rentals & car shares, or car-pooling. For taxi dispatching, use cases include: requesting pickup and drop-off points;  automated matching of riders to drivers based on availability; and proximity to driver and schedule planning for the next pickup. In a self-service mode, the service enables users to make vehicle reservations, make payments, and facilitate secure access to vehicles. On the operator side, fleet managers can run reports on vehicle demand at specific locations to ensure that vehicles are positioned to match trends in demand. For car-pooling, vehicle or seat reservations and payment services are covered. In highly integrated intelligent transportation systems, such capabilities might be common across multiple providers such as for city dispatch systems.
-- **Last-mile logistics** focuses specifically on customers with complex scheduling requirements, requiring optimization of driver and vehicle selection for many waypoints in a given day. Customers include those who deliver groceries or parcels. The last-mile logistics ideally would be integrated with a customer interface to inform customers of expected delivery time. Customers benefit from a closer engagement with end-customers through increased visibility on goods delivery, optimization of fleet size, and reduction in distance driven. Such capabilities extend to shared freight models where packages are organized by endpoint rather than carrier, especially for compliance with Ultra-Low emission vehicle (ULEV) and Zero-and Low-Emission Vehicle (ZLEV) zone restrictions.
+- **Last-mile logistics** focuses specifically on customers with complex scheduling requirements, requiring optimization of driver and vehicle selection for many waypoints in a given day. Customers include people who deliver groceries or parcels. The last-mile logistics ideally would be integrated with a customer interface to inform customers of expected delivery time. Customers benefit from a closer engagement with end-customers through increased visibility on goods delivery, optimization of fleet size, and reduction in distance driven. Such capabilities extend to shared freight models where the endpoint, rather than carrier, organizes the packages, especially for compliance with Ultra-Low emission vehicle (ULEV) and Zero-and Low-Emission Vehicle (ZLEV) zone restrictions.
 - **Customer service** lets Fleet operators and owners track customers issues, records all interactions, unify routing to efficiently route work items, create and track SLAs, and manage performance and productivity through reports and dashboards.
 
 ## Considerations
