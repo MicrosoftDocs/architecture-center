@@ -30,7 +30,7 @@ The following sections expand on architecture and workflow details for four of t
 
 The telemetry ingestion layer is responsible for receiving messages from the vehicle, authorization, decoding, enrichment, and routing to the fleet integration layer.
 
-:::image type="content" source="./images/automotive-connected-fleets-telematics.svg" alt-text="Diagram of the telemetry ingestion workflow." border="false" lightbox="./images/automotive-connected-fleets-telematics.svg":::
+:::image type="content" source="./images/automotive-connected-fleets-telematics.svg" alt-text="A diagram of the telemetry ingestion workflow." border="false" lightbox="./images/automotive-connected-fleets-telematics.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/connected-fleets-diagrams.vsdx) of the diagrams in the architecture.*
 
