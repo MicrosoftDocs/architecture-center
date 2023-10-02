@@ -52,7 +52,7 @@ The solution uses the following components:
 
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault) stores and controls access to secrets such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates.
 
-- [Azure AD](https://azure.microsoft.com/services/active-directory) offers cloud-based identity and access management services. These features provide a way for users to sign in and access resources.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) offers cloud-based identity and access management services. These features provide a way for users to sign in and access resources.
 
 - [Azure Monitor](https://azure.microsoft.com/services/monitor) collects and analyzes data on environments and Azure resources. This data includes app telemetry, such as performance metrics and activity logs.
 
@@ -97,7 +97,7 @@ Principal author:
 - [Microsoft Purview technical documentation and best practices](/azure/purview/concept-best-practices-accounts)
 - [What is Microsoft Purview?](/azure/purview/overview)
 - [What is Power BI?](https://powerbi.microsoft.com/what-is-power-bi)
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory)
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory)
 - [Azure Cost Management and Billing](https://azure.microsoft.com/services/cost-management)
 - [Azure Monitor](https://azure.microsoft.com/services/monitor)
 - [Key Vault](https://azure.microsoft.com/services/key-vault)
