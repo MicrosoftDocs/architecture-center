@@ -14,7 +14,7 @@ azureCategories:
   - analytics
   - popular
 products:
-  - azure-text-analytics
+  - language-service
   - azure-synapse-analytics
   - azure-cognitive-services
   - azure-blob-storage
