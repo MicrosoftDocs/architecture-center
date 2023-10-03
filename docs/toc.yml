@@ -904,7 +904,7 @@ items:
   - name: Materialized View
     href: patterns/materialized-view.yml
   - name: Messaging Bridge
-    href: patterns/messaging-bridge.yml
+    href: patterns/messaging-bridge-patterns.yml
   - name: Pipes and Filters
     href: patterns/pipes-and-filters.yml
   - name: Priority Queue

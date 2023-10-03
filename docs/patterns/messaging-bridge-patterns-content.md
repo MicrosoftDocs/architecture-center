@@ -68,7 +68,7 @@ Since the asynchronous queue-based architecture worked well for the workload tea
 
 A decision is made to use the messaging bridge pattern to connect the two systems. It consists of two parts. One part receives messages from the existing MSMQ queue and forwards them to Service Bus. The other part does the opposite and takes messages from the Service Bus and forwards them to the existing MSMQ queue.
 
-:::image type="content" source="./_images/messaging-bridge.svc" alt-text="Diagram of the messaging bridge integrating MSMQ and Service Bus." lightbox="./_images/messaging-bridge.svc" border="false":::
+:::image type="content" source="./_images/messaging-bridge-patterns.svc" alt-text="Diagram of the messaging bridge integrating MSMQ and Service Bus." lightbox="./_images/messaging-bridge-patterns.svc" border="false":::
 
 When the implementation team uses this approach, they utilize existing infrastructure in the existing application to integrate with the new components. The existing application isn't aware that the new components are hosted in Azure. Similarly, the new components communicate with the legacy application in the same way as they communicate between themselves, by sending Service Bus messages. The bridge forwards messages between the two systems.
 

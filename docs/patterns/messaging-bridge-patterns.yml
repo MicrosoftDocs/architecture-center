@@ -15,6 +15,6 @@ products:
   - azure-service-bus
 name: Messaging Bridge pattern
 summary: Learn how to integrate disparate systems built on top of different messaging infrastructures.
-thumbnailUrl: /azure/architecture/browse/thumbs/messaging-bridge.png
+thumbnailUrl: /azure/architecture/browse/thumbs/messaging-bridge-patterns.png
 content: |
   [!include[](messaging-bridge-content.md)]
