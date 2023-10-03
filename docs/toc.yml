@@ -5367,7 +5367,7 @@ items:
       - name: Automated guided vehicles fleet control
         href: example-scenario/iot/automated-guided-vehicles-fleet-control.yml
       - name: Automotive connected fleets
-        href: /industries/automotive/automotive-connected-fleets.yml 
+        href: industries/automotive/automotive-connected-fleets.yml 
       - name: Automotive test data analytics
         href: industries/automotive/automotive-telemetry-analytics.yml
       - name: DataOps for autonomous vehicle operations

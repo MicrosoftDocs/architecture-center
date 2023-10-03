@@ -4,7 +4,7 @@ This article describes the automotive connected fleets reference architecture, w
 
 :::image type="content" source="./images/automotive-connected-fleets-high-level.svg" alt-text="Diagram of the connected fleets architecture." border="false" lightbox="./images/automotive-connected-fleets-high-level.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/connected-fleets-diagrams.vsdx) of the diagrams in the architecture.*
+*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/connected-fleets-diagrams.vsdx) of the diagrams in the architecture.*
 
 The connected fleets reference architecture supports composability, innovation, and supportability by:
 
@@ -32,7 +32,7 @@ The telemetry ingestion layer is responsible for receiving messages from the veh
 
 :::image type="content" source="./images/automotive-connected-fleets-telematics.svg" alt-text="A diagram of the telemetry ingestion workflow." border="false" lightbox="./images/automotive-connected-fleets-telematics.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/connected-fleets-diagrams.vsdx) of the diagrams in the architecture.*
+*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/connected-fleets-diagrams.vsdx) of the diagrams in the architecture.*
 
 1. Telemetry **messages from the vehicle** contain headers, or metadata, and a payload that can either protobuf-encoded or JSON format. These messages are sent via MQTT to the cloud broker. Headers include fields, such as vehicle UUID, message type, supplier, correlation identifier, message version, message UUID, and a standard timestamp in UTC. Headers are used for message type validation and routing.
 1. The message is processed in a pipeline that performs the following steps:
@@ -70,7 +70,7 @@ The following architecture diagram shows the dataflow for these messages:
 
 :::image type="content" source="./images/automotive-connected-fleets-fleet-integration.svg" alt-text="Diagram of the fleet integration workflow." border="false" lightbox="./images/automotive-connected-fleets-fleet-integration.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/connected-fleets-diagrams.vsdx) of the diagrams in the architecture.*
+*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/connected-fleets-diagrams.vsdx) of the diagrams in the architecture.*
 
 1. A standardized message arrives to the fleet integration Azure Event Hubs namespace.
 1. Periodic status messages are processed and sent directly to the analytics layer by using native Azure Data Explorer data ingestion.
@@ -88,9 +88,9 @@ You can use data connectors to perform two operations:
 
 :::image type="content" source="./images/automotive-connected-fleets-business-automation.svg" alt-text="Diagram of the business automation workflow." border="false" lightbox="./images/automotive-connected-fleets-business-automation.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/connected-fleets-diagrams.vsdx) of the diagrams in the architecture.*
+*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/connected-fleets-diagrams.vsdx) of the diagrams in the architecture.*
 
-The following triggers and actions are recommended:
+The following trigger and actions correspond to the previous diagram.:
 
 1. **Triggers**
     1. *Incoming event messages*: Start a workflow on Microsoft Power Apps or Microsoft Power Platform based on an event message type. The payload of the message can be parsed and accessed in Microsoft Power Platform.
