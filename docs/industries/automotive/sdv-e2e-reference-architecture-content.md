@@ -152,6 +152,7 @@ This automotive reference architecture is designed to meet the demands of the ra
 
 The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
 
+When deploying and configuring Azure services, it's essential to follow best practices to ensure a secure, efficient, and cost-effective environment. Begin by defining your Azure resources, such as virtual machines,  kubernetes clusters, messaging services and data and analytics services according to your implementation specific requirements. Leverage Azure Resource Manager templates for Infrastructure as Code (IaC) to automate deployment and maintain consistency. Implement role-based access control (RBAC) to grant permissions to users and services on a least-privilege basis. Utilize Azure Security Center to monitor and mitigate security threats proactively. For scalability and redundancy, consider using Azure Load Balancers and Azure Availability Sets or Zones. Additionally, regularly monitor your Azure resources' performance and usage to optimize costs and enhance performance, using tools like Azure Monitor and Microsoft Cost Management. Following these deployment and configuration recommendations will help you effectively manage your Azure environment.
 
 ## Considerations
 
