@@ -179,7 +179,7 @@ The following services allow you to manage data, apps, workflows, build low-code
 
 ## Scenario details
 
-:::image type="content" source="./images/automotive-connected-fleets-diagram.svg" alt-text="Diagram of the Connected Fleets reference architecture." border="false" lightbox="./images/automotive-connected-fleets-diagram.svg":::
+:::image type="content" source="./images/automotive-connected-fleets-diagrams.svg" alt-text="Diagram of the Connected Fleets reference architecture." border="false" lightbox="./images/automotive-connected-fleets-diagrams.svg":::
 
 Independent software vendors (ISVs) can use the connected fleets reference architecture to build scenario-independent functionality that's critical to overall fleet management activities. The capabilities layer in the previous diagram depicts capabilities within two categories: the management of vehicles and the business functions in a fleet. Capabilities are divided into categories for the following reasons:
 
@@ -288,7 +288,7 @@ The following reference architectures are related to the connected fleets scenar
 
 The following patterns are relevant when implementing this architecture:
 
-- [Publisher-subscriber](../../patterns/publisher-subscriber.yml) describes how a device announces events to multiple interested applications.
-- [Event sourcing](../../patterns/event-sourcing.yml) describes the usage of an append-only store to record the full series of actions taken on entities such as vehicles, devices, and users instead of just the last known values.
+- [The Publisher-Subscriber pattern](../../patterns/publisher-subscriber.yml) describes how a device announces events to multiple interested applications.
+- [The Event Sourcing pattern](../../patterns/event-sourcing.yml) describes the usage of an append-only store to record the full series of actions taken on entities such as vehicles, devices, and users instead of just the last known values.
 - [Throttling](../../patterns/throttling.yml) is a pattern to control the consumption of resources to allow a system to continue to function and meet SLAs.
 - [Cloud monitoring guide](/azure/cloud-adoption-framework/manage/monitor) provides an overview on the concepts required for implementing monitoring and observability.
