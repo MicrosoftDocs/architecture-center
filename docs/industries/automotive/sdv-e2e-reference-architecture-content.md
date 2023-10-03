@@ -122,6 +122,8 @@ The selection of the right type of Azure services chosen for a specific implemen
 
 The Deploy this scenario section of the architecture uses Azure Kubernetes Service (AKS). This offers serverless Kubernetes for running microservices, an integrated continuous integration and continuous deployment (CI/CD) experience, and enterprise-grade security and governance. As an alternative, you can run microservices in Azure Container Instances, which offers a fastest and simplest way to run a container in Azure, without having to adopt a higher-level service, such as Azure Kubernetes Service (AKS). 
 
+The Deploy this scenario section of the architecture suggestes the use of Event Hub and/or Service Bus for the implementation of uBus service. The [Choose between Azure messaging services](https://learn.microsoft.com/en-us/azure/service-bus-messaging/compare-messaging-services) article describes the differences between these services, and helps you understand which one to choose for your specific implementation. In many cases, the messaging services are complementary and can be used together.
+
 The applications and services referenced in this Architecure are deployed using Azure-native Azure Resource Manager templates (ARM templates) or Bicep. As an alternative consider using Terraform scripts for provisioning and managing cloud infrastructure.
 
 If you are considering alternatives for the Vehicle Messaging, Data & Analytics layer of the Architecture, please review the [Alternatives](https://learn.microsoft.com/en-us/azure/event-grid/mqtt-automotive-connectivity-and-data-solution#alternatives) section in the Automotive messaging, data & analytics reference architecture.
