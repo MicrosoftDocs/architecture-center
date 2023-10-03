@@ -211,7 +211,7 @@ The following components are part of the *uProtocol*:
 
 :::image type="content" source="images/sdv-e2e-ref-architecture-uProtocol-on-Azure.svg" alt-text="Distributed Communication Protocol uProtocol on Azure" lightbox="images/sdv-e2e-ref-architecture-uProtocol-on-Azure.svg":::
 
-* The vehicle sends messages with the **cloud connector** using the *uProtocol* definition over MQTT.
+* The vehicle sends messages with the **cloud connector** using the *uProtocol* definition over MQTT to the **Event Grid** service.
 * **uEs** are applications and services that provide functionality to end users. These apps use the Core UEs for discovery, subscription and access to the digital twin.
 * The **Cloud Gateway** is the cloud service that devices connect with to communicate with the Back-office domain/device.
 * The **uStreamer** is an event dispatcher that enables seamless communication between *uEs* on different devices whom might talk different transport layer protocols. It performs functionality such as file transfer, event buffering and more. For example, when events need to move from one transport to the next it flows through the streamer. It can be equated to an IP router.
@@ -246,8 +246,8 @@ The following suggested services are relevant to a *uProtocol* implementation on
 1. The *device registration* application registers the device identity in **Device Provisioning Services**.
 1. The Device Provisioning Service registers the device identity in **Azure Device Registry**.
 1. The information about authentication and authorization is stored in **Azure Active Directory**.
-1. The Factory system triggers the **device provisioning client** to connect to the **Device Provisioning Service**. The device retrieves connection information to the assigned **Event Grid** *MQTT Broker*.
-1. The factory system triggers the device to establish a connection to the **Event Grid** *MQTT Data Broker* for the first time.
+1. The Factory system triggers the **device provisioning client** to connect to the **Device Provisioning Service**. The device retrieves connection information to the assigned *MQTT Broker* feature in **Event Grid**.
+1. The factory system triggers the device to establish a connection to the  *MQTT broker* feature in **Event Grid** for the first time.
     1. **Event Grid** authenticates the device using the *CA Root Certificate* and extracts the client information.
 1. **Event Grid** manages authorization for allowed topics using the device information stored in **Active Directory**.
 1. The OEM **Dealer System** triggers the registration of a new device if a part replacement is required.
