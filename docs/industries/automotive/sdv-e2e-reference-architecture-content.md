@@ -117,7 +117,15 @@ This reference architecture references the following GitHub and Azure Components
 * [Azure Networking Services](https://learn.microsoft.com/azure/networking/fundamentals/networking-overview) provides global, secure and reliable networking services. Automotive software stacks require data processing pipelines for developing and testing autonomous and assisted driving solutions. Development tools also need to Hardware in the Loop farms. The networking services in Azure provide various networking capabilities like connectivity services, application protection services, application delivery services and networking monitoring that can be used together or separately.
 
 ## Alternatives
-...
+
+The selection of the right type of Azure services chosen for a specific implementation of the architecture depends on a multitude of factors.
+
+The Deploy this scenario section of the architecture uses Azure Kubernetes Service (AKS). This offers serverless Kubernetes for running microservices, an integrated continuous integration and continuous deployment (CI/CD) experience, and enterprise-grade security and governance. As an alternative, you can run microservices in Azure Container Instances, which offers a fastest and simplest way to run a container in Azure, without having to adopt a higher-level service, such as Azure Kubernetes Service (AKS). 
+
+The applications and services referenced in this Architecure are deployed using Azure-native Azure Resource Manager templates (ARM templates) or Bicep. As an alternative consider using Terraform scripts for provisioning and managing cloud infrastructure.
+
+If you are considering alternatives for the Vehicle Messaging, Data & Analytics layer of the Architecture, please review the [Alternatives](https://learn.microsoft.com/en-us/azure/event-grid/mqtt-automotive-connectivity-and-data-solution#alternatives) section in the Automotive messaging, data & analytics reference architecture.
+
 ## Scenario details
 
 Autonomous and connected SDVs open a whole new world of functionality, serviceability, and reliability. With hardware and software decoupled, OEMs can now develop independent applications to address specific functions and services, making it much easier to update or add software to the overall vehicle platform. As a result, automobile makers and their suppliers are forced to adjust their automotive operations to enable agile software development cycles, which are more flexible and adaptable to shorter development cycles, frequent releases, and focus on collaboration and continuous improvement.
@@ -140,7 +148,8 @@ This automotive reference architecture is designed to meet the demands of the ra
 
 ## Recommendations
 
-...
+The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
+
 
 ## Considerations
 
@@ -257,12 +266,12 @@ The following architecture describes an Automotive Software Stack based on Eclip
 
 Principal authors:
 
-* [Ashita Rastogi](https://www.linkedin.com/in/ashitarastogi/) | Principal Program Manager, Azure Messaging
-* [Boris Scholl](https://www.linkedin.com/in/bscholl/) | General Manager, Partner Architect - Azure Cloud & AI
+* [Mario Ortegon Cabrera](http://www.linkedin.com/in/marioortegon) | Principal Program Manager, MCI SDV & Mobility
 * [Daniel Lueddecke](https://www.linkedin.com/in/daniellueddecke/) | Cloud Solution Architect, Automotive
 * [Filipe Prezado](https://www.linkedin.com/in/filipe-prezado-9606bb14) | Principal Program Manager, MCI SDV & Mobility
-* [Mario Ortegon Cabrera](http://www.linkedin.com/in/marioortegon) | Principal Program Manager, MCI SDV & Mobility
 * [Sandeep Pujar](https://www.linkedin.com/in/spujar/) | Principal PM Manager, Azure Messaging
+* [Ashita Rastogi](https://www.linkedin.com/in/ashitarastogi/) | Principal Program Manager, Azure Messaging
+* [Boris Scholl](https://www.linkedin.com/in/bscholl/) | General Manager, Partner Architect - Azure Cloud & AI
 
 Other contributors:
 
