@@ -903,7 +903,7 @@ items:
     href: patterns/leader-election.yml
   - name: Materialized View
     href: patterns/materialized-view.yml
-  - name: Messaging bridge patterns
+  - name: Messaging Bridge
     href: patterns/messaging-bridge-patterns.yml
   - name: Pipes and Filters
     href: patterns/pipes-and-filters.yml
