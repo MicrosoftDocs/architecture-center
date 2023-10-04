@@ -94,7 +94,7 @@ The represented stack has the following components:
 1. The **In-Vehicle Digital Twin Service** also publishes selected topics to the **Digital Twin Cloud Synchronization** service.
 1. The **Digital Twin Cloud Synchronization** can use a *cartographer* to map the topic names (using a *Digital Twin Mapping Service*) to the equivalent names on the cloud. This harmonization reduces the dependency between vehicle and cloud software and among vehicle models.
 1. The **cloud connector** publishes updates to the cloud and subscribes to receive state changes published by other services and applications
-1. The **Event Grid** service routes the messages to the relevant services and applications, such as *Azure Digital Twin*
+1. The **Event Grid** service routes the messages to the relevant services and applications. The state of the vehicle is stored using services such as **Azure Cache for Redis** to store the last known value for fast access and retrieval and **Azure Data Explorer** to provide short term vehicle state history and analytics.
 
 ## Components
 
