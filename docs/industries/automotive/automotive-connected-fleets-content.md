@@ -181,6 +181,8 @@ The following services allow you to manage data, apps, workflows, build low-code
 
 :::image type="content" source="./images/automotive-connected-fleets-diagrams.svg" alt-text="Diagram of the Connected Fleets reference architecture." border="false" lightbox="./images/automotive-connected-fleets-diagrams.svg":::
 
+*Download a [PowerPoint file](https://archcenter.blob.core.windows.net/cdn/automotive-connected-fleets-diagrams.pptx) of the diagrams in the architecture.*
+
 Independent software vendors (ISVs) can use the connected fleets reference architecture to build scenario-independent functionality that's critical to overall fleet management activities. The capabilities layer in the previous diagram depicts capabilities within two categories: the management of vehicles and the business functions in a fleet. Capabilities are divided into categories for the following reasons:
 
 - Categories provide descriptive convenience.
