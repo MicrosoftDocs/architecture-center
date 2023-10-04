@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Messaging Bridge pattern
-  description: Learn how to integrate disparate systems built on top of different messaging infrastructures.
+  description: Learn how to use the messaging bridge pattern to integrate disparate systems built on top of different messaging infrastructures.
   author: martinekuan
   ms.author: architectures
   ms.date: 10/04/2023
@@ -14,7 +14,7 @@ azureCategories:
 products:
   - azure-service-bus
 name: Messaging Bridge pattern
-summary: Learn how to integrate disparate systems built on top of different messaging infrastructures.
+summary: Learn how to use the messaging bridge pattern to integrate disparate systems built on top of different messaging infrastructures.
 thumbnailUrl: /azure/architecture/browse/thumbs/messaging-bridge-patterns.png
 content: |
   [!include[](messaging-bridge-patterns-content.md)]
