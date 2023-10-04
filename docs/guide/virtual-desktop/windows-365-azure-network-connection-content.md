@@ -102,7 +102,7 @@ This network connection, that's represented by Azure network connection, is used
 
 The following tables list dependencies for Azure network connection. Windows 365 runs automatic health checks on these dependencies.
 
-| Dependency | Microsoft Entra Sync - Checks if Microsoft Entra Sync is set up and finishes successfully. |
+| Dependency | Microsoft Entra Connect - Checks if Microsoft Entra Connect is set up and finishes successfully. |
 | --- | --- |
 | Architecture patterns | Azure network connection for Microsoft Entra hybrid join|
 | Recommendations | - Set up the Microsoft Entra Connect sync interval with the default or lowest value. Longer sync intervals increase the possibility of the Cloud PC provisioning failing in production due to a timeout. For more information, see [Microsoft Entra hybrid join failing](/windows-365/enterprise/provisioning-errors#hybrid-azure-ad-join-failed). <br> - Set up Active Directory Domain Controller replication from a server in the same datacenter as the Windows 365 Azure network connection to provide faster replication. <br> - Set up Microsoft Entra ID domain controller replication with a default value. |
