@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: - azure-expressroute-gateway
+  description: Best practices for SDWAN integration with an Azure hub-and-spoke network topologies, based on the Azure Well-Architected Framework's five pillars of architecture excellence.
+  author: khushal08 and fguerri
+  ms.author: khsuhal08 and fguerri
+  ms.date: 05/10/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - networking
+products:
+  - azure-expressroute-gateway
+  - azure-vpn-gateway
+  - azure-virtual-network
+  - azure-route-server
+  - azure-expressroute-circuit
+  - azure-3rd-party-nva
+name: - azure-expressroute-gateway
+summary: Best practices for SDWAN integration with an Azure hub-and-spoke network topologies, based on the Azure Well-Architected Framework's five pillars of architecture excellence.
+thumbnailUrl: /azure/architecture/browse/thumbs/sdwan-integration-hub-and-spoke.png
+content: |
+  [!include[](sdwan-integration-in-hub-and-spoke-network-topologies.md)]
