@@ -16,7 +16,7 @@ azureCategories:
   - "storage"
   - "integration"
 products:
-  - "azure-data-lake-gen2"
+  - azure-data-lake-storage
   - "azure-synapse-analytics"
   - "azure-data-factory"
   - "dynamics-cust-insights"

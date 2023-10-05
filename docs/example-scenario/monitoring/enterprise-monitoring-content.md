@@ -213,7 +213,7 @@ Monitor is a constellation of different interconnected services that work togeth
 
 #### Logic Apps integration service environment (ISE)
 
-An integration service environment (ISE) environment keeps dedicated storage and other resources separate from the global, multi-tenant Logic Apps service. For more information, see [Connect to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)](/azure/logic-apps/connect-virtual-network-vnet-isolated-environment).
+An integration service environment (ISE) environment keeps dedicated storage and other resources separate from the global, multi-tenant Logic Apps service. For more information, see [Connect to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)](/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview).
 
 #### Log Analytics gateway
 

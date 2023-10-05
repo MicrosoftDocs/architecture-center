@@ -516,6 +516,8 @@ items:
           - name: Azure Cognitive Search
             href: /azure/search/search-modeling-multitenant-saas-applications
             maintainContext: true
+          - name: Azure OpenAI
+            href: guide/multitenant/service/openai.md
       - name: Multitenancy checklist
         href: guide/multitenant/checklist.md
       - name: Related resources
@@ -2568,6 +2570,8 @@ items:
         href: reference-architectures/hybrid-networking/expressroute.yml
       - name: Hybrid availability and monitoring
         href: hybrid/hybrid-perf-monitoring.yml
+      - name: Hybrid cross cluster scaling
+        href: hybrid/hybrid-cross-cluster-scaling.yml
       - name: Hybrid file services
         href: hybrid/hybrid-file-services.yml
       - name: Hybrid file share with disaster recovery
@@ -2998,6 +3002,8 @@ items:
           href: example-scenario/mainframe/process-batch-transactions.yml
         - name: Extend mainframe applications with Verastream
           href: example-scenario/mainframe/extend-mainframe-applications.yml
+        - name: Extend mainframes to digital channels by using standards-based REST APIs
+          href: example-scenario/mainframe/extend-mainframes-to-digital-channels-by-using-standards-based-rest-apis.yml 
         - name: General mainframe refactor to Azure
           href: example-scenario/mainframe/general-mainframe-refactor.yml
         - name: IBM System i to Azure using Infinite i
@@ -4707,125 +4713,14 @@ items:
       href: industries/healthcare.md
     - name: Guides
       items:
-      - name: Microsoft Cloud for Healthcare
-        items:
-        - name: Overview
-          href: /industry/healthcare/overview
-          maintainContext: true
-        - name: Azure setup
-          href: /industry/healthcare/configure-cloud-for-healthcare
-          maintainContext: true
-        - name: Patient engagement
-          href: /industry/healthcare/patient-engagement
-          maintainContext: true
-        - name: Health team collaboration
-          href: /industry/healthcare/health-team-collaboration
-          maintainContext: true
-        - name: Clinical and operational insights
-          href: /industry/healthcare/improve-clinical-operational-insights
-          maintainContext: true
-        - name: Security in Cloud for Healthcare
-          href: /industry/healthcare/security-overview
-          maintainContext: true
-        - name: Compliance in Cloud for Healthcare
-          href: /industry/healthcare/compliance-overview
-          maintainContext: true
-      - name: Azure Health Bot
-        items:
-        - name: Overview
-          href: /azure/health-bot/overview
-          maintainContext: true
-        - name: Built-in medical intelligence
-          href: /azure/health-bot/bot_docs/triage_symptom_checking
-          maintainContext: true
-        - name: Debugging
-          href: /azure/health-bot/scenario-authoring/debugging
-          maintainContext: true
-        - name: Advanced functionality
-          href: /azure/health-bot/scenario-authoring/advanced_functionality
-          maintainContext: true
-        - name: Language models
-          href: /azure/health-bot/language_models
-          maintainContext: true
-        - name: Handoff to a live agent
-          href: /azure/health-bot/handoff
-          maintainContext: true
-        - name: Handoff using Microsoft Teams
-          href: /azure/health-bot/handoff-teams
-          maintainContext: true
-        - name: Dynamics 365 Omnichannel integration
-          href: /azure/health-bot/omnichannel
-          maintainContext: true
-        - name: Health Bot custom telemetry
-          href: /azure/health-bot/custom_telemetry
-          maintainContext: true
-      - name: Azure Health Data Services
-        items:
-        - name: Overview
-          href: /azure/healthcare-apis/healthcare-apis-overview
-          maintainContext: true
-        - name: Azure Health Data Services architecture  
-          href: guide/data/azure-health-data-services.yml
-        - name: Azure Health Data Services workspace
-          href: /azure/healthcare-apis/workspace-overview
-          maintainContext: true
-      - name: Azure API for FHIR
-        items:
-        - name: Overview
-          href: /azure/healthcare-apis/azure-api-for-fhir/overview
-          maintainContext: true
-        - name: FHIR features
-          href: /azure/healthcare-apis/azure-api-for-fhir/fhir-features-supported
-          maintainContext: true
-        - name: Azure AD and Azure API for FHIR
-          href: /azure/healthcare-apis/azure-api-for-fhir/azure-active-directory-identity-configuration
-          maintainContext: true
-        - name: Add data to audits using HTTP headers
-          href: /azure/healthcare-apis/azure-api-for-fhir/use-custom-headers
-          maintainContext: true
-        - name: Azure IoT Connector for FHIR
-          items:
-          - name: Overview
-            href: /azure/healthcare-apis/azure-api-for-fhir/iot-data-flow
-            maintainContext: true
-          - name: Mapping templates
-            href: /azure/healthcare-apis/azure-api-for-fhir/iot-mapping-templates
-            maintainContext: true
-        - name: Azure Policy compliance controls
-          href: /azure/healthcare-apis/azure-api-for-fhir/security-controls-policy
-          maintainContext: true
-        - name: Related GitHub projects
-          href: /azure/healthcare-apis/azure-api-for-fhir/fhir-github-projects
-          maintainContext: true
-      - name: Text Analytics for health
-        items:
-        - name: Overview
-          href: /azure/cognitive-services/language-service/text-analytics-for-health/overview
-          maintainContext: true
-        - name: Recognized entity categories
-          href: /azure/cognitive-services/language-service/text-analytics-for-health/concepts/health-entity-categories
-          maintainContext: true
-        - name: Relation extraction
-          href: /azure/cognitive-services/language-service/text-analytics-for-health/concepts/relation-extraction
-          maintainContext: true
-        - name: Assertion detection
-          href: /azure/cognitive-services/language-service/text-analytics-for-health/concepts/assertion-detection
-          maintainContext: true
-      - name: IoT scenarios
-        items:
-        - name: Continuous patient monitoring
-          href: /azure/iot-central/healthcare/tutorial-continuous-patient-monitoring
-          maintainContext: true
-        - name: Health triage dashboard
-          href: /azure/iot-central/healthcare/tutorial-health-data-triage
-          maintainContext: true
-      - name: Healthcare for data management
-        href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/reference-architecture-lamna
-        maintainContext: true
+      - name: Azure Health Data Services architecture  
+        href: guide/data/azure-health-data-services.yml
     - name: Architectures
       items:
       - name: All healthcare architectures
         href: /azure/architecture/browse/?terms=healthcare
+      - name: Analysis using text analytics for health and Azure OpenAI
+        href: example-scenario/healthcare/analyze-recordings-text-analytics-azure-openai.yml
       - name: Analyze observational patient data
         href: example-scenario/digital-health/patient-data-ohdsi-omop-cdm.yml
       - name: Build a telehealth system with Azure

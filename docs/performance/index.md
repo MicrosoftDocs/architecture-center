@@ -3,8 +3,8 @@ title: Performance tuning a distributed app
 titleSuffix: Azure Architecture Center
 description: Learn how to performance tune a distributed application by walking through several scenarios that use load tests and metrics to diagnose performance issues.
 author: martinekuan
-ms.author: architectures
-ms.date: 07/28/2022
+ms.author: mattmcinnes
+ms.date: 08/31/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -29,15 +29,15 @@ Scenarios:
 
 Performance is frequently measured in terms of throughput, response time, and availability. Performance targets should be based on business operations. Customer-facing tasks may have more stringent requirements than operational tasks such as generating reports.
 
-Define a service level objective (SLO) that defines performance targets for each workload. You typically achieve this by breaking a performance target into a set of Key Performance Indicators (KPIs), such as:
+Define a service level objective (SLO) that defines performance targets for each workload. You typically achieve this objective by breaking a performance target into a set of Key Performance Indicators (KPIs), such as:
 
 - Latency or response time of specific requests
 - The number of requests performed per second
 - The rate at which the system generates exceptions.
 
-Performance targets should explicitly include a target load. Also, not all users will receive exactly the same level of performance, even when accessing the system simultaneously and performing the same work. So an SLO should be framed in terms of percentiles.
+Performance targets should explicitly include a target load. Also, not all users receive exactly the same level of performance, even when accessing the system simultaneously and performing the same work. So an SLO should be framed in terms of percentiles.
 
-An example SLO for might be: "Client requests will have a response within 500 ms @ P90, at loads up to 25 K requests/second."
+An example SLO for might be: "Client requests have a response within 500 ms @ P90, at loads up to 25 K requests/second."
 
 ## Challenges of performance tuning a distributed system
 
@@ -48,6 +48,8 @@ It can be especially challenging to diagnose performance issues in a distributed
 - Resource consumption is distributed across multiple nodes. To get a consistent view, you need to aggregate logs and metrics in one place.
 
 - The cloud offers elastic scale. Autoscaling is an important technique for handling spikes in load, but it can also mask underlying issues. Also, it can be hard to know which components need to scale and when.
+
+- Workloads often don't scale across cores or threads. It's important to understand the requirements of your workloads and look into better optimized sizes. Some sizes offer constrained cores and disabled hyperthreading to improve single core oriented and per core licensed workloads. 
 
 - Cascading failures can cause failures upstream of the root problem. As a result, the first signal of the problem may appear in a different component than the root cause.
 
@@ -61,7 +63,7 @@ Performance tuning is both an art and a science, but it can be made closer to sc
 
 - Attack one bottleneck at a time. Form a hypothesis and test it by changing one variable at a time. Removing one bottleneck will often uncover another bottleneck further upstream or downstream.
 
-- Errors and retries can have a large impact on performance. If you see that you are being throttled by backend services, scale out or try to optimize usage (for example by tuning database queries).
+- Errors and retries can have a large impact on performance. If you see that backend services are throttling your system, scale out or try to optimize usage (for example by tuning database queries).
 
 - Look for common [performance anti-patterns](../antipatterns/index.md).
 

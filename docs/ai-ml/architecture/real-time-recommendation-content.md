@@ -116,7 +116,6 @@ Principal authors:
 
 - [Miguel Fierro](https://www.linkedin.com/in/miguelgfierro) | Principal Data Scientist Manager
 - [Nikhil Joglekar](https://www.linkedin.com/in/nrjoglekar) | Product Manager, Azure algorithms and data science
-- [Le Zhang](https://www.linkedin.com/in/yueguoguo1024) | Data Scientist
  
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

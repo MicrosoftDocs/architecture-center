@@ -16,7 +16,7 @@ products:
   - azure-blob-storage
   - azure-cache-redis
   - azure-cognitive-search
-  - azure-language-understanding
+  - ai-services
   - document-intelligence
 name: Search and query an enterprise knowledge base by using Azure OpenAI or Azure Cognitive Search
 summary: Learn how to use Azure OpenAI and Azure Cognitive Search to search documents in your enterprise data and retrieve results.

@@ -65,4 +65,4 @@ Microsoft Learn modules:
 - [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
 - [Data science and machine learning with Azure Databricks](azure-databricks-data-science-machine-learning.yml)
 - [Forecast energy and power demand with machine learning](forecast-energy-power-demand.yml)
-- [Predictive maintenance](predictive-maintenance.yml)
+- [Predictive maintenance](../../industries/manufacturing/predictive-maintenance-overview.yml)
