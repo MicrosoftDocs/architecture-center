@@ -79,13 +79,10 @@ When the implementation team uses this approach, they utilize existing infrastru
 Principal authors:
 
 - [Rob Bagby](https://www.linkedin.com/in/robbagby) | Principal Architecture Content Lead
+- [Kyle Baley](https://www.linkedin.com/in/kylebaley) | Software Engineer
+- [Udi Dahan](https://www.linkedin.com/in/udidahan) | Founder & CEO of Particular Software
 - [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
 - [Bryan Lamos](https://www.linkedin.com/in/bryanlamos) | Developer Relations
-
-Other contributors:
-
-- [Kyle Baley](https://www.linkedin.com/in/kylebaley) | Software Engineer
-- [Udi Dahan](https://www.linkedin.com/in/udidahan) | Founder & CEO
 - [Szymon Pobiega](https://www.linkedin.com/in/szymonpobiega) | Engineer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
