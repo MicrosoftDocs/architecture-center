@@ -277,14 +277,17 @@ Deployed Cloud PCs should be configured to allow uninterrupted connection flow t
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
-- [Bob Roudabush](https://www.linkedin.com/in/bobroudebush) | Technical Leader and Cloud/Developer Technologist
+- [Ravishankar Nandagopalan](https://www.linkedin.com/in/ravisn) | Senior Product Manager
+
+Other contributors
+
+- [Paul Collinge](https://www.linkedin.com/in/paul-collinge-5159b729) | Principal Product Manager
 - [Claus Emerich](https://www.linkedin.com/in/claus-bavaria) | Principal Product Manager
 - [David Falkus](https://www.linkedin.com/in/david-falkus) | Principal Product Manager
-- [Matt Shadbolt](https://www.linkedin.com/in/mattshadbolt) | Principal Product Manager, Windows Cloud Experiences (Windows 365, Virtual Desktop, RDS)
-- [Paul Collinge](https://www.linkedin.com/in/paul-collinge-5159b729) | Principal Product Manager - Windows Cloud Experiences (Windows 365 & Azure Virtual Desktop)
-- [Ravishankar Nandagopalan](https://www.linkedin.com/in/ravisn) | Senior Product Manager
+- [Bob Roudabush](https://www.linkedin.com/in/bobroudebush) | Technical Leader and Cloud/Developer Technologist
+- [Matt Shadbolt](https://www.linkedin.com/in/mattshadbolt) | Principal Product Manager, Windows Cloud Experiences
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
