@@ -39,7 +39,7 @@ The bot will rely on raw data that must be ingested and prepared. Consider any o
 
 #### Security and governance
 
-- **[Microsoft Entra ID][aad]** (Microsoft Entra ID). Users will authenticate through an identity provider such as Microsoft Entra ID. The Bot Service handles the authentication flow and OAuth token management. See [Add authentication to your bot via Azure Bot Service][bot-authentication].
+- **[Microsoft Entra ID][aad]**. Users will authenticate through an identity provider such as Microsoft Entra ID. The Bot Service handles the authentication flow and OAuth token management. See [Add authentication to your bot via Azure Bot Service][bot-authentication].
 - **[Azure Key Vault][key-vault]**. Store credentials and other secrets using Key Vault.
 
 #### Quality assurance and enhancements
