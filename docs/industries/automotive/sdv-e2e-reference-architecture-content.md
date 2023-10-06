@@ -243,7 +243,7 @@ The following suggested services are relevant to a *uProtocol* implementation on
 
 1. The **Factory System** commissions the vehicle device to the desired construction state. Commissioning includes firmware & software initial installation and configuration. As part of this process, the factory system obtains and writes the device *certificate*, created from the **Public Key Infrastructure** provider.
 1. The **Factory System** registers the vehicle & device using the *Vehicle & Device Provisioning API*.
-1. The *device registration* application registers the device identity in **Device Provisioning & Registry Services**.
+1. The *device registration* application registers the device identity in **Device Provisioning / Device Registry**.
 1. The information about authentication and authorization is stored in **Azure Active Directory**.
 1. The Factory system triggers the **device provisioning client** to connect to the **Device Provisioning Service**. The device retrieves connection information to the assigned *MQTT Broker* feature in **Event Grid**.
 1. The factory system triggers the device to establish a connection to the  *MQTT broker* feature in **Event Grid** for the first time.
