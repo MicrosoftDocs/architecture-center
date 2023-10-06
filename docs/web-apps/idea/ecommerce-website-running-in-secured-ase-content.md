@@ -29,7 +29,7 @@ Other relevant use cases include:
 1. Public website invokes orders web service.
 1. Orders web service saves/loads orders from Azure SQL Database.
 1. Employee accesses the admin website in browser.
-1. Employee authenticates against Azure Active Directory (Azure AD).
+1. Employee authenticates against Microsoft Entra ID.
 1. Employee searches orders.
 1. Admin website invokes orders web service.
 
@@ -43,7 +43,7 @@ Other relevant use cases include:
 * [Application Gateway](https://azure.microsoft.com/services/application-gateway): Build secure, scalable, and highly available web front ends in Azure
 * [Azure Cache for Redis](https://azure.microsoft.com/services/cache): Power applications with high-throughput, low-latency data access
 * [Content Delivery Network](https://azure.microsoft.com/services/cdn): Ensure secure, reliable content delivery with broad global reach
-* [Azure Active Directory](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on
+* [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on
 * [Blob Storage](https://azure.microsoft.com/services/storage/blobs): Azure Blob storage is a Massively scalable object storage for any type of unstructured data-images, videos, audio, documents, and more-easily and cost-effectively.
 
 ## Next steps
@@ -56,5 +56,5 @@ Other relevant use cases include:
 * [Overview of Application Gateway](/azure/application-gateway/application-gateway-introduction)
 * [Azure Cache for Redis documentation](/azure/redis-cache)
 * [Quickstart: Create an Azure Content Delivery Network profile and endpoint](/azure/cdn/cdn-create-new-endpoint)
-* [Get started with Azure AD](/azure/active-directory/get-started-azure-ad)
+* [Get started with Microsoft Entra ID](/azure/active-directory/get-started-azure-ad)
 * [Quickstart: Upload, download, and list blobs](/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows)
