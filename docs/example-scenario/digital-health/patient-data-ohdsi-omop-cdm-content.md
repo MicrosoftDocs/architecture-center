@@ -128,7 +128,7 @@ Other contributors:
 
 ## Next steps
 
-- [Microsoft Entra documentation](/azure/active-directory)
+- [Microsoft Entra documentation](/entra)
 - [What is Azure Pipelines?](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
 - [What is Azure DevOps?](/azure/devops/user-guide/what-is-azure-devops)
 - [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
