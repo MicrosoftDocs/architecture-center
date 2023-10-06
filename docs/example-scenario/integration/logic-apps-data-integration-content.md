@@ -85,7 +85,7 @@ With the serverless model that Logic Apps uses, the service automatically scales
   - You can also use one of these authorization schemes to limit access to your logic app:
 
     - [Shared access signatures (SAS)][Generate shared access signatures (SAS)].
-    - [Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth)][Enable Azure Active Directory Open Authentication (Azure AD OAuth)].
+    - [OAuth 2.0 with Microsoft Entra ID][Enable Azure Active Directory Open Authentication (Azure AD OAuth)].
 
 - Consider using [Azure role-based access control (Azure RBAC)][What is Azure role-based access control (Azure RBAC)?] to only [permit specific users or groups to manage, edit, and view your logic apps][Access to logic app operations].
 
