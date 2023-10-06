@@ -97,6 +97,7 @@ It is important that your application validates that any requests that it receiv
 
 > [!NOTE]
 > This is part of the _assume zero trust_ security design principle in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/security/security-principles).
+
 When implementing request validation, you should consider the following:
 
 - How will you authorize all the requests to your application? You need to authorize requests, regardless of the approach you use to map them to physical infrastructure.

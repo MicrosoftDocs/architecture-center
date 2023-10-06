@@ -903,6 +903,8 @@ items:
     href: patterns/leader-election.yml
   - name: Materialized View
     href: patterns/materialized-view.yml
+  - name: Messaging Bridge
+    href: patterns/messaging-bridge-patterns.yml
   - name: Pipes and Filters
     href: patterns/pipes-and-filters.yml
   - name: Priority Queue
@@ -3002,6 +3004,8 @@ items:
           href: example-scenario/mainframe/process-batch-transactions.yml
         - name: Extend mainframe applications with Verastream
           href: example-scenario/mainframe/extend-mainframe-applications.yml
+        - name: Extend mainframes to digital channels by using standards-based REST APIs
+          href: example-scenario/mainframe/extend-mainframes-to-digital-channels-by-using-standards-based-rest-apis.yml 
         - name: General mainframe refactor to Azure
           href: example-scenario/mainframe/general-mainframe-refactor.yml
         - name: IBM System i to Azure using Infinite i
