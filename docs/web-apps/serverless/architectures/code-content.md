@@ -32,7 +32,7 @@ Fabrikam manages a fleet of drones for a drone delivery service. The application
 
     These messages contain partial updates. At a fixed interval, each drone sends a "key frame" message that contains all of the status fields. Between key frames, the status messages only include fields that changed since the last message. This behavior is typical of many IoT devices that need to conserve bandwidth and power.
 
-- **Web app**. A web application allows users to look up a device and query the device's last-known status.  Users must sign into the application and authenticate with Azure Active Directory (Azure AD). The application only allows requests from users who are authorized to access the app.
+- **Web app**. A web application allows users to look up a device and query the device's last-known status.  Users must sign into the application and authenticate with Microsoft Entra ID. The application only allows requests from users who are authorized to access the app.
 
 Here's a screenshot of the web app, showing the result of a query:
 
@@ -58,7 +58,7 @@ There are also some operational advantages to using a serverless architecture:
 The following diagram shows the high-level architecture of the application:
 
 :::image type="complex" source="../_images/architecture.png" alt-text="Diagram showing the high-level architecture of the serverless Functions application.":::
-   In one data flow, arrows show messages going from Devices to Event Hubs and triggering the function app. From the app, one arrow shows dead-letter messages going to a storage queue, and another arrow shows writing to Azure Cosmos DB. In another data flow, arrows show the client web app getting static files from Blob storage static web hosting, through a CDN. Another arrow shows the client HTTP request going through API Management. From API Management, one arrow shows the function app triggering and reading data from Azure Cosmos DB. Another arrow shows authentication through Azure AD. A User also signs in to Azure AD.
+   In one data flow, arrows show messages going from Devices to Event Hubs and triggering the function app. From the app, one arrow shows dead-letter messages going to a storage queue, and another arrow shows writing to Azure Cosmos DB. In another data flow, arrows show the client web app getting static files from Blob storage static web hosting, through a CDN. Another arrow shows the client HTTP request going through API Management. From API Management, one arrow shows the function app triggering and reading data from Azure Cosmos DB. Another arrow shows authentication through Microsoft Entra ID. A User also signs in to Microsoft Entra ID.
 :::image-end:::
 
 Event ingestion:
@@ -71,7 +71,7 @@ Event ingestion:
 Web app:
 
 1. Static files are served by CDN from Blob storage.
-1. A user signs into the web app using Azure AD.
+1. A user signs into the web app using Microsoft Entra ID.
 1. Azure API Management acts as a gateway that exposes a REST API endpoint.
 1. HTTP requests from the client trigger an Azure Functions app that reads from Azure Cosmos DB and returns the result.
 
@@ -562,9 +562,9 @@ This function uses an HTTP trigger to process an HTTP GET request. The function 
 
 ## Authentication and authorization
 
-The web app uses Azure AD to authenticate users. Because the app is a single-page application (SPA) running in the browser, the [implicit grant flow](/azure/active-directory/develop/v1-oauth2-implicit-grant-flow) is appropriate:
+The web app uses Microsoft Entra ID to authenticate users. Because the app is a single-page application (SPA) running in the browser, the [implicit grant flow](/azure/active-directory/develop/v1-oauth2-implicit-grant-flow) is appropriate:
 
-1. The web app redirects the user to the identity provider (in this case, Azure AD).
+1. The web app redirects the user to the identity provider (in this case, Microsoft Entra ID).
 1. The user enters their credentials.
 1. The identity provider redirects back to the web app with an access token.
 1. The web app sends a request to the web API and includes the access token in the Authorization header.
@@ -573,7 +573,7 @@ The web app uses Azure AD to authenticate users. Because the app is a single-pag
 
 A Function application can be configured to authenticate users with zero code. For more information, see [Authentication and authorization in Azure App Service](/azure/app-service/overview-authentication-authorization).
 
-Authorization, on the other hand, generally requires some business logic. Azure AD supports *claims based authentication*. In this model, a user's identity is represented as a set of claims that come from the identity provider. A claim can be any piece of information about the user, such as their name or email address.
+Authorization, on the other hand, generally requires some business logic. Microsoft Entra ID supports *claims based authentication*. In this model, a user's identity is represented as a set of claims that come from the identity provider. A claim can be any piece of information about the user, such as their name or email address.
 
 The access token contains a subset of user claims. Among these are any application roles that the user is assigned to.
 
