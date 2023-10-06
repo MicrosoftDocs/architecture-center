@@ -53,7 +53,7 @@ This architecture includes the following components:
 - [Azure Workbooks for Azure Monitor](/azure/azure-monitor/visualize/workbooks-overview) provides a flexible canvas to analyze multiple Azure data sources and combine them into interactive visual reports.
 - [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) creates and runs queries on Monitor Logs data in [Log Analytics workspaces](/azure/azure-monitor/logs/quick-create-workspace). This solution uses the following Log Analytics features:
   - [Log Analytics agent](/azure/azure-monitor/agents/agents-overview#log-analytics-agent) collects monitoring data from cloud and on-premises operating systems and VM workloads, and sends it to a Log Analytics workspace.
-  - [Azure Active Directory Monitoring](/azure/active-directory/reports-monitoring/overview-monitoring) routes Azure Active Directory (Azure AD) activity logs to a Log Analytics workspace.
+  - [Microsoft Entra monitoring](/azure/active-directory/reports-monitoring/overview-monitoring) routes Microsoft Entra activity logs to a Log Analytics workspace.
   - [Log Analytics gateway](/azure/azure-monitor/agents/gateway) sends data to Azure Automation and Log Analytics workspaces for computers that can't directly connect to the internet.
   - [Service Map](/azure/azure-monitor/vm/service-map) uses the Log Analytics agent to automatically discover application components on Windows and Linux systems, and map the communication between services.
   - [Alert Management](/azure/azure-monitor/insights/alert-management-solution) helps you analyze all the alerts in your Log Analytics workspaces.
