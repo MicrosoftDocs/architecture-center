@@ -1860,7 +1860,7 @@
     },
     {
       "source_path": "docs/patterns/messaging-bridge-patterns.yml",
-      "redirect_url": "/patterns/messaging-bridge.yml",
+      "redirect_url": "/azure/architecture/patterns/messaging-bridge.yml",
       "redirect_document_id": true
     },
     {
