@@ -154,7 +154,7 @@ Other contributors:
 
 ### Azure product reference
 
-- [Microsoft Entra documentation](/azure/active-directory)
+- [Microsoft Entra documentation](/entra)
 - [Azure Cosmos DB documentation](/azure/cosmos-db)
 - [Azure Data Factory documentation](/azure/data-factory)
 - [Azure Databricks documentation](/azure/databricks)
