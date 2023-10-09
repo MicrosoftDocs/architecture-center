@@ -31,4 +31,4 @@ This solution enables teams to manage identity for users and applications in a w
 
 * [Azure Stack Hub User Documentation](/azure/azure-stack/user)
 * [Virtual Machines Overview](https://azure.microsoft.com/services/virtual-machines)
-* [Microsoft Entra Documentation](/azure/active-directory)
+* [Microsoft Entra Documentation](/entra)
