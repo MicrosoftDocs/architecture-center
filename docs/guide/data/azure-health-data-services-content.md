@@ -24,7 +24,7 @@ This article provides a sample architecture, an accompanying sample implementati
 
 ### Components
 
-- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/products/active-directory) is a multitenant cloud-based directory and identity management service. [Client applications are registered](/azure/healthcare-apis/register-application) in Azure AD and can be used to access the Azure Health Data Services FHIR service.
+- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) is a multitenant cloud-based directory and identity management service. [Client applications are registered](/azure/healthcare-apis/register-application) in Microsoft Entra ID and can be used to access the Azure Health Data Services FHIR service.
 
 - [Application Gateway](https://azure.microsoft.com/products/application-gateway/) is a platform as a service (PaaS) layer-7 load balancer that can act as a reverse-proxy service. Internal and external users access the FHIR APIs through Application Gateway via API Management.
 
@@ -34,7 +34,7 @@ This article provides a sample architecture, an accompanying sample implementati
 
 - [FHIR Loader](https://github.com/microsoft/fhir-loader) is an Azure Functions solution that provides services for importing FHIR bundles (compressed and non-compressed) and NDJSON files into a FHIR service.
 
-- [Azure Key Vault](https://azure.microsoft.com/products/key-vault) is an Azure service for storing and accessing secrets, keys, and certificates with improved security. Key Vault provides HSM-backed security and audited access via role-based access controls that are integrated with Azure AD. In this architecture, Key Vault stores jumpbox credentials, Application Gateway certificates, FHIR service details, and FHIR Loader details.
+- [Azure Key Vault](https://azure.microsoft.com/products/key-vault) is an Azure service for storing and accessing secrets, keys, and certificates with improved security. Key Vault provides HSM-backed security and audited access via role-based access controls that are integrated with Microsoft Entra ID. In this architecture, Key Vault stores jumpbox credentials, Application Gateway certificates, FHIR service details, and FHIR Loader details.
 
 - [Container Registry](https://azure.microsoft.com/products/container-registry/) is a managed registry service that's based on the open-source Docker Registry 2.0. In this architecture, it's used to host [Liquid](https://shopify.github.io/liquid/) templates. You can use the `$convert-data` custom endpoint in the FHIR service to convert health data from HL7 v2 and C-CDA to FHIR. The `$convert-data` operation uses Liquid templates from [FHIR Converter](https://github.com/microsoft/FHIR-Converter) for FHIR data conversion.
 

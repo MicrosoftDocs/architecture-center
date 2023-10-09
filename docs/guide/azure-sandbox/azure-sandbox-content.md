@@ -22,7 +22,7 @@ You can deploy all the following sandbox configurations, or just the ones you ne
 
 The Azure Sandbox environment requires the following prerequisites:
 
-- An [Azure Active Directory (Azure AD)](https://azure.microsoft.com/products/active-directory) tenant
+- An [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) tenant
 - An [Azure subscription](https://azure.microsoft.com/support/legal/offer-details)
 - The appropriate [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) role assignments
 - A [service principal](/cli/azure/create-an-azure-service-principal-azure-cli)
