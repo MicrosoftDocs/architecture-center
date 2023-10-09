@@ -11,12 +11,9 @@ metadata:
 azureCategories:
   - networking
 products:
-  - azure-expressroute-gateway
+  - azure-expressroute
   - azure-vpn-gateway
   - azure-virtual-network
-  - azure-route-server
-  - azure-expressroute-circuit
-  - azure-3rd-party-nva
 name: Architecture patterns for SDWAN integration with Azure hub-and-spoke network topologies
 summary: Architecture patterns for SDWAN integration with Azure hub-and-spoke network topologies, based on the Azure Well-Architected Framework's five pillars of architecture excellence.
 thumbnailUrl: /azure/architecture/browse/thumbs/sdwan-integration-hub-and-spoke.png
