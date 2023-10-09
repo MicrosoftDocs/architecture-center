@@ -130,7 +130,7 @@ To prepare for deployment of Azure security solutions, review and record current
    - **Security questions**, securely updated and recorded for emergency access
    - **AWS regions** that are enabled or disabled to comply with data security policy
 
-1. In the [Microsoft Entra admin center](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview), review the Microsoft Entra tenant:
+1. In the [Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview), review the Microsoft Entra tenant:
    - Assess **Tenant information** to see whether the tenant has a Microsoft Entra ID P1 or P2 license. A P2 license provides [advanced Microsoft Entra identity management](../../reference-architectures/aws/aws-azure-ad-security.yml#advanced-azure-ad-identity-management-with-aws-accounts) features.
    - Assess **Enterprise applications** to see whether any existing applications use the AWS application type, as shown by `http://aws.amazon.com/` in the **Homepage URL** column.
 
