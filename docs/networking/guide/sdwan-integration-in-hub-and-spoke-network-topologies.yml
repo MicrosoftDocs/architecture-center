@@ -2,8 +2,8 @@
 metadata:
   title: Architecture patterns for SDWAN integration with Azure hub-and-spoke network topologies
   description: Architecture patterns for SDWAN integration with Azure hub-and-spoke network topologies, based on the Azure Well-Architected Framework's five pillars of architecture excellence.
-  author: khushal08 and fguerri
-  ms.author: khushal08 and fguerri
+  author: khushal08
+  ms.author: fguerri
   ms.date: 05/10/2023
   ms.topic: conceptual
   ms.service: architecture-center
