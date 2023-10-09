@@ -55,7 +55,7 @@ The preceding architecture pattern allows you to get the most out of the Windows
 The following diagram is a representation of all the components that are part of the Windows 365 service. This architecture uses Intune and Microsoft Entra ID, which are core requirements of Windows 365. There are also optional components such as Azure Virtual Network.
 
 :::image type="content" source="./images/W365-Placement-Diagrams-updated-4.svg" alt-text="A diagram of the Azure network connection and Microsoft Hosted Network options." lightbox="./images/W365-Placement-Diagrams-updated-4.svg" border="false":::
-*Download a [PowerPoint file](https://archcenter.blob.core.windows.net/cdn/W365-Azure-Network-Connection.pptx) of this architecture.*
+*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/W365-Azure-Network-Connection.vsdx) of this architecture.*
 
 The previous diagram shows Azure network connection and Microsoft-hosted network options. They're mutually exclusive architecture options. The following sections elaborate on the Azure network connection options.
 
@@ -66,7 +66,7 @@ Virtual Desktop is an Azure-based virtual desktop infrastructure (VDI) solution.
 For more information, see [Azure Virtual Desktop for the enterprise](/azure/architecture/example-scenario/wvd/windows-virtual-desktop).
 
 :::image type="content" source="./images/W365-Placement-Diagrams-updated-5.svg" alt-text="A diagram of Windows Virtual Desktop Control Plane components." lightbox="./images/W365-Placement-Diagrams-updated-5.svg" border="false":::
-*Download a [PowerPoint file](https://archcenter.blob.core.windows.net/cdn/W365-Azure-Network-Connection.pptx) of this architecture.*
+*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/W365-Azure-Network-Connection.vsdx) of this architecture.*
 
 > [!NOTE]
 > Windows 365 utilizes the components entitled "Windows Virtual Desktop Control Plane" in the previous diagram for facilitating user and Cloud PC connections and as such inherits most of the connection related capabilities of Azure Virtual Desktop. Familiarizing with how Virtual Desktop networking operates then becomes essential to designing the Azure network connection architecture detailed in this document.
@@ -180,12 +180,12 @@ Windows 365 usage in an Azure network connection architecture pattern involves t
 Windows 365 uses the *Hosted on behalf of* model to deliver services to Windows 365 customers. In this model, the Cloud PC is provisioned and run in Azure subscriptions owned by Microsoft, while the network adapter of the Cloud PC is provisioned in a customer's Azure subscription. The following diagrams show two Azure network connection architecture patterns. Customers use their own Azure subscription and virtual network.
 
 :::image type="content" source="./images/W365-Placement-Diagrams-updated-6.svg" alt-text="A diagram of the architecture pattern using the Microsoft Entra join identity." lightbox="./images/W365-Placement-Diagrams-updated-6.svg" border="false":::
-*Download a [PowerPoint file](https://archcenter.blob.core.windows.net/cdn/W365-Azure-Network-Connection.pptx) of this architecture.*
+*Download a [PowerPoint file](https://archcenter.blob.core.windows.net/cdn/W365-Azure-Network-Connection.vsdx) of this architecture.*
 
 The previous architecture pattern uses the Microsoft Entra join identity to manage the Cloud PC.
 
 :::image type="content" source="./images/W365-Placement-Diagrams-updated-7.svg" alt-text="A diagram of the architecture pattern using the Microsoft Entra hybrid join identity." lightbox="./images/W365-Placement-Diagrams-updated-7.svg" border="false":::
-*Download a [PowerPoint file](https://archcenter.blob.core.windows.net/cdn/W365-Azure-Network-Connection.pptx) of this architecture.*
+*Download a [PowerPoint file](https://archcenter.blob.core.windows.net/cdn/W365-Azure-Network-Connection.vsdx) of this architecture.*
 
 The previous architecture pattern uses Microsoft Entra hybrid join identity to manage the Cloud PC and requires a *line of sight* network communication with Active Directory Domain Services (AD DS) domain controllers in on-premises environments.
 
@@ -286,7 +286,7 @@ Other contributors
 - [Paul Collinge](https://www.linkedin.com/in/paul-collinge-5159b729) | Principal Product Manager
 - [Claus Emerich](https://www.linkedin.com/in/claus-bavaria) | Principal Product Manager
 - [David Falkus](https://www.linkedin.com/in/david-falkus) | Principal Product Manager
-- [Bob Roudabush](https://www.linkedin.com/in/bobroudebush) | Technical Leader and Cloud/Developer Technologist
+- [Bob Roudebush](https://www.linkedin.com/in/bobroudebush) | Technical Leader and Cloud/Developer Technologist
 - [Matt Shadbolt](https://www.linkedin.com/in/mattshadbolt) | Principal Product Manager, Windows Cloud Experiences
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
