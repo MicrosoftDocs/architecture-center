@@ -15,7 +15,7 @@ This article is about the open-source version of Magento, an e-commerce platform
 - [Azure Files Premium](https://azure.microsoft.com/products/storage/files), [Azure NetApp Files](https://azure.microsoft.com/products/netapp), or an equivalent *network-attached storage (NAS)* system stores media files like product images. Magento needs a Kubernetes-compatible file system that can mount a volume in *ReadWriteMany* mode, like Azure Files Premium or Azure NetApp Files. [Storage options for applications in Azure Kubernetes Service (AKS)](/azure/aks/concepts-storage). It is highly recommended that you test input/output operations per second (IOPS) throughput and choose the options that work for you.
 - A [content delivery network (CDN)](https://azure.microsoft.com/products/cdn) serves static content like CSS, JavaScript, and images. Serving content through a CDN minimizes network latency between users and the datacenter. A CDN can remove significant load from NAS by caching and serving static content.
 - [Redis](https://redis.io) stores session data. Hosting Redis on containers is recommended for performance reasons.
-- AKS uses an [Azure Active Directory (Azure AD)](https://azure.microsoft.com/products/active-directory) identity to create and manage other Azure resources like Azure load balancers, user authentication, role-based access control, and managed identity.
+- AKS uses an [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) identity to create and manage other Azure resources like Azure load balancers, user authentication, role-based access control, and managed identity.
 - [Azure Container Registry](https://azure.microsoft.com/products/container-registry) stores the private [Docker](https://www.docker.com) images that are deployed to the AKS cluster. You can use other container registries like Docker Hub. The default Magento install writes some secrets to the image.
 - [Azure Monitor](https://azure.microsoft.com/products/monitor) collects and stores metrics and logs, including Azure service platform metrics and application telemetry. Azure Monitor integrates with AKS to collect controller, node, and container metrics, and container and master node logs.
 
@@ -27,7 +27,7 @@ This article is about the open-source version of Magento, an e-commerce platform
 - [Azure Files](https://azure.microsoft.com/products/storage/files): File shares in the cloud. This solution uses the Premium tier.
 - [Azure NetApp Files](https://azure.microsoft.com/products/netapp): Enterprise-grade Azure file shares, powered by NetApp.
 - [Azure Content Delivery Network](https://azure.microsoft.com/products/cdn):A fast, reliable, and global content delivery network. 
-- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/products/active-directory): Multicloud identity and access management.
+- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory): Multicloud identity and access management.
 - [Azure Container Registry](https://azure.microsoft.com/products/container-registry): A registry of Docker and Open Container Initiative (OCI) images, with support for all OCI artifacts.
 - [Azure Monitor](https://azure.microsoft.com/products/monitor): End-to-end observability for your applications, infrastructure, and network
 
@@ -70,11 +70,11 @@ AKS integrates the Azure and Kubernetes RBAC mechanisms. To assign AKS permissio
 
 - Alternatively, you can use [Azure RBAC for Kubernetes Authorization](/azure/aks/manage-azure-rbac), which enables unified management and access control across Azure resources, AKS, and Kubernetes resources.
 
-When you create the AKS cluster, you can configure it to use Azure AD for user authentication.
+When you create the AKS cluster, you can configure it to use Microsoft Entra ID for user authentication.
 
-- For details on how to set up Azure AD integration, see [AKS-managed Azure Active Directory integration](/azure/aks/managed-aad).
+- For details on how to set up Microsoft Entra integration, see [AKS-managed Microsoft Entra integration](/azure/aks/managed-aad).
 
-- For more information about controlling access to cluster resources using Kubernetes RBAC and Azure AD identities, see [Use Kubernetes RBAC with Azure AD](/azure/aks/azure-ad-rbac).
+- For more information about controlling access to cluster resources using Kubernetes RBAC and Microsoft Entra identities, see [Use Kubernetes RBAC with Microsoft Entra ID](/azure/aks/azure-ad-rbac).
 
 ### Scalability
 
@@ -155,7 +155,7 @@ Here are some operational considerations for this scenario:
 
 - In this scenario, MySQL doesn't expose a public endpoint. If the build server stores configuration settings to the backend MySQL database, be sure to deploy that server into the same virtual network subnet that MySQL connects to via service endpoint.
 
-- Use Azure Container Registry or another container registry like Docker Hub to store the private Docker images that are deployed to the cluster. AKS can authenticate with Azure Container Registry by using its Azure AD identity.
+- Use Azure Container Registry or another container registry like Docker Hub to store the private Docker images that are deployed to the cluster. AKS can authenticate with Azure Container Registry by using its Microsoft Entra identity.
 
 #### Monitoring
 

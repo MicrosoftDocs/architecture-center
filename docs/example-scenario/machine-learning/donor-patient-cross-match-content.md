@@ -36,7 +36,7 @@ The first step is to collect data for research and training purposes. Then, the 
 
    - [Azure Key Vault](/azure/key-vault/general/overview) to securely store connection strings, passwords, and secrets that different components use.
    - [Azure Monitor](/azure/azure-monitor/overview) to monitor service health and performance.
-   - [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) as the identity and access management provider.
+   - [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) as the identity and access management provider.
    - [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) to manage the Machine Learning lifecycle and orchestration.
 
 ### Components
@@ -59,7 +59,7 @@ The first step is to collect data for research and training purposes. Then, the 
 
 - [Azure Monitor](https://azure.microsoft.com/products/monitor) is a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments.
 
-- [Azure AD](https://azure.microsoft.com/products/active-directory) is an Azure cloud-based identity and access management service.
+- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) is an Azure cloud-based identity and access management service.
 
 - [Azure DevOps](https://azure.microsoft.com/products/devops) is a set of modern developer services that supports collaborative continuous integration and continuous deployment (CI/CD).
 
@@ -105,7 +105,7 @@ The components in this architecture feature high availability. However, machine 
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-The components in this scenario have built-in security. You can also manage permissions via Azure AD authentication or role-based access control. Follow [Azure Machine Learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security) to establish suitable security levels.
+The components in this scenario have built-in security. You can also manage permissions via Microsoft Entra authentication or role-based access control. Follow [Azure Machine Learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security) to establish suitable security levels.
 
 To store, manage, and analyze HIPAA-compliant and HITRUST-compliant health data and medical records with the highest level of built-in security, follow the [HIPAA and HITRUST compliant health data AI](/azure/architecture/solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai) architecture.
 
@@ -165,4 +165,3 @@ Other contributors:
 - [HIPAA and HITRUST compliant health data AI](/azure/architecture/solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai)
 - [Precision medicine pipeline with genomics](/azure/architecture/example-scenario/precision-medicine/genomic-analysis-reporting)
 - [Health data consortium on Azure](/azure/architecture/example-scenario/data/azure-health-data-consortium)
-

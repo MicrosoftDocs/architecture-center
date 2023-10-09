@@ -22,33 +22,25 @@ Siemens Teamcenter PLM baseline architecture has four distributed tiers (client,
 ### Workflow
 
 1. Teamcenter users access the Teamcenter application via an HTTPS-based endpoint Public URL. Users access the application through two user interfaces: (1) a Rich client and (2) an Active workspace client.
-1. User authenticates using a Teamcenter credential that a Teamcenter administrator creates in Teamcenter. Azure Active Directory with SAML configuration allows single sign-on to the Teamcenter application.
+1. User authenticates using a Teamcenter credential that a Teamcenter administrator creates in Teamcenter. Microsoft Entra ID with SAML configuration allows single sign-on to the Teamcenter application.
 1. Azure Firewall backbone filters traffic and threat intelligence from Microsoft Cyber Security. HTTPS traffic directed to the Azure Application gateway. The Hub virtual network and Spoke virtual network are peered so they can communicate over the Azure backbone network.
 1. Azure Application Gateway routes traffic to the Teamcenter web server virtual machines in the Web Tier. Azure Application Gateway with Azure Firewall inspects the incoming HTTP traffic to continuously monitor Teamcenter against exploits. For reliable performance of your application, the virtual machine size, disk configuration, and application installs should match across all virtual machines. Based on your requirements, you can consider the use of Azure Virtual Machines Scale Sets. With Virtual Machine Scale Sets, virtual machine instances have the same base OS image and configuration.
 1. The Web subnet in the Web tier runs the following Teamcenter components on virtual machines:
 
     - *Teamcenter Security services (TCSS)* enable role-based access control (RBAC) for end users and secure access to resources. With TCSS, users can navigate between different Teamcenter applications without encountering multiple authentication challenges. It offers a unified framework for integration with a site's single sign-on solution and simplifies the authentication process
-
     - *Teamcenter HTTP servers (TC HTTP servers)* run third-party HTTP web servers, such as IIS (.NET) or Java-based servers, to support the Rich client or Active Workspace client. These web server virtual machines also host the Teamcenter servlet container. Network security groups (NSGs) secure inbound and outbound communication between the Application Gateway subnet, web subnet and enterprise subnets. NSGs ensure the necessary connectivity and security measures are in place for data transfer between the subnets.
-
     - *Active Workspace Gateway* provides the functionality for the Teamcenter Active Workspace client. It serves as the routing mechanism for static content, such as HTML, CSS, JavaScript, JSON, and dynamic content such as API routing. It directs these requests to the appropriate back-end services and microservices responsible for tasks such as Service-Oriented Architecture (SOA), File Management Services (FMS), Visualization, and GraphQL. This architecture ensures efficient delivery and processing of content within the Teamcenter Product Lifecycle Management application running on Azure.
-
-    - Network security groups (NSGs) secure inbound and outbound communication between the Enterprise subnets, Database subnet & Storage subnet.
+    - *Network security groups (NSGs)* secure inbound and outbound communication between the Enterprise subnets, Database subnet & Storage subnet.
 
 1. The Enterprise subnet runs the following core Teamcenter components:
 
     - *Enterprise tier virtual machines* run the business logic components of Teamcenter. These components include Teamcenter Foundation, Server Manager, Dispatcher, and Microservices.
-
     - *Active workspace* serves as the platform where Active Workspace users sign in to access information and perform tasks based on their assigned roles.
-
     - *Visualization virtual machines* run Teamcenter lifecycle visualization. This feature empowers every member of your organization to access and view design data that is commonly stored in CAD-data formats.
-
     - *File Management System (FMS) virtual machine* stores and retrieves user files (CAD, PDF) through SMB/NFS access protocols from file storage (ex. managed disks, Azure Files or Azure NetApp Files). It also supports caching and file distribution. FMS requires the installation of an FMS server cache (FSC) and FMS client cache (FCC) components. FCC resides on client desktop.
-
     - *File server cache virtual machine* is a volume server for file management. It's also a server-level performance cache server and provides shared data access for multiple users. All Teamcenter file access/update is via FMS server cache processes. The cache process reads and writes the files in volume servers. It also streams the file(s) to/from clients as required.
 
-    - *Search server*, Apache Solr performs smart searches and supports real-time indexing of data.
-
+    - *Search server Apache Solr* performs smart searches and supports real-time indexing of data.
     - *License server virtual machine* runs a valid Teamcenter FlexPLM license.
 
 1. *Database subnet* runs a SQL Server database using an infrastructure-as-a-service deployment. It uses SQL Server Always On availability groups for asynchronous replication. The deployment could run an Oracle on this IaaS deployment.
@@ -63,7 +55,7 @@ This architecture consists of the following Azure components.
 - [Virtual machines](https://azure.microsoft.com/services/virtual-machines/#overview): Azure Virtual Machines is an IaaS that provides on-demand, scalable computing resources without the need for physical hardware maintenance. Virtual machines provide the computing infrastructure that hosts the various Teamcenter services.
 - [Azure Files](https://azure.microsoft.com/products/storage/files): Azure Files is a service that offers shared storage and allows you to create a hierarchical folder structure to upload files. In a Teamcenter deployment, it provides shared storage space for collaboration, document management, and version control.
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp): Azure NetApp Files is a file-storage service developed jointly by Microsoft and NetApp. You can use Azure NetApp Files to host and manage file-based applications of Teamcenter.
-- [Azure Active Directory](https://azure.microsoft.com/products/active-directory): Azure Active Directory provides on-premises directory synchronization and single sign-on features. You can use Azure Active Directory to manage and authenticate users, providing seamless access to Teamcenter services hosted on Azure.
+- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory): Microsoft Entra ID provides on-premises directory synchronization and single sign-on features. You can use Microsoft Entra ID to manage and authenticate users, providing seamless access to Teamcenter services hosted on Azure.
 - [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview): SQL Server on Azure Virtual Machines allows SQL Server workloads to be migrated to the cloud with full code compatibility. You can use this service to host the Teamcenter database, providing reliable, secure, and performant data services.
 - [Network security groups](/azure/virtual-network/network-security-groups-overview): Network security groups are used to limit access to subnets within the Azure network. For a Teamcenter deployment, you use network security groups to secure the network infrastructure, ensuring that only authorized traffic can access the Teamcenter resources.
 - [Azure Public IP](/azure/virtual-network/ip-services/public-ip-addresses): Azure Public IP is a service that connects Azure Virtual Machines to the internet via a public IP address. The public IP address provides internet access to the hosted Teamcenter services, facilitating remote access and collaboration.
