@@ -136,7 +136,7 @@ To prepare for deployment of Azure security solutions, review and record current
    - **Policies**. Out-of-the-box policies have **AWS managed**, **Job function**, or **Customer managed** in the **Type** column. Record all other policies, which are custom. Also record where each policy is assigned, from the entries in the **Used as** column.
    - **Identity providers**, to understand any existing Security Assertion Markup Language (SAML) identity providers. Plan how to replace the existing identity providers with the single Microsoft Entra identity provider.
 
-1. In the [Microsoft Entra admin center](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview), review the Microsoft Entra tenant:
+1. In the [Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview), review the Microsoft Entra tenant:
 
    - Assess **Tenant information** to see whether the tenant has a Microsoft Entra ID P1 or P2 license. A P2 license provides [Advanced Microsoft Entra identity management](./aws-azure-ad-security.yml#advanced-azure-ad-identity-management-with-aws-accounts) features.
    - Assess **Enterprise applications** to see whether any existing applications use the AWS application type, as shown by `http://aws.amazon.com/` in the **Homepage URL** column.
