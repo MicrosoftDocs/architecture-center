@@ -138,12 +138,15 @@ The Kubernetes community releases minor versions of Kubernetes approximately eve
 Azure Kubernetes Service (AKS) follows a "N - 2" support policy, which means that full support is provided for the latest release (N) and up to two previous minor versions. Limited platform support is offered for the third previous minor version. For detailed information on the support policy, refer to the [AKS Support Policy(/azure/aks/support-policies).
 
 To ensure that your AKS clusters remain supported, it's crucial to establish a continuous cluster upgrade process. This process involves testing new versions in lower environments and planning the upgrade to production before the new version becomes the default. By following this approach, you can maintain predictability in your upgrade process and minimize disruption to your applications. For more information, see [Upgrade an Azure Kubernetes Service (AKS) cluster](/azure/aks/upgrade-cluster).
-
 For customers who require a longer upgrade cycle, Microsoft introduced a [Long Term Support (LTS) option](/azure/aks/supported-kubernetes-versions#long-term-support-lts) starting from AKS version 1.27. With the LTS option, Microsoft provides extended support for Kubernetes versions over a period of two years, allowing for a more prolonged and controlled upgrade cycle. For more information, see [Supported Kubernetes versions in Azure Kubernetes Service (AKS)](/azure/aks/supported-kubernetes-versions).
 
 ### Before you upgrade
 
+Both cluster upgrades and node image upgrades require due diligence to ensure stability in production environments.  Cluster upgrades require additional testing as they often involve API changes which can impact Kubernetes deployments.
+
 As part of your cluster upgrade process, it's essential to conduct a thorough review to ensure a smooth transition. The following resources can assist you in this process:
+
+- **AKS Workbook for depreciated APIs** From the cluster overview page you can select "Diagnose and solve problems" and navigate to the [Create, Upgrade, Delete and Scale category, and select Kubernetes API deprecations](/azure/aks/upgrade-cluster?tabs=azure-cli#remove-usage-of-deprecated-apis-recommended).  This runs a workbook that checks for depreciated API versions in use in your cluster.
 
 - **AKS release notes page**: The [AKS Release Notes](https://github.com/Azure/AKS/releases) page provides comprehensive information about new AKS versions and releases. It's crucial to review these notes to stay informed about the latest updates and changes.
 - **Kubernetes release notes page**: The [Kubernetes release notes](https://github.com/kubernetes/kubernetes/tree/master/CHANGELOG) page offers detailed insights into the latest Kubernetes versions. Pay special attention to urgent upgrade notes, which highlight critical information that might impact your AKS cluster.
