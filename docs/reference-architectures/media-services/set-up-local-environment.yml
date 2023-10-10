@@ -11,6 +11,7 @@ metadata:
   ms.subservice: reference-architecture
   ms.custom:
     - fcp
+    - devx-track-azurecli
 name: Gridwich local development environment setup
 summary: Set up a local development environment to work with Gridwich.
 products:

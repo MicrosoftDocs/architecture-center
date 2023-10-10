@@ -81,7 +81,7 @@ Due to current [limitations](/azure/aks/configure-kubenet-dual-stack#expose-the-
 
 After your [Azure Application Gateway](/azure/application-gateway/overview-v2) supports dual-stack networking, an HTTP client can use it in place of a standard load balancer. This configuration benefits from the gateway's [Azure Web Application Firewall](/azure/web-application-firewall/afds/waf-front-door-create-portal) and simplifies the deployment.
 
-This article focuses on enabling dual-stack IP addresses for your network infrastructure. You should be familiar with the [AKS Baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks), a starting point for AKS infrastructure. The AKS baseline describes features like Azure Active Directory (Azure AD) workload identity, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations.
+This article focuses on enabling dual-stack IP addresses for your network infrastructure. You should be familiar with the [AKS Baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks), a starting point for AKS infrastructure. The AKS baseline describes features like Microsoft Entra Workload ID, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations.
 
 ### Potential use cases
 

@@ -26,7 +26,7 @@ _Download a [Visio file](https://arch-center.azureedge.net/batch-integration-azu
 
 - [Azure Batch](https://azure.microsoft.com/services/batch) runs the Custom activity code.
 
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory) provides [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) for securely connecting from the Custom activity to Azure Digital Twins.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) provides [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) for securely connecting from the Custom activity to Azure Digital Twins.
 
 ### Alternatives
 

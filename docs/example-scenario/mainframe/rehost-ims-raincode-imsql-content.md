@@ -91,12 +91,12 @@ This architecture describes how to implement an Information Management System (I
 
 ### Components
 
-- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) enables you to quickly build powerful integration solutions. Mainframe users are familiar with 3270 terminals and on-premises connectivity. They can use the Logic Apps [IBM 3270 connector](/azure/connectors/connectors-run-3270-apps-ibm-mainframe-create-api-3270) to access and run IBM mainframe apps. In the migrated system, they interact with Azure applications via the public internet or a private connection that's implemented via Azure ExpressRoute. [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) provides authentication.
+- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) enables you to quickly build powerful integration solutions. Mainframe users are familiar with 3270 terminals and on-premises connectivity. They can use the Logic Apps [IBM 3270 connector](/azure/connectors/connectors-run-3270-apps-ibm-mainframe-create-api-3270) to access and run IBM mainframe apps. In the migrated system, they interact with Azure applications via the public internet or a private connection that's implemented via Azure ExpressRoute. [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) provides authentication.
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for your private network on Azure. Virtual Network enables many types of Azure resources, like Azure virtual machines (VMs), to communicate with each other, the internet, and on-premises networks, all with improved security. Virtual Network is like a traditional network that you operate in your own datacenter, but it brings more of the benefits of the Azure infrastructure, like scale, availability, and isolation.  
 - [ExpressRoute](https://azure.microsoft.com/services/expressroute) enables you to extend your on-premises networks into the Microsoft Cloud over a private connection that's facilitated by a connectivity provider. You can use ExpressRoute to establish connections to Microsoft Cloud services like Azure and Office 365.
 - [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets) provides automated and load balanced VM scaling that simplifies the management of your applications and increases availability.
 - [SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance), part of the Azure SQL service portfolio, is a managed, highly secure, always up-to-date SQL instance in the cloud.
-- [Azure AD](https://azure.microsoft.com/services/active-directory) is a cloud-based enterprise identity and access management service. Azure AD single sign-on and multifactor authentication help users sign in and access resources while helping to protect against cybersecurity attacks.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is a cloud-based enterprise identity and access management service. Microsoft Entra single sign-on and multifactor authentication help users sign in and access resources while helping to protect against cybersecurity attacks.
 
 ### Alternatives
 
@@ -136,7 +136,7 @@ Reliability ensures your application can meet the commitments you make to your c
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 - ExpressRoute provides a private and efficient connection to Azure from on-premises.
-- You can use Azure AD to authenticate Azure resources. You can use role-based access control (RBAC) to manage permissions.
+- You can use Microsoft Entra ID to authenticate Azure resources. You can use role-based access control (RBAC) to manage permissions.
 - This solution uses an Azure network security group to manage traffic to and from Azure resources. For more information, see [Network security groups](/azure/virtual-network/network-security-groups-overview).
 - These security options are available in Azure database services:
    - Data encryption at rest

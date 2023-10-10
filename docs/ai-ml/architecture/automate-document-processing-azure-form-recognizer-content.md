@@ -202,7 +202,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 * Azure Functions supports virtual network integration. By using this functionality, function apps can access resources inside a virtual network. For more information, see [Azure Functions networking options][Azure Functions networking options].
 
-* You can configure Form Recognizer and Azure Cognitive Service for Language for access from specific virtual networks or from private endpoints. These services encrypt data at rest. You can use subscription keys, tokens, or Azure Active Directory (Azure AD) to authenticate requests to these services. For more information, see [Authenticate requests to Azure Cognitive Services][Authenticate requests to Azure Cognitive Services].
+* You can configure Form Recognizer and Azure Cognitive Service for Language for access from specific virtual networks or from private endpoints. These services encrypt data at rest. You can use subscription keys, tokens, or Microsoft Entra ID to authenticate requests to these services. For more information, see [Authenticate requests to Azure Cognitive Services][Authenticate requests to Azure Cognitive Services].
 
 * Machine Learning offers many levels of security:
 

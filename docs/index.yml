@@ -21,18 +21,26 @@ highlightedContent:
     - title: Browse Azure architectures
       itemType: architecture
       url: browse/index.yml
+    # Card
     - title: Explore cloud best practices 
       itemType: concept
       url: guide/index.md
     # Card
-    - title: Assess, optimize, and review your workload
-      url: /azure/architecture/framework
-      itemType: how-to-guide
-    # Card
     - title: See what's new
       url: ./changelog.md
       itemType: whats-new
-
+    # Card
+    - title: Well Architected Framework (WAF)
+      url: /azure/architecture/framework
+      itemType: how-to-guide
+    # Card
+    - title: Cloud Adoption Framework (CAF)
+      url: https://azure.microsoft.com/solutions/cloud-enablement/cloud-adoption-framework/
+      itemType: how-to-guide
+    # Card
+    - title: Find partner-led workshops
+      url: https://www.microsoft.com/azure/partners/ammp-w/events/?utm_source=email&utm_medium=email&utm_id=email2
+      itemType: learn 
 # productDirectory section (optional)
 productDirectory:
   title: Architecting applications on Azure # < 60 chars (optional)
@@ -311,7 +319,7 @@ conceptualContent:
         - text: Choose an Active Directory integration architecture
           itemType: architecture
           url: reference-architectures/identity/index.yml
-        - text: Integrate on-premises AD with Azure AD
+        - text: Integrate on-premises AD with Microsoft Entra ID
           itemType: architecture
           url: reference-architectures/identity/azure-ad.yml
         - text: Extend AD DS to Azure

@@ -15,8 +15,8 @@ azureCategories:
   - analytics
   - integration
 products:
-  - azure-speech-text
-  - azure-text-analytics
+  - azure-speech
+  - language-service
   - ai-services
   - azure-synapse-analytics
   - azure-logic-apps

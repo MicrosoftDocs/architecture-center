@@ -65,7 +65,7 @@ Microsoft provides several tools to analyze and catalog your systems. If you run
 Begin planning which services to move to the cloud and in what order. Because this stage involves moving workloads, follow this order:
 
 1. Build out the network.
-2. Incorporate an identity system (Azure Active Directory).
+2. Incorporate an identity system (Microsoft Entra ID).
 3. Provision storage pieces in Azure.
 
 During migration, the Azure environment is an extension of your on-premises network. You can connect the logical networks with [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview?WT.mc_id=retailecomm-docs-scseely). You can choose to use [Azure ExpressRoute](/azure/expressroute/?WT.mc_id=retailecomm-docs-scseely) to keep communications between your network and Azure on a private connection that never touches the Internet. You can also use a site-to-site VPN where an Azure VPN Gateway talks to your on-premises VPN device with all traffic sent securely using encrypted communication between Azure and your network. We have published a reference architecture detailing how to setup a hybrid network [here](/azure/architecture/reference-architectures/hybrid-networking/vpn?WT.mc_id=retailecomm-docs-scseely).
@@ -154,8 +154,6 @@ Principal authors:
 
 Many development teams are tempted to do rehost and refactor simultaneously to address technical debt and better leverage capacity. There are benefits to rehosting before jumping into the next steps.  Any issues in the deployment to the new environment will be easier to diagnose and fix. This in turn gives your development and support teams time to ramp up with Azure as the new environment. As you begin to refactor and rebuild the system, you are building on a stable, working application. This allows for smaller, targeted changes and more frequent updates.
 
-We have published a more general whitepaper on migrating to the cloud: [Cloud Migration Essentials](https://azure.microsoft.com/resources/cloud-migration-essentials-e-book/?_lrsc=9618a836-9f81-4087-901f-51058783c3a8&WT.mc_id=retailecomm-docs-scseely). This is a great piece to read through as you plan out your migration.
-
 Product documentation:
 
 - [Introduction to Azure Advisor](/azure/advisor/advisor-overview?WT.mc_id=retailecomm-docs-scseely)
@@ -172,5 +170,6 @@ Product documentation:
 ## Related resources
 
 - [Architect scalable e-commerce web app](../../web-apps/idea/scalable-ecommerce-web-app.yml)
-- [Scalable order processing](../../example-scenario/data/ecommerce-order-processing.yml)
+- [Messaging Bridge pattern](https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessagingBridge.html)
 - [Retail - Buy online, pick up in store (BOPIS)](../../example-scenario/iot/vertical-buy-online-pickup-in-store.yml)
+- [Scalable order processing](../../example-scenario/data/ecommerce-order-processing.yml)

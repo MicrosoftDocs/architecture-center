@@ -77,15 +77,17 @@ Application_End logging will catch the app domain shutdown (soft process crash) 
 
 **Recovery:**. Use multiple [deployment slots][app-service-slots] and roll back to the last-known-good deployment. For more information, see [Basic web application][ra-web-apps-basic].
 
-## Azure Active Directory
+<a name='azure-active-directory'></a>
+
+## Microsoft Entra ID
 
 ### OpenID Connect authentication fails.
 
 **Detection**. Possible failure modes include:
 
-1. Azure AD is not available, or cannot be reached due to a network problem. Redirection to the authentication endpoint fails, and the OpenID Connect middleware throws an exception.
-2. Azure AD tenant does not exist. Redirection to the authentication endpoint returns an HTTP error code, and the OpenID Connect middleware throws an exception.
-3. User cannot authenticate. No detection strategy is necessary; Azure AD handles login failures.
+1. Microsoft Entra ID is not available, or cannot be reached due to a network problem. Redirection to the authentication endpoint fails, and the OpenID Connect middleware throws an exception.
+2. Microsoft Entra tenant does not exist. Redirection to the authentication endpoint returns an HTTP error code, and the OpenID Connect middleware throws an exception.
+3. User cannot authenticate. No detection strategy is necessary; Microsoft Entra ID handles login failures.
 
 **Recovery:**
 

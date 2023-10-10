@@ -37,14 +37,14 @@ Azure App Service can [validate authentication tokens on behalf of your app](/az
 
 If any of the conditions aren't met, App Service can block the request, or it can redirect the user to your identity provider so that they can sign in.
 
-If your tenants use Azure Active Directory (Azure AD) as their identity system, you can configure Azure App Service to use [the /common endpoint](/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant) to validate user tokens. This ensures that, regardless of the user's Azure AD tenant, their tokens are validated and accepted.
+If your tenants use Microsoft Entra ID as their identity system, you can configure Azure App Service to use [the /common endpoint](/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant) to validate user tokens. This ensures that, regardless of the user's Microsoft Entra tenant, their tokens are validated and accepted.
 
 You can also integrate Azure App Service with Azure AD B2C for authentication of consumers.
 
 More information:
 - [App Service authorization](/azure/app-service/overview-authentication-authorization)
 - [Configure authentication in a sample web app by using Azure AD B2C](/azure/active-directory-b2c/configure-authentication-sample-web-app)
-- [Working with multitenant Azure AD identities](../../../multitenant-identity/index.yml)
+- [Working with multitenant Microsoft Entra identities](../../../multitenant-identity/index.yml)
 
 ### Access restrictions
 

@@ -189,7 +189,7 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 
 - HPC on Azure provides fully managed platform services and a robust architecture to run HPC workloads and applications.
 - Azure offers robust compute services that provide unlimited scalability options for HPC applications. You can use HB-series VMs for memory-bound applications and N-series VMs for graphic-intensive applications.
-- Azure CycleCloud lets you manage and orchestrate workloads, define access controls with Azure Active Directory, and customize cluster policies.
+- Azure CycleCloud lets you manage and orchestrate workloads, define access controls with Microsoft Entra ID, and customize cluster policies.
 - AVL FIRE M was successfully tested on HBv3 AMD EPYC™ 7V73X (Milan-X) series on Azure CycleCloud multi-node setup.
 - AVL FIRE M demonstrates good upscale with an increase in the number of CPUs in a multi-node setups.
 - For improved performance, there must be a minimum of 20,000 cells per CPU for single-phase incompressible flow simulations.
