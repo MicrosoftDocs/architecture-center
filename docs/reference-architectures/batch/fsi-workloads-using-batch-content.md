@@ -16,11 +16,11 @@ requirements of the workload and business environment. This architecture is inte
 for such customizations for pre-production and production deployments.
 
 The infrastructure-as-code (IaC) source-code for this reference architecture is available
-[here](https://github.com/utkarshayachit/azbatch-starter). The included tutorials demonstrate how to deploy this reference
+[here](https://github.com/Azure/bacc). The included tutorials demonstrate how to deploy this reference
 architecture and how to use it to run a sample FSI workload, named `azfinsim`. You can also use the following button
 to deploy the resources under your subscription using Azure Portal.
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Futkarshayachit%2Fazbatch-starter%2Fmain%2Ftemplates%2Fsecured-batch_deploy.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fbacc%2Fmain%2Ftemplates%2Fsecured-batch_deploy.json)
 
 ## Architecture
 
