@@ -24,7 +24,7 @@ This solution is used by retail to provide up to date product offerings.
 * [Azure Cache for Redis](https://azure.microsoft.com/services/cache) enables fast queries and improves scalability by reducing the load on the main database.
 * Azure [Blob storage](https://azure.microsoft.com/services/storage/blobs) provides high-performance, high-scale storage.
 * [Azure Monitor](https://azure.microsoft.com/services/monitor): Application Insights provides service health, performance monitoring, and diagnostics.
-* [Identity provider](/azure/app-service/app-service-authentication-overview): An identity provider such as Azure Active Directory or Facebook handles authentication to the app.
+* [Identity provider](/azure/app-service/app-service-authentication-overview): An identity provider such as Microsoft Entra ID or Facebook handles authentication to the app.
 
 ## Next steps
 
