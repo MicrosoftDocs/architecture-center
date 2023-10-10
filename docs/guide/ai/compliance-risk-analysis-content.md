@@ -190,7 +190,7 @@ The following diagram shows an audio ingestion and speech-to-text pipeline. The 
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/US-1989213-compliance-risk-analysis.pptx) of this architecture.*
 
-In this reference architecture, audio files are uploaded to Blob Storage via a client application. During this process, the application authenticates by using Azure Active Directory and calls the REST API to get a token for Blob Storage. Secure access to the REST API is provided by Azure API Management, and an Azure Key Vault provides secure storage of the secrets needed to generate the tokens, as well as account credentials.
+In this reference architecture, audio files are uploaded to Blob Storage via a client application. During this process, the application authenticates by using Microsoft Entra ID and calls the REST API to get a token for Blob Storage. Secure access to the REST API is provided by Azure API Management, and an Azure Key Vault provides secure storage of the secrets needed to generate the tokens, as well as account credentials.
 
 After the files are uploaded, an Azure Event Grid trigger is emitted to invoke an Azure function. The function then processes the audio file by using the Cognitive Services Speech-to-Text API. The transcribed JSON document is then stored in a separate blob container, which can be ingested as a data source by Azure Cognitive Search.
 

@@ -153,7 +153,7 @@ When deploying AKS-HCI, it's essential to consider security practices to help pr
 - **Secure cluster access**
 
   - Limit access to the AKS-HCI cluster by following the principle of least privilege. Only grant necessary permissions to users, groups, or service accounts.
-  - Use strong authentication mechanisms, such as Microsoft Entra ID integration, Microsoft Entra Pod Identity, or Kubernetes role-based access control (Kubernetes RBAC) to control access to the cluster and its resources.
+  - Use strong authentication mechanisms, such as Microsoft Entra integration, Microsoft Entra Pod Identity, or Kubernetes role-based access control (Kubernetes RBAC) to control access to the cluster and its resources.
   - Consider implementing multi-factor authentication (MFA) for cluster access to add an extra layer of security.
 
 - **Network security**

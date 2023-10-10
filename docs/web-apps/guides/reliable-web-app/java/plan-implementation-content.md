@@ -70,7 +70,7 @@ When you move a web app to the cloud, you should select Azure services that mirr
 
 ### Identity management
 
-[Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) is a cloud-based identity and access management service. It authenticates and authorizes users based on roles that integrate with applications. Azure AD provides the following features for Proseware's web app:
+[Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) is a cloud-based identity and access management service. It authenticates and authorizes users based on roles that integrate with applications. Microsoft Entra ID provides the following features for Proseware's web app:
 
 - **Authentication and authorization.** It handles authentication and authorization of employees.
 - **Scalability.** It scales to support larger scenarios.

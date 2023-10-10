@@ -19,7 +19,7 @@ This scenario covers a scalable and secure installation of WordPress that uses U
 The second workflow is how authors contribute new content:
 
 1. Authors connect securely to the public VPN gateway.
-2. VPN authentication information is stored in Azure Active Directory.
+2. VPN authentication information is stored in Microsoft Entra ID.
 3. A connection is then established to the Admin jump boxes.
 4. From the admin jump box, the author is then able to connect to the Azure load balancer for the authoring cluster.
 5. The Azure load balancer distributes traffic to the Virtual Machine Scale Sets of web servers that have write access to the Maria DB cluster.
@@ -36,7 +36,7 @@ The second workflow is how authors contribute new content:
 - [Virtual Machine Scale Sets](https://azure.microsoft.com/products/virtual-machine-scale-sets) let you create and manage a group of identical load-balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Two separate Virtual Machine Scale Sets are used in this scenario - one for the front-end web-servers serving content, and one for the front-end web servers used to author new content.
 - [Azure Files](https://azure.microsoft.com/products/storage/files) provides a fully managed file share in the cloud that hosts all of the WordPress content in this scenario, so that all of the VMs have access to the data.
 - [Azure Key Vault](https://azure.microsoft.com/products/active-directory) is used to store and tightly control access to passwords, certificates, and keys.
-- [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) is a multitenant, cloud-based directory and identity management service. In this scenario, Azure AD provides authentication services for the website and the VPN tunnels.
+- [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) is a multitenant, cloud-based directory and identity management service. In this scenario, Microsoft Entra ID provides authentication services for the website and the VPN tunnels.
 
 ## Scenario details
 
@@ -113,7 +113,7 @@ Product documentation:
 - [About Azure Key Vault](/azure/key-vault/general/overview)
 - [What are Virtual Machine Scale Sets?](/azure/virtual-machine-scale-sets/overview)
 - [What is a content delivery network on Azure?](/azure/cdn/cdn-overview)
-- [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
+- [What is Microsoft Entra ID?](/azure/active-directory/fundamentals/active-directory-whatis)
 - [What is Azure Files?](/azure/storage/files/storage-files-introduction)
 - [What is Azure Load Balancer?](/azure/load-balancer/load-balancer-overview)
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
@@ -122,7 +122,7 @@ Product documentation:
 Microsoft Learn modules:
 
 - [Build a scalable application with Virtual Machine Scale Sets](/training/modules/build-app-with-scale-sets)
-- [Configure Azure Active Directory](/training/modules/configure-azure-active-directory)
+- [Configure Microsoft Entra ID](/training/modules/configure-azure-active-directory)
 - [Configure Azure Load Balancer](/training/modules/configure-azure-load-balancer)
 - [Configure Azure files and Azure File Sync](/training/modules/configure-azure-files-file-sync)
 - [Create a Content Delivery Network for your Website with Azure CDN and Blob Services](/training/modules/create-cdn-static-resources-blob-storage)

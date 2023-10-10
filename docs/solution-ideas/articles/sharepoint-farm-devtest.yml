@@ -2,7 +2,7 @@
 metadata:
   title: SharePoint farm for development testing
   titleSuffix: Azure Solution Ideas
-  description: Deploy a SharePoint farm for development testing. Use Azure Active Directory, SQL Server, and SharePoint resources for this agile development architecture.
+  description: Deploy a SharePoint farm for development testing. Use Microsoft Entra ID, SQL Server, and SharePoint resources for this agile development architecture.
   author: martinekuan
   ms.author: architectures
   ms.date: 06/14/2022
@@ -26,7 +26,7 @@ name: SharePoint farm for development testing
 azureCategories:
   - devops
   - web
-summary: Deploy a SharePoint farm for development testing. Use Azure Active Directory, SQL Server, and SharePoint resources for this agile development architecture.
+summary: Deploy a SharePoint farm for development testing. Use Microsoft Entra ID, SQL Server, and SharePoint resources for this agile development architecture.
 products:
   - azure-active-directory
   - azure-expressroute

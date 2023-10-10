@@ -63,7 +63,7 @@ While the entirety of the [Azure Well-Architected Framework](/azure/architecture
 ### Governance and compliance
 
 * [Organizing and managing multiple Azure subscriptions](/azure/cloud-adoption-framework/ready/azure-best-practices/organize-subscriptions): It's important to consider how you manage your Azure subscriptions, as well as how you allocate tenant resources to subscriptions.
-* [Cross-tenant management experiences](/azure/lighthouse/concepts/cross-tenant-management-experience): As a service provider, you can use Azure Lighthouse to manage resources, for multiple customers from within your own Azure Active Directory (Azure AD) tenant. Many tasks and services can be performed across managed tenants, by using Azure delegated resource management.
+* [Cross-tenant management experiences](/azure/lighthouse/concepts/cross-tenant-management-experience): As a service provider, you can use Azure Lighthouse to manage resources, for multiple customers from within your own Microsoft Entra tenant. Many tasks and services can be performed across managed tenants, by using Azure delegated resource management.
 * [Azure Managed Applications](/azure/azure-resource-manager/managed-applications/overview): In a managed application, the resources are deployed to a resource group that's managed by the publisher of the app. The resource group is present in the consumer's subscription, but an identity in the publisher's tenant has access to the resource group.
 
 ### Compute
@@ -102,12 +102,12 @@ While the entirety of the [Azure Well-Architected Framework](/azure/architecture
 
 ### Identity
 
-* [Tenancy in Azure Active Directory](/azure/active-directory/develop/single-and-multi-tenant-apps): Azure Active Directory has its own concept of multitenancy, which refers to operating across multiple Azure AD directories. When working with Azure AD apps, developers can choose to configure their app to be either single-tenant or multitenant.
+* [Tenancy in Microsoft Entra ID](/azure/active-directory/develop/single-and-multi-tenant-apps): Microsoft Entra ID has its own concept of multitenancy, which refers to operating across multiple Microsoft Entra directories. When working with Microsoft Entra apps, developers can choose to configure their app to be either single-tenant or multitenant.
 * [Custom-branded identity solution with Azure AD B2C](/azure/active-directory-b2c/overview): Azure Active Directory B2C is a customer identity access management solution that is capable of supporting millions of users and billions of authentications per day.
 * [Build a multi-tenant daemon with the Microsoft identity platform endpoint](/samples/azure-samples/ms-identity-aspnet-daemon-webapp/build-multi-tenant-daemon-aad): This sample application shows how to use the [Microsoft identity platform](/azure/active-directory/develop/v2-overview) endpoint to access the data of Microsoft business customers in a long-running, non-interactive process. It uses the OAuth2 client credentials grant to acquire an access token, which it then uses to call the Microsoft Graph and access organizational data.
-* [Authenticate and authorize multitenant apps using Azure Active Directory (Azure AD)](/training/modules/cna-set-up-azure-ad-use-scale): Learn how Azure Active Directory enables you to improve the functionality of cloud-native apps in multitenant scenarios.
+* [Authenticate and authorize multitenant apps using Microsoft Entra ID](/training/modules/cna-set-up-azure-ad-use-scale): Learn how Microsoft Entra ID enables you to improve the functionality of cloud-native apps in multitenant scenarios.
 * [Azure Architecture Walkthrough: Building a multi-tenant Azure Architecture for a B2C scenario](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/azure-architecture-walkthrough-building-a-multi-tenant-azure/ba-p/1278357): a walk through the architecture behind a multi-tenant mobile app with Azure Active Directory B2C and API Management.
-* [Define and implement permissions, roles and scopes with Azure Active Directory in SaaS solution](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/define-and-implement-permissions-roles-and-scopes-with-azure/ba-p/3810264): This article covers three main concepts related to Azure Active Directory authentication & authorization, which can be used by SaaS providers. It covers Application Roles functionality, Delegated & Application permissions, and Scopes functionality.
+* [Define and implement permissions, roles and scopes with Microsoft Entra ID in SaaS solution](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/define-and-implement-permissions-roles-and-scopes-with-azure/ba-p/3810264): This article covers three main concepts related to Microsoft Entra authentication & authorization, which can be used by SaaS providers. It covers Application Roles functionality, Delegated & Application permissions, and Scopes functionality.
   
 ### Analytics
 
