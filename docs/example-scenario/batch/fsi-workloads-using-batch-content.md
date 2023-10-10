@@ -171,7 +171,7 @@ The architecture provides two options for the user to connect to the network to 
 * [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/en-us/products/kubernetes-service). AKS can be used instead
   of Azure Batch service for a similar configuration for containerized applications.
 
-* [Azure CycleCloud](https://azure.microsoft.com/en-us/services/cyclecloud). Azure CycleCloud can be used to manage
+* [Azure CycleCloud](/azure/cyclecloud). Azure CycleCloud can be used to manage
  HPC clusters on Azure. Such HPC clusters can be setup to run workloads similar to the ones targeted by this article.
 
 ## Contributors
