@@ -155,7 +155,7 @@ The following tables list dependencies for Azure network connection. Windows 365
 | Dependency | Single sign-on (SSO) check – Checks if the Kerberos server object is created in Active Directory and synced to Microsoft Entra ID. |
 | --- | --- |
 | Architecture patterns | Azure network connection for Microsoft Entra join, Azure network connection for Microsoft Entra hybrid join |
-| Recommendations | - Ensure that the SSO option is selected in the provisioning policy. This option enables you to connect to the policy's Cloud PC by using sign in credentials from an Intune-managed physical device that's domain joined or Microsoft Entra ID joined. For more information, see [Continue creating provisioning policies](/windows-365/enterprise/create-provisioning-policy#continue-creating-a-provisioning-policy). |
+| Recommendations | - Ensure that the SSO option is selected in the provisioning policy. This option enables you to connect to the policy's Cloud PC by using sign in credentials from an Intune-managed physical device that's domain joined or Microsoft Entra joined. For more information, see [Continue creating provisioning policies](/windows-365/enterprise/create-provisioning-policy#continue-creating-a-provisioning-policy). |
 
 | Dependency | DNS name resolution – Checks if the DNS in the Azure network connection can resolve on-premises Active Directory domain. |
 | --- | --- |
@@ -253,7 +253,7 @@ In a Microsoft Entra hybrid join architecture, an on-premises AD DS infrastructu
 On-premises AD DS supports many configurations and varying levels of complexity, so the recommendations provided only cover the baseline best practices.
 
 - For Microsoft Entra hybrid join scenario, you can deploy AD DS in Azure VMs as described in the architecture reference in [Deploy AD DS in a virtual network](/azure/architecture/example-scenario/identity/adds-extend-domain?source=recommendations). You can also use a hybrid network connection to provide a direct line of sight to your on-premises Microsoft Entra domain controller. For more information, see [Implement a secure hybrid network](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?tabs=portal).
-- For Microsoft Entra join deployment, follow the reference architecture in [Integrate on-premises Microsoft Entra ID domains with Azure Active Directory](/azure/architecture/reference-architectures/identity/azure-ad).
+- For Microsoft Entra join deployment, follow the reference architecture in [Integrate on-premises Microsoft Entra domains with Microsoft Entra ID](/azure/architecture/reference-architectures/identity/azure-ad).
 - Windows 365 uses a watchdog service as part of automated testing that creates a test VM account. That account shows as disabled in the organizational unit specified in Azure network connection configuration. Don't delete this account.
 - Any Cloud PC that's decommissioned in the Microsoft Entra hybrid join model leaves behind a disabled computer account, which needs to be cleaned manually in AD DS.
 - Microsoft Entra Domain Services isn't supported as an identity source because it doesn't support Microsoft Entra hybrid join.
