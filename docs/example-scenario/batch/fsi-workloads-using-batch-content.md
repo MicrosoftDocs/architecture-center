@@ -1,10 +1,11 @@
-# Reference architecture for FSI workloads using Batch
+# Use Azure Batch to run Financial Service Industry (FSI) workloads
 
 <!-- From https://learn.microsoft.com/en-us/contribute/architecture-center/guide-templates -->
 <!-- https://learn.microsoft.com/en-us/contribute/ -->
 <!-- example: https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks/baseline-aks -->
 
 This article describes a baseline architecture for running Financial Service Industry (FSI) workloads on Azure using Azure Batch.
+
 A common computing pattern in FSI is to run a large number of compute-intensive simulations on an input dataset
 that characterizes a financial instrument or a portfolio of financial instruments. The simulations are typically run in
 parallel and the results are aggregated to produce a summary of the portfolio's risk profile. In this article, we describe
