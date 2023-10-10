@@ -109,7 +109,7 @@ You can reduce deployment risk by storing code under source control in a version
 | Factor | Complexity | Risk |
 |------------------------------------------------------------------|---|---|
 | The application uses Active Directory to authenticate users.| ✔ | ✔ |
-| The organization hasn't yet configured Azure Active Directory (Azure AD), or hasn't configured Azure AD Connect to synchronize on-premises AD with Azure AD.| ✔ | |
+| The organization hasn't yet configured Microsoft Entra ID, or hasn't configured Microsoft Entra Connect to synchronize on-premises AD with Microsoft Entra ID.| ✔ | |
 | The application requires access to on-premises resources, which will require VPN connectivity from Azure.| ✔ | |
 | The organization hasn't yet configured a VPN connection between Azure and their on-premises environment.| ✔ | ✔ |
 | The application requires an SSL certificate to run.| ✔ | ✔ |
@@ -178,5 +178,3 @@ To decide between rearchitecting or rebuilding, assess the following factors. Th
 
 - [Migration architecture design](../guide/migration/migration-start-here.md)
 - [Build migration plan with Azure Migrate](/azure/migrate/concepts-migration-planning)
-
-

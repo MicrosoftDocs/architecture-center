@@ -101,17 +101,17 @@ This section describes the components and services that appear in the diagram. M
 
     | Label | Description | Documentation |
     |---|---|---|
-    | **RBAC** | Azure role-based access control (Azure RBAC) helps you manage access to Azure services by using granular permissions that are based on users' Azure Active Directory (Azure AD) credentials. | [What is Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview)? |
-    | **MFA** | Multi-factor authentication offers additional types of authentication beyond user names and passwords. | [How it works: Azure AD Multi-Factor Authentication](/azure/active-directory/authentication/concept-mfa-howitworks) |
-    | **ID PROTECTION** | Identity Protection, a security service from Azure AD, analyzes trillions of signals per day to identify and protect users from threats. | [What is Identity Protection](/azure/active-directory/identity-protection/overview-identity-protection)? |
-    | **PIM** | Privileged Identity Management (PIM), a security service from Azure AD. It helps you to provide superuser privileges temporarily for Azure AD (for example, Global Admin) and Azure subscriptions (for example, owner or contributor). | [What is Azure AD Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure)? |
+    | **RBAC** | Azure role-based access control (Azure RBAC) helps you manage access to Azure services by using granular permissions that are based on users' Microsoft Entra credentials. | [What is Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview)? |
+    | **MFA** | Multifactor authentication offers additional types of authentication beyond user names and passwords. | [How it works: Microsoft Entra multifactor authentication](/azure/active-directory/authentication/concept-mfa-howitworks) |
+    | **ID PROTECTION** | Identity Protection, a security service from Microsoft Entra ID, analyzes trillions of signals per day to identify and protect users from threats. | [What is Identity Protection](/azure/active-directory/identity-protection/overview-identity-protection)? |
+    | **PIM** | Privileged Identity Management (PIM), a security service from Microsoft Entra ID. It helps you to provide superuser privileges temporarily for Microsoft Entra ID (for example, Global Admin) and Azure subscriptions (for example, owner or contributor). | [What is Microsoft Entra Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure)? |
     | **COND ACC** | Conditional Access is an intelligent security service that uses policies that you define for various conditions to block or grant access to users. | [What is Conditional Access?](/azure/active-directory/conditional-access/overview) |
 
 ### Components
 
 The example architecture in this article uses the following Azure components:
 
-- [Azure AD](https://azure.microsoft.com/services/active-directory) is a cloud-based identity and access management service. Azure AD helps your users to access external resources, such as Microsoft 365, the Azure portal, and thousands of other SaaS applications. It also helps them access internal resources, like apps on your corporate intranet network.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is a cloud-based identity and access management service. Microsoft Entra ID helps your users to access external resources, such as Microsoft 365, the Azure portal, and thousands of other SaaS applications. It also helps them access internal resources, like apps on your corporate intranet network.
 
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources to securely communicate with each other, the internet, and on-premises networks. Virtual Network provides a virtual network that benefits from Azure's infrastructure, such as scale, availability, and isolation.
 

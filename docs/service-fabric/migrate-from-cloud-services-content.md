@@ -75,7 +75,7 @@ In addition to Cloud Services, the Surveys application uses some other Azure ser
 
 - **Azure Cache for Redis** to cache some of the data that is stored in Azure Storage, for faster read access.
 
-- **Azure Active Directory** (Azure AD) to authenticate customers and Tailspin administrators.
+- **Microsoft Entra ID** (Microsoft Entra ID) to authenticate customers and Tailspin administrators.
 
 - **Azure SQL Database** to store the survey answers for analysis.
 
@@ -223,7 +223,7 @@ When you deploy to Azure, each node type is deployed to a separate virtual machi
 
 ## Configuring and managing the cluster
 
-Clusters must be secured to prevent unauthorized users from connecting to your cluster. It is recommended to use Azure AD to authenticate clients, and X.509 certificates for node-to-node security. For more information, see [Service Fabric cluster security scenarios][sf-security].
+Clusters must be secured to prevent unauthorized users from connecting to your cluster. It is recommended to use Microsoft Entra ID to authenticate clients, and X.509 certificates for node-to-node security. For more information, see [Service Fabric cluster security scenarios][sf-security].
 
 To configure a public HTTPS endpoint, see [Specify resources in a service manifest][sf-manifest-resources].
 
