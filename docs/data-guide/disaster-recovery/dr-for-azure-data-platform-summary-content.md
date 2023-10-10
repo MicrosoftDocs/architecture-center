@@ -6,7 +6,7 @@ Every organization's data needs are different, but the guidance provided will ac
 
 **Term**|**Definition**|**Notes**
 :-----:|:-----:|:-----:
-Azure AD|Azure Active Directory|[Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/)
+Microsoft Entra ID|Microsoft Entra ID|[Microsoft Entra ID](https://azure.microsoft.com/en-us/services/active-directory/)
 ACL|Access Control Lists| 
 ADLS|Azure Data Lake Storage|[Azure Data Lake Storage Gen2 Introduction](/azure/storage/blobs/data-lake-storage-introduction)
 AKS|Azure Kubernetes Service|[Azure Kubernetes Service (AKS) documentation](/azure/aks/)

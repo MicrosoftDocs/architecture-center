@@ -240,15 +240,15 @@ Several configurations may be applicable in your situation. To help with decisio
 
 ## Security considerations
 
-An Azure [virtual network (VNet)](/azure/virtual-network/virtual-networks-overview?WT.mc_id=gridbanksg-docs-dastarr) may be created and the pool's compute nodes created within it. This provides an extra level of isolation for the Batch runs and allows authentication using [Azure Active Directory (Azure AD)](/azure/active-directory/active-directory-whatis?WT.mc_id=gridbanksg-docs-dastarr). For more information, see [Pool network configuration](/azure/batch/batch-api-basics#pool-network-configuration?WT.mc_id=gridbanksg-docs-dastarr).
+An Azure [virtual network (VNet)](/azure/virtual-network/virtual-networks-overview?WT.mc_id=gridbanksg-docs-dastarr) may be created and the pool's compute nodes created within it. This provides an extra level of isolation for the Batch runs and allows authentication using [Microsoft Entra ID](/azure/active-directory/active-directory-whatis?WT.mc_id=gridbanksg-docs-dastarr). For more information, see [Pool network configuration](/azure/batch/batch-api-basics#pool-network-configuration?WT.mc_id=gridbanksg-docs-dastarr).
 
-There are two ways to authenticate a Batch application using Azure Active Directory (Azure AD):
+There are two ways to authenticate a Batch application using Microsoft Entra ID:
 
-- **Integrated authentication**. A batch application using Azure AD accounts can use the account to gain resources to data stores and other resources.
+- **Integrated authentication**. A batch application using Microsoft Entra accounts can use the account to gain resources to data stores and other resources.
 
-- **Service principal**. Azure AD Service principals define access policy and permissions for users and applications. A service principal provides authentication to users using a secret key tied to that application. This allows authenticating an unattended application with a secret key. A service principal defines the policy and permissions for an application to represent the application when accessing resources at runtime. [Learn more here](/azure/active-directory/develop/active-directory-application-objects?WT.mc_id=gridbanksg-docs-dastarr).
+- **Service principal**. Microsoft Entra service principals define access policy and permissions for users and applications. A service principal provides authentication to users using a secret key tied to that application. This allows authenticating an unattended application with a secret key. A service principal defines the policy and permissions for an application to represent the application when accessing resources at runtime. [Learn more here](/azure/active-directory/develop/active-directory-application-objects?WT.mc_id=gridbanksg-docs-dastarr).
 
-For more information on security in batch processing with Azure AD, [see this article](/azure/batch/batch-aad-auth?WT.mc_id=gridbanksg-docs-dastarr).
+For more information on security in batch processing with Microsoft Entra ID, [see this article](/azure/batch/batch-aad-auth?WT.mc_id=gridbanksg-docs-dastarr).
 
 The Batch service can also authenticate with a shared key. The authentication service requires two header values to be added to the HTTP request, data and authorization. [See here for more](/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service?WT.mc_id=gridbanksg-docs-dastarr) on shared key authentication.
 
@@ -298,7 +298,7 @@ enable complex scheduling scenarios, while simpler scenarios are achievable by u
 
 - [Azure Batch](https://azure.microsoft.com/services/batch/) provides capabilities to run large-scale parallel processing jobs in the cloud.
 
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) is a multi-tenant, cloud-based directory, and identity management service combining core directory services, application access management, and identity protection into a single solution.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/) is a multi-tenant, cloud-based directory, and identity management service combining core directory services, application access management, and identity protection into a single solution.
 
 - [Automatic scaling formulas](/azure/batch/batch-automatic-scaling?WT.mc_id=gridbanksg-docs-dastarr) are scripts uploaded to the batch processing scheduler for fine grained control of Batch scaling behaviors.
 
@@ -330,7 +330,7 @@ When considering moving forward in evaluating Azure Batch for risk grid computin
 Product documentation:
 
 - [What is Azure Batch?](/azure/batch/batch-technical-overview)
-- [What is Azure Active Directory?](/azure/active-directory)
+- [What is Microsoft Entra ID?](/azure/active-directory)
 - [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
 - [What is VPN Gateway?](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
 

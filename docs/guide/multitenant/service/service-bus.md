@@ -53,7 +53,7 @@ The disadvantage to this isolation model is that, as the number of tenants grows
 
 ### Separate topics and queues in a shared namespace
 
-You can isolate your tenants on a messaging entity level. For example, each tenant within your system can have a dedicated one or more queues that it listens to. You can authenticate and authorize access to each tenant's messaging entity with a different shared access signature or Azure Active Directory (Azure AD) identity.
+You can isolate your tenants on a messaging entity level. For example, each tenant within your system can have a dedicated one or more queues that it listens to. You can authenticate and authorize access to each tenant's messaging entity with a different shared access signature or Microsoft Entra identity.
 
 As the number of tenants grows within your system, the number of queues, topics, or subscriptions also increases to accommodate each tenant. This growth might lead to higher operational costs and lower organizational agility.
 
@@ -72,11 +72,13 @@ However, having a single namespace that all your tenants share can also lead to 
 
 ## Features of Azure Service Bus that support multitenancy
 
-### Azure Active Directory (AD) authentication
+<a name='azure-active-directory-ad-authentication'></a>
 
-Service Bus is integrated with Azure AD, which allows clients to authenticate a managed identity with Azure AD to Service Bus resources. Service Bus defines a set of built-in roles that you can grant to your tenants to access Service Bus entities. For example, with Azure AD authentication, you can grant a tenant access to a specific queue or topic that contains their messages, which isolates it from the other tenants within your application.
+### Microsoft Entra authentication
 
-See [Authenticate a managed identity with Azure Active Directory to access Azure Service Bus resources](/azure/service-bus-messaging/service-bus-managed-service-identity#resource-scope).
+Service Bus is integrated with Microsoft Entra ID, which allows clients to authenticate a managed identity with Microsoft Entra ID to Service Bus resources. Service Bus defines a set of built-in roles that you can grant to your tenants to access Service Bus entities. For example, with Microsoft Entra authentication, you can grant a tenant access to a specific queue or topic that contains their messages, which isolates it from the other tenants within your application.
+
+See [Authenticate a managed identity with Microsoft Entra ID to access Azure Service Bus resources](/azure/service-bus-messaging/service-bus-managed-service-identity#resource-scope).
 
 ### Customer-managed keys
 

@@ -31,7 +31,7 @@ The Copy-VmDigitalEvidence runbook:
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
 - [Hybrid Runbook Worker](/azure/automation/automation-hybrid-runbook-worker)
 - [Azure Automation](https://azure.microsoft.com/services/automation)
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory)(Azure AD)
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory)(Microsoft Entra ID)
 
 ### Alternatives
 
@@ -298,5 +298,5 @@ For more information about Microsoft Azure Compliance, see:
 ## Related resources
 
 - [Security architecture design](../../guide/security/security-start-here.yml)
-- [Azure Active Directory IDaaS in security operations](../aadsec/azure-ad-security.yml)
+- [Microsoft Entra IDaaS in security operations](../aadsec/azure-ad-security.yml)
 - [Security considerations for highly sensitive IaaS apps in Azure](../../reference-architectures/n-tier/high-security-iaas.yml)

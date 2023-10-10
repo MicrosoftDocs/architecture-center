@@ -64,7 +64,7 @@ The following diagram shows a legacy mainframe system before it's rehosted to th
 
 1. Azure managed disks provide storage for shared files.
 
-1. UniKix Secure uses Azure Active Directory (Azure AD) to provide authentication. This security manager replaces security systems like Resource Access Control Facility (RACF), Access Control Facility 2 (ACF2), and Top Secret.
+1. UniKix Secure uses Microsoft Entra ID to provide authentication. This security manager replaces security systems like Resource Access Control Facility (RACF), Access Control Facility 2 (ACF2), and Top Secret.
 
 1. The solution stores database tables and, optionally, VSAM files, in Azure SQL Database. This data is replicated to another Azure region for disaster recovery purposes.
 

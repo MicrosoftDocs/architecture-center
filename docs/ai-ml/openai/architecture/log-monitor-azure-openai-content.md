@@ -15,7 +15,7 @@ This solution provides comprehensive logging and monitoring and enhanced securit
     > Load balancing of stateful operations like model fine-tuning, deployments, and inference of fine-tuned models isn't supported.
 
 3.	Azure API Management enables security controls and auditing and monitoring of the Azure OpenAI models.  
-   a.	In API Management, enhanced-security access is granted via Azure Active Directory (Azure AD) groups with subscription-based access permissions.  
+   a.	In API Management, enhanced-security access is granted via Microsoft Entra groups with subscription-based access permissions.  
    b.	Auditing is enabled for all interactions with the models via Azure Monitor request logging.  
    c.	Monitoring provides detailed Azure OpenAI model usage KPIs and metrics, including prompt information and token statistics for usage traceability.
 4.	API Management connects to all Azure resources via Azure Private Link. This configuration provides enhanced security for all traffic via private endpoints and contains traffic in the private network.
@@ -30,7 +30,7 @@ This solution provides comprehensive logging and monitoring and enhanced securit
 - [Monitor](https://azure.microsoft.com/services/monitor/). End-to-end observability for applications. Provides access to application logs via Kusto Query Language. Also enables dashboard reports and monitoring and alerting capabilities.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Enhanced-security storage for keys and secrets that are used by applications.
 - [Azure Storage](https://azure.microsoft.com/services/storage/). Application storage in the cloud. Provides Azure OpenAI with accessibility to model training artifacts.
-- [Azure AD](https://azure.microsoft.com/services/active-directory/). Enhanced-security identity manager. Enables user authentication and authorization to the application and to platform services that support the application. Also provides Group Policy to ensure that the principle of least privilege is applied to all users.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/). Enhanced-security identity manager. Enables user authentication and authorization to the application and to platform services that support the application. Also provides Group Policy to ensure that the principle of least privilege is applied to all users.
 
 ### Alternatives
 
@@ -60,7 +60,7 @@ The solution provides these advantages:
 
 - Comprehensive logging of Azure OpenAI model execution, tracked to the source IP address. Log information includes text that users submit to the model and text received back from the model. This logging helps ensure that models are used responsibly and within the approved use cases of the service.
 - High availability of the model APIs to ensure that user requests are met even if the traffic exceeds the limits of a single Azure OpenAI service.
-- Role-based access managed via Azure AD to ensure that the principle of least privilege is applied.
+- Role-based access managed via Microsoft Entra ID to ensure that the principle of least privilege is applied.
 
 **Example query for usage monitoring**
 

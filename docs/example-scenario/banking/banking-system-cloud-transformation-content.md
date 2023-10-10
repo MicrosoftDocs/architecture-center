@@ -266,9 +266,9 @@ The solution uses Terraform scripts and Azure Pipelines for all the services. If
 
 * The solution uses ARO and AKS secrets to inject sensitive data into pods, such as connection strings and keys.
 
-* Access to Kubernetes API server require authentication through [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) for ARO and AKS.
+* Access to Kubernetes API server require authentication through [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/) for ARO and AKS.
 
-* Access to Jenkins requires authentication through Azure Active Directory.
+* Access to Jenkins requires authentication through Microsoft Entra ID.
 
 ## Conclusions
 

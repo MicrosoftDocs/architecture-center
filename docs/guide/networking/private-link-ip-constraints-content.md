@@ -50,7 +50,7 @@ Finally, you should review [Azure subscription limits and quotas](/azure/azure-r
  
 ### Access control 
 
-Private Link supports virtual networks in a single subscription, across subscriptions in a single Azure Active Directory (Azure AD) tenant, and across subscriptions in different Azure AD tenants. If you need to control who can create private endpoints inside their virtual networks to access your application, Private Link service supports granular access through its **Visibility** property. For information on how to configure the visibility options of your Private Link service, see [Control service access](/azure/private-link/private-link-service-overview#control-service-access).
+Private Link supports virtual networks in a single subscription, across subscriptions in a single Microsoft Entra tenant, and across subscriptions in different Microsoft Entra tenants. If you need to control who can create private endpoints inside their virtual networks to access your application, Private Link service supports granular access through its **Visibility** property. For information on how to configure the visibility options of your Private Link service, see [Control service access](/azure/private-link/private-link-service-overview#control-service-access).
 
 ### Name resolution
  

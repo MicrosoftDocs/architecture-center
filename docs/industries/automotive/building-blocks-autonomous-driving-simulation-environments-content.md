@@ -31,7 +31,7 @@ However, it's important to break down the black box of "orchestration" into smal
 
 - Network Manager: This component manages the networks and routing for simulation environments. Each environment must live in an isolated network environment, with isolated building blocks receiving incoming connections for interactivity. This component will also be used to resolve building blocks within a simulation (for example, through an internal DNS).
 
-- Access Manager: This component reflects authorization/authentication from Azure Active Directory (Azure AD) into the rest of the system.
+- Access Manager: This component reflects authorization/authentication from Microsoft Entra ID into the rest of the system.
 
 - Configuration Manager: This component acts as a persistent storage mechanism for the state of the infrastructure and simulation environments.
 
@@ -79,7 +79,7 @@ This layer durably and accessibly stores the results of the simulation. It's pri
 
 [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) are part of the Azure DevOps Services and run automated builds, tests, and deployments. You can also use third-party CI/CD solutions such as Jenkins.
 
-[Azure Active Directory](https://azure.microsoft.com/services/active-directory/#overview) is the cloud-based identity and access management service that authenticates users, services, and applications.
+[Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/#overview) is the cloud-based identity and access management service that authenticates users, services, and applications.
 
 [Azure Storage](https://azure.microsoft.com/services/storage) offers a durable, highly available, and massively scalable cloud storage solution. It includes object, file, disk, queue, and table storage capabilities.
 
@@ -148,7 +148,7 @@ For container deployments, [Azure Containers Instances](/azure/container-instanc
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-As with any other type of application, the simulation environment can be designed to handle sensitive data. Therefore, you should restrict who can sign in and use it, and you should also limit what data can be accessed based on the user's identity or role. Use [Azure AD](/azure/active-directory/fundamentals/active-directory-whatis) for identity and access control, and use [Azure Key Vault](/azure/key-vault/general/overview) to manage keys and secrets.
+As with any other type of application, the simulation environment can be designed to handle sensitive data. Therefore, you should restrict who can sign in and use it, and you should also limit what data can be accessed based on the user's identity or role. Use [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) for identity and access control, and use [Azure Key Vault](/azure/key-vault/general/overview) to manage keys and secrets.
 
 For general guidance on designing secure solutions, see the [Azure security documentation](/azure/security).
 
@@ -172,7 +172,7 @@ Product documentation:
 
 - [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
 
-- [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)
+- [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis)
 
 - [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview)
 

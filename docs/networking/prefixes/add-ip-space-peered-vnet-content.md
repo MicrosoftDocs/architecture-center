@@ -15,7 +15,7 @@ A single subscription use case, both hub and all spoke virtual networks are in t
 
 ## Multiple subscriptions
 
-Another use case can be where the hub virtual network is in one subscription and all other spoke virtual networks are in different subscriptions. The subscriptions all share a single Azure Active Directory tenant.
+Another use case can be where the hub virtual network is in one subscription and all other spoke virtual networks are in different subscriptions. The subscriptions all share a single Microsoft Entra tenant.
 
 ![Diagram that demonstrates multiple subscriptions.](multiple-subscription.png)
 

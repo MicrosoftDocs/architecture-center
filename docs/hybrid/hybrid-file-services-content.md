@@ -15,13 +15,13 @@ The architecture consists of the following components:
 - **Sync groups**. Logical groupings of Azure file shares and servers that run Windows Server. Sync groups are deployed into Storage Sync Service, which registers servers for use with Azure File Sync and contains the sync group relationships.
 - **Azure File Sync agent**. This is installed on Windows Server machines to enable and configure sync with cloud endpoints.
 - **Windows Servers**. On-premises or cloud-based Windows Server machines that host a file share that syncs with an Azure file share.
-- **[Azure Active Directory][Azure Active Directory]**. The Azure Active Directory (Azure AD) tenant that's used for identity synchronization across Azure and on-premises environments.
+- **[Microsoft Entra ID][Azure Active Directory]**. The Microsoft Entra tenant that's used for identity synchronization across Azure and on-premises environments.
 
 ### Components
 
 - [Azure storage accounts](https://azure.microsoft.com/products/category/storage)
 - [Azure Files](https://azure.microsoft.com/products/storage/files)
-- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/products/active-directory)
+- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory)
 
 ## Scenario details
 

@@ -45,7 +45,7 @@ If you don't need all of the functionality provided by API Management, another o
 
 **Azure Cosmos DB**. [Azure Cosmos DB](https://azure.microsoft.com/free/cosmos-db) is a multi-model database service. For this scenario, the function application fetches documents from Azure Cosmos DB in response to HTTP GET requests from the client.
 
-**Azure Active Directory** (Azure AD). Users sign into the web application by using their [Azure AD](https://azure.microsoft.com/services/active-directory) credentials. Azure AD returns an access token for the API, which the web application uses to authenticate API requests (see [Authentication](#authentication)).
+**Microsoft Entra ID** (Microsoft Entra ID). Users sign into the web application by using their [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) credentials. Microsoft Entra ID returns an access token for the API, which the web application uses to authenticate API requests (see [Authentication](#authentication)).
 
 **Azure Monitor**. [Azure Monitor](https://azure.microsoft.com/services/monitor/) collects performance metrics about the Azure services deployed in the solution. By visualizing these in a dashboard, you can get visibility into the health of the solution. It also collected application logs.
 
@@ -137,36 +137,36 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 #### Authentication
 
-The `GetStatus` API in the reference implementation uses Azure AD to authenticate requests. Azure AD supports the OpenID Connect protocol, which is an authentication protocol built on top of the OAuth 2 protocol.
+The `GetStatus` API in the reference implementation uses Microsoft Entra ID to authenticate requests. Microsoft Entra ID supports the OpenID Connect protocol, which is an authentication protocol built on top of the OAuth 2 protocol.
 
 In this architecture, the client application is a single-page application (SPA) that runs in the browser. This type of client application cannot keep a client secret or an authorization code hidden, so the implicit grant flow is appropriate. (See [Which OAuth 2.0 flow should I use?][oauth-flow]). Here's the overall flow:
 
 1. The user clicks the "Sign in" link in the web application.
-1. The browser is redirected the Azure AD sign-in page.
+1. The browser is redirected the Microsoft Entra sign-in page.
 1. The user signs in.
-1. Azure AD redirects back to the client application, including an access token in the URL fragment.
+1. Microsoft Entra ID redirects back to the client application, including an access token in the URL fragment.
 1. When the web application calls the API, it includes the access token in the Authentication header. The application ID is sent as the audience ('aud') claim in the access token.
 1. The back-end API validates the access token.
 
 To configure authentication:
 
-- Register an application in your Azure AD tenant. This generates an application ID, which the client includes with the login URL.
+- Register an application in your Microsoft Entra tenant. This generates an application ID, which the client includes with the login URL.
 
-- Enable Azure AD authentication inside the Function App. For more information, see [Authentication and authorization in Azure App Service][app-service-auth].
+- Enable Microsoft Entra authentication inside the Function App. For more information, see [Authentication and authorization in Azure App Service][app-service-auth].
 
 - Add the [validate-jwt policy][apim-validate-jwt] to API Management to pre-authorize the request by validating the access token.
 
 For more details, see the [GitHub readme][readme].
 
-It's recommended to create separate app registrations in Azure AD for the client application and the back-end API. Grant the client application permission to call the API. This approach gives you the flexibility to define multiple APIs and clients and control the permissions for each.
+It's recommended to create separate app registrations in Microsoft Entra ID for the client application and the back-end API. Grant the client application permission to call the API. This approach gives you the flexibility to define multiple APIs and clients and control the permissions for each.
 
 Within an API, use [scopes][scopes] to give applications fine-grained control over what permissions they request from a user. For example, an API might have `Read` and `Write` scopes, and a particular client app might ask the user to authorize `Read` permissions only.
 
 #### Authorization
 
-In many applications, the back-end API must check whether a user has permission to perform a given action. It's recommended to use [claims-based authorization][claims], where information about the user is conveyed by the identity provider (in this case, Azure AD) and used to make authorization decisions. For example, when you register an application in Azure AD, you can define a set of application roles. When a user signs into the application, Azure AD includes a `roles` claim for each role that the user has been granted, including roles that are inherited through group membership.
+In many applications, the back-end API must check whether a user has permission to perform a given action. It's recommended to use [claims-based authorization][claims], where information about the user is conveyed by the identity provider (in this case, Microsoft Entra ID) and used to make authorization decisions. For example, when you register an application in Microsoft Entra ID, you can define a set of application roles. When a user signs into the application, Microsoft Entra ID includes a `roles` claim for each role that the user has been granted, including roles that are inherited through group membership.
 
-The ID token that Azure AD returns to the client contains some of the user's claims. Within the function app, these claims are available in the X-MS-CLIENT-PRINCIPAL header of the request. However, it's simpler to read this information from binding data. For other claims, use [Microsoft Graph][graph] to query Azure AD. (The user must consent to this action when signing in.)
+The ID token that Microsoft Entra ID returns to the client contains some of the user's claims. Within the function app, these claims are available in the X-MS-CLIENT-PRINCIPAL header of the request. However, it's simpler to read this information from binding data. For other claims, use [Microsoft Graph][graph] to query Microsoft Entra ID. (The user must consent to this action when signing in.)
 
 For more information, see [Working with client identities](/azure/azure-functions/functions-bindings-http-webhook-trigger#working-with-client-identities
 ).
@@ -320,7 +320,7 @@ Product documentation:
 - [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
 - [About API Management][apim] 
 - [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
-- [Azure Active Directory](/azure/active-directory)
+- [Microsoft Entra ID](/azure/active-directory)
 - [Azure Monitor overview](/azure/azure-monitor/overview)
 - [What is Azure Pipelines?](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
 

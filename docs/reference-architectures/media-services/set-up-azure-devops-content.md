@@ -333,13 +333,13 @@ The pipeline steps deploy the application into Azure, but they don't set up any 
 
 A user with elevated privileges must run the pipeline-generated admin scripts. To grant users elevated privileges:
 
-1. In Azure Active Directory (Azure AD), create a named group such as *Gridwich Admins*, and add the authorized admins to it.
+1. In Microsoft Entra ID, create a named group such as *Gridwich Admins*, and add the authorized admins to it.
 
 1. In the Azure Subscription, select **Access Control (IAM)** in the left navigation, select **Add role assignments**, and then assign the **User Access Administrator** role for **Gridwich Admins**.
 
 Local debugging uses user impersonation, and developers sign in with their browsers. To ensure that the application has the correct rights:
 
-1. In Azure AD, create a named group such as *Gridwich Devs*, and add the authorized developers to it.
+1. In Microsoft Entra ID, create a named group such as *Gridwich Devs*, and add the authorized developers to it.
 
 1. In the Azure Subscription, select **Access Control (IAM)** in the left navigation, select **Add role assignments**, and then assign the following roles for **Gridwich Devs**:
 

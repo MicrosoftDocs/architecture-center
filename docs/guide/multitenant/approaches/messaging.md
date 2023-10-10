@@ -150,7 +150,7 @@ Plan from the beginning how you intend to operate, monitor, and maintain your me
 - Suppose you share a messaging system across multiple tenants. How can your solution collect and report the per-tenant usage metrics or throttle the number of messages that each tenant can send or receive?
 - When your messaging system leverages a PaaS service, such as Azure Service Bus, you should ask the following question:
   - How can you customize the pricing tier for each tenant, based on the features and isolation level (shared or dedicated) that are requested by the tenant? 
-  - How can you create a per-tenant manage identity and Azure role assignment to assign the proper permissions only to the messaging entities, such as queues, topics, and subscriptions, that the tenant can access? For more information,  see [Authenticate a managed identity with Azure Active Directory to access Azure Service Bus resources](/azure/service-bus-messaging/service-bus-managed-service-identity).
+  - How can you create a per-tenant manage identity and Azure role assignment to assign the proper permissions only to the messaging entities, such as queues, topics, and subscriptions, that the tenant can access? For more information,  see [Authenticate a managed identity with Microsoft Entra ID to access Azure Service Bus resources](/azure/service-bus-messaging/service-bus-managed-service-identity).
 - How will you migrate tenants, if they need to move to a different type of messaging service, a different deployment, or another region?
 
 ### Cost

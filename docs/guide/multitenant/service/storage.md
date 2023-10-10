@@ -40,7 +40,7 @@ The [Valet Key pattern](../../../patterns/valet-key.yml) is useful as a way to i
 
 ### Identity-based access control
 
-Azure Storage also provides [identity-based access control](/azure/storage/blobs/authorize-access-azure-active-directory) by using Azure Active Directory (Azure AD). This capability also enables you to use [attribute-based access control](/azure/role-based-access-control/conditions-overview), which gives you finer-grained access to blob paths, or to blobs that have been tagged with a specific tenant ID.
+Azure Storage also provides [identity-based access control](/azure/storage/blobs/authorize-access-azure-active-directory) by using Microsoft Entra ID. This capability also enables you to use [attribute-based access control](/azure/role-based-access-control/conditions-overview), which gives you finer-grained access to blob paths, or to blobs that have been tagged with a specific tenant ID.
 
 ### Lifecycle management
 

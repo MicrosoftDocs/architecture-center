@@ -90,7 +90,7 @@ This approach is generally the fastest way to get a solution to market. It's a h
 
 It's important to understand that because IoT Central is an aPaaS offering, there are certain decisions that are outside of an implementer's control. These decisions include:
 
-* IoT Central uses Azure Active Directory as its identity provider.
+* IoT Central uses Microsoft Entra ID as its identity provider.
 * IoT Central deployments are achieved using both control and data plane operations, which combine declarative documents with imperative code.
 * In a multitenant pattern, both the IoT Central [maximum node limit](/azure/iot-central/core/howto-create-organizations#limits) (which applies to both parents and leaves) and the maximum tree depth, might force a service provider to have multiple IoT Central instances. In that case, you should consider following the [Deployment Stamp pattern](/azure/architecture/patterns/deployment-stamp).
 * IoT Central imposes [API call limits](/azure/iot-central/core/howto-query-with-rest-api#limits), which might impact large implementations.

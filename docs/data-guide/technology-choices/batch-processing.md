@@ -55,7 +55,7 @@ HDInsight is a managed Hadoop service. Use it to deploy and manage Hadoop cluste
 - Fast cluster start times, autotermination, autoscaling.
 - Manages the Spark cluster for you.
 - Built-in integration with Azure Blob Storage, Azure Data Lake Storage (ADLS), Azure Synapse, and other services. See [Data Sources](/azure/databricks/data/data-sources/).
-- User authentication with Azure Active Directory.
+- User authentication with Microsoft Entra ID.
 - Web-based [notebooks](/azure/databricks/notebooks/) for collaboration and data exploration.
 - Supports [GPU-enabled clusters](/azure/databricks/clusters/gpu)
 
@@ -95,7 +95,7 @@ The following tables summarize the key differences in capabilities.
 | Scale-out granularity  | Per job | Per cluster | Per cluster | Per cluster | Per cluster | Per cluster |
 | In-memory caching of data | No | Yes | Yes | No | Yes | Yes |
 | Query from external relational stores | Yes | No | Yes | No | No | Yes |
-| Authentication  | Azure AD | SQL / Azure AD | No | Azure AD<sup>1</sup> | Azure AD<sup>1</sup> | Azure AD |
+| Authentication  | Microsoft Entra ID | SQL / Microsoft Entra ID | No | Microsoft Entra ID<sup>1</sup> | Microsoft Entra ID<sup>1</sup> | Microsoft Entra ID |
 | Auditing  | Yes | Yes | No | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes |
 | Row-level security | No | Yes<sup>2</sup> | No | Yes <sup>1</sup> | Yes <sup>1</sup> | No |
 | Supports firewalls | Yes | Yes | Yes | Yes <sup>3</sup> | Yes <sup>3</sup> | No |

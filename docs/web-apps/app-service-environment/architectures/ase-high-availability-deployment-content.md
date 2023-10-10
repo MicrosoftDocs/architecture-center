@@ -31,7 +31,7 @@ This section describes the nature of availability for services used in this arch
  
   If you need to, you can also configure a specific availability zone when you deploy the firewall. See [Azure Firewall and Availability Zones](/azure/firewall/overview#availability-zones) for more information. (This configuration isn't used in the reference architecture.)
 
-- [Azure Active Directory](https://azure.microsoft.com/products/active-directory/) is a highly available, highly redundant global service, spanning availability zones and regions. For more information, see [Advancing Azure Active Directory availability](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability/).
+- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory/) is a highly available, highly redundant global service, spanning availability zones and regions. For more information, see [Advancing Microsoft Entra availability](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability/).
 
 - [GitHub Actions](https://azure.microsoft.com/products/devops/pipelines) provides continuous integration and continuous deployment (CI/CD) capabilities in this architecture. Because App Service Environment is in the virtual network, a virtual machine is used as a jumpbox in the virtual network to deploy apps in the App Service plans. The action builds the apps outside the virtual network. For enhanced security and seamless RDP/SSH connectivity, consider using [Azure Bastion](/azure/bastion/bastion-overview) for the jumpbox.
 

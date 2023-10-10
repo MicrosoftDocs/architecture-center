@@ -196,7 +196,7 @@ These services provide support for components in all areas of the solution:
 
 - [Azure DevOps Services][Azure DevOps] provides services, tools, and environments for managing coding projects and deployments.
 
-- [Azure Active Directory (Azure AD)][Azure Active Directory] is a cloud-based identity service that controls access to Azure and other cloud apps, including ISV solutions and on-premises solutions.
+- [Microsoft Entra ID][Azure Active Directory] is a cloud-based identity service that controls access to Azure and other cloud apps, including ISV solutions and on-premises solutions.
 
 - [Azure Key Vault][Azure Key Vault] securely stores and controls access to a system's secrets, such as API keys, passwords, certificates, and cryptographic keys.
 

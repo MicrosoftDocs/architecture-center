@@ -22,7 +22,7 @@ This sample solution is a prescriptive, well-architected example of a Micro Focu
 
    The secondary DR Azure region also needs a web services front end to maintain secure access to the system.
 
-1. The solution requires an Azure Active Directory (Azure AD) implementation. Micro Focus Enterprise Server provides RACF and Top Secret identity integration using Azure AD extensions.
+1. The solution requires a Microsoft Entra implementation. Micro Focus Enterprise Server provides RACF and Top Secret identity integration using Microsoft Entra extensions.
 
 1. A Performance and Availability Cluster (PAC) configures Enterprise Server instances in a scale-out architecture using VM [availability sets](/azure/virtual-machines/availability#availability-sets). In a PAC, several Enterprise Server instances work together as a single logical entity. A PAC has several advantages over a single scale-up Enterprise Server instance:
 
@@ -106,7 +106,7 @@ A PAC configures several Enterprise Server instances in a scale-out architecture
 
 ### Security
 
-All the components within the Micro Focus Enterprise Server architecture work with Azure security components like Azure AD identity integration, virtual networks, and encryption as needed.
+All the components within the Micro Focus Enterprise Server architecture work with Azure security components like Microsoft Entra identity integration, virtual networks, and encryption as needed.
 
 ### Cost optimization
 
@@ -114,7 +114,7 @@ To estimate and calculate costs for your implementation of this solution, use th
 
 - Azure services like Application Gateway, Virtual Network, Load Balancer, and Azure Bastion are free with your Azure subscription. You pay for usage and traffic.
 - Azure Site Recovery charges per protected instance.
-- Most enterprises already have a Microsoft Active Directory implementation, but if you don't, Premium Azure AD is low cost.
+- Most enterprises already have a Microsoft Active Directory implementation, but if you don't, Premium Microsoft Entra ID is low cost.
 - For Premium SSD or Ultra managed storage disks pricing, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/). Calculate VM needs based on your traffic hours, load, and storage requirements. Micro Focus Enterprise Server in Azure helps you optimize costs by turning off VMs when not in use, and scripting a schedule for known usage patterns.
 - [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) lets you use your on-premises SQL Server licenses on Azure. For more information, see the [Azure Hybrid Benefit FAQ](https://azure.microsoft.com/pricing/hybrid-benefit/faq).
 

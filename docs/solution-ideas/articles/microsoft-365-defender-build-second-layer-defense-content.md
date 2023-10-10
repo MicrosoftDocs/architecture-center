@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-It's common for organizations to use a hybrid environment, with resources running both on Azure and on-premises. Most Azure resources, such as virtual machines (VMs), Azure applications, and Azure Active Directory (Azure AD), can be protected by security services that run on Azure. 
+It's common for organizations to use a hybrid environment, with resources running both on Azure and on-premises. Most Azure resources, such as virtual machines (VMs), Azure applications, and Microsoft Entra ID, can be protected by security services that run on Azure. 
 
 Organizations often also subscribe to Microsoft 365 to provide users with applications like Word, Excel, PowerPoint, and Exchange online. Microsoft 365 also offers security services that you can use to build an additional layer of security for some of the most used Azure resources.
 
@@ -26,7 +26,7 @@ The following diagram illustrates the relationship of solutions and main service
 
 People are sometimes confused about Microsoft 365 security services and their role in IT cybersecurity. The main causes are names that are similar to each other, including some security services that run on Azure, such as Microsoft Defender for Cloud (formerly known as Azure Security Center) and Defender for Cloud Apps (formerly known as Microsoft Cloud Application Security).
 
-But the confusion isn't only about terminology. Some services deliver similar protection but for different resources, such as Defender for Identity and Azure Identity Protection. Both services offer protection for identity services, but Defender for Identity protects identity on-premises (through Active Directory Domain Services, based on Kerberos authentication) while Azure Identity Protection protects identity in the cloud (through Azure AD, based on OAuth authentication).
+But the confusion isn't only about terminology. Some services deliver similar protection but for different resources, such as Defender for Identity and Azure Identity Protection. Both services offer protection for identity services, but Defender for Identity protects identity on-premises (through Active Directory Domain Services, based on Kerberos authentication) while Azure Identity Protection protects identity in the cloud (through Microsoft Entra ID, based on OAuth authentication).
 
 These examples show that if you understand how Microsoft 365 security services work and the differences compared to Azure security services, you're able to plan your strategy for security in the Microsoft cloud in an effective way and still provide a great security posture for your IT environment. That is the purpose of this article.
 
@@ -64,18 +64,18 @@ The following diagram shows a layer, labeled as **DEFENDER**, that represents th
 
     Defender for Identity is a cloud-based security solution that uses your on-premises Active Directory signals to identify, detect, and investigate advanced threats, compromised identities, and malicious insider actions that are directed at your organization. It protects Active Directory Domain Services (AD DS) that run on-premises. Even though this service runs on the cloud, it works to protect identities on-premises. Defender for Identity was formerly named Azure Advanced Threat Protection. For more information, see [What is Microsoft Defender for Identity](/defender-for-identity/what-is)?
 
-    If you need protection for identities that are provided by Azure AD and that runs natively on the cloud, consider Azure AD Identity Protection.
+    If you need protection for identities that are provided by Microsoft Entra ID and that runs natively on the cloud, consider Microsoft Entra ID Protection.
 
 5.  **Microsoft Endpoint Manager**
 
     Endpoint Manager provides services for cloud services, on-premises services, and for Microsoft Intune, which allows you to control features and settings on Android, Android Enterprise, iOS, iPadOS, macOS, Windows 10, and Windows 11 devices. It integrates with other services, including:
-    - Azure AD.
+    - Microsoft Entra ID.
     - Mobile threat defenders.
     - Administrative (ADMX) templates.
     - Win32 apps.
     - Custom line-of-business apps.
 
-    Another service that is now part of Endpoint Manager is Configuration Manager, an on-premises management solution that allows you to manage client and server computers that are on your network, connected directly or via the internet. You can enable cloud functionality to integrate Configuration Manager with Intune, Azure AD, Defender for Endpoint, and other cloud services. Use it to deploy apps, software updates, and operating systems. You can also monitor compliance, query for objects, act on clients in real time, and much more. To learn about all the services that are available, see [Microsoft Endpoint Manager overview](/mem/endpoint-manager-overview).
+    Another service that is now part of Endpoint Manager is Configuration Manager, an on-premises management solution that allows you to manage client and server computers that are on your network, connected directly or via the internet. You can enable cloud functionality to integrate Configuration Manager with Intune, Microsoft Entra ID, Defender for Endpoint, and other cloud services. Use it to deploy apps, software updates, and operating systems. You can also monitor compliance, query for objects, act on clients in real time, and much more. To learn about all the services that are available, see [Microsoft Endpoint Manager overview](/mem/endpoint-manager-overview).
 
 ### Attack order of example threats
 
@@ -111,7 +111,7 @@ Lastly, *endpoint.microsoft.com* provides functionality mainly for Intune and Co
 
 The example architecture in this article uses the following Azure components:
 
-- [Azure AD](https://azure.microsoft.com/services/active-directory) is a cloud-based identity and access management service. Azure AD helps your users to access external resources, such as Microsoft 365, the Azure portal, and thousands of other SaaS applications. It also helps them access internal resources, like apps on your corporate intranet network.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is a cloud-based identity and access management service. Microsoft Entra ID helps your users to access external resources, such as Microsoft 365, the Azure portal, and thousands of other SaaS applications. It also helps them access internal resources, like apps on your corporate intranet network.
 
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources to securely communicate with each other, the internet, and on-premises networks. Virtual Network provides a virtual network that benefits from Azure's infrastructure, such as scale, availability, and isolation.
 

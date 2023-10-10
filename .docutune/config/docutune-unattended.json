@@ -14,7 +14,9 @@
     "draft": false,
     "requestReview": true,
     "signOff": false,
-    "properties": {},
+    "properties": {
+      "pointOfContact": "@RobBagby"
+    },
     "sleepInterval": 15
   },
   "types": [

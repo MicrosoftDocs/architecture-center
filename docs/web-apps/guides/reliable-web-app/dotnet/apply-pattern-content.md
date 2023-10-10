@@ -113,7 +113,7 @@ Cloud applications are often composed of multiple Azure services. Communication 
 
 You should use managed identities for all supported Azure services. They make identity management easier and more secure, providing benefits for authentication, authorization, and accounting.
 
-**Authentication:** Managed identities provide an automatically managed identity in Azure Active Directory (Azure AD) that applications can use when they connect to resources that support Azure AD authentication. Application code can use the application platform's managed identity to obtain Azure AD tokens without having to access static credentials from configuration.
+**Authentication:** Managed identities provide an automatically managed identity in Microsoft Entra ID that applications can use when they connect to resources that support Microsoft Entra authentication. Application code can use the application platform's managed identity to obtain Microsoft Entra tokens without having to access static credentials from configuration.
 
 Managed identities are similar to the identity component in connection strings in typical on-premises applications. On-premises apps use connection strings to prove an application's identity to a database. Trusted connection and integrated security features hide the database user name and password from the config file. The application connects to the database via an Active Directory account.
 
@@ -168,7 +168,7 @@ Many on-premises environments don't have a central secrets store. The absence ma
 
 *Reference implementation:* The reference implementation doesn't use Key Vault monitoring, and it also uses external secrets for these services:
 
-*Azure AD client secret:* There are different authorization processes. To provide the API with an authenticated employee, the web app uses an on-behalf-of flow. The on-behalf-of flow needed a client secret from Azure AD and stored in Key Vault. To rotate the secret, generate a new client secret and then save the new value to Key Vault. In the reference implementation, restart the web app so the code starts using the new secret. After the web app has been restarted, the team can delete the previous client secret.
+*Microsoft Entra client secret:* There are different authorization processes. To provide the API with an authenticated employee, the web app uses an on-behalf-of flow. The on-behalf-of flow needed a client secret from Microsoft Entra ID and stored in Key Vault. To rotate the secret, generate a new client secret and then save the new value to Key Vault. In the reference implementation, restart the web app so the code starts using the new secret. After the web app has been restarted, the team can delete the previous client secret.
 
 *Azure Cache for Redis secret:* The service doesn't currently support managed identity. To rotate the key in the connection string, you need to change the value in Key Vault to the secondary connection string for Azure Cache for Redis. After changing the value, you must restart the web app to use the new settings. Use the Azure CLI or the Azure portal to regenerate the access key for Azure Cache for Redis.
 

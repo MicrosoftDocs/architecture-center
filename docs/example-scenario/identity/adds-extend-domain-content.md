@@ -19,7 +19,7 @@ This architecture extends the hybrid network architecture shown in [Connect an o
 
 ### Components
 
-- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/products/active-directory) is an enterprise identity service that provides single sign-on, multifactor authentication, and conditional access.
+- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) is an enterprise identity service that provides single sign-on, multifactor authentication, and conditional access.
 - [VPN Gateway](https://azure.microsoft.com/products/vpn-gateway) is a service that uses a virtual network gateway to send encrypted traffic between an Azure virtual network and on-premises locations over the public internet. 
 - [ExpressRoute](https://azure.microsoft.com/products/expressroute) enables you to extend your on-premises networks into the Microsoft cloud over a private connection with the help of a connectivity provider.
 - [Virtual Network](https://azure.microsoft.com/products/virtual-network) is the fundamental building block for private networks on Azure. You can use it to enable Azure resources, like virtual machines, to communicate with each other, the internet, and on-premises networks.
@@ -106,7 +106,7 @@ Operational excellence covers the operations processes that deploy and keep an a
 
 - Isolate workloads to enable DevOps to do continuous integration and continuous delivery (CI/CD) because every workload is associated and managed by its corresponding DevOps team.
 
-In this architecture, the entire virtual network that includes the different application tiers, management jump box, and Azure AD Domain Services is identified as a single isolated workload.
+In this architecture, the entire virtual network that includes the different application tiers, management jump box, and Microsoft Entra Domain Services is identified as a single isolated workload.
 
 Virtual machines are configured by using Virtual Machine Extensions and other tools, such as [Desired State Configuration (DSC)][dsc-overview], used to configure AD DS on the virtual machines.
 
@@ -164,7 +164,7 @@ Virtual Network is free. Every subscription is allowed to create up to 50 virtua
 
 ## Next steps
 
-- [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
+- [What is Microsoft Entra ID?](/azure/active-directory/fundamentals/active-directory-whatis)
 - [Azure DevOps][az-devops]
 - [Azure Pipelines][az-pipelines]
 - [Azure Monitor][azure-monitor]

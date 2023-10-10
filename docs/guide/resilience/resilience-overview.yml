@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Resilient identity and access management with Azure Active Directory (Azure AD)
+  title: Resilient identity and access management with Microsoft Entra ID
   description: Read this guide to learn how architects, IT administrators, and developers can build resilience to disruption of their identity systems.
   author: JaniceRicketts
   ms.author: jricketts
@@ -13,7 +13,7 @@ azureCategories:
 products:
   - azure-active-directory
   - azure-active-directory-b2c
-name: Resilient identity and access management with Azure AD
+name: Resilient identity and access management with Microsoft Entra ID
 summary: Read this guide to learn how architects, IT administrators, and developers can build resilience to disruption of their identity systems.
 thumbnailUrl: /azure/architecture/browse/thumbs/admin-resilience-overview.png
 content: |
