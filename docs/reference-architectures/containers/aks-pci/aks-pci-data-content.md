@@ -61,7 +61,7 @@ Review [this list of policy definitions](/azure/aks/policy-reference) and apply 
 
 You might need to temporarily cache data. We recommend that you protect the cached data while it's moved to a storage solution. Consider enabling the host-based encryption feature on AKS. This will encrypt the data stored on node VMs. For more information, see [Host-based encryption on Azure Kubernetes Service (AKS)](/azure/aks/enable-host-encryption). Also, enable a built-in Azure policy that requires encryption of temporary disks and cache for node pools.
 
-When you're choosing a storage technology, explore the retention features. For example, Azure Blob Storage provides [time-based retention policies](/azure/storage/blobs/storage-blob-immutable-storage#time-based-retention-policies). Another choice is to implement a custom solution that deletes data according to retention policies. An example is Data Lifecycle Management (DLM), which manages data life-cycle activities. The solution has been designed with services like Azure Data Factory, Azure Active Directory (Azure AD), and Azure Key Vault.
+When you're choosing a storage technology, explore the retention features. For example, Azure Blob Storage provides [time-based retention policies](/azure/storage/blobs/storage-blob-immutable-storage#time-based-retention-policies). Another choice is to implement a custom solution that deletes data according to retention policies. An example is Data Lifecycle Management (DLM), which manages data life-cycle activities. The solution has been designed with services like Azure Data Factory, Microsoft Entra ID, and Azure Key Vault.
 
 For more information, see [Managing the data life cycle using Azure Data Factory](https://www.microsoft.com/itshowcase/managing-the-data-life-cycle-using-azure-data-factory).
 
@@ -145,7 +145,7 @@ Document and implement procedures to protect keys used to secure stored cardhold
 
 These points are described in the subsections:
 - Maintain the practice of least-privilege access for the cryptographic keys.
-- Azure Key Vault and Azure Active Directory are designed to support the authorization and audit logging requirements. For details, see [Request authentication for Azure Key Vault](/azure/key-vault/general/authentication-requests-and-responses#authentication).
+- Azure Key Vault and Microsoft Entra ID are designed to support the authorization and audit logging requirements. For details, see [Request authentication for Azure Key Vault](/azure/key-vault/general/authentication-requests-and-responses#authentication).
 - Protect all data encryption keys with a key encryption key that's stored in a cryptographic device.
 - If you use self-managed keys (instead of Microsoft-managed keys), have a process and documentation for maintaining tasks related to key management.
 

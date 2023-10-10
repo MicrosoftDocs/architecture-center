@@ -219,7 +219,7 @@ Profisee runs natively on Azure Kubernetes Service and Azure SQL Database. You c
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-Profisee authenticates users through OpenID Connect, which implements an OAuth 2.0 authentication flow. Most organizations configure Profisee to authenticate users against Azure Active Directory. This process ensures enterprise policies for authentication get applied and enforced.
+Profisee authenticates users through OpenID Connect, which implements an OAuth 2.0 authentication flow. Most organizations configure Profisee to authenticate users against Microsoft Entra ID. This process ensures enterprise policies for authentication get applied and enforced.
 
 ### Cost optimization
 
