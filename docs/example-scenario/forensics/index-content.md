@@ -138,7 +138,7 @@ Cohasset's [Azure Storage: SEC 17a-4(f) and CFTC 1.31(c)-(d) Compliance Assessme
 - **Financial Industry Regulatory Authority (FINRA) Rule 4511(c)**, which defers to the format and media requirements of SEC Rule 17a-4(f).
 - **Commodity Futures Trading Commission (CFTC) in regulation 17 CFR § 1.31(c)-(d)**, which regulates commodity futures trading.
 
-"It's Cohasset's opinion that Microsoft Azure Storage, with the *Immutable Storage for Azure Blobs* feature and *Policy Lock* option, retains *time-based* Blobs (records) in a non-erasable and non-rewriteable format and meets relevant storage requirements of SEC Rule 17a-4(f), FINRA Rule 4511(c), and the principles-based requirements of CFTC Rule 1.31(c)-(d)."
+It's Cohasset's opinion that Microsoft Azure Storage, with the *Immutable Storage for Azure Blobs* feature and *Policy Lock* option, retains *time-based* Blobs (records) in a non-erasable and non-rewriteable format and meets relevant storage requirements of SEC Rule 17a-4(f), FINRA Rule 4511(c), and the principles-based requirements of CFTC Rule 1.31(c)-(d).
 
 #### Least privilege
 
