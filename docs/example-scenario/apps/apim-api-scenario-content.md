@@ -19,7 +19,7 @@ In this scenario, an e-commerce company in the travel industry migrates a legacy
     - Is developed and published as an [Azure PaaS Web API app][azure-api-apps].
     - Is configured (via [settings for the Web Apps feature of Azure App Service][azure-appservice-ip-restrict]) to accept only the [API Management virtual IP][apim-faq-vip].
     - Is hosted in Web Apps with secure transport (HTTPS or SSL) turned on.
-    - Has authorization enabled, [provided by Azure App Service][azure-appservice-auth] via Azure Active Directory and OAuth 2.
+    - Has authorization enabled, [provided by Azure App Service][azure-appservice-auth] via Microsoft Entra ID and OAuth 2.
 5. The new browser-based web application depends on the Azure API Management instance for *both* the existing HTTP API and the new API.
 
 The API Management instance is configured to map the legacy HTTP services to a new API contract. In this configuration, the new Web UI is unaware of the integration with a set of legacy services/APIs and new APIs.

@@ -65,7 +65,7 @@ Microsoft provides several tools to analyze and catalog your systems. If you run
 Begin planning which services to move to the cloud and in what order. Because this stage involves moving workloads, follow this order:
 
 1. Build out the network.
-2. Incorporate an identity system (Azure Active Directory).
+2. Incorporate an identity system (Microsoft Entra ID).
 3. Provision storage pieces in Azure.
 
 During migration, the Azure environment is an extension of your on-premises network. You can connect the logical networks with [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview?WT.mc_id=retailecomm-docs-scseely). You can choose to use [Azure ExpressRoute](/azure/expressroute/?WT.mc_id=retailecomm-docs-scseely) to keep communications between your network and Azure on a private connection that never touches the Internet. You can also use a site-to-site VPN where an Azure VPN Gateway talks to your on-premises VPN device with all traffic sent securely using encrypted communication between Azure and your network. We have published a reference architecture detailing how to setup a hybrid network [here](/azure/architecture/reference-architectures/hybrid-networking/vpn?WT.mc_id=retailecomm-docs-scseely).
@@ -170,5 +170,6 @@ Product documentation:
 ## Related resources
 
 - [Architect scalable e-commerce web app](../../web-apps/idea/scalable-ecommerce-web-app.yml)
-- [Scalable order processing](../../example-scenario/data/ecommerce-order-processing.yml)
+- [Messaging Bridge pattern](https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessagingBridge.html)
 - [Retail - Buy online, pick up in store (BOPIS)](../../example-scenario/iot/vertical-buy-online-pickup-in-store.yml)
+- [Scalable order processing](../../example-scenario/data/ecommerce-order-processing.yml)

@@ -1859,6 +1859,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/patterns/messaging-bridge-patterns.yml",
+      "redirect_url": "/azure/architecture/patterns/messaging-bridge",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/guide/design-principles/use-the-best-data-store.md",
       "redirect_url": "/azure/architecture/guide/design-principles/use-best-data-store",
       "redirect_document_id": true

@@ -228,7 +228,7 @@ For documentation on the Azure services and features used in this architecture, 
 - [Azure DNS](/azure/dns/dns-overview)
 - [Azure Web Application Firewall](/azure/web-application-firewall/overview)
 - [Azure Private Link](/azure/private-link/private-link-overview)
-- [Azure AD-managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview)
+- [Microsoft Entra managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview)
 
 We recommend the following guides for a deeper understanding about the configuration choices involved with this architecture:
 

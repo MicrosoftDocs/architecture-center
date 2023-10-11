@@ -41,7 +41,7 @@ The solution uses the components that are listed in the following subsections.
 
 - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends your on-premises networks into cloud services offered by Microsoft over a private connection from a connectivity provider. With ExpressRoute, you can establish connections to cloud services such as Microsoft Azure and Office 365.
 - [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway) is a specific type of virtual network gateway that sends encrypted traffic between an Azure virtual network and an on-premises location over the public internet.
-- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) is an identity and access management service that can synchronize with an on-premises active directory.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is an identity and access management service that can synchronize with an on-premises active directory.
 
 #### Application
 
@@ -101,7 +101,7 @@ Databricks, Data Lake Storage, and other Azure databases have auto-scaling capab
 ### Security
 
 - ExpressRoute provides a private and efficient connection to Azure from on-premises, but you could instead use [site-to-site VPN](/azure/vpn-gateway/tutorial-site-to-site-portal).
-- Azure resources can be authenticated by using Azure AD. Permissions can be managed by role-based access control (RBAC).
+- Azure resources can be authenticated by using Microsoft Entra ID. Permissions can be managed by role-based access control (RBAC).
 - Database services in Azure support various security options such as:
   - Data Encryption at rest.
   - Dynamic data masking.
@@ -123,7 +123,7 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 - [Unleash New Azure Analytics Initiatives (PDF data sheet)](https://www.qlik.com/us/-/media/files/resource-library/global-us/direct/datasheets/ds-qlik-mainframe-integration-for-azure-en.pdf)
 - [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
 - [What is VPN Gateway?](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
-- [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
+- [What is Microsoft Entra ID?](/azure/active-directory/fundamentals/active-directory-whatis)
 - [Azure Event Hubs — A big data streaming platform and event ingestion service](/azure/event-hubs/event-hubs-about)
 - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
 - [Introduction to the core Azure Storage services](/azure/storage/common/storage-introduction)

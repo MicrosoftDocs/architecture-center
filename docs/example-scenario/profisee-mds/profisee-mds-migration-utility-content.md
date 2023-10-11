@@ -175,7 +175,7 @@ A trusted audit firm, A-LIGN, has audited Profisee data security practices again
 
 Customer data is stored in tenant-specific repositories, such as databases and storage accounts. All data at rest is encrypted with modern encryption standards and is reevaluated as required.
 
-Repositories aren't accessible publicly. They're isolated on a private network with row-level security enabled. Access to rows is controlled through Azure Active Directory (Azure AD) roles and groups. Row-level security helps prevent unauthorized access. By implementing row-level security, Profisee prevents its own employees from accessing customer data without approval.
+Repositories aren't accessible publicly. They're isolated on a private network with row-level security enabled. Access to rows is controlled through Microsoft Entra roles and groups. Row-level security helps prevent unauthorized access. By implementing row-level security, Profisee prevents its own employees from accessing customer data without approval.
 
 #### Encryption of data in transit
 
@@ -183,7 +183,7 @@ All network traffic to and from Profisee Cloud over the public internet encrypts
 
 #### Tenant isolation
 
-Profisee Cloud uses dedicated repositories to provide complete tenant isolation between Profisee Cloud environments. Customer data isn't shared or commingled between environments. Users must be authenticated and authorized for each individual Profisee Cloud environment that they access. If a customer uses a common authentication provider like Azure AD across environments like development, test, and production environments, users gain the benefit of single sign-on (SSO) but are authorized independently for each environment.
+Profisee Cloud uses dedicated repositories to provide complete tenant isolation between Profisee Cloud environments. Customer data isn't shared or commingled between environments. Users must be authenticated and authorized for each individual Profisee Cloud environment that they access. If a customer uses a common authentication provider like Microsoft Entra ID across environments like development, test, and production environments, users gain the benefit of single sign-on (SSO) but are authorized independently for each environment.
 
 #### Access security
 

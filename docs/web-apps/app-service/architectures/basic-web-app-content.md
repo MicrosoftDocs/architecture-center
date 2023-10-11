@@ -13,7 +13,7 @@ This architecture shows the fundamental components of a basic web application. Y
 - [IP address](/azure/app-service/overview-inbound-outbound-ips): The App Service app has a public IP address and a domain name. The domain name is a subdomain of `azurewebsites.net`, such as `contoso.azurewebsites.net`.
 - [Azure DNS](https://azure.microsoft.com/services/dns) is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services. To use a custom domain name (such as `contoso.com`), create DNS records that map the custom domain name to the IP address. For more information, see [Configure a custom domain name in Azure App Service](/azure/app-service-web/web-sites-custom-domain-name).
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is a relational database-as-a-service in the cloud. SQL Database shares its code base with the Microsoft SQL Server database engine. Depending on your application requirements, you can also use [Azure Database for MySQL](/azure/mysql) or [Azure Database for PostgreSQL](/azure/postgresql). These alternatives are fully managed database services based on the open-source MySQL Server and Postgres database engines.
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory) is a cloud-based identity and access management service that lets employees access cloud apps developed for your organization.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is a cloud-based identity and access management service that lets employees access cloud apps developed for your organization.
 - [Azure Monitor](https://azure.microsoft.com/services/monitor) is a solution for collecting, analyzing, and acting on logs and metrics across your environments.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault) supports secrets management, key management, and certificate management. It can store application secrets like database connection strings.
 
@@ -147,7 +147,7 @@ Auditing can help you maintain regulatory compliance and get insight into discre
 
 #### Deployment slots
 
-Each deployment slot has a public IP address. Secure the nonproduction slots using the [Azure Active Directory login](/azure/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication) so that only members of your development and DevOps teams can reach those endpoints.
+Each deployment slot has a public IP address. Secure the nonproduction slots using the [Microsoft Entra login](/azure/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication) so that only members of your development and DevOps teams can reach those endpoints.
 
 #### Logging
 
@@ -161,7 +161,7 @@ HTTPS isn't enabled by default in the ARM template deployment. As a security bes
 
 #### Authentication
 
-We recommend authenticating through an identity provider (IDP), such as Azure AD, Facebook, Google, or Twitter. Use OAuth 2 or OpenID Connect (OIDC) for the authentication flow. Azure AD provides functionality to manage users and groups, create application roles, integrate your on-premises identities, and consume backend services such as Microsoft 365 and Skype for Business.
+We recommend authenticating through an identity provider (IDP), such as Microsoft Entra ID, Facebook, Google, or Twitter. Use OAuth 2 or OpenID Connect (OIDC) for the authentication flow. Microsoft Entra ID provides functionality to manage users and groups, create application roles, integrate your on-premises identities, and consume backend services such as Microsoft 365 and Skype for Business.
 
 Avoid having the application manage user logins and credentials directly. It creates a potential attack surface. At a minimum, you would need to have an email confirmation, password recovery, and multi-factor authentication, validate password strength, and store password hashes securely. The large identity providers handle all of those things for you and are constantly monitoring and improving their security practices.
 
@@ -242,21 +242,21 @@ Product documentation:
 - [Azure Monitor overview](/azure/azure-monitor/overview)
 - [Azure App Service plan overview](/azure/app-service/overview-hosting-plans)
 - [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview)
-- [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
+- [What is Microsoft Entra ID?](/azure/active-directory/fundamentals/active-directory-whatis)
 - [What is Azure DNS?](/azure/dns/dns-overview)
 - [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
 
 Microsoft Learn modules:
 
 - [Configure and manage Azure Monitor](/training/modules/azure-monitor)
-- [Configure Azure Active Directory](/training/modules/configure-azure-active-directory)
+- [Configure Microsoft Entra ID](/training/modules/configure-azure-active-directory)
 - [Configure Azure Monitor](/training/modules/configure-azure-monitor)
 - [Deploy and configure servers, instances, and databases for Azure SQL](/training/modules/azure-sql-deploy-configure)
 - [Explore Azure App Service](/training/modules/introduction-to-azure-app-service)
 - [Host a web application with Azure App Service](/training/modules/host-a-web-app-with-azure-app-service)
 - [Host your domain on Azure DNS](/training/modules/host-domain-azure-dns)
 - [Implement Azure Key Vault](/training/modules/implement-azure-key-vault)
-- [Manage users and groups in Azure Active Directory](/training/modules/manage-users-and-groups-in-aad)
+- [Manage users and groups in Microsoft Entra ID](/training/modules/manage-users-and-groups-in-aad)
 
 ## Related resources
 

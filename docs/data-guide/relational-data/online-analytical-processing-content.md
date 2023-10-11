@@ -94,7 +94,7 @@ To narrow the choices, start by answering these questions:
 
 - Do you want a managed service rather than managing your own servers?
 
-- Do you require secure authentication using Azure Active Directory (Azure AD)?
+- Do you require secure authentication using Microsoft Entra ID?
 
 - Do you want to conduct real-time analytics? If so, narrow your options to those that support real-time analytics.
 
@@ -120,11 +120,11 @@ The following tables summarize the key differences in capabilities.
 | Easily integrate multiple data sources | Yes | Yes | No <sup>1</sup> | No <sup>1</sup> |
 | Supports real-time analytics | No | No | Yes | Yes |
 | Requires process to copy data from source(s) | Yes | Yes | No | No |
-| Azure AD integration | Yes | No | No <sup>2</sup> | Yes |
+| Microsoft Entra integration | Yes | No | No <sup>2</sup> | Yes |
 
 [1] Although SQL Server and Azure SQL Database cannot be used to query from and integrate multiple external data sources, you can still build a pipeline that does this for you using [SSIS](/sql/integration-services/sql-server-integration-services) or [Azure Data Factory](/azure/data-factory/). SQL Server hosted in an Azure VM has additional options, such as linked servers and [PolyBase](/sql/relational-databases/polybase/polybase-guide). For more information, see [Pipeline orchestration, control flow, and data movement](../technology-choices/pipeline-orchestration-data-movement.md).
 
-[2] Connecting to SQL Server running on an Azure Virtual Machine is not supported using an Azure AD account. Use a domain Active Directory account instead.
+[2] Connecting to SQL Server running on an Azure Virtual Machine is not supported using a Microsoft Entra account. Use a domain Active Directory account instead.
 
 ### Scalability Capabilities
 

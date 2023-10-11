@@ -36,7 +36,7 @@ The solution uses the following components.
 
   - [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) - ExpressRoute lets you extend your on-premises networks into the Microsoft Cloud over a private connection handled by a connectivity provider. With ExpressRoute, you can establish connections to cloud services, such as Microsoft Azure and Microsoft 365.
   - [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) - A VPN gateway is a specific type of virtual network gateway that sends encrypted traffic between an Azure virtual network and an on-premises location over the public internet.
-  - [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) - Azure Active Directory is an identity and access management service that you can sync with an on-premises directory.
+  - [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) - Microsoft Entra ID is an identity and access management service that you can sync with an on-premises directory.
 
 #### Application components
 
@@ -79,10 +79,10 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-* Control authentication and access for tcVISION with Azure Active Directory.
+* Control authentication and access for tcVISION with Microsoft Entra ID.
 * Encrypt data transfer between tcVISION products (mainframe to Azure) with transport layer security (TLS).
 * Use Express Route or site-to-site VPN for private and efficient connection to Azure from an on-premises environment.
-* Authenticate Azure resources with Azure AD and manage permissions with role-based access control.
+* Authenticate Azure resources with Microsoft Entra ID and manage permissions with role-based access control.
 * Use the database services in Azure to support various security options like data encryption at rest (TDE), data encryption in transit (TLS), and data encryption while processing, as in, always encrypted.
 * For guidelines about designing secure solutions, see the [Azure security documentation](/azure/security).
 * To find out your security baseline, see [Azure security baseline assessment](/security/benchmark/azure/security-baselines-overview).
@@ -123,7 +123,7 @@ Other contributors:
 
 * [Application Insights](/azure/azure-monitor/app/app-insights-overview)
 * [Architect a data platform in Azure](/training/paths/architect-data-platform/)
-* [Azure AD](https://azure.microsoft.com/services/active-directory/)
+* [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/)
 * [Azure Artifacts](https://azure.microsoft.com/services/devops/artifacts/)
 * [Azure Boards](https://azure.microsoft.com/services/devops/boards/)
 * [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)

@@ -39,7 +39,7 @@ The bot will rely on raw data that must be ingested and prepared. Consider any o
 
 #### Security and governance
 
-- **[Azure Active Directory][aad]** (Azure AD). Users will authenticate through an identity provider such as Azure AD. The Bot Service handles the authentication flow and OAuth token management. See [Add authentication to your bot via Azure Bot Service][bot-authentication].
+- **[Microsoft Entra ID][aad]**. Users will authenticate through an identity provider such as Microsoft Entra ID. The Bot Service handles the authentication flow and OAuth token management. See [Add authentication to your bot via Azure Bot Service][bot-authentication].
 - **[Azure Key Vault][key-vault]**. Store credentials and other secrets using Key Vault.
 
 #### Quality assurance and enhancements
@@ -59,7 +59,7 @@ The bot will rely on raw data that must be ingested and prepared. Consider any o
 - Application Insights is a feature of [Azure Monitor](https://azure.microsoft.com/services/monitor)
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
 - [Azure Cosmos DB](https://azure.microsoft.com/free/cosmos-db)
-- [Azure AD](https://azure.microsoft.com/services/active-directory)
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory)
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault) 
 
 ## Scenario details
@@ -178,7 +178,7 @@ As you roll out new features or bug fixes to your bot, it's best to use multiple
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-As with any other application, the bot can be designed to handle sensitive data. Therefore, restrict who can sign in and use the bot. Also limit which data can be accessed, based on the user's identity or role. Use Azure AD for identity and access control and Key Vault to manage keys and secrets.
+As with any other application, the bot can be designed to handle sensitive data. Therefore, restrict who can sign in and use the bot. Also limit which data can be accessed, based on the user's identity or role. Use Microsoft Entra ID for identity and access control and Key Vault to manage keys and secrets.
 
 ### DevOps
 

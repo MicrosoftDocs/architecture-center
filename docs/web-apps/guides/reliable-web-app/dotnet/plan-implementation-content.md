@@ -68,7 +68,7 @@ When you move a web app to the cloud, you should select Azure services that mirr
 
 ### Identity management
 
-[Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) is a cloud-based identity and access management service. It authenticates and authorizes users based on roles that integrate with our application. Azure AD provides the application with the following abilities:
+[Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) is a cloud-based identity and access management service. It authenticates and authorizes users based on roles that integrate with our application. Microsoft Entra ID provides the application with the following abilities:
 
 - **Authentication and authorization.** The application needs to authenticate and authorize call center employees.
 - **Scalable.** It scales to support larger scenarios.

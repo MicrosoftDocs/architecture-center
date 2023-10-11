@@ -10,7 +10,7 @@ This article presents a solution for a multi-region web app where each region ha
 
 ### Dataflow
 
-1. The client authenticates with Azure Active Directory (Azure AD) and is granted access to web applications hosted on Azure App Service.
+1. The client authenticates with Microsoft Entra ID and is granted access to web applications hosted on Azure App Service.
 1. Azure Front Door, a firewall and layer-7 load balancer, switches user traffic to a different Azure region if there's a regional outage.
 1. App Service hosts websites and RESTful web APIs. Browser clients run AJAX applications that use the APIs.
 1. Web APIs delegate function apps to handle background tasks. The tasks are queued in Azure Queue Storage queues.
@@ -20,7 +20,7 @@ This article presents a solution for a multi-region web app where each region ha
 
 ### Components
 
-- [Azure AD](https://azure.microsoft.com/services/active-directory) is a multi-tenant identity and access management service that can synchronize with an on-premises directory.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is a multi-tenant identity and access management service that can synchronize with an on-premises directory.
 - [Azure DNS](https://azure.microsoft.com/services/dns) is a high-availability hosting service for DNS domains that provides apps with fast DNS queries and quick updates to DNS records. Managing Azure DNS is like managing other Azure services, and uses the same credentials, APIs, tools, and billing.
 - [Azure Front Door](https://azure.microsoft.com/services/frontdoor) is a secure content delivery network (CDN) and load balancer with instant failover. It operates at the edge, close to users, accelerating content delivery while protecting apps, APIs, and websites from cyber threats.
 - [App Service](https://azure.microsoft.com/services/app-service) is a fully managed service for building, deploying, and scaling web apps. With App Service, you can build apps by using .NET, Node.js, Java, Python, or PHP. Apps can run in containers or on Windows or Linux. For more information about web APIs, see [RESTful web API design](../../best-practices/api-design.md).

@@ -10,7 +10,7 @@ This architecture and the implementation aren't designed to provide controls on 
 >
 > This guidance and the accompanying implementation build on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks). That architecture is based on a hub-and-spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintenance. The spoke virtual network contains the AKS cluster that provides the cardholder data environment (CDE) and hosts the PCI DSS workload.
 >
-> ![Image of the GitHub logo.](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates the regulated infrastructure with identity and access management controls. This implementation provides an Azure AD-backed, private cluster that supports just-in-time (JIT) access and conditional access models for illustrative purposes.
+> ![Image of the GitHub logo.](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates the regulated infrastructure with identity and access management controls. This implementation provides a Microsoft Entra ID-backed, private cluster that supports just-in-time (JIT) access and conditional access models for illustrative purposes.
 
 ## Implement strong access control measures
 
@@ -18,9 +18,9 @@ This architecture and the implementation aren't designed to provide controls on 
 
 #### AKS feature support
 
-AKS is fully integrated with Azure Active Directory (Azure AD) as the identity provider.
+AKS is fully integrated with Microsoft Entra ID as the identity provider.
 
-You don't have to manage separate user identities and credentials for Kubernetes. You can add Azure AD users for Kubernetes RBAC. This integration makes it possible to do role assignments to Azure AD users. Azure AD RBAC supports for role definitions, such as viewer, writer, service admin, cluster admin as built-in roles. Also you can create custom roles for more granular control.
+You don't have to manage separate user identities and credentials for Kubernetes. You can add Microsoft Entra users for Kubernetes RBAC. This integration makes it possible to do role assignments to Microsoft Entra users. Microsoft Entra RBAC supports for role definitions, such as viewer, writer, service admin, cluster admin as built-in roles. Also you can create custom roles for more granular control.
 
 By default, Azure RBAC is set to deny all so a resource cannot be accessed without granted permissions. AKS limits SSH access to AKS worker nodes and uses AKS network policy to control access to workloads in the pods.
 
@@ -133,11 +133,11 @@ After following [Requirement 7.1](#requirement-71), you should have assessed rol
 Based on roles and responsibilities, assign roles to the infrastructure's role-based access control (RBAC). That mechanism can be:
 
 - **Kubernetes RBAC** is a native Kubernetes authorization model that controls access to the *Kubernetes control plane*, exposed through the Kubernetes API server. This set of permissions defines what you can do with the API server. For example, you can deny a user the permissions to create or even list pods.
-- **Azure RBAC** is an Azure AD-based authorization model that controls access to the *Azure control plane*. This is an association of your Azure AD tenant with your Azure subscription. With Azure RBAC you can grant permissions to create Azure resources, such as networks, an AKS cluster, and managed identities.
+- **Azure RBAC** is a Microsoft Entra ID-based authorization model that controls access to the *Azure control plane*. This is an association of your Microsoft Entra tenant with your Azure subscription. With Azure RBAC you can grant permissions to create Azure resources, such as networks, an AKS cluster, and managed identities.
 
-Suppose you need to give permissions to the cluster operators (mapped to the infrastructure operator role). All people who are assigned the infrastructure operator responsibilities belong to an Azure AD Group. As established in 7.1.1, this role requires the highest privilege in the cluster. Kubernetes has built-in RBAC roles, such as `cluster-admin`, that meets those requirements. You'll need to bind the Azure AD Group for infrastructure operator to `cluster-admin` by creating role bindings. There are two approaches. You can choose the built-in roles. Or, if the built-in roles do not meet your requirements (for example, they might be overly permissive), create custom roles for your bindings.
+Suppose you need to give permissions to the cluster operators (mapped to the infrastructure operator role). All people who are assigned the infrastructure operator responsibilities belong to a Microsoft Entra group. As established in 7.1.1, this role requires the highest privilege in the cluster. Kubernetes has built-in RBAC roles, such as `cluster-admin`, that meets those requirements. You'll need to bind the Microsoft Entra group for infrastructure operator to `cluster-admin` by creating role bindings. There are two approaches. You can choose the built-in roles. Or, if the built-in roles do not meet your requirements (for example, they might be overly permissive), create custom roles for your bindings.
 
-The reference implementation demonstrates the preceding example by using native Kubernetes RBAC. The same association can be accomplished with Azure RBAC. For more information, see [Control access to cluster resources using Kubernetes role-based access control and Azure Active Directory identities in Azure Kubernetes Service](/azure/aks/azure-ad-rbac).
+The reference implementation demonstrates the preceding example by using native Kubernetes RBAC. The same association can be accomplished with Azure RBAC. For more information, see [Control access to cluster resources using Kubernetes role-based access control and Microsoft Entra identities in Azure Kubernetes Service](/azure/aks/azure-ad-rbac).
 
 You can choose the scope of permission at the cluster level or at the namespace level. For roles that have scoped responsibilities, such as application operators, the permissions are assigned at the namespace level for the workload.
 
@@ -159,12 +159,12 @@ Coverage of all system components
 
 Here are some best practices to maintain access control measures:
 
-- Don't have standing access. Consider using [Just-In-Time AD group membership](/azure/aks/managed-aad#configure-just-in-time-cluster-access-with-azure-ad-and-aks). This feature requires Azure AD Privileged Identity Management.
+- Don't have standing access. Consider using [Just-In-Time AD group membership](/azure/aks/managed-aad#configure-just-in-time-cluster-access-with-azure-ad-and-aks). This feature requires Microsoft Entra Privileged Identity Management.
 
-- Set up [Conditional Access Policies in Azure AD for your cluster](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks). This further puts restrictions on access to the Kubernetes control plane. With conditional access policies, you can require multifactor authentication, restrict authentication to devices that are managed by your Azure AD tenant, or block non-typical sign-in attempts. Apply these policies to Azure AD groups that are mapped to Kubernetes roles with high privilege.
+- Set up [Conditional Access Policies in Microsoft Entra ID for your cluster](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks). This further puts restrictions on access to the Kubernetes control plane. With conditional access policies, you can require multifactor authentication, restrict authentication to devices that are managed by your Microsoft Entra tenant, or block non-typical sign-in attempts. Apply these policies to Microsoft Entra groups that are mapped to Kubernetes roles with high privilege.
 
   > [!NOTE]
-  > Both JIT and conditional access technology choices require Azure AD Premium.
+  > Both JIT and conditional access technology choices require Microsoft Entra ID P1 or P2.
 
 - Ideally disable SSH access to the cluster nodes. This reference implementation doesn't generate SSH connection details for that purpose.
 
@@ -220,7 +220,7 @@ It's critical that you maintain thorough documentation about the processes and p
 
 #### AKS feature support
 
-Because of AKS and Azure AD integration, you can take advantage of ID management and authorization capabilities, including access management, identifier objects management, and others. For more information, see [AKS-managed Azure Active Directory integration](/azure/aks/managed-aad).
+Because of AKS and Microsoft Entra integration, you can take advantage of ID management and authorization capabilities, including access management, identifier objects management, and others. For more information, see [AKS-managed Microsoft Entra integration](/azure/aks/managed-aad).
 
 #### Your responsibilities
 
@@ -258,17 +258,17 @@ Here are overall considerations for this requirement:
 
 Don't share or reuse identities for functionally different parts of the CDE. For example, don't use a team account to access data or cluster resources. Make sure the identity documentation is clear about not using shared accounts.
 
-Extend this identity principal to managed identity assignments in Azure. Do not share user-managed identities across Azure resources. Assign each Azure resource its own managed identity. Similarly, when you're using [Azure AD workload identity](/azure/aks/workload-identity-overview) in the AKS cluster, ensure that each component in your workload receives its own identity instead of using an identity that is broad in scope. Never use the same managed identity in pre-production and production.
+Extend this identity principal to managed identity assignments in Azure. Do not share user-managed identities across Azure resources. Assign each Azure resource its own managed identity. Similarly, when you're using [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview) in the AKS cluster, ensure that each component in your workload receives its own identity instead of using an identity that is broad in scope. Never use the same managed identity in pre-production and production.
 
 [Access and identity options for Azure Kubernetes Service (AKS)](/azure/aks/concepts-identity)
 
 **APPLIES TO: 8.1.2, 8.1.3, 8.1.4**
 
-Use Azure AD as the identity store. Because the cluster and all Azure resources use Azure AD, disabling or revoking Azure AD access is applied to all resources automatically. If there are any components that are not backed directly by Azure AD, make sure you have a process to remove access. For example, SSH credentials for accessing a jump box might need explicit removal if the user is no longer valid.
+Use Microsoft Entra ID as the identity store. Because the cluster and all Azure resources use Microsoft Entra ID, disabling or revoking Microsoft Entra ID access is applied to all resources automatically. If there are any components that are not backed directly by Microsoft Entra ID, make sure you have a process to remove access. For example, SSH credentials for accessing a jump box might need explicit removal if the user is no longer valid.
 
 **APPLIES TO: 8.1.5**
 
-Take advantage of Azure AD business-to-business (B2B) that's designed to host third-party accounts, such as vendors, partners, as guest users. Grant the appropriate level of access by using conditional policies to protect corporate data. These accounts must have minimal standing permissions and mandatory expiry dates. For more information, see [What is guest user access in Azure Active Directory B2B](/azure/active-directory/external-identities/what-is-b2b).
+Take advantage of Microsoft Entra business-to-business (B2B) that's designed to host third-party accounts, such as vendors, partners, as guest users. Grant the appropriate level of access by using conditional policies to protect corporate data. These accounts must have minimal standing permissions and mandatory expiry dates. For more information, see [What is guest user access in Microsoft Entra B2B](/azure/active-directory/external-identities/what-is-b2b).
 
 Your organization should have a clear and documented pattern of vendor and similar access.
 
@@ -276,9 +276,9 @@ Your organization should have a clear and documented pattern of vendor and simil
 
 ##### Your responsibilities
 
-Azure AD provides a [smart lock out feature](/azure/active-directory/authentication/howto-password-smart-lockout) to lock out users after failed sign-in attempts. The recommended way to implement lockouts is with Azure AD Conditional Access policies.
+Microsoft Entra ID provides a [smart lock out feature](/azure/active-directory/authentication/howto-password-smart-lockout) to lock out users after failed sign-in attempts. The recommended way to implement lockouts is with Microsoft Entra Conditional Access policies.
 
-Implement the lockout for components that support similar features but are not backed with Azure AD (for example, SSH-enabled machines, such as a jump box). This ensures that lockouts are enabled to prevent or slow access attempt abuse.
+Implement the lockout for components that support similar features but are not backed with Microsoft Entra ID (for example, SSH-enabled machines, such as a jump box). This ensures that lockouts are enabled to prevent or slow access attempt abuse.
 
 AKS nodes are not designed to be routinely accessed. Block direct SSH or Remote Desktop to cluster nodes. SSH access should only be considered as part of advanced troubleshooting efforts. The access should be closely monitored and promptly reverted after completion of the specific event. If you do this, be aware that any node-level changes can cause your cluster to be out of support.
 
@@ -297,22 +297,22 @@ In addition to assigning a unique ID, ensure proper user-authentication manageme
 
 #### Your responsibilities
 
-Set up [Conditional Access Policies in Azure AD for your cluster](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks). This further puts restrictions on access to the Kubernetes control plane.
+Set up [Conditional Access Policies in Microsoft Entra ID for your cluster](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks). This further puts restrictions on access to the Kubernetes control plane.
 
-Several of the preceding set of requirements are automatically handled by Azure AD. Here are some examples:
+Several of the preceding set of requirements are automatically handled by Microsoft Entra ID. Here are some examples:
 
 - **Password security**
 
-    Azure AD provides features that enforce the use of strong passwords. For example, weak passwords that belong to the global banned password list are blocked. This isn't sufficient protection. Consider adding the Azure AD Password Protection feature to create an organization-specific ban list. A password policy is applied by default. Certain policies cannot be modified and cover some of the preceding set of requirements. These include password expiration and allowed characters. For the complete list, see [Azure AD password policies](/azure/active-directory/authentication/concept-sspr-policy#password-policies-that-only-apply-to-cloud-user-accounts). Consider using advanced features that can be enforced with conditional access policies, such as those based on user risk, which detect leaked username and password pairs. For more information, see [Conditional Access: User risk-based Conditional Access](/azure/active-directory/conditional-access/howto-conditional-access-policy-risk-user).
+    Microsoft Entra ID provides features that enforce the use of strong passwords. For example, weak passwords that belong to the global banned password list are blocked. This isn't sufficient protection. Consider adding the Microsoft Entra Password Protection feature to create an organization-specific ban list. A password policy is applied by default. Certain policies cannot be modified and cover some of the preceding set of requirements. These include password expiration and allowed characters. For the complete list, see [Microsoft Entra password policies](/azure/active-directory/authentication/concept-sspr-policy#password-policies-that-only-apply-to-cloud-user-accounts). Consider using advanced features that can be enforced with conditional access policies, such as those based on user risk, which detect leaked username and password pairs. For more information, see [Conditional Access: User risk-based Conditional Access](/azure/active-directory/conditional-access/howto-conditional-access-policy-risk-user).
 
     > [!NOTE]
-    > We strongly recommend that you consider passwordless options. For more information, see [Plan a passwordless authentication deployment in Azure Active Directory](/azure/active-directory/authentication/howto-authentication-passwordless-deployment).
+    > We strongly recommend that you consider passwordless options. For more information, see [Plan a passwordless authentication deployment in Microsoft Entra ID](/azure/active-directory/authentication/howto-authentication-passwordless-deployment).
 
 - **User identity verification**
 
     You can apply the sign-in risk conditional access policy to detect if the authentication request was issued by the requesting identity. The request is validated against threat intelligence sources. These include password spray and IP address anomalies. For more information, see [Conditional Access: Sign-in risk-based Conditional Access](/azure/active-directory/conditional-access/howto-conditional-access-policy-risk).
 
-You might have components that don't use Azure AD, such as access to jump boxes with SSH. For such cases, use public key encryption with at least RSA 2048 key size. Always specify a passphrase. Have a validation process that tracks known approved public keys. Systems that use public key access mustn't be exposed to the internet.  Instead, all SSH access should be allowed through an intermediary, such as Azure Bastion to reduce the impact of a private key leak. Disable direct password access and use an alternative passwordless solution.
+You might have components that don't use Microsoft Entra ID, such as access to jump boxes with SSH. For such cases, use public key encryption with at least RSA 2048 key size. Always specify a passphrase. Have a validation process that tracks known approved public keys. Systems that use public key access mustn't be exposed to the internet.  Instead, all SSH access should be allowed through an intermediary, such as Azure Bastion to reduce the impact of a private key leak. Disable direct password access and use an alternative passwordless solution.
 
 ### Requirement 8.3
 
@@ -320,11 +320,11 @@ Secure all individual non-console administrative access and all remote access to
 
 #### Your responsibilities
 
-Use conditional access policies to enforce multifactor authentication, specifically on administrative accounts. These policies are recommended on several built-in roles. Apply these policies to Azure AD groups that are mapped to Kubernetes roles with high privilege.
+Use conditional access policies to enforce multifactor authentication, specifically on administrative accounts. These policies are recommended on several built-in roles. Apply these policies to Microsoft Entra groups that are mapped to Kubernetes roles with high privilege.
 
 This policy can be further hardened with additional policies. Here are some examples:
 
-- You can restrict authentication to devices that are managed by your Azure AD tenant.
+- You can restrict authentication to devices that are managed by your Microsoft Entra tenant.
 - If the access originates from a network outside the cluster network, you can enforce multifactor authentication.
 
 For more information, see:

@@ -19,7 +19,7 @@ _Download a [Visio file](https://arch-center.azureedge.net/openshift-zonal-archi
 
 ### Components
 
-* [Azure Active Directory (Azure AD)][aad] or [Azure AD B2C][aad-b2c] authenticates users. The browser performs DNS lookups to resolve addresses to Azure Front Door.
+* [Microsoft Entra ID][aad] or [Azure AD B2C][aad-b2c] authenticates users. The browser performs DNS lookups to resolve addresses to Azure Front Door.
 * [Azure Front Door][afd] is the public interface for all internet requests. It acts as a global HTTP reverse proxy and cache for back-end services. Azure Front Door provides features that enhance the security and performance of your application, like protection from layer 4 distributed denial-of-service (DDoS) attacks.
 * [Azure Red Hat OpenShift][aro] is the Kubernetes-based container orchestrator that hosts the API applications and services, and provides an interface for back-end services.
 * [Container Registry][acr] supports Docker and Open Container Initiative (OCI) compliant container images. Container Registry supports zone redundancy, which makes it highly available and resilient to zone failure. It also supports [geo-replication][acr-georeplica], which replicates the service across multiple regions.
@@ -32,7 +32,7 @@ _Download a [Visio file](https://arch-center.azureedge.net/openshift-zonal-archi
 
 ### Alternatives
 
-* You can use Azure AD or Azure AD B2C as an identity provider in this scenario. Azure AD is for internal applications and business-to-business (B2B) scenarios. Azure AD B2C is for business-to-consumer (B2C) scenarios.
+* You can use Microsoft Entra ID or Azure AD B2C as an identity provider in this scenario. Microsoft Entra ID is for internal applications and business-to-business (B2B) scenarios. Azure AD B2C is for business-to-consumer (B2C) scenarios.
 * Azure-managed DNS is recommended, but you can use your own DNS provider.
 * You can use [Azure Application Gateway][appgw] instead of Azure Front Door if most of your users are located close to the Azure region that hosts your workload and if you don't need content caching. Use [Azure DDoS Protection][ddosp] to protect internet-facing Application Gateway services.
 * Deploy a premium [Azure API Management][apim] instance with zone-redundancy as an alternative for hosting front-end APIs, back-end APIs, or both. For more information about API Management zone-redundancy, see [Migrate Azure API Management to availability zone support][apim-zr].
@@ -50,7 +50,7 @@ To maintain the [service-level agreements (SLAs)][sla], zone-redundant Azure Red
 
 In this architecture, an [Azure Red Hat OpenShift][aro] cluster is deployed across three availability zones in Azure regions that support them. A cluster consists of three control plane nodes and three or more worker nodes. To improve redundancy, the nodes are spread across the zones.
 
-Azure Front Door, Azure AD, and Azure DNS are globally available services that are resilient to zone and region-wide outages. All other services in this architecture are zone-redundant.
+Azure Front Door, Microsoft Entra ID, and Azure DNS are globally available services that are resilient to zone and region-wide outages. All other services in this architecture are zone-redundant.
 
 ### Potential use cases
 
@@ -137,7 +137,7 @@ For example, Azure Storage supports [object replication for block blobs][object-
 
 #### Global services
 
-Failures in global services, like Azure Front Door and Azure AD, are rare, but the effect of a failure can be high. To improve recovery if a failure occurs, prepare and rehearse runbooks.
+Failures in global services, like Azure Front Door and Microsoft Entra ID, are rare, but the effect of a failure can be high. To improve recovery if a failure occurs, prepare and rehearse runbooks.
 
 For example, you can reduce Azure Front Door downtime by using a runbook to deploy [Azure Application Gateway][appgw] and change DNS records to redirect traffic until Azure Front Door is restored.
 
@@ -153,7 +153,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 * Managed identities authenticate Azure service-to-service communication where it's available. For more information, see [What are managed identities for Azure resources?](https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 * To manage and protect secrets, certificates, and connection strings in your cluster, connect the Azure Red Hat OpenShift cluster to Azure Arc-enabled Kubernetes. Use the Key Vault Secrets Provider extension to fetch secrets.
 * Configure Microsoft Defender for Containers to provide security for clusters, containers, and applications. Defender for Containers is supported via Azure Arc-enabled Kubernetes. Scan your images for vulnerabilities with Microsoft Defender or another image scanning solution.
-* Configure Azure AD integration to use Azure AD to authenticate users in your Azure Red Hat OpenShift cluster.
+* Configure Microsoft Entra integration to use Microsoft Entra ID to authenticate users in your Azure Red Hat OpenShift cluster.
 
 ### Cost optimization
 

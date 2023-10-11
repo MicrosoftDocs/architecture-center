@@ -105,7 +105,7 @@ Follow these security principles when you're designing access policies:
 - Grant the least privileges--just enough to complete a task.
 - Minimize standing access.
 
-Kubernetes role-based access control (RBAC) manages permissions to the Kubernetes API. AKS supports those Kubernetes roles. AKS is fully integrated with Azure Active Directory (Azure AD). You can assign Azure AD identities to the roles and also take advantage of other capabilities.
+Kubernetes role-based access control (RBAC) manages permissions to the Kubernetes API. AKS supports those Kubernetes roles. AKS is fully integrated with Microsoft Entra ID. You can assign Microsoft Entra identities to the roles and also take advantage of other capabilities.
 
 #### Zero-Trust access
 
@@ -117,7 +117,7 @@ You can use managed identities for Azure resources and pods and scope them to th
 
 ### Minimizing standing access
 
-Minimize standing access by using [just-in-time Azure AD group membership](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks). Harden the control with [Conditional Access Policies in Azure AD](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks). This option supports many use cases, such as multifactor authentication, restricting authentication to devices that are managed by your Azure AD tenant, or blocking atypical sign-in attempts.
+Minimize standing access by using [just-in-time Microsoft Entra group membership](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks). Harden the control with [Conditional Access Policies in Microsoft Entra ID](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks). This option supports many use cases, such as multifactor authentication, restricting authentication to devices that are managed by your Microsoft Entra tenant, or blocking atypical sign-in attempts.
 
 ## Secret management
 
