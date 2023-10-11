@@ -1,6 +1,4 @@
-Digital forensics is a science that addresses the recovery and investigation of digital data to support criminal investigations or civil proceedings. Computer forensics is a branch of digital forensics that captures and analyzes data from computers, virtual machines (VMs), and digital storage media.
-
-Companies must guarantee that the digital evidence they provide in response to legal requests demonstrates a valid *Chain of Custody* (CoC) throughout the evidence acquisition, preservation, and access process. To ensure a valid CoC, digital evidence storage must demonstrate adequate access control, data protection and integrity, monitoring and alerting, and logging and auditing.
+This article describes how teams can ensure a valid *Chain of Custody* (CoC) throughout the evidence acquisition, preservation, and access processes.
 
 > [!NOTE]
 > This article is based on the theoretical and practical knowledge of the authors. Before you use it for legal purposes, you should validate its applicability with your legal department.
@@ -17,7 +15,7 @@ This scenario uses a hub-and-spoke network topology as shown in the following di
 
 ### Workflow
 
-In the architecture, the production virtual machines are part of a spoke [Azure virtual network](/azure/virtual-network/virtual-networks-overview). Their disks are encrypted with [Azure Disk Encryption (ADE)](/azure/security/fundamentals/azure-disk-encryption-vms-vmss). The [Azure Key Vault](/azure/key-vault/general/overview) in the Production subscription stores the virtual machines' BitLocker encryption keys (BEKs).
+In the architecture, the production virtual machines are part of a spoke [Azure virtual network](/azure/virtual-network/virtual-networks-overview). Their disks are encrypted with Azure Disk Encryption (ADE). For more information, see [Overview of managed disk encryption options](/azure/security/fundamentals/azure-disk-encryption-vms-vmss). The [Azure Key Vault](/azure/key-vault/general/overview) in the production subscription stores the virtual machines' BitLocker encryption keys (BEKs).
 
 > [!NOTE]
 > The scenario works for production virtual machines with unencrypted disks.
@@ -80,7 +78,7 @@ Access to the SOC Azure architecture includes:
 Access to the target architecture:
 
 - **Contributor** on the target virtual machine's resource group, which provides snapshot rights on virtual machine disks.
-- **Key Vault Secrets Officer** on the target virtual machine's key vault used to store BEK, only if RBAC access control is used for the Key Vault.
+- **Key Vault Secrets Officer** on the target virtual machine's key vault used to store BEK, only if RBAC is used for the Key Vault.
 - Access policy to **Get Secret** on the target virtual machine's key vault used to store BEK, only if access policy is used for the Key Vault.
 
 > [!NOTE]
@@ -108,12 +106,14 @@ An Azure [Log Analytics workspace](/azure/azure-monitor/platform/resource-logs-c
 
 ## Scenario details
 
-The following section describes what teams can do to ensure a valid chain of custody.
+Digital forensics is a science that addresses the recovery and investigation of digital data to support criminal investigations or civil proceedings. Computer forensics is a branch of digital forensics that captures and analyzes data from computers, virtual machines (VMs), and digital storage media.
+
+Companies must guarantee that the digital evidence they provide in response to legal requests demonstrates a valid CoC throughout the evidence acquisition, preservation, and access process. To ensure a valid CoC, digital evidence storage must demonstrate adequate access control, data protection and integrity, monitoring and alerting, and logging and auditing.
 
 ### Potential use cases
 
 - A company's *Security Operation Center* (SOC) team can implement this technical solution to support a valid CoC for digital evidence.
-- Investigators can attach disk copies, obtained with this technique, on a computer dedicated to forensic analysis, without powering on or accessing the original source virtual machine.
+- Investigators can attach disk copies that are obtained with this technique on a computer dedicated to forensic analysis. They can attach the disk copies without powering on or accessing the original source virtual machine.
 
 ### Chain of custody regulatory compliance
 
@@ -128,7 +128,7 @@ When you validate a CoC solution, one of the requirements to evaluate is the com
 
 All the components included in the above architecture are Azure standard services built upon a foundation of trust, security and [compliance](https://azure.microsoft.com/overview/trusted-cloud/compliance).
 
-Azure has a wide range of compliance certifications, including certifications specific for global regions and countries, and for the key industries like healthcare, government, finance and education.
+Azure has a wide range of compliance certifications, including certifications specific for countries or regions, and for the key industries like healthcare, government, finance and education.
 
 Updated audit reports with information about standards compliance for the services adopted in this solution can be found on [Service Trust Portal](https://servicetrust.microsoft.com/ViewPage/HomePageVNext).
 
@@ -148,7 +148,7 @@ When roles of SOC team are assigned, only two individuals within the team should
 
 Only the [virtual network](/azure/virtual-network/virtual-networks-overview) in the SOC subscription has access to the SOC Storage account and key vault used to archive the evidence.
 
-Temporary access to the SOC Storage is provided to investigators that require access to evidence. Access is granted by authorized SOC team members.
+Temporary access to the SOC Storage is provided to investigators that require access to evidence. Authorized SOC team members can grant access.
 
 #### Evidence Acquisition
 
@@ -158,7 +158,7 @@ Azure Audit Logs can show the evidence acquisition by recording the action of ta
 
 The use of Azure Automation to move evidence to its final archive destination (without human intervention) guarantees that evidence artifacts haven't been altered.
 
-By applying a *Legal Hold* to the destination Azure storage, the evidence is frozen in time as soon as it's written. Legal Hold shows that the CoC has been maintained entirely in Azure. It also shows that there wasn't an opportunity to tamper between the time the disk images existed on a live virtual machine and when they were added as evidence in the Storage account.
+By applying a *Legal Hold* to the destination Azure storage, the evidence is frozen in time as soon as it's written. Legal Hold shows that the CoC has been maintained entirely in Azure. Legal Hold also shows that there wasn't an opportunity to tamper between the time the disk images existed on a live virtual machine and when they were added as evidence in the Storage account.
 
 Lastly, as an integrity mechanism, the provided solution can be used to calculate the hash values of the disk images. The supported hash algorithms are: *MD5*, *SHA256*, *SKEIN*, *KECCAK* (or *SHA3*).
 
@@ -232,19 +232,19 @@ Principal author:
 For more information about Azure data-protection features, see:
 
 - [Azure Storage encryption for data at rest](/azure/storage/common/storage-service-encryption)
-- [Azure Disk Encryption for virtual machines and virtual machine scale sets](/azure/security/fundamentals/azure-disk-encryption-vms-vmss)
-- [Immutable Storage - Legal Hold Policy](/azure/storage/blobs/storage-blob-immutable-storage#legal-holds)
+- [Overview of managed disk encryption options](/azure/security/fundamentals/azure-disk-encryption-vms-vmss)
+- [Store business-critical blob data with immutable storage](/azure/storage/blobs/storage-blob-immutable-storage)
 
 For more information about Azure logging and auditing features, see:
 
 - [Azure security logging and auditing](/azure/security/fundamentals/log-audit)
 - [Azure Storage analytics logging](/azure/storage/common/storage-analytics-logging)
-- [Azure platform logs in a Log Analytics workspace in Azure Monitor](/azure/azure-monitor/platform/resource-logs-collect-workspace)
+- [Azure resource logs](/azure/azure-monitor/essentials/resource-logs)
 
 For more information about Microsoft Azure Compliance, see:
 
 - [Azure Compliance](https://azure.microsoft.com/overview/trusted-cloud/compliance)
-- [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings)
+- [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/en-us/resources/microsoft-azure-compliance-offerings/en-us)
 
 ## Related resources
 
