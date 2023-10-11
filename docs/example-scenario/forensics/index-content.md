@@ -20,6 +20,82 @@ In the architecture, the production virtual machines are part of a spoke [Azure 
 > [!NOTE]
 > The scenario works for production virtual machines with unencrypted disks.
 
+### Components
+
+- [Azure Automation](/azure/automation/automation-intro)
+- [Hybrid Runbook Worker](/azure/automation/extension-based-hybrid-runbook-worker-install)
+- [Azure Automation system-assigned managed identity](/azure/automation/enable-managed-identity-for-automation)
+- [Azure Storage account](/azure/storage/common/storage-account-overview)
+- [Secure transfer](/azure/storage/common/storage-require-secure-transfer)
+- [Azure Storage firewall](/azure/storage/common/storage-network-security)
+- [Azure file share](/azure/storage/files/storage-how-to-create-file-share?tabs=azure-portal)
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault)
+- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
+- [Hybrid Runbook Worker](/azure/automation/automation-hybrid-runbook-worker)
+- [Azure Automation](https://azure.microsoft.com/services/automation)
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory)(Microsoft Entra ID)
+- [Log Analytics workspace](/azure/azure-monitor/platform/resource-logs-collect-workspace)
+
+#### Azure Automation
+
+The SOC team uses an [Azure Automation](/azure/automation/automation-intro) account to create and maintain the Copy-VmDigitalEvidence runbook. The team also uses the Azure Automation to create the Hybrid Runbook Workers that run the runbook.
+
+#### Hybrid Runbook Worker
+
+The [Hybrid Runbook Worker](/azure/automation/extension-based-hybrid-runbook-worker-install) virtual machine is part of the Automation account and is used exclusively by the SOC team to implement the Copy-VmDigitalEvidence runbook.
+
+The Hybrid Runbook Worker virtual machine must be placed in a subnet that can access the Storage Account.
+Access to the Storage Account is configured by adding the Hybrid Runbook Worker virtual machine subnet to the Storage Account's firewall allowlist rules.
+
+Access to this virtual machine must be granted only to the SOC team members for maintenance activities.
+
+The virtual network used by the virtual machine must not be connected to the hub to keep it isolated.
+
+The Hybrid Runbook Worker uses the [Azure Automation system-assigned managed identity](/azure/automation/enable-managed-identity-for-automation) to access the target virtual machine's resources and the other Azure services required by the solution.
+
+The minimal role-based access control (RBAC) permissions that must be assigned to system-assigned managed identity are classified in two categories:
+
+- Access permissions to the SOC Azure architecture containing the solution core components.
+- Access permissions to the target architecture, containing the target Virtual Machine resources.
+
+Access to the SOC Azure architecture includes:
+
+- **Storage Account Contributor** on the SOC immutable Storage account
+- **Key Vault Secrets Officer**, on the SOC key vault for the BEK management
+
+Access to the target architecture:
+
+- **Contributor** on the target virtual machine's resource group, which provides snapshot rights on virtual machine disks.
+- **Key Vault Secrets Officer** on the target virtual machine's key vault used to store BEK, only if RBAC is used for the Key Vault.
+- Access policy to **Get Secret** on the target virtual machine's key vault used to store BEK, only if access policy is used for the Key Vault.
+
+> [!NOTE]
+> To read the BEK, the target virtual machine's key vault must be accessible from the Hybrid Runbook Worker virtual machine. If the key vault has the firewall enabled, ensure that the public IP address of the Hybrid RunBook Worker Virtual Machine is allowed through the firewall.
+
+#### Azure Storage account
+
+The [Azure Storage account](/azure/storage/common/storage-account-overview) in the SOC subscription hosts the disk snapshots in a container configured with *Legal Hold* policy as Azure immutable blob storage. Immutable blob storage stores business-critical data objects in a *Write Once, Read Many* (WORM) state, which makes the data nonerasable and uneditable for a user-specified interval.
+
+Ensure that [Secure transfer](/azure/storage/common/storage-require-secure-transfer) and [Storage firewall](/azure/storage/common/storage-network-security?tabs=azure-portal#grant-access-from-a-virtual-network) are both enabled. Firewall grants access only from the SOC Virtual Network.
+
+The storage account also hosts an [Azure file share](/azure/storage/files/storage-how-to-create-file-share?tabs=azure-portal) used as a temporary repository for calculating the snapshot's hash value.
+
+#### Azure Key Vault
+
+The SOC subscription has its own [Key Vault](https://azure.microsoft.com/services/key-vault), which hosts a copy of the BEK that Azure Disk Encryption (ADE) uses to protect the target virtual machine. The primary copy is kept in the key vault used by the target virtual machine, so that virtual machine can continue normal operation.
+
+The SOC key vault also contains the hash values of disk snapshots calculated by the Hybrid Worker during the capture operations.
+
+Ensure the [firewall](/azure/key-vault/general/network-security#key-vault-firewall-enabled-virtual-networks---dynamic-ips) is enabled on the key vault. It's configured to grant access only from the SOC Virtual Network.
+
+#### Log Analytics
+
+An Azure [Log Analytics workspace](/azure/azure-monitor/platform/resource-logs-collect-workspace) stores activity logs used to audit all relevant events on the SOC subscription.
+
+### Alternatives
+
+If necessary, you can grant time-limited read-only SOC Storage account access to IP addresses from outside, on-premises networks, for investigators to download the digital evidence.
+
 The system and organization controls (SOC) team uses a discrete Azure **SOC** subscription. The team has exclusive access to that subscription, which contains the resources that must be kept protected, inviolable, and monitored. The [Azure Storage](/azure/storage/common/storage-introduction) account in the SOC subscription hosts copies of disk snapshots in [immutable blob storage](/azure/storage/blobs/storage-blob-immutable-storage), and a dedicated [Key Vault](/azure/key-vault/general/overview) keeps the snapshots' hash values and copies of the virtual machines' BEKs.
 
 In response to a request to capture a virtual machine's digital evidence, a SOC team member signs in to the Azure SOC subscription and uses a [Hybrid Runbook Worker](/azure/automation/extension-based-hybrid-runbook-worker-install) virtual machine in [Automation](/azure/automation/automation-intro) to implement the **Copy-VmDigitalEvidence** runbook. The Hybrid Runbook Worker provides control of all mechanisms involved in the capture.
@@ -35,44 +111,6 @@ The Copy-VmDigitalEvidence runbook implements these macro steps:
 
 > [!NOTE]
 > The production virtual machines encrypted disks can use *key encryption keys* (KEK) as well. The Copy-VmDigitalEvidence runbook provided in the [deploy scenario](#deploy-this-scenario) doesn't cover this scenario.
-
-### Components
-
-- [Automation](/azure/automation/automation-intro)
-- [System-assigned managed identity for an Automation account](/azure/automation/enable-managed-identity-for-automation)
-- [Storage account](/azure/storage/common/storage-account-overview)
-- [Azure file share](/azure/storage/files/storage-how-to-create-file-share?tabs=azure-portal)
-- [Key Vault](https://azure.microsoft.com/services/key-vault)
-- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
-- [Microsoft Entra ID](https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-id)
-- [Hybrid Runbook Worker](/azure/automation/extension-based-hybrid-runbook-worker-install)
-- [Secure transfer](/azure/storage/common/storage-require-secure-transfer)
-
-### Alternatives
-
-If necessary, you can grant time-limited read-only SOC storage account access to IP addresses from outside, on-premises networks, for investigators to download the digital evidence.
-
-You can also deploy a Hybrid Runbook Worker on on-premises or other cloud networks, which they can use to run the Copy‑VmDigitalEvidence Azure Automation runbook on their resources.
-
-### Azure Storage account
-
-The [Azure Storage account](/azure/storage/common/storage-account-overview) in the SOC subscription hosts the disk snapshots in a container configured with *Legal Hold* policy as Azure immutable blob storage. Immutable blob storage stores business-critical data objects in a *Write Once, Read Many* (WORM) state, which makes the data nonerasable and uneditable for a user-specified interval.
-
-Ensure that [Secure transfer](/azure/storage/common/storage-require-secure-transfer) and [Storage firewall](/azure/storage/common/storage-network-security?tabs=azure-portal#grant-access-from-a-virtual-network) are both enabled. Firewall grants access only from the SOC Virtual Network.
-
-The storage account also hosts an [Azure file share](/azure/storage/files/storage-how-to-create-file-share?tabs=azure-portal) used as a temporary repository for calculating the snapshot's hash value.
-
-### Azure Key Vault
-
-The SOC subscription has its own [Key Vault](https://azure.microsoft.com/services/key-vault), which hosts a copy of the BEK that Azure Disk Encryption (ADE) uses to protect the target virtual machine. The primary copy is kept in the key vault used by the target virtual machine, so that virtual machine can continue normal operation.
-
-The SOC key vault also contains the hash values of disk snapshots calculated by the Hybrid Worker during the capture operations.
-
-Ensure the [firewall](/azure/key-vault/general/network-security#key-vault-firewall-enabled-virtual-networks---dynamic-ips) is enabled on the key vault. It's configured to grant access only from the SOC Virtual Network.
-
-### Log Analytics
-
-An Azure [Log Analytics workspace](/azure/azure-monitor/platform/resource-logs-collect-workspace) stores activity logs used to audit all relevant events on the SOC subscription.
 
 ## Scenario details
 
@@ -219,5 +257,10 @@ For more information about Microsoft Azure Compliance, see:
 ## Related resources
 
 - [Security architecture design](../../guide/security/security-start-here.yml)
-- [Azure Active Directory IDaaS in security operations](../aadsec/azure-ad-security.yml)
+<<<<<<<<< Temporary merge branch 1
+- [Microsoft Entra IDaaS in security operations](../aadsec/azure-ad-security.yml)
 - [Security considerations for highly sensitive IaaS apps in Azure](../../reference-architectures/n-tier/high-security-iaas.yml)
+=========
+- [Microsoft Entra ID IDaaS in security operations](../aadsec/azure-ad-security.yml)
+- [Security considerations for highly sensitive IaaS apps in Azure](../../reference-architectures/n-tier/high-security-iaas.yml)
+>>>>>>>>> Temporary merge branch 2
