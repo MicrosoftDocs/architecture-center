@@ -19,13 +19,13 @@ The following diagram shows the responsibility matrix of a Windows 365 deploymen
 > [!NOTE]
 > The following diagram represents the responsibilities from the infrastructure perspective, such as setting up the hardware and network, and maintaining them. It doesn't include the Windows 365 or Intune tenant subscription setup.
 
-:::image type="content" source="./images/W365-Placement-Diagrams-updated-1.svg" alt-text="A diagram of the responsibility matrix that shows a deployment that uses the Microsoft-hosted network." lightbox="./images/W365-Placement-Diagrams-updated-1.svg" border="false":::
-*Download a [PowerPoint file](https://arch-center.azureedge.net/W365-Placement-Diagrams-updated.pptx) of this architecture.*
+:::image type="content" source="./images/windows-365-placement-diagrams-updated-1.svg" alt-text="A diagram of the responsibility matrix that shows a deployment that uses the Microsoft-hosted network." lightbox="./images/windows-365-placement-diagrams-updated-1.svg" border="false":::
+*Download a [PowerPoint file](https://arch-center.azureedge.net/windows-365-placement-diagrams-updated.pptx) of this architecture.*
 
 The following diagram shows a typical Windows 365 deployment that uses an Azure network connection and shows the components that Microsoft manages and the components that you manage across the lifecycle stages of a Cloud PC.
 
-:::image type="content" source="./images/W365-Placement-Diagrams-updated-2.svg" alt-text="A diagram of the responsibility matrix, showing a deployment using an Azure network connection." lightbox="./images/W365-Placement-Diagrams-updated-2.svg" border="false":::
-*Download a [PowerPoint file](https://arch-center.azureedge.net/W365-Placement-Diagrams-updated.pptx) of this architecture.*
+:::image type="content" source="./images/windows-365-placement-diagrams-updated-2.svg" alt-text="A diagram of the responsibility matrix, showing a deployment using an Azure network connection." lightbox="./images/windows-365-placement-diagrams-updated-2.svg" border="false":::
+*Download a [PowerPoint file](https://arch-center.azureedge.net/windows-365-placement-diagrams-updated.pptx) of this architecture.*
 
 ### Recommended architecture pattern
 
@@ -37,8 +37,8 @@ Microsoft recommends deploying Windows 365 with the following components to get 
 - Intune-based mobile device management (MDM) service with app and OS configuration
 - A Windows 365 app for Cloud PC access
 
-:::image type="content" source="./images/W365-Placement-Diagrams-updated-3.svg" alt-text="A diagram of an architecture pattern, showing benefits of the Windows 365 service." lightbox="./images/W365-Placement-Diagrams-updated-3.svg" border="false":::
-*Download a [PowerPoint file](https://arch-center.azureedge.net/W365-Placement-Diagrams-updated.pptx) of this architecture.*
+:::image type="content" source="./images/windows-365-placement-diagrams-updated-3.svg" alt-text="A diagram of an architecture pattern, showing benefits of the Windows 365 service." lightbox="./images/windows-365-placement-diagrams-updated-3.svg" border="false":::
+*Download a [PowerPoint file](https://arch-center.azureedge.net/windows-365-placement-diagrams-updated.pptx) of this architecture.*
 
 The preceding architecture pattern allows you to get the most out of the Windows 365 service and provides the following benefits:
 
@@ -54,7 +54,7 @@ The preceding architecture pattern allows you to get the most out of the Windows
 
 The following diagram is a representation of all the components that are part of the Windows 365 service. This architecture uses Intune and Microsoft Entra ID, which are core requirements of Windows 365. There are also optional components such as Azure Virtual Network.
 
-:::image type="content" source="./images/W365-Placement-Diagrams-updated-4.svg" alt-text="A diagram of the Azure network connection and Microsoft Hosted Network options." lightbox="./images/W365-Placement-Diagrams-updated-4.svg" border="false":::
+:::image type="content" source="./images/windows-365-placement-diagrams-updated-4.svg" alt-text="A diagram of the Azure network connection and Microsoft Hosted Network options." lightbox="./images/windows-365-placement-diagrams-updated-4.svg" border="false":::
 *Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/W365-Azure-Network-Connection.vsdx) of this architecture.*
 
 The previous diagram shows Azure network connection and Microsoft-hosted network options. They're mutually exclusive architecture options. The following sections elaborate on the Azure network connection options.
@@ -65,7 +65,7 @@ Virtual Desktop is an Azure-based virtual desktop infrastructure (VDI) solution.
 
 For more information, see [Azure Virtual Desktop for the enterprise](/azure/architecture/example-scenario/wvd/windows-virtual-desktop).
 
-:::image type="content" source="./images/W365-Placement-Diagrams-updated-5.svg" alt-text="A diagram of Windows Virtual Desktop Control Plane components." lightbox="./images/W365-Placement-Diagrams-updated-5.svg" border="false":::
+:::image type="content" source="./images/windows-365-placement-diagrams-updated-5.svg" alt-text="A diagram of Windows Virtual Desktop Control Plane components." lightbox="./images/windows-365-placement-diagrams-updated-5.svg" border="false":::
 *Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/W365-Azure-Network-Connection.vsdx) of this architecture.*
 
 > [!NOTE]
@@ -179,12 +179,12 @@ Windows 365 usage in an Azure network connection architecture pattern involves t
 
 Windows 365 uses the *Hosted on behalf of* model to deliver services to Windows 365 customers. In this model, the Cloud PC is provisioned and run in Azure subscriptions owned by Microsoft, while the network adapter of the Cloud PC is provisioned in a customer's Azure subscription. The following diagrams show two Azure network connection architecture patterns. Customers use their own Azure subscription and virtual network.
 
-:::image type="content" source="./images/W365-Placement-Diagrams-updated-6.svg" alt-text="A diagram of the architecture pattern using the Microsoft Entra join identity." lightbox="./images/W365-Placement-Diagrams-updated-6.svg" border="false":::
+:::image type="content" source="./images/windows-365-placement-diagrams-updated-6.svg" alt-text="A diagram of the architecture pattern using the Microsoft Entra join identity." lightbox="./images/windows-365-placement-diagrams-updated-6.svg" border="false":::
 *Download a [PowerPoint file](https://archcenter.blob.core.windows.net/cdn/W365-Azure-Network-Connection.vsdx) of this architecture.*
 
 The previous architecture pattern uses the Microsoft Entra join identity to manage the Cloud PC.
 
-:::image type="content" source="./images/W365-Placement-Diagrams-updated-7.svg" alt-text="A diagram of the architecture pattern using the Microsoft Entra hybrid join identity." lightbox="./images/W365-Placement-Diagrams-updated-7.svg" border="false":::
+:::image type="content" source="./images/windows-365-placement-diagrams-updated-7.svg" alt-text="A diagram of the architecture pattern using the Microsoft Entra hybrid join identity." lightbox="./images/windows-365-placement-diagrams-updated-7.svg" border="false":::
 *Download a [PowerPoint file](https://archcenter.blob.core.windows.net/cdn/W365-Azure-Network-Connection.vsdx) of this architecture.*
 
 The previous architecture pattern uses Microsoft Entra hybrid join identity to manage the Cloud PC and requires a *line of sight* network communication with Active Directory Domain Services (AD DS) domain controllers in on-premises environments.
@@ -238,13 +238,13 @@ For more information, see [Optimizing RDP connectivity for Windows 365](https://
 
    - The following deployment model might be optimal if customers spend most of their work time accessing the LOB apps rather than work on locally installed apps, like apps in Microsoft 365. This model optimizes latency for LOB apps vs. Cloud PC access latency by placing the Cloud PC in the same region as the LOB app (Geography B). This optimization occurs even though the gateway is geographically closer to the end user (Geography A). The following diagram shows the possible traffic flow from the end user to the LOB apps.
 
-:::image type="content" source="./images/W365-Placement-Diagrams-updated-8.svg" alt-text="A diagram of a flow chart, showing a possible traffic flow from users to apps." lightbox="./images/W365-Placement-Diagrams-updated-8.svg" border="false":::
-*Download a [PowerPoint file](https://arch-center.azureedge.net/W365-Placement-Diagrams-updated.pptx) of this architecture.*
+:::image type="content" source="./images/windows-365-placement-diagrams-updated-8.svg" alt-text="A diagram of a flow chart, showing a possible traffic flow from users to apps." lightbox="./images/windows-365-placement-diagrams-updated-8.svg" border="false":::
+*Download a [PowerPoint file](https://arch-center.azureedge.net/windows-365-placement-diagrams-updated.pptx) of this architecture.*
 
    - If customers occasionally access the LOB apps in Geography B, then deploying a Cloud PC closer to the customers might be optimal because it optimizes the Cloud PC access latency over LOB apps access latency. The following diagram shows how the traffic might flow in such a scenario.
 
-:::image type="content" source="./images/W365-Placement-Diagrams-updated-9.svg" alt-text="A diagram of a flow chart that shows a possible traffic flow from users to apps." lightbox="./images/W365-Placement-Diagrams-updated-9.svg" border="false":::
-*Download a [PowerPoint file](https://arch-center.azureedge.net/W365-Placement-Diagrams-updated.pptx) of this architecture.*
+:::image type="content" source="./images/windows-365-placement-diagrams-updated-9.svg" alt-text="A diagram of a flow chart that shows a possible traffic flow from users to apps." lightbox="./images/windows-365-placement-diagrams-updated-9.svg" border="false":::
+*Download a [PowerPoint file](https://arch-center.azureedge.net/windows-365-placement-diagrams-updated.pptx) of this architecture.*
 
 ## AD DS recommendations
 
