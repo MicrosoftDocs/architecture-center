@@ -16,7 +16,7 @@ azureCategories:
 products:
   - azure-text-analytics
   - azure-synapse-analytics
-  - azure-cognitive-services
+  - ai-services
   - azure-blob-storage
 name: Analyze call center recordings using text analytics for health and Azure OpenAI Service
 summary: Automate the transcription of healthcare-specific audio data and the process of serving that data to end users.
