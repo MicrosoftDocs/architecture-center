@@ -9,9 +9,9 @@ The architecture design follows the principles of [Azure landing zone](/azure/cl
 
 This scenario uses a hub-and-spoke network topology as shown in the following diagram:
 
-:::image type="content" alt-text="Diagram showing the chain of custody architecture." source="media/chain-of-custody.png" lightbox="media/chain-of-custody.png":::
+:::image type="content" alt-text="Diagram showing the chain of custody architecture." source="media/chain-of-custody.svg" lightbox="media/chain-of-custody.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/chain-of-custody.vsdx) of this architecture.*
+*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/chain-of-custody.vsdx) of this architecture.*
 
 ### Workflow
 
