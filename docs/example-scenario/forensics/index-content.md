@@ -257,10 +257,7 @@ For more information about Microsoft Azure Compliance, see:
 ## Related resources
 
 - [Security architecture design](../../guide/security/security-start-here.yml)
-<<<<<<<<< Temporary merge branch 1
 - [Microsoft Entra IDaaS in security operations](../aadsec/azure-ad-security.yml)
 - [Security considerations for highly sensitive IaaS apps in Azure](../../reference-architectures/n-tier/high-security-iaas.yml)
-=========
 - [Microsoft Entra ID IDaaS in security operations](../aadsec/azure-ad-security.yml)
 - [Security considerations for highly sensitive IaaS apps in Azure](../../reference-architectures/n-tier/high-security-iaas.yml)
->>>>>>>>> Temporary merge branch 2
