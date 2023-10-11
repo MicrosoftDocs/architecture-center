@@ -93,6 +93,10 @@ Principal authors:
 - [Francis Simy Nazareth](https://www.linkedin.com/in/francis-simy-nazereth-971440a) | Senior Technical Specialist
 - [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Customer Engineer
 
+Other contributors:
+
+- [Rong Zhang](https://www.linkedin.com/in/rong-zhang-7335561a) | Senior Product Manager
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
