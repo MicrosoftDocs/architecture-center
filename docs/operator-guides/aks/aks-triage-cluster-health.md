@@ -33,15 +33,14 @@ To diagnose and solve problems in your AKS (Azure Kubernetes Service) cluster, y
 
 By utilizing these tools and features, you can effectively diagnose and resolve issues, optimize your AKS cluster deployment, and monitor the health and performance of your Azure resources.
 
-[AKS Diagnose and Solve Problems](/aks/aks-diagnostics) provides a comprehensive suite of tools to aid in the identification and resolution of various issues related to your cluster. Depending on the issue you're experiencing, you can check the description on each category tile and select the most relevant one to diagnose your problem. Based on the outcome, you may follow the detailed instructions or refer to the documentation links to resolve the issue effectively. 
+[AKS Diagnose and Solve Problems](/azure/aks/aks-diagnostics) provides a comprehensive suite of tools to aid in the identification and resolution of various issues related to your cluster. Depending on the issue you're experiencing, you can check the description on each category tile and select the most relevant one to diagnose your problem. Based on the outcome, you may follow the detailed instructions or refer to the documentation links to resolve the issue effectively. 
 
 ![screenshot of Diagnose and solve problems homepage.](images/aks-diagnostics.png)
 
-To check the cluster health, the following tiles in [AKS Diagnose and Solve Problems](/aks/aks-diagnostics) could be useful:
+You can use the following tiles in [AKS Diagnose and Solve Problems](/azure/aks/aks-diagnostics) to check the cluster health:
 
 - **Cluster and Control Plane availability and performance**: This tile helps to check if there are any service availability or throttling issues affecting the health of the cluster.
 - **Connectivity issues**: This tile helps to verify if there are errors with cluster DNS resolution, or if the outbound communication route has connectivity issues.
-
 
 [Resource Health](/azure/service-health/resource-health-overview) helps you identify and get support for cluster issues and service problems that could impact your cluster's health. By adding a resource alert, you can easily monitor the health of your cluster. This feature provides a report on the current and past health of your cluster, and below are the health statuses:
 

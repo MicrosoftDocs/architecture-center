@@ -26,7 +26,7 @@ A common symptom of this issue is receiving **ImagePullBackoff** errors when get
 
 If you are using Azure Container Registry (ACR), the cluster service principal or managed identity should be granted **AcrPull** permissions against the registry.
 
-Attaching a registry to an existing kubernetes cluster automatically assigns AcrPull permissions to the registry. [The AKS to ACR integration](/aks/cluster-container-registry-integration?tabs=azure-cli) assigns the AcrPull role to the Azure Active Directory (Azure AD) managed identity associated with the agent pool in your AKS cluster.
+Attaching a registry to an existing kubernetes cluster automatically assigns AcrPull permissions to the registry. [The AKS to ACR integration](/azure/aks/cluster-container-registry-integration?tabs=azure-cli) assigns the AcrPull role to the Azure Active Directory (Azure AD) managed identity associated with the agent pool in your AKS cluster.
 
 You can retrieve the managed identity of Kubernetes cluster and it's current role assignments as follows.
 
@@ -42,7 +42,7 @@ You can create the acrPull role assignment as follows:
 az role assignment create --assignee $ASSIGNEE --scope $AZURE_CONTAINER_REGISTRY_ID --role acrpull
 ```
 
-If you're using a third party container registry, [create the appropriate **ImagePullSecret** credentials](/container-registry/container-registry-auth-kubernetes#create-an-image-pull-secret) for the registry.
+If you're using a third party container registry, [create the appropriate **ImagePullSecret** credentials](/azure/container-registry/container-registry-auth-kubernetes#create-an-image-pull-secret) for the registry.
 
 ## Related links
 

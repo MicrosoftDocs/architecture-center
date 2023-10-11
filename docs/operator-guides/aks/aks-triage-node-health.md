@@ -88,9 +88,9 @@ DNS resolution is a critical component of your cluster. If DNS resolution isn't 
 Follow these steps to make sure that DNS resolution to the Kubernetes API server is working.
 
 1. Exec into the pod to examine and use `nslookup` or `dig` if those tools are installed on the pod.
-2. If the pod doesn't have those tools, start a utility pod in the same namespace and retry with the tools to resolve the AKS API server. An example of utility pod  is provided [in this article](/azure-kubernetes/troubleshoot-dns-failure-from-pod-but-not-from-worker-node).
+2. If the pod doesn't have those tools, start a utility pod in the same namespace and retry with the tools to resolve the AKS API server. An example of utility pod  is provided [in this article](/troubleshoot/azure/azure-kubernetes/troubleshoot-dns-failure-from-pod-but-not-from-worker-node).
 3. If those steps don't show insights, [/aks/node-access#create-an-interactive-shell-connection-to-a-linux-node](connect to one of the nodes) and try resolution from there. This step will help determine if the issue is related to AKS related or networking configuration.
-4. If DNS resolves from the node but not from the pod, the issue may be related to Kubernetes DNS. [This article](/azure-kubernetes/troubleshoot-dns-failure-from-pod-but-not-from-worker-node) provides steps to debug DNS resolution from the pod. 
+4. If DNS resolves from the node but not from the pod, the issue may be related to Kubernetes DNS. [This article](/troubleshoot/azure/azure-kubernetes/troubleshoot-dns-failure-from-pod-but-not-from-worker-node) provides steps to debug DNS resolution from the pod. 
 5. If DNS doesn't resolve from the node, then check the networking setup to make sure that the appropriate routing paths and ports are open.
 
 ## 4- Check for kubelet errors
@@ -110,7 +110,7 @@ The pressure increases when kubelet restarts and causes some sporadic, unpredict
 
 ## 5- Check node health using Node Problem Detector (NPD)
 
-Node Problem Detector (NPD) is an open source Kubernetes component that detects node-related problems and reports on them. It runs as a systemd serviced on each node in the cluster and collects various metrics and system information, such as CPU usage, disk usage, and network connectivity. When it detects a problem, it generates events and/or node conditions. Azure Kubernetes Service (AKS) uses NPD to monitor and manage nodes in a Kubernetes cluster running on the Azure cloud platform. You can find out more about using node problem detector with AKS [here](/aks/node-problem-detector?source=recommendations). 
+Node Problem Detector (NPD) is an open source Kubernetes component that detects node-related problems and reports on them. It runs as a systemd serviced on each node in the cluster and collects various metrics and system information, such as CPU usage, disk usage, and network connectivity. When it detects a problem, it generates events and/or node conditions. Azure Kubernetes Service (AKS) uses NPD to monitor and manage nodes in a Kubernetes cluster running on the Azure cloud platform. You can find out more about using node problem detector with AKS [here](/azure/aks/node-problem-detector?source=recommendations). 
 
 
 ## 6- Check disk IOPS for throttling
