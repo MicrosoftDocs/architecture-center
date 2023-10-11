@@ -1,4 +1,3 @@
-# Use Azure Batch to run Financial Service Industry (FSI) workloads
 
 <!-- From https://learn.microsoft.com/en-us/contribute/architecture-center/guide-templates -->
 <!-- https://learn.microsoft.com/en-us/contribute/ -->
