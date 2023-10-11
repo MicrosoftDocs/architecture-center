@@ -269,7 +269,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 It's important to understand the division of responsibility between an automotive OEM and Microsoft. In a vehicle, the OEM owns the whole stack, but as the data moves to the cloud, some responsibilities transfer to Microsoft. Azure platform as a service (PaaS) layers provide built-in security on the physical stack, including the operating system. You can add the following capabilities to the existing infrastructure security components:
 
-- Identity and access management that uses Azure Active Directory (Azure AD) identities and [Azure AD Conditional Access](/azure/active-directory/conditional-access) policies.
+- Identity and access management that uses Microsoft Entra identities and [Microsoft Entra Conditional Access](/azure/active-directory/conditional-access) policies.
 - Infrastructure governance that uses [Azure Policy](https://azure.microsoft.com/services/azure-policy).
 - Data governance that uses [Microsoft Purview](https://azure.microsoft.com/services/purview).
 - Encryption of data at rest that uses native Azure storage and database services. For more information, see [Data protection considerations](/azure/well-architected/security/design-storage).

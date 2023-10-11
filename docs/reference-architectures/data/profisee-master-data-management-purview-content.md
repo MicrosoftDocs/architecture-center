@@ -123,11 +123,11 @@ As your data stewards evolve the model, the modeling services within the Profise
 
 Large enterprises that have correspondingly complex and expansive data estates can present challenges to data stewards, who are responsible for managing and remediating issues as they arise. Key data domains can be complex, with many obscure attributes that only tenured employees who have significant institutional knowledge understand. Through the Profisee MDM integration with Microsoft Purview, you can capture this institutional knowledge within Microsoft Purview and make it available for use within Profisee MDM. As a result, you alleviate a great need for corporate data knowledge when you manage critical and time-sensitive information.
 
-The following figure illustrates the flow of information from Microsoft Purview to the data stewards who work in the Profisee FastApp portal. The governance data service integrates with Microsoft Purview and Azure Active Directory (Azure AD). This service provides lookup functionality. FastApp portal users can use this functionality to retrieve enriched governance data about the entities and the attributes that they work with.
+The following figure illustrates the flow of information from Microsoft Purview to the data stewards who work in the Profisee FastApp portal. The governance data service integrates with Microsoft Purview and Microsoft Entra ID. This service provides lookup functionality. FastApp portal users can use this functionality to retrieve enriched governance data about the entities and the attributes that they work with.
 
 :::image type="content" source="images/microsoft-purview-data-flow-profisee-portal.png" alt-text="Diagram that shows how data stewards use the Profisee portal to work with data that Microsoft Purview and Profisee MDM manage." border="false":::
 
-Governance services also resolve contacts that are received from Microsoft Purview to their full profile details, which are available in Azure AD. With complete profile details, stewards can effectively collaborate with data owners and experts as they work to enhance the quality of your master data.
+Governance services also resolve contacts that are received from Microsoft Purview to their full profile details, which are available in Microsoft Entra ID. With complete profile details, stewards can effectively collaborate with data owners and experts as they work to enhance the quality of your master data.
 
 The Profisee MDM Governance dialog is the interface through which data stewards and users interact with governance-level details. This UI renders information that's obtained from Microsoft Purview to users. By using this information, users can review the details behind the data from which the dialog was launched. If the information that's provided in the Governance dialog is insufficient, users can go directly to the Microsoft Purview user experience.
 
@@ -249,7 +249,7 @@ Profisee runs natively on Azure Kubernetes Service (AKS) and Azure SQL Database.
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-Profisee authenticates users by using OpenID Connect, which implements an OAuth 2.0 authentication flow. Most organizations configure Profisee MDM to authenticate users against Azure AD, which ensures that you can apply and enforce your enterprise policies for authentication.
+Profisee authenticates users by using OpenID Connect, which implements an OAuth 2.0 authentication flow. Most organizations configure Profisee MDM to authenticate users against Microsoft Entra ID, which ensures that you can apply and enforce your enterprise policies for authentication.
 
 ### Cost optimization
 

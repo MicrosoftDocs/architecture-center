@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution provides a small scale deployment of SharePoint, by using a single Azure Active Directory (Azure AD), SQL, and SharePoint resources.
+This solution provides a small scale deployment of SharePoint, by using a single Microsoft Entra ID, SQL, and SharePoint resources.
 
 ## Potential use cases
 
@@ -17,7 +17,7 @@ This solution address the capability to deliver agile development architecture t
 1. Create resource group for the storage, network, and virtual machine, plus other dependent elements.
 1. Create a virtual network to host the virtual machines and load balancers for the deployment. Ensure the network has appropriate Network Security Groups implement to protect network traffic flow.
 1. Create the storage accounts that will host the virtual machine images (VHDs).
-1. Create the Active Directory installation. Either utilizing a new Virtual Machine or using Azure Active Directory Domain Services. If using Azure Active Directory, you also need to consider synchronizing identities to Azure AD with Azure AD Connect.
+1. Create the Active Directory installation. Either utilizing a new Virtual Machine or using Microsoft Entra Domain Services. If using Microsoft Entra ID, you also need to consider synchronizing identities to Microsoft Entra ID with Microsoft Entra Connect.
 1. Install a supported version of SQL Server on an Azure VM or deploy a pay-as-you-go instance of SQL Server.
 1. Deploy SharePoint onto an Azure VM, or use a trial image from the gallery, which already has SharePoint Server installed.
 1. Create the SharePoint farm.
@@ -31,7 +31,7 @@ This solution address the capability to deliver agile development architecture t
 * [Azure Resource Group](https://azure.microsoft.com/features/resource-manager): Container that holds related resources for an Azure solution
 * [Virtual Network](https://azure.microsoft.com/services/virtual-network): Provision private networks, optionally connect to on-premises datacenters
 * [Storage Accounts](https://azure.microsoft.com/services/storage): Durable, highly available, and massively scalable cloud storage
-* [Azure Active Directory](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on
+* [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on
 * SharePoint Server: Microsoft's collaboration server product
 * Host enterprise [SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server) apps in the cloud
 * [Load Balancer](https://azure.microsoft.com/services/load-balancer): Deliver high availability and network performance to your applications

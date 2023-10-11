@@ -12,11 +12,11 @@ _Download a [Visio file](https://arch-center.azureedge.net/wvdatscale.vsdx) of t
 
 The diagram's dataflow elements are described here:
 
-- The application endpoints are in a customer's on-premises network. Azure ExpressRoute extends the on-premises network into Azure, and Azure Active Directory (Azure AD) Connect integrates the customer's Active Directory Domain Services (AD DS) with Azure AD.
+- The application endpoints are in a customer's on-premises network. Azure ExpressRoute extends the on-premises network into Azure, and Microsoft Entra Connect integrates the customer's Active Directory Domain Services (AD DS) with Microsoft Entra ID.
 
 - The Azure Virtual Desktop control plane handles web access, gateway, broker, diagnostics, and extensibility components such as REST APIs.
 
-- The customer manages AD DS and Azure AD, Azure subscriptions, virtual networks, [Azure Files or Azure NetApp Files](/azure/virtual-desktop/store-fslogix-profile), and the Azure Virtual Desktop host pools and workspaces.
+- The customer manages AD DS and Microsoft Entra ID, Azure subscriptions, virtual networks, [Azure Files or Azure NetApp Files](/azure/virtual-desktop/store-fslogix-profile), and the Azure Virtual Desktop host pools and workspaces.
 
 - To increase capacity, the customer uses two Azure subscriptions in a hub-spoke architecture and connects them via virtual network peering.
 
@@ -30,7 +30,7 @@ For more information about FSLogix Profile Container - Azure Files and Azure Net
 
 Microsoft manages the following Azure Virtual Desktop services, as part of Azure:
 
-- **Web Access**: By using the [Web Access](/azure/virtual-desktop/connect-web) service within Azure Virtual Desktop you can access virtual desktops and remote apps through an HTML5-compatible web browser just as you would with a local PC, from anywhere and on any device. You can secure web access by using multifactor authentication in Azure Active Directory.
+- **Web Access**: By using the [Web Access](/azure/virtual-desktop/connect-web) service within Azure Virtual Desktop you can access virtual desktops and remote apps through an HTML5-compatible web browser just as you would with a local PC, from anywhere and on any device. You can secure web access by using multifactor authentication in Microsoft Entra ID.
 
 - **Gateway**: The Remote Connection Gateway service connects remote users to Azure Virtual Desktop apps and desktops from any internet-connected device that can run an Azure Virtual Desktop client. The client connects to a gateway, which then orchestrates a connection from a VM back to the same gateway.
 
@@ -46,11 +46,11 @@ You manage the following components of Azure Virtual Desktop solutions:
 
 - **Azure Virtual Network**: With [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network), Azure resources such as VMs can communicate privately with each other and with the internet. By connecting Azure Virtual Desktop host pools to an Active Directory domain, you can define network topology to access virtual desktops and virtual apps from the intranet or internet, based on organizational policy. You can connect an Azure Virtual Desktop instance to an on-premises network by using a virtual private network (VPN), or you can use [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) to extend the on-premises network into Azure over a private connection.
 
-- **Azure AD**: Azure Virtual Desktop uses [Azure AD](https://azure.microsoft.com/services/active-directory) for identity and access management. Azure AD integration applies Azure AD security features, such as conditional access, multifactor authentication, and [Intelligent Security Graph](https://www.microsoft.com/security/business/intelligence), and it helps maintain app compatibility in domain-joined VMs.
+- **Microsoft Entra ID**: Azure Virtual Desktop uses [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) for identity and access management. Microsoft Entra integration applies Microsoft Entra security features, such as conditional access, multifactor authentication, and [Intelligent Security Graph](https://www.microsoft.com/security/business/intelligence), and it helps maintain app compatibility in domain-joined VMs.
 
-- **Active Directory Domain Services (Optional)**: Azure Virtual Desktop VMs can either be domain joined to an [AD DS](https://azure.microsoft.com/services/active-directory-ds/) service or use [Azure AD join for AVD](/azure/architecture/example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join) 
-    - When using an AD DS domain, the domain must be in sync with Azure AD to associate users between the two services. You can use [Azure AD Connect](/azure/active-directory/hybrid/whatis-azure-ad-connect) to associate AD DS with Azure AD.
-    - When using Azure AD join, review the [supported configurations](/azure/virtual-desktop/azure-ad-joined-session-hosts#supported-configurations) to ensure your scenario is supported.
+- **Active Directory Domain Services (Optional)**: Azure Virtual Desktop VMs can either be domain joined to an [AD DS](https://azure.microsoft.com/services/active-directory-ds/) service or use [Microsoft Entra join for AVD](/azure/architecture/example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join) 
+    - When using an AD DS domain, the domain must be in sync with Microsoft Entra ID to associate users between the two services. You can use [Microsoft Entra Connect](/azure/active-directory/hybrid/whatis-azure-ad-connect) to associate AD DS with Microsoft Entra ID.
+    - When using Microsoft Entra join, review the [supported configurations](/azure/virtual-desktop/azure-ad-joined-session-hosts#supported-configurations) to ensure your scenario is supported.
 
 - **Azure Virtual Desktop session hosts**: Session hosts are VMs that users connect to for their desktops and applications. Several versions of Windows are supported and you can create images with your applications and customizations. You can choose VM sizes, including GPU-enabled VMs. Each session host has an Azure Virtual Desktop host agent, which registers the VM as part of the Azure Virtual Desktop workspace or tenant. Each host pool can have one or more app groups, which are collections of remote applications or desktop sessions that you can access. To see which versions of Windows are supported, see [Operating systems and licenses](/azure/virtual-desktop/prerequisites#operating-systems-and-licenses).
 
@@ -99,23 +99,23 @@ The relationships between host pools, workspaces, and other key logical componen
 
 - *(1)* An application group that contains a published desktop can only contain MSIX packages mounted to the host pool (the packages will be available in the *Start* menu of the session host), it can't contain any other published resources and is called a desktop application group.
 - *(2)* Application groups assigned to the same host pool must be members of the same workspace.
-- *(3)* A user account can be assigned to an application group either directly or via an Azure AD group. It's possible to assign no users to an application group, but then it can't service any.
+- *(3)* A user account can be assigned to an application group either directly or via a Microsoft Entra group. It's possible to assign no users to an application group, but then it can't service any.
 - *(4)* It's possible to have an empty workspace, but it can't service users.
 - *(5)* It's possible to have an empty host pool, but it can't service users.
 - *(6)* It's possible for a host pool not to have any application groups assigned to it but it can't service users.
-- *(7)* Azure AD is required for Azure Virtual Desktop. This is because Azure AD user accounts and groups must always be used to assign users to Azure Virtual Desktop application groups. Azure AD is also used to authenticate users into the Azure Virtual Desktop service. Azure Virtual Desktop session hosts can also be members of an Azure AD domain, and in this situation the Azure Virtual Desktop-published applications and desktop sessions will also be launched and run (not just assigned) by using Azure AD accounts. 
-    - *(7)* Alternatively, Azure Virtual Desktop session hosts can be members of an AD DS domain, and in this situation the Azure Virtual Desktop-published applications and desktop sessions will be launched and run (but not assigned) by using AD DS accounts. To reduce user and administrative overhead, AD DS can be synchronized with Azure AD through Azure AD Connect.
-    - *(7)* Finally, Azure Virtual Desktop session hosts can, instead, be members of an Azure AD DS domain, and in this situation the Azure Virtual Desktop-published applications and desktop sessions will be launched and run (but not assigned) by using Azure AD DS accounts. Azure AD is automatically synchronized with Azure AD DS, one way, from Azure AD to Azure AD DS only.
+- *(7)* Microsoft Entra ID is required for Azure Virtual Desktop. This is because Microsoft Entra user accounts and groups must always be used to assign users to Azure Virtual Desktop application groups. Microsoft Entra ID is also used to authenticate users into the Azure Virtual Desktop service. Azure Virtual Desktop session hosts can also be members of a Microsoft Entra domain, and in this situation the Azure Virtual Desktop-published applications and desktop sessions will also be launched and run (not just assigned) by using Microsoft Entra accounts. 
+    - *(7)* Alternatively, Azure Virtual Desktop session hosts can be members of an AD DS domain, and in this situation the Azure Virtual Desktop-published applications and desktop sessions will be launched and run (but not assigned) by using AD DS accounts. To reduce user and administrative overhead, AD DS can be synchronized with Microsoft Entra ID through Microsoft Entra Connect.
+    - *(7)* Finally, Azure Virtual Desktop session hosts can, instead, be members of a Microsoft Entra Domain Services domain, and in this situation the Azure Virtual Desktop-published applications and desktop sessions will be launched and run (but not assigned) by using Microsoft Entra Domain Services accounts. Microsoft Entra ID is automatically synchronized with Microsoft Entra Domain Services, one way, from Microsoft Entra ID to Microsoft Entra Domain Services only.
 
 | Resource | Purpose | Logical relationships |
 |--- |--- |--- |
 | Published desktop | A Windows desktop environment that runs on Azure Virtual Desktop session hosts and is delivered to users over the network | Member of one and only one application group *(1)* |
 | Published application | A Windows application that runs on Azure Virtual Desktop session hosts and is delivered to users over the network | Member of one and only one application group |
-| Application group | A logical grouping of published applications or a published desktop |  - Contains a published desktop *(1)* or one or more published applications<br> - Assigned to one and only one host pool *(2)*<br> - Member of one and only one workspace *(2)*<br> - One or more Azure AD user accounts or groups are assigned to it *(3)* |
-| Azure AD user account/group | Identifies the users who are permitted to launch published desktops or applications | - Member of one and only one Azure Active Directory <br> - Assigned to one or more application groups *(3)* |
-| Azure AD *(7)* | Identity provider | - Contains one or more user accounts or groups, which must be used to assign users to application groups, and can also be used to log in to the session hosts<br> - Can hold the memberships of the session hosts <br> - Can be synchronized with AD DS or Azure AD DS |
-| AD DS *(7)* | Identity and directory services provider | - Contains one or more user accounts or groups, which can be used to log in to the session hosts <br> - Can hold the memberships of the session hosts<br> - Can be synchronized with Azure AD |
-| Azure AD DS *(7)* | Platform as a service (PaaS)-based identity and directory services provider | - Contains one or more user accounts or groups, which can be used to log in to the session hosts<br> - Can hold the memberships of the session hosts<br> - Synchronized with Azure AD |
+| Application group | A logical grouping of published applications or a published desktop |  - Contains a published desktop *(1)* or one or more published applications<br> - Assigned to one and only one host pool *(2)*<br> - Member of one and only one workspace *(2)*<br> - One or more Microsoft Entra user accounts or groups are assigned to it *(3)* |
+| Microsoft Entra user account/group | Identifies the users who are permitted to launch published desktops or applications | - Member of one and only one Microsoft Entra ID <br> - Assigned to one or more application groups *(3)* |
+| Microsoft Entra ID *(7)* | Identity provider | - Contains one or more user accounts or groups, which must be used to assign users to application groups, and can also be used to log in to the session hosts<br> - Can hold the memberships of the session hosts <br> - Can be synchronized with AD DS or Microsoft Entra Domain Services |
+| AD DS *(7)* | Identity and directory services provider | - Contains one or more user accounts or groups, which can be used to log in to the session hosts <br> - Can hold the memberships of the session hosts<br> - Can be synchronized with Microsoft Entra ID |
+| Microsoft Entra Domain Services *(7)* | Platform as a service (PaaS)-based identity and directory services provider | - Contains one or more user accounts or groups, which can be used to log in to the session hosts<br> - Can hold the memberships of the session hosts<br> - Synchronized with Microsoft Entra ID |
 | Workspace | A logical grouping of application groups | Contains one or more application groups *(4)* |
 | Host pool | A group of identical session hosts that serve a common purpose | - Contains one or more session hosts *(5)*<br> - One or more application groups are assigned to it *(6)* |  
 | Session host | A virtual machine that hosts published desktops or applications | Member of one and only one host pool |
@@ -128,7 +128,7 @@ The numbers in the following sections are approximate. They're based on a variet
 
 Also, note that:
 
-- You can't create more than 500 application groups per single Azure AD tenant\*.
+- You can't create more than 500 application groups per single Microsoft Entra tenant\*.
 - We recommend that you do *not* publish more than 50 applications per application group.
 
 ### Azure Virtual Desktop limitations
@@ -137,9 +137,9 @@ Azure Virtual Desktop, much like Azure, has certain service limitations that you
 
 | Azure Virtual Desktop object | Per Parent container object | Service limit |
 |--- |--- |---: |
-| Workspace | Azure Active Directory tenant | 1300 |
+| Workspace | Microsoft Entra tenant | 1300 |
 | HostPool | Workspace | 400 |
-| Application group | Azure Active Directory tenant | 500\* |
+| Application group | Microsoft Entra tenant | 500\* |
 | RemoteApp | Application group | 500 |
 | Role assignment | Any Azure Virtual Desktop object | 200 |
 | Session host | HostPool | 10,000 |
@@ -194,9 +194,9 @@ Principal author:
 
 - [Azure Virtual Desktop partner integrations](/azure/virtual-desktop/partners) lists approved Azure Virtual Desktop partner providers and independent software vendors.
 - Use the [Virtual Desktop Optimization Tool](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) to help optimize performance in a Windows 10 Enterprise VDI (virtual desktop infrastructure) environment.
-- See [Deploy Azure AD-joined virtual machines in Azure Virtual Desktop](/azure/virtual-desktop/deploy-azure-ad-joined-vm).
+- See [Deploy Microsoft Entra joined virtual machines in Azure Virtual Desktop](/azure/virtual-desktop/deploy-azure-ad-joined-vm).
 - Learn more about [Active Directory Domain Services](/windows-server/identity/ad-ds/active-directory-domain-services).
-- [What is Azure AD Connect?](/azure/active-directory/hybrid/whatis-azure-ad-connect)
+- [What is Microsoft Entra Connect?](/azure/active-directory/hybrid/whatis-azure-ad-connect)
 
 ## Related resources
 

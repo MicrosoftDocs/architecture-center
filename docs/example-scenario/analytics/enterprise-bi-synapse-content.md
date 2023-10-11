@@ -34,7 +34,7 @@ This scenario uses the following components:
 - [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake)
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics)
 - [Power BI Premium](https://powerbi.microsoft.com/power-bi-premium)
-- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory)
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory)
 
 ### Simplified architecture
 
@@ -46,7 +46,7 @@ An organization has a large on-premises data warehouse stored in a SQL database.
 
 ### Authentication
 
-Azure AD authenticates users who connect to Power BI dashboards and apps. Single sign-on is used to connect to the data source in Azure Synapse provisioned pool. Authorization happens on the source.  
+Microsoft Entra authenticates users who connect to Power BI dashboards and apps. Single sign-on is used to connect to the data source in Azure Synapse provisioned pool. Authorization happens on the source.  
 
 ### Incremental loading
 
@@ -144,7 +144,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Frequent headlines of data breaches, malware infections, and malicious code injection are among an extensive list of security concerns for companies looking to cloud modernization. Enterprise customers need a cloud provider or service solution that can address their concerns as they can't afford to get it wrong.
 
-This scenario addresses the most demanding security concerns using a combination of layered security controls: network, identity, privacy, and authorization. The bulk of the data is stored in Azure Synapse provisioned pool, with Power BI using DirectQuery through single sign-on. You can use Azure AD for authentication. There are also extensive security controls for data authorization of provisioned pools.
+This scenario addresses the most demanding security concerns using a combination of layered security controls: network, identity, privacy, and authorization. The bulk of the data is stored in Azure Synapse provisioned pool, with Power BI using DirectQuery through single sign-on. You can use Microsoft Entra ID for authentication. There are also extensive security controls for data authorization of provisioned pools.
 
 Some common security questions include:
 
@@ -281,7 +281,7 @@ Other contributors:
 ## Next steps
 
 - [What is Power BI Premium?](/power-bi/enterprise/service-premium-what-is)
-- [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
+- [What is Microsoft Entra ID?](/azure/active-directory/fundamentals/active-directory-whatis)
 - [Accessing Azure Data Lake Storage Gen2 and Blob Storage with Azure Databricks](/azure/databricks/data/data-sources/azure/azure-storage)
 - [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
 - [Pipelines and activities in Azure Data Factory and Azure Synapse Analytics](/azure/data-factory/concepts-pipelines-activities)

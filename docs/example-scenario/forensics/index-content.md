@@ -46,43 +46,16 @@ The Copy-VmDigitalEvidence runbook implements these macro steps:
 - [Azure Storage firewall](/azure/storage/common/storage-network-security)
 - [Azure file share](/azure/storage/files/storage-how-to-create-file-share?tabs=azure-portal)
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault)
-- [Log Analytics workspace](/azure/azure-monitor/platform/resource-logs-collect-workspace)
+- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
+- [Hybrid Runbook Worker](/azure/automation/automation-hybrid-runbook-worker)
+- [Azure Automation](https://azure.microsoft.com/services/automation)
+- [Azure Active Directory](https://azure.microsoft.com/services/active-directory)(Azure AD)
 
-#### Azure Automation
+### Alternatives
 
-The SOC team uses an [Azure Automation](/azure/automation/automation-intro) account to create and maintain the Copy-VmDigitalEvidence runbook. The team also uses the Azure Automation to create the Hybrid Runbook Workers that run the runbook.
+If necessary, you can grant time-limited read-only SOC Storage account access to IP addresses from outside, on-premises networks, for investigators to download the digital evidence.
 
-#### Hybrid Runbook Worker
-
-The [Hybrid Runbook Worker](/azure/automation/extension-based-hybrid-runbook-worker-install) virtual machine is part of the Automation account and is used exclusively by the SOC team to implement the Copy-VmDigitalEvidence runbook.
-
-The Hybrid Runbook Worker virtual machine must be placed in a subnet that can access the Storage Account.
-Access to the Storage Account is configured by adding the Hybrid Runbook Worker virtual machine subnet to the Storage Account's firewall allowlist rules.
-
-Access to this virtual machine must be granted only to the SOC team members for maintenance activities.
-
-The virtual network used by the virtual machine must not be connected to the hub to keep it isolated.
-
-The Hybrid Runbook Worker uses the [Azure Automation system-assigned managed identity](/azure/automation/enable-managed-identity-for-automation) to access the target virtual machine's resources and the other Azure services required by the solution.
-
-The minimal role-based access control (RBAC) permissions that must be assigned to system-assigned managed identity are classified in two categories:
-
-- Access permissions to the SOC Azure architecture containing the solution core components.
-- Access permissions to the target architecture, containing the target Virtual Machine resources.
-
-Access to the SOC Azure architecture includes:
-
-- **Storage Account Contributor** on the SOC immutable Storage account
-- **Key Vault Secrets Officer**, on the SOC key vault for the BEK management
-
-Access to the target architecture:
-
-- **Contributor** on the target virtual machine's resource group, which provides snapshot rights on virtual machine disks.
-- **Key Vault Secrets Officer** on the target virtual machine's key vault used to store BEK, only if RBAC is used for the Key Vault.
-- Access policy to **Get Secret** on the target virtual machine's key vault used to store BEK, only if access policy is used for the Key Vault.
-
-> [!NOTE]
-> To read the BEK, the target virtual machine's key vault must be accessible from the Hybrid Runbook Worker virtual machine. If the key vault has the firewall enabled, ensure that the public IP address of the Hybrid RunBook Worker Virtual Machine is allowed through the firewall.
+You can also deploy a Hybrid Runbook Worker on on-premises or other cloud networks, which they can use to run the Copy‑VmDigitalEvidence Azure Automation runbook on their resources.
 
 ### Azure Storage account
 
@@ -249,5 +222,5 @@ For more information about Microsoft Azure Compliance, see:
 ## Related resources
 
 - [Security architecture design](../../guide/security/security-start-here.yml)
-- [Microsoft Entra ID IDaaS in security operations](../aadsec/azure-ad-security.yml)
+- [Azure Active Directory IDaaS in security operations](../aadsec/azure-ad-security.yml)
 - [Security considerations for highly sensitive IaaS apps in Azure](../../reference-architectures/n-tier/high-security-iaas.yml)

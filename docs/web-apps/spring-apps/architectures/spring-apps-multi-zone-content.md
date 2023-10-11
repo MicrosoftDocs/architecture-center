@@ -137,7 +137,7 @@ For information about reverse proxy scenarios, how to set them up, and their sec
 
 In addition to using network controls, strengthen the security posture by using identity as the perimeter.
 
-The application should authenticate itself when it connects with the back-end services, like if the application retrieves secrets from Key Vault. In the application, the recommended approach is to enable [Microsoft Entra ID managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview). This method of configuration assigns an identity to the application so it can obtain [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) tokens, which reduces the overhead of managing credentials.
+The application should authenticate itself when it connects with the back-end services, like if the application retrieves secrets from Key Vault. In the application, the recommended approach is to enable [Microsoft Entra managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview). This method of configuration assigns an identity to the application so it can obtain [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) tokens, which reduces the overhead of managing credentials.
 
 This architecture uses [system-assigned managed identities](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) for several interactions.
 
@@ -194,7 +194,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 Implement the following suggestions to create a more secure application:
 
 - Use mature identity and access management (IAM) solutions, like Microsoft Entra ID. Enable multifactor authentication. For more information, see:
-  - [Add sign-in with a Microsoft Entra ID account to a Spring Boot web app](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory)
+  - [Add sign-in with a Microsoft Entra account to a Spring Boot web app](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory)
   - [Add sign-in with Azure Active Directory B2C (Azure AD B2C) to a Spring Boot web app](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc).
 
 - Avoid using passwords when possible. For more information, see:

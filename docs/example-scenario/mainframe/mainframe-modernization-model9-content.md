@@ -43,7 +43,7 @@ The main components of Model9 cloud data platform are:
 
 - [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway) is a specific type of virtual network gateway that sends encrypted traffic between Azure Virtual Network and an on-premises location over the public internet.
 
-- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) is an identity and access management service that synchronizes with an on-premises active directory.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is an identity and access management service that synchronizes with an on-premises active directory.
 
 #### Application
 
@@ -127,7 +127,7 @@ Reliability ensures that your application can meet the commitments you make to y
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- Authenticate Azure resources by using Azure AD. Manage permissions by using role-based access control (RBAC).
+- Authenticate Azure resources by using Microsoft Entra ID. Manage permissions by using role-based access control (RBAC).
 
 - Model9 uses the z/OS Security Authorization Facility (SAF) for authentication of actions. Traffic between the Model9 agent and Azure Blob Storage is encrypted. 
 

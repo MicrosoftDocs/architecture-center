@@ -85,11 +85,11 @@ The following sections describe various ways of securing data in Azure.
 
 ### Access control
 
-Use [Azure RBAC](/azure/role-based-access-control/overview) to restrict access to Azure resources based on user roles. If you use Active Directory on-premises, you can [synchronize with Azure Active Directory (Azure AD)](/azure/active-directory/active-directory-hybrid-identity-design-considerations-directory-sync-requirements) to provide users with a cloud identity based on their on-premises identity.
+Use [Azure RBAC](/azure/role-based-access-control/overview) to restrict access to Azure resources based on user roles. If you use Active Directory on-premises, you can [synchronize with Microsoft Entra ID](/azure/active-directory/active-directory-hybrid-identity-design-considerations-directory-sync-requirements) to provide users with a cloud identity based on their on-premises identity.
 
-Use [conditional access in Azure AD](/azure/active-directory/active-directory-conditional-access-azure-portal) to enforce controls on the access to applications in your environment based on specific conditions. For example, your policy statement could take the form of: *When contractors try to access our cloud apps from networks that aren't trusted, block access*.
+Use [conditional access in Microsoft Entra ID](/azure/active-directory/active-directory-conditional-access-azure-portal) to enforce controls on the access to applications in your environment based on specific conditions. For example, your policy statement could take the form of: *When contractors try to access our cloud apps from networks that aren't trusted, block access*.
 
-[Azure AD privileged identity management](/azure/active-directory/active-directory-privileged-identity-management-configure) can help you manage, control, and monitor your users and the tasks they perform with their admin privileges. This capability is an important step to limiting who in your organization can carry out privileged operations in Azure AD, Azure, Microsoft 365, or software as a service (SaaS) apps. It can also monitor user activity.
+[Microsoft Entra Privileged Identity Management](/azure/active-directory/active-directory-privileged-identity-management-configure) can help you manage, control, and monitor your users and the tasks they perform with their admin privileges. This capability is an important step to limiting who in your organization can carry out privileged operations in Microsoft Entra ID, Azure, Microsoft 365, or software as a service (SaaS) apps. It can also monitor user activity.
 
 ### Network
 
@@ -130,7 +130,7 @@ Principal author:
 
 ## Related resources
 
-- [Resilient identity and access management with Azure AD](../../guide/resilience/resilience-overview.yml)
+- [Resilient identity and access management with Microsoft Entra ID](../../guide/resilience/resilience-overview.yml)
 - [Monitor hybrid security using Microsoft Defender for Cloud and Microsoft Sentinel](../../hybrid/hybrid-security-monitoring.yml)
 - [Confidential computing on a healthcare platform](../../example-scenario/confidential/healthcare-inference.yml)
 - [SQL Managed Instance with customer-managed keys](../../example-scenario/data/sql-managed-instance-cmk.yml)

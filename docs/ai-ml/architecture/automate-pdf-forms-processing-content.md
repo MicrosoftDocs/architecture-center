@@ -83,7 +83,7 @@ The Outlook email account that's used in this architecture is a dedicated email 
 The implementation of this architecture that's described in [Deploy this scenario](#deploy-this-scenario) takes the following measures to increase security:
 
 - The PowerShell and Bicep deployment scripts use Azure Key Vault to store sensitive information so that it isn't displayed on terminal screens or stored in deployment logs.
-- Managed identities provide an automatically managed identity in Azure Active Directory (Azure AD) for applications to use when they connect to resources that support Azure AD authentication. The function app uses managed identities so that the code doesn't depend on individual principals and doesn't contain sensitive identity information.
+- Managed identities provide an automatically managed identity in Microsoft Entra ID for applications to use when they connect to resources that support Microsoft Entra authentication. The function app uses managed identities so that the code doesn't depend on individual principals and doesn't contain sensitive identity information.
 
 ### Cost optimization
 

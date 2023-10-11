@@ -54,13 +54,13 @@ The following tables present a breakdown of each Azure service and component use
 
 ### Stateful Foundational Components
 
-- **Azure Active Directory including role entitlements**
+- **Microsoft Entra ID including role entitlements**
     - Component Recovery Responsibility: Microsoft
     - Workload/Configuration Recovery Responsibility: Microsoft
     - Contoso SKU selection: Premium P1
-    - DR Uplift options: Azure AD’s resiliency is part of its SaaS offering
+    - DR Uplift options: Microsoft Entra ID’s resiliency is part of its SaaS offering
     - Notes
-        - [Advancing service resilience in Azure Active Directory](https://azure.microsoft.com/en-us/blog/advancing-service-resilience-in-azure-active-directory-with-its-backup-authentication-service/)
+        - [Advancing service resilience in Microsoft Entra ID](https://azure.microsoft.com/en-us/blog/advancing-service-resilience-in-azure-active-directory-with-its-backup-authentication-service/)
 
 - **Azure Key Vault**
     - Component Recovery Responsibility: Microsoft

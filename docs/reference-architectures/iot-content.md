@@ -51,7 +51,7 @@ You can use the following services for management and business integration:
 - [Microsoft Power Automate (Microsoft Flow)](/power-automate/getting-started) is a SaaS offering for automating workflows across applications and other SaaS services.
 - [Azure Logic Apps](/azure/logic-apps) creates and automates workflows that integrate your apps, data, services, and systems.
 
-Azure also provides several services to help you monitor your entire IoT solution and keep it secure. Diagnostic services include [Azure Monitor](/azure/azure-monitor). Security services such as [Azure Active Directory (Azure AD)](/azure/active-directory) and [Microsoft Defender for IoT](/azure/defender-for-iot) help you control, view, and manage security settings and threat detection and response.
+Azure also provides several services to help you monitor your entire IoT solution and keep it secure. Diagnostic services include [Azure Monitor](/azure/azure-monitor). Security services such as [Microsoft Entra ID](/azure/active-directory) and [Microsoft Defender for IoT](/azure/defender-for-iot) help you control, view, and manage security settings and threat detection and response.
 
 ### Components
 
@@ -79,7 +79,7 @@ Azure also provides several services to help you monitor your entire IoT solutio
 - [Microsoft Power Automate (Microsoft Flow)](https://powerautomate.microsoft.com)
 - [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps)
 - [Azure Monitor](https://azure.microsoft.com/services/monitor)
-- [Azure AD](https://azure.microsoft.com/services/active-directory)
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory)
 - [Microsoft Defender for IoT](https://azure.microsoft.com/services/iot-defender)
 
 ## Considerations

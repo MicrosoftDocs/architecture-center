@@ -30,7 +30,7 @@ The example architecture uses the following components:
 
 * [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute)
 * [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway)
-* [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds)
+* [Microsoft Entra Domain Services](https://azure.microsoft.com/services/active-directory-ds)
 * [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub)
 * [Azure Key Vault](https://azure.microsoft.com/services/key-vault)
 * [Azure App Service](https://azure.microsoft.com/services/app-service)

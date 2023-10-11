@@ -173,7 +173,7 @@ You see your connection under a list of configured TAXII 2.0 servers. Repeat the
 
 ### Import threat indicators with the Platforms data connector
 
-The `tiIndicators` API needs the **Application (client) ID**, **Directory (tenant) ID**, and **client secret** from your TIP or custom solution to connect and send threat indicators to Microsoft Sentinel. To get this information, register the TIP or solution app in Azure Active Directory (Azure AD) and grant it the needed permissions.
+The `tiIndicators` API needs the **Application (client) ID**, **Directory (tenant) ID**, and **client secret** from your TIP or custom solution to connect and send threat indicators to Microsoft Sentinel. To get this information, register the TIP or solution app in Microsoft Entra ID and grant it the needed permissions.
 
 For more information, see [Connect your threat intelligence platform to Microsoft Sentinel](/azure/sentinel/connect-threat-intelligence-tip).
 

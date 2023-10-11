@@ -6,11 +6,11 @@ This solution achieves non-persistent granular access to VMs by incorporating se
 
 This solution uses many Azure services and features including:
 
-- Azure Active Directory (Azure AD) Privileged Identity Management (PIM).
+- Microsoft Entra Privileged Identity Management (PIM).
 - The just-in-time (JIT) VM access feature of Microsoft Defender for Cloud.
 - Azure Bastion.
 - Azure role-based access control (Azure RBAC) custom roles.
-- Azure AD Conditional Access, optionally.
+- Microsoft Entra Conditional Access, optionally.
 
 ## Potential use cases
 
@@ -52,9 +52,9 @@ The defense in depth strategy and the solution in this article apply to many sce
 
 ## Dataflow
 
-1. **Authentication and access decisions**: The user is authenticated against Azure AD for access to the Azure portal, Azure REST APIs, Azure PowerShell, or the Azure CLI. If authentication succeeds, an Azure AD Conditional Access policy takes effect. That policy verifies whether the user meets certain criteria. Examples include using a managed device or signing in from a known location. If the user fulfills the criteria, Conditional Access grants the user access to Azure through the Azure portal or another interface.
+1. **Authentication and access decisions**: The user is authenticated against Microsoft Entra ID for access to the Azure portal, Azure REST APIs, Azure PowerShell, or the Azure CLI. If authentication succeeds, a Microsoft Entra Conditional Access policy takes effect. That policy verifies whether the user meets certain criteria. Examples include using a managed device or signing in from a known location. If the user fulfills the criteria, Conditional Access grants the user access to Azure through the Azure portal or another interface.
 
-1. **Identity-based just-in-time access**: During authorization, Azure AD PIM assigns the user a custom role of type *eligible*. The eligibility is limited to required resources and is a *time-bound* role, not a *permanent* one. Within a specified time frame, the user requests activation of this role through the Azure PIM interface. That request can trigger other actions, such as starting an approval workflow or prompting the user for multifactor authentication to verify identity. In an approval workflow, another person needs to approve the request. Otherwise the user isn't assigned the custom role and can't continue to the next step.
+1. **Identity-based just-in-time access**: During authorization, Microsoft Entra PIM assigns the user a custom role of type *eligible*. The eligibility is limited to required resources and is a *time-bound* role, not a *permanent* one. Within a specified time frame, the user requests activation of this role through the Azure PIM interface. That request can trigger other actions, such as starting an approval workflow or prompting the user for multifactor authentication to verify identity. In an approval workflow, another person needs to approve the request. Otherwise the user isn't assigned the custom role and can't continue to the next step.
 
 1. **Network based just-in-time access**: After authentication and authorization, the custom role is temporarily linked to the user's identity. The user then requests JIT VM access. That access opens a connection from the Azure Bastion subnet on port 3389 for RDP or port 22 for SSH. The connection runs directly to the VM network interface card (NIC) or the VM NIC subnet. Azure Bastion opens an internal RDP session by using that connection. The session is limited to the Azure virtual network and isn't exposed to the public internet.
 
@@ -66,9 +66,9 @@ This solution uses the following components:
 
 - [Azure Virtual Machines][Azure Virtual Machines] is an infrastructure-as-a-service (IaaS) offer. You can use Virtual Machines to deploy on-demand, scalable computing resources. In production environments that use this solution, deploy your workloads on Azure VMs. Then eliminate unnecessary exposure to your VMs and Azure assets.
 
-- [Azure AD][Azure AD] is a cloud-based identity service that controls access to Azure and other cloud apps.
+- [Microsoft Entra ID][Azure AD] is a cloud-based identity service that controls access to Azure and other cloud apps.
 
-- [PIM][Privileged Identity Management (PIM)] is an Azure AD service that manages, controls, and monitors access to important resources. In this solution, this service:
+- [PIM][Privileged Identity Management (PIM)] is a Microsoft Entra service that manages, controls, and monitors access to important resources. In this solution, this service:
 
   - Limits permanent administrator access to standard and custom privileged roles.
   - Provides just-in-time identity-based access to custom roles.
@@ -83,7 +83,7 @@ This solution uses the following components:
   - Requesting JIT VM access in Defender for Cloud.
   - Reading or listing VMs.
 
-- [Azure AD Conditional Access][Azure AD Conditional Access] is a tool that Azure AD uses to control access to resources. Conditional Access policies support the [zero trust][Zero Trust] security model. In this solution, the policies ensure that only authenticated users get access to Azure resources.
+- [Microsoft Entra Conditional Access][Azure AD Conditional Access] is a tool that Microsoft Entra ID uses to control access to resources. Conditional Access policies support the [zero trust][Zero Trust] security model. In this solution, the policies ensure that only authenticated users get access to Azure resources.
 
 - [Azure Bastion][Azure Bastion] provides secure and seamless RDP and SSH connectivity to VMs in a network. In this solution, Azure Bastion connects users who use Microsoft Edge or another internet browser for HTTPS, or secured traffic on port 443. Azure Bastion sets up the RDP connection to the VM. RDP and SSH ports aren't exposed to the internet or the user's origin.
 
@@ -104,13 +104,13 @@ Principal author:
 - [Activate my Azure resource roles in Privileged Identity Management][Activate my Azure resource roles in Privileged Identity Management]
 - [Understanding just-in-time (JIT) VM access][Understanding just-in-time (JIT) VM access]
 - [Configure Bastion and connect to a Windows VM through a browser][Configure Bastion and connect to a Windows VM through a browser]
-- [Secure user sign-in events with Azure AD Multi-Factor Authentication][Secure user sign-in events with Azure AD Multi-Factor Authentication]
+- [Secure user sign-in events with Microsoft Entra multifactor authentication][Secure user sign-in events with Azure AD Multi-Factor Authentication]
 
 ## Related resources
 
 - [Hybrid security monitoring via Microsoft Defender for Cloud and Microsoft Sentinel](../../hybrid/hybrid-security-monitoring.yml)
 - [Security considerations for highly sensitive IaaS apps in Azure][Security considerations for highly sensitive IaaS apps in Azure]
-- [Azure Active Directory IDaaS in Security Operations][Azure Active Directory IDaaS in Security Operations]
+- [Microsoft Entra IDaaS in Security Operations][Azure Active Directory IDaaS in Security Operations]
 
 [Activate my Azure resource roles in Privileged Identity Management]: /azure/active-directory/privileged-identity-management/pim-resource-roles-activate-your-roles
 [Azure Active Directory IDaaS in Security Operations]: ../../example-scenario/aadsec/azure-ad-security.yml

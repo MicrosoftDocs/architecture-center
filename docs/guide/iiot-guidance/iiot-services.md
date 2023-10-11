@@ -248,7 +248,7 @@ User profile management involves:
 
 You can use [Microsoft Graph](https://developer.microsoft.com/graph) for these operations.
 
-To control which actions users can take and what data they can view in the system, use role-based access control (RBAC). Implement RBAC by using the [Microsoft identity platform](/azure/active-directory/develop) with [Azure Active Directory (Azure AD)](/azure/active-directory). Azure platform as a service (PaaS) services in an IIoT analytics solution can integrate directly with Azure AD, ensuring security across your solution.
+To control which actions users can take and what data they can view in the system, use role-based access control (RBAC). Implement RBAC by using the [Microsoft identity platform](/azure/active-directory/develop) with [Microsoft Entra ID](/azure/active-directory). Azure platform as a service (PaaS) services in an IIoT analytics solution can integrate directly with Microsoft Entra ID, ensuring security across your solution.
 
 Your web application and custom microservices can interact with the Microsoft identity platform. Use libraries such as the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) and protocols such as OAuth 2.0 and OpenID Connect.
 

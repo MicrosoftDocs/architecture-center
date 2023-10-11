@@ -687,7 +687,7 @@ items:
           maintainContext: true
       - name: Identity management for AWS
         items:
-        - name: Azure AD identity management for AWS
+        - name: Microsoft Entra identity management for AWS
           href: reference-architectures/aws/aws-azure-ad-security.yml
         - name: Onboard an AWS account
           href: /azure/active-directory/cloud-infrastructure-entitlement-management/onboard-aws
@@ -904,7 +904,7 @@ items:
   - name: Materialized View
     href: patterns/materialized-view.yml
   - name: Messaging Bridge
-    href: patterns/messaging-bridge-patterns.yml
+    href: patterns/messaging-bridge.yml
   - name: Pipes and Filters
     href: patterns/pipes-and-filters.yml
   - name: Priority Queue
@@ -2622,7 +2622,7 @@ items:
       href: identity/identity-start-here.yml
     - name: Guides
       items:
-      - name: Azure Active Directory architecture
+      - name: Microsoft Entra architecture
         href: /azure/active-directory/fundamentals/active-directory-architecture
         maintainContext: true
       - name: Identity and access management in Azure
@@ -2647,39 +2647,39 @@ items:
         href: reference-architectures/identity/index.yml
       - name: Deployment guidance
         items:
-        - name: Azure AD deployment checklist
+        - name: Microsoft Entra deployment checklist
           href: /azure/active-directory/fundamentals/active-directory-deployment-checklist-p2
           maintainContext: true
-        - name: Azure AD deployment plans
+        - name: Microsoft Entra deployment plans
           href: /azure/active-directory/fundamentals/active-directory-deployment-plans
           maintainContext: true
         - name: Azure AD B2C deployment plans
           href: /azure/active-directory/fundamentals/azure-active-directory-b2c-deployment-plans
           maintainContext: true
-      - name: Migrate applications to Azure AD
+      - name: Migrate applications to Microsoft Entra ID
         items:
         - name: Migrate an AD FS app to Azure
           href: /azure/active-directory/manage-apps/migrate-adfs-apps-to-azure
           maintainContext: true
-        - name: Migrate app authentication to Azure AD
+        - name: Migrate app authentication to Microsoft Entra ID
           href: /azure/active-directory/manage-apps/migrate-application-authentication-to-azure-active-directory
           maintainContext: true
         - name: Use the AD FS application activity report
           href: /azure/active-directory/manage-apps/migrate-adfs-application-activity
           maintainContext: true
-        - name: Resources for migrating to Azure AD
+        - name: Resources for migrating to Microsoft Entra ID
           href: /azure/active-directory/manage-apps/migration-resources
           maintainContext: true
       - name: Secure identity
         items:
         - name: Secure development with SPAs
           href: guide/resilience/azure-ad-secure-single-page-application.yml
-        - name: Security baseline for Azure AD
+        - name: Security baseline for Microsoft Entra ID
           href: /security/benchmark/azure/baselines/aad-security-baseline
           maintainContext: true
       - name: Identity management
         items:
-        - name: Azure billing and Azure AD tenants
+        - name: Azure billing and Microsoft Entra tenants
           href: /azure/cloud-adoption-framework/ready/landing-zone/design-area/azure-billing-ad-tenant?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
           maintainContext: true
         - name: Identity and access management
@@ -2699,15 +2699,15 @@ items:
         - name: Cloud management for on-premises
           href: /azure/active-directory/hybrid/cloud-governed-management-for-on-premises
           maintainContext: true
-        - name: Hybrid identity foundation with Azure AD
+        - name: Hybrid identity foundation with Microsoft Entra ID
           href: /azure/active-directory/hybrid/four-steps
           maintainContext: true
-        - name: Azure AD Connect for on-premises
+        - name: Microsoft Entra Connect for on-premises
           href: /azure/active-directory/hybrid/whatis-azure-ad-connect
           maintainContext: true
       - name: Identity for education
         items:
-        - name: Azure Active Directory for education
+        - name: Microsoft Entra ID for education
           href: /microsoft-365/education/deploy/intro-azure-active-directory
           maintainContext: true
         - name: Multi-tenant for large institutions
@@ -2731,7 +2731,7 @@ items:
         href: reference-architectures/identity/adds-forest.yml
       - name: Apply Zero Trust to your API implementation
         href: example-scenario/security/apps-zero-trust-identity.yml
-      - name: Azure AD identity management for AWS
+      - name: Microsoft Entra identity management for AWS
         href: reference-architectures/aws/aws-azure-ad-security.yml
       - name: Deploy AD DS in an Azure virtual network
         href: example-scenario/identity/adds-extend-domain.yml
@@ -2739,7 +2739,7 @@ items:
         href: reference-architectures/identity/adfs.yml
       - name: Governance of Teams guest users
         href: example-scenario/governance/governance-teams-guest-users.yml
-      - name: On-premises AD domains with Azure AD
+      - name: On-premises AD domains with Microsoft Entra ID
         href: reference-architectures/identity/azure-ad.yml
     - name: Solution ideas
       items:
@@ -3815,7 +3815,7 @@ items:
           - name: WebLogic to Azure VMs
             href: /azure/developer/java/migration/migrate-weblogic-to-virtual-machines
             maintainContext: true
-          - name: WebLogic with Azure AD via LDAP
+          - name: WebLogic with Microsoft Entra ID via LDAP
             href: /azure/developer/java/migration/migrate-weblogic-with-aad-ldap
             maintainContext: true
           - name: WebLogic with App Gateway
@@ -3966,7 +3966,7 @@ items:
         - name: Connect AWS to Sentinel
           href: /azure/sentinel/connect-aws
           maintainContext: true
-        - name: Connect Azure AD to Sentinel
+        - name: Connect Microsoft Entra ID to Sentinel
           href: /azure/sentinel/connect-azure-active-directory
           maintainContext: true
         - name: Connect Defender for Cloud
@@ -3996,7 +3996,7 @@ items:
       items:
       - name: Automate Sentinel integration with DevOps
         href: example-scenario/devops/automate-sentinel-integration.yml
-      - name: Azure AD in security operations
+      - name: Microsoft Entra ID in security operations
         href: example-scenario/aadsec/azure-ad-security.yml
       - name: Confidential computing for healthcare
         href: example-scenario/confidential/healthcare-inference.yml
@@ -4080,7 +4080,7 @@ items:
         maintainContext: true
       - name: Blob storage guidance
         items:
-        - name: Authorize access to blobs with Azure AD
+        - name: Authorize access to blobs with Microsoft Entra ID
           href: /azure/storage/blobs/authorize-access-azure-active-directory
           maintainContext: true
         - name: Authorize access with role conditions
@@ -4122,7 +4122,7 @@ items:
           maintainContext: true
       - name: Queue storage guidance
         items:
-        - name: Authorize access with Azure AD
+        - name: Authorize access with Microsoft Entra ID
           href: /azure/storage/queues/authorize-access-azure-active-directory
           maintainContext: true
         - name: Performance and scalability checklist
@@ -4130,7 +4130,7 @@ items:
           maintainContext: true
       - name: Table storage guidance
         items:
-        - name: Authorize access with Azure AD
+        - name: Authorize access with Microsoft Entra ID
           href: /azure/storage/tables/authorize-access-azure-active-directory
           maintainContext: true
         - name: Performance and scalability checklist
@@ -4230,6 +4230,8 @@ items:
       href: guide/virtual-desktop/start-here.md
     - name: Guides
       items:
+      - name: Windows 365 Azure network connection
+        href: guide/virtual-desktop/windows-365-azure-network-connection.yml
       - name: Azure Virtual Desktop environment
         href: /azure/virtual-desktop/environment-setup
         maintainContext: true
@@ -4259,7 +4261,7 @@ items:
         - name: Connection quality
           href: /azure/virtual-desktop/connection-latency
           maintainContext: true
-      - name: Azure AD join for Azure Virtual Desktop
+      - name: Microsoft Entra join for Azure Virtual Desktop
         href: example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join.md
       - name: Multiregion BCDR for AVD
         href: example-scenario/wvd/azure-virtual-desktop-multi-region-bcdr.yml
@@ -4284,7 +4286,7 @@ items:
         href: example-scenario/data/esri-arcgis-azure-virtual-desktop.yml
       - name: Multiple Active Directory forests
         href: example-scenario/wvd/multi-forest.yml
-      - name: Multiple forests with Azure AD DS
+      - name: Multiple forests with Microsoft Entra Domain Services
         href: example-scenario/wvd/multi-forest-azure-managed.yml
   - name: Web applications
     href: web-apps/index.md
@@ -4896,7 +4898,7 @@ items:
         - name: Identity for Azure Government
           href: /azure/azure-government/documentation-government-plan-identity
           maintainContext: true
-        - name: Integrate Azure AD authentication
+        - name: Integrate Microsoft Entra authentication
           href: /azure/azure-government/documentation-government-aad-auth-qs
           maintainContext: true
       - name: Deployment
@@ -5368,6 +5370,8 @@ items:
         href: /azure/architecture/browse/?terms=automotive
       - name: Automated guided vehicles fleet control
         href: example-scenario/iot/automated-guided-vehicles-fleet-control.yml
+      - name: Automotive connected fleets
+        href: industries/automotive/automotive-connected-fleets.yml 
       - name: Automotive test data analytics
         href: industries/automotive/automotive-telemetry-analytics.yml
       - name: DataOps for autonomous vehicle operations
@@ -5439,7 +5443,7 @@ items:
           maintainContext: true
       - name: Identity for education
         items:
-        - name: Azure Active Directory for education
+        - name: Microsoft Entra ID for education
           href: /microsoft-365/education/deploy/intro-azure-active-directory
           maintainContext: true
         - name: Multi-tenant for academic institutions
@@ -5541,7 +5545,7 @@ items:
           - name: Overview
             href: /gaming/playfab/what-is-playfab
             maintainContext: true
-          - name: Azure AD authentication
+          - name: Microsoft Entra authentication
             href: /gaming/playfab/features/authentication/aad-authentication/index
             maintainContext: true
           - name: CloudScript with Azure Functions
@@ -5593,7 +5597,7 @@ items:
           - name: Striped disks for more IOPS
             href: /gaming/azure/game-dev-virtual-machine/striped-disks-iops
             maintainContext: true
-          - name: Integrate with Azure AD
+          - name: Integrate with Microsoft Entra ID
             href: /gaming/azure/game-dev-virtual-machine/integrate-vm-with-aad
             maintainContext: true
           - name: Azure Files with Unreal Engine
