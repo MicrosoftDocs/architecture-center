@@ -4240,7 +4240,7 @@ items:
         href: /azure/virtual-desktop/authentication
         maintainContext: true
       - name: Windows 365 Azure network connection
-        href: guide/virtual-desktop/windows-365-azure-network-connection
+        href: virtual-desktop/windows-365-azure-network-connection.yml
         maintainContext: true
       - name: Network connectivity
         items:
