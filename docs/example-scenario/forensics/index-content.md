@@ -20,13 +20,13 @@ In the architecture, the production virtual machines are part of a spoke [Azure 
 > [!NOTE]
 > The scenario works for production virtual machines with unencrypted disks.
 
-The system and organization controls (SOC) team uses a discrete Azure **SOC** subscription. The team has exclusive access to that subscription, which contains the resources that must be kept protected, inviolable, and monitored. The [Azure Storage](/azure/storage/common/storage-introduction) account in the SOC subscription hosts copies of disk snapshots in [immutable blob storage](/azure/storage/blobs/storage-blob-immutable-storage), and a dedicated [Azure Key Vault](/azure/key-vault/general/overview) keeps the snapshots' hash values and copies of the virtual machines' BEKs.
+The system and organization controls (SOC) team uses a discrete Azure **SOC** subscription. The team has exclusive access to that subscription, which contains the resources that must be kept protected, inviolable, and monitored. The [Azure Storage](/azure/storage/common/storage-introduction) account in the SOC subscription hosts copies of disk snapshots in [immutable blob storage](/azure/storage/blobs/storage-blob-immutable-storage), and a dedicated [Key Vault](/azure/key-vault/general/overview) keeps the snapshots' hash values and copies of the virtual machines' BEKs.
 
-In response to a request to capture a virtual machine's digital evidence, a SOC team member signs in to the Azure SOC subscription and uses a [Hybrid Runbook Worker](/azure/automation/extension-based-hybrid-runbook-worker-install) virtual machine in [Azure Automation](/azure/automation/automation-intro) to implement the **Copy-VmDigitalEvidence** runbook. The Hybrid Runbook Worker provides control of all mechanisms involved in the capture.
+In response to a request to capture a virtual machine's digital evidence, a SOC team member signs in to the Azure SOC subscription and uses a [Hybrid Runbook Worker](/azure/automation/extension-based-hybrid-runbook-worker-install) virtual machine in [Automation](/azure/automation/automation-intro) to implement the **Copy-VmDigitalEvidence** runbook. The Hybrid Runbook Worker provides control of all mechanisms involved in the capture.
 
 The Copy-VmDigitalEvidence runbook implements these macro steps:
 
-1. Sign in to Azure by using the [Azure Automation system-assigned managed identity](/azure/automation/enable-managed-identity-for-automation) to access the target virtual machine's resources and the other Azure services required by the solution.
+1. Sign in to Azure by using the [System-assigned managed identity for an Automation account](/azure/automation/enable-managed-identity-for-automation) to access the target virtual machine's resources and the other Azure services required by the solution.
 1. Create disk snapshots for the virtual machine's operating system (OS) and data disks.
 1. Copy the snapshots to the SOC subscription's immutable blob storage, and in a temporary file share.
 1. Calculate hash values of the snapshots by using the copy on the file share.
@@ -38,22 +38,19 @@ The Copy-VmDigitalEvidence runbook implements these macro steps:
 
 ### Components
 
-- [Azure Automation](/azure/automation/automation-intro)
-- [Hybrid Runbook Worker](/azure/automation/extension-based-hybrid-runbook-worker-install)
-- [Azure Automation system-assigned managed identity](/azure/automation/enable-managed-identity-for-automation)
-- [Azure Storage account](/azure/storage/common/storage-account-overview)
-- [Secure transfer](/azure/storage/common/storage-require-secure-transfer)
-- [Azure Storage firewall](/azure/storage/common/storage-network-security)
+- [Automation](/azure/automation/automation-intro)
+- [System-assigned managed identity for an Automation account](/azure/automation/enable-managed-identity-for-automation)
+- [Storage account](/azure/storage/common/storage-account-overview)
 - [Azure file share](/azure/storage/files/storage-how-to-create-file-share?tabs=azure-portal)
-- [Azure Key Vault](https://azure.microsoft.com/services/key-vault)
+- [Key Vault](https://azure.microsoft.com/services/key-vault)
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
-- [Hybrid Runbook Worker](/azure/automation/automation-hybrid-runbook-worker)
-- [Azure Automation](https://azure.microsoft.com/services/automation)
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory)(Azure AD)
+- [Microsoft Entra ID](https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-id)
+- [Hybrid Runbook Worker](/azure/automation/extension-based-hybrid-runbook-worker-install)
+- [Secure transfer](/azure/storage/common/storage-require-secure-transfer)
 
 ### Alternatives
 
-If necessary, you can grant time-limited read-only SOC Storage account access to IP addresses from outside, on-premises networks, for investigators to download the digital evidence.
+If necessary, you can grant time-limited read-only SOC storage account access to IP addresses from outside, on-premises networks, for investigators to download the digital evidence.
 
 You can also deploy a Hybrid Runbook Worker on on-premises or other cloud networks, which they can use to run the Copy‑VmDigitalEvidence Azure Automation runbook on their resources.
 
@@ -61,17 +58,17 @@ You can also deploy a Hybrid Runbook Worker on on-premises or other cloud networ
 
 The [Azure Storage account](/azure/storage/common/storage-account-overview) in the SOC subscription hosts the disk snapshots in a container configured with *Legal Hold* policy as Azure immutable blob storage. Immutable blob storage stores business-critical data objects in a *Write Once, Read Many* (WORM) state, which makes the data nonerasable and uneditable for a user-specified interval.
 
-[Secure transfer](/azure/storage/common/storage-require-secure-transfer) and [firewall](/azure/storage/common/storage-network-security?tabs=azure-portal#grant-access-from-a-virtual-network) are both enabled. Firewall grants access only from the SOC Virtual Network.
+Ensure that [Secure transfer](/azure/storage/common/storage-require-secure-transfer) and [Storage firewall](/azure/storage/common/storage-network-security?tabs=azure-portal#grant-access-from-a-virtual-network) are both enabled. Firewall grants access only from the SOC Virtual Network.
 
-The Storage account also hosts an [Azure file share](/azure/storage/files/storage-how-to-create-file-share?tabs=azure-portal) used as a temporary repository for calculating the snapshot's hash value.
+The storage account also hosts an [Azure file share](/azure/storage/files/storage-how-to-create-file-share?tabs=azure-portal) used as a temporary repository for calculating the snapshot's hash value.
 
 ### Azure Key Vault
 
-The SOC subscription has its own [Azure Key Vault](https://azure.microsoft.com/services/key-vault), which hosts a copy of the BEK that Azure Disk Encryption (ADE) uses to protect the target virtual machine. The primary copy is kept in the key vault used by the target virtual machine, so that virtual machine can continue normal operation.
+The SOC subscription has its own [Key Vault](https://azure.microsoft.com/services/key-vault), which hosts a copy of the BEK that Azure Disk Encryption (ADE) uses to protect the target virtual machine. The primary copy is kept in the key vault used by the target virtual machine, so that virtual machine can continue normal operation.
 
 The SOC key vault also contains the hash values of disk snapshots calculated by the Hybrid Worker during the capture operations.
 
-The [firewall](/azure/key-vault/general/network-security#key-vault-firewall-enabled-virtual-networks---dynamic-ips) is enabled on the key vault. It's configured to grant access only from the SOC Virtual Network.
+Ensure the [firewall](/azure/key-vault/general/network-security#key-vault-firewall-enabled-virtual-networks---dynamic-ips) is enabled on the key vault. It's configured to grant access only from the SOC Virtual Network.
 
 ### Log Analytics
 
@@ -121,7 +118,7 @@ When roles of SOC team are assigned, only two individuals within the team should
 
 Only the [virtual network](/azure/virtual-network/virtual-networks-overview) in the SOC subscription has access to the SOC Storage account and key vault used to archive the evidence.
 
-Temporary access to the SOC Storage is provided to investigators that require access to evidence. Authorized SOC team members can grant access.
+Temporary access to the SOC storage is provided to investigators that require access to evidence. Authorized SOC team members can grant access.
 
 #### Evidence Acquisition
 
@@ -131,7 +128,7 @@ Azure Audit Logs can show the evidence acquisition by recording the action of ta
 
 The use of Azure Automation to move evidence to its final archive destination (without human intervention) guarantees that evidence artifacts haven't been altered.
 
-By applying a *Legal Hold* to the destination Azure storage, the evidence is frozen in time as soon as it's written. Legal Hold shows that the CoC has been maintained entirely in Azure. Legal Hold also shows that there wasn't an opportunity to tamper between the time the disk images existed on a live virtual machine and when they were added as evidence in the Storage account.
+By applying a *Legal Hold* to the destination storage, the evidence is frozen in time as soon as it's written. Legal Hold shows that the CoC has been maintained entirely in Azure. Legal Hold also shows that there wasn't an opportunity to tamper between the time the disk images existed on a live virtual machine and when they were added as evidence in the storage account.
 
 Lastly, as an integrity mechanism, the provided solution can be used to calculate the hash values of the disk images. The supported hash algorithms are: *MD5*, *SHA256*, *SKEIN*, *KECCAK* (or *SHA3*).
 
@@ -139,9 +136,9 @@ Lastly, as an integrity mechanism, the provided solution can be used to calculat
 
 Investigators need access to evidence to perform analyses, and this access must be tracked and explicitly authorized.
 
-Provide investigators with a Storage [shared access signatures (SAS) URI](/azure/storage/common/storage-sas-overview) key for accessing evidence. You can use an SAS URI to produce relevant log information when the SAS is generated. You can also get a copy of the evidence every time the SAS is used.
+Provide investigators with a storage [shared access signatures (SAS) URI](/azure/storage/common/storage-sas-overview) key for accessing evidence. You can use an SAS URI to produce relevant log information when the SAS is generated. You can also get a copy of the evidence every time the SAS is used.
 
-The IP addresses of investigators requiring access must be explicitly allowlisted in the Azure Storage firewall.
+The IP addresses of investigators requiring access must be explicitly allowlisted in the Storage firewall.
 
 For example, if a legal team needs to transfer a preserved virtual hard drive (VHD), one of the two SOC team custodians generates a read-only SAS URI key that expires after eight hours. The SAS limits the access to the IP addresses of the investigators for a limited timeframe.
 
@@ -184,7 +181,7 @@ To deploy only the SOC resource group in a production environment, select: [![De
 
 A Hybrid Runbook Worker can be deployed on-premises or in different cloud environments.
 
-In this scenario, the Copy‑VmDigitalEvidence runbook can be customized to enable the capture of evidence in different target environments and archive them in Azure Storage.
+In this scenario, the Copy‑VmDigitalEvidence runbook can be customized to enable the capture of evidence in different target environments and archive them in storage.
 
 > [!NOTE]
 > The Copy-VmDigitalEvidence runbook provided in the [deploy scenario](#deploy-this-scenario) has been developed and tested only in Azure. To extend the solution to other platforms, the runbook must be customized to work with those platforms.
