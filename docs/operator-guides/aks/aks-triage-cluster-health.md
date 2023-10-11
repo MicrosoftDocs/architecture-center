@@ -35,7 +35,7 @@ _This article is part of a series. Read the introduction [here](aks-triage-pract
 
 To check the cluster health, the following tiles in [AKS Diagnose and Solve Problems](/aks/aks-diagnostics) could be useful: 
 - **Cluster and Control Plane availability and performance**: This tile helps to check if there are any service availability or throttling issues affecting the health of the cluster.
-- Connectivity issues: This tile helps to verify if there are errors with cluster DNS resolution, or if the outbound communication route has connectivity issues. 
+- **Connectivity issues**: This tile helps to verify if there are errors with cluster DNS resolution, or if the outbound communication route has connectivity issues. 
 
 
 [Resource Health](/azure/service-health/resource-health-overview) helps you identify and get support for cluster issues and service problems that could impact your cluster's health. By adding a resource alert, you can easily monitor the health of your cluster. This feature provides a report on the current and past health of your cluster, and below are the health statuses:
