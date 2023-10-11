@@ -34,7 +34,7 @@ _This article is part of a series. Read the introduction [here](aks-triage-pract
 ![screenshot of Diagnose and solve problems homepage.](images/aks-diagnostics.png)
 
 To check the cluster health, the following tiles in [AKS Diagnose and Solve Problems](/aks/aks-diagnostics) could be useful: 
-- Cluster and Control Plane availability and performance: This tile helps to check if there are any service availability or throttling issues affecting the health of the cluster.
+- **Cluster and Control Plane availability and performance**: This tile helps to check if there are any service availability or throttling issues affecting the health of the cluster.
 - Connectivity issues: This tile helps to verify if there are errors with cluster DNS resolution, or if the outbound communication route has connectivity issues. 
 
 
