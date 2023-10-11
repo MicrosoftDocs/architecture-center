@@ -152,7 +152,7 @@ The following tables summarize the key differences in capabilities.
 
 | Capability |           Azure SQL Database            |  SQL Server in a virtual machine  | Azure Synapse |   Apache Hive on HDInsight    |    Hive LLAP on HDInsight     |
 |-------------------------|-----------------------------------------|-----------------------------------|--------------------|-------------------------------|-------------------------------|
-|     Authentication      | SQL / Azure Active Directory (Azure AD) | SQL / Azure AD / Active Directory |   SQL / Azure AD   | local / Azure AD <sup>1</sup> | local / Azure AD <sup>1</sup> |
+|     Authentication      | SQL / Microsoft Entra ID | SQL / Microsoft Entra ID / Active Directory |   SQL / Microsoft Entra ID   | local / Microsoft Entra ID <sup>1</sup> | local / Microsoft Entra ID <sup>1</sup> |
 |      Authorization      |                   Yes                   |                Yes                |        Yes         |              Yes              |       Yes <sup>1</sup>        |
 |        Auditing         |                   Yes                   |                Yes                |        Yes         |              Yes              |       Yes <sup>1</sup>        |
 | Data encryption at rest |            Yes <sup>2</sup>             |         Yes <sup>2</sup>          |  Yes <sup>2</sup>  |       Yes <sup>2</sup>        |       Yes <sup>1</sup>        |

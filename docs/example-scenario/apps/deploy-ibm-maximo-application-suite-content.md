@@ -17,7 +17,7 @@ From the perspective of infrastructure, this architecture provides the following
 - Azure Premium Files and standard files for storage (OpenShift Data Foundation not required)
 - SQL Server on Azure VMs or container-based IBM Db2 Warehouse
 - Azure DNS for DNS management of OpenShift and its containers
-- Azure Active Directory (Azure AD) for single sign-on into MAS
+- Microsoft Entra ID for single sign-on into MAS
 
 ### Components
 
@@ -239,9 +239,9 @@ If you need access to your VMs for some reason, you can connect through your hyb
 
 #### Authentication
 
-MAS currently supports the use of Security Assertion Markup Language (SAML) via Azure AD. To make this work, you need an enterprise application within Azure AD and either permission to modify the application or the assistance of a global administrator who can make the necessary changes.
+MAS currently supports the use of Security Assertion Markup Language (SAML) via Microsoft Entra ID. To make this work, you need an enterprise application within Microsoft Entra ID and either permission to modify the application or the assistance of a global administrator who can make the necessary changes.
 
-The [quickstart guide](https://github.com/Azure/maximo) on GitHub has a tutorial on how to set up SAML with MAS. For more information, see [Enabling SAML authentication against Azure AD](https://github.com/Azure/maximo#enabling-saml-authentication-against-azure-ad). 
+The [quickstart guide](https://github.com/Azure/maximo) on GitHub has a tutorial on how to set up SAML with MAS. For more information, see [Enabling SAML authentication against Microsoft Entra ID](https://github.com/Azure/maximo#enabling-saml-authentication-against-azure-ad). 
 
 Before you set up SAML-based authentication, we recommend that you go through the IBM configuration and the Azure configuration. For information about SAML with MAS, see [SAML](https://www.ibm.com/docs/en/tfim/6.2.1?topic=overview-saml-20) in the documentation for MAS. For information about SAML with Azure, see [Quickstart: Enable single sign-on for an enterprise application](/azure/active-directory/manage-apps/add-application-portal-setup-sso).
 
@@ -249,7 +249,7 @@ You should also configure OAuth for OpenShift. For more information, see [Overvi
 
 #### Protect your infrastructure
 
-Control access to the Azure resources that you deploy. Every Azure subscription has a [trust relationship](/azure/active-directory/active-directory-how-subscriptions-associated-directory) with an Azure AD tenant. Use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to grant users within your organization the correct permissions to Azure resources. Grant access by assigning Azure roles to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. Be sure to audit all changes to infrastructure. For more information about auditing, see [Azure Monitor activity log](/azure/azure-resource-manager/resource-group-audit).
+Control access to the Azure resources that you deploy. Every Azure subscription has a [trust relationship](/azure/active-directory/active-directory-how-subscriptions-associated-directory) with a Microsoft Entra tenant. Use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to grant users within your organization the correct permissions to Azure resources. Grant access by assigning Azure roles to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. Be sure to audit all changes to infrastructure. For more information about auditing, see [Azure Monitor activity log](/azure/azure-resource-manager/resource-group-audit).
 
 ### Cost optimization
 

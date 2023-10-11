@@ -319,7 +319,7 @@ conceptualContent:
         - text: Choose an Active Directory integration architecture
           itemType: architecture
           url: reference-architectures/identity/index.yml
-        - text: Integrate on-premises AD with Azure AD
+        - text: Integrate on-premises AD with Microsoft Entra ID
           itemType: architecture
           url: reference-architectures/identity/azure-ad.yml
         - text: Extend AD DS to Azure

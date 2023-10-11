@@ -60,7 +60,7 @@ Depending on the storage technology you use, see the following best practices re
 
 ## Blob Storage
 See the following guides for information about Blob Storage:
-- [Authorize access to blobs using Azure Active Directory](/azure/storage/blobs/authorize-access-azure-active-directory)
+- [Authorize access to blobs using Microsoft Entra ID](/azure/storage/blobs/authorize-access-azure-active-directory)
 - [Security recommendations for Blob Storage](/azure/storage/blobs/security-recommendations)
 
 ## Azure Data Lake Storage
@@ -79,12 +79,12 @@ See the following guides for information about Azure Files:
 
 ## Queue Storage
 See the following guides for information about Queue Storage: 
-- [Authorize access to queues using Azure Active Directory](/azure/storage/queues/authorize-access-azure-active-directory?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Authorize access to queues using Microsoft Entra ID](/azure/storage/queues/authorize-access-azure-active-directory?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Performance and scalability checklist for Queue Storage](/azure/storage/queues/storage-performance-checklist?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 
 ## Table Storage
 See the following guides for information about Table Storage:
-- [Authorize access to tables using Azure Active Directory (preview)](/azure/storage/tables/authorize-access-azure-active-directory?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Authorize access to tables using Microsoft Entra ID (preview)](/azure/storage/tables/authorize-access-azure-active-directory?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Performance and scalability checklist for Table storage](/azure/storage/tables/storage-performance-checklist?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Design scalable and performant tables](/azure/storage/tables/table-storage-design?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Design for querying](/azure/storage/tables/table-storage-design-for-query?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)

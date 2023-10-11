@@ -1,4 +1,4 @@
-The article shows how to implement multi-factor authentication for Outlook desktop clients that access Microsoft Exchange. There are four architectures that correspond to four different possibilities for the Microsoft Exchange that has the user mailbox:
+The article shows how to implement multifactor authentication for Outlook desktop clients that access Microsoft Exchange. There are four architectures that correspond to four different possibilities for the Microsoft Exchange that has the user mailbox:
 
 - [Exchange Online](#architecture-exchange-online)
 - [Exchange Online, AD FS](#architecture-exchange-online-ad-fs)
@@ -6,7 +6,7 @@ The article shows how to implement multi-factor authentication for Outlook deskt
 - [Exchange on-premises, AD FS](#architecture-exchange-on-premises-ad-fs)
 
 > [!NOTE]
-> In the diagrams, black dashed lines show basic interactions between local Active Directory, Azure AD Connect, Azure AD, AD FS, and Web Application Proxy components. You can learn about these interactions in [Hybrid identity required ports and protocols](/azure/active-directory/hybrid/reference-connect-ports).
+> In the diagrams, black dashed lines show basic interactions between local Active Directory, Microsoft Entra Connect, Microsoft Entra ID, AD FS, and Web Application Proxy components. You can learn about these interactions in [Hybrid identity required ports and protocols](/azure/active-directory/hybrid/reference-connect-ports).
 
 ## Architecture (Exchange Online)
 
@@ -19,15 +19,15 @@ In this scenario, users need to use the version of Outlook client that supports 
 ### Workflow (Exchange Online)
 
 1. The user tries to access Exchange Online via Outlook.
-1. Exchange Online provides the URL of an Azure AD endpoint for retrieving the access token to get access to the mailbox.
-1. Outlook connects to Azure AD by using that URL.
-1. As soon as the domain is federated, Azure AD redirects the request to on-premises AD FS.
+1. Exchange Online provides the URL of a Microsoft Entra endpoint for retrieving the access token to get access to the mailbox.
+1. Outlook connects to Microsoft Entra ID by using that URL.
+1. As soon as the domain is federated, Microsoft Entra ID redirects the request to on-premises AD FS.
 1. The user enters credentials on an AD FS sign-in page.
-1. AD FS redirects the session back to Azure AD.
-1. Azure AD applies an Azure Conditional Access policy with a multi-factor authentication requirement for mobile apps and desktop clients. See the [deployment section](#set-up-a-conditional-access-policy) of this article for information about setting up that policy.
-1. The Conditional Access policy calls Azure AD Multi-Factor Authentication. The user gets a request to complete multi-factor authentication.
-1. The user completes multi-factor authentication.
-1. Azure AD issues access and refresh tokens and returns them to the client.
+1. AD FS redirects the session back to Microsoft Entra ID.
+1. Microsoft Entra ID applies an Azure Conditional Access policy with a multifactor authentication requirement for mobile apps and desktop clients. See the [deployment section](#set-up-a-conditional-access-policy) of this article for information about setting up that policy.
+1. The Conditional Access policy calls Microsoft Entra multifactor authentication. The user gets a request to complete multifactor authentication.
+1. The user completes multifactor authentication.
+1. Microsoft Entra ID issues access and refresh tokens and returns them to the client.
 1. By using the access token, the client connects to Exchange Online and retrieves the content.
 
 ### Configuration (Exchange Online)
@@ -66,7 +66,7 @@ After you create the authentication policy, you can first assign it to a pilot g
 
 *Download a [Visio file](https://arch-center.azureedge.net/secure-hybrid-messaging-client.vsdx) of all diagrams in this article.*
 
-This scenario is the same as the previous one, except that it uses a different trigger for multi-factor authentication. In the previous scenario, we used local AD FS for authentication. We then redirected information about successful authentication to Azure AD, where a Conditional Access policy enforced multi-factor authentication. In this scenario, instead of using Conditional Access to enforce multi-factor authentication, we create an access control policy on the AD FS level and enforce multi-factor authentication there. The rest of the architecture is the same as the previous one.
+This scenario is the same as the previous one, except that it uses a different trigger for multifactor authentication. In the previous scenario, we used local AD FS for authentication. We then redirected information about successful authentication to Microsoft Entra ID, where a Conditional Access policy enforced multifactor authentication. In this scenario, instead of using Conditional Access to enforce multifactor authentication, we create an access control policy on the AD FS level and enforce multifactor authentication there. The rest of the architecture is the same as the previous one.
 
 > [!NOTE]
 >
@@ -77,18 +77,18 @@ In this scenario, users need to use the version of Outlook client that supports 
 ### Workflow (Exchange Online, AD FS)
 
 1. The user tries to access Exchange Online via Outlook.
-1. Exchange Online provides the URL of an Azure AD endpoint for retrieving the access token to get access to the mailbox.
-1. Outlook connects to Azure AD by using that URL.
-1. If the domain is federated, Azure AD redirects the request to on-premises AD FS.
+1. Exchange Online provides the URL of a Microsoft Entra endpoint for retrieving the access token to get access to the mailbox.
+1. Outlook connects to Microsoft Entra ID by using that URL.
+1. If the domain is federated, Microsoft Entra ID redirects the request to on-premises AD FS.
 1. The user enters credentials on an AD FS sign-in page.
-1. Responding to an AF DS access control policy, AD FS calls Azure AD Multi-Factor Authentication to complete authentication. Here's an example of that type of AD FS access control policy:
+1. Responding to an AF DS access control policy, AD FS calls Microsoft Entra multifactor authentication to complete authentication. Here's an example of that type of AD FS access control policy:
 
    :::image type="content" source="./media/access-control-policy.png" alt-text="Screenshot that shows an example of an AD FS access control policy.":::
 
-   The user gets a request to complete multi-factor authentication.
-1. The user completes multi-factor authentication.
-1. AD FS redirects the session back to Azure AD.
-1. Azure AD issues access and refresh tokens and returns them to the client.
+   The user gets a request to complete multifactor authentication.
+1. The user completes multifactor authentication.
+1. AD FS redirects the session back to Microsoft Entra ID.
+1. Microsoft Entra ID issues access and refresh tokens and returns them to the client.
 1. By using the access token, the client connects to Exchange Online and retrieves the content.
 
 ### Configuration (Exchange Online, AD FS)
@@ -129,15 +129,15 @@ This architecture covers both Outlook for Windows and Outlook for Mac.
 ### Workflow (Exchange on-premises)
 
 1. A user with a mailbox on Exchange Server starts the Outlook client. The Outlook client connects to Exchange Server and specifies that it has modern authentication capabilities.
-1. Exchange Server sends a response to the client requesting that it get a token from Azure AD.
-1. The Outlook client connects to an Azure AD URL that's provided by Exchange Server.
+1. Exchange Server sends a response to the client requesting that it get a token from Microsoft Entra ID.
+1. The Outlook client connects to a Microsoft Entra URL that's provided by Exchange Server.
 1. Azure identifies that the user's domain is federated, so it sends requests to AD FS (via Web Application Proxy).
 1. The user enters credentials on an AD FS sign-in page.
-1. AD FS redirects the session back to Azure AD.
-1. Azure AD applies an Azure Conditional Access policy with a multi-factor authentication requirement for mobile apps and desktop clients. See the [deployment section](#set-up-a-conditional-access-policy) of this article for information about setting up that policy.
-1. The Conditional Access policy calls Azure AD Multi-Factor Authentication. The user gets a request to complete multi-factor authentication.
-1. The user completes multi-factor authentication.
-1. Azure AD issues access and refresh tokens and returns them to the client.
+1. AD FS redirects the session back to Microsoft Entra ID.
+1. Microsoft Entra ID applies an Azure Conditional Access policy with a multifactor authentication requirement for mobile apps and desktop clients. See the [deployment section](#set-up-a-conditional-access-policy) of this article for information about setting up that policy.
+1. The Conditional Access policy calls Microsoft Entra multifactor authentication. The user gets a request to complete multifactor authentication.
+1. The user completes multifactor authentication.
+1. Microsoft Entra ID issues access and refresh tokens and returns them to the client.
 1. The user presents the access token to Exchange Server, and Exchange authorizes access to the mailbox.
 
 ### Configuration (Exchange on-premises)
@@ -154,7 +154,7 @@ To block attempts to access Exchange on-premises via legacy authentication (the 
 >
 > BlockLegacyAuthWebServices        : True
 
-RPC protocol doesn't support modern authentication, so it doesn't support Azure AD Multi-Factor Authentication. Microsoft recommends [MAPI](/exchange/clients/mapi-over-http/mapi-over-http?view=exchserver-2019) protocol for Outlook for Windows clients.
+RPC protocol doesn't support modern authentication, so it doesn't support Microsoft Entra multifactor authentication. Microsoft recommends [MAPI](/exchange/clients/mapi-over-http/mapi-over-http?view=exchserver-2019) protocol for Outlook for Windows clients.
 
 Here's an example of a command for creating this authentication policy:
 
@@ -170,7 +170,7 @@ After you create the authentication policy, you can first assign it to a pilot g
 
 *Download a [Visio file](https://arch-center.azureedge.net/secure-hybrid-messaging-client.vsdx) of all diagrams in this article.*
 
-This scenario is similar to the previous one. However, in this scenario, multi-factor authentication is triggered by AD FS. This architecture covers both Outlook for Windows and Outlook for Mac.
+This scenario is similar to the previous one. However, in this scenario, multifactor authentication is triggered by AD FS. This architecture covers both Outlook for Windows and Outlook for Mac.
 
 > [!NOTE]
 >
@@ -179,18 +179,18 @@ This scenario is similar to the previous one. However, in this scenario, multi-f
 ### Workflow (Exchange on-premises, AD FS)
 
 1. The user starts the Outlook client. The client connects to Exchange Server and specifies that it has modern authentication capabilities.
-1. Exchange Server sends a response to the client requesting that it get a token from Azure AD. Exchange Server provides the client with a URL to Azure AD.
-1. The client uses the URL to access Azure AD.
-1. In this scenario, the domain is federated. Azure AD redirects the client to AD FS via Web Application Proxy.
+1. Exchange Server sends a response to the client requesting that it get a token from Microsoft Entra ID. Exchange Server provides the client with a URL to Microsoft Entra ID.
+1. The client uses the URL to access Microsoft Entra ID.
+1. In this scenario, the domain is federated. Microsoft Entra ID redirects the client to AD FS via Web Application Proxy.
 1. The user enters credentials on an AD FS sign-in page.
-1. AD FS triggers multi-factor authentication. Here's an example of that type of AD FS access control policy:
+1. AD FS triggers multifactor authentication. Here's an example of that type of AD FS access control policy:
 
    :::image type="content" source="./media/access-control-policy.png" alt-text="Screenshot that shows an AD FS access control policy.":::
 
-   The user gets a request to complete multi-factor authentication.
-1. The user completes multi-factor authentication.
-1. AD FS redirects the session back to Azure AD.
-1. Azure AD issues access and refresh tokens to the user.
+   The user gets a request to complete multifactor authentication.
+1. The user completes multifactor authentication.
+1. AD FS redirects the session back to Microsoft Entra ID.
+1. Microsoft Entra ID issues access and refresh tokens to the user.
 1. The client presents the access token to the Exchange on-premises server. Exchange authorizes access to the user's mailbox.
 
 ### Configuration (Exchange on-premises, AD FS)
@@ -211,7 +211,7 @@ To block attempts to access Exchange on-premises via legacy authentication (the 
 >
 > BlockLegacyAuthWebServices        : True
 
-RPC protocol doesn't support modern authentication, so it doesn't support Azure AD Multi-Factor Authentication. Microsoft recommends [MAPI](/exchange/clients/mapi-over-http/mapi-over-http?view=exchserver-2019) protocol for Outlook for Windows clients.
+RPC protocol doesn't support modern authentication, so it doesn't support Microsoft Entra multifactor authentication. Microsoft recommends [MAPI](/exchange/clients/mapi-over-http/mapi-over-http?view=exchserver-2019) protocol for Outlook for Windows clients.
 
 Here's an example of a command for creating this authentication policy:
 
@@ -223,21 +223,21 @@ After you create the authentication policy, you can first assign it to a pilot g
 
 ## Components
 
-- [Azure AD](https://azure.microsoft.com/products/active-directory). Azure AD is a Microsoft cloud-based identity and access management service. It provides modern authentication that's essentially based on EvoSTS (a Security Token Service used by Azure AD). It's used as an authentication server for Exchange Server on-premises.
-- [Azure AD Multi-Factor Authentication](/azure/active-directory/authentication/howto-mfa-getstarted). Multi-factor authentication is a process in which users are prompted during the sign-in process for another form of identification, like a code on their cellphone or a fingerprint scan.
-- [Azure AD Conditional Access](/azure/active-directory/conditional-access/concept-conditional-access-conditions). Conditional Access is the feature that Azure AD uses to enforce organizational policies like multi-factor authentication.
+- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory). Microsoft Entra ID is a Microsoft cloud-based identity and access management service. It provides modern authentication that's essentially based on EvoSTS (a Security Token Service used by Microsoft Entra ID). It's used as an authentication server for Exchange Server on-premises.
+- [Microsoft Entra multifactor authentication](/azure/active-directory/authentication/howto-mfa-getstarted). Multifactor authentication is a process in which users are prompted during the sign-in process for another form of identification, like a code on their cellphone or a fingerprint scan.
+- [Microsoft Entra Conditional Access](/azure/active-directory/conditional-access/concept-conditional-access-conditions). Conditional Access is the feature that Microsoft Entra ID uses to enforce organizational policies like multifactor authentication.
 - [AD FS](/windows-server/identity/active-directory-federation-services). AD FS enables federated identity and access management by sharing digital identity and entitlements rights across security and enterprise boundaries with improved security. In these architectures, it's used to facilitate sign-in for users with federated identity.
 - [Web Application Proxy](/windows-server/remote/remote-access/web-application-proxy/web-application-proxy-in-windows-server). Web Application Proxy pre-authenticates access to web applications by using AD FS. It also functions as an AD FS proxy.
 - [Microsoft Intune](https://www.microsoft.com/security/business/endpoint-management/microsoft-intune). Intune is our cloud-based unified endpoint management, managing endpoints across Windows, Android, Mac, iOS, and Linux operating systems.
-- [Exchange Server](https://www.microsoft.com/microsoft-365/exchange/email). Exchange Server hosts user mailboxes on-premises. In these architectures, it uses tokens issued to the user by Azure AD to authorize access to mailboxes.
-- [Active Directory services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview). Active Directory services stores information about members of a domain, including devices and users. In these architectures, user accounts belong to Active Directory services and are synchronized to Azure AD.
+- [Exchange Server](https://www.microsoft.com/microsoft-365/exchange/email). Exchange Server hosts user mailboxes on-premises. In these architectures, it uses tokens issued to the user by Microsoft Entra ID to authorize access to mailboxes.
+- [Active Directory services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview). Active Directory services stores information about members of a domain, including devices and users. In these architectures, user accounts belong to Active Directory services and are synchronized to Microsoft Entra ID.
 - [Outlook for business](https://www.microsoft.com/microsoft-365/outlook/outlook-for-business). Outlook is a client application that supports modern authentication.
 
 ## Scenario details
 
-Enterprise messaging infrastructure (EMI) is a key service for organizations. Moving from older, less secure methods of authentication and authorization to modern authentication is a critical challenge in a world where remote work is common. Implementing multi-factor authentication requirements for messaging service access is one of the most effective ways to meet that challenge.
+Enterprise messaging infrastructure (EMI) is a key service for organizations. Moving from older, less secure methods of authentication and authorization to modern authentication is a critical challenge in a world where remote work is common. Implementing multifactor authentication requirements for messaging service access is one of the most effective ways to meet that challenge.
 
-This article describes four architectures to enhance your security in an Outlook desktop-client access scenario by using Azure AD Multi-Factor Authentication.
+This article describes four architectures to enhance your security in an Outlook desktop-client access scenario by using Microsoft Entra multifactor authentication.
 
 These are four architectures according to four different possibilities for  Microsoft Exchange:
 
@@ -248,7 +248,7 @@ These are four architectures according to four different possibilities for  Micr
 
 All four architectures cover both Outlook for Windows and Outlook for Mac.
 
-For information about applying multi-factor authentication in other hybrid messaging scenarios, see these articles:
+For information about applying multifactor authentication in other hybrid messaging scenarios, see these articles:
 
 - [Enhanced-security hybrid messaging infrastructure in a web access scenario](secure-hybrid-messaging-web.yml)
 - [Enhanced-security hybrid messaging infrastructure in a mobile access scenario](secure-hybrid-messaging-mobile.yml)
@@ -257,7 +257,7 @@ This article doesn't discuss other protocols, like IMAP or POP. Typically, these
 
 ### General notes
 
-- These architectures use the [federated](/azure/active-directory/hybrid/whatis-fed) Azure Active Directory (Azure AD) identity model. For the password hash synchronization and Pass-through Authentication models, the logic and flow are the same. The only difference is related to the fact that Azure AD doesn't redirect the authentication request to on-premises Active Directory Federation Services (AD FS).
+- These architectures use the [federated](/azure/active-directory/hybrid/whatis-fed) Microsoft Entra identity model. For the password hash synchronization and Pass-through Authentication models, the logic and flow are the same. The only difference is related to the fact that Microsoft Entra ID doesn't redirect the authentication request to on-premises Active Directory Federation Services (AD FS).
 - By *Exchange on-premises*, we mean Exchange 2019 with the latest updates and a Mailbox role.
 - In a real environment, you won't have just one server. You'll have a load-balanced array of Exchange servers for high availability. The scenarios described here are suited for that configuration.
 
@@ -282,9 +282,9 @@ Reliability ensures that your application can meet the commitments that you make
 
 Overall availability depends on the availability of the components that are involved. For information about availability, see these resources:
 
-- [Advancing Azure Active Directory availability](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability)
+- [Advancing Microsoft Entra availability](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability)
 - [Cloud services you can trust: Office 365 availability](https://www.microsoft.com/microsoft-365/blog/2013/08/08/cloud-services-you-can-trust-office-365-availability)
-- [What is the Azure Active Directory architecture?](/azure/active-directory/fundamentals/active-directory-architecture)
+- [What is the Microsoft Entra architecture?](/azure/active-directory/fundamentals/active-directory-architecture)
 
 Availability of on-premises solution components depends on the implemented design, hardware availability, and your internal operations and maintenance routines. For availability information about some of these components, see the following resources:
 
@@ -292,7 +292,7 @@ Availability of on-premises solution components depends on the implemented desig
 - [Deploying high availability and site resilience in Exchange Server](/exchange/high-availability/deploy-ha?view=exchserver-2019)
 - [Web Application Proxy in Windows Server](/windows-server/remote/remote-access/web-application-proxy/web-application-proxy-in-windows-server)
 
-To use hybrid modern authentication, you need to ensure that all clients on your network can access Azure AD. You also need to consistently maintain Office 365 firewall ports and IP-range openings.
+To use hybrid modern authentication, you need to ensure that all clients on your network can access Microsoft Entra ID. You also need to consistently maintain Office 365 firewall ports and IP-range openings.
 
 For protocol and port requirements for Exchange Server, see "Exchange client and protocol requirements" in [Hybrid modern authentication overview for use with on-premises Skype for Business and Exchange servers](/microsoft-365/enterprise/hybrid-modern-auth-overview?view=o365-worldwide#do-you-meet-modern-authentication-prerequisites).
 
@@ -304,7 +304,7 @@ For information about hybrid modern authentication and mobile devices, read abou
 
 For information about the resiliency of the components in this architecture, see the following resources.
 
-- For Azure AD: [Advancing Azure AD availability](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability)
+- For Microsoft Entra ID: [Advancing Microsoft Entra availability](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability)
 - For scenarios that use AD FS: [High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager](/windows-server/identity/ad-fs/deployment/active-directory-adfs-in-azure-with-azure-traffic-manager)
 - For the Exchange on-premises solution: [Exchange high availability](/exchange/high-availability/deploy-ha?view=exchserver-2019)
 
@@ -316,7 +316,7 @@ For information about security and hybrid modern authentication, see [Deep Dive:
 
 For closed organizations that have traditional strong perimeter protection, there are security concerns related to Exchange Hybrid Classic configurations. The Exchange Hybrid Modern configuration doesn't support hybrid modern authentication.
 
-For information about Azure AD, see [Azure AD security operations guide](/azure/active-directory/fundamentals/security-operations-introduction).
+For information about Microsoft Entra ID, see [Microsoft Entra security operations guide](/azure/active-directory/fundamentals/security-operations-introduction).
 
 For information about scenarios that use AD FS security, see these articles:
 
@@ -327,9 +327,9 @@ For information about scenarios that use AD FS security, see these articles:
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-The cost of your implementation depends on your Azure AD and Microsoft 365 license costs. Total cost also includes costs for software and hardware for on-premises components, IT operations, training and education, and project implementation.
+The cost of your implementation depends on your Microsoft Entra ID and Microsoft 365 license costs. Total cost also includes costs for software and hardware for on-premises components, IT operations, training and education, and project implementation.
 
-These solutions require at least Azure AD Premium P1. For pricing details, see [Azure AD pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+These solutions require at least Microsoft Entra ID P1. For pricing details, see [Microsoft Entra pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 For information about AD FS and Web Application Proxy, see [Pricing and licensing for Windows Server 2022](https://www.microsoft.com/windows-server/pricing).
 
@@ -359,17 +359,17 @@ For information about Exchange Server on-premises scalability, see [Exchange 201
 Here are the high-level steps:
 
 1. Protect Outlook desktop access by [configuring Exchange Hybrid configuration and enabling hybrid modern authentication](/microsoft-365/enterprise/hybrid-modern-auth-overview?view=o365-worldwide).
-1. Block all legacy authentication attempts at the [Azure AD level](/azure/active-directory/conditional-access/block-legacy-authentication). Block legacy authentication attempts on a messaging-services level by using [authentication policy](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online).
+1. Block all legacy authentication attempts at the [Microsoft Entra ID level](/azure/active-directory/conditional-access/block-legacy-authentication). Block legacy authentication attempts on a messaging-services level by using [authentication policy](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online).
 
 ### Set up a Conditional Access policy
 
-To set up an Azure AD Conditional Access policy that enforces multi-factor authentication, as described in some of the architectures in this article:
+To set up a Microsoft Entra Conditional Access policy that enforces multifactor authentication, as described in some of the architectures in this article:
 
 1. In the **Clients apps** window, select **Mobile apps and desktop clients**:
 
    :::image type="content" source="./media/client-apps-desktop.png" alt-text="Screenshot that shows the Client apps window.":::
 
-1. Apply the multi-factor authentication requirement in the **Grant** window:
+1. Apply the multifactor authentication requirement in the **Grant** window:
 
    :::image type="content" source="./media/grant-control-desktop.png" alt-text="Screenshot that shows the Grant window.":::
 

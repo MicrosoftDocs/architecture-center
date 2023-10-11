@@ -131,7 +131,7 @@ One major concern of this scenario is the size of data it processes. In Project 
 
 The Logic Apps connector to Project Online doesn't natively support tenants that require the use of CAC or PIV for user-less connections. In order for Logic Apps to establish authentication to Project Online, a service principal needs to exist with appropriate permissions, or scopes, and licensing within the source tenant. Use the OAuth [client credential grant flow](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow) to acquire an access token for API access to Project Online.
 
-You need the following information from your Azure AD client registration:
+You need the following information from your Microsoft Entra client registration:
 
 - Application (client) ID
 - Client secret

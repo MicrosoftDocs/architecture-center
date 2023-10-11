@@ -15,8 +15,8 @@ Industry standards for communication, like [WebRTC](https://webrtc.org), separat
 
 | System  | Function| Protocols  | Access model   |
 |---|---|-----|--|
-| **Control plane** | Governs who communicates, when, and how | REST | [Azure AD service credentials](/azure/communication-services/concepts/authentication#azure-ad-authentication) |
-| **Data plane**| Contains communication content, voice, video, text, and data that interface with humans and apps | UDP, [RTMP](/azure/communication-services/concepts/voice-video-calling/network-requirements), WebSockets, REST | [User access tokens](/azure/communication-services/concepts/authentication#user-access-tokens) and Azure AD service credentials |
+| **Control plane** | Governs who communicates, when, and how | REST | [Microsoft Entra service credentials](/azure/communication-services/concepts/authentication#azure-ad-authentication) |
+| **Data plane**| Contains communication content, voice, video, text, and data that interface with humans and apps | UDP, [RTMP](/azure/communication-services/concepts/voice-video-calling/network-requirements), WebSockets, REST | [User access tokens](/azure/communication-services/concepts/authentication#user-access-tokens) and Microsoft Entra service credentials |
 
 A common data flow occurs when client applications initiate communication by requesting control information from a service controller:
 
@@ -30,7 +30,7 @@ In the WebRTC standard, clients request control information from services by sen
 
 ## Users authenticated via user access tokens
 
-Communication Services clients present user access tokens to access, with improved security, the Azure calling and chat data plane. You should generate and manage user access tokens by using a trusted service. The token and the connection string or Azure Active Directory (Azure AD) secrets that are necessary to generate them need to be protected. Failure to properly manage access tokens can result in additional charges because of misuse of resources.
+Communication Services clients present user access tokens to access, with improved security, the Azure calling and chat data plane. You should generate and manage user access tokens by using a trusted service. The token and the connection string or Microsoft Entra secrets that are necessary to generate them need to be protected. Failure to properly manage access tokens can result in additional charges because of misuse of resources.
 
 :::image type="content" source="./media/architecture-identity.png" alt-text="Diagram that shows the user access token architecture." border="false":::
 
@@ -99,7 +99,7 @@ You might want users to be able to join a group call without an explicit invitat
 Many organizations use Microsoft 365 and Teams for communication. [Communication Services and Teams are interoperable,](/azure/communication-services/concepts/teams-interop) which enables these scenarios:
 
 - **Build a custom application to allow an external user to join a Teams meeting.** This scenario is ideal for virtual visit scenarios, where a business that's using Teams hosts a meeting for external consumers who are using a custom app and a custom identity. To learn more about this scenario, see [Virtual visits tutorial and Sample Builder](/azure/communication-services/tutorials/virtual-visits).
-- **Build a custom application for an internal user with Teams / Azure AD credentials.** This scenario is designed for building custom Teams clients for employees.
+- **Build a custom application for an internal user with Teams / Microsoft Entra credentials.** This scenario is designed for building custom Teams clients for employees.
 
 These custom application scenarios use [Microsoft Graph APIs](/graph/overview?view=graph-rest-1.0) and Communication Services. When you build external apps and services that connect to Teams, you generally use Microsoft Graph as the *Teams control plane*. You use this control plane to configure who communicates and how and when they communicate by using APIs for:
 

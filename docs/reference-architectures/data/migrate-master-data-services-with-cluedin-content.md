@@ -22,7 +22,7 @@ CluedIn provides native integration to 27 Azure services, including the followin
 
 - [Azure Data Lake Gen2](/azure/storage/blobs/data-lake-storage-introduction)
 - [Azure Purview](https://azure.microsoft.com/services/purview)
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory)
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory)
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault)
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs)
 - [Azure Service Bus](https://azure.microsoft.com/services/service-bus)
@@ -141,7 +141,7 @@ With native support for autoscaling, CluedIn uses the power of Azure to provide 
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-CluedIn security grants permissions and controls access to different services through Azure RBAC, with Azure Key Vault security key control and Azure Monitor access tracking and logging. In addition to authenticated user accounts, CluedIn also supports single sign-on (SSO) and identity frameworks. Requests to the CluedIn application use encrypted access tokens that have no correlation with user identity. With Native Azure Active Directory support, simply plugin your SAML 2.0 information into CluedIn and it can immediately be used to manage user and role access to your new MDM solution.
+CluedIn security grants permissions and controls access to different services through Azure RBAC, with Azure Key Vault security key control and Azure Monitor access tracking and logging. In addition to authenticated user accounts, CluedIn also supports single sign-on (SSO) and identity frameworks. Requests to the CluedIn application use encrypted access tokens that have no correlation with user identity. With Native Microsoft Entra ID support, simply plugin your SAML 2.0 information into CluedIn and it can immediately be used to manage user and role access to your new MDM solution.
 
 ### Resiliency
 

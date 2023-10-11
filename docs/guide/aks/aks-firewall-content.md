@@ -18,7 +18,7 @@ This guide describes how to create a private AKS cluster in a hub-and-spoke netw
 The AKS cluster uses a user-defined managed identity to create additional resources, like load balancers and managed disks in Azure. The Terraform modules allow you to optionally deploy an AKS cluster that has these features:
 
 - [Container Storage Interface (CSI) drivers for Azure disks and Azure Files](/azure/aks/csi-storage-drivers)
-- [AKS-managed Azure Active Directory integration](/azure/aks/managed-aad)
+- [AKS-managed Microsoft Entra integration](/azure/aks/managed-aad)
 - [Azure RBAC for Kubernetes Authorization](/azure/aks/manage-azure-rbac)
 - [Managed identity in place of a service principal](/azure/aks/use-managed-identity)
 - [Azure network policies](/azure/aks/use-network-policies)
@@ -41,7 +41,7 @@ The architecture includes an [Azure Firewall](/azure/firewall/overview) that's u
 >
 > We highly recommend that you use the Premium SKU of Azure Firewall because it provides [advanced threat protection](/azure/firewall/premium-features).
 
-A [Key Vault](https://azure.microsoft.com/services/key-vault) is used as a secret store by workloads that run on AKS to retrieve keys, certificates, and secrets via the [Azure AD workload identity](/azure/aks/workload-identity-overview), [Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver), or [Dapr](https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview). [Azure Private Link](/azure/private-link/private-link-overview) enables AKS workloads to access Azure PaaS services, like Azure Key Vault, over a private endpoint in the virtual network.
+A [Key Vault](https://azure.microsoft.com/services/key-vault) is used as a secret store by workloads that run on AKS to retrieve keys, certificates, and secrets via the [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview), [Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver), or [Dapr](https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview). [Azure Private Link](/azure/private-link/private-link-overview) enables AKS workloads to access Azure PaaS services, like Azure Key Vault, over a private endpoint in the virtual network.
 
 The topology includes private endpoints and private DNS zones for these services:
 
@@ -240,7 +240,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 - Deploy your workloads to AKS by using a [Helm](https://helm.sh) chart in a continuous integration and continuous delivery (CI/CD) pipeline. Use a DevOps system like [GitHub Actions](https://docs.github.com/actions) or [Azure DevOps](https://azure.microsoft.com/services/devops). For more information, see [Build and deploy to Azure Kubernetes Service](/azure/devops/pipelines/ecosystems/kubernetes/aks-template).
 - To properly test an application before you make it available to users, use A/B testing and canary deployments in your application lifecycle management. There are several techniques that you can use to split the traffic across different versions of the same service. As an alternative, you can use the traffic-splitting capabilities that are provided by a service mesh implementation. For more information, see [Linkerd Traffic Split](https://linkerd.io/2.10/features/traffic-split) and [Istio Traffic Management](https://istio.io/latest/docs/concepts/traffic-management).
-- Use Azure Container Registry or another container registry (like Docker Hub), to store the private Docker images that are deployed to the cluster. AKS can authenticate with Azure Container Registry by using its Azure Active Directory identity.
+- Use Azure Container Registry or another container registry (like Docker Hub), to store the private Docker images that are deployed to the cluster. AKS can authenticate with Azure Container Registry by using its Microsoft Entra identity.
 - Test ingress and egress on your workloads in a separate pre-production environment that mirrors the network topology and firewall rules of your production environment. A staged rollout strategy will help you detect any networking or security problems before you release a new feature or network rule into production.
 
 #### Monitoring

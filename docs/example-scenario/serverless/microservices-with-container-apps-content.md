@@ -171,7 +171,7 @@ For more network topology options, see [Networking architecture in Azure Contain
 
 #### Workload identities
 
-- Container Apps supports Azure Active Directory (AD) managed identities allowing your app to authenticate itself to other Azure AD-protected resources, such as Azure Key Vault, without managing credentials in your container app. A container app can use system-assigned, user-assigned, or both types of managed identities. For services that don't support AD authentication, you should store secrets in Azure Key Vault and use a managed identity to access the secrets.
+- Container Apps supports Microsoft Entra managed identities allowing your app to authenticate itself to other resources protected by Microsoft Entra ID, such as Azure Key Vault, without managing credentials in your container app. A container app can use system-assigned, user-assigned, or both types of managed identities. For services that don't support AD authentication, you should store secrets in Azure Key Vault and use a managed identity to access the secrets.
 - Use managed identities for Azure Container Registry access. Azure Container Apps supports using a different managed identity for the workload than container registry access, which is recommended when looking to achieve granular access controls on your managed identities.
 
 ### Cost optimization

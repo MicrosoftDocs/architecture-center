@@ -70,7 +70,7 @@ Tenants won't need to remember separate credentials to access the application, a
 
 ## Next steps
 
-- [Microsoft Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/)
 - [Active Directory Domain Services](/previous-versions/windows/server-2008/bb897402(v=msdn.10))
 - [Active Directory Federation Services](/previous-versions/windows/server-2008/bb897402(v=msdn.10))
 - [Multitenant Applications in Azure](/azure/dotnet-develop-multitenant-applications)

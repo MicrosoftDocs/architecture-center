@@ -51,7 +51,7 @@ Here are the core components that move and process research data.
 
   - Ability to stream an app like VSCode to run notebooks against the machine learning compute resources.
   - Ability to limit copy, paste, and screen captures.
-  - Support for Azure Active Directory Authentication to DSVM.
+  - Support for Microsoft Entra authentication to DSVM.
 
 - [**Azure Logic Apps**](https://azure.microsoft.com/services/logic-apps) provides automated low-code workflow to develop both the *trigger* and *release* portions of the manual approval process.
 
@@ -122,7 +122,7 @@ For Azure services that cannot be configured effectively with private endpoints,
 
 The Blob storage access is through Azure Role-based access controls (RBAC).
 
-Azure Virtual Desktop supports Azure AD authentication to DSVM.
+Azure Virtual Desktop supports Microsoft Entra authentication to DSVM.
 
 Data Factory uses managed identity to access data from the blob storage. DSVMs also uses managed identity for remediation tasks.
 

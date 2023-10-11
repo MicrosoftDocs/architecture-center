@@ -20,6 +20,18 @@ In the architecture, the production virtual machines are part of a spoke [Azure 
 > [!NOTE]
 > The scenario works for production virtual machines with unencrypted disks.
 
+### Components
+
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault)
+- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
+- [Hybrid Runbook Worker](/azure/automation/automation-hybrid-runbook-worker)
+- [Azure Automation](https://azure.microsoft.com/services/automation)
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory)(Microsoft Entra ID)
+
+### Alternatives
+
+If necessary, you can grant time-limited read-only SOC Storage account access to IP addresses from outside, on-premises networks, for investigators to download the digital evidence.
+
 The system and organization controls (SOC) team uses a discrete Azure **SOC** subscription. The team has exclusive access to that subscription, which contains the resources that must be kept protected, inviolable, and monitored. The [Azure Storage](/azure/storage/common/storage-introduction) account in the SOC subscription hosts copies of disk snapshots in [immutable blob storage](/azure/storage/blobs/storage-blob-immutable-storage), and a dedicated [Azure Key Vault](/azure/key-vault/general/overview) keeps the snapshots' hash values and copies of the virtual machines' BEKs.
 
 In response to a request to capture a virtual machine's digital evidence, a SOC team member signs in to the Azure SOC subscription and uses a [Hybrid Runbook Worker](/azure/automation/extension-based-hybrid-runbook-worker-install) virtual machine in [Azure Automation](/azure/automation/automation-intro) to implement the **Copy-VmDigitalEvidence** runbook. The Hybrid Runbook Worker provides control of all mechanisms involved in the capture.
@@ -35,18 +47,6 @@ The Copy-VmDigitalEvidence runbook implements these macro steps:
 
 > [!NOTE]
 > The production virtual machines encrypted disks can use *key encryption keys* (KEK) as well. The Copy-VmDigitalEvidence runbook provided in the [deploy scenario](#deploy-this-scenario) doesn't cover this scenario.
-
-### Components
-
-- [Azure Automation](/azure/automation/automation-intro)
-- [Hybrid Runbook Worker](/azure/automation/extension-based-hybrid-runbook-worker-install)
-- [Azure Automation system-assigned managed identity](/azure/automation/enable-managed-identity-for-automation)
-- [Azure Storage account](/azure/storage/common/storage-account-overview)
-- [Secure transfer](/azure/storage/common/storage-require-secure-transfer)
-- [Azure Storage firewall](/azure/storage/common/storage-network-security)
-- [Azure file share](/azure/storage/files/storage-how-to-create-file-share?tabs=azure-portal)
-- [Azure Key Vault](https://azure.microsoft.com/services/key-vault)
-- [Log Analytics workspace](/azure/azure-monitor/platform/resource-logs-collect-workspace)
 
 #### Azure Automation
 
@@ -249,5 +249,5 @@ For more information about Microsoft Azure Compliance, see:
 ## Related resources
 
 - [Security architecture design](../../guide/security/security-start-here.yml)
-- [Microsoft Entra ID IDaaS in security operations](../aadsec/azure-ad-security.yml)
+- [Microsoft Entra IDaaS in security operations](../aadsec/azure-ad-security.yml)
 - [Security considerations for highly sensitive IaaS apps in Azure](../../reference-architectures/n-tier/high-security-iaas.yml)

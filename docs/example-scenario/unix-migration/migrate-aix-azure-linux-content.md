@@ -62,7 +62,7 @@ The system also contains the following components:
 
 - Azure Service Bus implements the MQ Series infrastructure and provides message queue services for the applications. For more information on migrating from MQ Series to Azure Service Bus, see [Migrate from ActiveMQ to Azure Service Bus](/azure/service-bus-messaging/migrate-jms-activemq-to-servicebus).
 
-- Azure Active Directory (Azure AD) provides identity and access management for all Azure entities and identities migrated from the legacy LDAP services.
+- Microsoft Entra ID provides identity and access management for all Azure entities and identities migrated from the legacy LDAP services.
 
 ### Components
 
@@ -93,7 +93,7 @@ The system also contains the following components:
 
 - [Azure Service Bus](https://azure.microsoft.com/services/service-bus) is a reliable cloud messaging service with simple hybrid integration.
 
-- [Azure AD](https://azure.microsoft.com/services/active-directory) is Microsoft's cloud-based enterprise identity and access management service. Azure AD single sign-on and multifactor authentication help users sign in and access resources, while protecting from cybersecurity attacks.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is Microsoft's cloud-based enterprise identity and access management service. Microsoft Entra single sign-on and multifactor authentication help users sign in and access resources, while protecting from cybersecurity attacks.
 
 ### Alternatives
 

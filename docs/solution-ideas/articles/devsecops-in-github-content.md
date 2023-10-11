@@ -3,14 +3,14 @@ DevSecOps makes security best practices an integral part of DevOps while maintai
 ## Architecture
 
 :::image type="complex" source="../media/devsecops-in-github-data-flow.svg" alt-text="Architecture diagram highlighting the security checks that run in various GitHub and Azure components in a GitHub DevSecOps environment." border="false":::
-   Architecture diagram highlighting security checks that run in a GitHub DevSecOps environment. After Azure Active Directory (Azure AD) authenticates developers, Codespaces runs security scans. GitHub Actions then test security and encrypt sensitive data. In production, Azure Policy, Microsoft Defender for Cloud, and Azure Monitor evaluate deployed software for risks.
+   Architecture diagram highlighting security checks that run in a GitHub DevSecOps environment. After Microsoft Entra authenticates developers, Codespaces runs security scans. GitHub Actions then test security and encrypt sensitive data. In production, Azure Policy, Microsoft Defender for Cloud, and Azure Monitor evaluate deployed software for risks.
 :::image-end:::
 
 *Download a [Visio file][visio-download] of all diagrams in this architecture.*
 
 ### Dataflow
 
-1. When developers access GitHub resources, GitHub redirects them to Azure AD for SAML authentication. In a single sign-on (SSO) procedure, the [Microsoft Authenticator app][Microsoft Authenticator] then uses FIDO2 strong authentication. The passwordless [FIDO2 security keys][FIDO2 security keys] align with the latest [Fast Identity Online (FIDO) Alliance][FIDO Alliance] specifications.
+1. When developers access GitHub resources, GitHub redirects them to Microsoft Entra ID for SAML authentication. In a single sign-on (SSO) procedure, the [Microsoft Authenticator app][Microsoft Authenticator] then uses FIDO2 strong authentication. The passwordless [FIDO2 security keys][FIDO2 security keys] align with the latest [Fast Identity Online (FIDO) Alliance][FIDO Alliance] specifications.
 1. Developers begin working on tasks in Codespaces. These pre-built development environments organized into containers provide correctly configured IDEs equipped with required security scanning extensions.
 1. When developers commit new code, GitHub Actions automatically scan the code to quickly find vulnerabilities and coding errors.
 1. Pull requests (PRs) trigger code builds and automated testing through GitHub Actions. GitHub encrypts secrets and credentials at rest and obfuscates these entries in logs.
@@ -39,7 +39,7 @@ Architecture diagram illustrating a chain of events in a GitHub DevSecOps implem
 
 ### Components
 
-- [Azure Active Directory (Azure AD)][Azure AD] is a multi-tenant, cloud-based identity service that controls access to Azure and other cloud apps like [Microsoft 365][Microsoft 365] and GitHub. You can configure Azure AD as the identity provider for GitHub, and you can enable multi-factor authentication for extra security.
+- [Microsoft Entra ID][Azure AD] is a multi-tenant, cloud-based identity service that controls access to Azure and other cloud apps like [Microsoft 365][Microsoft 365] and GitHub. You can configure Microsoft Entra ID as the identity provider for GitHub, and you can enable multi-factor authentication for extra security.
 - [GitHub][GitHub] provides a code-hosting platform that developers can use for collaborating on both open-source and [inner-source][Inner source] projects.
 - [Codespaces][Codespaces] is an online development environment, hosted by GitHub and powered by [Visual Studio Code][Visual Studio Code]. This tool provides a complete development solution in the cloud.
 - [GitHub Security][GitHub Security] works to eliminate threats in many ways. Agents and services identify vulnerabilities in repositories and in dependent packages, and ensure dependencies are up-to-date with secure versions. See the GitHub security subsection of Considerations for more details.

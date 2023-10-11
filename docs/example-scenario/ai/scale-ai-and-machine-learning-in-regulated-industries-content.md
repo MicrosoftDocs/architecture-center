@@ -12,7 +12,7 @@ The architecture is shown in this diagram and follows the principle of [enterpri
 
 The architecture consists of the workflow described in the following sections. Each component of the architecture has a corresponding number in the diagram. We describe the main purpose of the component, how it fits into the architecture, and any other important considerations that you should take when adopting it:
 
-1. **Platform subscriptions** – Core Azure subscriptions that provide management, connectivity, and identity, through Azure Active Directory (Azure AD). They aren't outlined here in more detail and are assumed to be ready and available as part of the core enterprise-scale setup.
+1. **Platform subscriptions** – Core Azure subscriptions that provide management, connectivity, and identity, through Microsoft Entra ID. They aren't outlined here in more detail and are assumed to be ready and available as part of the core enterprise-scale setup.
 
 #### Data management
 
@@ -58,7 +58,7 @@ The architecture consists of the workflow described in the following sections. E
 
 ### Components
 
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory)
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory)
 - [Azure Purview](https://azure.microsoft.com/services/purview)
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network)
 - [Azure DevOps](https://azure.microsoft.com/services/devops)
@@ -144,7 +144,7 @@ Enforce network access controls across several layers in the architecture, inclu
 
 AI and machine learning environments running on Azure must be integrated with an organization's main account provisioning system, where requests to grant access to critical business applications are submitted, approved, and audited.
 
-Account provisioning systems are expected to connect to an organization's Active Directory and Azure AD, so that business authorization roles map to corresponding Active Directory and Azure AD security groups.
+Account provisioning systems are expected to connect to an organization's Active Directory and Microsoft Entra ID, so that business authorization roles map to corresponding Active Directory and Microsoft Entra security groups.
 
 AI and machine learning environments follow a role-based access control model. Access level control authorizations ensure that users can only perform the tasks and actions for their job role and business requirement. Machine learning use cases are expected to be high segregated, as data scientists working in a particular use case are only allowed to access the resources part of that use case, following a principle of least privilege. These resources can include:
 
@@ -152,11 +152,11 @@ AI and machine learning environments follow a role-based access control model. A
 - Azure Machine Learning workspaces
 - Computing instances
 
-Role-based access control uses security groups in Azure AD.
+Role-based access control uses security groups in Microsoft Entra ID.
 
 #### Multifactor authentication
 
-Multifactor authentication must be in place and implemented for access to all environments running on Azure and classified as high-business impact. Multifactor authentication can be enforced using Azure Active Directory multifactor authentication services. Application endpoints – including Azure DevOps, Azure Management Portal, Azure Machine Learning, Azure Databricks, and Azure Kubernetes Services – should be configured in multifactor authentication access control policies.
+Multifactor authentication must be in place and implemented for access to all environments running on Azure and classified as high-business impact. Multifactor authentication can be enforced using Microsoft Entra multifactor authentication services. Application endpoints – including Azure DevOps, Azure Management Portal, Azure Machine Learning, Azure Databricks, and Azure Kubernetes Services – should be configured in multifactor authentication access control policies.
 
 Multifactor authentication must be enforced to all users, including Azure service managers, data engineers, and data scientists.
 

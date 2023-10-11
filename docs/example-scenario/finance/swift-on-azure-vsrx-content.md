@@ -87,7 +87,7 @@ This section describes shared services that complement all SWIFT components. Sha
 - You can use [Azure Policy](https://azure.microsoft.com/services/azure-policy) to enforce additional security controls and SWIFT CSP requirements.
 - [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) supports native SWIFT messaging. It provides more than 400 connectors to help you natively process and transform messaging.
 - You can use [Azure Monitor](https://azure.microsoft.com/services/monitor) to monitor the SWIFT infrastructure that's running on Azure.
-- You can use [Azure Active Directory](https://azure.microsoft.com/services/active-directory) to integrate authentication and access control for users who access SWIFT components.
+- You can use [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) to integrate authentication and access control for users who access SWIFT components.
 - You can use [Azure Key Vault](https://azure.microsoft.com/services/key-vault) to store the keys and certificates that are used for SWIFT components. Key Vault is a required component when you run Alliance Connect Virtual.
 
 The proposed architecture illustrates the use of native Azure services, but you can use other Azure or partner services that meet the requirements.
@@ -122,7 +122,7 @@ Principal authors:
 - [What is Azure Policy?](/azure/governance/policy/overview)
 - [What is Azure Logic Apps?](/azure/logic-apps/logic-apps-overview)
 - [Azure Monitor overview](/azure/azure-monitor/overview)
-- [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
+- [What is Microsoft Entra ID?](/azure/active-directory/fundamentals/active-directory-whatis)
 - [About Azure Key Vault](/azure/key-vault/general/overview)
 
 ## Related resources
