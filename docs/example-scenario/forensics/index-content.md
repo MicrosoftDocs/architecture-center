@@ -88,7 +88,7 @@ The SOC key vault also contains the hash values of disk snapshots calculated by 
 
 Ensure the [firewall](/azure/key-vault/general/network-security#key-vault-firewall-enabled-virtual-networks---dynamic-ips) is enabled on the key vault. It's configured to grant access only from the SOC Virtual Network.
 
-#### Log Analytics
+#### Log analytics
 
 An Azure [Log Analytics workspace](/azure/azure-monitor/platform/resource-logs-collect-workspace) stores activity logs used to audit all relevant events on the SOC subscription.
 
@@ -158,7 +158,7 @@ Only the [virtual network](/azure/virtual-network/virtual-networks-overview) in 
 
 Temporary access to the SOC storage is provided to investigators that require access to evidence. Authorized SOC team members can grant access.
 
-#### Evidence Acquisition
+#### Evidence acquisition
 
 Azure Audit Logs can show the evidence acquisition by recording the action of taking a virtual machine disk snapshot, with elements like who has taken the snapshots and when.
 
