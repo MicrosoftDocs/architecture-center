@@ -4230,6 +4230,8 @@ items:
       href: guide/virtual-desktop/start-here.md
     - name: Guides
       items:
+      - name: Windows 365 Azure network connection
+        href: guide/virtual-desktop/windows-365-azure-network-connection.yml
       - name: Azure Virtual Desktop environment
         href: /azure/virtual-desktop/environment-setup
         maintainContext: true
