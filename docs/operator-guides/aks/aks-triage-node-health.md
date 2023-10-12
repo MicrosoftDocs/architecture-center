@@ -94,7 +94,7 @@ kubectl get deploy konnectivity-agent -n kube-system
 
 Make sure that the pods are in a ready state.
 
-In case there is an issue with the connectivity between the control plane and worker nodes, follow these steps to establish the connectivity after ensuring that the required AKS egress traffic rules are allowed. For common issues related to tunnel connectivity, refer to [tunnel connectivity issues](/azure-kubernetes/tunnel-connectivity-issues). 
+In case there is an issue with the connectivity between the control plane and worker nodes, follow these steps to establish the connectivity after ensuring that the required AKS egress traffic rules are allowed.
 
 Restart the `konnectivity-agent` pods by executing the following command:
 
@@ -174,7 +174,7 @@ DNS resolution is a crucial aspect of your AKS cluster, as it can affect control
   nslookup microsoft.com 168.63.129.16
   ```
 
-7. If the previous steps do not provide any insights, connect to one of the worker nodes by following [these instructions](/aks/node-access#create-an-interactive-shell-connection-to-a-linux-node) and attempt DNS resolution from the node. This step will help identify whether the issue is related to AKS or the networking configuration.
+7. If the previous steps do not provide any insights, connect to one of the worker nodes by following [these instructions](/azure/aks/node-access#create-an-interactive-shell-connection-to-a-linux-node) and attempt DNS resolution from the node. This step will help identify whether the issue is related to AKS or the networking configuration.
 8. If DNS resolution is successful from the node but not from the pod, the problem could be related to Kubernetes DNS. Refer to this [article](/troubleshoot/azure/azure-kubernetes/troubleshoot-dns-failure-from-pod-but-not-from-worker-node) for steps to debug DNS resolution specifically from the pod.
 9. If DNS resolution fails from the node as well, review the networking setup to ensure that the appropriate routing paths and ports are open to facilitate DNS resolution.
 
@@ -187,11 +187,11 @@ Verify the condition of the kubelet process running on each worker node and ensu
   - Choose `Workbooks` under the `Monitoring` blade in the left navigation panel.
   - In the right pane, choose the `Kubelets` workbook.
   
-  ![AKS - Kubelet Workbook](images/kubelet-workbook.png)
+  ![Kubelet Workbook](images/kubelet-workbook.png)
   
   - Click the `Operations` tab and make sure that all the operations on all worker nodes completed successfully.
 
-  ![AKS - Kubelet Workbook Operations](images/kubelet-workbook-detail.png)
+  ![Operations](images/kubelet-workbook-detail.png)
 
 - **In-cluster monitoring with Prometheus and Grafana:** If you have deployed [Prometheus](https://prometheus.io/) and [Grafana](https://grafana.com/) in your Azure Kubernetes Service (AKS) cluster for monitoring and visualization, you can utilize the [Kubernetes / Kubelet](https://grafana.com/grafana/dashboards/12123-kubernetes-kubelet/) dashboard to gain insights on the health and performance of individual node kubelets.
 
@@ -211,16 +211,16 @@ The pressure increases when kubelet restarts and causes some sporadic, unpredict
 
 To ensure that file operations (IOPS) are not being throttled and impacting services and worloads within your AKS cluster, you can utilize the following tools:
 
-- **AKS - Node Disk IO Workbook:** To monitor the disk IO related metrics of the worker nodes in your AKS cluster, you can utilize the [Node Disk IO](https://learn.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-analyze#workbooks) workbook. Follow these steps to access the workbook:
+- **AKS - Node Disk IO Workbook:** To monitor the disk IO related metrics of the worker nodes in your AKS cluster, you can utilize the [Node Disk IO](/azure/azure-monitor/containers/container-insights-analyze#workbooks) workbook. Follow these steps to access the workbook:
   - Go to the Azure portal and navigate to your AKS cluster.
   - Choose `Workbooks` under the `Monitoring` blade in the left navigation panel.
   - In the right pane, choose the `Node Disk IO` workbook.
   
-  ![AKS - Kubelet Workbook](images/node-disk-io-workbook.png)
+  ![Node Disk IO Workbook](images/node-disk-io-workbook.png)
   
   - Scroll down the workbook to review the IO-related metrics.
 
-  ![AKS - Kubelet Workbook Operations](images/node-disk-io-workbook-detail.png)
+  ![Disk IO Metrics](images/node-disk-io-workbook-detail.png)
 
 - **In-cluster monitoring with Prometheus and Grafana:** If you have deployed [Prometheus](https://prometheus.io/) and [Grafana](https://grafana.com/) in your Azure Kubernetes Service (AKS) cluster for monitoring and visualization, you can utilize the [USE Method / Node](https://grafana.com/grafana/dashboards/12136-use-method-node/?tab=reviews) dashboard to gain insights on the Disk IO on the cluster worker nodes.
 
