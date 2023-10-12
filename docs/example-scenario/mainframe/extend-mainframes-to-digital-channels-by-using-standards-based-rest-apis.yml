@@ -12,7 +12,7 @@ metadata:
 azureCategories:
   - integration
 products:
-  - azure-active-directory
+  - entra-id
   - azure-expressroute
   - azure-monitor
   - azure-redhat-openshift
