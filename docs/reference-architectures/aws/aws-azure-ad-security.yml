@@ -24,7 +24,7 @@ azureCategories:
 summary: Learn how Microsoft Entra ID can help secure and protect Amazon Web Services (AWS) identity management and account access. Discover Microsoft security solutions.
 products:
   - azure
-  - azure-active-directory
+  - entra-id
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-aws-integration.png
 content: |
    [!include[](aws-azure-ad-security-content.md)]

@@ -27,7 +27,7 @@ azureCategories:
   - management-and-governance
 summary: Deploy a highly available SharePoint farm for intranet capabilities that uses Microsoft Entra ID, a SQL always on instance, and SharePoint resources.
 products:
-  - azure-active-directory
+  - entra-id
   - azure-load-balancer
   - sql-server
 thumbnailUrl: /azure/architecture/browse/thumbs/highly-available-sharepoint-farm.png

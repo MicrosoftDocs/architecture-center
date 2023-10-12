@@ -25,7 +25,7 @@ azureCategories:
   - web
 summary: Keep sensitive user and payment data from an e-commerce website secure by using the Microsoft Azure App Service Environment.
 products:
-  - azure-active-directory
+  - entra-id
   - azure-app-service
   - azure-cache-redis
   - azure-cdn

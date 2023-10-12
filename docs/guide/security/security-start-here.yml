@@ -14,7 +14,7 @@ azureCategories:
   - identity
   - management-and-governance
 products:
-  - azure-active-directory
+  - entra-id
   - azure-firewall
   - azure-front-door
   - azure-key-vault
