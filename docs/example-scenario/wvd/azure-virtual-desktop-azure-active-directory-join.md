@@ -15,7 +15,7 @@ categories:
   - identity
   - windows-virtual-desktop
 products:
-  - azure-active-directory
+  - entra-id
   - entra
   - azure-rbac
   - azure-virtual-machines
