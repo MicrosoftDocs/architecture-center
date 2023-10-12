@@ -12,7 +12,7 @@ azureCategories:
   - identity
 products:
   - azure-active-directory
-  - azure-active-directory-b2c
+  - entra-external-id
 name: Secure development with single-page applications (SPAs)
 summary: Learn how to use Microsoft Entra ID and Oauth 2.0 to secure single-page Azure applications.
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-ad-oauth-2-flow.png
