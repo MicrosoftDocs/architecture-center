@@ -207,4 +207,4 @@ The following sections list other serverless and Azure Functions-related referen
 
 Principal author:
 
-- [Rogerio Halicki Cordeiro](https://www.linkedin.com/in/rogeriohalickicordeiro) | Senior Cloud Solution Architect
+- Rogerio Halicki Cordeiro | Senior Cloud Solution Architect
