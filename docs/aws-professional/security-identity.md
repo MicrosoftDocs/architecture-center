@@ -10,7 +10,7 @@ categories:
   - security
   - identity
 products:
-  - azure-active-directory
+  - entra-id
 ---
 # Multicloud security and identity with Azure and Amazon Web Services (AWS)
 
