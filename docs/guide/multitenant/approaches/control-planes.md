@@ -28,7 +28,7 @@ Control planes are an important part of SaaS and multitenant solutions, especial
 
 A control plane is itself an application. As such, it is important to think about your control plane carefully, and to design it with the same rigor and care you use with any other part of your solution. For more information on what a control plane is, why you should use it, and considerations for designing one, see [Considerations for multitenant control planes](../considerations/control-planes.yml).
 
-In this article, we describe some approaches you can consider for designing and building a control plane. The list of approaches found here is non-exhaustive, and is intended only for the purpose of providing examples, not to suggest that you should only consider these approaches.
+In this article, we describe some approaches you can consider for designing and building a control plane. The list of approaches found here is not exhaustive. While the listed approaches are all valid examples to consider, there are other valid architectures.
 
 ## Approaches and patterns to consider
 
@@ -57,8 +57,8 @@ For processes like tenant onboarding and maintenance activities:
 
 > [!div class="checklist"]
 >
-> - **Create scripts wherever possible, even if you execute them manually.** By using scripts, you ensure that the steps are run consistently for each tenant.
-> - **For things that you can't script initially, document the process thoroughly and in explicit detail.** You'll want to be sure you document the "how" as well as the "why" because if somebody ends up automating this in the future, they should have a good understanding of what's going on.
+> - **Create scripts or automated pipelines wherever possible, even if you execute them manually.** By using scripts or pipelines, you ensure that the steps are run consistently for each tenant.
+> - **For things that you can't script initially, document the process thoroughly and in explicit detail.** You'll want to be sure you document the "how" as well as the "why" because if somebody ends up automating this in the future, they should have a good understanding of both.
 
 The following diagram illustrates how manual processes might serve as an initial control plane: 
 ![A diagram explaining how a team might use scripts and other manual processes to serve as a manual control plane](media/control-plane/control-plane-approaches-manual.png)
@@ -132,7 +132,7 @@ The following diagram illustrates how you might construct a basic custom control
 
 #### Disadvantages of a custom approach
 
-- **Maintenance responsibilities**: There is a higher amount of maintenance overhead in this approach, as you must build everything yourself. A control plane is as important as any other part of your application. As such, you need to take great care in developing and running your control plane to ensure it is reliable.
+- **Maintenance responsibilities**: There is a higher amount of maintenance overhead in this approach, as you must build everything yourself. A control plane is as important as any other part of your application. As such, you need to take great care in developing and running your control plane to ensure it is reliable and secure.
 
 ### Hybrid approaches
 
