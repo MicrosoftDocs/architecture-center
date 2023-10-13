@@ -33,7 +33,7 @@ This article describes an architecture that you can use to replace the manual an
 
 ### Alternatives
 
-- [Azure Video Indexer](https://azure.microsoft.com/services/video-indexer) is a video analytics service that uses AI to extract actionable insights from stored videos. You can use it without any expertise in machine learning.
+- [Azure Video Indexer](https://azure.microsoft.com/en-us/products/ai-video-indexer) is a video analytics service that uses AI to extract actionable insights from stored videos. You can use it without any expertise in machine learning.
 - [Azure Data Factory](https://azure.microsoft.com/products/data-factory) is a fully managed serverless data integration service that helps you construct ETL and ELT processes.
 - [Azure Functions](https://azure.microsoft.com/products/functions) is a serverless platform as a service (PaaS) that runs single-task code without requiring new infrastructure. 
 - [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) is a fully managed NoSQL database for modern app development.
