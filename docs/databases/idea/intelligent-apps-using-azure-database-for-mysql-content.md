@@ -4,7 +4,7 @@ This article presents a solution for automating data analysis and visualization 
 
 ## Architecture
 
-![Architecture diagram that shows the dataflow of an intelligent application using Azure Database for MySQL.](../media/intelligent-apps-using-azure-database-for-mysql.svg)
+![Architecture diagram that shows the dataflow of an intelligent application using Azure Database for MySQL.](_images/intelligent-apps-using-azure-database-for-mysql.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/intelligent-apps-using-azure-database-for-mysql.vsdx) of this architecture.*
 
@@ -96,7 +96,7 @@ Principal author:
 
 The following solution ideas feature Azure Database for MySQL:
 
-- [Gaming using Azure Database for MySQL](./gaming-using-azure-database-for-mysql.yml)
-- [Retail and e-commerce using Azure Database for MySQL](./retail-and-ecommerce-using-azure-database-for-mysql.yml)
-- [Finance management apps using Azure Database for MySQL](./finance-management-apps-using-azure-database-for-mysql.yml)
-- [Scalable web and mobile applications using Azure Database for MySQL](./scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml)
+- [Gaming using Azure Database for MySQL](../../solution-ideas/articles/gaming-using-azure-database-for-mysql.yml)
+- [Retail and e-commerce using Azure Database for MySQL](../../solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql.yml)
+- [Finance management apps using Azure Database for MySQL](../../solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql.yml)
+- [Scalable web and mobile applications using Azure Database for MySQL](../../solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml)

@@ -4,7 +4,7 @@ This article presents a solution for automating data analysis and visualization 
 
 ## Architecture
 
-![Diagram that shows the dataflow of an intelligent application using Azure Database for PostgreSQL.](../media/intelligent-apps-using-azure-database-for-postgresql.svg)
+![Diagram that shows the dataflow of an intelligent application using Azure Database for PostgreSQL.](_images/intelligent-apps-using-azure-database-for-postgresql.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/intelligent-apps-azure-database-for-postgresql.vsdx) of this architecture.*
 
@@ -106,4 +106,4 @@ Cognitive Service for Language offers various pricing tiers. The number of text 
 ## Related resources
 
 - [Intelligent apps using Azure Database for MySQL](./intelligent-apps-using-azure-database-for-mysql.yml)
-- [Retail and e-commerce using Azure Database for PostgreSQL](./retail-and-ecommerce-using-azure-database-for-postgresql.yml)
+- [Retail and e-commerce using Azure Database for PostgreSQL](../../solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql.yml)

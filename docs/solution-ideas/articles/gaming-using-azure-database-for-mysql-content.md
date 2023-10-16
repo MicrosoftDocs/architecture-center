@@ -66,6 +66,6 @@ Product documentation:
 The following solution ideas feature Azure Database for MySQL:
 
 * [Retail and e-commerce using Azure Database for MySQL](./retail-and-ecommerce-using-azure-database-for-mysql.yml)
-* [Intelligent apps using Azure Database for MySQL](./intelligent-apps-using-azure-database-for-mysql.yml)
+* [Intelligent apps using Azure Database for MySQL](../../databases/idea/intelligent-apps-using-azure-database-for-mysql.yml)
 * [Finance management apps using Azure Database for MySQL](./finance-management-apps-using-azure-database-for-mysql.yml)
 * [Scalable web and mobile applications using Azure Database for MySQL](./scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml)

@@ -3494,6 +3494,16 @@
       "source_path": "docs/solution-ideas/articles/messaging.yml",
       "redirect_url": "/azure/architecture/databases/idea/messaging",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/intelligent-apps-using-azure-database-for-mysql.yml",
+      "redirect_url": "/azure/architecture/databases/idea/intelligent-apps-using-azure-database-for-mysql",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/intelligent-apps-using-azure-database-for-postgresql.yml",
+      "redirect_url": "/azure/architecture/databases/idea/intelligent-apps-using-azure-database-for-postgresql",
+      "redirect_document_id": true
     }
   ]
 }

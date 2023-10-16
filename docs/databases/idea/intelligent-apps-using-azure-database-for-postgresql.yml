@@ -19,7 +19,6 @@ metadata:
     - azure
     - solutions
     - app-dev
-    - "https://azure.microsoft.com/solutions/architecture/intelligent-apps-using-azure-database-for-postgresql"
     - ai-machine-learning
 name: Intelligent apps using Azure Database for PostgreSQL
 azureCategories:
