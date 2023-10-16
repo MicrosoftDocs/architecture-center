@@ -88,7 +88,7 @@ By following these troubleshooting guides, you can effectively address networkin
 
 ## Third-Party Container Registry Integration
 
-When you are using a third-party container registry, you will need to create the appropriate `ImagePullSecret` credentials for the registry. This enables your AKS cluster to securely access the container images. [Refer to the Azure documentation](https://docs.microsoft.com/azure/container-registry/container-registry-auth-kubernetes#create-an-image-pull-secret) for detailed instructions on creating an image pull secret for your specific third-party container registry. By ensuring the correct permissions and credentials are set up, you can verify the connection to the container registry and allow your AKS cluster to successfully pull the required container images during deployments. This best practice ensures smooth and reliable execution of your containerized workloads in Kubernetes.
+When you are using a third-party container registry, you will need to create the appropriate `ImagePullSecret` credentials for the registry. This enables your AKS cluster to securely access the container images. [Refer to the Azure documentation](/azure/container-registry/container-registry-auth-kubernetes#create-an-image-pull-secret) for detailed instructions on creating an image pull secret for your specific third-party container registry. By ensuring the correct permissions and credentials are set up, you can verify the connection to the container registry and allow your AKS cluster to successfully pull the required container images during deployments. This best practice ensures smooth and reliable execution of your containerized workloads in Kubernetes.
 
 ## Contributors
 
