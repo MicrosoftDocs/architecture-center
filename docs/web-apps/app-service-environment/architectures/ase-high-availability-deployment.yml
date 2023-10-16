@@ -20,7 +20,7 @@ azureCategories:
   - featured
 summary: The recommended architecture for deploying an enterprise application using App Services Environment in multiple availability zones.
 products:
-  - azure-active-directory
+  - entra-id
   - azure-application-gateway
   - azure-firewall
   - azure-virtual-network
