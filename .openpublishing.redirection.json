@@ -3479,6 +3479,16 @@
       "source_path": "docs/data-science-process/sample-data-hive.md",
       "redirect_url": "/azure/architecture/data-science-process/overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/databases-architecture-design.yml",
+      "redirect_url": "/azure/architecture/databases/index",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/data-cache-with-redis-cache.yml",
+      "redirect_url": "/azure/architecture/databases/idea/data-cache-with-redis-cache",
+      "redirect_document_id": true
     }
   ]
 }

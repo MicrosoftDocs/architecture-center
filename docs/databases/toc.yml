@@ -1,6 +1,6 @@
 items:
 - name: Databases
-  href: index.md
+  href: index.yml
   items: 
     - name: Explore ideas about
       items:
