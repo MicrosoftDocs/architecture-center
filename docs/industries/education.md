@@ -10,7 +10,7 @@ ms.service: architecture-center
 ms.subservice: azure-guide
 ms.custom: fcp 
 products:
-- azure-active-directory
+- entra-id
 - azure-digital-twins
 - office-teams
 - azure-lab-services

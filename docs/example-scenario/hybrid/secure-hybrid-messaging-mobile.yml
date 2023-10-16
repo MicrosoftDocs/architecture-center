@@ -16,7 +16,7 @@ azureCategories:
   - "identity"
   - "mobile"
 products:
-  - "azure-active-directory"
+  - entra-id
   - "m365"
   - "office-365"
 name: Enhanced-security hybrid messaging infrastructure — mobile access
