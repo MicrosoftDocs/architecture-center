@@ -49,7 +49,7 @@ You can check node health in one of the following ways:
 
 ![AKS - Nodes View](images/aks-node-health.png)
 
-- **In-cluster monitoring with Prometheus and Grafana:** If you have deployed [Prometheus](https://prometheus.io/) and [Grafana](https://grafana.com/) in your Azure Kubernetes Service (AKS) cluster for monitoring and visualization, you can utilize the [K8 Cluster Detail Dashboard](https://grafana.com/grafana/dashboards/10856-k8-cluster/) to gain valuable insights. This dashboard leverages the Prometheus cluster metrics to present vital information such as CPU usage, memory utilization, network activity, file system usage, as well as detailed statistics for individual pods, containers, and systemd services. To ensure the health and performance of your cluster, the `Node Conditions` blade provides crucial metrics. It allows you to track nodes that may be experiencing issues such as being unschedulable, disk pressure, memory pressure, PID pressure, network problems, or running out of disk space. By monitoring these metrics, you can proactively identify and address any potential issues affecting the availability and performance of your AKS cluster.
+- **In-cluster monitoring with Prometheus and Grafana:** If you deployed [Prometheus](https://prometheus.io/) and [Grafana](https://grafana.com/) in your Azure Kubernetes Service (AKS) cluster for monitoring and visualization, you can utilize the [K8 Cluster Detail Dashboard](https://grafana.com/grafana/dashboards/10856-k8-cluster/) to gain valuable insights. This dashboard leverages the Prometheus cluster metrics to present vital information such as CPU usage, memory utilization, network activity, file system usage, as well as detailed statistics for individual pods, containers, and systemd services. To ensure the health and performance of your cluster, the `Node Conditions` blade provides crucial metrics. It allows you to track nodes that may be experiencing issues such as being unschedulable, disk pressure, memory pressure, PID pressure, network problems, or running out of disk space. By monitoring these metrics, you can proactively identify and address any potential issues affecting the availability and performance of your AKS cluster.
 
 ![Prometheus and Grafana Dashboard - Node](images/node-conditions.png)
 
@@ -78,7 +78,7 @@ You can check node health in one of the following ways:
 
   By leveraging these dedicated dashboards, you can easily monitor and analyze important metrics related to CPU, memory, and other resources in both Linux and Windows agent nodes. This visibility allows you to identify potential bottlenecks, optimize resource allocation, and ensure efficient operation across your AKS cluster.
 
-![Azure Managed Grafana Kubernetes / Compute Resources / Node (POds) Dashboard](images/azure-managed-grafana-node-dashboard.png)
+![Azure Managed Grafana Kubernetes / Compute Resources / Node (Pods) Dashboard](images/azure-managed-grafana-node-dashboard.png)
 
 ## 2 - Verify the control plane and worker node connectivity
 
@@ -193,7 +193,7 @@ Verify the condition of the kubelet process running on each worker node and ensu
 
   ![Operations](images/kubelet-workbook-detail.png)
 
-- **In-cluster monitoring with Prometheus and Grafana:** If you have deployed [Prometheus](https://prometheus.io/) and [Grafana](https://grafana.com/) in your Azure Kubernetes Service (AKS) cluster for monitoring and visualization, you can utilize the [Kubernetes / Kubelet](https://grafana.com/grafana/dashboards/12123-kubernetes-kubelet/) dashboard to gain insights on the health and performance of individual node kubelets.
+- **In-cluster monitoring with Prometheus and Grafana:** If you deployed [Prometheus](https://prometheus.io/) and [Grafana](https://grafana.com/) in your Azure Kubernetes Service (AKS) cluster for monitoring and visualization, you can utilize the [Kubernetes / Kubelet](https://grafana.com/grafana/dashboards/12123-kubernetes-kubelet/) dashboard to gain insights on the health and performance of individual node kubelets.
 
 ![Prometheus and Grafana Dashboard - Kubelet](images/kubelet-conditions.png)
 
@@ -222,7 +222,7 @@ To ensure that file operations (IOPS) are not being throttled and impacting serv
 
   ![Disk IO Metrics](images/node-disk-io-workbook-detail.png)
 
-- **In-cluster monitoring with Prometheus and Grafana:** If you have deployed [Prometheus](https://prometheus.io/) and [Grafana](https://grafana.com/) in your Azure Kubernetes Service (AKS) cluster for monitoring and visualization, you can utilize the [USE Method / Node](https://grafana.com/grafana/dashboards/12136-use-method-node/?tab=reviews) dashboard to gain insights on the Disk IO on the cluster worker nodes.
+- **In-cluster monitoring with Prometheus and Grafana:** If you deployed [Prometheus](https://prometheus.io/) and [Grafana](https://grafana.com/) in your Azure Kubernetes Service (AKS) cluster for monitoring and visualization, you can utilize the [USE Method / Node](https://grafana.com/grafana/dashboards/12136-use-method-node/?tab=reviews) dashboard to gain insights on the Disk IO on the cluster worker nodes.
 
    ![Prometheus and Grafana Dashboard - Node Disk](images/node-diskio.png)
 
