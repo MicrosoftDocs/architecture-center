@@ -83,7 +83,7 @@ See the following related database architectural guidance:
 - [Modernize mainframe & midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
 - [Master data management with Profisee and Azure Data Factory](../../reference-architectures/data/profisee-master-data-management-data-factory.yml)
 - [Master Data Management powered by CluedIn](../../reference-architectures/data/cluedin.yml)
-- [DataOps for the modern data warehouse](../../example-scenario/data-warehouse/dataops-mdw.yml)
+- [DataOps for the modern data warehouse](../../databases/architecture/dataops-mdw.yml)
 - [Data warehousing and analytics](../../example-scenario/data/data-warehouse.yml)
 - [Real Time Analytics on Big Data Architecture](./real-time-analytics.yml)
 

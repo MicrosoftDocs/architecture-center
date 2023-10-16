@@ -97,4 +97,4 @@ Principal author:
 
 - [Move data from a SQL Server database to SQL Database with Azure Data Factory](../../data-science-process/move-sql-azure-adf.md)
 - [Data management patterns](../../patterns/category/data-management.md)
-- [DataOps for the modern data warehouse](../../example-scenario/data-warehouse/dataops-mdw.yml)
+- [DataOps for the modern data warehouse](../../databases/architecture/dataops-mdw.yml)

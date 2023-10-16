@@ -4,7 +4,7 @@ This article describes how a fictional city planning office could use this solut
 
 The following diagram shows the overall architecture of the solution.
 
-:::image type="content" source="./media/architecture-diagram-demonstrating-dataops-for-the-modern-data-warehouse.svg" lightbox="./media/architecture-diagram-demonstrating-dataops-for-the-modern-data-warehouse.svg" alt-text="Architecture diagram demonstrating DataOps for the modern data warehouse." border="false":::
+:::image type="content" source="_images/architecture-diagram-demonstrating-dataops-for-the-modern-data-warehouse.svg" lightbox="_images/architecture-diagram-demonstrating-dataops-for-the-modern-data-warehouse.svg" alt-text="Architecture diagram demonstrating DataOps for the modern data warehouse." border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/architecture-diagram-demonstrating-dataops-for-the-modern-data-warehouse.vsdx) of this architecture.*
 
@@ -95,7 +95,7 @@ This article describes how a fictional city planning office could use this solut
 
 This article uses the fictional city of Contoso to describe the use case scenario. In the narrative, Contoso owns and manages parking sensors for the city. It also owns the APIs that connect to and get data from the sensors. They need a platform that will collect data from many different sources. The data then must be validated, cleansed, and transformed to a known schema. Contoso city planners can then explore and assess report data on parking use with data visualization tools, like Power BI, to determine whether they need more parking or related resources.
 
-[![Street Parking Availability](./media/street-parking-availability.png)](./media/street-parking-availability.png#lightbox)
+[![Street Parking Availability](_images/street-parking-availability.png)](_images/street-parking-availability.png#lightbox)
 
 ## Considerations
 
@@ -140,7 +140,7 @@ For a detailed list of all resources, see the [Deployed Resources](https://githu
 
 The diagram below demonstrates the CI/CD process and sequence for the build and release pipelines.
 
-:::image type="content" source="./media/ci-cd-process-diagram-new.svg" lightbox="./media/ci-cd-process-diagram-new.svg" alt-text="Diagram that shows the process and sequence for build and release." border="false":::
+:::image type="content" source="_images/ci-cd-process-diagram-new.svg" lightbox="_images/ci-cd-process-diagram-new.svg" alt-text="Diagram that shows the process and sequence for build and release." border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ci-cd-process-diagram.vsdx) of this architecture.*
 

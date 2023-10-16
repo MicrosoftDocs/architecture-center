@@ -90,7 +90,7 @@ You can integrate Profisee data management with Azure Purview to build a foundat
 Apply DevOps principles to data pipelines built according to the modern data warehouse (MDW) architectural pattern with Microsoft Azure.
 
 > [!div class="nextstepaction"]
-> [DataOps for the modern data warehouse](../example-scenario/data-warehouse/dataops-mdw.yml)
+> [DataOps for the modern data warehouse](../databases/architecture/dataops-mdw.yml)
 
 ### Modernize a mainframe
 

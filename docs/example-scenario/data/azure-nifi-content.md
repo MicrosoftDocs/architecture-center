@@ -967,7 +967,6 @@ For more information, see the following resources:
 [Create a virtual machine scale set that uses Availability Zones]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones
 [Data Factory]: https://azure.microsoft.com/services/data-factory
 [Data warehousing and analytics]: ./data-warehouse.yml
-[DataOps for the modern data warehouse]: ../data-warehouse/dataops-mdw.yml
 [Diagnostics and health monitoring section of this article]: #diagnostics-and-health-monitoring
 [Encrypt OS and attached data disks in a virtual machine scale set with the Azure CLI]: /azure/virtual-machine-scale-sets/disk-encryption-cli
 [Get started with log queries in Azure Monitor]: /azure/azure-monitor/logs/get-started-queries

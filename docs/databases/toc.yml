@@ -20,8 +20,11 @@ items:
         items:
         - name: Serverless apps using Azure Cosmos DB
           href: idea/serverless-apps-using-cosmos-db.yml
-    # - name: Design architectures
-    #   items:
-
+    - name: Design architectures
+      items:
+      - name: Data warehouse
+        items:
+        - name: DataOps for modern data warehouse
+          href: architectures/dataops-mdw.yml        
     # - name: Apply guidance
     #   items:

@@ -296,7 +296,6 @@ To start implementing this solution, see this information:
 [Copy performance and scalability achievable using ADF]: /azure/data-factory/copy-activity-performance#copy-performance-and-scalability-achievable-using-adf
 [Create a data source for Azure Maps]: /azure/azure-maps/create-data-source-web-sdk#geojson-data-source
 [Create a data source for a map in Microsoft Azure Maps]: /azure/azure-maps/create-data-source-web-sdk#vector-tile-source
-[DataOps for the modern data warehouse]: ../data-warehouse/dataops-mdw.yml
 [Enforce HTTPS]: /azure/app-service/configure-ssl-bindings#enforce-https
 [Frameworks - OpenStreetMap Wiki]: https://wiki.openstreetmap.org/wiki/Frameworks
 [GeoJSON format]: https://tools.ietf.org/html/rfc7946

@@ -3509,6 +3509,11 @@
       "source_path": "docs/solution-ideas/articles/serverless-apps-using-cosmos-db.yml",
       "redirect_url": "/azure/architecture/databases/idea/serverless-apps-using-cosmos-db",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "example-scenario/data-warehouse/dataops-mdw.yml",
+      "redirect_url": "/azure/architecture/databases/architectures/dataops-mdw",
+      "redirect_document_id": true
     }
   ]
 }
