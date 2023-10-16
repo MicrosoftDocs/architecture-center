@@ -37,17 +37,17 @@ In Azure portal, proceed as follows to check the health of workloads:
   - The second number indicates the desired number of replicas specified for the deployment. This is the number of replicas that the deployment aims to maintain. The Kubernetes deployment controller constantly monitors the state of the deployment and tries to ensure that the actual number of replicas matches the desired number.
 - Click the `Replica sets`,`Stateful sets`, and  `Daemon sets` tabs and repeat the check.
 
-![AKS - Workloads](images/aks-triage-workloads.png)
+![AKS - Controllers](images/aks-triage-workloads.png)
 
 - Choose `Services and ingresses` under `Kubernetes resources` in the left navigation panel.
 - Ensure the status is `OK` for all the services.
 
-![AKS - Workloads](images/aks-triage-services.png)
+![AKS - Services](images/aks-triage-services.png)
 
 - Choose `Storage` under `Kubernetes resources` in the left navigation panel.
 - Ensure the status is `BOUND` for all the persistent volume claims and persistent volumes under the corresponding tabs.
 
-![AKS - Workloads](images/aks-triage-storage.png)
+![AKS - Storage](images/aks-triage-storage.png)
 
 ### Azure Container Insights
 
@@ -61,21 +61,21 @@ You can Access Container insights in the Azure portal as follows:
 - Choose `Insights` under `Monitoring` in the left navigation panel.
 - Select the `Controllers` tab in the right panel to see all the ReplicaSets, StatetefulSets, and DaemonSets in the AKS cluster.
 - Expand a controller to see its replicas.
-- Click a pod and select to see its metadata under the `Overview` tab, events under the `Live events` tab, and metrics under the `Live Metrics` tab. 
+- Click a pod and select to see its metadata under the `Overview` tab, events under the `Live events` tab, and metrics under the `Live Metrics` tab.
 
-![AKS - Workloads](images/aks-triage-pod.png)
+![Container Insights - Pod Live Metrics](images/aks-triage-pod.png)
 
 - Expland an given pod to see its containers.
 
-![AKS - Workloads](images/aks-triage-controllers.png)
+![Container Insights - Containers](images/aks-triage-controllers.png)
 
 - Select a container to see its metadata and environment variables under the `Overview` tab.
 
-![AKS - Workloads](images/aks-triage-containers-overview.png)
+![Container Insights - Container Overview](images/aks-triage-containers-overview.png)
 
 - Select the `Live Logs` tab to see the container logs in real time.
 
-![AKS - Workloads](images/aks-triage-containers-live-logs.png)
+![Container Insights - Container Live Metrics](images/aks-triage-containers-live-logs.png)
 
 - Likewise, click the `Live Events` tab to see the container events in real time. While you view events, you can also limit the results by using the `Filter`` pill found below the search bar. Depending on the resource you select, the pill lists a node, pod, namespace, or cluster to choose from.
 
