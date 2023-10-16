@@ -170,7 +170,7 @@ Refer to some of our other Cosmos DB architectural scenarios:
 
 - [Multi-region web application with Azure Cosmos DB replication](/azure/architecture/solution-ideas/articles/multi-region-web-app-cosmos-db-replication)
 - [Globally distributed applications using Azure Cosmos DB](/azure/architecture/solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db)
-- [Serverless apps using Azure Cosmos DB](/azure/architecture/solution-ideas/articles/serverless-apps-using-cosmos-db)
+- [Serverless apps using Azure Cosmos DB](/azure/architecture/databases/idea/serverless-apps-using-cosmos-db)
 - [Azure Cosmos DB in IoT workloads](/azure/architecture/solution-ideas/articles/iot-using-cosmos-db)
 - [Transactional Outbox pattern with Azure Cosmos DB](/azure/architecture/best-practices/transactional-outbox-cosmos)
 - [Scalable order processing](/azure/architecture/example-scenario/data/ecommerce-order-processing)

@@ -16,7 +16,6 @@ metadata:
     - acom-architecture
     - serverless
     - Cosmos DB
-    - "https://azure.microsoft.com/solutions/architecture/serverless-apps-using-cosmos-db"
 name: Serverless apps using Azure Cosmos DB
 azureCategories:
   - databases

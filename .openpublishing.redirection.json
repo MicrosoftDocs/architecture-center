@@ -3504,6 +3504,11 @@
       "source_path": "docs/solution-ideas/articles/intelligent-apps-using-azure-database-for-postgresql.yml",
       "redirect_url": "/azure/architecture/databases/idea/intelligent-apps-using-azure-database-for-postgresql",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/serverless-apps-using-cosmos-db.yml",
+      "redirect_url": "/azure/architecture/databases/idea/serverless-apps-using-cosmos-db",
+      "redirect_document_id": true
     }
   ]
 }

@@ -116,7 +116,7 @@ Related solution ideas:
 - [IoT using Azure Cosmos DB](./iot-using-cosmos-db.yml)
 - [Personalization using Azure Cosmos DB](./personalization-using-cosmos-db.yml)
 - [Retail and e-commerce using Azure Cosmos DB](./retail-and-e-commerce-using-cosmos-db.yml)
-- [Serverless apps using Azure Cosmos DB](./serverless-apps-using-cosmos-db.yml)
+- [Serverless apps using Azure Cosmos DB](../../databases/idea/serverless-apps-using-cosmos-db.yml)
 
 Related full architectures:
 

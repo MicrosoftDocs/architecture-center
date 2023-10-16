@@ -122,7 +122,7 @@ These solution ideas are some of the example approaches that you can adapt to yo
 - [Messaging](../databases/idea/messaging.yml)
 - [Mining equipment monitoring](../solution-ideas/articles/monitor-mining-equipment.yml)
 - [Multi-region web app with private connectivity to database](../example-scenario/sql-failover/app-service-private-sql-multi-region.yml)
-- [Serverless apps using Azure Cosmos DB](../solution-ideas/articles/serverless-apps-using-cosmos-db.yml)
+- [Serverless apps using Azure Cosmos DB](../databases/idea/serverless-apps-using-cosmos-db.yml)
 
 ### Similar database products
 

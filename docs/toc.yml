@@ -1876,8 +1876,8 @@ items:
         href: solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql.yml
       - name: Retail and e-commerce with Cosmos DB
         href: solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.yml
-      - name: Serverless apps using Azure Cosmos DB
-        href: solution-ideas/articles/serverless-apps-using-cosmos-db.yml
+      # - name: Serverless apps using Azure Cosmos DB
+      #   href: solution-ideas/articles/serverless-apps-using-cosmos-db.yml
   - name: DataOps
     items:
     - name: Get started
@@ -2212,7 +2212,7 @@ items:
         - name: Serverless applications using Event Grid
           href: solution-ideas/articles/serverless-application-architectures-using-event-grid.yml
         - name: Serverless apps using Azure Cosmos DB
-          href: solution-ideas/articles/serverless-apps-using-cosmos-db.yml
+          href: databases/idea/serverless-apps-using-cosmos-db.yml
         - name: Serverless computing LOB apps
           href: solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture.yml
         - name: Serverless event stream processing
