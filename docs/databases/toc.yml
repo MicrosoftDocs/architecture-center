@@ -25,6 +25,6 @@ items:
       - name: Data warehouse
         items:
         - name: DataOps for modern data warehouse
-          href: architectures/dataops-mdw.yml        
+          href: architecture/dataops-mdw.yml        
     # - name: Apply guidance
     #   items:

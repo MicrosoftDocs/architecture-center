@@ -2,7 +2,7 @@
 title: DataOps architecture design
 description: DataOps is a lifecycle approach to data analytics that uses agile practices to deliver high-quality data.
 author: martinekuan
-ms.author: architectures
+ms.author: pnp
 ms.date: 07/25/2022
 ms.topic: reference-architecture
 ms.service: architecture-center
