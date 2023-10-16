@@ -58,31 +58,31 @@ If you encounter networking, login, or performance issues with an Azure Containe
 
 Troubleshoot problems related to accessing an Azure container registry in a virtual network or behind a firewall or proxy server. The following scenarios and solutions are covered:
 
-- [Configuration of client firewall or proxy preventing access to the registry](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-troubleshoot-access#configure-client-firewall-access).
-- [Registry's public network access rules preventing access](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-troubleshoot-access#configure-public-access-to-registry).
-- [Configuration issues with virtual network or private endpoint preventing access](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-troubleshoot-access#configure-vnet-access).
-- [Integration challenges when using Microsoft Defender for Cloud or specific Azure services with a registry having private endpoint, service endpoint, or public IP access rules](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-troubleshoot-access#configure-service-access).
+- [Configuration of client firewall or proxy preventing access to the registry](/azure/container-registry/container-registry-troubleshoot-access#configure-client-firewall-access).
+- [Registry's public network access rules preventing access](/azure/container-registry/container-registry-troubleshoot-access#configure-public-access-to-registry).
+- [Configuration issues with virtual network or private endpoint preventing access](/azure/container-registry/container-registry-troubleshoot-access#configure-vnet-access).
+- [Integration challenges when using Microsoft Defender for Cloud or specific Azure services with a registry having private endpoint, service endpoint, or public IP access rules](/azure/container-registry/container-registry-troubleshoot-access#configure-service-access).
 
 ### Login Issues
 
 Resolve authentication and authorization problems when logging into an Azure container registry. The troubleshooting guide covers the following scenarios:
 
-- [Improper Docker configuration in your environment](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-troubleshoot-login#check-docker-configuration).
-- [Missing or incorrect registry name](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-troubleshoot-login#specify-correct-registry-name).
-- [Invalid registry credentials](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-troubleshoot-login#confirm-credentials-to-access-registry).
-- [Disabled public access or incorrect public network access rules](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-troubleshoot-access#configure-public-access-to-registry).
-- [Inadequate authorization for push, pull, or Azure Resource Manager operations](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-troubleshoot-login#confirm-credentials-are-authorized-to-access-registry).
-- [Expired credentials](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-troubleshoot-login#check-that-credentials-arent-expired).
+- [Improper Docker configuration in your environment](/azure/container-registry/container-registry-troubleshoot-login#check-docker-configuration).
+- [Missing or incorrect registry name](/azure/container-registry/container-registry-troubleshoot-login#specify-correct-registry-name).
+- [Invalid registry credentials](/azure/container-registry/container-registry-troubleshoot-login#confirm-credentials-to-access-registry).
+- [Disabled public access or incorrect public network access rules](/azure/container-registry/container-registry-troubleshoot-access#configure-public-access-to-registry).
+- [Inadequate authorization for push, pull, or Azure Resource Manager operations](/azure/container-registry/container-registry-troubleshoot-login#confirm-credentials-are-authorized-to-access-registry).
+- [Expired credentials](/azure/container-registry/container-registry-troubleshoot-login#check-that-credentials-arent-expired).
 
 ### Performance Issues
 
 Resolve potential performance issues encountered with an Azure container registry using the following troubleshooting approaches:
 
-- [Check network connection speed impacting registry operations](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-troubleshoot-performance#check-expected-network-speed).
-- [Inspect client hardware impacting image layer compression or extraction speed](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-troubleshoot-performance#check-client-hardware).
-- [Review configured limits in the registry service tier or environment](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-troubleshoot-performance#review-configured-limits).
-- [Configure geo-replicated registry for optimal performance with replicas in nearby regions](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-troubleshoot-performance#configure-geo-replicated-registry).
-- [Optimize DNS configuration for pulling from a geographically distant registry replica](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-troubleshoot-performance#configure-dns-for-geo-replicated-registry).
+- [Check network connection speed impacting registry operations](/azure/container-registry/container-registry-troubleshoot-performance#check-expected-network-speed).
+- [Inspect client hardware impacting image layer compression or extraction speed](/azure/container-registry/container-registry-troubleshoot-performance#check-client-hardware).
+- [Review configured limits in the registry service tier or environment](/azure/container-registry/container-registry-troubleshoot-performance#review-configured-limits).
+- [Configure geo-replicated registry for optimal performance with replicas in nearby regions](/azure/container-registry/container-registry-troubleshoot-performance#configure-geo-replicated-registry).
+- [Optimize DNS configuration for pulling from a geographically distant registry replica](/azure/container-registry/container-registry-troubleshoot-performance#configure-dns-for-geo-replicated-registry).
 
 By following these troubleshooting guides, you can effectively address networking, login, and performance-related issues with Azure Container Registry. This will enable seamless image retrieval for your AKS cluster and ensure smooth operation of your workloads.
 
