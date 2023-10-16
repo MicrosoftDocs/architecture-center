@@ -45,6 +45,21 @@ This series isn't intended to resolve specific issues. For information about tro
 |[4- Validate the admission controllers](aks-triage-controllers.md)|Check whether the admission controllers are working as expected.|
 |[5- Verify the connection to the container registry](aks-triage-container-registry.md)|Verify the connection to the container registry.|
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+- [Kevin Harris](https://www.linkedin.com/in/kevbhar) | Principal Solution Specialist
+
+Other contributors:
+
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Customer Engineer
+- [Francis Simy Nazareth](https://www.linkedin.com/in/francis-simy-nazereth-971440a) | Senior Technical Specialist
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Related links
 
 - [Day-2 operations](https://dzone.com/articles/defining-day-2-operations)
