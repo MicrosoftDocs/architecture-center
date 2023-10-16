@@ -4,7 +4,7 @@ Azure Cache for Redis perfectly complements Azure database services such as Azur
 
 ## Architecture
 
-![Diagram shows the Azure Cache for Redis architecture.](../media/data-cache-with-redis-cache.svg)
+![Diagram shows the Azure Cache for Redis architecture.](_images/data-cache-with-redis-cache.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/data-cache-with-redis-cache.vsdx) of this architecture.*
 

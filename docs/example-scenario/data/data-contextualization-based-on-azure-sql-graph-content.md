@@ -300,4 +300,4 @@ Other contributor:
 
 ## Related resources
 
-* [Databases architecture design](/azure/architecture/data-guide/databases-architecture-design?branch=main)
+* [Databases architecture design](/azure/architecture/databases/index?branch=main)

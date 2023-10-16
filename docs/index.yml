@@ -219,7 +219,7 @@ conceptualContent:
           
     - title: Databases
       links:
-        - url: ./data-guide/databases-architecture-design.yml
+        - url: ./databases/index.yml
           itemType: get-started
           text: Databases architecture design
         - url: ./data-guide/big-data/index.yml

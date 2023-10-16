@@ -1,0 +1,15 @@
+items:
+- name: Databases
+  href: index.md
+  items: 
+    - name: Explore ideas about
+      items:
+      - name: Document processing
+        items:
+        - name: Data cache
+          href: idea/data-cache-with-redis-cache.yml        
+    # - name: Design architectures
+    #   items:
+
+    # - name: Apply guidance
+    #   items:

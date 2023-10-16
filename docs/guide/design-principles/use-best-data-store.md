@@ -85,7 +85,6 @@ For example, you might store a product catalog in a document database, such as A
 ## Related resources
 
 - [Azure Data Architecture Guide](../../data-guide/index.md)
-- [Databases architecture design](../../data-guide/databases-architecture-design.yml)
 - [Understand data store models](../technology-choices/data-store-overview.md)
 - [Compensating Transaction pattern](../../patterns/compensating-transaction.yml)
 

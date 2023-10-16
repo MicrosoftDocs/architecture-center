@@ -179,7 +179,6 @@ Principal author:
 
 ## Related resources
 
-- [Databases architecture design](../databases-architecture-design.yml)
 - [Understand data store models](../../guide/technology-choices/data-store-overview.md)
 - [Scalable order processing](../../example-scenario/data/ecommerce-order-processing.yml)
 - [Near real-time lakehouse data processing](../../example-scenario/data/real-time-lakehouse-data-processing.yml)

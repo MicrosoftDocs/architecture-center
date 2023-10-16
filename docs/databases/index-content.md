@@ -1,6 +1,6 @@
 This article provides an overview of the Azure database solutions described in Azure Architecture Center.
 
-![Diagram that contrasts relational database management system and big data solutions.](./images/architecture-design-types.svg)
+![Diagram that contrasts relational database management system and big data solutions.](_images/architecture-design-types.svg)
 
 Azure Database solutions include both traditional relational database management system (RDBMS) and big data solutions.
 
@@ -131,7 +131,3 @@ If you're familiar with Amazon Web Services (AWS) or Google Cloud, refer to the 
 
 - [Relational database technologies on Azure and AWS](../aws-professional/databases.md)
 - [Google Cloud to Azure services comparison - Data platform](../gcp-professional/services.md#data-platform)
-
-## Next steps
-
-Refer to the [Azure Data Architecture Guide](index.md) for more details.

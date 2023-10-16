@@ -20,4 +20,4 @@ name: Databases architecture design
 summary: This article provides an overview of the Azure database solutions described in Azure Architecture Center.
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-design-types.png
 content: |
-  [!include[](databases-architecture-design-content.md)]
+  [!include[](index-content.md)]

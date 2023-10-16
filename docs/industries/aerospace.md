@@ -54,6 +54,6 @@ The following articles provide detailed analysis of architectures created and re
 
 Following are some other ideas that you can use as a starting point for your aerospace solution.
 
-- [Data cache](../solution-ideas/articles/data-cache-with-redis-cache.yml)
+- [Data cache](../databases/idea/data-cache-with-redis-cache.yml)
 - [Predictive aircraft engine monitoring](../solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)
 - [Vision classifier model with Azure Custom Vision Cognitive Service](../example-scenario/dronerescue/vision-classifier-model-with-custom-vision.yml)
