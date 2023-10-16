@@ -53,4 +53,4 @@ Principal author:
 * [Cache-Aside Pattern](../../patterns/cache-aside.yml)
 * [Caching Best Practice](../../best-practices/caching.yml)
 * [Data streaming with AKS](/azure/architecture/solution-ideas/articles/data-streaming-scenario)
-* [Messaging](/azure/architecture/solution-ideas/articles/messaging)
+* [Messaging](/azure/architecture/databases/idea/messaging)

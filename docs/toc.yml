@@ -1860,8 +1860,8 @@ items:
         href: solution-ideas/articles/loan-credit-risk-with-sql-server.yml
       - name: Logical data warehouse with Azure Synapse
         href: solution-ideas/articles/logical-data-warehouse.yml
-      - name: Messaging
-        href: solution-ideas/articles/messaging.yml
+      # - name: Messaging
+      #   href: solution-ideas/articles/messaging.yml
       - name: Mining equipment monitoring
         href: solution-ideas/articles/monitor-mining-equipment.yml
       - name: Multi-region web app with Azure Cosmos DB

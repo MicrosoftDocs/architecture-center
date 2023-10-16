@@ -3489,6 +3489,11 @@
       "source_path": "docs/solution-ideas/articles/data-cache-with-redis-cache.yml",
       "redirect_url": "/azure/architecture/databases/idea/data-cache-with-redis-cache",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/messaging.yml",
+      "redirect_url": "/azure/architecture/databases/idea/messaging",
+      "redirect_document_id": true
     }
   ]
 }
