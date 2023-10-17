@@ -73,7 +73,7 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Master Data Management with Azure and CluedIn](../reference-architectures/data/cluedin.yml)|Use CluedIn eventual connectivity data integration to blend data from many siloed data sources and prepare it for analytics and business operations.|Databases|
-|[Migrate master data services to Azure with CluedIn and Azure Purview](../reference-architectures/data/migrate-master-data-services-with-cluedin.yml)|Use CluedIn to migrate your master data services solution to Azure by using CluedIn and Azure Purview.|Databases|
+|[Migrate master data services to Azure with CluedIn and Azure Purview](../databases/architecture/migrate-master-data-services-with-cluedin.yml)|Use CluedIn to migrate your master data services solution to Azure by using CluedIn and Azure Purview.|Databases|
 
 ## Confluent
 
@@ -195,7 +195,7 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Data governance with Profisee and Azure Purview](../reference-architectures/data/profisee-master-data-management-purview.yml)|Integrate Profisee master data management with Azure Purview to build a foundation for data governance and management.|Databases|
-|[Master data management with Profisee and Azure Data Factory](../reference-architectures/data/profisee-master-data-management-data-factory.yml)|Integrate Profisee master data management with Data Factory to deliver high quality, trusted data for Azure Synapse and all analytics applications. Postman is recommended for synthetic logging.|Databases|
+|[Master data management with Profisee and Azure Data Factory](../databases/architecture/profisee-master-data-management-data-factory.yml)|Integrate Profisee master data management with Data Factory to deliver high quality, trusted data for Azure Synapse and all analytics applications. Postman is recommended for synthetic logging.|Databases|
 
 ## Qlik
 

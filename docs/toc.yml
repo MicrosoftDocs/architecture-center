@@ -1795,10 +1795,10 @@ items:
         href: example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml
       - name: Master data management with CluedIn
         href: reference-architectures/data/cluedin.yml
-      - name: Master data management with Profisee
-        href: reference-architectures/data/profisee-master-data-management-data-factory.yml
-      - name: Migrate master data services with CluedIn
-        href: reference-architectures/data/migrate-master-data-services-with-cluedin.yml
+      # - name: Master data management with Profisee
+      #   href: reference-architectures/data/profisee-master-data-management-data-factory.yml
+      # - name: Migrate master data services with CluedIn
+      #   href: reference-architectures/data/migrate-master-data-services-with-cluedin.yml
       - name: Migrate master data services with Profisee
         href: example-scenario/profisee-mds/profisee-mds-migration-utility.yml
       - name: Minimal storage – change feed replication
@@ -2020,7 +2020,7 @@ items:
       - name: Master data management with CluedIn
         href: reference-architectures/data/cluedin.yml
       - name: Master data management with Profisee
-        href: reference-architectures/data/profisee-master-data-management-data-factory.yml
+        href: databases/architecture/profisee-master-data-management-data-factory.yml
       - name: Measure Azure app sustainability
         href: example-scenario/apps/measure-azure-app-sustainability-sci-score.yml
       - name: Modern data warehouse for small business

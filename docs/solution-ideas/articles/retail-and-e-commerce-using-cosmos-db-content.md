@@ -66,6 +66,6 @@ Fully deployable architectures:
 
 * [DataOps for the modern data warehouse](../../databases/architecture/dataops-mdw.yml)
 * [Master Data Management powered by CluedIn](../../reference-architectures/data/cluedin.yml)
-* [Profisee master data management with Azure Data Factory](../../reference-architectures/data/profisee-master-data-management-data-factory.yml)
+* [Profisee master data management with Azure Data Factory](../../databases/architecture/profisee-master-data-management-data-factory.yml)
 * [N-tier application with Apache Cassandra](../../reference-architectures/n-tier/n-tier-cassandra.yml)
 * [Windows N-tier application on Azure](../../reference-architectures/n-tier/n-tier-sql-server.yml)

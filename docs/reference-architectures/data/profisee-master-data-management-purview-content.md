@@ -299,7 +299,7 @@ Architecture guides:
 
 Reference architectures:
 
-- [Master data management with Profisee and Azure Data Factory](profisee-master-data-management-data-factory.yml)
+- [Master data management with Profisee and Azure Data Factory](../../databases/architecture/profisee-master-data-management-data-factory.yml)
 - [Analytics end-to-end with Azure Synapse](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
 - [Modern analytics architecture with Azure Databricks](../../solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml)
 - [Big data analytics with enterprise-grade security using Azure Synapse](../../solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml)
