@@ -29,7 +29,7 @@ azureCategories:
   - mobile
 summary: This solution consolidates data from multiple business systems and then surfaces the data through web and mobile front ends. This consolidation helps improve employee productivity and helps speed up decision making.
 products:
-  - azure-active-directory
+  - entra-id
   - azure-active-directory-b2c
   - azure-sql-database
   - azure-virtual-machines

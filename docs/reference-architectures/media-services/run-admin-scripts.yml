@@ -14,7 +14,7 @@ metadata:
 name: Gridwich pipeline-generated admin scripts
 summary: Learn about the Gridwich pipeline-generated admin scripts and how to run them.
 products:
-  - azure-active-directory
+  - entra-id
   - azure-functions
   - azure-media-services
   - azure-pipelines

@@ -23,7 +23,7 @@ azureCategories:
   - hybrid
 summary: This large-enterprise architecture for SharePoint, Dynamics CRM, and Linux web servers runs on an on-premises datacenter and fails over to Azure infrastructure.
 products:
-  - azure-active-directory
+  - entra-id
   - azure-site-recovery
   - azure-traffic-manager
   - azure-virtual-network
