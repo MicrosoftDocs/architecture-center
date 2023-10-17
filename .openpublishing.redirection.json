@@ -3562,7 +3562,7 @@
     },
     {
       "source_path": "docs/example-scenario/data/azure-sql-htap.yml",
-      "redirect_url": "/azure/architecture/databases/idea/azure-sql-htap",
+      "redirect_url": "/azure/architecture/databases/guide/azure-sql-htap",
       "redirect_document_id": true
     }
   ]

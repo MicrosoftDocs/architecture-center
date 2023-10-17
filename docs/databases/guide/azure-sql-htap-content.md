@@ -137,7 +137,7 @@ Principal author:
 [Azure Blob Storage]: https://azure.microsoft.com/services/storage/blobs
 [Azure Cosmos DB]: https://azure.microsoft.com/services/cosmos-db
 [Azure Databricks]: https://azure.microsoft.com/services/databricks
-[Analytics end-to-end with Azure Synapse]: ../dataplate2e/data-platform-end-to-end.yml
+[Analytics end-to-end with Azure Synapse]: ../../example-scenario/dataplate2e/data-platform-end-to-end.yml
 [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator
 [Azure SQL]: https://azure.microsoft.com/products/azure-sql
 [Azure SQL Database]: https://azure.microsoft.com/products/azure-sql/database

@@ -59,4 +59,4 @@ items:
         - name: Relational
           items:
           - name: Cost savings through HTAP with Azure SQL
-            href: idea/azure-sql-htap.yml          
+            href: guide/azure-sql-htap.yml          
