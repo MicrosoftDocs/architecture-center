@@ -10,7 +10,7 @@ ms.subservice: azure-guide
 azureCategories: management-and-governance
 categories: management-and-governance
 products:
-  - azure-active-directory
+  - entra-id
 ms.custom:
   - fcp
   - guide

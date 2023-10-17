@@ -18,7 +18,7 @@ azureCategories:
 summary: This article describes an example workload of creating multiple Active Directory forests by using Azure Virtual Desktop.
 products:
   - azure-virtual-desktop
-  - azure-active-directory
+  - entra-id
   - entra
   - azure-expressroute
   - azure-storage

@@ -10,7 +10,7 @@ ms.service: architecture-center
 ms.subservice: azure-guide
 products:
   - azure
-  - azure-active-directory
+  - entra-id
 categories:
   - identity
 ms.category:

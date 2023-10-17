@@ -21,7 +21,7 @@ azureCategories:
   - security
 summary: Learn how GitHub tools like Codespaces and Actions make security practices an integral part of DevOps while maintaining efficiency in an Azure framework.
 products:
-  - azure-active-directory
+  - entra-id
   - azure-monitor
   - azure-policy
   - defender-for-cloud

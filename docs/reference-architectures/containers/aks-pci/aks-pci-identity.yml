@@ -15,7 +15,7 @@ azureCategories:
 summary: Best practices for implementing access controls for a PCI-DSS 3.2.1 infrastructure. 
 products:
   - azure-kubernetes-service
-  - azure-active-directory
+  - entra-id
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-pci.png
 content: |
    [!include[](aks-pci-identity-content.md)]

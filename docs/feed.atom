@@ -2,12 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2023-10-10T15:27:53.362Z</updated>
+    <updated>2023-10-16T18:08:29.239Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Windows 365 Azure network connection]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/virtual-desktop/windows-365-azure-network-connection</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/virtual-desktop/windows-365-azure-network-connection"/>
+        <updated>2023-10-11T17:43:12.000Z</updated>
+        <summary type="html"><![CDATA[Learn how Windows 365 delivers highly optimized and personalized computing instances that are purpose built for each user's requirements.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Automotive connected fleets]]></title>
         <id>https://learn.microsoft.com/azure/architecture/industries/automotive/automotive-connected-fleets</id>
@@ -15,6 +23,22 @@
         <updated>2023-10-09T16:33:33.000Z</updated>
         <summary type="html"><![CDATA[Learn how the connected fleets reference architecture helps you build solutions to manage connected fleets, generate insights, and integrate fleet solutions.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Microsoft Entra security for AWS]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/aws/aws-azure-ad-security</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/aws/aws-azure-ad-security"/>
+        <updated>2023-10-10T17:06:58.000Z</updated>
+        <summary type="html"><![CDATA[Learn how Microsoft Entra ID can help secure and protect Amazon Web Services (AWS) identity management and account access. Discover Microsoft security solutions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Baseline architecture for an AKS cluster]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks"/>
+        <updated>2023-10-10T17:06:58.000Z</updated>
+        <summary type="html"><![CDATA[Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Azure VMware Solution networking]]></title>
@@ -65,11 +89,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Integrate on-premises AD domains with Azure AD]]></title>
+        <title type="html"><![CDATA[Integrate on-premises AD domains with Microsoft Entra ID]]></title>
         <id>https://learn.microsoft.com/azure/architecture/reference-architectures/identity/azure-ad</id>
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/identity/azure-ad"/>
         <updated>2023-09-25T08:11:07.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to implement a secure hybrid network architecture that integrates on-premises Active Directory domains with Azure Active Directory (Azure AD).]]></summary>
+        <summary type="html"><![CDATA[Learn how to implement a secure hybrid network architecture that integrates on-premises Active Directory domains with Microsoft Entra ID.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>

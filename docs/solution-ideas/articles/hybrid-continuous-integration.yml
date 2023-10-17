@@ -21,7 +21,7 @@ azureCategories:
   - hybrid
   - devops
 products:
-  - azure-active-directory
+  - entra-id
   - azure-stack-hub
   - azure-virtual-machines
 name: DevOps with Azure Stack Hub

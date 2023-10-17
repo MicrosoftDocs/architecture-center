@@ -37,8 +37,6 @@ Besides excellent performance, Spark NLP also delivers state-of-the-art accuracy
 
 The library has optimized builds for CPUs, GPUS, and the latest Intel Xeon chips. You can scale training and inference processes to take advantage of Spark clusters. These processes can run in production in all popular analytics platforms.
 
-The NLP Server is available in Azure Marketplace. To explore large-scale custom NLP in Azure, see [NLP Server](https://azuremarketplace.microsoft.com/marketplace/apps/johnsnowlabsinc1646051154808.nlp_server?ocid=GTMRewards_WhatsNewBlog_nlp_server_040622).
-
 ## Challenges
 
 - Processing a collection of free-form text documents requires a significant amount of computational resources. The processing is also time intensive. Such processes often involve GPU compute deployment.
