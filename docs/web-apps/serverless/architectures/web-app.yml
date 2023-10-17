@@ -22,7 +22,7 @@ azureCategories:
   - developer-tools
 summary: This reference architecture shows a serverless web application, which serves static content from Azure Blob Storage and implements an API using Azure Functions.
 products:
-  - azure-active-directory
+  - entra-id
   - azure-api-management
   - azure-blob-storage
   - azure-cdn

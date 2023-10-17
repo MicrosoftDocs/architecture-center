@@ -18,7 +18,7 @@ azureCategories:
   - identity
 summary: Build a multitenant SaaS solution on Azure, designed for high availability, scalability, data security and isolation using the App Service and Azure Kubernetes Service.
 products:
-  - azure-active-directory
+  - entra-id
   - azure-app-service
   - azure-dns
   - azure-front-door

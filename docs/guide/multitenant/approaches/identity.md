@@ -10,8 +10,8 @@ ms.service: architecture-center
 ms.subservice: azure-guide
 products:
   - azure
-  - azure-active-directory
-  - azure-active-directory-b2c
+  - entra-id
+  - entra-external-id
 categories:
   - identity
 ms.category:

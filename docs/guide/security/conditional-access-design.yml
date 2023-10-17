@@ -10,7 +10,7 @@ metadata:
   ms.subservice: azure-guide
   ms.custom: fcp
 products:
-  - azure-active-directory
+  - entra-id
   - mem
 azureCategories:
   - security

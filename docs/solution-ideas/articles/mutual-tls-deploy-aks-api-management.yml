@@ -17,7 +17,7 @@ azureCategories:
   - integration
 
 products:
-  - azure-active-directory
+  - entra-id
   - azure-kubernetes-service
   - azure-api-management
   - azure-container-registry

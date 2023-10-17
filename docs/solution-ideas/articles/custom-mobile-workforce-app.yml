@@ -28,7 +28,7 @@ azureCategories:
   - databases
 summary: Learn how the custom mobile workforce management app architecture is built and implemented.  The step-by-step diagram illustrates the integration of Active Directory, SAP, and Azure App Service.
 products:
-  - azure-active-directory
+  - entra-id
   - azure-api-management
   - azure-app-service
 thumbnailUrl: /azure/architecture/browse/thumbs/custom-mobile-workforce-app.png

@@ -11,7 +11,7 @@ products:
   - windows-server
   - office-exchange-server
   - sql-server
-  - azure-active-directory
+  - entra-id
   - azure-virtual-machines-windows
 categories:
   - mobile

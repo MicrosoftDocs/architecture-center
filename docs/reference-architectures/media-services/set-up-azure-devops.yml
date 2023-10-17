@@ -20,7 +20,7 @@ metadata:
 name: Gridwich Azure DevOps setup
 summary: Learn how to set up Azure DevOps Projects, repos, pipelines, variable groups, and Azure connections for Gridwich.
 products:
-  - azure-active-directory
+  - entra-id
   - azure-devops
   - azure-media-services
   - azure-pipelines

@@ -13,7 +13,7 @@ azureCategories:
   - identity
 products:
   - azure-api-management
-  - azure-active-directory
+  - entra-id
   - azure-functions
   - azure-sql-database
 name: Apply the verify explicitly Zero Trust principle to your API implementation 
