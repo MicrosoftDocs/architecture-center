@@ -9,7 +9,7 @@ This pattern presents a modern approach to MDM. All technologies are deployable 
 
 ## Architecture
 
-:::image type="content" source="images/profisee-data-flow.svg" border="false" alt-text="Diagram showing the master data management Profisee data flow.":::
+:::image type="content" source="_images/profisee-data-flow.svg" border="false" alt-text="Diagram showing the master data management Profisee data flow.":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/profisee-master-data-management-data-factory.vsdx) of the diagrams used in this architecture.*
 
@@ -70,7 +70,7 @@ A core aspect of how MDM solutions function is that they combine data from multi
 
 ### MDM integration pipeline
 
-:::image type="content" source="images/profisee-integration-pipeline.svg" border="false" alt-text="Image that shows the master data management Profisee integration pipeline.":::
+:::image type="content" source="_images/profisee-integration-pipeline.svg" border="false" alt-text="Image that shows the master data management Profisee integration pipeline.":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/profisee-master-data-management-data-factory.vsdx) of this architecture.*
 
@@ -86,7 +86,7 @@ The preceding image shows the details for integrating with the Profisee MDM solu
 
 In collaboration with Microsoft, Profisee has developed a set of Azure Data Factory templates that make it faster and easier to integrate Profisee into the Azure Data Services ecosystem. These templates use Azure Data Factories REST data source and data sink to read and write data from Profisee's REST Gateway API. They provide templates for both reading from and writing to Profisee.
 
-:::image type="content" source="images/profisee-data-factory-template.png" alt-text="Screenshot that shows MDM Profisee and the Azure Data Factory template.":::
+:::image type="content" source="_images/profisee-data-factory-template.png" alt-text="Screenshot that shows MDM Profisee and the Azure Data Factory template.":::
 
 #### Example Data Factory template: JSON to Profisee over REST
 
@@ -94,11 +94,11 @@ The following screenshots show an Azure Data Factory template that copies data f
 
 The template copies the source JSON data:
 
-:::image type="content" source="images/profisee-source-json-data.png" alt-text="Screenshot that shows the source JSON data.":::
+:::image type="content" source="_images/profisee-source-json-data.png" alt-text="Screenshot that shows the source JSON data.":::
 
 Then, the data syncs to Profisee via REST:
 
-:::image type="content" source="images/profisee-rest-sync.png" alt-text="Screenshot that shows REST sync to Profisee.":::
+:::image type="content" source="_images/profisee-rest-sync.png" alt-text="Screenshot that shows REST sync to Profisee.":::
 
 For more information, see [Azure Data Factory templates for Profisee](https://github.com/profisee/azuredatafactory).
 

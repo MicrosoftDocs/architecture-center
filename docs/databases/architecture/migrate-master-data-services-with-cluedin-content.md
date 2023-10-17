@@ -4,7 +4,7 @@ The architecture encapsulates many pillars of master data management (MDM) into 
 
 The following diagram demonstrates the CluedIn architectural structure and data flow.
 
-[![Diagram showing CluedIn architectural structure.](images/migrate-mds-to-azure-with-cluedin.svg)](images/migrate-mds-to-azure-with-cluedin.svg#lightbox)
+[![Diagram showing CluedIn architectural structure.](_images/migrate-mds-to-azure-with-cluedin.svg)](_images/migrate-mds-to-azure-with-cluedin.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/migrate-mds-to-azure-with-cluedin.vsdx) of this architecture.*
 
@@ -91,7 +91,7 @@ Azure Purview brings data governance capabilities to the Microsoft Azure cloud, 
 
 The following image demonstrates the Lineage feature set.
 
-![Screenshot showing the CluedIn Lineage feature set.](images/cluedin-customer-orders.png)
+![Screenshot showing the CluedIn Lineage feature set.](_images/cluedin-customer-orders.png)
 
 #### Azure Data Factory support
 
@@ -115,7 +115,7 @@ The most important aspect of this modeling is that a relational style will give 
 
 The following image shows the Relations feature set.
 
-![Screenshot showing the CluedIn Relations feature set.](images/cluedin-relations.png)
+![Screenshot showing the CluedIn Relations feature set.](_images/cluedin-relations.png)
 
 ### Availability
 
