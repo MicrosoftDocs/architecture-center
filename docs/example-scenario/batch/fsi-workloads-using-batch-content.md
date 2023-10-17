@@ -109,7 +109,9 @@ This architecture uses a hub-and-spoke network topology. The hub and spoke resou
 that are connected through virtual network peering. The hub network contains shared resources such as firewalls, vpn gateways,
 and jumpboxes. The spoke network contains the Batch service, Batch compute nodes and other service endpoints needed
 by the workload e.g. storage accounts, container registry, etc. The spoke network is isolated from the public internet and
-can only be accessed from the hub network. The highlights of the network topology are as follows:
+can only be accessed from the hub network. 
+
+The highlights of the network topology are as follows:
 
 * Resources on spoke are isolated from the public internet and can only be accessed from the hub network. This minimizes direct
   exposure of the resources to the public internet.
