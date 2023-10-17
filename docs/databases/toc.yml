@@ -52,5 +52,11 @@ items:
         items:
         - name: SQL Managed Instance with CMK
           href: architecture/sql-managed-instance-cmk.yml
-    # - name: Apply guidance
-    #   items:
+    - name: Apply guidance
+      items:
+      - name: Databases
+        items:
+        - name: Relational
+          items:
+          - name: Cost savings through HTAP with Azure SQL
+            href: idea/azure-sql-htap.yml          

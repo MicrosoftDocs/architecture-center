@@ -2,7 +2,7 @@ This article outlines a solution for a hybrid transaction/analytical processing 
 
 ## Architecture
 
-:::image type="content" alt-text="Architecture diagram showing how data flows through an HTAP solution with Azure SQL Database at its center." source="./media/azure-sql-htap.svg" lightbox="./media/azure-sql-htap.svg":::
+:::image type="content" alt-text="Architecture diagram showing how data flows through an HTAP solution with Azure SQL Database at its center." source="_images/azure-sql-htap.svg" lightbox="_images/azure-sql-htap.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-sql-htap.vsdx) of this architecture.*
 
@@ -157,6 +157,6 @@ Principal author:
 [Scaling out with Azure SQL Database]: /azure/azure-sql/database/elastic-scale-introduction
 [Small cost profile]: https://azure.com/e/48812c1a50dd4415a005d8c9bc620a30
 [Stream processing with Azure Stream Analytics]: ../../reference-architectures/data/stream-processing-stream-analytics.yml
-[SVG file of architecture diagram]: ./media/azure-sql-htap.svg
+[SVG file of architecture diagram]: _images/azure-sql-htap.svg
 [Table storage]: https://azure.microsoft.com/services/storage/tables
 [Use Table-Valued Parameters (Database Engine)]: /sql/relational-databases/tables/use-table-valued-parameters-database-engine?view=sql-server-ver15#Benefits

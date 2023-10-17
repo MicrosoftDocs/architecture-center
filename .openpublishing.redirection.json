@@ -3559,6 +3559,11 @@
       "source_path": "docs/example-scenario/data/sql-managed-instance-cmk.yml",
       "redirect_url": "/azure/architecture/databases/architecture/sql-managed-instance-cmk",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/data/azure-sql-htap.yml",
+      "redirect_url": "/azure/architecture/databases/idea/azure-sql-htap",
+      "redirect_document_id": true
     }
   ]
 }
