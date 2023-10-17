@@ -2,7 +2,7 @@ This article presents a high-availability solution for a web application that us
 
 ## Architecture
 
-[ ![Architecture of a resilient system that uses two types of storage to reduce costs.](../media/minimal-storage-change-feed-replicate-data.svg)](../media/minimal-storage-change-feed-replicate-data.svg#lightbox)
+[ ![Architecture of a resilient system that uses two types of storage to reduce costs.](_images/minimal-storage-change-feed-replicate-data.svg)](_images/minimal-storage-change-feed-replicate-data.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/minimal-storage-change-feed-replicate-data.vsdx) of this architecture.*
 

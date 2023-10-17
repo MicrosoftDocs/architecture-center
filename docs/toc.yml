@@ -1801,8 +1801,8 @@ items:
       #   href: reference-architectures/data/migrate-master-data-services-with-cluedin.yml
       # - name: Migrate master data services with Profisee
       #   href: example-scenario/profisee-mds/profisee-mds-migration-utility.yml
-      - name: Minimal storage – change feed replication
-        href: solution-ideas/articles/minimal-storage-change-feed-replicate-data.yml
+      # - name: Minimal storage – change feed replication
+      #   href: solution-ideas/articles/minimal-storage-change-feed-replicate-data.yml
       - name: Multi-region web app with private database
         href: example-scenario/sql-failover/app-service-private-sql-multi-region.yml
       - name: N-tier app with Cassandra
@@ -4200,7 +4200,7 @@ items:
       - name: Hybrid file services
         href: hybrid/hybrid-file-services.yml
       - name: Minimal storage – change feed replication
-        href: solution-ideas/articles/minimal-storage-change-feed-replicate-data.yml
+        href: databases/idea/minimal-storage-change-feed-replicate-data.yml
       - name: Multi-region web app with replication
         href: solution-ideas/articles/multi-region-web-app-multi-writes-azure-table.yml
       - name: Optimized storage data classification

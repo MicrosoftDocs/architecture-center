@@ -59,7 +59,7 @@ These examples can help you design a data storage system that accommodates your 
 |[Optimized storage with logical data classification](../../solution-ideas/articles/optimized-storage-logical-data-classification.yml)|Resiliency, performance, scalability, cost|Implementation time, need to design logical data classification|
 |[Optimized Storage – time based – multi writes](../../solution-ideas/articles/optimized-storage-time-based-multi-writes.yml)|Cost|Resiliency, performance, scalability, implementation time, need to design time-based data retention|
 |[Optimized Storage – time based with Data Lake](../../solution-ideas/articles/optimized-storage-time-based-data-lake.yml)|Resiliency, performance, scalability|Implementation time, need to design time-based data retention|
-|[Minimal storage – change feed to replicate data](../../solution-ideas/articles/minimal-storage-change-feed-replicate-data.yml)|Resiliency, performance, time-based data retention|Scalability, implementation time|
+|[Minimal storage – change feed to replicate data](../../databases/idea/minimal-storage-change-feed-replicate-data.yml)|Resiliency, performance, time-based data retention|Scalability, implementation time|
 
 ## Contributors
 

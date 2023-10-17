@@ -20,6 +20,8 @@ items:
         items:
         - name: Serverless apps using Azure Cosmos DB
           href: idea/serverless-apps-using-cosmos-db.yml
+        - name: Minimal storage – change feed replication
+          href: idea/minimal-storage-change-feed-replicate-data.yml          
     - name: Design architectures
       items:
       - name: Data warehouse
