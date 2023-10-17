@@ -23,7 +23,7 @@ azureCategories:
   - analytics
   - databases
 products:
-  - azure-active-directory
+  - entra-id
   - azure-databricks
   - azure-data-factory
   - azure-blob-storage
