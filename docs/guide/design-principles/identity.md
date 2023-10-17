@@ -12,7 +12,7 @@ categories:
   - identity
 products:
   - entra-id
-  - azure-active-directory-b2c
+  - entra-external-id
 ms.custom:
   - guide
 ---
