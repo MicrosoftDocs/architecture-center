@@ -69,7 +69,7 @@ The resources deployed on the spoke network are as follows:
   Both pools are setup to use `User Subscription` pool allocation mode. This ensures that all resources used internally by the
   Batch service are allocated under the same subscription as the Batch account and hence use the subscription specific quotas
   and policies. The pools are setup use the corresponding subnets on the spoke network, thus they get assigned address space from the
-  subnet's address range. It also means that all NSG rules and traffic forwarding rules setup on those subnets are applied to the
+  subnet's address range. It also means that all network security group (NSG) rules and traffic forwarding rules setup on those subnets are applied to the
   compute nodes as well. The pools is also setup to not assign public IP addresses to the compute nodes. This ensures that the
   compute nodes are not accessible from the public internet directly. To make it easier for workloads on executing on
   compute notes to access shared storage resources, the pools are setup to mount the supported storage resources on the compute nodes
