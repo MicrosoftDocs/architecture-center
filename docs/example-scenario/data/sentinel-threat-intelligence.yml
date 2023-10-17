@@ -20,7 +20,7 @@ azureCategories:
   - security
 summary: Import threat indicators, view logs, and create rules to generate security alerts and incidents, and visualize threat intelligence data with Microsoft Sentinel.
 products:
-  - azure-active-directory
+  - entra-id
   - azure-logic-apps
   - azure-monitor
   - microsoft-sentinel

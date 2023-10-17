@@ -10,7 +10,7 @@ ms.subservice: best-practice
 categories:
   - azure
 products:
-  - azure-active-directory
+  - entra-id
 ms.custom:
   - best-practice
 ---

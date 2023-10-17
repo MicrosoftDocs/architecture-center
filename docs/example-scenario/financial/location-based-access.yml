@@ -13,7 +13,7 @@ azureCategories:
   - identity
   - security
 products:
-  - azure-active-directory
+  - entra-id
   - microsoft-authenticator
 name: Location-based access control for FSI applications
 summary: Use Microsoft Entra ID named locations application context to control access to financial services industry (FSI) data and applications.

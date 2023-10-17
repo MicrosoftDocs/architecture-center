@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 10/10/2023
+ms.date: 10/16/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -27,10 +27,13 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Windows 365 Azure network connection](./guide/virtual-desktop/windows-365-azure-network-connection.yml)
 - [Automotive connected fleets](./industries/automotive/automotive-connected-fleets.yml)
 
 ### Updated articles
 
+- [Microsoft Entra security for AWS](./reference-architectures/aws/aws-azure-ad-security.yml)  ([#c00d96f670](https://github.com/MicrosoftDocs/architecture-center/commit/c00d96f670))
+- [Baseline architecture for an AKS cluster](./reference-architectures/containers/aks/baseline-aks.yml)  ([#c00d96f670](https://github.com/MicrosoftDocs/architecture-center/commit/c00d96f670))
 - [Azure VMware Solution networking](./solution-ideas/articles/azure-vmware-solution-foundation-networking.yml)  ([#bd323181bd](https://github.com/MicrosoftDocs/architecture-center/commit/bd323181bd))
 
 ## September 2023
@@ -45,7 +48,7 @@ The following new and updated articles have recently been published in the Azure
 ### Updated articles
 
 - [Azure Spring Apps baseline architecture](./web-apps/spring-apps/architectures/spring-apps-multi-zone.yml)  ([#296858b98e](https://github.com/MicrosoftDocs/architecture-center/commit/296858b98e))
-- [Integrate on-premises AD domains with Azure AD](./reference-architectures/identity/azure-ad.yml)  ([#29ff11ff52](https://github.com/MicrosoftDocs/architecture-center/commit/29ff11ff52))
+- [Integrate on-premises AD domains with Microsoft Entra ID](./reference-architectures/identity/azure-ad.yml)  ([#29ff11ff52](https://github.com/MicrosoftDocs/architecture-center/commit/29ff11ff52))
 - [Kubernetes monitoring and logging](./aws-professional/eks-to-aks/monitoring.yml)  ([#bf2b17b6cf](https://github.com/MicrosoftDocs/architecture-center/commit/bf2b17b6cf))
 
 ## August 2023

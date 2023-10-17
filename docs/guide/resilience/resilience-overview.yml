@@ -11,7 +11,7 @@ metadata:
 azureCategories:
   - identity
 products:
-  - azure-active-directory
+  - entra-id
   - entra-external-id
 name: Resilient identity and access management with Microsoft Entra ID
 summary: Read this guide to learn how architects, IT administrators, and developers can build resilience to disruption of their identity systems.

@@ -151,7 +151,6 @@ The following sections list other serverless and Azure Functions-related referen
 - [Serverless apps using Azure Cosmos DB](https://azure.microsoft.com/solutions/architecture/serverless-apps-using-cosmos-db/)
 - [Serverless event processing using Azure Functions](../reference-architectures/serverless/event-processing.yml)
 - [Serverless web application on Azure](../web-apps/serverless/architectures/web-app.yml)
-- [Serverless Asynchronous Multiplayer Reference Architecture](/gaming/azure/reference-architectures/multiplayer-asynchronous-serverless)
 - [Instant Broadcasting on Serverless Architecture](/azure/architecture/serverless-quest/serverless-overview)
 - [Building a telehealth system on Azure](../example-scenario/apps/telehealth-system.yml)
 - [Sharing location in real time using low-cost serverless Azure services](../example-scenario/signalr/index.yml)
@@ -196,15 +195,6 @@ The following sections list other serverless and Azure Functions-related referen
 
 ### Gaming
 
-- [Custom Game Server Scaling](/gaming/azure/reference-architectures/multiplayer-custom-server-scaling)
-- [Non-real Time Dashboard](/gaming/azure/reference-architectures/analytics-non-real-time-dashboard)
-- [In-editor Debugging Telemetry](/gaming/azure/reference-architectures/analytics-in-editor-debugging)
-- [Multiplayer Serverless Matchmaker](/gaming/azure/reference-architectures/multiplayer-matchmaker-serverless)
-- [Advanced leaderboard for large scale](/gaming/azure/reference-architectures/leaderboard-non-relational#advanced-leaderboard-for-large-scale)
-- [Relational Leaderboard](/gaming/azure/reference-architectures/leaderboard-relational)
-- [Content Moderation](/gaming/azure/reference-architectures/cognitive-content-moderation)
-- [Text Translation](/gaming/azure/reference-architectures/cognitive-text-translation)
-- [Text to Speech](/gaming/azure/reference-architectures/cognitive-text-to-speech)
 - [Gaming using Azure Cosmos DB](../solution-ideas/articles/gaming-using-cosmos-db.yml)
 
 ### Automation
