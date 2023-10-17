@@ -8,7 +8,7 @@ ms.date: 03/17/2023
 ms service: architecture-center
 ms.subservice: azure-guide
 products:
- - azure-active-directory-b2c
+ - entra-external-id
 categories:
  - web 
 ms.category:
