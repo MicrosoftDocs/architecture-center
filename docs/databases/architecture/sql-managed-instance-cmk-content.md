@@ -2,7 +2,7 @@ This article describes how you can manage your own Transparent Data Encryption (
 
 ## Architecture
 
-:::image type="content" border="false" source="./media/sql-managed-instance-cmk.svg" alt-text="Diagram that shows an architecture for managing TDE keys." lightbox="./media/sql-managed-instance-cmk.svg":::
+:::image type="content" border="false" source="_images/sql-managed-instance-cmk.svg" alt-text="Diagram that shows an architecture for managing TDE keys." lightbox="_images/sql-managed-instance-cmk.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/sql-mi-cmk.vsdx) of this architecture.*
 
@@ -137,4 +137,3 @@ Principal author:
 
 - [Secure data solutions](/azure/architecture/data-guide/scenarios/securing-data-solutions)
 - [High availability for Azure SQL Database and SQL Managed Instance](/azure/azure-sql/database/high-availability-sla)
-- [Web app private connectivity to Azure SQL database](../private-web-app/private-web-app.yml)

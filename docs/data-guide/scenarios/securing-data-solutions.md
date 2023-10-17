@@ -133,5 +133,5 @@ Principal author:
 - [Resilient identity and access management with Microsoft Entra ID](../../guide/resilience/resilience-overview.yml)
 - [Monitor hybrid security using Microsoft Defender for Cloud and Microsoft Sentinel](../../hybrid/hybrid-security-monitoring.yml)
 - [Confidential computing on a healthcare platform](../../example-scenario/confidential/healthcare-inference.yml)
-- [SQL Managed Instance with customer-managed keys](../../example-scenario/data/sql-managed-instance-cmk.yml)
+- [SQL Managed Instance with customer-managed keys](../../databases/architecture/sql-managed-instance-cmk.yml)
 - [Improved-security access to multitenant web apps from an on-premises network](../../web-apps/guides/networking/access-multitenant-web-app-from-on-premises.yml)

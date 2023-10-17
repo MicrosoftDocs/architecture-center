@@ -1824,8 +1824,8 @@ items:
       - name: SQL Database and Synapse connectivity
         href: /azure/azure-sql/database/connectivity-architecture
         maintainContext: true
-      - name: SQL Managed Instance with CMK
-        href: example-scenario/data/sql-managed-instance-cmk.yml
+      # - name: SQL Managed Instance with CMK
+      #   href: example-scenario/data/sql-managed-instance-cmk.yml
       - name: Windows N-tier applications
         href: reference-architectures/n-tier/n-tier-sql-server.yml
     - name: Solution ideas
@@ -4014,7 +4014,7 @@ items:
       - name: Secure research for regulated data
         href: ai-ml/architecture/secure-compute-for-research.yml
       - name: SQL Managed Instance with CMK
-        href: example-scenario/data/sql-managed-instance-cmk.yml
+        href: databases/architecture/sql-managed-instance-cmk.yml
       - name: Virtual network integrated microservices
         href: example-scenario/integrated-multiservices/virtual-network-integration.yml
     - name: Solution ideas

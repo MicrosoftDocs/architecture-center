@@ -3554,6 +3554,11 @@
       "source_path": "docs/solution-ideas/articles/reference-architecture-for-oracle-database-migration-to-azure.yml",
       "redirect_url": "/azure/architecture/databases/idea/reference-architecture-for-oracle-database-migration-to-azure",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/data/sql-managed-instance-cmk.yml",
+      "redirect_url": "/azure/architecture/databases/architecture/sql-managed-instance-cmk",
+      "redirect_document_id": true
     }
   ]
 }
