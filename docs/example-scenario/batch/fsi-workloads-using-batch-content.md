@@ -166,7 +166,7 @@ The architecture provides two options for the user to connect to the network to 
    jobs to the Batch service. This will require that the user has a SSH client and/or RDP client installed on the local machine.
 
 1. **Use Azure Bastion**. Instead of using VPN, the user can use Azure Bastion to log on to the Linux and/or Windows Jumpboxes.
-   For this, the user logs on to the Azure portal and then uses Azure Bastion to log on to the jumpbox VM directly from the
+   The user logs on to the Azure portal and then uses Azure Bastion to log on to the jumpbox VM directly from the
    web browser. Once logged on to the jumpbox, the user can submit jobs to the Batch service using the Azure CLI, Batch Explorer
    and other tools installed on the jumpbox.
 
