@@ -31,6 +31,8 @@ items:
         - name: Migrate master data services with CluedIn
           href: architecture/migrate-master-data-services-with-cluedin.yml
         - name: Master data management with Profisee
-          href: architecture/profisee-master-data-management-data-factory.yml          
+          href: architecture/profisee-master-data-management-data-factory.yml
+        - name: Migrate master data services with Profisee
+          href: architecture/profisee-mds-migration-utility.yml          
     # - name: Apply guidance
     #   items:

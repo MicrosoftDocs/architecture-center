@@ -3512,17 +3512,22 @@
     },
     {
       "source_path": "docs/example-scenario/data-warehouse/dataops-mdw.yml",
-      "redirect_url": "/azure/architecture/databases/architectures/dataops-mdw",
+      "redirect_url": "/azure/architecture/databases/architecture/dataops-mdw",
       "redirect_document_id": true
     },
     {
       "source_path": "docs/reference-architectures/data/profisee-master-data-management-data-factory.yml",
-      "redirect_url": "/azure/architecture/databases/architectures/profisee-master-data-management-data-factory",
+      "redirect_url": "/azure/architecture/databases/architecture/profisee-master-data-management-data-factory",
       "redirect_document_id": true
     },
     {
       "source_path": "docs/reference-architectures/data/migrate-master-data-services-with-cluedin.yml",
-      "redirect_url": "/azure/architecture/databases/architectures/migrate-master-data-services-with-cluedin",
+      "redirect_url": "/azure/architecture/databases/architecture/migrate-master-data-services-with-cluedin",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/profisee-mds/profisee-mds-migration-utility.yml",
+      "redirect_url": "/azure/architecture/databases/architecture/profisee-mds-migration-utility",
       "redirect_document_id": true
     }
   ]

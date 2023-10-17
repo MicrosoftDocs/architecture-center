@@ -2,7 +2,7 @@ This example scenario demonstrates how to migrate from SQL Server Master Data Se
 
 ## Architecture
 
-:::image type="content" source="images/profisee-microsoft-purview-reference-architecture.png" alt-text="Architecture diagram that shows the data flow during a migration from SQL Server Master Data Services to Profisee MDM." lightbox="images/profisee-microsoft-purview-reference-architecture.png" border="false":::
+:::image type="content" source="_images/profisee-microsoft-purview-reference-architecture.png" alt-text="Architecture diagram that shows the data flow during a migration from SQL Server Master Data Services to Profisee MDM." lightbox="_images/profisee-microsoft-purview-reference-architecture.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/microsoft-purview-profisee-architecture.vsdx) of this architecture.*
 
@@ -105,7 +105,7 @@ The following chart shows the expansion in capabilities that Profisee MDM offers
 - Master Data Services offers the teal-colored capabilities.
 - Master Data Services offers the multicolored capabilities to a limited extent. The amount of teal coloring indicates the extent that the capability is possible under Master Data Services. The coloring is approximate and appears in increments of 25 percent.
 
-:::image type="content" source="images/master-data-services-features-overview.png" alt-text="Conceptual image that shows a comparison of Master Data Services and Profisee MDM." lightbox="images/master-data-services-features-overview.png" border="false":::
+:::image type="content" source="_images/master-data-services-features-overview.png" alt-text="Conceptual image that shows a comparison of Master Data Services and Profisee MDM." lightbox="_images/master-data-services-features-overview.png" border="false":::
 
 The preceding chart shows the functional expansion that Profisee MDM brings to Master Data Services. The close fit and synergy between the two services also demonstrate the advantage of using Profisee MDM to migrate reference data management to a cloud-native, multiple-domain platform. The diagram also illustrates why Profisee MDM is a natural successor for Master Data Services and how Profisee MDM can help you easily upgrade to full-featured MDM. The lightweight Master Data Services migration utility (MMU) in Profisee helps you quickly migrate your existing Master Data Services entities, hierarchies, users, and groups to Profisee.
 

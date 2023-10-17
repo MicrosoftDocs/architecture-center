@@ -1799,8 +1799,8 @@ items:
       #   href: reference-architectures/data/profisee-master-data-management-data-factory.yml
       # - name: Migrate master data services with CluedIn
       #   href: reference-architectures/data/migrate-master-data-services-with-cluedin.yml
-      - name: Migrate master data services with Profisee
-        href: example-scenario/profisee-mds/profisee-mds-migration-utility.yml
+      # - name: Migrate master data services with Profisee
+      #   href: example-scenario/profisee-mds/profisee-mds-migration-utility.yml
       - name: Minimal storage – change feed replication
         href: solution-ideas/articles/minimal-storage-change-feed-replicate-data.yml
       - name: Multi-region web app with private database
@@ -3364,7 +3364,7 @@ items:
       - name: Migrate a web app with APIM
         href: example-scenario/apps/apim-api-scenario.yml
       - name: Migrate master data services with Profisee
-        href: example-scenario/profisee-mds/profisee-mds-migration-utility.yml
+        href: databases/architecture/profisee-mds-migration-utility.yml
       - name: Modernize mainframe and midrange data
         href: /azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure
       - name: Oracle database migration
