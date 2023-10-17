@@ -24,7 +24,7 @@ azureCategories:
   - hybrid
 summary: Implement a secure hybrid network architecture using Microsoft Entra ID.
 products:
-  - azure-active-directory
+  - entra-id
   - azure-virtual-network
   - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-ad.png

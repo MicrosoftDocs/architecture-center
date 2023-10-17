@@ -15,7 +15,7 @@ azureCategories:
   - identity
   - migration
 products:
-  - azure-active-directory
+  - entra-id
   - azure-active-directory-b2c
 name: Identity architecture design
 summary: Control access to your apps and data by designing and implementing an identity solution. See resources with guidelines, best practices, and recommendations.

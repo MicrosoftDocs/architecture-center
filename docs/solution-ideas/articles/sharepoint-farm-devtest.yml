@@ -28,7 +28,7 @@ azureCategories:
   - web
 summary: Deploy a SharePoint farm for development testing. Use Microsoft Entra ID, SQL Server, and SharePoint resources for this agile development architecture.
 products:
-  - azure-active-directory
+  - entra-id
   - azure-expressroute
   - azure-vpn-gateway
   - sql-server

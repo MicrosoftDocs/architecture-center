@@ -16,7 +16,7 @@ summary: Best practices for securing data handled by a PCI-DSS 3.2.1 infrastruct
 products:
   - azure-kubernetes-service
   - azure-application-gateway
-  - azure-active-directory
+  - entra-id
   - defender-for-cloud
   - azure-monitor
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-pci.png

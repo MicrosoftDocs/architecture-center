@@ -20,7 +20,7 @@ products:
   - ai-services
   - azure-api-management
   - azure-monitor
-  - azure-active-directory
+  - entra-id
 name: Implement logging and monitoring for Azure OpenAI models
 summary: Implement comprehensive logging and monitoring and enhanced security for Azure OpenAI Service large language models.
 thumbnailUrl: /azure/architecture/browse/thumbs/openai-monitor-log.png

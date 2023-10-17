@@ -69,35 +69,38 @@ If **tunnelfront** or **aks-link** connectivity is not working, establish connec
 
    ![Sample `aks-link` logs](images/aks-link-logs.png)
 
-You can also retrieve those logs by searching the container logs in the logging and monitoring service. This example searches [Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-log-search) to check for **aks-link** connectivity errors.
+You can also retrieve those logs by searching the container logs in the logging and monitoring service. This example searches [Azure Monitor container insights](/azure/azure-monitor/containers/container-insights-log-query) to check for **aks-link** connectivity errors.
 
 ```kusto
-let ContainerIDs = KubePodInventory
-| where ClusterId =~ "/subscriptions/YOUR_SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP/providers/Microsoft.ContainerService/managedClusters/YOUR_CLUSTER_ID"
-| where Name has "aks-link"
-| distinct ContainerID;
-ContainerLog
-| where ContainerID in (ContainerIDs)
-| project LogEntrySource, LogEntry, TimeGenerated, Computer, Image, Name, ContainerID
+ContainerLogV2 
+| where _ResourceId =~ "/subscriptions/YOUR_SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP/providers/Microsoft.ContainerService/managedClusters/YOUR_CLUSTER_ID"
+| where ContainerName has "aks-link"
+| project LogSource,LogMessage, TimeGenerated, Computer, PodName, ContainerName, ContainerId
 | order by TimeGenerated desc
 | limit 200
 ```
 
-Here's another example query to check for **tunnelfront** connectivity errors.
-
+Container logs for any failed pod in a specific namespace
 ```kusto
-let ContainerIDs = KubePodInventory
-| where ClusterId =~ "/subscriptions/YOUR_SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP/providers/Microsoft.ContainerService/managedClusters/YOUR_CLUSTER_ID"
-| where Name has "tunnelfront"
-| distinct ContainerID;
-ContainerLog
-| where ContainerID in (ContainerIDs)
-| where LogEntry has "ssh to tunnelend is not connected"
-| project LogEntrySource, LogEntry, TimeGenerated, Computer, Image, Name, ContainerID
-| order by TimeGenerated desc
-| limit 200
-```
+let KubePodInv = KubePodInventory
+    | where TimeGenerated >= startTime and TimeGenerated < endTime
+    | where _ResourceId =~ "clustereResourceID" //update with resource ID
+    | where Namespace == "podNamespace" //update with target namespace
+    | where PodStatus == "Failed"
+    | extend ContainerId = ContainerID
+    | summarize arg_max(TimeGenerated, *)  by  ContainerId, PodStatus, ContainerStatus
+    | project ContainerId, PodStatus, ContainerStatus;
 
+    KubePodInv
+    | join
+    (
+        ContainerLogV2
+    | where TimeGenerated >= startTime and TimeGenerated < endTime
+    | where PodNamespace == "podNamespace" //update with target namespace
+    ) on ContainerId
+    | project TimeGenerated, PodName, PodStatus, ContainerName, ContainerId, ContainerStatus, LogMessage, LogSource
+```
+    
 If you can't get the logs through the kubectl or queries, use [SSH into the node](/azure/aks/ssh). This example finds the **tunnelfront** pod after connecting to the node through SSH.
 
 ```bash
