@@ -11,7 +11,7 @@ ms.subservice: guide
 categories:
   - identity
 products:
-  - azure-active-directory
+  - entra-id
   - azure-active-directory-b2c
 ms.custom:
   - guide
