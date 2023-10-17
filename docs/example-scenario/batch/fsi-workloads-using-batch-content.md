@@ -1,14 +1,10 @@
 This article describes a baseline architecture for running Financial Service Industry (FSI) workloads on Azure using Azure Batch.
 
-## Architecture
+## Architecture![Architecture Diagram](images/architecture.png)_Download a [Visio file](https://arch-center.azureedge.net/architecture.vsdx) that contains this architecture diagram
 
-![alt text.](./images/Secured-Azure-Batch.png)
+### Workflow
 
-_Download a [Visio file](https://arch-center.azureedge.net/architecture.vsdx) that contains this architecture diagram.
-
-### Dataflow
-
-**TODO:** 
+**TODO:**
 > An alternate title for this sub-section is "Workflow" (if data isn't really involved), so feel free to change.
 > Add callouts to the diagram above, by placing numbers next to each major step/flow
 > Include an ordered list (see example below), that annotates/describes the dataflow or workflow through the solution. Explain what each step does. Start from the user or external data source, and then follow the flow through the rest of the solution (as shown in the diagram).
@@ -49,9 +45,8 @@ The resources deployed on the hub network are as follows:
   monitor their progress. The jumpbox is deployed on the hub network and can be accessed from the on-premises network using the VPN gateway or Azure Bastion.
 
 * [Log Analytics Workspace](https://azure.microsoft.com/services/log-analytics): provides ability to collect logs. Whenever possible, resources deployed are configured
-  to save logs to the workspace. The logs are used to monitor the resources and troubleshoot issues.
-
-* [Azure Application Insights](https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview?tabs=net): together with Log Analytics Workspace, provides
+  to save logs to the workspace. The logs are used to monitor the resources and troubleshoot issues. When combined with
+  [Azure Application Insights](https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview?tabs=net), it provides
   performance monitoring and troubleshooting capabilities for the resources deployed.
 
 * [Azure DNS Private Resolver](https://learn.microsoft.com/azure/dns/dns-private-resolver-overview): provides an inbound endpoint to resolve IPs of private endpoints if queried outside of the provisioned virtual network, e.g. from on-prem resources. Will be deployed if the Azure VPN Gateway is deployed.
@@ -62,20 +57,22 @@ Let's now look at the resources deployed on the spoke network. These are the res
 
 The resources deployed on the spoke network are as follows:
 
-* [Azure Batch](https://azure.microsoft.com/services/batch): core service that our architecture relies on
-  for cloud-native job scheduling and execution. Azure Batch manages the compute resources required,
-  schedules the tasks on the compute resources, and monitors the tasks for completion. The Batch service is deployed
-  with two pools: a pool named `linux` with linux compute nodes and a pool named `windows` with windows compute nodes.
-  Both pools are setup to use `User Subscription` pool allocation mode. This ensures that all resources used internally by the
-  Batch service are allocated under the same subscription as the Batch account and hence use the subscription specific quotas
-  and policies. The pools are setup use the corresponding subnets on the spoke network, thus they get assigned address space from the
-  subnet's address range. It also means that all network security group (NSG) rules and traffic forwarding rules setup on those subnets are applied to the
-  compute nodes as well. The pools is also setup to not assign public IP addresses to the compute nodes. This ensures that the
-  compute nodes are not accessible from the public internet directly. To make it easier for workloads on executing on
-  compute notes to access shared storage resources, the pools are setup to mount the supported storage resources on the compute nodes
-  during initialization. The pools use `User Managed Identity` to authenticate the compute nodes with storage account, container registry,
-  and any other resources as they join the Batch pool. This ensures that the compute nodes are authenticated using certificates instead
-  of passwords or keys.
+* [Azure Batch](https://azure.microsoft.com/services/batch): the core service that our architecture relies on for
+  cloud-native job scheduling and execution. Azure Batch manages the compute resources required, schedules the tasks on
+  the compute resources, and monitors the tasks for completion. The Batch service is deployed with two pools: a pool
+  named linux with linux compute nodes and a pool named windows with windows compute nodes. The pools are configured to:
+
+  * Use User Subscription pool allocation mode. This ensures that all resources used internally by the Batch service are
+    allocated under the same subscription as the Batch account and hence use the subscription specific quotas and policies.
+  * Use the corresponding subnets on the spoke network, thus they get assigned address space from the subnet's address range.
+    It also means that all network security group (NSG) rules and traffic forwarding rules setup on those subnets are applied to the compute nodes as well.
+  * Not assign public IP addresses to the compute nodes. This ensures that the compute nodes are not accessible from the
+    public internet directly.
+  * Make it easier for workloads executing on compute notes to access shared storage resources, by mounting the supported
+    storage resources on the compute nodes during initialization.
+  * Use a user-assigned managed identity to authenticate the compute nodes with storage account, container registry,
+    and any other resources as they join the Batch pool. This ensures that the compute nodes are authenticated using
+    certificates instead of passwords or keys.
 
 * [Azure Key Vault](https://azure.microsoft.com/services/key-vault): stores deployment secrets such as Batch account certificates. These certificates are used
   to authenticate compute node resources as they join the Batch pool. The Key Vault is deployed on the spoke network and is configured to allow access
@@ -90,7 +87,8 @@ The resources deployed on the spoke network are as follows:
   The container registry is deployed on the spoke network and is configured to allow access only from the Batch service. This ensures that the container
   images are not accessible from the public internet.
 
-* [Azure Managed Identity](https://learn.microsoft.com/azure/batch/managed-identity-pools): TODO: Verify with Utkarsh, if the final version uses managed identities which are assgined on Azure Batch Pool level.  
+* [Azure Managed Identity](https://learn.microsoft.com/azure/batch/managed-identity-pools): used to authenticate the compute nodes
+  added to pools automatically with container registry, storage accounts, and other resources.
 
 ## Scenario details
 
@@ -119,9 +117,8 @@ The highlights of the network topology are as follows:
   outgoing traffic is filtered, logged and tracked.
 * The Firewall is configured to allow only whitelisted traffic. This ensures that only the whitelisted traffic is allowed
   to go out of the virtual network.
-* A VPN gateway can is optionally deployed on the hub network. This allows access to the spoke network from the on-premises network.
-  Azure Bastion provides another optional way to connect to the hub network from the public internet. Both provide
-  secure ways to connect to the hub network from the public internet.
+* Access to resources on the spoke network is enabled through optionally deployed VPN gateway or Azure Bastion.
+  Both provide secure ways to connect to the hub network from the public internet.
 * Windows and Linux jumpboxes are provided with preinstalled tools to access the resources deployed, submit jobs, and monitor
   their progress. These jumpboxes are deployed on the hub network and can be accessed from the on-premises network using the
   VPN gateway or Azure Bastion.
@@ -250,12 +247,15 @@ Principal authors:
 
 ## Next steps
 
-* Bulleted list of third-party and other Microsoft links.
-* Links shouldn't include en-us locale unless they don't work without it.
-* Links to Microsoft Learn content should be site-relative, for example (/azure/feature/article-name).
-* Don't include trailing slash in any links.
+* [What is Azure Batch?](/azure/batch/batch-technical-overview)
+* [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
+* [Azure Storage accounts](/azure/storage/common/storage-account-overview)
+* [Data processing with Batch and Data Factory](/azure/data-factory/transform-data-using-custom-activity)
+
+Learn modules
+
+* [Design an Azure compute solution](/training/modules/design-compute-solution)
 
 ## Related resources
 
-* Links to related Azure Architecture Center articles.
-* Links should be relative, for example (../../solution-ideas/articles/article-name.yml).
+* [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
