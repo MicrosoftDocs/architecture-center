@@ -3549,6 +3549,11 @@
       "source_path": "docs/reference-architectures/n-tier/n-tier-cassandra.yml",
       "redirect_url": "/azure/architecture/databases/architecture/n-tier-cassandra",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/reference-architecture-for-oracle-database-migration-to-azure.yml",
+      "redirect_url": "/azure/architecture/databases/idea/reference-architecture-for-oracle-database-migration-to-azure",
+      "redirect_document_id": true
     }
   ]
 }

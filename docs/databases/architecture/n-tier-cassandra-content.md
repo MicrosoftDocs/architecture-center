@@ -239,7 +239,7 @@ For more information, see the Operational Excellence section in [Microsoft Azure
 [datastax]: https://www.datastax.com/products/datastax-enterprise
 [ddos-best-practices]: /azure/security/fundamentals/ddos-best-practices
 [ddos]: /azure/virtual-network/ddos-protection-overview
-[dmz]: ../dmz/secure-vnet-dmz.yml
+[dmz]: ../../reference-architectures/dmz/secure-vnet-dmz.yml
 [Linux-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
 [load-balancer-hashing]: /azure/load-balancer/components#load-balancing-rules
 [load-balancer]: /azure/load-balancer/load-balancer-get-started-internet-arm-cli
