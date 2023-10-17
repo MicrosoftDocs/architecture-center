@@ -3531,8 +3531,8 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "docs/reference-architectures/data/migrate-master-data-services-with-cluedin.yml",
-      "redirect_url": "/azure/architecture/databases/architecture/migrate-master-data-services-with-cluedin",
+      "source_path": "docs/reference-architectures/data/cluedin.yml",
+      "redirect_url": "/azure/architecture/databases/architecture/cluedin",
       "redirect_document_id": true
     },
     {

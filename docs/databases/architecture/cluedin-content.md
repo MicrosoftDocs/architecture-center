@@ -2,7 +2,7 @@ This CluedIn architecture provides businesses with metrics about the quality of 
 
 ## Architecture
 
-![Diagram showing CluedIn architectural structure and data flow.](images/cluedin-architecture.svg)
+![Diagram showing CluedIn architectural structure and data flow.](_images/cluedin-architecture.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/cluedin-architecture.vsdx) of this architecture.*
 
