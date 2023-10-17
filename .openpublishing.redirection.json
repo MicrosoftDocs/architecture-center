@@ -3539,6 +3539,16 @@
       "source_path": "docs/reference-architectures/data/profisee-master-data-management-purview.yml",
       "redirect_url": "/azure/architecture/databases/architecture/profisee-master-data-management-purview",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/minimal-storage-change-feed-replicate-data.yml",
+      "redirect_url": "/azure/architecture/databases/idea/minimal-storage-change-feed-replicate-data",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/n-tier/n-tier-cassandra.yml",
+      "redirect_url": "/azure/architecture/databases/architecture/n-tier-cassandra",
+      "redirect_document_id": true
     }
   ]
 }

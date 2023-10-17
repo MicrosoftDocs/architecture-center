@@ -42,5 +42,9 @@ items:
           href: architecture/cluedin.yml        
         - name: Data governance with Profisee
           href: architecture/profisee-master-data-management-purview.yml
+      - name: NoSQL
+        items:
+        - name: N-tier app with Cassandra
+          href: architecture/n-tier-cassandra.yml
     # - name: Apply guidance
     #   items:

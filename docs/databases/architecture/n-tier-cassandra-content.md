@@ -2,7 +2,7 @@ This reference architecture shows how to deploy virtual machines (VMs) and a vir
 
 ## Architecture
 
-[![Diagram that shows the N-tier architecture using Microsoft Azure.](./images/n-tier-cassandra.svg)](./images/n-tier-cassandra.svg)
+[![Diagram that shows the N-tier architecture using Microsoft Azure.](_images/n-tier-cassandra.svg)](_images/n-tier-cassandra.svg)
 
 *Download a [Visio file][visio-download] of this architecture.*
 
@@ -44,7 +44,7 @@ Your requirements might differ from the architecture described here. Use these r
 
 ### Virtual machines
 
-For recommendations on configuring the VMs, see [Run a Linux VM on Azure](./linux-vm.yml).
+For recommendations on configuring the VMs, see [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml).
 
 ### Virtual network
 

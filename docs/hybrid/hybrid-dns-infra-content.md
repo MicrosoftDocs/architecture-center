@@ -169,7 +169,7 @@ Explore related architectures:
 
 - [Azure enterprise cloud file share](./azure-files-private.yml)
 - [Windows N-tier application on Azure](../reference-architectures/n-tier/n-tier-sql-server.yml)
-- [N-tier application with Apache Cassandra](../reference-architectures/n-tier/n-tier-cassandra.yml)
+- [N-tier application with Apache Cassandra](../databases/architecture/n-tier-cassandra.yml)
 - [Multitenant SaaS on Azure](../example-scenario/multi-saas/multitenant-saas.yml)
 - [Extend an on-premises network using ExpressRoute](../reference-architectures/hybrid-networking/expressroute.yml)
 

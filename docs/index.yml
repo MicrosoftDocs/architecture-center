@@ -438,7 +438,7 @@ conceptualContent:
           url: reference-architectures/n-tier/windows-vm.yml
         - text: N-tier application with Cassandra (Linux)
           itemType: architecture
-          url: reference-architectures/n-tier/n-tier-cassandra.yml
+          url: databases/architecture/n-tier-cassandra.yml
         - text: N-tier application with SQL Server (Windows)
           itemType: architecture
           url: reference-architectures/n-tier/n-tier-sql-server.yml
