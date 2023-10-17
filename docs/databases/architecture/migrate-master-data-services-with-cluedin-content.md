@@ -185,6 +185,6 @@ Principal author:
 
 ## Related resources
 
-- [Master data management with Azure and CluedIn](/azure/architecture/reference-architectures/data/cluedin)
+- [Master data management with Azure and CluedIn](/azure/architecture/databases/architecture/cluedin)
 - For an overview of Azure data architecture, see the [Azure Data Architecture Guide](/azure/architecture/data-guide).
 - [Analytics end-to-end with Azure Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end)

@@ -83,7 +83,7 @@ To learn about scenario-specific architectures, see the solutions in the followi
 You can integrate Profisee data management with Azure Purview to build a foundation for data governance and management.
 
 > [!div class="nextstepaction"]
-> [Data governance with Profisee and Azure Purview](../reference-architectures/data/profisee-master-data-management-purview.yml)
+> [Data governance with Profisee and Azure Purview](../databases/architecture/profisee-master-data-management-purview.yml)
 
 ### Modern data warehouse
 

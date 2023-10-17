@@ -6,7 +6,7 @@ This reference architecture presents a governance and data management solution t
 
 The following diagram shows the steps that you take when you develop and operate your master data solution. Think of these steps as highly iterative. As your solution evolves, you might repeat these steps and phases, sometimes automatically and sometimes manually. Whether you use automatic or manual steps depends on the changes that your master data solution, metadata, and data undergo.
 
-:::image type="content" source="images/microsoft-purview-microservice-design-architecture.png" alt-text="Architecture diagram of a data governance and management solution that uses Microsoft Purview and Profisee MDM in a microservice design architecture." lightbox="images/microsoft-purview-microservice-design-architecture.png" border="false":::
+:::image type="content" source="_images/microsoft-purview-microservice-design-architecture.png" alt-text="Architecture diagram of a data governance and management solution that uses Microsoft Purview and Profisee MDM in a microservice design architecture." lightbox="_images/microsoft-purview-microservice-design-architecture.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/microsoft-purview-profisee-architecture.vsdx) of this architecture.*
 
@@ -63,7 +63,7 @@ As the amount of data that you load into Azure increases, the need to properly g
 
 Without high-quality data in your Azure data estate, the business value of Azure is undermined, perhaps critically. The solution is to build a foundation for data governance and management that can produce and deliver a source of truth for high-quality, trusted data. Microsoft Purview and Profisee MDM work together to form this enterprise platform.
 
-:::image type="content" source="images/microsoft-purview-profisee-mdm-benefits.png" alt-text="Diagram that shows how Microsoft Purview and Profisee MDM transform ungoverned data into high-quality, trusted data." lightbox="images/microsoft-purview-profisee-mdm-benefits.png" border="false":::
+:::image type="content" source="_images/microsoft-purview-profisee-mdm-benefits.png" alt-text="Diagram that shows how Microsoft Purview and Profisee MDM transform ungoverned data into high-quality, trusted data." lightbox="_images/microsoft-purview-profisee-mdm-benefits.png" border="false":::
 
 Microsoft Purview catalogs all your data sources and identifies any sensitive information and lineage. It gives the data architect a place to consider the appropriate data standards to impose on all data. Microsoft Purview focuses on governance to find, classify, and define policies and standards. The tasks of enforcing policies and standards, cataloging data sources, and remediating deficient data fall to technologies like MDM systems.
 
@@ -103,7 +103,7 @@ The following diagram illustrates in detail the integration of Profisee MDM in M
 - Solution metadata publishing occurs when your data modelers make changes to your master data model, matching strategies, and their related subartifacts. These changes are seamlessly published to Microsoft Purview as they occur. Publishing these changes syncs the metadata that's related to your master data model and solution. As a result, the Microsoft Purview Data Catalog is further populated, and Microsoft Purview has a record of this critical data source.
 - Governance details are returned and provided to data stewards and business users. These details are available as the users view data, enrich data, and remediate data quality issues by using the Profisee FastApp portal.
 
-:::image type="content" source="images/profisee-microsoft-purview-interation-detail.png" alt-text="Diagram that shows how Profisee MDM integrates with Microsoft Purview to ingest, model, and govern data." border="false":::
+:::image type="content" source="_images/profisee-microsoft-purview-interation-detail.png" alt-text="Diagram that shows how Profisee MDM integrates with Microsoft Purview to ingest, model, and govern data." border="false":::
 
 #### Microsoft Purview integration capabilities
 
@@ -115,7 +115,7 @@ One of the challenges of preparing an MDM solution is determining what constitut
 
 The following excerpt from the broader diagram illustrates this integration use case. First, you use Microsoft Purview system scanning functions to ingest metadata from your line-of-business systems. Next, your data stewards and SMEs prepare a solid catalog and contacts. Then the data modelers who work with Profisee MDM modeling services can prepare and evolve your master data model. This work aligns with the standards that you define in Microsoft Purview.
 
-:::image type="content" source="images/integration-use-case.png" alt-text="Diagram that shows a use case of Profisee MDM integrating with Microsoft Purview to ingest, model, and govern data." border="false":::
+:::image type="content" source="_images/integration-use-case.png" alt-text="Diagram that shows a use case of Profisee MDM integrating with Microsoft Purview to ingest, model, and govern data." border="false":::
 
 As your data stewards evolve the model, the modeling services within the Profisee MDM platform publish changes that Profisee MDM governance services receive. In turn, Profisee MDM prepares and forwards those changes to Microsoft Purview for inclusion in its updated data catalog. These additions to the catalog ensure that your master data definitions are included in the broader data estate and that they can be governed and controlled in the same manner as your line-of-business system metadata. By ensuring that this information is cataloged together, you're in a better position to manage the relationships between your master data and your line-of-business system data.
 
@@ -125,7 +125,7 @@ Large enterprises that have correspondingly complex and expansive data estates c
 
 The following figure illustrates the flow of information from Microsoft Purview to the data stewards who work in the Profisee FastApp portal. The governance data service integrates with Microsoft Purview and Microsoft Entra ID. This service provides lookup functionality. FastApp portal users can use this functionality to retrieve enriched governance data about the entities and the attributes that they work with.
 
-:::image type="content" source="images/microsoft-purview-data-flow-profisee-portal.png" alt-text="Diagram that shows how data stewards use the Profisee portal to work with data that Microsoft Purview and Profisee MDM manage." border="false":::
+:::image type="content" source="_images/microsoft-purview-data-flow-profisee-portal.png" alt-text="Diagram that shows how data stewards use the Profisee portal to work with data that Microsoft Purview and Profisee MDM manage." border="false":::
 
 Governance services also resolve contacts that are received from Microsoft Purview to their full profile details, which are available in Microsoft Entra ID. With complete profile details, stewards can effectively collaborate with data owners and experts as they work to enhance the quality of your master data.
 
@@ -139,11 +139,11 @@ Data stewards and business users can access three Profisee MDM data asset types 
 
 The following figure illustrates where users who are working in the FastApp portal can view governance details for each of these asset types. You can find instance-level details on the **Help** menu. You can access entity details from the page zone header, which contains an entity grid. For attribute details, go to the form that's associated with the entity grid. Access the details from the labels that are associated with the attribute.
 
-:::image type="content" source="images/example-portal-view-governance.png" alt-text="Screenshot of the Profisee portal. Information about customers is visible. On the Help menu, Governance instance is highlighted." lightbox="images/example-portal-view-governance.png":::
+:::image type="content" source="_images/example-portal-view-governance.png" alt-text="Screenshot of the Profisee portal. Information about customers is visible. On the Help menu, Governance instance is highlighted." lightbox="_images/example-portal-view-governance.png":::
 
 To see summary information, hover over the governance icon, such as Microsoft Purview. Select the icon to display the full governance dialog:
 
-:::image type="content" source="images/governance-summary-view.png" alt-text="Screenshot of the Profisee portal. On the Customer page, a dialog provides detailed information about the date of birth attribute." lightbox="images/governance-summary-view.png":::
+:::image type="content" source="_images/governance-summary-view.png" alt-text="Screenshot of the Profisee portal. On the Customer page, a dialog provides detailed information about the date of birth attribute." lightbox="_images/governance-summary-view.png":::
 
 To go to the full Microsoft Purview user experience, select the governance icon in the dialog header. Selecting the icon takes you to Microsoft Purview in the context of the asset that you're currently viewing. You then can easily move around in Microsoft Purview based on your discovery needs.
 
@@ -190,7 +190,7 @@ Data stewards are experts in their business domain. As stewards address issues t
 
 With enriched, high-quality source data, you're positioned to produce a golden record master that represents the most accurate information across your disparate line-of-business systems. The following figure illustrates how all the steps culminate in high-quality data that's ready to use for business analysis. At any time, you can sync this data across your data estate.
 
-:::image type="content" source="images/microsoft-purview-microservice-design-maching.png" alt-text="Diagram that shows how survivorship and data lineage factor into a golden record and how data is enriched." lightbox="images/microsoft-purview-microservice-design-maching.png" border="false":::
+:::image type="content" source="_images/microsoft-purview-microservice-design-maching.png" alt-text="Diagram that shows how survivorship and data lineage factor into a golden record and how data is enriched." lightbox="_images/microsoft-purview-microservice-design-maching.png" border="false":::
 
 The Profisee MDM matching engine produces a golden record master as part of the survivorship process. Survivorship rules selectively populate the golden record with information that you've chosen across all your source systems.
 

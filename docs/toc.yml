@@ -1775,8 +1775,8 @@ items:
         href: solution-ideas/articles/build-data-lake-support-adhoc-queries-online.yml
       - name: Cost savings through HTAP with Azure SQL
         href: example-scenario/data/azure-sql-htap.yml
-      - name: Data governance with Profisee
-        href: reference-architectures/data/profisee-master-data-management-purview.yml
+      # - name: Data governance with Profisee
+      #   href: reference-architectures/data/profisee-master-data-management-purview.yml
       - name: Data obfuscation with Delphix
         href: example-scenario/ai/data-obfuscation-with-delphix-in-azure-data-factory.yml
       - name: Data scrambling for SAP with Delphix
@@ -1793,8 +1793,8 @@ items:
         href: high-availability/ref-arch-iaas-web-and-db.yml
       - name: Loan credit risk modeling
         href: example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml
-      - name: Master data management with CluedIn
-        href: reference-architectures/data/cluedin.yml
+      # - name: Master data management with CluedIn
+      #   href: reference-architectures/data/cluedin.yml
       # - name: Master data management with Profisee
       #   href: reference-architectures/data/profisee-master-data-management-data-factory.yml
       # - name: Migrate master data services with CluedIn
@@ -2004,7 +2004,7 @@ items:
       - name: Automated enterprise BI
         href: reference-architectures/data/enterprise-bi-adf.yml
       - name: Data governance with Profisee
-        href: reference-architectures/data/profisee-master-data-management-purview.yml
+        href: databases/architecture/profisee-master-data-management-purview.yml
       - name: Data warehousing and analytics
         href: example-scenario/data/data-warehouse.yml
       - name: DataOps for modern data warehouse
@@ -2017,8 +2017,8 @@ items:
         href: guide/data/helm-deployments-apache-nifi.yml
       - name: Hybrid ETL with Azure Data Factory
         href: example-scenario/data/hybrid-etl-with-adf.yml
-      - name: Master data management with CluedIn
-        href: reference-architectures/data/cluedin.yml
+      # - name: Master data management with CluedIn
+      #   href: reference-architectures/data/cluedin.yml
       - name: Master data management with Profisee
         href: databases/architecture/profisee-master-data-management-data-factory.yml
       - name: Measure Azure app sustainability

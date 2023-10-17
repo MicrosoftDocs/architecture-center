@@ -223,7 +223,7 @@ Other contributors:
 
 ## Related resources
 
-- [Data governance with Profisee and Microsoft Purview](../../reference-architectures/data/profisee-master-data-management-purview.yml)
+- [Data governance with Profisee and Microsoft Purview](../../databases/architecture/profisee-master-data-management-purview.yml)
 - [Master data management with Profisee and Azure Data Factory](../../databases/architecture/profisee-master-data-management-data-factory.yml)
 - [Azure data architecture guide](../../data-guide/index.md)
 - [Analytics end-to-end with Azure Synapse](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
