@@ -16,7 +16,7 @@ ms.custom:
   - e2e-aks
 ---
 
-# Backup and Recovery for AKS
+#Backup and Recovery for AKS
 
 **Why backing-up your AKS cluster is important**
 
