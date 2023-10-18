@@ -3454,6 +3454,16 @@
       "source_path": "docs/solution-ideas/articles/sharepoint-farm-devtest.yml",
       "redirect_url": "/devops",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/hybrid-continuous-integration.yml",
+      "redirect_url": "/devops",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/apps/devops-cicd-chatbot.yml",
+      "redirect_url": "/devops",
+      "redirect_document_id": false
     }
   ]
 }

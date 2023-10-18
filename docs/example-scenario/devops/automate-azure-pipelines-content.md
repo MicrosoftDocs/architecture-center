@@ -109,7 +109,6 @@ Principal author:
 
 ## Next steps
 
-- [Build a CI/CD pipeline for chatbots with ARM templates](../apps/devops-cicd-chatbot.yml)
 - [CI/CD baseline architecture with Azure Pipelines](../apps/devops-dotnet-baseline.yml)
 - [The DevOps journey at Microsoft](https://azure.microsoft.com/solutions/devops/devops-at-microsoft)
 - [Create a build pipeline with Azure Pipelines](/training/modules/create-a-build-pipeline)

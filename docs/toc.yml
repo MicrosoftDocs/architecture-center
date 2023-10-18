@@ -2326,8 +2326,6 @@ items:
         href: example-scenario/devops/automate-sentinel-integration.yml
       - name: Azure DevTest Labs for enterprises
         href: example-scenario/infrastructure/devtest-labs-reference-architecture.yml
-      - name: CI/CD pipeline for chatbots with ARM
-        href: example-scenario/apps/devops-cicd-chatbot.yml
       - name: CI/CD pipeline using Azure DevOps
         href: example-scenario/apps/devops-dotnet-baseline.yml
       - name: DevSecOps in GitHub
@@ -2530,8 +2528,6 @@ items:
           href: example-scenario/hybrid/hybrid-cross-cloud-scale-on-premises-data.yml
         - name: Cross-cloud scaling with Traffic Manager
           href: example-scenario/hybrid/hybrid-cross-cloud-scaling.yml
-        - name: DevOps with Azure Stack Hub
-          href: solution-ideas/articles/hybrid-continuous-integration.yml
         - name: Disaster recovery for Stack Hub VMs
           href: hybrid/azure-stack-vm-disaster-recovery.yml
         - name: High-availability Kubernetes cluster
