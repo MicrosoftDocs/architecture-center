@@ -68,13 +68,13 @@ To effectively support Kubernetes environments, Backup & Recovery solutions must
 
 Various Kubernetes-native Backup & Recovery solutions are available, with options ranging from open to closed source and offering different licensing models.
 
-Following are some examples of Backup & Recovery solutions that may be used with AKS. On notable example is Microsoft's fully managed first-party solution called [Azure Kubernetes Service (AKS) Backup](https://learn.microsoft.com/en-us/azure/backup/azure-kubernetes-service-backup-overview), which provides an Azure-integrated service designed for Backup & Restore of AKS clusters and their workloads. This list is by no means exhaustive and aims only to showcase a number of options available.
+Following are some examples of Backup & Recovery solutions that may be used with AKS. On notable example is Microsoft's fully managed first-party solution called [Azure Kubernetes Service (AKS) Backup](https://learn.microsoft.com/azure/backup/azure-kubernetes-service-backup-overview), which provides an Azure-integrated service designed for Backup & Restore of AKS clusters and their workloads. This list is by no means exhaustive and aims only to showcase a number of options available.
 
 ### AKS Backup
 
-[AKS Backup](https://learn.microsoft.com/en-us/azure/backup/azure-kubernetes-service-backup-overview) is Azure's offering for backing up and restoring your AKS clusters. It is a simple, Azure-native process which allows you to back up and restore the containerized applications and data running in your AKS clusters.
+[AKS Backup](https://learn.microsoft.com/azure/backup/azure-kubernetes-service-backup-overview) is Azure's offering for backing up and restoring your AKS clusters. It is a simple, Azure-native process which allows you to back up and restore the containerized applications and data running in your AKS clusters.
 
-AKS Backup allows for on-demand or scheduled backups of full or fine-grained cluster state and application data stored in Azure Disk based Persistent Volumes. It integrates with the [Azure Backup Center](https://learn.microsoft.com/en-us/azure/backup/backup-center-overview) to provide a single pane of glass in Azure Portal that can help you govern, monitor, operate, and analyze backups at scale.
+AKS Backup allows for on-demand or scheduled backups of full or fine-grained cluster state and application data stored in Azure Disk based Persistent Volumes. It integrates with the [Azure Backup Center](https://learn.microsoft.com/azure/backup/backup-center-overview) to provide a single pane of glass in Azure Portal that can help you govern, monitor, operate, and analyze backups at scale.
 
 NOTE - AKS Backup is currently in public preview. Preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. AKS previews are partially covered by customer support on a best-effort basis. As such, these features aren't meant for production use. For more information, see the following support articles:
 
@@ -101,7 +101,7 @@ Velero runs as a deployment in the cluster and provides a very comprehensive set
 
 ## Installing and Configuring AKS Backup
 
-To install and configure [AKS Backup](https://learn.microsoft.com/en-us/azure/backup/azure-kubernetes-service-backup-overview), follow these steps:
+To install and configure [AKS Backup](https://learn.microsoft.com/azure/backup/azure-kubernetes-service-backup-overview), follow these steps:
 
 1. Check [Prerequisites for AKS Backup using Azure Backup](https://learn.microsoft.com/azure/backup/azure-kubernetes-service-cluster-backup-concept) for a detailed description of the prerequisites for using AKS Backup with your AKS cluster.
 2. Review [AKS Backup Support Matrix](https://learn.microsoft.com/azure/backup/azure-kubernetes-service-cluster-backup-support-matrix) for a detailed description of AKS Backup's region availability, supported scenarios and limitations.
