@@ -3594,6 +3594,12 @@
       "source_path": "docs/example-scenario/ai/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml",
       "redirect_url": "/azure/architecture/databases/guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "extend-reporting-capabilities.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
     }
+    
   ]
 }
