@@ -1787,8 +1787,8 @@ items:
       #   href: example-scenario/data/extend-reporting-capabilities.yml
       - name: Globally distributed apps with Cosmos DB
         href: solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db.yml
-      - name: Hybrid ETL with Azure Data Factory
-        href: example-scenario/data/hybrid-etl-with-adf.yml
+      # - name: Hybrid ETL with Azure Data Factory
+      #   href: example-scenario/data/hybrid-etl-with-adf.yml
       - name: 'IaaS: Web app with relational database'
         href: high-availability/ref-arch-iaas-web-and-db.yml
       - name: Loan credit risk modeling
@@ -2015,8 +2015,8 @@ items:
         href: example-scenario/data/geospatial-data-processing-analytics-azure.yml
       - name: Helm-based deployments
         href: guide/data/helm-deployments-apache-nifi.yml
-      - name: Hybrid ETL with Azure Data Factory
-        href: example-scenario/data/hybrid-etl-with-adf.yml
+      # - name: Hybrid ETL with Azure Data Factory
+      #   href: example-scenario/data/hybrid-etl-with-adf.yml
       # - name: Master data management with CluedIn
       #   href: reference-architectures/data/cluedin.yml
       - name: Master data management with Profisee
