@@ -3596,7 +3596,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "extend-reporting-capabilities.yml",
+      "source_path": "docs/example-scenario/data/extend-reporting-capabilities.yml",
       "redirect_url": "/azure/architecture/databases",
       "redirect_document_id": false
     }
