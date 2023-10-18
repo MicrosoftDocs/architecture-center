@@ -2,7 +2,7 @@
 title: AKS Backup and Recovery
 titleSuffix: Azure Architecture Center
 description: Learn to how to backup and recovery your AKS clusters and their workloads.
-author: adsharif
+author: AdamSharif-MSFT
 ms.author: jotavar
 ms.date: 18/10/2023
 ms.topic: conceptual
@@ -141,20 +141,7 @@ To ensure that your Backup & Recovery solution meets your organization's require
 - **Supported Scenarios**: Verify if your specific scenario is supported by the AKS Backup solution. Refer to the [AKS Backup support matrix](https://learn.microsoft.com/azure/backup/azure-kubernetes-service-cluster-backup-support-matrix) for compatibility information.
 - **Budget Allocations**: Consider if you have specific budget allocations for backup and restore operations. Review the [pricing](https://learn.microsoft.com/en-us/azure/backup/azure-kubernetes-service-backup-overview#pricing) information provided by the AKS Backup solution to align with your budgetary requirements.
 
-- By taking these additional considerations into account, you can ensure that your Backup & Recovery solution for AKS meets your organization's needs and preferences efficiently and effectively.
-
-[
-](https://learn.microsoft.com/azure/backup/azure-kubernetes-service-cluster-backup-support-matrix)
-[
-](https://learn.microsoft.com/azure/backup/azure-kubernetes-service-cluster-backup#configure-backups)
-[
-](https://learn.microsoft.com/azure/backup/azure-kubernetes-service-cluster-backup#create-a-backup-policy)
-
-
-[
-](https://learn.microsoft.com/azure/backup/azure-kubernetes-service-cluster-restore)
-[
-](https://learn.microsoft.com/azure/backup/azure-kubernetes-service-cluster-backup-support-matrix)
+By taking these additional considerations into account, you can ensure that your Backup & Recovery solution for AKS meets your organization's needs and preferences efficiently and effectively.
 
 ## AKS Backup Location and Storage
 
