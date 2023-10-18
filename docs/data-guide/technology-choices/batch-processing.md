@@ -80,7 +80,7 @@ The following tables summarize the key differences in capabilities.
 | Capability | Azure Data Lake Analytics | Azure Synapse | HDInsight | Azure Databricks |
 | --- | --- | --- | --- | --- |
 | Is managed service | Yes | Yes | Yes <sup>1</sup> | Yes |
-| Relational data store | Yes | Yes | No | No |
+| Relational data store | Yes | Yes | No | Yes |
 | Pricing model | Per batch job | By cluster hour | By cluster hour | Databricks Unit<sup>2</sup> + cluster hour |
 
 [1] With manual configuration.
@@ -97,9 +97,9 @@ The following tables summarize the key differences in capabilities.
 | Query from external relational stores | Yes | No | Yes | No | No | Yes |
 | Authentication  | Microsoft Entra ID | SQL / Microsoft Entra ID | No | Microsoft Entra ID<sup>1</sup> | Microsoft Entra ID<sup>1</sup> | Microsoft Entra ID |
 | Auditing  | Yes | Yes | No | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes |
-| Row-level security | No | Yes<sup>2</sup> | No | Yes <sup>1</sup> | Yes <sup>1</sup> | No |
-| Supports firewalls | Yes | Yes | Yes | Yes <sup>3</sup> | Yes <sup>3</sup> | No |
-| Dynamic data masking | No | Yes | No | Yes <sup>1</sup> | Yes <sup>1</sup> | No |
+| Row-level security | No | Yes<sup>2</sup> | No | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes |
+| Supports firewalls | Yes | Yes | Yes | Yes <sup>3</sup> | Yes <sup>3</sup> | Yes |
+| Dynamic data masking | No | Yes | No | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes |
 
 [1] Requires using a [domain-joined HDInsight cluster](/azure/hdinsight/domain-joined/apache-domain-joined-introduction).
 
