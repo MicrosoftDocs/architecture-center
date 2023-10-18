@@ -2,7 +2,7 @@
 title: Azure Data Architecture Guide
 description: Use proven customer engagement practices to design data-centric Azure solutions for traditional relational database workloads and big data architectures.
 author: martinekuan
-ms.author: architectures
+ms.author: pnp
 ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center

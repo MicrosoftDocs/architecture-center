@@ -3584,6 +3584,16 @@
       "source_path": "docs/guide/data/teradata-vantage-data-factory.yml",
       "redirect_url": "/azure/architecture/databases/guide/teradata-vantage-data-factory",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/ai/data-obfuscation-with-delphix-in-azure-data-factory.yml",
+      "redirect_url": "/azure/architecture/databases/guide/data-obfuscation-with-delphix-in-azure-data-factory",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/ai/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml",
+      "redirect_url": "/azure/architecture/databases/guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory",
+      "redirect_document_id": true
     }
   ]
 }

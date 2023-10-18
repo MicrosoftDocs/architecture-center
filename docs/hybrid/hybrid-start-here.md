@@ -6,7 +6,7 @@ ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.topic: reference-architecture
 ms.date: 07/26/2022
-ms.author: architectures
+ms.author: pnp
 categories:
   - hybrid
   - management-and-governance
