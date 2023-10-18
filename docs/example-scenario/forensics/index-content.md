@@ -1,4 +1,4 @@
-This article describes an infrastructure and workflow process helps teams ensure the digital evidence they provide in response to legal requests demonstrates a valid *chain of custody* (CoC). The discussion helps ensure a valid CoC throughout the evidence acquisition, preservation, and access processes.
+This article describes an infrastructure and workflow process that helps teams ensure that the digital evidence they provide in response to legal requests demonstrates a valid *chain of custody* (CoC). This discussion helps ensure a valid CoC throughout the evidence acquisition, preservation, and access processes.
 
 > [!NOTE]
 > This article is based on the theoretical and practical knowledge of the authors. Before you use it for legal purposes, you should validate its applicability with your legal department.
@@ -137,7 +137,15 @@ Cohasset's [Azure Storage: SEC 17a-4(f) and CFTC 1.31(c)-(d) Compliance Assessme
 - Financial Industry Regulatory Authority (FINRA) Rule 4511(c), which defers to the format and media requirements of SEC Rule 17a-4(f).
 - Commodity Futures Trading Commission (CFTC) in regulation 17 CFR § 1.31(c)-(d), which regulates commodity futures trading.
 
-It's Cohasset's opinion that Storage, with the Immutable Storage for Azure blobs feature and policy lock option, retains *time-based* blobs (records) in a non-erasable and non-rewriteable format and meets relevant storage requirements of SEC Rule 17a-4(f), FINRA Rule 4511(c), and the principles-based requirements of CFTC Rule 1.31(c)-(d).
+It's Cohasset's opinion that Storage, with the Immutable Storage for Azure blobs feature and policy lock option, retains *time-based* blobs (records) in a nonerasable and nonrewriteable format and meets relevant storage requirements of SEC Rule 17a-4(f), FINRA Rule 4511(c), and the principles-based requirements of CFTC Rule 1.31(c)-(d).
+
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 #### Least privilege
 
@@ -157,7 +165,7 @@ Azure audit logs can show the evidence acquisition by recording the action of ta
 
 The use of Automation to move evidence to its final archive destination, without human intervention, guarantees that evidence artifacts haven't been altered.
 
-By applying a legal hold policy to the destination storage, the evidence is frozen in time as soon as it's written. A legal hold shows that the CoC has been maintained entirely in Azure. A legal hold also shows that there wasn't an opportunity to tamper between the time the disk images existed on a live VM and when they were added as evidence in the storage account.
+When you apply a legal hold policy to the destination storage, the evidence is frozen in time as soon as it's written. A legal hold shows that the CoC has been maintained entirely in Azure. A legal hold also shows that there wasn't an opportunity to tamper between the time the disk images existed on a live VM and when they were added as evidence in the storage account.
 
 Lastly, you can use the provided solution, as an integrity mechanism, to calculate the hash values of the disk images. The supported hash algorithms are: MD5, SHA256, SKEIN, KECCAK (or SHA3).
 
@@ -167,7 +175,7 @@ Investigators need access to evidence to perform analyses, and this access must 
 
 Provide investigators with a storage [shared access signatures (SAS) URI](/azure/storage/common/storage-sas-overview) key for accessing evidence. You can use an SAS URI to produce relevant log information when the SAS is generated. You can also get a copy of the evidence every time the SAS is used.
 
-You must explicitly place the IP addresses of investigators requiring access on an allow list in the Storage firewall.
+You must explicitly place the IP addresses of investigators requiring access on an allowlist in the Storage firewall.
 
 For example, if a legal team needs to transfer a preserved virtual hard drive (VHD), one of the two SOC team custodians generates a read-only SAS URI key that expires after eight hours. The SAS limits the access to the IP addresses of the investigators to a specific time frame.
 
@@ -178,6 +186,10 @@ Finally, investigators need the BEKs archived in the SOC key vault to access the
 For compliance, some standards or regulations require evidence and the support infrastructure to be maintained in the same Azure region.
 
 All the solution components, including the Storage account used to archive evidence, are hosted in the same Azure region as the systems being investigated.
+
+### Operational excellence
+
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
 #### Monitoring and alerting
 
@@ -197,6 +209,7 @@ Follow the [CoC LAB Deployment](https://github.com/Azure/forensics/blob/main/REA
 The laboratory environment represents a simplified version of the architecture that is described in the article deploying two resource groups within the same subscription. The first resource group simulates the production environment, housing digital evidence, while the second resource group holds the SOC environment.
 
 Use the following button to deploy only the SOC resource group in a production environment.
+
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fforensics%2Fmain%2F.armtemplate%2Fcoc-soc.json)
 
 > [!NOTE]
