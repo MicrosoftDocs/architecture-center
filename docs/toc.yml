@@ -2368,12 +2368,8 @@ items:
         href: solution-ideas/articles/dev-test-paas.yml
       - name: DevTest and DevOps with microservices
         href: solution-ideas/articles/dev-test-microservice.yml
-      - name: Hybrid DevOps
-        href: solution-ideas/articles/devops-in-a-hybrid-environment.yml
       - name: Java CI/CD using Jenkins and Web Apps
         href: solution-ideas/articles/java-cicd-using-jenkins-and-azure-web-apps.yml
-      - name: SharePoint for development testing
-        href: solution-ideas/articles/sharepoint-farm-devtest.yml
   - name: Hybrid + Multicloud
     items:
     - name: Get started

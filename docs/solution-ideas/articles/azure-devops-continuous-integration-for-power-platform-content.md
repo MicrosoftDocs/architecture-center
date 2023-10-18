@@ -83,5 +83,4 @@ Additional CI/CD architectures:
 * [Java CI/CD using Jenkins and Azure Web Apps](/azure/architecture/solution-ideas/articles/java-cicd-using-jenkins-and-azure-web-apps)
 * [Build a CI/CD pipeline for chatbots with ARM templates](/azure/architecture/example-scenario/apps/devops-cicd-chatbot)
 * [End-to-end governance in Azure when using CI/CD](/azure/architecture/example-scenario/governance/end-to-end-governance-in-azure)
-* [DevOps in a hybrid environment](/azure/architecture/solution-ideas/articles/devops-in-a-hybrid-environment)
 * [DevSecOps in GitHub](/azure/architecture/solution-ideas/articles/devsecops-in-github)
