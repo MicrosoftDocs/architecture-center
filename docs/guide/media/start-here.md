@@ -63,7 +63,6 @@ For more information, see the [Gridwich cloud media system](../../reference-arch
 
 #### Gridwich procedures
 
-- [Set up Azure DevOps](../../reference-architectures/media-services/set-up-azure-devops.yml)
 - [Run Azure admin scripts](../../reference-architectures/media-services/run-admin-scripts.yml)
 - [Set up a local development environment](../../reference-architectures/media-services/set-up-local-environment.yml)
 - [Create a cloud environment](../../reference-architectures/media-services/create-delete-cloud-environment.yml)

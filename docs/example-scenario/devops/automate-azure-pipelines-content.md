@@ -126,4 +126,3 @@ Principal author:
 - [DevTest and DevOps for microservice solutions](../../solution-ideas/articles/dev-test-microservice.yml)
 - [DevTest and DevOps for IaaS solutions](../../solution-ideas/articles/dev-test-iaas.yml)
 - [DevTest and DevOps for PaaS solutions](../../solution-ideas/articles/dev-test-paas.yml)
-- [Gridwich Azure DevOps setup](../../reference-architectures/media-services/set-up-azure-devops.yml)

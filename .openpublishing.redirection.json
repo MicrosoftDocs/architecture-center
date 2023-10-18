@@ -3434,6 +3434,16 @@
       "source_path": "docs/solution-ideas/articles/search-and-query-using-openai-service.yml",
       "redirect_url": "/azure/architecture/ai-ml/openai/idea/search-and-query-using-openai-service",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/dev-test-image-factory.yml",
+      "redirect_url": "/devops",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/media-services/set-up-azure-devops.yml",
+      "redirect_url": "/devops",
+      "redirect_document_id": false
     }
   ]
 }

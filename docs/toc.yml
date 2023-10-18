@@ -2225,9 +2225,6 @@ items:
         href: guide/azure-sandbox/azure-sandbox.yml
       - name: DevOps checklist
         href: checklist/dev-ops.md
-      - name: Operational Excellence patterns
-        href: /azure/architecture/framework/devops/devops-patterns
-        maintainContext: true
       - name: Advanced ARM templates
         items:
         - name: Overview
@@ -2371,8 +2368,6 @@ items:
         href: solution-ideas/articles/dev-test-paas.yml
       - name: DevTest and DevOps with microservices
         href: solution-ideas/articles/dev-test-microservice.yml
-      - name: DevTest Image Factory
-        href: solution-ideas/articles/dev-test-image-factory.yml
       - name: Hybrid DevOps
         href: solution-ideas/articles/devops-in-a-hybrid-environment.yml
       - name: Java CI/CD using Jenkins and Web Apps
@@ -3263,8 +3258,6 @@ items:
             href: reference-architectures/media-services/variable-group-terraform-flow.yml
         - name: Gridwich procedures
           items:
-          - name: Set up Azure DevOps
-            href: reference-architectures/media-services/set-up-azure-devops.yml
           - name: Run Azure admin scripts
             href: reference-architectures/media-services/run-admin-scripts.yml
           - name: Set up local dev environment
