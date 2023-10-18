@@ -1,14 +1,5 @@
 This article briefly describes the steps for running [OpenRadioss](https://www.openradioss.org/) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running OpenRadioss on Azure.
 
-
-
-dynamic event analysis
-
-
-free, open-source finite element analysis (FEA) software
-
-
-
 OpenRadioss is a free, open-source finite element analysis (FEA) code base that a worldwide community of researchers, software developers, and industry leaders are enhancing every day. OpenRadioss empowers users to make rapid contributions that tackle the latest challenges brought on by rapidly evolving technologies, such as:
 
 - Battery development
@@ -18,15 +9,15 @@ OpenRadioss is a free, open-source finite element analysis (FEA) code base that 
 
 OpenRadioss also provides virtual testing so that users can give passengers the safest environment possible.
 
-- **SCALABILITY, QUALITY & ROBUSTNESS**
+- **SCALABILITY, QUALITY, and ROBUSTNESS**
 
   Industry-proven, class leading scalability from single core to HPC (High Performance Computing), with repeatability regardless of CPU count, optimized for all modern CPU processors
 
 - **INNOVATIVE ELEMENT FORMULATIONS**
 
-  Fast & accurate solutions from under integrated shell and solid elements with physical hourglass stabilization giving quality results at a fraction of fully integrated CPU cost
+  Fast and accurate solutions from under integrated shell and solid elements with physical hourglass stabilization giving quality results at a fraction of fully integrated CPU cost
 
-- **EXTENSIVE MATERIAL & RUPTURE LIBRARIES**
+- **EXTENSIVE MATERIAL and RUPTURE LIBRARIES**
 
   Advanced nonlinear material laws and failure models, for isotropic, orthotropic, composite, hyper- and viscoelastic materials
 
@@ -119,7 +110,7 @@ To set up an HPC cluster on Azure, complete these steps:
 1. [Create an HPC cluster from built-in templates](/training/modules/azure-cyclecloud-high-performance-computing/5-exercise-create-cluster).
 1. [Connect to the head node (the scheduler)](/azure/cyclecloud/how-to/connect-to-node).
 
-For multi-node configurations, the OpenRadioss installation process is the same as the process described for a single node, except the path to the installation directory is different:
+For multi-node configurations, the OpenRadioss installation process is the same as the process described for a single node, except the path to the installation directory is different.
 
 - Select `/shared` for the installation directory path so that the directory is accessible for all nodes.
 - The shared folder path depends on your network attached storage service, like an NFS server, [BeeGFS cluster](https://www.beegfs.io/c/), [Azure NetApp Files](https://azure.microsoft.com/services/netapp), and [Azure HPC Cache](https://azure.microsoft.com/services/hpc-cache).
