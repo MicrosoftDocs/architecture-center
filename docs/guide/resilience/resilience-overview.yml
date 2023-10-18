@@ -12,7 +12,7 @@ azureCategories:
   - identity
 products:
   - entra-id
-  - azure-active-directory-b2c
+  - entra-external-id
 name: Resilient identity and access management with Microsoft Entra ID
 summary: Read this guide to learn how architects, IT administrators, and developers can build resilience to disruption of their identity systems.
 thumbnailUrl: /azure/architecture/browse/thumbs/admin-resilience-overview.png
