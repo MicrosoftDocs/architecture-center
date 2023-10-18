@@ -1263,6 +1263,8 @@ items:
           href: guide/hpc/luxion-keyshot.yml
         - name: OpenFOAM
           href: guide/hpc/openfoam.yml
+        - name: OpenRadioss
+          href: guide/hpc/openradioss.yml
         - name: Remcom XFdtd
           href: guide/hpc/remcom-xfdtd.yml
         - name: Samadii deployments
