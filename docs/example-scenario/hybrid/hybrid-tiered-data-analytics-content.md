@@ -118,7 +118,7 @@ To learn more about the topics introduced in this article:
 
 ## Related resources
 
-- [Extend on-premises data solutions to the cloud](../../data-guide/scenarios/hybrid-on-premises-and-cloud.md)
+- [Extend on-premises data solutions to the cloud](../../databases/guide/hybrid-on-premises-and-cloud.md)
 - [Serverless web application](../../web-apps/serverless/architectures/web-app.yml)
 - [Azure Data Architecture Guide](../../data-guide/index.md)
 - [Overview of a hybrid workload](/azure/architecture/framework/hybrid/hybrid-overview)

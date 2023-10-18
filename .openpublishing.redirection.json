@@ -3574,6 +3574,11 @@
       "source_path": "docs/best-practices/cassandra.md",
       "redirect_url": "/azure/architecture/databases/guide/cassandra",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/data-guide/scenarios/hybrid-on-premises-and-cloud.md",
+      "redirect_url": "/azure/architecture/databases/guide/hybrid-on-premises-and-cloud",
+      "redirect_document_id": true
     }
   ]
 }

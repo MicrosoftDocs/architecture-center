@@ -1607,8 +1607,8 @@ items:
         #   href: best-practices/transactional-outbox-cosmos.yml
         - name: Transfer data to and from Azure
           href: data-guide/scenarios/data-transfer.md
-        - name: Extend on-premises data solutions to Azure
-          href: data-guide/scenarios/hybrid-on-premises-and-cloud.md
+        # - name: Extend on-premises data solutions to Azure
+        #   href: data-guide/scenarios/hybrid-on-premises-and-cloud.md
         - name: Secure data solutions
           href: data-guide/scenarios/securing-data-solutions.md
         - name: Database security checklist

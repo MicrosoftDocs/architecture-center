@@ -73,6 +73,6 @@ This guide is not intended to teach you data science or database theory &mdash; 
     * [Data management patterns](/azure/architecture/patterns/category/data-management)
     * [Transactional Outbox pattern with Azure Cosmos DB](/azure/architecture/databases/guide/transactional-outbox-cosmos)
     * [Transfer data to and from Azure](/azure/architecture/data-guide/scenarios/data-transfer)
-    * [Extend on-premises data solutions to the cloud](/azure/architecture/data-guide/scenarios/hybrid-on-premises-and-cloud)
+    * [Extend on-premises data solutions to the cloud](/azure/architecture/databases/guide/hybrid-on-premises-and-cloud)
     * [Secure data solutions](/azure/architecture/data-guide/scenarios/securing-data-solutions)
     * [Tenancy models for SaaS applications](/azure/architecture/isv/application-tenancy)

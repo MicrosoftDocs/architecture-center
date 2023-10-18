@@ -65,4 +65,8 @@ items:
           - name: Use the Transactional Outbox pattern
             href: guide/transactional-outbox-cosmos.yml
           - name: Run Apache Cassandra
-            href: guide/cassandra.md            
+            href: guide/cassandra.md
+        - name: Hybrid
+          items:
+          - name: Extend on-premises data solutions to Azure
+            href: guide/hybrid-on-premises-and-cloud.md          

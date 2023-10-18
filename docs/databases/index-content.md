@@ -49,7 +49,7 @@ A big data architecture can handle ingestion, processing, and analysis of data t
 - To learn about designing a system that scales well as data grows, see [Build a scalable system for massive data](../data-guide/scenarios/build-scalable-database-solutions-azure-services.md).
 - To learn more about Azure Databricks, an Apache Spark–based analytics service for big data analytics and AI solutions, see [Monitoring Azure Databricks](../databricks-monitoring/index.md).
 
-A hybrid cloud is an IT environment that combines public cloud and on-premises datacenters. For more information, see [Extend on-premises data solutions to the cloud](../data-guide/scenarios/hybrid-on-premises-and-cloud.md).
+A hybrid cloud is an IT environment that combines public cloud and on-premises datacenters. For more information, see [Extend on-premises data solutions to the cloud](../databases/guide/hybrid-on-premises-and-cloud.md).
 
 Azure Cosmos DB is a fully managed NoSQL database service for modern app development. For more information, see [Azure Cosmos DB resource model](/azure/cosmos-db/account-databases-containers-items).
 

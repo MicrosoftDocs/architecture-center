@@ -48,7 +48,7 @@ To learn more about protecting your data at rest or in transit, see [Azure data 
 
 ## Access control
 
-Central to protecting your data in the cloud is a combination of identity management and access control. Given the variety and type of cloud services, and also the rising popularity of [hybrid clouds](../scenarios/hybrid-on-premises-and-cloud.md), there are several key practices you should follow when it comes to identity and access control:
+Central to protecting your data in the cloud is a combination of identity management and access control. Given the variety and type of cloud services, and also the rising popularity of [hybrid clouds](../../databases/guide/hybrid-on-premises-and-cloud.md), there are several key practices you should follow when it comes to identity and access control:
 
 - Centralize your identity management.
 - Enable single sign-on (SSO).
@@ -93,7 +93,7 @@ Use [conditional access in Microsoft Entra ID](/azure/active-directory/active-di
 
 ### Network
 
-To protect data in transit, always use SSL/TLS when you exchange data across different locations. Sometimes you need to isolate your entire communication channel between your on-premises and cloud infrastructure by using either a virtual private network (VPN) or [ExpressRoute](/azure/expressroute). For more information, see [Extending on-premises data solutions to the cloud](../scenarios/hybrid-on-premises-and-cloud.md).
+To protect data in transit, always use SSL/TLS when you exchange data across different locations. Sometimes you need to isolate your entire communication channel between your on-premises and cloud infrastructure by using either a virtual private network (VPN) or [ExpressRoute](/azure/expressroute). For more information, see [Extending on-premises data solutions to the cloud](../../databases/guide/hybrid-on-premises-and-cloud.md).
 
 Use [network security groups](/azure/virtual-network/virtual-networks-nsg) to reduce the number of potential attack vectors. A network security group contains a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol.
 
