@@ -125,7 +125,7 @@ Application Gateway supports fixed capacity mode or autoscaling mode. Fixed capa
 
 ### Performance efficiency
 
-To get the best performance from Cassandra on Azure VMs, see the recommendations in [Run Apache Cassandra on Azure VMs](../../best-practices/cassandra.md).
+To get the best performance from Cassandra on Azure VMs, see the recommendations in [Run Apache Cassandra on Azure VMs](../../databases/guide/cassandra.md).
 
 ### Availability
 

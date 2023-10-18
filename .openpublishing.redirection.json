@@ -3564,6 +3564,16 @@
       "source_path": "docs/example-scenario/data/azure-sql-htap.yml",
       "redirect_url": "/azure/architecture/databases/guide/azure-sql-htap",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/best-practices/transactional-outbox-cosmos.yml",
+      "redirect_url": "/azure/architecture/databases/guide/transactional-outbox-cosmos",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/best-practices/cassandra.md",
+      "redirect_url": "/azure/architecture/databases/guide/cassandra",
+      "redirect_document_id": true
     }
   ]
 }

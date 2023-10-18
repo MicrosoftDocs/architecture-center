@@ -32,14 +32,14 @@ This approach works well until an error occurs between saving the order object a
 
 Whatever the error is, the result is that the `OrderCreated` event can't be published to the message bus. Other services won't be notified that an order has been created. The `Ordering` service now has to take care of various things that don't relate to the actual business process. It needs to keep track of events that still need to be put on the message bus as soon as it's back online. Even the worst case can happen: data inconsistencies in the application because of lost events.
 
-:::image source="./images/transactional-outbox-cosmos/event-handling-before-pattern.png" alt-text="Diagram that shows event handling without the Transactional Outbox pattern.":::
+:::image source="_images/event-handling-before-pattern.png" alt-text="Diagram that shows event handling without the Transactional Outbox pattern.":::
 
 
 ## Solution
 
 There's a well-known pattern called *Transactional Outbox* that can help you avoid these situations. It ensures events are saved in a datastore (typically in an Outbox table in your database) before they're ultimately pushed to a message broker. If the business object and the corresponding events are saved within the same database transaction, it's guaranteed that no data will be lost. Everything will be committed, or everything will roll back if there's an error. To eventually publish the event, a different service or worker process queries the Outbox table for unhandled entries, publishes the events, and marks them as processed. This pattern ensures events won't be lost after a business object is created or modified.
 
-:::image type="content" source="./images/transactional-outbox-cosmos/outbox.png" alt-text="Diagram that shows event handling with the Transactional Outbox pattern and a relay service for publishing events to the message broker.":::
+:::image type="content" source="_images/outbox.png" alt-text="Diagram that shows event handling with the Transactional Outbox pattern and a relay service for publishing events to the message broker.":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/TransactionalOutbox.vsdx) of this architecture.*
 
@@ -533,7 +533,7 @@ The Transactional Outbox pattern solves the problem of reliably publishing domai
 
 Here's a summary of the Azure components used in this scenario:
 
-:::image type="content" source="./images/transactional-outbox-cosmos/components.jpg" alt-text="Diagram that shows the Azure components to implement Transactional Outbox with Azure Cosmos DB and Azure Service Bus." :::
+:::image type="content" source="_images/components.jpg" alt-text="Diagram that shows the Azure components to implement Transactional Outbox with Azure Cosmos DB and Azure Service Bus." :::
 
 *Download a [Visio file](https://arch-center.azureedge.net/AzureComponents.vsdx) of this architecture.*
 

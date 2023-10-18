@@ -71,7 +71,7 @@ This guide is not intended to teach you data science or database theory &mdash; 
     * [Choose a stream processing technology in Azure](/azure/architecture/data-guide/technology-choices/stream-processing)
 * Additional scenarios:
     * [Data management patterns](/azure/architecture/patterns/category/data-management)
-    * [Transactional Outbox pattern with Azure Cosmos DB](/azure/architecture/best-practices/transactional-outbox-cosmos)
+    * [Transactional Outbox pattern with Azure Cosmos DB](/azure/architecture/databases/guide/transactional-outbox-cosmos)
     * [Transfer data to and from Azure](/azure/architecture/data-guide/scenarios/data-transfer)
     * [Extend on-premises data solutions to the cloud](/azure/architecture/data-guide/scenarios/hybrid-on-premises-and-cloud)
     * [Secure data solutions](/azure/architecture/data-guide/scenarios/securing-data-solutions)

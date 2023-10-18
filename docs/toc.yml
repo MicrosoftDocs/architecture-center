@@ -1603,8 +1603,8 @@ items:
           href: data-guide/scenarios/build-scalable-database-solutions-azure-services.md
         - name: Use the best data store
           href: guide/design-principles/use-best-data-store.md
-        - name: Use the Transactional Outbox pattern
-          href: best-practices/transactional-outbox-cosmos.yml
+        # - name: Use the Transactional Outbox pattern
+        #   href: best-practices/transactional-outbox-cosmos.yml
         - name: Transfer data to and from Azure
           href: data-guide/scenarios/data-transfer.md
         - name: Extend on-premises data solutions to Azure
@@ -1765,8 +1765,8 @@ items:
         - name: Service quotas
           href: /azure/cosmos-db/concepts-limits
           maintainContext: true
-      - name: Run Apache Cassandra
-        href: best-practices/cassandra.md
+      # - name: Run Apache Cassandra
+      #   href: best-practices/cassandra.md
     - name: Architectures
       items:
       - name: Azure health data consortium
