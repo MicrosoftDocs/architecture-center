@@ -1539,12 +1539,12 @@ items:
         href: data-guide/index.md
       - name: Relational data
         items:
-        - name: Extract, transform, and load (ETL)
-          href: data-guide/relational-data/etl.yml
-        - name: Online analytical processing (OLAP)
-          href: data-guide/relational-data/online-analytical-processing.yml
-        - name: Online transaction processing (OLTP)
-          href: data-guide/relational-data/online-transaction-processing.md
+        # - name: Extract, transform, and load (ETL)
+        #   href: data-guide/relational-data/etl.yml
+        # - name: Online analytical processing (OLAP)
+        #   href: data-guide/relational-data/online-analytical-processing.yml
+        # - name: Online transaction processing (OLTP)
+        #   href: data-guide/relational-data/online-transaction-processing.md
         - name: Data warehousing
           href: data-guide/relational-data/data-warehousing.yml
       - name: Non-relational data
