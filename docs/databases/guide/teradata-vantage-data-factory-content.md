@@ -6,13 +6,13 @@ The architecture described in this article demonstrates how you can use Teradata
 
 The following diagram illustrates a version of the architecture that uses virtual network peering connectivity. It uses a self-hosted integration runtime (IR) to connect to the analytics database. Teradata's VMs are deployed with only private IP addresses.
 
-:::image type="content" source="media/teradata-azure-data-factory-vnet-peering.png" alt-text="Diagram that shows a version of the architecture that uses virtual network peering connectivity." lightbox="media/teradata-azure-data-factory-vnet-peering.png" border="false":::
+:::image type="content" source="_images/teradata-azure-data-factory-vnet-peering.png" alt-text="Diagram that shows a version of the architecture that uses virtual network peering connectivity." lightbox="_images/teradata-azure-data-factory-vnet-peering.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/best-practices-for-teradata-vantage-and-azure-data-factory.vsdx) of this architecture.*
 
 The following diagram illustrates a version of the architecture that uses Azure Private Link connectivity.
 
-:::image type="content" source="media/teradata-vantage-azure-data-factory-private-link.png" alt-text="Diagram that shows a version of the architecture that uses Private Link connectivity." lightbox="media/teradata-vantage-azure-data-factory-private-link.png" border="false":::
+:::image type="content" source="_images/teradata-vantage-azure-data-factory-private-link.png" alt-text="Diagram that shows a version of the architecture that uses Private Link connectivity." lightbox="_images/teradata-vantage-azure-data-factory-private-link.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/best-practices-for-teradata-vantage-and-azure-data-factory.vsdx) of this architecture.*
 
@@ -85,11 +85,11 @@ To complete this procedure, you need to have a Blob Storage container in your su
 
 1.	To create a native connector to Vantage, in your data factory, select the **Manage** tab, select **Linked services**, and then select **New**:
 
-    :::image type="content" source="media/create-linked-service.png" alt-text="Screenshot that shows the New button in Linked services." lightbox="media/create-linked-service.png":::
+    :::image type="content" source="_images/create-linked-service.png" alt-text="Screenshot that shows the New button in Linked services." lightbox="_images/create-linked-service.png":::
 
 2.	Search for *Teradata* and then select the **Teradata** connector. Then select **Continue**:
 
-    :::image type="content" source="media/teradata-linked-service.png" alt-text="Screenshot that shows the Teradata connector." lightbox="media/teradata-linked-service.png"::: 
+    :::image type="content" source="_images/teradata-linked-service.png" alt-text="Screenshot that shows the Teradata connector." lightbox="_images/teradata-linked-service.png"::: 
 
 3.	Configure the linked service to connect to your Vantage database. This procedure shows how to use a basic authentication mechanism with a user ID and password. Alternatively, depending on your security needs, you can choose a different authentication mechanism and set other parameters accordingly. For more information, see [Teradata connector linked service properties](/azure/data-factory/connector-teradata?tabs=data-factory&branch=main#linked-service-properties). You'll use a self-hosted IR. For more information, see these [instructions for deploying a self-hosted IR](/azure/data-factory/connector-teradata?tabs=data-factory#prerequisites). Deploy it in the same virtual network as your data factory.
 
@@ -104,7 +104,7 @@ To complete this procedure, you need to have a Blob Storage container in your su
     - **User name** and **Password**: Provide the credentials.
     - Select **Test connection**, and then select **Create**. Be sure that interactive authoring is enabled for your IR so that the test connection functionality works.
 
-    :::image type="content" source="media/teradata-linked-service-configuration.png" alt-text="Screenshot that shows the configuration for the Teradata connector." lightbox="media/teradata-linked-service-configuration.png":::
+    :::image type="content" source="_images/teradata-linked-service-configuration.png" alt-text="Screenshot that shows the configuration for the Teradata connector." lightbox="_images/teradata-linked-service-configuration.png":::
 
     For testing, you can use a test database in Vantage that's called `NYCTaxiADFIntegration`. This database has a single table named `Green_Taxi_Trip_Data`. You can download the database from [NYC OpenData](https://data.cityofnewyork.us/Transportation/2020-Green-Taxi-Trip-Data/pkmi-4kfn). The following CREATE TABLE statement can help you understand the schema of the table.
 
@@ -143,11 +143,11 @@ To complete this procedure, you need to have a Blob Storage container in your su
 
     - Select the **Manage** tab in your data factory, select **Linked services**, and then select **New**:
     
-      :::image type="content" source="media/new-linked-service.png" alt-text="Screenshot that shows the New button." lightbox="media/new-linked-service.png":::
+      :::image type="content" source="_images/new-linked-service.png" alt-text="Screenshot that shows the New button." lightbox="_images/new-linked-service.png":::
 
 5.	Search for *Azure Blob*, select the **Azure Blob Storage** connector, and then select **Continue**:
 
-    :::image type="content" source="media/blob-stroage-connector.png" alt-text="Screenshot that shows the Blob Storage linked service." lightbox="media/blob-stroage-connector.png":::
+    :::image type="content" source="_images/blob-stroage-connector.png" alt-text="Screenshot that shows the Blob Storage linked service." lightbox="_images/blob-stroage-connector.png":::
     
 
 6.	Configure the linked service to connect to the Blob Storage account:
@@ -160,7 +160,7 @@ To complete this procedure, you need to have a Blob Storage container in your su
     
     Select **Test connection** to verify the connection, and then select **Create**.
 
-    :::image type="content" source="media/blob-storage-connector-configuration.png" alt-text="Screenshot that shows the configuration of the Blob Storage linked service." lightbox="media/blob-storage-connector-configuration.png":::
+    :::image type="content" source="_images/blob-storage-connector-configuration.png" alt-text="Screenshot that shows the configuration of the Blob Storage linked service." lightbox="_images/blob-storage-connector-configuration.png":::
      
 
 7.	Create a Data Factory pipeline:
@@ -170,7 +170,7 @@ To complete this procedure, you need to have a Blob Storage container in your su
     1. Select **Pipeline**.
     1. Enter a name for the pipeline.
     
-      :::image type="content" source="media/azure-data-factory-pipeline.png" alt-text="Screenshot that shows the steps for creating a pipeline." lightbox="media/azure-data-factory-pipeline.png":::
+      :::image type="content" source="_images/azure-data-factory-pipeline.png" alt-text="Screenshot that shows the steps for creating a pipeline." lightbox="_images/azure-data-factory-pipeline.png":::
 
 8.	Create two datasets:
 
@@ -184,7 +184,7 @@ To complete this procedure, you need to have a Blob Storage container in your su
       - **Table name**: Select the table from the list. 
       - Select **OK**.
     
-    :::image type="content" source="media/teradata-datasets.png" alt-text="Screenshot that shows the properties for the Teradata table." lightbox="media/teradata-datasets.png":::
+    :::image type="content" source="_images/teradata-datasets.png" alt-text="Screenshot that shows the properties for the Teradata table." lightbox="_images/teradata-datasets.png":::
     
     - Create an Azure Blob dataset:
       - Select **Azure Blob** as the **Data Store**.
@@ -194,7 +194,7 @@ To complete this procedure, you need to have a Blob Storage container in your su
       - **Import schema**: Select **None**.
       - Select **OK**.
 
-    :::image type="content" source="media/azure-blob-dataset.png" alt-text="Screenshot that shows the properties for the Azure Blob Storage dataset." lightbox="media/azure-blob-dataset.png":::
+    :::image type="content" source="_images/azure-blob-dataset.png" alt-text="Screenshot that shows the properties for the Azure Blob Storage dataset." lightbox="_images/azure-blob-dataset.png":::
 
 9.	Drag a **Copy Data** activity onto the pipeline. 
 
@@ -207,12 +207,12 @@ To complete this procedure, you need to have a Blob Storage container in your su
     - For **Use query**, select **Table**.
     - Use the default values for the other options.
     
-      :::image type="content" source="media/copy-data-activity-source.png" alt-text="Screenshot that shows the steps for creating a copy data activity." lightbox="media/copy-data-activity-source.png":::
+      :::image type="content" source="_images/copy-data-activity-source.png" alt-text="Screenshot that shows the steps for creating a copy data activity." lightbox="_images/copy-data-activity-source.png":::
 
     - On the **Sink** tab, under **Sink dataset**, select the Azure Blob dataset that you created in the previous step.
     - Use the default values for the other options.
     
-      :::image type="content" source="media/copy-data-activity-sink.png" alt-text="Screenshot that shows the configuration for the sink dataset." lightbox="media/copy-data-activity-sink.png":::
+      :::image type="content" source="_images/copy-data-activity-sink.png" alt-text="Screenshot that shows the configuration for the sink dataset." lightbox="_images/copy-data-activity-sink.png":::
     
 11.	Select **Debug**. The pipeline copies the data from the Teradata table to a Parquet file in Blob Storage.
 
@@ -232,7 +232,7 @@ You can also use TTU, Data Factory custom activities, and Azure Batch to load da
     - Select the **Teradata Database ODBC Driver**, as shown in the following screenshot. 
     - Select **Finish** to open the driver setup window.
 
-      :::image type="content" source="media/teradata-odbc-driver.png" alt-text="Screenshot that shows the steps for creating a data source.":::
+      :::image type="content" source="_images/teradata-odbc-driver.png" alt-text="Screenshot that shows the steps for creating a data source.":::
 
 3.	Configure the DSN properties.
     - **Name**: Enter a name for the DSN. 
@@ -243,15 +243,15 @@ You can also use TTU, Data Factory custom activities, and Azure Batch to load da
     - Leave the other fields blank.
     - Select **OK**.
 
-      :::image type="content" source="media/odbc-driver-configuration.png" alt-text="Screenshot that shows the configuration for the driver." lightbox="media/odbc-driver-configuration.png":::
+      :::image type="content" source="_images/odbc-driver-configuration.png" alt-text="Screenshot that shows the configuration for the driver." lightbox="_images/odbc-driver-configuration.png":::
 
 4.	The ODBC Data Source Administrator window will look like the one in the following screenshot. Select **Apply**. You can now close the window. Your self-hosted IR is now ready to connect to Vantage by using ODBC. 
 
-    :::image type="content" source="media/odbc-driver-configuration-2.png" alt-text="Screenshot that shows the ODBC Data Source Administrator window." lightbox="media/odbc-driver-configuration-2.png":::
+    :::image type="content" source="_images/odbc-driver-configuration-2.png" alt-text="Screenshot that shows the ODBC Data Source Administrator window." lightbox="_images/odbc-driver-configuration-2.png":::
 
 5.	In Data Factory, create a linked service connection. Choose **ODBC** as the data store:
 
-    :::image type="content" source="media/odbc-linked-service.png" alt-text="Screenshot that shows the ODBC linked service." lightbox="media/odbc-linked-service.png":::
+    :::image type="content" source="_images/odbc-linked-service.png" alt-text="Screenshot that shows the ODBC linked service." lightbox="_images/odbc-linked-service.png":::
 
 6.	Configure the linked service with the IR that you configured in the previous steps:
 
@@ -262,7 +262,7 @@ You can also use TTU, Data Factory custom activities, and Azure Batch to load da
     - Enter the user name and password for your Teradata ODBC connection. 
     - Select **Test connection**, and then select **Create**.
 
-      :::image type="content" source="media/teradata-linked-service-configuration-2.png" alt-text="Screenshot that shows the configurations for the linked service." lightbox="media/teradata-linked-service-configuration-2.png":::
+      :::image type="content" source="_images/teradata-linked-service-configuration-2.png" alt-text="Screenshot that shows the configurations for the linked service." lightbox="_images/teradata-linked-service-configuration-2.png":::
 
 7.	Complete the following steps to create a dataset with ODBC as the data store. Use the linked service that you created earlier. 
  
@@ -279,7 +279,7 @@ You can also use TTU, Data Factory custom activities, and Azure Batch to load da
       > [!Tip] 
       > When you load the data, use a staging table with generic data types to avoid data-type mismatch errors. For example, instead of using the Decimal data type for columns, use Varchar. You can then perform data-type transformations in the Vantage database.
 
-      :::image type="content" source="media/odbc-dataset.png" alt-text="Screenshot that shows the properties for the Teradata table." lightbox="media/odbc-dataset.png":::
+      :::image type="content" source="_images/odbc-dataset.png" alt-text="Screenshot that shows the properties for the Teradata table." lightbox="_images/odbc-dataset.png":::
 
 8.	Create an Azure Blob connection to the source file that you want to load into Vantage by following steps 4 through 6 and step 8 in the first scenario. Note that you're creating this connection for the source file, so the path of the file will be different.
 9.	Create a pipeline that contains a Copy Data activity, as described in scenario 1. 
@@ -294,12 +294,12 @@ You can also use TTU, Data Factory custom activities, and Azure Batch to load da
     - On the **Source** tab, select the file dataset that you want to load into Teradata.
     - Use the default values for the other options.
       
-      :::image type="content" source="media/copy-data-source.png" alt-text="Screenshot that shows the steps for creating a Copy Data activity." lightbox="media/copy-data-source.png":::
+      :::image type="content" source="_images/copy-data-source.png" alt-text="Screenshot that shows the steps for creating a Copy Data activity." lightbox="_images/copy-data-source.png":::
   
     - On the **Sink** tab, under **Sink dataset**, select the Teradata table dataset that you created through ODBC connection.
     - Use the default values for the other options.
 
-      :::image type="content" source="media/copy-data-sink.png" alt-text="Screenshot that shows the properties for the sink dataset." lightbox="media/copy-data-sink.png":::
+      :::image type="content" source="_images/copy-data-sink.png" alt-text="Screenshot that shows the properties for the sink dataset." lightbox="_images/copy-data-sink.png":::
 
 10.	Select **Debug**. The pipeline copies the data from the Parquet file to Vantage.
 
@@ -318,11 +318,11 @@ This scenario describes how to use the Vantage [Native Object Store (NOS)](https
     ) as GreenTaxiData;
     ```
 
-    :::image type="content" source="media/query-blob.png" alt-text="Screenshot that shows a query for reading data." lightbox="media/query-blob.png":::
+    :::image type="content" source="_images/query-blob.png" alt-text="Screenshot that shows a query for reading data." lightbox="_images/query-blob.png":::
 
 -	Here's another example of querying data in place. It uses the `READ_NOS` table operator.
 
-    :::image type="content" source="media/query-blob-2.png" alt-text="Screenshot that shows another example of querying data in place." lightbox="media/query-blob-2.png":::
+    :::image type="content" source="_images/query-blob-2.png" alt-text="Screenshot that shows another example of querying data in place." lightbox="_images/query-blob-2.png":::
 
 -	You can also query data in place or load data into a Vantage database by creating a foreign table in the object store. You first need to create an authorization object that uses the storage account name and access key in `USER` and `PASSWORD` fields, respectively, as shown in the following syntax. You can use this object to create your foreign table so that you don't need to provide the keys when you create the table.
    
@@ -371,7 +371,7 @@ This scenario describes how to use the Vantage [Native Object Store (NOS)](https
 
     You can now query the data from the foreign table just as you can query any other table:
 
-    :::image type="content" source="media/query-blob-3.png" alt-text="Screenshot that shows how to query the data from the foreign table." lightbox="media/query-blob-3.png":::
+    :::image type="content" source="_images/query-blob-3.png" alt-text="Screenshot that shows how to query the data from the foreign table." lightbox="_images/query-blob-3.png":::
 
 -	You've seen how to query data in object storage in place. However, you might want to load the data permanently into a table in the database for better query performance. You can load data from Blob Storage into a permanent table by using the following statements. Some options might work only for certain data file formats. For details, see the Teradata documentation. For sample code, see [Loading External Data into a Database](https://docs.teradata.com/r/Teradata-VantageTM-Native-Object-Store-Getting-Started-Guide/January-2021/Reading-Parquet-Data/Parquet-Examples-For-DBAs-and-Advanced-Users/Loading-External-Parquet-Data-into-the-Database/Loading-External-Data-into-the-Database-Using-CREATE-TABLE-AS...WITH-DATA). 
 

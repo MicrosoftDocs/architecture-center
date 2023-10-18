@@ -3579,6 +3579,11 @@
       "source_path": "docs/data-guide/scenarios/hybrid-on-premises-and-cloud.md",
       "redirect_url": "/azure/architecture/databases/guide/hybrid-on-premises-and-cloud",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/guide/data/teradata-vantage-data-factory.yml",
+      "redirect_url": "/azure/architecture/databases/guide/teradata-vantage-data-factory",
+      "redirect_document_id": true
     }
   ]
 }

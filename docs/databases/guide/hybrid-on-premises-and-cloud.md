@@ -2,7 +2,7 @@
 title: Extend on-premises data solutions to the cloud
 description: Learn about using hybrid cloud environments that span cloud and on-premises datacenters for migrating to the cloud or extending on-premises infrastructures.
 author: martinekuan
-ms.author: architectures
+ms.author: pnp
 categories: azure
 ms.date: 07/25/2022
 ms.topic: conceptual
@@ -92,7 +92,7 @@ For disaster recovery and business continuity, you can use [AlwaysOn Availabilit
 
 In a hybrid cloud architecture, it's common for an organization to keep newer files on-premises while archiving older files to the cloud. This practice is sometimes called file tiering. It provides seamless access to both on-premises and cloud-hosted files. This approach helps to minimize network bandwidth usage and access times for newer files, which are likely to be accessed the most often. At the same time, you get the benefits of cloud-based storage for archived data.
 
-Organizations might also wish to move their network shares entirely to the cloud, for example, if the applications that access them are also located in the cloud. This procedure can be done using [data orchestration](../technology-choices/pipeline-orchestration-data-movement.md) tools.
+Organizations might also wish to move their network shares entirely to the cloud, for example, if the applications that access them are also located in the cloud. This procedure can be done using [data orchestration](../../data-guide/technology-choices/pipeline-orchestration-data-movement.md) tools.
 
 [Azure StorSimple](/azure/storsimple) offers the most complete integrated storage solution for managing storage tasks between your on-premises devices and Azure cloud storage. StorSimple is an efficient, cost-effective, and easily manageable storage area network (SAN) solution that eliminates many of the issues and expenses associated with enterprise storage and data protection. It uses the proprietary StorSimple 8000 series device, integrates with cloud services, and provides a set of integrated management tools.
 

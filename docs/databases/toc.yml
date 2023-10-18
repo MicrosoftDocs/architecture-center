@@ -69,4 +69,8 @@ items:
         - name: Hybrid
           items:
           - name: Extend on-premises data solutions to Azure
-            href: guide/hybrid-on-premises-and-cloud.md          
+            href: guide/hybrid-on-premises-and-cloud.md
+    - name: Data transForm templates
+      items:
+      - name: VantageCloud integration with Azure Data Factory
+        href: guide/teradata-vantage-data-factory.yml      
