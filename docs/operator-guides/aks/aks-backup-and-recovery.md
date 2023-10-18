@@ -16,9 +16,9 @@ ms.custom:
   - e2e-aks
 ---
 
-#Backup and Recovery for AKS
+# Backup and Recovery for AKS
 
-**Why backing-up your AKS cluster is important**
+## Why backing up your AKS cluster is important
 
 Backup & Recovery is an essential part of any organization's operational and disaster recovery strategy. A Backup & Recovery plan usually relies on a diverse set of technologies and practices generally based on taking periodic copies of data and applications to a separate, secondary device or service, and then using those copies to recover the data and applications, and the business operations on which they depend, in the event of system failure, data loss or disaster.
 
@@ -44,7 +44,7 @@ When it comes to intra-region high availability and cross-region disaster recove
 
 You can also use methodologies such as Infrastructure as Code (IaC), DevOps pipelines, GitOps and Flux to allow you to quickly redeploy your workloads in the event of a disaster.
 
-**What to Backup**
+## What to Backup
 
 When considering Backup and Recovery for AKS and Kubernetes clusters in general, it is crucial to identify exactly which components should be included in a backup in order to ensure a successful restore. Primarily, these critical components consists of:
 
@@ -60,7 +60,7 @@ The ideal Backup & Recovery strategy highly depends on the specific application 
 
 It is worth noting that targeting other components such as individual cluster nodes (VMs) or local filesystems and volumes, which are typically included in traditional Backup & Recovery plans for server-based systems, is not relevant in Kubernetes. This is because relevant state and data are not persisted on individual nodes or local filesystems in the same manner as traditional systems.
 
-**Introduction to Backup &**  **Recovery**  **options for AKS**
+## Introduction to Backup & Recovery options for AKS
 
 There are notable differences between traditional monolithic applications and workloads running in a Kubernetes cluster, which present several challenges with regards to Backup & Recovery. Kubernetes workloads are intentionally designed to be highly dynamic and distributed, with data persisted across external persistent volumes supported by multiple underlying resources and services.
 
@@ -70,7 +70,7 @@ Various Kubernetes-native Backup & Recovery solutions are available, with option
 
 Following are some examples of Backup & Recovery solutions that may be used with AKS. On notable example is Microsoft's fully managed first-party solution called [Azure Kubernetes Service (AKS) Backup](https://learn.microsoft.com/en-us/azure/backup/azure-kubernetes-service-backup-overview), which provides an Azure-integrated service designed for Backup & Restore of AKS clusters and their workloads. This list is by no means exhaustive and aims only to showcase a number of options available.
 
-**AKS Backup**
+### AKS Backup
 
 [AKS Backup](https://learn.microsoft.com/en-us/azure/backup/azure-kubernetes-service-backup-overview) is Azure's offering for backing up and restoring your AKS clusters. It is a simple, Azure-native process which allows you to back up and restore the containerized applications and data running in your AKS clusters.
 
@@ -83,7 +83,7 @@ NOTE - AKS Backup is currently in public preview. Preview features are available
 
 Check [About AKS Backup using Azure Backup](https://learn.microsoft.com/azure/backup/azure-kubernetes-service-backup-overview) for a detailed description of how AKS Backup works and it's capabilities.
 
-**Kasten**
+### Kasten
 
 [Kasten](https://www.kasten.io/) is a commercial product which provides operations teams with an easy-to-use and secure system for Backup & Recovery of Kubernetes applications. It is available in both a free version, which has limited functionality and no support, and a paid version that includes additional features and customer support.
 
@@ -91,7 +91,7 @@ Deployed as a Kubernetes operator within the cluster, Kasten provides a comprehe
 
 For further details on Kasten's feature set, you can refer to their [documentation](https://docs.kasten.io/latest/index.html). To learn how to effectively use Kasten with AKS clusters, see [Installing K10 on Azure](https://docs.kasten.io/latest/install/azure/azure.html).
 
-**Velero**
+### Velero
 
 Velero is a widely used open-source Backup & Recovery tool for Kubernetes. It offers a free and unrestricted version available to all users, with support and maintenance provided by a community of project contributors.
 
@@ -99,7 +99,7 @@ Velero runs as a deployment in the cluster and provides a very comprehensive set
 
  For more information on its feature set and to learn how to integrate it with AKS clusters, you can refer to Velero [documentation](https://velero.io/docs).
 
-**Installing and Configuring AKS Backup**
+## Installing and Configuring AKS Backup
 
 To install and configure [AKS Backup](https://learn.microsoft.com/en-us/azure/backup/azure-kubernetes-service-backup-overview), follow these steps:
 
@@ -109,7 +109,7 @@ To install and configure [AKS Backup](https://learn.microsoft.com/en-us/azure/ba
 4. Review [Back up AKS using Azure Backup](https://learn.microsoft.com/azure/backup/azure-kubernetes-service-cluster-backup-support-matrix) for detailed instructions on how to setup Backup & Recovery for your AKS cluster using AKS Backup, including creation and configuration of all the necessary Azure resources such as Backup Vault, Backup Policies, and Backup Instances.
 5. Check [Restore AKS using Azure Backup](https://learn.microsoft.com/azure/backup/azure-kubernetes-service-cluster-restore) for detailed instructions on how to perform full or item-level restores of your AKS cluster from an existing Backup Instance.
 
-**Backup Frequency and Retention in AKS – Defining a Backup Policy**
+## Backup Frequency and Retention in AKS – Defining a Backup Policy
 
 Determining the backup frequency and retention period is a fundamental aspect of Backup & Recovery solutions. These parameters define how often backups are performed and how long they are retained before deletion. The selection of backup frequency and retention period for an AKS cluster and its workloads should align with the predefined goals of Recovery Point Objective (RPO) and Recovery Time Objective (RTO).
 
@@ -128,7 +128,7 @@ Backup Policies in AKS Backup support daily and hourly backups, with retention p
 
 Check [Create a backup policy](https://learn.microsoft.com/azure/backup/azure-kubernetes-service-cluster-backup#create-a-backup-policy) for more information on how to configure Backup Policies in AKS Backup.
 
-**Additional backup considerations**
+## Additional backup considerations
 
 To ensure that your Backup & Recovery solution meets your organization's requirements and policies, you will also need to consider the following:
 
@@ -156,7 +156,7 @@ To ensure that your Backup & Recovery solution meets your organization's require
 [
 ](https://learn.microsoft.com/azure/backup/azure-kubernetes-service-cluster-backup-support-matrix)
 
-**AKS Backup Location and Storage**
+## AKS Backup Location and Storage
 
 AKS Backup uses a Backup Vault and a Storage Account to store the different types of data captured from a cluster during a backup.
 
@@ -171,7 +171,7 @@ A [Storage Account](https://learn.microsoft.com/azure/storage/common/storage-acc
 
 [Incremental snapshots](https://learn.microsoft.com/azure/virtual-machines/disks-incremental-snapshots?tabs=azure-cli) are point-in-time backups for managed disks that, when taken, consist only of the changes since the last snapshot. The first incremental snapshot is a full copy of the disk. The subsequent incremental snapshots occupy only delta changes to disks since the last snapshot.
 
-**Using AKS Backup to migrate workloads between AKS clusters**
+## Using AKS Backup to migrate workloads between AKS clusters
 
 Aside from using AKS Backup as a mechanism for Backup and Restore for specific clusters, AKS Backup also supports migration scenarios by allowing you to take a backup from one cluster and restore it to another, such as from a development to a staging cluster or replicating contents across multiple clusters.
 
@@ -180,7 +180,7 @@ To ensure that your scenario is supported, please consult the following document
 - [AKS Backup overview](https://learn.microsoft.com/azure/backup/azure-kubernetes-service-backup-overview)
 - [AKS Backup support matrix](https://learn.microsoft.com/azure/backup/azure-kubernetes-service-cluster-backup-support-matrix)
 
-**Learn more about AKS Backup**
+## Learn more about AKS Backup
 
 - [AKS Backup Prerequisites](https://learn.microsoft.com/azure/backup/azure-kubernetes-service-cluster-backup-concept)
 - [Configuring AKS Backup](https://learn.microsoft.com/azure/backup/azure-kubernetes-service-cluster-backup-concept)
@@ -189,7 +189,7 @@ To ensure that your scenario is supported, please consult the following document
 - [Restoring an AKS cluster](https://learn.microsoft.com/azure/backup/azure-kubernetes-service-cluster-restore)
 - [Business continuity and disaster recovery best practices for AKS](https://learn.microsoft.com/azure/aks/operator-best-practices-multi-region)s
 
-**Contributors**
+## Contributors
 
 _This article is maintained by Microsoft. It was originally written by the following contributors._
 
