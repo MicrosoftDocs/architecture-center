@@ -117,10 +117,10 @@ In a Kubernetes scenario, the Recovery Point Objective (RPO) represents the maxi
 
 The chosen backup frequency and retention period are a trade-off between desirable RPO/RTO targets, storage costs, and backup management overhead. This means there is no one-size-fits-all configuration for all AKS clusters and workloads, and the optimum configuration for each cluster/workload should instead be defined on a case-by-case basis to meet the requirements of the business, following careful planning and consideration. Relevant factors to weigh in when defining an AKS cluster's backup frequency and retention period include:
 
-- **Criticality** : The level of criticality associated with the cluster and its workload application data in terms of business continuity.
-- **Access patterns and change rate** : The amount of cluster state and data that is added, modified, deleted in a given period of time.
-- **Data Volume** : The volume of data affecting storage costs and the time required to complete Backup & Recovery operations.
-- **Compliance** : The requirements for data retention and data sovereignty based on internal compliance rules and industry regulations.
+- **Criticality**: The level of criticality associated with the cluster and its workload application data in terms of business continuity.
+- **Access patterns and change rate**: The amount of cluster state and data that is added, modified, deleted in a given period of time.
+- **Data Volume**: The volume of data affecting storage costs and the time required to complete Backup & Recovery operations.
+- **Compliance**: The requirements for data retention and data sovereignty based on internal compliance rules and industry regulations.
 
 In the AKS Backup service, backup frequency and retention period are stored as a Backup Policy resource which applies to both the cluster state and the application data from Persistent Volumes.
 
@@ -134,12 +134,12 @@ To ensure that your Backup & Recovery solution meets your organization's require
 
 - **Recovery Point Objective (RPO) and Recovery Time Objective (RTO)**: Determine if you have specific RPO and RTO targets that need to be met for your backups and recovery operations.
 - **Persistent Volumes (PVs)**: Verify if you are using Persistent Volumes and ensure that your PV types are supported by the AKS Backup solution. Refer to the [AKS Backup support matrix](https://learn.microsoft.com/azure/backup/azure-kubernetes-service-cluster-backup-support-matrix) for compatibility details.
-- **Backup Scope** : Define what needs to be backed up, such as specific namespaces, types of resources, or specific data within the cluster. For more information, see [Configure a backup job](https://learn.microsoft.com/azure/backup/azure-kubernetes-service-cluster-backup#configure-backups).
-- **Backup Frequency and Retention** : Determine the frequency at which you need to perform backups and the duration for which you need to retain them. This can be configured using backup policies. For more information, see [Defining a backup policy](https://learn.microsoft.com/azure/backup/azure-kubernetes-service-cluster-backup#create-a-backup-policy).
-- **Cluster Selection** : Decide if you need to backup all clusters or only specific production clusters based on your requirements.
-- **Test Restore Procedure** : Perform periodic test restores to validate the reliability and usability of your backup strategy. This step is crucial for ensuring the effectiveness of the Backup & Recovery solution. For more information, see [Restoring an AKS cluster](https://learn.microsoft.com/azure/backup/azure-kubernetes-service-cluster-restore).
-- **Supported Scenarios** : Verify if your specific scenario is supported by the AKS Backup solution. Refer to the [AKS Backup support matrix](https://learn.microsoft.com/azure/backup/azure-kubernetes-service-cluster-backup-support-matrix) for compatibility information.
-- **Budget Allocations** : Consider if you have specific budget allocations for backup and restore operations. Review the [pricing](https://learn.microsoft.com/en-us/azure/backup/azure-kubernetes-service-backup-overview#pricing) information provided by the AKS Backup solution to align with your budgetary requirements.
+- **Backup Scope**: Define what needs to be backed up, such as specific namespaces, types of resources, or specific data within the cluster. For more information, see [Configure a backup job](https://learn.microsoft.com/azure/backup/azure-kubernetes-service-cluster-backup#configure-backups).
+- **Backup Frequency and Retention**: Determine the frequency at which you need to perform backups and the duration for which you need to retain them. This can be configured using backup policies. For more information, see [Defining a backup policy](https://learn.microsoft.com/azure/backup/azure-kubernetes-service-cluster-backup#create-a-backup-policy).
+- **Cluster Selection**: Decide if you need to backup all clusters or only specific production clusters based on your requirements.
+- **Test Restore Procedure**: Perform periodic test restores to validate the reliability and usability of your backup strategy. This step is crucial for ensuring the effectiveness of the Backup & Recovery solution. For more information, see [Restoring an AKS cluster](https://learn.microsoft.com/azure/backup/azure-kubernetes-service-cluster-restore).
+- **Supported Scenarios**: Verify if your specific scenario is supported by the AKS Backup solution. Refer to the [AKS Backup support matrix](https://learn.microsoft.com/azure/backup/azure-kubernetes-service-cluster-backup-support-matrix) for compatibility information.
+- **Budget Allocations**: Consider if you have specific budget allocations for backup and restore operations. Review the [pricing](https://learn.microsoft.com/en-us/azure/backup/azure-kubernetes-service-backup-overview#pricing) information provided by the AKS Backup solution to align with your budgetary requirements.
 
 - By taking these additional considerations into account, you can ensure that your Backup & Recovery solution for AKS meets your organization's needs and preferences efficiently and effectively.
 
