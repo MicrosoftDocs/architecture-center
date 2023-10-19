@@ -1803,8 +1803,8 @@ items:
       #   href: example-scenario/profisee-mds/profisee-mds-migration-utility.yml
       # - name: Minimal storage – change feed replication
       #   href: solution-ideas/articles/minimal-storage-change-feed-replicate-data.yml
-      - name: Multi-region web app with private database
-        href: example-scenario/sql-failover/app-service-private-sql-multi-region.yml
+      # - name: Multi-region web app with private database
+      #   href: example-scenario/sql-failover/app-service-private-sql-multi-region.yml
       # - name: N-tier app with Cassandra
       #   href: reference-architectures/n-tier/n-tier-cassandra.yml
       - name: Observability patterns and metrics
