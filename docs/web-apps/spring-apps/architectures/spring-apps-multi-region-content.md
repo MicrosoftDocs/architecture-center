@@ -141,7 +141,7 @@ You can use this feature in the following scenarios:
 - To fail over if your primary region fails
 - To set up primary and secondary databases with private link connections to their respective regions via [virtual network peering](/azure/virtual-network/virtual-network-peering-overview) between the two regions. 
 
-Another approach is to use Azure Cosmos DB. This service can [globally distribute](/azure/cosmos-db/distribute-data-globally) data by transparently replicating the data to all regions in your Azure Cosmos DB account. You can also configure Azure Cosmos DB with [multiple write regions](/azure/cosmos-db/high-availability#multiple-write-regions). For more information, see [Geode pattern](../../../patterns/geodes.yml) and [Globally distributed applications with Azure Cosmos DB](/azure/architecture/solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db).
+Another approach is to use Azure Cosmos DB. This service can [globally distribute](/azure/cosmos-db/distribute-data-globally) data by transparently replicating the data to all regions in your Azure Cosmos DB account. You can also configure Azure Cosmos DB with [multiple write regions](/azure/cosmos-db/high-availability#multiple-write-regions). For more information, see [Geode pattern](../../../patterns/geodes.yml).
 
 ## Automated deployment
 
