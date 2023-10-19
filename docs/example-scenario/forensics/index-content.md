@@ -39,11 +39,10 @@ The Copy-VmDigitalEvidence runbook implements these macro steps:
 ### Components
 
 - [Azure Automation](https://azure.microsoft.com/en-us/products/automation) automates frequent, time-consuming, and error-prone cloud management tasks.
+- [Storage](https://azure.microsoft.com/services/storage) is a cloud storage solution that includes object, file, disk, queue, and table storage.
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) provides optimized cloud object storage that manages massive amounts of unstructured data.
 - [Azure Files](https://azure.microsoft.com/en-us/products/storage/files) shares can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS. Azure Files shares can also be cached on Windows Servers with Azure File Sync for fast access near where the data is being used.
-- [Azure Firewall](https://azure.microsoft.com/en-us/products/azure-firewall) helps you create, enforce, and log application and network connectivity policies across subscriptions and virtual networks.
 - [Azure Monitor](https://azure.microsoft.com/en-us/products/monitor) supports your operations at scale by helping you maximize the performance and availability of your resources and proactively identify problems.
-- [Storage](https://azure.microsoft.com/services/storage) is a cloud storage solution that includes object, file, disk, queue, and table storage.
 - [Key Vault](https://azure.microsoft.com/services/key-vault) helps you safeguard cryptographic keys and other secrets used by cloud apps and services.
 - [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is a cloud-based identity service that helps you control access to Azure and other cloud apps.
 
@@ -107,7 +106,7 @@ A [Log Analytics workspace](/azure/azure-monitor/platform/resource-logs-collect-
 
 Digital forensics is a science that addresses the recovery and investigation of digital data to support criminal investigations or civil proceedings. Computer forensics is a branch of digital forensics that captures and analyzes data from computers, VMs, and digital storage media.
 
-Companies must guarantee that the digital evidence they provide in response to legal requests demonstrates a valid CoC throughout the evidence acquisition, preservation, and access process. To ensure a valid CoC, digital evidence storage must demonstrate adequate access control, data protection and integrity, monitoring and alerting, and logging and auditing.
+Companies must guarantee that the digital evidence they provide in response to legal requests demonstrates a valid CoC throughout the evidence acquisition, preservation, and access process.
 
 ### Potential use cases
 
@@ -116,12 +115,18 @@ Companies must guarantee that the digital evidence they provide in response to l
 
 ### CoC regulatory compliance
 
-If it's necessary to submit the proposed solution to a regulatory compliance validation process, consider the following topics to prove the validity of the CoC solution.
+If it's necessary to submit the proposed solution to a regulatory compliance validation process, consider the topics in [considerations](#considerations) during the CoC solution validation process.
 
 > [!NOTE]
 > You should involve your legal department in the process of validation.
 
-#### Compliance with security standards and regulations
+## Considerations
+
+The principles that validate this solution as a Chain of Custody (CoC) are being presented in this session.
+
+To ensure a valid CoC, digital evidence storage must demonstrate adequate access control, data protection and integrity, monitoring and alerting, and logging and auditing.
+
+### Compliance with security standards and regulations
 
 When you validate a CoC solution, one of the requirements to evaluate is the compliance with security standards and regulations.
 
@@ -139,29 +144,21 @@ Cohasset's [Azure Storage: SEC 17a-4(f) and CFTC 1.31(c)-(d) Compliance Assessme
 
 It's Cohasset's opinion that Storage, with the Immutable Storage for Azure blobs feature and policy lock option, retains *time-based* blobs (records) in a nonerasable and nonrewriteable format and meets relevant storage requirements of SEC Rule 17a-4(f), FINRA Rule 4511(c), and the principles-based requirements of CFTC Rule 1.31(c)-(d).
 
-## Considerations
-
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
-
-### Security
-
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
-
-#### Least privilege
+### Least privilege
 
 When the roles of the SOC team are assigned, only two individuals within the team should have rights to modify the RBAC configuration of the subscription and its data. Grant other individuals only bare minimum access rights to data subsets they need to perform their work. Configure and enforce access through [Azure RBAC](/azure/role-based-access-control/overview).
 
-#### Least access
+### Least access
 
 Only the [virtual network](/azure/virtual-network/virtual-networks-overview) in the SOC subscription has access to the SOC Storage account and key vault that is used to archive the evidence.
 
 Temporary access to the SOC storage is provided to investigators that require access to evidence. Authorized SOC team members can grant access.
 
-#### Evidence acquisition
+### Evidence acquisition
 
 Azure audit logs can show the evidence acquisition by recording the action of taking a VM disk snapshot, with elements like who has taken the snapshots and when.
 
-#### Evidence integrity
+### Evidence integrity
 
 The use of Automation to move evidence to its final archive destination, without human intervention, guarantees that evidence artifacts haven't been altered.
 
@@ -169,19 +166,19 @@ When you apply a legal hold policy to the destination storage, the evidence is f
 
 Lastly, you can use the provided solution, as an integrity mechanism, to calculate the hash values of the disk images. The supported hash algorithms are: MD5, SHA256, SKEIN, KECCAK (or SHA3).
 
-#### Evidence production
+### Evidence production
 
 Investigators need access to evidence to perform analyses, and this access must be tracked and explicitly authorized.
 
 Provide investigators with a storage [shared access signatures (SAS) URI](/azure/storage/common/storage-sas-overview) key for accessing evidence. You can use an SAS URI to produce relevant log information when the SAS is generated. You can also get a copy of the evidence every time the SAS is used.
 
-You must explicitly place the IP addresses of investigators requiring access on an allowlist in the Storage firewall.
+You must explicitly place the IP addresses of investigators requiring access on an allow list in the Storage firewall.
 
 For example, if a legal team needs to transfer a preserved virtual hard drive (VHD), one of the two SOC team custodians generates a read-only SAS URI key that expires after eight hours. The SAS limits the access to the IP addresses of the investigators to a specific time frame.
 
 Finally, investigators need the BEKs archived in the SOC key vault to access the encrypted disk copies. An SOC team member must extract the BEKs and provide them via secure channels to the investigators.
 
-#### Regional store
+### Regional store
 
 For compliance, some standards or regulations require evidence and the support infrastructure to be maintained in the same Azure region.
 
