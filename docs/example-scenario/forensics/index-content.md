@@ -122,7 +122,7 @@ If it's necessary to submit the proposed solution to a regulatory compliance val
 
 ## Considerations
 
-The principles that validate this solution as a Chain of Custody (CoC) are being presented in this session.
+The principles that validate this solution as a Chain of Custody (CoC) are being presented in this section.
 
 To ensure a valid CoC, digital evidence storage must demonstrate adequate access control, data protection and integrity, monitoring and alerting, and logging and auditing.
 
