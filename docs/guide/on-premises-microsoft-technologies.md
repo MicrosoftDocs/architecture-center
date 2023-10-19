@@ -2,7 +2,7 @@
 title: Scenarios that feature Microsoft on-premises technologies on Azure
 description: Review a list of architectures and solutions that use Microsoft on-premises technologies on Microsoft Azure.
 author: martinekuan
-ms.author: architectures
+ms.author: pnp
 ms.date: 07/26/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -87,7 +87,6 @@ For information about solutions in which Azure services integrate with the other
 |[Multitier web application built for HA/DR](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml) |Learn how to create a resilient multitier web application that's built for high availability and disaster recovery on Azure. Applies to applications like SharePoint.|Networking|
 |[On-premises data gateway for Logic Apps](../hybrid/gateway-logic-apps.yml) |Review a reference architecture that illustrates a logic app that runs in Azure and connects to on-premises resources like SharePoint Server.|Hybrid|
 |[Run a highly available SharePoint Server 2016 farm in Azure](../reference-architectures/sharepoint/index.yml) |Learn proven practices for deploying a highly available SharePoint Server 2016 farm on Azure.|Management|
-|[SharePoint farm for development testing](../solution-ideas/articles/sharepoint-farm-devtest.yml)|Deploy a SharePoint farm for development testing. Use Microsoft Entra ID, SQL Server, and SharePoint resources for this agile development architecture.|DevOps|
 
 ## SQL Server
 
@@ -113,7 +112,6 @@ For information about solutions in which Azure services integrate with the other
 |[Plan deployment for updating Windows VMs on Azure](../example-scenario/wsus/index.yml)|Learn best practices for configuring your environment for Windows Server Update Services (WSUS). SQL Server is the recommended database for servers that support a high number of client computers.|Management|
 |[Run a highly available SharePoint Server 2016 farm in Azure](../reference-architectures/sharepoint/index.yml) |Learn proven practices for deploying a highly available SharePoint Server 2016 farm on Azure by using MinRole topology and SQL Server Always On availability groups.|Management|
 |[SAP NetWeaver on SQL Server](../solution-ideas/articles/sap-netweaver-on-sql-server.yml) |Build an SAP landscape on NetWeaver by using Azure Virtual Machines to host SAP applications and a SQL Server database.|SAP|
-|[SharePoint farm for development testing](../solution-ideas/articles/sharepoint-farm-devtest.yml) |Deploy a SharePoint farm for development testing. Use Microsoft Entra ID, SQL Server, and SharePoint resources for this agile development architecture.|DevOps|
 |[SQL Server 2008 R2 failover cluster on Azure](../example-scenario/sql-failover/sql-failover-2008r2.yml) |Learn how to rehost SQL Server 2008 R2 failover clusters on Azure virtual machines. |Databases|
 |[SQL Server on Azure Virtual Machines with Azure NetApp Files](../example-scenario/file-storage/sql-server-azure-netapp-files.yml) |Implement a high-bandwidth, low-latency solution for SQL Server workloads. Use Azure NetApp Files for enterprise-scale performance and reduced costs.|Storage|
 |[Web app private connectivity to Azure SQL Database](../example-scenario/private-web-app/private-web-app.yml) |Lock down access to an Azure SQL database with Azure Private Link connectivity from a multitenant web app.|Web|

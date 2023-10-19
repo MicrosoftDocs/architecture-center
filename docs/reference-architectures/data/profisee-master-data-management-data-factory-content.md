@@ -267,7 +267,6 @@ Principal author:
 ### Reference architectures
 
 - [Hybrid ETL with Azure Data Factory](../../example-scenario/data/hybrid-etl-with-adf.yml)
-- [DevTest Image Factory](../../solution-ideas/articles/dev-test-image-factory.yml)
 - [Automated enterprise BI](./enterprise-bi-adf.yml)
 - [Modernize mainframe & midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
 - [DataOps for the modern data warehouse](../../example-scenario/data-warehouse/dataops-mdw.yml)

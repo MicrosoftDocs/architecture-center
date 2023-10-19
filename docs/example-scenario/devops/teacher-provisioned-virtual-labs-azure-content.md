@@ -119,6 +119,5 @@ Principal author:
 
 ## Related resources
 
-- [DevTest Image Factory](../../solution-ideas/articles/dev-test-image-factory.yml)
 - [DevTest and DevOps for IaaS solutions](../../solution-ideas/articles/dev-test-iaas.yml)
 - [Azure DevTest Labs reference architecture for enterprises](../infrastructure/devtest-labs-reference-architecture.yml)
