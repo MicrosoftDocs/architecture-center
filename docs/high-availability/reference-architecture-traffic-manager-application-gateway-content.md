@@ -241,5 +241,4 @@ For more information, see [Virtual Machine Scale Sets](/azure/virtual-machine-sc
 For more reference architectures using the same technologies, see:
 
 - [Multi-region N-tier application](../reference-architectures/n-tier/multi-region-sql-server.yml)
-- [IaaS: Web application with relational database](./ref-arch-iaas-web-and-db.yml)
 - [AKS baseline for multi-region clusters](../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)

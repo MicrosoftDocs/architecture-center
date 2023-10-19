@@ -1789,8 +1789,8 @@ items:
         href: solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db.yml
       # - name: Hybrid ETL with Azure Data Factory
       #   href: example-scenario/data/hybrid-etl-with-adf.yml
-      - name: 'IaaS: Web app with relational database'
-        href: high-availability/ref-arch-iaas-web-and-db.yml
+      # - name: 'IaaS: Web app with relational database'
+      #   href: high-availability/ref-arch-iaas-web-and-db.yml
       - name: Loan credit risk modeling
         href: example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml
       # - name: Master data management with CluedIn

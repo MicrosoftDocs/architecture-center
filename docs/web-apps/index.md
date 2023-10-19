@@ -132,7 +132,6 @@ Here are some additional implementations to consider:
 
 - [Eventual consistency between multiple Power Apps instances](/azure/architecture/guide/power-platform/eventual-consistency)
 - [App Service networking features](/azure/app-service/networking-features)
-- [IaaS: Web application with relational database](../high-availability/ref-arch-iaas-web-and-db.yml)
 - [Migrate a web app using Azure APIM](../example-scenario/apps/apim-api-scenario.yml)
 - [Sharing location in real time using low-cost serverless Azure services](../example-scenario/signalr/index.yml)
 - [Serverless web application](../web-apps/serverless/architectures/web-app.yml)

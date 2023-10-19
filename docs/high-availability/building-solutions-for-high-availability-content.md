@@ -15,7 +15,6 @@ The following architectures feature high-availability scenarios:
 
 - [Mission-critical workload built for maximum reliability](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro)
 - [High availability enterprise deployment using App Services Environment](../web-apps/app-service-environment/architectures/ase-high-availability-deployment.yml)
-- [IaaS: Web application with relational database](./ref-arch-iaas-web-and-db.yml)
 - [Multi-region load balancing with Traffic Manager and Application Gateway](./reference-architecture-traffic-manager-application-gateway.yml)
 - [Multi-tier web application built for HA/DR](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)
 - [Baseline highly available zone-redundant web application](../web-apps/app-service/architectures/baseline-zone-redundant.yml)

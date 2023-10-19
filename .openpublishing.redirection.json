@@ -3609,6 +3609,11 @@
       "source_path": "docs/example-scenario/sql-failover/app-service-private-sql-multi-region.yml",
       "redirect_url": "/azure/architecture/databases",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/high-availability/ref-arch-iaas-web-and-db.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
     }
     
   ]
