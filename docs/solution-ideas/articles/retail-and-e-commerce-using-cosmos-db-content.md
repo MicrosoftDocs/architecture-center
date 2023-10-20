@@ -68,4 +68,3 @@ Fully deployable architectures:
 * [Master Data Management powered by CluedIn](../../databases/architecture/cluedin.yml)
 * [Profisee master data management with Azure Data Factory](../../databases/architecture/profisee-master-data-management-data-factory.yml)
 * [N-tier application with Apache Cassandra](../../databases/architecture/n-tier-cassandra.yml)
-* [Windows N-tier application on Azure](../../reference-architectures/n-tier/n-tier-sql-server.yml)

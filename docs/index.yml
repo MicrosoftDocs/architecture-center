@@ -436,18 +436,12 @@ conceptualContent:
         - text: N-tier application with Cassandra (Linux)
           itemType: architecture
           url: databases/architecture/n-tier-cassandra.yml
-        - text: N-tier application with SQL Server (Windows)
-          itemType: architecture
-          url: reference-architectures/n-tier/n-tier-sql-server.yml
         - text: Multi-region N-tier application
           itemType: architecture
           url: reference-architectures/n-tier/multi-region-sql-server.yml
         - text: Highly scalable WordPress
           itemType: get-started
           url: web-apps/hosting-applications/wordpress.yml
-        - text: Multi-tier Windows
-          itemType: get-started
-          url:  ./reference-architectures/n-tier/n-tier-sql-server.yml
 
     - title: SAP
       links:

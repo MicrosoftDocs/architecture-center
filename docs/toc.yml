@@ -1826,8 +1826,8 @@ items:
         maintainContext: true
       # - name: SQL Managed Instance with CMK
       #   href: example-scenario/data/sql-managed-instance-cmk.yml
-      - name: Windows N-tier applications
-        href: reference-architectures/n-tier/n-tier-sql-server.yml
+      # - name: Windows N-tier applications
+      #   href: reference-architectures/n-tier/n-tier-sql-server.yml
     - name: Solution ideas
       items:
       - name: Big data analytics with Azure Data Explorer

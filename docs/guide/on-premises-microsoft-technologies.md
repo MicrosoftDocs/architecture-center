@@ -114,7 +114,6 @@ For information about solutions in which Azure services integrate with the other
 |[SQL Server 2008 R2 failover cluster on Azure](../example-scenario/sql-failover/sql-failover-2008r2.yml) |Learn how to rehost SQL Server 2008 R2 failover clusters on Azure virtual machines. |Databases|
 |[SQL Server on Azure Virtual Machines with Azure NetApp Files](../example-scenario/file-storage/sql-server-azure-netapp-files.yml) |Implement a high-bandwidth, low-latency solution for SQL Server workloads. Use Azure NetApp Files for enterprise-scale performance and reduced costs.|Storage|
 |[Web app private connectivity to Azure SQL Database](../example-scenario/private-web-app/private-web-app.yml) |Lock down access to an Azure SQL database with Azure Private Link connectivity from a multitenant web app.|Web|
-|[Windows N-tier application on Azure](../reference-architectures/n-tier/n-tier-sql-server.yml) |Implement a multitier architecture on Azure for availability, security, scalability, and manageability. SQL Server provides the data tier.|Databases|
 
 [Browse all our SQL Server solutions](/azure/architecture/browse/?products=sql-server).
 
@@ -131,7 +130,6 @@ For information about solutions in which Azure services integrate with the other
 |[Run a highly available SharePoint Server 2016 farm on Azure](../reference-architectures/sharepoint/index.yml) |Learn proven practices for deploying a highly available SharePoint Server farm on Azure. Windows Server Active Directory domain controllers run in the virtual network and have a trust relationship with the on-premises Windows Server Active Directory forest.|Management|
 |[Run SAP NetWeaver in Windows on Azure](/azure/architecture/guide/sap/sap-netweaver)|Learn proven practices for running SAP NetWeaver in a Windows environment on Azure.|SAP|
 |[SQL Server 2008 R2 failover cluster on Azure](../example-scenario/sql-failover/sql-failover-2008r2.yml) |Learn how to rehost SQL Server 2008 R2 failover clusters on Azure virtual machines. Use the Azure shared disks feature and a Windows Server 2008 R2 failover cluster to replicate your on-premises deployment on Azure.|Databases|
-|[Windows N-tier application on Azure](../reference-architectures/n-tier/n-tier-sql-server.yml) |Implement a multitier architecture on Azure for availability, security, scalability, and manageability.|Databases|
 
 ## Related resources
 
