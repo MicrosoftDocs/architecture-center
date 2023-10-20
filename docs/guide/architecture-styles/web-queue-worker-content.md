@@ -36,7 +36,7 @@ Consider this architecture style for:
 
 - Without careful design, the front end and the worker can become large, monolithic components that are difficult to maintain and update.
 - There may be hidden dependencies, if the front end and worker share data schemas or code modules.
-- The Web Front End can crash after successfully persisting to the database but before it emits the messages to the queue. This can result in possible consistency issues as the Worker will not perform its part of the logic. Techniques like the [transactional outbox pattern](/azure/architecture/best-practices/transactional-outbox-cosmos) can be used to help mitigate this problem, but require changing the routing of outgoing messages to first "loop back" through a separate queue. One library the provides support for this technique is the [NServiceBus Transactional Session](https://docs.particular.net/nservicebus/transactional-session/).
+- The web front end can malfunction after successfully persisting to the database but before it emits the messages to the queue. This can result in possible consistency issues as the worker will not perform its part of the logic. Techniques like the [transactional outbox pattern](../../best-practices/transactional-outbox-cosmos.yml) can be used to help mitigate this problem but require changing the routing of outgoing messages to first "loop back" through a separate queue. One library that provides support for this technique is the [NServiceBus Transactional Session](https://docs.particular.net/nservicebus/transactional-session/).
 
 ## Best practices
 
