@@ -12,14 +12,14 @@ Historically this issue has been mitigated by distributed transcation technologi
 
 Due to the issues with scalability and performance of the 2PC protocol, the distributed transaction technologies are no longer available for modern messaging technologies, such as Azure Service Bus and developers need to write code protecting against duplicate processing into their message handling logic. Adding such logic to a message handling code is referred to as making that code _idempotent_. 
 
-In mathematics, where the term originates, _idempotence_ is a property of fuctions. A given function _f_ is _idempotent_ if and only if _f(f(x)) = (x)_. In the cotext of the HTTP protocol, [RFC 7231](https://datatracker.ietf.org/doc/html/rfc7231#section-4), states, "A ... method is considered _idempotent_ if the intended effect on the server of multiple identical requests with that method is the same as the effect for a single such request.". The latter is hepful in attempt to define _idempotence_ for the message handling problem:
+In mathematics, where the term originates, _idempotence_ is a property of functions. A given function _f_ is _idempotent_ if and only if _f(f(x)) = f(x)_. In the context of the HTTP protocol, [RFC 7231](https://datatracker.ietf.org/doc/html/rfc7231#section-4), states, "A ... method is considered _idempotent_ if the intended effect on the server of multiple identical requests with that method is the same as the effect for a single such request.". The latter is helpful in attempt to define _idempotence_ for the message handling problem:
 
 > An independent message handling code is one that produces the same side effects regardless of how many times a given message has been delivered
 
-The well-documented approach to the challenge of making message handling code _idempotent_ is to add a check, prior to executing the code, if the side effects have already been applied. This is illustrated by the following pseudocode:
+The well-documented approach to the challenge of making message handling code _idempotent_ is to add a check, prior to executing the code, if the code was already executed, usually by checking some external resource like a database. This is illustrated by the following pseudocode:
 
 ```c#
-if (!HasBeenProcessed(message))
+if (HasBeenProcessed(message))
 {
     return;
 }
@@ -27,13 +27,13 @@ Process(message);
 MarkProcessed(message);
 ```
 
-It does not, however, take into account that a typical message handling code affects multiple external resources, i.e. a database (store or update some data) and a messaging infrastructure (send follow-up messages). In other words, it may happen that the first attempt at processing a message resulted in updating a database but failed to send out messages. The message is put back into the queue, picked up again and the second attempt manages to send the messages. 
+It does not, however, take into account that typical message handling code affects multiple external resources, i.e. a database (store or update some data) and messaging infrastructure (send follow-up messages). In other words, it may happen that the first attempt at processing a message resulted in updating the database but crashed before being able to send out messages. In that case, the message is "rolled back" to the queue, after which it will be picked up and attempted to be processed again. 
 
-In order for that logic to be consistent, both attempts have to see exactly the same state, including but not limited to:
+In order for the system to arrive at an eventually consistent state, the logic processing the message the second time must correctly emit the messages that should have been emitted after the first processing attempt, but not make any other changes to the database. This can be challenging when the message processing logic incorporates thing like:
  - data in all queried data stores
  - environment properties, e.g. data and time
  - pseudo-random value generators
- - sequeces, e.g. GUID
+ - sequences, e.g. GUID
 
 ## Solution
 
@@ -44,7 +44,7 @@ The solution to this problem is to split the execution of the message handling l
 and is based on the assumption that, once side effects are computed and made persistent, they can always be applied. This, of course, is not true for most interactions with database in any environment that allows concurret access. For that reason, one resource, usually the database, is designated as primary. The primary resource plays double role. In addition to being the target for the side effects, it also is used to store the computed side effects that target other resources. The resulting algorithm for the Outbox pattern is following:
 
 ```c#
-if (!HasBeenProcessed(message))
+if (HasBeenProcessed(message))
 {
     return;
 }
@@ -66,7 +66,7 @@ The Outbox pattern can be implemented in the infrastructure layer of the solutio
 
 ### Benefits
 
-- Provides programming simple programming abstraction, simialar to one exposed by distributed transaction technologies
+- Provides a simple programming abstraction, similar to one exposed by distributed transaction technologies
 - Can be implemented in the infrastructure layer with minimal effect to message handling code, allowing smooth transition away from distributed transaction technologies
 - Supports resources that never had been able to participate in distributed transactions, such as key-value stores
 - Has relatively mild requirements for the primary resource -- optimistic concurrency control
@@ -81,7 +81,7 @@ The Outbox pattern can be implemented in the infrastructure layer of the solutio
 
 Consider the following points when implementing the Outbox pattern:
 
-- In order to take advatage of the pattern, each message needs to have a unique identifier. Most messaging technologies, e.g. Azure Service Bus, provide this identifier out-of-the-box, but all.
+- In order to take advantage of the pattern, each message needs to have a unique identifier. Many messaging technologies like Azure Service Bus provide this identifier out-of-the-box, but in some of them, it is not set automatically.
 - Consider how long to store information about processed messages. The likelihood of message being duplicated diminishes with time significantly. In practice value of 1 or 2 weeks is often used as maximum age to keep the deduplication data.
 - Depending on the technology used for the primary resource, it might or might not be possible to use native features to remove expired dedupliction data. For example, Cosmos DB has a built in time-to-live mechanism that can be used to ensure message processing information is removed after configured time.
 - The clock for removing deduplication data can only be started after the `CleanUpSideEffects` operation succeeds. Otherwise there is a risk of losing the side effects if a message is stuck for extended period of time, e.g. falsly identified as a _poison message_ and sent to a _dead-letter queue_.
