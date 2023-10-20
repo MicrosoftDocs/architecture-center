@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Mainframe and midrange Db2 access to Azure databases
+  title: Mainframe and Midrange Db2 Applications accessing Azure SQL Databases
   titleSuffix: Azure Architecture Center
   description: Give mainframe applications access to Azure data without changing code. Use Microsoft Service for DRDA to run Db2 SQL statements on a SQL Server database.
-  author: ashish-khandelwal-ms
-  ms.author: askhande
-  ms.date: 02/02/2023
+  author: nithish-aruldoss-ms
+  ms.author: naruldoss
+  ms.date: 10/20/2023
   ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -18,7 +18,7 @@ products:
   - azure-sql-database
   - azure-virtual-machines
   - sql-server
-name: Mainframe and midrange Db2 access to Azure databases
+name: Mainframe and Midrange Db2 Applications accessing Azure SQL Databases
 summary: Give mainframe applications access to Azure data without changing code. Use Microsoft Service for DRDA to run Db2 SQL statements on a SQL Server database.
 thumbnailUrl: /azure/architecture/browse/thumbs/mainframe-access-azure-databases-architecture-thumbnail.png
 content: |
