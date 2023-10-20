@@ -3649,6 +3649,11 @@
       "source_path": "docs/solution-ideas/articles/gaming-using-azure-database-for-mysql.yml",
       "redirect_url": "/azure/architecture/databases",
       "redirect_document_id": false
-    } 
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/interactive-querying-with-hdinsight.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    }    
   ]
 }
