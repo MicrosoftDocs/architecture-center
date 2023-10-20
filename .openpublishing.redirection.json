@@ -3619,7 +3619,11 @@
       "source_path": "docs/solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db.yml",
       "redirect_url": "/azure/architecture/databases",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/optimized-storage-time-based-data-lake.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
     }
-    
   ]
 }

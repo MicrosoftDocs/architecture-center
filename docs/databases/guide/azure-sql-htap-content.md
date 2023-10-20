@@ -151,7 +151,6 @@ Principal author:
 [Get started with Elastic Database Tools]: /azure/azure-sql/database/elastic-scale-get-started
 [Large cost profile]: https://azure.com/e/0d1106de9a5e428a83bcdcb4440e0ea4
 [Medium cost profile]: https://azure.com/e/1fafd04b0a3f4896873550e16eef19ab
-[Optimized storage – time based with Data Lake]: ../../solution-ideas/articles/optimized-storage-time-based-data-lake.yml
 [Overview of the reliability pillar]: /azure/architecture/framework/resiliency/overview
 [Power BI]: https://powerbi.microsoft.com
 [Scaling out with Azure SQL Database]: /azure/azure-sql/database/elastic-scale-introduction

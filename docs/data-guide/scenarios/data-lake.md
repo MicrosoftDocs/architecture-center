@@ -91,6 +91,5 @@ Principal author:
 
 - [Choose an analytical data store in Azure](../technology-choices/analytical-data-stores.md)
 - [Query a data lake or lakehouse by using Azure Synapse serverless](../../example-scenario/data/synapse-exploratory-data-analytics.yml)
-- [Optimized storage – time based with Data Lake](../../solution-ideas/articles/optimized-storage-time-based-data-lake.yml)
 - [Data management across Azure Data Lake with Microsoft Purview](../../solution-ideas/articles/azure-purview-data-lake-estate-architecture.yml)
 - [Modern data warehouse for small and medium business](../../example-scenario/data/small-medium-data-warehouse.yml)
