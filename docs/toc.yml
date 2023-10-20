@@ -1811,8 +1811,8 @@ items:
         href: databricks-monitoring/databricks-observability.yml
       # - name: Optimize SQL Server with Azure Arc
       #   href: hybrid/azure-arc-sql-server.yml
-      - name: Optimized storage – multi writes
-        href: solution-ideas/articles/optimized-storage-time-based-multi-writes.yml
+      # - name: Optimized storage – multi writes
+      #   href: solution-ideas/articles/optimized-storage-time-based-multi-writes.yml
       # - name: Optimized storage – time based Data Lake
       #   href: solution-ideas/articles/optimized-storage-time-based-data-lake.yml
       - name: Optimized storage with data classification

@@ -3629,6 +3629,11 @@
       "source_path": "reference-architectures/n-tier/n-tier-sql-server.yml",
       "redirect_url": "/azure/architecture/databases",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "solution-ideas/articles/optimized-storage-time-based-multi-writes.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
     }
   ]
 }
