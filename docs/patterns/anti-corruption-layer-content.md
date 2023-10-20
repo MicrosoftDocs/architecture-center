@@ -42,3 +42,4 @@ This pattern may not be suitable if there are no significant semantic difference
 ## Related resources
 
 - [Strangler Fig pattern](./strangler-fig.yml)
+- [Messaging Bridge pattern](./messaging-bridge.yml)
