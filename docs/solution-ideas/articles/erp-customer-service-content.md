@@ -64,4 +64,3 @@ Organizations utilize ERP to assist with:
 
 - [Azure Data Architecture Guide](../../data-guide/index.md)
 - [Azure Cosmos DB resource model](/azure/cosmos-db/account-databases-containers-items)
-- [Campaign optimization with SQL Server and machine learning](../../solution-ideas/articles/campaign-optimization-with-sql-server.yml)

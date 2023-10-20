@@ -100,7 +100,6 @@ Microsoft Learn modules:
 ## Related resources
 
 - [Azure Kubernetes Service (AKS) architecture design](../../reference-architectures/containers/aks-start-here.md)
-- [Campaign optimization with SQL Server and machine learning](campaign-optimization-with-sql-server.yml)
 - [Finance management apps using Azure Database for PostgreSQL](finance-management-apps-using-azure-database-for-postgresql.yml)
 - [Finance management apps using Azure Database for MySQL](finance-management-apps-using-azure-database-for-mysql.yml)
 - [Loan charge-off prediction with Azure HDInsight Spark clusters](loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.yml)
