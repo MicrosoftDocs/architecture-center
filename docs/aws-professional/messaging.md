@@ -31,6 +31,10 @@ AWS Simple Queueing Service (SQS) provides a messaging system for connecting app
 
 - [Service Bus](https://azure.microsoft.com/services/service-bus) is a robust messaging system for connecting applications, services, and devices. By using the related [Service Bus relay](/azure/service-bus-relay/relay-what-is-it), Service Bus can also connect to remotely hosted applications and services.
 
+### Integrating between Azure and AWS messaging services
+
+If there is one set of components using Amazon SQS that needs to integrate with another set of components that uses Azure Service Bus, or vice versa, that can be done using the [messaging bridge pattern](/azure/architecture/patterns/messaging-bridge).
+
 ## Messaging components
 
 [!INCLUDE [Messaging Components](../../includes/aws/messaging.md)]
