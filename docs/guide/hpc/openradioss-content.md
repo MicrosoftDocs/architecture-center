@@ -9,23 +9,23 @@ OpenRadioss is a free, open-source finite element analysis (FEA) code base that 
 
 OpenRadioss also provides virtual testing so that users can give passengers the safest environment possible.
 
-- **SCALABILITY, QUALITY, and ROBUSTNESS**
+- **Scalability, quality, and robustness**
 
   Industry-proven, class leading scalability from single core to HPC (High Performance Computing), with repeatability regardless of CPU count, optimized for all modern CPU processors
 
-- **INNOVATIVE ELEMENT FORMULATIONS**
+- **Innovative element formulations**
 
   Fast and accurate solutions from under integrated shell and solid elements with physical hourglass stabilization giving quality results at a fraction of fully integrated CPU cost
 
-- **EXTENSIVE MATERIAL and RUPTURE LIBRARIES**
+- **Extensive material and rupture libraries**
 
   Advanced nonlinear material laws and failure models, for isotropic, orthotropic, composite, hyper- and viscoelastic materials
 
-- **COMPREHENSIVE CAPABILITIES**
+- **Comprehensive capabilities**
 
   Wide array of contact interfaces, boundary conditions, imposed conditions, loading, joints, sensors, and output requests in animation and graph formats
 
-- **COMPLEX MULTIPHYSICS**
+- **Complex multiphysics**
 
   Battery failure model; Airbag deployment; Smooth Particle Hydrodynamics (SPH); Arbitrary Lagrangian Eulerian (ALE); Fluid Structure Interaction (FSI); Multiphase fluids
 
