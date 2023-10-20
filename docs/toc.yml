@@ -1844,8 +1844,8 @@ items:
         href: solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql.yml
       - name: Finance management using PostgreSQL
         href: solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql.yml
-      - name: Gaming using MySQL
-        href: solution-ideas/articles/gaming-using-azure-database-for-mysql.yml
+      # - name: Gaming using MySQL
+      #   href: solution-ideas/articles/gaming-using-azure-database-for-mysql.yml
       - name: Gaming using Azure Cosmos DB
         href: solution-ideas/articles/gaming-using-cosmos-db.yml
       # - name: Intelligent apps using MySQL
@@ -5633,8 +5633,8 @@ items:
             maintainContext: true
         - name: Databases for gaming
           items:
-          - name: Gaming using Azure MySQL
-            href: solution-ideas/articles/gaming-using-azure-database-for-mysql.yml
+          # - name: Gaming using Azure MySQL
+          #   href: solution-ideas/articles/gaming-using-azure-database-for-mysql.yml
           - name: Gaming using Azure Cosmos DB
             href: solution-ideas/articles/gaming-using-cosmos-db.yml
         - name: Game streaming

@@ -49,7 +49,6 @@ The following articles provide detailed analysis of architectures created and re
 
 | Architecture | Summary |
 | ------- | ------- |
-|[Gaming using Azure MySQL](/azure/architecture/solution-ideas/articles/gaming-using-azure-database-for-mysql)|Elastically scale your Azure Database for MySQL database to accommodate unpredictable bursts of traffic and deliver low-latency multiplayer experiences on a global scale.|
 |[Gaming using Azure Cosmos DB](/azure/architecture/solution-ideas/articles/gaming-using-cosmos-db)|Elastically scale your Azure Cosmos DB database to accommodate unpredictable bursts of traffic and deliver low-latency multiplayer experiences on a global scale.|
 
 ### Game streaming
