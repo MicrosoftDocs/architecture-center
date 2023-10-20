@@ -1856,8 +1856,8 @@ items:
       #   href: solution-ideas/articles/interactive-querying-with-hdinsight.yml
       # - name: Loan charge-off prediction with SQL Server
       #   href: solution-ideas/articles/loan-chargeoff-prediction-with-sql-server.yml
-      - name: Loan credit risk with SQL Server
-        href: solution-ideas/articles/loan-credit-risk-with-sql-server.yml
+      # - name: Loan credit risk with SQL Server
+      #   href: solution-ideas/articles/loan-credit-risk-with-sql-server.yml
       - name: Logical data warehouse with Azure Synapse
         href: solution-ideas/articles/logical-data-warehouse.yml
       # - name: Messaging

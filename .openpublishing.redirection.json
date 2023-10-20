@@ -3659,6 +3659,11 @@
       "source_path": "docs/solution-ideas/articles/loan-chargeoff-prediction-with-sql-server.yml",
       "redirect_url": "/azure/architecture/databases",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/loan-credit-risk-with-sql-server.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
     }
   ]
 }
