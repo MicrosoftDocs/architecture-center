@@ -108,7 +108,6 @@ Here are a few sample implementations of storage on Azure:
 - [Azure files accessed on-premises and secured by AD DS](/azure/architecture/example-scenario/hybrid/azure-files-on-premises-authentication)
 - [Enterprise file shares with disaster recovery](/azure/architecture/example-scenario/file-storage/enterprise-file-shares-disaster-recovery)
 - [Hybrid file services](/azure/architecture/hybrid/hybrid-file-services)
-- [Optimized storage with logical data classification](/azure/architecture/solution-ideas/articles/optimized-storage-logical-data-classification)
 - [Medical data storage solutions](/azure/architecture/solution-ideas/articles/medical-data-storage)
 - [HPC media rendering](/azure/architecture/solution-ideas/articles/azure-batch-rendering)
 

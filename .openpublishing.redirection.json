@@ -3634,6 +3634,11 @@
       "source_path": "docs/solution-ideas/articles/optimized-storage-time-based-multi-writes.yml",
       "redirect_url": "/azure/architecture/databases",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/optimized-storage-logical-data-classification.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
     }
   ]
 }

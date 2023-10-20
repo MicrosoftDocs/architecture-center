@@ -56,7 +56,6 @@ These examples can help you design a data storage system that accommodates your 
 |[Two-region web application with Table Storage failover](../../solution-ideas/articles/multi-region-web-app-azure-table-failover.yml)|Easy implementation, cost|Limited resiliency with only two Azure regions|
 |[Multi-region web application with custom Storage Table replication](../../solution-ideas/articles/multi-region-web-app-multi-writes-azure-table.yml)|Resiliency|Implementation time and difficulty|
 |[Multi-region web application with Azure Cosmos DB replication](../../solution-ideas/articles/multi-region-web-app-cosmos-db-replication.yml)|Resiliency, performance, scalability|Cost|
-|[Optimized storage with logical data classification](../../solution-ideas/articles/optimized-storage-logical-data-classification.yml)|Resiliency, performance, scalability, cost|Implementation time, need to design logical data classification|
 |[Minimal storage – change feed to replicate data](../../databases/idea/minimal-storage-change-feed-replicate-data.yml)|Resiliency, performance, time-based data retention|Scalability, implementation time|
 
 ## Contributors

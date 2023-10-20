@@ -101,7 +101,6 @@ Refer to [Azure updates](https://azure.microsoft.com/updates/?category=databases
 These architectures use database technologies.
 
 - [SQL Managed Instance with customer-managed keys](../databases/architecture/sql-managed-instance-cmk.yml)
-- [Optimized storage with logical data classification](../solution-ideas/articles/optimized-storage-logical-data-classification.yml)
 
 Here are some other resources:
 
