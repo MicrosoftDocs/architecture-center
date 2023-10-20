@@ -971,7 +971,6 @@ For more information, see the following resources:
 [Encrypt OS and attached data disks in a virtual machine scale set with the Azure CLI]: /azure/virtual-machine-scale-sets/disk-encryption-cli
 [Get started with log queries in Azure Monitor]: /azure/azure-monitor/logs/get-started-queries
 [Helm-based deployments for Apache NiFi]: ../../guide/data/helm-deployments-apache-nifi.yml
-[Hybrid ETL with Azure Data Factory]: ./hybrid-etl-with-adf.yml
 [Identity and access control section of this article]: #identity-and-access-control
 [Introduction to Azure managed disks]: /azure/virtual-machines/managed-disks-overview
 [Kusto query overview]: /azure/data-explorer/kusto/query

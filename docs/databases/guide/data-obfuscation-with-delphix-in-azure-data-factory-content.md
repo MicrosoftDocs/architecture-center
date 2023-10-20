@@ -190,7 +190,6 @@ Learn more about the key Azure services in this solution:
 ## Related resources
 
 - [Extract, transform, and load](/azure/architecture/data-guide/relational-data/etl)
-- [Hybrid ETL with Azure Data Factory](/azure/architecture/example-scenario/data/hybrid-etl-with-adf)
 - [Batch integration with Azure Data Factory for Azure Digital Twins](/azure/architecture/example-scenario/iot/batch-integration-azure-data-factory-digital-twins)
 - [Data warehousing in Microsoft Azure](/azure/architecture/data-guide/relational-data/data-warehousing)
 - [Replicate and sync mainframe data in Azure](/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure)

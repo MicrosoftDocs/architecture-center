@@ -89,7 +89,6 @@ Try out some code:
 ## Related resources
 
 * [Extract, transform, and load (ETL)](/azure/architecture/data-guide/relational-data/etl)
-* [Hybrid ETL with Azure Data Factory](/azure/architecture/example-scenario/data/hybrid-etl-with-adf)
 * [Enterprise business intelligence](/azure/architecture/reference-architectures/data/enterprise-bi-synapse)
 * [Modern data warehouse for small and medium business](/azure/architecture/example-scenario/data/small-medium-data-warehouse)
 * [Migrate master data services to Azure with CluedIn and Azure Purview](/azure/architecture/reference-architectures/data/migrate-master-data-services-with-cluedin)

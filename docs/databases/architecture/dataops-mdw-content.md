@@ -232,5 +232,4 @@ For a detailed walk-through of the solution and key concepts, watch the followin
 
 - [Monitoring Azure Databricks with Azure Monitor](../../databricks-monitoring/index.md)
 - [Master data management with Profisee and Azure Data Factory](./profisee-master-data-management-data-factory.yml)
-- [Hybrid ETL with Azure Data Factory](../../example-scenario/data/hybrid-etl-with-adf.yml)
 - [DevTest and DevOps for PaaS solutions](../../solution-ideas/articles/dev-test-paas.yml)
