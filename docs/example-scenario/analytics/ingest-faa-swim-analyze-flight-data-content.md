@@ -1,4 +1,4 @@
-This solution shows how to integrate Chef Infra, Chef InSpec, Test Kitchen, Terraform, Terraform Cloud, and GitHub Actions to fully automate and to create data analytics environments. It uses an Azure Databricks cluster to analyze the data. The solution relies on the Federal Aviation Administration (FAA) System Wide Information Management (SWIM) system. SWIM provides a single point of access for near real-time, relevant, and reliable aeronautical, flight, weather, and surveillance information. It delivers the infrastructure, standards, and services needed to optimize the secure exchange of relevant data across the National Airspace System (NAS) and the aviation community. As the digital data-sharing backbone of NextGen, SWIM enables both operational excellence and innovation.
+This solution shows how to integrate Chef Infra, Chef InSpec, Test Kitchen, Terraform, Terraform Cloud, and GitHub Actions to automate and to create data analytics environments. It uses an Azure Databricks cluster to analyze the data. The solution relies on the Federal Aviation Administration (FAA) System Wide Information Management (SWIM) system. SWIM provides a single point of access for near real-time, relevant, and reliable aeronautical, flight, weather, and surveillance information. It delivers the infrastructure, standards, and services needed to optimize the secure exchange of relevant data across the National Airspace System (NAS) and the aviation community. As the digital data-sharing backbone of NextGen, SWIM enables both operational excellence and innovation.
 
 This solution connects to the following FAA SWIM data sources via an Apache Kafka server:
 
@@ -71,6 +71,24 @@ SWIM provides a single point of access for aviation data. Data producers publish
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
+A key requirement for this architecture is that all traffic must be internal and highly secure. To meet this requirement:
+
+- Virtual network injection is used to deploy Azure Databricks. This deployment method keeps communication between the cluster and Kafka internal.
+- The Azure Databricks workspace uses your Azure identity for authentication.
+- Network security groups (NSGs) filter network traffic to and from Azure Databricks and Kafka VMs.
+
+For more information about improving the security of your solution, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+If you run this project, your account is billed. For information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
 ### Operational excellence
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
@@ -111,30 +129,12 @@ In this solution, two GitHub Actions workflows automate the infrastructure that 
 
    :::image type="content" source="media/chef-kafka.png" alt-text="Screenshot that shows the results of the Chef-ApacheKafka GitHub action.":::  
 
-### Security
-
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
-
-A key requirement for this architecture is that all traffic must be internal and highly secure. To meet this requirement:
-
-- Virtual network injection is used to deploy Azure Databricks. This deployment method keeps communication between the cluster and Kafka internal.
-- The Azure Databricks workspace uses your Azure identity for authentication.
-- Network security groups (NSGs) filter network traffic to and from Azure Databricks and Kafka VMs.
-
-For more information about improving the security of your solution, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
-
-### Cost optimization
-
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
-
-If you run this project, your account is billed. For information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
-
 ## Deploy this scenario
 
 For information about deploying this solution, workflows, cookbooks, sample notebooks, Terraform files, and more, see the [Azure/SWIMDataIngestion](https://github.com/Azure/SWIMDataIngestion) GitHub repository.
-The repository contains step by step instructions to deploy the solution. The deployment process is fully automated using GitHub Actions, but in order for it to work it requires some secrets to be set up in GitHub.
+The repository contains step-by-step instructions to deploy the solution. The deployment process is fully automated using GitHub Actions, but for it to work, it requires that some secrets are set up in GitHub.
 
-The deployment process is divided into three parts: infrastructure, configuration and visualization.
+The deployment process is divided into three parts: infrastructure, configuration, and visualization.
 
 1. The infrastructure part deploys the following Azure resources:
    - A virtual network
