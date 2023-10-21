@@ -101,7 +101,6 @@ The following are other ideas that you can use as a starting point for your reta
 
 **Databases**:
 
-- [Retail and e-commerce using Azure PostgreSQL](../solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql.yml)
 - [Retail and e-commerce using Azure Cosmos DB](../solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.yml)
 
 **Mixed Reality**:

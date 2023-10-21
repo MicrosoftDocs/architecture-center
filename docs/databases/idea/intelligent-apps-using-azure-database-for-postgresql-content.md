@@ -106,4 +106,3 @@ Cognitive Service for Language offers various pricing tiers. The number of text 
 ## Related resources
 
 - [Intelligent apps using Azure Database for MySQL](./intelligent-apps-using-azure-database-for-mysql.yml)
-- [Retail and e-commerce using Azure Database for PostgreSQL](../../solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql.yml)
