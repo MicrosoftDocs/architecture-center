@@ -173,5 +173,4 @@ Refer to some of our other Cosmos DB architectural scenarios:
 - [Transactional Outbox pattern with Azure Cosmos DB](/azure/architecture/databases/guide/transactional-outbox-cosmos)
 - [Scalable order processing](/azure/architecture/example-scenario/data/ecommerce-order-processing)
 - [Visual search in retail with Azure Cosmos DB](/azure/architecture/industries/retail/visual-search-use-case-overview)
-- [Personalization using Azure Cosmos DB](/azure/architecture/solution-ideas/articles/personalization-using-cosmos-db)
 - [Gaming using Azure Cosmos DB](/azure/architecture/solution-ideas/articles/gaming-using-cosmos-db)

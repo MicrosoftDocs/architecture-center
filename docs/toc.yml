@@ -1868,8 +1868,8 @@ items:
       #   href: solution-ideas/articles/multi-region-web-app-cosmos-db-replication.yml
       - name: Ops automation using Event Grid
         href: solution-ideas/articles/ops-automation-using-event-grid.yml
-      - name: Personalization using Azure Cosmos DB
-        href: solution-ideas/articles/personalization-using-cosmos-db.yml
+      # - name: Personalization using Azure Cosmos DB
+      #   href: solution-ideas/articles/personalization-using-cosmos-db.yml
       - name: Retail and e-commerce using MySQL
         href: solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql.yml
       - name: Retail and e-commerce using PostgreSQL
