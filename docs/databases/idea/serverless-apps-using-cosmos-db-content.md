@@ -58,7 +58,6 @@ This solution applies to many areas:
 See the following architectures that include Functions and Azure Cosmos DB:
 
 - [Azure Cosmos DB in IoT workloads](/azure/architecture/solution-ideas/articles/iot-using-cosmos-db)
-- [Multi-region web application with Azure Cosmos DB replication](/azure/architecture/solution-ideas/articles/multi-region-web-app-cosmos-db-replication)
 - [Transactional Outbox pattern with Azure Cosmos DB](/azure/architecture/databases/guide/transactional-outbox-cosmos)
 - [Gaming using Azure Cosmos DB](/azure/architecture/solution-ideas/articles/gaming-using-cosmos-db)
 - [Code walkthrough: Serverless application with Functions](/azure/architecture/web-apps/serverless/architectures/code)
