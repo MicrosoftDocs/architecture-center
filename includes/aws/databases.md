@@ -18,7 +18,6 @@ ms.service: architecture-center
 <ul class="grid">
 
 [!INCLUDE [Gaming using Azure Cosmos DB](../../includes/cards/gaming-using-cosmos-db.md)]
-[!INCLUDE [Retail and e-commerce using Azure MySQL](../../includes/cards/retail-and-ecommerce-using-azure-database-for-mysql.md)]
 
 </ul>
 

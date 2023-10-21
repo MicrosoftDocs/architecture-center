@@ -3674,6 +3674,11 @@
       "source_path": "docs/solution-ideas/articles/personalization-using-cosmos-db.yml",
       "redirect_url": "/azure/architecture/databases",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
     }
   ]
 }

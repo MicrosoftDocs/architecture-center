@@ -64,5 +64,4 @@ Microsoft Training modules:
 - [Scalable web and mobile applications using Azure Database for PostgreSQL](scalable-web-and-mobile-applications-using-azure-database-for-postgresql.yml)
 - [Intelligent apps using Azure Database for PostgreSQL](../../databases/idea/intelligent-apps-using-azure-database-for-postgresql.yml)
 - [Finance management apps using Azure Database for PostgreSQL](finance-management-apps-using-azure-database-for-postgresql.yml)
-- [Retail and e-commerce using Azure MySQL](retail-and-ecommerce-using-azure-database-for-mysql.yml)
 - [Retail and e-commerce using Azure Cosmos DB](retail-and-e-commerce-using-cosmos-db.yml)

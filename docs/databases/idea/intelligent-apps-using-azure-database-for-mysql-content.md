@@ -96,6 +96,5 @@ Principal author:
 
 The following solution ideas feature Azure Database for MySQL:
 
-- [Retail and e-commerce using Azure Database for MySQL](../../solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql.yml)
 - [Finance management apps using Azure Database for MySQL](../../solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql.yml)
 - [Scalable web and mobile applications using Azure Database for MySQL](../../solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml)
