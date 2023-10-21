@@ -1874,8 +1874,8 @@ items:
       #   href: solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql.yml
       # - name: Retail and e-commerce using PostgreSQL
       #   href: solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql.yml
-      - name: Retail and e-commerce with Cosmos DB
-        href: solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.yml
+      # - name: Retail and e-commerce with Cosmos DB
+      #   href: solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.yml
       # - name: Serverless apps using Azure Cosmos DB
       #   href: solution-ideas/articles/serverless-apps-using-cosmos-db.yml
   - name: DataOps

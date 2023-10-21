@@ -73,7 +73,6 @@ See the following architectures that feature Functions:
 
 See the following architectures that feature Azure Cosmos DB:
 
-- [Retail and e-commerce using Azure Cosmos DB](/azure/architecture/solution-ideas/articles/retail-and-e-commerce-using-cosmos-db)
 - [Visual search in retail with Azure Cosmos DB](/azure/architecture/industries/retail/visual-search-use-case-overview)
 - [Scalable order processing](/azure/architecture/example-scenario/data/ecommerce-order-processing)
 - [Deliver highly scalable customer service and ERP applications](/azure/architecture/solution-ideas/articles/erp-customer-service)

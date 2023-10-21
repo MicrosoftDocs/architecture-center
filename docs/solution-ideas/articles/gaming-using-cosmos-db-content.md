@@ -75,5 +75,4 @@ Product documentation:
 
 The following solution ideas feature Azure Cosmos DB:
 
-* [Retail and e-commerce using Azure Cosmos DB](./retail-and-e-commerce-using-cosmos-db.yml)
 * [Serverless apps using Azure Cosmos DB](../../databases/idea/serverless-apps-using-cosmos-db.yml)
