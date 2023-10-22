@@ -25,7 +25,7 @@ Platform as a Service (PaaS) and Software as a Service (SaaS) offerings provide 
     - Supports the full set of KQL capabilities, some of which aren't required or supported for IT and security monitoring. 
     - Automatically scales horizontally as data volumes increase. 
 
-An architecture built on the features and flexibility of provided by the three services gives you:
+An architecture built on the features and flexibility provided by the three services gives you:
 
 - A broad range of data ingestion options that span various types of data and data sources.
 - A powerful set of native monitoring, security, and analytics features and capabilities.
