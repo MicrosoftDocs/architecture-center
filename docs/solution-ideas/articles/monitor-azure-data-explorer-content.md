@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Azure Monitor, Microsoft Sentinel, and Azure Data Explorer are based on a common technology that enables using Kusto Query Language (KQL) to analyze large volumes of data streamed in from multiple sources in near-real time.
+Azure Monitor, Microsoft Sentinel, and Azure Data Explorer are based on a common technology and use Kusto Query Language (KQL) to analyze large volumes of data streamed in from multiple sources in near-real time.
 
 This solution demonstrates how to leverage the tight integration between Azure Monitor, Microsoft Sentinel, and Azure Data Explorer to consolidate your data estate and augment your monitoring and analytics capabilities.
 
@@ -17,7 +17,7 @@ Platform as a Service (PaaS) and Software as a Service (SaaS) offerings provide 
 - Azure Monitor and Microsoft Sentinel are Azure’s native Software as a Service solutions for IT and application monitoring and security, which Microsoft develops, manages, and hones to the needs of Azure customers monitoring their Azure and hybrid IT deployments. 
     
     Both services store data in Log Analytics workspaces, and both support the subset of KQL capabilities that is useful for IT and security monitoring. You can query from one Log Analytics workspace to other workspaces, and across monitored resources and other services, such as Azure Data Explorer and Azure Resource Graph. 
-- Azure Data Explorer provides is a Platform as a Service offering, which provides greater flexibility and fewer service limits. 
+- Azure Data Explorer is a Platform as a Service offering, which provides greater flexibility and fewer service limits. 
 
     Azure Data Explorer:
     - Enables querying data in Azure Monitor, Microsoft Sentinel, and other services that use KQL.
