@@ -1,8 +1,8 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Azure Monitor and Microsoft Sentinel – Azure’s managed services for end-to-end IT, application performance, and security monitoring – are built on top of the Azure Data Explorer platform, which enables processing and analyzing large volumes of data streamed in from multiple sources in near-real time.
+Azure Monitor, Microsoft Sentinel, and Azure Data Explorer are based on a common technology that enables analyzing large volumes of data streamed in from multiple sources in near-real time using Kusto Query Language (KQL).
 
-This solution demonstrates how to use the Azure Data Explorer platform in synergy with Azure Monitoring and Microsoft Sentinel to consolidate your data estate and augment your monitoring and analytics capabilities.
+This solution demonstrates how to used Azure Monitor, Microsoft Sentinel, and Azure Data Explorer as a consolidated data estate and augment your monitoring and analytics capabilities.
 
 ## Architecture
 
@@ -16,11 +16,11 @@ Platform as a Service (PaaS) and Software as a Service (SaaS) offerings provide 
 
 -	Azure Monitor and Microsoft Sentinel are Azure’s native Software as a Service solutions for IT and application monitoring and security, which Microsoft develops, manages, and hones to the needs of Azure customers monitoring their Azure and hybrid IT deployments. 
     
-    Both services store data in Log Analytics workspaces, which are partitions of Azure Data Explorer clusters, and both support the subset of KQL capabilities that are relevant for IT and security monitoring. You can query from one Log Analytics workspace to other workspaces and across monitored resources. This means your analysis in these services is limited to IT and security data and is subject to the services' query and service limits. 
--	Azure Data Explorer is the Platform as a Service offering on which Azure Monitor and Microsoft Sentinel are built, which provides you with greater flexibility over the storage and analysis capabilities all three services share. 
+    Both services store data in Log Analytics workspaces, and both support the subset of KQL capabilities that is useful for IT and security monitoring. You can query from one Log Analytics workspace to other workspaces, across monitored resources, and other services, such as Azure Data Explorer and Azure Resource Graph. This means your analysis in these services is limited to IT and security data and is subject to the services' query and service limits. 
+-	Azure Data Explorer is a Platform as a Service offering built on top of the same technology as Azure Monitor and Microsoft Sentinel, and provides you with greater flexibility over the storage and analysis capabilities all three services share. 
 
     Azure Data Explorer:
-    - Enables querying data in Azure Monitor, Microsoft Sentinel, and other services that are built on top of Data Explorer clusters.
+    - Enables querying data in Azure Monitor, Microsoft Sentinel, and other services that use KQL.
     - Provides connectors for various types of IT and non-IT data – for example, business, user, and geospatial data.
     - Supports the full set of KQL capabilities, some of which aren't required or supported for IT and security monitoring. 
     - Automatically scales horizontally as data volumes increase. 
@@ -28,12 +28,11 @@ Platform as a Service (PaaS) and Software as a Service (SaaS) offerings provide 
 An architecture built on the features and flexibility of provided by the three services gives you:
 
 - A broad range of data ingestion options that span various types of data and data sources.
--	A powerful set of native monitoring, security, and analytics features and capabilities.
--	The ability to query all three services from Azure Data Explorer. This lets you create a single-pane-of-glass view of your data by:
-    -	Querying IT monitoring and non-IT data.
-    -	Apply machine learning on a broad data set to discover patterns, anomaly detection, forecasting, and to gain other advanced insights. 
-    -	Creating workbooks and reports that let you monitor, correlate, and act on various types of data.  
--	The flexibility to overcome Azure Monitor and Microsoft Sentinel service limits when you require exceptionally large and complex queries by querying from Azure Data Explorer – for instance, for annual audits and to analyze yearly trends. 
+- A powerful set of native monitoring, security, and analytics features and capabilities.
+- The ability to use cross-service queries to create a single-pane-of-glass view of your data by:
+    - Querying IT monitoring and non-IT data.
+    - Applying machine learning on a broad data set to discover patterns, anomaly detection, forecasting, and to gain other advanced insights. 
+    - Creating workbooks and reports that let you monitor, correlate, and act on various types of data.  
 
 ### Dataflow
 
