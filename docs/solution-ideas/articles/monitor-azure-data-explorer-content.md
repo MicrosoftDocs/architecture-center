@@ -60,7 +60,7 @@ An architecture built on the features and flexibility of provided by the three s
 
 Principal author:
 
- * [Ornat Spodek](https://www.linkedin.com/in/ornat-s-89123544) | Senior Content Manager
+ * [Guy Wild](https://www.linkedin.com/in/guy-wild-596aa91a2) | Senior Content Developer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
