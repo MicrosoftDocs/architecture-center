@@ -2,7 +2,7 @@
 
 Azure Monitor, Microsoft Sentinel, and Azure Data Explorer are based on a common technology that enables analyzing large volumes of data streamed in from multiple sources in near-real time using Kusto Query Language (KQL).
 
-This solution demonstrates how to used Azure Monitor, Microsoft Sentinel, and Azure Data Explorer as a consolidated data estate and augment your monitoring and analytics capabilities.
+This solution demonstrates how to used Azure Monitor, Microsoft Sentinel, and Azure Data Explorer to create a consolidated data estate and augment your monitoring and analytics capabilities.
 
 ## Architecture
 
@@ -46,13 +46,11 @@ An architecture built on the features and flexibility of provided by the three s
 1. Store IT and application logs and metrics in Log Analytics workspaces for ongoing operational and security monitoring by Azure Monitor and Microsoft Sentinel. Store non-IT data in Azure Data Explorer.
 1. Use Azure Monitor for monitoring the performance, availability, and health of applications, services, and IT resources to gain insights into the operational status of your cloud infrastructure, identify issues, and optimize performance.
 1. Use Azure Sentinel as a cloud-native Security Information and Event Management (SIEM) and Security Orchestration, Automation, and Response (SOAR) solution to analyze and act on security-related data across your IT environment.
-1. Use Azure Data Explorer to analyze other streamed data.
-1. Apply the flexibility of Azure Data Explorer to augment monitoring and analytics capabilities:
+1. Apply advanced machine learning on a broad data set of data to discover patterns, detect anomalies, forecast, and gain other insights.
+1. Leverage the tight integration between services to augment monitoring and analytics capabilities:
    
      - [Run cross-service queries from Azure Data Explorer](/azure/data-explorer/query-monitor-data) to analyze data from Microsoft Sentinel, Azure Monitor, and Azure Data Explorer in a single query without moving the data.
-     - Apply advanced machine learning on a broad data set to discover patterns, detect anomalies, forecast, and gain other insights. Azure Data Explorer is well integrated with ML services such as Azure Machine Learning and Azure Synapse Analytics. This integration allows you to build models using other tools and services and export ML models to Azure Data Explorer for scoring data.
-     - Consolidate a single-pane-of-glass view of your data estate with customized cross-service workbooks, dashboards, and reports.
-     - Overcome Azure Monitor and Microsoft Sentinel service limits when you require exceptionally large and complex queries. 
+     - Consolidate a single-pane-of-glass view of your data estate with customized cross-service workbooks, dashboards, and reports.     
 1. You can also continuously export data to Azure Storage in compressed, partitioned parquet format and seamlessly query from Azure Data Explorer.
 
 
