@@ -2,7 +2,7 @@
 
 Azure Monitor, Microsoft Sentinel, and Azure Data Explorer are based on a common technology and use Kusto Query Language (KQL) to analyze large volumes of data streamed in from multiple sources in near-real time.
 
-This solution demonstrates how to used Azure Monitor, Microsoft Sentinel, and Azure Data Explorer to create a consolidated data estate and augment your monitoring and analytics capabilities.
+This solution demonstrates how to leverage the tight integration between Azure Monitor, Microsoft Sentinel, and Azure Data Explorer to create a consolidated data estate and augment your monitoring and analytics capabilities.
 
 ## Architecture
 
