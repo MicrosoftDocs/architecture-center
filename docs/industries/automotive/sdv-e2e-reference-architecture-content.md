@@ -168,7 +168,7 @@ Reliability ensures your application can meet the commitments you make to your c
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](https://learn.microsoft.com/azure/architecture/framework/security/overview).
 
 * Security is one of the most important aspects of any architecture and ensuring security in complex systems depends on understanding different contexts like business, social and technical. Consider adopting GitHub’s code scanning capabilities to find and fix security issues and critical defects earlier [GitHub enables the development of functional safety applications by adding support for coding standards AUTOSAR C++ and CERT C++](https://github.blog/2022-06-20-adding-support-for-coding-standards-autosar-c-and-cert-c/ ) in the development process. 
-* Consider adopting the following best practices to [Secure your end-to-end supply chain on GitHub](https://docs.github.com/en/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview). 
+* Consider adopting the following best practices to [Secure your end-to-end supply chain on GitHub](https://docs.github.com/en/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview).git
 
 ### Cost optimization
 
@@ -278,6 +278,7 @@ Principal authors:
 
 Other contributors:
 
+* [Frank Kaleck](https://www.linkedin.com/in/frank-kaleck) | Industry Advisor - Manufacturing, Mobility & Automotive
 * [Frederick Chong](https://www.linkedin.com/in/frederick-chong-5a00224) | Principal PM Manager, MCIGET SDV & Mobility
 * [Mehmet Kucukgoz](https://www.linkedin.com/in/mehmetkucukgoz/) | Principal PM Manager, Azure IoT Hub
 
