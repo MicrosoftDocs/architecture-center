@@ -294,7 +294,6 @@ Architecture guides:
 
 - [Extract, transform, and load (ETL)](../../data-guide/relational-data/etl.yml)
 - [Data warehousing](../../data-guide/relational-data/data-warehousing.yml)
-- [Batch processing](../../data-guide/big-data/batch-processing.yml)
 - [Choose a batch processing technology in Azure](../../data-guide/technology-choices/batch-processing.md)
 
 Reference architectures:

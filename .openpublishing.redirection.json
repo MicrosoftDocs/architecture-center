@@ -3699,6 +3699,11 @@
       "source_path": "docs/guide/design-principles/use-best-data-store.md",
       "redirect_url": "/azure/architecture/databases",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/big-data/batch-processing.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
     }
   ]
 }

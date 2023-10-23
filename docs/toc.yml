@@ -1561,8 +1561,8 @@ items:
         items:
         - name: Big data architectures
           href: data-guide/big-data/index.yml
-        - name: Batch processing
-          href: data-guide/big-data/batch-processing.yml
+        # - name: Batch processing
+        #   href: data-guide/big-data/batch-processing.yml
         - name: Real-time processing
           href: data-guide/big-data/real-time-processing.yml
         # - name: VantageCloud integration with Azure Data Factory

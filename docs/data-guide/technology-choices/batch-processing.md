@@ -131,4 +131,3 @@ Principal author:
 - [Choose an analytical data store in Azure](analytical-data-stores.md)
 - [Choose a data analytics technology in Azure](analysis-visualizations-reporting.md)
 - [Analytics end-to-end with Azure Synapse](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
-- [Batch processing](../big-data/batch-processing.yml)
