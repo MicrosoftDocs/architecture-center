@@ -18,6 +18,6 @@ products:
   - azure-expressroute
 name: Virtualization of Unisys ClearPath Forward OS 2200 Enterprise Server on Azure
 summary: Learn how to use virtualization technologies from Microsoft partner Unisys with an existing Unisys ClearPath Forward (CPF) Dorado Enterprise Server.
-thumbnailUrl: /azure/architecture/browse/thumbs/unisys-clearpath-forward-os-2200-mainframe-rehost-diagram-postmigration.png
+thumbnailUrl: /azure/architecture/browse/thumbs/unisys-clearpath-forward-OS-2200-mainframe-rehost-diagram-postmigration.png
 content: |
   [!include[](virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure-content.md)]

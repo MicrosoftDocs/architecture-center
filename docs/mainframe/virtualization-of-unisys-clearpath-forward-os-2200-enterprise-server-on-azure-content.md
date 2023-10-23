@@ -81,7 +81,7 @@ Unisys Stealth technology hides endpoints. Azure offers other security controls.
 
 ### Cost optimization
 
-Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/C:/azure/architecture/framework/cost/overview).
+Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 Unisys CPF in Azure eliminates hardware maintenance and facility costs upfront. Further savings derive from not having to retrain staff on how to operate or use the system. The virtualized computer runs as it did on the datacenter floor.
 
@@ -101,7 +101,7 @@ You can optimize your operational efficiency by deploying your solution with Azu
 
 ### Performance efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/C:/azure/architecture/framework/scalability/overview).
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
 Unisys matches operational performance in Azure with Developer Studio, Gold, and Platinum offerings to match client workload to operational needs. Developer Studio Gold and Platinum offerings quicken the generation of tasks including new code development, queries, report generation, and other tasks.
 
