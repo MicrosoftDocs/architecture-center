@@ -63,8 +63,8 @@ items:
       href: guide/design-principles/managed-services.md
     - name: Use an identity service
       href: guide/design-principles/identity.md
-    - name: Use the best data store
-      href: /azure/architecture/guide/design-principles/use-best-data-store
+    # - name: Use the best data store
+    #   href: /azure/architecture/guide/design-principles/use-best-data-store
     - name: Design for evolution
       href: guide/design-principles/design-for-evolution.md
     - name: Build for the needs of business
@@ -1601,8 +1601,8 @@ items:
         items:
         - name: Build a scalable system for massive data
           href: data-guide/scenarios/build-scalable-database-solutions-azure-services.md
-        - name: Use the best data store
-          href: guide/design-principles/use-best-data-store.md
+        # - name: Use the best data store
+        #   href: guide/design-principles/use-best-data-store.md
         # - name: Use the Transactional Outbox pattern
         #   href: best-practices/transactional-outbox-cosmos.yml
         - name: Transfer data to and from Azure

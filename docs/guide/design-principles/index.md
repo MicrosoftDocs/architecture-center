@@ -36,8 +36,6 @@ Follow these design principles to make your application more scalable, resilient
 
   * **[Use an identity service](identity.md)**. Use an identity as a service (IDaaS) platform instead of building or operating your own.
 
-* **[Use the best data store for the job](/azure/architecture/guide/design-principles/use-best-data-store)**. Pick the storage technology that is the best fit for your data and how it will be used.
-
 * **[Design for evolution](design-for-evolution.md)**. All successful applications change over time. An evolutionary design is key for continuous innovation.
 
 * **[Build for the needs of business](build-for-business.md)**. Every design decision must be justified by a business requirement.
