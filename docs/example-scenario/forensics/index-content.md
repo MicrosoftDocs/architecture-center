@@ -172,7 +172,7 @@ Investigators need access to evidence to perform analyses, and this access must 
 
 Provide investigators with a storage [shared access signatures (SAS) URI](/azure/storage/common/storage-sas-overview) key for accessing evidence. You can use an SAS URI to produce relevant log information when the SAS is generated. You can also get a copy of the evidence every time the SAS is used.
 
-You must explicitly place the IP addresses of investigators requiring access on an allow list in the Storage firewall.
+You must explicitly place the IP addresses of investigators requiring access on an allowlist in the Storage firewall.
 
 For example, if a legal team needs to transfer a preserved virtual hard drive (VHD), one of the two SOC team custodians generates a read-only SAS URI key that expires after eight hours. The SAS limits the access to the IP addresses of the investigators to a specific time frame.
 
