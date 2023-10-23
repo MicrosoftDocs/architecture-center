@@ -30,7 +30,7 @@ The cloud is changing the way applications are designed, including how data is p
 
 This guide is structured around two general categories of data solution, *traditional RDBMS workloads* and *big data solutions*.
 
-**Traditional RDBMS workloads**. These workloads include [online transaction processing (OLTP)](/azure/architecture/data-guide/relational-data/online-transaction-processing) and [online analytical processing (OLAP)](/azure/architecture/data-guide/relational-data/online-analytical-processing). Data in OLTP systems is typically relational data with a predefined schema and a set of constraints to maintain referential integrity. Often, data from multiple sources in the organization may be consolidated into a [data warehouse](/azure/architecture/data-guide/relational-data/data-warehousing), using an [ETL process](/azure/architecture/data-guide/relational-data/etl) to move and transform the source data.
+**Traditional RDBMS workloads**. These workloads include [online transaction processing (OLTP)](/azure/architecture/data-guide/relational-data/online-transaction-processing) and [online analytical processing (OLAP)](/azure/architecture/data-guide/relational-data/online-analytical-processing). Data in OLTP systems is typically relational data with a predefined schema and a set of constraints to maintain referential integrity. Often, data from multiple sources in the organization may be consolidated into a data warehouse, using an [ETL process](/azure/architecture/data-guide/relational-data/etl) to move and transform the source data.
 
 ![Traditional RDBMS workloads](./images/guide-rdbms.svg)
 
@@ -48,7 +48,6 @@ This guide is not intended to teach you data science or database theory &mdash; 
     * [Extract, transform, and load (ETL)](/azure/architecture/data-guide/relational-data/etl)
     * [Online analytical processing (OLAP)](/azure/architecture/data-guide/relational-data/online-analytical-processing)
     * [Online transaction processing (OLTP)](/azure/architecture/data-guide/relational-data/online-transaction-processing)
-    * [Data warehousing in Microsoft Azure](/azure/architecture/data-guide/relational-data/data-warehousing)
 * Non-relational data:
     * [Non-relational data and NoSQL](/azure/architecture/data-guide/big-data/non-relational-data)
     * [Processing free-form text for search](/azure/architecture/data-guide/scenarios/search)

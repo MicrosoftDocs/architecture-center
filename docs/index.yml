@@ -240,9 +240,6 @@ conceptualContent:
         - text: Online transaction processing (OLTP)
           itemType: concept
           url: ./data-guide/relational-data/online-transaction-processing.md
-        - text: Data warehousing in Microsoft Azure
-          itemType: concept
-          url: ./data-guide/relational-data/data-warehousing.yml
         - text: Data lakes
           itemType: get-started
           url: data-guide/scenarios/data-lake.md

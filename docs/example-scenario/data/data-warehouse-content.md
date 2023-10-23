@@ -118,5 +118,4 @@ Principal author:
 
 ## Related resources
 
-- [Data warehousing in Microsoft Azure](/azure/architecture/data-guide/relational-data/data-warehousing)
 - [Enterprise data warehouse](/azure/architecture/solution-ideas/articles/enterprise-data-warehouse)
