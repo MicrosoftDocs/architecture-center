@@ -243,9 +243,7 @@ conceptualContent:
         - text: Data lakes
           itemType: get-started
           url: data-guide/scenarios/data-lake.md
-        - text: Free-form text search
-          itemType: get-started
-          url: data-guide/scenarios/search.yml
+
         - text: Time series solutions 
           itemType: get-started
           url: data-guide/scenarios/time-series.yml

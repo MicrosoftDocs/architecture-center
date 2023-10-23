@@ -50,7 +50,6 @@ This guide is not intended to teach you data science or database theory &mdash; 
     * [Online transaction processing (OLTP)](/azure/architecture/data-guide/relational-data/online-transaction-processing)
 * Non-relational data:
     * [Non-relational data and NoSQL](/azure/architecture/data-guide/big-data/non-relational-data)
-    * [Processing free-form text for search](/azure/architecture/data-guide/scenarios/search)
     * [Time series data](/azure/architecture/data-guide/scenarios/time-series)
     * [Working with CSV and JSON files for data solutions](/azure/architecture/data-guide/scenarios/csv-and-json)
 * [Build a scalable system for massive data](/azure/architecture/data-guide/scenarios/build-scalable-database-solutions-azure-services)

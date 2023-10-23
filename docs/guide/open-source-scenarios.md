@@ -80,7 +80,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |[Microservices architecture on AKS](../reference-architectures/containers/aks-microservices/aks-microservices.yml)|Learn about the infrastructure and DevOps considerations of deploying and running a microservices architecture on AKS. In this architecture, you can use Elasticsearch for cluster monitoring.|Containers|
 |[Monitor a microservices app in AKS](../microservices/logging-monitoring.yml)|Learn best practices for monitoring a microservices application that runs on AKS, including using Elasticsearch.|Containers|
 |[Monitoring and diagnostics guidance](../best-practices/monitoring.yml)|Learn about storing instrumentation data by using technologies like Elasticsearch.|Management|
-|[Processing free-form text for search](../data-guide/scenarios/search.yml)|Learn how free-form text processing can support search by producing useful, actionable data from large amounts of text. Includes information about using Elasticsearch to create a search index.|Databases|
 
 ## GlusterFS
 
