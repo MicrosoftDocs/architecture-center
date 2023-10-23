@@ -3689,6 +3689,11 @@
       "source_path": "docs/solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.yml",
       "redirect_url": "/azure/architecture/databases",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/ops-automation-using-event-grid.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
     }
   ]
 }

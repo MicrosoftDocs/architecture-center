@@ -1866,8 +1866,8 @@ items:
         href: solution-ideas/articles/monitor-mining-equipment.yml
       # - name: Multi-region web app with Azure Cosmos DB
       #   href: solution-ideas/articles/multi-region-web-app-cosmos-db-replication.yml
-      - name: Ops automation using Event Grid
-        href: solution-ideas/articles/ops-automation-using-event-grid.yml
+      # - name: Ops automation using Event Grid
+      #   href: solution-ideas/articles/ops-automation-using-event-grid.yml
       # - name: Personalization using Azure Cosmos DB
       #   href: solution-ideas/articles/personalization-using-cosmos-db.yml
       # - name: Retail and e-commerce using MySQL
@@ -2047,8 +2047,8 @@ items:
         href: solution-ideas/articles/ingest-etl-stream-with-adb.yml
       - name: Mining equipment monitoring
         href: solution-ideas/articles/monitor-mining-equipment.yml
-      - name: Ops automation using Event Grid
-        href: solution-ideas/articles/ops-automation-using-event-grid.yml
+      # - name: Ops automation using Event Grid
+      #   href: solution-ideas/articles/ops-automation-using-event-grid.yml
       - name: Tier applications for analytics
         href: solution-ideas/articles/tiered-data-for-analytics.yml
   - name: Developer Options
