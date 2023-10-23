@@ -96,7 +96,7 @@ The represented stack has the following components:
 1. The **In-Vehicle Digital Twin Service** also publishes selected topics to the **Digital Twin Cloud Synchronization** service.
 1. The **Digital Twin Cloud Synchronization** can use a *cartographer* to map the topic names (using a *Digital Twin Mapping Service*) to the equivalent names on the cloud. This harmonization reduces the dependency between vehicle and cloud software and among vehicle models.
 1. The **cloud connector** publishes updates to the cloud and subscribes to receive state changes published by other services and applications
-1. The **Event Grid** service routes the messages to the relevant services and applications, such as *Azure Digital Twin*
+1. The **Event Grid** service routes the messages to the relevant services and applications. The state of the vehicle is stored using services such as **Azure Cache for Redis** to store the last known value for fast access and retrieval and **Azure Data Explorer** to provide short term vehicle state history and analytics.
 
 ## Components
 
@@ -120,13 +120,15 @@ This reference architecture references the following GitHub and Azure Components
 
 ## Alternatives
 
-**Compute for build & validation tools**: As a general recommendation, Azure Kubernetes Service is used to deploy tooling. However, alternative services include:
+The selection of the right type of Azure services chosen for a specific implementation of the architecture depends on a multitude of factors.
 
-* [Azure Batch](https://learn.microsoft.com/azure/batch/) for running large parallel jobs in the cloud, such as testing and validation tasks that run independently.
-* [Azure Container Instances](https://learn.microsoft.com/azure/container-instances/) when running containers on demand in a serverless Azure environment. This is adequate for scenarios where the development tooling can operate in an isolated container without orchestration.
+The Deploy this scenario section of the architecture uses Azure Kubernetes Service (AKS). This offers serverless Kubernetes for running microservices, an integrated continuous integration and continuous deployment (CI/CD) experience, and enterprise-grade security and governance. As an alternative, you can run microservices in Azure Container Instances, which offers a fastest and simplest way to run a container in Azure, without having to adopt a higher-level service, such as Azure Kubernetes Service (AKS)
 
-You can use a decision flow to [choose the right Azure Compute service](https://learn.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree).
+The Deploy this scenario section of the architecture suggestes the use of Event Hub and/or Service Bus for the implementation of uBus service. The [Choose between Azure messaging services](https://learn.microsoft.com/en-us/azure/service-bus-messaging/compare-messaging-services) article describes the differences between these services, and helps you understand which one to choose for your specific implementation. In many cases, the messaging services are complementary and can be used together.
 
+The applications and services referenced in this Architecure are deployed using Azure-native Azure Resource Manager templates (ARM templates) or Bicep. As an alternative consider using Terraform scripts for provisioning and managing cloud infrastructure.
+
+If you are considering alternatives for the Vehicle Messaging, Data & Analytics layer of the Architecture, please review the [Alternatives](https://learn.microsoft.com/en-us/azure/event-grid/mqtt-automotive-connectivity-and-data-solution#alternatives) section in the Automotive messaging, data & analytics reference architecture.
 
 ## Scenario details
 
@@ -150,7 +152,9 @@ This automotive reference architecture is designed to meet the demands of the ra
 
 ## Recommendations
 
-...
+The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
+
+When deploying and configuring Azure services, it's essential to follow best practices to ensure a secure, efficient, and cost-effective environment. Begin by defining your Azure resources, such as virtual machines,  kubernetes clusters, messaging services and data and analytics services according to your implementation specific requirements. Leverage Azure Resource Manager templates for Infrastructure as Code (IaC) to automate deployment and maintain consistency. Implement role-based access control (RBAC) to grant permissions to users and services on a least-privilege basis. Utilize Azure Security Center to monitor and mitigate security threats proactively. For scalability and redundancy, consider using Azure Load Balancers and Azure Availability Sets or Zones. Additionally, regularly monitor your Azure resources' performance and usage to optimize costs and enhance performance, using tools like Azure Monitor and Microsoft Cost Management. Following these deployment and configuration recommendations will help you effectively manage your Azure environment.
 
 ## Considerations
 
@@ -193,7 +197,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
 * Consider what tasks can be parallelized as part of your build / test pipelines.
-* Consider implementing [Performance efficiency patterns](https://learn.microsoft.com/en-us/azure/well-architected/scalability/performance-efficiency-patterns ) for performant applications and workloads based on the Distributed Communication Protocol example. 
+* Consider implementing [Performance efficiency patterns](https://learn.microsoft.com/en-us/azure/well-architected/scalability/performance-efficiency-patterns ) for performant applications and workloads based on the Distributed Communication Protocol example.
 
 ## Deploy this scenario
 
@@ -211,7 +215,7 @@ The following components are part of the *uProtocol*:
 
 :::image type="content" source="images/sdv-e2e-ref-architecture-uProtocol-on-Azure.svg" alt-text="Distributed Communication Protocol uProtocol on Azure" lightbox="images/sdv-e2e-ref-architecture-uProtocol-on-Azure.svg":::
 
-* The vehicle sends messages with the **cloud connector** using the *uProtocol* definition over MQTT.
+* The vehicle sends messages with the **cloud connector** using the *uProtocol* definition over MQTT to the **Event Grid** service.
 * **uEs** are applications and services that provide functionality to end users. These apps use the Core UEs for discovery, subscription and access to the digital twin.
 * The **Cloud Gateway** is the cloud service that devices connect with to communicate with the Back-office domain/device.
 * The **uStreamer** is an event dispatcher that enables seamless communication between *uEs* on different devices whom might talk different transport layer protocols. It performs functionality such as file transfer, event buffering and more. For example, when events need to move from one transport to the next it flows through the streamer. It can be equated to an IP router.
@@ -243,11 +247,10 @@ The following suggested services are relevant to a *uProtocol* implementation on
 
 1. The **Factory System** commissions the vehicle device to the desired construction state. Commissioning includes firmware & software initial installation and configuration. As part of this process, the factory system obtains and writes the device *certificate*, created from the **Public Key Infrastructure** provider.
 1. The **Factory System** registers the vehicle & device using the *Vehicle & Device Provisioning API*.
-1. The *device registration* application registers the device identity in **Device Provisioning Services**.
-1. The Device Provisioning Service registers the device identity in **Azure Device Registry**.
+1. The *device registration* application registers the device identity in **Device Provisioning / Device Registry**.
 1. The information about authentication and authorization is stored in **Azure Active Directory**.
-1. The Factory system triggers the **device provisioning client** to connect to the **Device Provisioning Service**. The device retrieves connection information to the assigned **Event Grid** *MQTT Broker*.
-1. The factory system triggers the device to establish a connection to the **Event Grid** *MQTT Data Broker* for the first time.
+1. The Factory system triggers the **device provisioning client** to connect to the **Device Provisioning Service**. The device retrieves connection information to the assigned *MQTT Broker* feature in **Event Grid**.
+1. The factory system triggers the device to establish a connection to the  *MQTT broker* feature in **Event Grid** for the first time.
     1. **Event Grid** authenticates the device using the *CA Root Certificate* and extracts the client information.
 1. **Event Grid** manages authorization for allowed topics using the device information stored in **Active Directory**.
 1. The OEM **Dealer System** triggers the registration of a new device if a part replacement is required.
@@ -269,12 +272,12 @@ The following architecture describes an Automotive Software Stack based on Eclip
 
 Principal authors:
 
-* [Ashita Rastogi](https://www.linkedin.com/in/ashitarastogi/) | Principal Program Manager, Azure Messaging
-* [Boris Scholl](https://www.linkedin.com/in/bscholl/) | General Manager, Partner Architect - Azure Cloud & AI
+* [Mario Ortegon Cabrera](http://www.linkedin.com/in/marioortegon) | Principal Program Manager, MCI SDV & Mobility
 * [Daniel Lueddecke](https://www.linkedin.com/in/daniellueddecke/) | Cloud Solution Architect, Automotive
 * [Filipe Prezado](https://www.linkedin.com/in/filipe-prezado-9606bb14) | Principal Program Manager, MCI SDV & Mobility
-* [Mario Ortegon Cabrera](http://www.linkedin.com/in/marioortegon) | Principal Program Manager, MCI SDV & Mobility
 * [Sandeep Pujar](https://www.linkedin.com/in/spujar/) | Principal PM Manager, Azure Messaging
+* [Ashita Rastogi](https://www.linkedin.com/in/ashitarastogi/) | Principal Program Manager, Azure Messaging
+* [Boris Scholl](https://www.linkedin.com/in/bscholl/) | General Manager, Partner Architect - Azure Cloud & AI
 
 Other contributors:
 
