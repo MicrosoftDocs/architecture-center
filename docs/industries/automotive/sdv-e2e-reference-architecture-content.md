@@ -53,7 +53,7 @@ The following flow describes how an automotive software developer belonging to t
 
 *Contoso Automotive* is adding a new automotive High Performance Compute Unit (HPC) to the upcoming vehicle model and must onboard a new development team to develop containerized applications. The hardware for the vehicle isn't yet available, but compressed timelines mean that the software functionality must be developed and validated in parallel.
 
-1. The automotive developer requests a **Microsoft Dev Box**. The dev box is preconfigured with all required development tools (such as Visual Studio Code and Android Studio) and all required extensions to work with the *Contoso Automotive* applications.
+1. The automotive developer requests a **Microsoft Dev Box**. The dev box is preconfigured with all required development tools (such as Visual Studio Code and Android Studio) and all required extensions (such as GitHub Copilot) to work with the *Contoso Automotive* applications.
 1. The automotive developer performs a check-out of the automotive **application code and metadata** that describes the upcoming vehicle configuration, the included HPCs and electronic control units (ECU), and the required deployment to perform software-in-the-loop (SiL) validation.
 1. The automotive developer uses the **metadata extensions** to make configuration adjustments, such as changing the characteristics of the HPC based on new information from the engineering team.
 1. Changing the configuration triggers the **metadata processing extension** that performs metadata validation, generates all required artifacts and configures an execution environment deployment campaign.
