@@ -30,7 +30,7 @@ This reference focuses on a general *SDV Toolchain* and *Automotive Software Sta
 
 *Microsoft is a member of the [Eclipse Software Defined Vehicle](https://www.eclipse.org/org/workinggroups/sdv-charter.php) working group, a forum for open collaboration using open source for vehicle software platforms.*
 
-### Components and Workflow of the Automotive SDV Toolchain
+### Workflow
 
 This chapter explains which components compose the Automotive SDV Toolchain. It also describes the typical workflow for a developer to define, orchestrate and execute virtual tests for automotive software.
 
@@ -41,6 +41,8 @@ The Automotive SDV Toolchain is composed by the following three key blocks:
 * **Development, Validation and Integration** – a combination of metadata and orchestration services that allow developers to configure, build, deploy and orchestrate on-demand virtual execution environments to streamline the development and testing process, integrating with existing toolchains and supporting multiple application formats, binaries, operating systems and runtime environments.
 
 * **Execution Environment** – the set of Azure services: Azure Deployment Environments, Azure Compute Gallery, Azure Container Registry, Azure Arc, Azure Compute like Arm64-based Azure Virtual Machines and High Performance Computing and Azure Networking Services and Connectivity Services like ExpressRoute that enable reliable, repeatable and observable cloud and edge environments to build, test and validate automotive software stacks.
+
+### Deploying Virtual ECUs
 
 :::image type="content" source="images/sdv-e2e-ref-architecture-automotive-sdv-toolchain.svg" alt-text="Components and Workflow of the Automotive SDV Toolchain" lightbox="images/sdv-e2e-ref-architecture-automotive-sdv-toolchain.svg":::
 
@@ -117,7 +119,15 @@ This reference architecture references the following GitHub and Azure Components
 * [Azure Networking Services](https://learn.microsoft.com/azure/networking/fundamentals/networking-overview) provides global, secure and reliable networking services. Automotive software stacks require data processing pipelines for developing and testing autonomous and assisted driving solutions. Development tools also need to Hardware in the Loop farms. The networking services in Azure provide various networking capabilities like connectivity services, application protection services, application delivery services and networking monitoring that can be used together or separately.
 
 ## Alternatives
-...
+
+**Compute for build & validation tools**: As a general recommendation, Azure Kubernetes Service is used to deploy tooling. However, alternative services include:
+
+* [Azure Batch](https://learn.microsoft.com/azure/batch/) for running large parallel jobs in the cloud, such as testing and validation tasks that run independently.
+* [Azure Container Instances](https://learn.microsoft.com/azure/container-instances/) when running containers on demand in a serverless Azure environment. This is adequate for scenarios where the development tooling can operate in an isolated container without orchestration.
+
+You can use a decision flow to [choose the right Azure Compute service](https://learn.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree).
+
+
 ## Scenario details
 
 Autonomous and connected SDVs open a whole new world of functionality, serviceability, and reliability. With hardware and software decoupled, OEMs can now develop independent applications to address specific functions and services, making it much easier to update or add software to the overall vehicle platform. As a result, automobile makers and their suppliers are forced to adjust their automotive operations to enable agile software development cycles, which are more flexible and adaptable to shorter development cycles, frequent releases, and focus on collaboration and continuous improvement.
@@ -168,6 +178,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 * For build, validation and testing tasks that aren't time critical, consider the usage of [Azure Spot Virtual Machines](https://learn.microsoft.com/azure/virtual-machines/spot-vms). These machines allow you to take advantage of unused capacity with significant cost savings.
 * If you have a [Microsoft Azure Consumption Commitment](https://learn.microsoft.com/azure/cost-management-billing/manage/track-consumption-commitment), consider using [eligible partner offerings](https://learn.microsoft.com/marketplace/azure-consumption-commitment-benefit#determine-which-offers-are-eligible-for-azure-consumption-commitments-maccctc) in the Azure Marketplace when deploying development tools and virtual ECUs in the execution environment.
 * Refer to the [Autonomous Vehicle Operations](https://learn.microsoft.com/azure/architecture/solution-ideas/articles/avops-architecture#cost-optimization) cost optimization section for more tips when running autonomous vehicle development workloads.
+* GitHub Copilot can significantly speed up the software development process by providing real-time code suggestions and auto-completions. Automotive software engineers can write code faster and more efficiently, reducing time-to-market for new vehicle features and updates.
 
 ### Operational excellence
 
@@ -175,6 +186,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 * The Automotive Software Defined Vehicle (SDV) Toolchain embraces key software engineering disciplines like infrastructure as code environment provisioning, continuous integration and continuous delivery (CI/CD) pipelines for automotive software stacks build and release, automated testing to transition to a shift-left approach and configuration as code to avoid environments configuration drift. Consider adopting the above key principles across all your workloads for consistency, repetition and early detection of issues. 
 * Consider Azure Arc enabled infrastructure to simplify governance and management across Azure cloud, on-premises environments and Hardware-in-the-Loop testing and validation farms.
+* GitHub Copilot's AI-powered assistance can enhance the overall code quality by reducing the likelihood of human errors and standardizing coding practices. This is crucial in the automotive industry where software safety and reliability are paramount.
 
 ### Performance efficiency
 
@@ -274,6 +286,7 @@ Other contributors:
 ## Next steps
 
 * [GitHub enables the development of functional safety applications by adding support for coding standards AUTOSAR C++ and CERT C++](https://github.blog/2022-06-20-adding-support-for-coding-standards-autosar-c-and-cert-c/)
+* [Getting started with GitHub Copilot](https://docs.github.com/copilot/getting-started-with-github-copilot)
 
 ## Related resources
 
