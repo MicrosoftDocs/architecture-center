@@ -51,8 +51,6 @@ An architecture built on the features and flexibility provided by the three serv
    
      - [Run cross-service queries](/azure/data-explorer/query-monitor-data) to analyze data from Microsoft Sentinel, Azure Monitor, and Azure Data Explorer in a single query without moving the data.
      - Consolidate a single-pane-of-glass view of your data estate with customized cross-service workbooks, dashboards, and reports.     
-1. You can also continuously export data to Azure Storage in compressed, partitioned parquet format and seamlessly query from Azure Data Explorer.
-
 
 ## Contributors
 
