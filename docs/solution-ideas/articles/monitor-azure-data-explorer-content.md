@@ -40,7 +40,7 @@ An architecture built on the features and flexibility provided by the three serv
 
     - Configure diagnostic settings to ingest data from Azure services such as Azure Kubernetes Service (AKS), Azure App Service, Azure SQL Database, and Azure Storage.
     - Use Azure Monitor Agent to ingest data from VMs, containers, and workloads.
-    - Use a wide range of connectors, agents, and APIs supported by the three services - such as Logstash, Kafka, and Logstash connectors, OpenTelemetry agents, and Azure Monitor Log Ingestion API - to ingest data from on-premises resources and other clouds.
+    - Use a wide range of connectors, agents, and APIs supported by the three services - such as Logstash, Kafka, and Logstash connectors, OpenTelemetry agents, Azure Data Explorer APIs, and Azure Monitor Log Ingestion API - to ingest data from on-premises resources and other clouds.
     - Stream in data using Azure data streaming services, such as Azure IoT Hub, Azure Event Hubs, Azure Stream Analytics. 
 
 1. Store IT and application logs and metrics in Log Analytics workspaces for ongoing operational and security monitoring by Azure Monitor and Microsoft Sentinel. Store non-IT data in Azure Data Explorer.
