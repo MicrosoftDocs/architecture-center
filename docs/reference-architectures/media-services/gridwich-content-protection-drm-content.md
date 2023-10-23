@@ -143,8 +143,6 @@ After the update, make sure to delete and purge any copies of source certificate
 
 The following sections describe how to configure the DRM settings that Gridwich uses to create and update the content key policy. The variables to update are in the Gridwich Azure Pipelines **Library** > **Variable groups** > **gridwich-cicd-variables.global** variable group.
 
-For instructions on setting up the Azure DevOps project, pipelines, and variable groups, see [Gridwich Azure DevOps setup](set-up-azure-devops.yml).
-
 ### OpenID Connect Discovery Document endpoint
 
 Azure Media Services uses the OpenID Connect Discovery Document endpoint URL that exposes the public signature keys to verify the JSON tokens.

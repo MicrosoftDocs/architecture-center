@@ -19,7 +19,7 @@ azureCategories:
 summary: Use Microsoft Sentinel playbook to generate automated responses and deliver intelligent security analytics for enterprises.
 products:
   - microsoft-sentinel
-  - azure-active-directory
+  - entra-id
   - azure-logic-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/microsoft-sentinel-automated-response-architecture.png
 content: |

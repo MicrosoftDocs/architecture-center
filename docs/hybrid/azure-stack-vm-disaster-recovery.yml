@@ -21,7 +21,7 @@ azureCategories:
   - management-and-governance
 summary: This solution delivers an optimized approach to disaster recovery of virtual machine (VM)-based user workloads hosted on Azure Stack Hub.
 products:
-  - azure-active-directory
+  - entra-id
   - azure-site-recovery
   - azure-stack
   - azure-stack-hub

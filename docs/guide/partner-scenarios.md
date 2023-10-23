@@ -11,7 +11,7 @@ products:
   - azure-kubernetes-service
   - azure-netapp-files
   - azure-virtual-machines
-  - azure-active-directory
+  - entra-id
   - azure-virtual-desktop
 categories:
   - databases

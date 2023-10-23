@@ -206,7 +206,6 @@ The Gridwich system embodies best practices for processing and delivering media 
 
 ## Deploy this scenario
 
-- [Set up Azure DevOps](set-up-azure-devops.yml) Gridwich project, repo, pipelines, and variable groups.
 - [Run the admin scripts](run-admin-scripts.yml) for Azure permissions.
 - [Set up a local development environment](set-up-local-environment.yml).
 
