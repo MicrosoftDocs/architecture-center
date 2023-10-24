@@ -135,6 +135,4 @@ Principal author:
 
 ## Related resources
 
--   [Azure data architecture guide](../../data-guide/index.md)
-
 -   [Azure data platform end-to-end](../dataplate2e/data-platform-end-to-end.yml)

@@ -156,5 +156,4 @@ You can start a 7-day trial of CluedIn on their [website](https://www.cluedin.co
 
 ## Related resources
 
-- For an overview of Azure data architecture, see the [Azure Data Architecture Guide](../../data-guide/index.md).
 - For an example end-to-end Azure data platform, see [Azure data platform end-to-end](../../example-scenario/dataplate2e/data-platform-end-to-end.yml).

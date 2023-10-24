@@ -62,5 +62,4 @@ Organizations utilize ERP to assist with:
 
 ## Related resources
 
-- [Azure Data Architecture Guide](../../data-guide/index.md)
 - [Azure Cosmos DB resource model](/azure/cosmos-db/account-databases-containers-items)

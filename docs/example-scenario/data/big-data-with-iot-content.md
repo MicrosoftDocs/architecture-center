@@ -88,10 +88,6 @@ Principal author:
 
 * [Alex Buck](https://www.linkedin.com/in/alex-buck-0161575) | Senior Content Developer
 
-## Next Steps
-
-Guidance for big data architectures is available in the [Azure Data Architecture Guide](../../data-guide/index.md).
-
 ## Related resources
 
 Additional IoT architectures:

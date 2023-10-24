@@ -244,9 +244,9 @@ conceptualContent:
           itemType: get-started
           url: data-guide/scenarios/data-lake.md
       # footerLink (optional)
-      footerLink:
-        url: ./data-guide/index.md
-        text: See more
+      # footerLink:
+      #   url: ./data-guide/index.md
+      #   text: See more
 
     - title: DevOps
       links:
