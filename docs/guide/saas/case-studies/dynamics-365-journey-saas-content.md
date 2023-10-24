@@ -18,7 +18,7 @@ Understanding data classification and retention policies for the data managed by
 
 ## How we prepared for the journey
 
-### Scoping an MVP
+### Scope an MVP
 
 Our strategy was to focus on building a minimum viable product, or MVP, so that we could get the solution to customers as quickly as possible and begin learning about the unique challenges and opportunities of SaaS. This focus was a strategic choice. We believe that rapid learning and iteration is essential in the cloud, and defining the MVP is a place to start.
 
@@ -121,7 +121,7 @@ To apply this mindset to your own solution, there are some important practices t
 
 The [Azure Well-Architected Framework's reliability pillar](/azure/architecture/framework/resiliency) provides great guidance on these topics.
 
-### Adapting to a cloud environment
+### Adapt to a cloud environment
 
 Dynamics 365 has evolved into a sophisticated cloud-native architecture, but it's common for ISVs to make more limited *lift and shift* transitions from on-premises environments into the cloud. We discussed the model of [defining a minimum viable product](#scoping-an-mvp) to get your SaaS service into customers' hands quickly, which begins the cycle of learning and continuous improvement. But there's a balance, of course. *Lift and shift* should really be *Lift, shift, and adapt*.
 
@@ -131,7 +131,7 @@ It's important to think about the things that you *need* to do as part of a clou
 
 The cloud can also make entirely new solutions practical that weren’t an option in an on-premises environment. One of the most performance intensive processes in an ERP system is manufacturing resource planning, or *MRP II*. MRP II looks at inventory on hand, the expected incoming and outgoing orders, and manufacturing requirements. Then it determines what a business must buy or make so that they can satisfy their expected orders. In the on-premises Dynamics, this functionality was implemented in application code that worked directly against the relational store. The planning function consumed a lot of system capacity and ran for an extended time. In the first cloud versions, the on-premises functionality was brought forward unchanged&mdash;it worked, but with the same scale and performance challenges. Then, a few years ago, we introduced a new in-memory microservice that could complete the same planning run in a fraction of the time and without the performance impact. Importantly, because the microservice is a critical core of a manufacturing system, it was introduced as a capability that customers could opt in to after verifying in their sandbox environments that it produced the correct results. As more customers pivoted to the new microservice, we triggered efforts to get every customer to use the microservice so that the old capability could be deprecated. With MRP II becoming something that could be run in minutes at any time, organizations could be nimbler. The cloud made creating and connecting an in-memory microservice practical, and good SaaS engineering principles allowed even this most critical part of the service to evolve without disrupting customers.
 
-### Migrating existing customers to the cloud
+### Migrate existing customers to the cloud
 
 Migration of an existing customer base can be the fastest way to grow a cloud service to scale. However, when we brought Dynamics 365 to the cloud, we focused initially on new customers. There were two key reasons:
 
@@ -144,7 +144,7 @@ We found that customers are often afraid of the cost and complexity of the move.
 
 Moving to the cloud alone benefits customers by removing much of the systems management burden they face with on-premises products, but highlighting the benefits of your cloud version is an important motivator, too.
 
-## Operating Dynamics 365 as SaaS
+## Operate Dynamics 365 as SaaS
 
 After you've defined an MVP and done the engineering to lift, shift and adapt, you need to focus on operating the SaaS service on behalf of your customers. This is an enormous transformation. In the on-premises world, software providers create and ship the software, system integrators deploy it, and the customer’s IT organization or outsourced provider runs it. With SaaS, not only is the SaaS provider principally responsible for operating the service, but they're also responsible for operating it for hundreds to thousands of customers at the same time.
 
