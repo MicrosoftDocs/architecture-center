@@ -193,7 +193,7 @@ The [Azure landing zones Terraform module](https://registry.terraform.io/modules
 
 ![GitHub logo](../../_images/github.png) Information on customizing the modules is available in the GitHub repo wiki [GitHub: Azure landing zones Terraform module - Wiki](https://github.com/Azure/terraform-azurerm-caf-enterprise-scale/wiki). You can use it as a starting point and configure it as per your needs.
 
-Additionally, you can leverage from [ALZ Terraform Accelerator](aka.ms/alz/tf/accelerator "ALZ Terraform Accelerator") that is designed to be used as a template to enable you to get started quickly deploying ALZ with Terraform. This repository provides an supporting implementation of the Azure Landing Zones Terraform module, with Azure DevOps pipelines and GitHub actions workflows.
+To quickly get started deploying ALZ with Terraform you can leverage the [ALZ Terraform Accelerator](aka.ms/alz/tf/accelerator "ALZ Terraform Accelerator") that is designed to be used as a template. This repository provides a supporting implementation of the Azure Landing Zones Terraform module, with Azure DevOps pipelines and GitHub actions workflows.
 
 ## ALZ Terraform Accelerator
 
