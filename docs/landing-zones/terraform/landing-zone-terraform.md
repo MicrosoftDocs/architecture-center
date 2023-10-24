@@ -192,3 +192,5 @@ The [Azure landing zone implementations](/azure/cloud-adoption-framework/ready/l
 The [Azure landing zones Terraform module](https://registry.terraform.io/modules/Azure/caf-enterprise-scale/azurerm/latest) can be used as the basis of your customized deployment. It provides you a way to accelerate your implementation by removing the need to start from scratch because of a specific required change that rules a ready-made option out.
 
 ![GitHub logo](../../_images/github.png) Information on customizing the modules is available in the GitHub repo wiki [GitHub: Azure landing zones Terraform module - Wiki](https://github.com/Azure/terraform-azurerm-caf-enterprise-scale/wiki). You can use it as a starting point and configure it as per your needs.
+
+Additionally, you can leverage from [ALZ Bicep Accelerator](aka.ms/alz/bicep/accelerator "ALZ Bicep Accelerator") where you will find prescriptive guidance around implementing, automating, and maintaining your ALZ Bicep module with the ALZ Bicep Accelerator. 
