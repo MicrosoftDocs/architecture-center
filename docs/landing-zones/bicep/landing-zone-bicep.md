@@ -98,6 +98,6 @@ The [Bicep Azure landing zone implementation](https://github.com/Azure/ALZ-Bicep
 
 ## ALZ Bicep Accelerator
 
-Additionally, you can leverage from [ALZ Bicep Accelerator](aka.ms/alz/bicep/accelerator "ALZ Bicep Accelerator") where you will find step by step guidance around implementing, automating, and maintaining your ALZ Bicep module with the ALZ Bicep Accelerator.
+You can find step by step guidance around implementing, automating, and maintaining your ALZ Bicep module with the ALZ Bicep Accelerator [here](aka.ms/alz/bicep/accelerator "ALZ Bicep Accelerator").
 
 The ALZ Bicep Accelerator framework was developed to provide end-users support to onboarding and deployment of ALZ Bicep using full-fledged CI/CD pipelines, support for GitHub Actions and Azure DevOps Pipelines, dedicated Framework to stay in-sync with new ALZ Bicep releases and modify or add custom modules, and provides branching strategy guidance and pull request pipelines for linting and validating Bicep modules.
