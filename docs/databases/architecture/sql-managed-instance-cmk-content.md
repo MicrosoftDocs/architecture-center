@@ -135,5 +135,4 @@ Principal author:
 
 ## Related resources
 
-- [Secure data solutions](/azure/architecture/data-guide/scenarios/securing-data-solutions)
 - [High availability for Azure SQL Database and SQL Managed Instance](/azure/azure-sql/database/high-availability-sla)

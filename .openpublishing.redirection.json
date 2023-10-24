@@ -3729,6 +3729,11 @@
       "source_path": "docs/data-guide/scenarios/interactive-data-exploration.yml",
       "redirect_url": "/azure/architecture/databases",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/scenarios/securing-data-solutions.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
     }
   ]
 }

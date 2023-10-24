@@ -1609,8 +1609,8 @@ items:
           href: data-guide/scenarios/data-transfer.md
         # - name: Extend on-premises data solutions to Azure
         #   href: data-guide/scenarios/hybrid-on-premises-and-cloud.md
-        - name: Secure data solutions
-          href: data-guide/scenarios/securing-data-solutions.md
+        # - name: Secure data solutions
+        #   href: data-guide/scenarios/securing-data-solutions.md
         - name: Database security checklist
           href: /azure/security/fundamentals/database-security-checklist
           maintainContext: true
