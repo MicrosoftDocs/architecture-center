@@ -40,7 +40,7 @@ A complete data lake solution consists of both storage and processing. Data lake
 
 ## When to use a data lake
 
-Typical uses for a data lake include [data exploration](./interactive-data-exploration.md), data analytics, and machine learning.
+Typical uses for a data lake include data exploration, data analytics, and machine learning.
 
 A data lake can also act as the data source for a data warehouse. With this approach, the raw data is ingested into the data lake and then transformed into a structured queryable format. Typically this transformation uses an [ELT](../relational-data/etl.yml#extract-load-and-transform-elt) (extract-load-transform) pipeline, where the data is ingested and transformed in place. Source data that is already relational may go directly into the data warehouse, using an ETL process, skipping the data lake.
 
