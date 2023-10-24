@@ -49,6 +49,7 @@ A primary advantage of the cloud is elastic scaling &mdash; the ability to use a
 ## Related resources
 
 - [Autoscaling](/azure/architecture/best-practices/auto-scaling)
+- [Asynchronous messaging patterns](/dotnet/architecture/microservices/architect-microservice-container-applications/asynchronous-message-based-communication)
 - [Background jobs](/azure/architecture/best-practices/background-jobs)
 - [Pipes and Filters pattern](/azure/architecture/patterns/pipes-and-filters)
 
