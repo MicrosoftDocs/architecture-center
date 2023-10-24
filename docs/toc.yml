@@ -1643,8 +1643,8 @@ items:
           maintainContext: true
       - name: Tenancy models for SaaS apps
         items:
-        - name: Overview
-          href: isv/application-tenancy.yml
+        # - name: Overview
+        #   href: isv/application-tenancy.yml
         - name: Multitenant SaaS database patterns
           href: /azure/azure-sql/database/saas-tenancy-app-design-patterns
           maintainContext: true
