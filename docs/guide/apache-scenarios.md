@@ -83,7 +83,6 @@ This article provides a summary of architectures and solutions that use Azure to
 |[Choose an analytical data store](../data-guide/technology-choices/analytical-data-stores.md)|Learn about using HBase for random access and strong consistency for large amounts of unstructured and semi-structured data.| Analytics|
 |[Data partitioning guidance](../best-practices/data-partitioning.yml)|View guidance for separating data partitions so they can be managed and accessed separately. Understand horizontal, vertical, and functional partitioning strategies. HBase is ideally suited to vertical partitioning.| Databases|
 |[Non-relational data and NoSQL](../data-guide/big-data/non-relational-data.yml)|Learn about non-relational databases that store data as key-value pairs, graphs, time series, objects, and other storage models, based on data requirements. HBase can be used for columnar and time series data. | Databases|
-|[Time series data](../data-guide/scenarios/time-series.yml)|Analyze time series data like sensor data, stock prices, clickstream data, or app telemetry for historical trends, real-time alerts, or predictive modeling. In this solution, you can use HBase to store processed data.| Databases|
 
 ## Apache Hive
 
@@ -138,7 +137,6 @@ This article provides a summary of architectures and solutions that use Azure to
 |[Refactor mainframe applications with Advanced](../example-scenario/mainframe/refactor-mainframe-applications-advanced.yml)|Learn how to use the automated COBOL refactoring solution from Advanced to modernize your mainframe COBOL applications, run them on Azure, and reduce costs. Kafka can be used as a data source.|Mainframe|
 |[Scalable order processing](../example-scenario/data/ecommerce-order-processing.yml)|Learn about a highly scalable, resilient architecture for e-commerce order processing. Event messages enter the system via Kafka and other systems.|Databases|
 |[Stream processing with fully managed open-source data engines](../example-scenario/data/open-source-data-engine-stream-processing.yml)|Stream events by using fully managed Azure data services. Use open-source technologies like Kafka, Kubernetes, Cassandra, PostgreSQL, and Redis components.|Analytics|
-|[Time series data](../data-guide/scenarios/time-series.yml)|Analyze time series data like sensor data, stock prices, clickstream data, or app telemetry for historical trends, real-time alerts, or predictive modeling. Kafka for HDInsight can be used for data ingestion.|Databases|
 
 ## Apache MapReduce
 

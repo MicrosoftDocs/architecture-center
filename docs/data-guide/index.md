@@ -34,7 +34,7 @@ This guide is structured around two general categories of data solution, *tradit
 
 ![Traditional RDBMS workloads](./images/guide-rdbms.svg)
 
-**Big data solutions**. A [big data architecture](/azure/architecture/data-guide/big-data/) is designed to handle the ingestion, processing, and analysis of data that is too large or complex for traditional database systems. The data may be processed in batch or in real time. Big data solutions typically involve a large amount of [non-relational data](/azure/architecture/data-guide/big-data/non-relational-data), such as key-value data, [JSON documents](/azure/architecture/data-guide/scenarios/csv-and-json), or [time series data](/azure/architecture/data-guide/scenarios/time-series). Often traditional RDBMS systems are not well-suited to store this type of data. The term *NoSQL* refers to a family of databases designed to hold non-relational data. The term isn't quite accurate, because many non-relational data stores support SQL compatible queries. The term *NoSQL* stands for "Not only SQL".
+**Big data solutions**. A [big data architecture](/azure/architecture/data-guide/big-data/) is designed to handle the ingestion, processing, and analysis of data that is too large or complex for traditional database systems. The data may be processed in batch or in real time. Big data solutions typically involve a large amount of [non-relational data](/azure/architecture/data-guide/big-data/non-relational-data), such as key-value data, [JSON documents](/azure/architecture/data-guide/scenarios/csv-and-json), or time series data. Often traditional RDBMS systems are not well-suited to store this type of data. The term *NoSQL* refers to a family of databases designed to hold non-relational data. The term isn't quite accurate, because many non-relational data stores support SQL compatible queries. The term *NoSQL* stands for "Not only SQL".
 
 ![Big data solutions](./images/guide-big-data.svg)
 
@@ -50,7 +50,6 @@ This guide is not intended to teach you data science or database theory &mdash; 
     * [Online transaction processing (OLTP)](/azure/architecture/data-guide/relational-data/online-transaction-processing)
 * Non-relational data:
     * [Non-relational data and NoSQL](/azure/architecture/data-guide/big-data/non-relational-data)
-    * [Time series data](/azure/architecture/data-guide/scenarios/time-series)
     * [Working with CSV and JSON files for data solutions](/azure/architecture/data-guide/scenarios/csv-and-json)
 * [Build a scalable system for massive data](/azure/architecture/data-guide/scenarios/build-scalable-database-solutions-azure-services)
 * Big data:

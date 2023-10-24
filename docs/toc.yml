@@ -1553,8 +1553,8 @@ items:
           href: data-guide/big-data/non-relational-data.yml
         # - name: Free-form text search
         #   href: data-guide/scenarios/search.yml
-        - name: Time series data
-          href: data-guide/scenarios/time-series.yml
+        # - name: Time series data
+        #   href: data-guide/scenarios/time-series.yml
         - name: Working with CSV and JSON files
           href: data-guide/scenarios/csv-and-json.md
       - name: Big data

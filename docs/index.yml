@@ -243,10 +243,6 @@ conceptualContent:
         - text: Data lakes
           itemType: get-started
           url: data-guide/scenarios/data-lake.md
-
-        - text: Time series solutions 
-          itemType: get-started
-          url: data-guide/scenarios/time-series.yml
       # footerLink (optional)
       footerLink:
         url: ./data-guide/index.md

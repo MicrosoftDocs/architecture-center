@@ -76,4 +76,3 @@ Principal author:
 - [Choose a big data storage technology in Azure](../technology-choices/data-storage.md)
 - [Select an Azure data store for your application](../../guide/technology-choices/data-store-decision-tree.md)
 - [Criteria for choosing a data store](../../guide/technology-choices/data-store-considerations.md)
-- [Time series data](time-series.yml)
