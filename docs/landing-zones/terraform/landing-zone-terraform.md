@@ -193,4 +193,11 @@ The [Azure landing zones Terraform module](https://registry.terraform.io/modules
 
 ![GitHub logo](../../_images/github.png) Information on customizing the modules is available in the GitHub repo wiki [GitHub: Azure landing zones Terraform module - Wiki](https://github.com/Azure/terraform-azurerm-caf-enterprise-scale/wiki). You can use it as a starting point and configure it as per your needs.
 
-Additionally, you can leverage from [ALZ Bicep Accelerator](aka.ms/alz/bicep/accelerator "ALZ Bicep Accelerator") where you will find prescriptive guidance around implementing, automating, and maintaining your ALZ Bicep module with the ALZ Bicep Accelerator. 
+Additionally, you can leverage from [ALZ Terraform Accelerator](aka.ms/alz/tf/accelerator "ALZ Terraform Accelerator") that is designed to be used as a template to enable you to get started quickly deploying ALZ with Terraform. This repository provides an supporting implementation of the Azure Landing Zones Terraform module, with Azure DevOps pipelines and GitHub actions workflows.
+
+The [ALZ Terraform Accelerator](https://github.com/Azure/alz-terraform-accelerator/wiki "ALZ Terraform Accelerator") follows a 3 phase approach:
+1.	Pre-requisites: Instructions to configure credentials and subscriptions.
+2.	Bootstrap: Run the PowerShell script to generate the continuous delivery environment.
+3.	Run: Update the module (if needed) to suit the needs of your organisation and deploy via continuous delivery.
+
+Start with user guide with a step by step to get your Azure Landing Zone environment up and running.
