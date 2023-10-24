@@ -105,7 +105,6 @@ Here are some other resources:
 - [Lamna Healthcare scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-lamna)
 - [Optimize administration of SQL Server instances](../hybrid/azure-arc-sql-server.yml)
 - [Relecloud scenario for data management and analytics in Azure](/azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-relecloud)
-- [Working with CSV and JSON files for data solutions](../data-guide/scenarios/csv-and-json.md)
 
 ### Example solutions
 

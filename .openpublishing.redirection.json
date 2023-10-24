@@ -3749,6 +3749,11 @@
       "source_path": "docs/data-guide/index.md",
       "redirect_url": "/azure/architecture/databases",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/scenarios/csv-and-json.md",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
     }
   ]
 }

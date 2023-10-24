@@ -189,8 +189,8 @@ items:
         #   href: data-guide/relational-data/data-warehousing.yml
         - name: Data lakes
           href: data-guide/scenarios/data-lake.md
-        # - name: Non-relational data store
-        #   href: data-guide/big-data/non-relational-data.yml
+        - name: Non-relational data store
+          href: data-guide/big-data/non-relational-data.yml
         - name: Compare NoSQL and relational
           href: /azure/cosmos-db/relational-nosql
           maintainContext: true
@@ -1528,8 +1528,8 @@ items:
         - name: Microservices with Dapr and KEDA
           href: example-scenario/serverless/microservices-with-container-apps-dapr.yml        
   - name: Databases
-    href: databases/index.yml  
-  - name: Databases
+  #   href: databases/index.yml  
+  # - name: Databases
     items:
     # - name: Get started
     #   href: data-guide/databases-architecture-design.yml
@@ -1549,14 +1549,14 @@ items:
         #   href: data-guide/relational-data/data-warehousing.yml
       - name: Non-relational data
         items:
-        - name: Non-relational data stores
-          href: data-guide/big-data/non-relational-data.yml
+        # - name: Non-relational data stores
+        #   href: data-guide/big-data/non-relational-data.yml
         # - name: Free-form text search
         #   href: data-guide/scenarios/search.yml
         # - name: Time series data
         #   href: data-guide/scenarios/time-series.yml
-        - name: Working with CSV and JSON files
-          href: data-guide/scenarios/csv-and-json.md
+        # - name: Working with CSV and JSON files
+        #   href: data-guide/scenarios/csv-and-json.md
       - name: Big data
         items:
         - name: Big data architectures
