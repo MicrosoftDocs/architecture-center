@@ -86,7 +86,6 @@ These articles help you choose the best technologies for your needs.
 - [Choose a batch processing technology in Azure](../data-guide/technology-choices/batch-processing.md)
 - [Choose a big data storage technology in Azure](../data-guide/technology-choices/data-storage.md)
 - [Choose a data pipeline orchestration technology in Azure](../data-guide/technology-choices/pipeline-orchestration-data-movement.md)
-- [Choose a real-time message ingestion technology in Azure](../data-guide/technology-choices/real-time-ingestion.md)
 - [Choose a search data store in Azure](../data-guide/technology-choices/search-options.md)
 - [Choose a stream processing technology in Azure](../data-guide/technology-choices/stream-processing.md)
 

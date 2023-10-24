@@ -61,7 +61,6 @@ This guide is not intended to teach you data science or database theory &mdash; 
     * [Data lakes](/azure/architecture/data-guide/scenarios/data-lake)
     * [Choose a big data storage technology in Azure](/azure/architecture/data-guide/technology-choices/data-storage)
     * [Choose a data pipeline orchestration technology in Azure](/azure/architecture/data-guide/technology-choices/pipeline-orchestration-data-movement)
-    * [Choose a real-time message ingestion technology in Azure](/azure/architecture/data-guide/technology-choices/real-time-ingestion)
     * [Choose a search data store in Azure](/azure/architecture/data-guide/technology-choices/search-options)
     * [Choose a stream processing technology in Azure](/azure/architecture/data-guide/technology-choices/stream-processing)
 * Additional scenarios:
