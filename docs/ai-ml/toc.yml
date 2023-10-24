@@ -190,8 +190,6 @@ items:
             href: ../data-science-process/project-lead-tasks.md
           - name: Individual contributor
             href: ../data-science-process/project-ic-tasks.md
-        - name: Project planning
-          href: ../data-science-process/team-data-science-process-project-templates.md
         - name: Development
           items:
           - name: Agile development
@@ -272,14 +270,10 @@ items:
                   href: ../data-science-process/sample-data-blob.md
                 - name: Use SQL Server
                   href: ../data-science-process/sample-data-sql-server.md
-                - name: Use Hive tables
-                  href: ../data-science-process/sample-data-hive.md
               - name: Process data
                 items:
                 - name: Access with Python
                   href: ../data-science-process/python-data-access.md
-                - name: Process blob data
-                  href: ../data-science-process/data-blob.md
                 - name: Use Azure Data Lake
                   href: ../data-science-process/data-lake-walkthrough.md
                 - name: Use SQL VM
@@ -298,8 +292,6 @@ items:
                 href: ../data-science-process/create-features.md
               - name: Use SQL and Python
                 href: ../data-science-process/create-features-sql-server.md
-              - name: Use Hive queries
-                href: ../data-science-process/create-features-hive.md
             - name: Select features
               href: ../data-science-process/select-features.md
           - name: Deploy models in production
