@@ -190,8 +190,6 @@ items:
             href: ../data-science-process/project-lead-tasks.md
           - name: Individual contributor
             href: ../data-science-process/project-ic-tasks.md
-        - name: Project planning
-          href: ../data-science-process/team-data-science-process-project-templates.md
         - name: Development
           items:
           - name: Agile development
