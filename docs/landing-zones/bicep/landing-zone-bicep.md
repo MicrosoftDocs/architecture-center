@@ -49,6 +49,12 @@ The architecture takes advantage of the modular nature of Azure Bicep and is com
 
 The architecture proposes the inclusion of orchestrator modules to simplify the deployment experience. The orchestrator modules could be used to automate the deployment of the modules and to encapsulate differing deployment topologies.
 
+### ALZ Bicep Accelerator
+
+You can find step by step guidance around implementing, automating, and maintaining your ALZ Bicep module with the ALZ Bicep Accelerator [here](aka.ms/alz/bicep/accelerator "ALZ Bicep Accelerator").
+
+The ALZ Bicep Accelerator framework was developed to provide end-users support to onboarding and deployment of ALZ Bicep using full-fledged CI/CD pipelines, support for GitHub Actions and Azure DevOps Pipelines, dedicated Framework to stay in-sync with new ALZ Bicep releases and modify or add custom modules, and provides branching strategy guidance and pull request pipelines for linting and validating Bicep modules.
+
 ## Modules
 
 A core concept in Bicep is the use of [modules](/azure/azure-resource-manager/bicep/modules). Modules enable you to organize deployments into logical groupings. With modules, you improve the readability of your Bicep files by encapsulating complex details of your deployment. You can also easily reuse modules for different deployments.
@@ -96,8 +102,4 @@ The [Bicep Azure landing zone implementation](https://github.com/Azure/ALZ-Bicep
 
 ![GitHub logo](../../_images/github.png) Information on customizing the modules is available in the GitHub repo wiki [GitHub: Azure Landing Zones (ALZ) Bicep - Wiki- Consumer Guide](https://github.com/Azure/ALZ-Bicep/wiki/ConsumerGuide). You can use it as a starting point and configure it as per your needs.
 
-## ALZ Bicep Accelerator
 
-You can find step by step guidance around implementing, automating, and maintaining your ALZ Bicep module with the ALZ Bicep Accelerator [here](aka.ms/alz/bicep/accelerator "ALZ Bicep Accelerator").
-
-The ALZ Bicep Accelerator framework was developed to provide end-users support to onboarding and deployment of ALZ Bicep using full-fledged CI/CD pipelines, support for GitHub Actions and Azure DevOps Pipelines, dedicated Framework to stay in-sync with new ALZ Bicep releases and modify or add custom modules, and provides branching strategy guidance and pull request pipelines for linting and validating Bicep modules.
