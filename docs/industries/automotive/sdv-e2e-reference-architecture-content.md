@@ -224,8 +224,6 @@ The following components are part of the *uProtocol*:
 * **uSubscription** is a subscription management service that is responsible for managing the publisher/subscriber design pattern for the *uEs*.
 * **uTwin** Local cache of published events. the uTwin stores the published message using a primary key to enable local software components to retrieve it. This primary key is the full name of the Topic, hence also including the device name. The fact that the primary key represents a topic ensures that only the last event of a given topic is stored in the uTwin. The collection of events stored in a uTwin instance of a device, whose keys include a specific device name (for example, deviceA), represent the digital twin of that device (deviceA in our example). Examples of events for a vehicle include updates on tire pressure, window position, gear position, vehicle mode (driving, parked), and in general any information that is published within the vehicle for operating it and activating its features.
 
-:::image type="content" source="images/sdv-e2e-ref-architecture-uProtocol-on-Azure.svg" alt-text="uProtocol on Azure" lightbox="images/sdv-e2e-ref-architecture-uProtocol-on-Azure.svg":::
-
 The following suggested services are relevant to a *uProtocol* implementation on Azure:
 
 | uProtocol Component | Functionality | Azure Service |
