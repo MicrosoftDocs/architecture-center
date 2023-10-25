@@ -50,7 +50,18 @@ Terraform is an open-source Infrastructure as Code (IaC) tool, created by HashiC
 
 The architecture takes advantage of the configurable nature of Terraform and is composed of a primary orchestration module. This module encapsulates multiple capabilities of the Azure landing zones conceptual architecture. You can deploy each capability individually or in part. For example, you can deploy just a hub network, or just the Azure DDoS Protection, or just the DNS resources. When doing so, you need to take into account that the capabilities have dependencies.
 
-The architecture utilizes an orchestrator approach to simplify the deployment experience. You might prefer to implement each capability using one or more dedicated module instances where each is dedicated to a specific part of the architecture. This is all possible with the correct configuration.
+The architecture utilizes an orchestrator approach to simplify the deployment experience. You might prefer to implement each capability using one or more dedicated module instances where each is dedicated to a specific part of the architecture. This is all possible with the correct configuration
+
+### ALZ Terraform Accelerator
+
+To quickly get started deploying ALZ with Terraform you can leverage the [ALZ Terraform Accelerator](aka.ms/alz/tf/accelerator "ALZ Terraform Accelerator") that is designed to be used as a template. This repository provides a supporting implementation of the Azure Landing Zones Terraform module, with Azure DevOps pipelines and GitHub actions workflows.
+
+The [ALZ Terraform Accelerator](https://github.com/Azure/alz-terraform-accelerator/wiki "ALZ Terraform Accelerator") follows a 3 phase approach:
+1.	Pre-requisites: Instructions to configure credentials and subscriptions.
+2.	Bootstrap: Run the PowerShell script to generate the continuous delivery environment.
+3.	Run: Update the module (if needed) to suit the needs of your organisation and deploy via continuous delivery.
+
+Start with user guide with a step by step to get your Azure Landing Zone environment up and running.
 
 ## Modules
 
@@ -193,13 +204,4 @@ The [Azure landing zones Terraform module](https://registry.terraform.io/modules
 
 ![GitHub logo](../../_images/github.png) Information on customizing the modules is available in the GitHub repo wiki [GitHub: Azure landing zones Terraform module - Wiki](https://github.com/Azure/terraform-azurerm-caf-enterprise-scale/wiki). You can use it as a starting point and configure it as per your needs.
 
-## ALZ Terraform Accelerator
 
-To quickly get started deploying ALZ with Terraform you can leverage the [ALZ Terraform Accelerator](aka.ms/alz/tf/accelerator "ALZ Terraform Accelerator") that is designed to be used as a template. This repository provides a supporting implementation of the Azure Landing Zones Terraform module, with Azure DevOps pipelines and GitHub actions workflows.
-
-The [ALZ Terraform Accelerator](https://github.com/Azure/alz-terraform-accelerator/wiki "ALZ Terraform Accelerator") follows a 3 phase approach:
-1.	Pre-requisites: Instructions to configure credentials and subscriptions.
-2.	Bootstrap: Run the PowerShell script to generate the continuous delivery environment.
-3.	Run: Update the module (if needed) to suit the needs of your organisation and deploy via continuous delivery.
-
-Start with user guide with a step by step to get your Azure Landing Zone environment up and running.
