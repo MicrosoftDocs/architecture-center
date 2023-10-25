@@ -2,6 +2,10 @@ This solution shows how to integrate Chef Infra, Chef InSpec, Test Kitchen, Terr
 
 ## Architecture
 
+*Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
+
+*Progress Chef and HashiCorp Terraform are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
+
 :::image type="content" border="false" source="media/faa-swim.svg" alt-text="Diagram that shows an architecture for automating and creating a data analytics environment." lightbox="media/faa-swim.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/faa-swim.vsdx) of this architecture.*
@@ -50,10 +54,6 @@ This solution connects to the following FAA SWIM data sources via an Apache Kafk
 - SWIM Terminal Data Distribution System (STDDS) converts legacy terminal data collected from airport towers and Terminal Radar Approach Control (TRACON) facilities into easily accessible information, which is published via NEMS.
 
 For information about SWIM, see the [FAA SWIM page](https://www.faa.gov/air_traffic/technology/swim).
-
-*Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
-
-*Progress Chef and HashiCorp Terraform are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
 
 ### Potential use cases
 
