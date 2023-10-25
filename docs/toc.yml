@@ -1559,8 +1559,8 @@ items:
         #   href: data-guide/scenarios/csv-and-json.md
       - name: Big data
         items:
-        - name: Big data architectures
-          href: data-guide/big-data/index.yml
+        # - name: Big data architectures
+        #   href: data-guide/big-data/index.yml
         # - name: Batch processing
         #   href: data-guide/big-data/batch-processing.yml
         # - name: Real-time processing

@@ -19,7 +19,7 @@ Consider big data architectures when you need to:
 
 The following diagram shows the logical components that fit into a big data architecture. Individual solutions may not contain every item in this diagram.
 
-![Overall data pipeline diagram](./images/big-data-pipeline.png)
+![Overall data pipeline diagram](_images/big-data-pipeline.png)
 
 Most big data architectures include some or all of the following components:
 
@@ -59,7 +59,7 @@ The **lambda architecture**, first proposed by Nathan Marz, addresses this probl
 
 The batch layer feeds into a **serving layer** that indexes the batch view for efficient querying. The speed layer updates the serving layer with incremental updates based on the most recent data.
 
-![Lambda architecture diagram](./images/lambda.png)
+![Lambda architecture diagram](_images/lambda.png)
 
 Data that flows into the hot path is constrained by latency requirements imposed by the speed layer, so that it can be processed as quickly as possible. Often, this requires a tradeoff of some level of accuracy in favor of data that is ready as quickly as possible. For example, consider an IoT scenario where a large number of temperature sensors are sending telemetry data. The speed layer may be used to process a sliding time window of the incoming data.
 
@@ -75,7 +75,7 @@ A drawback to the lambda architecture is its complexity. Processing logic appear
 
 The **kappa architecture** was proposed by Jay Kreps as an alternative to the lambda architecture. It has the same basic goals as the lambda architecture, but with an important distinction: All data flows through a single path, using a stream processing system.
 
-![Kappa architecture diagram](./images/kappa.png)
+![Kappa architecture diagram](_images/kappa.png)
 
 There are some similarities to the lambda architecture's batch layer, in that the event data is immutable and all of it is collected, instead of a subset. The data is ingested as a stream of events into a distributed and fault tolerant unified log. These events are ordered, and the current state of an event is changed only by a new event being appended. Similar to a lambda architecture's speed layer, all event processing is performed on the input stream and persisted as a real-time view.
 

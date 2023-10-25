@@ -74,7 +74,7 @@ Information about the Delta Lake open-source project for building a Lakehouse ar
 See the following related database architectural guidance:
 
 - [Non-relational data and NoSQL](../../data-guide/big-data/non-relational-data.yml)
-- [Big data architectures](../../data-guide/big-data/index.yml)
+- [Big data architectures](../../databases/guide/big-data-architectures.yml)
 - [Choosing a batch processing technology in Azure](../../data-guide/technology-choices/batch-processing.md)
 - [Data lakes](../../data-guide/scenarios/data-lake.md)
 - [Choosing a big data storage technology in Azure](../../data-guide/technology-choices/data-storage.md)

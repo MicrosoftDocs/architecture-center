@@ -70,6 +70,10 @@ items:
           items:
           - name: Extend on-premises data solutions to Azure
             href: guide/hybrid-on-premises-and-cloud.md
+        - name: Big data
+          items:
+          - name: Big data architectures
+            href: guide/big-data-architectures.yml
     - name: Data transForm templates
       items:
       - name: VantageCloud integration with Azure Data Factory

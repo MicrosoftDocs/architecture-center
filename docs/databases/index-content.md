@@ -45,7 +45,7 @@ To learn about data lakes, which hold a large amount of data in its native, raw 
 
 A big data architecture can handle ingestion, processing, and analysis of data that is too large or too complex for traditional database systems.
 
-- For more information, see [Big data architectures](../data-guide/big-data/index.yml).
+- For more information, see [Big data architectures](../databases/guide/big-data-architectures.yml).
 - To learn about designing a system that scales well as data grows, see [Build a scalable system for massive data](../data-guide/scenarios/build-scalable-database-solutions-azure-services.md).
 - To learn more about Azure Databricks, an Apache Spark–based analytics service for big data analytics and AI solutions, see [Monitoring Azure Databricks](../databricks-monitoring/index.md).
 

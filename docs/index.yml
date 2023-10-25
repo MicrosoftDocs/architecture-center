@@ -222,7 +222,7 @@ conceptualContent:
         - url: ./databases/index.yml
           itemType: get-started
           text: Databases architecture design
-        - url: ./data-guide/big-data/index.yml
+        - url: ./databases/guide/big-data-architectures.yml
           itemType: concept
           text: Big Data architectures
         - url: ./data-guide/scenarios/build-scalable-database-solutions-azure-services.md

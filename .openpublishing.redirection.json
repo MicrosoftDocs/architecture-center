@@ -3754,6 +3754,11 @@
       "source_path": "docs/scenarios/csv-and-json.md",
       "redirect_url": "/azure/architecture/databases",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/big-data/index.yml",
+      "redirect_url": "/azure/architecture/databases/guide/big-data-architectures",
+      "redirect_document_id": true
     }
   ]
 }
