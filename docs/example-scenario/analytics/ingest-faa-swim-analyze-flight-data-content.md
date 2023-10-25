@@ -1,16 +1,4 @@
-This solution shows how to integrate Chef Infra, Chef InSpec, Test Kitchen, Terraform, Terraform Cloud, and GitHub Actions to automate and to create data analytics environments. It uses an Azure Databricks cluster to analyze the data. The solution relies on the Federal Aviation Administration (FAA) System Wide Information Management (SWIM) system. SWIM provides a single point of access for near real-time, relevant, and reliable aeronautical, flight, weather, and surveillance information. It delivers the infrastructure, standards, and services needed to optimize the secure exchange of relevant data across the National Airspace System (NAS) and the aviation community. As the digital data-sharing backbone of NextGen, SWIM enables both operational excellence and innovation.
-
-This solution connects to the following FAA SWIM data sources via an Apache Kafka server:
-
-- Traffic Flow Management Service (TFMS) distributes Traffic Flow Management (TFM) data to users via SWIM’s (System Wide Information Management) National Airspace System (NAS) Enterprise Messaging Service (NEMS).
-- Time-Based Flow Management (TBFM) enhances National Airspace System efficiency by using the capabilities of the TBFM decision-support tool, a system already deployed at all high altitude air traffic control centers in the contiguous United States.
-- SWIM Terminal Data Distribution System (STDDS) converts legacy terminal data collected from airport towers and Terminal Radar Approach Control (TRACON) facilities into easily accessible information, which is published via the National Airspace System (NAS) Enterprise Messaging Service (NEMS).
-
-For information about SWIM, see the [FAA SWIM page](https://www.faa.gov/air_traffic/technology/swim).
-
-*Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
-
-*Progress Chef and HashiCorp Terraform are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
+This solution shows how to integrate Chef Infra, Chef InSpec, Test Kitchen, Terraform, Terraform Cloud, and GitHub Actions to automate and to create data analytics environments. It uses an Azure Databricks cluster to analyze the data.
 
 ## Architecture
 
@@ -18,9 +6,9 @@ For information about SWIM, see the [FAA SWIM page](https://www.faa.gov/air_traf
 
 *Download a [Visio file](https://arch-center.azureedge.net/faa-swim.vsdx) of this architecture.*
 
-The left side of the diagram shows SWIM and three of its data producers. The right side shows the Azure architecture that connects, ingests and analyzes data coming from these sources.
+The left side of the diagram shows the Federal Aviation Administration (FAA) System Wide Information Management (SWIM) system and three of its data producers. The right side shows the Azure architecture that connects, ingests, and analyzes data coming from these sources.
 
-This solution uses Apache Kafka because of its event-driven architecture. Apache Kafka is an open-source platform that allows you to collect, process, store, and integrate data from various sources in real-time. It's based on the concept of a commit log, which is a record of events that happen in a system. You can use Kafka to publish and/or subscribe to streams of events, and also to transform and analyze them using the Streams API or other external tools like Databricks.
+This solution uses Apache Kafka because of its event-driven architecture. Apache Kafka is an open-source platform that lets you collect, process, store, and integrate data from various sources in real-time. It's based on the concept of a commit log, which is a record of events that happen in a system. You can use Kafka to publish or subscribe to streams of events, and also to transform and analyze them by using the [Streams API](/azure/hdinsight/kafka/apache-kafka-streams-api) or other external tools like Databricks.
 
 Another important aspect of this architecture is that SWIM uses Solace, so Kafka uses a Solace source connector to connect and ingest the data. Solace provides support for open source and sink connectors that you can build and deploy in your Kafka cluster.
 
@@ -42,7 +30,7 @@ Another important aspect of this architecture is that SWIM uses Solace, so Kafka
 
 ### Alternatives
 
-For ingestion, the solution uses Apache Kafka in a single VM. This design configuration creates a single point of failure, but for a more robust solution, you can use:
+For ingestion, the solution uses Apache Kafka in a single VM. This design configuration creates a single point of failure, but for a more robust solution, you can use one of these options:
 
 - [Apache Kafka in Azure HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction)
 - [Apache Kafka for Confluent Cloud](/azure/partner-solutions/apache-kafka-confluent-cloud/overview)
@@ -53,9 +41,23 @@ As an alternative to Power BI, you can use Tableau or another visualization opti
 
 ## Scenario details
 
+This solution relies on the Federal Aviation Administration (FAA) System Wide Information Management (SWIM) system. SWIM provides a single point of access for near real-time, relevant, and reliable aeronautical, flight, weather, and surveillance information. It delivers the infrastructure, standards, and services needed to optimize the secure exchange of relevant data across the National Airspace System (NAS) and the aviation community. As the digital data-sharing backbone of NextGen, SWIM enables both operational excellence and innovation.
+
+This solution connects to the following FAA SWIM data sources via an Apache Kafka server:
+
+- Traffic Flow Management Service (TFMS) distributes Traffic Flow Management (TFM) data to users via SWIM's NAS Enterprise Messaging Service (NEMS).
+- Time-Based Flow Management (TBFM) enhances NAS efficiency by using the capabilities of the TBFM decision-support tool, a system already deployed at all high-altitude air traffic control centers in the contiguous United States.
+- SWIM Terminal Data Distribution System (STDDS) converts legacy terminal data collected from airport towers and Terminal Radar Approach Control (TRACON) facilities into easily accessible information, which is published via NEMS.
+
+For information about SWIM, see the [FAA SWIM page](https://www.faa.gov/air_traffic/technology/swim).
+
+*Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
+
+*Progress Chef and HashiCorp Terraform are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
+
 ### Potential use cases
 
-This solution consumes multiple data sources for flight data patterns. It's ideal for the aerospace, aircraft, and aviation industries. It can be used to analyze flight data patterns and to predict future flight patterns. For example, It can also be used to analyze flight data to improve flight safety.
+This solution consumes multiple data sources for flight data patterns. It's ideal for the aerospace, aircraft, and aviation industries. It can be used to analyze flight data patterns and to predict future flight patterns. For example, it can also be used to analyze flight data to improve flight safety.
 
 The solution environment is flexible, so it can be extended to analyze other SWIM data sources or similar streamed data sources.
 
@@ -79,7 +81,7 @@ A key requirement for this architecture is that all traffic must be internal and
 
 - Virtual network injection is used to deploy Azure Databricks. This deployment method keeps communication between the cluster and Kafka internal.
 - The Azure Databricks workspace uses your Azure identity for authentication.
-- Network security groups (NSGs) filter network traffic to and from Azure Databricks and Kafka VMs.
+- Network security groups filter network traffic to and from Azure Databricks and Kafka VMs.
 
 For more information about improving the security of your solution, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
@@ -87,7 +89,7 @@ For more information about improving the security of your solution, see [Overvie
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-If you run this project, your account is billed. For information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+If you run this project, your account is billed. For information, see [Cost optimization documentation](/azure/well-architected/cost/).
 
 ### Operational excellence
 
@@ -105,51 +107,51 @@ This architecture uses GitHub Actions to orchestrate the CI/CD pipeline:
 
 1. Developers work on either the Infrastructure or the Configuration code.
 
-   1.1 Infrastructure code uses Terraform.
+   1. Infrastructure code uses Terraform.
 
-   1.2 Configuration code uses Chef.
+   1. Configuration code uses Chef.
 
-2. Developers push their code to the GitHub repository using a GitHub pull request.
+1. Developers push their code to the GitHub repository using a GitHub pull request.
 
-3. The pull request triggers a GitHub Actions workflow. The workflow runs the code through a series of tests. If the changes are configuration-related, the workflow runs Chef InSpec and Test Kitchen to test the code. Once the tests are completed, it reports the results back to GitHub. If the changes are infrastructure-related, the workflow also creates a Terraform plan and posts it as a comment in the pull request. The plan shows the changes that would be applied to the infrastructure if the pull request is approved.
+1. The pull request triggers a GitHub Actions workflow. The workflow runs the code through a series of tests. If the changes are configuration-related, the workflow runs Chef InSpec and Test Kitchen to test the code. Once the tests are completed, it reports the results back to GitHub. If the changes are infrastructure-related, the workflow also creates a Terraform plan and posts it as a comment in the pull request. The plan shows the changes that are applied to the infrastructure if the pull request is approved.
 
-4. If the changes are infrastructure-related, the workflow runs Terraform Cloud's remote state. Terraform Cloud is a hosted service that provides remote state management, locking, and other features.
+1. If the changes are infrastructure-related, the workflow runs Terraform Cloud's remote state. Terraform Cloud is a hosted service that provides remote state management, locking, and other features.
 
-5. If the tests pass, and the pull request is approved, the workflow merges the code into the `main` branch. Once merged the Actions workflow pushes changes in either the infrastructure or in the configurations for Kafka, Azure Databricks, and so on.
+1. If the tests pass, and the pull request is approved, the workflow merges the code into the `main` branch. After it's merged, the Actions workflow pushes changes in either the infrastructure or in the configurations for Kafka, Azure Databricks, and so on.
 
 #### GitHub workflows
 
-In this solution, two GitHub Actions workflows automate the infrastructure that hosts the data analytics environment. Terraform deploys the infrastructure. After provisioning is complete Chef configures the resources that are required to connect to TFMS, TBFM and STDDS and others if needed.
+In this solution, two GitHub Actions workflows automate the infrastructure that hosts the data analytics environment. Terraform deploys the infrastructure. After provisioning is complete, Chef configures the resources that are required to connect to TFMS, TBFM, STDDS, and others if needed.
 
 - **terraform-azure.yml** performs Terraform deployment. It uses Terraform Cloud's remote state. It also creates an Azure Databricks cluster, deploys some starter Python notebooks to test connectivity to the Kafka server, and retrieves messages. It creates all infrastructure with proper naming conventions and tagging.
 
    :::image type="content" source="media/terraform-azure.png" alt-text="Screenshot that shows the results of the Terraform-Azure GitHub action.":::
 
-- **chef-kafka.yml** performs static code analysis by using ***Cookstyle***, unit tests by using ***Chef InSpec***, and integration tests by using ***Test Kitchen***. These tests ensure the cookbook is properly tested before it's uploaded to Chef Server.
+- **chef-kafka.yml** performs static code analysis by using ***Cookstyle***, performs unit tests by using ***Chef InSpec***, and performs integration tests by using ***Test Kitchen***. These tests ensure the cookbook is properly tested before it's uploaded to Chef Server.
 
    :::image type="content" source="media/chef-kafka.png" alt-text="Screenshot that shows the results of the Chef-ApacheKafka GitHub action.":::  
 
 ## Deploy this scenario
 
-For information about deploying this solution, workflows, cookbooks, sample notebooks, Terraform files, and more, see the [Azure/SWIMDataIngestion](https://github.com/Azure/SWIMDataIngestion) GitHub repository.
-The repository contains step-by-step instructions to deploy the solution. The deployment process is fully automated using GitHub Actions, but for it to work, it requires that some secrets are set up in GitHub.
+For information about deploying this solution, workflows, cookbooks, sample notebooks, Terraform files, and more, see the [Azure/SWIMDataIngestion](https://github.com/Azure/SWIMDataIngestion) GitHub repository. The repository contains step-by-step instructions to deploy the solution. The deployment process is fully automated using GitHub Actions, but for it to work, it requires that some secrets are set up in GitHub.
 
 The deployment process is divided into three parts: infrastructure, configuration, and visualization.
 
-1. The infrastructure part deploys the following Azure resources:
-   - A virtual network
-   - Subnets
-   - A resource group
-   - Kafka server
-   - An Azure storage account  
-   - Azure Data Lake Storage on top of the storage account
-   - NSGs
-   - An Azure Databricks workspace created with virtual network injection, so that keeps the traffic internal
-1. The configuration part configures the resources that are required to connect to TFMS, TBFM and STDDS and others if needed. Connecting Kafka to SWIM; Request access to SWIM and specify the data source to connect to. Once approved, FAA sends a link to the data source endpoint, user name, password, and port for connection. Here are three of the most common data sources:
-   - [STDDS](https://www.faa.gov/air_traffic/technology/swim/stdds). SWIM Terminal Data Distribution System.
-   - [TFMS](https://aviationsystems.arc.nasa.gov/atd2-industry-workshop/fuser/TFMS_85328087.html). Traffic Flow Management Service.
-   - [TBFM](https://www.faa.gov/air_traffic/publications/atpubs/foa_html/chap18_section_25.html). Time-Based Flow Management.
-1. Lastly, connect a visualization dashboard like Power BI or Tableau to Azure Databricks.
+- The infrastructure part deploys the following Azure resources:
+
+  - A virtual network
+  - Subnets
+  - A resource group
+  - Kafka server
+  - An Azure storage account  
+  - Azure Data Lake Storage on top of the storage account
+  - Network security groups
+  - An Azure Databricks workspace created with virtual network injection, which keeps the traffic internal
+- The configuration part configures the resources that are required to connect to TFMS, TBFM, STDDS, and others if needed. To connect Kafka to SWIM, request access to SWIM and specify the data source to connect to. After it's approved, FAA sends a link to the data source endpoint, user name, password, and port for connection. Here are three of the most common data sources:
+  - [STDDS](https://www.faa.gov/air_traffic/technology/swim/stdds). SWIM Terminal Data Distribution System.
+  - [TFMS](https://aviationsystems.arc.nasa.gov/atd2-industry-workshop/fuser/TFMS_85328087.html). Traffic Flow Management Service.
+  - [TBFM](https://www.faa.gov/air_traffic/publications/atpubs/foa_html/chap18_section_25.html). Time-Based Flow Management.
+- Lastly, connect a visualization dashboard like Power BI or Tableau to Azure Databricks.
 
 ## Contributors
 
