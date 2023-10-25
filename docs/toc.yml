@@ -1003,6 +1003,8 @@ items:
           href: databricks-monitoring/dashboards.md
         - name: Troubleshoot performance bottlenecks
           href: databricks-monitoring/performance-troubleshooting.md
+        - name: Observability patterns and metrics
+          href: databricks-monitoring/databricks-observability.yml          
     - name: Architectures
       items:
       - name: Analytics end to end
@@ -1113,6 +1115,8 @@ items:
         href: solution-ideas/articles/cloud-scale-analytics-with-discovery-hub.yml
       - name: Enhanced customer dimension
         href: solution-ideas/articles/customer-insights-synapse.yml
+      - name: Enterprise data warehouse
+        href: solution-ideas/articles/enterprise-data-warehouse.yml        
       - name: ETL using HDInsight
         href: solution-ideas/articles/extract-transform-and-load-using-hdinsight.yml
       - name: Highly scalable customer service and ERP
@@ -1547,8 +1551,8 @@ items:
         #   href: data-guide/relational-data/online-transaction-processing.md
         # - name: Data warehousing
         #   href: data-guide/relational-data/data-warehousing.yml
-      - name: Non-relational data
-        items:
+      # - name: Non-relational data
+      #   items:
         # - name: Non-relational data stores
         #   href: data-guide/big-data/non-relational-data.yml
         # - name: Free-form text search
@@ -1557,8 +1561,8 @@ items:
         #   href: data-guide/scenarios/time-series.yml
         # - name: Working with CSV and JSON files
         #   href: data-guide/scenarios/csv-and-json.md
-      - name: Big data
-        items:
+      # - name: Big data
+      #   items:
         # - name: Big data architectures
         #   href: data-guide/big-data/index.yml
         # - name: Batch processing
@@ -1791,8 +1795,8 @@ items:
       #   href: example-scenario/data/hybrid-etl-with-adf.yml
       # - name: 'IaaS: Web app with relational database'
       #   href: high-availability/ref-arch-iaas-web-and-db.yml
-      - name: Loan credit risk modeling
-        href: example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml
+      # - name: Loan credit risk modeling
+      #   href: example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml
       # - name: Master data management with CluedIn
       #   href: reference-architectures/data/cluedin.yml
       # - name: Master data management with Profisee
@@ -1807,8 +1811,8 @@ items:
       #   href: example-scenario/sql-failover/app-service-private-sql-multi-region.yml
       # - name: N-tier app with Cassandra
       #   href: reference-architectures/n-tier/n-tier-cassandra.yml
-      - name: Observability patterns and metrics
-        href: databricks-monitoring/databricks-observability.yml
+      # - name: Observability patterns and metrics
+      #   href: databricks-monitoring/databricks-observability.yml
       # - name: Optimize SQL Server with Azure Arc
       #   href: hybrid/azure-arc-sql-server.yml
       # - name: Optimized storage – multi writes
@@ -1830,16 +1834,16 @@ items:
       #   href: reference-architectures/n-tier/n-tier-sql-server.yml
     - name: Solution ideas
       items:
-      - name: Big data analytics with Azure Data Explorer
-        href: solution-ideas/articles/big-data-azure-data-explorer.yml
+      # - name: Big data analytics with Azure Data Explorer
+      #   href: solution-ideas/articles/big-data-azure-data-explorer.yml
       # - name: Campaign optimization with SQL Server
       #   href: solution-ideas/articles/campaign-optimization-with-sql-server.yml
       # - name: Data streaming
       #   href: solution-ideas/articles/data-streaming-scenario.yml
       # - name: Data cache
       #   href: solution-ideas/articles/data-cache-with-redis-cache.yml
-      - name: Enterprise data warehouse
-        href: solution-ideas/articles/enterprise-data-warehouse.yml
+      # - name: Enterprise data warehouse
+      #   href: solution-ideas/articles/enterprise-data-warehouse.yml
       # - name: Finance management using MySQL
       #   href: solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql.yml
       # - name: Finance management using PostgreSQL
@@ -1858,8 +1862,8 @@ items:
       #   href: solution-ideas/articles/loan-chargeoff-prediction-with-sql-server.yml
       # - name: Loan credit risk with SQL Server
       #   href: solution-ideas/articles/loan-credit-risk-with-sql-server.yml
-      - name: Logical data warehouse with Azure Synapse
-        href: solution-ideas/articles/logical-data-warehouse.yml
+      # - name: Logical data warehouse with Azure Synapse
+      #   href: solution-ideas/articles/logical-data-warehouse.yml
       # - name: Messaging
       #   href: solution-ideas/articles/messaging.yml
       # - name: Mining equipment monitoring
@@ -3999,6 +4003,8 @@ items:
         href: hybrid/hybrid-security-monitoring.yml
       - name: Improved-security access to multitenant
         href: web-apps/guides/networking/access-multitenant-web-app-from-on-premises.yml
+      - name: Loan credit risk modeling
+        href: example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml        
       - name: Long-term security logs in Data Explorer
         href: example-scenario/security/security-log-retention-azure-data-explorer.yml
       - name: Real-time fraud detection
