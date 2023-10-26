@@ -99,7 +99,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 This architecture uses GitHub Actions to orchestrate the CI/CD pipeline:
 
-:::image type="content" border="false" source="media/ci-cd-architecture.png" alt-text="Diagram that shows the CI/CD pipeline for the architecture." lightbox="media/ci-cd-architecture.png":::
+:::image type="content" border="false" source="media/ci-cd-architecture.svg" alt-text="Diagram that shows the CI/CD pipeline for the architecture." lightbox="media/ci-cd-architecture.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ci-cd-architecture.vsdx) of this architecture.*
 
