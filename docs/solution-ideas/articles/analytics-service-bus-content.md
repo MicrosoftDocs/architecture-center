@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution idea demonstrates how to add near real-time analytics to an existing architecture that's based on a message broker and that's part of an operational OLTP application.
+This solution idea demonstrates how to add near real-time analytics to an existing architecture that's based on a message broker and that's part of an operational Online Transaction Processing (OLTP) application.
 
 ## Architecture
 
@@ -8,27 +8,27 @@ This solution idea demonstrates how to add near real-time analytics to an existi
 
 *Download a [Visio file](https://arch-center.azureedge.net/analytics-service-bus.vsdx) of this architecture.*
 
-The architecture consists of two paths for data flow. The core path, which is shown by solid lines and boxes 1 through 5, involves the ingestion of data from various sources into a service bus, where it is processed by a stream analytics job and stored in a SQL database. The auxiliary path, which is shown by dotted lines and boxes, allows the data to be also sent from the service bus to an Azure Data Explorer cluster, where it can be queried and analyzed using Kusto Query Language (KQL).
+The diagram shows two data paths. The main path, which is represented by solid lines and boxes 1 through 5, is the ingestion of data from various sources into a service bus, where it's processed by a stream analytics job and stored in a SQL database. The second path, which is represented by dotted lines and boxes, shows the data flowing from the service bus to an Azure Data Explorer cluster, where it can be queried and analyzed via Kusto Query Language (KQL).
 
-This architecture covers ways to implement near real-time analytics for multiple use cases where Azure Service Bus is used to implement a [queue based load leveling](../../patterns/queue-based-load-leveling-content.md) pattern for transactional applications.
+This architecture describes how to implement near real-time analytics for multiple use cases. Azure Service Bus is used to implement a [Queue-Based Load Leveling](../../patterns/queue-based-load-leveling-content.yml) pattern for transactional applications.
 
-Azure Data Explorer can be used to run analytics in near real-time and expose data using either APIs or direct queries to, for example, Power BI, Azure Managed Grafana or Azure Data Explorer Dashboards..
+In the arcthitecture, Azure Data Explorer is used to run analytics in near real-time and expose data via either APIs or direct queries to, for example, Power BI, Azure Managed Grafana, or Azure Data Explorer dashboards.
 
 ### Dataflow
 
-In this architecture, data source is an existing transactional application which uses Azure Service Bus to asynchronously scale out the OLTP application.
+The data source in the architecture is an existing transactional application that uses Service Bus to asynchronously scale out the OLTP application.
 
 1. The OLTP application (data source) in App Services sends data to Azure Service Bus.
 
-1. Azure Service Bus:
+1. Data flows from Azure Service Bus in two directions:
 
-   1. In the existing OLTP application flow, triggers an Azure Functions app to store data in an Azure SQL database, Azure Cosmos DB, or similar operational databases.
+   1. In the existing OLTP application flow, it triggers a functions app to store data in Azure SQL Database, Azure Cosmos DB, or a similar operational database.
 
-   1. In the near real-time analytics flow, triggers an orchestration flow.
+   1. In the near real-time analytics flow, it triggers an orchestration flow.
 
 1. The orchestration flow sends data to Azure Data Explorer for near real-time analytics. The flow can use either:
 
-   - An Azure Functions app that uses SDKs to send data in micro batches or using managed streaming ingestion support provided by Azure Data Explorer when it is configured for streaming ingestion.
+   - A functions app that uses SDKs to send data in micro batches or using managed streaming ingestion support provided by Azure Data Explorer when it's [configured for streaming ingestion].
    - A polling service, such as an application hosted on Azure Kubernetes Service or an Azure VM, that sends data to Azure Data Explorer in micro batches. This option doesn't require configuring Azure Data Explorer streaming ingestion.
 
 1. Azure Data Explorer can process the data using schema mapping and update policies, and make it available through an API, SDK, or connector for interactive analytics or reporting. Optionally, Azure Data Explorer can also ingest or reference data from other data sources, such as Azure SQL Database or Azure Data Lake Storage.
