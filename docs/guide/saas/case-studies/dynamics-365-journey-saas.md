@@ -1,3 +1,25 @@
+---
+title: "The journey to SaaS: Dynamics 365"
+titleSuffix: Azure Architecture Center
+description: Learn from a first-hand account about the journey and decisions that made Microsoft Dynamics 365 a successful SaaS product.
+author: johndowns
+ms.author: jodowns
+ms.date: 10/26/2023
+ms.topic: conceptual
+ms.service: architecture-center
+ms.subservice: azure-guide
+products:
+  - azure
+  - dynamics-365
+categories:
+  - management-and-governance
+ms.category:
+  - fcp
+ms.custom:
+  - guide
+---
+# The journey to SaaS: Dynamics 365
+
 Many independent software vendors (ISVs) think about moving from on-premises software delivery to a cloud-based and software-as-a-service (SaaS)&ndash;based delivery model. At Microsoft, we’ve been through this journey with many of our products, and we get asked to share our real-life experiences and the key lessons that we learned along the way.
 
 Our goal with this article is to give an overview of how this journey played out when we built Microsoft Dynamics 365. We describe the thought process we went through and the key drivers for each of the major decisions we made. We hope that this document provides a sense of the evolution of our product as we moved from delivering on-premises software to a hyperscale SaaS product used by millions of users across thousands of organizations. We hope that by reading this document, you can learn from our experiences and plan your own journey to SaaS. While the Microsoft journey with Dynamics 365 might be unique, we believe that the lessons and principles we learned can still provide valuable insights for organizations of any size that are planning their own transition to a SaaS model.
@@ -166,7 +188,7 @@ We learned a lot by operating Dynamics 365 in the cloud for a large and growing 
 - Live-site incident leadership is a skill, and it's hard work&mdash;recognize it, train for it, learn to hire for it, and reward it.
 - The priority should be detection, isolation, and mitigation. Get the customer healthy again, and then worry about longer term improvements.
 
-**Learn and improve**: Someone&mdash;possibly Winston Churchill and possibly not&mdash;said, “never waste a good crisis.” Every live-site incident is an opportunity to improve. After mitigation is completed, make sure that you ask how to detect similar issues faster, how to correct the underlying issue to fully cure it, how to minimize the impact of similar issues, whether other similar issues might exist elsewhere in the service, and how to prevent the entire class of issues. Prioritizing these corrective actions improves service quality and reduces the demand for future live-site incidents. Service quality must improve over time, otherwise as you grow, the impact of every issue also gets higher.
+**Learn and improve**: Someone once said, “Never waste a good crisis.” Every live-site incident is an opportunity to improve. After mitigation is completed, make sure that you ask how to detect similar issues faster, how to correct the underlying issue to fully cure it, how to minimize the impact of similar issues, whether other similar issues might exist elsewhere in the service, and how to prevent the entire class of issues. Prioritizing these corrective actions improves service quality and reduces the demand for future live-site incidents. Service quality must improve over time, otherwise as you grow, the impact of every issue also gets higher.
 
 **Shift left**: Issues that require the engagement of the live-site team are expensive. It takes time for issues to get to them, and the live-site team is a scarce resource that needs to be available for the most serious service health issues and management tasks.
 
