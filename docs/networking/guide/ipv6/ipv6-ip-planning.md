@@ -122,5 +122,5 @@ This can be helpful for organizations who have already deployed out many virtual
 
 ## Next steps
 
-- Continue your journey by [Transitioning Hub Networks to IPv6](ipv6--transition-hub.md)
+- Continue your journey by [Transitioning Hub Networks to IPv6](ipv6-transition-hub.md)
 - Read more about more generally guidance on how to [Plan for IP Addressing](/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing)

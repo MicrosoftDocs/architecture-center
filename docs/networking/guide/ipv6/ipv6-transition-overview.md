@@ -32,4 +32,4 @@ To understand more about the capabilities of IPv6 virtual networks, see [IPv6 fo
 
 - Learn more about [IPv6 for Azure Vnet](/azure/virtual-network/ip-services/ipv6-overview)
 - Begin your [IP Space Planning for IPv6 Networks](ipv6-ip-planning.md)
-- Learn steps for [Transitioning Hub Networks to IPv6](ipv6--transition-hub.md)
+- Learn steps for [Transitioning Hub Networks to IPv6](ipv6-transition-hub.md)
