@@ -18,7 +18,7 @@ categories:
 
 # Transitioning Hub Networks with IPv6
 
-The Hub and Spoke network pattern which is used in Azure centrally houses shared networking resources, like firewalls and network gateways that enable hybrid connectivity, in a single network.  It also maintains the subscription and network separation necessary to secure and manage Azure virtual networks with best practices.
+The Hub and Spoke network pattern that is used in Azure centrally houses shared networking resources, like firewalls and network gateways that enable hybrid connectivity, in a single network.  It also maintains the subscription and network separation necessary to secure and manage Azure virtual networks with best practices.
 
 You can read more about hub and spoke networking in the [Architecture Center](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli), and use resources in the [Cloud Adoption Framework](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology).
 
@@ -30,9 +30,9 @@ Your hub network should already have the following subnets:
 
 - GatewaySubnet – For your Azure ExpressRoute Gateways.
 - FirewallSubnet – For your Azure Firewall service.
-- FirewallManagementSubnet – If you're doing forced tunneling of internet traffic across your Network Gateway, you need to have a subnet for Firewall Management.  For more information, see the article on [Azure Firewall forced tunneling](/azure/firewall/forced-tunneling) for more information.
+- FirewallManagementSubnet – If you're doing forced tunneling of internet traffic across your Network Gateway, you need to have a subnet for Firewall Management.  For more information on forced tunneling, see [Azure Firewall forced tunneling](/azure/firewall/forced-tunneling).
 
-As discussed in IP address planning, you should assign the hub a /56 network space.  This is more than sufficient for the above networks, and apply a significant amount of room for growth.  Individual subnets are assigned /64 subnet size, as required.
+As discussed in IP address planning, you should assign the hub a /56 network space.  This space is more than sufficient for the above networks, and apply a significant amount of room for growth.  Individual subnets are assigned /64 subnet size, as required.
 
 In order to add this IP range to your virtual network and subnet, you can follow the instructions to [Add IPv6 to a Virtual Network](/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-portal#add-ipv6-to-virtual-network)
 
@@ -44,7 +44,7 @@ This section of the guide provides direction for how to transition specific reso
 
 To use IPv6 for hybrid connectivity between your on-premises networks and your Azure networks, you can use IPv6 for private peering on your ExpressRoute Gateway.
 
-Enabling this requires:
+Enabling IPv6 for private peering requires:
 
 - Updating your ExpressRoute circuit to use IPv6,
 - Adding your IPv6 space to your Hub virtual network, using the /56 address block.
@@ -81,9 +81,9 @@ Once these two steps are done, then you can begin adding IPv6 rules to your poli
 
 ### Private DNS Zones
 
-If you have private DNS zones linked to your hub, you need to update them to resolve domain names to IPv6.  You can do this by adding a new record set or updating an existing one.
+If you have private DNS zones linked to your hub, you need to update them to resolve domain names to IPv6.  You need to add IPv6 IP resolution records as AAAA address record types.  These records can be new record sets, or updates to existing record sets.
 
-You need to add IPv6 IP resolution records as  AAAA address record types.  For more information, see [Manage DNS records and record sets](/azure/dns/dns-operations-recordsets-portal#update-a-record) for more information.
+For more information about updating record sets, see [Manage DNS records and record sets](/azure/dns/dns-operations-recordsets-portal#update-a-record) for more information.
 
 ## Next steps
 
