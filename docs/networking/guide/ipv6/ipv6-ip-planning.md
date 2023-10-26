@@ -63,22 +63,22 @@ The second option is to plan to use IPs in the unique local address range.  This
 
 In your Azure environment, there are three types of IPv6 addresses that can be assigned to your interface.
   
-First are the private IP addresses attached to your network interfaces on your virtual network.  To enable IPv6, you'll apply IP ranges to your virtual networks and subnets.  When an address block is assigned to a subnet, network interfaces in the subnet receives a static or dynamic address based on your configuration.  You can see it in Azure portal, and you can also see it inside the virtual machine configuration.  In the operating system, this will be what is presented as the IPv6 Address.
+First are the private IP addresses attached to your network interfaces on your virtual network.  To enable IPv6, you apply IP ranges to your virtual networks and subnets.  When an address block is assigned to a subnet, network interfaces in the subnet receives a static or dynamic address based on your configuration.  You can see it in Azure portal, and you can also see it inside the virtual machine configuration.  In the operating system, this address is shown as the IPv6 Address.
 
-In addition, you can apply public addresses to the interface.  These need to be from an internet routed scope, and you need to create an IPv6 public address to assign it.  The operating system configuration won't show the configuration, but it can be seen in the Azure portal.  These public IPs can be used for inbound and outbound communication to the internet, when there's no default routing configured to direct traffic in another way.  Many customers use shared NVAs for public communication, and so not provide a global public address to their network interfaces.
+In addition, you can apply public addresses to the interface.  These addresses need to be from an internet routed scope, and you need to create an IPv6 public address to assign it.  The operating system configuration doesn't show the configuration, but it can be seen in the Azure portal.  These public IPs can be used for inbound and outbound communication to the internet, when there's no default routing configured to direct traffic in another way.  Many customers use shared NVAs for public communication, and so not provide a global public address to their network interfaces.
 
-Lastly are link-local addresses.  This address is used to communicate within the same link – the same local network segment. The IP is automatically assigned, and it comes from the `fe80::/10` space instead of from your subnet’s address blocks.  No configuration is needed, and you'll see an `fe80::/10` address assigned to your interface from within the operating system.
+Lastly are link-local addresses.  This address is used to communicate within the same link – the same local network segment. The IP is automatically assigned, and it comes from the `fe80::/10` space instead of from your subnet’s address blocks.  No configuration is needed, and you see an `fe80::/10` address assigned to your interface from within the operating system.
 
 > [!TIP]
 > For more information on other specialty address blocks, see [IANA IPv6 Special-Purpose Address Registry](https://www.iana.org/assignments/iana-ipv6-special-registry/iana-ipv6-special-registry.xhtml)
 
 ## Planning your IPv6 Addresses for Azure
 
-Now that you understand some of the core concepts and have dedicated an IP address space for use in Azure, you're ready to continue your planning in to Azure allocation.  As discussed earlier, you should have a /36 address range available to allocate to Azure.  This allows you to dedicate up to 256 different regional deployments, and to have a clear border for your IP ranges.
+Now that you understand some of the core concepts and have dedicated an IP address space for use in Azure, you're ready to continue your planning in to Azure allocation.  As discussed earlier, you should have a /36 address range available to allocate to Azure.  This scope allows you to dedicate up to 256 different regional deployments, and to have a clear border for your IP ranges.
 
 ### Subnet Sizing in Azure
 
-One significant difference between IPv6 networks and IPv4 networks in Azure is the minimum size of subnets.  IPv6 subnets in Azure have a minimum size of /64.  This means that a given subnet will contain 18,446,744,073,709,551,616 hosts, minus the hosts used for Azure management.  The reason for this minimum size is to maintain compatibility with network appliances outside of Azure; if the subnets were smaller, routing issues could occur.
+One significant difference between IPv6 networks and IPv4 networks in Azure is the minimum size of subnets.  IPv6 subnets in Azure have a minimum size of /64.  Each subnet contains 18,446,744,073,709,551,616 hosts, minus the hosts used for Azure management.  The reason for this minimum size is to maintain compatibility with network appliances outside of Azure; if the subnets were smaller, routing issues could occur.
 
 This subnet size also allows organizations to plan their network conceptually, and not need to worry about resizing subnets due to exhaustion.
 
