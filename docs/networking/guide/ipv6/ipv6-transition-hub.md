@@ -30,7 +30,7 @@ Your hub network should already have the following subnets:
 
 - GatewaySubnet – For your Azure ExpressRoute Gateways, whether those will be for VPN or ExpressRoute.
 - FirewallSubnet – For your Azure Firewall service.
-- FirewallManagementSubnet – If you are doing forced tunneling of internet traffic across your Network Gateway, you will need to have a subnet for Firewall Management.  See the article on [Azure Firewall forced tunneling](azure/firewall/forced-tunneling) for more information.
+- FirewallManagementSubnet – If you are doing forced tunneling of internet traffic across your Network Gateway, you will need to have a subnet for Firewall Management.  See the article on [Azure Firewall forced tunneling](/azure/firewall/forced-tunneling) for more information.
 
 As discussed in IP address planning, you should assign the hub a /56 network space.  This will be more than sufficient for the above networks, and apply a significant amount of room for growth.  Individual subnets will still receive a /64 subnet size, as required.
 In order to add this IP range to your virtual network and subnet, you can follow the instructions to [Add IPv6 to a Virtual Network](/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-portal#add-ipv6-to-virtual-network)

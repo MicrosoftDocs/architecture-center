@@ -15,7 +15,7 @@ categories:
 
 # IP Space Planning for IPv6 Networks
 
-Before you add IPv6 to your existing environment, ensure you are planning for your IPv6 network space.  This section gives an overview of how to plan, and of conceptual changes for IP address assignment for IPv6 networks.  The focus of this is on private network planning.  For guidance on planning your public IP address prefixes, see [Public IP address prefix](https://learn.microsoft.com/azure/virtual-network/ip-services/public-ip-address-prefix).
+Before you add IPv6 to your existing environment, ensure you are planning for your IPv6 network space.  This section gives an overview of how to plan, and of conceptual changes for IP address assignment for IPv6 networks.  The focus of this is on private network planning.  For guidance on planning your public IP address prefixes, see [Public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix).
 
 In general, the IP space that is utilized within your Azure networks should be aligned with the overall IPv6 addressing plan for your company.    You should already have a plan for how IPv6 will be used in your on-prem environments, so that you can allocate space between different locations without the overlapping.
 

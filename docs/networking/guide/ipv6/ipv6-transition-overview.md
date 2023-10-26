@@ -24,9 +24,9 @@ The discussion below discusses how to enable IPv6 in your existing [Hub and Spok
 This guide will review the following elements:
 
 - [IP Space Planning for IPv6 Networks](ipv6-ip-planning.md) in Azure, to guide you in planning your address blocks for your environment.
-- [Transitioning Hub Networks to IPv6](ipv6--transition-hub.md), to guide you on updating your hub network to using IPv6 to act as a connection point between workload spokes, hybrid connectivity, and the hosting of shared network appliances.
+- [Transitioning Hub Networks to IPv6](ipv6-transition-hub.md), to guide you on updating your hub network to using IPv6 to act as a connection point between workload spokes, hybrid connectivity, and the hosting of shared network appliances.
 
-To understand more about the capabilities of IPv6 virtual networks, see [IPv6 for Azure Vnet](https://learn.microsoft.com/azure/virtual-network/ip-services/ipv6-overview).
+To understand more about the capabilities of IPv6 virtual networks, see [IPv6 for Azure Vnet](/azure/virtual-network/ip-services/ipv6-overview).
 
 ## Next steps
 
