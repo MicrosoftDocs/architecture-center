@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: Real-time analytics on data via Azure Service Bus in Azure Data Explorer
+  titleSuffix: Azure Architecture Center
+  description: Learn how to add near real-time analytics to an existing architecture that's based on a message broker and that's part of an operational OLTP application.
+  author: shsagir
+  ms.author: shsagir
+  ms.date: 10/30/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+  - analytics
+products:
+  - azure-service-bus
+  - azure-data-explorer
+name: Real-time analytics on data via Azure Service Bus in Azure Data Explorer
+summary: Learn how to add near real-time analytics to an existing architecture that's based on a message broker and that's part of an operational OLTP application.
+thumbnailUrl: /azure/architecture/browse/thumbs/analytics-service-bus.png
+content: |
+  [!include[](analytics-service-bus-content.md)]
