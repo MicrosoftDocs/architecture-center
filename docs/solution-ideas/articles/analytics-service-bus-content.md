@@ -4,7 +4,7 @@ This solution idea demonstrates how to add near real-time analytics to an existi
 
 ## Architecture
 
-:::image type="content" source="[media/analytics-service-bus.png]" alt-text="[Diagram that shows an archictecture for implementing near real-time analytics.]" border="false":::
+:::image type="content" source="[../media/analytics-service-bus.png]" alt-text="[Diagram that shows an archictecture for implementing near real-time analytics.]" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/analytics-service-bus.vsdx) of this architecture.*
 
