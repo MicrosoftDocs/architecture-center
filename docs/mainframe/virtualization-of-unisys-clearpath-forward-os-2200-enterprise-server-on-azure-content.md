@@ -112,7 +112,7 @@ Unisys matches the operational performance in Azure with Developer Studio. You c
 Principal authors:
 
 - [Philip Brooks](http://linkedin.com/in/philipbbrooks) | Senior Program Manager
-- [Adam Gallagher](Adam.Gallagher@Unisys.com) | Senior Solution Manager
+- [Adam Gallagher](mailto:Adam.Gallagher@Unisys.com) | Senior Solution Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
