@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn to how to backup and recovery your AKS clusters and their workloads.
 author: AdamSharif-MSFT
 ms.author: jotavar
-ms.date: 18/10/2023
+ms.date: 10/26/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -138,7 +138,7 @@ To ensure that your Backup and Recovery solution meets your organization's requi
 - **Cluster Selection**: Decide if you need to backup all clusters or only specific production clusters based on your requirements.
 - **Test Restore Procedure**: Perform periodic test restores to validate the reliability and usability of your backup strategy. This step is crucial for ensuring the effectiveness of the Backup and Recovery solution. For more information, see [Restoring an AKS cluster](https://learn.microsoft.com/azure/backup/azure-kubernetes-service-cluster-restore).
 - **Supported Scenarios**: Verify if your specific scenario is supported by the AKS Backup solution. Refer to the [AKS Backup support matrix](https://learn.microsoft.com/azure/backup/azure-kubernetes-service-cluster-backup-support-matrix) for compatibility information.
-- **Budget Allocations**: Consider if you have specific budget allocations for backup and restore operations. Review the [pricing](https://learn.microsoft.com/en-us/azure/backup/azure-kubernetes-service-backup-overview#pricing) information provided by the AKS Backup solution to align with your budgetary requirements.
+- **Budget Allocations**: Consider if you have specific budget allocations for backup and restore operations. Review the [pricing](https://learn.microsoft.com/azure/backup/azure-kubernetes-service-backup-overview#pricing) information provided by the AKS Backup solution to align with your budgetary requirements.
 
 By taking these additional considerations into account, you can ensure that your Backup and Recovery solution for AKS meets your organization's needs and preferences efficiently and effectively.
 
