@@ -28,7 +28,7 @@ Numeric callouts 1, 2, and 3 are used in both diagrams to highlight the similari
 ### Components
 
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) is one of several types of on-demand, scalable computing resources that Azure offers. A Virtual Machine gives you the flexibility of virtualization without you having to buy and maintain physical hardware.
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources, such as Virtual Machines, to securely communicate with each other, the internet, and on-premises networks. Virtual Network is similar to a traditional network that operate in your own datacenter but with the added benefits of Azure's infrastructure, such as scale, availability, and isolation. [Network interface cards (NICs)](/azure/virtual-network/virtual-network-network-interface) enable a VM to communicate with the internet, Azure, and on-premises resources. For example, you can add more NICs to the same VM, which allows the Solaris child VMs to have their own dedicated network interface device and IP address.
+- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources, such as Virtual Machines, to securely communicate with each other, the internet, and on-premises networks. Virtual Network is similar to a traditional network that operates in your own datacenter but with the added benefits of Azure's infrastructure, such as scale, availability, and isolation. [Network interface cards (NICs)](/azure/virtual-network/virtual-network-network-interface) enable a VM to communicate with the internet, Azure, and on-premises resources. For example, you can add more NICs to the same VM, which allows the Solaris child VMs to have their own dedicated network interface device and IP address.
 - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Azure and Microsoft 365.
 - [Azure Site Recovery](/azure/site-recovery/) enables Azure region-to-region failover for DR if a primary region outage occurs.
 
@@ -112,7 +112,7 @@ Unisys matches the operational performance in Azure with Developer Studio. You c
 Principal authors:
 
 - [Philip Brooks](http://linkedin.com/in/philipbbrooks) | Senior Program Manager
-- Adam Gallagher (Adam.Gallagher@Unisys.com) | Senior Solution Manager
+- [Adam Gallagher](Adam.Gallagher@Unisys.com) | Senior Solution Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
