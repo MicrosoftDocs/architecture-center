@@ -19,7 +19,7 @@ Before you add IPv6 to your existing environment, ensure you are planning for yo
 
 In general, the IP space that is utilized within your Azure networks should be aligned with the overall IPv6 addressing plan for your company.    You should already have a plan for how IPv6 will be used in your on-prem environments, so that you can allocate space between different locations without the overlapping.
 
-These instructions are meant to compliment the overall guide in [Plan for IP Addressing](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing).
+These instructions are meant to compliment the overall guide in [Plan for IP Addressing](/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing).
 
 ## IPv6 Address Space Concepts
 
@@ -57,7 +57,7 @@ If you do not have IPv6 space secured for your organization, you have two option
 
 The first option is to contact a registrar to request a continuous block general allocation or global addresses.  These IPv6 addresses can then be used to assign subnets, virtual networks, and regional supernets in Azure.  To have sufficient space for growth in multiple regions, you should plan to allocate a /36 space for Azure.  You can use global addresses both for private networks and for public endpoints, or you can allocate different ranges.
 
-The second option is to plan to use IPs in the unique local address range.  This address range functions like the IPv4 private address range, such as the `10.0.0.0/8` address space. IPv6 reserves the `fc00::/7` address blocks for unique local addresses.  These addresses are not globally reachable, even though they are a part of the IPv6 Global Unicast Address Range.  You can read more about this range assignment in the [Unique Local IPv6 Unicast Addresses]( https://www.rfc-editor.org/rfc/rfc4193.html) memo.
+The second option is to plan to use IPs in the unique local address range.  This address range functions like the IPv4 private address range, such as the `10.0.0.0/8` address space. IPv6 reserves the `fc00::/7` address blocks for unique local addresses.  These addresses are not globally reachable, even though they are a part of the IPv6 Global Unicast Address Range.  You can read more about this range assignment in the [Unique Local IPv6 Unicast Addresses](https://www.rfc-editor.org/rfc/rfc4193.html) memo.
 
 ### Understanding IPs assigned in Azure
 
@@ -123,4 +123,4 @@ This can be helpful for organizations who have already deployed out many virtual
 ## Next steps
 
 - Continue your journey by [Transitioning Hub Networks to IPv6](ipv6--transition-hub.md)
-- Read more about more generally guidance on how to [Plan for IP Addressing](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing)
+- Read more about more generally guidance on how to [Plan for IP Addressing](/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing)
