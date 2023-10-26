@@ -1,14 +1,14 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution idea demonstrates an architecture that adds near real-time analytics to an existing architecture that's based on a message broker and that's part of an operational OLTP application.
+This solution idea demonstrates how to add near real-time analytics to an existing architecture that's based on a message broker and that's part of an operational OLTP application.
 
 ## Architecture
 
-![](media/image3.png)
+:::image type="content" source="[media/analytics-service-bus.png]" alt-text="[Diagram that shows an archictecture for implementing near real-time analytics.]" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/[filename].vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/analytics-service-bus.vsdx) of this architecture.*
 
-*The architecture consists of two paths for data flow. The core path, which is shown by solid lines and boxes (1,2,3,4,5), involves the ingestion of data from various sources into a service bus, where it is processed by a stream analytics job and stored in a SQL database. The auxiliary path, which is shown by dotted lines and boxes, allows the data to be also sent from the service bus to an Azure Data Explorer cluster, where it can be queried and analyzed using Kusto Query Language (KQL).*
+The architecture consists of two paths for data flow. The core path, which is shown by solid lines and boxes 1 through 5, involves the ingestion of data from various sources into a service bus, where it is processed by a stream analytics job and stored in a SQL database. The auxiliary path, which is shown by dotted lines and boxes, allows the data to be also sent from the service bus to an Azure Data Explorer cluster, where it can be queried and analyzed using Kusto Query Language (KQL).
 
 This architecture covers ways to implement near real-time analytics for multiple use cases where Azure Service Bus is used to implement a [queue based load leveling](../../patterns/queue-based-load-leveling-content.md) pattern for transactional applications.
 
@@ -56,7 +56,7 @@ This enables organizations to gain insights faster, make better decisions, and r
 
 A health care provider can use near real-time analytics to track patient outcomes, detect anomalies, and improve quality of care. A manufacturing company can use near real-time analytics to optimize production, reduce waste, and prevent downtime. A financial institution can use near real-time analytics to detect fraud, manage risk, and comply with regulations. These are just some of the potential use cases that illustrate the importance and benefits of near real-time analytics for organizations.
 
-Many organizations today bring near real-time analytics into their existing solutions. 
+Many organizations today bring near real-time analytics into their existing solutions. This solution idea demonstrates how to add near real-time analytics to an existing architecture that's based on a message broker and that's part of an operational OLTP application.
 
 OLTP stands for Online Transaction Processing. It is a type of software application that manages transaction-oriented applications, typically for data entry and retrieval transactions in a real-time environment. OLTP systems are designed to process small, fast transactions that are typically financial in nature, such as bank transactions or credit card purchases.
 
