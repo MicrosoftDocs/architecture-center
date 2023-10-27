@@ -1,7 +1,7 @@
 ---
 title: Architectural approaches for control planes in multitenant solutions
 titleSuffix: Azure Architecture Center
-description: Learn about approaches to building control planes for your multitenant solutions. 
+description: Learn about approaches to designing and creating control planes for your multitenant solutions, including manual, low-code, and custom approaches.
 author: landonpierce 
 ms.author: landonpierce 
 ms.date: 11/01/2023
@@ -16,24 +16,24 @@ categories:
 ms.custom:
   - guide
 ---
+
 # Architectural approaches for control planes in multitenant solutions
 
-Control planes are an important part of SaaS and multitenant solutions, especially to help manage a solution at scale. Typically, there are two main components that make up a control plane: 
+Control planes are an important part of software as a service (SaaS) and multitenant solutions, especially to help manage a solution at scale. Typically, there are two main components that make up a control plane: 
 
 - The tenant catalog, which stores important information about your tenants, such as:
   - Tenant configuration.
   - SKUs deployed for tenant resources.
   - Which [deployment stamps](../../../patterns/deployment-stamp.yml) the tenants are allocated to.
-- Processes to manage changes to the environment triggered by tenant [lifecycle events](../considerations/tenant-lifecycle.md). For example, tenant onboarding, tenant offboarding, and any regular maintenance required.
+- Processes for managing changes to the environment, which are triggered by tenant [lifecycle events](../considerations/tenant-lifecycle.md). For example, tenant onboarding, tenant offboarding, and any required regular maintenance.
 
-A control plane is itself an application. As such, it is important to think about your control plane carefully, and to design it with the same rigor and care you use with any other part of your solution. For more information on what a control plane is, why you should use it, and considerations for designing one, see [Considerations for multitenant control planes](../considerations/control-planes.yml).
+A control plane is itself an application. You need to think about your control plane carefully and design it with the same rigor and care you use with any other part of your solution. For more information on what a control plane is, why you should use it, and considerations for designing one, see [Considerations for multitenant control planes](../considerations/control-planes.yml).
 
-In this article, we describe some approaches you can consider for designing and building a control plane. The list of approaches found here is not exhaustive. While the listed approaches are all valid examples to consider, there are other valid architectures.
+This article describes some approaches you can consider for designing and building a control plane. The list of approaches described here isn't comprehensive. Although the approaches are all valid, there are other valid architectures.
 
 ## Approaches and patterns to consider
 
-
-The following table summarizes the differences between some of the approaches you could consider for a control plane:
+The following table summarizes the differences between some of the approaches you can consider for a control plane:
 
 | Consideration  | Manual processes | Low-code | Custom | 
 |---|---|---|---|
