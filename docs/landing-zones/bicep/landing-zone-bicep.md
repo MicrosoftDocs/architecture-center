@@ -41,6 +41,12 @@ This article discusses the design considerations of the modularized [Azure Landi
 > [!NOTE]
 > There are [implementations](/azure/cloud-adoption-framework/ready/landing-zone/implementation-options) for several deployment technologies, including portal-based, ARM templates and Terraform modules. The choice of deployment technology should not influence the resulting Azure landing zones deployment.
 
+### ALZ Bicep Accelerator
+
+You can find step by step guidance around implementing, automating, and maintaining your ALZ Bicep module with the ALZ Bicep Accelerator [here](aka.ms/alz/bicep/accelerator "ALZ Bicep Accelerator").
+
+The ALZ Bicep Accelerator framework was developed to provide end-users support to onboarding and deployment of ALZ Bicep using full-fledged CI/CD pipelines, support for GitHub Actions and Azure DevOps Pipelines, dedicated Framework to stay in-sync with new ALZ Bicep releases and modify or add custom modules, and provides branching strategy guidance and pull request pipelines for linting and validating Bicep modules.
+
 ## Design
 
 :::image type="content" border="true" source="images/bicep-architecture.png" alt-text="Diagram showing the bicep modules for deploying Azure landing zones." lightbox="images/bicep-architecture-highres.png":::
@@ -49,11 +55,6 @@ The architecture takes advantage of the modular nature of Azure Bicep and is com
 
 The architecture proposes the inclusion of orchestrator modules to simplify the deployment experience. The orchestrator modules could be used to automate the deployment of the modules and to encapsulate differing deployment topologies.
 
-### ALZ Bicep Accelerator
-
-You can find step by step guidance around implementing, automating, and maintaining your ALZ Bicep module with the ALZ Bicep Accelerator [here](aka.ms/alz/bicep/accelerator "ALZ Bicep Accelerator").
-
-The ALZ Bicep Accelerator framework was developed to provide end-users support to onboarding and deployment of ALZ Bicep using full-fledged CI/CD pipelines, support for GitHub Actions and Azure DevOps Pipelines, dedicated Framework to stay in-sync with new ALZ Bicep releases and modify or add custom modules, and provides branching strategy guidance and pull request pipelines for linting and validating Bicep modules.
 
 ## Modules
 
