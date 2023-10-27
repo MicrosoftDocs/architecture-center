@@ -24,13 +24,13 @@ The data source in the architecture is an existing Online Transaction Processing
 
 1. Data flows from Service Bus in two directions:
 
-   1. In the existing OLTP application flow, it triggers a functions app to store data in Azure SQL Database, Azure Cosmos DB, or a similar operational database.
+   1. In the existing OLTP application flow, it triggers a function app to store data in Azure SQL Database, Azure Cosmos DB, or a similar operational database.
 
    1. In the near real-time analytics flow, it triggers an orchestration flow.
 
 1. The orchestration flow sends data to Azure Data Explorer for near real-time analytics. The flow can use either:
 
-   - A functions app that uses SDKs to send data in micro batches or that uses managed streaming ingestion support provided by Azure Data Explorer when it's [configured for streaming ingestion](/azure/data-explorer/ingest-data-streaming).
+   - A function app that uses SDKs to send data in micro batches or that uses managed streaming ingestion support provided by Azure Data Explorer when it's [configured for streaming ingestion](/azure/data-explorer/ingest-data-streaming).
    - A polling service, like an application that's hosted on Azure Kubernetes Service (AKS) or an Azure VM, that sends data to Azure Data Explorer in micro batches. This option doesn't require configuring Azure Data Explorer streaming ingestion.
 
 1. Azure Data Explorer processes the data, by using [schema mapping](/azure/data-explorer/kusto/management/mappings) and [update policies](/azure/data-explorer/kusto/management/updatepolicy), and makes it available through an API, SDK, or connector for interactive analytics or reporting. Optionally, Azure Data Explorer can also ingest or reference data from other data sources, like SQL Database or Azure Data Lake Storage.
