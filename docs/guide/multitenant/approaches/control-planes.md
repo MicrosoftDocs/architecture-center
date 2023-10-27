@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn about approaches to building control planes for your multitenant solutions. 
 author: landonpierce 
 ms.author: landonpierce 
-ms.date: 08/07/2023
+ms.date: 11/01/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
