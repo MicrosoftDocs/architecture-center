@@ -3045,6 +3045,8 @@ items:
           href: reference-architectures/migration/unisys-mainframe-migration.yml
         - name: Use LzLabs SDM in Azure
           href: example-scenario/mainframe/lzlabs-software-defined-mainframe-in-azure.yml
+        - name: Virtualization of Unisys ClearPath Forward OS 2200 Enterprise Server on Azure
+          href: mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml
       - name: Solution ideas
         items:
         - name: Migrate IBM apps with TmaxSoft
