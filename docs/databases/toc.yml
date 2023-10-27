@@ -74,13 +74,13 @@ items:
         items:
         - name: Big data architectures
           href: guide/big-data-architectures.yml
-    - name: Data transForm templates
-      items:
-      - name: VantageCloud integration with Azure Data Factory
-        href: guide/teradata-vantage-data-factory.yml     
-    - name: Governance
-      items:
-      - name: Data obfuscation with Delphix
-        href: guide/data-obfuscation-with-delphix-in-azure-data-factory.yml
-      - name: Data scrambling for SAP with Delphix
-        href: guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml       
+      - name: Data transform
+        items:
+        - name: VantageCloud integration with Azure Data Factory
+          href: guide/teradata-vantage-data-factory.yml     
+      - name: Governance
+        items:
+        - name: Data obfuscation with Delphix
+          href: guide/data-obfuscation-with-delphix-in-azure-data-factory.yml
+        - name: Data scrambling for SAP with Delphix
+          href: guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml       
