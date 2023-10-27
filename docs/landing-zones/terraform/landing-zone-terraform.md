@@ -44,14 +44,6 @@ Terraform is an open-source Infrastructure as Code (IaC) tool, created by HashiC
 > [!NOTE]
 > There are [implementations](/azure/cloud-adoption-framework/ready/landing-zone/implementation-options) for several deployment technologies, including portal-based, ARM templates and Terraform modules. The choice of deployment technology should not influence the resulting Azure landing zones deployment.
 
-## Design
-
-:::image type="content" border="true" source="images/alz-tf-module-overview.png" alt-text="Diagram showing the Azure landing zones conceptual architecture." lightbox="images/alz-tf-module-overview.png":::
-
-The architecture takes advantage of the configurable nature of Terraform and is composed of a primary orchestration module. This module encapsulates multiple capabilities of the Azure landing zones conceptual architecture. You can deploy each capability individually or in part. For example, you can deploy just a hub network, or just the Azure DDoS Protection, or just the DNS resources. When doing so, you need to take into account that the capabilities have dependencies.
-
-The architecture utilizes an orchestrator approach to simplify the deployment experience. You might prefer to implement each capability using one or more dedicated module instances where each is dedicated to a specific part of the architecture. This is all possible with the correct configuration
-
 ### ALZ Terraform Accelerator
 
 To quickly get started deploying ALZ with Terraform you can leverage the [ALZ Terraform Accelerator](aka.ms/alz/tf/accelerator "ALZ Terraform Accelerator") that is designed to be used as a template. This repository provides a supporting implementation of the Azure Landing Zones Terraform module, with Azure DevOps pipelines and GitHub actions workflows.
@@ -62,6 +54,16 @@ The [ALZ Terraform Accelerator](https://github.com/Azure/alz-terraform-accelerat
 3.	Run: Update the module (if needed) to suit the needs of your organisation and deploy via continuous delivery.
 
 Start with user guide with a step by step to get your Azure Landing Zone environment up and running.
+
+
+## Design
+
+:::image type="content" border="true" source="images/alz-tf-module-overview.png" alt-text="Diagram showing the Azure landing zones conceptual architecture." lightbox="images/alz-tf-module-overview.png":::
+
+The architecture takes advantage of the configurable nature of Terraform and is composed of a primary orchestration module. This module encapsulates multiple capabilities of the Azure landing zones conceptual architecture. You can deploy each capability individually or in part. For example, you can deploy just a hub network, or just the Azure DDoS Protection, or just the DNS resources. When doing so, you need to take into account that the capabilities have dependencies.
+
+The architecture utilizes an orchestrator approach to simplify the deployment experience. You might prefer to implement each capability using one or more dedicated module instances where each is dedicated to a specific part of the architecture. This is all possible with the correct configuration
+
 
 ## Modules
 
