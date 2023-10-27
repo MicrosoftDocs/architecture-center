@@ -29,7 +29,7 @@ Control planes are an important part of software as a service (SaaS) and multite
 
 A control plane is itself an application. You need to think about your control plane carefully and design it with the same rigor and care you use with any other part of your solution. For more information on what a control plane is, why you should use it, and considerations for designing one, see [Considerations for multitenant control planes](../considerations/control-planes.yml).
 
-This article describes some approaches you can consider for designing and building a control plane. The list of approaches described here isn't comprehensive. Although the approaches are all valid, there are other valid architectures.
+This article describes some approaches you can consider for designing and creating a control plane. The list of approaches described here isn't comprehensive. Although the approaches are all valid, there are other valid architectures.
 
 ## Approaches and patterns to consider
 
@@ -57,7 +57,7 @@ For processes like tenant onboarding and maintenance activities:
 
 > [!div class="checklist"]
 >
-> - **Create scripts or automated pipelines wherever possible, even if you run them manually.** By using scripts or pipelines, you ensure that the steps are run consistently for each tenant.
+> - **Create scripts or automated pipelines wherever possible, even if you run them manually.** By using scripts or pipelines, you ensure that the steps run consistently for each tenant.
 > - **For tasks that you can't script initially, document the process thoroughly and in explicit detail.** Document the *how* as well as the *why*. If somebody ends up automating the task in the future, they should have a good understanding of both.
 
 The following diagram illustrates one way to use manual processes for an initial control plane: 
@@ -89,7 +89,7 @@ A low-code or no-code control plane is a type of control plane that's built on a
 
 Microsoft Power Platform is an example of one of these platforms. If you use Power Platform, you might keep your tenant catalog in Dynamics 365, Dataverse, or Microsoft 365. You can also consider keeping the same tenant catalog that you use for your manual processes, if you don't want to fully commit yet to automating everything.
 
-For tenant onboarding and maintenance, you could then use Power Automate to run workflows that perform tenant management, configure tenants, trigger pipelines or API calls, and so on. You could use Power Automate to watch for changes to your tenant catalog, if the data is somewhere accessible to Power Automate. If you use a manual tenant catalog, Power Automate workflows can also be triggered manually. You might decide to include manual approval steps in your workflows, if you need somebody from your team to verify something or perform additional steps that can't be fully automated.
+For tenant onboarding and maintenance, you could then use Power Automate to run workflows that perform tenant management, configure tenants, trigger pipelines or API calls, and so on. You could use Power Automate to watch for changes to your tenant catalog, if the data is somewhere accessible to Power Automate. If you use a manual tenant catalog, Power Automate workflows can also be triggered manually. You might decide to include manual approval steps in your workflows if you need somebody from your team to verify something or perform additional steps that can't be fully automated.
 
 This approach enables you to provide self-service sign-up to your customers by allowing your web application to directly add records to your tenant catalog without human intervention.
 
@@ -99,21 +99,21 @@ The following diagram illustrates how you might create a control plane with self
 
 #### Advantages of a low-code approach
 
-- **Lightweight**: It's often quick and inexpensive to build a set of low-code workflows and connect it to the surrounding systems.
+- **Lightweight**: It's often quick and inexpensive to create a set of low-code workflows and connect it to the surrounding systems.
 - **Uses platform tooling**: You can use native platform features to store data, create administrative portals for your team to use, and monitor the workflows as they run.
-- **Customizable**: If you need more customization, you can typically augment your workflows with custom code and processes. For example, you might use Power Automate to trigger a deployment workflow in GitHub Actions, or you might invoke Azure Functions to run your own code. This customization also helps facilitate a gradual implementation.
+- **Customizable**: If you need more customization, you can typically augment your workflows with custom code and processes. For example, you might use Power Automate to trigger a deployment workflow in GitHub Actions, or you might invoke Azure Functions to run your own code. This also helps facilitate a gradual implementation.
 - **Low overhead**: Low-code services are typically fully managed, so you don't need to manage infrastructure.
 
 #### Disadvantages of a low-code approach
 
-- **Required expertise**: To use low-code platforms to create processes, and to effectively use these platforms, you typically need proprietary knowledge. Many organizations already use these tools, so your team might already have expertise, but it might not. You should consider whether you need to train your team in order to effectively use these platforms.
+- **Required expertise**: To use low-code platforms to create processes, and to effectively use these platforms, you typically need proprietary knowledge. Many organizations already use these tools, so your team might already have the required expertise, but it might not. You should consider whether you need to train your team in order to effectively use these platforms.
 - **Management**: It can be challenging to handle the management of large amounts of low-code configuration.
 - **Testability**: Consider how you might test and promote changes to your control plane. In a managed platform, creating a typical DevOps process for testing and promoting changes is more difficult, because changes are normally made through configuration, not through code.
 - **Design**: Think carefully about how to meet non-functional requirements like security and reliability. These requirements are often managed for you on a low-code platform.
 
 #### When to consider moving away from a low-code approach
 
-- Eventually, your requirements might become so complex that you can't sensibly build them into a low-code solution. When you need to work around tooling limitations to meet your needs, it probably makes sense to move away from a managed solution and toward a custom control plane.
+- Eventually, your requirements might become so complex that you can't sensibly incorporate them in a low-code solution. When you need to work around tooling limitations to meet your needs, it probably makes sense to move away from a managed solution and toward a custom control plane.
 
 ### Custom control plane
 
