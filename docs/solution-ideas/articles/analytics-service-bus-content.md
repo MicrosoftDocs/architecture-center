@@ -58,7 +58,7 @@ These processes enable organizations to gain insights faster, make better decisi
 
 Many organizations implement near real-time analytics in existing solutions. This solution idea demonstrates how to add near real-time analytics to an existing architecture that's based on a message broker and that's part of an operational OLTP application.
 
-OLTP stands for Online Transaction Processing. It's a type of software application that manages transaction-oriented applications, typically for data entry and retrieval transactions in a real-time environment. OLTP systems are designed to process small, fast transactions that are frequently financial in nature, like bank transactions or credit card purchases.
+OLTP stands for Online Transaction Processing. It's a type of data processing that manages transaction-oriented applications, typically for data entry and retrieval transactions in a real-time environment. OLTP systems are designed to process small, fast transactions that are frequently financial in nature, like bank transactions or credit card purchases.
 
 ### Potential use cases
 
@@ -66,7 +66,7 @@ Here are some use cases that illustrate the benefits of near real-time analytics
 
 - Healthcare providers can track patient outcomes, detect anomalies, and improve quality of care. 
 - Manufacturing companies can optimize production, reduce waste, and prevent downtime. 
-- Financial institutions can monitor transactions, detect fraud, manage risk, and comply with regulations. 
+- Financial institutions can monitor transactions, detect fraud, manage risk, and ensure compliance with regulations. 
 - Commerce companies can monitor campaigns and gain insights to support promotion.
 - Companies can monitor, optimize, analyze, and forecast supply chains.
 
