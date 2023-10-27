@@ -1135,6 +1135,8 @@ items:
         href: solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml
       - name: Real-time analytics on big data
         href: solution-ideas/articles/real-time-analytics.yml
+      - name: Real-time analytics with Azure Data Explorer
+        href: solution-ideas/articles/analytics-service-bus.yml
       - name: Tier applications and data for analytics
         href: solution-ideas/articles/tiered-data-for-analytics.yml
   - name: Blockchain + Multiparty Compute
