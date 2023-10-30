@@ -40,7 +40,13 @@ The Automotive SDV Toolchain is composed by the following three key blocks:
 
 * **Development, Validation and Integration** – a combination of metadata and orchestration services that allow developers to configure, build, deploy and orchestrate on-demand virtual execution environments to streamline the development and testing process, integrating with existing toolchains and supporting multiple application formats, binaries, operating systems and runtime environments.
 
-* **Execution Environment** – the set of Azure services: Azure Deployment Environments, Azure Compute Gallery, Azure Container Registry, Azure Arc, Azure Compute like Arm64-based Azure Virtual Machines and High Performance Computing and Azure Networking Services and Connectivity Services like ExpressRoute that enable reliable, repeatable and observable cloud and edge environments to build, test and validate automotive software stacks.
+* **Execution Environment** – the set of Azure services that enable reliable, repeatable and observable cloud and edge environments to build, test and validate automotive software stacks. These services may include: 
+- Azure Deployment Environment 
+- Azure Compute Gallery
+- Azure Container Registry
+- Azure Arc
+- Azure Compute like Arm64-based Azure Virtual Machines and High Performance Computing
+- Azure Networking Services and Connectivity Services like ExpressRoute 
 
 ### Deploying Virtual ECUs
 
