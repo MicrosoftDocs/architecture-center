@@ -26,7 +26,7 @@ The Architecture consists of six key building blocks:
 
 6. **[Autonomous Vehicle Operations](https://learn.microsoft.com/azure/architecture/solution-ideas/articles/avops-architecture)** enables automotive OEMs to develop automated driving solutions on Azure. It describes how to manage Data Operations from autonomous vehicles (DataOps), automated feature extraction, labeling, model training for perception and sensor fusion (MLOps), and testing developed models in simulated environments (ValOps). It integrates with the SDV Toolchain by providing trained models and executing software validation.
 
-This reference focuses on a general *SDV Toolchain* and *Automotive Software Stack*, and provides examples of for implementations using open-source projects under the purview of the Eclipse SDV Working Group such as [Eclipse uProtocol](https://github.com/eclipse-uprotocol), [Eclipse Chariott](https://github.com/eclipse-chariott), [Eclipse Ibeji](https://github.com/eclipse-ibeji), Eclipse Freya and Eclipse Agemo.
+This guide focuses on a general *SDV Toolchain* and *Automotive Software Stack*, and provides examples of for implementations using open-source projects under the purview of the Eclipse SDV Working Group such as [Eclipse uProtocol](https://github.com/eclipse-uprotocol), [Eclipse Chariott](https://github.com/eclipse-chariott), [Eclipse Ibeji](https://github.com/eclipse-ibeji), Eclipse Freya and Eclipse Agemo.
 
 *Microsoft is a member of the [Eclipse Software Defined Vehicle](https://www.eclipse.org/org/workinggroups/sdv-charter.php) working group, a forum for open collaboration using open source for vehicle software platforms.*
 
