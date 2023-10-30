@@ -122,7 +122,7 @@ The highlights of the network topology are as follows:
 * Windows and Linux jumpboxes are provided with preinstalled tools to access the resources deployed, submit jobs, and monitor
   their progress. These jumpboxes are deployed on the hub network and can be accessed from the on-premises network using the
   VPN gateway or Azure Bastion.
-* All Azure services deployed use private endpoints to ensure that they are accessed over private network instead of accessing
+* All Azure services use private endpoints to ensure that they are accessed over private network instead of accessing
   them through public endpoints. This also helps us to ensure that the services are not accessible from the public internet.
 * NSG rules are setup to allow only the required traffic in and out of the virtual network. This helps protect the
   network from malicious attacks and monitor traffic in and out of the network. These rules even restrict the traffic
