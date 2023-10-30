@@ -154,6 +154,7 @@ network. Route tables are setup to ensure that the traffic between the spoke is 
 ### Accessing the resources
 
 To submit computation jobs to the Batch service, one needs to connect with the Batch service endpoint to submit jobs and monitor their progress. Since the Batch service is setup to use private endpoints, it can only be accessed from within the network.
+
 The architecture provides two options for the user to connect to the network to be able to submit jobs to the Batch service:
 
 1. **Use VPN Gateway**. The user can connect to the hub network using a VPN Gateway. Once connected to the VPN, the user can submit
