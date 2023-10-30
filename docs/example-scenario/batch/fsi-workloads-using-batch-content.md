@@ -131,7 +131,7 @@ The highlights of the network topology are as follows:
 ##### Hub Virtual Network
 
 The hub virtual network contains resources that allow or monitor traffic in and out of the spoke network. The virtual network
-defines following subnets:
+defines following subnets in the deployment template:
 
 1. `GatewaySubnet`: subnet for the VPN gateway, if deployed.
 1. `AzureBastionSubnet`: subnet for the Azure Bastion service, if deployed.
