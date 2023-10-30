@@ -201,7 +201,7 @@ Azure provides services to all customers to monitor and alert on anomalies invol
 
 ## Deploy this scenario
 
-Follow the [CoC LAB Deployment](https://github.com/Azure/forensics/blob/main/README.md) instructions to build and deploy this scenario in a laboratory environment.
+Follow the [CoC LAB Deployment](https://learn.microsoft.com/samples/azure/forensics/forensics/) instructions to build and deploy this scenario in a laboratory environment.
 
 The laboratory environment represents a simplified version of the architecture that is described in the article deploying two resource groups within the same subscription. The first resource group simulates the production environment, housing digital evidence, while the second resource group holds the SOC environment.
 
