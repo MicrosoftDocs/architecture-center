@@ -36,7 +36,7 @@ This chapter explains which components compose the Automotive SDV Toolchain. It 
 
 The Automotive SDV Toolchain is composed by the following three key blocks:
 
-* **Development Tools** includes development and collaboration services such as GitHub, Microsoft Dev Box, Visual Code and Azure Container Registry. It also includes GitHub’s code scanning capabilities that use the CodeQL analysis engine to find security bugs in source code and surface alerts in pull requests, before the vulnerable code gets merged and released.
+* **Development Tools** includes development and collaboration services such as GitHub, Microsoft Dev Box, Visual Studio Code and Azure Container Registry. It also includes GitHub’s code scanning capabilities that use the CodeQL analysis engine to find security bugs in source code and surface alerts in pull requests, before the vulnerable code gets merged and released.
 
 * **Development, Validation and Integration** – a combination of metadata and orchestration services that allow developers to configure, build, deploy and orchestrate on-demand virtual execution environments to streamline the development and testing process, integrating with existing toolchains and supporting multiple application formats, binaries, operating systems and runtime environments.
 
@@ -60,7 +60,7 @@ The following flow describes how an automotive software developer belonging to t
 
 *Contoso Automotive* is adding a new automotive High Performance Compute Unit (HPC) to an upcoming vehicle model and must onboard a new development team to develop containerized applications. The hardware for the vehicle isn't yet available, but compressed timelines mean that the software functionality must be developed and validated in parallel.
 
-1. The automotive developer requests a **Microsoft Dev Box**. The dev box is preconfigured with all required development tools (such as Visual Studio Code and Android Studio) and all required extensions (such as GitHub Copilot) to work with the *Contoso Automotive* applications.
+1. The automotive developer creates and connects to a **Microsoft Dev Box**. The dev box is preconfigured with all required development tools (such as Visual Studio Code and Android Studio) and all required extensions (such as GitHub Copilot) to work with the *Contoso Automotive* applications.
 1. The automotive developer performs a check-out of the automotive **application code and metadata** that describes the upcoming vehicle configuration, the included HPCs and electronic control units (ECU), and the required deployment to perform SiL validation.
 1. The automotive developer uses the **metadata extensions** to make configuration adjustments, such as changing the characteristics of the HPC based on new information from the engineering team.
 1. Changing the configuration triggers the **metadata processing extension** that performs metadata validation, generates all required artifacts and configures an execution environment deployment campaign.
@@ -296,6 +296,7 @@ Other contributors:
 
 * [GitHub enables the development of functional safety applications by adding support for coding standards AUTOSAR C++ and CERT C++](https://github.blog/2022-06-20-adding-support-for-coding-standards-autosar-c-and-cert-c/)
 * [Getting started with GitHub Copilot](https://docs.github.com/copilot/getting-started-with-github-copilot)
+* [Create and connect to a dev box by using the Microsoft Dev Box developer portal](https://learn.microsoft.com/azure/dev-box/quickstart-create-dev-box)
 
 ## Related resources
 
