@@ -1,46 +1,41 @@
-This article describes the steps for running [NAMD](http://www.ks.uiuc.edu/Research/namd/) application on a virtual machine (VM) that’s deployed on Azure. It also presents the performance results of running NAMD on single-node and multi-node VM configurations. 
+This article describes the steps for running [NAMD](http://www.ks.uiuc.edu/Research/namd/) software on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running NAMD on single-node and multi-node VM configurations.
 
-NAMD is a computer software for molecular dynamics  simulation, written using the [Charm++](https://en.wikipedia.org/wiki/Charm%2B%2B) parallel programming model. It has been developed by the collaboration of the Theoretical and Computational Biophysics Group (TCB) and the Parallel Programming Laboratory (PPL) at the University of Illinois at Urbana–Champaign. It is noted for its parallel efficiency and is often used to simulate large systems (millions of [atoms](https://en.wikipedia.org/wiki/Atom)). It is a parallel molecular dynamics code designed for high-performance simulation of large biomolecular systems. NAMD supports hundreds of cores for typical simulations and exceeds 500,000 cores for the largest simulations based on Charm++ parallel objects.  The NAMD simulation tool performed the first all-atom simulation of a virus in 2006, and a molecular dynamics flexible fitting interaction of an HIV virus capsid in 2012. Simulations and trajectory analysis are performed with the popular molecular graphics program VMD, but NAMD is also compatible with AMBER, CHARMM, and X-PLOR files. A source code version of NAMD is available for free.
+NAMD is a computer application for molecular dynamics simulation that's based on the [Charm++](https://en.wikipedia.org/wiki/Charm%2B%2B) parallel programming model. It's often used to simulate systems that comprise millions of atoms. NAMD supports hundreds of cores for typical simulations and can support more than 500,000 cores for the largest simulations. Simulations and trajectory analysis are performed with the popular molecular graphics program VMD, but NAMD is also compatible with AMBER, CHARMM, and X-PLOR. A source code version of NAMD is available for free.
 
-NAMD is used mainly in areas were high-performance simulation of large biomolecular systems. Typical NAMD simulations include all-atom models of proteins, lipids, and/or nucleic acids as well as explicit solvent (water and ions).
+NAMD is used mainly for high-performance simulations of large biomolecular systems. Typical NAMD simulations include all-atom models of proteins, lipids, nucleic acids, and explicit solvents (water and ions).
 
-**Why deploy** **NAMD on Azure?**
+## Why deploy NAMD on Azure?
 
-With Azure’s HB-series VMs, NAMD customers can reduce the time and cost of their simulations.
+- By running NAMD on Azure HB-series VMs, you can reduce the time and cost of your simulations.
+- Running molecular simulation and analysis tasks on Azure can make it easier to implement advanced simulation methods and practical solutions for many molecular modelling tasks.
+- NAMD and associated tools enable popular research workflows like MDFF structure refinement and QwikMD simulation protocols to be run remotely. You don't need to invest in local computing resources, and a the required expertise in high-performance computing technologies is reduced.
 
-Running molecular simulation and analysis tasks in the Azure can significantly lower the barriers to use of advanced simulation methods and practical solution for many molecular modelling tasks.
+## Architecture
 
-By adapting NAMD and associated tools to operate within the Azure HB-series platform, enabling popular research workflows such as MDFF structure refinement and QwikMD simulation protocols to be run remotely by scientists all over the globe, with no need for investment in local computing resources and a reduced requirement for expertise in high performance computing technologies.
+This diagram shows a multi-node configuration:
 
-**Architecture**
+:::image type="content" source="media/namd-multi-node-architecture.svg" alt-text="Diagram that shows a multi-node configuration." border="false":::
 
-Multi-node configuration:
+*Download a [Visio file](https://arch-center.azureedge.net/namd-multi-node-architecture.vsdx) of this architecture.*
 
-:::image type="content" source="media/image1.png" alt-text="Image showing a architecture diagram of a multi node cluster in azure." border="true":::
+This diagram shows a single-node configuration:
 
-Single-node configuration:
+:::image type="content" source="media/namd-single-node-architecture.svg" alt-text="Diagram that shows a single-node configuration." border="false":::
 
-:::image type="content" source="media/image2.png" alt-text="Image showing a architecture diagram of a single node vm in azure." border="true":::
+*Download a [Visio file](https://arch-center.azureedge.net/namd-single-node-architecture.vsdx) of this architecture.*
 
-**Components**
+### Components
 
-[Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is used to create Linux and Windows VMs. 
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is used to create Linux VMs. For information about deploying VMs and installing the drivers, see [Linux VMs on Azure](https://learn.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm).
+- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is used to create a private network infrastructure in the cloud. 
+   - [Network security groups](https://learn.microsoft.com/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VMs.  
+   - A public IP address connects the internet to the VMs.   
+- [Azure CycleCloud](https://azuremarketplace.microsoft.com/marketplace/apps/azurecyclecloud.azure-cyclecloud) is used to create the cluster in the multi-node configuration.
+- A physical SSD is used for storage.  
 
-For information about deploying the VM and installing the drivers, see [Linux VMs on Azure](https://learn.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm).
+## Compute sizing and drivers
 
-[Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is used to create a private network infrastructure in the cloud. 
-
-[Network security groups](https://learn.microsoft.com/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VMs.  
-
-A public IP address connects the internet to the VM.   
-
-[Azure CycleCloud](https://azuremarketplace.microsoft.com/marketplace/apps/azurecyclecloud.azure-cyclecloud) is used to create the cluster in the multi-node configuration.
-
-A physical SSD is used for storage.  
-
-**Compute sizing and drivers**
-
-Performance tests of NAMD on Azure used HBv3 AMD EPYC™ 7V73X (Milan-X) VMs running Linux CentOS Operating system. The following table provides details about HBv3-series VMs.
+[HBv3 AMD EPYC 7V73X (Milan-X)](/azure/virtual-machines/hbv3-series) VMs running Linux CentOS were used to test the performance of NAMD on Azure. The following table provides details about HBv3-series VMs.
 
 | **VM size** | **vCPU** | **Memory (GiB)** | **Memory bandwidth** **GBps** | **Base CPU frequency (Ghz)** | **All-cores frequency (Ghz, peak)** | **Single-core frequency (Ghz, peak)** | **RDMA performance (Gbps)** | **Maximum data disks** |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -52,7 +47,7 @@ Performance tests of NAMD on Azure used HBv3 AMD EPYC™ 7V73X (Milan-X) VMs run
 
 **Required** **drivers**
 
-To use InfiniBand, you need to enable InfiniBand drivers.
+To use InfiniBand, you need to enable [InfiniBand] drivers.
 
 **Install** **NAMD 2.14 on a VM** **or HPC Cluster**
 
@@ -62,23 +57,20 @@ Before you install NAMD, you need to deploy and connect to a VM or HPC Cluster.
 
 For information about deploying the VM and installing the drivers, see one of these articles:
 
-[Run a Windows VM on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm)
-
-[Run a Linux VM on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm)
+- [Run a Windows VM on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm)
+- [Run a Linux VM on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm)
 
 For information about deploying the Azure CycleCloud and HPC cluster, see below articles:
 
-[Install and configure Azure CycleCloud](https://docs.microsoft.com/learn/modules/azure-cyclecloud-high-performance-computing/4-exercise-install-configure/)
-
-[Create a HPC Cluster](https://docs.microsoft.com/learn/modules/azure-cyclecloud-high-performance-computing/5-exercise-create-cluster/)
+- [Install and configure Azure CycleCloud](https://docs.microsoft.com/learn/modules/azure-cyclecloud-high-performance-computing/4-exercise-install-configure/)
+- [Create a HPC Cluster](https://docs.microsoft.com/learn/modules/azure-cyclecloud-high-performance-computing/5-exercise-create-cluster/)
 
 **NAMD 2.14** **performance** **results**
 
 Two models were considered for testing the scalability performance of NAMD version 2.14 on Azure
 
-STMV - It is a small, icosahedral plant virus which worsens the symptoms of infection by Tobacco Mosaic Virus (TMV). 
-
-ApoA1 - It is a component of high-density lipoprotein (HDL). The APOA1 gene provides instructions for making a protein called apolipoprotein A-I. 
+- STMV - It is a small, icosahedral plant virus which worsens the symptoms of infection by Tobacco Mosaic Virus (TMV). 
+- ApoA1 - It is a component of high-density lipoprotein (HDL). The APOA1 gene provides instructions for making a protein called apolipoprotein A-I. 
 
 The details of each test model are provided in the following sections.
 
@@ -203,13 +195,10 @@ The following tables provide the solver times in hours. The Azure VM hourly rate
 
 **Summary**
 
-NAMD 2.14 was successfully tested on Azure using HBv3 standalone Virtual Machines and Azure Cycle Cloud multi-node (cluster) setup.
-
-We can see a very good scaleup for the model 1b with the multi-node setup. A speedup of about 21 is achieved with 16 nodes which is a very impressive value.
-
-For better performance we recommend using one thread per processor with the +p option and look for pre-built ibverbs NAMD binaries or specify ibverbs when building Charm++.
-
-For small problems, we recommend that you use fewer CPUs to improve performance.
+- NAMD 2.14 was successfully tested on Azure using HBv3 standalone Virtual Machines and Azure Cycle Cloud multi-node (cluster) setup.
+- We can see a very good scaleup for the model 1b with the multi-node setup. A speedup of about 21 is achieved with 16 nodes which is a very impressive value.
+- For better performance we recommend using one thread per processor with the +p option and look for pre-built ibverbs NAMD binaries or specify ibverbs when building Charm++.
+- For small problems, we recommend that you use fewer CPUs to improve performance.
 
 **Contributors**
 
@@ -217,37 +206,28 @@ For small problems, we recommend that you use fewer CPUs to improve performance.
 
 Principal authors:
 
-[Hari Bagudu](https://www.linkedin.com/in/hari-bagudu-88732a19) | Senior Manager
-
-[Gauhar Junnarkar](https://www.linkedin.com/in/gauharjunnarkar) | Principal Program Manager
-
-[Preetham Y M](https://www.linkedin.com/in/preetham-y-m-6343a6212/) | HPC Performance Engineer
+- [Hari Bagudu](https://www.linkedin.com/in/hari-bagudu-88732a19) | Senior Manager
+- [Gauhar Junnarkar](https://www.linkedin.com/in/gauharjunnarkar) | Principal Program Manager
+- [Preetham Y M](https://www.linkedin.com/in/preetham-y-m-6343a6212/) | HPC Performance Engineer
 
 Other contributors:
 
-[Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
-
-[Guy Bursell](https://www.linkedin.com/in/guybursell) | Director Business Strategy
-
-[Sachin Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) | Manager
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
+- [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director Business Strategy
+- [Sachin Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) | Manager
 
 *To see non-public LinkedIn profiles, sign into LinkedIn.*
 
 **Next steps**
 
-[GPU Optimized Virtual Machine Sizes](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu)
-
-[Windows Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/overview)
-
-[Virtual networks and virtual machines on Azure](https://learn.microsoft.com/azure/virtual-network/network-overview)
-
-[Learning path: Run high-performance computing (HPC) applications on Azure](https://learn.microsoft.com/training/paths/run-high-performance-computing-applications-azure)
+- [GPU Optimized Virtual Machine Sizes](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu)
+- [Windows Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/overview)
+- [Virtual networks and virtual machines on Azure](https://learn.microsoft.com/azure/virtual-network/network-overview)
+- [Learning path: Run high-performance computing (HPC) applications on Azure](https://learn.microsoft.com/training/paths/run-high-performance-computing-applications-azure)
 
 **Related resources**
 
-[Run a Linux VM on Azure](https://learn.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm)
-
-[HPC system and big-compute solutions](https://learn.microsoft.com/azure/architecture/solution-ideas/articles/big-compute-with-azure-batch)
-
-[HPC cluster deployed in the cloud](https://learn.microsoft.com/azure/architecture/solution-ideas/articles/hpc-cluster)
+- [Run a Linux VM on Azure](https://learn.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm)
+- [HPC system and big-compute solutions](https://learn.microsoft.com/azure/architecture/solution-ideas/articles/big-compute-with-azure-batch)
+- [HPC cluster deployed in the cloud](https://learn.microsoft.com/azure/architecture/solution-ideas/articles/hpc-cluster)
 
