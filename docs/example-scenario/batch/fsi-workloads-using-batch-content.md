@@ -142,7 +142,7 @@ defines following subnets in the deployment template:
 ##### Spoke Virtual Network
 
 The spoke virtual network contains the Batch service, Batch compute nodes and other service endpoints needed by the workload.
-The virtual network defines following subnets:
+The virtual network defines the following subnets in the deployment template:
 
 1. `pool-linux`: subnet for the linux pool.
 1. `pool-windows`: subnet for the windows pool.
