@@ -5,7 +5,7 @@ This guide demonstrates how to:
 * Integrate state of the art **developer tools** into the overall development process.
 * Work with and manage **automotive source code**.
 * Build **virtual vehicle environments** automatically as part of CI/CD pipelines and manage their execution for virtual testing.
-* Orchestrate deployments for **software-in-the-loop (SiL)** tests (virtual testing) and **hardware-in-the-loop testing (HiL)**.
+* Orchestrate deployments for **software-in-the-loop (SiL)** tests (virtual testing) and **hardware-in-the-loop (HiL)** testing.
 * Use highly scalable services to collect and analyze data produced during **validation tests** and **field usage**
 
 ## Architecture
