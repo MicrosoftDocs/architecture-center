@@ -14,7 +14,7 @@ This guide demonstrates how to:
 
 The Architecture consists of six key building blocks:
 
-1. The **Automotive Software Defined Vehicle (SDV) Toolchain** is a plug-and-play approach that is open and configurable using our developer and DevOps assets. It reduces reliance on in-vehicle silicon by establishing highly configurable and flexible **virtual Electronic Control Units (vECU)** as well as **virtual High Performance Computers (vHPC)** environments on Azure to accelerate development, testing and validation of automotive software. The approach also ensures compatibility with edge / in-vehicle silicon to ensure bit, timing, and code parity. 
+1. The **Automotive Software Defined Vehicle (SDV) Toolchain** is a plug-and-play approach that is open and configurable leveraging Microsoft developer and DevOps assets and services. It reduces reliance on in-vehicle silicon by establishing highly configurable and flexible **virtual Electronic Control Units (vECU)** as well as **virtual High Performance Computers (vHPC)** environments on Azure to accelerate development, testing and validation of automotive software. The approach also ensures compatibility with edge / in-vehicle silicon to ensure bit, timing, and code parity. 
 
 2. An **Automotive Software Stack** which encompasses a diverse range of technologies and frameworks, often governed by industry standards and collaborative efforts such as the *Eclipse Foundation Software Defined Vehicle Working Group*. Eclipse projects include non-differentiating components for vehicle connectivity, messaging and communications protocol, in-vehicle digital twin abstraction layer, advanced driver-assistance systems (ADAS), and autonomous driving solutions. Automotive Software Stacks are designed to provide a robust foundation for automakers and software developers, ensuring seamless integration and compatibility across the automotive ecosystem with a community-driven approach to technological advancements.
 
@@ -40,13 +40,14 @@ The Automotive SDV Toolchain is composed by the following three key blocks:
 
 * **Development, Validation and Integration** – a combination of metadata and orchestration services that allow developers to configure, build, deploy and orchestrate on-demand virtual execution environments to streamline the development and testing process, integrating with existing toolchains and supporting multiple application formats, binaries, operating systems and runtime environments.
 
-* **Execution Environment** – the set of Azure services that enable reliable, repeatable and observable cloud and edge environments to build, test and validate automotive software stacks. These services may include: 
-- Azure Deployment Environment 
-- Azure Compute Gallery
-- Azure Container Registry
-- Azure Arc
-- Azure Compute like Arm64-based Azure Virtual Machines and High Performance Computing
-- Azure Networking Services and Connectivity Services like ExpressRoute 
+* **Execution Environment** – the set of Azure services that enable reliable, repeatable and observable cloud and edge environments to build, test and validate automotive software stacks. These services may include:
+
+  * Azure Deployment Environment
+  * Azure Compute Gallery
+  * Azure Container Registry
+  * Azure Arc
+  * Azure Compute like Arm64-based Azure Virtual Machines and High Performance Computing
+  * Azure Networking Services and Connectivity Services like ExpressRoute 
 
 ### Deploying Virtual ECUs
 
@@ -55,12 +56,12 @@ The Automotive SDV Toolchain is composed by the following three key blocks:
 The following flow describes how an automotive software developer belonging to the fictitious company *Contoso Automotive* uses the Automotive SDV Toolchain to:
 
 * set up a development environment in minutes
-* trigger an update change in the software-in-the-loop cloud infrastructure to deploy a virtual ECU running on an Arm64-based Virtual Machine.
+* trigger an update change in the SiL cloud infrastructure to deploy a virtual ECU running on an Arm64-based Virtual Machine.
 
-*Contoso Automotive* is adding a new automotive High Performance Compute Unit (HPC) to the upcoming vehicle model and must onboard a new development team to develop containerized applications. The hardware for the vehicle isn't yet available, but compressed timelines mean that the software functionality must be developed and validated in parallel.
+*Contoso Automotive* is adding a new automotive High Performance Compute Unit (HPC) to an upcoming vehicle model and must onboard a new development team to develop containerized applications. The hardware for the vehicle isn't yet available, but compressed timelines mean that the software functionality must be developed and validated in parallel.
 
 1. The automotive developer requests a **Microsoft Dev Box**. The dev box is preconfigured with all required development tools (such as Visual Studio Code and Android Studio) and all required extensions (such as GitHub Copilot) to work with the *Contoso Automotive* applications.
-1. The automotive developer performs a check-out of the automotive **application code and metadata** that describes the upcoming vehicle configuration, the included HPCs and electronic control units (ECU), and the required deployment to perform software-in-the-loop (SiL) validation.
+1. The automotive developer performs a check-out of the automotive **application code and metadata** that describes the upcoming vehicle configuration, the included HPCs and electronic control units (ECU), and the required deployment to perform SiL validation.
 1. The automotive developer uses the **metadata extensions** to make configuration adjustments, such as changing the characteristics of the HPC based on new information from the engineering team.
 1. Changing the configuration triggers the **metadata processing extension** that performs metadata validation, generates all required artifacts and configures an execution environment deployment campaign.
 1. Once all configuration changes have been completed, the developer submits a Pull Request that triggers a **GitHub Action** for deployment.
@@ -70,13 +71,13 @@ The following flow describes how an automotive software developer belonging to t
 
 #### Software-Over-The-Air Updates for Automotive Applications
 
-*Contoso Automotive* is ready to deploy containerized automotive applications to their engineering test fleet to perform integration testing. The *automotive developer* builds, test and validate the new version of their application and deploy it to the vehicle.
+*Contoso Automotive* is ready to deploy containerized automotive applications to their engineering test fleet to perform integration testing. The *automotive developer* builds, tests and validates the new version of their application and deploys it to the vehicle.
 
 :::image type="content" source="images/sdv-e2e-ref-architecture-software-update.svg" alt-text="Software Update" lightbox="images/sdv-e2e-ref-architecture-software-update.svg":::
 
 1. The *automotive developer* creates a release. The release contains a definition of the *software stack container* desired state, and definition of the build.
-2. The **Toolchain and orchestration** services trigger the release process. They deploy the required infrastructure to build, validate and release software containers.
-3. During execution, the software is build, validated and release with container-based tooling. Depending on the requirements of the tools, they can be deployed on AKS or dedicated Virtual Machines. Once the build is complete, the results are pushed to the **Azure Container Registry** for released containers and the changes are registered in the **OTA Server**.
+2. The **Toolchain and orchestration** services trigger the release process. The services deploy the required infrastructure to build, validate and release software containers.
+3. During execution, the containerized applications are built, validated and release with container-based tooling. Depending on the requirements of the tools, they can be deployed on AKS or dedicated Virtual Machines. Once the build is complete, the results are pushed to the **Azure Container Registry** for released containers and the changes are registered in the **OTA Server**.
 4. The **OTA Client** has a dedicated **OTA Agent** for container-based applications. The *Desired State Seeking Agent* connects to the **toolchain & orchestration services* to retrieve the desired state definition.
 5. The **container orchestration** engine will download and activate the desired containers from the **Azure Container Registry**
 
@@ -98,7 +99,7 @@ The represented stack has the following components:
     1. Vehicle Compute can register more complex state objects and interactions.
     1. Vehicle Electronic Control Units register which signals are available to automotive applications, and which commands can be accepted.
 1. The **In-vehicle digital twin** publishes state changes and updates to the **Dynamic Topic Management**. These updates are organized in topics.
-1. **Automotive applications** can subscribe to messages from any source managed by the Dynamic Topic Managed. These applications are subscribed to relevant topics and react on state changes. They can also publish their own messages.
+1. **Automotive applications** can subscribe to messages from any source managed by the Dynamic Topic Management. These applications are subscribed to relevant topics and react on state changes. They can also publish their own messages.
 1. The **In-Vehicle Digital Twin Service** also publishes selected topics to the **Digital Twin Cloud Synchronization** service.
 1. The **Digital Twin Cloud Synchronization** can use a *cartographer* to map the topic names (using a *Digital Twin Mapping Service*) to the equivalent names on the cloud. This harmonization reduces the dependency between vehicle and cloud software and among vehicle models.
 1. The **cloud connector** publishes updates to the cloud and subscribes to receive state changes published by other services and applications
@@ -106,13 +107,13 @@ The represented stack has the following components:
 
 ## Components
 
-This reference architecture references the following GitHub and Azure Components:
+This guide references the following GitHub and Azure Components:
 
 ### Development Tools
 
 * [GitHub](https://github.com/) is a development platform that enables you to host and review code, manage projects, collaborate and build software alongside developers inside your organization and outside.
 * [Microsoft Dev Box](https://learn.microsoft.com/azure/dev-box/overview-what-is-microsoft-dev-box) provides developers with self-service access to ready-to-code, cloud-based workstations—known as dev boxes that can be customized with project-specific tools, source code, and prebuilt binaries for immediate workflow integration.
-* [Azure Container Registry](https://learn.microsoft.com/azure/container-registry/) allows the build, store, and management of container images and artifacts in a private registry for all types of container deployments. Automotive software has adopted container based automotive applications and workloads. The SDV Toolchain user Azure container registries as part of container development and deployment processes and pipelines.
+* [Azure Container Registry](https://learn.microsoft.com/azure/container-registry/) allows the build, store, and management of container images and artifacts in a private registry for all types of container deployments. Automotive software has adopted container based automotive applications and workloads. The SDV Toolchain uses Azure container registries as part of container development and deployment processes and pipelines.
 * [Visual Studio Code](https://code.visualstudio.com/) is a lightweight source code editor available for Windows, macOS and Linux. It has a rich ecosystem of extensions for several languages and runtimes.
 
 ### Execution Environment
@@ -120,29 +121,29 @@ This reference architecture references the following GitHub and Azure Components
 * [Azure Deployment Environments](https://learn.microsoft.com/azure/deployment-environments/) - provides a preconfigured collection of Azure Resources. It empowers development teams to quickly and easily spin up infrastructure with project-based templates that establish consistency and best practices while maximizing security.
 * [Azure Compute](https://azure.microsoft.com/products/category/compute/) is a comprehensive suite of cloud services from Microsoft's Azure platform that empowers developers to run their automotive software stacks, applications and workloads on virtual machines (VMs) and containers. It offers a wide array of compute varieties, including memory-optimized, CPU-optimized, high-performance, and general-purpose.
 * [Azure Compute Gallery](https://learn.microsoft.com/azure/virtual-machines/azure-compute-gallery) provides support for versioning and grouping of resources for easier management, capability to share images (an image is a copy of either a full VM including any attached data disks or just the OS disk) with the community, across subscriptions and between Active Directory (AD) tenants and scale deployments with resource replicas in each Azure region and many other features, the Azure Compute Gallery provides structure and organization around automotive software stacks artifacts.
-* [Azure Arc](https://learn.microsoft.com/azure/azure-arc/) is a bridge that simplifies governance and management and delivers a consistent Cloud to Hardware in the Loop management platform. Automotive OEM can use Azure Arc to control and govern increasingly complex Hardware in the Loop (HiL) environments that extend across data centers. Each HiL environment possesses its own set of management tools where the new developer inner loop and DevOps Outer Loop operational models.
-* [Azure Blob Storage](https://learn.microsoft.com/azure/storage/blobs/) - a massively scalable object storage for any type of unstructured data, images, videos, audio and documents produced and consumed by automotive software stacks.
-* [Azure Networking Services](https://learn.microsoft.com/azure/networking/fundamentals/networking-overview) provides global, secure and reliable networking services. Automotive software stacks require data processing pipelines for developing and testing autonomous and assisted driving solutions. Development tools also need to Hardware in the Loop farms. The networking services in Azure provide various networking capabilities like connectivity services, application protection services, application delivery services and networking monitoring that can be used together or separately.
+* [Azure Arc](https://learn.microsoft.com/azure/azure-arc/) is a bridge that simplifies governance and management and delivers a consistent Cloud to Hardware in the Loop management platform. Automotive OEM can use Azure Arc to control and govern increasingly complex HiL environments across on-premises and cloud-based data centers.
+* [Azure Blob Storage](https://learn.microsoft.com/azure/storage/blobs/) - a massively scalable object storage for any type of unstructured data, like images, videos, audio and documents produced and consumed by automotive software stacks.
+* [Azure Networking Services](https://learn.microsoft.com/azure/networking/fundamentals/networking-overview) provides global, secure and reliable networking services. Automotive software stacks and development tools require data processing pipelines to access Hil farms for developing and testing autonomous and assisted driving solutions. The networking services in Azure provide various networking capabilities like connectivity services, application protection services, application delivery services and networking monitoring.
 
 ## Alternatives
 
 The selection of the right type of Azure services chosen for a specific implementation of the architecture depends on a multitude of factors.
 
-The Deploy this scenario section of the architecture uses Azure Kubernetes Service (AKS). This offers serverless Kubernetes for running microservices, an integrated continuous integration and continuous deployment (CI/CD) experience, and enterprise-grade security and governance. As an alternative, you can run microservices in Azure Container Instances, which offers a fastest and simplest way to run a container in Azure, without having to adopt a higher-level service, such as Azure Kubernetes Service (AKS)
+The Deploy this scenario section of the architecture uses Azure Kubernetes Service (AKS). This offers serverless Kubernetes for running microservices, an integrated continuous integration and continuous deployment (CI/CD) experience, and enterprise-grade security and governance. As an alternative, you can run microservices in Azure Container Instances, which offers a faster and simpler way to run containers in Azure, without having to adopt a higher-level service, such as Azure Kubernetes Service (AKS).
 
 The Deploy this scenario section of the architecture suggestes the use of Event Hub and/or Service Bus for the implementation of uBus service. The [Choose between Azure messaging services](https://learn.microsoft.com/en-us/azure/service-bus-messaging/compare-messaging-services) article describes the differences between these services, and helps you understand which one to choose for your specific implementation. In many cases, the messaging services are complementary and can be used together.
 
-The applications and services referenced in this Architecure are deployed using Azure-native Azure Resource Manager templates (ARM templates) or Bicep. As an alternative consider using Terraform scripts for provisioning and managing cloud infrastructure.
+The applications and services referenced in this guide are deployed using Azure-native Azure Resource Manager templates (ARM templates) or Bicep. As an alternative consider using Terraform scripts for provisioning and managing cloud infrastructure.
 
 If you are considering alternatives for the Vehicle Messaging, Data & Analytics layer of the Architecture, please review the [Alternatives](https://learn.microsoft.com/en-us/azure/event-grid/mqtt-automotive-connectivity-and-data-solution#alternatives) section in the Automotive messaging, data & analytics reference architecture.
 
 ## Scenario details
 
-Autonomous and connected SDVs open a whole new world of functionality, serviceability, and reliability. With hardware and software decoupled, OEMs can now develop independent applications to address specific functions and services, making it much easier to update or add software to the overall vehicle platform. As a result, automobile makers and their suppliers are forced to adjust their automotive operations to enable agile software development cycles, which are more flexible and adaptable to shorter development cycles, frequent releases, and focus on collaboration and continuous improvement.
+Autonomous and connected SDVs open a whole new world of functionality, serviceability, and reliability. With hardware and software decoupled, OEMs can now develop independent applications to address specific functions and services, making it much easier to update or add software to the overall vehicle platform. As a result, automobile makers and their suppliers are encouraged to adjust their automotive operations to enable agile software development cycles, which are more flexible and adaptable to shorter development cycles, frequent releases, and focus on collaboration and continuous improvement.
 
 Without a standardized, open and configurable toolchain strategy, OEMs can end up with a landscape of scattered tools. For a truly agile software development strategy, companies need to have a unified toolchain based on modern cloud-based native platform that increases developers’ abilities to collaborate and reuse software and opens innovation opportunities for application development by third parties that could have strong software expertise but no previous automotive hardware experience.
 
-This automotive reference architecture is designed to meet the demands of the rapidly evolving automotive industry. Embracing the principles of "shift left," this architecture emphasizes early integration of software and hardware components, enabling continuous testing and validation from the early stages of development. Virtualization plays a pivotal role, allowing the creation of virtual prototypes and test environments that accelerate innovation and reduce physical prototype requirements. The heart of this architecture lies in its robust CI/CD pipeline automation, ensuring seamless integration, testing, and deployment of software updates throughout the vehicle's lifecycle. This agility enables fast software updates, addressing security vulnerabilities, enhancing performance, and delivering new features promptly, ultimately offering consumers a safer and more feature-rich driving experience.
+This automotive example architecture is designed to meet the demands of the rapidly evolving automotive industry. Embracing the principles of "shift left," this architecture emphasizes early integration of software and hardware components, enabling continuous testing and validation from the early stages of development. Virtualization plays a pivotal role, allowing the creation of virtual prototypes and test environments that accelerate innovation and reduce physical prototype requirements. The heart of this architecture lies in its robust CI/CD pipeline automation, ensuring seamless integration, testing, and deployment of software updates throughout the vehicle's lifecycle. This agility enables fast software updates, addressing security vulnerabilities, enhancing performance, and delivering new features promptly, ultimately offering consumers a safer and more feature-rich driving experience.
 
 :::image type="content" source="images/sdv-e2e-ref-architecture-scenario.svg" alt-text="Software Defined Vehicle Scenarios" lightbox="images/sdv-e2e-ref-architecture-scenario.svg":::
 
@@ -150,10 +151,10 @@ This automotive reference architecture is designed to meet the demands of the ra
 
 * **Developer Onboarding**: Accelerate the onboarding of automotive software developers by providing an open and fully configured automotive development environment.
 * **Efficient Development**: Simulate the behavior's of a variety of hardware and software combinations and reduce the dependency to edge/in-vehicle silicon early in the development process.
-* **Software-in-the Loop Validation**: Validate the behavior of your software application by running automated pipelines for build, test and validation using compute resources on the cloud for a faster development cycle.
-* **Hardware-in-the-Loop Validation**: Simplify deployment and monitoring of the Hardware-in-the-Loop farms
+* **SiL Validation**: Validate the behavior of your software application by running automated pipelines for build, test and validation using compute resources on the cloud for a faster development cycle.
+* **HiL Validation**: Simplify deployment and monitoring of the Hardware-in-the-Loop farms
 * **Validate with a test fleet**: Collect software metrics, logs and traces of the software applications as well as vehicle telemetry and signal data to build a comprehensive view of the vehicle behavior for validation, root cause analysis and homologation.
-* **Deploy and Manage**: create traceable software releases that can be updated and managed using DevOps concepts the vehicle fleet.
+* **Deploy and manage**: create traceable software releases that can be updated and managed for the vehicle fleet using DevOps practices.
 * **Understand and Improve**: use information collected from the field to drive improvements in your software applications.
 
 ## Recommendations
@@ -170,15 +171,15 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](https://learn.microsoft.com/azure/architecture/framework/resiliency/overview).
 
-* Running an end-to-end service-oriented application infrastructure to support the implementation of a distributed communication protocol platform on Azure with modern continuous integration and continuous deployment (CI/CD) requires a reliable and high available architecture. The [Azure Well-Architected Framework review - Azure Kubernetes Service (AKS)](https://learn.microsoft.com/en-us/azure/well-architected/services/compute/azure-kubernetes-service/azure-kubernetes-service) provides architectural guidance and best practices for managing and running services on Azure Kubernetes Service (AKS).
-* Hardware in the Loop (HiL) testing is an indispensable and critical part of the automotive software development process and test strategy. When designing and implementing the network architecture to the HiL farms consider [Designing for high availability with ExpressRoute](https://learn.microsoft.com/en-us/azure/expressroute/designing-for-high-availability-with-expressroute) to reduce single point of failure and maximize availability of remote environments to your development and test teams.
+* Running an end-to-end service-oriented application infrastructure to support the implementation of a distributed communication protocol platform on Azure with modern continuous integration and continuous deployment (CI/CD) requires a reliable and highly available architecture. The [Azure Well-Architected Framework review - Azure Kubernetes Service (AKS)](https://learn.microsoft.com/en-us/azure/well-architected/services/compute/azure-kubernetes-service/azure-kubernetes-service) provides architectural guidance and best practices for managing and running services on Azure Kubernetes Service (AKS).
+* HiL testing is an indispensable and critical part of the automotive software development process and test strategy. When designing and implementing the network architecture to the HiL farms consider [Designing for high availability with ExpressRoute](https://learn.microsoft.com/en-us/azure/expressroute/designing-for-high-availability-with-expressroute) to reduce single point of failure and maximize availability of remote environments to your development and test teams.
 
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](https://learn.microsoft.com/azure/architecture/framework/security/overview).
 
-* Security is one of the most important aspects of any architecture and ensuring security in complex systems depends on understanding different contexts like business, social and technical. Consider adopting GitHub’s code scanning capabilities to find and fix security issues and critical defects earlier [GitHub enables the development of functional safety applications by adding support for coding standards AUTOSAR C++ and CERT C++](https://github.blog/2022-06-20-adding-support-for-coding-standards-autosar-c-and-cert-c/ ) in the development process. 
-* Consider adopting the following best practices to [Secure your end-to-end supply chain on GitHub](https://docs.github.com/en/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview).git
+* Security is one of the most important aspects of any architecture and ensuring security in complex systems depends on understanding different contexts like business, social and technical conditions. Consider adopting GitHub’s code scanning capabilities to find and fix security issues and critical defects earlier in the development process. [GitHub enables the development of functional safety applications by adding support for coding standards AUTOSAR C++ and CERT C++](https://github.blog/2022-06-20-adding-support-for-coding-standards-autosar-c-and-cert-c/ ).
+* Consider adopting the following best practices to [Secure your end-to-end supply chain on GitHub](https://docs.github.com/en/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview).
 
 ### Cost optimization
 
