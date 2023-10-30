@@ -1,6 +1,6 @@
 The transition to **Software Defined Vehicles (SDV)** requires a different approach on the development, deployment, monitoring and management of automotive software stacks across the entire automotive industry. Automotive Original Equipment Manufacturers (OEMs) are embracing a *Shift-Left* strategy, which involves conducting testing earlier in the product development cycle. In this approach, the in-vehicle software stack undergoes comprehensive simulation and testing within cloud-based environments. This example architecture outlines how to leverage the software stack and distributions provided by the [Eclipse Software-defined Vehicle Working Group](https://sdv.eclipse.org/) in conjunction with GitHub and Azure services to develop an end-to-end automotive software stack, implement Software-in-the-Loop (SiL) testing and orchestrate Hardware-in-the-Loop (HiL) and engineering vehicle fleets validation.
 
-This reference architecture demonstrates how to:
+This guide demonstrates how to:
 
 * Integrate state of the art **developer tools** into the overall development process.
 * Work with and manage **automotive source code**.
