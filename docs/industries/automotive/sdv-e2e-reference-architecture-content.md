@@ -201,7 +201,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 ## Deploy this scenario
 
-The Eclipse Software Defined Vehicle has a code-source first approach as their main tenant. That provides a large amount of flexibility for implementation. The following examples use existing Eclipse projects and describe their interaction with Azure Services.
+The Eclipse Software Defined Vehicle has a code-source first approach as their main tenant, which provides a large amount of flexibility for implementation. The following examples use existing Eclipse projects and describe their interaction with Azure Services.
 
 ### Distributed Communication Protocol on Azure Example
 
