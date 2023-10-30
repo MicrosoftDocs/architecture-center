@@ -390,7 +390,7 @@ items:
         - name: Microsoft SaaS stories
           href: guide/saas/case-studies/saas-stories.md
         - name: Dynamics 365
-          href: guide/saas/case-studies/dynamics-365-journey-saas.yml
+          href: guide/saas/case-studies/dynamics-365-journey-saas.md
       - name: Resources
         items:
         - name: SaaS starter web app reference architecture
