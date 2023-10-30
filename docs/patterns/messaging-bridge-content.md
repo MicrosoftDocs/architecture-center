@@ -1,4 +1,4 @@
-This article describes the Messaging Bridge pattern, which is an architecture that you can use to integrate disparate systems that are built on top of different messaging infrastructures.
+This article describes the Messaging Bridge pattern, which is a technique that you can use to integrate disparate systems that are built on top of different messaging infrastructures.
 
 ## Context and problem
 
@@ -14,9 +14,9 @@ Developers might address this challenge by modifying the systems being integrate
 
 If the systems being integrated consist of components that communicate by exchanging messages, the Messaging Bridge pattern improves integration and mitigates drawbacks.
 
-In this scenario, each system connects to one messaging infrastructure. To integrate messaging infrastructures, introduce a bridge component that connects to two or more messaging infrastructures at the same time. The bridge pulls messages from one and pushes them to the other without changing the payload.
+In this scenario, each system connects to one messaging infrastructure. To integrate across different messaging infrastructures, introduce a bridge component that connects to two or more messaging infrastructures at the same time. The bridge pulls messages from one and pushes them to the other without changing the payload.
 
-The systems being integrated don't need to recognize the others or the bridge. The sender system is configured to send specific messages to a designated queue. The bridge picks up the messages and forwards them to another queue in a different messaging infrastructure where the receiver system picks them up.
+The systems being integrated don't need to recognize the others or the bridge. The sender system is configured to send specific messages to a designated queue on its native messaging infrastructure. The bridge picks up those messages and forwards them to another queue in a different messaging infrastructure where the receiver system picks them up.
 
 ### Benefits
 
