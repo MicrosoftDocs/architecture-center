@@ -33,16 +33,16 @@ This article describes some approaches you can consider for designing and creati
 
 ## Approaches and patterns to consider
 
-The following table summarizes the differences between some of the approaches you can consider for a control plane:
+The following table summarizes the differences between some of the approaches you can consider for a control plane. Manual, low-code, and custom approaches are compared. 
 
 | Consideration  | Manual | Low-code | Custom | 
 |---|---|---|---|
-| Operational overhead | High | Low-Medium | Low |
-| Frequency of lifecycle events the approach is suitable for | Rare | Occasional-Often | Often | 
+| Operational overhead | High | Low-medium | Low |
+| Frequency of lifecycle events the approach is suitable for | Rare | Occasional-often | Often | 
 | Time and complexity to implement | Low | Medium | High |
 | Control plane maintenance responsibilities | Low | Medium | High |
 | Testability | Low | Medium | High |
-| Risk of inconsistencies | High | Medium-Low | Low |
+| Risk of inconsistencies | High | Medium-low | Low |
 
 ### Manual processes
 
@@ -68,12 +68,12 @@ The following diagram illustrates one way to use manual processes for an initial
 
 - **Lightweight**: Documentation, scripts, and pipelines are easy to develop and modify. This makes them appropriate when you're figuring out your processes because you can rapidly iterate and evolve them.
 - **Low cost**: Maintaining and running a manual approach is inexpensive.
-- **Process validation**: Even if you eventually intend to use a more automated approach, starting with a manual approach as a proof-of-concept is a good way to validate your maintenance strategy before you invest time in developing more robust automation.
+- **Provides process validation**: Even if you eventually intend to use a more automated approach, starting with a manual approach as a proof of concept is a good way to validate your maintenance strategy before you invest time in developing more robust automation.
 
 #### Disadvantages of a manual approach
 
 - **Lack of control**: This approach relies on everybody involved doing the correct thing. Somebody might deviate from the prescribed processes, either accidentally or intentionally. Every variation in process increases the risk of inconsistency in your environment, which makes ongoing management much harder.
-- **Access control challenges**: When you use this approach, you typically need to grant broadly scoped, highly permissive access to anybody who operates your solution, which makes it hard to follow the best practices for [access segmentation](/azure/well-architected/security/design-segmentation).
+- **Access-control challenges**: When you use this approach, you typically need to grant broadly scoped, highly permissive access to anybody who operates your solution, which makes it hard to follow the best practices for [access segmentation](/azure/well-architected/security/design-segmentation).
 - **Scalability**: The work required to run manual processes scales with the number of tenants that you need to manage. 
 - **Testability**: Manual processes are difficult to validate and test.
 
@@ -108,7 +108,7 @@ The following diagram illustrates how you might create a control plane with self
 
 - **Required expertise**: To use low-code platforms to create processes, and to effectively use these platforms, you typically need proprietary knowledge. Many organizations already use these tools, so your team might already have the required expertise, but it might not. You should consider whether you need to train your team in order to effectively use these platforms.
 - **Management**: It can be challenging to handle the management of large amounts of low-code configuration.
-- **Testability**: Consider how you might test and promote changes to your control plane. In a managed platform, creating a typical DevOps process for testing and promoting changes is more difficult, because changes are normally made through configuration, not through code.
+- **Testability**: Consider how to test and promote changes to your control plane. In a managed platform, creating a typical DevOps process for testing and promoting changes is more difficult, because changes are normally made through configuration, not through code.
 - **Design**: Think carefully about how to meet non-functional requirements like security and reliability. These requirements are often managed for you on a low-code platform.
 
 #### When to consider moving away from a low-code approach
@@ -140,7 +140,7 @@ The following diagram shows one way to create a basic custom control plane that 
 
 ### Hybrid approaches
 
-You can also consider using a hybrid approach. You might use a combination of manual and automated systems, or you might use a managed platform like Microsoft Power Platform and augment it with custom applications. Consider implementing a hybrid approach if you need the customizability of the custom control plane but don't necessarily want to build and maintain a fully custom system. Keep in mind that at some point your automated customizations to your manual processes or your managed platform might become as complex as a fully customized system. The tipping point is different for every organization, but if your hybrid approach is cumbersome to maintain, you should consider building a fully custom system.
+You can also consider using a hybrid approach. You might use a combination of manual and automated systems, or you might use a managed platform like Microsoft Power Platform and augment it with custom applications. Consider implementing a hybrid approach if you need the customizability of the custom control plane but don't necessarily want to build and maintain a fully custom system. Keep in mind that, at some point, your automated customizations to your manual processes or your managed platform might become as complex as a fully customized system. The tipping point is different for every organization, but if your hybrid approach is cumbersome to maintain, you should consider building a fully custom system.
 
 ### Gradual implementation
 
@@ -148,7 +148,7 @@ Even if you know that you don't want any manual processes in your control plane,
 
 ## Antipatterns to avoid
 
-- **Relying on manual processes for too long.** Although it's reasonable to use manual processes when you start out or when you have a low number of tenants and require fairly lightweight management, you need to plan how you'll scale to an automated solution as you grow. If you need to hire additional resources to keep up with the demand of your manual processes, that's a good sign that you should start automating parts of your control plane.
+- **Relying on manual processes for too long.** Although it's reasonable to use manual processes when you start out or when you have a low number of tenants and require fairly lightweight management, you need to plan how to scale to an automated solution as you grow. If you need to hire additional resources to keep up with the demand of your manual processes, that's a good sign that you should start automating parts of your control plane.
 - **Using inappropriate tools for long-running workflows.** For example, avoid using standard Azure functions, synchronous API calls, or other tools that have an execution time limit to perform long-running operations like Azure Resource Manager deployments or multi-step orchestrations. For more information, see [Azure Functions performance and reliability](/azure/azure-functions/performance-reliability) and [Asynchronous Request-Reply pattern](/azure/architecture/patterns/async-request-reply).
 
 ## Contributors
