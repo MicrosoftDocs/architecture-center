@@ -77,7 +77,7 @@ The following flow describes how an automotive software developer belonging to t
 
 1. The *automotive developer* creates a release. The release contains a definition of the *software stack container* desired state, and definition of the build.
 2. The **Toolchain and orchestration** services trigger the release process. The services deploy the required infrastructure to build, validate and release software containers.
-3. During execution, the containerized applications are built, validated and release with container-based tooling. Depending on the requirements of the tools, they can be deployed on AKS or dedicated Virtual Machines. Once the build is complete, the results are pushed to the **Azure Container Registry** for released containers and the changes are registered in the **OTA Server**.
+3. During execution, the applications are built, validated and release with container-based tooling. Depending on the requirements of the tools, they can be deployed on AKS (for containerized applications) or dedicated Virtual Machines. Once the build is complete, the results are pushed to the **Azure Container Registry** for released containers and the changes are registered in the **OTA Server**.
 4. The **OTA Client** has a dedicated **OTA Agent** for container-based applications. The *Desired State Seeking Agent* connects to the **toolchain & orchestration services* to retrieve the desired state definition.
 5. The **container orchestration** engine will download and activate the desired containers from the **Azure Container Registry**
 
@@ -180,6 +180,8 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 * Security is one of the most important aspects of any architecture and ensuring security in complex systems depends on understanding different contexts like business, social and technical conditions. Consider adopting GitHub’s code scanning capabilities to find and fix security issues and critical defects earlier in the development process. [GitHub enables the development of functional safety applications by adding support for coding standards AUTOSAR C++ and CERT C++](https://github.blog/2022-06-20-adding-support-for-coding-standards-autosar-c-and-cert-c/ ).
 * Consider adopting the following best practices to [Secure your end-to-end supply chain on GitHub](https://docs.github.com/en/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview).
+
+* Consider adopting Azure Key Vault to maintain end-to-end security when dealing with sensitive and business-critical elements such as encryption keys, certificates, connection strings, and passwords. Azure Key Vault managed Hardware Security Modules (HSM) offers a robust solution to fortify the entire software development and supply chain process. With Azure Key Vault managed HSM, automotive applications can securely store and manage these sensitive assets, ensuring they remain protected from potential cyber security threats. Azure Key Vault further enhances security with Role-Based Access Control (RBAC) by regulating access and permissions to critical resources.
 
 ### Cost optimization
 
