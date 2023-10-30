@@ -20,7 +20,7 @@ The Architecture consists of six key building blocks:
 
 3. The **GitHub and Azure Marketplace** enable partners such as Tier I and automotive software tool vendors to offer solutions such as managed automotive software stacks, virtual ECUs and developer tooling and integrate them with the SDV Toolchain.
 
-4. **Hardware-in-the-loop Testing** allows for test and validation execution on target hardware, and is managed using the same orchestration concept as the Software-in-the-loop for validation with edge / in-vehicle silicon. The Specialized hardware is connected with fast network access and secure networks.
+4. **HiL Testing** allows for test and validation execution on target hardware, and is managed using the same orchestration concept as the SiL for validation with edge / in-vehicle silicon. The Specialized hardware is connected with fast network access and secure networks.
 
 5. **[Vehicle Messaging, data and analytics](https://learn.microsoft.com/azure/event-grid/mqtt-automotive-connectivity-and-data-solution)** provides required infrastructure for managing vehicles and devices, deploy and operate connected vehicle applications with dependencies to in-vehicle software components and provide data analytics services for engineering, operations and mobility-based services. The **[Data Analytics for automotive test fleets](/azure/architecture/industries/automotive/automotive-telemetry-analytics)** provides more detail on data collection and analytics for component and system validation.
 
