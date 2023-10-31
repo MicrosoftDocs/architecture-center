@@ -55,7 +55,7 @@ You can download the software from the [NAMD](https://www.ks.uiuc.edu/Developmen
 
 Before you install NAMD, you need to deploy and connect to a VM or an HPC cluster.
 
-For information about deploying the VM and installing the drivers, see one [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml).
+For information about deploying the VM and installing the drivers, see [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml).
 
 For information about deploying Azure CycleCloud and the HPC cluster, see these articles:
 
