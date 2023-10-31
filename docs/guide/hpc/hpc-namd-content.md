@@ -7,8 +7,8 @@ NAMD is used mainly for high-performance simulations of large biomolecular syste
 ## Why deploy NAMD on Azure?
 
 - By running NAMD on Azure HB-series VMs, you can reduce the time and cost of your simulations.
-- Running molecular simulation and analysis tasks on Azure can make it easier to implement advanced simulation methods and practical solutions for many molecular modelling tasks.
-- NAMD and associated tools enable popular research workflows like MDFF structure refinement and QwikMD simulation protocols to be run remotely. You don't need to invest in local computing resources, and a the required expertise in high-performance computing technologies is reduced.
+- Running molecular simulation and analysis tasks on Azure can make it easier to implement advanced simulation methods and practical solutions for many molecular modeling tasks.
+- NAMD and associated tools enable popular research workflows like MDFF structure refinement and QwikMD simulation protocols to be run remotely. You don't need to invest in local computing resources, and the required expertise in high-performance computing technologies is reduced.
 
 ## Architecture
 
@@ -77,7 +77,7 @@ The details about each test model are provided in the following sections.
 
 To validate NAMD 2.14 scaling on Azure HPC systems, STMV is tiled in arrays of 5x2x2 (21 million atoms). The following table provides details about the model.
 
-| Model  | Nunber of atoms | Time step | Number of steps | Method |
+| Model  | Number of atoms | Time step | Number of steps | Method |
 |:---|:---|:---|:---|:---|
 | 1a | 1,066,628   | 1 | 2,000 |  Particle-Mesh Ewald (PME) |
 | 1b | 21,000,000   | 2 | 1,200 | PME   |
@@ -92,7 +92,7 @@ The following table provides details about the model.
 |:---|:---|:---|:---|:---|
 | 2 | 92,224  | 1 | 2,000 | PME |
 
-### NAMD performance results on single-node VMs
+### NAMD 2.14 performance results on single-node VMs
 
 The following sections provide the performance results of running NAMD on single-node Azure [HBv3 AMD EPYC 7V73X (Milan-X)](/azure/virtual-machines/hbv3-series) VMs.
 
@@ -110,7 +110,7 @@ This table shows the nanoseconds per day and total wall-clock times recorded for
 
 The following graph shows the relative speed increases as the number of CPUs increases:
 
-![Graph that shows the relative speed increases. ](media/smtv-increase.png)
+![Graph that shows the relative speed increases.](media/smtv-increase.png)
 
 The following graph shows the nanoseconds-per-day for varying numbers of CPUs:
 
@@ -130,7 +130,7 @@ This table shows nanoseconds per day and total wall-clock times recorded for var
 
 The following graph shows the relative speed increases as the number of CPUs increases:
 
-![Graph that shows the relative speed increases for model 1b. ](media/smtv-1b-increase.png)
+![Graph that shows the relative speed increases for model 1b.](media/smtv-1b-increase.png)
 
 The following graph shows the nanoseconds-per-day for varying numbers of CPUs:
 
@@ -152,7 +152,7 @@ The following graph shows the relative speed increases as the number of CPUs inc
 
 ![Graph that shows the relative speed increases for the ApoA1 model.](media/apoa1-increase.png)
 
-The following graph shows the nanoseconds-per-day increase for varying numbers of CPUs:
+The following graph shows the nanoseconds per day for varying numbers of CPUs:
 
 ![Graph that shows the nanoseconds-per-day increase for the ApoA1 model.](media/apoa1-nanoseconds.png)
 
@@ -160,56 +160,56 @@ The following graph shows the nanoseconds-per-day increase for varying numbers o
 
 For all single-node tests, the solver time on Standard_HB120-16rs_v3 (16 cores) is used as a reference to calculate the relative speed increase with respect to similar VMs that have more cores. The previously presented results show that parallel performance improves as cores increase from 16 to 64. At 120 cores, the improvement is limited and only occurs on some simulations. This pattern is common with these simulations and other memory-intensive applications because of the saturation of the onboard memory that's available on each processor. Taking VM costs into consideration, the 64-CPU configuration is the best choice. Standard_HB120-64rs_v3 VMs, which have 64 cores, were used for the multi-node tests.
 
-**NAMD** **performance** **results on** **multi-node** **cluster**
+### NAMD 2.14 performance results on a multi-node cluster
 
-The single-node tests confirm that the solver gives optimal parallel performance with 64 cores on HBv3 VMs. Based on those results, 64-core configurations on [Standard_HB120-64rs_v3](https://learn.microsoft.com/azure/virtual-machines/hbv3-series) VMs were used to evaluate the performance of NAMD on multi-node clusters. Based on the single-node results, STMV Model 1b is used for multi-node runs. The following sections provide the test results. 
+The single-node tests confirm that the solver achieves optimal parallel performance with 64 cores on HBv3-series VMs. Based on those results, 64-core configurations on [Standard_HB120-64rs_v3](/azure/virtual-machines/hbv3-series) VMs were used to evaluate the performance of NAMD on multi-node clusters. STMV model 1b was used for the multi-node tests.  
 
-**Model 1b:** **STMV**
+This table shows the nanoseconds per day and total wall-clock times recorded for varying numbers of nodes on Standard HBv3-series VMs:
 
-This table shows nanoseconds per day and total wall clock time recorded for varying numbers of Nodes with Standard HBv3-series VMs:
+|Number of nodes | Number of cores | ns per day | Wall-clock time (seconds) | Relative speed increase |
+|:---|:---|---|:---|:---|
+| 1 | 64 | 0.054 | 3,835.48 | NA |
+| 2 | 128 | 0.157 | 1,340.54 | 2.86 |
+| 4 | 256 | 0.313 | 675.18 | 5.68 |
+| 8 | 512 | 0.619 | 346.97 | 11.05 |
+| 16 | 1,024 | 1.221 | 183.09 | 20.95 |
 
-| **Number of** **nodes** | **Number ofcores** | **ns per day** | **Wall clocktime(seconds)** | **Relativespeedincrease** |
-|:---:|:---:|---|:---:|:---:|
-| **1** | 64 | 0.054 | 3835.48 | NA |
-| **2** | 128 | 0.157 | 1340.54 | 2.86 |
-| **4** | 256 | 0.313 | 675.18 | 5.68 |
-| **8** | 512 | 0.619 | 346.97 | 11.05 |
-| **16** | 1024 | 1.221 | 183.09 | 20.95 |
+The following graph shows the relative speed increases as the number of nodes increases:
 
-The following graph shows the relative speed increase as the number of nodes increases:
+![Graph that shows the relative speed increases on multi-node clusters.](media/multi-node-increase.png)
 
-The following graph shows the nanoseconds per day increase as the number of nodes increases:
+The following graph shows the nanoseconds per day for varying numbers of nodes:
 
-**Notes about** **the multi-node** **tests** 
+![Graph that shows the nanoseconds per day on multi-node clusters.](media/multi-node-nanoseconds.png)
 
-We can observe from the multi-node results, the model 1b is scaling very well with the increase of number of nodes. For better performance of the application use memory-optimized version which can be done by compiling source code. This simulation we performed is limited to only a few iterations, since real-world iterations can be more numerous, you can minimize the total amount of time required for decomposition, improving performance further.
+The results show that model 1b scales well as the number of nodes increases. For better performance, use a memory-optimized version of the application. You can optimize the application by compiling the source code. The simulation used for testing is limited to a few iterations. Because real-world applications can use more iterations, you can minimize the total time that's required for decomposition, which further improves performance.
 
-**Azure cost**
+## Azure cost
 
-Only simulation running time has been considered for the cost calculations. Installation time, simulation setup time and software costs have been ignored.
+The following table provides wall-clock times that you can use to calculate Azure costs. To compute the cost, multiply the solver running time by the number of nodes and the Azure VM hourly cost. For the current hourly costs, see [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). The Azure VM hourly rates are subject to change.
+
+Only simulation running time has been considered for the cost calculations. Installation time, simulation setup time, and software costs aren't included.
 
 You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate VM costs for your configurations.
 
-The following tables provide the solver times in hours. The Azure VM hourly rates are subject to change. To compute the cost, multiply the solver time by the number of nodes and the Azure VM hourly cost which you can find [here for Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)  and  [here for Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
+STMV model 1b was used to calculate these times. 
 
-**Cost for** **model 1b:** **STMV**
-
-| **Number**<br>**of** **nodes** | **Wall clock** **time** **(Hr)** |
-|:---:|:---:|
+|Number  of nodes | Wall-clock time (hours) |
+|:---|:---|
 | 1 | 1.07 |
 | 2 | 0.37 |
 | 4 | 0.19 |
 | 8 | 0.10 |
 | 16 | 0.05 |
 
-**Summary**
+## Summary
 
-- NAMD 2.14 was successfully tested on Azure using HBv3 standalone Virtual Machines and Azure Cycle Cloud multi-node (cluster) setup.
-- We can see a very good scaleup for the model 1b with the multi-node setup. A speedup of about 21 is achieved with 16 nodes which is a very impressive value.
-- For better performance we recommend using one thread per processor with the +p option and look for pre-built ibverbs NAMD binaries or specify ibverbs when building Charm++.
-- For small problems, we recommend that you use fewer CPUs to improve performance.
+- NAMD 2.14 was successfully tested on Azure HBv3 standalone VMs and on an Azure CycleCloud multi-node configuration.
+- Model 1b scales well on the multi-node configuration. On a 16-node configuration, the speed is 21 times faster than it is on a single node.
+- For better performance, we recommend that you use the `+p` option to run one thread per processor. We also recommend that you look for prebuilt ibverbs NAMD binaries or specify ibverbs when you build the Charm++.
+- For small simulations, we recommend that you use fewer CPUs.
 
-**Contributors**
+## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
@@ -222,21 +222,20 @@ Principal authors:
 Other contributors:
 
 - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
-- [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director Business Strategy
+- [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director, Business Strategy
 - [Sachin Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) | Manager
 
-*To see non-public LinkedIn profiles, sign into LinkedIn.*
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-**Next steps**
+## Next steps
 
-- [GPU Optimized Virtual Machine Sizes](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu)
-- [Windows Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/overview)
-- [Virtual networks and virtual machines on Azure](https://learn.microsoft.com/azure/virtual-network/network-overview)
-- [Learning path: Run high-performance computing (HPC) applications on Azure](https://learn.microsoft.com/training/paths/run-high-performance-computing-applications-azure)
+- [GPU-optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
+- [Virtual machines on Azure](/azure/virtual-machines/windows/overview)
+- [Virtual networks and virtual machines on Azure](/azure/virtual-network/network-overview)
+- [Learning path: Run HPC applications on Azure](/training/paths/run-high-performance-computing-applications-azure)
 
-**Related resources**
+## Related resources
 
-- [Run a Linux VM on Azure](https://learn.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm)
-- [HPC system and big-compute solutions](https://learn.microsoft.com/azure/architecture/solution-ideas/articles/big-compute-with-azure-batch)
-- [HPC cluster deployed in the cloud](https://learn.microsoft.com/azure/architecture/solution-ideas/articles/hpc-cluster)
-
+- [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
+- [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
+- [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)
