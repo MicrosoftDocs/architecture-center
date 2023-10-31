@@ -5,7 +5,7 @@ author: robbagby
 ms.author: robbag
 ms.date: 06/14/2023
 ms.topic: conceptual
-ms.service: industry
+ms.service: cloud-for-industries
 products:
   - azure-migrate
 categories:
