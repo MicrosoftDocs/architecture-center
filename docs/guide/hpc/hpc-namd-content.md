@@ -75,7 +75,7 @@ The details about each test model are provided in the following sections.
 
 ![Screenshot that shows an STMV model.](media/stmv.png)
 
-To validate NAMD 2.14 scaling on Azure HPC systems, STMV is tiled in arrays of 5x2x2 (21 million atoms). The following table provides details about the model.
+To validate NAMD 2.14 scaling on Azure HPC systems, STMV is tiled in arrays of 5x2x2 (21 million atoms). The following table provides details about two versions of the model.
 
 | Model  | Number of atoms | Time step | Number of steps | Method |
 |:---|:---|:---|:---|:---|
