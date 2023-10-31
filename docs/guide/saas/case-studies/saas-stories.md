@@ -71,6 +71,22 @@ In this episode, we learn how Sage embraced the opportunities to shift their app
 
 > [!VIDEO https://www.youtube.com/embed/Oeh2y-giKmw]
 
+## Episode 7: CallCabinet
+
+In this episode, we learn how CallCabinet moved from tapes to servers to the cloud, dramatically reducing user costs while focusing on innovative features. We discuss why they adopted a SaaS model and their biggest challenges in doing so, how they built for scale, how they are using artificial intelligence (AI), and more.
+
+<br/>
+
+> [!VIDEO https://www.youtube.com/embed/8nwGrCrTDWE]
+
+## Episode 8: Octopai
+
+In this episode, we explore how Octopai embraced a global SaaS model and are providing innovative value to their customers through new AI technologies. We speak with Zinette Ezra, VP of Product at Octopai to learn more about their pricing model, challenges they have overcome, and how they built for scale and security.
+
+<br/>
+
+> [!VIDEO https://www.youtube.com/embed/zD6l370JEt8]
+
 ## Next steps
 
 - [Plan your own journey to SaaS](../plan-journey-saas.md)
