@@ -152,7 +152,7 @@ The virtual network defines the following subnets in the deployment template:
 1. `pool-windows`: subnet for the windows pool.
 1. `private-endpoints`: subnet used for private endpoints for Azure services deployed on the spoke network.
 
-The spoke is peered with the hub network. This allows the resources on the spoke network to access the resources on the hub
+The spoke network is peered with the hub network. This allows the resources on the spoke network to access the resources on the hub
 network. Route tables are setup to ensure that the traffic between the spoke is routed through the Firewall.
   
 ### Accessing the resources
