@@ -8,7 +8,7 @@ NAMD is used mainly for high-performance simulations of large biomolecular syste
 
 - By running NAMD on Azure HB-series VMs, you can reduce the time and cost of your simulations.
 - Running molecular simulation and analysis tasks on Azure can make it easier to implement advanced simulation methods and practical solutions for many molecular modeling tasks.
-- NAMD and associated tools enable popular research workflows like MDFF structure refinement and QwikMD simulation protocols to be run remotely. You don't need to invest in local computing resources, and the required expertise in high-performance computing technologies is reduced.
+- NAMD and associated tools enable popular research workflows like MDFF structure refinement and QwikMD simulation protocols to be run remotely. You don't need to invest in local computing resources, and the required expertise in high-performance computing (HPC) technologies is reduced.
 
 ## Architecture
 
