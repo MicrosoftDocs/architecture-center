@@ -15,11 +15,11 @@ a user is as follows:
    Either approach can be used to connect to the private network.
 2. Upload any datasets to process to the storage account using the Azure CLI, Azure Storage Explorer, or `azcopy`.
 3. Submit jobs process the data to the Batch service using the Azure CLI, Batch Explorer, or other tools. For this example
-   deployment, we have developed a [custom command line tool](https://azure.github.io/bacc/cli.html) that can also be used to
+   deployment, we developed a [custom command line tool](https://azure.github.io/bacc/cli.html) that can also be used to
    submit jobs.
-4. By default, the deployment creates a pool with 0 compute nodes. Resize the pool to add compute nodes to the pool.
+4. By default, the deployment creates a pool with no compute nodes. Resize the pool to add compute nodes to the pool.
 5. Download results from the storage account. Once the job is complete, the results are stored in the storage account.
-   These can then downloaded using the Azure CLI, Azure Storage Explorer, or `azcopy`.
+   These can then be downloaded using the Azure CLI, Azure Storage Explorer, or `azcopy`.
 
 ### Components
 
@@ -32,13 +32,13 @@ The resources deployed on the hub network are as follows:
 
 * [Azure Firewall](https://azure.microsoft.com/services/azure-firewall): provides network-level protection for the network. The firewall is configured
   to allow only specific traffic in and out of the network. This helps protect the network from malicious attacks and monitor traffic in and out of the network.
-  The rules are expected to be updated based on the business specific rules and regulations.
+  The rules should be updated based on the business specific rules and regulations.
 
-* [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway): provides ability to connect to the hub network from the public internet. This provides
+* [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway): enables connectivity to the hub network from the public internet. This provides
   one of two ways for the users on the public internet to connect to the hub network. The other way is to use Azure Bastion service. The VPN gateway is
   assigned a public IP address so that VPN clients can connect to it from the public internet.
 
-* [Azure Bastion](https://azure.microsoft.com/services/azure-bastion): provides ability to connect to the jumpboxes from the public internet. This provides
+* [Azure Bastion](https://azure.microsoft.com/services/azure-bastion): enables connectivity to the jumpboxes from the public internet. This provides
   one of two ways for the users on the public internet to connect to the jumpboxes. The other way is to use VPN gateway. Azure Bastion is deployed on the
   hub network and is assigned a public IP address so that users can connect to it from the public internet.
 
@@ -48,12 +48,12 @@ The resources deployed on the hub network are as follows:
 * [Windows Jumpbox](https://azure.microsoft.com/services/virtual-machines): a Windows VM with preinstalled tools to access the resources deployed, submit jobs, and
   monitor their progress. The jumpbox is deployed on the hub network and can be accessed from the on-premises network using the VPN gateway or Azure Bastion.
 
-* [Log Analytics Workspace](https://azure.microsoft.com/services/log-analytics): provides ability to collect logs. Whenever possible, resources deployed are configured
+* [Log Analytics Workspace](https://azure.microsoft.com/services/log-analytics): enables collection of logs. Whenever possible, resources deployed are configured
   to save logs to the workspace. The logs are used to monitor the resources and troubleshoot issues. When combined with
   [Azure Application Insights](https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview?tabs=net), it provides
   performance monitoring and troubleshooting capabilities for the resources deployed.
 
-* [Azure DNS Private Resolver](https://learn.microsoft.com/azure/dns/dns-private-resolver-overview): provides an inbound endpoint to resolve IPs of private endpoints if queried outside of the provisioned virtual network, e.g. from on-prem resources. Will be deployed if the Azure VPN Gateway is deployed.
+* [Azure DNS Private Resolver](https://learn.microsoft.com/azure/dns/dns-private-resolver-overview): provides an inbound endpoint to resolve IPs of private endpoints if queried outside of the provisioned virtual network, e.g. from on-premises resources. Will be deployed if the Azure VPN Gateway is deployed.
 
 #### Spoke Resources
 
@@ -66,11 +66,11 @@ The resources deployed on the spoke network are as follows:
   the compute resources, and monitors the tasks for completion. The Batch service is deployed with two pools: a pool
   named linux with linux compute nodes and a pool named windows with windows compute nodes. The pools are configured to:
 
-  * Use User Subscription pool allocation mode. This ensures that all resources used internally by the Batch service are
+  * Use User Subscription pool allocation mode. All resources that are used internally by the Batch service are
     allocated under the same subscription as the Batch account and hence use the subscription specific quotas and policies.
   * Use the corresponding subnets on the spoke network, thus they get assigned address space from the subnet's address range.
     It also means that all network security group (NSG) rules and traffic forwarding rules setup on those subnets are applied to the compute nodes as well.
-  * Not assign public IP addresses to the compute nodes. This ensures that the compute nodes are not accessible from the
+  * Not assign public IP addresses to the compute nodes. This ensures that the compute nodes aren't accessible from the
     public internet directly.
   * Make it easier for workloads executing on compute notes to access shared storage resources, by mounting the supported
     storage resources on the compute nodes during initialization.
@@ -80,7 +80,7 @@ The resources deployed on the spoke network are as follows:
 
 * [Azure Key Vault](https://azure.microsoft.com/services/key-vault): stores deployment secrets such as Batch account certificates. These certificates are used
   to authenticate compute node resources as they join the Batch pool. The Key Vault is deployed on the spoke network and is configured to allow access
-  only from the Batch service. This ensures that the certificates are not accessible from the public internet.
+  only from the Batch service. This ensures that the certificates aren't accessible from the public internet.
 
 * [Azure Storage](https://azure.microsoft.com/services/storage): stores input and output data. The deployment creates two storage accounts
   one for blob storage and one for file storage. The blob storage account is mounted on Linux pool using NFS. The file storage account is mounted
@@ -89,7 +89,7 @@ The resources deployed on the spoke network are as follows:
 * [Azure Container Registry](https://azure.microsoft.com/services/container-registry): stores container images used by the Batch compute nodes. Using
   a private deployment of the container registry helps control access to container images and also provides a more secure way to store container images.
   The container registry is deployed on the spoke network and is configured to allow access only from the Batch service. This ensures that the container
-  images are not accessible from the public internet.
+  images aren't accessible from the public internet.
 
 * [Azure Managed Identity](https://learn.microsoft.com/azure/batch/managed-identity-pools): used to authenticate the compute nodes
   added to pools automatically with container registry, storage accounts, and other resources.
@@ -101,9 +101,9 @@ that characterizes a financial instrument or a portfolio of financial instrument
 parallel and the results are aggregated to produce a summary of the portfolio's risk profile. 
 
 This architecture is not focused on a particular workload, rather it focuses on applications that want to use Azure Batch
-to run compute-intensive simulations. Any production deployment architecture will need to be customized to meet the specific
+to run compute-intensive simulations. Any production deployment architecture needs to be customized to meet the specific
 requirements of the workload and business environment. This architecture is intended to be used as to be a starting point
-for such customizations for pre-production and production deployments.
+for such customizations for preproduction and production deployments.
 
 ### Network Topology
 
@@ -127,7 +127,7 @@ The highlights of the network topology are as follows:
   their progress. These jumpboxes are deployed on the hub network and can be accessed from the on-premises network using the
   VPN gateway or Azure Bastion.
 * All Azure services use private endpoints to ensure that they are accessed over private network instead of accessing
-  them through public endpoints. This also helps us to ensure that the services are not accessible from the public internet.
+  them through public endpoints. This also helps us to ensure that the services aren't accessible from the public internet.
 * NSG rules are setup to allow only the required traffic in and out of the virtual network. This helps protect the
   network from malicious attacks and monitor traffic in and out of the network. These rules even restrict the traffic
   between the resources in the virtual network.
@@ -183,7 +183,7 @@ The architecture provides two options for the user to connect to the network to 
 ## Considerations
 
 In this example workflow, we rely on manual data transfer and submission of jobs. This is a good starting point for
-workloads that are not yet ready for automation. However, for production workloads, we recommend automating the data
+workloads that aren't yet ready for automation. However, for production workloads, we recommend automating the data
 transfer and job submission. This can be done using [Azure Data Factory](/azure/data-factory), or
 other workflow orchestration tools.
 
@@ -191,22 +191,14 @@ Batch pools can be setup to automatically scale up and down based on the number 
 helps reduce the cost of running the pool when there are no jobs to run. For more information, see
 [Scale compute nodes in an Azure Batch pool automatically](/azure/batch/batch-automatic-scaling).
 
-### Security
-
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
-
-> This section includes identity and data sovereignty considerations.
-> Are there any security considerations (past the typical) that I should know about this?
-> Because security is important to our business, be sure to include your Azure security baseline assessment recommendations in this section. See https://aka.ms/AzureSecurityBaselines
-
 ### Cost optimization
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 Azure Batch itself is a free service, and customers pay only for the underlying virtual machine, storage, and networking costs. In this
 workload, besides the compute nodes, the storage account, jumpboxes, VPN gateway, and Azure Bastion are the other resources that incur cost.
-Since the workload is designed is provide multiple alternatives for accessing the resources, the cost of running can be optimized by
-choosing one of the paths e.g. if VPN gateway is preferred for accessing resources, then Azure Bastion and jumpbox VMs can be disabled
+Since the workload is designed to support alternatives for accessing the resources, the cost of running can be optimized by
+choosing one of the paths. For example, if VPN gateway is preferred for accessing resources, then Azure Bastion and jumpbox VMs can be disabled
 during deployment to reduce the cost.
 
 For reducing costs associated with the compute resources, using VM SKUs that are more cost effective for the workload can help. Further,
@@ -218,10 +210,9 @@ To determine the cost of running this workload, see [Azure pricing calculator](h
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-With Batch, performance efficiency is achieved by using the right VM SKUs for the workload, using autoscaling to scale the pool up and down
-based on the number of jobs submitted to the pool, and using low priority VMs to reduce the cost of running the pool.
+With Batch, performance efficiency is achieved by using the right VM SKUs for the workload.
 Refer to [Azure compute unit](/azure/virtual-machines/acu) for details on how to choose the right VM SKUs for the workload.
-[Choosing the VM size for compute nodes](/azure/batch/batch-pool-vm-sizes) provides additional guidance on choosing the right VM SKUs based on
+[Choosing the VM size for compute nodes](/azure/batch/batch-pool-vm-sizes) provides more guidance on choosing the right VM SKUs based on
 the deployment region.
 
 ## Deploy this scenario
@@ -229,7 +220,7 @@ the deployment region.
 The infrastructure-as-code (IaC) source-code for this reference architecture is available in the 
 [Azure Batch accelerator repository](https://github.com/Azure/bacc). The included tutorials demonstrate how to deploy this reference
 architecture and how to use it to run a sample FSI workload, named `azfinsim`. You can also use the following button
-to deploy the resources under your subscription using Azure Portal.
+to deploy the resources under your subscription using Azure portal.
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fbacc%2Fmain%2Ftemplates%2Fsecured-batch_deploy.json)
 
