@@ -188,7 +188,7 @@ The results show that model 1b scales well as the number of nodes increases. For
 
 The following table provides wall-clock times that you can use to calculate Azure costs. To compute the cost, multiply the solver running time by the number of nodes and the Azure VM hourly cost. For the current hourly costs, see [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). The Azure VM hourly rates are subject to change.
 
-Only simulation running time has been considered for the cost calculations. Installation time, simulation setup time, and software costs aren't included.
+Only simulation running time is considered for the cost calculations. Installation time, simulation setup time, and software costs aren't included.
 
 You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate VM costs for your configurations.
 
