@@ -208,7 +208,7 @@ For more information, see [Overview of the security pillar](/azure/architecture/
 To minimize sharing of secrets such as passwords and keys, the architecture uses managed identities to authenticate
 the compute nodes with storage account, container registry, and other resources as they join the Batch pool. This is done by
 assigning managed identities to the Batch pools and then granting the managed identities access to the resources. Using
-rule based access control (RBAC), the managed identities can be granted the least privilege required to access the resources.
+role based access control (RBAC), the managed identities can be granted the least privilege required to access the resources.
 
 The architecture also uses private endpoints to ensure that the services aren't accessible from the public internet. This
 helps minimize the attack surface and also helps ensure that the services are accessed over private network instead of
