@@ -200,6 +200,27 @@ Batch pools can be setup to automatically scale up and down based on the number 
 helps reduce the cost of running the pool when there are no jobs to run. For more information, see
 [Scale compute nodes in an Azure Batch pool automatically](/azure/batch/batch-automatic-scaling).
 
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems.
+For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
+To minimize sharing of secrets such as passwords and keys, the architecture uses managed identities to authenticate
+the compute nodes with storage account, container registry, and other resources as they join the Batch pool. This is done by
+assigning managed identities to the Batch pools and then granting the managed identities access to the resources. Using
+rule based access control (RBAC), the managed identities can be granted the least privilege required to access the resources.
+
+The architecture also uses private endpoints to ensure that the services aren't accessible from the public internet. This
+helps minimize the attack surface and also helps ensure that the services are accessed over private network instead of
+accessing them through public endpoints.
+
+The architecture also uses Azure Firewall to filter and monitor traffic in and out of the network. The firewall is configured
+to allow only whitelisted traffic. This ensures that only the whitelisted traffic is allowed to go out of the virtual network.
+This helps protect the network from malicious attacks and monitor traffic in and out of the network.
+
+The compute nodes themselves are not accessible from the public internet. This is done by not assigning public IP addresses
+to the compute nodes.
+
 ### Cost optimization
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
