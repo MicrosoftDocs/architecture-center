@@ -128,7 +128,7 @@ Examine messages in the DLQ to determine the failure reason.
 
 Service Bus bridges on-premises systems and cloud solutions. On-premises systems are often difficult to reach because of firewall restrictions. Both the producer and consumer (either can be on-premises or the cloud) can use the Service Bus queue endpoint as the pickup and drop off location for messages.
 
-The [Messaging Bridge Pattern](/azure/architecture/patterns/messaging-bridge) is another way to handle these scenarios.
+The [Messaging Bridge pattern](/azure/architecture/patterns/messaging-bridge) is another way to handle these scenarios.
 
 #### Topics and subscriptions
 
