@@ -64,7 +64,7 @@ The resources deployed on the spoke network are as follows:
 * [Azure Batch](https://azure.microsoft.com/services/batch): the core service that our architecture relies on for
   cloud-native job scheduling and execution. Azure Batch manages the compute resources required, schedules the tasks on
   the compute resources, and monitors the tasks for completion. The Batch service is deployed with two pools: a pool
-  named linux with linux compute nodes and a pool named "windows" with Windows compute nodes. The pools are configured to:
+  named "linux" with Linux compute nodes and a pool named "windows" with Windows compute nodes. The pools are configured to:
 
   * Use User Subscription pool allocation mode. All resources that are used internally by the Batch service are
     allocated under the same subscription as the Batch account and hence use the subscription specific quotas and policies.
