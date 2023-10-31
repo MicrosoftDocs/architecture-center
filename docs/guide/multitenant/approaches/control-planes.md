@@ -62,7 +62,7 @@ For processes like tenant onboarding and maintenance activities:
 
 The following diagram illustrates one way to use manual processes for an initial control plane: 
 
-:::image type="content" source="media/control-plane/control-plane-approaches-manual.svg" alt-text="Diagram that shows one way to use scripts and other manual processes for a control plane." lightbox="media/control-plane/control-plane-approaches-manual.svg" border="false":::
+:::image type="content" source="media/control-plane/control-plane-approaches-manual.png" alt-text="Diagram that shows one way to use scripts and other manual processes for a control plane." lightbox="media/control-plane/control-plane-approaches-manual.png" border="false":::
 
 #### Advantages of a manual approach
 
@@ -95,7 +95,7 @@ This approach enables you to provide self-service sign-up to your customers by a
 
 The following diagram illustrates how you might create a control plane with self-service sign-up by using the Microsoft Power Platform:
 
-:::image type="content" source="media/control-plane/control-plane-approaches-low-code.svg" alt-text="Diagram that shows one way to use Power Automate and Dataverse as a low-code control plane." lightbox="media/control-plane/control-plane-approaches-low-code.svg" border="false":::
+:::image type="content" source="media/control-plane/control-plane-approaches-low-code.png" alt-text="Diagram that shows one way to use Power Automate and Dataverse as a low-code control plane." lightbox="media/control-plane/control-plane-approaches-low-code.png" border="false":::
 
 #### Advantages of a low-code approach
 
@@ -127,7 +127,7 @@ Like the low-code approach, this approach enables you to provide self-service si
 
 The following diagram shows one way to create a basic custom control plane that provides self-service sign-up:
 
-:::image type="content" source="media/control-plane/control-plane-approaches-custom.svg" alt-text="Diagram that illustrates a control plane created with Durable Functions, a SQL database, and a service bus." lightbox="media/control-plane/control-plane-approaches-custom.svg" border="false":::
+:::image type="content" source="media/control-plane/control-plane-approaches-custom.png" alt-text="Diagram that illustrates a control plane created with Durable Functions, a SQL database, and a service bus." lightbox="media/control-plane/control-plane-approaches-custom.png" border="false":::
 
 #### Advantages of a custom approach
 
