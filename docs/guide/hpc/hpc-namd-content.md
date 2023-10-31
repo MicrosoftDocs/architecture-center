@@ -118,7 +118,7 @@ The following graph shows the nanoseconds-per-day for varying numbers of CPUs:
 
 #### Model 1b: STMV
 
-This table shows the nanoseconds per day and total wall-clock times recorded for varying number of CPUs on the Standard HBv3-series VM:
+This table shows the nanoseconds per day and total wall-clock times recorded for varying numbers of CPUs on the Standard HBv3-series VM:
 
 | Number of cores| ns per day | Wall clock-time (seconds) | Relative speed increase |
 |:---|:---|:---|:---|
