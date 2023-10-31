@@ -387,7 +387,7 @@ Principal authors:
 
 Other contributors:
 
-- [Nelson Del Villar](https://www.linkedin.com/in/nelsondelvillar) | Senior Customer Engineer
+- [Nelson Del Villar](https://www.linkedin.com/in/nelsondelvillar) | Cloud Solution Architect, Azure Core Infrastructure
 - [Jason Martinez](https://www.linkedin.com/in/jason-martinez-502766123) | Technical Writer
 
 ## Next steps
