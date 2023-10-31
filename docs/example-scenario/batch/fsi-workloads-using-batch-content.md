@@ -105,6 +105,15 @@ to run compute-intensive simulations. Any production deployment architecture nee
 requirements of the workload and business environment. This architecture is intended to be used as to be a starting point
 for such customizations for preproduction and production deployments.
 
+### Potential use-cases
+
+This architecture can be used to run a wide variety of FSI workloads. Some examples include:
+
+* Risk analysis of a portfolio of financial instruments.
+* Monte Carlo simulations to estimate the value of a financial instrument.
+* Back-testing of trading strategies.
+* Stress testing of a portfolio of financial instruments.
+
 ### Network Topology
 
 This architecture uses a hub-and-spoke network topology. The hub and spoke resources are deployed in separate virtual networks
