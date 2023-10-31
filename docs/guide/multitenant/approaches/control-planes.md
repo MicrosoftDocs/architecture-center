@@ -15,7 +15,7 @@ categories:
  - web
 ms.custom:
   - guide
----
+--- 
 
 # Architectural approaches for control planes in multitenant solutions
 
