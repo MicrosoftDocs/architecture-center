@@ -1,5 +1,5 @@
 ---
-ms.custom: devx-track-extended-java
+ms.custom: devx-track-extended-java, devx-track-javaee
 ---
 The reliable web app pattern provides essential implementation guidance for web apps moving to the cloud. It defines how you should update (re-platform) your web app to be successful in the cloud.
 
@@ -35,7 +35,7 @@ To reach these long term goals, Proseware calculated that moving the web app to 
 
 ## Existing web app
 
-The existing web app is on premises. It's a monolithic Java web app that runs a web based media stream called Airsonic. Airsonic is a well-known open-source project, but in this scenario, Proseware owns the code. Code ownership is a more common scenario than an upstream dependency. The on-premises web app runs on an Apache Tomcat web server with a PostgreSQL database.
+The existing web app is on premises. It's a monolithic Java web app that runs a web based media stream called Airsonic. Airsonic is a well-known open-source project, but in this scenario, Proseware owns the code. Code ownership is a more common scenario than an upstream dependency. The on-premises web app is a Spring Boot app, which runs on an Apache Tomcat web server with a PostgreSQL database.  It's important to take the Java middleware and frameworks used by the web app into account when you move it to the cloud. For more on this consideration, see [Application platform](#application-platform).
 
 The web app is a line-of-business training app. It's employee-facing. Proseware employees use the application to complete required HR training. The on-premises web app suffers from common challenges. These challenges include extended timelines to build and ship new features and difficulty scaling different application components under higher load.
 
@@ -62,7 +62,7 @@ When you move a web app to the cloud, you should select Azure services that mirr
 
 [Azure App Service](/azure/app-service/overview) is an HTTP-based managed service for hosting web apps, REST APIs, and mobile back ends. Azure has many viable [compute options](/azure/architecture/guide/technology-choices/compute-decision-tree). Proseware chose Azure App Service because it meets the following requirements:
 
-- **Natural progression.** On-premises, Proseware deployed a `war` file to a Tomcat server and wanted to minimize the amount of rearchitecting for that deployment model. App Service was a natural progression for Proseware, but Azure Spring Apps is an alternative.
+- **Natural progression.** On-premises, Proseware deployed a Spring Boot `war` file to a Tomcat server and wanted to minimize the amount of rearchitecting for that deployment model. Because App Service has great support for Tomcat, it's a natural progression for Proseware.  Azure Spring Apps is also an attractive alternative for this app. For more information on Azure Spring Apps, see [What is Azure Spring Apps?](/azure/spring-apps/overview). If the Proseware app happened to use Jakarta EE instead of Spring Boot, you might consider the options for running Jakarta EE on Azure. For more information, see [Java EE, Jakarta EE, and MicroProfile on Azure](/azure/developer/java/ee/).
 - **High SLA.** It has a high SLA that meets the requirements for the production environment.
 - **Reduced management overhead.** It's a fully managed hosting solution.
 - **Containerization capability.** App Service works with private container image registries like Azure Container Registry. Proseware can use these registries to containerize the web app in the future.
@@ -110,7 +110,7 @@ Azure Monitor is a comprehensive suite of monitoring tools for collecting data f
 
 ### Cache
 
-[Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a managed in-memory data store that's based on Redis software. Proseware needed a cache that provides the following benefits:
+[Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a managed in-memory data store based on Redis software. Proseware needed a cache that provides the following benefits:
 
 - **Speed and volume.** It has high-data throughput and low latency reads for commonly accessed, slow-changing data.
 - **Diverse supportability.** It's a unified cache location that all instances of the web app can use.
@@ -132,7 +132,7 @@ Front Door is a modern content delivery network and global load balancer that ro
 
 ### Web application firewall
 
-[Azure Web Application Firewall](/azure/web-application-firewall/overview) helps provide centralized protection of your web app from common exploits and vulnerabilities. WAF integrates with Application Gateway and Front Door. It helps prevent malicious attacks close to the attack sources before they enter your virtual network. Proseare chose the Web Application Firewall for the following benefits:
+[Azure Web Application Firewall](/azure/web-application-firewall/overview) helps provide centralized protection of your web app from common exploits and vulnerabilities. WAF integrates with Application Gateway and Front Door. It helps prevent malicious attacks close to the attack sources before they enter your virtual network. Proseware chose the Web Application Firewall for the following benefits:
 
 - **Global protection.** It provides increased global web app protection without sacrificing performance.
 - **Botnet protection.** You can configure bot protection rules to monitor for botnet attacks.
