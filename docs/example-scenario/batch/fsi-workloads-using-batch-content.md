@@ -148,7 +148,7 @@ defines following subnets in the deployment template:
 The spoke virtual network contains the Batch service, Batch compute nodes and other service endpoints needed by the workload.
 The virtual network defines the following subnets in the deployment template:
 
-1. `pool-linux`: subnet for the linux pool.
+1. `pool-linux`: subnet for the Linux pool.
 1. `pool-windows`: subnet for the windows pool.
 1. `private-endpoints`: subnet used for private endpoints for Azure services deployed on the spoke network.
 
