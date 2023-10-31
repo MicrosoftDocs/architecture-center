@@ -1,25 +1,29 @@
 This article describes a baseline architecture for running Financial Service Industry (FSI) workloads on Azure using Azure Batch.
 
-## Architecture![Architecture Diagram](images/architecture.png)_Download a [Visio file](https://arch-center.azureedge.net/architecture.vsdx) that contains this architecture diagram
+## Architecture
+
+![Architecture Diagram](images/architecture.png)
+
+_Download a [Visio file](https://arch-center.azureedge.net/architecture.vsdx) that contains this architecture diagram.
 
 ### Workflow
 
-**TODO:**
-> An alternate title for this sub-section is "Workflow" (if data isn't really involved), so feel free to change.
-> Add callouts to the diagram above, by placing numbers next to each major step/flow
-> Include an ordered list (see example below), that annotates/describes the dataflow or workflow through the solution. Explain what each step does. Start from the user or external data source, and then follow the flow through the rest of the solution (as shown in the diagram).
+This example scenario demonstrates how to run FSI workloads on Azure using Azure Batch. A typical workflow followed by
+a user is as follows:
 
-The following workflow (or dataflow) corresponds to the above diagram:
-
-1. Admin 1 adds, updates, or deletes an entry in Admin 1's fork of the Microsoft 365 config file.
-1. Admin 1 commits and syncs the changes to Admin 1's forked repository.
-1. Admin 1 creates a pull request (PR) to merge the changes to the main repository.
-1. The build pipeline runs on the PR.
-1. Etc.
+1. Connect to the private network using VPN Gateway. Alternatively, RDP or SSH to the jumpbox VMs using Azure Bastion.
+   Either approach can be used to connect to the private network.
+2. Upload any datasets to process to the storage account using the Azure CLI, Azure Storage Explorer, or `azcopy`.
+3. Submit jobs process the data to the Batch service using the Azure CLI, Batch Explorer, or other tools. For this example
+   deployment, we have developed a [custom command line tool](https://azure.github.io/bacc/cli.html) that can also be used to
+   submit jobs.
+4. By default, the deployment creates a pool with 0 compute nodes. Resize the pool to add compute nodes to the pool.
+5. Download results from the storage account. Once the job is complete, the results are stored in the storage account.
+   These can then downloaded using the Azure CLI, Azure Storage Explorer, or `azcopy`.
 
 ### Components
 
-##### Hub Resources
+#### Hub Resources
 
 Let's start by looking at the resources deployed on the hub network. These are shared resources that enable / filter / monitor
 communication between the spoke network and the outside world. 
@@ -51,7 +55,7 @@ The resources deployed on the hub network are as follows:
 
 * [Azure DNS Private Resolver](https://learn.microsoft.com/azure/dns/dns-private-resolver-overview): provides an inbound endpoint to resolve IPs of private endpoints if queried outside of the provisioned virtual network, e.g. from on-prem resources. Will be deployed if the Azure VPN Gateway is deployed.
 
-##### Spoke Resources
+#### Spoke Resources
 
 Let's now look at the resources deployed on the spoke network. These are the resources intended for executing the computation workloads and all supporting resources.
 
@@ -128,7 +132,7 @@ The highlights of the network topology are as follows:
   network from malicious attacks and monitor traffic in and out of the network. These rules even restrict the traffic
   between the resources in the virtual network.
 
-##### Hub Virtual Network
+#### Hub Virtual Network
 
 The hub virtual network contains resources that allow or monitor traffic in and out of the spoke network. The virtual network
 defines following subnets in the deployment template:
@@ -139,7 +143,7 @@ defines following subnets in the deployment template:
 1. `sn-jumpbox`: subnet for the jumpboxes.
 1. `sn-dnspr`: subnet delegated to Azure DNS resolver.
 
-##### Spoke Virtual Network
+#### Spoke Virtual Network
 
 The spoke virtual network contains the Batch service, Batch compute nodes and other service endpoints needed by the workload.
 The virtual network defines the following subnets in the deployment template:
@@ -178,19 +182,14 @@ The architecture provides two options for the user to connect to the network to 
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+In this example workflow, we rely on manual data transfer and submission of jobs. This is a good starting point for
+workloads that are not yet ready for automation. However, for production workloads, we recommend automating the data
+transfer and job submission. This can be done using [Azure Data Factory](/azure/data-factory), or
+other workflow orchestration tools.
 
-**TODO:** Complete any additional lead-in text for this main section, plus the "Cost optimization" section and at least 2 of the remaining 4 subsections, and remove all template comments/questions.
-
-> Are there any lessons learned from running this that would be helpful for new customers?  What went wrong when building it out?  What went right?
-> How do I need to think about managing, maintaining, and monitoring this long term?
-
-### Reliability
-
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
-
-> This section includes resiliency and availability considerations. They can also be H4 headers in this section, if you think they should be separated.
-> Are there any key resiliency and reliability considerations (past the typical)?
+Batch pools can be setup to automatically scale up and down based on the number of jobs submitted to the pool. This
+helps reduce the cost of running the pool when there are no jobs to run. For more information, see
+[Scale compute nodes in an Azure Batch pool automatically](/azure/batch/batch-automatic-scaling).
 
 ### Security
 
@@ -204,29 +203,26 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-> How much will this cost to run? See if you can answer this without dollar amounts.
-> Are there ways I could save cost?
-> If it scales linearly, than we should break it down by cost/unit. If it does not, why?
-> What are the components that make up the cost?
-> How does scale affect the cost?
+Azure Batch itself is a free service, and customers pay only for the underlying virtual machine, storage, and networking costs. In this
+workload, besides the compute nodes, the storage account, jumpboxes, VPN gateway, and Azure Bastion are the other resources that incur cost.
+Since the workload is designed is provide multiple alternatives for accessing the resources, the cost of running can be optimized by
+choosing one of the paths e.g. if VPN gateway is preferred for accessing resources, then Azure Bastion and jumpbox VMs can be disabled
+during deployment to reduce the cost.
 
-> Link to the pricing calculator (https://azure.microsoft.com/en-us/pricing/calculator) with all of the components in the architecture included, even if they're a $0 or $1 usage.
-> If it makes sense, include small/medium/large configurations. Describe what needs to be changed as you move to larger sizes.
+For reducing costs associated with the compute resources, using VM SKUs that are more cost effective for the workload can help. Further,
+using spot instances and/or pool autoscaling can help reduce the costs associated with compute nodes.
 
-### Operational excellence
-
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
-
-> This includes DevOps, monitoring, and diagnostics considerations.
-> How do I need to think about operating this solution?
+To determine the cost of running this workload, see [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
 ### Performance efficiency
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-> This includes scalability considerations.
-> Are there any key performance considerations (past the typical)?
-> Are there any size considerations around this specific solution? What scale does this work at? At what point do things break or not make sense for this architecture?
+With Batch, performance efficiency is achieved by using the right VM SKUs for the workload, using autoscaling to scale the pool up and down
+based on the number of jobs submitted to the pool, and using low priority VMs to reduce the cost of running the pool.
+Refer to [Azure compute unit](/azure/virtual-machines/acu) for details on how to choose the right VM SKUs for the workload.
+[Choosing the VM size for compute nodes](/azure/batch/batch-pool-vm-sizes) provides additional guidance on choosing the right VM SKUs based on
+the deployment region.
 
 ## Deploy this scenario
 
