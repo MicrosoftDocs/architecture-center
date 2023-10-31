@@ -139,9 +139,9 @@ You can use this feature in the following scenarios:
 
 - If your secondary region is a cold standby that doesn't receive active requests
 - To fail over if your primary region fails
-- To set up primary and secondary databases with private link connections to their respective regions via [virtual network peering](/azure/virtual-network/virtual-network-peering-overview) between the two regions. For more information, see [Multi-region web app with private connectivity to a database](../../../example-scenario/sql-failover/app-service-private-sql-multi-region.yml).
+- To set up primary and secondary databases with private link connections to their respective regions via [virtual network peering](/azure/virtual-network/virtual-network-peering-overview) between the two regions. 
 
-Another approach is to use Azure Cosmos DB. This service can [globally distribute](/azure/cosmos-db/distribute-data-globally) data by transparently replicating the data to all regions in your Azure Cosmos DB account. You can also configure Azure Cosmos DB with [multiple write regions](/azure/cosmos-db/high-availability#multiple-write-regions). For more information, see [Geode pattern](../../../patterns/geodes.yml) and [Globally distributed applications with Azure Cosmos DB](/azure/architecture/solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db).
+Another approach is to use Azure Cosmos DB. This service can [globally distribute](/azure/cosmos-db/distribute-data-globally) data by transparently replicating the data to all regions in your Azure Cosmos DB account. You can also configure Azure Cosmos DB with [multiple write regions](/azure/cosmos-db/high-availability#multiple-write-regions). For more information, see [Geode pattern](../../../patterns/geodes.yml).
 
 ## Automated deployment
 
@@ -235,6 +235,5 @@ We recommend the following guides for a deeper understanding about the configura
 - [Expose Azure Spring Apps through a reverse proxy](../guides/spring-cloud-reverse-proxy.yml)
 - [High-availability blue/green deployment for applications](../guides/blue-green-spring.yml)
 - [Preserve the original HTTP host name between a reverse proxy and its back-end web application](../../../best-practices/host-name-preservation.yml)
-- [Multi-region web app with private connectivity to a database](../../../example-scenario/sql-failover/app-service-private-sql-multi-region.yml)
 
 This architecture is designed in alignment with the pillars of the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework). We recommend that you review the design principles for each pillar.

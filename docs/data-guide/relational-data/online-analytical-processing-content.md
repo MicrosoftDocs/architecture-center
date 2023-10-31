@@ -152,5 +152,4 @@ Principal author:
 ## Related resources
 
 - [Big data architecture style](../../guide/architecture-styles/big-data.yml)
-- [Data warehousing in Microsoft Azure](../../data-guide/relational-data/data-warehousing.yml)
 - [Online analytical processing (OLAP)](../../data-guide/relational-data/online-analytical-processing.yml)

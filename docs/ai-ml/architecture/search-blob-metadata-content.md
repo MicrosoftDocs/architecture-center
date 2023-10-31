@@ -130,4 +130,3 @@ Other contributor:
 
 - [Choose a search data store in Azure](../../data-guide/technology-choices/search-options.md)
 - [Intelligent product search engine for e-commerce](../../example-scenario/apps/ecommerce-search.yml)
-- [Process free-form text for search](../../data-guide/scenarios/search.yml)

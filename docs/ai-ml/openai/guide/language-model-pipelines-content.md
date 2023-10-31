@@ -84,5 +84,4 @@ Other contributor:
 ## Related resources
 
 - [AI architecture design](/azure/architecture/data-guide/big-data/ai-overview)
-- [Batch processing](/azure/architecture/data-guide/big-data/batch-processing)
 - [Types of language API services](/azure/architecture/data-guide/cognitive-services/language-api)

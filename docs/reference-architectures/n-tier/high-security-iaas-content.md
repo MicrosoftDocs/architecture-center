@@ -172,7 +172,7 @@ You can use [Azure Monitor](/azure/azure-monitor/overview) for further monitorin
 
 ## Related resources
 
-- For more information about n-tier architectures, see [Linux n-tier application in Azure with Apache Cassandra](./n-tier-cassandra.yml) and [Windows n-tier application on Azure with SQL Server](./n-tier-sql-server.yml).
+- For more information about n-tier architectures, see [Linux n-tier application in Azure with Apache Cassandra](./n-tier-cassandra.yml).
 - For an end-to-end tutorial on using the Azure Key Vault virtual machine extension, see [Secure a web server on a Windows virtual machine in Azure with SSL certificates stored in Key Vault](/azure/virtual-machines/windows/tutorial-secure-web-server).
 - For more information about Azure Disk Encryption, see [Azure Disk Encryption for Linux VMs](/azure/virtual-machines/linux/disk-encryption-overview) or [Azure Disk Encryption for Windows VMs](/azure/virtual-machines/windows/disk-encryption-overview).
 - For more information about Azure network security, see [Azure network security overview](/azure/security/fundamentals/network-overview).
