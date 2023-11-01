@@ -60,7 +60,7 @@ For information about deploying the VM and installing the drivers, see [Run a Li
 For information about deploying Azure CycleCloud and the HPC cluster, see these articles:
 
 - [Install and configure Azure CycleCloud](/learn/modules/azure-cyclecloud-high-performance-computing/4-exercise-install-configure/)
-- [Create an HPC Cluster](/learn/modules/azure-cyclecloud-high-performance-computing/5-exercise-create-cluster/)
+- [Create an HPC cluster](/learn/modules/azure-cyclecloud-high-performance-computing/5-exercise-create-cluster/)
 
 ## NAMD performance results
 
@@ -100,7 +100,7 @@ The following sections provide the performance results of running NAMD on single
 
 This table shows the nanoseconds per day and total wall-clock times recorded for varying numbers of CPUs on the Standard HBv3-series VM:
 
-| Number of cores| ns per day | Wall clock-time (seconds) | Relative speed increase |
+| Number of cores| ns per day | Wall-clock time (seconds) | Relative speed increase |
 |:---|:---|:---|:---|
 | 16 | 0.168 | 1,046.34 | NA |
 | 32 | 0.306 | 633.58 | 1.65 |
@@ -120,7 +120,7 @@ The following graph shows the nanoseconds-per-day for varying numbers of CPUs:
 
 This table shows the nanoseconds per day and total wall-clock times recorded for varying numbers of CPUs on the Standard HBv3-series VM:
 
-| Number of cores| ns per day | Wall clock-time (seconds) | Relative speed increase |
+| Number of cores| ns per day | Wall-clock time (seconds) | Relative speed increase |
 |:---|:---|:---|:---|
 | 16 | 0.014 | 14,712.03 | NA |
 | 32 | 0.028 | 7,715.94 | 1.91 |
@@ -140,7 +140,7 @@ The following graph shows the nanoseconds-per-day for varying numbers of CPUs:
 
 This table shows the nanoseconds per day and total wall-clock times recorded for varying numbers of CPUs on the Standard HBv3-series VM:
 
-| Number of cores| ns per day | Wall clock-time (seconds) | Relative speed increase |
+| Number of cores| ns per day | Wall-clock time (seconds) | Relative speed increase |
 |:---|:---|:---|:---|
 | 16| 1.794 | 130.61 | NA |
 | 32 | 3.004 | 82.67 | 1.58 |
@@ -158,7 +158,7 @@ The following graph shows the nanoseconds per day for varying numbers of CPUs:
 
 #### Notes about the single-node tests
 
-For all single-node tests, the solver time on Standard_HB120-16rs_v3 (16 cores) is used as a reference to calculate the relative speed increase with respect to similar VMs that have more cores. The previously presented results show that parallel performance improves as cores increase from 16 to 64. At 120 cores, the improvement is limited and only occurs on some simulations. This pattern is common with these simulations and other memory-intensive applications because of the saturation of the onboard memory that's available on each processor. Taking VM costs into consideration, the 64-CPU configuration is the best choice. Standard_HB120-64rs_v3 VMs, which have 64 cores, were used for the multi-node tests.
+For all single-node tests, the solver time on a Standard_HB120-16rs_v3 VM (16 cores) is used as a reference to calculate the relative speed increase with respect to similar VMs that have more cores. The previously presented results show that parallel performance improves as cores increase from 16 to 64. At 120 cores, the improvement is limited and only occurs on some simulations. This pattern is common with these simulations and other memory-intensive applications because of the saturation of the onboard memory that's available on each processor. Taking VM costs into consideration, the 64-CPU configuration is the best choice. Standard_HB120-64rs_v3 VMs, which have 64 cores, were used for the multi-node tests.
 
 ### NAMD 2.14 performance results on a multi-node cluster
 
