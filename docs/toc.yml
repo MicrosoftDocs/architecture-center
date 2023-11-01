@@ -1526,7 +1526,13 @@ items:
         - name: Microservices with Container Apps
           href: example-scenario/serverless/microservices-with-container-apps.yml
         - name: Microservices with Dapr and KEDA
-          href: example-scenario/serverless/microservices-with-container-apps-dapr.yml        
+          href: example-scenario/serverless/microservices-with-container-apps-dapr.yml
+    - name: ACR
+      items:
+      - name: Architectures
+        items:
+        - name: Public facing ACR Reference Architecture
+          href: reference-architectures/containers/acr/public-facing-acr-reference-architecture.yml
   - name: Databases
     items:
     - name: Get started

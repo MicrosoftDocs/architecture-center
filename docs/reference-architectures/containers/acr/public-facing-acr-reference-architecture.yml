@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Public facing ACR Reference Architecture 
+  description: Reference architecture for the deployment of secured Azure Container Registry (ACR) for consuming images and artifacts by customer applications over public internet.
+  author: kuhubert
+  ms.author: kuhubert, rajeshsingh
+  ms.date: 11/01/2023
+  ms.topic: reference-architecture
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.category:
+    - containers
+    - acr
+  ms.custom:
+    - containers
+    - reference-architecture
+name: Public facing Azure Container Registry (ACR) Reference Architecture
+azureCategories:
+  - containers
+summary: Reference architecture for the deployment of secured Azure Container Registry (ACR) for consuming images and artifacts by customer applications over public internet.
+products:
+  - azure-application-gateway
+  - azure-container-registry
+  - azure-web-application-firewall
+thumbnailUrl: /azure/architecture/browse/thumbs/public-facing-acr-reference-architecture.png
+content: |
+   [!include[](public-facing-acr-reference-architecture-content.md)]
