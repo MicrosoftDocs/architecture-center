@@ -10,7 +10,7 @@ ms.subservice: azure-guide
 products:
   - dynamics-365
   - dynamics-customer-engagement
-  - dynamics-cust-insights
+  - customer-insights-data
   - dynamics-sales
   - dynamics-cust-svc-insights
 categories:
@@ -75,12 +75,11 @@ Watch this short video to learn how Dynamics 365 can help you streamline busines
 |[Architectural approaches for the deployment and configuration of multitenant solutions](../guide/multitenant/approaches/deployment-configuration.yml)|Learn about deploying and configuring a multitenant solution. Use Dynamics 365 to trigger an onboarding process when a sale is made to a new customer.| Multitenancy|
 |[Azure IoT reference architecture](../reference-architectures/iot.yml)|Review a recommended architecture for IoT applications on Azure. IoT devices provide insights to Dynamics 365. | IoT|
 |[Create smart places by using Azure Digital Twins](../example-scenario/iot/smart-places.yml)|Use Azure Digital Twins to create models of smart places from IoT device data. You can use this data to inform Dynamics 365 applications.| IoT|
-|[Enterprise bot for employee productivity](../solution-ideas/articles/enterprise-productivity-chatbot.yml) |Use Azure Bot Service and Azure Cognitive Services to build enterprise bots for internal productivity. Use data from Microsoft 365 calendars to access customer information in Dynamics 365.|AI|
 |[Enterprise-scale disaster recovery](../solution-ideas/articles/disaster-recovery-enterprise-scale-dr.yml) |Review a large-enterprise architecture for SharePoint, Dynamics CRM, and Linux web servers that runs on an on-premises datacenter and fails over to Azure infrastructure.|Management|
 |[Eventual consistency between multiple Power Apps instances](/azure/architecture/guide/power-platform/eventual-consistency)|Handle dependent data in a resilient way in Power Apps. Includes information about replicating data between Dynamics 365 instances.|Web|
-|[Migrate master data services to Azure with CluedIn and Azure Purview](../reference-architectures/data/migrate-master-data-services-with-cluedin.yml)|Use CluedIn and Azure Purview to migrate your master data services solution to Azure. Dynamics 365 users can natively use data from CluedIn without any extra setup or integration.| Databases|
-|[Multitenancy and identity management](../multitenant-identity/index.yml) |Learn authentication, authorization, and identity management best practices for multitenant applications. In these architectures, Dynamics CRM tenants store user profiles in Azure AD. |Identity|
-|[SAP on Azure architecture design](../reference-architectures/sap/sap-overview.yml) |Review a set of guiding tenets that you can use to help ensure the quality of SAP workloads that run on Azure. A recommended identity management system, Azure Active Directory, integrates with Dynamics CRM Online.|SAP|
+|[Migrate master data services to Azure with CluedIn and Azure Purview](../databases/architecture/migrate-master-data-services-with-cluedin.yml)|Use CluedIn and Azure Purview to migrate your master data services solution to Azure. Dynamics 365 users can natively use data from CluedIn without any extra setup or integration.| Databases|
+|[Multitenancy and identity management](../multitenant-identity/index.yml) |Learn authentication, authorization, and identity management best practices for multitenant applications. In these architectures, Dynamics CRM tenants store user profiles in Microsoft Entra ID. |Identity|
+|[SAP on Azure architecture design](../reference-architectures/sap/sap-overview.yml) |Review a set of guiding tenets that you can use to help ensure the quality of SAP workloads that run on Azure. A recommended identity management system, Microsoft Entra ID, integrates with Dynamics CRM Online.|SAP|
 |[Serverless computing solution for LOB apps](../solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture.yml)|Build and run customer onboarding applications without managing or maintaining infrastructure. Customer information is stored in Dynamics 365. |Serverless|
 
 ### Dynamics 365 Customer Engagement

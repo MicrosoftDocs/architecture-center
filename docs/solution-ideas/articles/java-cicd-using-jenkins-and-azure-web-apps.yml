@@ -35,7 +35,6 @@ products:
   - azure-app-service
   - azure-container-instances
   - azure-database-mysql
-  - azure-web-apps
   - github
 thumbnailUrl: /azure/architecture/browse/thumbs/java-cicd-using-jenkins-and-azure-web-apps.png
 content: |

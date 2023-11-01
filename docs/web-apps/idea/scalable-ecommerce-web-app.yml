@@ -30,7 +30,7 @@ summary: Build scalable e-commerce web apps with Azure Functions and Web Apps so
 products:
   - azure-functions
   - azure-sql-database
-  - azure-web-apps
+  - azure-app-service
 thumbnailUrl: /azure/architecture/browse/thumbs/scalable-ecommerce-web-app.png
 content: |
    [!include[](scalable-ecommerce-web-app-content.md)]

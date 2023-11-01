@@ -106,7 +106,7 @@ Individual services included in Microsoft Cloud for Healthcare provide their own
 - [Power Platform compliance and data privacy](/power-platform/admin/wp-compliance-data-privacy)
 - [Dataverse security](/power-platform/admin/wp-security)
 
-For custom security controls, consider using [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) and [role-based access control](/azure/role-based-access-control/best-practices).
+For custom security controls, consider using [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) and [role-based access control](/azure/role-based-access-control/best-practices).
 
 Finally, when implementing this solution, keep in mind the [best practices and guidance for developing secure Azure solutions](/azure/security/fundamentals/overview).
 

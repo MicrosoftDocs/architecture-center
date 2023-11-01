@@ -22,7 +22,7 @@ summary: Use knowledge mining technologies such as key phrase extraction and ent
 products:
   - azure-cognitive-search
   - document-intelligence
-  - azure-text-analytics
+  - language-service
   - azure-translator
 thumbnailUrl: /azure/architecture/browse/thumbs/knowledge-mining-content-research-thumbnail.png
 content: |

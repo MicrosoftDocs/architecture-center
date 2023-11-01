@@ -230,7 +230,6 @@ Fully deployable architectures:
 [Health data consortium on Azure]: ../data/azure-health-data-consortium.yml
 [Health Insurance Portability and Accountability Act (HIPAA) & Health Information Technology for Economic and Clinical Health (HITECH) Act]: /compliance/regulatory/offering-hipaa-hitech
 [HIPAA - Azure Compliance]: /azure/compliance/offerings/offering-hipaa-us
-[Hybrid ETL with Azure Data Factory]: ../data/hybrid-etl-with-adf.yml
 [Introduction to Azure Data Lake Storage Gen2]: /azure/storage/blobs/data-lake-storage-introduction#scalability
 [Azure Storage redundancy]: /azure/storage/common/storage-redundancy
 [Microsoft Azure Compliance Offerings]: https://azure.microsoft.com/mediahandler/files/resourcefiles/microsoft-azure-compliance-offerings/Microsoft%20Azure%20Compliance%20Offerings.pdf

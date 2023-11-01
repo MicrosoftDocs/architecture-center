@@ -68,8 +68,4 @@ Industries that rely on knowledge mining include:
 
 ## Related resources
 
-- [Knowledge mining in auditing, risk, and compliance management](./auditing-and-risk-compliance.yml)
-- [Knowledge mining in business process management](./business-process-management.yml)
-- [Knowledge mining in contract management](./contract-management.yml)
-- [Knowledge mining for customer support and feedback analysis](./customer-feedback-and-analytics.yml)
-- [Knowledge mining in digital asset management](./digital-asset-management.yml)
+[Knowledge mining for customer support and feedback analysis](./customer-feedback-and-analytics.yml)

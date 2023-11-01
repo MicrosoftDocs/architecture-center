@@ -32,7 +32,7 @@ These two patterns complement each other. If the write-only store in CQRS uses e
 
 **Partition data.** Avoid putting all of your data into one data schema that is shared across many application services. A microservices architecture enforces this principle by making each service responsible for its own data store. Within a single database, partitioning the data into shards can improve concurrency, because a service writing to one shard does not affect a service writing to a different shard.
 
-**Design idempotent operations.** When possible, design operations to be idempotent. That way, they can be handled using at-least-once semantics. For example, you can put work items on a queue. If a worker crashes in the middle of an operation, another worker simply picks up the work item.
+**Design idempotent operations.** When possible, design operations to be idempotent. That way, they can be handled using at-least-once semantics. For example, you can put work items on a queue. If a worker crashes in the middle of an operation, another worker simply picks up the work item. If the worker needs to update data as well as emit other messages as a part of its logic, the [idempotent message processing pattern][idempotent] should be used.
 
 **Use optimistic concurrency when possible.** Pessimistic concurrency control uses database locks to prevent conflicts. This can cause poor performance and reduce availability. With optimistic concurrency control, each transaction modifies a copy or snapshot of the data. When the transaction is committed, the database engine validates the transaction and rejects any transactions that would affect database consistency.
 
@@ -54,3 +54,4 @@ Azure SQL Database and SQL Server support optimistic concurrency through [snapsh
 [sas-pattern]: ../../patterns/scheduler-agent-supervisor.yml
 [sql-snapshot-isolation]: /sql/t-sql/statements/set-transaction-isolation-level-transact-sql
 [storage-concurrency]: https://azure.microsoft.com/blog/managing-concurrency-in-microsoft-azure-storage-2
+[idempotent]: /azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing

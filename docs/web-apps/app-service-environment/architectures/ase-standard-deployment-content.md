@@ -40,7 +40,7 @@ The following services are key to locking down the App Service Environment in th
 
 - [Azure Firewall](https://azure.microsoft.com/products/azure-firewall) is used to restrict the outbound traffic from the web application. Outgoing traffic that doesn't go through the private endpoint channels and a route table required by App Service Environment is directed to the firewall subnet. For the sake of simplicity, this architecture configures all private endpoints on the services subnet.
 
-- [Azure Active Directory](https://azure.microsoft.com/products/active-directory) or Azure AD provides access rights and permissions management to Azure resources and services. [*Managed Identities*](/azure/active-directory/managed-identities-azure-resources/overview) assigns identities to services and apps, automatically managed by Azure AD. These identities can be used to authenticate to any service that supports Azure AD authentication. This removes the need to explicitly configure credentials for these apps. This architecture assigns a managed identity to the web app.
+- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) or Microsoft Entra ID provides access rights and permissions management to Azure resources and services. [*Managed Identities*](/azure/active-directory/managed-identities-azure-resources/overview) assigns identities to services and apps, automatically managed by Microsoft Entra ID. These identities can be used to authenticate to any service that supports Microsoft Entra authentication. This removes the need to explicitly configure credentials for these apps. This architecture assigns a managed identity to the web app.
 
 - [Azure Key Vault](https://azure.microsoft.com/products/key-vault) stores any secrets and credentials required by the apps. Use this option over storing secrets directly in the application.
 
@@ -160,11 +160,13 @@ To enable private endpoints, you also need to configure private DNS zones. For m
 
 To learn how Azure Firewall integrates with App Service Environment, see [Configuring Azure Firewall with your App Service Environment](/azure/app-service/environment/networking#network-routing). Any traffic that doesn't traverse the private endpoints and virtual network route table is monitored and gated by the firewall.
 
-#### Azure Active Directory
+<a name='azure-active-directory'></a>
 
-Azure Active Directory provides security features to authenticate applications and authorize access to resources. This reference architecture uses two key features of Azure Active Directory: managed identities, and Azure role-based access control.
+#### Microsoft Entra ID
 
-On cloud applications, the credentials required to authenticate to cloud services must be secured. Ideally, the credentials should never appear on developer workstations or checked into source control. Azure Key Vault provides a way to securely store credentials and secrets, but the app still has to authenticate to Key Vault to retrieve them. **Managed Identities for Azure resources** provides Azure services with an automatically managed identity in Azure AD. This identity can be used to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in the application.
+Microsoft Entra ID provides security features to authenticate applications and authorize access to resources. This reference architecture uses two key features of Microsoft Entra ID: managed identities, and Azure role-based access control.
+
+On cloud applications, the credentials required to authenticate to cloud services must be secured. Ideally, the credentials should never appear on developer workstations or checked into source control. Azure Key Vault provides a way to securely store credentials and secrets, but the app still has to authenticate to Key Vault to retrieve them. **Managed Identities for Azure resources** provides Azure services with an automatically managed identity in Microsoft Entra ID. This identity can be used to authenticate to any service that supports Microsoft Entra authentication, including Key Vault, without any credentials in the application.
 
 [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) manages access to Azure resources. This includes:
 
@@ -297,7 +299,7 @@ Following are pricing pages for other services that are used to lock down the Ap
 
 - [Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault)
 
-- [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory)
+- [Microsoft Entra pricing](https://azure.microsoft.com/pricing/details/active-directory)
 
 ## Deploy this scenario
 

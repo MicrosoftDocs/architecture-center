@@ -26,7 +26,6 @@ products:
   - azure-key-vault
   - azure-monitor
   - azure-sql-database
-  - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/basic-web-app.png
 content: |
    [!include[](basic-web-app-content.md)]

@@ -72,7 +72,7 @@ To improve the quality of your Azure solutions, follow the recommendations and g
 
 To create a design that respects these recommendations, consider the following services:
 
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory): Identity services, single sign-on, and multifactor authentication across Azure workloads.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory): Identity services, single sign-on, and multifactor authentication across Azure workloads.
 - [Azure Cost Management and Billing](https://azure.microsoft.com/services/cost-management): Financial governance over your Azure workloads.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault): Secure credential and certificate management.
 - [Azure Monitor](https://azure.microsoft.com/services/monitor): Collection, analysis, and display of telemetry from your Azure resources. Use Monitor to proactively identify problems to maximize performance and reliability.
@@ -181,6 +181,5 @@ This article is maintained by Microsoft. It was originally written by:
 - [Analytics end-to-end with Azure Synapse Analytics](../dataplate2e/data-platform-end-to-end.yml)
 - [End-to-end manufacturing using computer vision on the edge](../../reference-architectures/ai/end-to-end-smart-factory.yml)
 - [Artificial intelligence (AI)](/azure/architecture/data-guide/big-data/ai-overview)
-- [Compare the ML products and technologies from Microsoft](../../data-guide/technology-choices/data-science-and-machine-learning.md)
-- [Machine learning at scale](../../data-guide/big-data/machine-learning-at-scale.md)
+- [Compare the ML products and technologies from Microsoft](../../ai-ml/guide/data-science-and-machine-learning.md)
 - [Machine learning operations (MLOps) framework to upscale ML lifecycle with Machine Learning](../mlops/mlops-technical-paper.yml)

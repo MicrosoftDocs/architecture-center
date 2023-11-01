@@ -16,8 +16,8 @@ azureCategories:
   - web
 products:
   - azure-api-management
-  - azure-active-directory
-  - azure-app-service-static
+  - entra-id
+  - static-web-apps
 name: Protect access tokens in a single-page application by using Azure API Management 
 summary: Implement a No Token in the Browser architecture for a JavaScript single-page application by using API Management.
 thumbnailUrl: /azure/architecture/browse/thumbs/no-token.png

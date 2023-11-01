@@ -2,7 +2,7 @@ This guide shows how to use Azure API Management to implement a stateless archit
 
 This architecture uses [API Management](https://azure.microsoft.com/products/api-management) to:
 
-- Implement a [Backends for Frontends](/azure/architecture/patterns/backends-for-frontends) pattern that gets an OAuth2 access token from Azure Active Directory (Azure AD).
+- Implement a [Backends for Frontends](/azure/architecture/patterns/backends-for-frontends) pattern that gets an OAuth2 access token from Microsoft Entra ID.
 - Use Advanced Encryption Standard [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) to encrypt and decrypt the access token.
 - Store the token in an `HttpOnly` cookie.
 - Proxy all API calls that require authorization.
@@ -18,17 +18,17 @@ Because the backend handles token acquisition, no other code or library, like [M
 ### Workflow
 
 1. A user selects **Sign in** in the single-page application.
-2. The single-page application invokes Authorization Code flow via a redirect to the Azure AD authorization endpoint.
+2. The single-page application invokes Authorization Code flow via a redirect to the Microsoft Entra authorization endpoint.
 3. Users authenticate themselves.
 4. An Authorization Code flow response with an authorization code is redirected to the API Management callback endpoint.
-5. The API Management policy exchanges the authorization code for an access token by calling the Azure AD token endpoint.
+5. The API Management policy exchanges the authorization code for an access token by calling the Microsoft Entra token endpoint.
 6. The Azure API Management policy redirects to the application and places the encrypted access token in an `HttpOnly` cookie.
 7. The user invokes an external API call from the application via an API Management proxied endpoint.
 8. The API Management policy receives the API request, decrypts the cookie, and makes a downstream API call, adding the access token as an `Authorization` header.
 
 ## Components
 
-- [Azure AD](https://azure.microsoft.com/services/active-directory) provides identity services, single sign-on, and multifactor authentication across Azure workloads.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) provides identity services, single sign-on, and multifactor authentication across Azure workloads.
 - [API Management](https://azure.microsoft.com/services/api-management/) is a hybrid multicloud management platform for APIs across all environments. API Management creates consistent, modern API gateways for existing backend services.
 - [Azure Static Web Apps](https://azure.microsoft.com/products/app-service/static) is a service that automatically builds and deploys full-stack web apps to Azure from a code repository. Deployments are triggered by changes made to application source code in GitHub or in Azure DevOps repositories.
 
@@ -50,7 +50,7 @@ To learn more about using custom domains for Azure resources, see [Custom domain
 
 ## Authentication flow
 
-This process uses the [OAuth2 Authorization Code flow](/azure/active-directory/fundamentals/auth-oauth2). To obtain an access token that allows the single-page application to access the API, users must first authenticate themselves. You invoke the authentication flow by redirecting users to the Azure AD authorization endpoint. You need to configure a redirect URI in Azure AD. This redirect URI must be the API Management callback endpoint. Users are prompted to authenticate themselves by using Azure AD and are redirected back to the API Management callback endpoint with an authorization code. The API Management policy then exchanges the authorization code for an access token by calling the Azure AD token endpoint. The following diagram shows the sequence of events for this flow.
+This process uses the [OAuth2 Authorization Code flow](/azure/active-directory/fundamentals/auth-oauth2). To obtain an access token that allows the single-page application to access the API, users must first authenticate themselves. You invoke the authentication flow by redirecting users to the Microsoft Entra authorization endpoint. You need to configure a redirect URI in Microsoft Entra ID. This redirect URI must be the API Management callback endpoint. Users are prompted to authenticate themselves by using Microsoft Entra ID and are redirected back to the API Management callback endpoint with an authorization code. The API Management policy then exchanges the authorization code for an access token by calling the Microsoft Entra token endpoint. The following diagram shows the sequence of events for this flow.
 
 ![Diagram that shows the authentication flow.](../_images/no-token-in-browser-set-token-sequence.png)
 
@@ -62,7 +62,7 @@ The flow contains these steps:
 
 3. The browser is redirected to the `redirect_uri`, which is the API Management callback endpoint. The authorization code is passed to the callback endpoint.
 
-4. The inbound policy of the callback endpoint is invoked. The policy exchanges the authorization code for an access token by making a call to the Azure AD token endpoint. It passes the required information, like the client ID, client secret, and authorization code:
+4. The inbound policy of the callback endpoint is invoked. The policy exchanges the authorization code for an access token by making a call to the Microsoft Entra token endpoint. It passes the required information, like the client ID, client secret, and authorization code:
 
    ```XML
    <send-request ignore-error="false" timeout="20" response-variable-name="response" mode="new">
@@ -195,7 +195,7 @@ Other contributor:
 - [Policies in Azure API Management](/azure/api-management/api-management-howto-policies)
 - [How to set or edit Azure API Management policies](/azure/api-management/set-edit-policies)
 - [Use named values in Azure API Management policies](/azure/api-management/api-management-howto-properties)
-- [OAuth 2.0 authentication with Azure Active Directory](/azure/active-directory/fundamentals/auth-oauth2)
+- [OAuth 2.0 authentication with Microsoft Entra ID](/azure/active-directory/fundamentals/auth-oauth2)
 - [What is Azure Static Web Apps?](/azure/static-web-apps/overview)
 
 ## Related resources

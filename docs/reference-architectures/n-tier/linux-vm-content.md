@@ -169,7 +169,7 @@ Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the pe
 [data-disk]: /azure/virtual-machines/windows/disks-types
 [disk-encryption]: /azure/security/fundamentals/azure-disk-encryption-vms-vmss
 [enable-monitoring]: /azure/monitoring-and-diagnostics/insights-how-to-use-diagnostics
-[fqdn]: /azure/virtual-machines/linux/quick-create-portal
+[fqdn]: /azure/virtual-machines/create-fqdn
 [group-policy]: /windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates
 [iostat]: https://en.wikipedia.org/wiki/Iostat
 [linux-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux

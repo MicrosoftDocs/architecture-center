@@ -24,11 +24,11 @@ azureCategories:
   - databases
 summary: Run an Umbraco content management system on the Web Apps feature of Azure App Service. Use Azure managed services for a high-availability environment.
 products:
-  - azure-application-insights
+  - azure-monitor
   - azure-cache-redis
   - azure-sql-database
   - azure-storage-accounts
-  - azure-web-apps
+  - azure-app-service
 thumbnailUrl: /azure/architecture/browse/thumbs/medium-umbraco-web-app.png
 content: |
    [!include[](medium-umbraco-web-app-content.md)]

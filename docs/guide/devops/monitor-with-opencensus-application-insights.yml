@@ -11,7 +11,6 @@ metadata:
   ms.subservice: azure-guide
   ms.custom: devx-track-python
 products:
-  - azure-application-insights
   - azure-event-hubs
   - azure-functions
   - azure-service-bus

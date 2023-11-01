@@ -84,7 +84,7 @@ The solution described in this article demonstrates how to combine these technol
 
 -   **Securing data sources.** Data sources inside the on-premises corporate network or on the virtual network are secured behind a firewall. These resources can be securely accessed by installing a self-hosted integration runtime on a resource hosted on-premises or on the virtual networks.
 
--   **Authentication and authorization using managed identities.** Communication between Azure services can be secured using managed identities, which provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication. In this example, Azure Synapse uses the managed identity to integrate pipelines.
+-   **Authentication and authorization using managed identities.** Communication between Azure services can be secured using managed identities, which provide an identity for applications to use when connecting to resources that support Microsoft Entra authentication. In this example, Azure Synapse uses the managed identity to integrate pipelines.
 
 -   **Private endpoints establishing a private link to Azure resources.** Azure Synapse provides fully managed private endpoint functionality for services within the Synapse workspace (such as Azure Storage or Azure Cosmos DB). Other Azure resources such as Azure applications, Microsoft Power BI, and Azure Synapse service are secured using Private Endpoints integrated into the example solution's virtual network. Network traffic between your private network and the Synapse pools uses Private Link to move traffic over the Microsoft backbone network, eliminating exposure to the public internet.
 
@@ -144,7 +144,7 @@ Refer to these articles when planning and deploying solutions using Azure Synaps
 
 -   [Connect to a secure Azure storage account from your Synapse workspace](/azure/synapse-analytics/security/connect-to-a-secure-storage-account)
 
--   [Use Azure Active Directory Authentication for authentication with Synapse SQL](/azure/synapse-analytics/sql/active-directory-authentication)
+-   [Use Microsoft Entra authentication for authentication with Synapse SQL](/azure/synapse-analytics/sql/active-directory-authentication)
 
 ### Related architecture guidance
 

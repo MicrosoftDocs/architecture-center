@@ -43,8 +43,8 @@ The solution uses the following components:
 
 ### Alternatives
 
-- The current solution requires a subscription key to access the APIM endpoint, but you can also use [Azure Active Directory (Azure AD) authentication](/azure/active-directory/authentication/overview-authentication).
-- In addition to requiring API access keys, you can use Azure Functions' built-in [App Service authentication](/azure/app-service/configure-authentication-provider-aad) to enable Azure AD authorization for the APIs' managed identities.
+- The current solution requires a subscription key to access the APIM endpoint, but you can also use [Microsoft Entra authentication](/azure/active-directory/authentication/overview-authentication).
+- In addition to requiring API access keys, you can use Azure Functions' built-in [App Service authentication](/azure/app-service/configure-authentication-provider-aad) to enable Microsoft Entra authorization for the APIs' managed identities.
 - You can replace the Azure Cosmos DB endpoint in this solution with another MongoDB service without changing the code.
 - For additional [Azure Cosmos DB security](/azure/cosmos-db/database-security), you can lock down traffic from the Azure Cosmos DB databases to the function apps.
 - Components such as Azure Cosmos DB can send telemetry to [Azure Monitor](/azure/azure-monitor/overview), where it can be correlated with the telemetry from Application Insights.
@@ -96,7 +96,7 @@ For more details about the security pattern for this solution, see [Security pat
 #### API gateway management
 The system is publicly accessible only through the single managed APIM endpoint. The APIM subnet restricts incoming traffic to specified gateway node IP addresses.
 
-APIM allows for easy integration with different authentication mechanisms. The current solution requires a subscription key, but you could also use Azure Active Directory to secure the APIM endpoint without needing to manage subscription keys in APIM.
+APIM allows for easy integration with different authentication mechanisms. The current solution requires a subscription key, but you could also use Microsoft Entra ID to secure the APIM endpoint without needing to manage subscription keys in APIM.
 
 #### Virtual network
 To avoid exposing APIs and functions publicly, [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) restricts network access for APIs and functions to specific IP addresses or subnets. Both API Management and Azure Functions support access restriction and deployment in virtual networks.

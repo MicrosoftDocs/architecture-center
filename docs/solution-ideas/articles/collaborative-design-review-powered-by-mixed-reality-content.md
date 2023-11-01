@@ -9,7 +9,7 @@ This article describes how you can use a mixed reality scenario to enable client
 
 ### Dataflow
 
-1. Users of the client application authenticate using their Azure Active Directory credentials from HoloLens or a mobile device.
+1. Users of the client application authenticate using their Microsoft Entra credentials from HoloLens or a mobile device.
 1. Device 1 creates an anchor using Azure Spatial Anchors and gets back an anchor ID.
 1. Device 1 sends the anchor ID to the app's web service to create a collaboration session. It also specifies which hologram is to be displayed via its ID in Azure Blob storage.
 1. Session information, including a 6-digit code to join the session, is stored in Azure Cosmos DB. That code is returned to the client, allowing the user of that device to invite others to join.
@@ -22,7 +22,7 @@ This article describes how you can use a mixed reality scenario to enable client
 
 ### Components
 
-* [Azure Active Directory](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on
+* [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on
 * [Blob Storage](https://azure.microsoft.com/services/storage/blobs): REST-based object storage for unstructured data
 * [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db): Globally distributed, multi-model database for any scale
 
@@ -38,7 +38,7 @@ Businesses and teams across industries have to spend time and money on design re
 
 ## Next steps
 
-* [Azure Active Directory documentation](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+* [Microsoft Entra documentation](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 * [Blob Storage documentation](/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows)
 * [Azure Cosmos DB documentation](/azure/cosmos-db/create-sql-api-dotnet)
 

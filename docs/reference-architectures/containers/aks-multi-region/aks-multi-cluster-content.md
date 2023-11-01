@@ -1,6 +1,6 @@
 This reference architecture details how to run multiple instances of an Azure Kubernetes Service (AKS) cluster across multiple regions in an active/active and highly available configuration.
 
-This architecture builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks), Microsoft's recommended starting point for AKS infrastructure. The AKS baseline details infrastructural features like Azure Active Directory (Azure AD) workload identity, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These infrastructural details aren't covered in this document. It's recommended that you become familiar with the AKS baseline before proceeding with the multi-region content.
+This architecture builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks), Microsoft's recommended starting point for AKS infrastructure. The AKS baseline details infrastructural features like Microsoft Entra Workload ID, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These infrastructural details aren't covered in this document. It's recommended that you become familiar with the AKS baseline before proceeding with the multi-region content.
 
 ## Architecture
 
@@ -225,7 +225,7 @@ For information about other CAs that Front Door supports, see [Allowed certifica
 
 ### Cluster access and identity
 
-As discussed in the [AKS baseline reference architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks#integrate-azure-active-directory-for-the-cluster), it's recommended to use Azure Active Directory as the clusters' access identity provider. The Azure Active Directory groups can then be used to control access to cluster resources.
+As discussed in the [AKS baseline reference architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks#integrate-azure-active-directory-for-the-cluster), it's recommended to use Microsoft Entra ID as the clusters' access identity provider. The Microsoft Entra groups can then be used to control access to cluster resources.
 
 When you manage multiple clusters, you'll need to decide on an access schema. Options include:
 
@@ -233,9 +233,9 @@ When you manage multiple clusters, you'll need to decide on an access schema. Op
 - Create an individual access group for each Kubernetes instance that's used to grant access to objects in an individual cluster instance. With this option, the administrative overhead does increase; however, it also provides more granular cluster access.
 - Define granular access controls for Kubernetes object types and namespaces, and correlate the results to an Azure Directory Group structure. With this option, the administrative overhead increases significantly; however, it provides granular access to not only each cluster but the namespaces and Kubernetes APIS found within each cluster.
 
-With the included reference implementation, two Azure Active Directory groups are created for admin access. These groups are specified at cluster stamp deployment time using the deployment parameter file. Members of each group have full access to the corresponding cluster stamp.
+With the included reference implementation, two Microsoft Entra groups are created for admin access. These groups are specified at cluster stamp deployment time using the deployment parameter file. Members of each group have full access to the corresponding cluster stamp.
 
-For more information on managing AKS cluster access with Azure Active Directory, see [AKS Azure AD integration](/azure/aks/azure-ad-rbac).
+For more information on managing AKS cluster access with Microsoft Entra ID, see [AKS Microsoft Entra integration](/azure/aks/azure-ad-rbac).
 
 ### Data, state, and cache
 
@@ -261,7 +261,6 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 - [Azure Well-Architected Framework review for Azure Kubernetes Service (AKS)](/azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service)
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../aks/baseline-aks.yml)
 - [CI/CD pipeline for container-based workloads](/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops)
-- [AKS Azure AD integration](/azure/aks/azure-ad-rbac)
+- [AKS Microsoft Entra integration](/azure/aks/azure-ad-rbac)
 - [Azure Front Door documentation](/azure/frontdoor)
 - [Azure Cosmos DB documentation](/azure/cosmos-db)
-

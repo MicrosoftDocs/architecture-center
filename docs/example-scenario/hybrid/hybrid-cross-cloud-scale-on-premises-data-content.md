@@ -98,7 +98,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
   - Use a certificate for authentication when you run an unattended script.
   For more information about service principal creation and using a certificate for credentials, see [Use an app identity to access resources](/azure/active-directory/develop/howto-create-service-principal-portal).
 
-- **A single, consistent identity management solution.** Azure Stack Hub works with both Azure Active Directory (Azure AD) and Active Directory Federation Services (AD FS). It works with Azure AD in connected scenarios. For environments that don't have connectivity, you can use AD FS as a disconnected solution. Service principals are used to grant access to apps, allowing them to deploy or configure resources through Azure Resource Manager.
+- **A single, consistent identity management solution.** Azure Stack Hub works with both Microsoft Entra ID and Active Directory Federation Services (AD FS). It works with Microsoft Entra ID in connected scenarios. For environments that don't have connectivity, you can use AD FS as a disconnected solution. Service principals are used to grant access to apps, allowing them to deploy or configure resources through Azure Resource Manager.
 
 ### Operational excellence
 
@@ -156,4 +156,3 @@ Principal author:
 - [Connect an on-premises network to Azure](../../reference-architectures/hybrid-networking/index.yml)
 - [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 - [Connect an on-premises network to Azure using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml)
-- [DevOps with Azure Stack Hub](/azure/architecture/solution-ideas/articles/hybrid-continuous-integration)

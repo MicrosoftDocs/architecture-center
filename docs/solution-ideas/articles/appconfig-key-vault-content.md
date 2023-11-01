@@ -8,7 +8,7 @@ The following diagrams show how App Configuration and Key Vault can work togethe
 
 ### Development environment
 
-In the development environment, the app uses an identity via Visual Studio or version 2.0 of the Azure CLI to sign in and send an authentication request to Azure Active Directory (Azure AD).
+In the development environment, the app uses an identity via Visual Studio or version 2.0 of the Azure CLI to sign in and send an authentication request to Microsoft Entra ID.
 
 :::image type="content" alt-text="Architecture diagram that shows how an app signs in and authenticates in a development environment." source="../media/app-configuration-development.svg" lightbox="../media/app-configuration-development.svg" border="false":::
 
@@ -25,7 +25,7 @@ The Azure staging and production environments use a [managed identity](/azure/ac
 ### Dataflow
 
 1. The application sends an authentication request during debugging in Visual Studio, or authenticates via the MSI in Azure.
-1. Upon successful authentication, Azure AD returns an access token.
+1. Upon successful authentication, Microsoft Entra ID returns an access token.
 1. The App Configuration SDK sends a request with the access token to read the app's App Configuration Key Vault **secretURI** value for the app's key vault.
 1. Upon successful authorization, App Configuration sends the configuration value.
 1. Utilizing the sign-in identity, the app sends a request to Key Vault to retrieve the application secret for the **secretURI** that App Configuration sent.
@@ -33,9 +33,9 @@ The Azure staging and production environments use a [managed identity](/azure/ac
 
 ### Components
 
-* [Azure AD](https://azure.microsoft.com/services/active-directory) is a universal platform for managing and securing identities.
+* [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is a universal platform for managing and securing identities.
 * [App Configuration](https://azure.microsoft.com/services/app-configuration) provides a way to store configurations for all your Azure apps in a universal, hosted location.
-* [Managed identities](/azure/active-directory/managed-identities-azure-resources) provide an identity for applications to use when connecting to resources that support Azure AD authentication.
+* [Managed identities](/azure/active-directory/managed-identities-azure-resources) provide an identity for applications to use when connecting to resources that support Microsoft Entra authentication.
 * [Key Vault](https://azure.microsoft.com/services/key-vault) safeguards cryptographic keys and other secrets that are used by cloud apps and services.
 
 ## Scenario details

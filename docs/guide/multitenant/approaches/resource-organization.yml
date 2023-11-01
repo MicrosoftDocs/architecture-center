@@ -14,7 +14,7 @@ azureCategories:
   - security
 products:
   - azure
-  - azure-active-directory
+  - entra-id
 name: Azure resource organization in multitenant solutions
 summary: This article describes how to organize your Azure resources in a multitenant solution.
 thumbnailUrl: /azure/architecture/browse/thumbs/isolation-resource-group.png

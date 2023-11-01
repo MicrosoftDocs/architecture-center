@@ -190,7 +190,7 @@ The following diagram shows an audio ingestion and speech-to-text pipeline. The 
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/US-1989213-compliance-risk-analysis.pptx) of this architecture.*
 
-In this reference architecture, audio files are uploaded to Blob Storage via a client application. During this process, the application authenticates by using Azure Active Directory and calls the REST API to get a token for Blob Storage. Secure access to the REST API is provided by Azure API Management, and an Azure Key Vault provides secure storage of the secrets needed to generate the tokens, as well as account credentials.
+In this reference architecture, audio files are uploaded to Blob Storage via a client application. During this process, the application authenticates by using Microsoft Entra ID and calls the REST API to get a token for Blob Storage. Secure access to the REST API is provided by Azure API Management, and an Azure Key Vault provides secure storage of the secrets needed to generate the tokens, as well as account credentials.
 
 After the files are uploaded, an Azure Event Grid trigger is emitted to invoke an Azure function. The function then processes the audio file by using the Cognitive Services Speech-to-Text API. The transcribed JSON document is then stored in a separate blob container, which can be ingested as a data source by Azure Cognitive Search.
 
@@ -198,7 +198,7 @@ After the files are uploaded, an Azure Event Grid trigger is emitted to invoke a
 >
 > Refer to the following article for details on integrating speech transcription:
 >
-> - [Use a speech-to-text transcription pipeline to analyze recorded conversations](../../example-scenario/ai/speech-to-text-transcription-analytics.yml)
+> - [Use a speech-to-text transcription pipeline to analyze recorded conversations](../../ai-ml/architecture/speech-to-text-transcription-analytics.yml)
 
 ## Search solution
 
@@ -727,10 +727,7 @@ Principal authors:
 
 ## Related resources
 
-- [Knowledge mining in auditing, risk, and compliance management](/azure/architecture/solution-ideas/articles/auditing-and-risk-compliance)
 - [Knowledge mining for customer support and feedback analysis](/azure/architecture/solution-ideas/articles/customer-feedback-and-analytics)
 - [Natural language processing technology](/azure/architecture/data-guide/technology-choices/natural-language-processing)
 - [Large-scale custom natural language processing](/azure/architecture/solution-ideas/articles/large-scale-custom-natural-language-processing)
 - [Knowledge mining for content research](/azure/architecture/solution-ideas/articles/content-research)
-- [Knowledge mining in contract management](/azure/architecture/solution-ideas/articles/contract-management)
-- [Knowledge mining in digital asset management](/azure/architecture/solution-ideas/articles/digital-asset-management)

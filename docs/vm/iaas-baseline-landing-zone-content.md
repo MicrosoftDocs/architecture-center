@@ -1,418 +1,313 @@
+This reference architecture extends the IaaS [**baseline architecture**](./iaas-baseline.yml) to address common architectural changes and expectations when being deployed into in Azure landing zones.
 
-This article provides a reference architecture and guidance for building out the foundational components for an Infrastructure-as-a-Service (IaaS) solution. The scope includes all of the typical infrastructure layer services and components required, such as compute, storage, networking, monitoring and more. 
-
-Note that guidance for the following items is out of scope for this article:
-- The application layer requirements for hosting a specific workload or application (only a small test harness that will exercise the infrastructure end-to-end).
-- The data tier requirements for infrastructure and storage components, as this will vary greatly depending on the workload being hosted.
+In this scenario, your organization expects the IaaS-based workload to use federated resources managed by central teams (platform), such as networking for cross-premises connectivity, identity access management, and policies. This guidance assumes that the organization has adopted Azure landing zones to apply consistent governance and save costs across multiple workloads.
 
 ## Architecture
 
-:::image type="content" source="./media/iaas-baseline-landing-zone.png" alt-text="IaaS baseline architectural diagram" lightbox="./media/iaas-baseline.png":::
+:::image type="content" source="./media/iaas-baseline-landing-zone.png" alt-text="A architectural diagram showing the IaaS baseline in an application landing zone." lightbox="./media/iaas-baseline-landing-zone.png":::
 
-*Download a [Visio file](https://microsoft-my.sharepoint.com/:u:/r/personal/josev_microsoft_com/_layouts/15/doc2.aspx?sourcedoc=%7B07ba5bba-c61b-4b5e-bd37-1d4c20adf6b3%7D&action=view&share=IQG6W7oHG8ZeS703HUwgrfazAfcpYv2OBI9EIkxS8W1jamA&cid=12c82ef1-48e5-4fdf-b442-c52eb52ea874) of this architecture.*
+Typical uses for this architecture include:
 
-//TODO: Load final Visio into blob storage (ie: https://arch-center.azureedge.net/iaas-baseline.vsdx)  
-//TODO: Refresh all images from Visio and convert to .svg  
-//TODO: Create thumbnail for browser  
+- Private applications: Internal line-of-business application or commercial off the shelf (COTS) solutions. These are often found under the "Corp" management group in traditional Azure landing zones.
+- Public applications: Internet facing applications. These can be found under either the "Corp" or "Online" management group in traditional Azure landing zones.
 
-### Workflow
+This article will not address scenarios such as high performance compute (HPC), mission-critical workloads, latency-sensitive applications, low RPO/RTO targets, or more accurately any _specific_ workload needs; but instead serves as a foundation for a workload-agnostic perspective in Azure landing zones.
 
 ### Components
 
-##### General
+All Azure landing zone architectures have dual-ownership between the platform team and the workload team. Application architect and DevOps teams need to have a strong understanding of this responsibility split in order to understand what's under their direct control, under their influence, and what is out of their influence or control.
 
-- [Resource groups](https://azure.microsoft.com/get-started/azure-portal/resource-manager) are used to group Azure resources so they can be managed by lifetime, owner, or other criteria.
+#### Application team-owned resources
 
-- [Availability zones](https://azure.microsoft.com/explore/global-infrastructure/availability-zones) are separate physical locations within an Azure region, each with one or more datacenters that have independent power, cooling, and networking. By placing VMs across zones, the application becomes resilient to failures within a zone.
+Your team provisions and owns these resources.
 
-##### Compute
+- Application platform Virtual Machines
+- Load balancer
+- Azure Application Gateway
+- Azure Key Vault
+- Azure Monitor - Log Analytics & Application Insights
+- Azure Policy as it applies to the specific workload
+- Spoke subnetting
+- Build/deployment agents (VMs)
+- Workload-specific private DNS zones
+- Network security groups
+- Private endpoints
+- Disks/Storage
 
-- [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines/) allow you to migrate your Windows and Linux workloads to Azure compute. [Multiple series options](https://azure.microsoft.com/pricing/details/virtual-machines/series/) are available to customize your configuration based on your web, API, and data layer workload requirements.
-- [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/products/virtual-machine-scale-sets) let you create and manage a group of heterogeneous load-balanced virtual machines (VMs). Increase or decrease the number of VMs automatically in response to demand or based on a schedule you define.
+#### Platform team-owned resources
 
-##### Networking and load balancing
+This architecture assumes these resources are preprovisioned. The central teams of the organization own and maintain the resources. Your application depends on these services to reduce operational overhead and optimize cost.
 
-- [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) is the fundamental building block for private networks in Azure. Every Azure VM is deployed into a virtual network that can be segmented into subnets with one subnet for each tier.
+- **Azure Firewall** inspects and restricts egress traffic.
+- **Azure Bastion** provides secure access to the management jump box.
+- **Azure ExpressRoute** provides private connectivity from cross-premises to Azure infrastructure.
+- **Azure DNS** provides cross-premises name resolution.
+- VPN gateway connects the application with remote teams in your cross-premises network.
+- Private Link Private DNS zone entries
+- Spoke Virtual Network
+- UDR for forced tunneling
+- Azure Policy based governance constraints and DINE policies
 
-- [Application Gateway](https://azure.microsoft.com/products/application-gateway) is a layer-7 load balancer. In this architecture, a zone-redundant Application Gateway instance routes HTTP requests to the web front end. Application Gateway also provides [Azure Web Application Firewall](https://azure.microsoft.com/products/web-application-firewall), which protects the application from common exploits and vulnerabilities. The v2 SKU of Application Gateway supports cross-zone redundancy. A single Application Gateway deployment can run multiple gateway instances. For production workloads, run at least two. For more information, see [Autoscaling and zone-redundant Application Gateway v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant) and [How does Application Gateway support high availability and scalability?](/azure/application-gateway/application-gateway-faq#how-does-application-gateway-support-high-availability-and-scalability).
+## Subscription vending
 
-- [Azure Load Balancer](https://azure.microsoft.com/products/load-balancer) is a layer-4 load balancer. In this architecture, a zone-redundant [Azure Standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview) directs network traffic from the web tier to SQL Server. Because a zone-redundant load balancer isn't pinned to a specific zone, the application continues to distribute the network traffic during a zone failure. A zone-redundant load balancer is used to provide availability when the active SQL Server instance becomes unavailable. The standard SKU of Load Balancer supports cross-zone redundancy. For more information, see [Standard Load Balancer and availability zones](/azure/load-balancer/load-balancer-standard-availability-zones).
+The subscription this IaaS workload architecture will be deployed into will come from your organization's subscription vending process. Ensure key workload requirements are communicated as part of the subscription request. In addition to any other data required specific to your subscription vending process, here are examples, specific to this architecture, that you'd want your platform team to be made aware of up front:
 
-- [Network security groups](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkSecurityGroup) are used to restrict network traffic within a virtual network. In this architecture, the web tier only accepts traffic from the public IP endpoint. Also, the database tier doesn't accept traffic from any subnet other than the web-tier subnet.
+- Number of spoke virtual networks. _In this architecture, this would just be one._
+- Required size of spoke virtual networks to support full workload operations and expected growth. _In this architecture, this would be `/??` on the single virtual network._
+- What region(s) your workload will be deployed to. _In this architecture, a single region; for example eastus2._
+- Any special NAT gateway/SNAT considerations on egress. _There are none for this architecture._
+- Any expected cross-premisis access. _There are none for this architecture._
+- Any expected cross-virtual network access. _There are none for this architecture._
+- Azure Firewall egress rules for infrastructure and OS needs
+  - OS-specific time (NTP) endpoints. _In this architecture... _TODO_
+  - OS-specific patching endpoints _In this architecture... _TODO_
+  - Azure Monitor Agent endpoints _In this architecture... _TODO_
+  - Azure Policy reporting endpoints _In this architecture... _TODO_
+- Azure Firewall egress rules for all workload specific traffic, including build agents. _In this architecture... _TODO_
+- Existing Azure Active Directory security groups expected to be able to log into virtual machines as users (via SSH/RDP). _In this architecture... TODO_
+- Expressed ingress traffic profile, including any expected public IP addresses. _In this architecture, we only expect Internet-sourced traffic, and will be handled by our Application Gateway + WAF in the spoke. Application Gateway will have one public IP._
+- Which IP ranges will contain virtual machines so they can be added to the NSGs around Azure Bastion in the hub.
+- _TODO, more?_
+- Plus any other data required specific to your subscription vending process.
 
-- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) provides secure and seamless Remote Desktop Protocol (RDP) and Secure Shell (SSH) access to the VMs within a virtual network. This service provides access while limiting the exposed public IP addresses of the VMs within the virtual network. Azure Bastion provides a cost-effective alternative to a **provisioned** VM to provide access to all VMs within the same virtual network.
+Items you should be made aware of from the platform team after the vending process is complete:
 
-- [Azure Key Vault](https://azure.microsoft.com/products/key-vault) stores and controls access to secrets such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates. It's used in this architecture to store certificates used for TLS communication and to by the workload to store application secrets.
+- Possible egress IP addresses on the hub's firewall, to provide to dependent services (1st party or 3rd party) for ACL purposes.
+- Update/patch management expectations
+- Any DINE policies that are expected to impact your resources' configuration
+- In region Azure Bastion host access.
+- Platform created managed identities and their intended utility
+- Coverage under DDoS Protection plan for public IPs in this architecture.
+- The IP ranges of the regional and failover Azure Bastion hosts to include in your NSGs around your virtual machines.
+- Any VM Application Gallery endpoints and auth information for approved virtual machine images.
 
-- [Azure Monitor](https://azure.microsoft.com/products/monitor) collects data on environments and Azure resources. It helps maintain availability and performance monitoring. In addition to analyzing and maintaining costs for other Azure services.
-- 
-### Alternatives
+## Application considerations
 
-## Scenario details
+_TODO TBD_
 
-This reference architecture is directed at scenarios where an on-prem web app is being migrated to Azure IaaS ...
+## Networking considerations
 
-The architecture uses resources spread across multiple zones to provide high availability to an Infrastructure as a Service (IaaS) solution. A zone-redundant instance of Azure Application Gateway routes traffic to VMs in the frontend role. A zone-redundant load balancer routes traffic from the frontend VMs to the backend VMs. In case of a zone failure, Application Gateway routes to VMs in other available zones. Routing across zones has higher latency than routing within the zone.
+In this design, the workload is dependent on key network resources owned by the platform team for accessing or being accessed by cross-premises resources, controlling egress traffic, and so on.
 
-### Business continuity and disaster recovery (BCDR)
+### Network topology
 
-#### Guidance for VMs
+The platform team decides the network topology. Hub-spoke topology is assumed in this architecture.
 
-##### Availability Zones
+- **Hub virtual network**
 
-Availability zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters with independent power, cooling, and networking. The physical separation of availability zones within a region limits the impact to applications and data from zone failures
+  The [Connectivity subscription](/azure-best-practices/traditional-azure-networking-topology) contains a regional hub shared by all or many of the organization's resources in the same single region. It contains [these networking resources](#platform-team-owned-resources) that are owned and maintained by the platform team. These resources are in scope for this architecture:
 
-By replicating VMs across availability zones, you can protect your applications and data from a zone failure. This is how Azure meets the industry-best [VM uptime service-level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9). For more information, see [Building solutions for high availability using availability zones](../high-availability/building-solutions-for-high-availability.yml).
+  - **Azure Firewall** used for controlling outbound traffic to the internet.
+  - **Azure Bastion** used to securing access to the virtual machine instances.
 
-##### Update domains
+- **Spoke virtual network**
 
-Spreading resources across availability zones also protects an application from planned maintenance. When VMs are distributed across three availability zones, they are, in effect, spread across three update domains. The Azure platform recognizes this distribution across update domains to ensure that VMs in different zones aren't updated at the same time.
+  The application landing zone has at least one preprovisioned virtual network that's peered to the hub network. You own the resources in this network. The preprovisioned virtual network and peerings must be able to support the expected growth of the workload. Estimate the virtual network size and evaluate the requirements with the platform team regularly.
 
-##### Guidance for PaaS and other components
+TODO: IPAM, Org IP overlap
 
-With zone-redundant services, the distribution of the workload is a feature of the service and is handled by Azure. Azure automatically replicates the resource across zones without requiring your intervention. For example, zone-redundant load balancer, Azure Application Gateway, virtual private network (VPN), zone-redundant storage.
+#### Virtual network subnets
 
-Using Application Gateway or a Standard Load Balancer configured as zone-redundant, traffic can be routed to VMs located across zones with a single IP address, which will survive zone failures. The load frontend IP can be used to reach all (non-impacted) VMs no matter the zone. One or more availability zones can fail and the data path survives as long as one zone in the region remains healthy.
+You're responsible for allocating subnets in the spoke virtual network. This architecture requires suggests dedicated subnets for:
 
-### Compute
+- Application Gateway
+- Front End VMs
+- Load Balancers between tiers
+- Back End VMs
+- Deployment agents
+- Private Endpoints
 
-#### Virtual Machine Scale Sets with flexible orchestration
+#### Virtual network peering
 
-In this baseline architecture we are using Virtual Machine Scale Sets (VMSS) with Flexible orchestration to facilitate the operation of virtual machines at cloud scale. Unlike uniform VMSS, with flexible orchestration Azure enables you to allocate and manage VMs individually. You have full control over the virtual machine lifecycle, as well as network interfaces and disks using the standard Azure VM APIs and commands. At the same time, by joining VM to a flexible VMSS, you get an orchestration layer that facilitates achieving high availability at scale with identical or multiple virtual machine types. Flexible orchestration offers high availability guarantees (up to 1000 VMs) by spreading VMs across fault domains in a region or within an Availability Zone. This enables you to scale out your application while maintaining fault domain isolation that is essential to run quorum-based or stateful workloads, including:
+Your workload should not be architected to expect any direct peering to another spoke virtual network. All transitive virtual network connections should be facilitated by your platform team.
 
-##### Scale out with standard Azure virtual machines
+#### Network controls
 
-Virtual Machine Scale Sets in Flexible Orchestration mode manage standard Azure VMs. You have full control over the virtual machine lifecycle, as well as network interfaces and disks using the standard Azure VM APIs and commands. Individual instances are compatible with the standard Azure IaaS VM API commands, Azure management features such as Azure Resource Manager resource tagging RBAC permissions, Azure Backup, or Azure Site Recovery.
+Landing your workload in an Azure landing zone does not change the responsibility of applying appropriate network controls to your solution. Azure landing often will enforce specific additional restrictions to ensure the organization is protecting itself against data exfiltration, can support SOC & NOC visibility, and shadow IT. Doing so results in splitting responsibility so that the platform team can optimize cost by having centralized offerings instead of duplicative security controls deployed throughout the org. In this architecture Azure Firewall is an example. It's impractical to govern and not cost optimized for every workload team to manage their own firewall instance.
 
+##### Egress controls
 
-##### Instance naming
-When you create a VM and add it to a Flexible scale set, you have full control over instance names within the Azure Naming convention rules. When VMs are automatically added to the scale set via autoscaling, you provide a prefix and Azure appends a unique number to the end of the name.
+For all traffic that leaves your virtual network, your IaaS workload will be expected to pass that traffic through its regional hub and usually more specifically through an egress firewall in that hub. This is often implemented with a route table that is attached to your spoke virtual network as part of the subscription vending process, directing `0.0.0.0/0` traffic to your regional hub's Azure Firewall.
 
-##### Automatic instance repairs
+This means that you need to discover and document all outbound traffic flows necessary for both infrastructure operations and workload operations as part of your solution. You'll communicate the flows that leave your spoke, in specificity, with the platform team. The platform team is expected to allow your required traffic and you should expected to all other egress traffic that wasn't specifically communicated to be denied.
 
-Enabling automatic instance repairs for Azure Virtual Machine Scale Sets helps achieve high availability for applications by maintaining a set of healthy instances. The Application Health extension or Load balancer health probes may find that an instance is unhealthy. Automatic instance repairs will automatically perform instance repairs by deleting the unhealthy instance and creating a new one to replace it. Automatic instance repair feature relies on health monitoring of individual instances in a scale set. VM instances in a scale set can be configured to emit application health status using either the Application Health extension or Load balancer health probes. If an instance is found to be unhealthy, then the scale set performs repair action by deleting the unhealthy instance and creating a new one to replace it.
+> [!TIP]
+>
+> Encourage the platform team to use IP groups to ensure that your workload's specific egress needs are represented in Azure Firewall with tight scoping to just the source subnets. For example the rule that support workload virtual machines being able to reach api.example.org, does not mean that supporting virtual machines, like build agents, even in the same virtual network, should necessarily be able to reach the same endpoint.
 
-*Terminate notification and automatic repairs* If the terminate notification feature is enabled on a scale set, then during automatic repair operation, the deletion of an unhealthy instance follows the terminate notification configuration. A terminate notification is sent through Azure metadata service – scheduled events – and instance deletion is delayed during the configured delay timeout. However, the creation of a new instance to replace the unhealthy one doesn't wait for the delay timeout to complete.
+Apply NSG rules that express the required outbound connectivity requirements of your solution, and deny everything else. Do not depend on hub security controls alone. As a workload owner, have the responsibility to stop undesired egress traffic as close to the source as practicable.
 
-##### Workload
-- Structure of the workload
-- VMSS scaling, availability zones
-- Packaging/publishing workload artifacts
-##### Management
+Be aware that while you own your subnetting within the virtual network, the platform team likely created firewall rules to specifically represent your captured requirements as part of your subscription vending process. Ensure that changes in subnets and resource placement over the lifetime of your architecture are still compatible with your original request, or work with your network team to ensure continuity of least-access egress control.
 
+Examples of egress in this architecture:
 
-###### Azure Bastion
+| Endpoint | Purpose | NSG control | Hub control |
+| :------- | :------ | :---------- | :---------- |
+| _TODO_ | _TODO_ | _TODO_ | _TODO_ |
+| _TODO_ | _TODO_ | _TODO_ | _TODO_ |
+| _TODO_ | _TODO_ | _TODO_ | _TODO_ |
 
-The solution implements [Azure Bastion](/azure/bastion/bastion-overview) that allows you to connect to virtual machines in the frontend or backend subnets using your browser and the Azure portal, or via the native SSH or RDP client already installed on your local computer. The Transport Layer Security (TLS) protocol protects the connection.
+**Communicate any special egress requirements.** For example if your workload establishes many concurrent connections to external network endpoints, ensure your platform team is aware of this so they can either provision the appropriate NAT Gateway implementation or add additional public IPs on the regional firewall to mitigate.
 
-For additional security, you could use Azure Bastion to connect to a jumpbox that's inside your workload's network environment in Azure. In this scenario, the jump box resides in the spoke virtual network, together with the rest of the workload resources. Additional Network Security rules can be implemented to ensure the jumpboxes could only be accessed from the Azure Bastion subnet and in turn, which resources can be accessed from the jumpbox. 
+As an architect building for a landing zone implementation, you should not expect to design an IaaS solution that depends on workload-owned Public IP addresses for egress. Consider helping enforce this with Azure Policy by denying public IPs on virtual machine NICs and any other public IP other than your well-known ingress points.
 
-Additionally, you can use just-in-time (JIT), a feature of Microsoft Defender for Cloud. The JIT access feature uses network security groups or Azure Firewall to block all inbound traffic to your jump box. If a user tries to connect to the jump box with appropriate RBAC permissions, this feature configures the network security groups or Azure Firewall to allow inbound access to the selected ports for a specified amount of time. After that time expires, the ports deny all inbound traffic. For more information about JIT access, see [Understanding just-in-time (JIT) VM access](/azure/defender-for-cloud/just-in-time-access-overview?tabs=defender-for-container-arch-aks)
- 
-##### Managed disks
+##### Ingress controls
 
-### DevOps
+Isolation from other workloads' spokes in the organization is achieved through NSGs on your subnets, and potentially also through the non-transitive nature or controls in the regional hub. Always build comprehensive NSGs that only allow the inbound network requirements of your application and its infrastructure; do not depend on any non-transtive nature of the hub you are peered to for security.
 
-##### OS patching
-##### Packaging/publishing workload artifacts
-##### Guest OS config
+As a workload owner, typically you are responsible for any resources related to public Internet ingress into your workload. In this architecture, this is showcased by the inclusion of Application Gateway and its public IP as being part of the workload spoke, and specifically not as part of the hub. In some organizations, ingress is expected to be handled in a connectivity subscription using a centralized DMZ implementation. Integration with that specific topology is out of scope for this article.
 
-#### Use Infrastructure as Code (IaC)
+Your platform team will likely have specific Azure Policies in place to ensure your Application Gateway has WAF enabled in deny mode, limit the number of public IPs available to your subscription, etc. As a workload owner, also deploy workload-centric policies that enforce your ingress security posture.
 
-Choose an idempotent declarative method over an imperative approach, where possible. Instead of writing a sequence of commands that specify configuration options, use declarative syntax that describes the resources and their properties. One option is an [Azure Resource Manager (ARM)](/azure/azure-resource-manager/templates/overview) templates. Another is Terraform.
+Examples of ingress in this architecture:
 
-Make sure as you provision resources as per the governing policies. For example, when selecting the right VM sizes, stay within the cost constraints, availability zone options to match the requirements of your application.
+| Source | Purpose | Workload control | Platform control |
+| :----- | :------ | :--------------- | :--------------- |
+| Internet | _TODO_ | _TODO_ | _TODO_ |
+| Azure Bastion | _TODO_ | _TODO_ | _TODO_ |
+| Other spokes | None | Blocked via NSG rules. | Non-transitive routing or Azure Firewall rules in the case of Azure VWAN secured hub. |
 
-If you need to write a sequence of commands, use [Azure CLI](/cli/azure/what-is-azure-cli). These commands cover a range of Azure services and can be automated through scripting. Azure CLI is supported on Windows and Linux. Another cross-platform option is Azure PowerShell. Your choice will depend on preferred skillset.
+##### Network security group example
 
-Store and version scripts and template files in your source control system.
+Here is an example of a network security group that supports access from the hub for Azure Bastion, etc. TODO
 
-### Identity and access management
+NSG TODO
 
-##### Managed identities
-##### Authorization for solution components
-##### Role based access control (RBAC)
+#### Private DNS delegation
 
-### Monitoring
+Architectures that depend on private endpoints need to understand their landing zone's DNS expectations and how private DNS zones are managed. Typically Private DNS zones are managed at scale with DINE policies so that Azure Firewall can reliably act as a DNS proxy to support FQDN network rules. This architecture either will shift responsibility to the Platform team to ensure reliable private DNS resolution for private link endpoints or take on those responsibilities itself. Work with your platform team to understand expectations.
 
-:::image type="content" source="./media/iaas-baseline-monitoring.png" alt-text="IaaS network data flow  diagram" lightbox="./media/iaas-baseline-monitoring.png":::
-*Download a [Visio file](https://arch-center.azureedge.net/xxx.vsdx) of this architecture.*
+TODO MORE
 
-##### VM insights (will we using other insights?)
-##### Workload metrics and instrumentation
-##### Health probes
-##### Platform metrics
-##### Logs
-##### Log analytic workspace
+#### Connectivity testing
 
-### Networking
+In sufficiently complex networking architectures, it's sometimes challenging to figure out network line of sight, routing, DNS issues. In a virtual machine-based architecture such as this, you have some powerful tools available to you to help troubleshoot, even more so than in a PaaS offering in many cases.
 
-#### Hub and spoke topology
+You ultimately have OS-level access to perform local traditional troubleshooting using tools such as `netstat`, `nslookup`, or `tcping`. You can also look at the network adaptor's DHCP and DNS settings. But even more so, the fact that you have NICs available give you the ability to run connectivity checks using Azure Network Watcher.
 
-This architecture uses a hub-spoke network topology. The hub and spoke(s) are deployed in separate virtual networks connected through [peering](/azure/virtual-network/virtual-network-peering-overview). Some advantages of this topology are:
+## Patch compliance reporting
 
-- Segregated management. Enables a way to apply governance and adhere to the principle of least privilege. It also supports the concept of an [Azure landing zone](/azure/cloud-adoption-framework/ready/landing-zone/) with separation of duties.
+TBD
 
-- Minimizes direct exposure of Azure resources to the public internet.
+- Automation Accounts
 
-- Organizations often operate with regional hub-spoke topologies. Hub-spoke network topologies can be expanded in the future and provide workload isolation.
+## Identity and access management
 
-- All web applications should require a web application firewall (WAF) service to help govern HTTP traffic flow.
+TBD
 
-- A natural choice for workloads that span multiple subscriptions.
+- RBAC
+- Automation Accounts here too?
+- User accounts (corporate, etc)
 
-- It makes the architecture extensible. To accommodate new features or workloads, new spokes can be added instead of redesigning the network topology.
+## Operations access
 
-- Certain resources, such as a firewall and DNS can be shared across networks.
+Your architecture is made up of virtual machines, which sometimes need to be accessed directly. This can happen in a break-fix situation, as part of troubleshooting, or can even happen as part of a deployment process from your build agents. This architecture does not support public IPs for control plane ingress into your solution, only for workload application traffic. Virtual machine solutions often then sit on the network such that Azure Bastion act as a serverless gateway for operations to access via SSH or RDP.
 
-- Aligns with the [Azure enterprise-scale landing zones](/azure/cloud-adoption-framework/ready/enterprise-scale/implementation).
+The baseline architecture deployed Azure Bastion as part of the workload, as that architecture did not imply any larger context for which it resided. In a typical Azure landing zone architecture, Azure Bastion is often one of the centrally provided resources that are then made available for workload teams to use. In this architecture, Azure Bastion has moved to be managed by the Platform team (shown in the Connectivity subscription).
 
-:::image type="content" source="./media/iaas-baseline-network-topology.png" alt-text="IaaS baseline architectural diagram" lightbox="./media/iaas-baseline-network-topology.png":::
-*Download a [Visio file](https://arch-center.azureedge.net/xxx.vsdx) of this architecture.*
+### User access
 
-- Update image to show overall network topology with components for each subsection below
-- Q: Do we need to add Azure DDoS Protection?
+When logging into a virtual machine, you must do so under a user account. Your organization might have guidelines or requirements to follow. Typically, it would be expected that access is controlled via Azure AD authentication, and is security group backed. This architecture deploys the Azure AD authentication extension to all virtual machines to support this mechanism.
 
-For additional information, see [Hub-spoke network topology in Azure](../reference-architectures/hybrid-networking/hub-spoke.yml).
+As with any identity-based access, it's recommended that humans use corporate identities in their corporate Azure Active Directory tenant, and any service principal based access does not share principals across functions. In both cases, least-priviledged and granular access to the task being performed is preferred. For human access, look into your platform's identity team's JIT support.
 
-#### Hub
+## Build agents
 
-The hub virtual network is the central point of connectivity and observability. A hub always contains an Azure Firewall with global firewall policies defined by your central IT teams to enforce organization wide firewall policy, Azure Bastion, a gateway subnet for VPN connectivity, and Azure Monitor for network observability.
+As a workload team, you are still responsible for deploying the workload. And due to no public IP access to the control plane of this architecture, that often means having deployment agents in the architecture. This was showcased in the baseline architecture, can carries forward into the landing zone variant as well.
 
-Within the network, three subnets are deployed.
+Ensure your patching process for your deployment agent virtual machines comply with platform requirements. OS access to these machines should be provided by your Azure Bastion access.
 
-#### Subnet to host Azure Firewall
+## OS images
 
-[Azure Firewall](/azure/firewall/) is firewall as a service. The firewall instance secures outbound network traffic. Without this layer of security, this traffic might communicate with a malicious third-party service that could exfiltrate sensitive company data. [Azure Firewall Manager](/azure/firewall-manager/overview) enables you to centrally deploy and configure multiple Azure Firewall instances and manage Azure Firewall policies for this *hub virtual network* network architecture type.
+Being in a landing zone doesn't imply any particular sources for virtual machine images, however it is possible that your organization does have a managed offering or compliance requirements around images.
 
-#### Subnet to host a gateway
+Your organization might use Azure Compute Gallery to hold "blessed" OS images or encourage application teams like yourself to publish their workload artifacts there, and use it as part of your software deployment mechanism. As you decide on the OS for the virtual machines in your architecture, be sure to consult your platform team on where images should be sourced from, how often they are updated, and any expectations around consuming them.
 
-This subnet is a placeholder for a VPN or ExpressRoute gateway. The gateway provides connectivity between the routers in your on-premises network and the virtual network.
+If Azure Compute Gallery is desired, you'll need network line of sight to the gallery, including any Azure Firewall rules to support it.
 
-#### Subnet to host Azure Bastion
+TODO
 
-This subnet is a placeholder for [Azure Bastion](/azure/bastion/bastion-overview). You can use Bastion to securely access Azure resources without exposing the resources to the internet. This subnet is used for management and operations only.
+## Monitoring considerations
 
-#### Subnet to host Private Link endpoints (platform)
+The Azure landing zone platform provides shared observability resources as part of the Management subscriptions. However, provisioning your own monitoring resources is recommended to facilitate ownership responsibilities of the workload.
 
-//TODO: similar to the private endpoint subnet for the spoke but this one is linking global resources that can be accessed from the hub and all peered spokes
+The workload team provisions these resources:
 
-//TODO: need guidance to address potential issue when there are DNS conflicts between private DNS names in the spokes and the hub. For example: when we want a platform Key Vault instance for platform certificates
-//      and also workload managed Key Vault resources for application secrets
-### Spoke
+- Azure Application Insights to showcase Application Performance Monitoring (APM) being a function of the workload team.
+- Azure Log Analytics workspace as the unified sink for all logs and metrics collected from Azure services and the application.
+- A self-managed Azure Storage account to capture boot diagnostics from virtual machines in this architecture.
 
-The spoke virtual network contains the AKS cluster and other related resources. The spoke has four subnets:
+Just as in the baseline, all resources are configured to send Azure Diagnostics to the Log Analytics workspace provisioned by the workload team and is part of the IaC deployment of the resources. Be aware that the platform team might also have DINE policies to configure Azure Diagnostics to send logs to their centralized Management subscriptions to support NOC, SOC, other operations. Ensure that your IaC solution or workload-level Azure Policy implementation does not impede those log flows.
 
-#### Subnet to host Azure Application Gateway
+### Correlating data from multiple sinks
 
-Azure [Application Gateway](/azure/application-gateway/overview) is a web traffic load balancer operating at Layer 7. The reference implementation uses the Application Gateway v2 SKU that enables [Web Application Firewall](/azure/application-gateway/waf-overview) (WAF). WAF secures incoming traffic from common web traffic attacks, including bots. The instance has a public frontend IP configuration that receives user requests. By design, Application Gateway requires a dedicated subnet.
+Logs and metrics generated by the workload and its infrastructure components are saved in the workload's Log Analytics workspace. But, logs and metrics generated by centralized services, such as Active Directory and Firewall, are saved to a central Log Analytics workspace managed by platform teams. Likewise, platform teams might occasionally benefit from workload-level logs to trace impact/scope of an incident. Correlating data from different sinks can lead to complexities.
 
-#### Subnet to host the frontend VM resources
+Your triage runbook for this architecture should account for those gaps and have organizational points of contact established if the problem has been determined to extend beyond your resources. Workload administrators may need help from platform administrators to correlate log entries from enterprise networking, security, or other platform services. Likewise, when a security incident occurs, the workload-level administrators might be asked to review their systems' logs for signs of malicious activity or provide copies of their logs to incident handlers for further analysis. When troubleshooting application issues. To help with this type of collaboration, familiarize yourself well in advance with the procedures set up by your organization.
 
-//TODO: the frontend Flexible VMSS, hosting the Web component of the sample workload, lives here
-#### Subnet to host the backend VM resources
+> [!IMPORTANT]
+>
+> **Platform team**
+>
+> - Where possible, grant role-based access control (RBAC) to query and read log sinks for relevant platform resources.
+> - Enable logs for AzureFirewallApplicationRule, AzureFirewallNetworkRule, AzureFirewallDnsProxy because the application team needs to monitor traffic flows from the application and requests to the DNS server.
 
-//TODO: the backend Flexible VMSS, hosting the Api component of the sample workload, lives here
+## Azure Policy
 
-#### Subnet to host Private Link endpoints
+TODO
 
-Azure Private Link connections are created for the [Azure Container Registry](/azure/container-registry/) and [Azure Key Vault](/azure/key-vault/general/overview), so these services can be accessed using [private endpoint](/azure/private-link/private-endpoint-overview) within the spoke virtual network. Private endpoints don't require a dedicated subnet and can also be placed in the hub virtual network. In the baseline implementation, they're deployed to a dedicated subnet within the spoke virtual network. This approach reduces traffic passing the peered network connection, keeps the resources that belong to the cluster in the same virtual network, and allows you to apply granular security rules at the subnet level using network security groups.
+- Review common azure policies (both platform and workload)
+- In-guest Azure Policy agent
 
-For more information, see [Private Link deployment options](../guide/networking/private-link-hub-spoke-network.yml#decision-tree-for-private-link-deployment).
+Your platform team will likely apply policies that will influence your deployment. Getting to understand what policies are applied to your environment and making sure you're accounting for them in your architecture ahead of time will yield the most predictable results. Ideally, where practical, you should apply some of these configurations directly in your IaC resources to avoid unnecessary resource changes via DINE policies.
 
-#### Plan the IP addresses
+Here are some examples of policy that might be applied.
 
-//TODO: DO we need a "Plan the IP addresses" section (exists in other baseline)
-#### Network flow
+- Enforce that Windows VM join an Active Directory Domain. This might be accomplished through a DINE policy that ensures the  `JsonADDomainExtension` virtual machine extension is installed and configured. See [Enforce Windows Virtual Machines to join AD Domain](https://github.com/Azure/Enterprise-Scale/blob/main/docs/reference/azpol.md#enforce-windows-vms-to-join-ad-domain).
+- Disallow IP forwarding on network interfaces
+- Private Link DNS management
 
+TODO
 
-Network flow, in this context, can be categorized as:
+## Security considerations
 
-- **Ingress traffic**. From the client to the workload running in the virtual machines.
+### DDoS protection
 
-- **Egress traffic**. From a workload virtual machine to location outside of Azure.
-
-- **Traffic within workload**. Communication workload resources. This traffic includes communication between the various virtual machines and other Azure resources like Key Vault. Also, if your workload accesses backend services and databases integrated with the VNet as private endpoints, communication with the private endpoints would fall into this category.
-
-//TODO: revise statement about connection with services exposed as private endpoints, is confusing. Also, consider if we need to cover explicitly communicating with other
-// backend services not exposed as private endpoints
-
-- **Management traffic**. Traffic that goes between the client and the virtual machines.
- 
-:::image type="content" source="./media/iaas-baseline-network-traffic.png" alt-text="IaaS network data flow  diagram" lightbox="./media/iaas-baseline-network-traffic.png":::
-*Download a [Visio file](https://arch-center.azureedge.net/xxx.vsdx) of this architecture.*
-
-##### Traffic to/from internet
-
-The architecture only accepts TLS encrypted requests from the client. TLS v1.2 is the minimum allowed version with a restricted set of cyphers. Server Name Indication (SNI) strict is enabled. End-to-end TLS is set up through Application Gateway by using two different TLS certificates, as shown in this image.
-
-![TLS termination](./media/iaas-baseline-tls-termination.png)
-
-*Download a [Visio file](https://arch-center.azureedge.net/xxxx.vsdx) of this architecture.*
-
-//TODO: review ficticious names used to reference to the workload components
-
-1. The client sends an HTTPS request to the domain name: app.contoso.com. That name is associated with through a DNS A record to the public IP address of Azure Application Gateway. This traffic is encrypted to make sure that the traffic between the client browser and gateway cannot be inspected or changed.
-
-2. Application Gateway has an integrated web application firewall (WAF) and negotiates the TLS handshake for app.contoso.com, allowing only secure ciphers. Application Gateway is a TLS termination point, as it's required to process WAF inspection rules, and execute routing rules that forward the traffic to the configured backend. The TLS certificate is stored in Azure Key Vault. It's accessed using a user-assigned managed identity integrated with Application Gateway. For information about that feature, see [TLS termination with Key Vault certificates](/azure/application-gateway/key-vault-certs).
-
-3. As traffic moves from Application Gateway to the backend, it's encrypted again with another TLS certificate (wildcard for \*.workload.contoso.com) as it's forwarded to one of the frontend VMs. This re-encryption makes sure traffic that is not secure doesn't flow into the workload. Communication between the frontend and the backend components of the solution is also encrypted using the same wildcard certificate in order to ensure end-to-end TLS traffic all at every hop the way through to the workload.
-
-4. The certificates are stored in Azure Key Vault. For more information, see [Secret management](#secret-management).
-
-//TODO: Add content to explain how the certificates are deployed to the VMs. Tentatively we'll be using the Key Vault VM extension that should allow us to integrate directly
-
-##### Traffic to/from private network and on-premises
-##### Traffic routing within workload
-
-### Management traffic
-
-//TODO: how to secure control plane network traffic
-
-##### Traffic control
-
-###### Network Security Groups (NSG)
-
-Use network security group rules to restrict traffic between tiers. In this architecture, the following rules are implemented.
-
-1. Deny all inbound traffic from the virtual network. (Use the VIRTUAL_NETWORK tag in the rule.)
-1. Allow only inbound traffic to the frontend subnet from the Application Gateway subnet.
-1. Allow only inbound traffic to the backend load balancer subnet from the frontend subnet.
-1. Allow only inbound traffic to the backend VMs from the backend load balancer subnet.
-1. Allow only outbound traffic from the Application Gateway subnet to the frontend and private endpoints subnets.
-1. Allow only outbound traffic from the frontend subnet to the backend load balancer and private endpoint subnets.
-1. Allow only outbound traffic from the backend load balancer to the backend subnet.
-1. Allow only outbound traffic from the backend subnet to the private endpoint subnet.
-
-//TODO: review these rules and add details from the actual implementation
-###### Application Security Groups (ASG)
-
-[Application security groups (ASG)](/azure/virtual-network/application-security-groups) enable you to configure network security as a natural extension of an application's structure, allowing you to group virtual machines and define network security policies based on those groups. You can reuse your security policy without individually referencing IP addresses. They also make rules easier to read when reviewing the rules within a NSG.
-
-Two ASGs are used in this scenario:
-
-- WebFrontend ASG - The network interface of the frontend VMs are assigned to this ASG. The AGS is referenced in NSGs to filter traffic to and from the frontend VMs.
-- ApiBackend ASG - The network interface of the backend VMs are assigned to this ASG. The AGS is referenced in NSGs to filter traffic to and from the frontend VMs.
-
-//TODO: review these rules and add details from the actual implementation
-
-###### Firewall
-
-##### NIC/IPConfig + VM lifecycle
-##### Accelerated Networking
-##### Private DNS resolution
-
-##### Health probes
-
-Application Gateway and Load Balancer both use health probes to monitor the availability of VM instances.
-
-- Application Gateway always uses an HTTP probe.
-- Load Balancer can probe with either HTTP or TCP. Generally, if a VM runs an HTTP server, use an HTTP probe. Otherwise, use TCP.
-
-If a probe can't reach an instance within a timeout period, the gateway or load balancer stops sending traffic to that VM. The probe continues to check, and returns the VM to the back-end pool when the VM becomes available again. HTTP probes send an HTTP GET request to a specified path and listen for an HTTP 200 response. This path can be the root path ("/"), or a health-monitoring endpoint that implements custom logic to check the health of the application. The endpoint must allow anonymous HTTP requests.
-
-For more information about health probes, see these resources:
-
-- [Load Balancer health probes](/azure/load-balancer/load-balancer-custom-probe-overview)
-- [Application Gateway health monitoring overview](/azure/application-gateway/application-gateway-probe-overview)
-
-For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.yml).
+Ensure you've understood who will be responsible for applying the DDoS Protection plan that covers all of your solution's public IPs. Your Platform team might use IP protection plans, or might even use Azure Policy to enforce Vnet protection plans. This specific architecture should have coverage as it involves a public IP for ingress from the Internet. VNet protection plan is deployed.
 
 ### Secret management
 
-Encrypt sensitive data at rest and use [Azure Key Vault](https://azure.microsoft.com/services/key-vault) to manage the database encryption keys. Key Vault can store encryption keys in hardware security modules (HSMs). For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure). We also recommend that you store application secrets, such as database connection strings, in Key Vault.
+This architecture does not introduce any specific dependencies outside of the workload on Key Vault. However, it's common for publicly exposed HTTPS endpoints to be surfaced with TLS using the organization's domain. This involves working with your IT team to understand how those TLS certs are procured, where they are stored, and how they are rotated. This architecture doesn't make any specific affordences for this process.
 
-##### Certificate
+As a workload team, continue to keep your workload secrets a function of your landing zone. Deploy your own Azure Key Vault instance(s) as needed to support your application and infrastructure operations.
 
-In this architecture we configure the VMs with the Azure Key Vault extension (see [extension for Linux](/azure/virtual-machines/extensions/key-vault-linux) or [extension for Windows](/azure/virtual-machines/extensions/key-vault-windows)). The Key Vault VM extension provides automatic refresh of certificates stored in an Azure key vault. Specifically, the extension monitors a list of observed certificates stored in key vaults, and, upon detecting a change, retrieves, and installs the corresponding certificates. 
+## Cost optimization strategies
 
-The extension supports certificate content types PKCS #12, and PEM. VM/VMSS must have assigned a user assigned managed identity, and the Key Vault Access Policy must be set with secrets get and list permission for VM/VMSS managed identity to retrieve a secret's portion of the certificate.
+This architecture benefits significantly from the Azure landing zone platform resources being brought into this architecture. Even if usage of those resources are done through a chargeback model to your team, the added security value and added cross-premisses connectivity is significantly cheeper, from the workload perspective, than purchasing, deploying, and managing those resources yourself. Look for additional centralized offerings from your platform team that extend the same to your workload, without compromising on your workload's SLO, RTO, or RPO.
 
-##### Key rotation
+Examples of Platform team resource in this architecture that might be consumption based (charge-back) or even potentially free to the workload team resources:
 
-### Storage
-Generic guidance based on technology choice
-
-### Potential use cases
-
-Potential use cases include....
-
-## Recommendations
-
-The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
-
-## Considerations
-
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
-
-### Reliability
-
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
-
-Availability zones provide high resiliency within a single region. If you need even higher availability, consider replicating the application across two regions. For more information, see [Run an N-tier application in multiple Azure regions for high availability](../reference-architectures/n-tier/multi-region-sql-server.yml).
-
-Not all regions support availability zones, and not all VM sizes are supported in all zones. Run the following Azure CLI command to find the supported zones for each VM size within a region:
-
-```azurecli
-az vm list-skus --resource-type virtualMachines --zone false --location eastus -o table
-```
-
-### Security
-
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
-
-#### DDoS protection
-
-The Azure platform provides basic DDoS protection by default. This basic protection is targeted at protecting the Azure infrastructure. Although basic DDoS protection is automatically enabled, we recommend using [Azure DDoS Protection](/azure/virtual-network/ddos-protection-overview). DDoS Protection uses adaptive tuning, based on your application's network traffic patterns, to detect threats. This practice allows it to apply mitigations against DDoS attacks that might go unnoticed by the infrastructure-wide DDoS policies. DDoS Protection also provides alerting, telemetry, and analytics through Azure Monitor. For more information, see [Azure DDoS Protection: Best practices and reference architectures](/azure/security/fundamentals/ddos-best-practices).
-
-### Cost optimization
-
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
-
-- Data transfers between availability zones in a region are not free. If your workload is multi-region or there are transfers across availability zones, then expect additional bandwidth cost. For more information, see [Traffic across billing zones and regions](/azure/architecture/framework/cost/design-regions?branch=master#traffic-across-billing-zones-and-regions).
-
-- Create budgets to stay within the cost constraints identified by the organization. One way is to create budgets through Azure Cost Management. You can also create alerts to get notifications when certain thresholds are exceeded. For more information, see [Create a budget using a template](/azure/cost-management-billing/costs/quick-create-budget-template).
-
-- [Azure Cost Management](/azure/cost-management-billing/costs/)
-
-#### Virtual Machine Scale Sets
-
-The Virtual Machine Scale Sets resource is available on all Windows VM sizes. You're charged only for the Azure VMs that you deploy, and for any additional underlying infrastructure resources consumed, such as storage and networking. There are no incremental charges for the Virtual Machine Scale Sets service.
-
-For single VMs pricing options, see [Windows VMs pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows).
-
-#### Load Balancer
-
-You're charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules are free. There's no hourly charge for the standard load balancer when no rules are configured.
-
-### Operational excellence
-
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
-
-- Use tags when you create the workload resourcess. Tags are useful in creating custom reports to track the incurred costs. Tags give the ability to track the total of expenses and map any cost to a specific resource or team. Also, if the environment is shared between teams, build chargeback reports per consumer to identify metered costs for shared cloud services.
-
-### Performance efficiency
-
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+- Azure Firewall
+- SIEM
+- Azure Bastion Hosts
+- Cross-premisses connectivity such as ExpressRoute
 
 ## Deploy this scenario
 
-A deployment for a reference architecture that implements these recommendations and considerations is available on [GitHub](https://www.github.com/path-to-repo).
+A deployment for this reference architecture is available at [XXX](https://github.com/mspnp/xxx) on GitHub.
 
-1. First step
-1. Second step
-1. Third step ...
+The artifacts in this repository provide a foundation that you can customize for your environment. The implementation provisions a hub network with shared resources such as Azure Firewall only for illustrative purposes. This grouping can be mapped to separate landing zone subscriptions to keep workload and platform functions separate.
 
-## Next steps
-
-See product documentation for details on specific Azure services:
-
-- [Azure Virtual Machines](/azure/virtual-machines)
-- [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)
+The deployment uses Bicep templates. To deploy the architecture, follow the [step-by-step instructions](https://github.com/mspnp/xxx/go).
 
 ## Related resources
 
-IaaS reference architectures showing options for the data tier:
+TODO
 
-- [IaaS: Web application with relational database](/azure/architecture/high-availability/ref-arch-iaas-web-and-db)
-- [Windows N-tier application using SQL Server on Azure](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
+For more scenarios, see these articles.
+
+TODO
+
+## Next steps
+
+TODO

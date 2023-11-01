@@ -13,13 +13,13 @@ OAuth, an open framework, helps address these challenges and provides a protocol
 
 OAuth 2.0 provides secure delegated access. By issuing access tokens, you can authorize third-party access to your protected resources without providing credentials.
 
-Azure Active Directory (Azure AD) is Microsoft's built-in solution for managing identities in the cloud. It integrates with on-premise systems so that users have a seamless experience when accessing protect services in the cloud.
+Microsoft Entra ID is Microsoft's built-in solution for managing identities in the cloud. It integrates with on-premise systems so that users have a seamless experience when accessing protect services in the cloud.
 
-This guide shows you how to use Azure AD and OAuth 2.0 to secure a single-page application.
+This guide shows you how to use Microsoft Entra ID and OAuth 2.0 to secure a single-page application.
 
 ## OAuth flows
 
-OAuth flows cover many use cases, all backed by Azure AD Services. Developers use these flows to build a secure application, so that:
+OAuth flows cover many use cases, all backed by Microsoft Entra services. Developers use these flows to build a secure application, so that:
 
 - Users can securely access client systems.
 - Guest users can participate through business-to-business transactions.
@@ -31,7 +31,7 @@ There are two OAuth flows, implicit grant and authorization code. Implicit grant
 
 ## Register your application in Azure
 
-Register a service principal for the UI and API using Azure AD Directory in the Azure portal.
+Register a service principal for the UI and API using Microsoft Entra Directory in the Azure portal.
 
 1. Log in to the [Azure portal](https://ms.portal.azure.com/), and then search for **App registrations**.
 
@@ -44,7 +44,7 @@ Register a service principal for the UI and API using Azure AD Directory in the 
     - The display name for the application.
     - The supported account type.
     - The application type: Web, SPA, or public client/native (mobile and desktop).
-    - The redirect URI. When the user is authenticated, Azure AD redirects the result to the client.
+    - The redirect URI. When the user is authenticated, Microsoft Entra ID redirects the result to the client.
         - An example for local development is http://localhost:4200.
         - An example for production is 'https://portal.contoso.com'.
 
@@ -68,9 +68,9 @@ Register a service principal for the UI and API using Azure AD Directory in the 
 
 ## Set up configuration details in the client application
 
-After you create and configure the app registration in Azure, you can set up the configuration details in the client application. For a single-page framework like Angular, Microsoft has developed the **@Azure/msal-angular** library to help you integrate Azure AD in your client application.
+After you create and configure the app registration in Azure, you can set up the configuration details in the client application. For a single-page framework like Angular, Microsoft has developed the **@Azure/MSAL-angular** library to help you integrate Microsoft Entra ID in your client application.
 
-1. Install an [@Azure/msal-angular](/azure/active-directory/develop/reference-v2-libraries#single-page-application-spa) library.
+1. Install an [@Azure/MSAL-angular](/azure/active-directory/develop/reference-v2-libraries#single-page-application-spa) library.
 
 2. Configure the library.
 
@@ -109,7 +109,7 @@ For more information on configuring an Angular library, see [Tutorial: Sign in u
 
 Test the authentication process by having a user *with* access, and a user *without* access attempt to log in to the client.
 
-The user logs in to the application and is redirected to their Azure AD tenant.
+The user logs in to the application and is redirected to their Microsoft Entra tenant.
 
 - If the user is valid, they're authenticated and logged in.
 - If the user isn't valid, the application returns an error.
@@ -165,7 +165,7 @@ export const protectedResourceMap: [string, string[]][] = [
 ];
 ```
 
-When your client application attempts to access the resource, the MSAL Client Library authenticates to Azure AD through a hidden iframe, and then returns a bearer token for the resource. The bearer token is only added for requests that match the endpoint, in this case `https://localhost:5001/api/weatherforecast`.
+When your client application attempts to access the resource, the MSAL Client Library authenticates to Microsoft Entra ID through a hidden iframe, and then returns a bearer token for the resource. The bearer token is only added for requests that match the endpoint, in this case `https://localhost:5001/api/weatherforecast`.
 
 If the API you configured with the relevant app registrations receives a bearer token with an invalid application ID URI, it rejects the request and returns a 401 unauthorized message.
 
@@ -197,7 +197,7 @@ You can navigate to jwt.ms and paste the bearer token into a human-readable form
 
 You can see that the API URI is inside the `aud` property. This property identifies the intended recipient of the token, which is your API. If your API is not the intended recipient, it automatically rejects the request with a 401 HTTP response.
 
-The `scp` property contains the set of scopes exposed by your application. If invalid scopes are added through the client, Azure AD returns an error requesting further authorization for scope.
+The `scp` property contains the set of scopes exposed by your application. If invalid scopes are added through the client, Microsoft Entra ID returns an error requesting further authorization for scope.
 
 :::image type="content" source="media/azure-ad-secure-single-page-application/jwtms-properties.png" alt-text="Screenshot that shows the token properties in the jwt.ms file.":::
 
@@ -211,7 +211,7 @@ Further authorization practices are implemented by using the application manifes
 
 2. Edit the key value pairs of the JSON object as needed.
 
-In general, it's best to only issue `SecurityGroup`. If you use `All`, security groups, Azure AD roles, and distribution groups are emitted. The token has a set limit of 200, and if that limit is reached, an overage claim is added. The claim points to the Graph endpoint to retrieve the list of groups for the user.
+In general, it's best to only issue `SecurityGroup`. If you use `All`, security groups, Microsoft Entra roles, and distribution groups are emitted. The token has a set limit of 200, and if that limit is reached, an overage claim is added. The claim points to the Graph endpoint to retrieve the list of groups for the user.
 
 After configuration, the jwt token has a new property, `groups`, that contains the unique object IDs that can be used to enforce authorization.
 
@@ -308,8 +308,8 @@ Principal author:
 
 ## Next steps
 
-- [Integrate on-premises AD domains with Azure AD](../../reference-architectures/identity/azure-ad.yml)
-- [Azure Active Directory identity management and access management for AWS](../../reference-architectures/aws/aws-azure-ad-security.yml)
+- [Integrate on-premises AD domains with Microsoft Entra ID](../../reference-architectures/identity/azure-ad.yml)
+- [Microsoft Entra identity management and access management for AWS](../../reference-architectures/aws/aws-azure-ad-security.yml)
 - [Deploy AD DS in an Azure virtual network](../../reference-architectures/identity/adds-extend-domain.yml)
 
 ## Related resources

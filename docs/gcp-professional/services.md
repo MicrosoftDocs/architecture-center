@@ -59,8 +59,6 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 <ul class="grid">
 
 [!INCLUDE [Gaming using Azure Cosmos DB](../../includes/cards/gaming-using-cosmos-db.md)]
-[!INCLUDE [Oracle Database Migration to Azure](../../includes/cards/reference-architecture-for-oracle-database-migration-to-azure.md)]
-[!INCLUDE [Retail and e-commerce using Azure MySQL](../../includes/cards/retail-and-ecommerce-using-azure-database-for-mysql.md)]
 
 </ul>
 
@@ -178,7 +176,6 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 <ul class="grid">
 
 [!INCLUDE [Image classification on Azure](../../includes/cards/intelligent-apps-image-processing.md)]
-[!INCLUDE [Predictive Marketing with Machine Learning](../../includes/cards/predictive-marketing-campaigns-with-machine-learning-and-spark.md)]
 [!INCLUDE [Scalable personalization on Azure](../../includes/cards/scalable-personalization-with-content-based-recommendation-system.md)]
 
 </ul>
@@ -267,7 +264,6 @@ Here are some architectures that use AKS as the orchestrator.
 
 [!INCLUDE [Container CI/CD using Jenkins and Kubernetes on Azure Kubernetes Service (AKS)](../../includes/cards/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.md)]
 [!INCLUDE [Run a Jenkins server on Azure](../../includes/cards/jenkins.md)]
-[!INCLUDE [DevOps in a hybrid environment](../../includes/cards/devops-in-a-hybrid-environment.md)]
 
 </ul>
 
@@ -317,7 +313,6 @@ Here are some architectures that use AKS as the orchestrator.
 [!INCLUDE [Anomaly Detector Process](../../includes/cards/anomaly-detector-process.md)]
 [!INCLUDE [Scalable Web App](../../includes/cards/scalable-web-app.md)]
 [!INCLUDE [Enterprise integration](../../includes/cards/queues-events.md)]
-[!INCLUDE [Ops Automation using Event Grid](../../includes/cards/ops-automation-using-event-grid.md)]
 
 </ul>
 
@@ -368,12 +363,12 @@ Here are some architectures that use AKS as the orchestrator.
 
 | Area | Google Cloud service | Azure service | Description |
 | --- | --- | --- | --- |
-| Authentication and authorization | [Cloud Identity](https://cloud.google.com/identity) | [Azure Active Directory](https://azure.microsoft.com/services/active-directory) | The Azure Active Directory (Azure AD) enterprise identity service provides single sign-on and multi-factor authentication, which enable the central management of users/groups and external identities federation. |
+| Authentication and authorization | [Cloud Identity](https://cloud.google.com/identity) | [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) | The Microsoft Entra enterprise identity service provides single sign-on and multifactor authentication, which enable the central management of users/groups and external identities federation. |
 | | [Identity platform](https://cloud.google.com/identity-platform) | [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory/external-identities/b2c) | A highly available and global identity management service for consumer-facing applications, which scales to hundreds of millions of identities. Manage customer, consumer, and citizen access to your business-to-consumer (B2C) applications. |
-| Multi-factor Authentication | [Multi-factor Authentication](https://cloud.google.com/identity) | [Azure Active Directory Multi-factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication) | Safeguard access to data and applications, while meeting user demand for a simple sign-in process. |
+| Multifactor authentication | [Multifactor authentication](https://cloud.google.com/identity) | [Microsoft Entra multifactor authentication](https://azure.microsoft.com/services/multi-factor-authentication) | Safeguard access to data and applications, while meeting user demand for a simple sign-in process. |
 | RBAC | [Identity and Access Management](https://cloud.google.com/iam) | [Azure role-based access control](/azure/role-based-access-control/overview) | Azure role-based access control (Azure RBAC) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to. |
 | ABAC | [Identity and Access Management](https://cloud.google.com/iam) | [Azure attribute-based access control](/azure/role-based-access-control/conditions-overview) | Azure attribute-based access control (Azure ABAC) is an authorization system that defines access, based on attributes that are associated with security principals, resources, and environment. |
-| Zero trust | [BeyondCorp Enterprise](https://cloud.google.com/beyondcorp-enterprise) | [Azure AD Conditional Access](/azure/active-directory/conditional-access/overview) | Conditional Access is the tool used by Azure Active Directory to bring signals together, to make decisions, and to enforce organizational policies. |
+| Zero trust | [BeyondCorp Enterprise](https://cloud.google.com/beyondcorp-enterprise) | [Microsoft Entra Conditional Access](/azure/active-directory/conditional-access/overview) | Conditional Access is the tool used by Microsoft Entra ID to bring signals together, to make decisions, and to enforce organizational policies. |
 | Resource management | [Resource Manager](https://cloud.google.com/resource-manager) | [Azure Resource Manager](/azure/azure-resource-manager/management/overview) | Provides a management layer that enables you to create, update, and delete resources in your Azure account, like access control, locks, and tags, to secure and organize your resources after deployment.|
 | Encryption | [Cloud KMS](https://cloud.google.com/kms), [Secret Manager](https://cloud.google.com/secret-manager) | [Azure Key Vault](https://azure.microsoft.com/services/key-vault) | Provides a security solution and works with other services by allowing you to manage, create, and control encryption keys that are stored in hardware security modules (HSM). |
 | Data-at-rest encryption | [Encryption at rest](https://cloud.google.com/security/encryption-at-rest) | [Azure Storage Service Encryption](/azure/storage/storage-service-encryption) - encryption by default | Azure Storage Service Encryption helps you protect and safeguard your data and meet your organizational security and compliance commitments. |

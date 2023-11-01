@@ -34,7 +34,7 @@ Services like Azure Container Registry and Azure Monitor are hosted outside of A
    To learn more about the differences between AKS Engine on Azure and AKS Engine on Azure Stack Hub, see [Known Issues and Limitations](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#known-issues-and-limitations).
 - [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) provides the network infrastructure on each Azure Stack Hub instance for the virtual machines (VMs) that host the Kubernetes cluster infrastructure.
 - [Azure Load Balancer](https://azure.microsoft.com/products/load-balancer) is used for the Kubernetes API endpoint and the Nginx Ingress Controller. The load balancer routes external (for example, internet) traffic to nodes and VMs that provide a specific service.
-- [Container Registry](https://azure.microsoft.com/products/container-registry) is used to store private Docker images and Helm charts, which are deployed to the cluster. AKS Engine can authenticate with the container registry by using an Azure Active Directory (Azure AD) identity. Kubernetes doesn't require Container Registry. You can use other container registries, like Docker Hub.
+- [Container Registry](https://azure.microsoft.com/products/container-registry) is used to store private Docker images and Helm charts, which are deployed to the cluster. AKS Engine can authenticate with the container registry by using a Microsoft Entra identity. Kubernetes doesn't require Container Registry. You can use other container registries, like Docker Hub.
 - [Azure Repos](https://azure.microsoft.com/products/devops/repos) is a set of version control tools that you can use to manage your code. You can also use GitHub or other Git-based repositories.
 - [Azure Pipelines](https://azure.microsoft.com/products/devops/pipelines) is part of Azure DevOps Services. It runs automated builds, tests, and deployments. You can also use third-party CI/CD solutions like Jenkins.
 - [Azure Monitor](https://azure.microsoft.com/products/monitor) collects and stores metrics and logs, including platform metrics for the Azure services in the solution and application telemetry. Use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures. Azure Monitor integrates with Kubernetes to collect metrics from controllers, nodes, containers, container logs, and control plane node logs.
@@ -201,7 +201,7 @@ Here are some solutions for implementing a highly available database on Azure St
 If you're working with data across multiple locations, implementing a highly available and resilient solution is even more complex. Consider:
 
 - Latency and network connectivity between Azure Stack Hub instances.
-- The availability of identities for services and permissions. Each Azure Stack Hub instance integrates with an external directory. During deployment, you choose to use either Azure AD or Active Directory Federation Services (AD FS). So you have the option to use a single identity that can interact with multiple independent Azure Stack Hub instances.
+- The availability of identities for services and permissions. Each Azure Stack Hub instance integrates with an external directory. During deployment, you choose to use either Microsoft Entra ID or Active Directory Federation Services (AD FS). So you have the option to use a single identity that can interact with multiple independent Azure Stack Hub instances.
 
 ### Business continuity and disaster recovery
 
@@ -282,14 +282,14 @@ Security and identity are especially important when the solution spans independe
 
 Azure Stack Hub provides two identity provider choices. The provider you use depends on the environment and whether you're running in a connected or disconnected environment:
 
-- Azure AD can be used only in a connected environment.
+- Microsoft Entra ID can be used only in a connected environment.
 - AD FS to a traditional Active Directory forest can be used in a connected or disconnected environment.
 
 The identity provider manages users and groups, including authentication and authorization for accessing resources. Access can be granted to Azure Stack Hub resources like subscriptions, resource groups, and individual resources like VMs and load balancers. For consistency, consider using the same groups, either direct or nested, for all Azure Stack Hub instances. Here's an example configuration:
 
-:::image type="content" source="media/azure-stack-azure-ad-nested-groups.svg" alt-text="Diagram that shows nested Azure AD groups with Azure Stack Hub." lightbox="media/azure-stack-azure-ad-nested-groups.svg" border="false":::
+:::image type="content" source="media/azure-stack-azure-ad-nested-groups.svg" alt-text="Diagram that shows nested Microsoft Entra groups with Azure Stack Hub." lightbox="media/azure-stack-azure-ad-nested-groups.svg" border="false":::
 
-This example contains a dedicated group (using Azure AD or AD FS) for a specific purpose, for example, to provide Contributor permissions for the resource group that contains the Kubernetes cluster infrastructure on a specific Azure Stack Hub instance (here, "Seattle K8s Cluster Contributor"). These groups are then nested into an overall group that contains the subgroups for each Azure Stack Hub instance.
+This example contains a dedicated group (using Microsoft Entra ID or AD FS) for a specific purpose, for example, to provide Contributor permissions for the resource group that contains the Kubernetes cluster infrastructure on a specific Azure Stack Hub instance (here, "Seattle K8s Cluster Contributor"). These groups are then nested into an overall group that contains the subgroups for each Azure Stack Hub instance.
 
 The example user now has Contributor permissions to both resource groups that contain the entire set of Kubernetes infrastructure resources. The user has access to resources on both Azure Stack Hub instances because the instances share the same identity provider.
 

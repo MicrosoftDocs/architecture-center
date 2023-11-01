@@ -21,11 +21,11 @@ azureCategories:
   - web
 summary: This example scenario implements an e-commerce front end using Azure platform as a service tools, which allow you to handle increases in transactions.
 products:
-  - azure-active-directory-b2c
+  - entra-external-id
   - azure-cdn
   - ai-services
   - azure-traffic-manager
-  - azure-web-apps
+  - azure-app-service
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-ecommerce-scenario.png
 content: |
    [!include[](ecommerce-scenario-content.md)]

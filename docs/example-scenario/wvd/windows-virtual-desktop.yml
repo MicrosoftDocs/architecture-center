@@ -20,7 +20,7 @@ azureCategories:
   - windows-virtual-desktop
 summary: Explore Azure Virtual Desktop and learn how to build virtual desktop infrastructure solutions at enterprise scale.
 products:
-  - azure-active-directory
+  - entra-id
   - entra
   - azure-virtual-network
   - azure-virtual-desktop

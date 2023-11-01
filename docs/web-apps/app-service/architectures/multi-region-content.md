@@ -27,7 +27,7 @@ This workflow addresses the multi-region aspects of the architecture and builds 
 
 Key technologies used to implement this architecture:
 
-- [Azure Active Directory][Azure-Active-Directory] is a cloud-based identity and access management service that lets employees access cloud apps developed for your organization.
+- [Microsoft Entra ID][Azure-Active-Directory] is a cloud-based identity and access management service that lets employees access cloud apps developed for your organization.
 - [Azure DNS][Azure-DNS] is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services. To use a custom domain name (such as `contoso.com`), create DNS records that map the custom domain name to the IP address. For more information, see [Configure a custom domain name in Azure App Service](/azure/app-service-web/web-sites-custom-domain-name).
 - [Azure Content Delivery Network][Azure-Content-Delivery-Network] is a global solution for delivering high-bandwidth content by caching it at strategically placed physical nodes across the world.
 - [Azure Front Door][Azure-Front-Door] is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web front end. Front Door also provides a [web application firewall](/azure/frontdoor/waf-overview) (WAF) that protects the application from common exploits and vulnerabilities. Front Door is also used for a [Content Delivery Network](/azure/frontdoor/front-door-overview#global-delivery-scale-using-microsofts-network) (CDN) solution in this design.

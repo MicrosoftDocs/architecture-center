@@ -406,4 +406,4 @@ Product documentation:
 
 - [Loan credit risk and default modeling](../../example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml)
 - [Medical data storage solutions](../../solution-ideas/articles/medical-data-storage.yml)
-- [Determine customer lifetime and churn with Azure AI services](../../example-scenario/ai/customer-lifecycle-churn.yml)
+- [Determine customer lifetime and churn with Azure AI services](../../ai-ml/architecture/customer-lifecycle-churn.yml)

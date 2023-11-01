@@ -158,7 +158,7 @@ Healthcare data often includes sensitive protected health information (PHI) and 
 
 - Data Lake Storage uses Azure role-based access control (RBAC) and access control lists (ACLs) to create an [access control model](/azure/storage/blobs/data-lake-storage-access-control-model)
 
-- Azure Health Data Services is a collection of secured managed services using [Azure Active Directory (Azure AD)](/azure/active-directory/), a global identity provider that supports [OAuth 2.0](https://oauth.net/2/). When you create a new service of Azure Health Data Services, your data is encrypted using Microsoft-managed keys by default. Refer to [Authentication and Authorization for Azure Health Data Services](/azure/healthcare-apis/authentication-authorization) for more details.
+- Azure Health Data Services is a collection of secured managed services using [Microsoft Entra ID](/azure/active-directory/), a global identity provider that supports [OAuth 2.0](https://oauth.net/2/). When you create a new service of Azure Health Data Services, your data is encrypted using Microsoft-managed keys by default. Refer to [Authentication and Authorization for Azure Health Data Services](/azure/healthcare-apis/authentication-authorization) for more details.
 
 - Azure Event Hubs provides encryption of data at rest with Azure Storage [Service Encryption (Azure SSE)](/azure/event-hubs/event-hubs-premium-overview#encryption-of-events). As such, [IP Firewall](/azure/event-hubs/network-security#ip-firewall) rules can be applied at the Event Hubs namespace Level. Access to [private endpoints](/azure/event-hubs/network-security#private-endpoints) and [virtual network](/azure/event-hubs/network-security#advanced-security-scenarios-enabled-by-vnet-integration) can also be configured.
 

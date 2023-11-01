@@ -45,8 +45,8 @@ The key components of a Hadoop system are listed in the following table. For eac
 |[Apache HBase](apache-hbase-migration.yml) |Column-oriented table service |[Choosing landing target for Apache HBase](images/flowchart-hbase-azure-landing-targets.png), [Choosing storage for Apache HBase on Azure](images/flowchart-hbase-azure-storage-options.png)|HBase on a virtual machine (VM), HBase in Azure HDInsight, Azure Cosmos DB|
 |[Apache Spark](https://github.com/Azure/Hadoop-Migrations/tree/main/docs/spark) |Data processing framework |[Choosing landing target for Apache Spark on Azure](images/flowchart-spark-azure-landing-targets.png)|Spark in HDInsight, Azure Synapse Analytics, Azure Databricks|
 |[Apache Hive](https://github.com/Azure/Hadoop-Migrations/tree/main/docs/hive) |Data warehouse infrastructure |[Choosing landing target for Hive](images/hive-decision-matrix.png), [Selecting target DB for Hive metadata](images/hive-metadata-db-decision-flow.png)|Hive on a VM, Hive in HDInsight, Azure Synapse Analytics|
-|[Apache Ranger](https://github.com/Azure/Hadoop-Migrations/tree/main/docs/ranger) |Framework for monitoring and managing data security||Enterprise Security Package for HDInsight, Azure Active Directory (Azure AD), Ranger on a VM|
-|[Apache Sentry](https://github.com/Azure/Hadoop-Migrations/tree/main/docs/sentry)|Framework for monitoring and managing data security|[Choosing landing targets for Apache Sentry on Azure](images/authorization-service.png)|Sentry and Ranger on a VM, Enterprise Security Package for HDInsight, Azure AD|
+|[Apache Ranger](https://github.com/Azure/Hadoop-Migrations/tree/main/docs/ranger) |Framework for monitoring and managing data security||Enterprise Security Package for HDInsight, Microsoft Entra ID, Ranger on a VM|
+|[Apache Sentry](https://github.com/Azure/Hadoop-Migrations/tree/main/docs/sentry)|Framework for monitoring and managing data security|[Choosing landing targets for Apache Sentry on Azure](images/authorization-service.png)|Sentry and Ranger on a VM, Enterprise Security Package for HDInsight, Microsoft Entra ID|
 |[Apache MapReduce](https://github.com/Azure/Hadoop-Migrations/tree/main/docs/mapreduce) |Distributed computation framework||MapReduce, Spark|
 |[Apache Zookeeper](https://github.com/Azure/Hadoop-Migrations/tree/main/docs/zookeeper) |Distributed coordination service||ZooKeeper on a VM, built-in solution in platform as a service (PaaS)|
 |[Apache YARN](https://github.com/Azure/Hadoop-Migrations/tree/main/docs/yarn) | Resource manager for Hadoop ecosystem||YARN on a VM, built-in solution in PaaS|
@@ -95,7 +95,7 @@ The following pattern presents a point of view on how to deploy OSS on Azure Iaa
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1952879-overview-diagrams.vsdx) of this architecture.*
 
-1. On-premises Active Directory synchronizes with Azure AD by using Azure AD Connect hosted on-premises.
+1. On-premises Active Directory synchronizes with Microsoft Entra ID by using Microsoft Entra Connect hosted on-premises.
 1. Azure ExpressRoute provides secure and private network connectivity between on-premises and Azure.
 1. The management (or hub) subscription provides networking and management capabilities for the deployment. This pattern is in line with enterprise-scale landing zone guidance from Microsoft.
 1. The services hosted inside the hub subscription provide network connectivity and management capabilities.
@@ -109,8 +109,8 @@ The following pattern presents a point of view on how to deploy OSS on Azure Iaa
      - Device collections from System Center Configuration Manager
      - Diagnostics or log data from Azure Storage
    - **[Azure DevOps Self-Hosted Agent](/azure/devops/pipelines/agents/v2-linux)** hosted on Azure virtual Machine Scale Sets gives you flexibility over the size and the image of machines on which agents run. You specify a virtual machine scale set, a number of agents to keep on standby, a maximum number of virtual machines in the scale set. Azure Pipelines manages the scaling of your agents for you.
-1. The **[Azure AD](/azure/active-directory/fundamentals/active-directory-whatis)** tenant is synchronized with the on-premises Active Directory via Azure AD Connect synchronization services. For more information, see [Azure AD Connect sync: Understand and customize synchronization](/azure/active-directory/hybrid/how-to-connect-sync-whatis).
-1. **[Azure Active Directory Domain Services (Azure AD DS)](/azure/active-directory-domain-services/synchronization)** provides LDAP and Kerberos capabilities on Azure. When you first deploy Azure AD DS, an automatic one-way synchronization is configured and started in order to replicate the objects from Azure AD. This one-way synchronization continues to run in the background to keep the Azure AD DS managed domain up-to-date with any changes from Azure AD. No synchronization occurs from Azure AD DS back to Azure AD.
+1. The **[Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis)** tenant is synchronized with the on-premises Active Directory via Microsoft Entra Connect synchronization services. For more information, see [Microsoft Entra Connect Sync: Understand and customize synchronization](/azure/active-directory/hybrid/how-to-connect-sync-whatis).
+1. **[Microsoft Entra Domain Services (Microsoft Entra Domain Services)](/azure/active-directory-domain-services/synchronization)** provides LDAP and Kerberos capabilities on Azure. When you first deploy Microsoft Entra Domain Services, an automatic one-way synchronization is configured and started in order to replicate the objects from Microsoft Entra ID. This one-way synchronization continues to run in the background to keep the Microsoft Entra Domain Services managed domain up-to-date with any changes from Microsoft Entra ID. No synchronization occurs from Microsoft Entra Domain Services back to Microsoft Entra ID.
 1. Services such as **[Azure DNS](/azure/dns/private-dns-overview)**, **[Microsoft Defender for Cloud](/azure/security-center/security-center-introduction)**, and **[Azure Key Vault](/azure/key-vault/general/basic-concepts)** sit inside the management subscription and provide service/IP address resolution, unified infrastructure security management, and certificate and key management capabilities, respectively.
 1. **[Virtual Network Peering](/azure/virtual-network/virtual-network-peering-overview)** provides connectivity between virtual networks deployed in two subscriptions: management (hub) and workload (spoke).
 1. In line with enterprise-scale landing zones, workload subscriptions are used for hosting application workloads.
@@ -163,7 +163,7 @@ Other contributors:
 
 ### Azure product reference
 
-- [Azure Active Directory documentation](/azure/active-directory)
+- [Microsoft Entra documentation](/entra)
 - [Azure Cosmos DB documentation](/azure/cosmos-db)
 - [Azure Data Factory documentation](/azure/data-factory)
 - [Azure Databricks documentation](/azure/databricks)

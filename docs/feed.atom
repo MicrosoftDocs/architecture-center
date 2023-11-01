@@ -2,34 +2,122 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2023-08-21T16:09:57.735Z</updated>
+    <updated>2023-10-16T18:08:29.239Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
     <entry>
+        <title type="html"><![CDATA[Windows 365 Azure network connection]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/virtual-desktop/windows-365-azure-network-connection</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/virtual-desktop/windows-365-azure-network-connection"/>
+        <updated>2023-10-11T17:43:12.000Z</updated>
+        <summary type="html"><![CDATA[Learn how Windows 365 delivers highly optimized and personalized computing instances that are purpose built for each user's requirements.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Automotive connected fleets]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/industries/automotive/automotive-connected-fleets</id>
+        <link href="https://learn.microsoft.com/azure/architecture/industries/automotive/automotive-connected-fleets"/>
+        <updated>2023-10-09T16:33:33.000Z</updated>
+        <summary type="html"><![CDATA[Learn how the connected fleets reference architecture helps you build solutions to manage connected fleets, generate insights, and integrate fleet solutions.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Microsoft Entra security for AWS]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/aws/aws-azure-ad-security</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/aws/aws-azure-ad-security"/>
+        <updated>2023-10-10T17:06:58.000Z</updated>
+        <summary type="html"><![CDATA[Learn how Microsoft Entra ID can help secure and protect Amazon Web Services (AWS) identity management and account access. Discover Microsoft security solutions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Baseline architecture for an AKS cluster]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks"/>
+        <updated>2023-10-10T17:06:58.000Z</updated>
+        <summary type="html"><![CDATA[Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure VMware Solution networking]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/azure-vmware-solution-foundation-networking</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/azure-vmware-solution-foundation-networking"/>
+        <updated>2023-10-09T18:21:16.000Z</updated>
+        <summary type="html"><![CDATA[Get started with Azure VMware Solution foundation block networking. Understand what networking solution options exist and how to choose between them.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Extend mainframes to digital channels by using standards-based REST APIs]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/extend-mainframes-to-digital-channels-by-using-standards-based-rest-apis</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/extend-mainframes-to-digital-channels-by-using-standards-based-rest-apis"/>
+        <updated>2023-09-28T20:46:36.000Z</updated>
+        <summary type="html"><![CDATA[Learn how the digital transformation architecture extends mainframe applications to Azure without disruptions or modifications to the existing applications.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multitenancy and Azure OpenAI]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/openai</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/openai"/>
+        <updated>2023-09-21T22:09:34.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to deploy the Azure OpenAI models and work with the features associated with each model when you have a multitenant system.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Analyze call center recordings using text analytics for health and Azure OpenAI Service]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/healthcare/analyze-recordings-text-analytics-azure-openai</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/healthcare/analyze-recordings-text-analytics-azure-openai"/>
+        <updated>2023-09-19T17:08:40.000Z</updated>
+        <summary type="html"><![CDATA[Automate the transcription of healthcare-specific audio data and the process of serving that data to end users.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hybrid Cross-Cluster Scaling with Azure Arc for the workloads deployed on Azure Stack HCI]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/hybrid/hybrid-cross-cluster-scaling</id>
+        <link href="https://learn.microsoft.com/azure/architecture/hybrid/hybrid-cross-cluster-scaling"/>
+        <updated>2023-09-19T02:26:07.000Z</updated>
+        <summary type="html"><![CDATA[Perform cross-cluster scaling of on-premises workloads by using Azure Arc, Traffic Manager, or Front Door and then deploy by using Azure Pipelines.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Spring Apps baseline architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/web-apps/spring-apps/architectures/spring-apps-multi-zone</id>
+        <link href="https://learn.microsoft.com/azure/architecture/web-apps/spring-apps/architectures/spring-apps-multi-zone"/>
+        <updated>2023-09-26T17:43:29.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to deploy Azure Spring Apps instances in multiple zones for increased availability, resilience, and performance.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Integrate on-premises AD domains with Microsoft Entra ID]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/identity/azure-ad</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/identity/azure-ad"/>
+        <updated>2023-09-25T08:11:07.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to implement a secure hybrid network architecture that integrates on-premises Active Directory domains with Microsoft Entra ID.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Kubernetes monitoring and logging]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/monitoring</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/monitoring"/>
+        <updated>2023-09-22T18:52:03.000Z</updated>
+        <summary type="html"><![CDATA[Understand monitoring and logging for an Azure Kubernetes Service (AKS) cluster and workloads, and compare Amazon EKS and AKS monitoring and logging.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multitenancy and Application Insights]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/application-insights</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/application-insights"/>
+        <updated>2023-08-21T17:04:10.000Z</updated>
+        <summary type="html"><![CDATA[Learn about tenancy models that you can use with Application Insights and features that are useful when you use this service in multitenant systems.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Azure Health Data Services architecture guide]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/data/azure-health-data-services</id>
         <link href="https://learn.microsoft.com/azure/architecture/guide/data/azure-health-data-services"/>
         <updated>2023-08-08T21:38:16.000Z</updated>
         <summary type="html"><![CDATA[Deploy Azure Health Data Services on Azure to improve your ability to safeguard your organization's health data.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Video ingestion and object detection on the edge and in the cloud]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/video-ingestion-object-detection-edge-cloud</id>
-        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/video-ingestion-object-detection-edge-cloud"/>
-        <updated>2023-08-08T18:49:51.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to to use a mobile robot with a live streaming camera and object detection to implement various use cases.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Extract and analyze call center data by using Azure OpenAI Service, Speech services, and Language services]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/ai/call-center-openai-analytics</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/ai/call-center-openai-analytics"/>
-        <updated>2023-08-04T20:50:58.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to extract insights from customer conversations at a call center by using Azure AI services and Azure OpenAI Service.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -41,11 +129,19 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Microsoft SaaS stories]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/saas/case-studies/saas-stories</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/saas/case-studies/saas-stories"/>
+        <updated>2023-08-31T16:53:03.000Z</updated>
+        <summary type="html"><![CDATA[Collection of insightful interviews featuring Microsoft partners who have embarked on their unique software as a service (SaaS) journey.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Deploy Azure landing zones]]></title>
         <id>https://learn.microsoft.com/azure/architecture/landing-zones/landing-zone-deploy</id>
         <link href="https://learn.microsoft.com/azure/architecture/landing-zones/landing-zone-deploy"/>
         <updated>2023-08-21T14:43:45.000Z</updated>
-        <summary type="html"><![CDATA[Deployment options for platform and application landing zones in Azure.]]></summary>
+        <summary type="html"><![CDATA[Learn about the deployment options for platform and application landing zones in Azure.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -222,366 +318,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway"/>
         <updated>2023-07-06T15:00:47.000Z</updated>
         <summary type="html"><![CDATA[Learn how to build an Azure system that serves web and non-web workloads with resilient multi-tier applications in multiple Azure regions.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Azure Spring Apps (ASA) architecture design]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/web-apps/spring-apps</id>
-        <link href="https://learn.microsoft.com/azure/architecture/web-apps/spring-apps"/>
-        <updated>2023-06-09T02:54:33.000Z</updated>
-        <summary type="html"><![CDATA[Get started on your Azure Spring Apps journey by reviewing guidance ranging from &quot;just starting out&quot; to production.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[WordPress on App Service]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/infrastructure/wordpress-app-service</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/infrastructure/wordpress-app-service"/>
-        <updated>2023-06-30T16:55:03.000Z</updated>
-        <summary type="html"><![CDATA[Use Azure Front Door, Azure App Service, and other Azure services to deploy a highly scalable and secure installation of WordPress.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[WordPress on Azure Kubernetes Service]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/infrastructure/wordpress-container</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/infrastructure/wordpress-container"/>
-        <updated>2023-06-30T16:55:03.000Z</updated>
-        <summary type="html"><![CDATA[Use Azure Kubernetes Service (AKS) to deploy a highly scalable and secure installation of WordPress that's a good fit for large, storage-intensive applications.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[WordPress on virtual machines]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/infrastructure/wordpress-iaas</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/infrastructure/wordpress-iaas"/>
-        <updated>2023-06-30T16:55:03.000Z</updated>
-        <summary type="html"><![CDATA[Use Azure Front Door, Azure Virtual Machine Scale Sets, and other Azure services to deploy a highly scalable and secure installation of WordPress.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[WordPress on Azure]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/infrastructure/wordpress-overview</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/infrastructure/wordpress-overview"/>
-        <updated>2023-06-30T16:55:03.000Z</updated>
-        <summary type="html"><![CDATA[Learn about multiple options for hosting WordPress on Azure. See guidance and tips for deploying a secure, scalable, and cost-effective WordPress installation.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy web apps by using zone-redundant Azure Red Hat OpenShift]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aro/ha-zr-aro</id>
-        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aro/ha-zr-aro"/>
-        <updated>2023-06-29T15:50:42.000Z</updated>
-        <summary type="html"><![CDATA[Run an application on Azure Red Hat OpenShift in a zone-redundant configuration to achieve high availability.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Monitor a distributed system by using Application Insights and OpenCensus]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/devops/monitor-with-opencensus-application-insights</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/devops/monitor-with-opencensus-application-insights"/>
-        <updated>2023-06-20T21:37:39.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to monitor an end-to-end distributed system by using OpenCensus for Python and Application Insights.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy Autodesk Maya on a virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/autodesk-maya</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/autodesk-maya"/>
-        <updated>2023-06-20T18:00:29.000Z</updated>
-        <summary type="html"><![CDATA[See how Autodesk Maya performs on an Azure virtual machine. Maya provides 3D animation, modeling, simulation, and rendering capabilities.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Offline audio dubbing]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/media/offline-audio-dubbing</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/media/offline-audio-dubbing"/>
-        <updated>2023-06-20T16:09:16.000Z</updated>
-        <summary type="html"><![CDATA[Use Azure Cognitive Services AI tools to automate the offline dubbing process and ensure a high-quality dubbed version of original input.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy LAMMPS on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/hpc-lammps</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/hpc-lammps"/>
-        <updated>2023-06-14T16:44:29.000Z</updated>
-        <summary type="html"><![CDATA[Learn how LAMMPS classical molecular dynamics software performs on single-node and multi-node Azure virtual machine configurations.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Build language model pipelines with memory]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/ai/language-model-pipelines</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/ai/language-model-pipelines"/>
-        <updated>2023-06-13T18:34:44.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to use an AI/ML pipeline, LangChain, and language models to create an analysis of how your product compares to competitor's similar products.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Implement Azure DevOps for mainframe applications that use IBM Z and Cloud Modernization Stack]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/devops-mainframe-ibm-z</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/devops-mainframe-ibm-z"/>
-        <updated>2023-06-12T17:02:55.000Z</updated>
-        <summary type="html"><![CDATA[Implement Azure DevOps for z/OS mainframe applications that use IBM Z and Cloud Modernization Stack.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Siemens Teamcenter baseline architecture on Azure]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/manufacturing/teamcenter-baseline</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/manufacturing/teamcenter-baseline"/>
-        <updated>2023-06-09T21:20:50.000Z</updated>
-        <summary type="html"><![CDATA[Learn about the Siemens Teamcenter product lifecycle management (PLM) solution architecture on Azure.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[DataOps for autonomous vehicle operations]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/automotive/autonomous-vehicle-operations-dataops</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/automotive/autonomous-vehicle-operations-dataops"/>
-        <updated>2023-06-08T16:46:50.000Z</updated>
-        <summary type="html"><![CDATA[Use Azure services to build an offline data operations and data management (DataOps) solution for an automated driving system.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Use Teamcenter PLM with Azure NetApp Files]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/manufacturing/teamcenter-plm-netapp-files</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/manufacturing/teamcenter-plm-netapp-files"/>
-        <updated>2023-06-06T19:59:26.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to use Azure NetApp Files as a storage solution for Siemens Teamcenter product lifecycle management (PLM).]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Carrier-grade voicemail solution on Azure]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/industries/telecommunications/carrier-grade</id>
-        <link href="https://learn.microsoft.com/azure/architecture/industries/telecommunications/carrier-grade"/>
-        <updated>2023-06-05T18:38:47.000Z</updated>
-        <summary type="html"><![CDATA[An example of a carrier-grade solution design that focuses on highly reliability using Azure services.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy Altair EDEM on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/altair-edem</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/altair-edem"/>
-        <updated>2023-06-26T17:58:54.000Z</updated>
-        <summary type="html"><![CDATA[Learn how Altair EDEM discrete element method (DEM) software performs on an Azure virtual machine (VM).]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy Samadii Plasma on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/plasma</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/plasma"/>
-        <updated>2023-06-26T17:58:54.000Z</updated>
-        <summary type="html"><![CDATA[Find out how the Samadii Plasma particle-based application performs on an Azure virtual machine (VM).]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy Samadii DEM on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/samadii-dem</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/samadii-dem"/>
-        <updated>2023-06-26T17:58:54.000Z</updated>
-        <summary type="html"><![CDATA[Find out how Samadii DEM, a discrete element method solver, performs on an Azure virtual machine (VM).]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy Samadii SCIV on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/samadii-sciv</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/samadii-sciv"/>
-        <updated>2023-06-26T17:58:54.000Z</updated>
-        <summary type="html"><![CDATA[Find out how Samadii SCIV (Statistical Contact in Vacuum) performs on an Azure virtual machine (VM).]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Implement TIC 3.0 compliance]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/security/trusted-internet-connections</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/security/trusted-internet-connections"/>
-        <updated>2023-06-09T17:25:48.000Z</updated>
-        <summary type="html"><![CDATA[Implement Trusted Internet Connection (TIC) 3.0 compliance for your internet-facing Azure applications and services, and improve the user experience.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[DR for Azure Data Platform - Overview]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-overview</id>
-        <link href="https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-overview"/>
-        <updated>2023-06-09T03:17:24.000Z</updated>
-        <summary type="html"><![CDATA[First article in a series covering disaster recovery for an Azure data platform]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[DR for Azure Data Platform - Scenario details]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details</id>
-        <link href="https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details"/>
-        <updated>2023-06-09T03:17:24.000Z</updated>
-        <summary type="html"><![CDATA[Third article in a series covering disaster recovery for an Azure data platform]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Model loan credit risk and default probability]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/ai/loan-credit-risk-analyzer-default-modeling</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/ai/loan-credit-risk-analyzer-default-modeling"/>
-        <updated>2023-05-12T21:17:31.000Z</updated>
-        <summary type="html"><![CDATA[Use Azure Machine Learning, Azure Synapse Analytics, App Service, and Power BI to model loan credit risk and default probability.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Types of decision APIs and Applied AI Services]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/data-guide/cognitive-services/decision-applied-ai</id>
-        <link href="https://learn.microsoft.com/azure/architecture/data-guide/cognitive-services/decision-applied-ai"/>
-        <updated>2023-05-31T16:13:30.000Z</updated>
-        <summary type="html"><![CDATA[Learn about Cognitive Services Decision APIs, which can help you make recommendations for decision-making, and Applied AI Services, which provides NLP features.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Types of language API services]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/data-guide/cognitive-services/language-api</id>
-        <link href="https://learn.microsoft.com/azure/architecture/data-guide/cognitive-services/language-api"/>
-        <updated>2023-05-31T16:13:30.000Z</updated>
-        <summary type="html"><![CDATA[Learn about using Azure Cognitive Service for Language to understand and analyze text. Learn which service to use for a specific use case.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Types of speech API services]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/data-guide/cognitive-services/speech-api</id>
-        <link href="https://learn.microsoft.com/azure/architecture/data-guide/cognitive-services/speech-api"/>
-        <updated>2023-05-31T16:13:30.000Z</updated>
-        <summary type="html"><![CDATA[Learn about the Azure Cognitive Services Speech service, which provides speech-to-text and text-to-speech capabilities.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Types of vision API services]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/data-guide/cognitive-services/vision-api</id>
-        <link href="https://learn.microsoft.com/azure/architecture/data-guide/cognitive-services/vision-api"/>
-        <updated>2023-05-31T16:13:30.000Z</updated>
-        <summary type="html"><![CDATA[Learn about using Cognitive Service for Vision to understand and analyze images and video. Learn which service to use for a specific use case.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Running Windows containers on AKS]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/windows-containers-on-aks</id>
-        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/windows-containers-on-aks"/>
-        <updated>2023-05-30T22:08:16.000Z</updated>
-        <summary type="html"><![CDATA[Supplementary article to the AKS Baseline reference architecture providing guidance on running Windows containers on AKS]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Contextualize data by using graph in SQL Database]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/data/data-contextualization-based-on-azure-sql-graph</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/data/data-contextualization-based-on-azure-sql-graph"/>
-        <updated>2023-05-22T21:51:06.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to contextualize data by looking up context that's stored in a graph database in SQL Database.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Microsoft SaaS stories]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/saas/case-studies/saas-stories</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/saas/case-studies/saas-stories"/>
-        <updated>2023-05-17T17:39:52.000Z</updated>
-        <summary type="html"><![CDATA[Collection of insightful interviews featuring Microsoft partners who have embarked on their unique software as a service (SaaS) journey.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy Revit on an Azure virtual machine]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/hpc-autodesk-revit</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/hpc-autodesk-revit"/>
-        <updated>2023-05-15T22:28:44.000Z</updated>
-        <summary type="html"><![CDATA[Learn how Autodesk Revit building information modeling software performs on an Azure virtual machine.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy and operate apps with AKS hybrid on Azure Stack HCI or Windows Server]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/aks-hybrid-stack-hci</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/aks-hybrid-stack-hci"/>
-        <updated>2023-05-10T22:26:14.000Z</updated>
-        <summary type="html"><![CDATA[Build an app deployment pipeline for containerized apps on AKS hybrid that are running on Azure Stack HCI or Windows Server.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Massive-scale VWAN architecture design]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/networking/massive-scale-azure-architecture</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/networking/massive-scale-azure-architecture"/>
-        <updated>2023-05-09T22:15:14.000Z</updated>
-        <summary type="html"><![CDATA[Learn about the architecture for a massive-scale Azure Virtual WAN deployment that has multiple hubs per region.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Conversation summarization]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/ai/conversation-summarization</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/ai/conversation-summarization"/>
-        <updated>2023-05-09T19:19:45.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to generate summaries of customer–agent interactions by using the Azure OpenAI GPT-3 model.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Integrate Teradata VantageCloud Enterprise with Azure Data Factory]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/data/teradata-vantage-data-factory</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/data/teradata-vantage-data-factory"/>
-        <updated>2023-05-05T18:19:11.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to use Teradata VantageCloud Enterprise together with Azure Data Factory to develop data integration pipelines.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Implement logging and monitoring for Azure OpenAI large language models]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/ai/log-monitor-azure-openai</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/ai/log-monitor-azure-openai"/>
-        <updated>2023-05-02T22:19:10.000Z</updated>
-        <summary type="html"><![CDATA[Implement comprehensive logging and monitoring and enhanced security for Azure OpenAI Service large language models.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Choose a cognitive services technology]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/cognitive-services</id>
-        <link href="https://learn.microsoft.com/azure/architecture/data-guide/technology-choices/cognitive-services"/>
-        <updated>2023-05-31T16:13:30.000Z</updated>
-        <summary type="html"><![CDATA[Learn about Azure cognitive services that you can use in AI applications and data flows. Choose the appropriate service for your use case.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Baseline architecture for an AKS cluster]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks</id>
-        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks"/>
-        <updated>2023-05-30T22:08:16.000Z</updated>
-        <summary type="html"><![CDATA[Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Send Databricks app logs to Azure Monitor]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/databricks-monitoring/application-logs</id>
-        <link href="https://learn.microsoft.com/azure/architecture/databricks-monitoring/application-logs"/>
-        <updated>2023-05-25T16:44:31.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to send application logs and metrics from Azure Databricks to a Log Analytics workspace using the Azure Databricks Monitoring Library.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Dashboards to visualize Azure Databricks metrics]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/databricks-monitoring/dashboards</id>
-        <link href="https://learn.microsoft.com/azure/architecture/databricks-monitoring/dashboards"/>
-        <updated>2023-05-25T16:44:31.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to set up a Grafana dashboard to monitor performance of Azure Databricks jobs. Azure Databricks is an Apache Spark-based analytics service.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Observability patterns and metrics]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/databricks-monitoring/databricks-observability</id>
-        <link href="https://learn.microsoft.com/azure/architecture/databricks-monitoring/databricks-observability"/>
-        <updated>2023-05-25T16:44:31.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to use observability patterns and metrics to improve the processing performance of a big data system using Azure Databricks.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Troubleshoot Databricks performance issues]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/databricks-monitoring/performance-troubleshooting</id>
-        <link href="https://learn.microsoft.com/azure/architecture/databricks-monitoring/performance-troubleshooting"/>
-        <updated>2023-05-25T16:44:31.000Z</updated>
-        <summary type="html"><![CDATA[Use Grafana monitoring dashboards to troubleshoot performance bottlenecks in Apache Spark jobs on Azure Databricks.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy SAS Grid 9.4 on Azure NetApp Files]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/netapp-files-sas</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/netapp-files-sas"/>
-        <updated>2023-05-18T16:28:45.000Z</updated>
-        <summary type="html"><![CDATA[Learn about running SAS Grid 9.4 on Azure, using Azure NetApp Files for SASDATA storage, and about storage options for SASWORK.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[AKS triage - cluster health]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-cluster-health</id>
-        <link href="https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-cluster-health"/>
-        <updated>2023-05-01T18:45:55.000Z</updated>
-        <summary type="html"><![CDATA[Learn to check the overall health of an Azure Kubernetes Service (AKS) cluster, as part of a triage step for AKS clusters.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
 </feed>

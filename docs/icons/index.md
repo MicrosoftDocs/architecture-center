@@ -5,7 +5,7 @@ description: Icons for use in building architecture diagrams for Azure
 author: Zimmergren
 ms.author: tozimmergren
 ms.reviewer: tozimmergren
-ms.date: 06/29/2023
+ms.date: 08/28/2023
 ms.service: architecture-center
 azureCategories: developer-tools
 categories: developer-tools
@@ -41,6 +41,7 @@ Helping our customers design and architect new solutions is core to the Azure Ar
 
 |Month|Change description|
 |--------------|--------------|
+|August 2023|Added new Microsoft Entra ID icon. Reorganized folder structure of some icons.|
 |June 2023|General updates.|
 |April 2023|Added 24  Microsoft Defender for IoT icons.|
 |March 2023|Added 13 icons for various services and components.|
@@ -58,7 +59,7 @@ I agree to the above terms.
 </div>
 
  > [!div class="button"]
- > [Download SVG icons](https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V15.zip)
+ > [Download SVG icons](https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V17.zip)
 
 ## More icon sets from Microsoft
 

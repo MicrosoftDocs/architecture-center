@@ -24,7 +24,7 @@ The key concepts in this series of articles are *SaaS*, *startups*, and *multite
 
 **Startups are businesses in an early stage of their lifecycle.** Many software startups build SaaS solutions, but some might provide software in other ways instead. Startups often have specific concerns, including rapid innovation, finding a product and market fit, and anticipating scale and growth.
 
-**Multitenancy is a way of architecting a solution to share components between multiple customers, or *tenants.** Multitenant architectures are frequently used in SaaS solutions, but there are also some places where they're used outside of SaaS, such as in enterprises who build a platform for multiple business units to share. Multitenancy doesn't imply that every component in a solution is shared. Rather, it implies that at least *some* components of a solution are reused across multiple tenants.
+**Multitenancy is a way of architecting a solution to share components between multiple customers, or *tenants*.** Multitenant architectures are frequently used in SaaS solutions, but there are also some places where they're used outside of SaaS, such as in enterprises who build a platform for multiple business units to share. Multitenancy doesn't imply that every component in a solution is shared. Rather, it implies that at least *some* components of a solution are reused across multiple tenants.
 
 ## Next steps
 
