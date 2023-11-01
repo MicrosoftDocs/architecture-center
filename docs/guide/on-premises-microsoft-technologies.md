@@ -93,16 +93,11 @@ For information about solutions in which Azure services integrate with the other
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Back up files and apps on Azure Stack Hub](../hybrid/azure-stack-backup.yml) |Learn about an optimized approach to backing up and restoring files and applications of VM-based user workloads that are hosted on Azure Stack Hub. Includes backup and restore of SQL Server instances and their databases.|Hybrid|
-|[Campaign optimization with SQL Server](../solution-ideas/articles/campaign-optimization-with-sql-server.yml)|Use machine learning and SQL Server 2016 with R Services to optimize when and how to contact potential customers to improve success rates for marketing campaigns.| Databases|
 |[Data integration with Logic Apps and SQL Server](../example-scenario/integration/logic-apps-data-integration.yml) |Automate data integration tasks by using Azure Logic Apps. Configure API calls to trigger tasks like storing data in an on-premises SQL Server database.|Integration|
 |[Disaster recovery for Azure Stack Hub VMs](../hybrid/azure-stack-vm-disaster-recovery.yml) |Learn about an optimized approach to disaster recovery of VM-based user workloads that are hosted on Azure Stack Hub. Includes information about disaster recovery for SQL Server workloads.|Hybrid|
 |[Enterprise business intelligence](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse) |Learn how to implement an ELT pipeline that moves data from an on-premises SQL Server database into Azure Synapse Analytics and transforms the data for analysis.|Integration|
-|[Hybrid ETL with Azure Data Factory](../example-scenario/data/hybrid-etl-with-adf.yml) |Use Azure Data Factory to create a hybrid ETL for existing on-premises SQL Server Integration Services (SSIS) deployments.|Databases|
 |[Hybrid SharePoint farm with Microsoft 365](../solution-ideas/articles/sharepoint-farm-microsoft-365.yml) |Deliver highly available intranet capability and share hybrid workloads with Microsoft 365 by using SharePoint servers, Microsoft Entra ID, and SQL Server.|Hybrid|
-|[IaaS: Web app with relational database](../high-availability/ref-arch-iaas-web-and-db.yml) |Learn best practices for applying availability zones to a web application and SQL Server database that are hosted on VMs.|Databases|
-|[Loan chargeoff prediction with SQL Server](../solution-ideas/articles/loan-chargeoff-prediction-with-sql-server.yml) |Build and deploy a machine learning model that uses SQL Server 2016 with R Services to predict whether a bank loan needs to be charged off soon.|Databases|
 |[Loan credit risk and default modeling](../example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml) |Learn how SQL Server 2016 with R Services can help lenders issue fewer unprofitable loans by predicting borrower credit risk and default probability.|Databases|
-|[Loan credit risk with SQL Server](../solution-ideas/articles/loan-credit-risk-with-sql-server.yml) |Learn how lending institutions can use the predictive analytics of SQL Server 2016 with R Services to reduce the number of loans to borrowers who are most likely to default.|Databases|
 |[Mainframe access to Azure databases](../solution-ideas/articles/mainframe-access-azure-databases.yml) |Give mainframe applications access to Azure data without changing code. Use Microsoft Service for DRDA to run Db2 SQL statements on a SQL Server database.|Mainframe|
 |[Manage data across your Azure SQL estate with Azure Purview](../solution-ideas/articles/azure-purview-sql-estate-architecture.yml) |Improve your organization's governance process by using Azure Purview in your Azure SQL estate.|Analytics|
 |[Micro Focus Enterprise Server on Azure VMs](../example-scenario/mainframe/micro-focus-server.yml)|Optimize, modernize, and streamline IBM z/OS mainframe applications by using Micro Focus Enterprise Server 6.0 on Azure VMs. This solution uses a SQL Server IaaS database in an Always On cluster.| Mainframe|
@@ -115,7 +110,6 @@ For information about solutions in which Azure services integrate with the other
 |[SQL Server 2008 R2 failover cluster on Azure](../example-scenario/sql-failover/sql-failover-2008r2.yml) |Learn how to rehost SQL Server 2008 R2 failover clusters on Azure virtual machines. |Databases|
 |[SQL Server on Azure Virtual Machines with Azure NetApp Files](../example-scenario/file-storage/sql-server-azure-netapp-files.yml) |Implement a high-bandwidth, low-latency solution for SQL Server workloads. Use Azure NetApp Files for enterprise-scale performance and reduced costs.|Storage|
 |[Web app private connectivity to Azure SQL Database](../example-scenario/private-web-app/private-web-app.yml) |Lock down access to an Azure SQL database with Azure Private Link connectivity from a multitenant web app.|Web|
-|[Windows N-tier application on Azure](../reference-architectures/n-tier/n-tier-sql-server.yml) |Implement a multitier architecture on Azure for availability, security, scalability, and manageability. SQL Server provides the data tier.|Databases|
 
 [Browse all our SQL Server solutions](/azure/architecture/browse/?products=sql-server).
 
@@ -132,7 +126,6 @@ For information about solutions in which Azure services integrate with the other
 |[Run a highly available SharePoint Server 2016 farm on Azure](../reference-architectures/sharepoint/index.yml) |Learn proven practices for deploying a highly available SharePoint Server farm on Azure. Windows Server Active Directory domain controllers run in the virtual network and have a trust relationship with the on-premises Windows Server Active Directory forest.|Management|
 |[Run SAP NetWeaver in Windows on Azure](/azure/architecture/guide/sap/sap-netweaver)|Learn proven practices for running SAP NetWeaver in a Windows environment on Azure.|SAP|
 |[SQL Server 2008 R2 failover cluster on Azure](../example-scenario/sql-failover/sql-failover-2008r2.yml) |Learn how to rehost SQL Server 2008 R2 failover clusters on Azure virtual machines. Use the Azure shared disks feature and a Windows Server 2008 R2 failover cluster to replicate your on-premises deployment on Azure.|Databases|
-|[Windows N-tier application on Azure](../reference-architectures/n-tier/n-tier-sql-server.yml) |Implement a multitier architecture on Azure for availability, security, scalability, and manageability.|Databases|
 
 ## Related resources
 

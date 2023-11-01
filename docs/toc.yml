@@ -63,8 +63,6 @@ items:
       href: guide/design-principles/managed-services.md
     - name: Use an identity service
       href: guide/design-principles/identity.md
-    - name: Use the best data store
-      href: /azure/architecture/guide/design-principles/use-best-data-store
     - name: Design for evolution
       href: guide/design-principles/design-for-evolution.md
     - name: Build for the needs of business
@@ -185,8 +183,6 @@ items:
           href: data-guide/relational-data/online-analytical-processing.yml
         - name: OLTP solutions
           href: data-guide/relational-data/online-transaction-processing.md
-        - name: Data warehousing
-          href: data-guide/relational-data/data-warehousing.yml
         - name: Data lakes
           href: data-guide/scenarios/data-lake.md
         - name: Non-relational data store
@@ -389,6 +385,8 @@ items:
         items:
         - name: Microsoft SaaS stories
           href: guide/saas/case-studies/saas-stories.md
+        - name: Dynamics 365
+          href: guide/saas/case-studies/dynamics-365-journey-saas.md
       - name: Resources
         items:
         - name: SaaS starter web app reference architecture
@@ -594,8 +592,6 @@ items:
         href: solutions/microsoft-365-scenarios.md
       - name: All Microsoft 365 architectures
         href: /azure/architecture/browse/?products=m365
-      - name: Extend Project Online reporting
-        href: example-scenario/data/extend-reporting-capabilities.yml
       - name: Governance of Teams guest users
         href: example-scenario/governance/governance-teams-guest-users.yml
       - name: Hybrid SharePoint farm with Microsoft 365
@@ -1003,6 +999,8 @@ items:
           href: databricks-monitoring/dashboards.md
         - name: Troubleshoot performance bottlenecks
           href: databricks-monitoring/performance-troubleshooting.md
+        - name: Observability patterns and metrics
+          href: databricks-monitoring/databricks-observability.yml          
     - name: Architectures
       items:
       - name: Analytics end to end
@@ -1113,6 +1111,8 @@ items:
         href: solution-ideas/articles/cloud-scale-analytics-with-discovery-hub.yml
       - name: Enhanced customer dimension
         href: solution-ideas/articles/customer-insights-synapse.yml
+      - name: Enterprise data warehouse
+        href: solution-ideas/articles/enterprise-data-warehouse.yml        
       - name: ETL using HDInsight
         href: solution-ideas/articles/extract-transform-and-load-using-hdinsight.yml
       - name: Highly scalable customer service and ERP
@@ -1530,354 +1530,7 @@ items:
         - name: Microservices with Dapr and KEDA
           href: example-scenario/serverless/microservices-with-container-apps-dapr.yml        
   - name: Databases
-    items:
-    - name: Get started
-      href: data-guide/databases-architecture-design.yml
-    - name: Guides
-      items:
-      - name: Overview
-        href: data-guide/index.md
-      - name: Relational data
-        items:
-        - name: Extract, transform, and load (ETL)
-          href: data-guide/relational-data/etl.yml
-        - name: Online analytical processing (OLAP)
-          href: data-guide/relational-data/online-analytical-processing.yml
-        - name: Online transaction processing (OLTP)
-          href: data-guide/relational-data/online-transaction-processing.md
-        - name: Data warehousing
-          href: data-guide/relational-data/data-warehousing.yml
-      - name: Non-relational data
-        items:
-        - name: Non-relational data stores
-          href: data-guide/big-data/non-relational-data.yml
-        - name: Free-form text search
-          href: data-guide/scenarios/search.yml
-        - name: Time series data
-          href: data-guide/scenarios/time-series.yml
-        - name: Working with CSV and JSON files
-          href: data-guide/scenarios/csv-and-json.md
-      - name: Big data
-        items:
-        - name: Big data architectures
-          href: data-guide/big-data/index.yml
-        - name: Batch processing
-          href: data-guide/big-data/batch-processing.yml
-        - name: Real-time processing
-          href: data-guide/big-data/real-time-processing.yml
-        - name: VantageCloud integration with Azure Data Factory
-          href: guide/data/teradata-vantage-data-factory.yml
-      - name: Technology choices
-        items:
-        - name: Analytical data stores
-          href: data-guide/technology-choices/analytical-data-stores.md
-        - name: Analytics and reporting
-          href: data-guide/technology-choices/analysis-visualizations-reporting.md
-        - name: Batch processing
-          href: data-guide/technology-choices/batch-processing.md
-        - name: Data lakes
-          href: data-guide/scenarios/data-lake.md
-        - name: Data storage
-          href: data-guide/technology-choices/data-storage.md
-        - name: Choose a data store
-          items:
-          - name: Understand data store models
-            href: guide/technology-choices/data-store-overview.md
-          - name: Select a data store
-            href: guide/technology-choices/data-store-decision-tree.md
-          - name: Criteria for choosing a data store
-            href: guide/technology-choices/data-store-considerations.md
-        - name: Interactive data exploration
-          href: data-guide/scenarios/interactive-data-exploration.md
-        - name: Pipeline orchestration
-          href: data-guide/technology-choices/pipeline-orchestration-data-movement.md
-        - name: Real-time message ingestion
-          href: data-guide/technology-choices/real-time-ingestion.md
-        - name: Search data stores
-          href: data-guide/technology-choices/search-options.md
-        - name: Stream processing
-          href: data-guide/technology-choices/stream-processing.md
-      - name: Database scenarios
-        items:
-        - name: Build a scalable system for massive data
-          href: data-guide/scenarios/build-scalable-database-solutions-azure-services.md
-        - name: Use the best data store
-          href: guide/design-principles/use-best-data-store.md
-        - name: Use the Transactional Outbox pattern
-          href: best-practices/transactional-outbox-cosmos.yml
-        - name: Transfer data to and from Azure
-          href: data-guide/scenarios/data-transfer.md
-        - name: Extend on-premises data solutions to Azure
-          href: data-guide/scenarios/hybrid-on-premises-and-cloud.md
-        - name: Secure data solutions
-          href: data-guide/scenarios/securing-data-solutions.md
-        - name: Database security checklist
-          href: /azure/security/fundamentals/database-security-checklist
-          maintainContext: true
-        - name: High availability for SQL DB and SQL MI
-          href: /azure/azure-sql/database/high-availability-sla
-          maintainContext: true
-      - name: Data management patterns
-        href: patterns/category/data-management.md
-      - name: Industry guidance
-        items:
-        - name: Data management in banking
-          href: industries/finance/data-management-banking-overview.yml
-        - name: Data management in retail
-          href: industries/retail/retail-data-management-overview.md
-        - name: Financial institutions with data mesh
-          href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-scenario
-          maintainContext: true
-        - name: Healthcare with highly sensitive data
-          href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/reference-architecture-lamna
-          maintainContext: true
-        - name: Visual search for retail
-          href: industries/retail/visual-search-use-case-overview.yml
-      - name: Data use cases
-        items:
-        - name: 'Adatum: single landing zone'
-          href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/reference-architecture-adatum
-          maintainContext: true
-        - name: 'Relecloud: multiple landing zones'
-          href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/reference-architecture-relecloud
-          maintainContext: true
-      - name: Tenancy models for SaaS apps
-        items:
-        - name: Overview
-          href: isv/application-tenancy.yml
-        - name: Multitenant SaaS database patterns
-          href: /azure/azure-sql/database/saas-tenancy-app-design-patterns
-          maintainContext: true
-      - name: Azure Cosmos DB guidance
-        items:
-        - name: Azure Cosmos DB resource model
-          href: /azure/cosmos-db/account-databases-containers-items
-          maintainContext: true
-        - name: Global distribution
-          items:
-          - name: Distribute data globally
-            href: /azure/cosmos-db/distribute-data-globally
-            maintainContext: true
-          - name: Consistency levels in Azure Cosmos DB
-            href: /azure/cosmos-db/consistency-levels
-            maintainContext: true
-          - name: High availability with Azure Cosmos DB
-            href: /azure/cosmos-db/high-availability
-            maintainContext: true
-          - name: Global distribution functional details
-            href: /azure/cosmos-db/global-dist-under-the-hood
-            maintainContext: true
-        - name: Partitioning and horizontal scaling
-          href: /azure/cosmos-db/partitioning-overview
-          maintainContext: true
-        - name: Capacity
-          items:
-          - name: Request units in Azure Cosmos DB
-            href: /azure/cosmos-db/request-units
-            maintainContext: true
-          - name: Provisioned throughput
-            href: /azure/cosmos-db/set-throughput
-            maintainContext: true
-          - name: Autoscale throughput
-            href: /azure/cosmos-db/provision-throughput-autoscale
-            maintainContext: true
-          - name: Serverless in Azure Cosmos DB
-            href: /azure/cosmos-db/serverless
-            maintainContext: true
-          - name: Autoscale and standard throughput
-            href: /azure/cosmos-db/how-to-choose-offer
-            maintainContext: true
-          - name: Provisioned and serverless throughput
-            href: /azure/cosmos-db/throughput-serverless
-            maintainContext: true
-          - name: Scaling provisioned throughput
-            href: /azure/cosmos-db/scaling-provisioned-throughput-best-practices
-            maintainContext: true
-        - name: Security
-          items:
-          - name: Security in Azure Cosmos DB
-            href: /azure/cosmos-db/database-security
-            maintainContext: true
-          - name: Data encryption
-            href: /azure/cosmos-db/database-encryption-at-rest
-            maintainContext: true
-          - name: Role-based access control
-            href: /azure/cosmos-db/role-based-access-control
-            maintainContext: true
-          - name: Azure Policy support
-            href: /azure/cosmos-db/policy
-            maintainContext: true
-          - name: Azure Policy Regulatory Compliance
-            href: /azure/cosmos-db/security-controls-policy
-            maintainContext: true
-          - name: Security baseline for Azure Cosmos DB
-            href: /security/benchmark/azure/baselines/cosmos-db-security-baseline
-            maintainContext: true
-        - name: Backup
-          items:
-          - name: Backup and restore in Azure Cosmos DB
-            href: /azure/cosmos-db/continuous-backup-restore-introduction
-            maintainContext: true
-          - name: Continuous backup in Azure Cosmos DB
-            href: /azure/cosmos-db/continuous-backup-restore-introduction
-            maintainContext: true
-        - name: Cost optimization
-          items:
-          - name: Plan and manage costs
-            href: /azure/cosmos-db/plan-manage-costs
-            maintainContext: true
-          - name: Pricing model
-            href: /azure/cosmos-db/how-pricing-works
-            maintainContext: true
-          - name: Total cost of ownership (TCO)
-            href: /azure/cosmos-db/total-cost-ownership
-            maintainContext: true
-          - name: Understand your bill
-            href: /azure/cosmos-db/understand-your-bill
-            maintainContext: true
-          - name: Optimize provisioned throughput cost
-            href: /azure/cosmos-db/optimize-cost-throughput
-            maintainContext: true
-          - name: Optimize request cost
-            href: /azure/cosmos-db/optimize-cost-reads-writes
-            maintainContext: true
-          - name: Optimize storage cost
-            href: /azure/cosmos-db/optimize-cost-storage
-            maintainContext: true
-          - name: Optimize multi-region cost
-            href: /azure/cosmos-db/optimize-cost-regions
-            maintainContext: true
-          - name: Optimize development/testing cost
-            href: /azure/cosmos-db/optimize-dev-test
-            maintainContext: true
-          - name: Optimize cost with reserved capacity
-            href: /azure/cosmos-db/cosmos-db-reserved-capacity
-            maintainContext: true
-          - name: Optimize with rate limiting
-            href: /azure/cosmos-db/rate-limiting-requests
-            maintainContext: true
-        - name: Change feed in Azure Cosmos DB
-          href: /azure/cosmos-db/change-feed
-          maintainContext: true
-        - name: Built-in Jupyter Notebooks support
-          href: /azure/cosmos-db/cosmosdb-jupyter-notebooks
-          maintainContext: true
-        - name: Service quotas
-          href: /azure/cosmos-db/concepts-limits
-          maintainContext: true
-      - name: Run Apache Cassandra
-        href: best-practices/cassandra.md
-    - name: Architectures
-      items:
-      - name: Azure health data consortium
-        href: example-scenario/data/azure-health-data-consortium.yml
-      - name: Build a delta lake for ad hoc queries
-        href: solution-ideas/articles/build-data-lake-support-adhoc-queries-online.yml
-      - name: Cost savings through HTAP with Azure SQL
-        href: example-scenario/data/azure-sql-htap.yml
-      - name: Data governance with Profisee
-        href: reference-architectures/data/profisee-master-data-management-purview.yml
-      - name: Data obfuscation with Delphix
-        href: example-scenario/ai/data-obfuscation-with-delphix-in-azure-data-factory.yml
-      - name: Data scrambling for SAP with Delphix
-        href: example-scenario/ai/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml
-      - name: DataOps for modern data warehouse
-        href: example-scenario/data-warehouse/dataops-mdw.yml
-      - name: Extend Project Online reporting
-        href: example-scenario/data/extend-reporting-capabilities.yml
-      - name: Globally distributed apps with Cosmos DB
-        href: solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db.yml
-      - name: Hybrid ETL with Azure Data Factory
-        href: example-scenario/data/hybrid-etl-with-adf.yml
-      - name: 'IaaS: Web app with relational database'
-        href: high-availability/ref-arch-iaas-web-and-db.yml
-      - name: Loan credit risk modeling
-        href: example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml
-      - name: Master data management with CluedIn
-        href: reference-architectures/data/cluedin.yml
-      - name: Master data management with Profisee
-        href: reference-architectures/data/profisee-master-data-management-data-factory.yml
-      - name: Migrate master data services with CluedIn
-        href: reference-architectures/data/migrate-master-data-services-with-cluedin.yml
-      - name: Migrate master data services with Profisee
-        href: example-scenario/profisee-mds/profisee-mds-migration-utility.yml
-      - name: Minimal storage – change feed replication
-        href: solution-ideas/articles/minimal-storage-change-feed-replicate-data.yml
-      - name: Multi-region web app with private database
-        href: example-scenario/sql-failover/app-service-private-sql-multi-region.yml
-      - name: N-tier app with Cassandra
-        href: reference-architectures/n-tier/n-tier-cassandra.yml
-      - name: Observability patterns and metrics
-        href: databricks-monitoring/databricks-observability.yml
-      - name: Optimize SQL Server with Azure Arc
-        href: hybrid/azure-arc-sql-server.yml
-      - name: Optimized storage – multi writes
-        href: solution-ideas/articles/optimized-storage-time-based-multi-writes.yml
-      - name: Optimized storage – time based Data Lake
-        href: solution-ideas/articles/optimized-storage-time-based-data-lake.yml
-      - name: Optimized storage with data classification
-        href: solution-ideas/articles/optimized-storage-logical-data-classification.yml
-      - name: Oracle migration to Azure
-        href: solution-ideas/articles/reference-architecture-for-oracle-database-migration-to-azure.yml
-      - name: SQL 2008 R2 failover cluster in Azure
-        href: example-scenario/sql-failover/sql-failover-2008r2.yml
-      - name: SQL Database and Synapse connectivity
-        href: /azure/azure-sql/database/connectivity-architecture
-        maintainContext: true
-      - name: SQL Managed Instance with CMK
-        href: example-scenario/data/sql-managed-instance-cmk.yml
-      - name: Windows N-tier applications
-        href: reference-architectures/n-tier/n-tier-sql-server.yml
-    - name: Solution ideas
-      items:
-      - name: Big data analytics with Azure Data Explorer
-        href: solution-ideas/articles/big-data-azure-data-explorer.yml
-      - name: Campaign optimization with SQL Server
-        href: solution-ideas/articles/campaign-optimization-with-sql-server.yml
-      - name: Data streaming
-        href: solution-ideas/articles/data-streaming-scenario.yml
-      - name: Data cache
-        href: solution-ideas/articles/data-cache-with-redis-cache.yml
-      - name: Enterprise data warehouse
-        href: solution-ideas/articles/enterprise-data-warehouse.yml
-      - name: Finance management using MySQL
-        href: solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql.yml
-      - name: Finance management using PostgreSQL
-        href: solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql.yml
-      - name: Gaming using MySQL
-        href: solution-ideas/articles/gaming-using-azure-database-for-mysql.yml
-      - name: Gaming using Azure Cosmos DB
-        href: solution-ideas/articles/gaming-using-cosmos-db.yml
-      - name: Intelligent apps using MySQL
-        href: solution-ideas/articles/intelligent-apps-using-azure-database-for-mysql.yml
-      - name: Intelligent apps using PostgreSQL
-        href: solution-ideas/articles/intelligent-apps-using-azure-database-for-postgresql.yml
-      - name: Interactive querying with HDInsight
-        href: solution-ideas/articles/interactive-querying-with-hdinsight.yml
-      - name: Loan charge-off prediction with SQL Server
-        href: solution-ideas/articles/loan-chargeoff-prediction-with-sql-server.yml
-      - name: Loan credit risk with SQL Server
-        href: solution-ideas/articles/loan-credit-risk-with-sql-server.yml
-      - name: Logical data warehouse with Azure Synapse
-        href: solution-ideas/articles/logical-data-warehouse.yml
-      - name: Messaging
-        href: solution-ideas/articles/messaging.yml
-      - name: Mining equipment monitoring
-        href: solution-ideas/articles/monitor-mining-equipment.yml
-      - name: Multi-region web app with Azure Cosmos DB
-        href: solution-ideas/articles/multi-region-web-app-cosmos-db-replication.yml
-      - name: Ops automation using Event Grid
-        href: solution-ideas/articles/ops-automation-using-event-grid.yml
-      - name: Personalization using Azure Cosmos DB
-        href: solution-ideas/articles/personalization-using-cosmos-db.yml
-      - name: Retail and e-commerce using MySQL
-        href: solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql.yml
-      - name: Retail and e-commerce using PostgreSQL
-        href: solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql.yml
-      - name: Retail and e-commerce with Cosmos DB
-        href: solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.yml
-      - name: Serverless apps using Azure Cosmos DB
-        href: solution-ideas/articles/serverless-apps-using-cosmos-db.yml
+    href: databases/index.yml  
   - name: DataOps
     items:
     - name: Get started
@@ -2004,31 +1657,25 @@ items:
       - name: Automated enterprise BI
         href: reference-architectures/data/enterprise-bi-adf.yml
       - name: Data governance with Profisee
-        href: reference-architectures/data/profisee-master-data-management-purview.yml
+        href: databases/architecture/profisee-master-data-management-purview.yml
       - name: Data warehousing and analytics
         href: example-scenario/data/data-warehouse.yml
       - name: DataOps for modern data warehouse
-        href: example-scenario/data-warehouse/dataops-mdw.yml
+        href: databases/architecture/dataops-mdw.yml
       - name: Disaster recovery for data analytics pipelines
         href: example-scenario/analytics/pipelines-disaster-recovery.yml
       - name: Geospatial data processing and analytics
         href: example-scenario/data/geospatial-data-processing-analytics-azure.yml
       - name: Helm-based deployments
         href: guide/data/helm-deployments-apache-nifi.yml
-      - name: Hybrid ETL with Azure Data Factory
-        href: example-scenario/data/hybrid-etl-with-adf.yml
-      - name: Master data management with CluedIn
-        href: reference-architectures/data/cluedin.yml
       - name: Master data management with Profisee
-        href: reference-architectures/data/profisee-master-data-management-data-factory.yml
+        href: databases/architecture/profisee-master-data-management-data-factory.yml
       - name: Measure Azure app sustainability
         href: example-scenario/apps/measure-azure-app-sustainability-sci-score.yml
       - name: Modern data warehouse for small business
         href: example-scenario/data/small-medium-data-warehouse.yml
       - name: Modernize mainframe and midrange data
         href: /azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure
-      - name: Optimized storage with data classification
-        href: solution-ideas/articles/optimized-storage-logical-data-classification.yml
       - name: Power BI data write-back
         href: example-scenario/data/power-bi-write-back-power-apps.yml
       - name: Replicate and sync mainframe data
@@ -2047,8 +1694,6 @@ items:
         href: solution-ideas/articles/ingest-etl-stream-with-adb.yml
       - name: Mining equipment monitoring
         href: solution-ideas/articles/monitor-mining-equipment.yml
-      - name: Ops automation using Event Grid
-        href: solution-ideas/articles/ops-automation-using-event-grid.yml
       - name: Tier applications for analytics
         href: solution-ideas/articles/tiered-data-for-analytics.yml
   - name: Developer Options
@@ -2212,7 +1857,7 @@ items:
         - name: Serverless applications using Event Grid
           href: solution-ideas/articles/serverless-application-architectures-using-event-grid.yml
         - name: Serverless apps using Azure Cosmos DB
-          href: solution-ideas/articles/serverless-apps-using-cosmos-db.yml
+          href: databases/idea/serverless-apps-using-cosmos-db.yml
         - name: Serverless computing LOB apps
           href: solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture.yml
         - name: Serverless event stream processing
@@ -3364,13 +3009,13 @@ items:
       - name: Migrate a web app with APIM
         href: example-scenario/apps/apim-api-scenario.yml
       - name: Migrate master data services with Profisee
-        href: example-scenario/profisee-mds/profisee-mds-migration-utility.yml
+        href: databases/architecture/profisee-mds-migration-utility.yml
       - name: Modernize mainframe and midrange data
         href: /azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure
       - name: Oracle database migration
         items:
         - name: Oracle migration to Azure
-          href: solution-ideas/articles/reference-architecture-for-oracle-database-migration-to-azure.yml
+          href: databases/idea/reference-architecture-for-oracle-database-migration-to-azure.yml
         - name: Migration decision process
           href: example-scenario/oracle-migrate/oracle-migration-overview.yml
         - name: Cross-cloud connectivity
@@ -3832,7 +3477,7 @@ items:
       - name: Oracle database migration
         items:
         - name: Oracle database migration to Azure
-          href: solution-ideas/articles/reference-architecture-for-oracle-database-migration-to-azure.yml
+          href: databases/idea/reference-architecture-for-oracle-database-migration-to-azure.yml
         - name: Migration decision process
           href: example-scenario/oracle-migrate/oracle-migration-overview.yml
         - name: Cross-cloud connectivity
@@ -3999,6 +3644,8 @@ items:
         href: hybrid/hybrid-security-monitoring.yml
       - name: Improved-security access to multitenant
         href: web-apps/guides/networking/access-multitenant-web-app-from-on-premises.yml
+      - name: Loan credit risk modeling
+        href: example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml        
       - name: Long-term security logs in Data Explorer
         href: example-scenario/security/security-log-retention-azure-data-explorer.yml
       - name: Real-time fraud detection
@@ -4014,7 +3661,7 @@ items:
       - name: Secure research for regulated data
         href: ai-ml/architecture/secure-compute-for-research.yml
       - name: SQL Managed Instance with CMK
-        href: example-scenario/data/sql-managed-instance-cmk.yml
+        href: databases/architecture/sql-managed-instance-cmk.yml
       - name: Virtual network integrated microservices
         href: example-scenario/integrated-multiservices/virtual-network-integration.yml
     - name: Solution ideas
@@ -4200,11 +3847,9 @@ items:
       - name: Hybrid file services
         href: hybrid/hybrid-file-services.yml
       - name: Minimal storage – change feed replication
-        href: solution-ideas/articles/minimal-storage-change-feed-replicate-data.yml
+        href: databases/idea/minimal-storage-change-feed-replicate-data.yml
       - name: Multi-region web app with replication
         href: solution-ideas/articles/multi-region-web-app-multi-writes-azure-table.yml
-      - name: Optimized storage data classification
-        href: solution-ideas/articles/optimized-storage-logical-data-classification.yml
     - name: Solution ideas
       items:
       - name: HIPAA/HITRUST Health Data and AI
@@ -4583,6 +4228,8 @@ items:
         href: example-scenario/banking/banking-system-cloud-transformation.yml
       - name: Decentralized trust between banks
         href: example-scenario/apps/decentralized-trust.yml
+      - name: Finance management using MySQL
+        href: solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql.yml
       - name: Finance management using PostgreSQL
         href: solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql.yml
       - name: Host a Murex MX.3 workload on Azure
@@ -5633,8 +5280,6 @@ items:
             maintainContext: true
         - name: Databases for gaming
           items:
-          - name: Gaming using Azure MySQL
-            href: solution-ideas/articles/gaming-using-azure-database-for-mysql.yml
           - name: Gaming using Azure Cosmos DB
             href: solution-ideas/articles/gaming-using-cosmos-db.yml
         - name: Game streaming

@@ -170,7 +170,6 @@ For more information, contact [Azure Data Engineering - Mainframe & Midrange Mod
 
 ## Related resources
 
-- [Azure data architecture guide](../../data-guide/index.md)
 - [Azure data platform end-to-end](../dataplate2e/data-platform-end-to-end.yml)
 - [Modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
 - [Rehost Adabas & Natural applications in Azure](rehost-adabas-software-ag.yml)

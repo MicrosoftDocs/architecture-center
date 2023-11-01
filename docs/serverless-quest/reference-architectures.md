@@ -148,7 +148,6 @@ The following sections list other serverless and Azure Functions-related referen
 ### General
 
 - [Serverless application architectures using Event Grid](../solution-ideas/articles/serverless-application-architectures-using-event-grid.yml)
-- [Serverless apps using Azure Cosmos DB](https://azure.microsoft.com/solutions/architecture/serverless-apps-using-cosmos-db/)
 - [Serverless event processing using Azure Functions](../reference-architectures/serverless/event-processing.yml)
 - [Serverless web application on Azure](../web-apps/serverless/architectures/web-app.yml)
 - [Instant Broadcasting on Serverless Architecture](/azure/architecture/serverless-quest/serverless-overview)

@@ -106,7 +106,6 @@ Review the information in this [relationship mesh solution GitHub repository](ht
 
 For more information, see these articles:
 
-- [Azure Data Architecture Guide](../../data-guide/index.md)
 - [Azure Synapse Analytics](/azure/synapse-analytics)
 - [Microsoft Graph Data Connect](/graph)
 - [Microsoft Power BI](/power-bi)

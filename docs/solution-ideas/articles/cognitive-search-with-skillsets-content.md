@@ -114,7 +114,6 @@ Try the learning path:
 See the related architectures and guidance:
 
 - [Intelligent product search engine for e-commerce](/azure/architecture/example-scenario/apps/ecommerce-search)
-- [Process free-form text for search](/azure/architecture/data-guide/scenarios/search)
 - [Keyword search and speech-to-text with OCR digital media](/azure/architecture/solution-ideas/articles/digital-media-speech-text)
 - [Suggest content tags with NLP using deep learning](/azure/architecture/solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp)
 - [Knowledge mining for content research](/azure/architecture/solution-ideas/articles/content-research)

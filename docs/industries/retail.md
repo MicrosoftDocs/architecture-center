@@ -99,12 +99,6 @@ The following are other ideas that you can use as a starting point for your reta
 - [Interactive price analytics](../solution-ideas/articles/interactive-price-analytics.yml)
 - [Modern analytics architecture with Azure Databricks](../solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml)
 
-**Databases**:
-
-- [Retail and e-commerce using Azure MySQL](../solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql.yml)
-- [Retail and e-commerce using Azure PostgreSQL](../solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql.yml)
-- [Retail and e-commerce using Azure Cosmos DB](../solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.yml)
-
 **Mixed Reality**:
 
 - [Facilities management powered by mixed reality and IoT](../solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml)

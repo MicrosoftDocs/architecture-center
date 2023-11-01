@@ -219,10 +219,10 @@ conceptualContent:
           
     - title: Databases
       links:
-        - url: ./data-guide/databases-architecture-design.yml
+        - url: ./databases/index.yml
           itemType: get-started
           text: Databases architecture design
-        - url: ./data-guide/big-data/index.yml
+        - url: ./databases/guide/big-data-architectures.yml
           itemType: concept
           text: Big Data architectures
         - url: ./data-guide/scenarios/build-scalable-database-solutions-azure-services.md
@@ -240,25 +240,13 @@ conceptualContent:
         - text: Online transaction processing (OLTP)
           itemType: concept
           url: ./data-guide/relational-data/online-transaction-processing.md
-        - text: Data warehousing in Microsoft Azure
-          itemType: concept
-          url: ./data-guide/relational-data/data-warehousing.yml
         - text: Data lakes
           itemType: get-started
           url: data-guide/scenarios/data-lake.md
-        - text: Extend on-premises data solutions to the cloud
-          itemType: get-started
-          url: data-guide/scenarios/hybrid-on-premises-and-cloud.md
-        - text: Free-form text search
-          itemType: get-started
-          url: data-guide/scenarios/search.yml
-        - text: Time series solutions 
-          itemType: get-started
-          url: data-guide/scenarios/time-series.yml
       # footerLink (optional)
-      footerLink:
-        url: ./data-guide/index.md
-        text: See more
+      # footerLink:
+      #   url: ./data-guide/index.md
+      #   text: See more
 
     - title: DevOps
       links:
@@ -438,19 +426,13 @@ conceptualContent:
           url: reference-architectures/n-tier/windows-vm.yml
         - text: N-tier application with Cassandra (Linux)
           itemType: architecture
-          url: reference-architectures/n-tier/n-tier-cassandra.yml
-        - text: N-tier application with SQL Server (Windows)
-          itemType: architecture
-          url: reference-architectures/n-tier/n-tier-sql-server.yml
+          url: databases/architecture/n-tier-cassandra.yml
         - text: Multi-region N-tier application
           itemType: architecture
           url: reference-architectures/n-tier/multi-region-sql-server.yml
         - text: Highly scalable WordPress
           itemType: get-started
           url: web-apps/hosting-applications/wordpress.yml
-        - text: Multi-tier Windows
-          itemType: get-started
-          url:  ./reference-architectures/n-tier/n-tier-sql-server.yml
 
     - title: SAP
       links:

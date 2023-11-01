@@ -59,8 +59,6 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 <ul class="grid">
 
 [!INCLUDE [Gaming using Azure Cosmos DB](../../includes/cards/gaming-using-cosmos-db.md)]
-[!INCLUDE [Oracle Database Migration to Azure](../../includes/cards/reference-architecture-for-oracle-database-migration-to-azure.md)]
-[!INCLUDE [Retail and e-commerce using Azure MySQL](../../includes/cards/retail-and-ecommerce-using-azure-database-for-mysql.md)]
 
 </ul>
 
@@ -315,7 +313,6 @@ Here are some architectures that use AKS as the orchestrator.
 [!INCLUDE [Anomaly Detector Process](../../includes/cards/anomaly-detector-process.md)]
 [!INCLUDE [Scalable Web App](../../includes/cards/scalable-web-app.md)]
 [!INCLUDE [Enterprise integration](../../includes/cards/queues-events.md)]
-[!INCLUDE [Ops Automation using Event Grid](../../includes/cards/ops-automation-using-event-grid.md)]
 
 </ul>
 

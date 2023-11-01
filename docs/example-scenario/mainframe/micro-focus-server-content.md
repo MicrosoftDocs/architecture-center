@@ -137,6 +137,5 @@ Principal author:
 
 - [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](../../reference-architectures/zos/refactor-zos-coupling-facility.yml).
 - [Replicate and sync mainframe data in Azure](../../reference-architectures/migration/sync-mainframe-data-with-azure.yml).
-- [Windows n-tier application with SQL Server on Azure](../../reference-architectures/n-tier/n-tier-sql-server.yml)
 - [Multi-region n-tier application](../../reference-architectures/n-tier/multi-region-sql-server.yml)
 - [Multi-tier web application built for HA/DR](../infrastructure/multi-tier-app-disaster-recovery.yml)

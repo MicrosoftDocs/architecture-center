@@ -203,7 +203,6 @@ For more information about the individual pieces of the solution architecture, s
 
 ## Related resources
 
-- [Windows N-tier application on Azure](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
 - [Highly available SharePoint farm - Azure Solution Ideas](/azure/architecture/solution-ideas/articles/highly-available-sharepoint-farm)
 - [Hybrid SharePoint farm with Microsoft 365](/azure/architecture/solution-ideas/articles/sharepoint-farm-microsoft-365)
 
@@ -256,5 +255,4 @@ For more information about the individual pieces of the solution architecture, s
 [vm-sizes-general]: /azure/virtual-machines/windows/sizes-general
 [vm-sizes-memory]: /azure/virtual-machines/windows/sizes-memory
 [VPN-gateway-service-page]: https://azure.microsoft.com/products/vpn-gateway
-[windows-n-tier]: ../n-tier/n-tier-sql-server.yml
 [Windows-Server-Active-Directory-domain-controllers]: /windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview

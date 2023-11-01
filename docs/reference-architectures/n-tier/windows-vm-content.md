@@ -116,8 +116,6 @@ Use infrastructure as Code (IaC) either by using a single [Azure Resource Manage
 
 Also, you can use different [Azure Resource Manager templates][arm-template] and integrate them with [Azure DevOps Services][az-devops] to provision different environments in minutes, for example to replicate production like scenarios or load testing environments only when needed, saving cost.
 
-For higher availability architecture see [Windows N-tier application on Azure with SQL Server](./n-tier-sql-server.yml), the reference architecture includes more than one VM and each VM is included in an availability set.
-
 Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the performance of your infrastructure, Monitor and diagnose networking issues without logging into your virtual machines.
 
 ## Next steps
@@ -129,7 +127,6 @@ Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the pe
 
 ## Related resources
 
-- [Windows N-tier application on Azure with SQL Server](./n-tier-sql-server.yml)
 - [Azure Automation update management](../../hybrid/azure-update-mgmt.yml)
 - [Plan deployment for updating Windows VMs in Azure](/azure/architecture/example-scenario/wsus)
 

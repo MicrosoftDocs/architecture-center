@@ -115,4 +115,3 @@ The following resources will provide more information on the components used in 
 - An example scenario for [computer-aided engineering (CAE) on Azure](../../example-scenario/apps/hpc-saas.yml)
 - [HPC media rendering](../../solution-ideas/articles/azure-batch-rendering.yml)
 - [Image classification with convolutional neural networks (CNNs)](../../solution-ideas/articles/image-classification-with-convolutional-neural-networks.yml)
-- [Gaming using Azure Database for MySQL](../../solution-ideas/articles/gaming-using-azure-database-for-mysql.yml)
