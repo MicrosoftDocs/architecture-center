@@ -1,11 +1,11 @@
-The transition to **software-defined vehicles (SDVs)** requires a different approach on the development, deployment, monitoring and management of automotive software stacks across the entire automotive industry. Automotive original equipment manufacturers (OEMs) are embracing a *shift-left* strategy, which involves conducting testing early in the product development cycle. In this approach, the in-vehicle software stack undergoes comprehensive simulation and testing within cloud-based environments. The example architecture in this article outlines how to leverage the software stack and distributions provided by the [Eclipse software-defined vehicle working group](https://sdv.eclipse.org) in conjunction with GitHub and Azure services to develop an end-to-end automotive software stack, implement software in the loop (SiL) testing and orchestrate hardware in the loop (HiL) and engineering vehicle fleets validation.
+The transition to **software-defined vehicles (SDVs)** requires a different approach on the development, deployment, monitoring and management of automotive software stacks across the entire automotive industry. Automotive original equipment manufacturers (OEMs) are embracing a *shift-left* strategy, which involves conducting testing early in the product development cycle. In this approach, the in-vehicle software stack undergoes comprehensive simulation and testing within cloud-based environments. The example architecture in this article outlines how to leverage the software stack and distributions provided by the [Eclipse software-defined vehicle working group](https://sdv.eclipse.org) in conjunction with GitHub and Azure services to develop an end-to-end automotive software stack, implement software in the loop (SIL) testing and orchestrate hardware in the loop (HIL) and engineering vehicle fleets validation.
 
 This guide demonstrates how to:
 
 * Integrate state of the art **developer tools** into the overall development process.
 * Work with and manage **automotive source code**.
 * Build **virtual vehicle environments** automatically as part of continuous integration and continuous delivery (CI/CD) pipelines and manage their execution for virtual testing.
-* Orchestrate deployments for **SiL** tests (virtual testing) and **HiL** testing.
+* Orchestrate deployments for **SIL** tests (virtual testing) and **HIL** testing.
 * Use highly scalable services to collect and analyze data produced during **validation tests** and **field usage**
 
 ## Architecture
@@ -14,13 +14,13 @@ This guide demonstrates how to:
 
 The architecture consists of six key building blocks:
 
-1. The **SDV toolchain** is a plug-and-play approach that's open and configurable. It takes advantage of Microsoft developer and DevOps assets and services. It reduces reliance on in-vehicle silicon by establishing highly configurable and flexible **virtual electronic control units (vECUs)** as well as **virtual high-performance computers (vHPCs)** environments on Azure to accelerate development, testing, and validation of automotive software. The approach also ensures compatibility with edge and in-vehicle silicon to ensure bit, timing, and code parity.
+1. The **SDV toolchain** is a plug-and-play approach that's open and configurable. It takes advantage of Microsoft developer and DevOps assets and services. It reduces reliance on in-vehicle SILicon by establishing highly configurable and flexible **virtual electronic control units (vECUs)** as well as **virtual high-performance computers (vHPCs)** environments on Azure to accelerate development, testing, and validation of automotive software. The approach also ensures compatibility with edge and in-vehicle SILicon to ensure bit, timing, and code parity.
 
 1. An **automotive software stack** encompasses a diverse range of technologies and frameworks, often governed by industry standards and collaborative efforts such as the *Eclipse Foundation Software Defined Vehicle Working Group*. Eclipse projects include non-differentiating components for vehicle connectivity, messaging and communication protocols, an in-vehicle digital twin abstraction layer, advanced driver-assistance systems (ADAS), and autonomous driving solutions. Automotive software stacks provide a robust foundation for automakers and software developers. They ensure seamless integration and compatibility across the automotive ecosystem and provide a community-driven approach to technological advancements.
 
 1. The **GitHub and Azure Marketplace** enables partners such as Tier I and automotive software tool vendors to offer solutions, such as managed automotive software stacks, vECUs, and developer tooling, and integrate them with the SDV toolchain.
 
-1. With **HiL testing**, you can run testing and validation on target hardware. HiL testing uses the same orchestration concept as SiL testing for validation with edge and in-vehicle silicon. The specialized hardware is connected with fast network access and secure networks.
+1. With **HIL testing**, you can run testing and validation on target hardware. HIL testing uses the same orchestration concept as SIL testing for validation with edge and in-vehicle SILicon. The specialized hardware is connected with fast network access and secure networks.
 
 1. **[Vehicle messaging, data, and analytics](/azure/event-grid/mqtt-automotive-connectivity-and-data-solution)** provides required infrastructure for managing vehicles and devices, deploy and operate connected vehicle applications with dependencies to in-vehicle software components and provide data analytics services for engineering, operations, and mobility-based services. The **[data analytics for automotive test fleets](/azure/architecture/industries/automotive/automotive-telemetry-analytics)** provides more detail on data collection and analytics for component and system validation.
 
@@ -56,19 +56,19 @@ The following three key blocks comprise the automotive SDV toolchain:
 The following flow describes how an automotive software developer belonging to the fictitious company *Contoso Automotive* uses the automotive SDV toolchain to:
 
 * Set up a development environment in minutes.
-* Trigger an update change in the SiL cloud infrastructure to deploy a vECU that runs on an ARM64-based virtual machine.
+* Trigger an update change in the SIL cloud infrastructure to deploy a vECU that runs on an ARM64-based virtual machine.
 
 *Contoso Automotive* is adding a new automotive high-performance compute (HPC) unit to an upcoming vehicle model and must onboard a new development team to develop containerized applications. The hardware for the vehicle isn't available yet, but compressed timelines mean that the software functionality must be developed and validated in parallel.
 
 1. The automotive developer creates and connects to a **Microsoft dev box**. The dev box is preconfigured with all required development tools (such as Visual Studio Code and Android Studio) and all required extensions (such as GitHub Copilot) to work with the *Contoso Automotive* applications.
 
-1. The automotive developer performs a check-out of the automotive **application code and metadata** that describes the upcoming vehicle configuration, the included HPCs and ECUs, and the required deployment to perform SiL validation.
+1. The automotive developer performs a check-out of the automotive **application code and metadata** that describes the upcoming vehicle configuration, the included HPCs and ECUs, and the required deployment to perform SIL validation.
 1. The automotive developer uses the **metadata extensions** to make configuration adjustments, such as changing the characteristics of the HPC based on new information from the engineering team.
 1. Changing the configuration triggers the **metadata processing extension** that performs metadata validation, generates all required artifacts, and configures an execution environment deployment campaign.
 1. After all configuration changes are complete, the developer submits a pull request that triggers a **GitHub action** for deployment.
 1. The deployment GitHub action triggers the **metadata and orchestration services**, which runs the deployment campaign.
 1. The **metadata and orchestration service** uses the **Azure development environment** to deploy the required compute to simulate the new version of the automotive electric or electronic architecture.
-1. The **metadata and orchestration service** sets the desired state of the compute based on the campaign. It uses the artifacts store to mount and configure the required ***Virtual HPC and ECU images***.
+1. The **metadata and orchestration service** sets the desired state of the compute based on the campaign. It uses the artifacts store to mount and configure the required ***virtual HPC and ECU images***.
 
 #### Software over the air (SOTA) updates for automotive applications
 
@@ -123,13 +123,13 @@ This guide references the following GitHub and Azure components:
 
 ### Execution environment
 
-* [Azure deployment environments](/azure/deployment-environments) provide a preconfigured collection of Azure resources. It empowers development teams to quickly and easily spin up infrastructure with project-based templates that establish consistency and best practices while maximizing security.
+* [Azure deployment environments](/azure/deployment-environments) provide a preconfigured collection of Azure resources. It empowers development teams to quickly and eaSILy spin up infrastructure with project-based templates that establish consistency and best practices wHILe maximizing security.
 
 * [Azure compute](https://azure.microsoft.com/products/category/compute) is a comprehensive suite of cloud services that empowers developers to run their automotive software stacks, applications, and workloads on virtual machines (VMs) and containers. It offers a wide array of compute varieties, including memory-optimized, CPU-optimized, high-performance, and general purpose compute.
 * [Azure Compute Gallery](/azure/virtual-machines/azure-compute-gallery) is a service that supports versioning and grouping of resources for easier management. You can share images with the community, across subscriptions, and between Microsoft Entra ID tenants. You can also scale deployments with resource replicas in each Azure region. Azure Compute Gallery provides structure and organization for automotive software stack artifacts.
-* [Azure Arc](/azure/azure-arc) simplifies governance and management and delivers a consistent Cloud to Hardware in the Loop management platform. Automotive OEM can use Azure Arc to control and govern increasingly complex HiL environments across on-premises and cloud-based data centers.
+* [Azure Arc](/azure/azure-arc) simplifies governance and management and delivers a consistent Cloud to Hardware in the Loop management platform. Automotive OEM can use Azure Arc to control and govern increasingly complex HIL environments across on-premises and cloud-based data centers.
 * [Azure Blob Storage](/azure/storage/blobs) is a service that provides massively scalable object storage for any type of unstructured data, like images, videos, audio, and documents that automotive software stacks produce and consume.
-* [Azure networking services](/azure/networking/fundamentals/networking-overview) are global, secure, and reliable. Automotive software stacks and development tools require data-processing pipelines to access HiL farms for developing and testing autonomous and assisted driving solutions. The networking services in Azure provide various networking capabilities like connectivity services, application protection services, application delivery services, and networking monitoring.
+* [Azure networking services](/azure/networking/fundamentals/networking-overview) are global, secure, and reliable. Automotive software stacks and development tools require data-processing pipelines to access HIL farms for developing and testing autonomous and assisted driving solutions. The networking services in Azure provide various networking capabilities like connectivity services, application protection services, application delivery services, and networking monitoring.
 
 ## Alternatives
 
@@ -137,7 +137,7 @@ The Azure services that you choose for your implementation of the architecture d
 
 The [example scenario](#deploy-this-scenario) of the architecture uses AKS. Serverless Kubernetes is used to run microservices, provide enterprise-grade security and governance, and provide an integrated CI/CD experience. As an alternative, you can run microservices in Azure Container Instances, which provides a fast simple way to run containers in Azure without adopting a higher-level service, like AKS.
 
-The [example scenario](#deploy-this-scenario) suggests the use of Azure Event Hubs or Azure Service Bus to implement Ubus service. For more information, see [Choose between Azure messaging services](/azure/service-bus-messaging/compare-messaging-services). Messaging services are often complementary, and you can use more than one.
+The [example scenario](#deploy-this-scenario) suggests the use of Azure Event Hubs or Azure Service Bus to implement uBus service. For more information, see [Choose between Azure messaging services](/azure/service-bus-messaging/compare-messaging-services). Messaging services are often complementary, and you can use more than one.
 
 The applications and services in this guide are deployed by using Azure Resource Manager templates or Bicep. As an alternative, you can use Terraform scripts to provision and manage cloud infrastructure.
 
@@ -157,9 +157,9 @@ This automotive example architecture meets the demands of the rapidly evolving a
 
 * **Developer onboarding**: Implement a fully configured automotive development environment to accelerate the onboarding of automotive software developers.
 
-* **Efficient development**: Simulate the behaviors of various hardware and software combinations. Reduce the dependency to edge or in-vehicle silicon early in the development process.
-* **SiL validation**: Run automated build, test, and validation pipelines to validate the behavior of your software application. Use compute resources on the cloud for a faster development cycle.
-* **HiL validation**: Simplify deployment and monitoring of the HiL farms.
+* **Efficient development**: Simulate the behaviors of various hardware and software combinations. Reduce the dependency to edge or in-vehicle SILicon early in the development process.
+* **SIL validation**: Run automated build, test, and validation pipelines to validate the behavior of your software application. Use compute resources on the cloud for a faster development cycle.
+* **HIL validation**: Simplify deployment and monitoring of the HIL farms.
 * **Validate with a test fleet**: Collect software metrics, logs, and traces of the software applications as well as vehicle telemetry and signal data. Use that data to create a comprehensive view of the vehicle behavior for validation, root cause analysis, and homologation.
 * **Deploy and manage**: Create traceable software releases that can be updated and managed for the vehicle fleet using DevOps practices.
 * **Understand and improve**: use information collected from the field to drive improvements in your software applications.
@@ -183,116 +183,122 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/reSILiency/overview).
 
-* Running an end-to-end service-oriented application infrastructure to support the implementation of a distributed communication protocol platform on Azure with modern CI/CD requires a reliable and highly available architecture. For architectural guidance and best practices for managing and running services on AKS, see [AKS overview](/azure/well-architected/services/compute/azure-kubernetes-service/azure-kubernetes-service).
+* You can run an end-to-end service-oriented application infrastructure that supports the implementation of a distributed communication protocol platform on Azure with modern CI/CD. In that scenario, you need a reliable and highly available architecture. For architectural guidance and best practices for managing and running services on AKS, see [AKS overview](/azure/well-architected/services/compute/azure-kubernetes-service/azure-kubernetes-service).
 
-* HiL testing is an indispensable and critical part of the automotive software development process and test strategy. When you design and implement the network architecture to the HiL farms, consider [designing for high availability with ExpressRoute](/azure/expressroute/designing-for-high-availability-with-expressroute) to reduce single points of failure and maximize the availability of remote environments to your development and test teams.
+* HIL testing is an indispensable and critical part of the automotive software development process and test strategy. When you design and implement the network architecture to the HIL farms, consider [designing for high availability with ExpressRoute](/azure/expressroute/designing-for-high-availability-with-expressroute). Use this strategy to reduce single points of failure and maximize the availability of remote environments for your development and test teams.
 
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-* Security is one of the most important aspects of an architecture. To ensure the security of complex systems, you need to understand the business, social, and technical conditions. Consider implementing GitHub’s code-scanning capabilities so you can find and fix security issues and critical defects early in the development process. [GitHub supports the coding standards AUTOSAR C++ and CERT C++, which enables the development of functional safety applications](https://github.blog/2022-06-20-adding-support-for-coding-standards-autosar-c-and-cert-c).
-* Consider adopting the following best practices to [Secure your end-to-end supply chain on GitHub](https://docs.github.com/en/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview).
+* Security is one of the most important aspects of an architecture. To ensure the security of complex systems, you need to understand the business, social, and technical conditions. Consider implementing GitHub’s code-scanning capabilities, so you can find and fix security issues and critical defects early in the development process. GitHub supports the coding standards [AUTOSAR C++ and CERT C++](https://github.blog/2022-06-20-adding-support-for-coding-standards-autosar-c-and-cert-c), which enables the development of functional safety applications.
+* Consider [securing your end-to-end supply chain on GitHub](https://docs.github.com/en/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview).
 
-* Consider adopting Azure Key Vault to maintain end-to-end security when you handle sensitive and business-critical elements, such as encryption keys, certificates, connection strings, and passwords. Key Vault-managed hardware security modules (HSMs) offer a robust solution that fortifies the entire software development and supply chain process. With Key Vault-managed HSMs, automotive applications can securely store and manage sensitive assets to ensure that they remain protected from potential cyber security threats. Key Vault further enhances security by regulating access and permissions to critical resources with RBAC.
+* Consider adopting Azure Key Vault to maintain end-to-end security when you handle sensitive and business-critical elements, such as encryption keys, certificates, connection strings, and passwords. Key Vault-managed hardware security modules (HSMs) offer a robust solution that fortifies the entire software development and supply chain process. With Key Vault-managed HSMs, automotive applications can securely store and manage sensitive assets to ensure that they remain protected from potential cyber security threats. You can further enhance security by regulating access and permissions to critical resources with RBAC.
 
 ### Cost optimization
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-* When you create vECUs, ensure that the [virtual machine size](/azure/virtual-machines/sizes) matches the requirements. If you modify the configuration to use larger sizes than necessary, cost can drastically increase, especially if multiple machines operate in parallel to perform long-running tasks.
+* When you create vECUs, ensure that the [virtual machine size](/azure/virtual-machines/sizes) matches the requirements. If you modify the configuration to use a larger size than necessary, it increases cost, especially if multiple machines operate in parallel to perform long-running tasks.
 
 * For build, validation, and testing tasks that aren't time-critical, consider using [Azure Spot Virtual Machines](/azure/virtual-machines/spot-vms). You can take advantage of unused capacity and incur significant cost savings.
-* If you have a [Microsoft Azure Consumption Commitment](/azure/cost-management-billing/manage/track-consumption-commitment), consider using [eligible partner offerings](/marketplace/azure-consumption-commitment-benefit#determine-which-offers-are-eligible-for-azure-consumption-commitments-maccctc) from the Azure Marketplace when you deploy development tools and vECUs in the execution environment.
-* Refer to the [autonomous vehicle operations](/azure/architecture/solution-ideas/articles/avops-architecture#cost-optimization) cost optimization section for more tips about running autonomous vehicle development workloads.
-* GitHub Copilot can significantly speed up the software development process by providing real-time code suggestions and autocompletions. Automotive software engineers can write code faster and more efficiently, which reduces the time to market for new vehicle features and updates.
+* If you have an [Azure Consumption Commitment](/azure/cost-management-billing/manage/track-consumption-commitment), consider using [eligible partner offerings](/marketplace/azure-consumption-commitment-benefit#determine-which-offers-are-eligible-for-azure-consumption-commitments-maccctc) from Azure Marketplace when you deploy development tools and vECUs in the run environment.
+* For tips about running autonomous vehicle development workloads, see [Create an autonomous vehicle operations (AVOps) solution](/azure/architecture/solution-ideas/articles/avops-architecture#cost-optimization).
+* GitHub Copilot provides real-time code suggestions and autocompletions, which accelerates the software development process. Automotive software engineers can use GitHub Copilot to quickly and efficiently write code, which reduces the time to market for new vehicle features and updates.
 
 ### Operational excellence
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-* The automotive SDV toolchain embraces key software engineering disciplines, like IaC environment provisioning, CI/CD pipelines for automotive software stacks build and release, automated testing to transition to a shift left approach, and configuration as code to avoid configuration drift between environments. Consider adopting the previous key principles across all your workloads for consistency, repetition, and early detection of issues.
+* The automotive SDV toolchain embraces key software engineering strategies, such as:
+  * IaC environment provisioning.
+  * CI/CD pipelines for building and releasing automotive software stacks.
+  * Automated testing to transition to a shift left approach.
+  * Configuration as code to avoid configuration drift among environments.
 
-* Consider an Azure Arc-enabled infrastructure to simplify governance and management across Azure cloud and on-premises environments and HiL testing and validation farms.
-* GitHub Copilot's AI-powered assistance can enhance the overall code quality by reducing the likelihood of human errors and standardizing coding practices. This is crucial in the automotive industry where software safety and reliability are paramount.
+  Consider adopting these key strategies across all workloads for consistency, repetition, and early detection of issues.
+
+* Consider an Azure Arc-enabled infrastructure to simplify governance and management across Azure cloud and on-premises environments, HIL testing, and validation farms.
+* GitHub Copilot's AI-powered assistance can enhance overall code quality by reducing the likelihood of human errors and standardizing coding practices. High-quality code is crucial in the automotive industry where software safety and reliability are paramount.
 
 ### Performance efficiency
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-* Consider which tasks you can parallelize as part of your build and test pipelines.
+* Determine tasks in your build and test pipelines that you can parallelize.
 
-* Consider implementing [performance efficiency patterns](/azure/well-architected/scalability/performance-efficiency-patterns) for performant applications and workloads based on the following distributed communication protocol example.
+* Consider implementing [performance efficiency patterns](/azure/well-architected/scalability/performance-efficiency-patterns) for performant applications and workloads that are based on the following distributed communication protocol example.
 
 ## Deploy this scenario
 
-The Eclipse SDV has a code-source first approach as their main tenant, which provides a large amount of flexibility for implementation. The following examples use existing Eclipse projects and describe their interaction with Azure services.
+The main tenant of the Eclipse SDV is a code-source first approach, which provides flexibility for implementation. The following examples use existing Eclipse projects and describe their interaction with Azure services.
 
-### Distributed Communication Protocol on Azure Example
+### Example: Distributed communication protocol on Azure
 
-[Eclipse uProtocol](https://github.com/eclipse-uprotocol) is one of many  distributed communication protocols used in automotive. It's a transport agnostic, layered communication protocol that builds on top of existing automotive and Internet standards. It provides a ubiquitous language for discovery, subscription, messaging, and more, enabling apps and services running on any heterogeneous system to communicate with each other.
+[Eclipse uProtocol](https://github.com/eclipse-uprotocol) is one of many  distributed communication protocols that are used in automotive industries. It's a transport-agnostic, layered communication protocol that builds on top of existing automotive and internet standards. It provides a ubiquitous language for discovery, subscription, and messaging, which enables apps and services that run on a heterogeneous system to communicate with each other.
 
-The following overview describes the services required to implement a distributed communication protocol using uProtocol as an example with Azure Services.
+The following overview describes the services that are required to implement a distributed communication protocol. It uses uProtocol with Azure services.
 
-#### High Level Overview
+#### Overview
 
 The following components are part of the *uProtocol*:
 
-:::image type="content" source="images/sdv-e2e-ref-architecture-uProtocol-on-Azure.svg" alt-text="Distributed Communication Protocol uProtocol on Azure" lightbox="images/sdv-e2e-ref-architecture-uProtocol-on-Azure.svg":::
+:::image type="content" source="images/sdv-e2e-ref-architecture-uProtocol-on-Azure.svg" alt-text="Diagram that shows the distributed communication protocol, uProtocol, on Azure." lightbox="images/sdv-e2e-ref-architecture-uProtocol-on-Azure.svg":::
 
-* The vehicle sends messages with the **cloud connector** using the *uProtocol* definition over MQTT to the **Event Grid** service.
+* The vehicle sends messages from the **cloud connector** to **Event Grid**. Messages are transferred via the *uProtocol* definition over MQTT.
 
-* **uEs** are applications and services that provide functionality to end users. These apps use the Core UEs for discovery, subscription and access to the digital twin.
-* The **Cloud Gateway** is the cloud service that devices connect with to communicate with the Back-office domain/device.
-* The **uStreamer** is an event dispatcher that enables seamless communication between *uEs* on different devices whom might talk different transport layer protocols. It performs functionality such as file transfer, event buffering and more. For example, when events need to move from one transport to the next it flows through the streamer. It can be equated to an IP router.
-* **uBus** is a message bus that dispatches *CEs* between *uEs* over a common transport. It provides multicast and forwarding functionality (works like a network switch).
-* The **uCDS** central discovery service provides a means for uEs to discover each other, their location (address), properties, and more.
-* **uSubscription** is a subscription management service that is responsible for managing the publisher/subscriber design pattern for the *uEs*.
-* **uTwin** Local cache of published events. the uTwin stores the published message using a primary key to enable local software components to retrieve it. This primary key is the full name of the Topic, hence also including the device name. The fact that the primary key represents a topic ensures that only the last event of a given topic is stored in the uTwin. The collection of events stored in a uTwin instance of a device, whose keys include a specific device name (for example, deviceA), represent the digital twin of that device (deviceA in our example). Examples of events for a vehicle include updates on tire pressure, window position, gear position, vehicle mode (driving, parked), and in general any information that is published within the vehicle for operating it and activating its features.
+* The **uEs** are applications and services that provide functionality to end users. These apps use the core uEs for discovery, subscription, and access to the digital twin.
+* The **cloud gateway** is the cloud service that devices connect with to communicate with the back-office domain or device.
+* The **uStreamer** is an event dispatcher that enables seamless communication between *uEs* on devices and various transport layer protocols. It performs functionalities, such as file transfer and event buffering. For example, when events move from one transport to the next, they flow through the streamer. The uStreamer is similar to an IP router.
+* The **uBus** is a message bus that dispatches *CEs* between *uEs* over a common transport. It provides multicast and forwarding functionality. It functions like a network switch.
+* The **uCDS** provides a means for uEs to discover each other, including their location (address) and properties.
+* The **uSubscription** is a subscription management service that manages the publisher and subscriber design patterns for the *uEs*.
+* The **uTwin** is a local cache of published events. The uTwin stores the published message via a primary key. Local software components can retrieve the key. This primary key is the full name of the topic, including the device name. The primary key represents a topic, so only the last event of a given topic is stored in the uTwin. The collection of events stored in a uTwin instance of a device, whose keys include a specific device name (for example device A), represent the digital twin of that device (device A in our example). Examples of events for a vehicle include updates on tire pressure, window position, gear position, vehicle mode (driving or parked), or any information that's published in the vehicle and used for operating the vehicle or activating its features.
 
 The following suggested services are relevant to a *uProtocol* implementation on Azure:
 
-| uProtocol Component | Functionality | Azure Service |
+| uProtocol component | Functionality | Azure service |
 |---------------------|---------------|---------------|
-| Cloud Gateway       | MQTT Broker   | Event Grid |
-| uStreamer           | File Transfer, Event Buffering, D2D Routing, Protocol Translation | Event Hubs, Storage, Functions, AKS |
-| uDiscovery          | Service Discovery              | Microservices on AKS
-| uBus                | Multicast Forwarding | Event Hubs, Service Bus, Event Grid |
-| uSubscription       | Pub/Sub Topic Management |  Microservices on AKS |
-| uTwin               | Last Known State | Azure Digital Twin, Azure Redis Cache |
+| Cloud gateway       | MQTT broker   | Event Grid |
+| uStreamer           | File transfer, event buffering, D2D routing, protocol translation | Event Hubs, Storage, Functions, AKS |
+| uDiscovery          | Service discovery              | Microservices on AKS
+| uBus                | Multicast forwarding | Event Hubs, Service Bus, Event Grid |
+| uSubscription       | Pub/sub topic management |  Microservices on AKS |
+| uTwin               | Last-known state | Azure Digital Twins, Azure Cache for Redis |
 
-*For additional information about uProtocol components, software development kits (SDK) and documentation refer to the [uProtocol github repository](https://github.com/eclipse-uprotocol)*
+For more information about uProtocol components, SDKs, and documentation, see the [uProtocol github repository](https://github.com/eclipse-uprotocol).
 
 #### Provision devices
 
 <!-- diagram needs to be reviewed to ensure we have the latest understanding -->
 
-:::image type="content" source="images/sdv-e2e-ref-architecture-uProtocol-Provisioning.svg" alt-text="uProtocol Provisioning Flow" lightbox="images/sdv-e2e-ref-architecture-uProtocol-Provisioning.svg":::
+:::image type="content" source="images/sdv-e2e-ref-architecture-uProtocol-Provisioning.svg" alt-text="Diagram that shows the uProtocol provisioning flow." border="false" lightbox="images/sdv-e2e-ref-architecture-uProtocol-Provisioning.svg":::
 
-1. The **Factory System** commissions the vehicle device to the desired construction state. Commissioning includes firmware & software initial installation and configuration. As part of this process, the factory system obtains and writes the device *certificate*, created from the **Public Key Infrastructure** provider.
+1. The **factory system** commissions the vehicle device to the desired construction state. Commissioning includes firmware and software initial installation and configuration. As part of this process, the factory system obtains and writes the device *certificate*, created from the **public key infrastructure** provider.
 
-1. The **Factory System** registers the vehicle & device using the *Vehicle & Device Provisioning API*.
-1. The *device registration* application registers the device identity in **Device Provisioning / Device Registry**.
-1. The information about authentication and authorization is stored in **Azure Active Directory**.
-1. The Factory system triggers the **device provisioning client** to connect to the **Device Provisioning Service**. The device retrieves connection information to the assigned *MQTT Broker* feature in **Event Grid**.
-1. The factory system triggers the device to establish a connection to the  *MQTT broker* feature in **Event Grid** for the first time.
-    1. **Event Grid** authenticates the device using the *CA Root Certificate* and extracts the client information.
-1. **Event Grid** manages authorization for allowed topics using the device information stored in **Active Directory**.
-1. The OEM **Dealer System** triggers the registration of a new device if a part replacement is required.
+1. The **factory system** registers the vehicle and device using the *vehicle and device provisioning API*.
+1. The *device registration* application registers the device identity in **device provisioning and device registry**.
+1. The information about authentication and authorization is stored in **Microsoft Entra ID**.
+1. The factory system triggers the **device provisioning client** to connect to the **device provisioning service**. The device retrieves the connection information to the assigned *MQTT broker* feature in **Event Grid**.
+1. The factory system triggers the device to establish a connection to the *MQTT broker* feature in **Event Grid** for the first time.
+    1. **Event Grid** authenticates the device using the *CA root certificate* and extracts the client information.
+1. **Event Grid** manages authorization for allowed topics using the device information stored in **Microsoft Entra ID**.
+1. The OEM **dealer system** triggers the registration of a new device if a part replacement is required.
 
-### Eclipse Automotive Software Stack Example
+### Example: Eclipse automotive software stack
 
-The following architecture describes an Automotive Software Stack based on Eclipse project components. It can also use Eclipse uProtocol as a communication protocol.
+The following architecture describes an automotive software stack based on Eclipse project components. It can also use Eclipse uProtocol as a communication protocol.
 
-:::image type="content" source="images/sdv-e2e-ref-architecture-sample-automotive-stack.svg" alt-text="Eclipse Software Defined Vehicle based automotive software stack" lightbox="images/sdv-e2e-ref-architecture-sample-automotive-stack.svg":::
+:::image type="content" source="images/sdv-e2e-ref-architecture-sample-automotive-stack.svg" alt-text="Diagram that shows the Eclipse SDV-based automotive software stack." lightbox="images/sdv-e2e-ref-architecture-sample-automotive-stack.svg":::
 
-* [Eclipse Chariott](https://projects.eclipse.org/projects/automotive.chariott) is a gRPC service that provides a common interface for interacting with applications. It facilitates Service Discovery for applications to advertise their capabilities by registering themselves with Chariott's service registry.
+* [Eclipse Chariott](https://projects.eclipse.org/projects/automotive.chariott) is a gRPC service that provides a common interface for interacting with applications. It facilitates service discovery for applications to advertise their capabilities by registering themselves with Chariott's service registry.
 
-* [Eclipse Ibeji](https://projects.eclipse.org/projects/automotive.ibeji) provides the capability to express a digital representation of the vehicle state and its capabilities through an extensible, open and dynamic architecture that provides access to the vehicle hardware, sensors and capabilities.
-* [Eclipse Freyja](https://github.com/eclipse-ibeji/freyja) is an application that enables synchronization between the digital twin state on the vehicle (the "instance digital twin") and the digital twin state in the cloud (the "canonical digital twin")
-* [Eclipse Agemo](https://github.com/eclipse-chariott/Agemo) is a gRPC service that provides publish/subscribe functionality for applications within the vehicle, including Eclipse Ibeji and Eclipse Chariott.
+* [Eclipse Ibeji](https://projects.eclipse.org/projects/automotive.ibeji) provides the capability to express a digital representation of the vehicle state and its capabilities through an extensible, open, and dynamic architecture that provides access to the vehicle hardware, sensors, and capabilities.
+* [Eclipse Freyja](https://github.com/eclipse-ibeji/freyja) is an application that enables synchronization between the digital twin state on the vehicle (the instance digital twin) and the digital twin state in the cloud (the canonical digital twin).
+* [Eclipse Agemo](https://github.com/eclipse-chariott/Agemo) is a gRPC service that provides publish and subscribe functionalities for applications in the vehicle, including Eclipse Ibeji and Eclipse Chariott.
 
 ## Contributors
 
