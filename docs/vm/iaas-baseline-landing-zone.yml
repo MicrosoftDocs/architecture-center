@@ -15,7 +15,6 @@ azureCategories:
     - networking
 products:
   - azure-application-gateway
-  - azure-application-insights
   - azure-bastion
   - azure-portal
   - azure-firewall
