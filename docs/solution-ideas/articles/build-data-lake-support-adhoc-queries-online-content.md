@@ -364,7 +364,6 @@ See the related architectural guidance:
 - [Choose an analytical data store in Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores)
 
 See these related architectures:
-- [Optimized storage – time based with Azure Data Lake](/azure/architecture/solution-ideas/articles/optimized-storage-time-based-data-lake)
 - [Modern analytics architecture with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture)
 - [Modern data warehouse for small and medium business](/azure/architecture/example-scenario/data/small-medium-data-warehouse)
 - [Ingestion, ETL, and stream processing pipelines with Azure Databricks](/azure/architecture/solution-ideas/articles/ingest-etl-stream-with-adb)

@@ -57,4 +57,3 @@ The following links provide documentation on deploying and managing the Azure pr
 
 - [High-performance computing (HPC) on Azure](../../topics/high-performance-computing.md)
 - [Hybrid HPC in Azure with HPC Pack](../../solution-ideas/articles/hybrid-hpc-in-azure-with-hpc-pack.yml)
-- [Batch processing](../../data-guide/big-data/batch-processing.yml)

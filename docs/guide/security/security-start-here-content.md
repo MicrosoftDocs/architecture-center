@@ -71,7 +71,7 @@ For information about security for sensitive IaaS workloads, see [Security consi
 
 - [Confidential computing on a healthcare platform](../../example-scenario/confidential/healthcare-inference.yml)
 - [Homomorphic encryption with SEAL](../../solution-ideas/articles/homomorphic-encryption-seal.yml)
-- [SQL Managed Instance with customer-managed keys](../../example-scenario/data/sql-managed-instance-cmk.yml)
+- [SQL Managed Instance with customer-managed keys](../../databases/architecture/sql-managed-instance-cmk.yml)
 - [Virtual network integrated serverless microservices](../../example-scenario/integrated-multiservices/virtual-network-integration.yml)
 
 ### Discover and respond

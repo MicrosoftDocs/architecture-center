@@ -209,7 +209,6 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 [Azure Blob Storage]: https://azure.microsoft.com/services/storage/blobs/
 [Azure Cosmos DB]: https://azure.microsoft.com/services/cosmos-db/
-[Azure data architecture guide]: ../../data-guide/index.md
 [Azure Data Factory]: https://azure.microsoft.com/services/data-factory/
 [Azure Data Lake Storage]: https://azure.microsoft.com/services/storage/data-lake-storage/
 [Azure Data Lake Storage Gen2]: /azure/databricks/data/data-sources/azure/azure-datalake-gen2

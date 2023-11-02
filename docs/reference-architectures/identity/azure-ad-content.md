@@ -274,8 +274,6 @@ Principal author:
 
 [aaf-cost]: /azure/architecture/framework/cost/overview
 
-[implementing-a-multi-tier-architecture-on-Azure]: ../n-tier/n-tier-sql-server.yml#cost-optimization
-
 [aad-agent-installation]: /azure/active-directory/active-directory-aadconnect-health-agent-install
 
 [aad-application-proxy]: /azure/active-directory/active-directory-application-proxy-enable

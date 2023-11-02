@@ -88,7 +88,6 @@ For more information, see the [App Service web application reference architectur
 - [Caching guidance](/azure/architecture/best-practices/caching)
 - [CDN guidance](/azure/architecture/best-practices/cdn)
 - [Data partitioning guidance](/azure/architecture/best-practices/data-partitioning)
-- [Use the best data store for your data](/azure/architecture/guide/design-principles/use-best-data-store)
 - [Scalable web application](/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app)
 - [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling)
 
@@ -99,5 +98,4 @@ For more information, see the [App Service web application reference architectur
 [caching]: ../../best-practices/caching.yml
 [cdn]: ../../best-practices/cdn.yml
 [data-partition]: ../../best-practices/data-partitioning.yml
-[polyglot]: /azure/architecture/guide/design-principles/use-best-data-store
 [scalable-web-app]: ../../web-apps/app-service/architectures/baseline-zone-redundant.yml

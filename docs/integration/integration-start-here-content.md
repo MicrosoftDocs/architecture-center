@@ -239,5 +239,5 @@ The following resources provide practical recommendations and information for sp
 [SWIFT Alliance Connect in Azure]: ../example-scenario/finance/swift-on-azure-srx.yml
 [SWIFT Alliance Connect Virtual in Azure]: ../example-scenario/finance/swift-on-azure-vsrx.yml
 [Tiered data for analytics]: ../example-scenario/hybrid/hybrid-tiered-data-analytics.yml
-[Transactional Outbox pattern with Azure Cosmos DB]: ../best-practices/transactional-outbox-cosmos.yml
+[Transactional Outbox pattern with Azure Cosmos DB]: ../databases/guide/transactional-outbox-cosmos.yml
 [Web and mobile front ends]: ../solution-ideas/articles/front-end.yml
