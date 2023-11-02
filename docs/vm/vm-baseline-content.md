@@ -1,43 +1,34 @@
 
-This article provides a foundational reference architecture for an Infrastructure-as-a-Service (IaaS) workload. The intent is to showcase a typical lift-and-shift use case in which an application is rehosted from on-premises to Azure without any code changes.  
+This article provides a foundational reference architecture for a workload deployed on Azure virtual machines (VMs). A common scenario is the "lift-and-shift"" approach, where an application is migrated from an on-premises computing environment to Azure without any changes to the source code.
 
-The focus of this architecture isn't that application. Instead it provides guidance for configuring and deploying the infrastructure components with which the application interacts. This includes the components such as compute, storage, networking, monitoring and more. 
-
-On-premises architecture are designed with a Capital Expense (CAPEX) mindset. When migrating to the cloud, take advantage of the elastic nature of the cloud services. Certain configurations that worked on-premises can be cost optimized on Azure. Do rigorous testing to establish a baseline that's inline with the expectation of the on-premises systems but can be easily extended to adapt to the changes in business requirements.
+The primary focus of this architecture isn't that application. Instead it provides guidance for configuring and deploying the infrastructure components with which the application interacts. These components include compute, storage, networking, monitoring and more. This architecture serves as a starting point for an Infrastructure-as-a-Service (IaaS) workload. However, the data tier is intentionally excluded from this guidance, to maintain the focus on the infrastructure. 
 
 > [!TIP]
-> ![GitHub logo](../_images/github.svg) The best practices described in this architecture are demonstrated by a [**reference implementation**](). Consider the implementation as your first step towards production for a lift-and-shift application.
+> ![GitHub logo](../_images/github.svg) The best practices described in this architecture are demonstrated by a [**reference implementation**](https://github.com/mspnp/iaas-baseline). 
 > The implementation includes an application that's a small test harness that will exercise the infrastructure set up end-to-end. 
 
 
 ## Architecture
 
-:::image type="content" source="./media/iaas-baseline-architecture.png" alt-text="IaaS baseline architectural diagram" lightbox="./media/iaas-baseline-architecture.png":::
-
-*Download a [Visio file](https://microsoft-my.sharepoint.com/:u:/r/personal/josev_microsoft_com/_layouts/15/doc2.aspx?sourcedoc=%7B07ba5bba-c61b-4b5e-bd37-1d4c20adf6b3%7D&action=view&share=IQG6W7oHG8ZeS703HUwgrfazAfcpYv2OBI9EIkxS8W1jamA&cid=12c82ef1-48e5-4fdf-b442-c52eb52ea874) of this architecture.*
-
+:::image type="content" source="./media/vm-baseline-architecture.png" alt-text="Virtual machine baseline architectural diagram" lightbox="./media/vm-baseline-architecture.png":::
 
 #### Workload resources
 
-- **Azure Virtual Machine** (VM) serves as the compute needed for the application. For illustrative purposes, there's a mix of both Windows and Linux images. The VMs are spread across availability zones so that the application is resilient to data center failures within a zone.  
+- **Azure virtual machine** (VM) serves as the compute resource for the application and is distributed across availability zones. For illustrative purposes, a combination of both Windows and Linux images is used. 
 
-- **Azure Virtual Machine Scale Sets** in Flexible orchestration mode provisions and manages the virtual machines individually. This mode was chosen because of the ease of operations, for example automatically spreading VMs across fault domains. Also, scaling demands of the application are met by provisioning more or decommissioning VMs, as needed. For more information, see [Scale sets with Flexible orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration).
+    **Azure Virtual Machine Scale Sets** in Flexible orchestration mode si used to provision and manages the virtual machines individually.
 
-- **Azure Virtual Network** provides a private network for all workload resources. The network is segmented into subnets that act as isolation boundaries.
+- **Azure Virtual Network** provides a private network for all workload resources. The network is segmented into subnets, which serve as isolation boundaries.
 
-- **Azure Application Gateway Standard_v2** is the single point of ingress. It routes user requests to front end servers.  
+- **Azure Application Gateway Standard_v2** is the single point of ingress routing requests to the frontend servers. This SKU has integrated Azure Web Application Firewall (WAF) for added security. 
 
-    This SKU has integrated Azure Web Application Firewall (WAF) that inspects incoming requests to check for OWASP vulnerabilities.
+- **Azure Load Balancer** routes traffic from the frontend tier to the backend servers. The load balancer distributes traffic to VMs across zones.  
 
-    It also supports cross-zone redundancy.
-
-- **Azure Load Balancer** routes traffic from the frontend tier to the backend servers. The load balancer has zonal redundancy to enable distribution to VMs across zones.  
-
-- **Azure Key Vault** stored certificates used for end-to-end TLS communication by the workload. It also stores application secrets. 
+- **Azure Key Vault** stores application secrets and certificates used for end-to-end TLS communication. 
 
 #### Workload supporting resources
 
-- **Azure Bastion** provides operational access to the VMs over Remote Desktop Protocol (RDP) and Secure Shell (SSH). Communication is over a private connection that prevents the VMs from being exposed through public IP addresses.  
+- **Azure Bastion** provides secured operational access to the VMs over Remote Desktop Protocol (RDP) and Secure Shell (SSH).   
 
 - **Azure Application Insights** collects logs and metrics from the application. 
 
@@ -49,19 +40,17 @@ This image shows the user to the workload resources.
 
 ##### Workload user
 
-1. Workload user browses to the web site via public IP address and connects to Azure Application Gateway. 
-1. Application Gateway receives HTTPS traffic and uses the external certificate to decrypt data for inspection by WAF. If data passes the WAF test, Application Gateway encrypts the data using the internal wildcard certificate for transport to the web tier. 
-1. The zone-redundant Application Gateway balances traffic across the three zones in the frontend. Application Gateway connects to a VM in the pool of web tier VMs, on behalf of the user session.
-1. The front-end web tier is the first layer of the three-tier application, with VMs hosted in three availability zones. The front-end VM that receives the request uses the internal certificate to decrypt data for inspection, then encrypts the data for transport to the back-end tier based on the request. 
-1. The front-end web app connects to the zone-redundant back-end Azure Load Balancer. Load Balancer connects to a VM in the pool of zone-redundant API tier VMs, forwarding the call to the API app.
-1. The back-end VM that receives the request uses the internal certificate to decrypt data for inspection, then encrypts the data for transport to the data tier based on the request.
-1. The back-end API app makes an API call to the data tier, which returns a result set to the API app. The API app returns the result to the web tier app. The web tier app returns the result to the Application Gateway, which returns it to the user.
+1. The user accesses the web site by using the exposed public IP address of Azure Application Gateway. 
+1. Application Gateway receives HTTPS traffic, decrypts data using an external certificate for WAF inspection, and re-encrypts it using the internal wildcard certificate for transport to the web tier. 
+1. Application Gateway balances traffic across the three zones in the frontend and connects to a VM in the pool of web tier VMs, on behalf of the user session.
+1. The frontend web app decrypts the received request using the internal certificate for inspection, then re-encrypts the data for transport to the backend tier. 
+1. The frontend tier connects to Azure Load Balancer, which forwards the request to a VM in the backend tier pool.
+1. The backend VM decrypts the request using the internal certificate. Then, the backend tier returns the result to the frontend, which returns the result to the Application Gateway, and it finally returns the result to the user.
 
 ##### Operations user
 
-1. Operations user signs in to Azure portal.
-1. The operations user accesses Azure Bastion service, then remotes into desired VM for troubleshooting using the appropriate tool.
-1. TBD 
+1. The operations user logs into the Azure portal.
+1. The user accesses the Azure Bastion service and remotely connects to the desired VM for troubleshooting using the appropriate tool.
 
 ## Compute layout and design choices
 
@@ -162,9 +151,9 @@ VM extensions are small applications that provide post-deployment configuration 
 
 ## Networking 
 
-This architecture uses a single virtual network (VNet) in which the workload resources are deployed. The purpose is to demonstrate basic controls needed to restrict traffic while maintaining focus on the compute layer. In an enterprise setup, this VNet can be integrated with an organization-provided topology. That example is shown in [Infrastructure as a Service (IaaS) baseline in Azure landing zones](./iaas-baseline-landing-zone.yml).
+This architecture uses a single virtual network (VNet) in which the workload resources are deployed. The purpose is to demonstrate basic controls needed to restrict traffic while maintaining focus on the compute layer. In an enterprise setup, this VNet can be integrated with an organization-provided topology. That example is shown in [Infrastructure as a Service (IaaS) baseline in Azure landing zones](./vm-baseline-landing-zone.yml).
 
-:::image type="content" source="./media/iaas-baseline-network-topology.png" alt-text="IaaS baseline architectural diagram" lightbox="./media/iaas-baseline-network-topology.png":::
+:::image type="content" source="./media/vm-baseline-network-topology.png" alt-text="IaaS baseline architectural diagram" lightbox="./media/vm-baseline-network-topology.png":::
 
 
 ##### Virtual network
@@ -235,7 +224,7 @@ Virtual Machine Scale Sets (VMSS) with Flexible orchestration requires that VM i
 
 - **Use Azure Firewall or another Network Virtual Appliance (NVA) with a custom User Defined Route (UDR) as the next hop through firewall**.
 
-    This use case is shown in [Infrastructure as a Service (IaaS) baseline in Azure landing zones](./iaas-baseline-landing-zone.yml).
+    This use case is shown in [Infrastructure as a Service (IaaS) baseline in Azure landing zones](./vm-baseline-landing-zone.yml).
 
 This architecture uses Azure Load Balancer with outbound rules.
 
@@ -279,7 +268,7 @@ Depending on your design, a managed identity can also be used in backend servers
 
 ## Secret management
 
-:::image type="content" source="./media/iaas-baseline-tls-termination.png" alt-text="IaaS monitoring data flow  diagram" lightbox="./media/iaas-baseline-tls-termination.png":::
+:::image type="content" source="./media/vm-baseline-tls-termination.png" alt-text="IaaS monitoring data flow  diagram" lightbox="./media/vm-baseline-tls-termination.png":::
 
 [Azure Key Vault](/azure/key-vault/general/overview) provides secure management of secrets. This architecture uses Key Vault to store the TLS certificates used by the various actors for encrypting and decrypting data in transit between layers. 
 
@@ -302,7 +291,7 @@ The Azure platform provides basic DDoS protection by default. This basic protect
 
 Monitoring processes and components are discussed here primarily from a data collection perspective. Azure Log Analytics workspace is the recommended monitoring data sink used to collect logs and metrics from the Azure resources and Application Insights. 
 
-:::image type="content" source="./media/iaas-baseline-monitoring.png" alt-text="IaaS monitoring data flow  diagram" lightbox="./media/iaas-baseline-monitoring.png":::
+:::image type="content" source="./media/vm-baseline-monitoring.png" alt-text="IaaS monitoring data flow  diagram" lightbox="./media/vm-baseline-monitoring.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/xxx.vsdx) that contains the drawings in this architecture.*
 
@@ -409,5 +398,5 @@ See product documentation for details on specific Azure services:
 
 IaaS reference architectures showing options for the data tier:
 
-- [IaaS: Web application with relational database](/azure/architecture/high-availability/ref-arch-iaas-web-and-db)
+- [IaaS: Web application with relational database](/azure/architecture/high-availability/ref-arch-vm-web-and-db)
 - [Windows N-tier application using SQL Server on Azure](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)

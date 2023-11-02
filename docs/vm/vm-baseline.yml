@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Infrastructure as a Service (IaaS) baseline architecture
+  title: Azure virtual machine baseline architecture
   titleSuffix: Azure Architecture Center
-  description: Demonstrates how to set up an IaaS baseline environment that's suitable for migration of VM workloads
+  description: Demonstrates how to set up an environment that's configured to run a workload on Azure virtual machines
   author: PageWriter-MSFT
   ms.author: prwilk
   ms.date: 04/01/2022
@@ -22,8 +22,8 @@ products:
   - azure-virtual-machines
   - azure-virtual-network
   - azure-vm-scalesets
-name: Infrastructure as a Service (IaaS) baseline scenario
-summary: Demonstrates how to set up an IaaS baseline environment that's suitable for migration of VM workloads
-thumbnailUrl: /azure/architecture/browse/thumbs/iaas-baseline.png
+name: Azure virtual machine baseline architecture
+summary: Demonstrates how to set up an environment that's configured to run a workload on Azure virtual machiness
+thumbnailUrl: /azure/architecture/browse/thumbs/vm-baseline.png
 content: |
-  [!include[](iaas-baseline-content.md)]
+  [!include[](vm-baseline-content.md)]

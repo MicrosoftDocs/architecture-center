@@ -1,10 +1,10 @@
-This reference architecture extends the IaaS [**baseline architecture**](./iaas-baseline.yml) to address common architectural changes and expectations when being deployed into in Azure landing zones.
+This reference architecture extends the IaaS [**baseline architecture**](./vm-baseline.yml) to address common architectural changes and expectations when being deployed into in Azure landing zones.
 
-In this scenario, your organization expects the IaaS-based workload to use federated resources managed by central teams (platform), such as networking for cross-premises connectivity, identity access management, and policies. This guidance assumes that the organization has adopted Azure landing zones to apply consistent governance and save costs across multiple workloads.
+In this scenario, your organization expects the vm-based workload to use federated resources managed by central teams (platform), such as networking for cross-premises connectivity, identity access management, and policies. This guidance assumes that the organization has adopted Azure landing zones to apply consistent governance and save costs across multiple workloads.
 
 ## Architecture
 
-:::image type="content" source="./media/iaas-baseline-landing-zone.png" alt-text="A architectural diagram showing the IaaS baseline in an application landing zone." lightbox="./media/iaas-baseline-landing-zone.png":::
+:::image type="content" source="./media/vm-baseline-landing-zone.png" alt-text="A architectural diagram showing the IaaS baseline in an application landing zone." lightbox="./media/vm-baseline-landing-zone.png":::
 
 Typical uses for this architecture include:
 
