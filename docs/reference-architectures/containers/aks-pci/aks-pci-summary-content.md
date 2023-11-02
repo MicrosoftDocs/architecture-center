@@ -217,4 +217,4 @@ To keep within the budget constraints, some ways to control cost are by adjustin
 
 As you create groups of Azure resources, apply tags so that they can be tracked for cost. Use cost management tools like [Azure Advisor](/azure/advisor/advisor-cost-recommendations) and [Azure Cost Management](/azure/cost-management-billing/costs/cost-mgt-best-practices) for tracking and analyzing cost.
 
-Consider enabling [AKS cost analysis](/azure/aks/cost-analysis), which will allow you to obtain granular insight into costs associated with various Kubernetes resources in your clusters or namespaces.
+Consider enabling [AKS cost analysis](/azure/aks/cost-analysis) for granular cluster infrastructure cost allocation by Kubernetes specific constructs.

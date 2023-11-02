@@ -334,8 +334,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 - To estimate the cost of the required resources, see the [Container Services calculator](https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service).
 
-- Consider enabling [AKS cost analysis](/azure/aks/cost-analysis), which will allow you to obtain granular insight into costs associated with various Kubernetes resources in your clusters or namespaces.
-
+- Consider enabling [AKS cost analysis](/azure/aks/cost-analysis) for granular cluster infrastructure cost allocation by Kubernetes specific constructs.
 
 ## Next steps
 
