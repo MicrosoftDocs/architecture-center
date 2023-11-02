@@ -25,7 +25,7 @@ Control planes are an important part of software as a service (SaaS) and multite
   - Tenant configuration.
   - SKUs deployed for tenant resources.
   - Which [deployment stamps](../../../patterns/deployment-stamp.yml) the tenants are allocated to.
-- Processes for managing changes to the environment, which are triggered by tenant [lifecycle events](../considerations/tenant-lifecycle.md). For example, tenant onboarding, tenant offboarding, and any required regular maintenance.
+- Processes for managing changes to the environment, which are triggered by [tenant lifecycle events](../considerations/tenant-lifecycle.md). For example, tenant onboarding, tenant offboarding, and any required regular maintenance.
 
 A control plane is itself an application. You need to think about your control plane carefully and design it with the same rigor and care you use with any other part of your solution. For more information on what a control plane is, why you should use it, and considerations for designing one, see [Considerations for multitenant control planes](../considerations/control-planes.yml).
 
@@ -68,7 +68,7 @@ The following diagram illustrates one way to use manual processes for an initial
 
 - **Lightweight**: Documentation, scripts, and pipelines are easy to develop and modify. This makes them appropriate when you're figuring out your processes because you can rapidly iterate and evolve them.
 - **Low cost**: Maintaining and running a manual approach is inexpensive.
-- **Provides process validation**: Even if you eventually intend to use a more automated approach, starting with a manual approach as a proof of concept is a good way to validate your maintenance strategy before you invest time in developing more robust automation.
+- **Validates your process**: Even if you eventually intend to use a more automated approach, starting with a manual approach as a proof of concept is a good way to validate your maintenance strategy before you invest time in developing more robust automation.
 
 #### Disadvantages of a manual approach
 
@@ -79,7 +79,7 @@ The following diagram illustrates one way to use manual processes for an initial
 
 #### When to consider moving away from a manual approach
 
-- When your team can't keep up with the amount of work they need to do to maintain the application. For example, when your number of tenants scales beyond a critical point. For most teams, the critical point is between 5 and 10 tenants.
+- When your team can't keep up with the amount of work they need to do to maintain the application. For example, when your number of tenants scales beyond a critical point, which for most teams is between 5 and 10 tenants.
 - When you anticipate tenant growth beyond a critical number of tenants and you need to prepare for the work involved in administering that number of tenants.
 - When you need to mitigate the risk of inconsistencies. For example, you might observe some mistakes occurring because somebody isn't following the processes correctly, or because there's too much ambiguity in the processes. The risk of inconsistency typically grows as more tenants are onboarded manually.
 
@@ -117,7 +117,7 @@ The following diagram illustrates how you might create a control plane with self
 
 ### Custom control plane
 
-You can also consider creating your own completely customized control plane. This option provides the most flexibility and power, but it also requires the most work. The tenant catalog is usually stored in a database. You don't work directly with the catalog in this case, but instead manage it through an administrative interface.
+You can also consider creating your own completely customized control plane. This option provides the most flexibility and power, but it also requires the most work. The tenant catalog is usually stored in a database. You don't work directly with the catalog in this case, but instead manage it through an administrative interface, which might be a custom application or a system like your organization's customer relationship management (CRM) application.
 
 You typically create a set of control plane components that's designed around all your tenant administrative functions. These components might include an administrative portal or other user interface, an API, and background processing components. If you need to do things like deploy code or infrastructure when tenant lifecycle events occur, deployment pipelines might also make up your control plane.
 
@@ -144,7 +144,7 @@ You can also consider using a hybrid approach. You might use a combination of ma
 
 ### Gradual implementation
 
-Even if you know that you don't want any manual processes in your control plane, you don't necessarily need to start with that approach. A common approach during the initial stages of creating your application is to start with a manual control plane. As your application progresses and onboards more tenants, you should begin to identify bottleneck areas and automate them as necessary, moving to a hybrid approach. As you automate more, you might eventually have a fully automated control plane.
+Even if you know that you want to eventually automate your control plane, you don't necessarily need to start with that approach. A common approach during the initial stages of creating your application is to start with a manual control plane. As your application progresses and onboards more tenants, you should begin to identify bottleneck areas and automate them as necessary, moving to a hybrid approach. As you automate more, you might eventually have a fully automated control plane.
 
 ## Antipatterns to avoid
 
