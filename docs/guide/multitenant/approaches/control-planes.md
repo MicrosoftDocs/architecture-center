@@ -117,7 +117,7 @@ The following diagram illustrates how you might create a control plane with self
 
 ### Custom control plane
 
-You can also consider creating your own completely customized control plane. This option provides the most flexibility and power, but it also requires the most work. The tenant catalog is usually stored in a database. You don't work directly with the catalog in this case, but instead manage it through an administrative interface.
+You can also consider creating your own completely customized control plane. This option provides the most flexibility and power, but it also requires the most work. The tenant catalog is usually stored in a database. You don't work directly with the catalog in this case, but instead manage it through an administrative interface, which might be a custom application or a system like your organization's customer relationship management (CRM) application.
 
 You typically create a set of control plane components that's designed around all your tenant administrative functions. These components might include an administrative portal or other user interface, an API, and background processing components. If you need to do things like deploy code or infrastructure when tenant lifecycle events occur, deployment pipelines might also make up your control plane.
 
