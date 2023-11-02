@@ -293,8 +293,6 @@ Monitoring processes and components are discussed here primarily from a data col
 
 :::image type="content" source="./media/vm-baseline-monitoring.png" alt-text="IaaS monitoring data flow  diagram" lightbox="./media/vm-baseline-monitoring.png":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/xxx.vsdx) that contains the drawings in this architecture.*
-
 Monitoring data is generated at multiple levels, all of which can be sources of important metrics and log files: 
 - Underlying infrastructure and components on which your system runs, like virtual machines, virtual networks, and storage services
 - Application level
@@ -398,5 +396,4 @@ See product documentation for details on specific Azure services:
 
 IaaS reference architectures showing options for the data tier:
 
-- [IaaS: Web application with relational database](/azure/architecture/high-availability/ref-arch-vm-web-and-db)
 - [Windows N-tier application using SQL Server on Azure](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)

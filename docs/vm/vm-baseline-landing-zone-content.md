@@ -95,7 +95,7 @@ The platform team decides the network topology. Hub-spoke topology is assumed in
 
 - **Hub virtual network**
 
-  The [Connectivity subscription](/azure-best-practices/traditional-azure-networking-topology) contains a regional hub shared by all or many of the organization's resources in the same single region. It contains [these networking resources](#platform-team-owned-resources) that are owned and maintained by the platform team. These resources are in scope for this architecture:
+  The [Connectivity subscription](/azure/cloud-adoption-framework/ready/landing-zone/design-area/network-topology-and-connectivity) contains a regional hub shared by all or many of the organization's resources in the same single region. It contains [these networking resources](#platform-team-owned-resources) that are owned and maintained by the platform team. These resources are in scope for this architecture:
 
   - **Azure Firewall** used for controlling outbound traffic to the internet.
   - **Azure Bastion** used to securing access to the virtual machine instances.

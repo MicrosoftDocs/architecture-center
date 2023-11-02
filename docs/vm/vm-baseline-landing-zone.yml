@@ -29,6 +29,6 @@ products:
   - github
 name: Virtual machine baseline architecture in an Azure landing zone
 summary: Builds on the baseline architecture and deploys it in an organizational set up provided through an Azure landing zone.
-thumbnailUrl: /azure/architecture/browse/thumbs/vm-baseline-landing-zone.png
+thumbnailUrl: media/vm-baseline-landing-zone.png
 content: |
   [!include[](vm-baseline-landing-zone-content.md)]
