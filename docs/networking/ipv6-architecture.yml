@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Ipv6 Architecture 
+  description: Learn about options and best practices for Azure Virtual Networking using Ipv6.
+  author: WernerRall147
+  ms.author: weral
+  ms.date: 03/07/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+  ms.custom:
+    - fcp
+name: Ipv6 Architecture
+azureCategories:
+  - networking
+  - security
+summary: Learn about options and best practices for Azure Virtual Networking using Ipv6.
+products:
+  - azure-firewall
+  - azure-virtual-network
+  - azure-virtual-wan
+  - azure-vpn-gateway
+thumbnailUrl: /azure/architecture/browse/thumbs/ipv6-architecture-thumbnail.png
+content: |
+   [!include[](ipv6-architecture-content.md)]
