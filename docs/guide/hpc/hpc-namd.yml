@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: Deploy NAMD on a virtual machine
+  description: Learn how NAMD, a parallel molecular dynamics application designed for high-performance simulation of large biomolecular systems, performs on an Azure VM.
+  author: gauharjunnarkar
+  ms.author: gajunnar
+  ms.date: 11/01/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - compute
+products:
+  - azure-virtual-machines
+  - azure-virtual-network
+name: Deploy NAMD on a virtual machine
+summary: Learn how NAMD, a parallel molecular dynamics application designed for high-performance simulation of large biomolecular systems, performs on an Azure VM.
+thumbnailUrl: /azure/architecture/browse/thumbs/hpc-namd.png 
+content: |
+  [!include[](hpc-namd-content.md)]
