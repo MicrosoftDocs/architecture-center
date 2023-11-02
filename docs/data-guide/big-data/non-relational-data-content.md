@@ -87,8 +87,6 @@ Time series data is a set of values organized by time, and a time series data st
 
 Although the records written to a time series database are generally small, there are often a large number of records, and total data size can grow rapidly. Time series data stores also handle out-of-order and late-arriving data, automatic indexing of data points, and optimizations for queries described in terms of windows of time. This last feature enables queries to run across millions of data points and multiple data streams quickly, in order to support time series visualizations, which is a common way that time series data is consumed.
 
-For more information, see [Time series solutions](../scenarios/time-series.yml)
-
 Relevant Azure services:
 
 - [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)
@@ -179,7 +177,6 @@ Principal author:
 
 ## Related resources
 
-- [Databases architecture design](../databases-architecture-design.yml)
 - [Understand data store models](../../guide/technology-choices/data-store-overview.md)
 - [Scalable order processing](../../example-scenario/data/ecommerce-order-processing.yml)
 - [Near real-time lakehouse data processing](../../example-scenario/data/real-time-lakehouse-data-processing.yml)

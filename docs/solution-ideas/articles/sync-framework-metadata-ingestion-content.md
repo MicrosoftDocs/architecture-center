@@ -213,4 +213,4 @@ Other contributors:
 
 - [Design a collection structure for a Microsoft Purview federated catalog](/azure/architecture/example-scenario/ai/loan-credit-risk-analyzer-default-modeling)
 - [Design Event Hubs and Functions for resilience](../../serverless/event-hubs-functions/resilient-design.md) 
-- [Data governance with Profisee and Microsoft Purview](../../reference-architectures/data/profisee-master-data-management-purview.yml)
+- [Data governance with Profisee and Microsoft Purview](../../databases/architecture/profisee-master-data-management-purview.yml)
