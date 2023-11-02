@@ -117,4 +117,4 @@ See the following articles, to learn more about the topics introduced in this ar
 
 * See the [Analytics end-to-end with Azure Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end) architecture for a more comprehensive scenario that illustrates other mechanisms to enrich and serve data.
 * [AI at the edge with Azure Stack Hub](./ai-at-the-edge.yml)
-* [Deploy AI and ML computing on-premises and to the edge](../../hybrid/deploy-ai-ml-azure-stack-edge.yml)
+* [Deploy AI and ML computing on-premises and to the edge](../../ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml)

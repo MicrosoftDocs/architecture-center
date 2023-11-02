@@ -49,7 +49,6 @@ See product documentation:
 
 Read other Azure Architecture Center articles about predictive maintenance and prediction with machine learning:
 
-* [Predictive maintenance](./predictive-maintenance.yml)
+* [Predictive maintenance](../../industries/manufacturing/predictive-maintenance-overview.yml)
 * [Predictive maintenance for industrial IoT](./iot-predictive-maintenance.yml)
-* [Predictive marketing with machine learning](./predictive-marketing-campaigns-with-machine-learning-and-spark.yml)
 * [Predict length of stay and patient flow](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)

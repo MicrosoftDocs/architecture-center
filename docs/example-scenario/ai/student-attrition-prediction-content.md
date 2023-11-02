@@ -143,7 +143,7 @@ The components in this solution feature high availability. But there are two par
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-The components in this solution offer built-in security. They also support permissions that you can manage by using Azure Active Directory (Azure AD) authentication or role-based access control. For information about establishing suitable enterprise-level security, see [Azure Machine Learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security).
+The components in this solution offer built-in security. They also support permissions that you can manage by using Microsoft Entra authentication or role-based access control. For information about establishing suitable enterprise-level security, see [Azure Machine Learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security).
 
 Azure Synapse Analytics features enterprise-grade and industry-leading security that uses component isolation to protect data, secure networks, and boost threat protection. Component isolation can minimize exposure to threats during security attacks. Azure Synapse Analytics also offers data obfuscation to protect sensitive personal student data.
 
@@ -215,13 +215,13 @@ Other contributors:
 - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
 - [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
-- [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
+- [What is Microsoft Entra ID?](/azure/active-directory/fundamentals/active-directory-whatis)
 - [About Azure Key Vault](/azure/key-vault/general/overview)
 
 ## Related resources
 
 - [Solutions for the education industry](../../industries/education.md)
-- [Batch scoring of Python models on Azure](../../reference-architectures/ai/batch-scoring-python.yml)
+- [Batch scoring of Python models on Azure](../../ai-ml/architecture/batch-scoring-python.yml)
 - [Citizen AI with the Power Platform](./citizen-ai-power-platform.yml)
-- [Deploy AI and machine learning computing on-premises and to the edge](../../hybrid/deploy-ai-ml-azure-stack-edge.yml)
-- [MLOps for Python models using Azure Machine Learning](../../reference-architectures/ai/mlops-python.yml)
+- [Deploy AI and machine learning computing on-premises and to the edge](../../ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml)
+- [MLOps for Python models using Azure Machine Learning](../../ai-ml/guide/mlops-python.yml)

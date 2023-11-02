@@ -103,6 +103,4 @@ Principal author:
 ## Related resources
 
 - [Knowledge mining for content research](../../solution-ideas/articles/content-research.yml)
-- [Knowledge mining in contract management](../../solution-ideas/articles/contract-management.yml)
-- [Knowledge mining in digital asset management](../../solution-ideas/articles/digital-asset-management.yml)
 - [Vision classifier model with Azure Custom Vision Cognitive Service](../dronerescue/vision-classifier-model-with-custom-vision.yml)

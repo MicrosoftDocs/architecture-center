@@ -29,7 +29,7 @@ azureCategories:
   - hybrid
 summary: Manage applications and user identity across clouds with Azure Stack Hub. Use the hybrid identity blueprint for on-premises apps that interact with the cloud.
 products:
-  - azure-active-directory
+  - entra-id
   - azure-stack-hub
   - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-identity.png

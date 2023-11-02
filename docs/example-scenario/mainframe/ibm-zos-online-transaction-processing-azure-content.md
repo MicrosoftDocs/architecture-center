@@ -30,7 +30,7 @@ This architecture is ideal for OLTP workloads that have these characteristics:
 
 *Download a [Visio file](https://arch-center.azureedge.net/ibm-zos-online-transaction-processing-on-azure.vsdx) of this architecture.*
 
-1. Mainframe users are familiar with 3270 terminals and on-premises connectivity. In the migrated system, they interact with Azure applications via public internet or via a private connection implemented with Azure ExpressRoute. Azure Active Directory (Azure AD) provides authentication.
+1. Mainframe users are familiar with 3270 terminals and on-premises connectivity. In the migrated system, they interact with Azure applications via public internet or via a private connection implemented with Azure ExpressRoute. Microsoft Entra ID provides authentication.
 1. Input requests go to a global load balancer service, like Azure Front Door or Azure Traffic Manager. The load balancer can serve a geographically spread user base. It routes the requests according to rules defined for the supported workloads. These load balancers can coordinate with Azure Application Gateway or Azure Load Balancer for load balancing of the application layer. The Azure Content Delivery Network service caches static content in edge servers for quick response, secured using the Web Application Firewall (WAF) service.
 1. The front end of the application layer uses Azure services like Azure App Service to implement application screens and to interact with users. The screens are migrated versions of the mainframe screens.
 1. COBOL and PL/1 code in the back end of the application layer implements the business logic. The code can use services like Azure Functions, WebJobs, and Azure Spring Apps microservices. Applications can run in an Azure Kubernetes Service (AKS) container.
@@ -50,7 +50,7 @@ This architecture is ideal for OLTP workloads that have these characteristics:
 #### Networking and identity
 
 - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) carries private connections between on-premises infrastructure and Azure datacenters.
-- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) is an identity and access management service that can synchronize with an on-premises directory.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is an identity and access management service that can synchronize with an on-premises directory.
 - [Azure Front Door](https://azure.microsoft.com/services/frontdoor) provides global HTTP load balancing with instant failover. Its caching option can quicken delivery of static content.
 - [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager) directs incoming DNS requests based on your choice of traffic routing methods.
 - [Azure Web Application Firewall](https://azure.microsoft.com/services/web-application-firewall) helps protect web apps from malicious attacks and common web vulnerabilities, such as SQL injection and cross-site scripting.
@@ -104,7 +104,7 @@ This architecture is ideal for OLTP workloads that have these characteristics:
 ### Security
 
 - ExpressRoute creates a private connection to Azure from an on-premises environment. You can also use site-to-site VPN.
-- Azure AD can authenticate resources and control access using Azure role-based access control (RBAC).
+- Microsoft Entra ID can authenticate resources and control access using Azure role-based access control (RBAC).
 - Database services in Azure support various security options like data encryption at rest.
 - For general guidance on designing secure solutions, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 

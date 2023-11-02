@@ -58,6 +58,5 @@ Principal author:
 ## Related resources
 
 - [Finance management apps using Azure Database for MySQL](./finance-management-apps-using-azure-database-for-mysql.yml)
-- [Retail and e-commerce using Azure Database for PostgreSQL](./retail-and-ecommerce-using-azure-database-for-postgresql.yml)
-- [Intelligent apps using Azure Database for PostgreSQL](./intelligent-apps-using-azure-database-for-postgresql.yml)
+- [Intelligent apps using Azure Database for PostgreSQL](../../databases/idea/intelligent-apps-using-azure-database-for-postgresql.yml)
 - [Tier applications and data for analytics](./tiered-data-for-analytics.yml)

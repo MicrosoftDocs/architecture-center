@@ -172,6 +172,6 @@ Principal authors:
 
 - [DevOps checklist](../../checklist/dev-ops.md)
 - [Ingestion, ETL, and stream processing pipelines with Azure Databricks](../../solution-ideas/articles/ingest-etl-stream-with-adb.yml)
-- [DataOps for the modern data warehouse](../../example-scenario/data-warehouse/dataops-mdw.yml)
+- [DataOps for the modern data warehouse](../../databases/architecture/dataops-mdw.yml)
 - [Automate multistage Azure pipelines with Azure Pipelines](../../example-scenario/devops/automate-azure-pipelines.yml)
 - [Design a CI/CD pipeline using Azure DevOps](/azure/architecture/example-scenario/apps/devops-dotnet-baseline)

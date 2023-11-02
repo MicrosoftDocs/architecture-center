@@ -29,8 +29,8 @@ azureCategories:
   - mobile
 summary: This solution consolidates data from multiple business systems and then surfaces the data through web and mobile front ends. This consolidation helps improve employee productivity and helps speed up decision making.
 products:
-  - azure-active-directory
-  - azure-active-directory-b2c
+  - entra-id
+  - entra-external-id
   - azure-sql-database
   - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.png

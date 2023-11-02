@@ -79,7 +79,7 @@ The following recommendations apply to most scenarios. Follow them, unless you h
 
 ### Resource groups
 
-The hub and each spoke can be implemented in different resource groups, and, even better, in different subscriptions. When you peer virtual networks in different subscriptions, both subscriptions can be associated to the same or a different Azure Active Directory tenant. This allows for a decentralized management of each workload, while sharing services maintained in the hub.
+The hub and each spoke can be implemented in different resource groups, and, even better, in different subscriptions. When you peer virtual networks in different subscriptions, both subscriptions can be associated to the same or a different Microsoft Entra tenant. This allows for a decentralized management of each workload, while sharing services maintained in the hub.
 
 ### Virtual WAN
 

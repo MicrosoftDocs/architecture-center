@@ -24,7 +24,7 @@ azureCategories:
   - containers
 summary: Migrate existing web apps to containers deployed in App Service, which allows you to focus on composing containers not worrying about managing container orchestration.
 products:
-  - azure-active-directory
+  - entra-id
   - azure-container-registry
   - azure-app-service
 thumbnailUrl: /azure/architecture/browse/thumbs/migrate-existing-applications-to-container-apps.png

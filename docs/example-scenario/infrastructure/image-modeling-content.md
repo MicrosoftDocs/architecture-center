@@ -97,12 +97,6 @@ The following sample cost profile in the [Azure pricing calculator](https://azur
 - General purpose v2 (GPv2) Blob storage with LRS and hot tier access (only GPv2 storage accounts expose the Access Tier attribute).
 - Virtual network with support for 10 TB data transfer.
 
-For details about this architecture, see the [e-book](https://azure.microsoft.com/resources/deploy-agisoft-photoscan-on-azure-with-azere-vfxt-for-azure-or-beegfs). To see how the pricing would change for your particular use case, choose different VM sizes in the pricing calculator to match your expected deployment.
-
-## Deploy this scenario
-
-For step-by-step instructions for deploying this architecture, including all the prerequisites for using either Avere FxT or BeeGFS, download the e-book [Deploy Agisoft PhotoScan on Azure With Avere vFXT for Azure or BeeGFS](https://azure.microsoft.com/resources/deploy-agisoft-photoscan-on-azure-with-azere-vfxt-for-azure-or-beegfs).
-
 ## Next steps
 
 The following resources will provide more information on the components used in this scenario, along with alternative approaches for batch computing on Azure.
@@ -121,4 +115,3 @@ The following resources will provide more information on the components used in 
 - An example scenario for [computer-aided engineering (CAE) on Azure](../../example-scenario/apps/hpc-saas.yml)
 - [HPC media rendering](../../solution-ideas/articles/azure-batch-rendering.yml)
 - [Image classification with convolutional neural networks (CNNs)](../../solution-ideas/articles/image-classification-with-convolutional-neural-networks.yml)
-- [Gaming using Azure Database for MySQL](../../solution-ideas/articles/gaming-using-azure-database-for-mysql.yml)

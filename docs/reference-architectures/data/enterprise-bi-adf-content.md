@@ -41,9 +41,9 @@ The architecture consists of the following services and components.
 
 #### Authentication
 
-**Azure Active Directory** (Azure AD) authenticates users who connect to the Analysis Services server through Power BI.
+**Microsoft Entra ID** (Microsoft Entra ID) authenticates users who connect to the Analysis Services server through Power BI.
 
-Data Factory can also use Azure AD to authenticate to Azure Synapse, by using a service principal or Managed Service Identity (MSI). 
+Data Factory can also use Microsoft Entra ID to authenticate to Azure Synapse, by using a service principal or Managed Service Identity (MSI). 
 
 ### Components
 
@@ -52,7 +52,7 @@ Data Factory can also use Azure AD to authenticate to Azure Synapse, by using a 
 - [Azure Data Factory](https://azure.microsoft.com/products/data-factory)
 - [Azure Analysis Services](https://azure.microsoft.com/products/analysis-services)
 - [Power BI](https://powerbi.microsoft.com)
-- [Azure Active Directory](https://azure.microsoft.com/products/active-directory)
+- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory)
 
 ## Scenario details
 
@@ -241,7 +241,6 @@ For more information, see the Cost section in [Microsoft Azure Well-Architected 
 You may want to review the following [Azure example scenarios](/azure/architecture/example-scenario) that demonstrate specific solutions using some of the same technologies:
 
 - [Data warehousing and analytics for sales and marketing](../../example-scenario/data/data-warehouse.yml)
-- [Hybrid ETL with existing on-premises SSIS and Azure Data Factory](../../example-scenario/data/hybrid-etl-with-adf.yml)
 - [Enterprise BI in Azure with Azure Synapse](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse).
 
 <!-- links -->

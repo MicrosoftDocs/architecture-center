@@ -34,3 +34,7 @@ This pattern may not be suitable:
 ## Next steps
 
 - Martin Fowler's blog post on [StranglerFigApplication](https://martinfowler.com/bliki/StranglerFigApplication.html)
+
+## Related resources
+
+- [Messaging Bridge pattern](./messaging-bridge.yml)

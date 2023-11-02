@@ -84,6 +84,8 @@ Azure supports shared access signatures on Azure Storage for granular access con
 
 Azure shared access signatures also support server-stored access policies that can be associated with a specific resource such as a table or blob. This feature provides additional control and flexibility compared to application-generated shared access signature tokens, and should be used whenever possible. Settings defined in a server-stored policy can be changed and are reflected in the token without requiring a new token to be issued, but settings defined in the token can't be changed without issuing a new token. This approach also makes it possible to revoke a valid shared access signature token before it's expired.
 
+Finally, creating shared access signatures can be done with a _user delegation key_ instead of using the Storage account key. This method uses Microsoft Entra ID and supports Blob Storage only. It is the preferred solution when Blob Storage is the only service being accessed.
+
 > For more information, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](/azure/storage/common/storage-sas-overview).
 
 The following code shows how to create a shared access signature token that's valid for five minutes. The `GetSharedAccessReferenceForUpload` method returns a shared access signatures token that can be used to upload a file to Azure Blob Storage.
@@ -97,41 +99,40 @@ public class SasController : ControllerBase
   ...
   /// <summary>
   /// Return a limited access key that allows the caller to upload a file
-  /// to this specific destination for a defined period of time.
+  /// to this specific destination for about the next five minutes.
   /// </summary>
   private async Task<StorageEntitySas> GetSharedAccessReferenceForUpload(string blobName)
-  {          
+  {
     var blobServiceClient = new BlobServiceClient(new Uri(blobEndpoint), new DefaultAzureCredential());
 
     var blobContainerClient = blobServiceClient.GetBlobContainerClient(this.blobContainer);
     var blobClient = blobContainerClient.GetBlobClient(blobName);
-    var parentBlobServiceClient = blobContainerClient.GetParentBlobServiceClient();
 
-    UserDelegationKey key = await parentBlobServiceClient.GetUserDelegationKeyAsync(DateTimeOffset.UtcNow, DateTimeOffset.UtcNow.AddDays(7));
+    UserDelegationKey key = await blobServiceClient.GetUserDelegationKeyAsync(DateTimeOffset.UtcNow, DateTimeOffset.UtcNow.AddDays(1));
 
     var blobSasBuilder = new BlobSasBuilder
     {
-      BlobContainerName = this.blobContainer,
-      BlobName = blobName,
+      BlobContainerName = blobClient.BlobContainerName,
+      BlobName = blobClient.Name,
       Resource = "b",
       StartsOn = DateTimeOffset.UtcNow.AddMinutes(-5),
       ExpiresOn = DateTimeOffset.UtcNow.AddMinutes(5)
     };
     blobSasBuilder.SetPermissions(BlobSasPermissions.Write);
 
-    var storageSharedKeyCredential = new StorageSharedKeyCredential(blobServiceClient.AccountName, key.Value);
+    var storageSharedKeySignature = blobSasBuilder.ToSasQueryParameters(key, blobServiceClient.AccountName).ToString();
 
     return new StorageEntitySas
     {
       BlobUri = blobClient.Uri,
-      Credentials = blobSasBuilder.ToSasQueryParameters(storageSharedKeyCredential).ToString()
+      Signature = storageSharedKeySignature
     };
   }
 
-  public struct StorageEntitySas
+  public class StorageEntitySas
   {
-    public string Credentials;
-    public Uri BlobUri;
+    public string? Signature { get; internal set; }
+    public Uri? BlobUri { get; internal set; }
   }
 }
 ```

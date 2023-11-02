@@ -111,7 +111,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- Consider using [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) for identity and access control, and [Azure Key Vault](/azure/key-vault/general/overview) to manage keys and secrets.
+- Consider using [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) for identity and access control, and [Azure Key Vault](/azure/key-vault/general/overview) to manage keys and secrets.
 
 - Take advantage of [Azure Policy](/azure/governance/policy/overview) to enforce organizational standards and assess compliance at scale. Policies can deny deployments, log compliance issues, and modify resources to make them compliant.
 
@@ -173,7 +173,6 @@ Microsoft learning paths:
 - [Predictive maintenance for industrial IoT](/azure/architecture/solution-ideas/articles/iot-predictive-maintenance)
 - [Condition monitoring for industrial IoT](/azure/architecture/solution-ideas/articles/condition-monitoring)
 - [IoT and data analytics](/azure/architecture/example-scenario/data/big-data-with-iot)
-- [Predictive maintenance](/azure/architecture/solution-ideas/articles/predictive-maintenance)
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)
 - [CI/CD for AKS apps with Azure Pipelines](/azure/architecture/guide/aks/aks-cicd-azure-pipelines)
 - [Stream processing with Azure Stream Analytics](/azure/architecture/reference-architectures/data/stream-processing-stream-analytics)

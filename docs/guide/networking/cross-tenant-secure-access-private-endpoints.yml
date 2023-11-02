@@ -19,7 +19,6 @@ products:
   - azure-dns
   - azure-functions
   - azure-private-link
-  - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/cross-tenant-secure-access-private-endpoints-thumbnail.png
 content: |
    [!include[](cross-tenant-secure-access-private-endpoints-content.md)]

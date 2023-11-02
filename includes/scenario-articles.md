@@ -421,25 +421,6 @@ ms.service: architecture-center
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="~/example-scenario/data/hybrid-etl-with-adf.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="~/example-scenario/data/media/architecture-diagram-hybrid-etl-with-adf.png" alt="Architecture diagram for Hybrid ETL with existing on-premises SSIS and Azure Data Factory" height="140px" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Hybrid ETL with existing on-premises SSIS and Azure Data Factory</h3>
-                        <p>Hybrid ETL with existing on-premises SQL Server Integration Services (SSIS) deployments and Azure Data Factory.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-<li style="display: flex; flex-direction: column;">
     <a href="~/example-scenario/data/realtime-analytics-vehicle-iot.yml" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">

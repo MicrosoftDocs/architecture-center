@@ -137,7 +137,7 @@ For general guidance on designing resilient solutions, see [Designing reliable 
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-For separation of credentials and permissions, this scenario uses a dedicated Azure Active Directory (Azure AD) service principal. The credentials for this service principal are stored as a secure credential object in GitHub, as GitHub Actions Secrets, so that they're not directly exposed and visible within scripts or the build pipeline.
+For separation of credentials and permissions, this scenario uses a dedicated Microsoft Entra service principal. The credentials for this service principal are stored as a secure credential object in GitHub, as GitHub Actions Secrets, so that they're not directly exposed and visible within scripts or the build pipeline.
 
 For general guidance on securing applications on AKS clusters, see [Security concepts for applications and clusters in AKS](/azure/aks/concepts-security).
 

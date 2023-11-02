@@ -126,7 +126,6 @@ Principal authors:
 
 ## Related resources
 
-- For comprehensive architectural guidance on data pipelines, data warehousing, online analytical processing (OLAP), and big data, see the [Azure Data Architecture Guide](../../data-guide/index.md).
 - Learn more about:
   - [Data lakes](../../data-guide/scenarios/data-lake.md)
   - [Data warehousing and analytics](data-warehouse.yml)

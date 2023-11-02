@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 08/21/2023
+ms.date: 10/16/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -23,17 +23,45 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 
 The following new and updated articles have recently been published in the Azure Architecture Center.
 
+## October 2023
+
+### New articles
+
+- [Windows 365 Azure network connection](./guide/virtual-desktop/windows-365-azure-network-connection.yml)
+- [Automotive connected fleets](./industries/automotive/automotive-connected-fleets.yml)
+
+### Updated articles
+
+- [Microsoft Entra security for AWS](./reference-architectures/aws/aws-azure-ad-security.yml)  ([#c00d96f670](https://github.com/MicrosoftDocs/architecture-center/commit/c00d96f670))
+- [Baseline architecture for an AKS cluster](./reference-architectures/containers/aks/baseline-aks.yml)  ([#c00d96f670](https://github.com/MicrosoftDocs/architecture-center/commit/c00d96f670))
+- [Azure VMware Solution networking](./solution-ideas/articles/azure-vmware-solution-foundation-networking.yml)  ([#bd323181bd](https://github.com/MicrosoftDocs/architecture-center/commit/bd323181bd))
+
+## September 2023
+
+### New articles
+
+- [Extend mainframes to digital channels by using standards-based REST APIs](./example-scenario/mainframe/extend-mainframes-to-digital-channels-by-using-standards-based-rest-apis.yml)
+- [Multitenancy and Azure OpenAI](./guide/multitenant/service/openai.md)
+- [Analyze call center recordings using text analytics for health and Azure OpenAI Service](./example-scenario/healthcare/analyze-recordings-text-analytics-azure-openai.yml)
+- [Hybrid Cross-Cluster Scaling with Azure Arc for the workloads deployed on Azure Stack HCI](./hybrid/hybrid-cross-cluster-scaling.yml)
+
+### Updated articles
+
+- [Azure Spring Apps baseline architecture](./web-apps/spring-apps/architectures/spring-apps-multi-zone.yml)  ([#296858b98e](https://github.com/MicrosoftDocs/architecture-center/commit/296858b98e))
+- [Integrate on-premises AD domains with Microsoft Entra ID](./reference-architectures/identity/azure-ad.yml)  ([#29ff11ff52](https://github.com/MicrosoftDocs/architecture-center/commit/29ff11ff52))
+- [Kubernetes monitoring and logging](./aws-professional/eks-to-aks/monitoring.yml)  ([#bf2b17b6cf](https://github.com/MicrosoftDocs/architecture-center/commit/bf2b17b6cf))
+
 ## August 2023
 
 ### New articles
 
+- [Multitenancy and Application Insights](./guide/multitenant/service/application-insights.md)
 - [Azure Health Data Services architecture guide](./guide/data/azure-health-data-services.yml)
-- [Video ingestion and object detection on the edge and in the cloud](./solution-ideas/articles/video-ingestion-object-detection-edge-cloud.yml)
-- [Extract and analyze call center data by using Azure OpenAI Service, Speech services, and Language services](./example-scenario/ai/call-center-openai-analytics.yml)
 - [Mission-critical baseline with App Service](./guide/networking/global-web-applications/mission-critical-app-service.yml)
 
 ### Updated articles
 
+- [Microsoft SaaS stories](./guide/saas/case-studies/saas-stories.md)  ([#ff907761a0](https://github.com/MicrosoftDocs/architecture-center/commit/ff907761a0))
 - [Deploy Azure landing zones](./landing-zones/landing-zone-deploy.md)  ([#7d7643bb4a](https://github.com/MicrosoftDocs/architecture-center/commit/7d7643bb4a))
 - [HA enterprise deployment using ASE](./web-apps/app-service-environment/architectures/ase-high-availability-deployment.yml)  ([#f63a699611](https://github.com/MicrosoftDocs/architecture-center/commit/f63a699611))
 - [Magento e-commerce platform in Azure Kubernetes Service](./example-scenario/magento/magento-azure.yml)  ([#4206ea3f14](https://github.com/MicrosoftDocs/architecture-center/commit/4206ea3f14))
@@ -65,65 +93,4 @@ The following new and updated articles have recently been published in the Azure
 - [Microsoft SaaS stories](./guide/saas/case-studies/saas-stories.md)  ([#ab9015d14a](https://github.com/MicrosoftDocs/architecture-center/commit/ab9015d14a))
 - [Azure Database for PostgreSQL considerations for multitenancy](./guide/multitenant/service/postgresql.md)  ([#4438c7638c](https://github.com/MicrosoftDocs/architecture-center/commit/4438c7638c))
 - [Multi-region load balancing](./high-availability/reference-architecture-traffic-manager-application-gateway.yml)  ([#a2b159dbbb](https://github.com/MicrosoftDocs/architecture-center/commit/a2b159dbbb))
-
-## June 2023
-
-### New articles
-
-- [Azure Spring Apps (ASA) architecture design](./web-apps/spring-apps/index.md)
-- [WordPress on App Service](./example-scenario/infrastructure/wordpress-app-service.yml)
-- [WordPress on Azure Kubernetes Service](./example-scenario/infrastructure/wordpress-container.yml)
-- [WordPress on virtual machines](./example-scenario/infrastructure/wordpress-iaas.yml)
-- [WordPress on Azure](./guide/infrastructure/wordpress-overview.yml)
-- [Deploy web apps by using zone-redundant Azure Red Hat OpenShift](./reference-architectures/containers/aro/ha-zr-aro.yml)
-- [Monitor a distributed system by using Application Insights and OpenCensus](./guide/devops/monitor-with-opencensus-application-insights.yml)
-- [Deploy Autodesk Maya on a virtual machine](./guide/hpc/autodesk-maya.yml)
-- [Offline audio dubbing](./guide/media/offline-audio-dubbing.yml)
-- [Deploy LAMMPS on an Azure virtual machine](./guide/hpc/hpc-lammps.yml)
-- [Build language model pipelines with memory](./guide/ai/language-model-pipelines.yml)
-- [Implement Azure DevOps for mainframe applications that use IBM Z and Cloud Modernization Stack](./example-scenario/mainframe/devops-mainframe-ibm-z.yml)
-- [Siemens Teamcenter baseline architecture on Azure](./example-scenario/manufacturing/teamcenter-baseline.yml)
-- [DataOps for autonomous vehicle operations](./example-scenario/automotive/autonomous-vehicle-operations-dataops.yml)
-- [Use Teamcenter PLM with Azure NetApp Files](./example-scenario/manufacturing/teamcenter-plm-netapp-files.yml)
-- [Carrier-grade voicemail solution on Azure](./industries/telecommunications/carrier-grade.yml)
-
-### Updated articles
-
-- [Deploy Altair EDEM on an Azure virtual machine](./guide/hpc/altair-edem.yml)  ([#306c39ceff](https://github.com/MicrosoftDocs/architecture-center/commit/306c39ceff))
-- [Deploy Samadii Plasma on an Azure virtual machine](./guide/hpc/plasma.yml)  ([#306c39ceff](https://github.com/MicrosoftDocs/architecture-center/commit/306c39ceff))
-- [Deploy Samadii DEM on an Azure virtual machine](./guide/hpc/samadii-dem.yml)  ([#306c39ceff](https://github.com/MicrosoftDocs/architecture-center/commit/306c39ceff))
-- [Deploy Samadii SCIV on an Azure virtual machine](./guide/hpc/samadii-sciv.yml)  ([#306c39ceff](https://github.com/MicrosoftDocs/architecture-center/commit/306c39ceff))
-- [Implement TIC 3.0 compliance](./example-scenario/security/trusted-internet-connections.yml)  ([#f6fe0b35f8](https://github.com/MicrosoftDocs/architecture-center/commit/f6fe0b35f8))
-- [DR for Azure Data Platform - Overview](./data-guide/disaster-recovery/dr-for-azure-data-platform-overview.yml)  ([#f451a54cdb](https://github.com/MicrosoftDocs/architecture-center/commit/f451a54cdb))
-- [DR for Azure Data Platform - Scenario details](./data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details.yml)  ([#f451a54cdb](https://github.com/MicrosoftDocs/architecture-center/commit/f451a54cdb))
-
-## May 2023
-
-### New articles
-
-- [Model loan credit risk and default probability](./example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml)
-- [Types of decision APIs and Applied AI Services](./data-guide/cognitive-services/decision-applied-ai.md)
-- [Types of language API services](./data-guide/cognitive-services/language-api.md)
-- [Types of speech API services](./data-guide/cognitive-services/speech-api.md)
-- [Types of vision API services](./data-guide/cognitive-services/vision-api.md)
-- [Running Windows containers on AKS](./reference-architectures/containers/aks/windows-containers-on-aks.yml)
-- [Contextualize data by using graph in SQL Database](./example-scenario/data/data-contextualization-based-on-azure-sql-graph.yml)
-- [Microsoft SaaS stories](./guide/saas/case-studies/saas-stories.md)
-- [Deploy Revit on an Azure virtual machine](./guide/hpc/hpc-autodesk-revit.yml)
-- [Deploy and operate apps with AKS hybrid on Azure Stack HCI or Windows Server](./example-scenario/hybrid/aks-hybrid-stack-hci.yml)
-- [Massive-scale VWAN architecture design](./example-scenario/networking/massive-scale-azure-architecture.yml)
-- [Conversation summarization](./guide/ai/conversation-summarization.yml)
-- [Integrate Teradata VantageCloud Enterprise with Azure Data Factory](./guide/data/teradata-vantage-data-factory.yml)
-- [Implement logging and monitoring for Azure OpenAI large language models](./example-scenario/ai/log-monitor-azure-openai.yml)
-
-### Updated articles
-
-- [Choose a cognitive services technology](./data-guide/technology-choices/cognitive-services.md)  ([#13a32d06aa](https://github.com/MicrosoftDocs/architecture-center/commit/13a32d06aa))
-- [Baseline architecture for an AKS cluster](./reference-architectures/containers/aks/baseline-aks.yml)  ([#6c1ba87e9a](https://github.com/MicrosoftDocs/architecture-center/commit/6c1ba87e9a))
-- [Send Databricks app logs to Azure Monitor](./databricks-monitoring/application-logs.md)  ([#a468053fea](https://github.com/MicrosoftDocs/architecture-center/commit/a468053fea))
-- [Dashboards to visualize Azure Databricks metrics](./databricks-monitoring/dashboards.md)  ([#a468053fea](https://github.com/MicrosoftDocs/architecture-center/commit/a468053fea))
-- [Observability patterns and metrics](./databricks-monitoring/databricks-observability.yml)  ([#a468053fea](https://github.com/MicrosoftDocs/architecture-center/commit/a468053fea))
-- [Troubleshoot Databricks performance issues](./databricks-monitoring/performance-troubleshooting.md)  ([#a468053fea](https://github.com/MicrosoftDocs/architecture-center/commit/a468053fea))
-- [Deploy SAS Grid 9.4 on Azure NetApp Files](./guide/hpc/netapp-files-sas.yml)  ([#171bf64397](https://github.com/MicrosoftDocs/architecture-center/commit/171bf64397))
-- [AKS triage - cluster health](./operator-guides/aks/aks-triage-cluster-health.md)  ([#7761b27710](https://github.com/MicrosoftDocs/architecture-center/commit/7761b27710))
 
