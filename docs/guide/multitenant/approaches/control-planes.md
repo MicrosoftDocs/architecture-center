@@ -21,7 +21,7 @@ ms.custom:
 
 Control planes are an important part of software as a service (SaaS) and multitenant solutions, especially to help manage a solution at scale. Typically, there are two main components that make up a control plane: 
 
-- The tenant catalog, which stores important information about your tenants, such as:
+- The tenant catalog, which stores important information about your tenants, such as: 
   - Tenant configuration.
   - SKUs deployed for tenant resources.
   - Which [deployment stamps](../../../patterns/deployment-stamp.yml) the tenants are allocated to.
@@ -38,7 +38,7 @@ The following table summarizes the differences between some of the approaches yo
 | Consideration  | Manual | Low-code | Custom | 
 |---|---|---|---|
 | Operational overhead | High | Low-medium | Low |
-| Frequency of lifecycle events the approach is suitable for | Rare | Occasional-often | Often | 
+| Frequency of lifecycle events the approach is suitable for | Rare | Occasional-often | Often |
 | Time and complexity to implement | Low | Medium | High |
 | Control plane maintenance responsibilities | Low | Medium | High |
 | Testability | Low | Medium | High |
