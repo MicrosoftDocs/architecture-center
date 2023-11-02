@@ -171,7 +171,7 @@ Other contributors:
 - [Microsoft Power Platform](https://powerplatform.microsoft.com/)
 - [Power Automate](https://powerplatform.microsoft.com/power-automate/)
 
-## Related resources 
+## Related resources
 
 - [Architectural considerations for control planes in a multitenant solution](../considerations/control-planes.yml)
 - [Architectural approaches for a multitenant solution](../approaches/overview.yml)
