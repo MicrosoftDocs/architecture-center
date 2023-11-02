@@ -79,7 +79,7 @@ The following diagram illustrates one way to use manual processes for an initial
 
 #### When to consider moving away from a manual approach
 
-- When your team can't keep up with the amount of work they need to do to maintain the application. For example, when your number of tenants scales beyond a critical point. For most teams, the critical point is between 5 and 10 tenants.
+- When your team can't keep up with the amount of work they need to do to maintain the application. For example, when your number of tenants scales beyond a critical point, which for most teams is between 5 and 10 tenants.
 - When you anticipate tenant growth beyond a critical number of tenants and you need to prepare for the work involved in administering that number of tenants.
 - When you need to mitigate the risk of inconsistencies. For example, you might observe some mistakes occurring because somebody isn't following the processes correctly, or because there's too much ambiguity in the processes. The risk of inconsistency typically grows as more tenants are onboarded manually.
 
