@@ -1,124 +1,143 @@
-The transition to **software-defined vehicles (SDVs)** requires a different approach on the development, deployment, monitoring and management of automotive software stacks across the entire automotive industry. Automotive original equipment manufacturers (OEMs) are embracing a *shift-left* strategy, which involves conducting testing early in the product development cycle. In this approach, the in-vehicle software stack undergoes comprehensive simulation and testing within cloud-based environments. The example architecture in this article outlines how to leverage the software stack and distributions provided by the [Eclipse software-defined vehicle working group](https://sdv.eclipse.org) in conjunction with GitHub and Azure services to develop an end-to-end automotive software stack, implement software in the loop (SIL) testing and orchestrate hardware in the loop (HIL) and engineering vehicle fleets validation.
+Across the entire automotive industry, the transition to *software-defined vehicles (SDVs)* requires a unique approach for developing, deploying, monitoring, and managing automotive software stacks. Automotive original equipment manufacturers (OEMs) embrace a *shift-left strategy*, which involves conducting testing early in the product development cycle.
 
-This guide demonstrates how to:
+In the approach in this article, the in-vehicle software stack undergoes comprehensive simulation and testing in a cloud-based environment. The following example architecture outlines how to take advantage of the software stacks and distributions that the [Eclipse SDV working group](https://sdv.eclipse.org) offers. You can use these components with GitHub and Azure services to develop an end-to-end automotive software stack, implement *software in the loop (SIL) testing*, orchestrate *hardware in the loop (HIL) testing*, and engineer vehicle fleet validation.
 
-* Integrate state of the art **developer tools** into the overall development process.
-* Work with and manage **automotive source code**.
-* Build **virtual vehicle environments** automatically as part of continuous integration and continuous delivery (CI/CD) pipelines and manage their execution for virtual testing.
-* Orchestrate deployments for **SIL** tests (virtual testing) and **HIL** testing.
-* Use highly scalable services to collect and analyze data produced during **validation tests** and **field usage**
+This article describes how to:
+
+* Integrate state-of-the-art developer tools into the development process.
+* Work with and manage automotive source code.
+* Build virtual vehicle environments automatically as part of continuous integration and continuous delivery (CI/CD) pipelines and manage their execution for virtual testing.
+* Orchestrate deployments for SIL testing (virtual testing) and HIL testing.
+* Use highly scalable services to collect and analyze data that's produced during validation tests and field usage.
 
 ## Architecture
 
-:::image type="content" source="images/sdv-e2e-ref-architecture-high-level-overview.svg" alt-text="Diagram that shows the SDV toolchain overview." border="false" lightbox="images/sdv-e2e-ref-architecture-high-level-overview.svg":::
+This architecture shows the automotive SDV toolchain overview.
 
-The architecture consists of six key building blocks:
-
-1. The **SDV toolchain** is a plug-and-play approach that's open and configurable. It takes advantage of Microsoft developer and DevOps assets and services. It reduces reliance on in-vehicle SILicon by establishing highly configurable and flexible **virtual electronic control units (vECUs)** as well as **virtual high-performance computers (vHPCs)** environments on Azure to accelerate development, testing, and validation of automotive software. The approach also ensures compatibility with edge and in-vehicle SILicon to ensure bit, timing, and code parity.
-
-1. An **automotive software stack** encompasses a diverse range of technologies and frameworks, often governed by industry standards and collaborative efforts such as the *Eclipse Foundation Software Defined Vehicle Working Group*. Eclipse projects include non-differentiating components for vehicle connectivity, messaging and communication protocols, an in-vehicle digital twin abstraction layer, advanced driver-assistance systems (ADAS), and autonomous driving solutions. Automotive software stacks provide a robust foundation for automakers and software developers. They ensure seamless integration and compatibility across the automotive ecosystem and provide a community-driven approach to technological advancements.
-
-1. The **GitHub and Azure Marketplace** enables partners such as Tier I and automotive software tool vendors to offer solutions, such as managed automotive software stacks, vECUs, and developer tooling, and integrate them with the SDV toolchain.
-
-1. With **HIL testing**, you can run testing and validation on target hardware. HIL testing uses the same orchestration concept as SIL testing for validation with edge and in-vehicle SILicon. The specialized hardware is connected with fast network access and secure networks.
-
-1. **[Vehicle messaging, data, and analytics](/azure/event-grid/mqtt-automotive-connectivity-and-data-solution)** provides required infrastructure for managing vehicles and devices, deploy and operate connected vehicle applications with dependencies to in-vehicle software components and provide data analytics services for engineering, operations, and mobility-based services. The **[data analytics for automotive test fleets](/azure/architecture/industries/automotive/automotive-telemetry-analytics)** provides more detail on data collection and analytics for component and system validation.
-
-1. **[Autonomous vehicle operations](/azure/architecture/solution-ideas/articles/avops-architecture)** enables automotive OEMs to develop automated driving solutions on Azure. It describes how to manage data operations from autonomous vehicles (DataOps), automated feature extraction, labeling, model training for perception and sensor fusion (MLOps), and testing developed models in simulated environments (ValOps). It integrates with the SDV toolchain by providing trained models and executing software validation.
-
-This guide focuses on a general *SDV toolchain* and *automotive software stack*, and provides examples of for implementations using open-source projects under the purview of the Eclipse SDV working group, such as [Eclipse uProtocol](https://github.com/eclipse-uprotocol), [Eclipse Chariott](https://github.com/eclipse-chariott), [Eclipse Ibeji](https://github.com/eclipse-ibeji), Eclipse Freya, and Eclipse Agemo.
-
-*Microsoft is a member of the [Eclipse Software Defined Vehicle](https://www.eclipse.org/org/workinggroups/sdv-charter.php) working group, a forum for open collaboration using open source for vehicle software platforms.*
+:::image type="content" source="images/sdv-e2e-ref-architecture-high-level-overview.svg" alt-text="Diagram that shows the automotive SDV toolchain overview." border="false" lightbox="images/sdv-e2e-ref-architecture-high-level-overview.svg":::
+*Download a [PowerPoint file](https://arch-center.azureedge.net/[file-name].pptx) of this architecture.*
 
 ### Workflow
 
-This section describes the components that comprise the automotive SDV toolchain. It also describes the typical workflow for a developer to define, orchestrate, and run virtual tests for automotive software.
+The architecture consists of six key building blocks:
 
-The following three key blocks comprise the automotive SDV toolchain:
+1. The *SDV toolchain* is a plug-and-play approach that's open and configurable. This approach takes advantage of Microsoft developer and DevOps assets and services. It reduces the reliance on in-vehicle silicon by establishing configurable and flexible *virtual electronic control unit (vECU)* and *virtual high-performance computer (vHPC)* environments on Azure. These environments help to accelerate development, testing, and validation of automotive software. This approach ensures compatibility with edge and in-vehicle silicon to ensure bit, timing, and code parity.
 
-* **Development tools** includes development and collaboration services such as GitHub, Microsoft Dev Box, Visual Studio Code and Azure Container Registry. It also includes GitHub’s code scanning capabilities that use the CodeQL analysis engine to find security bugs in source code and surface alerts in pull requests, before the vulnerable code gets merged and released.
+1. An *automotive software stack* encompasses a diverse range of technologies and frameworks. Industry standards and collaborative efforts, such as the *Eclipse Foundation software-defined vehicle working group*, often govern these technologies and frameworks. Eclipse projects include non-differentiating components for vehicle connectivity, messaging, and communication protocols, such as an in-vehicle digital twin abstraction layer, advanced driver-assistance systems (ADAS), and autonomous driving solutions.
 
-* **Development, validation, and integration** – a combination of metadata and orchestration services that allow developers to configure, build, deploy, and orchestrate on-demand virtual execution environments to streamline the development and testing process, integrating with existing toolchains and supporting multiple application formats, binaries, operating systems, and runtime environments.
+   Automotive software stacks provide a robust foundation for automakers and software developers. They ensure seamless integration and compatibility across the automotive ecosystem and provide a community-driven approach to technological advancements.
 
-* **Execution environment** – the set of Azure services that enable reliable, repeatable, and observable cloud and edge environments to build, test, and validate automotive software stacks. These services might include:
+1. GitHub Marketplace and Azure Marketplace enable partners such as tier 1 vendors and automotive software tool vendors to offer solutions, like managed automotive software stacks, vECUs, and developer tooling. You can integrate these solutions with the SDV toolchain.
 
-  * Azure deployment environment
-  * Azure Compute Gallery
-  * Azure Container Registry
-  * Azure Arc
-  * Azure compute like ARM64-based Azure virtual machines and high-performance computing
-  * Azure networking services and connectivity services, like Azure ExpressRoute
+1. With HIL testing, you can run testing and validation on target hardware. For validation with edge and in-vehicle silicon, HIL testing uses the same orchestration concept as SIL testing. The specialized hardware is connected with fast network access and secure networks.
 
-### Deploy vECUs
+1. [Vehicle messaging, data, and analytics](/azure/event-grid/mqtt-automotive-connectivity-and-data-solution) provides the required infrastructure for:
+   * Managing vehicles and devices.
+   * Deploying and operating connected vehicle applications with dependencies to in-vehicle software components.
+   * Providing data analytics for engineering, operations, and mobility-based services.
 
-:::image type="content" source="images/sdv-e2e-ref-architecture-automotive-sdv-toolchain.svg" alt-text="Diagram that shows the components and workflow of the automotive SDV toolchain." border="false" lightbox="images/sdv-e2e-ref-architecture-automotive-sdv-toolchain.svg":::
+   For information about data collection and analytics for component and system validation, see [Data analytics for automotive test fleets](/azure/architecture/industries/automotive/automotive-telemetry-analytics).
 
-The following flow describes how an automotive software developer belonging to the fictitious company *Contoso Automotive* uses the automotive SDV toolchain to:
+1. [Autonomous vehicle operations (AVOps)](/azure/architecture/solution-ideas/articles/avops-architecture) enable automotive OEMs to develop automated driving solutions on Azure. The AVOps solution describes:
+   * How to manage data operations (DataOps) for autonomous vehicles.
+   * Automated feature extraction, labeling, and model training for perception and sensor fusion (MLOps).
+   * Testing developed models in simulated environments (ValOps).
+
+   This solution integrates with the SDV toolchain by providing trained models and executing software validation.
+
+This architecture focuses on a general SDV toolchain and automotive software stack. It provides examples of implementations that use open-source projects under the purview of the Eclipse SDV working group, such as [Eclipse uProtocol](https://github.com/eclipse-uprotocol), [Eclipse Chariott](https://github.com/eclipse-chariott), [Eclipse Ibeji](https://github.com/eclipse-ibeji), Eclipse Freya, and Agemo.
+
+Microsoft is a member of the [Eclipse software-defined vehicle working group](https://www.eclipse.org/org/workinggroups/sdv-charter.php), a forum for open-source collaboration for vehicle software platforms.
+
+The components that comprise the automotive SDV toolchain include:
+
+* **Development tools** include development and collaboration services, such as GitHub, Microsoft Dev Box, Visual Studio Code, and Azure Container Registry. This architecture also uses GitHub’s code-scanning capabilities. The CodeQL analysis engine finds security bugs in source code and surface alerts in pull requests before the vulnerable code gets merged and released.
+
+* **Development, validation, and integration** is a method that combines metadata and orchestration services. It enables developers to configure, build, deploy, and orchestrate on-demand virtual execution environments. Developers can streamline the development and testing process, integrate with existing toolchains, and support multiple application formats, binaries, operating systems, and runtime environments.
+
+* The **execution environment** consists of Azure services and components that enable reliable, repeatable, and observable cloud and edge environments to build, test, and validate automotive software stacks. These components might include:
+
+  * An Azure deployment environment.
+  * Azure Compute Gallery.
+  * Container Registry.
+  * Azure Arc.
+  * Azure compute, like ARM64-based Azure virtual machines and high-performance computing.
+  * Azure networking services and connectivity services, like Azure ExpressRoute.
+
+The following workflows show how a developer defines, orchestrates, and runs virtual tests for automotive software.
+
+#### Workflow: Deploy vECUs
+
+This solution describes how an automotive software developer for the fictitious company *Contoso Automotive* uses the automotive SDV toolchain to:
 
 * Set up a development environment in minutes.
 * Trigger an update change in the SIL cloud infrastructure to deploy a vECU that runs on an ARM64-based virtual machine.
 
 *Contoso Automotive* is adding a new automotive high-performance compute (HPC) unit to an upcoming vehicle model and must onboard a new development team to develop containerized applications. The hardware for the vehicle isn't available yet, but compressed timelines mean that the software functionality must be developed and validated in parallel.
 
-1. The automotive developer creates and connects to a **Microsoft dev box**. The dev box is preconfigured with all required development tools (such as Visual Studio Code and Android Studio) and all required extensions (such as GitHub Copilot) to work with the *Contoso Automotive* applications.
+:::image type="content" source="images/sdv-e2e-ref-architecture-automotive-sdv-toolchain.svg" alt-text="Diagram that shows the components and workflow of the automotive SDV toolchain." border="false" lightbox="images/sdv-e2e-ref-architecture-automotive-sdv-toolchain.svg":::
 
-1. The automotive developer performs a check-out of the automotive **application code and metadata** that describes the upcoming vehicle configuration, the included HPCs and ECUs, and the required deployment to perform SIL validation.
-1. The automotive developer uses the **metadata extensions** to make configuration adjustments, such as changing the characteristics of the HPC based on new information from the engineering team.
-1. Changing the configuration triggers the **metadata processing extension** that performs metadata validation, generates all required artifacts, and configures an execution environment deployment campaign.
-1. After all configuration changes are complete, the developer submits a pull request that triggers a **GitHub action** for deployment.
-1. The deployment GitHub action triggers the **metadata and orchestration services**, which runs the deployment campaign.
-1. The **metadata and orchestration service** uses the **Azure development environment** to deploy the required compute to simulate the new version of the automotive electric or electronic architecture.
-1. The **metadata and orchestration service** sets the desired state of the compute based on the campaign. It uses the artifacts store to mount and configure the required ***virtual HPC and ECU images***.
+1. The automotive developer creates and connects to a *Microsoft dev box*. The dev box is preconfigured with all required development tools (such as Visual Studio Code and Android Studio) and all required extensions (such as GitHub Copilot) to be compatible with the Contoso Automotive applications.
 
-#### Software over the air (SOTA) updates for automotive applications
+1. The automotive developer performs a check-out of the automotive *application code and metadata* that describes the upcoming vehicle configuration, the included HPCs and ECUs, and the required deployment to perform SIL validation.
+1. The automotive developer uses *metadata extensions* to adjust configurations, such as changing the characteristics of the HPC based on new information from the engineering team.
+1. Changing the configuration triggers the *metadata processing extension*. It performs metadata validation, generates all required artifacts, and configures an execution environment deployment campaign.
+1. After all configuration changes are complete, the developer submits a pull request that triggers a *GitHub action* for deployment.
+1. The deployment GitHub action triggers the *metadata and orchestration service*, which run the deployment campaign.
+1. The *metadata and orchestration service* use the *Azure development environment* to deploy the required compute to simulate the new version of the automotive electronic architecture.
+1. The *metadata and orchestration service* set the desired state of the compute based on the campaign. They use the artifacts store to mount and configure the required *vHPC and ECU images*.
 
-*Contoso Automotive* is ready to deploy containerized automotive applications to their engineering test fleet to perform integration testing. The *automotive developer* builds, tests, and validates the new version of their application and deploys it to the vehicle.
+#### Workflow: Software over the air (SOTA) updates for automotive applications
 
-:::image type="content" source="images/sdv-e2e-ref-architecture-software-update.svg" alt-text="Diagram that shows a software update." border="false" lightbox="images/sdv-e2e-ref-architecture-software-update.svg":::
+Contoso Automotive wants to deploy containerized automotive applications to their engineering test fleet to perform integration testing. The automotive developer builds, tests, and validates the new version of their application and deploys it to the vehicle.
 
-1. The *automotive developer* creates a release. The release contains a definition of the *software stack container* desired state and definition of the build.
+:::image type="content" source="images/sdv-e2e-ref-architecture-software-update.svg" alt-text="Diagram that shows a software update architecture." border="false" lightbox="images/sdv-e2e-ref-architecture-software-update.svg":::
 
-1. The **toolchain and orchestration** services trigger the release process. The services deploy the required infrastructure to build, validate, and release software containers.
-1. During execution, the applications are built, validated, and released with container-based tooling. Depending on the requirements of the tools, they can be deployed on Azure Kubernetes Service (AKS) (for containerized applications) or dedicated virtual machines. After the build is complete, the results are pushed to the **Azure Container Registry** for released containers and the changes are registered in the **OTA server**.
-1. The **OTA client** has a dedicated **OTA agent** for container-based applications. The *desired state seeking agent* connects to the **toolchain and orchestration services* to retrieve the desired state definition.
-1. The **container orchestration** engine downloads and activates the desired containers from the **Azure Container Registry**
+1. The *automotive developer* creates a release. The release contains a definition of the desired state for the *software stack container*  and a definition of the build.
 
-### Automotive software stack workflow
+1. The *toolchain and orchestration services* trigger the release process. The services deploy the required infrastructure to build, validate, and release software containers.
+1. During execution, the applications are built, validated, and released with container-based tooling. Depending on the requirements of the tools, they can be deployed on Azure Kubernetes Service (AKS) for containerized applications, or they can be deployed on dedicated virtual machines.
 
-This scenario presents a generic automotive software stack synchronizing its state with the Azure Cloud.
+   After the build is complete, the results are pushed to *Container Registry* for released containers and the changes are registered in the *OTA server*.
+1. The *OTA client* has a dedicated *OTA agent* for container-based applications. The *desired state-seeking agent* connects to the *toolchain and orchestration services* to retrieve the desired state definition.
+1. The *container orchestration* engine downloads and activates the desired containers from *Container Registry*.
 
-The represented stack has the following components:
+#### Workflow: Automotive software stack
 
-* A **Service Registry** provides facilities to register and discover services within the vehicle.
+In this solution, a generic automotive software stack synchronizes its state with the Azure cloud.
 
-* The **Dynamic Topic Management** enables services to subscribe and publish messages to named topics, abstracting the communication protocol.
-* The **in-vehicle digital twin** service maintains the state of the vehicle, including signals from ECUs and compute units such as AD/ADAS and infotainment.
-* The **digital twin cloud synchronization** synchronizes the local state of the vehicle with the state in the cloud to enable digital products and services that don't require a direct connection to the car.
+The stack has the following components:
 
-:::image type="content" source="images/sdv-e2e-ref-architecture-automotive-software-stack.svg" alt-text="Diagram that shows the software stack." border="false" lightbox="images/sdv-e2e-ref-architecture-automotive-software-stack.svg":::
+* A *service registry* enables services within the vehicle to be registered and discovered.
 
-1. All components register their capabilities using the **Service Registry**.
+* The *dynamic topic management* enables services to subscribe and publish messages to named topics, abstracting the communication protocol.
+* The *in-vehicle digital twin service* maintains the state of the vehicle, including signals from ECUs and compute units, such as AD/ADAS and infotainment.
+* The *digital twin cloud synchronization* synchronizes the local state of the vehicle with the state in the cloud to provide digital products and services that don't require a direct connection to the car.
 
-1. **Vehicle compute** registers the state descriptions to the *digital twin provider* of the *in-vehicle digital twin* service. After registration, the compute units can publish updates on their state.
-    1. Vehicle compute can register more complex state objects and interactions.
+:::image type="content" source="images/sdv-e2e-ref-architecture-automotive-software-stack.svg" alt-text="Diagram that shows the software stack architecture." border="false" lightbox="images/sdv-e2e-ref-architecture-automotive-software-stack.svg":::
+
+1. All components register their capabilities via the *service registry*.
+
+1. *Vehicle compute* registers the state descriptions to the *digital twin provider* of the *in-vehicle digital twin service*. After registration, the compute units can publish updates on their state.
+    1. Vehicle compute registers complex state objects and interactions.
     1. Vehicle ECUs register which signals are available to automotive applications and which commands can be accepted.
-1. The **in-vehicle digital twin** publishes state changes and updates to the **dynamic topic management**. These updates are organized in topics.
-1. **Automotive applications** can subscribe to messages from any source managed by the dynamic topic management. These applications are subscribed to relevant topics and react on state changes. They can also publish their own messages.
-1. The **in-vehicle digital twin service** also publishes selected topics to the **digital twin cloud synchronization** service.
-1. The **digital twin cloud synchronization** can use a *cartographer* to map the topic names (using a *digital twin mapping service*) to the equivalent names on the cloud. This harmonization reduces the dependency between vehicle and cloud software and among vehicle models.
-1. The **cloud connector** publishes updates to the cloud and subscribes to receive state changes published by other services and applications
-1. **Azure Event Grid** routes the messages to the relevant services and applications. The state of the vehicle is stored using services such as **Azure Cache for Redis** to store the last known value for fast access and retrieval and **Azure Data Explorer** to provide short term vehicle state history and analytics.
+1. The *in-vehicle digital twin* publishes state changes and updates to the *dynamic topic management*. These updates are organized in topics.
+1. *Automotive applications* can subscribe to messages from any source that's managed by the dynamic topic management. These applications are subscribed to relevant topics and react to state changes. They can also publish their own messages.
+1. The *in-vehicle digital twin service* also publishes selected topics to the *digital twin cloud synchronization* service.
+1. The *digital twin cloud synchronization* can use a *cartographer* to map the topic names (via a *digital twin mapping service*) to the equivalent names on the cloud. This harmonization reduces the dependency between vehicle and cloud software and among vehicle models.
+1. The *cloud connector* publishes updates to the cloud and subscribes to receive state changes that are published by other services and applications.
+1. **Azure Event Grid** routes the messages to the relevant services and applications. The state of the vehicle is stored via services. For example, **Azure Cache for Redis** might store the last-known value for fast access and retrieval, and **Azure Data Explorer** might provide short-term vehicle state history and analytics.
 
 ## Components
 
-This guide references the following GitHub and Azure components:
+The following GitHub and Azure components are used in the architectures in this article.
 
 ### Development tools
 
-* [GitHub](https://github.com) is a development platform that you can use to host and review code, manage projects, collaborate, and build software alongside developers inside your organization and outside.
+* [GitHub](https://github.com) is a development platform that you can use to host and review code, manage projects, collaborate, and build software alongside developers inside or outside your organization.
 
-* [Microsoft Dev Box](/azure/dev-box/overview-what-is-microsoft-dev-box) provides developers with self-service access to ready-to-code, cloud-based workstations known as dev boxes that can be customized with project-specific tools, source code, and prebuilt binaries for immediate workflow integration.
-* [Azure Container Registry](/azure/container-registry) is a service that you can use to build, store, and manage container images and artifacts in a private registry for all types of container deployments. Automotive software has adopted container based automotive applications and workloads. The SDV toolchain uses Azure container registries as part of container development, deployment processes, and pipelines.
+* [Dev Box](/azure/dev-box/overview-what-is-microsoft-dev-box) provides developers with self-service access to ready-to-code, cloud-based workstations known as dev boxes that can be customized with project-specific tools, source code, and prebuilt binaries for immediate workflow integration.
+* [Container Registry](/azure/container-registry) is a service that you can use to build, store, and manage container images and artifacts in a private registry for all types of container deployments. Automotive software has adopted container based automotive applications and workloads. The SDV toolchain uses Azure container registries as part of container development, deployment processes, and pipelines.
 * [Visual Studio Code](https://code.visualstudio.com) is a lightweight source code editor that's available for Windows, macOS, and Linux. It has a rich ecosystem of extensions for several languages and runtimes.
 
 ### Execution environment
@@ -151,7 +170,7 @@ Without a standardized, open, and configurable toolchain strategy, OEMs might ha
 
 This automotive example architecture meets the demands of the rapidly evolving automotive industry. It applies the *shift left* principle, which emphasizes early integration of software and hardware components. It enables continuous testing and validation starting from the early stages of development. Virtualization plays a pivotal role, allowing the creation of virtual prototypes and test environments that accelerate innovation and reduce physical prototype requirements. The heart of this architecture is its robust CI/CD pipeline automation, which ensures seamless integration, testing, and deployment of software updates throughout the vehicle's lifecycle. This agility enables fast software updates, which addresses security vulnerabilities, enhances performance, and delivers new features promptly. It provides consumers with a safe, feature-rich driving experience.
 
-:::image type="content" source="images/sdv-e2e-ref-architecture-scenario.svg" alt-text="Diagram that shows software-defined vehicle scenarios." border="false" lightbox="images/sdv-e2e-ref-architecture-scenario.svg":::
+:::image type="content" source="images/sdv-e2e-ref-architecture-scenario.svg" alt-text="Diagram that shows SDV scenarios." border="false" lightbox="images/sdv-e2e-ref-architecture-scenario.svg":::
 
 ## Potential use cases
 
@@ -325,7 +344,7 @@ Other contributors:
 
 * [GitHub enables the development of functional safety applications by adding support for coding standards AUTOSAR C++ and CERT C++](https://github.blog/2022-06-20-adding-support-for-coding-standards-autosar-c-and-cert-c)
 * [Get started with GitHub Copilot](https://docs.github.com/copilot/getting-started-with-github-copilot)
-* [Create and connect to a dev box by using the Microsoft Dev Box developer portal](/azure/dev-box/quickstart-create-dev-box)
+* [Create and connect to a dev box by using the Dev Box developer portal](/azure/dev-box/quickstart-create-dev-box)
 
 ## Related resources
 

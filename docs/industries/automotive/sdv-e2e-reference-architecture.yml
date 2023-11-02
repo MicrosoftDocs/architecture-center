@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Software Defined Vehicle DevOps Toolchain
+  title: Software-defined vehicle DevOps toolchain
   titleSuffix: Azure Architecture Center
-  description: This reference architecture is designed to support automotive OEMs in the development of advanced connected vehicle applications and services. It provides a DevOps toolchain that enables the rapid development of connected vehicle applications and services, and the deployment of those applications and services to a vehicle. The toolchain is designed to support the development of applications and services that run in the vehicle, in the cloud, or both.
+  description: Learn about an example for transitioning to SDVs. In this approach, the in-vehicle software stack undergoes simulation and testing in cloud-based environments.
   author: filipep
   ms.author: filipep
-  ms.date: 09/06/2023
+  ms.date: 11/03/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -15,13 +15,11 @@ azureCategories:
 products:
   - azure-event-grid
   - azure-kubernetes-service
-  - github
   - azure-virtual-machines
   - azure-container-registry
-  - azure-blob-storage
   - azure-expressroute
-name: Use a Software Defined Vehicle DevOps Toolchain to accelerate the development of connected vehicle applications and services
-summary: This reference architecture is designed to support automotive OEMs in the development of advanced connected vehicle applications and services. It provides a DevOps toolchain that enables the rapid development of connected vehicle applications and services, and the deployment of those applications and services to a vehicle. The toolchain is designed to support the development of applications and services that run in the vehicle, in the cloud, or both.
+name: Software-defined vehicle DevOps toolchain
+summary: Learn about an example for transitioning to SDVs. In this approach, the in-vehicle software stack undergoes simulation and testing in cloud-based environments.
 thumbnailUrl: /azure/architecture/browse/thumbs/analytics-dataflow.png
 content: |
   [!include[](sdv-e2e-reference-architecture-content.md)]
