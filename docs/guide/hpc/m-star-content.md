@@ -60,13 +60,19 @@ You can install M-Star from the [M-Star installation page](https://docs.mstarcfd
 
 ## M-Star performance results
 
-This performance analysis uses M-Star 3.8.27 on the Windows operating system. [NC A100 v4](/azure/virtual-machines/nc-a100-v4-series) and [NDm A100 v4](/azure/virtual-machines/ndm-a100-v4-series) series VMs are used.
+This performance analysis uses M-Star 3.8.27 on the Windows operating system. [NC A100 v4](/azure/virtual-machines/nc-a100-v4-series) and [NDm A100 v4](/azure/virtual-machines/ndm-a100-v4-series) series VMs were used.
 
-Pipe_500 and Tank_1000 test case models are considered for testing the performance of the M-Star on Azure VMs. The model details are shown below.
+ Two models were used to test the performance of the M-Star on Azure VMs: Pipe_500 and Tank_1000.  
  
-    ![Image shows Pipe_500 Model](media/image2.png)
+Following is the xxx model. Number of grid points: 
+
+![Screenshot that shows the Pipe_500 model.](media/pipe-500.png)
+
+
+
  
-    ![Image shows Tank_1000 Model](media/image3.png)
+ 
+![Screenshot that shows the Tank_1000 model.](media/tank-1000.png)
  
 
 ### Results for NC A100 v4
