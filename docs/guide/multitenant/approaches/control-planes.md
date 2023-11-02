@@ -144,7 +144,7 @@ You can also consider using a hybrid approach. You might use a combination of ma
 
 ### Gradual implementation
 
-Even if you know that you don't want any manual processes in your control plane, you don't necessarily need to start with that approach. A common approach during the initial stages of creating your application is to start with a manual control plane. As your application progresses and onboards more tenants, you should begin to identify bottleneck areas and automate them as necessary, moving to a hybrid approach. As you automate more, you might eventually have a fully automated control plane.
+Even if you know that you want to eventually automate your control plane, you don't necessarily need to start with that approach. A common approach during the initial stages of creating your application is to start with a manual control plane. As your application progresses and onboards more tenants, you should begin to identify bottleneck areas and automate them as necessary, moving to a hybrid approach. As you automate more, you might eventually have a fully automated control plane.
 
 ## Antipatterns to avoid
 
