@@ -68,7 +68,7 @@ The following diagram illustrates one way to use manual processes for an initial
 
 - **Lightweight**: Documentation, scripts, and pipelines are easy to develop and modify. This makes them appropriate when you're figuring out your processes because you can rapidly iterate and evolve them.
 - **Low cost**: Maintaining and running a manual approach is inexpensive.
-- **Provides process validation**: Even if you eventually intend to use a more automated approach, starting with a manual approach as a proof of concept is a good way to validate your maintenance strategy before you invest time in developing more robust automation.
+- **Validates your process**: Even if you eventually intend to use a more automated approach, starting with a manual approach as a proof of concept is a good way to validate your maintenance strategy before you invest time in developing more robust automation.
 
 #### Disadvantages of a manual approach
 
