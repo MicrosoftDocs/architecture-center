@@ -175,7 +175,7 @@ Without a standardized, open, and configurable toolchain strategy, OEMs might ha
 
 This automotive example architecture meets the demands of the rapidly evolving automotive industry. It applies the shift-left principle, which emphasizes early integration of software and hardware components. It enables continuous testing and validation starting from the early stages of development. Virtualization plays a pivotal role, allowing the creation of virtual prototypes and test environments to accelerate innovation and reduce physical prototype requirements.
 
-The heart of this architecture is its robust CI/CD pipeline automation, which ensures seamless integration, testing, and deployment of software updates throughout the vehicle's lifecycle. This agility enables fast software updates, which promptly addresses security vulnerabilities, enhances performance, and delivers new features. It provides consumers with a safe, feature-rich driving experience.
+The heart of this architecture is its robust CI/CD pipeline automation, which ensures seamless integration, testing, and deployment of software updates throughout the vehicle's lifecycle. This agility enables fast software updates, which promptly address security vulnerabilities, enhances performance, and delivers new features. It provides consumers with a safe, feature-rich driving experience.
 
 The following diagram shows a general overview of the automotive SDV toolchain architecture.
 
