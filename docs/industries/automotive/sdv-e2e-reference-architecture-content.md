@@ -15,7 +15,7 @@ This article describes how to:
 This diagram shows the automotive SDV toolchain architecture.
 
 :::image type="content" source="images/sdv-e2e-ref-architecture-overview.svg" alt-text="Diagram that shows the automotive SDV toolchain overview." border="false" lightbox="images/sdv-e2e-ref-architecture-overview.svg":::
-*Download a [PowerPoint file](https://arch-center.azureedge.net/[file-name].pptx) of this architecture.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/sdv-e2e.pptx) of this architecture.*
 
 ### Workflow
 
@@ -76,6 +76,7 @@ This solution describes how an automotive software developer for the fictitious 
 *Contoso Automotive* is adding a new automotive high-performance compute (HPC) unit to an upcoming vehicle model and must onboard a new development team to develop containerized applications. The hardware for the vehicle isn't available yet, but compressed timelines mean that the software functionality must be developed and validated in parallel.
 
 :::image type="content" source="images/sdv-e2e-automotive-sdv-toolchain.svg" alt-text="Diagram that shows the components and workflow of the automotive SDV toolchain." border="false" lightbox="images/sdv-e2e-automotive-sdv-toolchain.svg":::
+*Download a [PowerPoint file](https://arch-center.azureedge.net/sdv-e2e.pptx) of this architecture.*
 
 1. The **automotive developer** creates and connects to a **Microsoft dev box**. The dev box is preconfigured with all required development tools (such as Visual Studio Code and Android Studio) and all required extensions (such as GitHub Copilot) to be compatible with the Contoso Automotive applications.
 
@@ -92,6 +93,7 @@ This solution describes how an automotive software developer for the fictitious 
 Contoso Automotive wants to deploy containerized automotive applications to their engineering test fleet to perform integration testing. The automotive developer builds, tests, and validates the new version of their application and deploys it to the vehicle.
 
 :::image type="content" source="images/sdv-e2e-software-update.svg" alt-text="Diagram that shows a software update architecture." border="false" lightbox="images/sdv-e2e-software-update.svg":::
+*Download a [PowerPoint file](https://arch-center.azureedge.net/sdv-e2e.pptx) of this architecture.*
 
 1. The **automotive developer** creates a release. The release contains a definition of the desired state for the **software stack container** and a definition of the build.
 
@@ -115,6 +117,7 @@ The stack has the following components:
 * The *digital twin cloud synchronization* synchronizes the local state of the vehicle with the state in the cloud to provide digital products and services that don't require a direct connection to the car.
 
 :::image type="content" source="images/sdv-e2e-automotive-software-stack.svg" alt-text="Diagram that shows the software stack architecture." border="false" lightbox="images/sdv-e2e-automotive-software-stack.svg":::
+*Download a [PowerPoint file](https://arch-center.azureedge.net/sdv-e2e.pptx) of this architecture.*
 
 1. All components register their capabilities via the **service registry**.
 
@@ -130,7 +133,7 @@ The stack has the following components:
 
 ### Components
 
-The following GitHub and Azure components are used in the architectures in this article.
+The following GitHub and Azure components are used in this architecture.
 
 #### Development tools
 
@@ -170,13 +173,14 @@ Automobile makers and their suppliers are encouraged to adjust their automotive 
 
 Without a standardized, open, and configurable toolchain strategy, OEMs might have a landscape of scattered tools. For a truly agile software development strategy, companies need to have a unified toolchain that's based on a modern cloud-based platform that's native to Azure. The platform needs to enable developers to collaborate and reuse software. It must provide third-party developers the opportunity to create applications. The platform is especially helpful for developers that have strong software expertise but no previous automotive hardware experience.
 
-This automotive example architecture meets the demands of the rapidly evolving automotive industry. It applies the *shift-left principle*, which emphasizes early integration of software and hardware components. It enables continuous testing and validation starting from the early stages of development. Virtualization plays a pivotal role, allowing the creation of virtual prototypes and test environments to accelerate innovation and reduce physical prototype requirements.
+This automotive example architecture meets the demands of the rapidly evolving automotive industry. It applies the shift-left principle, which emphasizes early integration of software and hardware components. It enables continuous testing and validation starting from the early stages of development. Virtualization plays a pivotal role, allowing the creation of virtual prototypes and test environments to accelerate innovation and reduce physical prototype requirements.
 
 The heart of this architecture is its robust CI/CD pipeline automation, which ensures seamless integration, testing, and deployment of software updates throughout the vehicle's lifecycle. This agility enables fast software updates, which promptly addresses security vulnerabilities, enhances performance, and delivers new features. It provides consumers with a safe, feature-rich driving experience.
 
 The following diagram shows a general overview of the automotive SDV toolchain architecture.
 
 :::image type="content" source="images/sdv-e2e-scenario.svg" alt-text="Diagram that shows SDV scenarios." border="false" lightbox="images/sdv-e2e-scenario.svg":::
+*Download a [PowerPoint file](https://arch-center.azureedge.net/sdv-e2e.pptx) of this architecture.*
 
 ### Potential use cases
 
@@ -272,7 +276,8 @@ The following overview describes the services that are required to implement a d
 
 #### Overview
 
-:::image type="content" source="images/sdv-e2e-uprotocol-on-azure.svg" alt-text="Diagram that shows the distributed communication protocol, uProtocol, on Azure." lightbox="images/sdv-e2e-uprotocol-on-azure.svg":::
+:::image type="content" source="images/sdv-e2e-uprotocol-on-azure.svg" alt-text="Diagram that shows the distributed communication protocol, uProtocol, on Azure." border="false" lightbox="images/sdv-e2e-uprotocol-on-azure.svg":::
+*Download a [PowerPoint file](https://arch-center.azureedge.net/sdv-e2e.pptx) of this architecture.*
 
 * Messages are sent from the vehicle's **cloud connector** to **Event Grid**. Messages are transferred via the *uProtocol* definition over MQTT.
 
@@ -297,9 +302,10 @@ The following table shows suggested services that are relevant to a uProtocol im
 
 For more information about uProtocol components, SDKs, and documentation, see the [uProtocol GitHub repository](https://github.com/eclipse-uprotocol).
 
-#### Provision devices
+#### Provision devices for uProtocol
 
 :::image type="content" source="images/sdv-e2e-uprotocol-provisioning.svg" alt-text="Diagram that shows the uProtocol provisioning flow." border="false" lightbox="images/sdv-e2e-uprotocol-provisioning.svg":::
+*Download a [PowerPoint file](https://arch-center.azureedge.net/sdv-e2e.pptx) of this architecture.*
 
 1. The **factory system** commissions the vehicle device to the desired construction state. Commissioning includes firmware and software initial installation and configuration. As part of this process, the factory system obtains and writes the device certificate. The public key infrastructure provider creates the certificate.
 
@@ -315,7 +321,8 @@ For more information about uProtocol components, SDKs, and documentation, see th
 
 The following architecture describes an automotive software stack that's based on Eclipse project components. In this architecture, Eclipse uProtocol can be used as a communication protocol.
 
-:::image type="content" source="images/sdv-e2e-sample-automotive-stack.svg" alt-text="Diagram that shows the architecture for the Eclipse SDV-based automotive software stack." lightbox="images/sdv-e2e-sample-automotive-stack.svg":::
+:::image type="content" source="images/sdv-e2e-sample-automotive-stack.svg" alt-text="Diagram that shows the architecture for the Eclipse SDV-based automotive software stack." border="false" lightbox="images/sdv-e2e-sample-automotive-stack.svg":::
+*Download a [PowerPoint file](https://arch-center.azureedge.net/sdv-e2e.pptx) of this architecture.*
 
 * [Eclipse Chariott](https://projects.eclipse.org/projects/automotive.chariott) is a gRPC service that provides a common interface for interacting with applications. Applications can register with Eclipse Chariott's service registry to advertise their capabilities and enable service discovery.
 
