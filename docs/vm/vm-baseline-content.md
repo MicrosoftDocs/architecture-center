@@ -1,5 +1,5 @@
 
-This article provides a foundational reference architecture for a workload deployed on Azure virtual machines (VMs). A common scenario is the "lift-and-shift"" approach, where an application is migrated from an on-premises computing environment to Azure without any changes to the source code.
+This article provides a foundational reference architecture for a workload deployed on Azure virtual machines (VMs). A common scenario is the "lift-and-shift"" approach, where an application is migrated from an on-premises computing environment to Azure virtual machines without any changes to the source code.
 
 The primary focus of this architecture isn't that application. Instead it provides guidance for configuring and deploying the infrastructure components with which the application interacts. These components include compute, storage, networking, monitoring and more. This architecture serves as a starting point for an Infrastructure-as-a-Service (IaaS) workload. However, the data tier is intentionally excluded from this guidance, to maintain the focus on the infrastructure. 
 
@@ -17,6 +17,13 @@ The primary focus of this architecture isn't that application. Instead it provid
 - **Azure virtual machine** (VM) serves as the compute resource for the application and is distributed across availability zones. For illustrative purposes, a combination of both Windows and Linux images is used. 
 
     **Azure Virtual Machine Scale Sets** in Flexible orchestration mode si used to provision and manages the virtual machines individually.
+
+    The sample application can be represented in two tiers, each requiring its own compute.  
+
+    1. Frontend runs the web server and receives user requests.
+    1. Backend runs business logic to process those requests. 
+
+    Both compute are stateless to reduce complexity during scaling operations. Temporary state can be stored on [disks](#managed-disks). This layout may be extended to include a database tier for storing state from the frontend and backend compute. That tier is outside the scope of this architecture.
 
 - **Azure Virtual Network** provides a private network for all workload resources. The network is segmented into subnets, which serve as isolation boundaries.
 
@@ -36,15 +43,20 @@ The primary focus of this architecture isn't that application. Instead it provid
 
 ### Workflow
 
-This image shows the user to the workload resources.
+There are two types of users that interact with the workload resources.
 
 ##### Workload user
 
 1. The user accesses the web site by using the exposed public IP address of Azure Application Gateway. 
-1. Application Gateway receives HTTPS traffic, decrypts data using an external certificate for WAF inspection, and re-encrypts it using the internal wildcard certificate for transport to the web tier. 
+
+1. Application Gateway receives HTTPS traffic, decrypts data using an external certificate for WAF inspection, and re-encrypts it using the internal wildcard certificate for transport to the web tier.
+ 
 1. Application Gateway balances traffic across the three zones in the frontend and connects to a VM in the pool of web tier VMs, on behalf of the user session.
+
 1. The frontend web app decrypts the received request using the internal certificate for inspection, then re-encrypts the data for transport to the backend tier. 
+
 1. The frontend tier connects to Azure Load Balancer, which forwards the request to a VM in the backend tier pool.
+
 1. The backend VM decrypts the request using the internal certificate. Then, the backend tier returns the result to the frontend, which returns the result to the Application Gateway, and it finally returns the result to the user.
 
 ##### Operations user
@@ -52,109 +64,134 @@ This image shows the user to the workload resources.
 1. The operations user logs into the Azure portal.
 1. The user accesses the Azure Bastion service and remotely connects to the desired VM for troubleshooting using the appropriate tool.
 
-## Compute layout and design choices
 
-The sample application can be represented in two tiers, each requiring its own compute.  
+## In this article
 
-1. Frontend runs the web server and receives user requests.
-1. Backend runs business logic to process those requests. 
+|Technology stack|Workload concerns|
+|---|---|
+|&#9642; [VM design choices](#vm-skus)<br> &#9642; [Disks](#disks) <br> &#9642; [Networking](#networking) <br> &#9642; [Monitoring](#monitoring)|<br> &#9642; [Operations](#os-patching) <br> &#9642; [Redundancy](#redundancy) <br> &#9642; [Security]() |
 
-Both compute are stateless to reduce complexity during scaling operations. Temporary state can be stored on [disks](#managed-disks). This layout may be extended to include a database tier for storing state from the frontend and backend compute. That tier is outside the scope of this architecture.
+## Virtual machine design choices
 
-##### VM SKUs
-
-When migrating an existing workload to the cloud, have a baseline expectation for performance that matches your on-premises servers. This will impact the capabilities you choose for virtual machines on Azure, such as:
+When selecting SKUs, it's important to have a baseline performance expectation. The decision-making process will be influenced by several characteristics, including:
 
 - CPU, memory, and disk input/output operations per second (IOPS)
 - Storage volumes
 - Processors architecture
 - Operating system (OS)
 
-As an example of changes to the architecture in the cloud from on-premises, consider the OS. The OS ran on a disk with fixed capacity. In Azure, the OS footprint influences your choice in VM and disk SKUs.
+For instance, if you're migrating a workload from an on-premises environment to the cloud, the OS should be a key consideration. In an on-premises setup, the OS operates on a disk with a fixed capacity. However, in Azure, the OS footprint will impact your choice of VM and disk SKUs.
 
 For information about the supported VM SKUs, see [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes).
 
 ##### VM connectivity
 
-To enable a VM to communicate with the virtual network, you need Network interfaces (NICs).
+To enable a VM to communicate with the virtual network, you need Network interfaces (NICs). If you require multiple NICs for your VM, be aware that a maximum number of NICs is defined for each VM size.
 
-On-premises servers can have virtualized networking where hosts connect to external networks through virtual switches. The switches have policies in place that control traffic going in and out of the servers.
-
-If the workload needs low latency, that set up can be a disadvantage because the policy processing requires an extra hop at the switch. Azure VM NICs support **accelerated networking**. The processing is directly offloaded by the VM NIC to the underlying hardware. This results in lower latency and the CPU can process the payload faster. For more information, see [Benefits of accelerated networking](/azure/virtual-network/accelerated-networking-overview?tabs=redhat#benefits).
-
-If you require multiple NICs for your VM, be aware that a maximum number of NICs is defined for each VM size.
-
-//This is disabled on the NIC.
-
-##### Disks
-
-Storage area network (SAN) volumes are needed to run the operating system and application components. They can be used to run the OS or store temporary data. In Azure, these volumes or disks, are _attached_ to the VM. **Ephemeral OS disks** are recommended for OS. **Managed disks** are recommended for data storage.
-
-Azure offers options varying in performance, tunability, and cost. Most production workloads should start with Premium SSD. The choice is tied to the VM SKU. VM SKUs that support Premium SSD contain 's' in the resource name, for example 'Dsv4' but not 'Dv4.'
-
-For more information about the disk options with metrics such as capacity, IOPS, throughput and others, see [Disk type comparison](/azure/virtual-machines/disks-types#disk-type-comparison).
-
-When choosing the appropriate disk, keep in mind the disk characteristics and performance expectations. 
-
-Here are some considerations:
-
-- **The limitations of the VM SKU**. Disks run in context the VM to which its attached. VMs have limits for both IOPS and throughput across all attached disks. A disk must not impose a cap on the attached VM's limits, and vice versa. Determine the required disk size and performance along with the VM core, CPU, and memory capabilities. Then, choose and test SKU combinations that will run the application component optimally on that VM instance.
-
-    Don't overprovision either resource because the overall cost will be impacted.
-
-- **Configuration changes**. You can change certain disk performance and capacity configurations while a VM instance is running. However, many changes might require a complete re-provisioning and rebuilding of content on the disk. Bringing a VM down to make a disk change might impact the availability of the workload. Take a "measure twice, cut once" approach to disk and virtual machine SKU selection in your architecture planning to minimize availability impact and rework.
-
-//{CHAD} What's the workaround for the use case that requires re-provisioning. Include something about scaling? 
-
-- **Ephemeral OS disks**. OS disks must not store application components or state. OS disks should be provisioned as [ephemeral disks](/azure/virtual-machines/ephemeral-os-disks). Managed disks can be considered only when OS files need to be persisted. 
-
-    Ephemeral OS disks capacity is based on the selected virtual machine SKU. Your OS image's expected disk size should be less than the available cache or temp disk available on the SKU. Remaining space can be used for temporary storage. 
-
-- **Disk performance**. It's a common practice to pre-provision disk space based on peak load. However, most workloads don't sustain peak load, which might lead to under utilized resources. 
-
-    Monitor the workload's usage patterns. For example, you might notice a spike during certain times. At other times, there might be sustained high-read operations. Factor in this pattern when you select VM and managed disk SKUs. 
-    
-    You can change the performance on demand by changing the [performance tiers](/azure/virtual-machines/disks-change-performance#what-tiers-can-be-changed). Another way is to take advantage of the [bursting features](/azure/virtual-machines/disk-bursting) offered in some managed disks SKUs. 
-
-    Over provisioning will need less bursting, however, the tradeoff is unused provisioned capacity that you pay for. To get the best results, combine the two features if possible.
-
-- **Tune caching for the workload**. All disks should have their cache setting configured based on the application component usage. 
-     
-    Application components that mostly do read operations don't require high disk transactional consistency and can benefit from read-only caching. Components that are write heavy, require high disk transactional consistency. For these disks, caching is often disabled.
-    
-    Read-write caching for workload components could lead to data loss in the event of a virtual machine crash and is generally not recommended for most data disk scenarios.
-
-In this architecture, the both backend and frontend VMs use Standard HDD LRS. //this seems to be off. 
-
-- All virtual machine OS disks are ephemeral, and are placed on the cache disk. This places the Windows page file on the same ephemeral disk.
-- Each virtual machine has its own Premium SSD P3 managed disk attached, giving a base provisioned throughput suitable for our workload.
-
+If the workload needs low latency, take advantage of **accelerated networking** supported by Azure VM NICs. For more information, see [Benefits of accelerated networking](/azure/virtual-network/accelerated-networking-overview?tabs=redhat#benefits).
 
 ##### Virtual Machine Scale Sets with flexible orchestration
 
-In this architecture, VMs are provisioned as part of **Virtual Machine Scale Sets (VMSS) with [Flexible orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration)** to facilitate operations at scale. VMSS represent a logical organization of VMs. The expected capacity can be met by allocating identical VMs or multiple virtual machine types. You can manage the machine lifecycle, including network interfaces and disks using the standard Azure VM APIs and commands.
+VMs are provisioned as part of Virtual Machine Scale Sets (VMSS) with [Flexible orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration). VMSS are logical groupings of VMs that can be identical or of multiple types to meet capacity needs. They allow lifecycle management of machines, network interfaces, and disks using standard Azure VM APIs and commands.
 
-Another benefit is that the flexible orchestration mode of VMSS allows for better control and more granular scaling decisions.
+Flexible orchestration mode in VMSS facilitates operations at scale and offers better control and granular scaling decisions.
 
-One important factor to consider in your IaaS baseline is the configuration of fault domains. Fault domains provides a way to limit the impact of potential physical hardware failures, network outages, or power interruptions. When using VMSS, Azure evenly spreads instances across fault domains. The even spreading ensures that a single hardware or infrastructure issue does not affect all instances.
+Fault domains configuration is crucial to limit the impact of physical hardware failures, network outages, or power interruptions. With VMSS, Azure evenly spreads instances across fault domains for resilience against a single hardware or infrastructure issue.
 
-In the IaaS baseline for VMSS flexible orchestration, it is recommended to let Azure manage the allocation of fault domains. This allows Azure to maximize spreading of instances, providing greater resilience and availability.
+It’s recommended that you offload fault domain allocation to Azure for maximum instance spreading, enhancing resilience and availability.
 
 ##### OS patching
-You can use Maintenance Configurations to control and manage updates for both Windows and Linux VMs. Maintenance Configurations provides a centralized view of the patch status of your VMs, and you can schedule patching to occur during a maintenance window that you define based on three supported scopes. For more information, check out the [Maintenance Configuration scopes.](/azure/virtual-machines/maintenance-configurations#scopes)
+You can use Maintenance Configurations to control and manage updates for both Windows and Linux VMs. Maintenance Configurations provides a centralized view of the patch status of your VMs, and you can schedule patching to occur during a maintenance window that you define based on three supported scopes. For more information, check out the [Maintenance Configuration scopes](/azure/virtual-machines/maintenance-configurations#scopes).
 
-##### Packaging/publishing workload artifacts
-VM Applications and Azure Compute Gallery are packaging and publishing options for workload artifacts. Use VM Applications to create and define your application as a packaged resource to globally distribute to your Windows and Linux VMs. Have Azure Compute Gallery act as your repository for managing and sharing the VM Application packages. For more information, see [VM Applications](/azure/virtual-machines/vm-applications) and [Azure Compute Gallery.](/azure/virtual-machines/azure-compute-gallery)
+## Disks
+To run the OS and application components, **Storage Area Network (SAN) volumes** are required. In Azure, these volumes or disks are attached to the VM. Use **Ephemeral OS disks for the OS** and **managed disks for data storage**.
 
-##### Guest OS config
-VM extensions are small applications that provide post-deployment configuration and automation to Azure VMs. Azure VM extensions are used to customize the configuration of your VMs, such as installing software, configuring security settings, and joining a domain. For more information, see the [Extensions overview page.](/azure/virtual-machines/extensions/overview)
+Azure provides a range of options in terms of performance, tunability, and cost. Start with Premium SSD for most production workloads. The choice is linked to the VM SKU. SKUs that support Premium SSD contain 's' in the resource name, for example 'Dsv4' but not 'Dv4.'
+
+For more information about the disk options with metrics such as capacity, IOPS, throughput and others, see [Disk type comparison](/azure/virtual-machines/disks-types#disk-type-comparison).
+
+Consider disk characteristics and performance expectations when selecting a disk. 
+
+- **VM SKU limitations**: Disks operate within the VM they're attached to, which have IOPS and throughput limits. Ensure the disk doesn't cap the VM's limits and vice versa. Select the disk size, performance, and VM capabilities (core, CPU, memory) that optimally run the application component. Avoid overprovisioning because it impacts cost.
+
+- **Configuration changes**: Some disk performance and capacity configurations can be changed while a VM is running. However, many changes may require re-provisioning and rebuilding disk content, affecting workload availability. Therefore, carefully plan disk and VM SKU selection to minimize availability impact and rework.
+
+- **Ephemeral OS disks**: These should not store application components or state. Provision OS disks as [ephemeral disks](/azure/virtual-machines/ephemeral-os-disks). Use managed disks only if OS files need to be persisted.
+
+    The capacity of ephemeral OS disks depends on the chosen VM SKU. Ensure your OS image disk size is less than the SKU's available cache or temp disk. The remaining space can be used for temporary storage.
+
+- **Disk performance**. Pre-provisioning disk space based on peak load is common, but it can lead to underutilized resources because most workloads don't sustain peak load.
+
+    Monitor your workload's usage patterns, noting spikes or sustained high-read operations, and factor these into your VM and managed disk SKU selection.     
+    
+    You can adjust performance on demand by changing [performance tiers](/azure/virtual-machines/disks-change-performance#what-tiers-can-be-changed). or using the [bursting features](/azure/virtual-machines/disk-bursting) offered in some managed disks SKUs. 
+
+    While overprovisioning reduces the need for bursting, it can lead to unused capacity that you're paying for. Ideally, combine both features for optimal results.
+
+- **Tune caching for the workload**. Configure cache settings for all disks based on application component usage.
+
+    Components that mainly perform read operations don’t require high disk transactional consistency. Those components can benefit from read-only caching. Write-heavy components requiring high disk transactional consistency often have caching disabled.
+
+    Using read-write caching could cause data loss if the VM crashes and is generally not recommended for most data disk scenarios.
+
+In this architecture, both backend and frontend VMs utilize Standard HDD LRS (//?).
+
+- The OS disks of all virtual machines are ephemeral and located on the cache disk, which also has the Windows page file.
+
+- Each virtual machine is has its own Premium SSD P3 managed disk, providing a base provisioned throughput suitable for the workload.
+
+## Security
+
+The reference architecture is designed illustrate the fundamental security assurances. Security is more than just technical controls. It's highly recommended that you follow the design review checklist given in Azure Well-Architected Framework to have full coverage of Security. 
+
+##### Segmentation
+
+- **Network segmentation**. Subnets can be used as trust boundaries. _Colocate related resources needed for handling a transaction in one subnet_. In this architecture, the VNet is divided into subnets based on the logical grouping of the application and purpose of various Azure services used as part of the workload.
+
+    The advantage of subnet segmentation is that you can place security controls at the perimeter that controls traffic flowing in and out of the subnet, thereby restricting access to the workload resources.
+
+- **Identity segmentation**. Assign distinct roles to different users with just-enough permissions to do their task. This architecture uses [Azure Role Based Access Control (RBAC)](/azure/role-based-access-control/overview) for authorization of all actors accessing resources, and implementation of the [principle of least privilege](/azure/active-directory/develop/secure-least-privileged-access) when applying roles and permissions to actors.  
+
+##### Identity and access management
+
+[Microsoft Entra ID](/entra/fundamentals/whatis) recommended for authentication and authorization of both users and services. Services, such as VMs accessing Key Vault for certificates, should use managed identities for secure communication. These identities, based on Microsoft Entra ID service principals, are automatically managed. 
+
+In this architecture, [user-assigned managed identities](/entra/managed-identities-azure-resources/overview#managed-identity-types) are used:
+
+- **Azure Application Gateway** uses its identity to access Azure Key Vault for external and internal TLS certificates, encrypting user traffic and traffic to/from the frontend web tier.
+- **Frontend web tier** and backend API tier VMs use their identities to access Azure Key Vault for the internal TLS certificate, encrypting traffic between frontend and backend VMs. They also access the Azure Storage account for boot diagnostics.
+
+If you extend this design to include a database, backend servers should use managed identity to get secrets from Key Vault for database connection.
+
+>[!IMPORTANT]
+> The baseline architecture uses only user-assigned managed identities. Even though you may specify a system-assigned managed identity in a Bicep or ARM template with no error, they cannot be used in a Flex VMSS configuration. The Azure portal however will respond with the appropriate error. 
+
+
+##### Network controls
+
+_Restrict traffic flow between the subnets_ by applying granular security rules.
+
+Place [network security groups (NSGs)](/azure/virtual-network/network-security-groups-overview) to restrict traffic based on parameters such as IP address range, ports, and protocols. 
+
+Use [Application security groups (ASG)](/azure/virtual-network/application-security-groups) with NSGs. They enable you to specify named entities for IP address ranges. The benefit is that you don't need to change NSG rules if you want to modify addresses. It's also easier to review the rules.
+
+Two ASGs are used in this scenario:
+
+- WebFrontend ASG - The network interface of the frontend VMs are assigned to this ASG. The AGS is referenced in NSGs to filter traffic to and from the frontend VMs.
+- ApiBackend ASG - The network interface of the backend VMs are assigned to this ASG. The AGS is referenced in NSGs to filter traffic to and from the frontend VMs.
+
+
+##### Encyrption
+
+
+##### Secret management
+
 
 ## Networking 
 
-This architecture uses a single virtual network (VNet) in which the workload resources are deployed. The purpose is to demonstrate basic controls needed to restrict traffic while maintaining focus on the compute layer. In an enterprise setup, this VNet can be integrated with an organization-provided topology. That example is shown in [Infrastructure as a Service (IaaS) baseline in Azure landing zones](./vm-baseline-landing-zone.yml).
+This architecture uses a single virtual network (VNet) in which the workload resources are deployed. The purpose is to demonstrate basic controls needed to restrict traffic while maintaining focus on the compute layer. In an enterprise setup, this VNet can be integrated with an organization-provided topology. That example is shown in [Virtual machine baseline architecture in an Azure landing zone](./vm-baseline-landing-zone.yml).
 
 :::image type="content" source="./media/vm-baseline-network-topology.png" alt-text="IaaS baseline architectural diagram" lightbox="./media/vm-baseline-network-topology.png":::
-
 
 ##### Virtual network
 
@@ -168,24 +205,13 @@ In this architecture, the address space is set to /21 based on the expected grow
 
 In the VNet, **carve out subnets based on functionality and security requirements**. 
 
-Subnets can be used as trust boundaries. _Colocate related resources needed for handling a transaction in one subnet_. Another strategy is to group by roles. In this architecture, these subnets are created based on the logical grouping of the application and purpose of various Azure services used as part of the workload.
-
 - **Subnet to host Application Gateway** that acts as the reverse proxy. By design, Application Gateway requires a dedicated subnet.
 - **Subnet to host internal load balancer** to distribute traffic to backend VMs.
 - **Subnets to host the workload VMs**. They are divided as per the tiers of the application. 
 - **Subnet for the Bastion host** to allow operational access to the workload VMs. By design, Bastion host requires a dedicated subnet.
 - **Subnet to host private endpoints** that are created to reach other Azure resources over Private Links. Dedicated subnets aren't required for these endpoints but are highly recommended. 
 
-_Restrict traffic flow between the subnets_ by applying granular security rules.
 
-Place [network security groups (NSGs)](/azure/virtual-network/network-security-groups-overview) to restrict traffic based on parameters such as IP address range, ports, and protocols. 
-
-Use [Application security groups (ASG)](/azure/virtual-network/application-security-groups) with NSGs. They enable you to specify named entities for IP address ranges. The benefit is that you don't need to change NSG rules if you want to modify addresses. It's also easier to review the rules.
-
-Two ASGs are used in this scenario:
-
-- WebFrontend ASG - The network interface of the frontend VMs are assigned to this ASG. The AGS is referenced in NSGs to filter traffic to and from the frontend VMs.
-- ApiBackend ASG - The network interface of the backend VMs are assigned to this ASG. The AGS is referenced in NSGs to filter traffic to and from the frontend VMs.
 
 Similar to VNets,  _subnets must be right-sized_. For example, you might want to take advantage of the maximum limit of the VMs supported by Flex orchestration to meet the scaling needs of the application. The workload subnets should be able to hold that limit. Another use case is VM upgrades. You might need temporary IP addresses when a VM is upgraded. 
 
@@ -348,7 +374,7 @@ In the reference implementation, health probes are configured to do a simple HTT
 
 ##### Managed disks
 
-Your workload will dictate the disk metrics to monitor, but most IaaS architectures will have some mix of the following common key metrics. You’ll also want to bring in items that represent where your application is most sensitive. 
+Your workload will dictate the disk metrics to monitor, but most IaaS architectures will have some mix of the following common key metrics. You'll also want to bring in items that represent where your application is most sensitive. 
 
 When designing your monitoring solution be aware that there is an Azure platform perspective and guest OS perspective on the managed disks. The Azure platform perspective represents the metrics that a SAN operator would view, regardless of what workloads are connected. The guest OS perspective represents the metrics that the workload operator would view, regardless of the underlying disk technology. In Azure, workload teams have the responsibility of monitoring both as part of their solution.
 
@@ -356,7 +382,7 @@ When designing your monitoring solution be aware that there is an Azure platform
 
     The data disk performance (IOPS and throughput) metrics can be looked at individually (per disk) or rolled up to all disks attached to a VM. Both perspectives can be critical in troubleshooting a performance issue, as both the individual disks and the VM can cap total performance. 
 
-    To troubleshoot suspected or alert on pending disk capping, use the *Storage IO utilization* metrics, which provide consumed percentage of the provisioned throughput for both virtual machines and disks. If your architecture uses bursting for cost optimization, then you’ll want to monitor your *Credits Percentage* metrics. Running out of credits can be an expected result, as consistently having left over credits is a sign that further cost optimization could occur on that disk. Meaning if you are using bursting as part of your cost optimization strategy, you should monitor how many credits you're consistently leaving unused and see if you can choose a lower performance tier.
+    To troubleshoot suspected or alert on pending disk capping, use the *Storage IO utilization* metrics, which provide consumed percentage of the provisioned throughput for both virtual machines and disks. If your architecture uses bursting for cost optimization, then you'll want to monitor your *Credits Percentage* metrics. Running out of credits can be an expected result, as consistently having left over credits is a sign that further cost optimization could occur on that disk. Meaning if you are using bursting as part of your cost optimization strategy, you should monitor how many credits you're consistently leaving unused and see if you can choose a lower performance tier.
 
 - Guest OS perspective
 
