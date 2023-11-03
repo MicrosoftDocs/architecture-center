@@ -1,12 +1,12 @@
 
-Gridwich requires multiple resources within and outside Azure to talk to one another securely. This requirement poses continuous integration and continuous delivery (CI/CD) challenges with Azure Active Directory (Azure AD) permissions, gates, resource creation, order of operation, and long-running functions deployment. The following guiding principles address these challenges:
+Gridwich requires multiple resources within and outside Azure to talk to one another securely. This requirement poses continuous integration and continuous delivery (CI/CD) challenges with Microsoft Entra permissions, gates, resource creation, order of operation, and long-running functions deployment. The following guiding principles address these challenges:
 
 - A single build artifact affects all environments in the same pipeline.
 - Non-gated environments are disposable.
 - Terraform declaratively creates idempotent environments.
 - Terraform doesn't release software.
 - Infrastructure creation and software release are distinct stages in the pipeline.
-- The CI/CD pipeline doesn't assign Azure AD permissions.
+- The CI/CD pipeline doesn't assign Microsoft Entra permissions.
 - The pipeline considers everything as code.
 - The pipeline uses reusable components focused on composability.
 

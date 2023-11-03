@@ -206,7 +206,6 @@ The Gridwich system embodies best practices for processing and delivering media 
 
 ## Deploy this scenario
 
-- [Set up Azure DevOps](set-up-azure-devops.yml) Gridwich project, repo, pipelines, and variable groups.
 - [Run the admin scripts](run-admin-scripts.yml) for Azure permissions.
 - [Set up a local development environment](set-up-local-environment.yml).
 
@@ -215,7 +214,7 @@ The Gridwich system embodies best practices for processing and delivering media 
 - [Terraform starter project for Azure Pipelines](https://github.com/microsoft/terraform-azure-devops-starter)
 - [Azure Function with Event Grid and Terraform Sandwich sample](https://github.com/Azure-Samples/azure-functions-event-grid-terraform). Subscribe an Azure Function to Event Grid Events via Terraform, using a Terraform Sandwich.
 - [MediaInfoLib with Azure Storage](https://github.com/Azure-Samples/functions-dotnet-core-mediainfo). Azure Functions and console samples that use cross-platform .NET Core to retrieve a report on a media file stored in Azure Storage.
-- [Event Grid Viewer Blazor](https://github.com/Azure-Samples/eventgrid-viewer-blazor). An EventGrid Viewer application, using Blazor and SignalR, with Azure Active Directory authorization support.
+- [Event Grid Viewer Blazor](https://github.com/Azure-Samples/eventgrid-viewer-blazor). An EventGrid Viewer application, using Blazor and SignalR, with Microsoft Entra authorization support.
 - [Azure Function with Managed Service Identity for Azure Storage](https://github.com/Azure-Samples/functions-storage-managed-identity). Use Managed Service Identity between Azure Functions and Azure Storage.
 - [Handling serverless Key Vault rotation](https://github.com/Azure-Samples/serverless-keyvault-secret-rotation-handling). Use Event Grid and Logic Apps to handle Azure Key Vault secret rotation changes that an Azure Function uses.
 - [Updates to existing media-services-v3-dotnet-core-functions-integration sample](https://github.com/Azure-Samples/media-services-v3-dotnet-core-functions-integration/tree/master/Encoding)

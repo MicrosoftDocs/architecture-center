@@ -59,7 +59,7 @@ The following architecture illustrates a general refactoring approach that can u
 
 1. Azure Site Recovery provides DR for VM and container cluster components.
 
-1. Services like [Azure Active Directory](https://azure.microsoft.com/services/active-directory), [Azure Networking](https://azure.microsoft.com/product-categories/networking), Azure Stream Analytics, Azure Databricks, and [Power BI](https://powerbi.microsoft.com) can easily integrate with the modernized system.
+1. Services like [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory), [Azure Networking](https://azure.microsoft.com/product-categories/networking), Azure Stream Analytics, Azure Databricks, and [Power BI](https://powerbi.microsoft.com) can easily integrate with the modernized system.
 
 ### Components
 

@@ -59,7 +59,7 @@ The preceding services in this list are core services that work throughout Azure
 
 9.  Because this architecture reference is based on [Microsoft Zero Trust](/security/zero-trust/), the services and components under **Infrastructure and Endpoint** don't have specific monitoring services. Azure Monitor logs and Defender for Cloud are the main services that collect, store, and analyze logs from VMs and others compute services.
 
-The key component in this architecture is Microsoft Sentinel, because it connects all the logs and alerts that are provided by Azure security services, Microsoft 365 Defender, and Azure Monitor. After you implement Microsoft Sentinel and it's receiving logs and alerts from all the sources that are identified in this article, the next step is to map a set of queries of those logs to obtain insights and evidence of indicators of compromise (IOCs). When information is captured by Microsoft Sentinel, you can investigate it or allow an automated response that you configure to mitigate or resolve the incident. Automatic responses include actions like blocking a user on in Azure Active Directory (Azure AD) or blocking an IP address via the firewall.
+The key component in this architecture is Microsoft Sentinel, because it connects all the logs and alerts that are provided by Azure security services, Microsoft 365 Defender, and Azure Monitor. After you implement Microsoft Sentinel and it's receiving logs and alerts from all the sources that are identified in this article, the next step is to map a set of queries of those logs to obtain insights and evidence of indicators of compromise (IOCs). When information is captured by Microsoft Sentinel, you can investigate it or allow an automated response that you configure to mitigate or resolve the incident. Automatic responses include actions like blocking a user on in Microsoft Entra ID or blocking an IP address via the firewall.
 
 For more information about Microsoft Sentinel, see [Microsoft Sentinel documentation](/azure/sentinel).
 
@@ -99,7 +99,7 @@ The following list provides information about how to access each of the services
 
 The example architecture in this article uses the following Azure components:
 
-- [Azure AD](https://azure.microsoft.com/services/active-directory) is a cloud-based identity and access management service. Azure AD helps your users to access external resources, such as Microsoft 365, the Azure portal, and thousands of other SaaS applications. It also helps them access internal resources, like apps on your corporate intranet network.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is a cloud-based identity and access management service. Microsoft Entra ID helps your users to access external resources, such as Microsoft 365, the Azure portal, and thousands of other SaaS applications. It also helps them access internal resources, like apps on your corporate intranet network.
 
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources to securely communicate with each other, the internet, and on-premises networks. Virtual Network provides a virtual network that benefits from Azure's infrastructure, such as scale, availability, and isolation.
 

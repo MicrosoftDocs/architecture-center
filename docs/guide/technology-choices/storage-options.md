@@ -141,7 +141,7 @@ For help with planning the right solution for Azure disks, see [Backup and disas
 
 To help protect your data in the cloud, Azure Storage offers several best practices for data security and encryption:
 
-- Secure the storage account by using Azure RBAC and Azure Active Directory (Azure AD).
+- Secure the storage account by using Azure RBAC and Microsoft Entra ID.
 - Secure data in transit between an application and Azure by using client-side encryption, HTTPS, or SMB 3.0.
 - Set data to be encrypted when it's written to Azure Storage by using Azure Storage encryption.
 - Grant delegated access to the data objects in Azure Storage by using shared access signatures.

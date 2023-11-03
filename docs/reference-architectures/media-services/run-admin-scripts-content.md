@@ -5,7 +5,7 @@ The Azure Pipelines continuous integration and delivery (CI/CD) pipelines deploy
 
 A user with elevated privileges must execute the pipeline-generated admin scripts. To grant users elevated privileges:
 
-1. In Azure Active Directory (Azure AD), create a named group such as *Gridwich Admins*, and add the authorized admins to it.
+1. In Microsoft Entra ID, create a named group such as *Gridwich Admins*, and add the authorized admins to it.
 
 1. In the Azure Subscription, select **Access Control (IAM)** in the left navigation, select **Add role assignments**, and then assign the **User Access Administrator** role for **Gridwich Admins**.
 
@@ -46,17 +46,17 @@ To run the script:
 
 ### The egv_app_registration.sh script
 
-The `egv_app_registration.sh` script uses the *egv_app_registration_manifest.json* file to secure the Azure Event Grid Viewer web app for each environment. The script creates and configures an [Azure App Registration](/azure/active-directory/develop/quickstart-register-app) for [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis). The script then configures the Event Grid Viewer web app to use the App Registration to secure the viewer, making it available only to those that have proper Azure AD credentials.
+The `egv_app_registration.sh` script uses the *egv_app_registration_manifest.json* file to secure the Azure Event Grid Viewer web app for each environment. The script creates and configures an [Azure App Registration](/azure/active-directory/develop/quickstart-register-app) for [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis). The script then configures the Event Grid Viewer web app to use the App Registration to secure the viewer, making it available only to those that have proper Microsoft Entra credentials.
 
 The *egv_app_registration_manifest.json* file must be in the same directory as the script file for the script to run correctly. Using an external manifest file to configure an Azure App Registration is a Microsoft [best practice](https://github.com/Azure/azure-cli/issues/6023#issuecomment-400011467). The GUIDs used in the manifest file are called [well-known-appids](https://github.com/mjisaak/azure-active-directory/blob/master/README.md#well-known-appids), so they aren't a security risk when hard-coded in the manifest file.
 
 The Terraform variables are:
 
-- **tenantId**, the Azure AD tenant ID, which is used to create the token issuer URL.
+- **tenantId**, the Microsoft Entra tenant ID, which is used to create the token issuer URL.
 - **eventgridViewerResourceGroupName**, the Event Grid Viewer resource group name.
 - **eventgridViewerAppName**, the Event Grid Viewer web app name.
 - **pipelineBuildId**, the pipeline Build ID. This value is currently unused, but can be used to build an Azure DevOps Build URL to display generated artifacts on screen.
-- **keyVaultName**, the Azure Key Vault to store the Azure AD App Registration AppId/ClientId.
+- **keyVaultName**, the Azure Key Vault to store the Microsoft Entra App Registration AppId/ClientId.
 
 To run the script:
 

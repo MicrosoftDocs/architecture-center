@@ -19,7 +19,7 @@ Consider this scenario for the following use cases:
 ### Dataflow
 
 1. HTTP/HTTPS requests first hit the Application Gateway.
-1. Optionally (not shown in the diagram), you can have Azure Active Directory (Azure AD) authentication enabled for the Web App. After the traffic first hits the Application Gateway, the user would be prompted to supply credentials to authenticate with the application.
+1. Optionally (not shown in the diagram), you can have Microsoft Entra authentication enabled for the Web App. After the traffic first hits the Application Gateway, the user would be prompted to supply credentials to authenticate with the application.
 1. User requests flow through the internal load balancer (ILB) of the environment, which in turn routes the traffic to the Expenses Web App.
 1. The user then proceeds to create an expense report.
 1. As part of creating the expense report, the deployed API App is invoked to retrieve the user's manager name and email.

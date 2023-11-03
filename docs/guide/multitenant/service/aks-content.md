@@ -240,14 +240,14 @@ When you share an AKS cluster between multiple teams within an organization, you
 For more information about authentication and authorization with AKS, see the following articles:
 
 - [Access and identity options for Azure Kubernetes Service (AKS)](/azure/aks/concepts-identity)
-- [AKS-managed Azure Active Directory integration](/azure/aks/managed-aad)
-- [Control access to cluster resources using Kubernetes role-based access control and Azure Active Directory identities in Azure Kubernetes Service](/azure/aks/azure-ad-rbac)
+- [AKS-managed Microsoft Entra integration](/azure/aks/managed-aad)
+- [Control access to cluster resources using Kubernetes role-based access control and Microsoft Entra identities in Azure Kubernetes Service](/azure/aks/azure-ad-rbac)
 
 ### Workload identity
 
 If you host multiple tenant applications on a single AKS cluster, and each is in a separate namespace, then each workload should use a different [Kubernetes service account](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account) and credentials to access the downstream Azure services. *Service accounts* are one of the primary user types in Kubernetes. The Kubernetes API holds and manages service accounts. Service account credentials are stored as Kubernetes secrets, which allows them to be used by authorized pods to communicate with the API Server. Most API requests provide an authentication token for a service account or a normal user account.
 
-Tenant workloads deployed to AKS clusters can use Azure AD application credentials to access Azure AD-protected resources, such as Azure Key Vault and Microsoft Graph. [Azure AD Workload Identity for Kubernetes](https://azure.github.io/azure-workload-identity/docs/introduction.html) integrates with the Kubernetes native capabilities to federate with any external identity providers.
+Tenant workloads deployed to AKS clusters can use Microsoft Entra application credentials to access Microsoft Entra ID-protected resources, such as Azure Key Vault and Microsoft Graph. [Microsoft Entra Workload ID for Kubernetes](https://azure.github.io/azure-workload-identity/docs/introduction.html) integrates with the Kubernetes native capabilities to federate with any external identity providers.
 
 ### Pod Sandboxing
 

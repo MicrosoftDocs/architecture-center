@@ -21,18 +21,26 @@ highlightedContent:
     - title: Browse Azure architectures
       itemType: architecture
       url: browse/index.yml
+    # Card
     - title: Explore cloud best practices 
       itemType: concept
       url: guide/index.md
     # Card
-    - title: Assess, optimize, and review your workload
-      url: /azure/architecture/framework
-      itemType: how-to-guide
-    # Card
     - title: See what's new
       url: ./changelog.md
       itemType: whats-new
-
+    # Card
+    - title: Well Architected Framework (WAF)
+      url: /azure/architecture/framework
+      itemType: how-to-guide
+    # Card
+    - title: Cloud Adoption Framework (CAF)
+      url: https://azure.microsoft.com/solutions/cloud-enablement/cloud-adoption-framework/
+      itemType: how-to-guide
+    # Card
+    - title: Find partner-led workshops
+      url: https://www.microsoft.com/azure/partners/ammp-w/events/?utm_source=email&utm_medium=email&utm_id=email2
+      itemType: learn 
 # productDirectory section (optional)
 productDirectory:
   title: Architecting applications on Azure # < 60 chars (optional)
@@ -211,10 +219,10 @@ conceptualContent:
           
     - title: Databases
       links:
-        - url: ./data-guide/databases-architecture-design.yml
+        - url: ./databases/index.yml
           itemType: get-started
           text: Databases architecture design
-        - url: ./data-guide/big-data/index.yml
+        - url: ./databases/guide/big-data-architectures.yml
           itemType: concept
           text: Big Data architectures
         - url: ./data-guide/scenarios/build-scalable-database-solutions-azure-services.md
@@ -232,25 +240,13 @@ conceptualContent:
         - text: Online transaction processing (OLTP)
           itemType: concept
           url: ./data-guide/relational-data/online-transaction-processing.md
-        - text: Data warehousing in Microsoft Azure
-          itemType: concept
-          url: ./data-guide/relational-data/data-warehousing.yml
         - text: Data lakes
           itemType: get-started
           url: data-guide/scenarios/data-lake.md
-        - text: Extend on-premises data solutions to the cloud
-          itemType: get-started
-          url: data-guide/scenarios/hybrid-on-premises-and-cloud.md
-        - text: Free-form text search
-          itemType: get-started
-          url: data-guide/scenarios/search.yml
-        - text: Time series solutions 
-          itemType: get-started
-          url: data-guide/scenarios/time-series.yml
       # footerLink (optional)
-      footerLink:
-        url: ./data-guide/index.md
-        text: See more
+      # footerLink:
+      #   url: ./data-guide/index.md
+      #   text: See more
 
     - title: DevOps
       links:
@@ -311,7 +307,7 @@ conceptualContent:
         - text: Choose an Active Directory integration architecture
           itemType: architecture
           url: reference-architectures/identity/index.yml
-        - text: Integrate on-premises AD with Azure AD
+        - text: Integrate on-premises AD with Microsoft Entra ID
           itemType: architecture
           url: reference-architectures/identity/azure-ad.yml
         - text: Extend AD DS to Azure
@@ -430,19 +426,13 @@ conceptualContent:
           url: reference-architectures/n-tier/windows-vm.yml
         - text: N-tier application with Cassandra (Linux)
           itemType: architecture
-          url: reference-architectures/n-tier/n-tier-cassandra.yml
-        - text: N-tier application with SQL Server (Windows)
-          itemType: architecture
-          url: reference-architectures/n-tier/n-tier-sql-server.yml
+          url: databases/architecture/n-tier-cassandra.yml
         - text: Multi-region N-tier application
           itemType: architecture
           url: reference-architectures/n-tier/multi-region-sql-server.yml
         - text: Highly scalable WordPress
           itemType: get-started
           url: web-apps/hosting-applications/wordpress.yml
-        - text: Multi-tier Windows
-          itemType: get-started
-          url:  ./reference-architectures/n-tier/n-tier-sql-server.yml
 
     - title: SAP
       links:

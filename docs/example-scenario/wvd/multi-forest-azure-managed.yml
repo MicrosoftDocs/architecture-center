@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Multiple forests with AD DS, Azure AD, and Azure AD DS
+  title: Multiple forests with AD DS, Microsoft Entra ID, and Microsoft Entra Domain Services
   titleSuffix: Azure Example Scenarios
-  description: This is a solution idea that builds on the multiple forests scenario by using Azure Virtual Desktop and Azure Active Directory Domain Services.
+  description: This is a solution idea that builds on the multiple forests scenario by using Azure Virtual Desktop and Microsoft Entra Domain Services.
   author: nehalineogi
   ms.author: tmaher
   ms.date: 06/24/2022
@@ -12,12 +12,12 @@ metadata:
   ms.custom:
     - fcp
     - example-scenario
-name: Multiple forests with AD DS, Azure AD, and Azure AD DS
+name: Multiple forests with AD DS, Microsoft Entra ID, and Microsoft Entra Domain Services
 azureCategories:
   - windows-virtual-desktop
-summary: This is a solution idea that builds on the multiple forests scenario by using Azure Virtual Desktop and Azure Active Directory Domain Services.
+summary: This is a solution idea that builds on the multiple forests scenario by using Azure Virtual Desktop and Microsoft Entra Domain Services.
 products:
-  - azure-active-directory
+  - entra-id
   - entra
   - azure-files
   - azure-virtual-desktop

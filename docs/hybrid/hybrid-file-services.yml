@@ -21,7 +21,7 @@ azureCategories:
   - storage
 summary: Use Azure File Sync and Azure Files to extend file services hosting capabilities across cloud and on-premises file share resources.
 products:
-  - azure-active-directory
+  - entra-id
   - azure-expressroute
   - azure-files
   - azure-storage-accounts

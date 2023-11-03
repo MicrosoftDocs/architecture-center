@@ -138,7 +138,7 @@ It's important to understand the division of responsibility between the automoti
 
 * Private endpoints for network security. For more information, see [Private endpoints for Azure Data Explorer](/azure/data-explorer/security-network-private-endpoint) and [Allow access to Azure Event Hubs namespaces via private endpoints](/azure/event-hubs/private-link-service).
 * Encryption at rest and in transit. For more information, see [Azure encryption overview](/azure/security/fundamentals/encryption-overview).
-* Identity and access management that uses Azure Active Directory (Azure AD) identities and [Azure AD conditional access](/azure/active-directory/conditional-access) policies.
+* Identity and access management that uses Microsoft Entra identities and [Microsoft Entra Conditional Access](/azure/active-directory/conditional-access) policies.
 * [Row Level Security (RLS)](/azure/active-directory/conditional-access) for Azure Data Explorer.
 * Infrastructure governance that uses [Azure Policy](https://azure.microsoft.com/services/azure-policy).
 * Data governance that uses [Microsoft Purview](https://azure.microsoft.com/services/purview).

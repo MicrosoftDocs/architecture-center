@@ -21,7 +21,7 @@ azureCategories:
   - integration
 summary: Learn how to automate an extract, load, and transform (ELT) workflow in Azure using Azure Data Factory with Azure Synapse Analytics.
 products:
-  - azure-active-directory
+  - entra-id
   - azure-analysis-services
   - azure-blob-storage
   - azure-data-factory

@@ -106,7 +106,7 @@ the path to the installation directory:
     service, like an NFS server, BeeGFS cluster, [Azure NetApp
     Files](https://azure.microsoft.com/services/netapp), [Azure
     HPC Cache](https://azure.microsoft.com/services/hpc-cache),
-    or [Azure Active Directory Domain
+    or [Microsoft Entra Domain
     Services](https://azure.microsoft.com/services/active-directory-ds).
 -   To authorize multi-node VMs to access License Manager, you need to
     include your authorization code in the job script. For more

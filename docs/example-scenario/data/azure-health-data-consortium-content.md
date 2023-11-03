@@ -43,7 +43,7 @@ This solution for a data consortium uses Azure components. It meets these goals:
 
 Throughout the system:
 
-- [Azure Active Directory (Azure AD)][What is Azure Active Directory?], [Azure Key Vault][About Azure Key Vault], and [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) manage access and provide security.
+- [Microsoft Entra ID][What is Azure Active Directory?], [Azure Key Vault][About Azure Key Vault], and [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) manage access and provide security.
 - [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines), a service of Azure DevOps, builds, tests, and releases code.
 
 ### Components
@@ -80,7 +80,7 @@ This solution uses the following components:
 
 - [Azure Databricks](https://azure.microsoft.com/free/databricks) is a data analytics platform. Based on the latest Apache Spark distributed processing system, Azure Databricks supports seamless integration with open-source libraries. This solution uses Azure Databricks notebooks to transform all member data into a common format.
 
-- [Azure AD](https://azure.microsoft.com/services/active-directory) is a multi-tenant, cloud-based identity and access management service.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is a multi-tenant, cloud-based identity and access management service.
 
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault) securely stores and controls access to secrets like API keys, passwords, certificates, and cryptographic keys. This cloud service also manages security certificates.
 
@@ -162,7 +162,7 @@ Because of the sensitivity of medical information, several components play a rol
 
 - [Azure Data Explorer protects data][Security in Azure Data Explorer] in these ways:
 
-  - Uses Azure AD–managed identities for Azure resources.
+  - Uses Microsoft Entra ID–managed identities for Azure resources.
   - Uses RBAC to segregate duties and limit access.
   - Blocks traffic that originates from network segments outside Azure Data Explorer.
   - Safeguards data and helps you meet commitments by using [Azure Disk Encryption][Azure Disk Encryption for virtual machines and virtual machine scale sets]. This service provides volume encryption for virtual machine data disks and the OS. Azure Disk Encryption also integrates with Key Vault, which encrypts secrets with Microsoft-managed keys or customer-managed keys.
@@ -230,7 +230,7 @@ Product documentation:
 - [What is Azure Data Explorer?][What is Azure Data Explorer?]
 - [What is Azure Data Factory][What is Azure Data Factory?]
 - [What is Databricks?][What is Azure Databricks?]
-- [What is Azure AD?][What is Azure Active Directory?]
+- [What is Microsoft Entra ID?][What is Azure Active Directory?]
 - [About Azure Key Vault][About Azure Key Vault]
 - [What is Azure Pipelines?](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
 

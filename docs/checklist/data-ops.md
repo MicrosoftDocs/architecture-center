@@ -114,5 +114,5 @@ Principal author:
 
 ## Related resources
 
-  - [DataOps for the modern data warehouse](/azure/architecture/example-scenario/data-warehouse/dataops-mdw)
+  - [DataOps for the modern data warehouse](/azure/architecture/databases/architecture/dataops-mdw)
   - [Team Data Science Process for DevOps](/azure/architecture/data-science-process/team-data-science-process-for-devops)

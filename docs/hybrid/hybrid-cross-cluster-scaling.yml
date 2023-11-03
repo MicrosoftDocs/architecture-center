@@ -21,7 +21,7 @@ azureCategories:
   - storage
 summary: Perform cross-cluster scaling of on-premises workloads by using Azure Arc, Traffic Manager, or Front Door and then deploy by using Azure Pipelines.
 products:
-  - azure-active-directory
+  - entra-id
   - azure-expressroute
   - azure-files
   - azure-storage-accounts

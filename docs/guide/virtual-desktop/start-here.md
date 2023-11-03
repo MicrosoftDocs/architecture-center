@@ -58,9 +58,9 @@ The following sections, organized by category, provide links to example scenario
 ### Identity
 
 - [Authentication in Azure Virtual Desktop](/azure/virtual-desktop/authentication?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
-- [Azure AD join for Azure Virtual Desktop](../../example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join.md)
-- [Multiple forests with AD DS and Azure AD](../../example-scenario/wvd/multi-forest.yml)
-- [Multiple forests with AD DS, Azure AD, and Azure AD DS](../../example-scenario/wvd/multi-forest-azure-managed.yml)
+- [Microsoft Entra join for Azure Virtual Desktop](../../example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join.md)
+- [Multiple forests with AD DS and Microsoft Entra ID](../../example-scenario/wvd/multi-forest.yml)
+- [Multiple forests with AD DS, Microsoft Entra ID, and Microsoft Entra Domain Services](../../example-scenario/wvd/multi-forest-azure-managed.yml)
 
 ### Azure Virtual Desktop for the enterprise
 
