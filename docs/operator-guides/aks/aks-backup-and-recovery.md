@@ -84,7 +84,7 @@ Check [About AKS Backup using Azure Backup](/azure/backup/azure-kubernetes-servi
 
 ### Kasten
 
-[Kasten](https://www.kasten.io/) is a commercial product which provides operations teams with an easy-to-use and secure system for Backup and Recovery of Kubernetes applications. It's available in both a free version, which has limited functionality and no support, and a paid version that includes more features and customer support.
+[Kasten](https://www.kasten.io/) is a commercial product, which provides operations teams with an easy-to-use and secure system for Backup and Recovery of Kubernetes applications. It's available in both a free version, with limited functionality and no support, and a paid version that includes more features and customer support.
 
 Deployed as a Kubernetes operator within the cluster, Kasten provides a comprehensive backup solution. It offers a management dashboard for centralized control and visibility. With Kasten, users can benefit from incremental and application-aware backups, enabling efficient data protection. Additionally, Kasten offers disaster recovery capabilities, including automated failover and failback, as well as features for data migration and ensuring security.
 
@@ -104,7 +104,7 @@ To install and configure [AKS Backup](/azure/backup/azure-kubernetes-service-bac
 
 1. Check [Prerequisites for AKS Backup using Azure Backup](/azure/backup/azure-kubernetes-service-cluster-backup-concept) for a detailed description of the prerequisites for using AKS Backup with your AKS cluster.
 2. Review [AKS Backup Support Matrix](/azure/backup/azure-kubernetes-service-cluster-backup-support-matrix) for a detailed description of AKS Backup's region availability, supported scenarios and limitations.
-3. Refer to [Manage AKS backups using Azure Backup](/azure/backup/azure-kubernetes-service-cluster-manage-backups) for a guidance on how to register the required resource providers on your subscriptions and manage these registrations.
+3. Refer to [Manage AKS backups using Azure Backup](/azure/backup/azure-kubernetes-service-cluster-manage-backups) for guidance on how to register the required resource providers on your subscriptions and manage these registrations.
 4. Review [Back up AKS using Azure Backup](/azure/backup/azure-kubernetes-service-cluster-backup-support-matrix) for detailed instructions on how to setup Backup and Recovery for your AKS cluster using AKS Backup, including creation and configuration of all the necessary Azure resources such as Backup Vault, Backup Policies, and Backup Instances.
 5. Check [Restore AKS using Azure Backup](/azure/backup/azure-kubernetes-service-cluster-restore) for detailed instructions on how to perform full or item-level restores of your AKS cluster from an existing Backup Instance.
 
