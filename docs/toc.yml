@@ -1249,6 +1249,8 @@ items:
           href: guide/hpc/hpc-avl-fire-m.yml
         - name: Barracuda Virtual Reactor
           href: guide/hpc/barracuda-virtual-reactor.yml
+        - name: CP2K
+          href: guide/hpc/cp2k.yml
         - name: Engys deployments
           items:
           - name: Engys ELEMENTS
