@@ -42,7 +42,7 @@ Before defining a multitenant identity strategy, you should first consider the h
 - Will tenants need to federate to their own IdP, and will multiple different identity providers need to be supported for each tenant? For example, you might have tenants with Microsoft Entra ID, Auth0, and Active Directory Federation Services (ADFS), where each wishes to federate with your solution. You also need to understand which federation protocols of your tenants' IdPs you'll support, because the protocols influence the requirements for your own IdP.
 - Are there specific compliance requirements that they need to meet, such as [GDPR](/compliance/regulatory/gdpr)?
 - Do your tenants require their identity information to be located within a specific geographic region?
-- Do users of your solution require access to data from one tenant or from multiple tenants within your application? Do they need the ability to quickly switch between tenants or to view consolidated information from multiple tenants? For example, users who have signed into the Azure portal can easily switch between different Entra ID Directories and subscriptions that they have access to.
+- Do users of your solution require access to data from one tenant or from multiple tenants within your application? Do they need the ability to quickly switch between tenants or to view consolidated information from multiple tenants? For example, users who have signed into the Azure portal can easily switch between different Microsoft Entra ID directories and subscriptions that they have access to.
 
 When you've established your high-level requirements, you can start to plan more specific details and requirements, such as user directory sources and sign-up/sign-in flows.
 
