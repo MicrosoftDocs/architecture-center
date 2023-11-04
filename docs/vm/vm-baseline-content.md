@@ -1,5 +1,5 @@
 
-This article provides a foundational reference architecture for a workload deployed on Azure virtual machines (VMs). A common scenario is the "lift-and-shift"" approach, where an application is migrated from an on-premises computing environment to Azure virtual machines without any changes to the source code.
+This article provides a foundational reference architecture for a workload deployed on Azure virtual machines (VMs). 
 
 The primary focus of this architecture isn't that application. Instead it provides guidance for configuring and deploying the infrastructure components with which the application interacts. These components include compute, storage, networking, monitoring and more. This architecture serves as a starting point for an Infrastructure-as-a-Service (IaaS) workload. However, the data tier is intentionally excluded from this guidance, to maintain the focus on the infrastructure. 
 
