@@ -140,178 +140,53 @@ In this architecture, both backend and frontend VMs utilize Standard HDD LRS (//
 
 - Each virtual machine is has its own Premium SSD P3 managed disk, providing a base provisioned throughput suitable for the workload.
 
-## Security
-
-The reference architecture is designed illustrate the fundamental security assurances. Security is more than just technical controls. It's highly recommended that you follow the design review checklist given in Azure Well-Architected Framework to have full coverage of Security. 
-
-##### Segmentation
-
-- **Network segmentation**. Subnets can be used as trust boundaries. _Colocate related resources needed for handling a transaction in one subnet_. In this architecture, the VNet is divided into subnets based on the logical grouping of the application and purpose of various Azure services used as part of the workload.
-
-    The advantage of subnet segmentation is that you can place security controls at the perimeter that controls traffic flowing in and out of the subnet, thereby restricting access to the workload resources.
-
-- **Identity segmentation**. Assign distinct roles to different users with just-enough permissions to do their task. This architecture uses [Azure Role Based Access Control (RBAC)](/azure/role-based-access-control/overview) for authorization of all actors accessing resources, and implementation of the [principle of least privilege](/azure/active-directory/develop/secure-least-privileged-access) when applying roles and permissions to actors.  
-
-##### Identity and access management
-
-[Microsoft Entra ID](/entra/fundamentals/whatis) recommended for authentication and authorization of both users and services. Services, such as VMs accessing Key Vault for certificates, should use managed identities for secure communication. These identities, based on Microsoft Entra ID service principals, are automatically managed. 
-
-In this architecture, [user-assigned managed identities](/entra/managed-identities-azure-resources/overview#managed-identity-types) are used:
-
-- **Azure Application Gateway** uses its identity to access Azure Key Vault for external and internal TLS certificates, encrypting user traffic and traffic to/from the frontend web tier.
-- **Frontend web tier** and backend API tier VMs use their identities to access Azure Key Vault for the internal TLS certificate, encrypting traffic between frontend and backend VMs. They also access the Azure Storage account for boot diagnostics.
-
-If you extend this design to include a database, backend servers should use managed identity to get secrets from Key Vault for database connection.
-
->[!IMPORTANT]
-> The baseline architecture uses only user-assigned managed identities. Even though you may specify a system-assigned managed identity in a Bicep or ARM template with no error, they cannot be used in a Flex VMSS configuration. The Azure portal however will respond with the appropriate error. 
-
-
-##### Network controls
-
-_Restrict traffic flow between the subnets_ by applying granular security rules.
-
-Place [network security groups (NSGs)](/azure/virtual-network/network-security-groups-overview) to restrict traffic based on parameters such as IP address range, ports, and protocols. 
-
-Use [Application security groups (ASG)](/azure/virtual-network/application-security-groups) with NSGs. They enable you to specify named entities for IP address ranges. The benefit is that you don't need to change NSG rules if you want to modify addresses. It's also easier to review the rules.
-
-Two ASGs are used in this scenario:
-
-- WebFrontend ASG - The network interface of the frontend VMs are assigned to this ASG. The AGS is referenced in NSGs to filter traffic to and from the frontend VMs.
-- ApiBackend ASG - The network interface of the backend VMs are assigned to this ASG. The AGS is referenced in NSGs to filter traffic to and from the frontend VMs.
-
-
-##### Encyrption
-
-
-##### Secret management
-
-
 ## Networking 
 
-This architecture uses a single virtual network (VNet) in which the workload resources are deployed. The purpose is to demonstrate basic controls needed to restrict traffic while maintaining focus on the compute layer. In an enterprise setup, this VNet can be integrated with an organization-provided topology. That example is shown in [Virtual machine baseline architecture in an Azure landing zone](./vm-baseline-landing-zone.yml).
+This architecture deploys the workload in a single virtual network (VNet). It can be integrated with an enterprise topology. That example is shown in [Virtual machine baseline architecture in an Azure landing zone](./vm-baseline-landing-zone.yml).
 
 :::image type="content" source="./media/vm-baseline-network-topology.png" alt-text="IaaS baseline architectural diagram" lightbox="./media/vm-baseline-network-topology.png":::
 
 ##### Virtual network
 
-One of the initial decisions is the **network address range**. Keep in mind the expected growth of the network as you do capacity planning for the entire workload. The _network should be large enough_ to accomodate that growth, which might need extra networking constructs. For example, the VNet should be able to fit the additional VMs as a result of a scaling operation.
+One of the intial decisions relates to the network address range. Keep in mind the anticipated network growth during the capacity planning phase. The network should be large enough the growth, which may need extra networking constructs. For instance, the VNet should have the capacity to accommodate the additional VMs that result from a scaling operation.
 
-Conversely, _right-size your address space_. A virtual network that's too large might be underutilized. Once you create the VNet, you can't change the address range.
+Conversely, _right-size your address space_. An excessively large virtual network may lead to underutilization. It's important to note that once the VNet is created, the address range cannot be modified.
 
-In this architecture, the address space is set to /21 based on the expected growth. 
+In this architecture, the address space is set to /21, a decision based on the projected growth.
 
-##### Network isolation
+##### Subnetting considerations
 
-In the VNet, **carve out subnets based on functionality and security requirements**. 
+Within the VNet, subnets are carved out based on functionality and security requirements.
 
-- **Subnet to host Application Gateway** that acts as the reverse proxy. By design, Application Gateway requires a dedicated subnet.
-- **Subnet to host internal load balancer** to distribute traffic to backend VMs.
-- **Subnets to host the workload VMs**. They are divided as per the tiers of the application. 
-- **Subnet for the Bastion host** to allow operational access to the workload VMs. By design, Bastion host requires a dedicated subnet.
-- **Subnet to host private endpoints** that are created to reach other Azure resources over Private Links. Dedicated subnets aren't required for these endpoints but are highly recommended. 
+- Subnet to host the Application Gateway, which serves as the reverse proxy. By design, the Application Gateway needs a dedicated subnet.
+- Subnet to host the internal load balancer for distributing traffic to backend VMs.
+- Subnets to host the workload VMs. These are divided according to the tiers of the application.
+- Subnet for the Bastion host to facilitate operational access to the workload VMs. By design, the Bastion host needs a dedicated subnet.
+- Subnet to host private endpoints created to access other Azure resources over Private Links. While dedicated subnets are not mandatory for these endpoints, they are highly recommended. 
 
-
-
-Similar to VNets,  _subnets must be right-sized_. For example, you might want to take advantage of the maximum limit of the VMs supported by Flex orchestration to meet the scaling needs of the application. The workload subnets should be able to hold that limit. Another use case is VM upgrades. You might need temporary IP addresses when a VM is upgraded. 
+Similar to VNets, subnets must be right-sized. For instance, you might want to leverage the maximum limit of VMs supported by Flex orchestration to meet the application’s scaling needs. The workload subnets should be capable of accommodating that limit. Another use case involves VM upgrades, which might require temporary IP addresses.
 
 ##### Ingress traffic
 
-**Don't expose the workload VMs directly to the public internet**. Instead, _give each VM a private IP address_.   
-
-In this architecture, two public IP addresses are needed. One for Azure Application Gateway that's used as the reverse proxy. Clients connect using that public IP address. The reverse proxy directs ingress traffic to the private IPs of the VMs.
-
-The other address is for operational access through Azure Bastion (described in [Operational traffic](#operational-traffic)).
-
-Additional security is provided through [Web Application Firewall](/azure/application-gateway/waf-overview) that's integrated with Application Gateway. It has rules that _inspect inbound traffic_ and can take an appropriate action. WAF tracks Open Web Application Security Project (OWASP) vulnerabilities preventing known attacks.  
-
-You'll need a load balancer to _distrubute incoming traffic across all VMs_. Azure Load Balancer is placed between the frontend and the backend to distribute traffic to the backend VMs.
-
+A load balancer is required to distribute incoming traffic across all VMs. The Azure Load Balancer is placed between the frontend and the backend to distribute traffic to the backend VMs.
 
 ##### Egress traffic
 
 Virtual Machine Scale Sets (VMSS) with Flexible orchestration requires that VM instances to have outbound connectivity for communication over the internet. To enable that use case, here are some approaches:
 
-- **Deploy a NAT Gateway resource attached to the subnet.**
+VMSS with Flexible orchestration requires VM instances to have outbound internet connectivity. This can be achieved by:
 
-    This option simplifies outbound Internet connectivity. When configured on a subnet, all outbound connectivity uses the NAT gateway's static public IP addresses. NAT Gateway doesn't depend on individual compute instances such as VMs or a single physical gateway device. Software defined networking makes a NAT gateway highly resilient.
-
-    NAT gateway can be deployed and operate out of individual availability zones. A single zonal NAT gateway resource can be configured to subnets that contain virtual machines that span multiple availability zones. If the zone that NAT gateway is deployed in goes down, then outbound connectivity across all virtual machine instances associated with the NAT gateway will also go down. This setup doesn't provide the best method of zone-resiliency.
-
-    To overcome that situation, create a _zonal stack_ per availability zone. This stack consists of VM instances, a NAT gateway resource with public IP addresses or prefix on a subnet all in the same zone (NAT gateway and availability zones - Azure NAT Gateway). Failure of outbound connectivity due to a zone outage is isolated to the affected zone. The outage won't affect the other zonal stacks where other NAT gateways are deployed with their own subnets and zonal public IPs. Creating zonal stacks for each availability zone within a region is the most effective method for building zone-resiliency against outages for NAT gateway.
-
-- **Use a Standard SKU Azure Load Balancer with outbound rules defined from the VM instances.**
-
-    Azure Load Balacer supports zone redundancy. This option allows you to use the public IP(s) of your load balancer to provide outbound internet connectivity for the VMs. The outbound rules allow you to explicitly define SNAT(source network address translation) ports. The rules allow you to scale and tune this ability through manual port allocation. Manually allocating SNAT port based on the backend pool size and number of frontendIPConfigurations can help avoid SNAT exhaustion. 
-
-    It's recommended that you allocate ports based on the maximum number of backend instances. If more instances are added than remaining SNAT ports allowed, VMSS scaling operations might be blocked, or the new VMs won't receive sufficient SNAT ports.
-
-    Calculate ports per instance as: `Number of frontend IPs * 64K / Maximum number of backend instances`
-
-- **Use Azure Firewall or another Network Virtual Appliance (NVA) with a custom User Defined Route (UDR) as the next hop through firewall**.
-
-    This use case is shown in [Infrastructure as a Service (IaaS) baseline in Azure landing zones](./vm-baseline-landing-zone.yml).
+- Deploying a NAT Gateway resource attached to the subnet, which simplifies outbound connectivity. For zone-resiliency, create a zonal stack per availability zone.
+- Using a Standard SKU Azure Load Balancer with outbound rules defined from the VM instances. Allocate SNAT ports based on the maximum number of backend instances to avoid SNAT exhaustion.
+- Using Azure Firewall or another NVA with a custom UDR as the next hop through the firewall.
 
 This architecture uses Azure Load Balancer with outbound rules.
-
-##### Operational traffic
-
-**Operational access to the workload VMs should always be secured**. _Azure Bastion is recommended_ for this purpose. Bastion host in the workload VNet provides Remote Desktop Protocol (RDP) and Secure Shell (SSH) access to the workload VMs. This approach can be considered to optimize costs.
-
-However, _provisioning a separate VM as a jumpbox is recommended_. The jumpbox should be placed in a separate subnet in the VNet where the workload resources are provisioned. The operator will access the jumpbox through the Bastion host. Then, log into the VMs behind the load balancer from the jumpbox. 
-
-In either approach, use appropriate NSG rules on the subnets to restrict traffic. For example, in the first approach, subnets for the workload VMs should allow traffic from Bastion. In the second approach, the jumpbox should only receive traffic from Bastion. The workload subnets should allow traffic from that jumpbox. 
-
-You can further harden security through _RBAC permissions with just-in-time (JIT)_, a feature of Microsoft Defender for Cloud. The feature uses NSGs to allow inbound access to the selected ports for a specified amount of time. After that time expires, the ports deny all inbound traffic. For more information about JIT access, see [Understanding just-in-time (JIT) VM access](/azure/defender-for-cloud/just-in-time-access-overview).
-
-##### Private connectivity with PaaS services
-
-Communication between the VMs and other Azure services should be over a private network. Private links are recommended. For this connectivity, you need to create private endpoints to communicate with those services. Private endpoints should be placed in a separate subnet. 
 
 ##### DNS resolution
 
 Azure DNS is used as the foundational service for all resolution use cases. For example, resolving fully qualified domain names (FQDN) associated with the workload VMs.
 
 Azure Private DNS zones is used for resolving requests to the private endpoints used to access the named Private link resources.
-
-
-## Identity and access management
-
-[Azure Active Directory (Azure AD)](/azure/active-directory/) is recommended for authenication of all actors, both users and software components such as services. Use [Azure Role Based Access Control (RBAC)](/azure/role-based-access-control/overview) for authorization of all actors accessing resources, and implementation of the [principle of least privilege](/azure/active-directory/develop/secure-least-privileged-access) when applying roles and permissions to actors. 
-
-In the workload, services will need to communicate with other services. For example, VMs need to reach Key Vault to get certificates. Use of a managed identity is the recommended way to ensure that access is secure, allowing the service to authenticate its identity to the other service. Managed identities are based on Azure Active Directory service principals internally, but much easier to use due to the automatic management of the service principal object.
-
-The following services in this architecture use [user-assigned managed identities](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types), which are created and assigned during deployment:
-
-- **Azure Application Gateway** uses its user-assigned managed identity to access Azure Key Vault and retrieve external and internal TLS certificates. The external certificate is used for encrypting traffic to/from the user, and the internal certificate is used to encrypt traffic to/from the front-end web tier.
-
-- **Front-end web tier and back-end API tier VMs** use their own user-assigned managed identities to access Azure Key Vault and retrieve the internal TLS certificate. The internal certificate is used for encrypting traffic between frontend and backend VMs. VMs also use their managed identity to access the Azure Storage account issued during deployment, which is used to store boot diagnostics.
-
-Depending on your design, a managed identity can also be used in backend servers to get secrets from Key Vault for database connection purposes. 
-
->[!IMPORTANT]
-> The baseline architecture uses only user-assigned managed identities. Even though you may specify a system-assigned managed identity in a Bicep or ARM template with no error, they cannot be used in a flex VMSS configuration. The Azure portal however will respond with the appropriate error. 
-
-## Secret management
-
-:::image type="content" source="./media/vm-baseline-tls-termination.png" alt-text="IaaS monitoring data flow  diagram" lightbox="./media/vm-baseline-tls-termination.png":::
-
-[Azure Key Vault](/azure/key-vault/general/overview) provides secure management of secrets. This architecture uses Key Vault to store the TLS certificates used by the various actors for encrypting and decrypting data in transit between layers. 
-
-The managed identities configured during deployment are used by Application Gateway and the VMs, for Key Vault authentication and authorization. Key Vault access policy is configured to allow the managed identities to retrieve the certificate properties. The VMs also use the [Azure Key Vault VM extension](/azure/virtual-machines/extensions/key-vault-linux) for automatic refresh of monitored certificates. If changes are detected in the local certificate store, the extension retrieves and installs the corresponding certificates in Key Vault. The extension supports certificate content types PKCS #12, and PEM. 
-
-> [!IMPORTANT]
-> It is your responsibility to ensure your locally stored certificates are rotated regularly. See [Azure Key Vault VM extension for Linux](/azure/virtual-machines/extensions/key-vault-linux) or [Azure Key Vault VM extension for Windows](/azure/virtual-machines/extensions/key-vault-windows) for more details. 
-
-The certificates stored in Key Vault are identified by the following common names:
-- **app.contoso.com**: An external certificate used by clients and Application Gateway for secure public Internet traffic (1)
-- ***.worload.contoso.com**: A wildcard certificate used by the infrastructure components for secure internal traffic (2, 3, 4)
-
-It's also a good idea to use Key Vault for storage of secrets used for database encryption. For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure). We also recommend that you store application secrets, such as database connection strings, in Key Vault.
-
-## DDoS protection
-
-The Azure platform provides basic DDoS protection by default. This basic protection is targeted at protecting the Azure infrastructure. Although basic DDoS protection is automatically enabled, we recommend using [Azure DDoS Protection](/azure/virtual-network/ddos-protection-overview). DDoS Protection uses adaptive tuning, based on your application's network traffic patterns, to detect threats. This practice allows it to apply mitigations against DDoS attacks that might go unnoticed by the infrastructure-wide DDoS policies. DDoS Protection also provides alerting, telemetry, and analytics through Azure Monitor. For more information, see [Azure DDoS Protection: Best practices and reference architectures](/azure/security/fundamentals/ddos-best-practices).
 
 ## Monitoring
 
@@ -393,6 +268,80 @@ When designing your monitoring solution be aware that there is an Azure platform
 
 The [Application Health extension](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension) is also deployed to the VMs. The Application Health extension is used by VMSS to monitor the binary health state of each VM instance in the scale set, and perform instance repairs if necessary by using Automatic Instance Repairs. The Application Health extension tests for the existence of the same file as the Application Gateway and Azure Load Balancer health probe, to determine if the application is responding.
 
+## Security
+
+The reference architecture is designed illustrate the fundamental security assurances. Security is more than just technical controls. It's highly recommended that you follow the design review checklist given in Azure Well-Architected Framework to have full coverage of Security. 
+
+##### Segmentation
+
+- **Network segmentation**. Subnets can be used as trust boundaries. _Colocate related resources needed for handling a transaction in one subnet_. In this architecture, the VNet is divided into subnets based on the logical grouping of the application and purpose of various Azure services used as part of the workload.
+
+    The advantage of subnet segmentation is that you can place security controls at the perimeter that controls traffic flowing in and out of the subnet, thereby restricting access to the workload resources.
+
+- **Identity segmentation**. Assign distinct roles to different users with just-enough permissions to do their task. This architecture uses [Azure Role Based Access Control (RBAC)](/azure/role-based-access-control/overview) for authorization of all actors accessing resources, and implementation of the [principle of least privilege](/azure/active-directory/develop/secure-least-privileged-access) when applying roles and permissions to actors.  
+
+##### Identity and access management
+
+[Microsoft Entra ID](/entra/fundamentals/whatis) recommended for authentication and authorization of both users and services. Services, such as VMs accessing Key Vault for certificates, should use managed identities for secure communication. These identities, based on Microsoft Entra ID service principals, are automatically managed. 
+
+In this architecture, [user-assigned managed identities](/entra/managed-identities-azure-resources/overview#managed-identity-types) are used:
+
+- **Azure Application Gateway** uses its identity to access Azure Key Vault for external and internal TLS certificates, encrypting user traffic and traffic to/from the frontend web tier.
+- **Frontend web tier** and backend API tier VMs use their identities to access Azure Key Vault for the internal TLS certificate, encrypting traffic between frontend and backend VMs. They also access the Azure Storage account for boot diagnostics.
+
+If you extend this design to include a database, backend servers should use managed identity to get secrets from Key Vault for database connection.
+
+>[!IMPORTANT]
+> The baseline architecture uses only user-assigned managed identities. Even though you may specify a system-assigned managed identity in a Bicep or ARM template with no error, they cannot be used in a Flex VMSS configuration. The Azure portal however will respond with the appropriate error. 
+
+##### Network controls
+
+- **Ingress traffic**. The workload VMs aren't directly exposed to the public internet. Each VM has a private IP address.   
+
+    Two public IP addresses are used. One for Azure Application Gateway that serves as the reverse proxy. Clients connect using that public IP address. The reverse proxy directs ingress traffic to the private IPs of the VMs.The other address is for operational access through Azure Bastion (described in [Operational traffic](#operational-traffic)).
+
+    Additional security is provided through [Web Application Firewall](/azure/application-gateway/waf-overview) that's integrated with Application Gateway. It has rules that _inspect inbound traffic_ and can take an appropriate action. WAF tracks Open Web Application Security Project (OWASP) vulnerabilities preventing known attacks.  
+
+- **Egress traffic**. Standard SKU Azure Load Balancer with outbound rules are defined from the VM instances. The rules inpect and restrict traffic.
+
+    It's highly recommended that all outbound internet traffic flows through a single firewall. This firewall is usually a central service provided by organization. That use case is shown in [Virtual machine baseline architecture in an Azure landing zone](./vm-baseline-landing-zone.yml).
+
+- **East-west traffic**. Traffic flow between the subnets is restricted by applying granular security rules. 
+
+    [Network security groups (NSGs)](/azure/virtual-network/network-security-groups-overview) are placed to restrict traffic between subnets based on parameters such as IP address range, ports, and protocols. [Application security groups (ASG)](/azure/virtual-network/application-security-groups) are placed on frontend and backend VMs. They are used with NSGs  filter traffic to and from the VMs. 
+
+    Communication between the VMs and other Azure managed services is over Private Links. This service requires private endpoints, which are placed in a separate subnet. 
+
+- **Operational traffic.**. It's recommended that secure operational access to workload is provided through Azure Bastion, which supports RDP and SSH access. Alternatively, use a separate VM as a jumpbox in the subnet in that has the workload resources. The operator will access the jumpbox through the Bastion host. Then, log into the VMs behind the load balancer from the jumpbox.  
+
+In both cases, appropriate NSG rules should be applied to restrict traffic. Security can be further enhanced with RBAC permissions and [just-in-time (JIT) VM access](/azure/defender-for-cloud/just-in-time-access-overview), a feature of Microsoft Defender for Cloud, which allows temporary inbound access to selected ports.
+
+##### Encyrption
+
+
+##### Secret management
+
+:::image type="content" source="./media/vm-baseline-tls-termination.png" alt-text="IaaS monitoring data flow  diagram" lightbox="./media/vm-baseline-tls-termination.png":::
+
+[Azure Key Vault](/azure/key-vault/general/overview) provides secure management of secrets. This architecture uses Key Vault to store the TLS certificates used by the various actors for encrypting and decrypting data in transit between layers. 
+
+The managed identities configured during deployment are used by Application Gateway and the VMs, for Key Vault authentication and authorization. Key Vault access policy is configured to allow the managed identities to retrieve the certificate properties. The VMs also use the [Azure Key Vault VM extension](/azure/virtual-machines/extensions/key-vault-linux) for automatic refresh of monitored certificates. If changes are detected in the local certificate store, the extension retrieves and installs the corresponding certificates in Key Vault. The extension supports certificate content types PKCS #12, and PEM. 
+
+> [!IMPORTANT]
+> It is your responsibility to ensure your locally stored certificates are rotated regularly. See [Azure Key Vault VM extension for Linux](/azure/virtual-machines/extensions/key-vault-linux) or [Azure Key Vault VM extension for Windows](/azure/virtual-machines/extensions/key-vault-windows) for more details. 
+
+The certificates stored in Key Vault are identified by the following common names:
+- **app.contoso.com**: An external certificate used by clients and Application Gateway for secure public Internet traffic (1)
+- ***.worload.contoso.com**: A wildcard certificate used by the infrastructure components for secure internal traffic (2, 3, 4)
+
+It's also a good idea to use Key Vault for storage of secrets used for database encryption. For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure). We also recommend that you store application secrets, such as database connection strings, in Key Vault.
+
+##### DDoS protection
+
+The Azure platform provides basic DDoS protection by default. This basic protection is targeted at protecting the Azure infrastructure. Although basic DDoS protection is automatically enabled, we recommend using [Azure DDoS Protection](/azure/virtual-network/ddos-protection-overview). DDoS Protection uses adaptive tuning, based on your application's network traffic patterns, to detect threats. This practice allows it to apply mitigations against DDoS attacks that might go unnoticed by the infrastructure-wide DDoS policies. DDoS Protection also provides alerting, telemetry, and analytics through Azure Monitor. For more information, see [Azure DDoS Protection: Best practices and reference architectures](/azure/security/fundamentals/ddos-best-practices).
+
+
+
 
 ## Redundancy
 
@@ -423,3 +372,30 @@ See product documentation for details on specific Azure services:
 IaaS reference architectures showing options for the data tier:
 
 - [Windows N-tier application using SQL Server on Azure](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
+
+
+
+----
+
+## Dump zone
+- **Deploy a NAT Gateway resource attached to the subnet.**
+
+    This option simplifies outbound Internet connectivity. When configured on a subnet, all outbound connectivity uses the NAT gateway's static public IP addresses. NAT Gateway doesn't depend on individual compute instances such as VMs or a single physical gateway device. Software defined networking makes a NAT gateway highly resilient.
+
+    NAT gateway can be deployed and operate out of individual availability zones. A single zonal NAT gateway resource can be configured to subnets that contain virtual machines that span multiple availability zones. If the zone that NAT gateway is deployed in goes down, then outbound connectivity across all virtual machine instances associated with the NAT gateway will also go down. This setup doesn't provide the best method of zone-resiliency.
+
+    To overcome that situation, create a _zonal stack_ per availability zone. This stack consists of VM instances, a NAT gateway resource with public IP addresses or prefix on a subnet all in the same zone (NAT gateway and availability zones - Azure NAT Gateway). Failure of outbound connectivity due to a zone outage is isolated to the affected zone. The outage won't affect the other zonal stacks where other NAT gateways are deployed with their own subnets and zonal public IPs. Creating zonal stacks for each availability zone within a region is the most effective method for building zone-resiliency against outages for NAT gateway.
+
+- **Use a Standard SKU Azure Load Balancer with outbound rules defined from the VM instances.**
+
+    Azure Load Balacer supports zone redundancy. This option allows you to use the public IP(s) of your load balancer to provide outbound internet connectivity for the VMs. The outbound rules allow you to explicitly define SNAT(source network address translation) ports. The rules allow you to scale and tune this ability through manual port allocation. Manually allocating SNAT port based on the backend pool size and number of frontendIPConfigurations can help avoid SNAT exhaustion. 
+
+    It's recommended that you allocate ports based on the maximum number of backend instances. If more instances are added than remaining SNAT ports allowed, VMSS scaling operations might be blocked, or the new VMs won't receive sufficient SNAT ports.
+
+    Calculate ports per instance as: `Number of frontend IPs * 64K / Maximum number of backend instances`
+
+- **Use Azure Firewall or another Network Virtual Appliance (NVA) with a custom User Defined Route (UDR) as the next hop through firewall**.
+
+    This use case is shown in [Infrastructure as a Service (IaaS) baseline in Azure landing zones](./vm-baseline-landing-zone.yml).
+
+This architecture uses Azure Load Balancer with outbound rules.
