@@ -7,7 +7,7 @@ The primary focus of this architecture isn't that application. Instead it provid
 
 |Archtecture| Technology stack|Workload concerns|
 |---|---|---|
-|&#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-resources) <br> &#9642; [Supporting resources](#workload-supporting-resources) <br> &#9642; [User flows](#user-flows) <br> |&#9642; [VM design choices](#vm-skus)<br> &#9642; [Disks](#disks) <br> &#9642; [Networking](#networking)| &#9642; [Monitoring](#monitoring)<br> &#9642; [Operations](#os-patching) <br> &#9642; [Redundancy](#redundancy) <br> &#9642; [Security](#security) |
+|&#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-resources) <br> &#9642; [Supporting resources](#workload-supporting-resources) <br> &#9642; [User flows](#user-flows) <br> |&#9642; [VM design choices](#virtual-machine-design-choices)<br> &#9642; [Disks](#disks) <br> &#9642; [Networking](#networking)| &#9642; [Monitoring](#monitoring)<br> &#9642; [Operations](#os-patching) <br> &#9642; [Redundancy](#redundancy) <br> &#9642; [Security](#security) |
 
 > [!TIP]
 > ![GitHub logo](../_images/github.svg) The best practices described in this architecture are demonstrated by a [**reference implementation**](https://github.com/mspnp/iaas-baseline). 
@@ -189,7 +189,9 @@ Azure Private DNS zones is used for resolving requests to the private endpoints 
 
 ## Monitoring
 
-This architecture has a monitoring stack that's decoupled from the utility of the workload. The focus is primarily on the data sources and collection aspects. Metrics and logs are generated at various data sources, providing observability insights at various altitudes:
+This architecture has a monitoring stack that's decoupled from the utility of the workload. The focus is primarily on the data sources and collection aspects. For a comprehensive view on observability, refer to Azure Well-Architected Framework's perspective. See [OE:07 Recommendations for designing and creating an observability framework](/azure/well-architected/operational-excellence/observability).
+
+Metrics and logs are generated at various data sources, providing observability insights at various altitudes:
 
 - **Underlying infrastructure and components** such as virtual machines, virtual networks, and storage services. Azure platform log provide information about operations and activities within the Azure platform.
 - **Application level** provides insights into the performance and behavior of the applications running on your system.
@@ -198,7 +200,7 @@ Azure Log Analytics workspace is the recommended monitoring data sink used to co
 
 :::image type="content" source="./media/vm-baseline-monitoring.png" alt-text="VM monitoring data flow  diagram" lightbox="./media/vm-baseline-monitoring.png":::
 
-### Infrastructure components
+### Infrastructure-level monitoring
 This table links to logs and metrics collected by Azure Monitor and the available alerts help you proactively address issues before they impact users.
 
 | Azure resource | Metrics and logs | Alerts |
@@ -241,7 +243,7 @@ From the platform perspective, data disk performance metrics (IOPS and throughpu
 
 From the guest OS perspective, VM Insights is recommended for key metrics on attached disks, such as logical disk space used, and the OS kernel’s perspective on disk IOPS and throughput. Combining these with platform performance metrics can help isolate OS or application throughput issues.
 
-### Application-level monitoring data
+### Application-level monitoring
 
 Even though the reference implementation doesn't deploy an application, [Application Insights](/azure/azure-monitor/app/app-insights-overview) is provisioned for extensibility purposes. It's used to collect data from application and send that data to Log Analytics workspace. 
 
@@ -251,9 +253,11 @@ The [Application Health extension](/azure/virtual-machine-scale-sets/virtual-mac
 
 ## Security
 
-The reference architecture is designed illustrate the fundamental security assurances. Security is more than just technical controls. It's highly recommended that you follow the design review checklist given in Azure Well-Architected Framework to have full coverage of Security. 
+The reference architecture is designed illustrate the fundamental security assurances. Security is more than just technical controls. It's highly recommended that you follow the [design review checklist given in Azure Well-Architected Framework]() to have full coverage of Security. 
 
 ##### Segmentation
+
+> Refer to: [SE:04 - Recommendations for building a segmentation strategy](/azure/well-architected/security/segmentation)
 
 - **Network segmentation**. Subnets can be used as trust boundaries. _Colocate related resources needed for handling a transaction in one subnet_. In this architecture, the VNet is divided into subnets based on the logical grouping of the application and purpose of various Azure services used as part of the workload.
 
@@ -262,6 +266,8 @@ The reference architecture is designed illustrate the fundamental security assur
 - **Identity segmentation**. Assign distinct roles to different users with just-enough permissions to do their task. This architecture uses [Azure Role Based Access Control (RBAC)](/azure/role-based-access-control/overview) for authorization of all actors accessing resources, and implementation of the [principle of least privilege](/azure/active-directory/develop/secure-least-privileged-access) when applying roles and permissions to actors.  
 
 ##### Identity and access management
+
+> Refer to: [SE:05 - Recommendations for identity and access management](/azure/well-architected/security/identity-access)
 
 [Microsoft Entra ID](/entra/fundamentals/whatis) recommended for authentication and authorization of both users and services. Services, such as VMs accessing Key Vault for certificates, should use managed identities for secure communication. These identities, based on Microsoft Entra ID service principals, are automatically managed. 
 
@@ -277,9 +283,11 @@ If you extend this design to include a database, backend servers should use mana
 
 ##### Network controls
 
+> Refer to: [SE:06 - Recommendations for networking and connectivity](/azure/well-architected/security/networking)
+
 - **Ingress traffic**. The workload VMs aren't directly exposed to the public internet. Each VM has a private IP address.   
 
-    Two public IP addresses are used. One for Azure Application Gateway that serves as the reverse proxy. Clients connect using that public IP address. The reverse proxy directs ingress traffic to the private IPs of the VMs.The other address is for operational access through Azure Bastion (described in [Operational traffic](#operational-traffic)).
+    Two public IP addresses are used. One for Azure Application Gateway that serves as the reverse proxy. Clients connect using that public IP address. The reverse proxy directs ingress traffic to the private IPs of the VMs.The other address is for operational access through Azure Bastion.
 
     Additional security is provided through [Web Application Firewall](/azure/application-gateway/waf-overview) that's integrated with Application Gateway. It has rules that _inspect inbound traffic_ and can take an appropriate action. WAF tracks Open Web Application Security Project (OWASP) vulnerabilities preventing known attacks.  
 
@@ -293,15 +301,19 @@ If you extend this design to include a database, backend servers should use mana
 
     Communication between the VMs and other Azure managed services is over Private Links. This service requires private endpoints, which are placed in a separate subnet. 
 
-- **Operational traffic.**. It's recommended that secure operational access to workload is provided through Azure Bastion, which supports RDP and SSH access. Alternatively, use a separate VM as a jumpbox in the subnet in that has the workload resources. The operator will access the jumpbox through the Bastion host. Then, log into the VMs behind the load balancer from the jumpbox.  
+- **Operational traffic**. It's recommended that secure operational access to workload is provided through Azure Bastion, which supports RDP and SSH access. Alternatively, use a separate VM as a jumpbox in the subnet in that has the workload resources. The operator will access the jumpbox through the Bastion host. Then, log into the VMs behind the load balancer from the jumpbox.  
 
 In both cases, appropriate NSG rules should be applied to restrict traffic. Security can be further enhanced with RBAC permissions and [just-in-time (JIT) VM access](/azure/defender-for-cloud/just-in-time-access-overview), a feature of Microsoft Defender for Cloud, which allows temporary inbound access to selected ports.
 
 ##### Encyrption
 
+> Refer to: [SE:07 - Recommendations for data encryption](/azure/well-architected/security/encryption)
+
 TBD
 
 ##### Secret management
+
+> Refer to: [SE:09 - Recommendations for protecting application secrets](/azure/well-architected/security/application-secrets)
 
 :::image type="content" source="./media/vm-baseline-tls-termination.png" alt-text="IaaS monitoring data flow  diagram" lightbox="./media/vm-baseline-tls-termination.png":::
 
@@ -321,8 +333,6 @@ It's also a good idea to use Key Vault for storage of secrets used for database 
 ##### DDoS protection
 
 The Azure platform provides basic DDoS protection by default. This basic protection is targeted at protecting the Azure infrastructure. Although basic DDoS protection is automatically enabled, we recommend using [Azure DDoS Protection](/azure/virtual-network/ddos-protection-overview). DDoS Protection uses adaptive tuning, based on your application's network traffic patterns, to detect threats. This practice allows it to apply mitigations against DDoS attacks that might go unnoticed by the infrastructure-wide DDoS policies. DDoS Protection also provides alerting, telemetry, and analytics through Azure Monitor. For more information, see [Azure DDoS Protection: Best practices and reference architectures](/azure/security/fundamentals/ddos-best-practices).
-
-
 
 
 ## Redundancy
