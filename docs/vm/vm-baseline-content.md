@@ -143,7 +143,7 @@ In this architecture, both backend and frontend VMs utilize Standard HDD LRS (//
 
 This architecture deploys the workload in a single virtual network (VNet). It can be integrated with an enterprise topology. That example is shown in [Virtual machine baseline architecture in an Azure landing zone](./vm-baseline-landing-zone.yml).
 
-:::image type="content" source="./media/vm-baseline-network-topology.png" alt-text="IaaS baseline architectural diagram" lightbox="./media/vm-baseline-network-topology.png":::
+:::image type="content" source="./media/vm-baseline-network.png" alt-text="IaaS baseline architectural diagram" lightbox="./media/vm-baseline-network.png":::
 
 ##### Virtual network
 
@@ -189,7 +189,9 @@ Azure Private DNS zones is used for resolving requests to the private endpoints 
 
 ## Monitoring
 
-This architecture has a monitoring stack that's decoupled from the utility of the workload. The focus is primarily on the data sources and collection aspects. For a comprehensive view on observability, refer to Azure Well-Architected Framework's perspective. See [OE:07 Recommendations for designing and creating an observability framework](/azure/well-architected/operational-excellence/observability).
+This architecture has a monitoring stack that's decoupled from the utility of the workload. The focus is primarily on the data sources and collection aspects. 
+
+For a comprehensive view on observability, refer to Azure Well-Architected Framework's perspective. See [OE:07 Recommendations for designing and creating an observability framework](/azure/well-architected/operational-excellence/observability).
 
 Metrics and logs are generated at various data sources, providing observability insights at various altitudes:
 
@@ -253,11 +255,11 @@ The [Application Health extension](/azure/virtual-machine-scale-sets/virtual-mac
 
 ## Security
 
-The reference architecture is designed illustrate the fundamental security assurances. Security is more than just technical controls. It's highly recommended that you follow the [design review checklist given in Azure Well-Architected Framework]() to have full coverage of Security. 
+The reference architecture is designed illustrate the fundamental security assurances. Security is more than just technical controls. It's highly recommended that you follow the [design review checklist given in Azure Well-Architected Framework](/azure/well-architected/security/checklist) to have full coverage of Security. The sections are annotated with recommendations from.
 
 ##### Segmentation
 
-> Refer to: [SE:04 - Recommendations for building a segmentation strategy](/azure/well-architected/security/segmentation)
+> Refer to Well-Architected Framework: [SE:04 - Recommendations for building a segmentation strategy](/azure/well-architected/security/segmentation)
 
 - **Network segmentation**. Subnets can be used as trust boundaries. _Colocate related resources needed for handling a transaction in one subnet_. In this architecture, the VNet is divided into subnets based on the logical grouping of the application and purpose of various Azure services used as part of the workload.
 
@@ -267,7 +269,7 @@ The reference architecture is designed illustrate the fundamental security assur
 
 ##### Identity and access management
 
-> Refer to: [SE:05 - Recommendations for identity and access management](/azure/well-architected/security/identity-access)
+> Refer to Well-Architected Framework: [SE:05 - Recommendations for identity and access management](/azure/well-architected/security/identity-access)
 
 [Microsoft Entra ID](/entra/fundamentals/whatis) recommended for authentication and authorization of both users and services. Services, such as VMs accessing Key Vault for certificates, should use managed identities for secure communication. These identities, based on Microsoft Entra ID service principals, are automatically managed. 
 
@@ -283,7 +285,7 @@ If you extend this design to include a database, backend servers should use mana
 
 ##### Network controls
 
-> Refer to: [SE:06 - Recommendations for networking and connectivity](/azure/well-architected/security/networking)
+> Refer to Well-Architected Framework: [SE:06 - Recommendations for networking and connectivity](/azure/well-architected/security/networking)
 
 - **Ingress traffic**. The workload VMs aren't directly exposed to the public internet. Each VM has a private IP address.   
 
@@ -307,13 +309,13 @@ In both cases, appropriate NSG rules should be applied to restrict traffic. Secu
 
 ##### Encyrption
 
-> Refer to: [SE:07 - Recommendations for data encryption](/azure/well-architected/security/encryption)
+> Refer to Well-Architected Framework: [SE:07 - Recommendations for data encryption](/azure/well-architected/security/encryption)
 
 TBD
 
 ##### Secret management
 
-> Refer to: [SE:09 - Recommendations for protecting application secrets](/azure/well-architected/security/application-secrets)
+> Refer to Well-Architected Framework: [SE:09 - Recommendations for protecting application secrets](/azure/well-architected/security/application-secrets)
 
 :::image type="content" source="./media/vm-baseline-tls-termination.png" alt-text="IaaS monitoring data flow  diagram" lightbox="./media/vm-baseline-tls-termination.png":::
 
