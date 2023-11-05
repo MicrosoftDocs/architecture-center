@@ -3,15 +3,15 @@ This article provides a foundational reference architecture for a workload deplo
 
 The primary focus of this architecture isn't that application. Instead it provides guidance for configuring and deploying the infrastructure components with which the application interacts. These components include compute, storage, networking, monitoring and more. This architecture serves as a starting point for an Infrastructure-as-a-Service (IaaS) workload. However, the data tier is intentionally excluded from this guidance, to maintain the focus on the infrastructure. 
 
-> [!TIP]
-> ![GitHub logo](../_images/github.svg) The best practices described in this architecture are demonstrated by a [**reference implementation**](https://github.com/mspnp/iaas-baseline). 
-> The implementation includes an application that's a small test harness that will exercise the infrastructure set up end-to-end. 
-
 ## Article layout
 
 |Archtecture| Technology stack|Workload concerns|
 |---|---|---|
-|[Workload resources](#workload-resources) <br> [Supporting resources](#workload-supporting-resources) <br> [User flows](#user-flows) <br> |&#9642; [VM design choices](#vm-skus)<br> &#9642; [Disks](#disks) <br> &#9642; [Networking](#networking) <br> &#9642; [Monitoring](#monitoring)|<br> &#9642; [Operations](#os-patching) <br> &#9642; [Redundancy](#redundancy) <br> &#9642; [Security]() |
+|&#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-resources) <br> &#9642; [Supporting resources](#workload-supporting-resources) <br> &#9642; [User flows](#user-flows) <br> |&#9642; [VM design choices](#vm-skus)<br> &#9642; [Disks](#disks) <br> &#9642; [Networking](#networking)| <br> &#9642; [Monitoring](#monitoring)<br> &#9642; [Operations](#os-patching) <br> &#9642; [Redundancy](#redundancy) <br> &#9642; [Security](#security) |
+
+> [!TIP]
+> ![GitHub logo](../_images/github.svg) The best practices described in this architecture are demonstrated by a [**reference implementation**](https://github.com/mspnp/iaas-baseline). 
+> The implementation includes an application that's a small test harness that will exercise the infrastructure set up end-to-end. 
 
 
 ## Architecture
@@ -69,9 +69,6 @@ There are two types of users that interact with the workload resources.
 
 1. The operations user logs into the Azure portal.
 1. The user accesses the Azure Bastion service and remotely connects to the desired VM for troubleshooting using the appropriate tool.
-
-
-
 
 ## Virtual machine design choices
 
@@ -194,16 +191,14 @@ Azure Private DNS zones is used for resolving requests to the private endpoints 
 
 This architecture has a monitoring stack that's decoupled from the utility of the workload. The focus is primarily on the data sources and collection aspects. Metrics and logs are generated at various data sources, providing observability insights at various altitudes:
 
-- **Underlying infrastructure and components** such as virtual machines, virtual networks, and storage services.
+- **Underlying infrastructure and components** such as virtual machines, virtual networks, and storage services. Azure platform log provide information about operations and activities within the Azure platform.
 - **Application level** provides insights into the performance and behavior of the applications running on your system.
-- **Operating system** where the application runs can help in understanding system performance and identifying potential issues.
-- **Azure platform log** provide information about operations and activities within the Azure platform.
 
 Azure Log Analytics workspace is the recommended monitoring data sink used to collect logs and metrics from the Azure resources and Application Insights. 
 
 :::image type="content" source="./media/vm-baseline-monitoring.png" alt-text="VM monitoring data flow  diagram" lightbox="./media/vm-baseline-monitoring.png":::
 
-##### Infrastructure components
+### Infrastructure components
 This table links to logs and metrics collected by Azure Monitor and the available alerts help you proactively address issues before they impact users.
 
 | Azure resource | Metrics and logs | Alerts |
@@ -246,7 +241,7 @@ From the platform perspective, data disk performance metrics (IOPS and throughpu
 
 From the guest OS perspective, VM Insights is recommended for key metrics on attached disks, such as logical disk space used, and the OS kernel’s perspective on disk IOPS and throughput. Combining these with platform performance metrics can help isolate OS or application throughput issues.
 
-##### Application-level monitoring data
+### Application-level monitoring data
 
 Even though the reference implementation doesn't deploy an application, [Application Insights](/azure/azure-monitor/app/app-insights-overview) is provisioned for extensibility purposes. It's used to collect data from application and send that data to Log Analytics workspace. 
 
@@ -304,6 +299,7 @@ In both cases, appropriate NSG rules should be applied to restrict traffic. Secu
 
 ##### Encyrption
 
+TBD
 
 ##### Secret management
 
@@ -385,9 +381,6 @@ IaaS reference architectures showing options for the data tier:
     This use case is shown in [Infrastructure as a Service (IaaS) baseline in Azure landing zones](./vm-baseline-landing-zone.yml).
 
 This architecture uses Azure Load Balancer with outbound rules.
-
-
-
 
 
 

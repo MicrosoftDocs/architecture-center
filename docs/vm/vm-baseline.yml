@@ -24,6 +24,6 @@ products:
   - azure-vm-scalesets
 name: Azure virtual machine baseline architecture
 summary: Demonstrates how to set up an environment that's configured to run a workload on Azure virtual machiness
-thumbnailUrl: media/vm-baseline.png
+thumbnailUrl: media/vm-baseline-architecture.png
 content: |
   [!include[](vm-baseline-content.md)]
