@@ -5,7 +5,7 @@ Azure Monitor, Microsoft Sentinel, and Azure Data Explorer are based on a common
 This solution demonstrates how to leverage the tight integration between Azure Monitor, Microsoft Sentinel, and Azure Data Explorer to consolidate a single interactive data lake and augment your monitoring and analytics capabilities. 
 
 > [!NOTE]
-> This solution applies to Azure Data Explorer and also to KQL databases, which provide real-time analytics capabilities in Microsoft Fabric. 
+> This solution applies to Azure Data Explorer and also to [KQL databases](/fabric/real-time-analytics/create-database), which provide real-time analytics capabilities in Microsoft Fabric. 
 
 ## Architecture
 
