@@ -7,6 +7,12 @@ The primary focus of this architecture isn't that application. Instead it provid
 > ![GitHub logo](../_images/github.svg) The best practices described in this architecture are demonstrated by a [**reference implementation**](https://github.com/mspnp/iaas-baseline). 
 > The implementation includes an application that's a small test harness that will exercise the infrastructure set up end-to-end. 
 
+## Article layout
+
+|Archtecture| Technology stack|Workload concerns|
+|---|---|---|
+|[Workload resources](#workload-resources) <br> [Supporting resources](#workload-supporting-resources) <br> [User flows](#user-flows) <br> |&#9642; [VM design choices](#vm-skus)<br> &#9642; [Disks](#disks) <br> &#9642; [Networking](#networking) <br> &#9642; [Monitoring](#monitoring)|<br> &#9642; [Operations](#os-patching) <br> &#9642; [Redundancy](#redundancy) <br> &#9642; [Security]() |
+
 
 ## Architecture
 
@@ -41,7 +47,7 @@ The primary focus of this architecture isn't that application. Instead it provid
 
 - **Azure Log Analytics** is the monitoring data sink that collects logs and metrics from the Azure resources and Application Insights. A storage account is provisioned as part of the workspace. 
 
-### Workflow
+### User flows
 
 There are two types of users that interact with the workload resources.
 
@@ -65,11 +71,7 @@ There are two types of users that interact with the workload resources.
 1. The user accesses the Azure Bastion service and remotely connects to the desired VM for troubleshooting using the appropriate tool.
 
 
-## In this article
 
-|Technology stack|Workload concerns|
-|---|---|
-|&#9642; [VM design choices](#vm-skus)<br> &#9642; [Disks](#disks) <br> &#9642; [Networking](#networking) <br> &#9642; [Monitoring](#monitoring)|<br> &#9642; [Operations](#os-patching) <br> &#9642; [Redundancy](#redundancy) <br> &#9642; [Security]() |
 
 ## Virtual machine design choices
 
@@ -96,7 +98,7 @@ VMs are provisioned as part of Virtual Machine Scale Sets (VMSS) with [Flexible 
 
 Flexible orchestration mode in VMSS facilitates operations at scale and offers better control and granular scaling decisions.
 
-Fault domains configuration is crucial to limit the impact of physical hardware failures, network outages, or power interruptions. With VMSS, Azure evenly spreads instances across fault domains for resilience against a single hardware or infrastructure issue.
+Fault domains configuration is needed to limit the impact of physical hardware failures, network outages, or power interruptions. With VMSS, Azure evenly spreads instances across fault domains for resilience against a single hardware or infrastructure issue.
 
 It’s recommended that you offload fault domain allocation to Azure for maximum instance spreading, enhancing resilience and availability.
 
@@ -190,83 +192,67 @@ Azure Private DNS zones is used for resolving requests to the private endpoints 
 
 ## Monitoring
 
-Monitoring processes and components are discussed here primarily from a data collection perspective. Azure Log Analytics workspace is the recommended monitoring data sink used to collect logs and metrics from the Azure resources and Application Insights. 
+This architecture has a monitoring stack that's decoupled from the utility of the workload. The focus is primarily on the data sources and collection aspects. Metrics and logs are generated at various data sources, providing observability insights at various altitudes:
 
-:::image type="content" source="./media/vm-baseline-monitoring.png" alt-text="IaaS monitoring data flow  diagram" lightbox="./media/vm-baseline-monitoring.png":::
+- **Underlying infrastructure and components** such as virtual machines, virtual networks, and storage services.
+- **Application level** provides insights into the performance and behavior of the applications running on your system.
+- **Operating system** where the application runs can help in understanding system performance and identifying potential issues.
+- **Azure platform log** provide information about operations and activities within the Azure platform.
 
-Monitoring data is generated at multiple levels, all of which can be sources of important metrics and log files: 
-- Underlying infrastructure and components on which your system runs, like virtual machines, virtual networks, and storage services
-- Application level
-- Operating system where the application is running
-- Azure platform logs 
+Azure Log Analytics workspace is the recommended monitoring data sink used to collect logs and metrics from the Azure resources and Application Insights. 
 
+:::image type="content" source="./media/vm-baseline-monitoring.png" alt-text="VM monitoring data flow  diagram" lightbox="./media/vm-baseline-monitoring.png":::
 
 ##### Infrastructure components
-Azure Monitor collects logs and metrics for services. Data source alerts available in Azure Monitor can help you proactively address issues before they impact users. The following table links to additional details for the Azure resources included in this reference architecture:
+This table links to logs and metrics collected by Azure Monitor and the available alerts help you proactively address issues before they impact users.
 
-  | Azure resource | Metrics and logs | Alerts |
-  | -------------- | ---------------- | ------ |
-  |Application Gateway | [Application Gateway metrics and logs descriptions](/azure/application-gateway/monitor-application-gateway-reference) | [Application Gateway alerts](/azure/application-gateway/high-traffic-support#alerts-for-application-gateway-v2-sku-standard_v2waf_v2) |
-  | Application Insights | [Application Insights metrics and logging API](/azure/azure-monitor/app/api-custom-events-metrics) | [Application Insights alerts](/azure/azure-monitor/alerts/alerts-smart-detections-migration) |
-  | Blob Storage | [Azure Blob Storage metrics and logs descriptions](/azure/storage/blobs/monitor-blob-storage-reference) | [Blob storage alerts](/azure/storage/blobs/monitor-blob-storage?tabs=azure-portal#alerts) |
-  | Key Vault | [Key Vault metrics and logs descriptions](/azure/key-vault/general/monitor-key-vault-reference) | [Key vault alerts](/azure/key-vault/general/monitor-key-vault#alerts) |
-  | Public IP address | [Public IP address metrics and logs descriptions](/azure/virtual-network/ip-services/monitor-public-ip) | [Public IP address metrics alerts](/azure/virtual-network/ip-services/monitor-public-ip#alerts) |
-  | Virtual networks | [Virtual network metrics and logs reference](/azure/virtual-network/monitor-virtual-network-reference) | [Virtual network alerts](/azure/virtual-network/monitor-virtual-network#alerts) |
-  | VM/VMSS | [VM metrics and logs reference](/azure/virtual-machines/monitor-vm-reference) | [VM alerts and tutorials](/azure/virtual-machines/monitor-vm#alerts) |
-  | Web Application Firewall | [Web Application Firewall metrics and logs descriptions](/azure/web-application-firewall/ag/application-gateway-waf-metrics) | [Web Application Firewall alerts](/azure/web-application-firewall/ag/application-gateway-waf-metrics#configure-alerts-in-azure-portal) |
+| Azure resource | Metrics and logs | Alerts |
+| -------------- | ---------------- | ------ |
+|Application Gateway | [Application Gateway metrics and logs descriptions](/azure/application-gateway/monitor-application-gateway-reference) | [Application Gateway alerts](/azure/application-gateway/high-traffic-support#alerts-for-application-gateway-v2-sku-standard_v2waf_v2) |
+| Application Insights | [Application Insights metrics and logging API](/azure/azure-monitor/app/api-custom-events-metrics) | [Application Insights alerts](/azure/azure-monitor/alerts/alerts-smart-detections-migration) |
+| Blob Storage | [Azure Blob Storage metrics and logs descriptions](/azure/storage/blobs/monitor-blob-storage-reference) | [Blob storage alerts](/azure/storage/blobs/monitor-blob-storage?tabs=azure-portal#alerts) |
+| Key Vault | [Key Vault metrics and logs descriptions](/azure/key-vault/general/monitor-key-vault-reference) | [Key vault alerts](/azure/key-vault/general/monitor-key-vault#alerts) |
+| Public IP address | [Public IP address metrics and logs descriptions](/azure/virtual-network/ip-services/monitor-public-ip) | [Public IP address metrics alerts](/azure/virtual-network/ip-services/monitor-public-ip#alerts) |
+| Virtual networks | [Virtual network metrics and logs reference](/azure/virtual-network/monitor-virtual-network-reference) | [Virtual network alerts](/azure/virtual-network/monitor-virtual-network#alerts) |
+| VM/VMSS | [VM metrics and logs reference](/azure/virtual-machines/monitor-vm-reference) | [VM alerts and tutorials](/azure/virtual-machines/monitor-vm#alerts) |
+| Web Application Firewall | [Web Application Firewall metrics and logs descriptions](/azure/web-application-firewall/ag/application-gateway-waf-metrics) | [Web Application Firewall alerts](/azure/web-application-firewall/ag/application-gateway-waf-metrics#configure-alerts-in-azure-portal) |
 
 For more information on the cost of collecting metrics and logs, see [Log Analytics cost calculations and options](/azure/azure-monitor/logs/cost-logs) and [Pricing for Log Analytics workspace](https://azure.microsoft.com/pricing/details/monitor/). Metric and log collection costs are greatly impacted by the nature of the workload, and the frequency and number of metrics and logs collected.
 
-##### Application-level monitoring data
-
-[Application Insights](/azure/azure-monitor/app/app-insights-overview) is used to collect data from applications to proactively understand how an application is performing, and reactively review application execution data to determine the cause of an incident.
-
 ##### Virtual machines data
 
-[VM insights](/azure/azure-monitor/vm/vminsights-overview) agent is used to collect data from virtual machines and virtual machine scale sets. It displays an inventory of your existing VMs and provides a guided experience to enable base monitoring for them. It also monitors the performance and health. You can view trends of performance data, running processes on individual machines, and dependencies between machines. 
+The [VM insights](/azure/azure-monitor/vm/vminsights-overview) agent collects data from VMs and VM scale sets, providing an inventory of all VM resources and enabling base monitoring. 
 
-In the reference implementation, the virtual machines have [Azure boot diagnostics](/azure/virtual-machines/boot-diagnostics) enabled. Boot diagnostics enables a user to observe the state of their VM as it is booting up by collecting serial log information and screenshots. The diagnostic data is configured to use a managed storage account. To troubleshoot issues, you can access to the data through the Azure portal. You can also export the diagnostics log using [the Azure CLI vm boot-diagnostics get-boot-log command](/cli/azure/vm/boot-diagnostics?view=azure-cli-latest#az-vm-boot-diagnostics-get-boot-log).
+[Azure boot diagnostics](/azure/virtual-machines/boot-diagnostics) is enabled to observe the state of their VM as it is booting up by collecting serial log information and screenshots. The data is collected in a managed storage account that's accessible through Azure portal for troubleshooting and can be exported. For more information, see [the Azure CLI vm boot-diagnostics get-boot-log command](/cli/azure/vm/boot-diagnostics?view=azure-cli-latest#az-vm-boot-diagnostics-get-boot-log).
 
-For greater control, a custom storage account can be used. Using your own provisioned storage account will give more control over the access permissions and set retention policy for the logs that align with requirements of your organization.
+A custom storage account can be used for greater control over access permissions and log retention. 
+
+The [Azure Monitor Agent (AMA)](/azure/azure-monitor/agents/agents-overview) deployed to VMs collects monitoring data from the guest OS, with OS-specific [Data Collection Rules (DCR)](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent) applied to each VM. The DCRs collect performance counters, OS logs, change tracking, dependency tracking, and web server HTTP logs. As the scale set grows, newly allocated VMs are configured with the AMA settings enforced by a built-in Azure Policy assignment.
 
 The [Azure Monitor Agent (AMA)](/azure/azure-monitor/agents/agents-overview) is deployed to VMs to collect monitoring data from the guest operating system. AMA supports [Data Collection Rules (DCR)](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent), which enables targeted and granular data collection for a machine or subset(s) of machines. DCR allows filtering rules and data transformations to reduce the overall data volume being uploaded, thus lowering ingestion and storage costs significantly.
 
-In the reference implementation, OS-specific DCRs are created and assigned to each VM according to the VM's OS. The AMA extension acts on the DCR's configuration, sending all requested data directly to the workload's log analytics workspace.  The DCRs are configured to collect:
 
-- Performance counters to power Azure Monitor's VM Insights experience, including guest OS metrics where available
-- OS logs (Syslog or Windows Events) with a filter to capture only higher importance items
-- Change tracking, with the default recommended settings per OS
-- Dependency tracking to power the Azure Monitor Service Map
-- Web server HTTP logs
+##### Networking
 
-The DCRs are applied to VMs through a built-in Azure Policy assignment to ensure that, as the scale set grows and adds nodes, the newly allocated VMs will be configured with the AMA settings.
-
-##### Azure Load Balancer health probes
-
-The Application Gateway and Azure Load Balancer services require a health probe to detect the endpoint status. When a health probe fails, the load balancer stops sending new connections to the respective unhealthy instance. Outbound connectivity isn't affected, only inbound.
-
-In the reference implementation, health probes are configured to do a simple HTTP test for the existence of a file to see if the application is responding. If the request is successful, an HTTP 200 will be returned to Application Gateway or Azure Load Balancer. 
+Application Gateway and Azure Load Balancer use health probes to detect endpoint status. If a probe fails, new inbound connections to the unhealthy instance are stopped, while outbound connectivity remains unaffected. Health probes are set up to perform a simple HTTP test checking for a file’s existence, returning an HTTP 200 to the load balancer, if successful.
 
 ##### Managed disks
 
-Your workload will dictate the disk metrics to monitor, but most IaaS architectures will have some mix of the following common key metrics. You'll also want to bring in items that represent where your application is most sensitive. 
+Disk metrics to monitor depend on your workload, requiring a mix of key metrics. Monitoring should consider both the Azure platform and guest OS perspectives on managed disks. 
 
-When designing your monitoring solution be aware that there is an Azure platform perspective and guest OS perspective on the managed disks. The Azure platform perspective represents the metrics that a SAN operator would view, regardless of what workloads are connected. The guest OS perspective represents the metrics that the workload operator would view, regardless of the underlying disk technology. In Azure, workload teams have the responsibility of monitoring both as part of their solution.
+The Azure platform perspective represents the metrics that a SAN operator would view, regardless of what workloads are connected. The guest OS perspective represents the metrics that the workload operator would view, regardless of the underlying disk technology. In Azure, workload teams have the responsibility of monitoring both as part of their solution.
 
-- Platform perspective
+From the platform perspective, data disk performance metrics (IOPS and throughput) can be viewed individually or collectively for all VM-attached disks. Use Storage IO utilization metrics for troubleshooting or alerting on potential disk capping. If using bursting for cost optimization, monitor Credits Percentage metrics to identify opportunities for further optimization.
 
-    The data disk performance (IOPS and throughput) metrics can be looked at individually (per disk) or rolled up to all disks attached to a VM. Both perspectives can be critical in troubleshooting a performance issue, as both the individual disks and the VM can cap total performance. 
+From the guest OS perspective, VM Insights is recommended for key metrics on attached disks, such as logical disk space used, and the OS kernel’s perspective on disk IOPS and throughput. Combining these with platform performance metrics can help isolate OS or application throughput issues.
 
-    To troubleshoot suspected or alert on pending disk capping, use the *Storage IO utilization* metrics, which provide consumed percentage of the provisioned throughput for both virtual machines and disks. If your architecture uses bursting for cost optimization, then you'll want to monitor your *Credits Percentage* metrics. Running out of credits can be an expected result, as consistently having left over credits is a sign that further cost optimization could occur on that disk. Meaning if you are using bursting as part of your cost optimization strategy, you should monitor how many credits you're consistently leaving unused and see if you can choose a lower performance tier.
+##### Application-level monitoring data
 
-- Guest OS perspective
+Even though the reference implementation doesn't deploy an application, [Application Insights](/azure/azure-monitor/app/app-insights-overview) is provisioned for extensibility purposes. It's used to collect data from application and send that data to Log Analytics workspace. 
 
-    VM Insights is recommended for getting key metrics from an operating system perspective on attached disks. This is where you'll report or alert on disk/drive metrics like *logical disk space used*, and the operating system kernel's own perspective on disk IOPS and throughput. Combining these performance metrics with the platform performance metrics can help isolate OS or even application throughput issues on your disks vs platform bottlenecks.
+It also monitors the performance and health. You can view trends of performance data, running processes on individual machines, and dependencies between machines. 
 
-
-##### Application Health extension
-
-The [Application Health extension](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension) is also deployed to the VMs. The Application Health extension is used by VMSS to monitor the binary health state of each VM instance in the scale set, and perform instance repairs if necessary by using Automatic Instance Repairs. The Application Health extension tests for the existence of the same file as the Application Gateway and Azure Load Balancer health probe, to determine if the application is responding.
+The [Application Health extension](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension) is deployed to VMs to monitor the binary health state of each VM instance in the scale set, and perform instance repairs if necessary by using Automatic Instance Repairs. It tests for the same file as the Application Gateway and Azure Load Balancer health probe to check if the application is responsive.
 
 ## Security
 
@@ -399,3 +385,19 @@ IaaS reference architectures showing options for the data tier:
     This use case is shown in [Infrastructure as a Service (IaaS) baseline in Azure landing zones](./vm-baseline-landing-zone.yml).
 
 This architecture uses Azure Load Balancer with outbound rules.
+
+
+
+
+
+
+- Platform perspective
+
+    The data disk performance (IOPS and throughput) metrics can be looked at individually (per disk) or rolled up to all disks attached to a VM. Both perspectives can be critical in troubleshooting a performance issue, as both the individual disks and the VM can cap total performance. 
+
+    To troubleshoot suspected or alert on pending disk capping, use the *Storage IO utilization* metrics, which provide consumed percentage of the provisioned throughput for both virtual machines and disks. If your architecture uses bursting for cost optimization, then you'll want to monitor your *Credits Percentage* metrics. Running out of credits can be an expected result, as consistently having left over credits is a sign that further cost optimization could occur on that disk. Meaning if you are using bursting as part of your cost optimization strategy, you should monitor how many credits you're consistently leaving unused and see if you can choose a lower performance tier.
+
+
+- Guest OS perspective
+
+    VM Insights is recommended for getting key metrics from an operating system perspective on attached disks. This is where you'll report or alert on disk/drive metrics like *logical disk space used*, and the operating system kernel's own perspective on disk IOPS and throughput. Combining these performance metrics with the platform performance metrics can help isolate OS or even application throughput issues on your disks vs platform bottlenecks.
