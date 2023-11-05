@@ -7,7 +7,7 @@ The primary focus of this architecture isn't that application. Instead it provid
 
 |Archtecture| Technology stack|Workload concerns|
 |---|---|---|
-|&#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-resources) <br> &#9642; [Supporting resources](#workload-supporting-resources) <br> &#9642; [User flows](#user-flows) <br> |&#9642; [VM design choices](#vm-skus)<br> &#9642; [Disks](#disks) <br> &#9642; [Networking](#networking)| <br> &#9642; [Monitoring](#monitoring)<br> &#9642; [Operations](#os-patching) <br> &#9642; [Redundancy](#redundancy) <br> &#9642; [Security](#security) |
+|&#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-resources) <br> &#9642; [Supporting resources](#workload-supporting-resources) <br> &#9642; [User flows](#user-flows) <br> |&#9642; [VM design choices](#vm-skus)<br> &#9642; [Disks](#disks) <br> &#9642; [Networking](#networking)| &#9642; [Monitoring](#monitoring)<br> &#9642; [Operations](#os-patching) <br> &#9642; [Redundancy](#redundancy) <br> &#9642; [Security](#security) |
 
 > [!TIP]
 > ![GitHub logo](../_images/github.svg) The best practices described in this architecture are demonstrated by a [**reference implementation**](https://github.com/mspnp/iaas-baseline). 
