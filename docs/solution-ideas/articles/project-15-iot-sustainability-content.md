@@ -44,8 +44,6 @@ The solution has three main categories:
 Diagram showing the Azure components that make up the Project 15 Open Platform. Boxes represent layers of the solution, such as the gateway, the data process layer, the presentation layer, and the storage layer. Arrows show how data flows between these layers. Arrows show how users and devices interact with the system.
 :::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/project-15-ref-arch-2023.vsdx) of this architecture.*
-
 Various Azure services and configurations make up the Project 15 Open Platform:
 
 1. The Azure IoT Hub device provisioning service provisions IoT devices and connects them to IoT Hub.
