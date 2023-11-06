@@ -5382,7 +5382,7 @@ items:
       - name: Run CFD simulations
         href: example-scenario/infrastructure/hpc-cfd.yml
       - name: Software-defined vehicle DevOps toolchain
-        href: industries/automotive/sdv-e2e-reference-architecture.yml
+        href: industries/automotive/software-defined-vehicle-reference-architecture.yml
     - name: Datasets
       items:
       - name: NYC Taxi
