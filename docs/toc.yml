@@ -1373,6 +1373,8 @@ items:
         href: reference-architectures/ibm/deploy-ibm-sterling-oms.yml
       - name: Digital image modeling
         href: example-scenario/infrastructure/image-modeling.yml
+      - name: Host FSI workloads using Azure Batch
+        href: example-scenario/batch/fsi-workloads-using-batch.yml        
       - name: HPC cluster deployed in the cloud
         href: solution-ideas/articles/hpc-cluster.yml
       - name: Linux virtual desktops with Citrix
@@ -4238,6 +4240,8 @@ items:
         href: solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql.yml
       - name: Host a Murex MX.3 workload on Azure
         href: example-scenario/finance/murex-mx3-azure.yml
+      - name: Host FSI workloads using Azure Batch
+        href: example-scenario/batch/fsi-workloads-using-batch.yml
       - name: Location-based conditional access control
         href: example-scenario/financial/location-based-access.yml
       - name: Modernize mainframe & midrange data
