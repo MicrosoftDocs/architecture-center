@@ -62,79 +62,72 @@ You can install M-Star from the [M-Star installation page](https://docs.mstarcfd
 
 This performance analysis uses M-Star 3.8.27 on the Windows operating system. [NC A100 v4](/azure/virtual-machines/nc-a100-v4-series) and [NDm A100 v4](/azure/virtual-machines/ndm-a100-v4-series) series VMs were used.
 
- Two models were used to test the performance of the M-Star on Azure VMs: Pipe_500 and Tank_1000.  
+ Two models were used to test the performance of M-Star on Azure VMs: 
  
-Following is the xxx model. Number of grid points: 
+||![Screenshot that shows the Pipe_500 model.](media/pipe-500.png)|![Screenshot that shows the Tank_1000 model.](media/tank-1000.png)|
+|-|-|-|
+|Model|Pipe_500|Tank_1000|
+|Number of grid points|500 million|1,000 million|
 
-![Screenshot that shows the Pipe_500 model.](media/pipe-500.png)
+### Results on NC A100 v4
 
+#### Pipe_500 model
 
+The following table shows the total runtimes and the relative speed increase as the number of GPUs is increased from one to two.
 
- 
- 
-![Screenshot that shows the Tank_1000 model.](media/tank-1000.png)
- 
-
-### Results for NC A100 v4
-
-#### **Pipe_500 Model**
-
-The following table shows the total runtime and relative speed increase.
-
-| **VM Size** | **No. of GPUs** | **Total Run Time(sec)** | **Speed** **increase** |
+| VM size | Number of GPUs | Total runtime, in seconds | Speed increase |
 |---|---|---|---|
-| Standard_NC96ads_A100_v4 | 1 | 15921.18 | 1.00 |
-| Standard_NC96ads_A100_v4 | 2 | 8347.98 | 1.91 |
+| Standard_NC96ads_A100_v4 | 1 | 15,921.18 | NA |
+| Standard_NC96ads_A100_v4 | 2 | 8,347.98 | 1.91 |
 
-graph
+:::image type="content" source="media/pipe-500-graph-nc-a100-v4.png" alt-text="Graph that shows the Pipe_500 performance on an NC A100 v4 VM." lightbox="media/pipe-500-graph-nc-a100-v4.png" border="false":::
 
-#### **Tank_1000 Model**
+#### Tank_1000 model
 
-The following table shows the total runtime.
+The following table shows the elapsed time for running the Tank_1000 model.
 
-| **VM Size** | **No. of GPUs** | **Total Run Time(sec)** |
+| VM Size | Number of GPUs | Total runtime, in seconds |
 |---|---|---|
 | Standard_NC96ads_A100_v4 | 1 | NA |
-| Standard_NC96ads_A100_v4 | 2 | 1420.25 |
+| Standard_NC96ads_A100_v4 | 2 | 1,420.25 |
 
-### Additional notes about tests on NC A100 v4
+#### Notes about tests on NC A100 v4
 
-1. Since The Tank-1000 Model is large, it cannot be run on 1 GPU of the NCv4 Virtual Machine.
-2. For M-STAR, an NVLink connection is required.
-3. Since the architecture of NCv4 Virtual Machines only supports dual GPU connectivity, we only evaluate models on 1 and 2 GPUs.
+- Because The Tank-1000 Model is large, you can't run it on one GPU on the NCv4 VM.
+- An NVLink connection is required for M-Star.
+- Because the architecture of NCv4 VMs supports only dual GPU connectivity, models were run only on 1-GPU and 2-GPU configurations.
 
-### Results for NDm A100 v4
+### Results on NDm A100 v4
 
-#### **Pipe_500 Model**
+#### Pipe_500 model
 
-The following table shows the total runtime and relative speed increase.
+The following table shows the total runtimes and relative speed increases for running the Pipe_500 model.
 
-| **VM Size** | **No. of GPUs** | **Total Run Time(sec)** | **Speed** **increase** |
-|:---:|:---:|:---:|:---:|
-| Standard_NC96ads_A100_v4 | 1 | 15921.18 | 1.00 |
-| Standard_ND96amsr_A100_v4 | 2 | 8967.48 | 1.78 |
-| Standard_ND96amsr_A100_v4 | 4 | 4463.21 | 3.57 |
-| Standard_ND96amsr_A100_v4 | 8 | 2276.67 | 6.99 |
+| VM size | Number of GPUs | Total runtime, in seconds | Speed increase |
+|:---|:---|:---|:---|
+| Standard_NC96ads_A100_v4 | 1 | 15,921.18 | NA |
+| Standard_ND96amsr_A100_v4 | 2 | 8,967.48 | 1.78 |
+| Standard_ND96amsr_A100_v4 | 4 | 4,463.21 | 3.57 |
+| Standard_ND96amsr_A100_v4 | 8 | 2,276.67 | 6.99 |
 
-graph
+:::image type="content" source="media/pipe-500-graph-ndm-a100-v4.png" alt-text="Graph that shows the Pipe_500 performance on an NDm A100 v4 VM." lightbox="media/pipe-500-graph-ndm-a100-v4.png" border="false":::
 
-#### **Tank_1000 Model**
+#### Tank_1000 model
 
-The following table shows the total runtime and relative speed increase.
+The following table shows the total runtimes and relative speed increases for running the Tank_1000 model.
 
-| **VM Size** | **No. of GPUs** | **Total Run Time(sec)** | **Speed** **increase** |
-|:---:|:---:|:---:|:---:|
-| Standard_ND96amsr_A100_v4 | 2 | 1481.36 | 1.00 |
+| VM size | Number of GPUs | Total runtime, in seconds | Speed increase |
+|:---|:---|:---|:---|
+| Standard_ND96amsr_A100_v4 | 2 | 1,481.36 | NA |
 | Standard_ND96amsr_A100_v4 | 4 | 735.31 | 2.01 |
 | Standard_ND96amsr_A100_v4 | 8 | 429.69 | 3.45 |
 
-graph
+:::image type="content" source="media/tank-1000-graph.png" alt-text="Graph that shows the Tank_1000 performance on an NDm A100 v4 VM." lightbox="media/tank-1000-graph.png" border="false":::
 
-### Notes about tests on NDm A100 v4
+#### Notes about tests on NDm A100 v4
 
-1. The NC A100 v4-series VMs only had individual pairs of GPUs connected peer-to-peer, while the NDmA100 v4-series VMs had full peer-to-peer between all the 8 GPUs.  Effectively, this means that users should use the NC A100 v4-series systems for simulations running on 1 or 2 GPUs.  But for anything that needs more than 2 GPUs, it is much better to use the NDmA100 v4-series VMs.
-
-1. For the Pipe 500 model, we plotted a scaleup using the 1 GPU NCv4 result as a baseline.
+- The NC A100 v4 series VMs only have individual pairs of GPUs connected peer-to-peer, but the NDm A100 v4 series VMs have full peer-to-peer among all eight GPUs. You should therefore use the NC A100 v4 systems for simulations running on one or two GPUs. But for anything that needs more than two GPUs, you should use NDmA100 v4 VMs.
+- For the Pipe_500 model, we plotted a scaleup using the 1 GPU NCv4 result as a baseline.
 
 ## Azure cost
 
