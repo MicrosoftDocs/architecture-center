@@ -64,6 +64,8 @@ The following diagram illustrates one way to use manual processes for an initial
 
 :::image type="content" source="media/control-plane/control-plane-approaches-manual.svg" alt-text="Diagram that shows one way to use scripts and other manual processes for a control plane." lightbox="media/control-plane/control-plane-approaches-manual.svg" border="false":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/control-plane-approaches-manual.vsdx) of this architecture.*
+
 #### Advantages of a manual approach
 
 - **Lightweight**: Documentation, scripts, and pipelines are easy to develop and modify. This makes them appropriate when you're figuring out your processes because you can rapidly iterate and evolve them.
@@ -97,6 +99,8 @@ The following diagram illustrates how you might create a control plane with self
 
 :::image type="content" source="media/control-plane/control-plane-approaches-low-code.svg" alt-text="Diagram that shows one way to use Power Automate and Dataverse as a low-code control plane." lightbox="media/control-plane/control-plane-approaches-low-code.svg" border="false":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/control-plane-approaches-low-code.vsdx) of this architecture.*
+
 #### Advantages of a low-code approach
 
 - **Lightweight**: It's often quick and inexpensive to create a set of low-code workflows and connect it to the surrounding systems.
@@ -128,6 +132,8 @@ Like the low-code approach, this approach enables you to provide self-service si
 The following diagram shows one way to create a basic custom control plane that provides self-service sign-up:
 
 :::image type="content" source="media/control-plane/control-plane-approaches-custom.svg" alt-text="Diagram that illustrates a control plane created with Durable Functions, a SQL database, and a service bus." lightbox="media/control-plane/control-plane-approaches-custom.svg" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/control-plane-approaches-custom.vsdx) of this architecture.*
 
 #### Advantages of a custom approach
 
