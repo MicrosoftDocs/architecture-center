@@ -4,7 +4,7 @@ metadata:
   description: Learn how M-Star computational fluid dynamics software performs on an Azure virtual machine (VM). Learn the steps for running M-Star on an Azure VM.
   author: gauharjunnarkar
   ms.author: gajunnar
-  ms.date: 11/03/2023
+  ms.date: 11/08/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide

@@ -17,7 +17,7 @@ M-Star is used in the chemical, biopharmaceutical, and energy industries.
 
 *Download a [Visio file](https://arch-center.azureedge.net/m-star-architecture.vsdx) of this architecture.*
 
-## Components
+### Components
 
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is used to create Windows and Linux VMs. For information about deploying VMs and installing the drivers, see [Windows VMs on Azure](../../reference-architectures/n-tier/windows-vm.yml) and [Linux VMs on Azure](../../reference-architectures/n-tier/linux-vm.yml).
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is used to create a private network infrastructure in the cloud.
@@ -127,57 +127,51 @@ The following table shows the total runtimes and relative speed increases for ru
 #### Notes about tests on NDm A100 v4
 
 - The NC A100 v4 series VMs only have individual pairs of GPUs connected peer-to-peer, but the NDm A100 v4 series VMs have full peer-to-peer among all eight GPUs. You should therefore use the NC A100 v4 systems for simulations running on one or two GPUs. But for anything that needs more than two GPUs, you should use NDmA100 v4 VMs.
-- For the Pipe_500 model, we plotted a scaleup using the 1 GPU NCv4 result as a baseline.
+- For the Pipe_500 model, the 1-GPU NCv4 result is used as a baseline.
 
 ## Azure cost
 
-Only model running time (wall clock time) is considered for these cost calculations. Application installation time is not considered. The calculations are indicative. The actual numbers depend on the size of the model.
+Only model running time (wall-clock time) is considered for these cost calculations. Application installation time isn't considered. The results are indicative of your potential results. The actual numbers depend on the size of the model.
 
-You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your configuration.
+You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your configuration.
 
 The following tables provide elapsed times in hours. To compute the total cost, multiply by the Azure VM hourly cost, which you can find [here for Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and [here for Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-### Cost for Pipe_500
+### Cost for the Pipe_500 model
 
 #### NDm A100 v4
 
-| **No. of GPUs** | **Time in** **Hour** |
+| Number of GPUs| Time in, hours |
 |---|---|
-| **2** | 2.49 |
-| **4** | 1.23 |
-| **8** | 0.63 |
+| 8 | 0.63 |
 
-#### **NC A100 v4**
+#### NC A100 v4
 
-| **No. of GPUs** | **Time in Hour** |
+| Number of GPUs| Time in, hours |
 |---|---|
-| **1** | 4.42 |
-| **2** | 2.31 |
+| 1 | 4.42 |
+| 2 | 2.31 |
 
-### Cost for Tank_1000
+### Cost for the Tank_1000 model
 
-#### **NDm A100 v4**
+#### NDm A100 v4
 
-| **No. of GPUs** | **Time in Hour** |
+| Number of GPUs| Time in, hours |
 |---|---|
-| **2** | 0.41 |
-| **4** | 0.20 |
-| **8** | 0.11 |
+| 8 | 0.11 |
 
-#### **NC A100 v4**
+#### NC A100 v4
 
-| **No. of GPUs** | **Time in Hour** |
+| Number of GPUs| Time in, hours |
 |---|---|
-| **1** | NA |
-| **2** | 0.39 |
+| 1 | NA |
+| 2 | 0.39 |
 
 ## Summary
 
-- M-STAR 3.8.27 is successfully tested on NCA100v4 and NDmA100V4 Virtual Machines on the Azure Cloud Platform.
-
-- From the models tested, we could observe that M-STAR is scaling almost linearly with the increase of GPU’s.
-
-- We could observe a scaleup of up to 7x for the model Pipe_500 with 8 GPU’s.
+- M-Star 3.8.27 was successfully tested on NC A100 v4 and NDm A100 v4 VMs on Azure.
+- Based on the models tested, M-Star scales almost linearly as the number of GPUs increases.
+- For the Pipe_500 model, tests indicate that the speed with eight GPUs is seven times faster than the speed with one GPU.
 
 ## Contributors
 
@@ -185,28 +179,29 @@ The following tables provide elapsed times in hours. To compute the total cost, 
 
 Principal authors:
 
-[Hari Bagudu](https://www.linkedin.com/in/hari-bagudu-88732a19) | Senior Manager
-
-[Gauhar Junnarkar](https://www.linkedin.com/in/gauharjunnarkar) | Principal Program Manager
-
-[Vinod Pamulapati](https://www.linkedin.com/in/vinod-reddy-20481a104) | HPC Performance Engineer
+- [Hari Bagudu](https://www.linkedin.com/in/hari-bagudu-88732a19) | Senior Manager
+- [Gauhar Junnarkar](https://www.linkedin.com/in/gauharjunnarkar) | Principal Program Manager
+- [Vinod Pamulapati](https://www.linkedin.com/in/vinod-reddy-20481a104) | HPC Performance Engineer
 
 Other contributors:
 
 * [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
-* [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director Business Strategy
+* [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director, Business Strategy
 * [Sachin Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5/) | Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-* [GPU Optimized Virtual Machine Sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-gpu)
-* [Windows Virtual Machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/overview)
-* [Virtual networks and virtual machines on Azure](https://learn.microsoft.com/en-us/azure/virtual-network/network-overview)
-* [Learning path: Run high-performance computing (HPC) applications on Azure](https://learn.microsoft.com/en-us/training/paths/run-high-performance-computing-applications-azure)
+* [GPU-optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
+* [Virtual machines on Azure](/azure/virtual-machines/windows/overview)
+* [Virtual networks and virtual machines on Azure](/azure/virtual-network/network-overview)
+* [Learning path: Run HPC applications on Azure](/training/paths/run-high-performance-computing-applications-azure)
 
 ## Related resources
 
-* [Run a Linux VM on Azure](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/linux-vm)
-* [HPC system and big-compute solutions](https://learn.microsoft.com/en-us/azure/architecture/solution-ideas/articles/big-compute-with-azure-batch)
-* [HPC cluster deployed in the cloud](https://learn.microsoft.com/en-us/azure/architecture/solution-ideas/articles/hpc-cluster)
+* [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
+* [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
+* [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
+* [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)
 

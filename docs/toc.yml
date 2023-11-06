@@ -1263,6 +1263,8 @@ items:
           href: guide/hpc/hpc-lammps.yml  
         - name: Luxion KeyShot
           href: guide/hpc/luxion-keyshot.yml
+        - name: M-Star  
+          href: guide/hpc/m-star.yml
         - name: OpenFOAM
           href: guide/hpc/openfoam.yml
         - name: OpenRadioss
