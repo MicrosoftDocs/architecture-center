@@ -5,7 +5,7 @@ author: dstarr
 ms.author: dastarr
 ms.date: 04/26/2022
 ms.topic: conceptual
-ms.service: industry
+ms.service: cloud-for-industries
 products:
   - azure-data-lake
   - azure-data-factory

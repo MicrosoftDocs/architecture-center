@@ -2771,6 +2771,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/industries/manufacturing/predictive-maintenance-solution.yml",
+      "redirect_url": "/azure/architecture/industries/manufacturing",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/serverless-quest/ads.md",
       "redirect_url": "/azure/architecture/serverless-quest/serverless-overview",
       "redirect_document_id": false
