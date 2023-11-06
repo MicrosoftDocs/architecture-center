@@ -8,8 +8,8 @@ M-Star is used in the chemical, biopharmaceutical, and energy industries.
 * Modern and diverse compute options to align with your workload's needs 
 * The flexibility of virtualization without the need to buy and maintain physical hardware 
 * Rapid provisioning 
-* Technology that enables the creation of exceedingly complex flow fields in a short amount of time 
-* Integrated post-processing capability, such as creating photorealistic renderings
+* Technology that enables the creation of complex flow fields in a short amount of time 
+* Integrated post-processing capabilities, such as creating photorealistic renderings
 
 ## Architecture
 
@@ -66,8 +66,8 @@ This performance analysis uses M-Star 3.8.27 on the Windows operating system. [N
  
 ||![Screenshot that shows the Pipe_500 model.](media/pipe-500.png)|![Screenshot that shows the Tank_1000 model.](media/tank-1000.png)|
 |-|-|-|
-|Model|Pipe_500|Tank_1000|
-|Number of grid points|500 million|1,000 million|
+|**Model**|Pipe_500|Tank_1000|
+|**Number of grid points**|500 million|1,000 million|
 
 ### Results on NC A100 v4
 
@@ -93,7 +93,7 @@ The following table shows the elapsed time for running the Tank_1000 model.
 
 #### Notes about tests on NC A100 v4
 
-- Because The Tank-1000 Model is large, you can't run it on one GPU on the NCv4 VM.
+- Because the Tank-1000 Model is large, you can't run it on one GPU on the NCv4 VM.
 - An NVLink connection is required for M-Star.
 - Because the architecture of NCv4 VMs supports only dual GPU connectivity, models were run only on 1-GPU and 2-GPU configurations.
 
@@ -126,7 +126,7 @@ The following table shows the total runtimes and relative speed increases for ru
 
 #### Notes about tests on NDm A100 v4
 
-- The NC A100 v4 series VMs only have individual pairs of GPUs connected peer-to-peer, but the NDm A100 v4 series VMs have full peer-to-peer among all eight GPUs. You should therefore use the NC A100 v4 systems for simulations running on one or two GPUs. But for anything that needs more than two GPUs, you should use NDmA100 v4 VMs.
+- NC A100 v4 series VMs only have individual pairs of GPUs connected peer-to-peer, but NDm A100 v4 series VMs have full peer-to-peer among all eight GPUs. You should therefore use NC A100 v4 systems for simulations that run on one or two GPUs. For anything that needs more than two GPUs, you should use NDmA100 v4 VMs.
 - For the Pipe_500 model, the 1-GPU NCv4 result is used as a baseline.
 
 ## Azure cost
