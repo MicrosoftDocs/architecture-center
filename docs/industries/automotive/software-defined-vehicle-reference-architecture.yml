@@ -5,7 +5,7 @@ metadata:
   description: Learn about an architecture for transitioning to SDVs in which the in-vehicle software stack undergoes simulation and testing in cloud-based environments.
   author: filipep
   ms.author: filipep
-  ms.date: 11/03/2023
+  ms.date: 11/06/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -20,6 +20,6 @@ products:
   - azure-expressroute
 name: Software-defined vehicle DevOps toolchain
 summary: Learn about an architecture for transitioning to SDVs in which the in-vehicle software stack undergoes simulation and testing in cloud-based environments.
-thumbnailUrl: /azure/architecture/browse/thumbs/sdv-e2e-toolchain.png
+thumbnailUrl: /azure/architecture/browse/thumbs/software-defined-vehicle-toolchain.png
 content: |
-  [!include[](sdv-e2e-reference-architecture-content.md)]
+  [!include[](software-defined-vehicle-reference-architecture-content.md)]
