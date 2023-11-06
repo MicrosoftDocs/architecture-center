@@ -351,7 +351,6 @@ Principal author:
 
 ## Related resources
 
-- Find comprehensive architectural guidance on data pipelines, data warehousing, online analytical processing (OLAP), and big data in the [Azure Data Architecture Guide](../../data-guide/index.md).
 - [Big data analytics with enterprise-grade security using Azure Synapse](/azure/architecture/solution-ideas/articles/big-data-analytics-enterprise-grade-security)
 - [High throughput stream ingestion to Azure Synapse](/azure/architecture/example-scenario/data/stream-ingestion-synapse)
 - [Query a data lake or lakehouse by using Azure Synapse serverless](/azure/architecture/example-scenario/data/synapse-exploratory-data-analytics)

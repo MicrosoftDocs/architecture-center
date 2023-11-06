@@ -59,4 +59,3 @@ Explore related architectures:
 
 - [Connect an on-premises network to Azure using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml)
 - [Extend an on-premises network using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute.yml)
-- [Interactive querying with HDInsight](./interactive-querying-with-hdinsight.yml)

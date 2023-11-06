@@ -137,4 +137,3 @@ Other contributors:
 - [Azure Digital Twins builder](/azure/architecture/solution-ideas/articles/azure-digital-twins-builder)
 - [Choose a data pipeline orchestration technology in Azure](/azure/architecture/data-guide/technology-choices/pipeline-orchestration-data-movement)
 - [Extract, transform, and load (ETL)](/azure/architecture/data-guide/relational-data/etl)
-- [Hybrid ETL with Azure Data Factory](/azure/architecture/example-scenario/data/hybrid-etl-with-adf)

@@ -103,7 +103,7 @@ Principal author:
 ## Next steps
 
 - Review the [Azure reference architecture for automated enterprise BI](../../reference-architectures/data/enterprise-bi-adf.yml), which includes instructions for deploying an instance of this architecture in Azure.
-- Find comprehensive architectural guidance on data pipelines, data warehousing, online analytical processing (OLAP), and big data in the [Azure Data Architecture Guide](../../data-guide/index.md).
+
 - Learn more about the services used in this scenario:
    - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
    - [Azure Data Factory documentation](/azure/data-factory)
@@ -118,5 +118,4 @@ Principal author:
 
 ## Related resources
 
-- [Data warehousing in Microsoft Azure](/azure/architecture/data-guide/relational-data/data-warehousing)
 - [Enterprise data warehouse](/azure/architecture/solution-ideas/articles/enterprise-data-warehouse)

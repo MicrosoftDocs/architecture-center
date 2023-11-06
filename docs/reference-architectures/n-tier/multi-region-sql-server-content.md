@@ -8,8 +8,6 @@ This reference architecture shows a set of proven practices for running an N-tie
 
 ### Workflow
 
-This architecture builds on the one shown in [N-tier application with SQL Server](n-tier-sql-server.yml).
-
 - **Primary and secondary regions**. Use two regions to achieve higher availability. One is the primary region. The other region is for failover.
 
 - **Azure Traffic Manager**. [Traffic Manager][traffic-manager] routes incoming requests to one of the regions. During normal operations, it routes requests to the primary region. If that region becomes unavailable, Traffic Manager fails over to the secondary region. For more information, see the section [Traffic Manager configuration](#traffic-manager-configuration).

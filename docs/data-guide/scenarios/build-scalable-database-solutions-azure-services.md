@@ -55,11 +55,7 @@ These examples can help you design a data storage system that accommodates your 
 |---------|----------|-------|
 |[Two-region web application with Table Storage failover](../../solution-ideas/articles/multi-region-web-app-azure-table-failover.yml)|Easy implementation, cost|Limited resiliency with only two Azure regions|
 |[Multi-region web application with custom Storage Table replication](../../solution-ideas/articles/multi-region-web-app-multi-writes-azure-table.yml)|Resiliency|Implementation time and difficulty|
-|[Multi-region web application with Azure Cosmos DB replication](../../solution-ideas/articles/multi-region-web-app-cosmos-db-replication.yml)|Resiliency, performance, scalability|Cost|
-|[Optimized storage with logical data classification](../../solution-ideas/articles/optimized-storage-logical-data-classification.yml)|Resiliency, performance, scalability, cost|Implementation time, need to design logical data classification|
-|[Optimized Storage – time based – multi writes](../../solution-ideas/articles/optimized-storage-time-based-multi-writes.yml)|Cost|Resiliency, performance, scalability, implementation time, need to design time-based data retention|
-|[Optimized Storage – time based with Data Lake](../../solution-ideas/articles/optimized-storage-time-based-data-lake.yml)|Resiliency, performance, scalability|Implementation time, need to design time-based data retention|
-|[Minimal storage – change feed to replicate data](../../solution-ideas/articles/minimal-storage-change-feed-replicate-data.yml)|Resiliency, performance, time-based data retention|Scalability, implementation time|
+|[Minimal storage – change feed to replicate data](../../databases/idea/minimal-storage-change-feed-replicate-data.yml)|Resiliency, performance, time-based data retention|Scalability, implementation time|
 
 ## Contributors
 
@@ -80,4 +76,3 @@ Principal author:
 - [Choose a big data storage technology in Azure](../technology-choices/data-storage.md)
 - [Select an Azure data store for your application](../../guide/technology-choices/data-store-decision-tree.md)
 - [Criteria for choosing a data store](../../guide/technology-choices/data-store-considerations.md)
-- [Time series data](time-series.yml)

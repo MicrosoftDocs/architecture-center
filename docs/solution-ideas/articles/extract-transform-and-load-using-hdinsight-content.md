@@ -65,4 +65,3 @@ Explore related architectures:
 
 - [Use a demand forecasting model for price optimization](./demand-forecasting-price-optimization-marketing.yml)
 - [Predictive insights with vehicle telematics](./predictive-insights-with-vehicle-telematics.yml)
-- [Interactive querying with HDInsight](./interactive-querying-with-hdinsight.yml)
