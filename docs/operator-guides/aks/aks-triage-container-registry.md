@@ -32,7 +32,7 @@ It is crucial to double-check the registry and image name for accuracy. Addition
 
 ## Azure Container Registry
 
-Attaching an [Azure Container Registry (ACR)](/azure/container-registry/container-registry-intro) to an existing AKS cluster automatically requires assigning the [AcrPull](/azure/container-registry/container-registry-roles?tabs=azure-cli) role over the registry to the managed identity associated with the agent pools in your AKS cluster. [The AKS to ACR integration](/azure/aks/cluster-container-registry-integration?tabs=azure-cli) assigns the AcrPull role to the Azure Active Directory (Azure AD) managed identity associated with the agent pool in your AKS cluster.
+When you attach an [Azure Container Registry (ACR)](/azure/container-registry/container-registry-intro) to an existing AKS cluster the [AcrPull](/azure/container-registry/container-registry-roles?tabs=azure-cli) role is automatically assigned over the registry to the managed identity associated with the agent pools in your AKS cluster. [The AKS to ACR integration](/azure/aks/cluster-container-registry-integration?tabs=azure-cli) assigns the AcrPull role to the Azure Active Directory (Azure AD) managed identity associated with the agent pool in your AKS cluster.
 
 You can retrieve the kubelet managed identity of Kubernetes cluster and its current role assignments as follows.
 
