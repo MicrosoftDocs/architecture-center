@@ -24,64 +24,70 @@ _This article is part of a series. Read the introduction [here](aks-triage-pract
 
 ## Tools
 
-It is important to know if all deployments and daemonSets are running. The following sections show you how to validate if the **Ready** and the **Available** matches the expected count using:
-- The Azure Portal
-- Azure Container Insights
-- The Kubectl command line tool
+It is important to know if all deployments and daemonSets are running. The following sections show you how to validate if the **Ready** and the **Available** matches the expected count using:  
+
+- The Azure Portal  
+- Azure Container Insights  
+- The Kubectl command line tool  
 - Prometheus and Grafana
 
 ### Azure Portal
 
-In Azure portal, proceed as follows to check the health of workloads:
+You can use the Azure portal to verify the health of the following with regard to your workloads. For more information, see [Access Kubernetes resources from the Azure portal](/azure/aks/kubernetes-portal?tabs=azure-cli).
 
-- Open the Azure portal and navigate to your AKS cluster.
-- Choose `Workloads` under `Kubernetes resources` in the left navigation panel.
-- Check that the number of replicas in a `Ready` state matches the number of desired replicas under the `Ready` column:
-  - The first number indicates the number of replicas that are currently available and ready to serve traffic. These replicas have been successfully scheduled onto worker nodes, have completed their startup process, and have passed their readiness checks.
-  - The second number indicates the desired number of replicas specified for the deployment. This is the number of replicas that the deployment aims to maintain. The Kubernetes deployment controller constantly monitors the state of the deployment and tries to ensure that the actual number of replicas matches the desired number.
-- Click the `Replica sets`,`Stateful sets`, and  `Daemon sets` tabs and repeat the check.
+#### Deployments, replicasets, statefulsets, and daemonsets
 
-![AKS - Controllers](images/aks-triage-workloads.png)
+Check that the number of replicas in a `Ready` state matches the number of desired replicas. The portal shows:
 
-- Choose `Services and ingresses` under `Kubernetes resources` in the left navigation panel.
-- Ensure the status is `OK` for all the services.
+- The number of replicas that are currently available and ready to serve traffic. These replicas have been successfully scheduled onto worker nodes, have completed their startup process, and have passed their readiness checks.
+- The desired number of replicas specified for the deployment. This is the number of replicas that the deployment aims to maintain. The Kubernetes deployment controller constantly monitors the state of the deployment and tries to ensure that the actual number of replicas matches the desired number.
 
-![AKS - Services](images/aks-triage-services.png)
+#### Services and ingresses
 
-- Choose `Storage` under `Kubernetes resources` in the left navigation panel.
-- Ensure the status is `BOUND` for all the persistent volume claims and persistent volumes under the corresponding tabs.
+Ensure that the status is `Ok` for all services and ingresses.
 
-![AKS - Storage](images/aks-triage-storage.png)
+#### Storage
+
+Ensure the status is `BOUND` for all the persistent volume claims and persistent volumes.
 
 ### Azure Container Insights
 
-[Container insights](/azure/azure-monitor/containers/container-insights-overview) is a feature of [Azure Monitor](/azure/azure-monitor/overview) that provides monitoring capabilities for container workloads deployed to Azure Kubernetes Servcie (AKS) or managed by [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview). This feature gathers performance and health information by collecting memory and processor metrics from controllers, nodes, and containers. It also captures container logs for analysis. 
+[Container insights](/azure/azure-monitor/containers/container-insights-overview) is a feature of [Azure Monitor](/azure/azure-monitor/overview) that provides monitoring capabilities for container workloads deployed to Azure Kubernetes Servcie (AKS) or managed by [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview). This feature gathers performance and health information by collecting memory and processor metrics from controllers, nodes, and containers. It also captures container logs for analysis.
 
-The collected data can be analyzed using various views and pre-built workbooks. These tools allow you to examine the performance and behavior of the different components within your cluster. With Container Insights, you can gain valuable insights into the overall state of your container workloads and make informed decisions to optimize their performance and troubleshoot any issues. 
+The collected data can be analyzed using various views and pre-built workbooks. These tools allow you to examine the performance and behavior of the different components within your cluster. With Container Insights, you can gain valuable insights into the overall state of your container workloads and make informed decisions to optimize their performance and troubleshoot any issues.
 
-You can Access Container insights in the Azure portal as follows:
+Container insights includes the following features to provide to understand the performance and health of your Kubernetes cluster and container workloads:
 
-- Open the Azure portal and navigate to your AKS cluster.
-- Choose `Insights` under `Monitoring` in the left navigation panel.
-- Select the `Controllers` tab in the right panel to see all the ReplicaSets, StatetefulSets, and DaemonSets in the AKS cluster.
-- Expand a controller to see its replicas.
-- Click a pod and select to see its metadata under the `Overview` tab, events under the `Live events` tab, and metrics under the `Live Metrics` tab.
+- Identify resource bottlenecks by identifying containers running on each node and their processor and memory utilization.
+- Identify processor and memory utilization of container groups and their containers hosted in container instances.
+- View the controller's or pod's overall performance by identifying where the container resides in a controller or a pod.
+- Review the resource utilization of workloads running on the host that are unrelated to the standard processes that support the pod.
+- Identify capacity needs and determine the maximum load that the cluster can sustain by understanding the behavior of the cluster under average and heaviest loads.
+- Access live container logs and metrics generated by the container engine to help with troubleshooting issues in real time.
+- Configure alerts to proactively notify you or record when CPU and memory utilization on nodes or containers exceed your thresholds, or when a health state change occurs in the cluster at the infrastructure or nodes health rollup.
 
-![Container Insights - Pod Live Metrics](images/aks-triage-pod.png)
+In the Azure portal, Container Insights provides several tabs to help monitor and analyze an Azure Kubernetes Serbice (AKS) cluster's health and performance. Here is a brief explanation of each tab:
 
-- Expland an given pod to see its containers.
+- **Cluster**: This tab provides an overtab of your AKS cluster, including key metrics like CPU and memory utilization, pod and node counts, and network traffic. It gives you insights into the overall health and resource utilization of the cluster.
+- **Reports**: The Reports tab offers pre-built reports that allow you to visualize and analyze various aspects of your cluster's performance, such as resource utilization, pod health, and container insights. These reports provide valuable information to understand the behavior and performance of your containers and workloads.
+- **Nodes**: The Nodes tab displays detailed information about the nodes in your cluster. It provides metrics for CPU and memory usage, disk and network I/O, as well as the condition and status of each node. This tab helps you monitor individual node performance, identify potential bottlenecks, and ensure efficient resource allocation.
+- **Controllers**: The Controllers tab provides visibility into the Kubernetes controllers in your AKS cluster. It shows information such as the number of controller instances, the current state, and the status of controller operations. This tab helps you monitor the health and performance of controllers responsible for managing workload deployments, services, and other resources.
+- **Containers**: The Containers tab gives you insights into the individual containers running in your AKS cluster. It provides information related to resource usage, restarts, and lifecycle events of each container. This tab helps you monitor and troubleshoot specific containers within your workloads.
 
-![Container Insights - Containers](images/aks-triage-controllers.png)
+Additionally, Container Insights in AKS provides [live logs]((/azure-monitor/containers/container-insights-livedata-metrics) functionality. This feature allows you to view container logs in real-time, providing a live stream of log events from running containers. This helps you monitor and troubleshoot applications more effectively, enabling faster identification and resolution of any issues occurring within your containers.
 
-- Select a container to see its metadata and environment variables under the `Overview` tab.
+For more information, see:
 
-![Container Insights - Container Overview](images/aks-triage-containers-overview.png)
-
-- Select the `Live Logs` tab to see the container logs in real time.
-
-![Container Insights - Container Live Metrics](images/aks-triage-containers-live-logs.png)
-
-- Likewise, click the `Live Events` tab to see the container events in real time. While you view events, you can also limit the results by using the `Filter`` pill found below the search bar. Depending on the resource you select, the pill lists a node, pod, namespace, or cluster to choose from.
+- [Monitor your Kubernetes cluster performance with Container insights](/azure/azure-monitor/containers/container-insights-analyze)
+- [Configure GPU monitoring with Container insights](/azure/azure-monitor/containers/container-insights-gpu-monitoring)
+- [Monitor and visualize network configurations with Azure NPM](/azure/virtual-network/kubernetes-network-policies?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm)
+- [Monitor Deployments and HPA metrics with Container insights](/azure/azure-monitor/containers/container-insights-deployment-hpa-metrics)
+- [Monitor Persistent Volumes (PVs)](/azure/azure-monitor/containers/container-insights-persistent-volumes)
+- [Monitor Security with Syslog](/azure/azure-monitor/containers/container-insights-syslog)
+- [Reports in Container insights](/azure/azure-monitor/containers/container-insights-reports)
+- [Metrics collected by Container insights](/azure/azure-monitor/containers/container-insights-custom-metrics)
+- [View Kubernetes logs, events, and pod metrics in real time](/azure/azure-monitor/containers/container-insights-livedata-overview)
+- [View cluster metrics in real time](/azure-monitor/containers/container-insights-livedata-metrics)
 
 ### Kubectl command line tool
 
@@ -102,7 +108,7 @@ The `READY` column provides important information about the readiness state of t
 
 It is crucial to ensure that the first number (ready containers) matches the second number (total containers) for the pod. If they differ, it indicates that some containers may not be ready or that there might be issues preventing them from reaching the ready state.
 
-#### Deployments, StatefulSets, DaemonSets, and StatefulSets 
+#### Deployments, StatefulSets, DaemonSets, and StatefulSets
 
 Run the following command to retrieve the [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) in all namespaces:
 
@@ -127,6 +133,18 @@ Run the following command to get the [DaemonSets](https://kubernetes.io/docs/con
 kubectl get ds -A
 ```
 
+You can run a `kubectl get ds` command to check that a specific DaemonSet is running as expected. For example, you can run the following command to verify that the Container Insights agent is deployed successfully.
+
+```console
+kubectl get ds ama-logs --namespace=kube-system
+```
+
+Likewise, if you configured your AKS cluster to collect Prometheus metrics to [Azure Monitor for managed Prometheus](/azure/azure-monitor/containers/prometheus-metrics-enable?tabs=azure-portal#enable-prometheus-metric-collection), you can run the following command to verify that the DaemonSet was deployed properly on the Linux node pools:
+
+```console
+kubectl get ds ama-metrics-node --namespace=kube-system
+```
+
 This will provide you with information about the DaemonSets in your cluster. When examining the output, it is essential to ensure that the number of pods in the `READY`, `CURRENT`, and `DESIRED` states are the same. This means that the desired number of pods specified in the DaemonSet configuration is equal to the number of pods that are currently running and ready.
 
 Similarly, it is also recommended to perform the same check for [ReplicaSets](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/). You can use the following command to list all the ReplicaSets in all namespaces. 
@@ -144,8 +162,6 @@ By comparing these numbers, you can ensure that the intended number of pods or r
 ### In-cluster monitoring with Prometheus and Grafana
 
 If you deployed [Prometheus](https://prometheus.io/) and [Grafana](https://grafana.com/) in your Azure Kubernetes Service (AKS) cluster for monitoring and visualization, you can utilize the [K8 Cluster Detail Dashboard](https://grafana.com/grafana/dashboards/10856-k8-cluster/) to gain valuable insights. This dashboard leverages the Prometheus cluster metrics to present vital information such as CPU usage, memory utilization, network activity, file system usage, as well as detailed statistics for individual pods, containers, and systemd services. To ensure the health and performance of your deployments, jobs, pods, and containers, you can use the corresponding blades in the dashboard. The panels under the `Deployments` section show the number of replicas for each deployment, the total number of replicas, while the panels under the `Containers` section show a chart for running, pending, failed, and succeeded containers.
-
-![Prometheus and Grafana Dashboard - Node](images/deployment-conditions.png)
 
 ### Azure Monitor Managed Service for Prometheus and Azure Managed Grafana
 
@@ -170,15 +186,7 @@ These dashboards, which are available in a [GitHub repository](https://aka.ms/az
 
 These built-in dashboards are widely used in the open-source community for monitoring Kubernetes clusters with Prometheus and Grafana. They offer valuable insights into metrics such as resource utilization, pod health, network activity, and more. Additionally, you have the flexibility to create custom dashboards tailored to your specific monitoring needs. Overall, by utilizing these dashboards, you can effectively monitor and analyze Prometheus metrics in your AKS cluster, enabling you to optimize performance, troubleshoot issues, and ensure the smooth operation of your Kubernetes workloads.
 
-To conveniently visualize the CPU usage, CPU quota, memory usage, and memory quota by pod in your Linux agent nodes, you can utilize the `Kubernetes / Compute Resources / Node (Pods)` dashboard, shown in the picture below. This dashboard effectively displays these metrics, allowing you to gain insights into resource utilization at the pod level.
-  
-![Azure Managed Grafana Kubernetes / Compute Resources / Node (Pods) Dashboard](images/azure-managed-grafana-node-dashboard.png)
-
-The `Kubernetes / Compute Resources / Pod` Grafana dashboard provides comprehensive insights into the resource consumption and performance metrics of a selected cluster, namespace, and pod. This dashboard allows you to analyze crucial metrics related to CPU usage, CPU throttling, CPU quota, memory usage, memory quota, networking metrics, and storage metrics. 
-
-![Azure Managed Grafana Kubernetes / Compute Resources / Pod Dashboard](images/azure-managed-grafana-pod-dashboard.png)
-
-The dashboard allows you to select an AKS cluster, namespace, and specific pod within the chosen namespace and provides the following panels:
+For example, to conveniently visualize the CPU usage, CPU quota, memory usage, and memory quota by pod in your Linux agent nodes, you can utilize the `Kubernetes / Compute Resources / Node (Pods)` dashboard. The `Kubernetes / Compute Resources / Pod` Grafana dashboard provides comprehensive insights into the resource consumption and performance metrics of a selected cluster, namespace, and pod. This dashboard allows you to analyze crucial metrics related to CPU usage, CPU throttling, CPU quota, memory usage, memory quota, networking metrics, and storage metrics. The dashboard allows you to select an AKS cluster, namespace, and specific pod within the chosen namespace and provides the following panels:
 
 - `CPU Usage`: This chart displays the CPU usage of the selected pod over time. It helps you understand the CPU consumption pattern and identify any potential spikes or abnormalities.
 - `CPU Throttling`: This chart provides insights into CPU throttling, which occurs when a pod exceeds its CPU resource limits. Monitoring this metric helps you identify situations where the pod's performance is being restricted due to CPU throttling.
