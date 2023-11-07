@@ -150,7 +150,8 @@ ContainerLogV2
 | limit 200
 ```
 
-Container logs for any failed pod in a specific namespace
+Container logs for any failed pod in a specific namespace:
+
 ```kusto
 let KubePodInv = KubePodInventory
     | where TimeGenerated >= startTime and TimeGenerated < endTime
@@ -170,7 +171,7 @@ let KubePodInv = KubePodInventory
     ) on ContainerId
     | project TimeGenerated, PodName, PodStatus, ContainerName, ContainerId, ContainerStatus, LogMessage, LogSource
 ```
-    
+
 If you can't get the logs through the kubectl or queries, use [SSH into the node](/azure/aks/ssh). This example finds the **tunnelfront** pod after connecting to the node through SSH.
 
 ```bash
