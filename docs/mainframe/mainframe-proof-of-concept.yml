@@ -3,7 +3,7 @@ metadata:
   title: Mainframe workload migration proof of concept
   titleSuffix: Azure Architecture Center
   description: Learn how to use Mainframe workload migration proof of concept.
-  author: Venkat-Github-Account
+  author: vramakrishna_microsoft
   ms.author: vramakrishna
   ms.date: 11/07/2023
   ms.topic: conceptual
