@@ -26,4 +26,4 @@ products:
   - ai-services
 thumbnailUrl: /azure/architecture/browse/thumbs/conversational-bot-logical.png
 content: |
-  [!include[](conversational-bot-content.md)]
+  [!INCLUDE[](conversational-bot-content.md)]
