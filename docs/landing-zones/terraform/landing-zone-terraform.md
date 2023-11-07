@@ -46,7 +46,7 @@ Terraform is an open-source Infrastructure as Code (IaC) tool, created by HashiC
 
 ### ALZ Terraform Accelerator
 
-To quickly get started deploying ALZ with Terraform you can leverage the [ALZ Terraform Accelerator](aka.ms/alz/tf/accelerator "ALZ Terraform Accelerator") that is designed to be used as a template. This repository provides a supporting implementation of the Azure Landing Zones Terraform module, with Azure DevOps pipelines and GitHub actions workflows.
+To quickly get started deploying ALZ with Terraform you can leverage the [ALZ Terraform Accelerator](https://aka.ms/alz/tf/accelerator "ALZ Terraform Accelerator") that is designed to be used as a template. This repository provides a supporting implementation of the Azure Landing Zones Terraform module, with Azure DevOps pipelines and GitHub actions workflows.
 
 The [ALZ Terraform Accelerator](https://github.com/Azure/alz-terraform-accelerator/wiki "ALZ Terraform Accelerator") follows a 3 phase approach:
 1.	Pre-requisites: Instructions to configure credentials and subscriptions.
