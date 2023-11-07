@@ -38,7 +38,7 @@ Admission controllers can be either *validating*, *mutating*, or a combination o
 
 One of the primary functions of admission controllers is to regulate requests involving object creation, deletion, and modification. Additionally, admission controllers have the capacity to restrict custom verbs, such as requesting a connection to a Pod via an API server proxy. However, admission controllers cannot block requests to read objects, including operations like get, watch, or list.
 
-## Using `kubectl` to Azure Policy for Kubernetes clusters
+## Using `kubectl` to check the status of Azure Policy for Kubernetes clusters
 
 The following commands using `kubectl` enable you to check the status of the [Azure Policy for Kubernetes clusters](/azure/governance/policy/concepts/policy-for-kubernetes) and validate the functionality of admission controllers in your cluster:
 
