@@ -1,13 +1,13 @@
 
 This article provides a foundational reference architecture for a workload deployed on Azure virtual machines (VMs). 
 
-The primary focus of this architecture isn't that application. Instead it provides guidance for configuring and deploying the infrastructure components with which the application interacts. These components include compute, storage, networking, monitoring and more. This architecture serves as a starting point for an Infrastructure-as-a-Service (IaaS) workload. However, the data tier is intentionally excluded from this guidance, to maintain the focus on the infrastructure. 
+The primary focus of this architecture isn't the application. Instead it provides guidance for configuring and deploying the infrastructure components with which the application interacts. These components include compute, storage, networking, monitoring and more. This architecture serves as a starting point for an Infrastructure-as-a-Service (IaaS) workload. However, the data tier is intentionally excluded from this guidance, to maintain the focus on the infrastructure. 
 
 ## Article layout
 
-|Archtecture| Technology stack|Workload concerns|
+|Architecture| Technology design decisions|Workload concerns|
 |---|---|---|
-|&#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-resources) <br> &#9642; [Supporting resources](#workload-supporting-resources) <br> &#9642; [User flows](#user-flows) <br> |&#9642; [VM design choices](#virtual-machine-design-choices)<br> &#9642; [Disks](#disks) <br> &#9642; [Networking](#networking)| &#9642; [Monitoring](#monitoring)<br> &#9642; [Operations](#os-patching) <br> &#9642; [Redundancy](#redundancy) <br> &#9642; [Security](#security) |
+|&#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-resources) <br> &#9642; [Supporting resources](#workload-supporting-resources) <br> &#9642; [User flows](#user-flows) <br> |&#9642; [VM design choices](#virtual-machine-design-choices)<br> &#9642; [Disks](#disks) <br> &#9642; [Networking](#networking) <br> &#9642; [Monitoring](#monitoring) | &#9642; [Operations](#os-patching) <br> &#9642; [Redundancy](#redundancy) <br> &#9642; [Security](#security) |
 
 > [!TIP]
 > ![GitHub logo](../_images/github.svg) The best practices described in this architecture are demonstrated by a [**reference implementation**](https://github.com/mspnp/iaas-baseline). 
@@ -141,9 +141,11 @@ In this architecture, both backend and frontend VMs utilize Standard HDD LRS (//
 
 ## Networking 
 
-This architecture deploys the workload in a single virtual network (VNet). It can be integrated with an enterprise topology. That example is shown in [Virtual machine baseline architecture in an Azure landing zone](./vm-baseline-landing-zone.yml).
+This architecture deploys the workload in a single virtual network (VNet). Network controls are a significant part of this architecture, and described in the [Security](#security) section. 
 
 :::image type="content" source="./media/vm-baseline-network.png" alt-text="IaaS baseline architectural diagram" lightbox="./media/vm-baseline-network.png":::
+
+It can be integrated with an enterprise topology. That example is shown in [Virtual machine baseline architecture in an Azure landing zone](./vm-baseline-landing-zone.yml).
 
 ##### Virtual network
 
@@ -169,17 +171,23 @@ Similar to VNets, subnets must be right-sized. For instance, you might want to l
 
 A load balancer is required to distribute incoming traffic across all VMs. The Azure Load Balancer is placed between the frontend and the backend to distribute traffic to the backend VMs.
 
+Two public IP addresses are used. One for Azure Application Gateway that serves as the reverse proxy. Clients connect using that public IP address. The reverse proxy directs ingress traffic to the private IPs of the VMs.The other address is for operational access through Azure Bastion.
+
 ##### Egress traffic
 
 Virtual Machine Scale Sets (VMSS) with Flexible orchestration requires that VM instances to have outbound connectivity for communication over the internet. To enable that use case, here are some approaches:
 
-VMSS with Flexible orchestration requires VM instances to have outbound internet connectivity. This can be achieved by:
+VMSS with Flexible orchestration requires VM instances to have outbound internet connectivity. This architecture uses Standard SKU Azure Load Balancer with outbound rules defined from the VM instances. 
 
-- Deploying a NAT Gateway resource attached to the subnet, which simplifies outbound connectivity. For zone-resiliency, create a zonal stack per availability zone.
-- Using a Standard SKU Azure Load Balancer with outbound rules defined from the VM instances. Allocate SNAT ports based on the maximum number of backend instances to avoid SNAT exhaustion.
-- Using Azure Firewall or another NVA with a custom UDR as the next hop through the firewall.
+Azure Load Balacer supports zone redundancy. This option allows you to use the public IP(s) of your load balancer to provide outbound internet connectivity for the VMs. The outbound rules allow you to explicitly define SNAT(source network address translation) ports. The rules allow you to scale and tune this ability through manual port allocation. Manually allocating SNAT port based on the backend pool size and number of frontendIPConfigurations can help avoid SNAT exhaustion. 
 
-This architecture uses Azure Load Balancer with outbound rules.
+It's recommended that you allocate ports based on the maximum number of backend instances. If more instances are added than remaining SNAT ports allowed, VMSS scaling operations might be blocked, or the new VMs won't receive sufficient SNAT ports.
+
+Calculate ports per instance as: `Number of frontend IPs * 64K / Maximum number of backend instances`
+
+There are other options such as deploying a NAT Gateway resource attached to the subnet. Another way is to use Azure Firewall or another NVA with a custom UDR as the next hop through the firewall. Those options are described in [Alternatives](#alternatives).
+
+
 
 ##### DNS resolution
 
@@ -191,7 +199,7 @@ Azure Private DNS zones is used for resolving requests to the private endpoints 
 
 This architecture has a monitoring stack that's decoupled from the utility of the workload. The focus is primarily on the data sources and collection aspects. 
 
-For a comprehensive view on observability, refer to Azure Well-Architected Framework's perspective. See [OE:07 Recommendations for designing and creating an observability framework](/azure/well-architected/operational-excellence/observability).
+> For a comprehensive view on observability, refer to Azure Well-Architected Framework's perspective. See [OE:07 Recommendations for designing and creating an observability framework](/azure/well-architected/operational-excellence/observability).
 
 Metrics and logs are generated at various data sources, providing observability insights at various altitudes:
 
@@ -255,7 +263,9 @@ The [Application Health extension](/azure/virtual-machine-scale-sets/virtual-mac
 
 ## Security
 
-The reference architecture is designed illustrate the fundamental security assurances. Security is more than just technical controls. It's highly recommended that you follow the [design review checklist given in Azure Well-Architected Framework](/azure/well-architected/security/checklist) to have full coverage of Security. The sections are annotated with recommendations from.
+The reference architecture is designed illustrate some of the security assurances given in the [design review checklist given in Azure Well-Architected Framework](/azure/well-architected/security/checklist). The sections are annotated with recommendations from that checklist.
+
+Security is more than just technical controls. It's highly recommended that you follow the entire checklist to have full coverage of Security. 
 
 ##### Segmentation
 
@@ -287,25 +297,21 @@ If you extend this design to include a database, backend servers should use mana
 
 > Refer to Well-Architected Framework: [SE:06 - Recommendations for networking and connectivity](/azure/well-architected/security/networking)
 
-- **Ingress traffic**. The workload VMs aren't directly exposed to the public internet. Each VM has a private IP address.   
-
-    Two public IP addresses are used. One for Azure Application Gateway that serves as the reverse proxy. Clients connect using that public IP address. The reverse proxy directs ingress traffic to the private IPs of the VMs.The other address is for operational access through Azure Bastion.
+- **Ingress traffic**. The workload VMs aren't directly exposed to the public internet. Each VM has a private IP address. Workload users connect using that public IP address of Azure Application Gateway.
 
     Additional security is provided through [Web Application Firewall](/azure/application-gateway/waf-overview) that's integrated with Application Gateway. It has rules that _inspect inbound traffic_ and can take an appropriate action. WAF tracks Open Web Application Security Project (OWASP) vulnerabilities preventing known attacks.  
 
 - **Egress traffic**. Standard SKU Azure Load Balancer with outbound rules are defined from the VM instances. The rules inpect and restrict traffic.
 
-    It's highly recommended that all outbound internet traffic flows through a single firewall. This firewall is usually a central service provided by organization. That use case is shown in [Virtual machine baseline architecture in an Azure landing zone](./vm-baseline-landing-zone.yml).
-
 - **East-west traffic**. Traffic flow between the subnets is restricted by applying granular security rules. 
 
-    [Network security groups (NSGs)](/azure/virtual-network/network-security-groups-overview) are placed to restrict traffic between subnets based on parameters such as IP address range, ports, and protocols. [Application security groups (ASG)](/azure/virtual-network/application-security-groups) are placed on frontend and backend VMs. They are used with NSGs  filter traffic to and from the VMs. 
-
-    Communication between the VMs and other Azure managed services is over Private Links. This service requires private endpoints, which are placed in a separate subnet. 
+    [Network security groups (NSGs)](/azure/virtual-network/network-security-groups-overview) are placed to restrict traffic between subnets based on parameters such as IP address range, ports, and protocols. [Application security groups (ASG)](/azure/virtual-network/application-security-groups) are placed on frontend and backend VMs. They are used with NSGs  filter traffic to and from the VMs.  
 
 - **Operational traffic**. It's recommended that secure operational access to workload is provided through Azure Bastion, which supports RDP and SSH access. Alternatively, use a separate VM as a jumpbox in the subnet in that has the workload resources. The operator will access the jumpbox through the Bastion host. Then, log into the VMs behind the load balancer from the jumpbox.  
 
-In both cases, appropriate NSG rules should be applied to restrict traffic. Security can be further enhanced with RBAC permissions and [just-in-time (JIT) VM access](/azure/defender-for-cloud/just-in-time-access-overview), a feature of Microsoft Defender for Cloud, which allows temporary inbound access to selected ports.
+    In both cases, appropriate NSG rules should be applied to restrict traffic. Security can be further enhanced with RBAC permissions and [just-in-time (JIT) VM access](/azure/defender-for-cloud/just-in-time-access-overview), a feature of Microsoft Defender for Cloud, which allows temporary inbound access to selected ports.
+
+- **Private connectivity to PaaS services**. Communication between the VMs and Azure Key Vault is over Private Links. This service requires private endpoints, which are placed in a separate subnet.
 
 ##### Encyrption
 
@@ -351,7 +357,24 @@ For more information about how availability zones work, see [Building solutions 
 
 - Application Gateway or a Standard Load Balancer are configured as zone-redundant. Traffic can be routed to VMs located across zones with a single IP address, which will survive zone failures. Both services use health probes to determine the availability of the VMs. One or more availability zones can fail but routing survives as long as one zone in the region remains healthy. Routing across zones has higher latency than routing within the zone.
 
+## Alternatives
 
+##### Egress traffic
+
+This architecture uses Azure Load Balancer with outbound rules for egress traffic. There are some alternatives to use load balancer:
+
+- **Deploy a NAT Gateway resource attached to the subnet.**
+
+    This option simplifies outbound Internet connectivity. When configured on a subnet, all outbound connectivity uses the NAT gateway's static public IP addresses. NAT Gateway doesn't depend on individual compute instances such as VMs or a single physical gateway device. Software defined networking makes a NAT gateway highly resilient.
+
+    NAT gateway can be deployed and operate out of individual availability zones. A single zonal NAT gateway resource can be configured to subnets that contain virtual machines that span multiple availability zones. If the zone that NAT gateway is deployed in goes down, then outbound connectivity across all virtual machine instances associated with the NAT gateway will also go down. This setup doesn't provide the best method of zone-resiliency.
+
+    To overcome that situation, create a _zonal stack_ per availability zone. This stack consists of VM instances, a NAT gateway resource with public IP addresses or prefix on a subnet all in the same zone (NAT gateway and availability zones - Azure NAT Gateway). Failure of outbound connectivity due to a zone outage is isolated to the affected zone. The outage won't affect the other zonal stacks where other NAT gateways are deployed with their own subnets and zonal public IPs. Creating zonal stacks for each availability zone within a region is the most effective method for building zone-resiliency against outages for NAT gateway.
+
+
+- **Use Azure Firewall or another Network Virtual Appliance (NVA) with a custom User Defined Route (UDR) as the next hop through firewall**.
+
+    It's highly recommended that all outbound internet traffic flows through a single firewall. This firewall is usually a central service provided by organization. That use case is shown in [Virtual machine baseline architecture in an Azure landing zone](./vm-baseline-landing-zone.yml).
 
 
 ## Next steps
@@ -372,27 +395,7 @@ IaaS reference architectures showing options for the data tier:
 ----
 
 ## Dump zone
-- **Deploy a NAT Gateway resource attached to the subnet.**
 
-    This option simplifies outbound Internet connectivity. When configured on a subnet, all outbound connectivity uses the NAT gateway's static public IP addresses. NAT Gateway doesn't depend on individual compute instances such as VMs or a single physical gateway device. Software defined networking makes a NAT gateway highly resilient.
-
-    NAT gateway can be deployed and operate out of individual availability zones. A single zonal NAT gateway resource can be configured to subnets that contain virtual machines that span multiple availability zones. If the zone that NAT gateway is deployed in goes down, then outbound connectivity across all virtual machine instances associated with the NAT gateway will also go down. This setup doesn't provide the best method of zone-resiliency.
-
-    To overcome that situation, create a _zonal stack_ per availability zone. This stack consists of VM instances, a NAT gateway resource with public IP addresses or prefix on a subnet all in the same zone (NAT gateway and availability zones - Azure NAT Gateway). Failure of outbound connectivity due to a zone outage is isolated to the affected zone. The outage won't affect the other zonal stacks where other NAT gateways are deployed with their own subnets and zonal public IPs. Creating zonal stacks for each availability zone within a region is the most effective method for building zone-resiliency against outages for NAT gateway.
-
-- **Use a Standard SKU Azure Load Balancer with outbound rules defined from the VM instances.**
-
-    Azure Load Balacer supports zone redundancy. This option allows you to use the public IP(s) of your load balancer to provide outbound internet connectivity for the VMs. The outbound rules allow you to explicitly define SNAT(source network address translation) ports. The rules allow you to scale and tune this ability through manual port allocation. Manually allocating SNAT port based on the backend pool size and number of frontendIPConfigurations can help avoid SNAT exhaustion. 
-
-    It's recommended that you allocate ports based on the maximum number of backend instances. If more instances are added than remaining SNAT ports allowed, VMSS scaling operations might be blocked, or the new VMs won't receive sufficient SNAT ports.
-
-    Calculate ports per instance as: `Number of frontend IPs * 64K / Maximum number of backend instances`
-
-- **Use Azure Firewall or another Network Virtual Appliance (NVA) with a custom User Defined Route (UDR) as the next hop through firewall**.
-
-    This use case is shown in [Infrastructure as a Service (IaaS) baseline in Azure landing zones](./vm-baseline-landing-zone.yml).
-
-This architecture uses Azure Load Balancer with outbound rules.
 
 
 
