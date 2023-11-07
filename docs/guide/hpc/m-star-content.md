@@ -40,7 +40,7 @@ To take advantage of the GPU capabilities of [NC A100 v4](/azure/virtual-machine
 
 ## M-Star installation
 
-Before you install M-Star, you need to deploy and connect to a VM and install the required NVIDIA  drivers.
+Before you install M-Star, you need to deploy and connect to a VM and install the required NVIDIA drivers.
 
 For information about deploying the VM and installing the drivers, see one of these articles:
 
