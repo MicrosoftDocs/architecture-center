@@ -149,7 +149,9 @@ If you deployed [Prometheus](https://prometheus.io/) and [Grafana](https://grafa
 
 ### Azure Monitor Managed Service for Prometheus and Azure Managed Grafana
 
-If you have set up your Azure Kubernetes Service (AKS) cluster to collect Prometheus metrics to [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview) and connected your [Azure Monitor Workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-manage#link-a-grafana-workspace) to an [Azure Managed Grafana](/azure/managed-grafana/overview)  workspace, you can leverage the following pre-built dashboards to visualize and analyze Prometheus metrics. These dashboards, which are available in a [GitHub repository](https://aka.ms/azureprometheus-mixins), provide a comprehensive view of your Kubernetes cluster's performance and health. They are provisioned in the specified Azure Grafana instance under the `Managed Prometheus` folder.
+If you have set up your Azure Kubernetes Service (AKS) cluster to collect Prometheus metrics to [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview) and connected your [Azure Monitor Workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-manage#link-a-grafana-workspace) to an [Azure Managed Grafana](/azure/managed-grafana/overview)  workspace, you can leverage pre-built dashboards to visualize and analyze Prometheus metrics.
+
+These dashboards, which are available in a [GitHub repository](https://aka.ms/azureprometheus-mixins) and can be installed by following the [installation instructions](https://github.com/Azure/prometheus-collector/tree/main/mixins/kubernetes#how-to-use), provide a comprehensive view of your Kubernetes cluster's performance and health. They are provisioned in the specified Azure Grafana instance under the `Managed Prometheus` folder.
 
 - `Kubernetes / Compute Resources / Cluster`
 - `Kubernetes / Compute Resources / Namespace (Pods)`
