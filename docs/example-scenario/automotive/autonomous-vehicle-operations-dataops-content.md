@@ -28,9 +28,9 @@ This article presents a solution and guidance for developing offline data operat
 
 1. A Data Factory pipeline runs to enrich the data. Examples of enhancements include telemetry, vehicle logger data, and other data, such as weather, map, or object data. Enriched data helps to provide data scientists with insights that they can use in algorithm development, for example. The generated data is kept in Apache Parquet files that are compatible with the synchronized data. Metadata about the enriched data is stored in a metadata store in Azure Cosmos DB.
 
-1. A Data Factory pipeline performs scene detection. Scene metadata is kept in the metadata store. Scene data is stored as objects in Parquet or Delta files.
-
 1. Third-party partners perform manual or auto labeling. The data is shared with the third-party partners via Azure Data Share and is integrated in Microsoft Purview. Data Share uses a dedicated storage account named *Labeled* in Data Lake Storage to return the labeled data to the organization.
+
+1. A Data Factory pipeline performs scene detection. Scene metadata is kept in the metadata store. Scene data is stored as objects in Parquet or Delta files.
 
 1. Besides metadata for the enrichment data and detected scenes, the metadata store in Azure Cosmos DB stores metadata for the measurements, such as drive data. This store also contains metadata for the lineage of the data as it goes through the processes of extraction, downsampling, synchronization, enrichment, and scene detection. The metadata API is used to access the measurements, the lineage, and the scene data and to look up where data is stored. As a result, the metadata API serves as a storage layer manager. It spreads data across storage accounts. It also provides developers with a way to use a metadata-based search to get data locations. For that reason, the metadata store is a centralized component that offers traceability and lineage across the solution's data flow.
 
