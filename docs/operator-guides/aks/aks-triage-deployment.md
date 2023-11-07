@@ -102,6 +102,8 @@ The `READY` column provides important information about the readiness state of t
 
 It is crucial to ensure that the first number (ready containers) matches the second number (total containers) for the pod. If they differ, it indicates that some containers may not be ready or that there might be issues preventing them from reaching the ready state.
 
+#### Deployments, StatefulSets, DaemonSets, and StatefulSets 
+
 Run the following command to retrieve the [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) in all namespaces:
 
 ```console
