@@ -5,7 +5,7 @@ Azure Monitor, Microsoft Sentinel, and Azure Data Explorer are based on a common
 This solution demonstrates how to leverage the tight integration between Azure Monitor, Microsoft Sentinel, and Azure Data Explorer to consolidate a single interactive data lake and augment your monitoring and analytics capabilities. 
 
 > [!NOTE]
-> This solution applies to Azure Data Explorer and also to [KQL databases](/fabric/real-time-analytics/create-database), which provide real-time analytics capabilities in Microsoft Fabric. 
+> This solution applies to Azure Data Explorer and also to [KQL databases](/fabric/real-time-analytics/create-database), which provide real-time analytics capabilities in [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview). 
 
 ## Architecture
 
@@ -22,7 +22,7 @@ Use cross-service queries to build a single, interactive data lake, joining data
     Azure Monitor and Microsoft Sentinel:
     - Provide out-of-the box monitoring, security, and analytics features and capabilities that are tailored to the needs of IT and security professionals.
     - Natively ingest monitoring data from Azure resources, and provide agents, connectors, and APIs for collecting data from resources, applications and workloads in Azure and hybrid environments.
-    - Store data in Log Analytics workspaces and support the subset of KQL capabilities that is useful for IT and security monitoring. You can query from one Log Analytics workspace to other workspaces, and across monitored resources and other services, such as Azure Data Explorer and Azure Resource Graph. 
+    - Store data in Log Analytics workspaces and support KQL. You can query from one Log Analytics workspace to other workspaces, and across monitored resources and other services, such as Azure Data Explorer and Azure Resource Graph. 
  
 - Azure Data Explorer is an Azure real-time data analytics offering that's not tailored to a specific business or IT scenario. 
 
@@ -30,7 +30,6 @@ Use cross-service queries to build a single, interactive data lake, joining data
     - Provides connectors for various types of IT and non-IT data – for example, business, user, and geospatial data.
     - Supports the full set of KQL capabilities, some of which aren't required or supported for IT and security monitoring. 
     - Enables querying data in Azure Monitor, Microsoft Sentinel, and other services that use KQL.
-    - Automatically scales horizontally as data volumes increase. 
 
 An architecture built on the features and flexibility provided by the three services gives you:
 
@@ -50,7 +49,7 @@ An architecture built on the features and flexibility provided by the three serv
     - Use a wide range of connectors, agents, and APIs supported by the three services - such as Logstash, Kafka, and Logstash connectors, OpenTelemetry agents, Azure Data Explorer APIs, and Azure Monitor Log Ingestion API - to ingest data from on-premises resources and other clouds.
     - Stream in data using Azure data streaming services, such as Azure IoT Hub, Azure Event Hubs, Azure Stream Analytics. 
 
-1. Store IT and application logs and metrics in Log Analytics workspaces for ongoing operational and security monitoring by Azure Monitor and Microsoft Sentinel. Store data in Azure Data Explorer based on other real-time analytics needs.
+1. Store IT infrastructure and application log data in Log Analytics workspaces for ongoing operational and security monitoring by Azure Monitor and Microsoft Sentinel. Store data in Azure Data Explorer based on other real-time analytics needs.
 1. Use Azure Monitor for monitoring the performance, availability, and health of applications, services, and IT resources to gain insights into the operational status of your cloud infrastructure, identify issues, and optimize performance.
 1. Use Azure Sentinel as a cloud-native Security Information and Event Management (SIEM) and Security Orchestration, Automation, and Response (SOAR) solution to analyze and act on security-related data across your IT environment.
 1. Apply advanced machine learning on a broad data set of data to discover patterns, detect anomalies, forecast, and gain other insights.
