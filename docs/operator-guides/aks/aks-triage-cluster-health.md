@@ -71,14 +71,14 @@ In the `Logs` view, you can choose pre-defined queries in the following categori
 Here are some examples of built-in queries that you can use to query logs and metrics collected in the Log Analytics workspace:
 
 - **Availability**
-  - Readiness status per node: For all your cluster view count of all the nodes by readiness.
-  - List all the pods count with phase: view pod phase counts based on all phases: Failed, Pending, Unknown, Running, or Succeeded.
+  - Readiness status per node: View the count of all nodes in the cluster by readiness status.
+  - List all the pods count with phase: View the count of all pods by phase: phase: Failed, Pending, Unknown, Running, or Succeeded.
 - **Containers**
   - Find a value in Container Logs Table: This query will find rows in the ContainerLogs table where LogEntry has a specified string parameter.
   - List container logs per namespace: View container logs from all the namespaces in the cluster.
 - **Diagnostics**
   - Cluster Autoscaler logs: Query for logs from the cluster autoscaler. This can help explain why the cluster is unexpectedly scaling up or down.
-  - Kubernetes API server logs: Query for logs from the Kubernetes API server. Requires Diagnostic Settings to use the Resource Specific destination table.
+  - Kubernetes API server logs: Query for logs from the Kubernetes API server.
   - Image inventory: Lists all the container image with their status.
   - Prometheus disk read per second per node: View Prometheus disk read metrics from the default kubernetes namespace as timechart.
   - Instances Avg CPU usage growth from last week: Shows the average CPU growth by instance in the last week by descending order.
