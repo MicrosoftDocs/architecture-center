@@ -26,10 +26,10 @@ This guide covers the following elements:
 - [IP Space Planning for IPv6 Networks](ipv6-ip-planning.md) in Azure, to guide you in planning your address blocks for your environment.
 - [Transitioning Hub Networks to IPv6](ipv6-transition-hub.md), to guide you on updating your hub network to using IPv6 to act as a connection point between workload spokes, hybrid connectivity, and the hosting of shared network appliances.
 
-To understand more about the capabilities of IPv6 virtual networks, see [IPv6 for Azure Vnet](/azure/virtual-network/ip-services/ipv6-overview).
+To understand more about the capabilities of IPv6 virtual networks, see [IPv6 for Azure Virtual Network](/azure/virtual-network/ip-services/ipv6-overview).
 
 ## Next steps
 
-- Learn more about [IPv6 for Azure Vnet](/azure/virtual-network/ip-services/ipv6-overview)
+- Learn more about [IPv6 for Azure Virtual Network](/azure/virtual-network/ip-services/ipv6-overview)
 - Begin your [IP Space Planning for IPv6 Networks](ipv6-ip-planning.md)
 - Learn steps for [Transitioning Hub Networks to IPv6](ipv6-transition-hub.md)
