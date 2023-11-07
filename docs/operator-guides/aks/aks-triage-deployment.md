@@ -74,7 +74,7 @@ In the Azure portal, Container Insights provides several tabs to help monitor an
 - **Controllers**: The Controllers tab provides visibility into the Kubernetes controllers in your AKS cluster. It shows information such as the number of controller instances, the current state, and the status of controller operations. This tab helps you monitor the health and performance of controllers responsible for managing workload deployments, services, and other resources.
 - **Containers**: The Containers tab gives you insights into the individual containers running in your AKS cluster. It provides information related to resource usage, restarts, and lifecycle events of each container. This tab helps you monitor and troubleshoot specific containers within your workloads.
 
-Additionally, Container Insights in AKS provides [live logs](/azure-monitor/containers/container-insights-livedata-metrics) functionality. This feature allows you to view container logs in real-time, providing a live stream of log events from running containers. This helps you monitor and troubleshoot applications more effectively, enabling faster identification and resolution of any issues occurring within your containers.
+Additionally, Container Insights in AKS provides [live logs](/azure/azure-monitor/containers/container-insights-livedata-metrics) functionality. This feature allows you to view container logs in real-time, providing a live stream of log events from running containers. This helps you monitor and troubleshoot applications more effectively, enabling faster identification and resolution of any issues occurring within your containers.
 
 For more information, see:
 
@@ -87,7 +87,7 @@ For more information, see:
 - [Reports in Container insights](/azure/azure-monitor/containers/container-insights-reports)
 - [Metrics collected by Container insights](/azure/azure-monitor/containers/container-insights-custom-metrics)
 - [View Kubernetes logs, events, and pod metrics in real time](/azure/azure-monitor/containers/container-insights-livedata-overview)
-- [View cluster metrics in real time](/azure-monitor/containers/container-insights-livedata-metrics)
+- [View cluster metrics in real time](/azure/azure-monitor/containers/container-insights-livedata-metrics)
 
 ### Kubectl command line tool
 
