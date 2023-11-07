@@ -115,7 +115,7 @@ These common challenges of on-premises HBase deployments can be reasons for want
 
 ## Migration approaches
 
-Azure has several landing targets for Apache HBase. Depending on requirements and product features, you can choose between Azure IaaS (lift and shift to VMs), HBase in HDInsight, and Azure Cosmos DB (SQL API).
+Azure has several landing targets for Apache HBase. Depending on requirements and product features, you can choose between Azure IaaS (lift and shift to VMs), HBase in HDInsight, and Azure Cosmos DB (NoSQL API).
 
 Here's a decision flowchart for selecting a target environment:
 
@@ -125,7 +125,7 @@ These targets are discussed in the following sections:
 
 - [Migrate to Azure IaaS](#migrate-to-azure-iaas)
 - [Migrate to HBase in HDInsight](#migrate-to-hbase-in-hdinsight)
-- [Migrate to Azure Cosmos DB (SQL API)](#migrate-to-azure-cosmos-db-sql-api)
+- [Migrate to Azure Cosmos DB (NoSQL API)](#migrate-to-azure-cosmos-db-sql-api)
 
 ### Migrate to Azure IaaS
 
@@ -421,9 +421,9 @@ For instructions on setting up Azure Monitor to collect data from Linux, see [Mo
 
 You can download a detailed guide to migrating HBase to an HDInsight HBase cluster. The download page is [Guide to Migrating Big Data Workloads to Azure HDInsight](https://azure.microsoft.com/resources/migrating-big-data-workloads-hdinsight).
 
-### Migrate to Azure Cosmos DB (SQL API)
+### Migrate to Azure Cosmos DB (NoSQL API)
 
-The guide to migrating to Cosmos SQL API is [Migrate data from Apache HBase to Azure Cosmos DB SQL API account](/azure/cosmos-db/sql/migrate-hbase-to-cosmos-db).
+The guide to migrating to Azure Cosmos NoSQL API is [Migrate data from Apache HBase to Azure Cosmos DB NoSQL API account](/azure/cosmos-db/sql/migrate-hbase-to-cosmos-db).
 
 ## Contributors
 
