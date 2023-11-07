@@ -17,7 +17,7 @@ Azure provides a wide range of integration tools and capabilities, including the
 - [Azure Functions][Azure Functions ACOM page]. Simplify complex orchestration problems with an event-driven serverless compute platform.
 - [Azure Data Factory][Data Factory ACOM page]. Visually integrate data sources to accelerate data transformation and support enterprise workflows.
 
-For information about more Azure networking services, see [Integration Services][Integration Services].
+For information about more Azure integration services, see [Integration Services][Integration Services].
 
 Apache®, Apache NiFi®, and NiFi® are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.
 
