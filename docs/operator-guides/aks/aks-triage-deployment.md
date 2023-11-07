@@ -56,7 +56,7 @@ Ensure the status is `BOUND` for all the persistent volume claims and persistent
 
 The collected data can be analyzed using various views and pre-built workbooks. These tools allow you to examine the performance and behavior of the different components within your cluster. With Container Insights, you can gain valuable insights into the overall state of your container workloads and make informed decisions to optimize their performance and troubleshoot any issues.
 
-Container insights includes the following features to provide to understand the performance and health of your Kubernetes cluster and container workloads:
+Container insights includes the following features to provide you with an understanding the performance and health of your Kubernetes cluster and container workloads:
 
 - Identify resource bottlenecks by identifying containers running on each node and their processor and memory utilization.
 - Identify processor and memory utilization of container groups and their containers hosted in container instances.
