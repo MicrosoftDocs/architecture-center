@@ -125,7 +125,7 @@ These targets are discussed in the following sections:
 
 - [Migrate to Azure IaaS](#migrate-to-azure-iaas)
 - [Migrate to HBase in HDInsight](#migrate-to-hbase-in-hdinsight)
-- [Migrate to Azure Cosmos DB (NoSQL API)](#migrate-to-azure-cosmos-db-sql-api)
+- [Migrate to Azure Cosmos DB (NoSQL API)](#migrate-to-azure-cosmos-db-nosql-api)
 
 ### Migrate to Azure IaaS
 
