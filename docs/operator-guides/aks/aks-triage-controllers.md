@@ -24,10 +24,10 @@ _This article is part of a series. Read the introduction [here](aks-triage-pract
 
 While issues caused by admission controllers are rare, it is crucial to consider and ensure their proper functionality. This article discusses various scenarios that can impact admission controllers and provides commands using `kubectl` to validate their performance. Here are some examples:
 
-- **Mutating and validating webhooks**: When incorporating mutating and validating webhooks in your Kubernetes cluster, it is imperative to ensure their high availability. Unhealthy nodes should not block API server requests. It's vital to monitor the admission control pipeline to prevent blocking a significant number of requests to the API server. The following are examples of webhooks that you should monitor:
+- **Mutating and validating webhooks**: When incorporating mutating and validating webhooks in your Kubernetes cluster, it is imperative to ensure their high availability. Unhealthy nodes should not block API server requests. It's vital to monitor the admission control pipeline to prevent blocking a significant number of requests to the API server. The following are examples of webhooks that you should monitor:  
 
-  - The [Azure Policy for Kubernetes clusters](/azure/governance/policy/concepts/policy-for-kubernetes), that extends [Gatekeeper v3](https://open-policy-agent.github.io/gatekeeper), an admission controller webhook for [Open Policy Agent](https://www.openpolicyagent.org/), is an example of a webhook-based admission controller. 
-  - [Kyverno](https://kyverno.io/) runs as a dynamic admission controller in a Kubernetes cluster. Kyverno receives validating and mutating admission webhook HTTP callbacks from the Kubernetes API server and applies matching policies to return results that enforce admission policies or reject requests. 
+  - The [Azure Policy for Kubernetes clusters](/azure/governance/policy/concepts/policy-for-kubernetes), that extends [Gatekeeper v3](https://open-policy-agent.github.io/gatekeeper), an admission controller webhook for [Open Policy Agent](https://www.openpolicyagent.org/), is an example of a webhook-based admission controller.
+  - [Kyverno](https://kyverno.io/) runs as a dynamic admission controller in a Kubernetes cluster. Kyverno receives validating and mutating admission webhook HTTP callbacks from the Kubernetes API server and applies matching policies to return results that enforce admission policies or reject requests.  
 - **Service Meshes**: Service meshes, such as [Istio](https://istio.io/) and [Linkerd](https://linkerd.io/), utilize admission controllers to automate the injection of sidecar containers inside your pod, among other functionalities. It's essential  to evaluate and verify the proper functioning of these admission controllers to ensure the seamless operation of the service mesh.
 
 ## Admission Controllers
@@ -40,7 +40,7 @@ One of the primary functions of admission controllers is to regulate requests in
 
 ## Using `kubectl` to check the status of Azure Policy for Kubernetes clusters
 
-The following commands using `kubectl` enable you to check the status of the [Azure Policy for Kubernetes clusters](/azure/governance/policy/concepts/policy-for-kubernetes) and validate the functionality of admission controllers in your cluster:
+If you installed the [Azure Policy Add-on for AKS](/azure/governance/policy/concepts/policy-for-kubernetes), you can use the following `kubectl` commands to validate the installation and functionality of the Azure Policy admission controllers in your cluster:
 
 ```console
 # Check Azure Policy pods are running.
