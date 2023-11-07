@@ -439,6 +439,8 @@ items:
           href: guide/multitenant/approaches/deployment-configuration.yml
         - name: Compute
           href: guide/multitenant/approaches/compute.md
+        - name: Control planes 
+          href: guide/multitenant/approaches/control-planes.md
         - name: Networking
           href: guide/multitenant/approaches/networking.md
         - name: Storage and data
@@ -1249,6 +1251,8 @@ items:
           href: guide/hpc/hpc-avl-fire-m.yml
         - name: Barracuda Virtual Reactor
           href: guide/hpc/barracuda-virtual-reactor.yml
+        - name: CP2K
+          href: guide/hpc/cp2k.yml
         - name: Engys deployments
           items:
           - name: Engys ELEMENTS
