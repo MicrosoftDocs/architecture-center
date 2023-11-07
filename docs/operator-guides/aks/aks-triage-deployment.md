@@ -24,7 +24,11 @@ _This article is part of a series. Read the introduction [here](aks-triage-pract
 
 ## Tools
 
-Check to see that all deployments and daemonSets are running. Please validate if the **Ready** and the **Available** matches the expected count.
+It is important to know if all deployments and daemonSets are running. The following sections show you how to validate if the **Ready** and the **Available** matches the expected count using:
+- The Azure Portal
+- Azure Container Insights
+- The Kubectl command line tool
+- Prometheus and Grafana
 
 ### Azure Portal
 
