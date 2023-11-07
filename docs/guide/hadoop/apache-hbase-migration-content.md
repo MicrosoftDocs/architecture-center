@@ -50,7 +50,7 @@ It's important that you understand the core concepts of the HBase architecture a
   - **Get** returns attributes for a specified row.
   - **Put** either adds new rows to a table or updates existing rows.
   - **Scan** allows iteration over multiple rows for specified attributes.
-  - **Delete** removes a row from a table. A marker, called a *tombstone* is placed on records to mark them for deletion. The tombstones and deleted rows are removed during major compactions.
+  - **Delete** removes a row from a table. A marker, called a *tombstone*, is placed on records to mark them for deletion. The tombstones and deleted rows are removed during major compactions.
   
 The following diagram illustrates these concepts.
 
