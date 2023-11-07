@@ -9,7 +9,7 @@ The following sections present a breakdown of Contoso activity necessary across 
 
 ### Area: Foundational components
 
-- **Azure Active Directory including role entitlements**
+- **Microsoft Entra ID including role entitlements**
     - Contoso SKU selection: Premium P1
     - DR Impact
         - Azure Data Center Failure: N/A

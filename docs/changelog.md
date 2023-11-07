@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 09/04/2023
+ms.date: 10/16/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -22,6 +22,34 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWxOYN]
 
 The following new and updated articles have recently been published in the Azure Architecture Center.
+
+## October 2023
+
+### New articles
+
+- [Windows 365 Azure network connection](./guide/virtual-desktop/windows-365-azure-network-connection.yml)
+- [Automotive connected fleets](./industries/automotive/automotive-connected-fleets.yml)
+
+### Updated articles
+
+- [Microsoft Entra security for AWS](./reference-architectures/aws/aws-azure-ad-security.yml)  ([#c00d96f670](https://github.com/MicrosoftDocs/architecture-center/commit/c00d96f670))
+- [Baseline architecture for an AKS cluster](./reference-architectures/containers/aks/baseline-aks.yml)  ([#c00d96f670](https://github.com/MicrosoftDocs/architecture-center/commit/c00d96f670))
+- [Azure VMware Solution networking](./solution-ideas/articles/azure-vmware-solution-foundation-networking.yml)  ([#bd323181bd](https://github.com/MicrosoftDocs/architecture-center/commit/bd323181bd))
+
+## September 2023
+
+### New articles
+
+- [Extend mainframes to digital channels by using standards-based REST APIs](./example-scenario/mainframe/extend-mainframes-to-digital-channels-by-using-standards-based-rest-apis.yml)
+- [Multitenancy and Azure OpenAI](./guide/multitenant/service/openai.md)
+- [Analyze call center recordings using text analytics for health and Azure OpenAI Service](./example-scenario/healthcare/analyze-recordings-text-analytics-azure-openai.yml)
+- [Hybrid Cross-Cluster Scaling with Azure Arc for the workloads deployed on Azure Stack HCI](./hybrid/hybrid-cross-cluster-scaling.yml)
+
+### Updated articles
+
+- [Azure Spring Apps baseline architecture](./web-apps/spring-apps/architectures/spring-apps-multi-zone.yml)  ([#296858b98e](https://github.com/MicrosoftDocs/architecture-center/commit/296858b98e))
+- [Integrate on-premises AD domains with Microsoft Entra ID](./reference-architectures/identity/azure-ad.yml)  ([#29ff11ff52](https://github.com/MicrosoftDocs/architecture-center/commit/29ff11ff52))
+- [Kubernetes monitoring and logging](./aws-professional/eks-to-aks/monitoring.yml)  ([#bf2b17b6cf](https://github.com/MicrosoftDocs/architecture-center/commit/bf2b17b6cf))
 
 ## August 2023
 
@@ -65,34 +93,4 @@ The following new and updated articles have recently been published in the Azure
 - [Microsoft SaaS stories](./guide/saas/case-studies/saas-stories.md)  ([#ab9015d14a](https://github.com/MicrosoftDocs/architecture-center/commit/ab9015d14a))
 - [Azure Database for PostgreSQL considerations for multitenancy](./guide/multitenant/service/postgresql.md)  ([#4438c7638c](https://github.com/MicrosoftDocs/architecture-center/commit/4438c7638c))
 - [Multi-region load balancing](./high-availability/reference-architecture-traffic-manager-application-gateway.yml)  ([#a2b159dbbb](https://github.com/MicrosoftDocs/architecture-center/commit/a2b159dbbb))
-
-## June 2023
-
-### New articles
-
-- [Azure Spring Apps (ASA) architecture design](./web-apps/spring-apps/index.md)
-- [WordPress on App Service](./example-scenario/infrastructure/wordpress-app-service.yml)
-- [WordPress on Azure Kubernetes Service](./example-scenario/infrastructure/wordpress-container.yml)
-- [WordPress on virtual machines](./example-scenario/infrastructure/wordpress-iaas.yml)
-- [WordPress on Azure](./guide/infrastructure/wordpress-overview.yml)
-- [Deploy web apps by using zone-redundant Azure Red Hat OpenShift](./reference-architectures/containers/aro/ha-zr-aro.yml)
-- [Monitor a distributed system by using Application Insights and OpenCensus](./guide/devops/monitor-with-opencensus-application-insights.yml)
-- [Deploy Autodesk Maya on a virtual machine](./guide/hpc/autodesk-maya.yml)
-- [Offline audio dubbing](./guide/media/offline-audio-dubbing.yml)
-- [Deploy LAMMPS on an Azure virtual machine](./guide/hpc/hpc-lammps.yml)
-- [Implement Azure DevOps for mainframe applications that use IBM Z and Cloud Modernization Stack](./example-scenario/mainframe/devops-mainframe-ibm-z.yml)
-- [Siemens Teamcenter baseline architecture on Azure](./example-scenario/manufacturing/teamcenter-baseline.yml)
-- [DataOps for autonomous vehicle operations](./example-scenario/automotive/autonomous-vehicle-operations-dataops.yml)
-- [Use Teamcenter PLM with Azure NetApp Files](./example-scenario/manufacturing/teamcenter-plm-netapp-files.yml)
-- [Carrier-grade voicemail solution on Azure](./industries/telecommunications/carrier-grade.yml)
-
-### Updated articles
-
-- [Deploy Altair EDEM on an Azure virtual machine](./guide/hpc/altair-edem.yml)  ([#306c39ceff](https://github.com/MicrosoftDocs/architecture-center/commit/306c39ceff))
-- [Deploy Samadii Plasma on an Azure virtual machine](./guide/hpc/plasma.yml)  ([#306c39ceff](https://github.com/MicrosoftDocs/architecture-center/commit/306c39ceff))
-- [Deploy Samadii DEM on an Azure virtual machine](./guide/hpc/samadii-dem.yml)  ([#306c39ceff](https://github.com/MicrosoftDocs/architecture-center/commit/306c39ceff))
-- [Deploy Samadii SCIV on an Azure virtual machine](./guide/hpc/samadii-sciv.yml)  ([#306c39ceff](https://github.com/MicrosoftDocs/architecture-center/commit/306c39ceff))
-- [Implement TIC 3.0 compliance](./example-scenario/security/trusted-internet-connections.yml)  ([#f6fe0b35f8](https://github.com/MicrosoftDocs/architecture-center/commit/f6fe0b35f8))
-- [DR for Azure Data Platform - Overview](./data-guide/disaster-recovery/dr-for-azure-data-platform-overview.yml)  ([#f451a54cdb](https://github.com/MicrosoftDocs/architecture-center/commit/f451a54cdb))
-- [DR for Azure Data Platform - Scenario details](./data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details.yml)  ([#f451a54cdb](https://github.com/MicrosoftDocs/architecture-center/commit/f451a54cdb))
 

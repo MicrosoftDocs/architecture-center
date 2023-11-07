@@ -122,7 +122,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 - The extension-based approach (V2) offers ease of manageability as compared to agent-based approach (V1) through:
   - Native integration with ARM identity for Hybrid Runbook Worker and provides the flexibility for governance at scale through policies and templates.
-  - Centralized control and management of identities and resource credentials, since it uses VM system-assigned identities that are provided by Azure AD.
+  - Centralized control and management of identities and resource credentials, since it uses VM system-assigned identities that are provided by Microsoft Entra ID.
   - Unified experience for both Azure and non-Azure machines while onboarding and deboarding Hybrid Runbook Workers.
 - Applicable only for agent-based approach (V1):
   - To accelerate deployment of the Log Analytics Agent with Hybrid Worker Role running on Windows machine, use the PowerShell script [New-OnPremiseHybridWorker.ps1][17]

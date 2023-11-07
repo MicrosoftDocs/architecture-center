@@ -300,7 +300,7 @@ To access the secret, specify the secret name in the built configuration.
        }
 ```
 
-Don't use client certificates to access Service Fabric Explorer. Instead, use Azure Active Directory (Azure AD). See [Azure services that support Azure AD authentication](/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-azure-ad-authentication).
+Don't use client certificates to access Service Fabric Explorer. Instead, use Microsoft Entra ID. See [Azure services that support Microsoft Entra authentication](/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-azure-ad-authentication).
 
 Don't use self-signed certificates for production.
 

@@ -83,7 +83,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Azure Cognitive Search provides [robust security controls](/azure/search/search-security-overview) that help you implement network security, authentication and authorization, data residency and protection, and administrative controls that help you maintain security, privacy, and compliance.
 
-Whenever possible, use [Azure Active Directory authentication](/azure/search/search-security-rbac) to provide access to the search service itself, and connect your search service to other Azure resources (like blob and table storage in this scenario) by using a [managed identity](/azure/search/search-howto-managed-identities-data-sources).
+Whenever possible, use [Microsoft Entra authentication](/azure/search/search-security-rbac) to provide access to the search service itself, and connect your search service to other Azure resources (like blob and table storage in this scenario) by using a [managed identity](/azure/search/search-howto-managed-identities-data-sources).
 
 You can connect from the search service to the storage account by using a [private endpoint](/azure/search/search-indexer-howto-access-private?tabs=portal-create%2Cportal-status). When you use a private endpoint, the indexers can use a private connection without requiring the blob and table storage to be accessible publicly.
 
@@ -130,4 +130,3 @@ Other contributor:
 
 - [Choose a search data store in Azure](../../data-guide/technology-choices/search-options.md)
 - [Intelligent product search engine for e-commerce](../../example-scenario/apps/ecommerce-search.yml)
-- [Process free-form text for search](../../data-guide/scenarios/search.yml)

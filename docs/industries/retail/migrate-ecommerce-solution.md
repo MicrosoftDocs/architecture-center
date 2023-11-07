@@ -5,7 +5,7 @@ author: robbagby
 ms.author: robbag
 ms.date: 06/14/2023
 ms.topic: conceptual
-ms.service: industry
+ms.service: cloud-for-industries
 products:
   - azure-migrate
 categories:
@@ -65,7 +65,7 @@ Microsoft provides several tools to analyze and catalog your systems. If you run
 Begin planning which services to move to the cloud and in what order. Because this stage involves moving workloads, follow this order:
 
 1. Build out the network.
-2. Incorporate an identity system (Azure Active Directory).
+2. Incorporate an identity system (Microsoft Entra ID).
 3. Provision storage pieces in Azure.
 
 During migration, the Azure environment is an extension of your on-premises network. You can connect the logical networks with [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview?WT.mc_id=retailecomm-docs-scseely). You can choose to use [Azure ExpressRoute](/azure/expressroute/?WT.mc_id=retailecomm-docs-scseely) to keep communications between your network and Azure on a private connection that never touches the Internet. You can also use a site-to-site VPN where an Azure VPN Gateway talks to your on-premises VPN device with all traffic sent securely using encrypted communication between Azure and your network. We have published a reference architecture detailing how to setup a hybrid network [here](/azure/architecture/reference-architectures/hybrid-networking/vpn?WT.mc_id=retailecomm-docs-scseely).
@@ -94,7 +94,7 @@ While many of the Azure services can be used, we will focus on the most common s
 
 Containers provide a way to bundle applications. Because of the way a container virtualizes the operating system, you can pack multiple containers into a single VM. You can move an application to a container with zero to few code changes; you may need configuration changes. This effort also leads to writing scripts that bundle applications into a container. Your development teams will spend their refactoring time writing and testing these scripts. Azure supports containerization through the [Azure Kubernetes Service](/azure/aks/?WT.mc_id=retailecomm-docs-scseely) (AKS) and the related [Azure Container Registry](https://azure.microsoft.com/services/container-registry/?WT.mc_id=retailecomm-docs-scseely) which you can use to manage the container images.
 
-For app services, you can take advantage of various Azure services. For example, your existing infrastructure may handle a customer order by placing messages into a queue like [RabbitMQ](https://www.rabbitmq.com/). (For example, one message is to charge the customer, a second is to ship the order.) When rehosting, you put RabbitMQ in a separate VM. During refactoring, you can add a [Service Bus](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions?WT.mc_id=retailecomm-docs-scseely) queue or topic to the solution. At this point, you can rewrite your RabbitMQ code and stop using the VMs that served the queuing functionality. If it's not feasible to rewrite all your code at once, you can use patterns such as the [messaging bridge](https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessagingBridge.html) to bridge the gap between messaging queues. This allows you to migrate your endpoints one-by-one rather than all at once. Either way, when all the endpoints have been ultimately moved to Azure Service Bus, this replaces a set of VMs with an always-on message queue service for a lower cost. Other app services can be found in the Azure portal. 
+For app services, you can take advantage of various Azure services. For example, your existing infrastructure may handle a customer order by placing messages into a queue like [RabbitMQ](https://www.rabbitmq.com/). (For example, one message is to charge the customer, a second is to ship the order.) When rehosting, you put RabbitMQ in a separate VM. During refactoring, you can add a [Service Bus](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions?WT.mc_id=retailecomm-docs-scseely) queue or topic to the solution. At this point, you can rewrite your RabbitMQ code and stop using the VMs that served the queuing functionality. If it's not feasible to rewrite all your code at once, you can use patterns such as the [messaging bridge](/azure/architecture/patterns/messaging-bridge) to bridge the gap between messaging queues. This allows you to migrate your endpoints one-by-one rather than all at once. Either way, when all the endpoints have been ultimately moved to Azure Service Bus, this replaces a set of VMs with an always-on message queue service for a lower cost. Other app services can be found in the Azure portal. 
 
 For databases, you can move your database from a VM to a service. Azure supports SQL Server workloads with [Azure SQL Database](/azure/sql-database/sql-database-cloud-migrate?WT.mc_id=retailecomm-docs-scseely) and [Azure SQL Database Managed Instance](/azure/sql-database/sql-database-managed-instance?WT.mc_id=retailecomm-docs-scseely). The [Data Migration Service](https://azure.microsoft.com/services/database-migration/?WT.mc_id=retailecomm-docs-scseely) assesses your database, informs you of work that needs to happen prior to the migration, and then moves the database from your VM to the service. Azure supports [MySQL](https://azure.microsoft.com/services/mysql/?WT.mc_id=retailecomm-docs-scseely), [PostgreSQL](https://azure.microsoft.com/services/postgresql/?WT.mc_id=retailecomm-docs-scseely), and [other database](https://azure.microsoft.com/services/#databases?WT.mc_id=retailecomm-docs-scseely) engine services  as well.
 
@@ -170,5 +170,6 @@ Product documentation:
 ## Related resources
 
 - [Architect scalable e-commerce web app](../../web-apps/idea/scalable-ecommerce-web-app.yml)
-- [Scalable order processing](../../example-scenario/data/ecommerce-order-processing.yml)
+- [Messaging Bridge pattern](https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessagingBridge.html)
 - [Retail - Buy online, pick up in store (BOPIS)](../../example-scenario/iot/vertical-buy-online-pickup-in-store.yml)
+- [Scalable order processing](../../example-scenario/data/ecommerce-order-processing.yml)

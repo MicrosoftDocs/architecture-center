@@ -254,4 +254,3 @@ For information about Azure solution components, see these resources:
 - [Enterprise data warehouse](../../solution-ideas/articles/enterprise-data-warehouse.yml)
 - [Real-time analytics on big data architecture](../../solution-ideas/articles/real-time-analytics.yml)
 - [Use a speech-to-text transcription pipeline to analyze recorded conversations](../../ai-ml/architecture/speech-to-text-transcription-analytics.yml)
-- [Data warehousing in Microsoft Azure](../../data-guide/relational-data/data-warehousing.yml)

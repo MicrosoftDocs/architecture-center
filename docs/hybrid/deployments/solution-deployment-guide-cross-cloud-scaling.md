@@ -75,11 +75,11 @@ The cross-cloud solution ensures seamless management and familiar interface betw
 
 ### Get a custom domain and configure DNS
 
-Update the DNS zone file for the domain. Azure AD will verify ownership of the custom domain name. Use [Azure DNS](/azure/dns/dns-getstarted-portal) for Azure/Microsoft 365/external DNS records within Azure, or add the DNS entry at [a different DNS registrar](/microsoft-365/admin/get-help-with-domains/create-dns-records-at-any-dns-hosting-provider).
+Update the DNS zone file for the domain. Microsoft Entra ID will verify ownership of the custom domain name. Use [Azure DNS](/azure/dns/dns-getstarted-portal) for Azure/Microsoft 365/external DNS records within Azure, or add the DNS entry at [a different DNS registrar](/microsoft-365/admin/get-help-with-domains/create-dns-records-at-any-dns-hosting-provider).
 
 1. Register a custom domain with a public registrar.
 2. Sign in to the domain name registrar for the domain. An approved admin may be required to make DNS updates.
-3. Update the DNS zone file for the domain by adding the DNS entry provided by Azure AD. (The DNS entry won't affect email routing or web hosting behaviors.)
+3. Update the DNS zone file for the domain by adding the DNS entry provided by Microsoft Entra ID. (The DNS entry won't affect email routing or web hosting behaviors.)
 
 ### Create a default multi-node web app in Azure Stack Hub
 

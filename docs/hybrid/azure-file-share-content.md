@@ -10,9 +10,9 @@ This architecture shows how to include Azure file shares in your hybrid environm
 
 The architecture consists of the following components:
 
-- **Azure Active Directory tenant**. This component is an instance of Azure Active Directory (Azure AD) that's created by your organization. It acts as a directory service for cloud applications, by storing objects that are copied from the on-premises Active Directory. It also provides identity services when accessing Azure file shares.
-- **AD DS server**. This component is an on-premises directory and identity service. The AD DS directory is synchronized with Azure AD to enable it to authenticate on-premises users.
-- **Azure AD Connect sync server**. This component is an on-premises server that runs the Azure AD Connect sync service. This service synchronizes information held in the on-premises Active Directory to Azure AD.
+- **Microsoft Entra tenant**. This component is an instance of Microsoft Entra that's created by your organization. It acts as a directory service for cloud applications, by storing objects that are copied from the on-premises Active Directory. It also provides identity services when accessing Azure file shares.
+- **AD DS server**. This component is an on-premises directory and identity service. The AD DS directory is synchronized with Microsoft Entra ID to enable it to authenticate on-premises users.
+- **Microsoft Entra Connect Sync server**. This component is an on-premises server that runs the Microsoft Entra Connect Sync service. This service synchronizes information held in the on-premises Active Directory to Microsoft Entra ID.
 - **Virtual network gateway**. This optional component is used to send encrypted traffic between a Azure Virtual Network and an on-premises location over the internet.
 - **Azure file shares**. Azure file shares provide storage for files and folders that you can access over Server Message Block (SMB), Network File System (NFS), and Hypertext Transfer Protocol (HTTP) protocols. File shares are deployed into Azure storage accounts.
 - **Recovery Services Vault**. This optional component provides Azure file shares backup.
@@ -22,7 +22,7 @@ The architecture consists of the following components:
 
 Key technologies used to implement this architecture:
 
-- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/products/active-directory) is an enterprise identity service that provides single sign-on, multifactor authentication, and conditional access.
+- [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) is an enterprise identity service that provides single sign-on, multifactor authentication, and conditional access.
 - [Azure Files](https://azure.microsoft.com/products/storage/files) offers fully managed file shares in the cloud that are accessible by using the industry standard protocols.
 - [VPN Gateway](https://azure.microsoft.com/products/vpn-gateway) VPN Gateway sends encrypted traffic between an Azure virtual network and an on-premises location over the public Internet.
 
@@ -154,8 +154,8 @@ Explore related architectures:
 - [Azure enterprise cloud file share](./azure-files-private.yml)
 - [Hybrid file services](./hybrid-file-services.yml)
 - [Back up files and applications on Azure Stack Hub](./azure-stack-backup.yml)
-- [Multiple forests with AD DS and Azure AD](../example-scenario/wvd/multi-forest.yml)
-- [Multiple forests with AD DS, Azure AD, and Azure AD DS](../example-scenario/wvd/multi-forest-azure-managed.yml)
+- [Multiple forests with AD DS and Microsoft Entra ID](../example-scenario/wvd/multi-forest.yml)
+- [Multiple forests with AD DS, Microsoft Entra ID, and Microsoft Entra Domain Services](../example-scenario/wvd/multi-forest-azure-managed.yml)
 - [Azure Virtual Desktop for the enterprise](../example-scenario/wvd/windows-virtual-desktop.yml)
 
 [architectural-diagram]: ./images/azure-file-share.svg

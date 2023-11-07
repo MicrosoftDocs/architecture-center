@@ -2,7 +2,7 @@ As the publisher of APIs, you need a website that effectively markets your APIs 
 
 ## Architecture
 
-:::image type="content" alt-text="Diagram of the components of this architecture and the workflow through the internet portals and Azure services that constitute the solution, including Azure A D  B 2 C, Azure A P I Management, the A P I gateway, and line-of-business services." source="media/design-api-developer-experiences-management-github-architecture.png" lightbox="media/design-api-developer-experiences-management-github-architecture.png":::
+:::image type="content" alt-text="Diagram of the components of this architecture and the workflow through the internet portals and Azure services that constitute the solution, including Microsoft Entra B 2 C, Azure A P I Management, the A P I gateway, and line-of-business services." source="media/design-api-developer-experiences-management-github-architecture.png" lightbox="media/design-api-developer-experiences-management-github-architecture.png":::
 
 _Download a [PowerPoint file](https://arch-center.azureedge.net/design-api-developer-experiences-management-github.pptx) of this architecture._
 
@@ -60,7 +60,7 @@ The solution is composed of the following software as a service (SaaS) offerings
 
 - [Azure App Service](https://azure.microsoft.com/services/app-service) is a fully managed compute platform for hosting custom web applications.
 
-- [Azure Active Directory B2C (Azure AD B2C)](https://azure.microsoft.com/services/active-directory/external-identities/b2c) is an extension of Azure Active Directory (Azure AD) that your application can use to manage external customer or partner identities for access and authorization. You can make use of the [Microsoft identify platform](/azure/active-directory/develop/v2-overview) to easily integrate identity and authorization in your custom applications.
+- [Azure Active Directory B2C (Azure AD B2C)](https://azure.microsoft.com/services/active-directory/external-identities/b2c) is an extension of Microsoft Entra ID that your application can use to manage external customer or partner identities for access and authorization. You can make use of the [Microsoft identify platform](/azure/active-directory/develop/v2-overview) to easily integrate identity and authorization in your custom applications.
 
 ## Scenario details
 
@@ -165,9 +165,9 @@ The components in this scenario address issues of performance, reliability, and 
 
 API Management supports [autoscaling](/azure/api-management/api-management-howto-autoscale), which quickly expands API Management capabilities in response to growing numbers of incoming requests. API Management also supports zone redundancy and multi-region deployments to provide resiliency and high availability. For more information about zone redundancy, see [Availability zone support for Azure API Management](/azure/api-management/zone-redundancy). For more information about API Management security, see [Azure security baseline for API Management](/security/benchmark/azure/baselines/api-management-security-baseline).
 
-App Service is a fully managed platform as a service that features built-in security and autoscaling with an [SLA](https://azure.microsoft.com//support/legal/sla/app-service/v1_5) that promises high availability. App Service is [ISO, SOC, and PCI compliant](https://www.microsoft.com/trustcenter), and it supports authenticating users with Azure Active Directory, Google, Facebook, Twitter, or Microsoft account. With App Service, you can also [create IP address restrictions](/azure/app-service/app-service-ip-restrictions).
+App Service is a fully managed platform as a service that features built-in security and autoscaling with an [SLA](https://azure.microsoft.com//support/legal/sla/app-service/v1_5) that promises high availability. App Service is [ISO, SOC, and PCI compliant](https://www.microsoft.com/trustcenter), and it supports authenticating users with Microsoft Entra ID, Google, Facebook, Twitter, or Microsoft account. With App Service, you can also [create IP address restrictions](/azure/app-service/app-service-ip-restrictions).
 
-Azure AD B2C offers high availability and scales to supporting hundreds of millions of users. Azure AD B2C supports [OpenID Connect](/azure/active-directory/develop/v2-protocols-oidc) and multiple identity providers so that customers can choose their preferred provider. Azure AD B2C also supports application-based and policy-based multi-factor authentication, adding additional layers of security. For more information about Azure AD B2C, see [What is Azure Active Directory B2C](/azure/active-directory-b2c/overview)? For more information about using external identities, see [External Identities in Azure Active Directory](/azure/active-directory/external-identities/external-identities-overview).
+Azure AD B2C offers high availability and scales to supporting hundreds of millions of users. Azure AD B2C supports [OpenID Connect](/azure/active-directory/develop/v2-protocols-oidc) and multiple identity providers so that customers can choose their preferred provider. Azure AD B2C also supports application-based and policy-based multi-factor authentication, adding additional layers of security. For more information about Azure AD B2C, see [What is Azure Active Directory B2C](/azure/active-directory-b2c/overview)? For more information about using external identities, see [External Identities in Microsoft Entra ID](/azure/active-directory/external-identities/external-identities-overview).
 
 GitHub makes security reviews an automated part of code reviews, scanning every new commit for potential security issues. This service helps you to discover problems as soon as they're offered as additions to the code base. GitHub security allows you to customize searches for security concerns and integrate third-party scanning engines. For more features and details, see [Security](https://github.com/features/security) on GitHub.
 

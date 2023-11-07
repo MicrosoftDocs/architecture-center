@@ -27,7 +27,7 @@ With gateway transit enabled on virtual network peering, you can create a transi
 Virtual network peering and VPN gateways both support the following connection types:
 
 - Virtual networks in different regions.
-- Virtual networks in different Azure Active Directory tenants.
+- Virtual networks in different Microsoft Entra tenants.
 - Virtual networks in different Azure subscriptions.
 - Virtual networks that use a mix of Azure deployment models (Resource Manager and classic).
 

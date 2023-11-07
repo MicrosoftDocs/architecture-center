@@ -6,7 +6,7 @@ ms.author: damocelj
 categories: 
   - azure
   - ai-machine-learning
-ms.service: industry
+ms.service: cloud-for-industries
 ms.topic: conceptual
 ms.date: 01/13/2023
 azureCategories:
@@ -433,4 +433,3 @@ Principal authors:
 - [HPC risk analysis template](../../solution-ideas/articles/hpc-risk-analysis.yml)
 - [A financial institution scenario for data mesh](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-scenario)
 - [Loan credit risk and default modeling](../../example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml)
-- [Loan credit risk with SQL Server](../../solution-ideas/articles/loan-credit-risk-with-sql-server.yml)

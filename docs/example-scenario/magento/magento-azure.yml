@@ -17,7 +17,7 @@ metadata:
 name: Magento e-commerce platform in Azure Kubernetes Service
 summary: Deploy the Magento e-commerce platform to Azure Kubernetes Service (AKS), and learn about considerations for hosting Magento on Azure.
 products:
-  - azure-active-directory
+  - entra-id
   - azure-container-registry
   - azure-database-mysql
   - azure-files

@@ -280,13 +280,13 @@ Databases are critical workloads that require a low recovery point objective (RP
 
 ### Identity management
 
-Use a centralized identity management system like Azure Active Directory (Azure AD) and Active Directory Domain Services (AD DS) to control access to resources at all levels:
+Use a centralized identity management system like Microsoft Entra ID and Active Directory Domain Services (AD DS) to control access to resources at all levels:
 
 - Provide access to Azure resources by using [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview).
 
-- Grant access to Azure VMs by using Lightweight Directory Access Protocol (LDAP), Azure AD, Kerberos, or another system.
+- Grant access to Azure VMs by using Lightweight Directory Access Protocol (LDAP), Microsoft Entra ID, Kerberos, or another system.
 
-Support access within the applications themselves by using the services that SAP provides. Or use [OAuth 2.0 and Azure AD](/azure/active-directory/develop/active-directory-protocols-oauth-code).
+Support access within the applications themselves by using the services that SAP provides. Or use [OAuth 2.0 and Microsoft Entra ID](/azure/active-directory/develop/active-directory-protocols-oauth-code).
 
 ### Monitoring
 

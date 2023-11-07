@@ -189,5 +189,4 @@ See these articles:
 
 ## Related resources
 
-- [Azure data architecture guide](../../data-guide/index.md)
 - [Azure data platform end-to-end](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)

@@ -128,6 +128,8 @@ Examine messages in the DLQ to determine the failure reason.
 
 Service Bus bridges on-premises systems and cloud solutions. On-premises systems are often difficult to reach because of firewall restrictions. Both the producer and consumer (either can be on-premises or the cloud) can use the Service Bus queue endpoint as the pickup and drop off location for messages.
 
+The [Messaging Bridge pattern](/azure/architecture/patterns/messaging-bridge) is another way to handle these scenarios.
+
 #### Topics and subscriptions
 
 Service Bus supports the Publisher-Subscriber pattern through Service Bus topics and subscriptions.
@@ -208,7 +210,7 @@ The Capture feature allows you to store the event stream to an [Azure Blob stora
 
 > Storage services can also offer additional features for analyzing events. For example, by taking advantage of the access tiers of a blob storage account, you can store events in a hot tier for data that needs frequent access. You might use that data for visualization. Alternately, you can store data in the archive tier and retrieve it occasionally for auditing purposes.
 
-Capture stores _all_ events ingested by Event Hubs and is useful for [batch processing](../../data-guide/big-data/batch-processing.yml). You can generate reports on the data by using a MapReduce function. Captured data can also serve as the source of truth. If certain facts were missed while aggregating the data, you can refer to the captured data.
+Capture stores _all_ events ingested by Event Hubs and is useful for batch processing. You can generate reports on the data by using a MapReduce function. Captured data can also serve as the source of truth. If certain facts were missed while aggregating the data, you can refer to the captured data.
 
 For details about this feature, see [Capture events through Azure Event Hubs in Azure Blob Storage or Azure Data Lake Storage](/azure/event-hubs/event-hubs-capture-overview).
 

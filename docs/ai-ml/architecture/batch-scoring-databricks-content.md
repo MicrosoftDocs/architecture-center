@@ -55,7 +55,7 @@ Notebooks are provided on [GitHub][github] to perform each of these tasks.
 
 Databricks is set up so you can load and deploy your trained models to make predictions with new data. Databricks also provides other advantages:
 
-- Single sign-on support using Azure Active Directory credentials.
+- Single sign-on support using Microsoft Entra credentials.
 - Job scheduler to execute jobs for production pipelines.
 - Fully interactive notebook with collaboration, dashboards, REST APIs.
 - Unlimited clusters that can scale to any size.

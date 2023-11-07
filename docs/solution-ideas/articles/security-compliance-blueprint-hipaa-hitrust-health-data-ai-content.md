@@ -25,7 +25,7 @@ This article describes how you can store, manage, and analyze HIPAA-compliant an
 - [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning): Bring AI to everyone with an end-to-end, scalable, trusted platform with experimentation and model management
 - [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded): Embed fully interactive, stunning data visualizations in your applications
 - [Defender for Cloud](https://azure.microsoft.com/services/security-center): Unify security management and enable advanced threat protection across hybrid cloud workloads
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on
 - [Key Vault](https://azure.microsoft.com/services/key-vault): Safeguard and maintain control of keys and other secrets
 - Application Insights: Detect, triage, and diagnose issues in your web apps and services
 - [Azure Monitor](https://azure.microsoft.com/services/monitor): Full observability into your applications, infrastructure, and network
@@ -49,7 +49,7 @@ This solution is ideal for the medical and healthcare industry.
 - [Azure Machine Learning Documentation](/azure/machine-learning)
 - [Power BI Embedded Documentation](/azure/power-bi-embedded)
 - [Microsoft Defender for Cloud Documentation](/azure/security-center)
-- [Get started with Azure AD](/azure/active-directory/get-started-azure-ad)
+- [Get started with Microsoft Entra ID](/azure/active-directory/get-started-azure-ad)
 - [What is Azure Key Vault?](/azure/key-vault/key-vault-overview)
 - [What is Application Insights?](/azure/application-insights/app-insights-overview)
 - [Monitoring Azure applications and resources](/azure/monitoring-and-diagnostics/monitoring-overview)

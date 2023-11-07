@@ -13,7 +13,7 @@ metadata:
 azureCategories:
   - devops
 products:
-  - azure-active-directory
+  - entra-id
   - azure-devops
   - azure-key-vault
   - defender-for-cloud

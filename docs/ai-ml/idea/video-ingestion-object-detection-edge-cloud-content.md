@@ -81,7 +81,7 @@ In addition, running the system in a Kubernetes cluster enables you to offload t
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
- Azure Active Directory managed identities provide security for all components of this architecture. Using managed identities eliminates the need to store secrets in code or configuration files. It simplifies access control, credential management, and role assignment.
+ Microsoft Entra managed identities provide security for all components of this architecture. Using managed identities eliminates the need to store secrets in code or configuration files. It simplifies access control, credential management, and role assignment.
 
 ### Cost optimization
 

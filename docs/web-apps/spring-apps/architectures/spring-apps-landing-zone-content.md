@@ -172,9 +172,9 @@ Outbound traffic from the virtual network must be restricted to prevent data exf
 
 The workload's identity implementation must align with the organizational best practices to ensure the application doesn't violate organizational security or governance boundaries. For more information, see [Azure Spring Apps landing zone accelerator: Identity and access management](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/identity-and-access-management).
 
-Azure Active Directory (Azure AD) is recommended for authenticating users and services that interact with the Azure Spring Apps instance.
+Microsoft Entra ID is recommended for authenticating users and services that interact with the Azure Spring Apps instance.
 
-The recommended approach is to enable [Azure AD managed-identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview) for the application to enable the app to self-authenticate to other services. In this architecture, system-assigned managed identities are used for ease of management.  
+The recommended approach is to enable [Microsoft Entra managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview) for the application to enable the app to self-authenticate to other services. In this architecture, system-assigned managed identities are used for ease of management.  
 
 For authorization, use Azure Role Based Access Control (RBAC) by applying the principle of least privilege when granting permissions.
 

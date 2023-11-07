@@ -139,6 +139,52 @@ The logs should appear as follows:
 >
 >However, when using API Server VNET integration with Azure CNI Overlay or Bring Your Own CNI (BYOCNI), konnectivity is deployed to facilitate communication between the API servers and pod IPs. Nonetheless, the communication between the API servers and the worker nodes remains direct.
 
+You can also retrieve those logs by searching the container logs in the logging and monitoring service. This example searches [Azure Monitor container insights](/azure/azure-monitor/containers/container-insights-log-query) to check for **aks-link** connectivity errors.
+
+```kusto
+ContainerLogV2 
+| where _ResourceId =~ "/subscriptions/YOUR_SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP/providers/Microsoft.ContainerService/managedClusters/YOUR_CLUSTER_ID"
+| where ContainerName has "aks-link"
+| project LogSource,LogMessage, TimeGenerated, Computer, PodName, ContainerName, ContainerId
+| order by TimeGenerated desc
+| limit 200
+```
+
+Container logs for any failed pod in a specific namespace
+```kusto
+let KubePodInv = KubePodInventory
+    | where TimeGenerated >= startTime and TimeGenerated < endTime
+    | where _ResourceId =~ "clustereResourceID" //update with resource ID
+    | where Namespace == "podNamespace" //update with target namespace
+    | where PodStatus == "Failed"
+    | extend ContainerId = ContainerID
+    | summarize arg_max(TimeGenerated, *)  by  ContainerId, PodStatus, ContainerStatus
+    | project ContainerId, PodStatus, ContainerStatus;
+
+    KubePodInv
+    | join
+    (
+        ContainerLogV2
+    | where TimeGenerated >= startTime and TimeGenerated < endTime
+    | where PodNamespace == "podNamespace" //update with target namespace
+    ) on ContainerId
+    | project TimeGenerated, PodName, PodStatus, ContainerName, ContainerId, ContainerStatus, LogMessage, LogSource
+```
+    
+If you can't get the logs through the kubectl or queries, use [SSH into the node](/azure/aks/ssh). This example finds the **tunnelfront** pod after connecting to the node through SSH.
+
+```bash
+kubectl pods -n kube-system -o wide | grep tunnelfront
+ssh azureuser@<agent node pod is on, output from step above>
+docker ps | grep tunnelfront
+docker logs …
+nslookup <ssh-server_fqdn>
+ssh -vv azureuser@<ssh-server_fqdn> -p 9000
+docker exec -it <tunnelfront_container_id> /bin/bash -c "ping bing.com"
+kubectl get pods -n kube-system -o wide | grep <agent_node_where_tunnelfront_is_running>
+kubectl delete po <kube_proxy_pod> -n kube-system
+```
+
 ## 3- Validate DNS resolution when restricting egress
 
 DNS resolution is a crucial aspect of your AKS cluster, as it can affect control plane errors and container image pull failures. To ensure that DNS resolution to the [Kubernetes API server](https://kubernetes.io/docs/concepts/overview/kubernetes-api/) is functioning correctly, follow these steps:
