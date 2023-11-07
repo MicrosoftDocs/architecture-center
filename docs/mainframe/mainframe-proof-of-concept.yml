@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Mainframe workload migration proof of concept
+  titleSuffix: Azure Architecture Center
+  description: Learn how to use Mainframe workload migration proof of concept.
+  author: Venkat-Github-Account
+  ms.author: vramakrishna
+  ms.date: 11/07/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - databases
+  - migration
+products:
+  - azure-virtual-machines
+  - azure-virtual-network
+  - azure-expressroute
+name: Mainframe workload migration proof of concept
+summary: Learn how to use Mainframe workload migration proof of concept.
+thumbnailUrl: /azure/architecture/browse/thumbs/unisys-clearpath-forward-OS-2200-mainframe-rehost-diagram-postmigration.png
+content: |
+  [!include[](mainframe-proof-of-concept-content.md)]
