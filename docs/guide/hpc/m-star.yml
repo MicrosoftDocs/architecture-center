@@ -15,6 +15,6 @@ products:
   - azure-virtual-network
 name: Deploy M-Star on a virtual machine
 summary: Learn how M-Star computational fluid dynamics software performs on an Azure virtual machine (VM).
-thumbnailUrl: /azure/architecture/browse/thumbs/m-star-architecture
+thumbnailUrl: /azure/architecture/browse/thumbs/m-star-architecture.png
 content: |
   [!include[](m-star-content.md)]

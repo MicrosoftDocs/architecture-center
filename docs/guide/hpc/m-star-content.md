@@ -19,7 +19,7 @@ M-Star is used in the chemical, biopharmaceutical, and energy industries.
 
 ### Components
 
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is used to create Windows and Linux VMs. For information about deploying VMs and installing the drivers, see [Windows VMs on Azure](../../reference-architectures/n-tier/windows-vm.yml) and [Linux VMs on Azure](../../reference-architectures/n-tier/linux-vm.yml).
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is used to create Windows and Linux VMs. For information about deploying VMs and installing drivers, see [Windows VMs on Azure](../../reference-architectures/n-tier/windows-vm.yml) and [Linux VMs on Azure](../../reference-architectures/n-tier/linux-vm.yml).
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is used to create a private network infrastructure in the cloud.
    - [Network security groups](/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VMs.
    - A public IP address connects the internet to the VMs.
@@ -50,7 +50,7 @@ For information about deploying the VM and installing the drivers, see one of th
 > [!Important] 
 > NVIDIA Fabric Manager is required for VMs that use NVLink or NVSwitch.
 
-The following table provides details about the operating system and NVIDIA drivers that were used for these tests.
+The following table provides details about the operating system and NVIDIA drivers that were used for the performance tests.
 
 |Operating system version | OS architecture | GPU driver version | CUDA version| MPI |
 |:---|:---|:---|:---|:---|
@@ -93,7 +93,7 @@ The following table shows the elapsed time for running the Tank_1000 model.
 
 #### Notes about tests on NC A100 v4
 
-- Because the Tank-1000 Model is large, you can't run it on one GPU on the NCv4 VM.
+- Because the Tank-1000 model is large, you can't run it on one GPU on the NCv4 VM.
 - An NVLink connection is required for M-Star.
 - Because the architecture of NCv4 VMs supports only dual GPU connectivity, models were run only on 1-GPU and 2-GPU configurations.
 
@@ -126,7 +126,7 @@ The following table shows the total runtimes and relative speed increases for ru
 
 #### Notes about tests on NDm A100 v4
 
-- NC A100 v4 series VMs only have individual pairs of GPUs connected peer-to-peer, but NDm A100 v4 series VMs have full peer-to-peer among all eight GPUs. You should therefore use NC A100 v4 systems for simulations that run on one or two GPUs. For anything that needs more than two GPUs, you should use NDmA100 v4 VMs.
+- NC A100 v4 series VMs only have individual pairs of GPUs connected peer to peer, but NDm A100 v4 series VMs have full peer-to-peer connections among all eight GPUs. You should therefore use NC A100 v4 systems for simulations that run on one or two GPUs. For anything that needs more than two GPUs, you should use NDmA100 v4 VMs.
 - For the Pipe_500 model, the 1-GPU NCv4 result is used as a baseline.
 
 ## Azure cost
@@ -175,7 +175,7 @@ The following tables provide elapsed times in hours. To compute the total cost, 
 
 ## Contributors
 
-*This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
 Principal authors:
 
