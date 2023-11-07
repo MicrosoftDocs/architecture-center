@@ -87,6 +87,8 @@ You can Access Container insights in the Azure portal as follows:
 
 You can use the `kubectl` command line tool to communicate with a Kubernetes cluster's control plane, using the Kubernetes API, and check the status of your workloads.
 
+#### Pods
+
 You can run the following command to list all the pods running in all namespaces:
 
 ```console
