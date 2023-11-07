@@ -199,8 +199,6 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 This architecture should be able to scale to easily meet most medium to medium-large workloads. Since the architecture mostly uses Azure's platform (PaaS) services, you have many options to adjust the scale of the solution based on your requirements and load.
 
-For high-throughput scenarios, or scenarios in which you need to serve customers in multiple geographies, you can also consider deploying the applications and databases in multiple regions. For a great example of this architecture, see [Multi-region web app with private connectivity to a database](../sql-failover/app-service-private-sql-multi-region.yml).
-
 ## Deploy this scenario
 
 If you'd like to deploy this scenario, see the [Azure SaaS Dev Kit](https://github.com/Azure/azure-saas) on GitHub. It's a deployable reference implementation of this architecture.
@@ -242,5 +240,4 @@ Here are some additional recommended resources for building a SaaS application o
 - [Architectural approaches for storage and data in multitenant solutions](/azure/architecture/guide/multitenant/approaches/storage-data)
 - [Azure App Service and Azure Functions considerations for multitenancy](/azure/architecture/guide/multitenant/service/app-service)
 - [Multitenant SaaS on Azure](/azure/architecture/example-scenario/multi-saas/multitenant-saas)
-- [Tenancy models for SaaS applications](/azure/architecture/isv/application-tenancy)
 - [Cloud Design Patterns](/azure/architecture/patterns/)

@@ -104,5 +104,5 @@ Principal author:
 
 ## Related resources
 
-- [Data governance with Profisee and Microsoft Purview](/azure/architecture/reference-architectures/data/profisee-master-data-management-purview)
+- [Data governance with Profisee and Microsoft Purview](/azure/architecture/databases/architecture/profisee-master-data-management-purview)
 - [Migrate master data services to Azure with CluedIn and Azure Purview](/azure/architecture/reference-architectures/data/migrate-master-data-services-with-cluedin)

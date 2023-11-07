@@ -25,7 +25,7 @@ ms.custom:
 >
 > Unless you already have an Azure Data Lake Storage Gen1 account, you cannot create new ones.
 
-This topic compares options for data storage for big data solutions—specifically, data storage for bulk data ingestion and batch processing, as opposed to [analytical data stores](./analytical-data-stores.md) or [real-time streaming ingestion](./real-time-ingestion.md).
+This topic compares options for data storage for big data solutions—specifically, data storage for bulk data ingestion and batch processing, as opposed to [analytical data stores](./analytical-data-stores.md) or real-time streaming ingestion.
 
 ## What are your options when choosing data storage in Azure?
 

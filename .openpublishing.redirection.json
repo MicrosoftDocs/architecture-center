@@ -2771,6 +2771,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/industries/manufacturing/predictive-maintenance-solution.yml",
+      "redirect_url": "/azure/architecture/industries/manufacturing",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/serverless-quest/ads.md",
       "redirect_url": "/azure/architecture/serverless-quest/serverless-overview",
       "redirect_document_id": false
@@ -3479,6 +3484,286 @@
       "source_path": "docs/data-science-process/sample-data-hive.md",
       "redirect_url": "/azure/architecture/data-science-process/overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/databases-architecture-design.yml",
+      "redirect_url": "/azure/architecture/databases/index",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/data-cache-with-redis-cache.yml",
+      "redirect_url": "/azure/architecture/databases/idea/data-cache-with-redis-cache",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/messaging.yml",
+      "redirect_url": "/azure/architecture/databases/idea/messaging",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/intelligent-apps-using-azure-database-for-mysql.yml",
+      "redirect_url": "/azure/architecture/databases/idea/intelligent-apps-using-azure-database-for-mysql",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/intelligent-apps-using-azure-database-for-postgresql.yml",
+      "redirect_url": "/azure/architecture/databases/idea/intelligent-apps-using-azure-database-for-postgresql",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/serverless-apps-using-cosmos-db.yml",
+      "redirect_url": "/azure/architecture/databases/idea/serverless-apps-using-cosmos-db",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/data-warehouse/dataops-mdw.yml",
+      "redirect_url": "/azure/architecture/databases/architecture/dataops-mdw",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/data/profisee-master-data-management-data-factory.yml",
+      "redirect_url": "/azure/architecture/databases/architecture/profisee-master-data-management-data-factory",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/data/migrate-master-data-services-with-cluedin.yml",
+      "redirect_url": "/azure/architecture/databases/architecture/migrate-master-data-services-with-cluedin",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/profisee-mds/profisee-mds-migration-utility.yml",
+      "redirect_url": "/azure/architecture/databases/architecture/profisee-mds-migration-utility",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/data/cluedin.yml",
+      "redirect_url": "/azure/architecture/databases/architecture/cluedin",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/data/profisee-master-data-management-purview.yml",
+      "redirect_url": "/azure/architecture/databases/architecture/profisee-master-data-management-purview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/minimal-storage-change-feed-replicate-data.yml",
+      "redirect_url": "/azure/architecture/databases/idea/minimal-storage-change-feed-replicate-data",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/n-tier/n-tier-cassandra.yml",
+      "redirect_url": "/azure/architecture/databases/architecture/n-tier-cassandra",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/reference-architecture-for-oracle-database-migration-to-azure.yml",
+      "redirect_url": "/azure/architecture/databases/idea/reference-architecture-for-oracle-database-migration-to-azure",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/data/sql-managed-instance-cmk.yml",
+      "redirect_url": "/azure/architecture/databases/architecture/sql-managed-instance-cmk",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/data/azure-sql-htap.yml",
+      "redirect_url": "/azure/architecture/databases/guide/azure-sql-htap",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/best-practices/transactional-outbox-cosmos.yml",
+      "redirect_url": "/azure/architecture/databases/guide/transactional-outbox-cosmos",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/best-practices/cassandra.md",
+      "redirect_url": "/azure/architecture/databases/guide/cassandra",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/data-guide/scenarios/hybrid-on-premises-and-cloud.md",
+      "redirect_url": "/azure/architecture/databases/guide/hybrid-on-premises-and-cloud",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/guide/data/teradata-vantage-data-factory.yml",
+      "redirect_url": "/azure/architecture/databases/guide/teradata-vantage-data-factory",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/ai/data-obfuscation-with-delphix-in-azure-data-factory.yml",
+      "redirect_url": "/azure/architecture/databases/guide/data-obfuscation-with-delphix-in-azure-data-factory",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/ai/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml",
+      "redirect_url": "/azure/architecture/databases/guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/data/extend-reporting-capabilities.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/data/hybrid-etl-with-adf.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/sql-failover/app-service-private-sql-multi-region.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/high-availability/ref-arch-iaas-web-and-db.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/optimized-storage-time-based-data-lake.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/n-tier/n-tier-sql-server.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/optimized-storage-time-based-multi-writes.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/optimized-storage-logical-data-classification.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/campaign-optimization-with-sql-server.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/gaming-using-azure-database-for-mysql.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/interactive-querying-with-hdinsight.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/loan-chargeoff-prediction-with-sql-server.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/loan-credit-risk-with-sql-server.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/multi-region-web-app-cosmos-db-replication.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/personalization-using-cosmos-db.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/ops-automation-using-event-grid.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/design-principles/use-best-data-store.md",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/big-data/batch-processing.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/big-data/real-time-processing.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/relational-data/data-warehousing.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/scenarios/search.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/scenarios/time-series.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/scenarios/interactive-data-exploration.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/scenarios/securing-data-solutions.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/technology-choices/real-time-ingestion.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/isv/application-tenancy.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/index.md",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/scenarios/csv-and-json.md",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/big-data/index.yml",
+      "redirect_url": "/azure/architecture/databases/guide/big-data-architectures",
+      "redirect_document_id": true
     }
   ]
 }

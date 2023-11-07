@@ -187,7 +187,6 @@ Other contributor:
 [Hub-and-spoke network topology]: /azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology
 [Hub-spoke network topology in Azure]: ../../reference-architectures/hybrid-networking/hub-spoke.yml
 [Integrate Azure services with virtual networks for network isolation]: /azure/virtual-network/vnet-integration-for-azure-services
-[Multi-region web app with private connectivity to database]: ../../example-scenario/sql-failover/app-service-private-sql-multi-region.yml
 [Private Link and DNS integration at scale]: /azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale
 [Securing your Microsoft Teams channel bot and web app behind a firewall]: ../../example-scenario/teams/securing-bot-teams-channel.yml
 [Serverless event stream processing in a VNet with private endpoints]: ../../solution-ideas/articles/serverless-event-processing-private-link.yml
