@@ -64,7 +64,7 @@ You should consider if your tenants need to support multiple identity providers.
 In a multitenant solution, you need to consider where to store several types of identity information, including the following types:
 
 - Details about user and service accounts, including their names and other information that's required by your tenants.
-- Information that's required to securely authenticate your users, including information that's required to provide multi-factor authentication (MFA).
+- Information that's required to securely authenticate your users, including information that's required to provide multifactor authentication (MFA).
 - Tenant-specific information, such as tenant roles and permissions. This information is used for authorization.
 
 > [!CAUTION]
@@ -130,7 +130,7 @@ A common requirement for corporate or enterprise customers of a solution is a se
 
 When a user signs into a multitenant application, your identity system authenticates the user. You should consider the following questions, when you plan your authentication process:
 
-- Do your tenants need to configure their own multi-factor authentication (MFA) policies? For example, if your tenants are in the financial services industry, they need to implement strict MFA policies, while a small online retailer might not have the same requirements.
+- Do your tenants need to configure their own multifactor authentication (MFA) policies? For example, if your tenants are in the financial services industry, they need to implement strict MFA policies, while a small online retailer might not have the same requirements.
 - Do your tenants need to configure their own conditional access rules? For example, different tenants might need to block sign-in attempts from specific geographic regions.
 - Do your tenants need to customize the sign-in process for each tenant? For example, do you need to show a customer's logo? Or, does information about each user need to be extracted from another system, such as a rewards number, and returned to the identity provider to add to the user profile?
 - Do your users need to impersonate other users? For example, a support team member might wish to investigate an issue that another user has, by impersonating their user account without having to authenticate as the user.
