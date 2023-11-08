@@ -3,7 +3,7 @@ metadata:
   title: Azure virtual machine baseline architecture
   titleSuffix: Azure Architecture Center
   description: Demonstrates how to set up an environment that's configured to run a workload on Azure virtual machines
-  author: PageWriter-MSFT
+  author: BryanLa
   ms.author: prwilk
   ms.date: 04/01/2022
   ms.topic: reference-architecture

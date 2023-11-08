@@ -97,7 +97,7 @@ Flexible orchestration mode in VMSS facilitates operations at scale and offers b
 
 Fault domains configuration is needed to limit the impact of physical hardware failures, network outages, or power interruptions. With VMSS, Azure evenly spreads instances across fault domains for resilience against a single hardware or infrastructure issue.
 
-It’s recommended that you offload fault domain allocation to Azure for maximum instance spreading, enhancing resilience and availability.
+It's recommended that you offload fault domain allocation to Azure for maximum instance spreading, enhancing resilience and availability.
 
 ##### OS patching
 You can use Maintenance Configurations to control and manage updates for both Windows and Linux VMs. Maintenance Configurations provides a centralized view of the patch status of your VMs, and you can schedule patching to occur during a maintenance window that you define based on three supported scopes. For more information, check out the [Maintenance Configuration scopes](/azure/virtual-machines/maintenance-configurations#scopes).
@@ -129,7 +129,7 @@ Consider disk characteristics and performance expectations when selecting a disk
 
 - **Tune caching for the workload**. Configure cache settings for all disks based on application component usage.
 
-    Components that mainly perform read operations don’t require high disk transactional consistency. Those components can benefit from read-only caching. Write-heavy components requiring high disk transactional consistency often have caching disabled.
+    Components that mainly perform read operations don't require high disk transactional consistency. Those components can benefit from read-only caching. Write-heavy components requiring high disk transactional consistency often have caching disabled.
 
     Using read-write caching could cause data loss if the VM crashes and is generally not recommended for most data disk scenarios.
 
@@ -165,7 +165,7 @@ Within the VNet, subnets are carved out based on functionality and security requ
 - Subnet for the Bastion host to facilitate operational access to the workload VMs. By design, the Bastion host needs a dedicated subnet.
 - Subnet to host private endpoints created to access other Azure resources over Private Links. While dedicated subnets are not mandatory for these endpoints, they are highly recommended. 
 
-Similar to VNets, subnets must be right-sized. For instance, you might want to leverage the maximum limit of VMs supported by Flex orchestration to meet the application’s scaling needs. The workload subnets should be capable of accommodating that limit. Another use case involves VM upgrades, which might require temporary IP addresses.
+Similar to VNets, subnets must be right-sized. For instance, you might want to leverage the maximum limit of VMs supported by Flex orchestration to meet the application's scaling needs. The workload subnets should be capable of accommodating that limit. Another use case involves VM upgrades, which might require temporary IP addresses.
 
 ##### Ingress traffic
 
@@ -241,7 +241,7 @@ The [Azure Monitor Agent (AMA)](/azure/azure-monitor/agents/agents-overview) is 
 
 ##### Networking
 
-Application Gateway and Azure Load Balancer use health probes to detect endpoint status. If a probe fails, new inbound connections to the unhealthy instance are stopped, while outbound connectivity remains unaffected. Health probes are set up to perform a simple HTTP test checking for a file’s existence, returning an HTTP 200 to the load balancer, if successful.
+Application Gateway and Azure Load Balancer use health probes to detect endpoint status. If a probe fails, new inbound connections to the unhealthy instance are stopped, while outbound connectivity remains unaffected. Health probes are set up to perform a simple HTTP test checking for a file's existence, returning an HTTP 200 to the load balancer, if successful.
 
 ##### Managed disks
 
@@ -251,7 +251,7 @@ The Azure platform perspective represents the metrics that a SAN operator would 
 
 From the platform perspective, data disk performance metrics (IOPS and throughput) can be viewed individually or collectively for all VM-attached disks. Use Storage IO utilization metrics for troubleshooting or alerting on potential disk capping. If using bursting for cost optimization, monitor Credits Percentage metrics to identify opportunities for further optimization.
 
-From the guest OS perspective, VM Insights is recommended for key metrics on attached disks, such as logical disk space used, and the OS kernel’s perspective on disk IOPS and throughput. Combining these with platform performance metrics can help isolate OS or application throughput issues.
+From the guest OS perspective, VM Insights is recommended for key metrics on attached disks, such as logical disk space used, and the OS kernel's perspective on disk IOPS and throughput. Combining these with platform performance metrics can help isolate OS or application throughput issues.
 
 ### Application-level monitoring
 
@@ -263,9 +263,9 @@ The [Application Health extension](/azure/virtual-machine-scale-sets/virtual-mac
 
 ## Security
 
-The reference architecture is designed illustrate some of the security assurances given in the [design review checklist given in Azure Well-Architected Framework](/azure/well-architected/security/checklist). The sections are annotated with recommendations from that checklist.
+This architecture illustrates some of the security assurances given in the [design review checklist given in Azure Well-Architected Framework](/azure/well-architected/security/checklist). The sections are annotated with recommendations from that checklist.
 
-Security is more than just technical controls. It's highly recommended that you follow the entire checklist to have full coverage of Security. 
+Security isn't just technical controls. It's highly recommended that you follow the entire checklist to understand the operational aspects of the Security pillar. 
 
 ##### Segmentation
 
@@ -343,19 +343,63 @@ It's also a good idea to use Key Vault for storage of secrets used for database 
 The Azure platform provides basic DDoS protection by default. This basic protection is targeted at protecting the Azure infrastructure. Although basic DDoS protection is automatically enabled, we recommend using [Azure DDoS Protection](/azure/virtual-network/ddos-protection-overview). DDoS Protection uses adaptive tuning, based on your application's network traffic patterns, to detect threats. This practice allows it to apply mitigations against DDoS attacks that might go unnoticed by the infrastructure-wide DDoS policies. DDoS Protection also provides alerting, telemetry, and analytics through Azure Monitor. For more information, see [Azure DDoS Protection: Best practices and reference architectures](/azure/security/fundamentals/ddos-best-practices).
 
 
-## Redundancy
+## Reliability 
 
-This architecture uses zone-redundancy for several components. Having instances run in separate zones protects the application against data center failures. 
+This architecture uses Azure-provided reliability features to make sure the workload is resilient to failures and is able to recover if there are outages at the infrastructure level. The following sections are aligned and annotated with the recommendations for Reliability given in the Azure Well-Architected Framework. 
 
-For more information about how availability zones work, see [Building solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability).
+Workload architectures should have reliability assurances in application code, infrastructure, and operations. Because there's no application deployed, resiliency in application code is beyond the scope of this architecture. We recommend that you review all recommendations given in [Reliability design review checklist](/azure/well-architected/reliability/checklist) and adopt them in your workload, if applicable.
 
-- VMs are automatically spread across availability zones. Each zone is made up of one or more datacenters with independent power, cooling, and networking. VMs are also placed in separate fault domains. This makes sure all VMs aren't updated at the same time. 
+##### Prioritize the reliability assurances per user flow
 
-- Managed disks can only be attached to a VM in the same region. Their availability typically impacts the availability of the VM. For single-region deployments, disks can be configured for redundancy within a datacenter; locally-Redundant Storage (LRS) or zone-Redundant Storage (ZRS). For most IaaS architectures, LRS is sufficient as it supports [zonal failure mitigations](/azure/virtual-machines/disks-redundancy#locally-redundant-storage-for-managed-disks). For workloads that need even less time to recover from failure, ZRS is a recommended. It requires a recovery strategy to take advantage of availability zones. Ideally pre-provisioned compute in alternate availability zones ready to recover from a zonal failure. 
+> Refer to Well-Architected Framework: [RE:02 - Recommendations for identifying and rating flows](/azure/well-architected/reliability/identify-flows).
+
+Most architectures have several user flows and not all of them need to be treated with the highest level of reliability assurances. Each flow might have a different set of the business requirements. It's recommended that the design uses a segmentation as one of the reliability strategies so that each segment can be managed independently and reliability of one segment doesn't impact the reliability of others.
+
+In this architecture, the design is segmented by application tiers. Separate virtual machine scale sets are provisioned for the frontend and backend tiers. This separation allows them to be scaled independently, you can apply distinct design patterns based on their requirements, and so on.  
+
+##### Identify the potential failure points
+
+> Refer to Well-Architected Framework: [RE:03 - Recommendations for performing failure mode analysis](/azure/well-architected/reliability/failure-mode-analysis).
+
+Every architecture is succeptible to failures. The exercise of failure mode analysis allows you to anticipate failures and be prepared with mitigations. Here are some potential failure points in this architecture:
+
+//TBD
+
+##### Reliability targets
+
+> Refer to Well-Architected Framework: [RE:04 - Recommendations for defining reliability targets](/azure/well-architected/reliability/metrics).
+
+To make design decisions, it's important to calculate the reliability targets, such as the composite Service Level Objectives (SLOs) pf the workload. This involves understanding the Service Level Agreements (SLAs) provided by Azure services used in the architecture. Workoad SLOs must not be higher than the SLAs provided by Azure. This is because it would be irresponsible to promise a higher level of service than what Azure itself guarantees. Therefore, understanding the SLAs and careful examination of each component, from VMs and their dependencies to networking and storage options, is essential.
+
+Here's an example calculation.
+
+//TBD
+
+In the preceding example, reliability of VMs and the dependencies are included. For instance, disks associated with VMs. The SLAs associated with disk storage impacts the overall reliability.
+
+There are some challenges when calculating the composite SLO. It's important to note that different tiers of service may come with different SLAs, and these often include financially-backed guarantees that set reliability targets. Finally there might be components that don't have SLAs defined. FOr example, in terms of networking, Network Interface Cards (NICs) might not have their own SLAs, they do operate within VNets. However, VNets themselves do not have SLAs.
+
+The business requirements and their targets must be clearly defined and factored into the calculation. Be aware of the service limits and additional constraints imposed by the organization. If your subscription is shared with other workloads, this could impact the resources available for your VMs. The workload might be allowed to use a limited number of cores available for the VMs. Understanding the resource usage of your subscription can help you design your VMs more effectively. 
+
+##### Redundancy
+
+> Refer to Well-Architected Framework: [RE:05 - Recommendations for designing for redundancy](/azure/well-architected/reliability/redundancy).
+
+This architecture uses zone-redundancy for several components. Each zone is made up of one or more datacenters with independent power, cooling, and networking. Having instances run in separate zones protects the application against data center failures. 
+
+- VMs are automatically spread across Availability Zones.  VMs are also placed in separate fault domains. This makes sure all VMs aren't updated at the same time. 
+
+    Azure VM scale sets allocate specified number of instances and distribute them evenly across Availability Zones and Fault Domains. This is achieved through the _maximum spread_ capability, which is recommended.
+
+    Consider a scenario where there are three Availability Zones. If you have three instances, each instance is allocated to a different Availability Zone and placed in a different Fault Domain. Azure guarantees that only one Fault Domain is updated at a time in each Availability Zone. However, there could be a situation all three Fault Domains in three Availability Zones are updated simultaneously. All zones and domains will be impacted. Having atleast two instances in each zone provides a buffer during upgrades.  
+
+- Managed disks can only be attached to a VM in the same region. Their availability typically impacts the availability of the VM. For single-region deployments, disks can be configured for redundancy within a datacenter; locally-Redundant Storage (LRS) or zone-Redundant Storage (ZRS). LRS is sufficient as it supports [zonal failure mitigations](/azure/virtual-machines/disks-redundancy#locally-redundant-storage-for-managed-disks). For workloads that need even less time to recover from failure, ZRS is a recommended. It requires a recovery strategy to take advantage of Availability Zones. Ideally pre-provision compute in alternate Availability Zones ready to recover from a zonal failure. 
 
     In this architecture, data disks are configured as LRS because all tiers are stateless. Recovery strategy is to redeploy the solution.
 
-- Application Gateway or a Standard Load Balancer are configured as zone-redundant. Traffic can be routed to VMs located across zones with a single IP address, which will survive zone failures. Both services use health probes to determine the availability of the VMs. One or more availability zones can fail but routing survives as long as one zone in the region remains healthy. Routing across zones has higher latency than routing within the zone.
+- Application Gateway or a Standard Load Balancer are configured as zone-redundant. Traffic can be routed to VMs located across zones with a single IP address, which will survive zone failures. Both services use health probes to determine the availability of the VMs. One or more Availability Zones can fail but routing survives as long as one zone in the region remains healthy. Routing across zones has higher latency than routing within the zone.
+
+- Global and regional services. Azure supports services that zone-redundant that is, they are spread across multiple zones. They manage their own reliability.  If it fails in one zone, there is an instance in the another zone. There are also global resournces, which will always be available. If a region is down, its pointed to another region. In this architecture, Key Vault is zone-redudant. The foundational IdP, Microsoft Entra ID is global.
 
 ## Alternatives
 
