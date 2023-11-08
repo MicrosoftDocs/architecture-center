@@ -1267,6 +1267,8 @@ items:
           href: guide/hpc/hpc-lammps.yml  
         - name: Luxion KeyShot
           href: guide/hpc/luxion-keyshot.yml
+        - name: M-Star  
+          href: guide/hpc/m-star.yml
         - name: NAMD
           href: guide/hpc/hpc-namd.yml  
         - name: OpenFOAM
