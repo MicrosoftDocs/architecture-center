@@ -48,11 +48,10 @@ An architecture built on the features and flexibility provided by the three serv
     - Use Azure Monitor Agent to ingest data from VMs, containers, and workloads.
     - Use a wide range of connectors, agents, and APIs supported by the three services - such as Logstash, Kafka, and Logstash connectors, OpenTelemetry agents, Azure Data Explorer APIs, and Azure Monitor Log Ingestion API - to ingest data from on-premises resources and other clouds.
     - Stream in data using Azure data streaming services, such as Azure IoT Hub, Azure Event Hubs, Azure Stream Analytics. 
-
-1. Store IT infrastructure and application log data in Log Analytics workspaces for ongoing operational and security monitoring by Azure Monitor and Microsoft Sentinel. Store data in Azure Data Explorer based on other real-time analytics needs.
 1. Use Azure Monitor for monitoring the performance, availability, and health of applications, services, and IT resources to gain insights into the operational status of your cloud infrastructure, identify issues, and optimize performance.
 1. Use Azure Sentinel as a cloud-native Security Information and Event Management (SIEM) and Security Orchestration, Automation, and Response (SOAR) solution to analyze and act on security-related data across your IT environment.
-1. Apply advanced machine learning on a broad data set of data to discover patterns, detect anomalies, forecast, and gain other insights.
+1. Use Azure Data Explorer for real-time analysis of any type of data, including user and business data.
+1. Apply advanced machine learning on a broad data set of data from your entire data estate to discover patterns, detect anomalies, forecast, and gain other insights.
 1. Leverage the tight integration between services to augment monitoring and analytics capabilities:
    
      - [Run cross-service queries](/azure/data-explorer/query-monitor-data) to analyze data from Microsoft Sentinel, Azure Monitor, and Azure Data Explorer in a single query without moving the data.
