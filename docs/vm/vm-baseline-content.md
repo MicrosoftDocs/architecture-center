@@ -409,7 +409,7 @@ When it comes to the resiliency of Azure Virtual Machines (VMs), overprovisionin
 
 Overprovisioning is a strategy used to immediately mitigate individual failures. This is achieved by having sufficient horizontal capacity. However, it's not just about having extra capacity. It's also about ensuring that your resources are not underprovisioned. The VM should be the right size for the workload it's expected to handle.
 
-There are other 
+
 
 ## Alternatives
 
