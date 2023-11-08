@@ -331,10 +331,11 @@ Other contributors:
 ### Azure product introductions
 
 - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
-- [What is Apache Spark in Azure HDInsight](/azure/hdinsight/spark/apache-spark-overview)
+- [What is Apache Spark in Azure HDInsight?](/azure/hdinsight/spark/apache-spark-overview)
 - [What is Apache Hadoop in Azure HDInsight?](/azure/hdinsight/hadoop/apache-hadoop-introduction)
-- [What is Apache HBase in Azure HDInsight](/azure/hdinsight/hbase/apache-hbase-overview)
-- [What is Apache Kafka in Azure HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction)
+- [What is Apache HBase in Azure HDInsight?](/azure/hdinsight/hbase/apache-hbase-overview)
+- [What is Apache Kafka in Azure HDInsight?](/azure/hdinsight/kafka/apache-kafka-introduction)
+- [Overview of enterprise security in Azure HDInsight](/azure/hdinsight/domain-joined/hdinsight-security-overview)
 
 ### Azure product reference
 
