@@ -401,6 +401,16 @@ This architecture uses zone-redundancy for several components. Each zone is made
 
 - Global and regional services. Azure supports services that zone-redundant that is, they are spread across multiple zones. They manage their own reliability.  If it fails in one zone, there is an instance in the another zone. There are also global resournces, which will always be available. If a region is down, its pointed to another region. In this architecture, Key Vault is zone-redudant. The foundational IdP, Microsoft Entra ID is global.
 
+##### Reliable scaling strategy
+
+> Refer to Well-Architected Framework: [RE:06 - Recommendations for designing a reliable scaling strategy](/azure/well-architected/reliability/redundancy).
+
+When it comes to the resiliency of Azure Virtual Machines (VMs), overprovisioning plays a crucial role. This process involves understanding the workload that an individual VM is expected to handle. It's important to identify the maximum amount of work the VM will be tasked with and ensure that the selected VM is not undersized for this workload.
+
+Overprovisioning is a strategy used to immediately mitigate individual failures. This is achieved by having sufficient horizontal capacity. However, it's not just about having extra capacity. It's also about ensuring that your resources are not underprovisioned. The VM should be the right size for the workload it's expected to handle.
+
+There are other 
+
 ## Alternatives
 
 ##### Egress traffic
