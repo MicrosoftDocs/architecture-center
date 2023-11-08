@@ -70,13 +70,14 @@ Resolve authentication and authorization problems when logging into an Azure con
 - [Missing or incorrect registry name](/azure/container-registry/container-registry-troubleshoot-login#specify-correct-registry-name).
 - [Invalid registry credentials](/azure/container-registry/container-registry-troubleshoot-login#confirm-credentials-to-access-registry).
 - [Disabled public access or incorrect public network access rules](/azure/container-registry/container-registry-troubleshoot-access#configure-public-access-to-registry).
-- [Inadequate authorization for push, pull, or Azure Resource Manager operations](/azure/container-registry/container-registry-troubleshoot-login#confirm-credentials-are-authorized-to-access-registry).
+- [Troubleshoot registry login](/azure/container-registry/container-registry-troubleshoot-login).
 - [Expired credentials](/azure/container-registry/container-registry-troubleshoot-login#check-that-credentials-arent-expired).
 
 ### Performance Issues
 
 Resolve potential performance issues encountered with an Azure container registry using the following troubleshooting approaches:
 
+- [Enable Artifact Cache](/azure/container-registry/tutorial-artifact-cache)
 - [Check network connection speed impacting registry operations](/azure/container-registry/container-registry-troubleshoot-performance#check-expected-network-speed).
 - [Inspect client hardware impacting image layer compression or extraction speed](/azure/container-registry/container-registry-troubleshoot-performance#check-client-hardware).
 - [Review configured limits in the registry service tier or environment](/azure/container-registry/container-registry-troubleshoot-performance#review-configured-limits).
