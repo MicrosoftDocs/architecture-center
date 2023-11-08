@@ -23,4 +23,4 @@ name: Build and deploy a social media analytics solution
 summary: Build and deploy a social medial analytics solution that uses Azure Synapse Analytics, Azure Machine Learning, and Azure Cognitive Services with external data.
 thumbnailUrl: /azure/architecture/browse/thumbs/build-deploy-social-media-analytics-solution-thumbnail.png
 content: |
-  [!include[](build-deploy-social-media-analytics-solution-content.md)]
+  [!INCLUDE[](build-deploy-social-media-analytics-solution-content.md)]

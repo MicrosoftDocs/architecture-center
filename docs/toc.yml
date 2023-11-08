@@ -439,6 +439,8 @@ items:
           href: guide/multitenant/approaches/deployment-configuration.yml
         - name: Compute
           href: guide/multitenant/approaches/compute.md
+        - name: Control planes 
+          href: guide/multitenant/approaches/control-planes.md
         - name: Networking
           href: guide/multitenant/approaches/networking.md
         - name: Storage and data
@@ -1249,6 +1251,8 @@ items:
           href: guide/hpc/hpc-avl-fire-m.yml
         - name: Barracuda Virtual Reactor
           href: guide/hpc/barracuda-virtual-reactor.yml
+        - name: CP2K
+          href: guide/hpc/cp2k.yml
         - name: Engys deployments
           items:
           - name: Engys ELEMENTS
@@ -1263,6 +1267,8 @@ items:
           href: guide/hpc/hpc-lammps.yml  
         - name: Luxion KeyShot
           href: guide/hpc/luxion-keyshot.yml
+        - name: M-Star  
+          href: guide/hpc/m-star.yml
         - name: NAMD
           href: guide/hpc/hpc-namd.yml  
         - name: OpenFOAM
@@ -5030,6 +5036,8 @@ items:
         href: example-scenario/ai/deploy-real-time-machine-learning-model-application-ui.yml
       - name: Run CFD simulations
         href: example-scenario/infrastructure/hpc-cfd.yml
+      - name: Software-defined vehicle DevOps toolchain
+        href: industries/automotive/software-defined-vehicle-reference-architecture.yml
     - name: Datasets
       items:
       - name: NYC Taxi
