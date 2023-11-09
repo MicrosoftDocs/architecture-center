@@ -1,5 +1,3 @@
-**Power Real time analytics : Enable real time sync of MongoDB Atlas data changes to Azure Synapse** 
-
 The era of AI demands real-time analytics as a paramount capability for enterprises as it enables them to make quick decisions and perform automated actions based on current insights while also delivering enhanced customer experiences. This solution depicts how to keep Synapse Analytics data pools in sync with the operational data changes in MongoDB. 
 
 **Architecture** 
