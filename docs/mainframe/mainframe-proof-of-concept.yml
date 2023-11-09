@@ -2,10 +2,10 @@
 metadata:
   title: Mainframe workload migration proof of concept
   titleSuffix: Azure Architecture Center
-  description: Learn how to use Mainframe workload migration proof of concept.
+  description: Learn about guidance for creating a proof of concept, which helps you migrate a workload from a mainframe to the cloud.
   author: vramakrishna_microsoft
   ms.author: vramakrishna
-  ms.date: 11/07/2023
+  ms.date: 11/09/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
@@ -18,6 +18,6 @@ products:
   - azure-expressroute
 name: Mainframe workload migration proof of concept
 summary: Learn how to use Mainframe workload migration proof of concept.
-thumbnailUrl: /azure/architecture/browse/thumbs/unisys-clearpath-forward-OS-2200-mainframe-rehost-diagram-postmigration.png
+thumbnailUrl: /azure/architecture/browse/thumbs/mainframe-proof.png
 content: |
   [!include[](mainframe-proof-of-concept-content.md)]

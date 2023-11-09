@@ -2622,6 +2622,9 @@ items:
         - name: Mainframe application migration
           href: /azure/cloud-adoption-framework/infrastructure/mainframe-migration/application-strategies
           maintainContext: true
+        - name: Mainframe workload migration proof of concept
+          href: mainframe/mainframe-proof-of-concept.yml
+          maintainContext: true
       - name: Mainframe rehosting
         items:
         - name: Mainframe rehosting on Azure VMs
