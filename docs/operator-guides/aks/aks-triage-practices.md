@@ -1,7 +1,7 @@
 ---
-title: Kubernetes Service (AKS) operations triage
+title: Azure Kubernetes Service (AKS) operations triage
 titleSuffix: Azure Architecture Center
-description: Examine a short overview of triage practices for Azure Kubernetes Service (AKS) operations. View links to get more details about different triage practices.
+description: Learn how to examine a short overview of triage practices for Azure Kubernetes Service (AKS) operations.
 author: kevingbb
 ms.date: 10/16/2023
 ms.topic: conceptual
@@ -17,11 +17,11 @@ ms.custom:
 
 # Triage practices for AKS operations
 
-It's often challenging to do root-cause analysis given the different aspects of an AKS cluster. When triaging issues, consider a top-down approach on the cluster hierarchy. Start at the cluster level and drill down if necessary.
+It's often challenging to do root-cause analysis given the different aspects of an Azure Kubernetes Service (AKS) cluster. When triaging issues, consider a top-down approach on the cluster hierarchy. Start at the cluster level and drill down if necessary.
 
-![AKS cluster components](./images/kube-components.svg)
+![Image that shows AKS cluster components.](./images/kube-components.svg)
 
-In the triage practices series, we'll walk you through the thought process of this approach. The articles show examples using a set of tools and dashboards, and how they can highlight some symptoms.
+The triage practices series describes the thought process behind this approach. The articles show examples by using a set of tools and dashboards, and how they can highlight some symptoms.
 
 Common causes addressed in this series include:
 
@@ -60,7 +60,7 @@ Other contributors:
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-## Related links
+## Next steps
 
 - [Day-2 operations](https://dzone.com/articles/defining-day-2-operations)
 - [AKS periscope](https://github.com/Azure/aks-periscope)

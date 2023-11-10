@@ -254,41 +254,42 @@ The pressure increases when kubelet restarts and causes sporadic, unpredictable 
 
 ## Step 5: Check node health using Node Problem Detector (NPD)
 
-[Node Problem Detector (NPD)](https://github.com/kubernetes/node-problem-detector) is a Kubernetes component that you can use to identify and report node-related issues. It operates as a systemd service on every node within the cluster. It gathers metrics and system information, such as CPU usage, disk usage, and network connectivity. Whenever a problem is detected, NPD generates events or node conditions. In AKS, NPD is utilized to monitor and manage nodes in a Kubernetes cluster hosted on the Azure cloud platform. For more information about utilizing node problem detector with AKS, see [NPD in AKS nodes](/azure/aks/node-problem-detector?source=recommendations).
+[Node problem detector (NPD)](https://github.com/kubernetes/node-problem-detector) is a Kubernetes component that you can use to identify and report node-related issues. It operates as a systemd service on every node within the cluster. It gathers metrics and system information, such as CPU usage, disk usage, and network connectivity. When a problem is detected, NPD generates events or node conditions. In AKS, NPD is used to monitor and manage nodes in a Kubernetes cluster that's hosted on the Azure cloud platform. For more information, see [NPD in AKS nodes](/azure/aks/node-problem-detector).
 
-## Step 6: Check disk IOPS for throttling
+## Step 6: Check disk input/output operations per second (IOPS) for throttling
 
-To ensure that file operations (IOPS) are not being throttled and impacting services and workloads within your AKS cluster, you can utilize the following tools:
+To ensure that IOPS aren't being throttled and affecting services and workloads within your AKS cluster, you can use the following tools:
 
-- **AKS - Node Disk IO Workbook:** To monitor the disk IO related metrics of the worker nodes in your AKS cluster, you can utilize the [Node Disk IO](/azure/azure-monitor/containers/container-insights-analyze#workbooks) workbook. Follow these steps to access the workbook:
-  - Go to the Azure portal and navigate to your AKS cluster.
-  - Choose `Workbooks` under the `Monitoring` blade in the left navigation panel.
-  - In the right pane, choose the `Node Disk IO` workbook.
+- **AKS - Node disk IO workbook:** To monitor the disk IO related metrics of the worker nodes in your AKS cluster, you can use the [node disk IO](/azure/azure-monitor/containers/container-insights-analyze#workbooks) workbook. Follow these steps to access the workbook:
+  1. Go to the Azure portal and navigate to your AKS cluster.
+  1. Choose `Workbooks` under the `Monitoring` blade in the left navigation panel.
+  1. In the right pane, choose the `Node Disk IO` workbook.
   
-  ![Node Disk IO Workbook](images/node-disk-io-workbook.png)
+     ![Screenshot that shows the node disk IO workbook.](images/node-disk-io-workbook.png)
   
-  - Scroll down the workbook to review the IO-related metrics.
+  1. Scroll down the workbook to review the IO-related metrics.
 
-  ![Disk IO Metrics](images/node-disk-io-workbook-detail.png)
+     ![Screenshot that shows the disk IO metrics.](images/node-disk-io-workbook-detail.png)
 
-- **In-cluster monitoring with Prometheus and Grafana:** If you deployed [Prometheus](https://prometheus.io/) and [Grafana](https://grafana.com/) in your Azure Kubernetes Service (AKS) cluster for monitoring and visualization, you can utilize the [USE Method / Node](https://grafana.com/grafana/dashboards/12136-use-method-node/?tab=reviews) dashboard to gain insights on the Disk IO on the cluster worker nodes.
+- **In-cluster monitoring with Prometheus and Grafana:** If you deployed [Prometheus](https://prometheus.io) and [Grafana](https://grafana.com) in your AKS cluster for monitoring and visualization, you can use the [USE Method / Node](https://grafana.com/grafana/dashboards/12136-use-method-node) dashboard to gain insights about the disk IO on the cluster worker nodes.
 
-   ![Prometheus and Grafana Dashboard - Node Disk](images/node-diskio.png)
+   ![Screenshot that shows the Prometheus and Grafana dashboard node disk.](images/node-diskio.png)
 
-- **Azure Monitor Managed Service for Prometheus and Azure Managed Grafana:** If you have set up your Azure Kubernetes Service (AKS) cluster to collect Prometheus metrics to [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview) and connected your [Azure Monitor Workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-manage#link-a-grafana-workspace) to an [Azure Managed Grafana](/azure/managed-grafana/overview)  workspace, you can leverage the `Node Exporter / Nodes` pre-built dashboard to visualize and analyze disk IO related metrics from the worker nodes.
+- **Azure Monitor-managed service for Prometheus and Azure-managed Grafana:** If you set up your AKS cluster to collect Prometheus metrics to [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview) and connect your [Azure Monitor workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-manage#link-a-grafana-workspace) to an [Azure-managed Grafana](/azure/managed-grafana/overview) workspace, you can leverage the `Node Exporter / Nodes` prebuilt dashboard to visualize and analyze disk IO related metrics from the worker nodes.
 
-  ![Azure Managed Grafana Node Exporter / Nodes Dashboard](images/azure-managed-grafana-node-exporter-dashboard.png)
+  ![Screenshot that shows the Azure-managed Grafana node exporter/nodes dashboard.](images/azure-managed-grafana-node-exporter-dashboard.png)
 
-Physical storage devices have inherent limitations in terms of bandwidth and the maximum number of file operations they can handle. Azure Disks, utilized to store the operating system running on AKS nodes, are subject to the same physical storage constraints.
+Physical storage devices have inherent limitations in terms of bandwidth and the maximum number of file operations that they can handle. Azure disks store the operating system that runs on AKS nodes. The disks are subject to the same physical storage constraints.
 
-Consider the concept of throughput, which is determined by multiplying the average input/output (IO) size by the input/output operations per second (IOPS). This calculation provides the throughput in megabytes per second (MB/s). It is important to recognize that larger IO sizes translate to lower IOPS due to the fixed throughput of the disk.
+Consider the concept of throughput. You can multiply the average IO size by the IOPS to determine the throughput in megabytes per second (MB/s). Larger IO sizes translate to lower IOPS because of the fixed throughput of the disk.
 
-When a workload surpasses the maximum IOPS service limits assigned to Azure Disks, the cluster may become unresponsive and enter an IO Wait state. It is essential to understand that in Linux-based systems, nearly everything is treated as a file, encompassing network sockets, Container Networking Interface (CNI), Docker, and other services reliant on network I/O. Consequently, if the disk cannot be read, the failure will extend to all these files.
+When a workload surpasses the maximum IOPS service limits assigned to Azure disks, the cluster might become unresponsive and enter an IO Wait state. In Linux-based systems, nearly everything is treated as a file, encompassing network sockets, Container Networking Interface (CNI), Docker, and other services that are reliant on network I/O. Consequently, if the disk can't be read, the failure extends to all these files.
 
 Several events and scenarios can trigger IOPS throttling, including:
 
-- A substantial number of containers running on the nodes, as Docker I/O shares the operating system disk (OS disk).
-- The presence of custom or third-party tools employed for security, monitoring, and logging, which may generate additional I/O operations on the OS disk.
+- A substantial number of containers running on the nodes, because Docker I/O shares the OS disk.
+
+- The presence of custom or third-party tools employed for security, monitoring, and logging, which might generate additional I/O operations on the OS disk.
 - Node failover events and periodic jobs that intensify the workload or scale the number of pods. This increased load heightens the likelihood of throttling occurrences, potentially causing all nodes to transition to a `NotReady` state until the I/O operations conclude.
 
 ## Contributors
