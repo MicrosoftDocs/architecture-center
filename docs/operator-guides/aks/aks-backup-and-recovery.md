@@ -166,15 +166,6 @@ To ensure that your scenario is supported, consult the following documentation:
 - [AKS Backup overview](/azure/backup/azure-kubernetes-service-backup-overview)
 - [AKS Backup support matrix](/azure/backup/azure-kubernetes-service-cluster-backup-support-matrix)
 
-## Learn more about AKS Backup
-
-- [AKS Backup Prerequisites](/azure/backup/azure-kubernetes-service-cluster-backup-concept)
-- [Configuring AKS Backup](/azure/backup/azure-kubernetes-service-cluster-backup-concept)
-- [Creating a backup policy](/azure/backup/azure-kubernetes-service-cluster-backup#create-a-backup-policy)
-- [Configuring backups](/azure/backup/azure-kubernetes-service-cluster-backup#configure-backups)
-- [Restoring an AKS cluster](/azure/backup/azure-kubernetes-service-cluster-restore)
-- [Business continuity and disaster recovery best practices for AKS](/azure/aks/operator-best-practices-multi-region)
-
 ## Contributors
 
 _This article is maintained by Microsoft. It was originally written by the following contributors._
@@ -188,3 +179,28 @@ Other contributors:
 
 - [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
 - [Sonia Cuff](https://www.linkedin.com/in/soniacuff) | Principal Cloud Advocate Lead
+
+## Next steps
+
+### Learn more about AKS Backup
+
+- [AKS Backup overview](/azure/backup/azure-kubernetes-service-backup-overview)
+- [AKS Backup support matrix](/azure/backup/azure-kubernetes-service-cluster-backup-support-matrix)
+- [AKS Backup Prerequisites](/azure/backup/azure-kubernetes-service-cluster-backup-concept)
+- [Configuring AKS Backup](/azure/backup/azure-kubernetes-service-cluster-backup-concept)
+- [Creating a backup policy](/azure/backup/azure-kubernetes-service-cluster-backup#create-a-backup-policy)
+- [Configuring backups](/azure/backup/azure-kubernetes-service-cluster-backup#configure-backups)
+- [Restoring an AKS cluster](/azure/backup/azure-kubernetes-service-cluster-restore)
+- [Business continuity and disaster recovery best practices for AKS](/azure/aks/operator-best-practices-multi-region)
+- [Reliability patterns - Cloud Design Patterns](/azure/well-architected/resiliency/reliability-patterns#high-availability)
+
+### Third-party AKS backup and recovery options
+
+- [Kasten](https://docs.kasten.io/latest/index.html)
+- [Velero](https://velero.io/docs)
+
+## Related resources
+
+- [Azure Kubernetes Services (AKS) day-2 operations guide - Introduction](/azure/architecture/operator-guides/aks/day-2-operations-guide)
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
+- [AKS baseline for multiregion clusters](/azure/architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster)
