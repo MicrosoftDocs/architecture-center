@@ -3,7 +3,7 @@ title: Kubernetes Service (AKS) operations triage
 titleSuffix: Azure Architecture Center
 description: Examine a short overview of triage practices for Azure Kubernetes Service (AKS) operations. View links to get more details about different triage practices.
 author: kevingbb
-ms.date: 04/11/2022
+ms.date: 10/16/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -44,6 +44,21 @@ This series isn't intended to resolve specific issues. For information about tro
 |[3- Check the workload deployments](aks-triage-deployment.md)|Check to see that all deployments and daemonSets are running.|
 |[4- Validate the admission controllers](aks-triage-controllers.md)|Check whether the admission controllers are working as expected.|
 |[5- Verify the connection to the container registry](aks-triage-container-registry.md)|Verify the connection to the container registry.|
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+- [Kevin Harris](https://www.linkedin.com/in/kevbhar) | Principal Solution Specialist
+
+Other contributors:
+
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Customer Engineer
+- [Francis Simy Nazareth](https://www.linkedin.com/in/francis-simy-nazereth-971440a) | Senior Technical Specialist
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Related links
 
