@@ -1,30 +1,30 @@
-The era of AI demands real-time analytics as a paramount capability for enterprises as it enables them to make quick decisions and perform automated actions based on current insights while also delivering enhanced customer experiences. This solution depicts how to keep Synapse Analytics data pools in sync with the operational data changes in MongoDB. 
+Real-time analytics can help you make quick decisions and perform autmomated actions based on current insights. It can also help you deliver enhanced customer experiences. This solution shows how to keep Azure Synapse Analytics data pools in sync with operational data changes in MongoDB.
 
 ## Architecture
 
-The Architecture diagram below illustrates how to implement a real-time sync from Atlas to Synapse. This simple flow will ensure any changes occurring in the MongoDB Atlas collection are replicated to the default ADLS Gen 2 storage of the Synapse Workspace. Once the data is in ADLS Gen2, Synapse Pipelines can be used to push the data to Dedicated SQL Pools, Spark Pools, or other solutions depending on the analytics requirements.
+The following diagram shows how to implement a real-time sync from Atlas to Azure Synapse Analytics. This simple flow ensures that any changes that occur in the MongoDB Atlas collection are replicated to the default Azure Data Lake Storage repository of the Azure Synapse Analytics workspace. After the data is in Data Lake Storage, you can use Azure Synapse Analytics pipelines to push the data to dedicated SQL pools, Spark pools, or other solutions, depending on your analytics requirements.
 
 ![](media/image7.png)
 
 *Figure 1*
 
-*Download a [Visio file](https://arch-center.azureedge.net/[filename].vsdx) of this architecture* 
+*Download a [Visio file](https://arch-center.azureedge.net/[filename].vsdx) of this architecture.* 
 
-### Dataflow 
+### Dataflow
 
-Real time changes in the Operational Data Store (ODS) powered by MongoDB Atlas are captured and made available to ADLS Gen2 storage in Azure Synapse Analytics for real-time analytics use cases, live reports and dashboards using the preceding figure. 
+Real-time changes in the operational data store (ODS) powered by MongoDB Atlas are captured and made available to Data Lake Storage in Azure Synapse Analytics for real-time analytics use cases, live reports, and dashboards using the preceding figure. 
 
 The steps in the flow are: 
 
-Real-time data changes occurring in the operational/ transactional datastore powered by MongoDB Atlas are captured by [MongoDB Atlas Triggers](https://www.mongodb.com/docs/atlas/app-services/triggers/).
+1. Real-time data changes occurring in the operational/ transactional datastore powered by MongoDB Atlas are captured by [MongoDB Atlas Triggers](https://www.mongodb.com/docs/atlas/app-services/triggers/).
 
- [MongoDB Atlas Database trigger](https://www.mongodb.com/docs/atlas/app-services/triggers/database-triggers/) on identifying an event, passes the change type and the document that underwent change (full or delta) to a [MongoDB Atlas function](https://www.mongodb.com/docs/atlas/app-services/functions/).
+1. [MongoDB Atlas Database trigger](https://www.mongodb.com/docs/atlas/app-services/triggers/database-triggers/) on identifying an event, passes the change type and the document that underwent change (full or delta) to a [MongoDB Atlas function](https://www.mongodb.com/docs/atlas/app-services/functions/).
 
-Atlas function triggers an Azure function passing the change event and the json document.
+1. Atlas function triggers an Azure function passing the change event and the json document.
 
-Azure function uses the Data Lake client and writes the changed document to the configured Synapse ADLS Gen2 storage.
+1. Azure function uses the Data Lake client and writes the changed document to the configured Synapse ADLS Gen2 storage.
 
-Once the data is in ADLS Gen2 it can be sent to Dedicated SQL pools, Spark pools, other solutions. Alternatively, you can convert the data from JSON to parquet/delta formats using Dataflow or Synapse Copy pipelines to further run BI reporting or AI/ML on the current data. 
+1. Once the data is in ADLS Gen2 it can be sent to Dedicated SQL pools, Spark pools, other solutions. Alternatively, you can convert the data from JSON to parquet/delta formats using Dataflow or Synapse Copy pipelines to further run BI reporting or AI/ML on the current data. 
 
 ### Components
 
@@ -104,7 +104,7 @@ The Atlas function code triggers the Azure function associated with the Azure fu
 
 The `<<azure function url endpoint>>` needs to be replaced with the actual Azure function url/ endpoint.
 
-    exports =  function(changeEvent) {
+    exports =  function(changeEvent) {
     
         // Invoke Azure function inserting the change stream into ADLS gen2
         console.log(typeof fullDocument);
@@ -115,7 +115,7 @@ The `<<azure function url endpoint>>` needs to be replaced with the actual Azure
         });
         return response;
     };
-``
+
 
 B. *Trigger the Azure function to Propagate the Changes to Synapse:* 
 
@@ -166,7 +166,7 @@ You will notice in the code that for a Delete operation the *fullDocumentBeforeC
      file_client.append_data(data=encoded_data, offset=0, length=len(encoded_data))
      file_client.flush_data(len(encoded_data))
      return func.HttpResponse(f"This HTTP triggered function executed successfully.")
-``
+
 
 So far, we saw how the Atlas trigger captures any change that occurred and passes it to Azure function via an Atlas function and that the Azure function writes the change document as a new file in ADLS Gen 2 storage of the Synapse Analytics workspace. 
 
@@ -182,32 +182,32 @@ The use cases span across multiple industries including Retail, Financial Servic
 
 A short summary of the prominent use cases is listed below: 
 
-<kbd>Retail</kbd>
+Retail
 
-* <kbd>Building intelligence into product bundling and product promotion</kbd>
-  * <kbd>Customer 360 and hyper</kbd>-<kbd>personalisation</kbd>
-  * <kbd>Predict</kbd>ing <kbd>stock depletion </kbd>and <kbd>optimizing</kbd> supply-chain orders
-  * <kbd>Dynamic discount pricing and smart search in ecommerce</kbd>
+* Building intelligence into product bundling and product promotion
+* Customer 360 and hyper-personalisation
+* Predicting stock depletion and optimizing supply-chain orders
+* Dynamic discount pricing and smart search in ecommerce
 
-<kbd>Banking and finance</kbd>
+Banking and finance
 
-* <kbd>Customizing customer financial services</kbd>
-  * <kbd>Detecting </kbd>and blocking <kbd>fraudulent transactions</kbd>
+* Customizing customer financial services
+* Detecting and blocking fraudulent transactions
 
-<kbd>Telecommunications</kbd>
+Telecommunications
 
-* <kbd>Optimizing next-generation networks</kbd>
-  * <kbd>Maximizing the value of edge networks</kbd>
+* Optimizing next-generation networks
+* Maximizing the value of edge networks
 
-<kbd>Automotive</kbd>
+Automotive
 
-* <kbd>Optimizing parameterization of connected vehicles</kbd>
-  * <kbd>Detecting anomalies in IoT communication in connected vehicles</kbd>
+* Optimizing parameterization of connected vehicles
+* Detecting anomalies in IoT communication in connected vehicles
 
-<kbd>Manufacturing</kbd>
+Manufacturing
 
-* <kbd>Providing predictive maintenance for machinery</kbd>
-  * <kbd>Optimizing storage and inventory management</kbd>  
+* Providing predictive maintenance for machinery
+* Optimizing storage and inventory management  
 
 ## Considerations
 
