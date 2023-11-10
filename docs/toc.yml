@@ -165,43 +165,48 @@ items:
         - name: Periodic data transfer
           href: /azure/storage/common/storage-solution-periodic-data-transfer
           maintainContext: true
-    - name: Choose a data store
+     - name: Choose a data store
       items:
-      - name: Understand data store models
-        href: guide/technology-choices/data-store-overview.md
-      - name: Select a data store
-        href: guide/technology-choices/data-store-decision-tree.md
-      - name: Review data options
-        href: guide/technology-choices/data-options.md
-      - name: Criteria for choosing a data store
-        href: guide/technology-choices/data-store-considerations.md
-      - name: Big data storage
-        href: data-guide/technology-choices/data-storage.md
+      - name: Understanding Data Store Models
+        items:
+          - name: Types data store models
+            href: guide/technology-choices/data-store-overview.md
+          - name: Non-relational data store
+            href: data-guide/big-data/non-relational-data.yml
+          - name: Review data options
+            href: guide/technology-choices/data-options.md
+          - name: Criteria for choosing a data store
+            href: guide/technology-choices/data-store-considerations.md
+      - name: Selecting a Data Store Model
+        items:
+          - name: Big data storage
+            href: data-guide/technology-choices/data-storage.md
+          - name: Compare NoSQL and relational
+            href: /azure/cosmos-db/relational-nosql
+          - name: Choose an API in Cosmos DB
+            href: /azure/cosmos-db/choose-api
+          - name: PostgreSQL options
+            href: /azure/postgresql/single-server/overview-postgres-choose-server-options
+          - name: Search data store
+            href: data-guide/technology-choices/search-options.md
+          - name: Select a data store
+            href: guide/technology-choices/data-store-decision-tree.md 
       - name: Database scenarios
         items:
         - name: OLAP solutions
           href: data-guide/relational-data/online-analytical-processing.yml
         - name: OLTP solutions
           href: data-guide/relational-data/online-transaction-processing.md
+        - name: Data warehousing
+          href: data-guide/relational-data/data-warehousing.yml
         - name: Data lakes
           href: data-guide/scenarios/data-lake.md
-        - name: Non-relational data store
-          href: data-guide/big-data/non-relational-data.yml
-        - name: Compare NoSQL and relational
-          href: /azure/cosmos-db/relational-nosql
-          maintainContext: true
+      - name: Data Movement
+        items:
         - name: Pipeline orchestration
           href: data-guide/technology-choices/pipeline-orchestration-data-movement.md
-        - name: Search data store
-          href: data-guide/technology-choices/search-options.md
-        - name: PostgreSQL options
-          href: /azure/postgresql/single-server/overview-postgres-choose-server-options
-          maintainContext: true
         - name: Data transfer options
           href: data-guide/scenarios/data-transfer.md
-        - name: Choose an API in Cosmos DB
-          href: /azure/cosmos-db/choose-api
-          maintainContext: true
     - name: Choose an analytics solution
       items:
       - name: Analytical data stores
