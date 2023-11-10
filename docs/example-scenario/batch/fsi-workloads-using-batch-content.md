@@ -8,7 +8,7 @@ _Download a [Visio file](https://arch-center.azureedge.net/secured-azure-batch-w
 
 ### Workflow
 
-This example scenario demonstrates how to run FSI workloads on Azure using Azure Batch. A typical workflow you might follow is as follows:
+This example scenario demonstrates how to run FSI workloads on Azure using Azure Batch. Here is a typical workflow you might follow:
 
 1. Connect to the private network using VPN Gateway. Alternatively, RDP or SSH to the jumpbox VMs using Azure Bastion. Either approach can be used to connect to the private network.
 1. Upload any datasets for processing to the storage account using the Azure CLI, Azure Storage Explorer, or `azcopy`.
@@ -18,7 +18,7 @@ This example scenario demonstrates how to run FSI workloads on Azure using Azure
 
 ### Components
 
-This architecture consists of several Azure cloud services and is divided into two categories of resources: hub resources and spoke resources. The services for each and their roles are described in the following sections.
+This architecture consists of several Azure cloud services and is divided into two categories of resources: hub resources and spoke resources. More detail about the [hub and spoke network topology](#network-topology) is provided later in this article. The services for each and their roles are described in the following sections.
 
 #### Hub resources
 
@@ -47,13 +47,13 @@ Let's now look at the resources deployed on the spoke network. These resources h
 
 The resources deployed on the spoke network are as follows:
 
-- [Azure Batch](https://azure.microsoft.com/services/batch) is the core service that our architecture relies on for cloud-native job scheduling and execution. Azure Batch manages the compute resources required, schedules the tasks on the compute resources, and monitors the tasks for completion. The Batch service is deployed with two pools: a pool named "linux" with Linux compute nodes and a pool named "windows" with Windows compute nodes. The pools are configured to:
+- [Azure Batch](https://azure.microsoft.com/services/batch) is the core service that our architecture relies on for cloud-native job scheduling and execution. Azure Batch manages the compute resources required, schedules the tasks on the compute resources, and monitors the tasks for completion. The Batch service is deployed with two pools: a pool named "linux" with Linux compute nodes and a pool named "windows" with Windows compute nodes. The pools are configured to do the following:
 
-  - Use user subscription pool allocation mode. All resources that are used internally by the Batch service are allocated under the same subscription as the Batch account and use the subscription specific quotas and policies.
-  - Use the corresponding subnets on the spoke network, thus they get assigned address space from the subnet's address range. It also means that all network security group (NSG) rules and traffic forwarding rules set up on those subnets are applied to the compute nodes as well.
-  - Don't assign public IP addresses to the compute nodes to ensure that the compute nodes aren't accessible from the public internet directly.
-  - Make it easier for workloads executing on compute notes to access shared storage resources, by mounting the supported storage resources on the compute nodes during initialization.
-  - Use a user-assigned managed identity to authenticate the compute nodes with storage account, container registry, and any other resources as they join the Batch pool. Doing so ensures that the compute nodes are authenticated using certificates instead of passwords or keys.
+  - They use user subscription pool allocation mode. All resources that are used internally by the Batch service are allocated under the same subscription as the Batch account and use the subscription specific quotas and policies.
+  - They use the corresponding subnets on the spoke network, thus they get assigned address space from the subnet's address range. It also means that all network security group (NSG) rules and traffic forwarding rules set up on those subnets are applied to the compute nodes as well.
+  - They don't assign public IP addresses to the compute nodes to ensure that the compute nodes aren't accessible from the public internet directly.
+  - They make it easier for workloads executing on compute notes to access shared storage resources, by mounting the supported storage resources on the compute nodes during initialization.
+  - They use a user-assigned managed identity to authenticate the compute nodes with storage account, container registry, and any other resources as they join the Batch pool. Doing so ensures that the compute nodes are authenticated using certificates instead of passwords or keys.
 
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault) stores deployment secrets such as Batch account certificates. These certificates are used to authenticate compute node resources as they join the Batch pool. The Key Vault is deployed on the spoke network and is configured to allow access only from the Batch service. This configuration ensures that the certificates aren't accessible from the public internet.
 
@@ -73,7 +73,7 @@ The resources deployed on the spoke network are as follows:
 
 A common computing pattern in FSI is to run a large number of compute-intensive simulations on an input dataset that characterizes a financial instrument or a portfolio of financial instruments. The simulations are typically run in parallel and the results are aggregated to produce a summary of the portfolio's risk profile.
 
-This architecture isn't focused on a particular workload, rather it focuses on applications that want to use Azure Batch to run compute-intensive simulations. Any production deployment architecture needs to be customized to meet the specific requirements of the workload and business environment. This architecture is intended to be used as a starting point for such customizations for preproduction and production deployments.
+This architecture isn't focused on a particular workload, rather it focuses on applications that want to use Azure Batch to run compute-intensive simulations. Any production deployment architecture must be customized to meet the specific requirements of the workload and business environment. This architecture is intended to be used as a starting point for such customizations for preproduction and production deployments.
 
 ### Potential use-cases
 
@@ -124,9 +124,9 @@ To submit computation jobs to the Batch service, connect with the Batch service 
 
 The architecture provides two options to connect to the network so you can submit jobs to the Batch service:
 
-1. **Use VPN Gateway**. Connect to the hub network using a VPN Gateway. After connected to the VPN, the you can submit jobs to the Batch service from the local machine directly, which also makes it easier to monitor jobs using Batch Explorer installed on the local machine. This configuration requires that the Azure CLI, Batch Explorer, and other tools are installed on the local machine. Alternatively, after connected to the VPN, you can use the Linux or Windows Jumpboxes to submit jobs to the Batch service. Doing so requires that you have an SSH client or RDP client installed on the local machine.
+- **Use VPN Gateway**. Connect to the hub network using a VPN Gateway. After connected to the VPN, the you can submit jobs to the Batch service from the local machine directly, which also makes it easier to monitor jobs using Batch Explorer installed on the local machine. This configuration requires that the Azure CLI, Batch Explorer, and other tools are installed on the local machine. Alternatively, after connected to the VPN, you can use the Linux or Windows Jumpboxes to submit jobs to the Batch service. Doing so requires that you have an SSH client or RDP client installed on the local machine.
 
-1. **Use Azure Bastion**. Instead of using VPN, you can use Azure Bastion to sign in to the Linux and/or Windows Jumpboxes. Sign in to the Azure portal and then use Azure Bastion to sign in to the jumpbox VM directly from the web browser. After logged on to the jumpbox, you can submit jobs to the Batch service using the Azure CLI, Batch Explorer, and other tools installed on the jumpbox.
+- **Use Azure Bastion**. Instead of using VPN, you can use Azure Bastion to sign in to the Linux or Windows Jumpboxes. Sign in to the Azure portal and then use Azure Bastion to sign in to the jumpbox VM directly from the web browser. After signed in to the jumpbox, you can submit jobs to the Batch service using the Azure CLI, Batch Explorer, and other tools installed on the jumpbox.
 
 ## Considerations
 
@@ -142,7 +142,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 To minimize sharing of secrets such as passwords and keys, the architecture uses managed identities to authenticate the compute nodes with storage account, container registry, and other resources as they join the Batch pool. This authentication is done by assigning managed identities to the Batch pools and then granting the managed identities access to the resources. The managed identities can be granted the least privilege required to access the resources by using role-based access control.
 
-The architecture also uses private endpoints to ensure that the services aren't accessible from the public internet. This configuration helps minimize the attack surface and also helps ensure that the services are accessed over private network instead of accessing them through public endpoints.
+The architecture also uses private endpoints to help ensure that the services aren't accessible from the public internet. This configuration helps minimize the attack surface and also helps ensure that the services are accessed over private network instead of accessing them through public endpoints.
 
 The architecture also uses Azure Firewall to filter and monitor traffic in and out of the network. The firewall is configured to allow only allowlisted traffic, which ensures that only the allowlisted traffic can go out of the virtual network. This configuration helps protect the network from malicious attacks and monitors traffic in and out of the network.
 
@@ -154,7 +154,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 Azure Batch itself is a free service, and customers pay only for the underlying virtual machine, storage, and networking costs. In this workload, besides the compute nodes, the storage account, jumpboxes, VPN gateway, and Azure Bastion are the other resources that incur cost. Since the workload is designed to support alternatives for accessing the resources, the cost of running can be optimized by choosing one of those paths. For example, if VPN gateway is preferred for accessing resources, then Azure Bastion and jumpbox VMs can be disabled during deployment to reduce the cost.
 
-To reduce costs associated with the compute resources, using VM SKUs that are more cost effective for the workload can help. Further, using spot instances or pool autoscaling can help reduce the costs associated with compute nodes.
+To help reduce costs associated with the compute resources, use VM SKUs that are more cost effective for the workload. Further, using spot instances or pool autoscaling can help reduce the costs associated with compute nodes.
 
 To determine the cost of running this workload, see [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
@@ -166,7 +166,7 @@ With Batch, performance efficiency is achieved by using the right VM SKUs for th
 
 ## Deploy this scenario
 
-The infrastructure-as-code (IaC) source-code for this reference architecture is available in the [Azure Batch accelerator repository](https://github.com/Azure/bacc). The included tutorials demonstrate how to deploy this reference architecture and how to use it to run a sample FSI workload, named `azfinsim`. You can also use the following button to deploy the resources under your subscription using Azure portal.
+The infrastructure-as-code (IaC) source-code for this reference architecture is available in the [Azure Batch accelerator repository](https://github.com/Azure/bacc). The included tutorials demonstrate how to deploy this reference architecture and how to use it to run a sample FSI workload, named `azfinsim`. You can also use the following button to deploy the resources under your subscription using Azure portal:
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fbacc%2Fmain%2Ftemplates%2Fsecured-batch_deploy.json)
 
