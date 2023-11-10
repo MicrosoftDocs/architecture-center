@@ -5263,31 +5263,13 @@ items:
           href: /azure/architecture/browse/?terms=game
         - name: AI in games
           items:
-          - name: Content moderation
-            href: /gaming/azure/reference-architectures/cognitive-content-moderation
-            maintainContext: true
-          - name: Customer service bot for gaming
-            href: /gaming/azure/reference-architectures/cognitive-css-bot
-            maintainContext: true
           - name: Image classification
             href: ai-ml/architecture/intelligent-apps-image-processing.yml
           - name: Speech to text for gaming
             href: /gaming/azure/reference-architectures/cognitive-speech-to-text
             maintainContext: true
-          - name: Text to speech for gaming
-            href: /gaming/azure/reference-architectures/cognitive-text-to-speech
-            maintainContext: true
-          - name: Text translation for gaming
-            href: /gaming/azure/reference-architectures/cognitive-text-translation
-            maintainContext: true
         - name: Analytics in games
           items:
-          - name: In-editor debugging telemetry
-            href: /gaming/azure/reference-architectures/analytics-in-editor-debugging
-            maintainContext: true
-          - name: Non-real-time dashboard
-            href: /gaming/azure/reference-architectures/analytics-non-real-time-dashboard
-            maintainContext: true
         - name: Databases for gaming
           items:
           - name: Gaming using Azure Cosmos DB
@@ -5303,66 +5285,12 @@ items:
           - name: Unreal Pixel Streaming at scale
             href: /gaming/azure/reference-architectures/unreal-pixel-streaming-at-scale
             maintainContext: true
-        - name: Leaderboards
-          items:
-          - name: Leaderboard basics
-            href: /gaming/azure/reference-architectures/leaderboard
-            maintainContext: true
-          - name: Non-relational leaderboard
-            href: /gaming/azure/reference-architectures/leaderboard-non-relational
-            maintainContext: true
-          - name: Relational leaderboard
-            href: /gaming/azure/reference-architectures/leaderboard-relational
-            maintainContext: true
-        - name: Matchmaking
-          items:
-          - name: Multiplayer matchmaker
-            href: /gaming/azure/reference-architectures/multiplayer-matchmaker
-            maintainContext: true
-          - name: Serverless matchmaker
-            href: /gaming/azure/reference-architectures/multiplayer-matchmaker-serverless
-            maintainContext: true
         - name: Rendering
           items:
           - name: 3D video rendering
             href: example-scenario/infrastructure/video-rendering.yml
           - name: Digital image-based modeling
             href: example-scenario/infrastructure/image-modeling.yml
-        - name: Scalable gaming servers
-          items:
-          - name: Multiplayer backend architectures
-            href: /gaming/azure/reference-architectures/multiplayer
-            maintainContext: true
-          - name: Real-time multiplayer
-            items:
-            - name: Azure Batch
-              href: /gaming/azure/reference-architectures/multiplayer-synchronous-batch
-              maintainContext: true
-            - name: Azure Container Instances (ACI)
-              href: /gaming/azure/reference-architectures/multiplayer-synchronous-aci
-              maintainContext: true
-            - name: Azure Kubernetes Services (AKS)
-              href: /gaming/azure/reference-architectures/multiplayer-synchronous-aks
-              maintainContext: true
-            - name: Custom server scaling
-              href: /gaming/azure/reference-architectures/multiplayer-custom-server-scaling
-              maintainContext: true
-          - name: Turn-based multiplayer
-            items:
-            - name: Asynchronous multiplayer basics
-              href: /gaming/azure/reference-architectures/multiplayer-asynchronous
-              maintainContext: true
-            - name: Azure Functions (serverless)
-              href: /gaming/azure/reference-architectures/multiplayer-asynchronous-serverless
-              maintainContext: true
-        - name: Server hosting
-          items:
-          - name: Basic game server hosting
-            href: /gaming/azure/reference-architectures/multiplayer-basic-game-server-hosting
-            maintainContext: true
-          - name: LAMP architectures for gaming
-            href: /gaming/azure/reference-architectures/general-purpose-lamp
-            maintainContext: true
       - name: Compliance solutions
         items:
         - name: GDPR (EU)
