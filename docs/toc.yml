@@ -5268,8 +5268,6 @@ items:
           - name: Speech to text for gaming
             href: /gaming/azure/reference-architectures/cognitive-speech-to-text
             maintainContext: true
-        - name: Analytics in games
-          items:
         - name: Databases for gaming
           items:
           - name: Gaming using Azure Cosmos DB
