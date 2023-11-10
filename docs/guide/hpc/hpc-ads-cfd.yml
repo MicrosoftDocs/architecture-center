@@ -2,9 +2,9 @@
 metadata:
   title: Deploy ADS CFD Code Leo for HPC on a virtual machine
   description: Learn how to deploy ADS CFD Code Leo for high performance computing (HPC) on an Azure virtual machine.
-  author: gauharjunnarkar
-  ms.author: gajunnar
-  ms.date: 08/02/2022
+  author: bmoxon
+  ms.author: brucemoxon
+  ms.date: 11/10/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
