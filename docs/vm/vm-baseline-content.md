@@ -363,7 +363,21 @@ In this architecture, the design is segmented by application tiers. Separate vir
 
 Every architecture is succeptible to failures. The exercise of failure mode analysis allows you to anticipate failures and be prepared with mitigations. Here are some potential failure points in this architecture:
 
-//TBD
+| Component | Risk | Likelihood | Effect/Mitigation/Note | Outage |
+|-----------|------|------------|------------------------|--------|
+| Microsoft Entra ID | Service outage | Low | Ops team is affected. Dependent on Microsoft to remediate. | None |
+| Microsoft Entra ID | Misconfiguration | Medium | Ops users unable to sign in. No downstream effect. Help desk reports configuration issue to identity team. | None |
+| Azure App Gateway | Service outage | Low | Full outage for external as well as internal users. Dependent on Microsoft to remediate. | Full |
+| Azure App Gateway | Regional outage | Very low | Full outage since the workload is deployed to a single region. Azure App Gateway is a regional service. | Full |
+| Azure App Gateway | Misconfiguration | Medium | Misconfigurations should be caught during deployment. If these happen during a configuration update, devops team must roll back changes. Most deployments that use the v2 SKU take around 6 minutes to provision. However it can take longer depending on the type of deployment. For example, deployments across multiple Availability Zones with many instances can take more than 6 minutes. | Full |
+| Azure App Gateway | DDoS attack | Medium | Potential for disruption. Microsoft manages DDoS (L3 and L4) protection. Potential risk of effect from L7 attacks. | Full |
+| Azure Storage | Service outage | Low | Full workload outage. Dependent on Microsoft to remediate. | Full |
+| Azure Storage | Regional outage | Very low | Full workload outage as this is being deployed to a single region. Recovery time objectives (RTOs) are lower in the front-end but while higher in backend where managed disk are needed. Recovery point objectives (RPOs) to be determined during reliability testing. | Full |
+| Azure Storage | Availability zone outage | Low | No effect. The workload is deployed into 3 different zones overprovisioned to support a full zone outage. | None |
+| Azure VMSS | Service outage | Low | Potential workload outage in case of unhealthy Virtual Machine instances requires auto-repair to kick off. Dependent on Microsoft to remediate. | Potential outage |
+| Azure VMSS | Regional outage | Very low | Potential workload outage in case of unhealthy Virtual Machine instances requires auto-repair to kick off. Dependent on Microsoft to remediate. | None |
+| Azure VMSS | Availability zone outage | Low | No effect. VMSS has been deployed as zone redundant. | None |
+| Azure VMSS | DDoS attack | Medium | Full outage for external as well as internal users. Currently DDoS plan is not deployed simply for cost considerations. | Full |
 
 ##### Reliability targets
 
@@ -373,27 +387,49 @@ To make design decisions, it's important to calculate the reliability targets, s
 
 Here's an example calculation.
 
-//TBD
+**Ops Flow**
+
+|Component  |SLO  |SLO with Zones  |Downtime per week  |Downtime per month  |Downtime per year  |
+|------------|-----------|---------|---------|---------|---------|
+|Microsoft Entra ID | 99.99% |99.99% |0d 0h 0m 58s |0d 0h 4m 22s |0d 0h 52m 33s  |
+|Azure Bastion | 99.95% |99.95% |0d 0h 4m 51s |0d 0h 21m 53s |0d 4h 22m 47s  |
+|VMSS Frontend | 99.99% |100% |0d 0h 0m 0s |0d 0h 0m 0s |0d 0h 0m 0s |
+|VMSS Backend | 99.99% |100% |0d 0h 0m 0s |0d 0h 0m 0s |0d 0h 0m 0s |
+
+**Composite SLO: 99.94% | Downtime per year: 0d 5h 15m 20s**
+
+**App User FLow**
+
+|Component  |SLO  |SLO with Zones  |Downtime per week  |Downtime per month  |Downtime per year  |
+|------------|-----------|---------|---------|---------|---------|
+|Azure Application Gateway |99.95% |99.99999999% |0d 0h 0m 0s |0d 0h 0m 0s |0d 0h 0m 0s  |
+|Azure Internal Load Balancer |99.99% |100% |0d 0h 0m 0s |0d 0h 0m 0s |0d 0h 0m 0s |
+|VMSS Frontend |99.99% |100% |0d 0h 0m 0s |0d 0h 0m 0s |0d 0h 0m 0s |
+|VMSS Backend |99.99% |100% |0d 0h 0m 0s  |0d 0h 0m 0s  |0d 0h 0m 0s |
+|Managed Disk |99.90% |99.9999999% |0d 0h 0m 0s |0d 0h 0m 0s |0d 0h 0m 0s |
+|Azure KeyVault |99.99% |99.99% |0d 0h 0m 58s |0d 0h 4m 22s |0d 0h 52m 33s |
+
+**Composite SLO: 99.98% | Downtime per year: 0d 0h 52m 53s**
 
 In the preceding example, reliability of VMs and the dependencies are included. For instance, disks associated with VMs. The SLAs associated with disk storage impacts the overall reliability.
 
 There are some challenges when calculating the composite SLO. It's important to note that different tiers of service may come with different SLAs, and these often include financially-backed guarantees that set reliability targets. Finally there might be components that don't have SLAs defined. FOr example, in terms of networking, Network Interface Cards (NICs) might not have their own SLAs, they do operate within VNets. However, VNets themselves do not have SLAs.
 
-The business requirements and their targets must be clearly defined and factored into the calculation. Be aware of the service limits and additional constraints imposed by the organization. If your subscription is shared with other workloads, this could impact the resources available for your VMs. The workload might be allowed to use a limited number of cores available for the VMs. Understanding the resource usage of your subscription can help you design your VMs more effectively. 
+The business requirements and their targets must be clearly defined and factored into the calculation. Be aware of the service limits and additional constraints imposed by the organization. If your subscription is shared with other workloads, this could impact the resources available for your VMs. The workload might be allowed to use a limited number of cores available for the VMs. Understanding the resource usage of your subscription can help you design your VMs more effectively.
 
 ##### Redundancy
 
 > Refer to Well-Architected Framework: [RE:05 - Recommendations for designing for redundancy](/azure/well-architected/reliability/redundancy).
 
-This architecture uses zone-redundancy for several components. Each zone is made up of one or more datacenters with independent power, cooling, and networking. Having instances run in separate zones protects the application against data center failures. 
+This architecture uses zone-redundancy for several components. Each zone is made up of one or more datacenters with independent power, cooling, and networking. Having instances run in separate zones protects the application against data center failures.
 
-- VMs are automatically spread across Availability Zones.  VMs are also placed in separate fault domains. This makes sure all VMs aren't updated at the same time. 
+- VMs are automatically spread across Availability Zones.  VMs are also placed in separate fault domains. This makes sure all VMs aren't updated at the same time.
 
     Azure VM scale sets allocate specified number of instances and distribute them evenly across Availability Zones and Fault Domains. This is achieved through the _maximum spread_ capability, which is recommended.
 
-    Consider a scenario where there are three Availability Zones. If you have three instances, each instance is allocated to a different Availability Zone and placed in a different Fault Domain. Azure guarantees that only one Fault Domain is updated at a time in each Availability Zone. However, there could be a situation all three Fault Domains in three Availability Zones are updated simultaneously. All zones and domains will be impacted. Having atleast two instances in each zone provides a buffer during upgrades.  
+    Consider a scenario where there are three Availability Zones. If you have three instances, each instance is allocated to a different Availability Zone and placed in a different Fault Domain. Azure guarantees that only one Fault Domain is updated at a time in each Availability Zone. However, there could be a situation all three Fault Domains in three Availability Zones are updated simultaneously. All zones and domains will be impacted. Having atleast two instances in each zone provides a buffer during upgrades.
 
-- Managed disks can only be attached to a VM in the same region. Their availability typically impacts the availability of the VM. For single-region deployments, disks can be configured for redundancy within a datacenter; locally-Redundant Storage (LRS) or zone-Redundant Storage (ZRS). LRS is sufficient as it supports [zonal failure mitigations](/azure/virtual-machines/disks-redundancy#locally-redundant-storage-for-managed-disks). For workloads that need even less time to recover from failure, ZRS is a recommended. It requires a recovery strategy to take advantage of Availability Zones. Ideally pre-provision compute in alternate Availability Zones ready to recover from a zonal failure. 
+- Managed disks can only be attached to a VM in the same region. Their availability typically impacts the availability of the VM. For single-region deployments, disks can be configured for redundancy within a datacenter; locally-Redundant Storage (LRS) or zone-Redundant Storage (ZRS). LRS is sufficient as it supports [zonal failure mitigations](/azure/virtual-machines/disks-redundancy#locally-redundant-storage-for-managed-disks). For workloads that need even less time to recover from failure, ZRS is a recommended. It requires a recovery strategy to take advantage of Availability Zones. Ideally pre-provision compute in alternate Availability Zones ready to recover from a zonal failure.
 
     In this architecture, data disks are configured as LRS because all tiers are stateless. Recovery strategy is to redeploy the solution.
 
