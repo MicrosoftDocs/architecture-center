@@ -14,7 +14,7 @@ The following diagram shows how to implement a real-time sync from Atlas to Azur
 
 Real-time changes in the MongoDB Atlas operational data store (ODS) are captured and made available to Data Lake Storage in an Azure Synapse Analytics workspace for real-time analytics use cases, live reports, and dashboards.
 
-1. Data changes in the MongoDB Atlas operational/transactional datastore are captured by [Atlas Triggers](https://www.mongodb.com/docs/atlas/app-services/triggers/).
+1. Data changes in the MongoDB Atlas operational/transactional datastore are captured by [Atlas triggers](https://www.mongodb.com/docs/atlas/app-services/triggers/).
 
 1. When an [Atlas database trigger](https://www.mongodb.com/docs/atlas/app-services/triggers/database-triggers/) observes an event, it passes the change type and the document that's changed (full or delta) to an [Atlas function](https://www.mongodb.com/docs/atlas/app-services/functions/).
 
@@ -27,11 +27,11 @@ Real-time changes in the MongoDB Atlas operational data store (ODS) are captured
 ### Components
 
 - [MongoDB Atlas](https://www.mongodb.com/docs/manual/changeStreams/)[change streams](https://www.mongodb.com/docs/manual/changeStreams/) enable you to notify applications of changes to a collection, database, or deployment cluster. Change streams gives applications access to real-time data changes and enables them to immediately react to changes. This functionality is critical in use cases like IoT event tracking and financial data changes, where alarms need to be raised and responsive actions need to be taken immediately. Atlas Triggers use change streams to watch collections for changes and automatically invoke the associated Atlas function in response to the trigger event.
-- [Atlas Triggers](https://www.mongodb.com/docs/atlas/app-services/triggers/database-triggers/) respond to document inserts, updates, and deletes in a specific collection and can automatically invoke an Atlas function in response to the change event. 
-- [Atlas functions](https://www.mongodb.com/docs/atlas/app-services/functions/) are serverless, server-side JavaScript code that can take actions based on the events that invoke an Atlas Trigger. Combining Atlas Triggers with Atlas functions simplifies the implementation of event-driven architectures.
-- [Azure Functions](https://azure.microsoft.com/products/functions/) is an event-driven, serverless compute platform that you can use to develop applications efficiently with programming language of your choice. You can also use it to connect seamlessly with other Azure services. In this scenario, an Azure function captures a change event and uses it to write a blob with the changed data into Azure Data Lake by using the Azure Storage Files Data Lake client library.
-- [Synapse Storage (ADLS Gen2)](/azure/storage/blobs/data-lake-storage-introduction) is the default storage in Synapse Analytics. The storage can be queried directly using serverless pools.
-- [Pipelines/](/azure/synapse-analytics/get-started-pipelines) [Dataflow](/azure/synapse-analytics/concepts-data-flow-overview) in Synapse can be used to further push this incoming blob with the MongoDB changed data to Dedicated SQL pools or Spark pools for further analysis. Synapse Pipelines  allow you to act on changed data sets in ADLSGen2 by using both [storage event triggers](/azure/data-factory/how-to-create-event-trigger?tabs=data-factory) and [scheduled triggers](/azure/data-factory/how-to-create-schedule-trigger?tabs=data-factory) to build solutions for both real time and near real time use cases. This integration accelerates downstream consumption of change data sets. 
+- [Atlas triggers](https://www.mongodb.com/docs/atlas/app-services/triggers/database-triggers/) respond to document inserts, updates, and deletes in a specific collection and can automatically invoke an Atlas function in response to the change event. 
+- [Atlas functions](https://www.mongodb.com/docs/atlas/app-services/functions/) are serverless, server-side JavaScript code that can take actions based on the events that invoke an Atlas trigger. Combining Atlas triggers with Atlas functions simplifies the implementation of event-driven architectures.
+- [Azure Functions](https://azure.microsoft.com/products/functions/) is an event-driven, serverless compute platform that you can use to develop applications efficiently with programming language of your choice. You can also use it to connect seamlessly with other Azure services. In this scenario, an Azure function captures a change event and uses it to write a blob containing the changed data into Data Lake Storage by using the Azure Storage Files Data Lake client library.
+- [Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage/) is the default storage solution in Azure Synapse Analytics. You can use serverless pools to query the data directly.
+- [Pipelines](/azure/synapse-analytics/get-started-pipelines) and [data flows](/azure/synapse-analytics/concepts-data-flow-overview) in [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics/) can be used to push the blob that contains the MongoDB changed data to dedicated SQL pools or Spark pools for further analysis. Pipelines enable you to act on changed datasets in Data Lake Storage by using both [storage event triggers](/azure/data-factory/how-to-create-event-trigger?tabs=data-factory) and [scheduled triggers](/azure/data-factory/how-to-create-schedule-trigger?tabs=data-factory) to build solutions for both real-time and near real-time use cases. This integration accelerates downstream consumption of change datasets. 
 
 ![](media/image2.png)
 
@@ -39,47 +39,51 @@ Real-time changes in the MongoDB Atlas operational data store (ODS) are captured
 
 ### Alternatives
 
-This solution uses MongoDB Atlas triggers to wrap the code to listen to MongoDB Atlas change streams and trigger Azure Functions in response to the change event. Thus, it's much simpler to implement than the earlier provided [alternate solution](/azure/architecture/example-scenario/analytics/azure-synapse-analytics-integrate-mongodb-atlas), wherein developers had to code the logic to listen to change streams in an [App service](https://azure.microsoft.com/products/app-service).
+This solution uses Atlas triggers to wrap the code for listening to Atlas change streams and trigger Azure Functions in response to the change event. It's therefore much easier to implement than the previously provided [alternative solution](/azure/architecture/example-scenario/analytics/azure-synapse-analytics-integrate-mongodb-atlas). For that solution, you need to write code to listen to change streams in an [Azure App Service](https://azure.microsoft.com/products/app-service) app.
 
-Another alternative is using the [MongoDB Spark streaming connector](https://www.mongodb.com/blog/post/introducing-mongodb-spark-connector-version-10-1) to read MongoDB stream data and write the same to Delta tables. The code is run continuously in a Spark notebook which is part of a Pipeline in Synapse. Refer to this [GitHub](https://github.com/mongodb-partners/Synapse-Spark-Streaming) guide for a reference on how this solution can be implemented.
+Another alternative is to use the [MongoDB Spark Connector](https://www.mongodb.com/blog/post/introducing-mongodb-spark-connector-version-10-1) to read MongoDB stream data and write it to Delta tables. The code is run continuously in a Spark Notebook that's part of a pipeline in Azure Synapse Analytics. For more information on implementing this solution, see [Sync from Atlas to Azure Synapse Analytics using Spark streaming](https://github.com/mongodb-partners/Synapse-Spark-Streaming).
 
-However, using Atlas triggers with Azure Functions means adopting a completely serverless solution. Being serverless, the solution provides benefits of robust scalability accompanied with cost optimization. The costs will be purely based on the Pay As you Go mechanism. Further cost savings can be achieved in this solution by using the MongoDB Atlas function to combine a few change events before invoking the Azure Function endpoint. This can be a useful strategy in a heavy traffic scenario.
+However, using Atlas triggers with Azure Functions provides a completely serverless solution. Because it's serverless, the solution provides robust scalability and cost optimization. Pricing is based on a pay-as-you-go cost model. You can save more mondy by using the Atlas function to combine a few change events before invoking the Azure Functions endpoint. This strategy can be useful in a heavy-traffic scenario.
 
-Also, with the launch of [Microsoft Fabric,](https://www.microsoft.com/microsoft-fabric) which unifies your varied data estate and makes it much easier to run analytics and AI over the data enables you to get maximum insights in the shortest time possible. Synapse Data engineering, Data Science, Data Warehouse and Real-Time analytics in Fabric can now make better use of the MongoDB data pushed to OneLake. With both Dataflow Gen 2 and Data Pipeline connectors for MongoDB Atlas, you can now load MongoDB Atlas data directly to OneLake. This is a powerful and no code mechanism to ingest data from Atlas to OneLake.  
+Also, [Microsoft Fabric](https://www.microsoft.com/microsoft-fabric) unifies your data estate and makes it easier to run analytics and AI over the data, so you get insights quickly. Azure Synapse Analytics data engineering, data science, data warehousing, and real-time analytics in Fabric can now make better use of MongoDB data that's pushed to OneLake. You can use both Dataflow Gen2 and data pipeline connectors for Atlas to load Atlas data directly to OneLake. This no-code mechanism provides a powerful way to ingest data from Atlas to OneLake.  
 
 ![](media/image8.png)
 
 *Figure 3*
 
-Also, the data that is pushed to ADLS Gen 2 can be referenced directly in Fabric using [OneLake Shortcuts](https://learn.microsoft.com/fabric/onelake/onelake-shortcuts), without the need for any ETL.
+In Fabric, you can directly reference data that's pushed to Data Lake Storage by using [OneLake shortcuts](https://learn.microsoft.com/fabric/onelake/onelake-shortcuts), without any ETL.
 
-The data can be further pushed to Power BI for creating exhaustive reports and visualizations for BI reporting.
+You can push the data to Power BI to create reports and visualizations for BI reporting.
 
 ## Scenario details 
 
-MongoDB Atlas, being the operational data layer of many enterprise applications, stores data from internal applications, customer-facing services and third-party APIs coming from multiple channels. This data can be combined with relational data from other traditional applications and unstructured data from sources like logs, object stores, and clickstreams using the Data Pipelines in Synapse. Enterprises use MongoDB capabilities like [aggregations](https://www.mongodb.com/docs/manual/aggregation/), [analytical nodes, ](https://www.mongodb.com/docs/atlas/cluster-config/multi-cloud-distribution/)[Atlas Search, V](https://www.mongodb.com/atlas/search)[ector search](https://www.mongodb.com/products/platform/atlas-vector-search) , [Atlas Data Lake](https://www.mongodb.com/atlas/data-lake), [Atlas SQL](https://www.mongodb.com/atlas/sql), [Atlas Data Federation](https://www.mongodb.com/atlas/data-federation), and [Charts](https://www.mongodb.com/products/charts) to power application driven intelligence. However, the transactional data in MongoDB is extracted, transformed, and loaded to Synapse SQL/ Spark pools for batch, AI/ML and data warehouse based BI analytics and intelligence.
+MongoDB Atlas, the operational data layer of many enterprise applications, stores data from internal applications, customer-facing services, and third-party APIs from multiple channels. You can use the data pipelines in Azure Synapse Analytics to combine this data with relational data from other traditional applications and with unstructured data from sources like logs, object stores, and clickstreams.
 
-**There are two scenarios of data movement between MongoDB Atlas to Synapse:**
+Enterprises use MongoDB capabilities like [aggregations](https://www.mongodb.com/docs/manual/aggregation/), [analytical nodes](https://www.mongodb.com/docs/atlas/cluster-config/multi-cloud-distribution/), [Atlas Search](https://www.mongodb.com/atlas/search), [Vector Search](https://www.mongodb.com/products/platform/atlas-vector-search), [Atlas Data Lake](https://www.mongodb.com/atlas/data-lake), [Atlas SQL Interface](https://www.mongodb.com/atlas/sql), [Data Federation](https://www.mongodb.com/atlas/data-federation), and [Charts](https://www.mongodb.com/products/charts) to enable application-driven intelligence. However, the transactional data in MongoDB is extracted, transformed, and loaded to Azure Synapse Analytics dedicated SQL pools or Spark pools for batch, AI / machine learning, and data-warehouse BI analytics and intelligence.
 
-**Batch Integration ** 
+There are two scenarios for data movement between Atlas and Azure Synapse Analytics: batch integration and real-time sync.
 
-Batch and micro-batch integration enables fetching the entire historical data at once or fetching incremental data based on a filter criterion from MongoDB Atlas to Synapse ADLS Gen2.
+### Batch integration
 
-Both MongoDB on-prem instances and MongoDB Atlas can be seamlessly integrated as a Source or as a Sink resource in Azure Synapse Analytics. Refer [here](/azure/data-factory/connector-mongodb-atlas?tabs=data-factory) for the MongoDB Atlas connector and link[ ](/azure/data-factory/connector-mongodb?tabs=data-factory)[here](/azure/data-factory/connector-mongodb?tabs=data-factory) for the MongoDB Enterprise Advanced connector setup and configuration details. 
+You can use batch and micro-batch integration to move data from Atlas to Data Lake Storage in Azure Synapse Analytics. You can fetch the entire historical data at once or fetch incremental data based on filter criteria.
 
-The source connector makes it extremely convenient to run Synapse analytics on top of the operational data stored in MongoDB On-prem and/or Atlas. We can fetch data from Atlas using the source connector and load the data to Azure Data Lake Gen2 storage as a parquet, Avro, JSON, text, or a CSV blob storage. These files can then be transformed or joined with other files from other data sources in multi-database, multi-cloud, or hybrid cloud scenarios, which is a common use-case for EDW and analytics-at-scale. The results of the analytics can also be stored back in MongoDB Atlas using the Sink connector. Refer to the [previous architecture document](/azure/architecture/example-scenario/analytics/azure-synapse-analytics-integrate-mongodb-atlas) for a deep dive into Batch integration.  
+MongoDB on-premises instances and MongoDB Atlas can be integrated as a source or a sink resource in Azure Synapse Analytics. For information about the connectors, see [Copy data from or to MongoDB](/azure/data-factory/connector-mongodb?tabs=data-factory) or [Copy data from or to MongoDB Atlas](/azure/data-factory/connector-mongodb-atlas?tabs=data-factory).
 
-**  Real-Time Sync** 
+The source connector makes it convenient to run Azure Synapse Analytics on operational data that's stored in on-premises MongoDB and/or in Atlas. You can fetch data from Atlas by using the source connector and load the data to Data Lake Storage in Parquet, Avro, JSON, and text formats or as CSV blob storage. These files can then be transformed or joined with other files from other data sources in multi-database, multi-cloud, or hybrid cloud scenarios. This use case is common in enterprise data warehouse (EDW) and analytics-at-scale scenarios. You can also use the sink connector to store the results of the analytics back in Atlas. For more information about batch integration, see [Analyze operational data on MongoDB Atlas using Azure Synapse Analytics](/azure/architecture/example-scenario/analytics/azure-synapse-analytics-integrate-mongodb-atlas#batch-integration).  
 
-The Architecture detailed in this solution provides value to customers looking for this real-time sync feature to keep their Synapse storage current with MongoDB’s operational data.  
+### Real-time sync
 
-This solution is composed of two primary functions: 
+The architecture described in this article can help you implement real-time sync to keep your Azure Synapse Analytics storage current with MongoDB's operational data.  
 
-A. *Capture of the changes in MongoDB Atlas*  
+This solution is composed of two primary functions:
+- Capturing the changes in Atlas 
+- Triggering the Azure function to propagate the changes to Azure Synapse Analytics  
 
-This is achieved by the MongoDB Atlas trigger which is configured in the “Add Trigger” UI or using [Atlas admin APIs](https://www.mongodb.com/docs/atlas/app-services/admin/api/v3/) to listen to database changes due to database events like Inserts, Updates and Deletes. Atlas trigger also triggers an Atlas function on detection of a change event. This Atlas function can be added in the “Add Trigger” UI itself. We can also create an Atlas function using the [Atlas admin ](https://www.mongodb.com/docs/atlas/app-services/admin/api/v3/)API and associate it as the trigger invocation endpoint in the [Create trigger admin API](https://www.mongodb.com/docs/atlas/app-services/admin/api/v3/).
+#### Capture the changes in Atlas  
 
-Figure 2 shows the form that is presented to create and edit an Atlas Trigger. Trigger Source details specify the collection that the trigger will watch for change events and the database events it will watch for (Insert, Update, Delete or Replace).
+You can capture the changes by using an Atlas trigger, which you can configure in the **Add Trigger** UI or by using the [Atlas App Services Admin API](https://www.mongodb.com/docs/atlas/app-services/admin/api/v3/). Triggers listen to database changes caused by database events like inserts, updates, and deletes. Atlas triggers also trigger an Atlas function when a change event is detected. You can use the **Add Trigger** UI to add the function. You can also create an Atlas function and associate it as the trigger invocation endpoint by using the [Atlas Admin API](https://www.mongodb.com/docs/atlas/app-services/admin/api/v3/).
+
+The following screenshot shows the form that you can use to create and edit an Atlas trigger. **Trigger Source Details** specify the collection that the trigger will watch for change events and the database events it will watch for (Insert, Update, Delete or Replace).
 
 :::image type="content" source="media/image3.png" alt-text="form for creating an Atlas trigger." border="true":::
 
@@ -110,7 +114,7 @@ The `<<azure function url endpoint>>` needs to be replaced with the actual Azure
     };
 
 
-B. *Trigger the Azure function to Propagate the Changes to Synapse:* 
+#### Trigger the Azure function to Propagate the Changes to Synapse
 
 Atlas function is coded to invoke an Azure function which writes the change document to Synapse ADLS Gen2. The Azure function uses the [ADLS Gen2 Python ](/azure/storage/blobs/data-lake-storage-directory-file-acl-python?tabs=azure-ad)SDK and creates an instance of the *DataLakeServiceClient* class in the SDK representing your storage account.
 
