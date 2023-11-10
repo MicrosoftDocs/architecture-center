@@ -17,7 +17,7 @@ A solution pattern is a predefined approach that you can adapt to address the un
 
 Microsoft has four mainframe transformation solution patterns for migrating mainframe workloads to Azure: migrate, transform, re-envision, and extend.
 
-:::image type="content" source="{source}" alt-text="Diagram that shows the four solution patterns: migrate, transform, re-envision, and extend." border="false" lightbox="":::
+:::image type="content" source="./images/solution-patterns.png" alt-text="Diagram that shows the four solution patterns: migrate, transform, re-envision, and extend." border="false" lightbox="./images/solution-patterns.png":::
 
 - *Migrate*: Use this pattern to relocate the existing mainframe workload to Azure without altering the original codebase. You can use compilers that enable the legacy workloads to operate in the Azure environment.
 
