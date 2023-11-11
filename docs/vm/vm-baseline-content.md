@@ -261,85 +261,11 @@ It also monitors the performance and health. You can view trends of performance 
 
 The [Application Health extension](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension) is deployed to VMs to monitor the binary health state of each VM instance in the scale set, and perform instance repairs if necessary by using Automatic Instance Repairs. It tests for the same file as the Application Gateway and Azure Load Balancer health probe to check if the application is responsive.
 
-## Security
-
-This architecture illustrates some of the security assurances given in the [design review checklist given in Azure Well-Architected Framework](/azure/well-architected/security/checklist). The sections are annotated with recommendations from that checklist.
-
-Security isn't just technical controls. It's highly recommended that you follow the entire checklist to understand the operational aspects of the Security pillar. 
-
-##### Segmentation
-
-> Refer to Well-Architected Framework: [SE:04 - Recommendations for building a segmentation strategy](/azure/well-architected/security/segmentation)
-
-- **Network segmentation**. Workload resources are placed in a VNet, which provides isolation from the internet. Within the VNet, subnets can be used as trust boundaries. _Colocate related resources needed for handling a transaction in one subnet_. In this architecture, the VNet is divided into subnets based on the logical grouping of the application and purpose of various Azure services used as part of the workload.
-
-    The advantage of subnet segmentation is that you can place security controls at the perimeter that controls traffic flowing in and out of the subnet, thereby restricting access to the workload resources.
-
-- **Identity segmentation**. Assign distinct roles to different identities with just-enough permissions to do their task. This architecture [Microsoft Entra ID](/entra/fundamentals/whatis) managed identities to segment access to resources.
- 
-
-##### Identity and access management
-
-> Refer to Well-Architected Framework: [SE:05 - Recommendations for identity and access management](/azure/well-architected/security/identity-access)
-
-[Microsoft Entra ID](/entra/fundamentals/whatis) recommended for authentication and authorization of both users and services. Workload resources such as VMs authenticate themselves by using their assigned managed identities to other resources. These identities, based on Microsoft Entra ID service principals, are automatically managed. 
-
-In this architecture, [user-assigned managed identities](/entra/managed-identities-azure-resources/overview#managed-identity-types) are used by Azure Application Gateway, front VMs, and backend VMs to access Azure Key Vault and Azure Storage account for boot diagnostics. Those managed identities are configured during deployment and used for authenticating against Key Vault. Access policies on Key Vault are configured to only accept requests from the preceding managed identities.
-
->[!IMPORTANT]
-> The baseline architecture uses only user-assigned managed identities. Even though you may specify a system-assigned managed identity in a Bicep or ARM template with no error, they cannot be used in a Flex VMSS configuration. The Azure portal however will respond with the appropriate error. 
-
-##### Network controls
-
-> Refer to Well-Architected Framework: [SE:06 - Recommendations for networking and connectivity](/azure/well-architected/security/networking).
-
-- **Ingress traffic**. The workload VMs aren't directly exposed to the public internet. Each VM has a private IP address. Workload users connect using that public IP address of Azure Application Gateway.
-
-    Additional security is provided through [Web Application Firewall](/azure/application-gateway/waf-overview) that's integrated with Application Gateway. It has rules that _inspect inbound traffic_ and can take an appropriate action. WAF tracks Open Web Application Security Project (OWASP) vulnerabilities preventing known attacks.  
-
-- **Egress traffic**. There are no controls on outbound traffic. It's highly recommended that all outbound internet traffic flows through a single firewall. This firewall is usually a central service provided by organization. That use case is shown in [Virtual machine baseline architecture in an Azure landing zone](./vm-baseline-landing-zone.yml).
-
-- **East-west traffic**. Traffic flow between the subnets is restricted by applying granular security rules. 
-
-    [Network security groups (NSGs)](/azure/virtual-network/network-security-groups-overview) are placed to restrict traffic between subnets based on parameters such as IP address range, ports, and protocols. [Application security groups (ASG)](/azure/virtual-network/application-security-groups) are placed on frontend and backend VMs. They are used with NSGs  filter traffic to and from the VMs.  
-
-- **Operational traffic**. It's recommended that secure operational access to workload is provided through Azure Bastion, which removes the need for public IP. In this architecture, that communication is over SSH that's supported by both Windows and Linux VMs. Entra ID is integrated with SSH for both types of VMs by using the //extension. That integration allows operator's identity to be authenticated and authorized through Entra ID.
-
-    Alternatively, use a separate VM as a jumpbox in the subnet in that has the workload resources. The operator will access the jumpbox through the Bastion host. Then, log in to the VMs behind the load balancer from the jumpbox.  
-
-    In both cases, appropriate NSG rules should be applied to restrict traffic. Security can be further enhanced with RBAC permissions and [just-in-time (JIT) VM access](/azure/defender-for-cloud/just-in-time-access-overview), a feature of Microsoft Defender for Cloud, which allows temporary inbound access to selected ports.
-
-- **Private connectivity to PaaS services**. Communication between the VMs and Azure Key Vault is over Private Links. This service requires private endpoints, which are placed in a separate subnet.
-
-- **DDoS protection**. Azure provides basic DDoS protection by default. Consider enabling [Azure DDoS Protection](/azure/virtual-network/ddos-protection-overview) on the public IP exposed by Application Gateway to detect threats. DDoS Protection also provides alerting, telemetry, and analytics through Azure Monitor. For more information, see [Azure DDoS Protection: Best practices and reference architectures](/azure/security/fundamentals/ddos-best-practices).
-
-##### Encryption
-
-> Refer to Well-Architected Framework: [SE:07 - Recommendations for data encryption](/azure/well-architected/security/encryption).
-
-- **Data in transit**. User traffic to and from the frontend VMs is encyrpted using external and internal TLS certificates. Traffic between the frontend and backend VMs is also encrypted using internal certificate. Both certificates are stored in [Azure Key Vault](/azure/key-vault/general/overview): 
-    - **app.contoso.com**: An external certificate used by clients and Application Gateway for secure public Internet traffic.
-    - ***.worload.contoso.com**: A wildcard certificate used by the infrastructure components for secure internal traffic.
-
-- **Data at rest**. Log data is stored in managed disk temporarily. That data is automatically encrypted by using platform-provided encryption in Azure Storage. 
-
-##### Secret management
-
-> Refer to Well-Architected Framework: [SE:09 - Recommendations for protecting application secrets](/azure/well-architected/security/application-secrets)
-
-:::image type="content" source="./media/vm-baseline-tls-termination.png" alt-text="IaaS monitoring data flow  diagram" lightbox="./media/vm-baseline-tls-termination.png":::
-
-[Azure Key Vault](/azure/key-vault/general/overview) provides secure management of secrets, including TLS certificates. In this architecture, the TLS certificates are stored in the Key Vault and retrieved during the provisioning process by the managed identities of Application Gateway and the VMs. After the initial setup, these resources will only access the Key Vault when the certificates are refreshed.
-
-The VMs use the [Azure Key Vault VM extension](/azure/virtual-machines/extensions/key-vault-linux) to automatically refresh the monitored certificates. If any changes are detected in the local certificate store, the extension retrieves and installs the corresponding certificates from the Key Vault. The extension supports certificate content types PKCS #12 and PEM.
-
-> [!IMPORTANT]
-> It is your responsibility to ensure your locally stored certificates are rotated regularly. See [Azure Key Vault VM extension for Linux](/azure/virtual-machines/extensions/key-vault-linux) or [Azure Key Vault VM extension for Windows](/azure/virtual-machines/extensions/key-vault-windows) for more details. 
-
-
 ## Reliability 
 
-Workload design should incorporate reliability assurances in application code, infrastructure, and operations. The following sections illustrate some strategies to make sure the workload is resilient to failures and is able to recover if there are outages at the infrastructure level. Those strategies are aligned with the Azure Well-Architected Framework and are annotated with recommendations from [Reliability design review checklist](/azure/well-architected/reliability/checklist).
+Workload design should incorporate reliability assurances in application code, infrastructure, and operations. The following sections illustrate some strategies to make sure the workload is resilient to failures and is able to recover if there are outages at the infrastructure level. 
+
+The strategies used in architecture are based on the [Reliability design review checklist given in Azure Well-Architected Framework](/azure/well-architected/reliability/checklist). The sections are annotated with recommendations from that checklist.
 
 Because there's no application deployed, resiliency in application code is beyond the scope of this architecture. We recommend that you review all recommendations given in the checklist and adopt them in your workload, if applicable.
 
@@ -439,6 +365,118 @@ Another strategy is to use autoscaling capabilities for the VM scale sets. Be su
 > Refer to Well-Architected Framework: [Recommendations for self-healing and self-preservation](/azure/well-architected/reliability/self-preservation).
 
 [Application Health extension](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension) is deployed to VMs to detect unresponsive VMs and applications. For those instances, repair actions are automatically triggered. 
+
+## Security
+
+This architecture illustrates some of the security assurances given in the [Security design review checklist given in Azure Well-Architected Framework](/azure/well-architected/security/checklist). The sections are annotated with recommendations from that checklist.
+
+Security isn't just technical controls. It's highly recommended that you follow the entire checklist to understand the operational aspects of the Security pillar. 
+
+
+##### Segmentation
+
+> Refer to Well-Architected Framework: [SE:04 - Recommendations for building a segmentation strategy](/azure/well-architected/security/segmentation)
+
+- **Network segmentation**. Workload resources are placed in a VNet, which provides isolation from the internet. Within the VNet, subnets can be used as trust boundaries. _Colocate related resources needed for handling a transaction in one subnet_. In this architecture, the VNet is divided into subnets based on the logical grouping of the application and purpose of various Azure services used as part of the workload.
+
+    The advantage of subnet segmentation is that you can place security controls at the perimeter that controls traffic flowing in and out of the subnet, thereby restricting access to the workload resources.
+
+- **Identity segmentation**. Assign distinct roles to different identities with just-enough permissions to do their task. This architecture [Microsoft Entra ID](/entra/fundamentals/whatis) managed identities to segment access to resources.
+ 
+
+##### Identity and access management
+
+> Refer to Well-Architected Framework: [SE:05 - Recommendations for identity and access management](/azure/well-architected/security/identity-access)
+
+[Microsoft Entra ID](/entra/fundamentals/whatis) recommended for authentication and authorization of both users and services. Workload resources such as VMs authenticate themselves by using their assigned managed identities to other resources. These identities, based on Microsoft Entra ID service principals, are automatically managed. 
+
+In this architecture, [user-assigned managed identities](/entra/managed-identities-azure-resources/overview#managed-identity-types) are used by Azure Application Gateway, front VMs, and backend VMs to access Azure Key Vault and Azure Storage account for boot diagnostics. Those managed identities are configured during deployment and used for authenticating against Key Vault. Access policies on Key Vault are configured to only accept requests from the preceding managed identities.
+
+>[!IMPORTANT]
+> The baseline architecture uses only user-assigned managed identities. Even though you may specify a system-assigned managed identity in a Bicep or ARM template with no error, they cannot be used in a Flex VMSS configuration. The Azure portal however will respond with the appropriate error. 
+
+##### Network controls
+
+> Refer to Well-Architected Framework: [SE:06 - Recommendations for networking and connectivity](/azure/well-architected/security/networking).
+
+- **Ingress traffic**. The workload VMs aren't directly exposed to the public internet. Each VM has a private IP address. Workload users connect using that public IP address of Azure Application Gateway.
+
+    Additional security is provided through [Web Application Firewall](/azure/application-gateway/waf-overview) that's integrated with Application Gateway. It has rules that _inspect inbound traffic_ and can take an appropriate action. WAF tracks Open Web Application Security Project (OWASP) vulnerabilities preventing known attacks.  
+
+- **Egress traffic**. There are no controls on outbound traffic. It's highly recommended that all outbound internet traffic flows through a single firewall. This firewall is usually a central service provided by organization. That use case is shown in [Virtual machine baseline architecture in an Azure landing zone](./vm-baseline-landing-zone.yml).
+
+- **East-west traffic**. Traffic flow between the subnets is restricted by applying granular security rules. 
+
+    [Network security groups (NSGs)](/azure/virtual-network/network-security-groups-overview) are placed to restrict traffic between subnets based on parameters such as IP address range, ports, and protocols. [Application security groups (ASG)](/azure/virtual-network/application-security-groups) are placed on frontend and backend VMs. They are used with NSGs  filter traffic to and from the VMs.  
+
+- **Operational traffic**. It's recommended that secure operational access to workload is provided through Azure Bastion, which removes the need for public IP. In this architecture, that communication is over SSH that's supported by both Windows and Linux VMs. Entra ID is integrated with SSH for both types of VMs by using the //extension. That integration allows operator's identity to be authenticated and authorized through Entra ID.
+
+    Alternatively, use a separate VM as a jumpbox in the subnet in that has the workload resources. The operator will access the jumpbox through the Bastion host. Then, log in to the VMs behind the load balancer from the jumpbox.  
+
+    In both cases, appropriate NSG rules should be applied to restrict traffic. Security can be further enhanced with RBAC permissions and [just-in-time (JIT) VM access](/azure/defender-for-cloud/just-in-time-access-overview), a feature of Microsoft Defender for Cloud, which allows temporary inbound access to selected ports.
+
+- **Private connectivity to PaaS services**. Communication between the VMs and Azure Key Vault is over Private Links. This service requires private endpoints, which are placed in a separate subnet.
+
+- **DDoS protection**. Azure provides basic DDoS protection by default. Consider enabling [Azure DDoS Protection](/azure/virtual-network/ddos-protection-overview) on the public IP exposed by Application Gateway to detect threats. DDoS Protection also provides alerting, telemetry, and analytics through Azure Monitor. For more information, see [Azure DDoS Protection: Best practices and reference architectures](/azure/security/fundamentals/ddos-best-practices).
+
+##### Encryption
+
+> Refer to Well-Architected Framework: [SE:07 - Recommendations for data encryption](/azure/well-architected/security/encryption).
+
+- **Data in transit**. User traffic to and from the frontend VMs is encyrpted using external and internal TLS certificates. Traffic between the frontend and backend VMs is also encrypted using internal certificate. Both certificates are stored in [Azure Key Vault](/azure/key-vault/general/overview): 
+    - **app.contoso.com**: An external certificate used by clients and Application Gateway for secure public Internet traffic.
+    - ***.worload.contoso.com**: A wildcard certificate used by the infrastructure components for secure internal traffic.
+
+- **Data at rest**. Log data is stored in managed disk temporarily. That data is automatically encrypted by using platform-provided encryption in Azure Storage. 
+
+##### Secret management
+
+> Refer to Well-Architected Framework: [SE:09 - Recommendations for protecting application secrets](/azure/well-architected/security/application-secrets)
+
+:::image type="content" source="./media/vm-baseline-tls-termination.png" alt-text="IaaS monitoring data flow  diagram" lightbox="./media/vm-baseline-tls-termination.png":::
+
+[Azure Key Vault](/azure/key-vault/general/overview) provides secure management of secrets, including TLS certificates. In this architecture, the TLS certificates are stored in the Key Vault and retrieved during the provisioning process by the managed identities of Application Gateway and the VMs. After the initial setup, these resources will only access the Key Vault when the certificates are refreshed.
+
+The VMs use the [Azure Key Vault VM extension](/azure/virtual-machines/extensions/key-vault-linux) to automatically refresh the monitored certificates. If any changes are detected in the local certificate store, the extension retrieves and installs the corresponding certificates from the Key Vault. The extension supports certificate content types PKCS #12 and PEM.
+
+> [!IMPORTANT]
+> It is your responsibility to ensure your locally stored certificates are rotated regularly. See [Azure Key Vault VM extension for Linux](/azure/virtual-machines/extensions/key-vault-linux) or [Azure Key Vault VM extension for Windows](/azure/virtual-machines/extensions/key-vault-windows) for more details. 
+
+
+## Cost Optimization
+
+Workload requirements must be fulfilled keeping in my the cost constraints. This section describes  some options for optimizing costs. The strategies used in architecture are based on the [Cost Optimization design review checklist given in Azure Well-Architected Framework](/azure/well-architected/cost-optimization/checklist). The sections are annotated with recommendations from that checklist.
+
+
+##### Component cost
+
+> Refer to Well-Architected Framework: [CO:07 - Recommendations for optimizing component costs](/azure/well-architected/cost-optimization/optimize-component-costs)
+
+Select VM images that are optimized for the workload instead of using general-purpose images. In this architecture, relatively small VM images are chosesn for both Windows and Linux, which are approximately 30GB each. With smaller images, VM SKUs with disks are also smaller, leading to lower costs and also faster deployment, boot times, reduced resource consumption. A side benefit is security because of the reduced surface area. 
+
+Implementing log rotation with size limits is another cost saving strategy. It allows for using small data disks, which can result in lower costs. The implementation of this architecture uses 4GB disks.
+
+The use of ephemeral OS disks can also lead to cost savings and improved performance. These disks are designed to use VM resources that you're already paying for, because they are installed on the cache disk provisioned with the VM. It eliminates storage costs associated with traditional persistent disks. Because these disks are temporary, there are no costs associated with long-term data storage.
+
+##### Flow cost
+
+> Refer to Well-Architected Framework: [CO:09 - Recommendations for optimizing flow costs](/azure/well-architected/cost-optimization/optimize-flow-costs)
+
+Choose compute resources based on the criticality of the flow. For workflows that can tolerate interruptions, consider using [Spot VMs](/azure/architecture/guide/spot/spot-eviction) with VM scale setsFlexible Orchestration mode. This approach can be particularly effective for hosting low-priority flows on lower-priority VMs. This strategy allows for cost optimization while still meeting the requirements of different workflows.
+
+##### Scaling cost
+
+VMSS Autoscaling. Able to scale out and scale in
+If your expenses are bound to the number of instances (VMSS capacity), consider scaling up (VM SKUs) when possible as a way of saving costs in software license model, less maitenance time, load balancing costs, less VM Gallery image replicas, and storage.
+
+VM scale sets provide the capability for autoscaling, allowing for horizontal scaling that can increase or decrease VM instances based on demand.
+
+If your cost driver is the number of instances, it may be more cost-effective to scale up by increasing the size or performance of the VMs. This approach can lead to cost savings in several areas:
+
+- **Software licensing**. Larger VMs can handle more workload, potentially reducing the number of software licenses required.
+- **Maintenance time**: Managing fewer, larger VMs can reduce operational costs.
+- **Load balancing**: Fewer VMs can result in lower costs for load balancing. For example, in this architecture tere are multiple layers of load balancing, such as an Application Gateway at the front and an internal load balancer in the middle. Load balancing costs would increase if higher number of instances need to be managed.
+- **Storage**. In case of stateful applications, more instances need more attached managed disks, increasing cost of storage.
 
 ## Alternatives
 
