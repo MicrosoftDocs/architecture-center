@@ -7,7 +7,7 @@ The primary focus of this architecture isn't the application. Instead it provide
 
 |Architecture| Technology design decisions|Workload concerns|
 |---|---|---|
-|&#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-resources) <br> &#9642; [Supporting resources](#workload-supporting-resources) <br> &#9642; [User flows](#user-flows) <br> |&#9642; [VM design choices](#virtual-machine-design-choices)<br> &#9642; [Disks](#disks) <br> &#9642; [Networking](#networking) <br> &#9642; [Monitoring](#monitoring) | &#9642; [Operations](#os-patching) <br> &#9642; [Redundancy](#redundancy) <br> &#9642; [Security](#security) |
+|&#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-resources) <br> &#9642; [Supporting resources](#workload-supporting-resources) <br> &#9642; [User flows](#user-flows) <br> |&#9642; [VM design choices](#virtual-machine-design-choices)<br> &#9642; [Disks](#disks) <br> &#9642; [Networking](#networking) <br> &#9642; [Monitoring](#monitoring) | &#9642; [Operations](#os-patching) <br> &#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost Optimization](#cost-optimization)|
 
 > [!TIP]
 > ![GitHub logo](../_images/github.svg) The best practices described in this architecture are demonstrated by a [**reference implementation**](https://github.com/mspnp/iaas-baseline). 
@@ -375,7 +375,7 @@ Security isn't just technical controls. It's highly recommended that you follow 
 
 ##### Segmentation
 
-> Refer to Well-Architected Framework: [SE:04 - Recommendations for building a segmentation strategy](/azure/well-architected/security/segmentation)
+> Refer to Well-Architected Framework: [SE:04 - Recommendations for building a segmentation strategy](/azure/well-architected/security/segmentation).
 
 - **Network segmentation**. Workload resources are placed in a VNet, which provides isolation from the internet. Within the VNet, subnets can be used as trust boundaries. _Colocate related resources needed for handling a transaction in one subnet_. In this architecture, the VNet is divided into subnets based on the logical grouping of the application and purpose of various Azure services used as part of the workload.
 
@@ -386,7 +386,7 @@ Security isn't just technical controls. It's highly recommended that you follow 
 
 ##### Identity and access management
 
-> Refer to Well-Architected Framework: [SE:05 - Recommendations for identity and access management](/azure/well-architected/security/identity-access)
+> Refer to Well-Architected Framework: [SE:05 - Recommendations for identity and access management](/azure/well-architected/security/identity-access).
 
 [Microsoft Entra ID](/entra/fundamentals/whatis) recommended for authentication and authorization of both users and services. Workload resources such as VMs authenticate themselves by using their assigned managed identities to other resources. These identities, based on Microsoft Entra ID service principals, are automatically managed. 
 
@@ -431,7 +431,7 @@ In this architecture, [user-assigned managed identities](/entra/managed-identiti
 
 ##### Secret management
 
-> Refer to Well-Architected Framework: [SE:09 - Recommendations for protecting application secrets](/azure/well-architected/security/application-secrets)
+> Refer to Well-Architected Framework: [SE:09 - Recommendations for protecting application secrets](/azure/well-architected/security/application-secrets).
 
 :::image type="content" source="./media/vm-baseline-tls-termination.png" alt-text="IaaS monitoring data flow  diagram" lightbox="./media/vm-baseline-tls-termination.png":::
 
@@ -450,7 +450,7 @@ Workload requirements must be fulfilled keeping in my the cost constraints. This
 
 ##### Component cost
 
-> Refer to Well-Architected Framework: [CO:07 - Recommendations for optimizing component costs](/azure/well-architected/cost-optimization/optimize-component-costs)
+> Refer to Well-Architected Framework: [CO:07 - Recommendations for optimizing component costs](/azure/well-architected/cost-optimization/optimize-component-costs).
 
 Select VM images that are optimized for the workload instead of using general-purpose images. In this architecture, relatively small VM images are chosesn for both Windows and Linux, which are approximately 30GB each. With smaller images, VM SKUs with disks are also smaller, leading to lower costs and also faster deployment, boot times, reduced resource consumption. A side benefit is security because of the reduced surface area. 
 
@@ -460,18 +460,15 @@ The use of ephemeral OS disks can also lead to cost savings and improved perform
 
 ##### Flow cost
 
-> Refer to Well-Architected Framework: [CO:09 - Recommendations for optimizing flow costs](/azure/well-architected/cost-optimization/optimize-flow-costs)
+> Refer to Well-Architected Framework: [CO:09 - Recommendations for optimizing flow costs](/azure/well-architected/cost-optimization/optimize-flow-costs).
 
 Choose compute resources based on the criticality of the flow. For workflows that can tolerate interruptions, consider using [Spot VMs](/azure/architecture/guide/spot/spot-eviction) with VM scale setsFlexible Orchestration mode. This approach can be particularly effective for hosting low-priority flows on lower-priority VMs. This strategy allows for cost optimization while still meeting the requirements of different workflows.
 
 ##### Scaling cost
 
-VMSS Autoscaling. Able to scale out and scale in
-If your expenses are bound to the number of instances (VMSS capacity), consider scaling up (VM SKUs) when possible as a way of saving costs in software license model, less maitenance time, load balancing costs, less VM Gallery image replicas, and storage.
+> Refer to Well-Architected Framework: [CO:12 - Recommendations for optimizing scaling costs](/azure/well-architected/cost-optimization/optimize-scaling-costs).
 
-VM scale sets provide the capability for autoscaling, allowing for horizontal scaling that can increase or decrease VM instances based on demand.
-
-If your cost driver is the number of instances, it may be more cost-effective to scale up by increasing the size or performance of the VMs. This approach can lead to cost savings in several areas:
+If the main cost driver is the number of instances, it may be more cost-effective to scale up by increasing the size or performance of the VMs. This approach can lead to cost savings in several areas:
 
 - **Software licensing**. Larger VMs can handle more workload, potentially reducing the number of software licenses required.
 - **Maintenance time**: Managing fewer, larger VMs can reduce operational costs.
