@@ -22,7 +22,7 @@ The primary focus of this architecture isn't the application. Instead it provide
 
 - **Azure virtual machine** (VM) serves as the compute resource for the application and is distributed across availability zones. For illustrative purposes, a combination of both Windows and Linux images is used. 
 
-    **Azure Virtual Machine Scale Sets** in Flexible orchestration mode si used to provision and manages the virtual machines individually.
+    **Azure Virtual Machine Scale Sets** in Flexible orchestration mode is used to provision and manages the virtual machines individually.
 
     The sample application can be represented in two tiers, each requiring its own compute.  
 
@@ -91,7 +91,7 @@ If the workload needs low latency, take advantage of **accelerated networking** 
 
 ##### Virtual Machine Scale Sets with flexible orchestration
 
-VMs are provisioned as part of Virtual Machine Scale Sets (VMSS) with [Flexible orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration). VMSS are logical groupings of VMs that can be identical or of multiple types to meet capacity needs. They allow lifecycle management of machines, network interfaces, and disks using standard Azure VM APIs and commands.
+VMs are provisioned as part of Virtual Machine Scale Sets (VMSS) with [Flexible orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration). VMSSs are logical groupings of VMs that can be identical or of multiple types to meet capacity needs. They allow lifecycle management of machines, network interfaces, and disks using standard Azure VM APIs and commands.
 
 Flexible orchestration mode in VMSS facilitates operations at scale and offers better control and granular scaling decisions.
 
@@ -137,7 +137,7 @@ In this architecture, both backend and frontend VMs utilize Standard HDD LRS (//
 
 - The OS disks of all virtual machines are ephemeral and located on the cache disk, which also has the Windows page file.
 
-- Each virtual machine is has its own Premium SSD P3 managed disk, providing a base provisioned throughput suitable for the workload.
+- Each virtual machine has its own Premium SSD P3 managed disk, providing a base provisioned throughput suitable for the workload.
 
 ## Networking 
 
@@ -149,7 +149,7 @@ It can be integrated with an enterprise topology. That example is shown in [Virt
 
 ##### Virtual network
 
-One of the intial decisions relates to the network address range. Keep in mind the anticipated network growth during the capacity planning phase. The network should be large enough the growth, which may need extra networking constructs. For instance, the VNet should have the capacity to accommodate the additional VMs that result from a scaling operation.
+One of the initial decisions relates to the network address range. Keep in mind the anticipated network growth during the capacity planning phase. The network should be large enough the growth, which may need extra networking constructs. For instance, the VNet should have the capacity to accommodate the additional VMs that result from a scaling operation.
 
 Conversely, _right-size your address space_. An excessively large virtual network may lead to underutilization. It's important to note that once the VNet is created, the address range cannot be modified.
 
@@ -169,9 +169,9 @@ Similar to VNets, subnets must be right-sized. For instance, you might want to l
 
 ##### Ingress traffic
 
-A load balancer is required to distribute incoming traffic across all VMs. The Azure Load Balancer is placed between the frontend and the backend to distribute traffic to the backend VMs.
+Two public IP addresses are used. One for Azure Application Gateway that serves as the reverse proxy. Users connect using that public IP address. The reverse proxy directs ingress traffic to the private IPs of the VMs. The other address is for operational access through Azure Bastion.
 
-Two public IP addresses are used. One for Azure Application Gateway that serves as the reverse proxy. Clients connect using that public IP address. The reverse proxy directs ingress traffic to the private IPs of the VMs.The other address is for operational access through Azure Bastion.
+The Azure Load Balancer is placed between the frontend and the backend to distribute traffic to the backend VMs.
 
 ##### Egress traffic
 
@@ -179,7 +179,7 @@ Virtual Machine Scale Sets (VMSS) with Flexible orchestration requires that VM i
 
 VMSS with Flexible orchestration requires VM instances to have outbound internet connectivity. This architecture uses Standard SKU Azure Load Balancer with outbound rules defined from the VM instances. 
 
-Azure Load Balacer supports zone redundancy. This option allows you to use the public IP(s) of your load balancer to provide outbound internet connectivity for the VMs. The outbound rules allow you to explicitly define SNAT(source network address translation) ports. The rules allow you to scale and tune this ability through manual port allocation. Manually allocating SNAT port based on the backend pool size and number of frontendIPConfigurations can help avoid SNAT exhaustion. 
+Azure Load Balancer supports zone redundancy. This option allows you to use the public IP(s) of your load balancer to provide outbound internet connectivity for the VMs. The outbound rules allow you to explicitly define SNAT(source network address translation) ports. The rules allow you to scale and tune this ability through manual port allocation. Manually allocating SNAT port based on the backend pool size and number of frontendIPConfigurations can help avoid SNAT exhaustion. 
 
 It's recommended that you allocate ports based on the maximum number of backend instances. If more instances are added than remaining SNAT ports allowed, VMSS scaling operations might be blocked, or the new VMs won't receive sufficient SNAT ports.
 
@@ -193,7 +193,7 @@ There are other options such as deploying a NAT Gateway resource attached to the
 
 Azure DNS is used as the foundational service for all resolution use cases. For example, resolving fully qualified domain names (FQDN) associated with the workload VMs.
 
-Azure Private DNS zones is used for resolving requests to the private endpoints used to access the named Private link resources.
+Azure Private DNS zones are used for resolving requests to the private endpoints used to access the named Private link resources.
 
 ## Monitoring
 
@@ -203,7 +203,7 @@ This architecture has a monitoring stack that's decoupled from the utility of th
 
 Metrics and logs are generated at various data sources, providing observability insights at various altitudes:
 
-- **Underlying infrastructure and components** such as virtual machines, virtual networks, and storage services. Azure platform log provide information about operations and activities within the Azure platform.
+- **Underlying infrastructure and components** such as virtual machines, virtual networks, and storage services. Azure platform logs provide information about operations and activities within the Azure platform.
 - **Application level** provides insights into the performance and behavior of the applications running on your system.
 
 Azure Log Analytics workspace is the recommended monitoring data sink used to collect logs and metrics from the Azure resources and Application Insights. 
@@ -245,7 +245,7 @@ Application Gateway and Azure Load Balancer use health probes to detect endpoint
 
 ##### Managed disks
 
-Disk metrics to monitor depend on your workload, requiring a mix of key metrics. Monitoring should consider both the Azure platform and guest OS perspectives on managed disks. 
+Disk metrics depend on your workload, requiring a mix of key metrics. Monitoring should consider both the Azure platform and guest OS perspectives on managed disks. 
 
 The Azure platform perspective represents the metrics that a SAN operator would view, regardless of what workloads are connected. The guest OS perspective represents the metrics that the workload operator would view, regardless of the underlying disk technology. In Azure, workload teams have the responsibility of monitoring both as part of their solution.
 
@@ -271,53 +271,57 @@ Security isn't just technical controls. It's highly recommended that you follow 
 
 > Refer to Well-Architected Framework: [SE:04 - Recommendations for building a segmentation strategy](/azure/well-architected/security/segmentation)
 
-- **Network segmentation**. Subnets can be used as trust boundaries. _Colocate related resources needed for handling a transaction in one subnet_. In this architecture, the VNet is divided into subnets based on the logical grouping of the application and purpose of various Azure services used as part of the workload.
+- **Network segmentation**. Workload resources are placed in a VNet, which provides isolation from the internet. Within the VNet, subnets can be used as trust boundaries. _Colocate related resources needed for handling a transaction in one subnet_. In this architecture, the VNet is divided into subnets based on the logical grouping of the application and purpose of various Azure services used as part of the workload.
 
     The advantage of subnet segmentation is that you can place security controls at the perimeter that controls traffic flowing in and out of the subnet, thereby restricting access to the workload resources.
 
-- **Identity segmentation**. Assign distinct roles to different users with just-enough permissions to do their task. This architecture uses [Azure Role Based Access Control (RBAC)](/azure/role-based-access-control/overview) for authorization of all actors accessing resources, and implementation of the [principle of least privilege](/azure/active-directory/develop/secure-least-privileged-access) when applying roles and permissions to actors.  
+- **Identity segmentation**. Assign distinct roles to different identities with just-enough permissions to do their task. This architecture [Microsoft Entra ID](/entra/fundamentals/whatis) managed identities to segment access to resources.
+ 
 
 ##### Identity and access management
 
 > Refer to Well-Architected Framework: [SE:05 - Recommendations for identity and access management](/azure/well-architected/security/identity-access)
 
-[Microsoft Entra ID](/entra/fundamentals/whatis) recommended for authentication and authorization of both users and services. Services, such as VMs accessing Key Vault for certificates, should use managed identities for secure communication. These identities, based on Microsoft Entra ID service principals, are automatically managed. 
+[Microsoft Entra ID](/entra/fundamentals/whatis) recommended for authentication and authorization of both users and services. Workload resources such as VMs authenticate themselves by using their assigned managed identities to other resources. These identities, based on Microsoft Entra ID service principals, are automatically managed. 
 
-In this architecture, [user-assigned managed identities](/entra/managed-identities-azure-resources/overview#managed-identity-types) are used:
-
-- **Azure Application Gateway** uses its identity to access Azure Key Vault for external and internal TLS certificates, encrypting user traffic and traffic to/from the frontend web tier.
-- **Frontend web tier** and backend API tier VMs use their identities to access Azure Key Vault for the internal TLS certificate, encrypting traffic between frontend and backend VMs. They also access the Azure Storage account for boot diagnostics.
-
-If you extend this design to include a database, backend servers should use managed identity to get secrets from Key Vault for database connection.
+In this architecture, [user-assigned managed identities](/entra/managed-identities-azure-resources/overview#managed-identity-types) are used by Azure Application Gateway, front VMs, and backend VMs to access Azure Key Vault and Azure Storage account for boot diagnostics. Those managed identities are configured during deployment and used for authenticating against Key Vault. Access policies on Key Vault are configured to only accept requests from the preceding managed identities.
 
 >[!IMPORTANT]
 > The baseline architecture uses only user-assigned managed identities. Even though you may specify a system-assigned managed identity in a Bicep or ARM template with no error, they cannot be used in a Flex VMSS configuration. The Azure portal however will respond with the appropriate error. 
 
 ##### Network controls
 
-> Refer to Well-Architected Framework: [SE:06 - Recommendations for networking and connectivity](/azure/well-architected/security/networking)
+> Refer to Well-Architected Framework: [SE:06 - Recommendations for networking and connectivity](/azure/well-architected/security/networking).
 
 - **Ingress traffic**. The workload VMs aren't directly exposed to the public internet. Each VM has a private IP address. Workload users connect using that public IP address of Azure Application Gateway.
 
     Additional security is provided through [Web Application Firewall](/azure/application-gateway/waf-overview) that's integrated with Application Gateway. It has rules that _inspect inbound traffic_ and can take an appropriate action. WAF tracks Open Web Application Security Project (OWASP) vulnerabilities preventing known attacks.  
 
-- **Egress traffic**. Standard SKU Azure Load Balancer with outbound rules are defined from the VM instances. The rules inpect and restrict traffic.
+- **Egress traffic**. There are no controls on outbound traffic. It's highly recommended that all outbound internet traffic flows through a single firewall. This firewall is usually a central service provided by organization. That use case is shown in [Virtual machine baseline architecture in an Azure landing zone](./vm-baseline-landing-zone.yml).
 
 - **East-west traffic**. Traffic flow between the subnets is restricted by applying granular security rules. 
 
     [Network security groups (NSGs)](/azure/virtual-network/network-security-groups-overview) are placed to restrict traffic between subnets based on parameters such as IP address range, ports, and protocols. [Application security groups (ASG)](/azure/virtual-network/application-security-groups) are placed on frontend and backend VMs. They are used with NSGs  filter traffic to and from the VMs.  
 
-- **Operational traffic**. It's recommended that secure operational access to workload is provided through Azure Bastion, which supports RDP and SSH access. Alternatively, use a separate VM as a jumpbox in the subnet in that has the workload resources. The operator will access the jumpbox through the Bastion host. Then, log into the VMs behind the load balancer from the jumpbox.  
+- **Operational traffic**. It's recommended that secure operational access to workload is provided through Azure Bastion, which removes the need for public IP. In this architecture, that communication is over SSH that's supported by both Windows and Linux VMs. Entra ID is integrated with SSH for both types of VMs by using the //extension. That integration allows operator's identity to be authenticated and authorized through Entra ID.
+
+    Alternatively, use a separate VM as a jumpbox in the subnet in that has the workload resources. The operator will access the jumpbox through the Bastion host. Then, log in to the VMs behind the load balancer from the jumpbox.  
 
     In both cases, appropriate NSG rules should be applied to restrict traffic. Security can be further enhanced with RBAC permissions and [just-in-time (JIT) VM access](/azure/defender-for-cloud/just-in-time-access-overview), a feature of Microsoft Defender for Cloud, which allows temporary inbound access to selected ports.
 
 - **Private connectivity to PaaS services**. Communication between the VMs and Azure Key Vault is over Private Links. This service requires private endpoints, which are placed in a separate subnet.
 
-##### Encyrption
+- **DDoS protection**. Azure provides basic DDoS protection by default. Consider enabling [Azure DDoS Protection](/azure/virtual-network/ddos-protection-overview) on the public IP exposed by Application Gateway to detect threats. DDoS Protection also provides alerting, telemetry, and analytics through Azure Monitor. For more information, see [Azure DDoS Protection: Best practices and reference architectures](/azure/security/fundamentals/ddos-best-practices).
 
-> Refer to Well-Architected Framework: [SE:07 - Recommendations for data encryption](/azure/well-architected/security/encryption)
+##### Encryption
 
-TBD
+> Refer to Well-Architected Framework: [SE:07 - Recommendations for data encryption](/azure/well-architected/security/encryption).
+
+- **Data in transit**. User traffic to and from the frontend VMs is encyrpted using external and internal TLS certificates. Traffic between the frontend and backend VMs is also encrypted using internal certificate. Both certificates are stored in [Azure Key Vault](/azure/key-vault/general/overview): 
+    - **app.contoso.com**: An external certificate used by clients and Application Gateway for secure public Internet traffic.
+    - ***.worload.contoso.com**: A wildcard certificate used by the infrastructure components for secure internal traffic.
+
+- **Data at rest**. Log data is stored in managed disk temporarily. That data is automatically encrypted by using platform-provided encryption in Azure Storage. 
 
 ##### Secret management
 
@@ -325,69 +329,54 @@ TBD
 
 :::image type="content" source="./media/vm-baseline-tls-termination.png" alt-text="IaaS monitoring data flow  diagram" lightbox="./media/vm-baseline-tls-termination.png":::
 
-[Azure Key Vault](/azure/key-vault/general/overview) provides secure management of secrets. This architecture uses Key Vault to store the TLS certificates used by the various actors for encrypting and decrypting data in transit between layers. 
+[Azure Key Vault](/azure/key-vault/general/overview) provides secure management of secrets, including TLS certificates. In this architecture, the TLS certificates are stored in the Key Vault and retrieved during the provisioning process by the managed identities of Application Gateway and the VMs. After the initial setup, these resources will only access the Key Vault when the certificates are refreshed.
 
-The managed identities configured during deployment are used by Application Gateway and the VMs, for Key Vault authentication and authorization. Key Vault access policy is configured to allow the managed identities to retrieve the certificate properties. The VMs also use the [Azure Key Vault VM extension](/azure/virtual-machines/extensions/key-vault-linux) for automatic refresh of monitored certificates. If changes are detected in the local certificate store, the extension retrieves and installs the corresponding certificates in Key Vault. The extension supports certificate content types PKCS #12, and PEM. 
+The VMs use the [Azure Key Vault VM extension](/azure/virtual-machines/extensions/key-vault-linux) to automatically refresh the monitored certificates. If any changes are detected in the local certificate store, the extension retrieves and installs the corresponding certificates from the Key Vault. The extension supports certificate content types PKCS #12 and PEM.
 
 > [!IMPORTANT]
 > It is your responsibility to ensure your locally stored certificates are rotated regularly. See [Azure Key Vault VM extension for Linux](/azure/virtual-machines/extensions/key-vault-linux) or [Azure Key Vault VM extension for Windows](/azure/virtual-machines/extensions/key-vault-windows) for more details. 
 
-The certificates stored in Key Vault are identified by the following common names:
-- **app.contoso.com**: An external certificate used by clients and Application Gateway for secure public Internet traffic (1)
-- ***.worload.contoso.com**: A wildcard certificate used by the infrastructure components for secure internal traffic (2, 3, 4)
-
-It's also a good idea to use Key Vault for storage of secrets used for database encryption. For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure). We also recommend that you store application secrets, such as database connection strings, in Key Vault.
-
-##### DDoS protection
-
-The Azure platform provides basic DDoS protection by default. This basic protection is targeted at protecting the Azure infrastructure. Although basic DDoS protection is automatically enabled, we recommend using [Azure DDoS Protection](/azure/virtual-network/ddos-protection-overview). DDoS Protection uses adaptive tuning, based on your application's network traffic patterns, to detect threats. This practice allows it to apply mitigations against DDoS attacks that might go unnoticed by the infrastructure-wide DDoS policies. DDoS Protection also provides alerting, telemetry, and analytics through Azure Monitor. For more information, see [Azure DDoS Protection: Best practices and reference architectures](/azure/security/fundamentals/ddos-best-practices).
-
 
 ## Reliability 
 
-This architecture uses Azure-provided reliability features to make sure the workload is resilient to failures and is able to recover if there are outages at the infrastructure level. The following sections are aligned and annotated with the recommendations for Reliability given in the Azure Well-Architected Framework. 
+Workload design should incorporate reliability assurances in application code, infrastructure, and operations. The following sections illustrate some strategies to make sure the workload is resilient to failures and is able to recover if there are outages at the infrastructure level. Those strategies are aligned with the Azure Well-Architected Framework and are annotated with recommendations from [Reliability design review checklist](/azure/well-architected/reliability/checklist).
 
-Workload architectures should have reliability assurances in application code, infrastructure, and operations. Because there's no application deployed, resiliency in application code is beyond the scope of this architecture. We recommend that you review all recommendations given in [Reliability design review checklist](/azure/well-architected/reliability/checklist) and adopt them in your workload, if applicable.
+Because there's no application deployed, resiliency in application code is beyond the scope of this architecture. We recommend that you review all recommendations given in the checklist and adopt them in your workload, if applicable.
 
 ##### Prioritize the reliability assurances per user flow
 
 > Refer to Well-Architected Framework: [RE:02 - Recommendations for identifying and rating flows](/azure/well-architected/reliability/identify-flows).
 
-Most architectures have several user flows and not all of them need to be treated with the highest level of reliability assurances. Each flow might have a different set of the business requirements. It's recommended that the design uses a segmentation as one of the reliability strategies so that each segment can be managed independently and reliability of one segment doesn't impact the reliability of others.
+In most designs, there are multiple user flows, each with its own set of business requirements. Not all these flows require the highest level of assurances. Segmentation is recommended as a reliability strategy. Each segment can be managed independently, ensuring one segment doesn't impact others and the right level of resiliency in each tier. This approach also makes the system flexible.  
 
-In this architecture, the design is segmented by application tiers. Separate virtual machine scale sets are provisioned for the frontend and backend tiers. This separation allows them to be scaled independently, you can apply distinct design patterns based on their requirements, and so on.  
+In this architecture, segmentation is implemented by application tiers. Separate VM scale sets are provisioned for the frontend and backend tiers. This separation enables independent scaling of each tier, allowing for implementation of design patterns based on their specific requirements, among other benefits. 
 
 ##### Identify the potential failure points
 
 > Refer to Well-Architected Framework: [RE:03 - Recommendations for performing failure mode analysis](/azure/well-architected/reliability/failure-mode-analysis).
 
-Every architecture is succeptible to failures. The exercise of failure mode analysis allows you to anticipate failures and be prepared with mitigations. Here are some potential failure points in this architecture:
+Every architecture is susceptible to failures. The exercise of failure mode analysis allows you to anticipate failures and be prepared with mitigations. Here are some potential failure points in this architecture:
 
 | Component | Risk | Likelihood | Effect/Mitigation/Note | Outage |
 |-----------|------|------------|------------------------|--------|
-| Microsoft Entra ID | Service outage | Low | Ops team is affected. Dependent on Microsoft to remediate. | None |
 | Microsoft Entra ID | Misconfiguration | Medium | Ops users unable to sign in. No downstream effect. Help desk reports configuration issue to identity team. | None |
-| Azure App Gateway | Service outage | Low | Full outage for external as well as internal users. Dependent on Microsoft to remediate. | Full |
-| Azure App Gateway | Regional outage | Very low | Full outage since the workload is deployed to a single region. Azure App Gateway is a regional service. | Full |
-| Azure App Gateway | Misconfiguration | Medium | Misconfigurations should be caught during deployment. If these happen during a configuration update, devops team must roll back changes. Most deployments that use the v2 SKU take around 6 minutes to provision. However it can take longer depending on the type of deployment. For example, deployments across multiple Availability Zones with many instances can take more than 6 minutes. | Full |
+| Azure App Gateway | Misconfiguration | Medium | Misconfigurations should be caught during deployment. If these happen during a configuration update, DevOps team must roll back changes. Most deployments that use the v2 SKU take around 6 minutes to provision. However it can take longer depending on the type of deployment. For example, deployments across multiple Availability Zones with many instances can take more than 6 minutes. | Full |
 | Azure App Gateway | DDoS attack | Medium | Potential for disruption. Microsoft manages DDoS (L3 and L4) protection. Potential risk of effect from L7 attacks. | Full |
 | Azure Storage | Service outage | Low | Full workload outage. Dependent on Microsoft to remediate. | Full |
 | Azure Storage | Regional outage | Very low | Full workload outage as this is being deployed to a single region. Recovery time objectives (RTOs) are lower in the front-end but while higher in backend where managed disk are needed. Recovery point objectives (RPOs) to be determined during reliability testing. | Full |
 | Azure Storage | Availability zone outage | Low | No effect. The workload is deployed into 3 different zones overprovisioned to support a full zone outage. | None |
 | Azure VMSS | Service outage | Low | Potential workload outage in case of unhealthy Virtual Machine instances requires auto-repair to kick off. Dependent on Microsoft to remediate. | Potential outage |
-| Azure VMSS | Regional outage | Very low | Potential workload outage in case of unhealthy Virtual Machine instances requires auto-repair to kick off. Dependent on Microsoft to remediate. | None |
 | Azure VMSS | Availability zone outage | Low | No effect. VMSS has been deployed as zone redundant. | None |
-| Azure VMSS | DDoS attack | Medium | Full outage for external as well as internal users. Currently DDoS plan is not deployed simply for cost considerations. | Full |
 
 ##### Reliability targets
 
 > Refer to Well-Architected Framework: [RE:04 - Recommendations for defining reliability targets](/azure/well-architected/reliability/metrics).
 
-To make design decisions, it's important to calculate the reliability targets, such as the composite Service Level Objectives (SLOs) pf the workload. This involves understanding the Service Level Agreements (SLAs) provided by Azure services used in the architecture. Workoad SLOs must not be higher than the SLAs provided by Azure. This is because it would be irresponsible to promise a higher level of service than what Azure itself guarantees. Therefore, understanding the SLAs and careful examination of each component, from VMs and their dependencies to networking and storage options, is essential.
+To make design decisions, it's important to calculate the reliability targets, such as the composite Service Level Objectives (SLOs) of the workload. This involves understanding the Service Level Agreements (SLAs) provided by Azure services used in the architecture. Workload SLOs must not be higher than the SLAs guaranteed by Azure. Carefully examine each component, from VMs and their dependencies, networking, and storage options.
 
 Here's an example calculation.
 
-**Ops Flow**
+**Operation flow**
 
 |Component  |SLO  |SLO with Zones  |Downtime per week  |Downtime per month  |Downtime per year  |
 |------------|-----------|---------|---------|---------|---------|
@@ -411,9 +400,9 @@ Here's an example calculation.
 
 **Composite SLO: 99.98% | Downtime per year: 0d 0h 52m 53s**
 
-In the preceding example, reliability of VMs and the dependencies are included. For instance, disks associated with VMs. The SLAs associated with disk storage impacts the overall reliability.
+In the preceding example, reliability of VMs and the dependencies are included. For instance, disks associated with VMs. The SLAs associated with disk storage impact the overall reliability.
 
-There are some challenges when calculating the composite SLO. It's important to note that different tiers of service may come with different SLAs, and these often include financially-backed guarantees that set reliability targets. Finally there might be components that don't have SLAs defined. FOr example, in terms of networking, Network Interface Cards (NICs) might not have their own SLAs, they do operate within VNets. However, VNets themselves do not have SLAs.
+There are some challenges when calculating the composite SLO. It's important to note that different tiers of service may come with different SLAs, and these often include financially backed guarantees that set reliability targets. Finally there might be components that don't have SLAs defined. For example, in terms of networking, Network Interface Cards (NICs) might not have their own SLAs, they do operate within VNets. However, VNets themselves do not have SLAs.
 
 The business requirements and their targets must be clearly defined and factored into the calculation. Be aware of the service limits and additional constraints imposed by the organization. If your subscription is shared with other workloads, this could impact the resources available for your VMs. The workload might be allowed to use a limited number of cores available for the VMs. Understanding the resource usage of your subscription can help you design your VMs more effectively.
 
@@ -429,23 +418,27 @@ This architecture uses zone-redundancy for several components. Each zone is made
 
     Consider a scenario where there are three Availability Zones. If you have three instances, each instance is allocated to a different Availability Zone and placed in a different Fault Domain. Azure guarantees that only one Fault Domain is updated at a time in each Availability Zone. However, there could be a situation all three Fault Domains in three Availability Zones are updated simultaneously. All zones and domains will be impacted. Having atleast two instances in each zone provides a buffer during upgrades.
 
-- Managed disks can only be attached to a VM in the same region. Their availability typically impacts the availability of the VM. For single-region deployments, disks can be configured for redundancy within a datacenter; locally-Redundant Storage (LRS) or zone-Redundant Storage (ZRS). LRS is sufficient as it supports [zonal failure mitigations](/azure/virtual-machines/disks-redundancy#locally-redundant-storage-for-managed-disks). For workloads that need even less time to recover from failure, ZRS is a recommended. It requires a recovery strategy to take advantage of Availability Zones. Ideally pre-provision compute in alternate Availability Zones ready to recover from a zonal failure.
+- Managed disks can only be attached to a VM in the same region. Their availability typically impacts the availability of the VM. For single-region deployments, disks can be configured for redundancy within a datacenter; locally Redundant Storage (LRS) or zone-Redundant Storage (ZRS). LRS is sufficient as it supports [zonal failure mitigations](/azure/virtual-machines/disks-redundancy#locally-redundant-storage-for-managed-disks). For workloads that need even less time to recover from failure, ZRS is a recommended. It requires a recovery strategy to take advantage of Availability Zones. Ideally pre-provision compute in alternate Availability Zones ready to recover from a zonal failure. 
 
     In this architecture, data disks are configured as LRS because all tiers are stateless. Recovery strategy is to redeploy the solution.
 
-- Application Gateway or a Standard Load Balancer are configured as zone-redundant. Traffic can be routed to VMs located across zones with a single IP address, which will survive zone failures. Both services use health probes to determine the availability of the VMs. One or more Availability Zones can fail but routing survives as long as one zone in the region remains healthy. Routing across zones has higher latency than routing within the zone.
+- A zone-redundant Application Gateway or Standard Load Balancer can route traffic to VMs across zones using a single IP address, ensuring continuity even in the event of zone failures. These services use health probes to check VM availability. As long as one zone in the region remains operational, routing continues despite potential failures in other zones. However, inter-zone routing may have higher latency compared to intra-zone routing.
 
-- Global and regional services. Azure supports services that zone-redundant that is, they are spread across multiple zones. They manage their own reliability.  If it fails in one zone, there is an instance in the another zone. There are also global resournces, which will always be available. If a region is down, its pointed to another region. In this architecture, Key Vault is zone-redudant. The foundational IdP, Microsoft Entra ID is global.
+- Azure offers zone-redundant services, which are distributed across multiple zones for better reliability. Azure global resources are always available and can switch to another region if necessary. In this architecture, Key Vault is zone-redundant, while the foundational Identity Provider, Microsoft Entra ID, is global.
 
-##### Reliable scaling strategy
+##### Scaling strategy
 
 > Refer to Well-Architected Framework: [RE:06 - Recommendations for designing a reliable scaling strategy](/azure/well-architected/reliability/redundancy).
 
-When it comes to the resiliency of Azure Virtual Machines (VMs), overprovisioning plays a crucial role. This process involves understanding the workload that an individual VM is expected to handle. It's important to identify the maximum amount of work the VM will be tasked with and ensure that the selected VM is not undersized for this workload.
+Your scaling operations should be reliable so that when a degraded condition is detected additional resources are provisioned immediately. One strategy is overprovisioning. This is achieved by having sufficient horizontal capacity. This strategy involves understanding the maximum amount of work that the workload will handle. However, it's not just about having extra capacity. It's also about ensuring that your resources aren't underprovisioned. The VM should be right-sized for the work it's expected to handle.
 
-Overprovisioning is a strategy used to immediately mitigate individual failures. This is achieved by having sufficient horizontal capacity. However, it's not just about having extra capacity. It's also about ensuring that your resources are not underprovisioned. The VM should be the right size for the workload it's expected to handle.
+Another strategy is to use autoscaling capabilities for the VM scale sets. Be sure to do adequate performance testing to set the threshold for CPU, memory, and others. When those thresholds are reached, new instances are immediately provisioned.
 
+#### Self-healing and recoverability
 
+> Refer to Well-Architected Framework: [Recommendations for self-healing and self-preservation](/azure/well-architected/reliability/self-preservation).
+
+[Application Health extension](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension) is deployed to VMs to detect unresponsive VMs and applications. For those instances, repair actions are automatically triggered. 
 
 ## Alternatives
 
@@ -464,7 +457,7 @@ This architecture uses Azure Load Balancer with outbound rules for egress traffi
 
 - **Use Azure Firewall or another Network Virtual Appliance (NVA) with a custom User Defined Route (UDR) as the next hop through firewall**.
 
-    It's highly recommended that all outbound internet traffic flows through a single firewall. This firewall is usually a central service provided by organization. That use case is shown in [Virtual machine baseline architecture in an Azure landing zone](./vm-baseline-landing-zone.yml).
+    
 
 
 ## Next steps
