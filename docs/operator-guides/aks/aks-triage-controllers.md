@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn how to validate that the admission controllers are working as expected, as part of a triage step for Azure Kubernetes Service (AKS) clusters.
 author: kevingbb
 ms.author: kevinhar
-ms.date: 10/16/2023
+ms.date: 11/15/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -18,9 +18,9 @@ ms.custom:
 
 # Validate the admission controllers
 
-Check whether the admission controllers are working as expected.
+_This article is part of a series. Start with the [overview](aks-triage-practices.md)._
 
-_This article is part of a series. Read the introduction [here](aks-triage-practices.md)._
+Check whether the admission controllers are working as expected.
 
 While issues caused by admission controllers are rare, it's crucial to consider and ensure their proper functionality. This article discusses various scenarios that can impact admission controllers and provides commands using `kubectl` to validate their performance. Here are some examples:
 

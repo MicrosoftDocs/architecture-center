@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn about the triage step to examine the health of Azure Kubernetes Service (AKS) worker nodes and pods.
 author: kevingbb
 ms.author: kevinhar
-ms.date: 10/11/2023
+ms.date: 11/15/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -17,11 +17,11 @@ ms.custom:
   - e2e-aks
 ---
 
-# Examine the node and pod health
+# Examine node and pod health
+
+_This article is part of a series. Start with the [overview](aks-triage-practices.md)._
 
 If the cluster checks are clear, check the health of the Azure Kubernetes Service (AKS) worker nodes. Determine the reason for the unhealthy node and resolve the issue.
-
-_This article is part of a series. Read the introduction [here](aks-triage-practices.md)._
 
 ## Step 1: Check the overall health of the worker nodes
 

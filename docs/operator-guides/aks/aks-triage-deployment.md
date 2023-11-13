@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn how to check whether workload deployments and daemonSets are running as part of triage practices in an AKS cluster.
 author: paolosalvatori
 ms.author: paolos
-ms.date: 10/16/2023
+ms.date: 11/15/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -18,9 +18,9 @@ ms.custom:
 
 # Monitor the workload deployments
 
-It's crucial to monitor the health and performance of your Kubernetes workloads to ensure that they are running optimally. Azure Kubernetes Service (AKS) provides several tools and methods to check the health and performance of your deployments, daemonsets, and services. This article describes these tools and approaches.
+_This article is part of a series. Start with the [overview](aks-triage-practices.md)._
 
-_This article is part of a series. Read the introduction [here](aks-triage-practices.md)._
+It's crucial to monitor the health and performance of your Kubernetes workloads to ensure that they are running optimally. Azure Kubernetes Service (AKS) provides several tools and methods to check the health and performance of your deployments, daemonsets, and services. This article describes these tools and approaches.
 
 ## Tools
 

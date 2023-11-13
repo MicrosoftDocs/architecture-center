@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn about verifying the connection to the container registry, as part of a triage step for Azure Kubernetes Service (AKS) clusters.
 author: kevingbb
 ms.author: kevinhar
-ms.date: 10/16/2023
+ms.date: 11/15/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -18,9 +18,9 @@ ms.custom:
 
 # Verify the connection to the container registry
 
-To ensure a successful deployment of containerized applications in your Azure Kubernetes Service (AKS) cluster, it's essential to verify the connectivity between the cluster and the container registry. This step guarantees that your worker nodes have the necessary permissions to pull the required container images from the registry.
+_This article is part of a series. Start with the [overview](aks-triage-practices.md)._
 
-_This article is part of a series. Read the introduction [here](aks-triage-practices.md)._
+To ensure a successful deployment of containerized applications in your Azure Kubernetes Service (AKS) cluster, it's essential to verify the connectivity between the cluster and the container registry. This step guarantees that your worker nodes have the necessary permissions to pull the required container images from the registry.
 
 ## Identifying symptoms
 

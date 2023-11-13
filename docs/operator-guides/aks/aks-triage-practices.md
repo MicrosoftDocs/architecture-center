@@ -21,15 +21,15 @@ A root-cause analysis for an Azure Kubernetes Service (AKS) cluster is often cha
 
 ![An image that shows the hierarchy of AKS cluster components: Cluster, node pools, nodes, pods, and containers.](./images/kube-components.svg)
 
-The following section provides an overview of the triage practices series, which describes the top-down approach in detail. The articles provide examples that use a set of tools and dashboards and describe how these examples highlight symptoms of problems.
+The following section provides an overview of a series about triage practices, which describes the top-down approach in detail. The articles provide examples that use a set of tools and dashboards. The articles describe how these examples highlight symptoms of problems.
 
 Common problems that are addressed in this series include:
 
 - Network and connectivity problems that are caused by improper configuration.
 - Broken communication between the control plane and the node.
 - Kubelet pressures that are caused by insufficient compute, memory, or storage resources.
-- DNS resolution problems.
-- Nodes that run out of disk IOPS.
+- Domain Name System (DNS) resolution problems.
+- Nodes that run out of disk input/output operations per second (IOPS).
 - An admission control pipeline that blocks several requests to the API server.
 - A cluster that doesn't have permissions to pull from the appropriate container registry.
 
@@ -41,7 +41,7 @@ This series isn't intended to resolve specific problems. For information about t
 |---|---|
 |[1. Evaluate AKS cluster health](aks-triage-cluster-health.md).|Check the overall health of the cluster and networking.|
 |[2. Examine the node and pod health](aks-triage-node-health.md). |Evaluate the health of the AKS worker nodes. |
-|[3. Monitor the workload deployments](aks-triage-deployment.md).|Ensure that all deployments and daemonSets are running.|
+|[3. Monitor the workload deployments](aks-triage-deployment.md).|Ensure that all deployments and `DaemonSet` features are running.|
 |[4. Validate the admission controllers](aks-triage-controllers.md).|Check whether the admission controllers are working as expected.|
 |[5. Verify the connection to the container registry](aks-triage-container-registry.md).|Verify the connection to the container registry.|
 
