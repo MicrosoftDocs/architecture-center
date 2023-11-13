@@ -104,7 +104,6 @@ Principal authors:
 
 ## Next steps
 
-[Import container images to a container registry](/azure/container-registry/container-registry-import-images)
-
-[AKS roadmap](https://aka.ms/aks/roadmap)
+- [Import container images to a container registry](/azure/container-registry/container-registry-import-images)
+- [AKS roadmap](https://aka.ms/aks/roadmap)
   

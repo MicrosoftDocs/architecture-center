@@ -16,7 +16,7 @@ ms.custom:
   - e2e-aks
 ---
 
-# Check the workload deployments
+# Monitor the workload deployments
 
 It's crucial to monitor the health and performance of your Kubernetes workloads to ensure that they are running optimally. Azure Kubernetes Service (AKS) provides several tools and methods to check the health and performance of your deployments, daemonsets, and services. This article describes these tools and approaches.
 
@@ -230,9 +230,8 @@ Other contributors:
 
 ## Next steps
 
-[Virtual machine disk limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-machine-disk-limits)
-
-[Relationship between virtual machines and disk performance](/azure/virtual-machines/linux/disk-performance-linux)
+- [Virtual machine disk limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-machine-disk-limits)
+- [Relationship between virtual machines and disk performance](/azure/virtual-machines/linux/disk-performance-linux)
 
 ## Related resources
 

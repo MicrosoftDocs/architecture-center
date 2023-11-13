@@ -1,7 +1,7 @@
 ---
 title: AKS triage—Node health
 titleSuffix: Azure Architecture Center
-description: Learn about the triage step to examine the health of Azure Kubernetes Services (AKS) worker nodes and pods.
+description: Learn about the triage step to examine the health of Azure Kubernetes Service (AKS) worker nodes and pods.
 author: kevingbb
 ms.author: kevinhar
 ms.date: 10/11/2023
@@ -283,14 +283,14 @@ Physical storage devices have inherent limitations in terms of bandwidth and the
 
 Consider the concept of throughput. You can multiply the average IO size by the IOPS to determine the throughput in megabytes per second (MB/s). Larger IO sizes translate to lower IOPS because of the fixed throughput of the disk.
 
-When a workload surpasses the maximum IOPS service limits assigned to Azure disks, the cluster might become unresponsive and enter an IO Wait state. In Linux-based systems, nearly everything is treated as a file, encompassing network sockets, Container Networking Interface (CNI), Docker, and other services that are reliant on network I/O. Consequently, if the disk can't be read, the failure extends to all these files.
+When a workload surpasses the maximum IOPS service limits assigned to Azure disks, the cluster might become unresponsive and enter an IO Wait state. In Linux-based systems, nearly everything is treated as a file, encompassing network sockets, Container Networking Interface (CNI), Docker, and other services that are reliant on network IO. Consequently, if the disk can't be read, the failure extends to all these files.
 
 Several events and scenarios can trigger IOPS throttling, including:
 
-- A substantial number of containers running on the nodes, because Docker I/O shares the OS disk.
+- A substantial number of containers running on the nodes, because Docker IO shares the OS disk.
 
-- The presence of custom or third-party tools employed for security, monitoring, and logging, which might generate additional I/O operations on the OS disk.
-- Node failover events and periodic jobs that intensify the workload or scale the number of pods. This increased load heightens the likelihood of throttling occurrences, potentially causing all nodes to transition to a `NotReady` state until the I/O operations conclude.
+- The presence of custom or third-party tools employed for security, monitoring, and logging, which might generate additional IO operations on the OS disk.
+- Node failover events and periodic jobs that intensify the workload or scale the number of pods. This increased load heightens the likelihood of throttling occurrences, potentially causing all nodes to transition to a `NotReady` state until the IO operations conclude.
 
 ## Contributors
 
@@ -306,9 +306,8 @@ Principal authors:
 
 ## Next steps
 
-[Virtual machine disk limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-machine-disk-limits)
-
-[Relationship between virtual machines and disk performance](/azure/virtual-machines/linux/disk-performance-linux)
+- [Virtual machine disk limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-machine-disk-limits)
+- [Relationship between virtual machines and disk performance](/azure/virtual-machines/linux/disk-performance-linux)
 
 ## Related resources
 

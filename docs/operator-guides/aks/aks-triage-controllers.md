@@ -16,7 +16,7 @@ ms.custom:
   - e2e-aks
 ---
 
-# Validate that the admission controllers work properly
+# Validate the admission controllers
 
 Check whether the admission controllers are working as expected.
 

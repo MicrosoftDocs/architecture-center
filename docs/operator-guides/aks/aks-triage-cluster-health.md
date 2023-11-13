@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn how to check the overall health of an Azure Kubernetes Service (AKS) cluster, as part of a triage step for AKS clusters.
 author: francisnazareth
 ms.author: fnazaret
-ms.date: 10/11/2023
+ms.date: 11/15/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -16,40 +16,42 @@ ms.custom:
   - e2e-aks
 ---
 
-# Check AKS cluster health
+# Evaluate AKS cluster health
 
-Start by checking the health of the overall cluster and networking.
+To begin your triaging practice, evaluate the overall health of the cluster and networking.
 
-_This article is part of a series. Read the introduction [here](aks-triage-practices.md)._
+_This article is part of a series. Start with the [overview](aks-triage-practices.md)._
 
 ## Tools
 
-To diagnose and solve problems in your Azure Kubernetes Service (AKS) cluster, you can utilize the following tools and features within the Azure portal:
+To diagnose and solve problems in your Azure Kubernetes Service (AKS) cluster, you can use the following tools and features. Find these tools and features by selecting your AKS cluster resource in the Azure portal.
 
-- **AKS diagnose and solve problems**: In the Azure portal, go to your AKS cluster resource and select [diagnose and solve problems](/azure/aks/aks-diagnostics). This intelligent tool offers a self-diagnostic experience that helps identify and resolve issues within your cluster, without extra cost.
+- **AKS diagnose and solve problems**: Select [Diagnose and solve problems](/azure/aks/aks-diagnostics). You can use this intelligent tool to help identify and resolve issues within your cluster, without extra cost.
 
-- **Resource health**: In the Azure portal, navigate to your AKS cluster resource and choose [resource health](/azure/service-health/resource-health-overview). This tool assists in diagnosing and obtaining support for service problems that might impact your Azure resources. It provides information on your resources' current and past health status.
-- **Azure Advisor**: In the Azure portal, go to your AKS cluster resource, select the `Overview` tab, and click on the `Recommendations` section. Alternatively, you can click on the `Advisor Recommendations` link in the left navigation panel. [Azure Advisor](/azure/advisor/advisor-overview)  acts as a personalized cloud consultant, guiding you to follow best practices for optimizing your Azure deployments. It analyzes your resource configuration and usage telemetry, then suggests solutions to enhance cost-effectiveness, performance, reliability, and security of your Azure resources.
-- **Log Analytics workspace**: In the Azure portal, navigate to your AKS cluster resource and choose the `Monitoring` tab. From there, select the `Logs` blade located in the left navigation panel to access the cluster logs and metrics stored in the [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) workspace. This feature allows you to monitor and analyze your cluster's logs and metrics for better insights and troubleshooting.
+- **Resource health**: Choose [Resource health](/azure/service-health/resource-health-overview). Use this tool to help diagnose and obtain support for service problems that might impact your Azure resources. This tool provides information about your resources' current and past health status.
+- **Azure Advisor**: Select the **Overview** tab, and select the **Recommendations** section.
 
-By utilizing these tools and features, you can effectively diagnose and resolve issues, optimize your AKS cluster deployment, and monitor the health and performance of your Azure resources.
+  Alternatively, you can select **Advisor recommendations** in the navigation panel. [Azure Advisor](/azure/advisor/advisor-overview) acts as a personalized cloud consultant, guiding you to follow best practices for optimizing your Azure deployments. Advisor can analyze your resource configuration and usage telemetry, and suggest solutions to enhance cost-effectiveness, performance, reliability, and security.
+- **Log Analytics workspace**: Choose the **Monitoring** tab. Select **Logs** in the navigation panel to access the cluster logs and metrics that are stored in the [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) workspace. Use this feature to monitor and analyze your cluster's logs and metrics to provide insight and improve troubleshooting.
 
-[AKS diagnose and solve problems](/azure/aks/aks-diagnostics) provides a comprehensive suite of tools to aid in the identification and resolution of various issues related to your cluster. Depending on the issue you experience, you can check the description on each category tile and select the most relevant one to diagnose your problem. Based on the outcome, you might follow the detailed instructions or refer to the documentation to resolve the issue effectively.
+Use these tools and features so you can effectively diagnose and resolve issues, optimize your AKS cluster deployment, and monitor the health and performance of your Azure resources.
 
-![Screenshot that shows the diagnose and solve problems homepage.](images/aks-diagnostics.png)
+The [diagnose and solve problems](/azure/aks/aks-diagnostics) feature provides a comprehensive suite of tools to aid in the identification and resolution of various issues related to your cluster. Select the troubleshooting category that's the most relevant to your problem.
 
-You can use the following tiles in [AKS diagnose and solve problems](/azure/aks/aks-diagnostics) to check the cluster health:
+:::image type="content" source="images/aks-diagnostics.png" alt-text="Screenshot that shows the Diagnose and solve problems page." lightbox="images/aks-diagnostics.png" border="false":::
 
-- **Cluster and control plane availability and performance**: This tile helps to check if there are any service availability or throttling issues affecting the health of the cluster.
-- **Connectivity issues**: This tile helps to verify if there are errors with cluster DNS resolution or if the outbound communication route has connectivity issues.
+To check the cluster health, you might choose:
 
-[Resource health](/azure/service-health/resource-health-overview) helps you identify and get support for cluster issues and service problems that can impact your cluster's health. By adding a resource alert, you can easily monitor the health of your cluster. This feature provides a report on the current and past health of your cluster. The health statuses are:
+- **Cluster and control plane availability and performance**: Check if there are any service availability or throttling issues affecting the health of the cluster.
+- **Connectivity issues**: Verify if there are errors with cluster DNS resolution or if the outbound communication route has connectivity issues.
 
-- **Available**. This status means that there are no events detected that affects the health of the cluster. If the cluster has recovered from unplanned downtime within the last 24 hours, you see a `recently resolved` notification.
+Use the [resource health](/azure/service-health/resource-health-overview) feature to identify and get support for cluster issues and service problems that can impact your cluster's health. Add a resource alert so you can easily monitor the health of your cluster. The resource health feature provides a report on the current and past health of your cluster. There are four health statuses.
 
-- **Unavailable**. This status indicates that the service detected an ongoing platform or nonplatform event that affects the health of the cluster.
-- **Unknown**. When resource health doesn't receive any information about the resource for over 10 minutes, this status appears. This usually happens when virtual machines are deallocated. Although this status isn't a definitive indication of the resource's state, it can be a useful data point for troubleshooting.
-- **Degraded**. This status means that your cluster detected a loss in performance, but it's still available for use.
+- **Available**: There are no events detected that affect the health of the cluster. If the cluster has recovered from unplanned downtime within the last 24 hours, there's a _recently resolved_ notification.
+
+- **Unavailable**: The service detects an ongoing platform or nonplatform event that affects the health of the cluster.
+- **Unknown**: The resource health feature hasn't received any information about the resource for over 10 minutes. This status usually appears when virtual machines are deallocated. This status isn't a definitive indication of the resource's state, but it can be a useful data point for troubleshooting.
+- **Degraded**: Your cluster detects a loss in performance, but it's still available for use.
 
 ![Screenshot that shows the AKS resource health overview.](images/aks-resource-health.png)
 
