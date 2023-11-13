@@ -33,7 +33,7 @@ Real-time changes in the MongoDB Atlas operational data store (ODS) are captured
 - [Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage/) is the default storage solution in Azure Synapse Analytics. You can use serverless pools to query the data directly.
 - [Pipelines](/azure/synapse-analytics/get-started-pipelines) and [data flows](/azure/synapse-analytics/concepts-data-flow-overview) in [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics/) can be used to push the blob that contains the MongoDB changed data to dedicated SQL pools or Spark pools for further analysis. Pipelines enable you to act on changed datasets in Data Lake Storage by using both [storage event triggers](/azure/data-factory/how-to-create-event-trigger?tabs=data-factory) and [scheduled triggers](/azure/data-factory/how-to-create-schedule-trigger?tabs=data-factory) to build solutions for both real-time and near real-time use cases. This integration accelerates downstream consumption of change datasets. 
 
-![Diagram that shows ](media/azure-synapse-analytics-pipelines.svg)
+![Diagram that shows how Azure Synapse Analytics pipelines can push data to pools.](media/azure-synapse-analytics-pipelines.svg)
 
 *Figure 2*
 
@@ -47,7 +47,7 @@ However, using Atlas triggers with Azure Functions provides a completely serverl
 
 Also, [Microsoft Fabric](https://www.microsoft.com/microsoft-fabric) unifies your data estate and makes it easier to run analytics and AI over the data, so you get insights quickly. Azure Synapse Analytics data engineering, data science, data warehousing, and real-time analytics in Fabric can now make better use of MongoDB data that's pushed to OneLake. You can use both Dataflow Gen2 and data pipeline connectors for Atlas to load Atlas data directly to OneLake. This no-code mechanism provides a powerful way to ingest data from Atlas to OneLake.  
 
-![](media/image8.png)
+![Diagram that shows how Microsoft Fabric pushes data to OneLake.](media/microsoft-fabric.png)
 
 *Figure 3*
 
@@ -85,13 +85,13 @@ You can capture the changes by using an Atlas trigger, which you can configure i
 
 The following screenshot shows the form that you can use to create and edit an Atlas trigger. **Trigger Source Details** specify the collection that the trigger will watch for change events and the database events it will watch for (Insert, Update, Delete or Replace).
 
-:::image type="content" source="media/image3.png" alt-text="form for creating an Atlas trigger." border="true":::
+:::image type="content" source="media/create-atlas-trigger.png" alt-text="Screenshot that shows the form for creating an Atlas trigger." border="true":::
 
 *Figure* *4*
 
 The trigger can invoke an Atlas function as a response to the event it is enabled for. Figure 3 shows the simple JavaScript code added as Atlas function to be invoked in response to the database trigger. The Atlas function just invokes another Azure function passing it the metadata of the change event along with the actual document that was inserted/ updated or deleted depending on what the trigger was enabled for.
 
-:::image type="content" source="media/image4.png" alt-text="Java code added" border="true":::
+:::image type="content" source="media/javascript-atlas-function.png" alt-text="Screenshot that shows JavaScript code added to the trigger." border="true":::
 
 *Figure* *5*
 
