@@ -4,7 +4,7 @@ Real-time analytics can help you make quick decisions and perform autmomated act
 
 The following diagram shows how to implement a real-time sync from Atlas to Azure Synapse Analytics. This simple flow ensures that any changes that occur in the MongoDB Atlas collection are replicated to the default Azure Data Lake Storage repository in the Azure Synapse Analytics workspace. After the data is in Data Lake Storage, you can use Azure Synapse Analytics pipelines to push the data to dedicated SQL pools, Spark pools, or other solutions, depending on your analytics requirements.
 
-![](media/azure-synapse-analytics-mongodb.svg)
+![Diagram that shows an architecture for implementing real-time sync from MongoDB Atlas to Azure Synapse Analytics.](media/azure-synapse-analytics-mongodb.svg)
 
 *Figure 1*
 
