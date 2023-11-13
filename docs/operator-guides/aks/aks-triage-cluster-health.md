@@ -26,13 +26,13 @@ To begin your triage practice, evaluate the overall health of the cluster and ne
 
 There are many tools and features that you can use to diagnose and solve problems in your Azure Kubernetes Service (AKS) cluster.
 
-In the Azure portal, select your AKS cluster resource. These tools and features are in the navigation panel.
+In the Azure portal, select your AKS cluster resource. These tools and features are in the navigation pane.
 
-- [Diagnose and solve problems](/azure/aks/aks-diagnostics): You can use this tool to help identify and resolve issues within your cluster, without extra cost.
+- [Diagnose and solve problems](/azure/aks/aks-diagnostics): You can use this tool to help identify and resolve issues within your cluster.
 
-- [Resource health](/azure/service-health/resource-health-overview): You can use this tool to help diagnose and obtain support for service problems that might impact your Azure resources. This tool provides information about your resources' current and past health status.
-- _Advisor recommendations_: [Azure Advisor](/azure/advisor/advisor-overview) acts as a personalized cloud consultant, guiding you to follow best practices for optimizing your Azure deployments. You can use Advisor to analyze your resource configuration and usage telemetry, and suggest solutions to enhance cost-effectiveness, performance, reliability, and security.
-- _Logs_: Access the cluster logs and metrics that are stored in the [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) workspace. Use this feature to monitor and analyze your cluster's logs and metrics to provide insight and improve troubleshooting.
+- [Resource health](/azure/service-health/resource-health-overview): You can use this tool to help diagnose and obtain support for service problems that might affect your Azure resources. This tool provides information about your resources' current and past health status.
+- _Advisor recommendations_: [Azure Advisor](/azure/advisor/advisor-overview) acts as a personalized cloud consultant, guiding you to follow best practices for optimizing your Azure deployments. You can use Advisor to analyze your resource configuration and usage telemetry. Advisor suggests solutions so you can enhance cost-effectiveness, performance, reliability, and security.
+- _Logs_: Use this feature to access the cluster logs and metrics that are stored in the [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) workspace. You can monitor and analyze your cluster's logs and metrics to provide insight and improve troubleshooting.
 
 Use these tools and features so you can effectively diagnose and resolve issues, optimize your AKS cluster deployment, and monitor the health and performance of your Azure resources.
 
@@ -49,7 +49,7 @@ To check the cluster health, you might choose:
 
 ### Resource health
 
-Use the [resource health](/azure/service-health/resource-health-overview) feature to identify and get support for cluster issues and service problems that can impact your cluster's health. Add a resource alert so you can easily monitor the health of your cluster. The resource health feature provides a report on the current and past health of your cluster. There are four health statuses:
+Use the [resource health](/azure/service-health/resource-health-overview) feature to identify and get support for cluster issues and service problems that can affect your cluster's health. Set up a resource alert so you can easily monitor the health of your cluster. The resource health feature provides a report on the current and past health of your cluster. There are four health statuses:
 
 - **Available**: The feature doesn't detect any events that affect the health of the cluster. If the cluster has recovered from unplanned downtime within the last 24 hours, a _recently resolved_ notification appears.
 
@@ -76,7 +76,7 @@ For more information, see [Advisor overview](/azure/advisor/advisor-overview).
 
 ### Log Analytics
 
-[Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) provides insights into the cluster's health. To access the [Log Analytics](/azure/aks/monitor-aks) workspace, go to your AKS cluster and select **Logs** in the navigation panel.
+[Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) provides insights into the cluster's health. To access the [Log Analytics workspace](/azure/aks/monitor-aks#resource-logs), go to your AKS cluster and select **Logs** in the navigation pane.
 
 You can choose predefined queries to analyze cluster health.
 
