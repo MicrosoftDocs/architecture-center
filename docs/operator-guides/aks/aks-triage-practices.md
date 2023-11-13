@@ -17,11 +17,11 @@ ms.custom:
 
 # Triage practices for AKS operations
 
-A root-cause analysis is often challenging given the various aspects of an Azure Kubernetes Service (AKS) cluster. When you triage issues, consider a top-down approach based on the cluster hierarchy. Start at the cluster level and drill down if necessary.
+A root-cause analysis for an Azure Kubernetes Service (AKS) cluster is often challenging. To simplify the process, consider triaging issues by using a top-down approach based on the cluster hierarchy. Start at the cluster level and drill down if necessary.
 
-![Image that shows the hierarchy of AKS cluster components: Cluster, node pools, nodes, pods, and containers.](./images/kube-components.svg)
+![An image that shows the hierarchy of AKS cluster components: Cluster, node pools, nodes, pods, and containers.](./images/kube-components.svg)
 
-The following section provides an overview of the triage practices series, which describes the top-down approach in detail. The articles provide examples that use a set of tools and dashboards and describe how these examples can highlight symptoms of problems.
+The following section provides an overview of the triage practices series, which describes the top-down approach in detail. The articles provide examples that use a set of tools and dashboards and describe how these examples highlight symptoms of problems.
 
 Common problems that are addressed in this series include:
 
@@ -35,7 +35,7 @@ Common problems that are addressed in this series include:
 
 This series isn't intended to resolve specific problems. For information about troubleshooting specific problems, see [AKS troubleshooting](/azure/aks/troubleshooting).
 
-## The triage practices series
+## Steps in the triage practices series
 
 |Step|Description|
 |---|---|
