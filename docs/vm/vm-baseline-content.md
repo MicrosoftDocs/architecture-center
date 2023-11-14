@@ -16,7 +16,7 @@ The primary focus of this architecture isn't the application. Instead it provide
 
 ## Architecture
 
-:::image type="content" source="./media/vm-baseline-architecture.png" alt-text="Virtual machine baseline architectural diagram" lightbox="./media/vm-baseline-architecture.png":::
+:::image type="content" source="./media/vm-baseline-architecture.svg" alt-text="Virtual machine baseline architectural diagram" lightbox="./media/vm-baseline-architecture.png":::
 
 #### Workload resources
 
@@ -143,7 +143,7 @@ In this architecture, both backend and frontend VMs utilize Standard HDD LRS (//
 
 This architecture deploys the workload in a single virtual network (VNet). Network controls are a significant part of this architecture, and described in the [Security](#security) section. 
 
-:::image type="content" source="./media/vm-baseline-network.png" alt-text="IaaS baseline architectural diagram" lightbox="./media/vm-baseline-network.png":::
+:::image type="content" source="./media/vm-baseline-network.svg" alt-text="IaaS baseline architectural diagram" lightbox="./media/vm-baseline-network.png":::
 
 It can be integrated with an enterprise topology. That example is shown in [Virtual machine baseline architecture in an Azure landing zone](./vm-baseline-landing-zone.yml).
 
@@ -208,7 +208,7 @@ Metrics and logs are generated at various data sources, providing observability 
 
 Azure Log Analytics workspace is the recommended monitoring data sink used to collect logs and metrics from the Azure resources and Application Insights. 
 
-:::image type="content" source="./media/vm-baseline-monitoring.png" alt-text="VM monitoring data flow  diagram" lightbox="./media/vm-baseline-monitoring.png":::
+:::image type="content" source="./media/vm-baseline-monitoring.svg" alt-text="VM monitoring data flow  diagram" lightbox="./media/vm-baseline-monitoring.png":::
 
 ### Infrastructure-level monitoring
 This table links to logs and metrics collected by Azure Monitor and the available alerts help you proactively address issues before they impact users.
@@ -433,7 +433,7 @@ In this architecture, [user-assigned managed identities](/entra/managed-identiti
 
 > Refer to Well-Architected Framework: [SE:09 - Recommendations for protecting application secrets](/azure/well-architected/security/application-secrets).
 
-:::image type="content" source="./media/vm-baseline-tls-termination.png" alt-text="IaaS monitoring data flow  diagram" lightbox="./media/vm-baseline-tls-termination.png":::
+:::image type="content" source="./media/vm-baseline-certificates.svg" alt-text="Diagram that shows TLS termination and certificates used." lightbox="./media/vm-baseline-certificates.png":::
 
 [Azure Key Vault](/azure/key-vault/general/overview) provides secure management of secrets, including TLS certificates. In this architecture, the TLS certificates are stored in the Key Vault and retrieved during the provisioning process by the managed identities of Application Gateway and the VMs. After the initial setup, these resources will only access the Key Vault when the certificates are refreshed.
 
