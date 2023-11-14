@@ -67,7 +67,7 @@ To effectively support Kubernetes environments, Backup and Recovery solutions mu
 
 Various Kubernetes-native Backup and Recovery solutions are available, with options ranging from open to closed source and offering different licensing models.
 
-Following are some examples of Backup and Recovery solutions that may be used with AKS. On notable example is Microsoft's fully managed first-party solution called [Azure Kubernetes Service (AKS) Backup](/azure/backup/azure-kubernetes-service-backup-overview), which provides an Azure-integrated service designed for Backup & Recovery of AKS clusters and their workloads. This list is by no means exhaustive and aims only to showcase a few available options
+Following are some examples of Backup and Recovery solutions that may be used with AKS. One notable example is Microsoft's fully managed first-party solution called [Azure Kubernetes Service (AKS) Backup](/azure/backup/azure-kubernetes-service-backup-overview), which provides an Azure-integrated service designed for Backup & Recovery of AKS clusters and their workloads. This list is by no means exhaustive and aims only to showcase a few available options.
 
 ### AKS Backup
 
@@ -80,7 +80,7 @@ NOTE - AKS Backup is currently in public preview. Preview features are available
 - [AKS support policies](/azure/aks/support-policies)
 - [Azure support FAQ](/azure/aks/faq)
 
-Check [About AKS Backup using Azure Backup](/azure/backup/azure-kubernetes-service-backup-overview) for a detailed description of how AKS Backup works and it's capabilities.
+Check [About AKS Backup using Azure Backup](/azure/backup/azure-kubernetes-service-backup-overview) for a detailed description of how AKS Backup works and its capabilities.
 
 ### Kasten
 
@@ -105,7 +105,7 @@ To install and configure [AKS Backup](/azure/backup/azure-kubernetes-service-bac
 1. Check [Prerequisites for AKS Backup using Azure Backup](/azure/backup/azure-kubernetes-service-cluster-backup-concept) for a detailed description of the prerequisites for using AKS Backup with your AKS cluster.
 2. Review [AKS Backup Support Matrix](/azure/backup/azure-kubernetes-service-cluster-backup-support-matrix) for a detailed description of AKS Backup's region availability, supported scenarios and limitations.
 3. Refer to [Manage AKS backups using Azure Backup](/azure/backup/azure-kubernetes-service-cluster-manage-backups) for guidance on how to register the required resource providers on your subscriptions and manage these registrations.
-4. Review [Back up AKS using Azure Backup](/azure/backup/azure-kubernetes-service-cluster-backup-support-matrix) for detailed instructions on how to setup Backup and Recovery for your AKS cluster using AKS Backup, including creation and configuration of all the necessary Azure resources such as Backup Vault, Backup Policies, and Backup Instances.
+4. Review [Back up AKS using Azure Backup](/azure/backup/azure-kubernetes-service-cluster-backup) for detailed instructions on how to setup Backup and Recovery for your AKS cluster using AKS Backup, including creation and configuration of all the necessary Azure resources such as Backup Vault, Backup Policies, and Backup Instances.
 5. Check [Restore AKS using Azure Backup](/azure/backup/azure-kubernetes-service-cluster-restore) for detailed instructions on how to perform full or item-level restores of your AKS cluster from an existing Backup Instance.
 
 ## Backup Frequency and Retention in AKS – Defining a Backup Policy
@@ -186,8 +186,9 @@ Other contributors:
 
 - [AKS Backup overview](/azure/backup/azure-kubernetes-service-backup-overview)
 - [AKS Backup support matrix](/azure/backup/azure-kubernetes-service-cluster-backup-support-matrix)
-- [AKS Backup Prerequisites](/azure/backup/azure-kubernetes-service-cluster-backup-concept)
-- [Configuring AKS Backup](/azure/backup/azure-kubernetes-service-cluster-backup-concept)
+- [AKS Backup prerequisites](/azure/backup/azure-kubernetes-service-cluster-backup-concept)
+- [Configuring AKS Backup](/azure/backup/azure-kubernetes-service-cluster-backup)
+- [Creating a Backup vault](/azure/backup/create-manage-backup-vault#create-a-backup-vault)
 - [Creating a backup policy](/azure/backup/azure-kubernetes-service-cluster-backup#create-a-backup-policy)
 - [Configuring backups](/azure/backup/azure-kubernetes-service-cluster-backup#configure-backups)
 - [Restoring an AKS cluster](/azure/backup/azure-kubernetes-service-cluster-restore)
