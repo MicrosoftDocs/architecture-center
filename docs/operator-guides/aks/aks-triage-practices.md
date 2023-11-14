@@ -40,7 +40,7 @@ This series isn't intended to resolve specific problems. For information about t
 |Step|Description|
 |---|---|
 |[1. Evaluate AKS cluster health](aks-triage-cluster-health.md).|Check the overall health of the cluster and networking.|
-|[2. Examine the node and pod health](aks-triage-node-health.md). |Evaluate the health of the AKS worker nodes. |
+|[2. Examine node and pod health](aks-triage-node-health.md). |Evaluate the health of the AKS worker nodes. |
 |[3. Monitor the workload deployments](aks-triage-deployment.md).|Ensure that all deployments and `DaemonSet` features are running.|
 |[4. Validate the admission controllers](aks-triage-controllers.md).|Check whether the admission controllers are working as expected.|
 |[5. Verify the connection to the container registry](aks-triage-container-registry.md).|Verify the connection to the container registry.|
@@ -58,7 +58,7 @@ Other contributors:
 - [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Customer Engineer
 - [Francis Simy Nazareth](https://www.linkedin.com/in/francis-simy-nazereth-971440a) | Senior Technical Specialist
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
