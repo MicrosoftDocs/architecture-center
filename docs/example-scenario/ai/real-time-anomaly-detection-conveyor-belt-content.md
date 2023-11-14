@@ -1,4 +1,4 @@
-The manufacturing industry is undergoing revolutionary changes as an increasing number of firms adopt smart factory floors enabled by AI and machine learning. This article provides an overview of an architecture to enable real-time anomaly detection for conveyor belts.
+The manufacturing industry is undergoing revolutionary changes as an increasing number of firms adopt smart factory floors enabled by AI and machine learning. This article provides an overview of an architecture to enable real-time anomaly detection for connected devices.
  
 ## Architecture
 
@@ -10,9 +10,9 @@ The manufacturing industry is undergoing revolutionary changes as an increasing 
 
 1. Data source
 
-   A sophisticated data-collection sensor is a crucial Internet of Things (IoT) component. Sensors collect analog data from the physical world and translate it into digital data assets. Sensors can measure just about any aspect of the physical world. The calibration of sensors allows them to be tailored to application-specific functions. In this dataset, sensors are calibrated to accurately measure temperature and vibrations.
+   A sophisticated data-collection sensor is a crucial Internet of Things (IoT) component. Sensors collect analog data from the physical world and translate it into digital data assets. Sensors can measure just about any aspect of the physical world. The calibration of sensors allows them to be tailored to application-specific functions. In this dataset, sensors are calibrated to accurately measure metrics like temperature and vibrations.
    
-   On most factory floors, conveyor belts run on schedules. Anomaly detection of temperature and vibrations is needed when the conveyor belt is running. Time Series API is used to capture and relay conveyor belt status.
+   On most factory floors, connected devices run on schedules. Anomaly detection of temperature and vibrations is needed when the connected devices is running. Time Series API is used to capture and relay connected devices status.
 
 1. Ingest
 
@@ -20,7 +20,7 @@ The manufacturing industry is undergoing revolutionary changes as an increasing 
 
 1. Store
    
-   Data collected from IoT sensors (temperature and vibrations) and Time Series API (conveyor belt status) are all time series. Time series data is a collection of observations obtained through repeated measurements over time. This data is collected as flat files. Each flat file is tagged with an IoT sensor ID and the date and time of collection and stored in [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake).
+   Data collected from IoT sensors (temperature and vibrations) and Time Series API (connected devices status) are all time series. Time series data is a collection of observations obtained through repeated measurements over time. This data is collected as flat files. Each flat file is tagged with an IoT sensor ID and the date and time of collection and stored in [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake).
 
 1. AI / machine learning - data preparation and training
 
@@ -71,21 +71,21 @@ The manufacturing industry is undergoing revolutionary changes as an increasing 
 
 Smart factory floors enable collaborative systems to provide real-time responses to changing conditions and customer demands throughout the supply network.
 
-AI and machine learning are used in unique ways throughout the manufacturing sector. The most impactful of these applications are predictive maintenance and fault prevention. Specifically, detecting anomalies in temperature and vibrations of motors attached to conveyor belts reduces maintenance costs, repair and overhaul time, and the need for spare part inventory. It also increases the uptime of the machinery. The introduction of predictive maintenance and fault prevention saves millions of dollars a year, and in some cases saves lives by removing personnel from dangerous situations.
+AI and machine learning are used in unique ways throughout the manufacturing sector. The most impactful of these applications are predictive maintenance and fault prevention. Specifically, detecting anomalies in temperature and vibrations of motors attached to connected devicess reduces maintenance costs, repair and overhaul time, and the need for spare part inventory. It also increases the uptime of the machinery. The introduction of predictive maintenance and fault prevention saves millions of dollars a year, and in some cases saves lives by removing personnel from dangerous situations.
 
 You can achieve predictive maintenance in several ways, including rule-based, supervised, and unsupervised machine learning. Rule-based machine learning requires known threshold levels. When labels are available for anomalies, supervised machine learning is the most viable option. If no labels are available for the detection of anomalous behavior, unsupervised anomaly detection is the best method. Whatever the methodology, the model's outcome is to predict whether the incoming data is anomalous.
 
 Because sensors capture data in real time, anomaly detection should be able to detect anomalies immediately. You can address potential risks that would otherwise go undetected before they escalate.
 
-### Sample temperature, vibration and conveyor belt status data
+### Sample Sensor metrics temperature, vibration and connected device status data
 
-The data necessary to predictively maintain motors attached to conveyor belts are temperature, vibrations, and conveyor belt status. Sample data is presented here.
+The data necessary to predictively maintain motors attached to connected devices are temperature, vibrations, and connected devices status. Sample data is presented here.
 
-**Conveyor belt status:** On most factory floors, conveyor belts are run on specific schedules. Anomaly detection of temperature and vibration is needed only when the conveyor belt is running. A conveyer belt value of zero indicates that the conveyor belt is inactive. A value of one means it's active. This sample graph shows how conveyor belt status is recorded:
+**connected device status:** On most factory floors, generally, connected devices are run on specific schedules. Anomaly detection of temperature and vibration is needed when the connected device is running. A conveyer belt value of zero indicates that the connected device is inactive. A value of one means it's active. This sample graph shows how connected device status is recorded:
 
-:::image type="content" source="media/conveyor-belt-status.png" alt-text="Graph that shows conveyor belt status data." lightbox="media/conveyor-belt-status.png" border="false":::
+:::image type="content" source="media/conveyor-belt-status.png" alt-text="Graph that shows connected device status data." lightbox="media/conveyor-belt-status.png" border="false":::
 
-**Temperature:** Sensors attached to conveyor belts and the factory floor can record the temperature of the motor and baseline the ambient temperature. Temperature is seasonally affected because of sunlight exposure, air conditioning settings, and numerous other factors. You need to address the seasonal aspect of temperature. There are many ways to do so. One method, if we take motor temperature as an example, is to subtract the baseline ambient temperature of the factory floor from the motor temperature:
+**Temperature:** Sensors attached to connected devices and the factory floor can record the temperature of the motor and baseline the ambient temperature. Temperature is seasonally affected because of sunlight exposure, air conditioning settings, and numerous other factors. You need to address the seasonal aspect of temperature. There are many ways to do so. One method, if we take motor temperature as an example, is to subtract the baseline ambient temperature of the factory floor from the motor temperature:
 
 *(Adjusted Temperature = Motor Temperature - Ambient Temperature)*
 
@@ -94,7 +94,7 @@ The data necessary to predictively maintain motors attached to conveyor belts ar
 :::image type="content" source="media/motor-ambient-baseline-temperatures.png" alt-text="Graph that shows temperatures recorded from motors and the ambient baseline temperature." lightbox="media/motor-ambient-baseline-temperatures.png" border="false":::
 
 
-The following sample graph shows how the temperature from a conveyor belt motor is adjusted for seasonality by using the ambient temperature of the factory floor. It also shows anomalies, in red, that are detected by a model that uses the architecture suggested in this article.
+The following sample graph shows how the temperature from a connected device motor is adjusted for seasonality by using the ambient temperature of the factory floor. It also shows anomalies, in red, that are detected by a model that uses the architecture suggested in this article.
 
 :::image type="content" source="media/temperatures-adjusted-anomalies.png" alt-text="Graph that shows how temperatures are adjusted for seasonality. It also shows anomalies." lightbox="media/temperatures-adjusted-anomalies.png" border="false":::
 
