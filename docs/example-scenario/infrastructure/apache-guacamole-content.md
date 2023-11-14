@@ -23,7 +23,7 @@ The architecture includes a public load balancer that receives external access r
 - [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer): A service for distributing load (incoming network traffic) across a group of back-end resources or servers.
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network): The fundamental building block for your private network on Azure.
 - [Public IP addresses](/azure/virtual-network/ip-services/public-ip-addresses): A service that allows internet resources to communicate inbound to Azure resources.
-- [Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+- [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 - [Network security groups](/azure/virtual-network/network-security-groups-overview): A service that filters network traffic traveling to and from Azure resources in an Azure virtual network.
 - [Availability set](/azure/virtual-machines/availability-set-overview): A logical grouping of VMs that allows Azure to provide redundancy and availability.
 - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql): A fully managed MySQL database as a service.
