@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Enable real time sync of MongoDB Atlas data changes to Azure Synapse
+  title: Enable real-time sync of MongoDB Atlas data changes to Azure Synapse Analytics
   titleSuffix: Azure Architecture Center
-  description: This solution depicts how to keep Synapse Analytics data pools in sync with the operational data changes in MongoDB.
+  description: Learn how to keep Azure Synapse Analytics data pools synchronized with operational data changes in MongoDB Atlas.
   author: ssabat
   ms.author: susabat
-  ms.date: 11/15/2023
+  ms.date: 11/16/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -13,8 +13,8 @@ azureCategories:
   - analytics
 products:
   - azure-synapse-analytics
-name: Enable real time sync of MongoDB Atlas data changes to Azure Synapse
-summary: This solution depicts how to keep Synapse Analytics data pools in sync with the operational data changes in MongoDB.
+name: Enable real-time sync of MongoDB Atlas data changes to Azure Synapse Analytics
+summary: Learn how to keep Azure Synapse Analytics data pools in sync with operational data changes in MongoDB Atlas.
 thumbnailUrl: /azure/architecture/browse/thumbs/sync-mongodb-atlas-azure-synapse-analytics.png
 content: |
   [!include[](sync-mongodb-atlas-azure-synapse-analytics-content.md)]

@@ -1063,6 +1063,8 @@ items:
         href: reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.yml
       - name: Precision medicine pipeline with genomics
         href: example-scenario/precision-medicine/genomic-analysis-reporting.yml
+      - name: Real-time sync of MongoDB Atlas data changes to Azure Synapse Analytics
+        href: sync-mongodb-atlas-azure-synapse-analytics.yml
       - name: Relationship mesh solution on Azure
         href: example-scenario/analytics/relationship-mesh-solution-azure.yml
       - name: Secure a data lakehouse
