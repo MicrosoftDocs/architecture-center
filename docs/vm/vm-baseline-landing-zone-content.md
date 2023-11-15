@@ -48,9 +48,18 @@ This architecture assumes these resources are preprovisioned. The central teams 
 - UDR for forced tunneling
 - Azure Policy based governance constraints and DINE policies
 
-## Subscription vending
+## Subscription set up by the platform team
 
-The subscription this IaaS workload architecture will be deployed into will come from your organization's subscription vending process. Ensure key workload requirements are communicated as part of the subscription request. In addition to any other data required specific to your subscription vending process, here are examples, specific to this architecture, that you'd want your platform team to be made aware of up front:
+In a landing zone context, workload teams must provide their specific workload requirements to the platform team. The two primary areas of concern are the management group and networking. 
+
+The platform team will assign the workload to the appropriate management groups based on the workload's business criticality and technical requirements, such as whether the workload will be exposed to the Internet. The configuration of these management groups is determined by the organization and implemented by the platform team. 
+
+The specific requirements are used by the platform team to set up a subscription or a group of subscriptions for deployment. These requirements should include detailed information about the networking space to enable the platform team to allocate the necessary network resources. While the workload team provides the requirements, the platform team is responsible for deciding the specific IP addresses to assign within the virtual network and the management group to which the subscription will be assigned.
+
+[!IMPORTANT] The Azure landing zones recommends a subscription vending work stream for the platform team that involves a series of questions designed to capture key pieces of information from the workload team. These questions may vary from one organization to another, but the intent is to gather the requirements for implementing subsription(s). For more information, see [Cloud Adoption Framework: Subscription vending](/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending).
+
+Here are some example requirements for this architecture that the workload team must communicate to the platform team:
+
 
 - Number of spoke virtual networks. _In this architecture, this would just be one._
 - Required size of spoke virtual networks to support full workload operations and expected growth. _In this architecture, this would be `/??` on the single virtual network._
