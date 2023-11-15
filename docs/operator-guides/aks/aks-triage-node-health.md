@@ -1,7 +1,7 @@
 ---
 title: AKS triage—Node health
 titleSuffix: Azure Architecture Center
-description: Learn about the triage step in which you examine the health of Azure Kubernetes Service (AKS) worker nodes and pods.
+description: Learn about the triage step in which you examine the health of Azure Kubernetes Service (AKS) worker nodes and pods and resolve issues.
 author: kevingbb
 ms.author: kevinhar
 ms.date: 11/15/2023
@@ -312,18 +312,20 @@ You can use the _Node Exporter / Nodes_ prebuilt dashboard to visualize and anal
 
   ![Screenshot that shows the Azure Managed Grafana node exporter/nodes dashboard.](images/azure-managed-grafana-node-exporter-dashboard.png)
 
-Physical storage devices have inherent limitations in terms of bandwidth and the maximum number of file operations that they can handle. Azure disks store the operating system that runs on AKS nodes. The disks are subject to the same physical storage constraints.
+### ???
 
-Consider the concept of throughput. You can multiply the average IO size by the IOPS to determine the throughput in megabytes per second (MB/s). Larger IO sizes translate to lower IOPS because of the fixed throughput of the disk.
+Physical storage devices have inherent limitations in terms of bandwidth and the maximum number of file operations that they can handle. Azure disks are used to store the operating system that runs on AKS nodes. The disks are subject to the same physical storage constraints as the operating system.
 
-When a workload surpasses the maximum IOPS service limits assigned to Azure disks, the cluster might become unresponsive and enter an IO Wait state. In Linux-based systems, nearly everything is treated as a file, encompassing network sockets, Container Networking Interface (CNI), Docker, and other services that are reliant on network IO. Consequently, if the disk can't be read, the failure extends to all these files.
+Consider the concept of throughput. You can multiply the average IO size by the IOPS to determine the throughput in megabytes per second (MBps). Larger IO sizes translate to lower IOPS because of the fixed throughput of the disk.
+
+When a workload surpasses the maximum IOPS service limits assigned to the Azure disks, the cluster might become unresponsive and enter an IO wait state. In Linux-based systems, many components are treated as files, such as network sockets, Container Networking Interface (CNI), Docker, and other services that are reliant on network IO. Consequently, if the disk can't be read, the failure extends to all these files.
 
 Several events and scenarios can trigger IOPS throttling, including:
 
-- A substantial number of containers running on the nodes, because Docker IO shares the OS disk.
+- A substantial number of containers that run on nodes, because Docker IO shares the operating system disk.
 
-- The presence of custom or third-party tools employed for security, monitoring, and logging, which might generate additional IO operations on the OS disk.
-- Node failover events and periodic jobs that intensify the workload or scale the number of pods. This increased load heightens the likelihood of throttling occurrences, potentially causing all nodes to transition to a **NotReady** state until the IO operations conclude.
+- Custom or third-party tools that are employed for security, monitoring, and logging, which might generate additional IO operations on the operating system disk.
+- Node failover events and periodic jobs that intensify the workload or scale the number of pods. This increased load heightens the likelihood of throttling occurrences, potentially causing all nodes to transition to a _not ready_ state until the IO operations conclude.
 
 ## Contributors
 
