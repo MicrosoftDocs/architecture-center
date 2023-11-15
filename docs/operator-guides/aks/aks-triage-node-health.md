@@ -37,7 +37,7 @@ After you address these potential issues related to control plane communication 
 
 You can evaluate the health of your nodes by using one of the following methods.
 
-#### Method 1: Azure Monitor containers health view
+#### Azure Monitor containers health view
 
 To view the health of nodes, user pods, and system pods in your AKS cluster, follow these steps:
 
@@ -48,7 +48,7 @@ To view the health of nodes, user pods, and system pods in your AKS cluster, fol
 
   :::image type="content" source="images/azuremonitor-containershealth.png" alt-text="Screenshot that shows the Monitor containers health view." lightbox="images/azuremonitor-containershealth.png" border="false":::
 
-#### Method 2: AKS nodes view
+#### AKS nodes view
 
 To ensure that all nodes in your AKS cluster are in the ready state, follow these steps:
 
@@ -59,7 +59,7 @@ To ensure that all nodes in your AKS cluster are in the ready state, follow thes
 
  :::image type="content" source="images/aks-node-health.png" alt-text="Screenshot that shows the AKS nodes view." lightbox="images/aks-node-health.png" border="false":::
 
-#### Method 3: In-cluster monitoring with Prometheus and Grafana
+#### In-cluster monitoring with Prometheus and Grafana
 
 If you deployed [Prometheus](https://prometheus.io) and [Grafana](https://grafana.com) in your AKS cluster, you can use the [K8 cluster detail dashboard](https://grafana.com/grafana/dashboards/10856-k8-cluster) to get insights. This dashboard shows Prometheus cluster metrics and presents vital information, such as CPU usage, memory utilization, network activity, and file system usage. It also shows detailed statistics for individual pods, containers, and systemd services.
 
@@ -67,7 +67,7 @@ If you deployed [Prometheus](https://prometheus.io) and [Grafana](https://grafan
 
   :::image type="content" source="images/node-conditions.png" alt-text="Screenshot that shows the Prometheus and Grafana dashboard node." lightbox="images/node-conditions.png" border="false":::
 
-#### Method 4: Monitor managed service for Prometheus and Azure Managed Grafana
+#### Monitor managed service for Prometheus and Azure Managed Grafana
 
 You can use prebuilt dashboards to visualize and analyze Prometheus metrics. To do so, you must set up your AKS cluster to collect Prometheus metrics in [Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview), and connect your [Monitor workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-manage#link-a-grafana-workspace) to an [Azure Managed Grafana](/azure/managed-grafana/overview) workspace. [These dashboards](https://aka.ms/azureprometheus-mixins) provide a comprehensive view of your Kubernetes cluster's performance and health.
 
