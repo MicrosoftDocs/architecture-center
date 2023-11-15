@@ -344,9 +344,9 @@ Principal authors:
 ## Next steps
 
 - [Virtual machine disk limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-machine-disk-limits)
-- [Relationship between virtual machines and disk performance](/azure/virtual-machines/linux/disk-performance-linux)
+- [Virtual machines and disk performance](/azure/virtual-machines/linux/disk-performance-linux)
 
 ## Related resources
 
 > [!div class="nextstepaction"]
-> [Check the workload deployments](aks-triage-deployment.md)
+> [Monitor workload deployments](aks-triage-deployment.md)
