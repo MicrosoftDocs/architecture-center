@@ -62,7 +62,8 @@ Once connected, your ExpressRoute gateway is able to advertise your Azure IPv6 a
 
 To update your Azure Firewall to use IPv6, you need to update the private IP address block on its subnet, provide it with a new IPv6 public IP, and set up your IPv6 rules in the policy.
 
-Only Azure Firewalls that use policies can be updated to use IPv6.  If you have a legacy firewall that uses local rules, you need to deploy out a new firewall.
+> [!WARNING]
+>Only Azure Firewalls that use policies can be updated to use IPv6.  If you have a legacy firewall that uses local rules, you need to deploy out a new firewall.
 
 To update the private IP address block, follow the instructions to [Add IPv6 to a virtual network](/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-portal#add-ipv6-to-virtual-network).
 
