@@ -49,6 +49,9 @@ As a result, when planning IP address allocation in IPv6, you should use the fol
 
 These concepts will be applied in the next sections.
 
+> [!NOTE]
+> These guidelines apply for IPv6, but not for IPv4 environments.  When planning your IP space for IPv4 there are different guidelines to use.  See [Plan for IP Addressing](/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing) for general guidelines.
+
 ### Deciding Your IPv6 Address Scope
 
 Many organizations have acquired a large volume of IPv6 addresses to be used for private networking.  As you're building your Azure IPv6 address plan, you should work with your organization’s IP address administrators to identify if there's already IP space available, and how you can use it in planning Azure.
