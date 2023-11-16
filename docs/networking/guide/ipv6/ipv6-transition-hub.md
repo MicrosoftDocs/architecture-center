@@ -79,9 +79,7 @@ Once these two steps are done, then you can begin adding IPv6 rules to your poli
 - For IPv6 rules, the source and destination type must be “IP address.”  Other source or destination types are currently not supported with IPv6 values.
 - You can use IPv6 ranges or individual addresses.  For example, you can use `::/0` for any IPv6 address.
 - Rule collections support a combination of IPv4 rules and IPv6 Rules.
-
-> [!NOTE]
-> You can continue to use your existing rules, including those that use IP Groups.  However, you will not be able to IP Groups to manage your IPv6 address rules at this time.
+- You can continue to use your existing rules, including those that use IP Groups.  However, you will not be able to IP Groups to manage your IPv6 address rules at this time.
 
 ### Private DNS Zones
 
