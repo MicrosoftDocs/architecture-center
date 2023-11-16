@@ -64,11 +64,17 @@ The second option is to plan to use IPs in the unique local address range.  This
 
 ### Understanding IPs assigned in Azure
 
-In your Azure environment, there are three types of IPv6 addresses that can be assigned to your interface.
+In your Azure environment, there are three types of IPv6 addresses that can be assigned to your interface.  
+
+> [!NOTE]
+> These addresses function the same as their equivalents in IPv4, so there is no noticeable difference.
   
 First are the private IP addresses attached to your network interfaces on your virtual network.  To enable IPv6, you apply IP ranges to your virtual networks and subnets.  When an address block is assigned to a subnet, network interfaces in the subnet receives a static or dynamic address based on your configuration.  You can see it in Azure portal, and you can also see it inside the virtual machine configuration.  In the operating system, this address is shown as the IPv6 Address.
 
 In addition, you can apply public addresses to the interface.  These addresses need to be from an internet routed scope, and you need to create an IPv6 public address to assign it.  The operating system configuration doesn't show the configuration, but it can be seen in the Azure portal.  These public IPs can be used for inbound and outbound communication to the internet, when there's no default routing configured to direct traffic in another way.  Many customers use shared NVAs for public communication, and so not provide a global public address to their network interfaces.
+
+> [!NOTE]
+> Azure Public IPv6 addresses have no charge, unlike IPv5 addresses.  For more information on Public Ip pricing, see [IP Address Pricing](https://azure.microsoft.com/pricing/details/ip-addresses/).
 
 Lastly are link-local addresses.  This address is used to communicate within the same link – the same local network segment. The IP is automatically assigned, and it comes from the `fe80::/10` space instead of from your subnet’s address blocks.  No configuration is needed, and you see an `fe80::/10` address assigned to your interface from within the operating system.
 
