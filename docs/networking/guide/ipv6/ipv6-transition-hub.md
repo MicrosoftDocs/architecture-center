@@ -26,7 +26,7 @@ This section of the guide helps you transition your existing Hub virtual network
 
 ## Hub IP Space Planning
 
-Your hub network should already have the following subnets:
+Your hub network should already have the following subnets among others:
 
 - GatewaySubnet – For your Azure ExpressRoute Gateways.
 - FirewallSubnet – For your Azure Firewall service.
