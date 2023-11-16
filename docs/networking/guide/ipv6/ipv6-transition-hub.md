@@ -60,6 +60,9 @@ Once connected, your ExpressRoute gateway is able to advertise your Azure IPv6 a
 
 ### Azure Firewall
 
+> [!IMPORTANT]
+> At time of writing, the Azure Firewall support of IPv6 is in Private Preview.  There could be changes between this and general availability.
+
 To update your Azure Firewall to use IPv6, you need to update the private IP address block on its subnet, provide it with a new IPv6 public IP, and set up your IPv6 rules in the policy.
 
 > [!WARNING]
@@ -77,8 +80,8 @@ Once these two steps are done, then you can begin adding IPv6 rules to your poli
 - You can use IPv6 ranges or individual addresses.  For example, you can use `::/0` for any IPv6 address.
 - Rule collections support a combination of IPv4 rules and IPv6 Rules.
 
-> [!IMPORTANT]
-> At time of writing, the Azure Firewall support of IPv6 is in Private Preview.  There could be changes between this and general availability.
+> [!NOTE]
+> You can continue to use your existing rules, including those that use IP Groups.  However, you will not be able to IP Groups to manage your IPv6 address rules at this time.
 
 ### Private DNS Zones
 
@@ -89,3 +92,4 @@ For more information about updating record sets, see [Manage DNS records and rec
 ## Next steps
 
 - Plan for operating dual-stack workloads with [IPv6 for Azure Vnet](/azure/virtual-network/ip-services/ipv6-overview)
+- Review [Limitations for IPv6](azure/virtual-network/ip-services/public-ip-addresses#limitations-for-ipv6) to understand more about limitations with services that use Public IPv6 Addresses
