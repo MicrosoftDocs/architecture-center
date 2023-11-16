@@ -4,7 +4,7 @@ This article describes a baseline architecture for running Financial Service Ind
 
 ![Architecture Diagram](images/secured-azure-batch-with-numbers.svg)
 
-_Download a [Visio file](https://arch-center.azureedge.net/secured-azure-batch-with-numbers.vsdx) that contains this architecture diagram.
+*Download a [Visio file](https://arch-center.azureedge.net/secured-azure-batch-with-numbers.vsdx) that contains this architecture diagram.*
 
 ### Workflow
 
