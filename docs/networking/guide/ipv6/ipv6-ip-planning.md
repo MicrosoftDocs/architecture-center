@@ -112,10 +112,18 @@ For the regions that you're deployed in, you should plan to assign an IP space f
 
 To start, you should plan to assign a /44 IPv6 address block for your region.  This scope provides space for the hub network and a substantial number of virtual networks of varying sizes.
 
+In addition, it provides a clear address block for the region.  A scope of `fd00:db8:dec0::/44` covers the ranges from `fd00:db8:deca:0000::` to `fd00:db8:decf:ffff::`, meaning that there's a clear break where assigned.
+
+To help visualize how this would work across multiple regions, refer to the following table:
+
+| Network Scope | CIDR Range| First IP | Last IP |
+| -- | -- | -- | -- |
+| Azure Region 1 | `fd00:db8:dec0::/44` | fd00:db8:dec0:0000:0000:0000:0000:0000 | fd00:db8:decf:ffff:ffff:ffff:ffff:ffff |
+| Azure Region 2 | `fd00:db8:ded0::/44` | fd00:db8:ded0:0000:0000:0000:0000:0000 | fd00:db8:dedf:ffff:ffff:ffff:ffff:ffff |
+| Azure Region 3 | `fd00:db8:def0::/44` | fd00:db8:def0:0000:0000:0000:0000:0000 | fd00:db8:deff:ffff:ffff:ffff:ffff:ffff |
+
 > [!NOTE]
 > In order to determine how many network spaces of a certain size can fit into a address block, you can use the formula of 2^(x-y), where X is the smaller address block’s size and Y is the larger blocks size.  For example, to determine how many /64 subnets can fit in to our /44 regional address allocation, we can use 2^(64-44), which is 1,048,576 subnets.
-
-In addition, it provides a clear address block for the region.  A scope of `fd00:db8:dec0::/44` covers the ranges from `fd00:db8:deca:0000::` to `fd00:db8:decf:ffff::`, meaning that there's a clear break where assigned.
 
 ### Azure Virtual Network Space Planning
 
