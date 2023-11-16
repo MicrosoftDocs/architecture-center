@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Deploy Quantum ESPRESSO on an Azure virtual machine
-  description: Find out how Quantum ESPRESSO BLAHBLAHBLAHBLAH software performs on an Azure virtual machine.
+  description: Find out how Quantum ESPRESSO materials modeling software performs on an Azure virtual machine.
   author: gauharjunnarkar
   ms.author: gajunnar
   ms.date: 11/15/2023
