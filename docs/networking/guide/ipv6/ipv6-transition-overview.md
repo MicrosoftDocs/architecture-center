@@ -19,7 +19,7 @@ This guide outlines a strategy for transitioning a heritage IPv4 network environ
 
 As organizations utilizing Azure already have IPv4 deployed, this guide gives instructions for transitioning resources to use IPv6 without disrupting the existing resources.
 
-This guide provides instructions for how to enable IPv6 in your existing [Hub and Spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli).
+This guide provides instructions for how to enable IPv6 in your existing [Hub and Spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli).  This configuration allows you to use IPv6 in your existing IPv4 networks, and continue to use IPv4 network routing even while transitioning to IPv6.  However, it does not enable IPv6 only communication for services.
 
 This guide covers the following elements:
 
