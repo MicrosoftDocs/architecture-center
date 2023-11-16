@@ -83,11 +83,20 @@ Lastly are link-local addresses.  This address is used to communicate within the
 
 ## Planning your IPv6 Addresses for Azure
 
-Now that you understand some of the core concepts and have dedicated an IP address space for use in Azure, you're ready to continue your planning in to Azure allocation.  As discussed earlier, you should have a /36 address range available to allocate to Azure.  This scope allows you to dedicate up to 256 different regional deployments, and to have a clear border for your IP ranges.
+Now that you understand some of the core concepts and have dedicated an IP address space for use in Azure, you're ready to continue your planning in to Azure allocation.  As discussed earlier, you should have a /36 address range available to allocate to Azure.  This scope allows you to dedicate the following:
+
+| Scope | Size | Number of Instances |
+|--|--|--|
+| Azure Wide | /36 | 1 |
+| Azure Region | /44 | 256 |
+| Virtual Network | /56 | 4096 per region |
+| Subnet | /64 | 256 per virtual network |
 
 ### Subnet Sizing in Azure
 
-One significant difference between IPv6 networks and IPv4 networks in Azure is the minimum size of subnets.  IPv6 subnets in Azure have a minimum size of /64.  Each subnet contains 18,446,744,073,709,551,616 hosts, minus the hosts used for Azure management.  The reason for this minimum size is to maintain compatibility with network appliances outside of Azure; if the subnets were smaller, routing issues could occur.
+One significant difference between IPv6 networks and IPv4 networks in Azure is the minimum size of subnets.  IPv6 subnets in Azure have a minimum size of /64.  Each subnet contains 18,446,744,073,709,551,616 hosts, minus the hosts used for Azure management.  IPv6 subnets reserve the first four IP addresses for management, like IPv4 networks.
+
+The reason for this minimum size is to maintain compatibility with network appliances outside of Azure; if the subnets were smaller, routing issues could occur.
 
 This subnet size also allows organizations to plan their network conceptually, and not need to worry about resizing subnets due to exhaustion.
 
@@ -106,7 +115,7 @@ To start, you should plan to assign a /44 IPv6 address block for your region.  T
 > [!NOTE]
 > In order to determine how many network spaces of a certain size can fit into a address block, you can use the formula of 2^(x-y), where X is the smaller address block’s size and Y is the larger blocks size.  For example, to determine how many /64 subnets can fit in to our /44 regional address allocation, we can use 2^(64-44), which is 1,048,576 subnets.
 
-In addition, it provides a clear address block for the region.  A scope of `fd00:db8:deca::/48` covers the ranges from `fd00:db8:deca:0000::` to `fd00:db8:decf:ffff::`, meaning that there's a clear break where assigned.
+In addition, it provides a clear address block for the region.  A scope of `fd00:db8:dec0::/44` covers the ranges from `fd00:db8:deca:0000::` to `fd00:db8:decf:ffff::`, meaning that there's a clear break where assigned.
 
 ### Azure Virtual Network Space Planning
 
