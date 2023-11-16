@@ -8,7 +8,7 @@ This article outlines key factors to consider when designing a proof of concept 
 
 The following diagram shows an example architecture for migrating workloads from a mainframe to the cloud.
 
-:::image type="content" source="./images/mainframe-proof.svg" alt-text="{alt-text}" border="false" lightbox="./images/mainframe-proof.svg":::
+:::image type="content" source="./images/mainframe-proof.svg" alt-text="Diagram that shows an example architecture for migrating workloads from a mainframe to the cloud." border="false" lightbox="./images/mainframe-proof.svg":::
 *Download a [Visio file](https://arch-center.azureedge.net/mainframe-proof.vsdx) of this architecture.*
 
 ## Identify the right solution pattern
