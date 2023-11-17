@@ -45,10 +45,10 @@ When it comes to intra-region high availability and cross-region disaster recove
 You can also use methodologies such as Infrastructure as Code (IaC), DevOps pipelines, GitOps and Flux to allow you to quickly redeploy your workloads if disaster occurs.  
 To find out more about these methodologies, please review the links below:
 
-- [Build and deploy to Azure Kubernetes Service with Azure Pipelines](azure/aks/devops-pipeline)
+- [Build and deploy to Azure Kubernetes Service with Azure Pipelines](/azure/aks/devops-pipeline)
 - [Tutorial: Deploy applications using GitOps with Flux v2](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2)
 - [Understand the structure and syntax of ARM templates](/azure/azure-resource-manager/templates/syntax)
-- [What is Bicep?](/azure-resource-manager/bicep/overview)
+- [What is Bicep?](/azure/azure-resource-manager/bicep/overview)
 - [Overview of Terraform on Azure - What is Terraform?](/azure/developer/terraform/overview)
 
 ## What to Backup
