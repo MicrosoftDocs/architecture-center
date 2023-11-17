@@ -22,7 +22,7 @@ ms.custom:
 
 Admission controllers rarely cause problems, but it's crucial to ensure their proper functionality. This article discusses how admission controllers can affect other components when they don't function properly. It also describes commands that you can use to validate admission controller performance.
 
-## Admission controllers
+## Admission controller
 
 An [admission controller](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers) is a piece of code that intercepts requests to a Kubernetes API server prior to the persistence of an object but after a request is authenticated and authorized.
 
@@ -108,7 +108,7 @@ For more information, see:
 
 ### Validate webhooks
 
-To ensure that validating and mutating webhooks work as expected in a Kubernetes cluster, follow these steps.
+To ensure that validating and mutating webhooks work as expected in your Kubernetes cluster, follow these steps.
 
 1. Run the following command to list the validating webhooks in the cluster:
 
