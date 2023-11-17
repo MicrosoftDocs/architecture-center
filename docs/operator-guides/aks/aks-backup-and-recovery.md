@@ -42,7 +42,14 @@ When it comes to intra-region high availability and cross-region disaster recove
 - [Fleet Manager](https://azure.microsoft.com/products/kubernetes-fleet-manager): Azure Kubernetes Fleet Manager enables multi-cluster and at-scale intra-region and cross-region scenarios for Azure Kubernetes Service (AKS) clusters.
 - [Geo-redundancy options for Azure Container Registry (ACR)](/azure/container-registry/container-registry-geo-replication): Azure Container Registry (ACR) offers geo-replication capabilities. With geo-redundancy, your container images are replicated across different Azure regions. This ensures that your images are available even if a particular region experiences an outage, providing higher availability for your container registry.
 
-You can also use methodologies such as Infrastructure as Code (IaC), DevOps pipelines, GitOps and Flux to allow you to quickly redeploy your workloads if disaster occurs.
+You can also use methodologies such as Infrastructure as Code (IaC), DevOps pipelines, GitOps and Flux to allow you to quickly redeploy your workloads if disaster occurs.  
+To find out more about these methodologies, please review the links below:
+
+- [Build and deploy to Azure Kubernetes Service with Azure Pipelines](azure/aks/devops-pipeline)
+- [Tutorial: Deploy applications using GitOps with Flux v2](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2)
+- [Understand the structure and syntax of ARM templates](/azure/azure-resource-manager/templates/syntax)
+- [What is Bicep?](/azure-resource-manager/bicep/overview)
+- [Overview of Terraform on Azure - What is Terraform?](/azure/developer/terraform/overview)
 
 ## What to Backup
 
