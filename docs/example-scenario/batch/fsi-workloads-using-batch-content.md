@@ -2,7 +2,7 @@ This article describes a baseline architecture for running Financial Service Ind
 
 ## Architecture
 
-![Diagram that shows an architecture for running FSI workloads on Azure using Azure Batch](images/secured-azure-batch-with-numbers.svg)
+![Diagram that shows an architecture for running FSI workloads on Azure using Azure Batch.](images/secured-azure-batch-with-numbers.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/secured-azure-batch-with-numbers.vsdx) that contains this architecture diagram.*
 
