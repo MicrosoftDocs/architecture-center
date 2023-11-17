@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn about the triage step in which you examine the health of Azure Kubernetes Service (AKS) worker nodes and pods and resolve issues.
 author: kevingbb
 ms.author: kevinhar
-ms.date: 11/15/2023
+ms.date: 11/22/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -27,11 +27,11 @@ If the cluster checks that you performed in the previous step are clear, check t
 
 Various factors can contribute to unhealthy nodes in an AKS cluster. One common reason is the breakdown of communication between the control plane and the nodes. This miscommunication is often caused by misconfigurations in routing and firewall rules.
 
-When you configure your AKS cluster for [user-defined routing](/azure/aks/egress-outboundtype#outbound-type-of-userdefinedrouting), you must configure egress paths via a network virtual appliance (NVA) or a firewall, such as an [Azure firewall](/azure/aks/limit-egress-traffic#restrict-egress-traffic-using-azure-firewall). To address this issue, we recommend that you configure the firewall to allow the necessary ports and fully qualified domain names (FQDNs) in accordance with the [AKS egress traffic guidance](/azure/aks/limit-egress-traffic).
+When you configure your AKS cluster for [user-defined routing](/azure/aks/egress-outboundtype#outbound-type-of-userdefinedrouting), you must configure egress paths via a network virtual appliance (NVA) or a firewall, such as an [Azure firewall](/azure/aks/limit-egress-traffic#restrict-egress-traffic-using-azure-firewall). To address a misconfiguration issue, we recommend that you configure the firewall to allow the necessary ports and fully qualified domain names (FQDNs) in accordance with the [AKS egress traffic guidance](/azure/aks/limit-egress-traffic).
 
 Another reason for unhealthy nodes might be inadequate compute, memory, or storage resources that create kubelet pressures. In such cases, scaling up the resources can effectively resolve the problem.
 
-In a [private AKS cluster](/azure/aks/private-clusters), Domain Name System (DNS) resolution problems can cause communication issues between the control plane and the nodes. You must verify that the Kubernetes API server DNS name resolves to the private IP of the API server. Incorrect configuration of a custom DNS server is a common cause of DNS resolution failures. If you use custom DNS servers, ensure that you correctly specify them as DNS servers on the virtual network where nodes are provisioned. Also confirm that the AKS private API server can be resolved via the custom DNS server.
+In a [private AKS cluster](/azure/aks/private-clusters), Domain Name System (DNS) resolution problems can cause communication issues between the control plane and the nodes. You must verify that the Kubernetes API server DNS name resolves to the private IP address of the API server. Incorrect configuration of a custom DNS server is a common cause of DNS resolution failures. If you use custom DNS servers, ensure that you correctly specify them as DNS servers on the virtual network where nodes are provisioned. Also confirm that the AKS private API server can be resolved via the custom DNS server.
 
 After you address these potential issues related to control plane communication and DNS resolution, you can effectively tackle and resolve node health problems within your AKS cluster.
 
@@ -46,7 +46,7 @@ To view the health of nodes, user pods, and system pods in your AKS cluster, fol
   1. Select **Monitored clusters** for a list of the AKS clusters that are being monitored.
   1. Choose an AKS cluster from the list to view the health of the nodes, user pods, and system pods.
 
-  :::image type="content" source="images/azuremonitor-containershealth.png" alt-text="Screenshot that shows the Monitor containers health view." lightbox="images/azuremonitor-containershealth.png" border="false":::
+  :::image type="content" source="images/azure-monitor-containers-health.png" alt-text="Screenshot that shows the Monitor containers health view." lightbox="images/azure-monitor-containers-health.png":::
 
 #### AKS nodes view
 
@@ -57,42 +57,42 @@ To ensure that all nodes in your AKS cluster are in the ready state, follow thes
   1. Select **Nodes**.
   1. Verify that all nodes are in the ready state.
 
- :::image type="content" source="images/aks-node-health.png" alt-text="Screenshot that shows the AKS nodes view." lightbox="images/aks-node-health.png" border="false":::
+ :::image type="content" source="images/aks-node-health.png" alt-text="Screenshot that shows the AKS nodes view." lightbox="images/aks-node-health.png":::
 
 #### In-cluster monitoring with Prometheus and Grafana
 
-If you deployed [Prometheus](https://prometheus.io) and [Grafana](https://grafana.com) in your AKS cluster, you can use the [K8 cluster detail dashboard](https://grafana.com/grafana/dashboards/10856-k8-cluster) to get insights. This dashboard shows Prometheus cluster metrics and presents vital information, such as CPU usage, memory utilization, network activity, and file system usage. It also shows detailed statistics for individual pods, containers, and systemd services.
+If you deployed [Prometheus](https://prometheus.io) and [Grafana](https://grafana.com) in your AKS cluster, you can use the [K8 Cluster Detail Dashboard](https://grafana.com/grafana/dashboards/10856-k8-cluster) to get insights. This dashboard shows Prometheus cluster metrics and presents vital information, such as CPU usage, memory usage, network activity, and file system usage. It also shows detailed statistics for individual pods, containers, and _systemd_ services.
 
   In the dashboard, select **Node conditions** to see metrics about the health and performance of your cluster. You can track nodes that might have issues, such as issues with their schedule, the network, disk pressure, memory pressure, proportional integral derivative (PID) pressure, or disk space. Monitor these metrics, so you can proactively identify and address any potential issues that affect the availability and performance of your AKS cluster.
 
-  :::image type="content" source="images/node-conditions.png" alt-text="Screenshot that shows the Prometheus and Grafana dashboard node." lightbox="images/node-conditions.png" border="false":::
+  :::image type="content" source="images/node-conditions.png" alt-text="Screenshot that shows the Prometheus and Grafana dashboard node." lightbox="images/node-conditions.png":::
 
 #### Monitor managed service for Prometheus and Azure Managed Grafana
 
 You can use prebuilt dashboards to visualize and analyze Prometheus metrics. To do so, you must set up your AKS cluster to collect Prometheus metrics in [Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview), and connect your [Monitor workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-manage#link-a-grafana-workspace) to an [Azure Managed Grafana](/azure/managed-grafana/overview) workspace. [These dashboards](https://aka.ms/azureprometheus-mixins) provide a comprehensive view of your Kubernetes cluster's performance and health.
 
-The dashboards are provisioned in the specified Azure Managed Grafana instance in the _Managed Prometheus_ folder, for example:
+The dashboards are provisioned in the specified Azure Managed Grafana instance in the _Managed Prometheus_ folder. Some dashboards include:
 
-- Kubernetes / Compute Resources / Cluster
-- Kubernetes / Compute Resources / Namespace (Pods)
-- Kubernetes / Compute Resources / Node (Pods)
-- Kubernetes / Compute Resources / Pod
-- Kubernetes / Compute Resources / Namespace (Workloads)
-- Kubernetes / Compute Resources / Workload
-- Kubernetes / Kubelet
-- Node Exporter / USE Method/Node
-- Node Exporter / Nodes
-- Kubernetes / Compute Resources / Cluster (Windows)
-- Kubernetes / Compute Resources / Namespace (Windows)
-- Kubernetes / Compute Resources / Pod (Windows)
-- Kubernetes / USE Method / Cluster (Windows)
-- Kubernetes / USE Method / Node (Windows)
+- _Kubernetes / Compute Resources / Cluster_
+- _Kubernetes / Compute Resources / Namespace (Pods)_
+- _Kubernetes / Compute Resources / Node (Pods)_
+- _Kubernetes / Compute Resources / Pod_
+- _Kubernetes / Compute Resources / Namespace (Workloads)_
+- _Kubernetes / Compute Resources / Workload_
+- _Kubernetes / Kubelet_
+- _Node Exporter / USE Method / Node_
+- _Node Exporter / Nodes_
+- _Kubernetes / Compute Resources / Cluster (Windows)_
+- _Kubernetes / Compute Resources / Namespace (Windows)_
+- _Kubernetes / Compute Resources / Pod (Windows)_
+- _Kubernetes / USE Method / Cluster (Windows)_
+- _Kubernetes / USE Method / Node (Windows)_
 
-These built-in dashboards are widely used in the open-source community for monitoring Kubernetes clusters with Prometheus and Grafana. Use these dashboards to see metrics, such as resource utilization, pod health, and network activity. You can also create custom dashboards that are tailored to your monitoring needs. Dashboards help you to effectively monitor and analyze Prometheus metrics in your AKS cluster, which enables you to optimize performance, troubleshoot issues, and ensure smooth operation of your Kubernetes workloads.
+These built-in dashboards are widely used in the open-source community for monitoring Kubernetes clusters with Prometheus and Grafana. Use these dashboards to see metrics, such as resource usage, pod health, and network activity. You can also create custom dashboards that are tailored to your monitoring needs. Dashboards help you to effectively monitor and analyze Prometheus metrics in your AKS cluster, which enables you to optimize performance, troubleshoot issues, and ensure smooth operation of your Kubernetes workloads.
 
 You can use the _Kubernetes / Compute Resources / Node (Pods)_ dashboard to see metrics for your Linux agent nodes. You can visualize the CPU usage, CPU quota, memory usage, and memory quota for each pod.
 
-:::image type="content" source="images/azure-managed-grafana-node-dashboard.png" alt-text="Screenshot that shows the Azure Managed Grafana Kubernetes / Compute Resources / Node (Pods) dashboard." lightbox="images/azure-managed-grafana-node-dashboard.png" border="false":::
+:::image type="content" source="images/azure-managed-grafana-node-dashboard.png" alt-text="Screenshot that shows the Azure Managed Grafana Kubernetes / Compute Resources / Node (Pods) dashboard." lightbox="images/azure-managed-grafana-node-dashboard.png":::
 
 If your cluster includes Windows agent nodes, you can use the _Kubernetes / USE Method / Node (Windows)_ dashboard to visualize the Prometheus metrics that are collected from these nodes. This dashboard provides a comprehensive view of resource consumption and performance for Windows nodes within your cluster.
 
@@ -100,7 +100,7 @@ Take advantage of these dedicated dashboards so you can easily monitor and analy
 
 ## Step 2: Verify the control plane and worker node connectivity
 
-If worker nodes are healthy, you should examine the connectivity between the managed AKS control plane and the cluster worker nodes. AKS enables communication between the [Kubernetes API server](https://kubernetes.io/docs/concepts/overview/kubernetes-api) and individual node [kubelets](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet) via a secure tunnel communication method. These components can communicate even if they're on different virtual networks. The tunnel is protected with mTLS encryption. The primary tunnel that AKS uses is called [Konnectivity](https://kubernetes.io/docs/tasks/extend-kubernetes/setup-konnectivity)(formerly known as _apiserver-network-proxy_). Ensure that all network rules and FQDNs comply with the required Azure network rules.
+If worker nodes are healthy, you should examine the connectivity between the managed AKS control plane and the cluster worker nodes. AKS enables communication between the [Kubernetes API server](https://kubernetes.io/docs/concepts/overview/kubernetes-api) and individual node [kubelets](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet) via a secure tunnel communication method. These components can communicate even if they're on different virtual networks. The tunnel is protected with Mutual Transport Layer Security (mTLS) encryption. The primary tunnel that AKS uses is called [Konnectivity](https://kubernetes.io/docs/tasks/extend-kubernetes/setup-konnectivity)(formerly known as _apiserver-network-proxy_). Ensure that all network rules and FQDNs comply with the required Azure network rules.
 
 To verify the connectivity between the managed AKS control plane and the cluster worker nodes of an AKS cluster, you can use the [kubectl](https://kubernetes.io/docs/reference/kubectl) command-line tool.
 
@@ -155,7 +155,7 @@ The logs should show the following output:
 > [!NOTE]
 > When an AKS cluster is set up with an API server virtual network integration and either an Azure container networking interface (CNI) or an Azure CNI with dynamic pod IP assignment, there's no need to deploy Konnectivity agents. The integrated API server pods can establish direct communication with the cluster worker nodes via private networking.
 >
->However, when using API server virtual network integration with Azure CNI Overlay or bring your own CNI (BYOCNI), Konnectivity is deployed to facilitate communication between the API servers and pod IPs. The communication between the API servers and the worker nodes remains direct.
+>However, when you use API server virtual network integration with Azure CNI Overlay or bring your own CNI (BYOCNI), Konnectivity is deployed to facilitate communication between the API servers and pod IPs. The communication between the API servers and the worker nodes remains direct.
 
 You can also search the container logs in the logging and monitoring service to retrieve the logs. For an example that searches for _aks-link_ connectivity errors, see [Query logs from container insights](/azure/azure-monitor/containers/container-insights-log-query).
 
@@ -163,7 +163,7 @@ Run the following query to retrieve the logs:
 
 ```kusto
 ContainerLogV2 
-| where _ResourceId =~ "/subscriptions/YOUR_SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP/providers/Microsoft.ContainerService/managedClusters/YOUR_CLUSTER_ID"
+| where _ResourceId =~ "/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerService/managedClusters/<cluster-ID>" // Use the IDs and names of your resources for these values.
 | where ContainerName has "aks-link"
 | project LogSource,LogMessage, TimeGenerated, Computer, PodName, ContainerName, ContainerId
 | order by TimeGenerated desc
@@ -175,8 +175,8 @@ Run the following query to search container logs for any failed pod in a specifi
 ```kusto
 let KubePodInv = KubePodInventory
     | where TimeGenerated >= startTime and TimeGenerated < endTime
-    | where _ResourceId =~ "clustereResourceID" //update with resource ID
-    | where Namespace == "podNamespace" //update with target namespace
+    | where _ResourceId =~ "<cluster-resource-ID>" // Use your resource ID for this value.
+    | where Namespace == "<pod-namespace>" // Use your target namespace for this value.
     | where PodStatus == "Failed"
     | extend ContainerId = ContainerID
     | summarize arg_max(TimeGenerated, *)  by  ContainerId, PodStatus, ContainerStatus
@@ -187,12 +187,12 @@ let KubePodInv = KubePodInventory
     (
         ContainerLogV2
     | where TimeGenerated >= startTime and TimeGenerated < endTime
-    | where PodNamespace == "podNamespace" //update with target namespace
+    | where PodNamespace == "<pod-namespace>" //update with target namespace
     ) on ContainerId
     | project TimeGenerated, PodName, PodStatus, ContainerName, ContainerId, ContainerStatus, LogMessage, LogSource
 ```
 
-If you can't get the logs by using queries or the kubectl tool, use [SSH authentication](/azure/aks/ssh). This example finds the _tunnelfront_ pod after connecting to the node via SSH.
+If you can't get the logs by using queries or the kubectl tool, use [Secure Shell (SSH) authentication](/azure/aks/ssh). This example finds the _tunnelfront_ pod after connecting to the node via SSH.
 
 ```bash
 kubectl pods -n kube-system -o wide | grep tunnelfront
@@ -213,36 +213,36 @@ DNS resolution is a crucial aspect of your AKS cluster. If DNS resolution isn't 
 1. Run the [kubectl exec](https://kubernetes.io/docs/tasks/debug/debug-application/get-shell-running-container) command to open a command shell in the container that's running in the pod.
 
     ```console
-    kubectl exec --stdin --tty your-pod --namespace your-namespace -- /bin/bash
+    kubectl exec --stdin --tty your-pod --namespace <namespace-name> -- /bin/bash
     ```
 
-2. Check if the [nslookup](https://linux.die.net/man/1/nslookup) or [dig](https://linux.die.net/man/1/dig) tool are installed in the container.
+2. Check whether the [nslookup](https://linux.die.net/man/1/nslookup) or [dig](https://linux.die.net/man/1/dig) tools are installed in the container.
 
-3. If the pod doesn't have either of these tools installed, run the following command to create a utility pod in the same namespace.
+3. If neither tool is installed in the pod, run the following command to create a utility pod in the same namespace.
 
     ```console
-    kubectl run -i --tty busybox --image=busybox --namespace your-namespace --rm=true -- sh
+    kubectl run -i --tty busybox --image=busybox --namespace <namespace-name> --rm=true -- sh
     ```
 
 4. You can retrieve the API server address from the overview page of your AKS cluster in the Azure portal, or you can run the following command.
 
     ```azurecli-interactive
-    az aks show --name SethAks --resource-group SethRG --query fqdn --output tsv
+    az aks show --name <aks-name> --resource-group <resource-group-name> --query fqdn --output tsv
     ```
 
-5. Run the following command to try and resolve the AKS API server. For more information, see [Troubleshoot DNS resolution failures from inside the pod but not from the worker node](/troubleshoot/azure/azure-kubernetes/troubleshoot-dns-failure-from-pod-but-not-from-worker-node).
+5. Run the following command to attempt to resolve the AKS API server. For more information, see [Troubleshoot DNS resolution failures from inside the pod but not from the worker node](/troubleshoot/azure/azure-kubernetes/troubleshoot-dns-failure-from-pod-but-not-from-worker-node).
 
     ```console
     nslookup myaks-47983508.hcp.westeurope.azmk8s.io
     ```
 
-6. Check the upstream DNS server from the pod to determine if the DNS resolution is working correctly. For example, for Azure DNS, run the `nslookup` command.
+6. Check the upstream DNS server from the pod to determine whether the DNS resolution is working correctly. For example, for Azure DNS, run the `nslookup` command.
 
     ```console
     nslookup microsoft.com 168.63.129.16
     ```
 
-7. If the previous steps don't provide insights, connect to one of the worker nodes by following [these instructions](/azure/aks/node-access#create-an-interactive-shell-connection-to-a-linux-node) and attempting DNS resolution from the node. This step helps to identify whether the problem is related to AKS or the networking configuration.
+7. If the previous steps don't provide insights, [connect to one of the worker nodes](/azure/aks/node-access#create-an-interactive-shell-connection-to-a-linux-node), and attempt DNS resolution from the node. This step helps to identify whether the problem is related to AKS or the networking configuration.
 
 1. If DNS resolution is successful from the node but not from the pod, the problem might be related to Kubernetes DNS. For steps to debug DNS resolution from the pod, see [Troubleshoot DNS resolution failures](/troubleshoot/azure/azure-kubernetes/troubleshoot-dns-failure-from-pod-but-not-from-worker-node).
 
@@ -250,7 +250,7 @@ DNS resolution is a crucial aspect of your AKS cluster. If DNS resolution isn't 
 
 ## Step 4: Check for kubelet errors
 
-Verify the condition of the kubelet process that runs on each worker node, and ensure that it's not under any pressures. These pressures might pertain to CPU, memory, or storage. To verify the status of individual node kubelets, you can use one of the following methods.
+Verify the condition of the kubelet process that runs on each worker node, and ensure that it's not under any pressure. Potential pressure might pertain to CPU, memory, or storage. To verify the status of individual node kubelets, you can use one of the following methods.
 
 #### AKS kubelet workbook
 
@@ -260,74 +260,74 @@ To ensure that agent node kubelets work properly, follow these steps:
   1. In the **Monitoring** section of the navigation pane, select **Workbooks**.
   1. Select the **Kubelet** workbook.
   
-     :::image type="content" source="images/kubelet-workbook.png" alt-text="Screenshot that shows the Kubelet workbook." lightbox="images/kubelet-workbook.png" border="false":::
+     :::image type="content" source="images/kubelet-workbook.png" alt-text="Screenshot that shows the Kubelet workbook." lightbox="images/kubelet-workbook.png":::
   
   1. Select **Operations** and make sure that the operations for all worker nodes are complete.
 
-     :::image type="content" source="images/kubelet-workbook-detail.png" alt-text="Screenshot that shows the operations page." lightbox="images/kubelet-workbook-detail.png" border="false":::
+     :::image type="content" source="images/kubelet-workbook-detail.png" alt-text="Screenshot that shows the operations page." lightbox="images/kubelet-workbook-detail.png":::
 
 #### In-cluster monitoring with Prometheus and Grafana
 
 If you deployed [Prometheus](https://prometheus.io) and [Grafana](https://grafana.com) in your AKS cluster, you can use the [Kubernetes / Kubelet](https://grafana.com/grafana/dashboards/12123-kubernetes-kubelet) dashboard to get insights about the health and performance of individual node kubelets.
 
-:::image type="content" source="images/kubelet-conditions.png" alt-text="Screenshot that shows the Prometheus and Grafana dashboard kubelet." lightbox="images/kubelet-conditions.png" border="false":::
+:::image type="content" source="images/kubelet-conditions.png" alt-text="Screenshot that shows the Prometheus and Grafana dashboard kubelet." lightbox="images/kubelet-conditions.png":::
 
 #### Monitor managed service for Prometheus and Azure Managed Grafana
 
 You can use the _Kubernetes / Kubelet_ prebuilt dashboard to visualize and analyze the Prometheus metrics for the worker node kubelets. To do so, you must set up your AKS cluster to collect Prometheus metrics in [Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview), and connect your [Monitor workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-manage#link-a-grafana-workspace) to an [Azure Managed Grafana](/azure/managed-grafana/overview) workspace.
 
-:::image type="content" source="images/azure-managed-grafana-kubelet-dashboard.png" alt-text="Screenshot that shows the Azure Managed Grafana kubelet dashboard." lightbox="images/azure-managed-grafana-kubelet-dashboard.png" border="false":::
+:::image type="content" source="images/azure-managed-grafana-kubelet-dashboard.png" alt-text="Screenshot that shows the Azure Managed Grafana kubelet dashboard." lightbox="images/azure-managed-grafana-kubelet-dashboard.png":::
 
-Pressure increases when kubelet restarts and causes sporadic, unpredictable behavior. Make sure that the error count isn't continuously growing. An occasional error is acceptable, but a constant growth indicates an underlying issue that you must investigate and resolve.
+Pressure increases when a kubelet restarts and causes sporadic, unpredictable behavior. Make sure that the error count doesn't grow continuously. An occasional error is acceptable, but a constant growth indicates an underlying issue that you must investigate and resolve.
 
 ## Step 5: Use the node problem detector (NPD) tool to check node health
 
-[NPD](https://github.com/kubernetes/node-problem-detector) is a Kubernetes tool that you can use to identify and report node-related issues. It operates as a systemd service on every node within the cluster. It gathers metrics and system information, such as CPU usage, disk usage, and network connectivity. When a problem is detected, the NPD tool generates events and the node condition. In AKS, the NPD tool is used to monitor and manage nodes in a Kubernetes cluster that's hosted on the Azure cloud. For more information, see [NPD in AKS nodes](/azure/aks/node-problem-detector).
+[NPD](https://github.com/kubernetes/node-problem-detector) is a Kubernetes tool that you can use to identify and report node-related issues. It operates as a systemd service on every node within the cluster. It gathers metrics and system information, such as CPU usage, disk usage, and network connectivity status. When a problem is detected, the NPD tool generates a report on the events and the node condition. In AKS, the NPD tool is used to monitor and manage nodes in a Kubernetes cluster that's hosted on the Azure cloud. For more information, see [NPD in AKS nodes](/azure/aks/node-problem-detector).
 
-## Step 6: Check disk input/output operations per second (IOPS) for throttling
+## Step 6: Check disk I/O operations per second (IOPS) for throttling
 
 To ensure that IOPS aren't being throttled and affecting services and workloads within your AKS cluster, you can use one of the following methods.
 
-#### AKS node disk IO workbook
+#### AKS node disk I/O workbook
 
-To monitor the disk IO-related metrics of the worker nodes in your AKS cluster, you can use the [node disk IO](/azure/azure-monitor/containers/container-insights-analyze#workbooks) workbook. Follow these steps to access the workbook:
+To monitor the disk I/O-related metrics of the worker nodes in your AKS cluster, you can use the [node disk I/O](/azure/azure-monitor/containers/container-insights-analyze#workbooks) workbook. Follow these steps to access the workbook:
 
   1. Go to your AKS cluster in the Azure portal.
   1. In the **Monitoring** section of the navigation pane, select **Workbooks**.
   1. Select the **Node Disk IO** workbook.
   
-     :::image type="content" source="images/node-disk-io-workbook.png" alt-text="Screenshot that shows the node disk IO workbook." lightbox="images/node-disk-io-workbook.png" border="false":::
+     :::image type="content" source="images/node-disk-io-workbook.png" alt-text="Screenshot that shows the node disk IO workbook." lightbox="images/node-disk-io-workbook.png":::
   
-  1. Review the IO-related metrics.
+  1. Review the I/O-related metrics.
 
-     :::image type="content" source="images/node-disk-io-workbook-detail.png" alt-text="Screenshot that shows the disk IO metrics." lightbox="images/node-disk-io-workbook-detail.png" border="false":::
+     :::image type="content" source="images/node-disk-io-workbook-detail.png" alt-text="Screenshot that shows the disk IO metrics." lightbox="images/node-disk-io-workbook-detail.png":::
 
 #### In-cluster monitoring with Prometheus and Grafana
 
-If you deployed [Prometheus](https://prometheus.io) and [Grafana](https://grafana.com) in your AKS cluster, you can use the [USE Method / Node](https://grafana.com/grafana/dashboards/12136-use-method-node) dashboard to get insights about the disk IO for the cluster worker nodes.
+If you deployed [Prometheus](https://prometheus.io) and [Grafana](https://grafana.com) in your AKS cluster, you can use the [USE Method / Node](https://grafana.com/grafana/dashboards/12136-use-method-node) dashboard to get insights about the disk I/O for the cluster worker nodes.
 
-   :::image type="content" source="images/node-diskio.png" alt-text="Screenshot that shows the Prometheus and Grafana dashboard node disk." lightbox="images/node-diskio.png" border="false":::
+   :::image type="content" source="images/node-diskio.png" alt-text="Screenshot that shows the Prometheus and Grafana dashboard node disk." lightbox="images/node-diskio.png":::
 
 #### Monitor managed service for Prometheus and Azure Managed Grafana
 
-You can use the _Node Exporter / Nodes_ prebuilt dashboard to visualize and analyze disk IO-related metrics from the worker nodes. To do so, you must set up your AKS cluster to collect Prometheus metrics in [Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview), and connect your [Monitor workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-manage#link-a-grafana-workspace) to an [Azure Managed Grafana](/azure/managed-grafana/overview) workspace.
+You can use the _Node Exporter / Nodes_ prebuilt dashboard to visualize and analyze disk I/O-related metrics from the worker nodes. To do so, you must set up your AKS cluster to collect Prometheus metrics in [Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview), and connect your [Monitor workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-manage#link-a-grafana-workspace) to an [Azure Managed Grafana](/azure/managed-grafana/overview) workspace.
 
-  :::image type="content" source="images/azure-managed-grafana-node-exporter-dashboard.png" alt-text="Screenshot that shows the Azure Managed Grafana node exporter / nodes dashboard." lightbox="images/azure-managed-grafana-node-exporter-dashboard.png" border="false":::
+  :::image type="content" source="images/azure-managed-grafana-node-exporter-dashboard.png" alt-text="Screenshot that shows the Azure Managed Grafana Node Exporter / Nodes dashboard." lightbox="images/azure-managed-grafana-node-exporter-dashboard.png":::
 
 ### IOPS and Azure disks
 
 Physical storage devices have inherent limitations in terms of bandwidth and the maximum number of file operations that they can handle. Azure disks are used to store the operating system that runs on AKS nodes. The disks are subject to the same physical storage constraints as the operating system.
 
-Consider the concept of throughput. You can multiply the average IO size by the IOPS to determine the throughput in megabytes per second (MBps). Larger IO sizes translate to lower IOPS because of the fixed throughput of the disk.
+Consider the concept of throughput. You can multiply the average I/O size by the IOPS to determine the throughput in megabytes per second (MBps). Larger I/O sizes translate to lower IOPS because of the fixed throughput of the disk.
 
-When a workload surpasses the maximum IOPS service limits assigned to the Azure disks, the cluster might become unresponsive and enter an IO wait state. In Linux-based systems, many components are treated as files, such as network sockets, CNI, Docker, and other services that are reliant on network IO. Consequently, if the disk can't be read, the failure extends to all these files.
+When a workload surpasses the maximum IOPS service limits assigned to the Azure disks, the cluster might become unresponsive and enter an I/O wait state. In Linux-based systems, many components are treated as files, such as network sockets, CNI, Docker, and other services that are reliant on network I/O. Consequently, if the disk can't be read, the failure extends to all these files.
 
 Several events and scenarios can trigger IOPS throttling, including:
 
-- A substantial number of containers that run on nodes, because Docker IO shares the operating system disk.
+- A substantial number of containers that run on nodes, because Docker I/O shares the operating system disk.
 
-- Custom or third-party tools that are employed for security, monitoring, and logging, which might generate additional IO operations on the operating system disk.
-- Node failover events and periodic jobs that intensify the workload or scale the number of pods. This increased load heightens the likelihood of throttling occurrences, potentially causing all nodes to transition to a _not ready_ state until the IO operations conclude.
+- Custom or third-party tools that are employed for security, monitoring, and logging, which might generate additional I/O operations on the operating system disk.
+- Node failover events and periodic jobs that intensify the workload or scale the number of pods. This increased load heightens the likelihood of throttling occurrences, potentially causing all nodes to transition to a _not ready_ state until the I/O operations conclude.
 
 ## Contributors
 
