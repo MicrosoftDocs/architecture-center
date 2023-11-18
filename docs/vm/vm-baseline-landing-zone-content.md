@@ -50,18 +50,18 @@ This architecture assumes these resources are preprovisioned. The central teams 
 
 ## Subscription set up by the platform team
 
-In a landing zone context, workload teams must provide their specific workload requirements to the platform team. The primary shared responsibility between the two teams is in the areas of management group assignment and networking set up. 
+In a landing zone context, **workload teams must provide their specific requirements to the platform team**. The primary shared responsibility between the two teams are in the areas of management group assignment and networking setup. 
 
-The platform team will assign the workload to the appropriate management group based on the workload's business criticality and technical requirements, such as whether the workload will be exposed to the internet. The configuration of these management groups is determined by the organization and implemented by the platform team. 
+The platform team will assign the workload to an appropriate management group based on the workload's business criticality and technical requirements, such as whether it'll be exposed to the internet. The configuration of these management groups is determined by the organization and implemented by the platform team. 
 
-The specific requirements, provided by the workload team, are used by the platform team to set up a subscription or a group of subscriptions for deployment. The workload team should include detailed information about the networking space so that the platform team can allocate the necessary network resources. While the workload team provides the requirements, the platform team is responsible for deciding the specific IP addresses to assign within the virtual network and the management group to which the subscription will be assigned.
+The specific requirements, provided by the workload team, are used by the platform team to set up a subscription or a group of subscriptions for deployment. The workload team should include detailed information about the networking space so that the platform team can allocate necessary resources. While the workload team provides the requirements, the platform team is responsible for deciding the specific IP addresses to assign within the virtual network and the management group to which the subscription will be assigned.
 
 > [!IMPORTANT] 
-> The Azure landing zones recommends a subscription vending work stream for the platform team that involves a series of questions designed to capture key pieces of information from the workload team. These questions may vary from one organization to another, but the intent is to gather the requirements for implementing subsription(s). For more information, see [Cloud Adoption Framework: Subscription vending](/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending).
+> Azure landing zones recommend a subscription vending workstream for the platform team that involves a series of questions designed to capture key pieces of information from the workload team. These questions may vary from one organization to another, but the intent is to gather the requirements for implementing subsription(s). For more information, see [**Cloud Adoption Framework: Subscription vending**](/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending).
 
 ##### Workload team
 
-Here are some networking requirements for this architecture that must be communicated to the platform team. 
+Here are some networking requirements for this architecture. Use these points as examples for a similar architecture that must be communicated to the platform team. 
 
 - **Number of spoke virtual networks**. In this architecture only one dedicated spoke is required. The deployed resources don't need to span across multiple networks and are colocated within a single virtual network. 
 
