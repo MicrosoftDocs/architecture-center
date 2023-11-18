@@ -18,54 +18,56 @@ ms.custom:
 
 # Azure Kubernetes Service patch and upgrade guidance
 
-This section of the Azure Kubernetes Service (AKS) day-2 operations guide describes patching and upgrading practices for AKS worker nodes and Kubernetes (K8S) versions. As a cluster operator, it is crucial to have a strategy for keeping your clusters up to date and monitoring Kubernetes API changes and deprecations over time.
+This section of the Azure Kubernetes Service (AKS) day-2 operations guide describes patching and upgrading strategies for AKS worker nodes and Kubernetes (K8S) versions. As a cluster operator, it is crucial to have a strategy for keeping your clusters up to date and monitoring Kubernetes API changes and deprecations over time.
 
 ## Background and types of updates
 
-There are four different forms of updates for Azure Kubernetes Service (AKS):
-
-1. **Security patches to the operating system (OS) of the node image *(Linux only)*:** For Linux nodes, such as Ubuntu and Azure Linux, the OS checks for security patches on a nightly basis and applies security patches if available. However, if a patch requires a reboot, manual intervention is required to manage the reboot process. For more information, see [Security concepts for applications and clusters in Azure Kubernetes Service (AKS)](/azure/aks/concepts-security) and [Apply cluster upgrades and security patches with Azure Kubernetes Service](/training/modules/aks-cluster-upgrades-patches/).
-1. **Weekly updates to the node images:** AKS provides weekly updates to the node images, ensuring that the latest security patches and bug fixes are incorporated. These updates help to maintain the overall stability and security of the cluster. For more information, see [AKS releases](https://github.com/Azure/AKS/releases).
-1. **Weekly updates to the AKS release:** AKS releases are updated on a weekly basis to introduce new features, improvements, and bug fixes. These updates ensure that AKS users can benefit from the latest enhancements and bug resolutions. For more information, see [AKS releases](https://github.com/Azure/AKS/releases).
-1. **Quarterly Kubernetes releases:** AKS follows a quarterly update schedule for [Kubernetes releases](https://kubernetes.io/releases/release/#the-release-cycle). These updates allow AKS users to take advantage of the latest Kubernetes features, enhancements, and bug fixes regularly. For more information, see [Supported Kubernetes versions in Azure Kubernetes Service (AKS)](/azure/aks/supported-kubernetes-versions).
-
-For Linux nodes, both [Ubuntu](https://ubuntu.com/server) and [Azure Linux](/azure/azure-linux/intro-azure-linux), patches are scanned for and deployed nightly; however if a patch requires a reboot, this process isn't automatic and must be managed. For [Windows Nodes](/azure/aks/faq#windows-server-nodes) monthly patches are included in the node image builds, ensuring that the latest security updates are incorporated as part of the regular image provisioning process.
-
-The following table summarizes the details of updating each component:
+There are three different types of updates for AKS, each building on one another.
 
 |Component name|Frequency of upgrade|[Planned Maintenance Supported](/azure/aks/planned-maintenance)|Supported operation methods|Documentation link|
 |--|--|--|--|--|
-|Security patches and hot fixes for node images|[As-necessary](/azure/aks/concepts-vulnerability-management#worker-nodes)|Yes (Preview)|Automatic, Manual|[AKS Upgrades](/azure/aks/upgrade)|
-|Node image version upgrade|**Linux**: [weekly](https://releases.aks.azure.com/)<br>**Windows**: [monthly](https://releases.aks.azure.com/)|Yes|Automatic, Manual|[AKS node image upgrade](/azure/aks/node-image-upgrade)|
-|Cluster Kubernetes version upgrade to supported patch version|[Approximately weekly](https://releases.aks.azure.com/)|Yes|Automatic, Manual|[Upgrade an AKS cluster](/azure/aks/upgrade-cluster?tabs=azure-cli)|
-|Cluster Kubernetes version (minor) upgrade|[Roughly every three months](https://kubernetes.io/releases/)|Yes| Automatic, Manual|[Upgrade an AKS cluster](/azure/aks/upgrade-cluster?tabs=azure-cli)|
+|Security patches to the OS of the node image|[Approximately Nightly](/azure/aks/concepts-vulnerability-management#worker-nodes)|Yes |Automatic, Manual|[AKS Upgrades](/azure/aks/upgrade)|
+|Node image version upgrades|**Linux**: [Weekly](https://releases.aks.azure.com/)<br>**Windows**: [Monthly](https://releases.aks.azure.com/)|Yes|Automatic, Manual|[AKS node image upgrade](/azure/aks/node-image-upgrade)|
+|Kubernetes version (cluster) upgrades|[Roughly every three months](https://kubernetes.io/releases/)|Yes| Automatic, Manual|[Upgrade an AKS cluster](/azure/aks/upgrade-cluster?tabs=azure-cli)|
 
-### Managing the reboot process for Linux nodes
+### Component Details
 
-By default Linux nodes receive nightly security patches; however, if these security patches require a reboot (for example, for a kernel patch) the reboot must be managed.  The reboot process can be accomplished automatically by using a solution like [Kured](/azure/aks/node-updates-kured) or manually by using the Azure portal or [Azure CLI](/cli/azure/aks/nodepool#az-aks-nodepool-upgrade).
+- **Security patches to the operating system (OS) of the node image *(Linux only)*:** For Linux nodes both [Ubuntu](https://ubuntu.com/server) and [Azure Linux](/azure/azure-linux/intro-azure-linux) check for and apply security patches to the OS nightly; however, if a patch requires a reboot that process must be managed.
 
-Kured can be deployed via [helm chart](https://github.com/kubereboot/charts/tree/main/charts/kured). Key considerations for configuration in this helm chart include:
+- **Weekly updates to the node images:** AKS provides weekly updates to the node images, these updates include a rollup of the latest security patches, bug fixes and enhancements.  These updates help to maintain the overall stability and security of the cluster. For more information, see [AKS release tracker](https://releases.aks.azure.com/).
 
-- Configure the date/times Kured is allowed to reboot nodes by applying
-  - [`configuration.rebootDays`] to specify days when kured is allowed to reboot nodes
-  - Setting [`configuration.startTime`], [`configuration.endTime`], and [`configuration.timeZone`] to configure times Kured is allowed to reboot nodes
-- Setting a [`configuration.notifyUrl`] to enable webhook based alerting of rebooting activities
-- Consider adjusting [`configuration.drainTimeout`] and [`configurtation.lockTtl`] to customize locking and unlocking behaviors
-- Consider enabling the Prometheus provider [`configuration.prometheusUrl`], [`metrics.create`], [`metrics.namespace`]
-- If running mixed Windows and Linux clusters configure [`nodeSelector`] to restrict the daemon set to Linux only nodes.
+- **Quarterly Kubernetes releases:** AKS follows a quarterly update schedule for [Kubernetes releases](https://kubernetes.io/releases/release/#the-release-cycle). These updates allow AKS users to take advantage of the latest Kubernetes features, enhancements, and include security patches and node image enhancements.  For more information, see [Supported Kubernetes versions in Azure Kubernetes Service (AKS)](/azure/aks/supported-kubernetes-versions).
 
-Descriptions of the various Kured configuration options can be found at [Kured Configuration](https://kured.dev/docs/configuration/).
+### Considerations prior to upgrades
+
+#### Overall Cluster Impact
+
+- In place upgrades (both node and cluster) will impact the performance of your kubernetes environment while the upgrade is in progress.  If a reduction in cluster capacity/performance is unacceptable utilize a blue/green update strategy instead of an in-place upgrade.
+
+#### Cluster Workload best practices
+
+To ensure the smooth operation of your AKS cluster during maintenance events, it's recommended to follow these best practices:
+
+- **Define Pod Disruption Budgets (PDBs).** It's essential to set up [Pod Disruption Budgets](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) for your deployments. PDBs enforce a minimum number of available replicas for applications, ensuring their continuous functionality during [disruption events](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/). Pod Disruption Budgets help maintain the stability of your cluster during maintenance or node failures.
+  - :Warning: A misconfiguration of Pod Disruption budgets could either block upgrade process, or create an outage during an update.
+- **Check available compute and network limits.** Before performing any cluster upgrades or scaling operations, verify the available compute and network limits in your Azure subscription using the [az quota](/cli/azure/quota/usage?view=azure-cli-latest#az-quota-usage-list&preserve-view=true) command. This ensures that you don't encounter any capacity issues during these operations.
+- **Check available IP space in node subnets.** It's important to monitor and ensure sufficient available IP address space in your node subnets. This prevents any IP address exhaustion issues when upgrading or scaling your cluster.
+- **Set up multiple environments.** Establishing separate environments such as development, staging, and production is recommended. This allows you to test and validate changes in lower environments before rolling them out to the production environment.
+- **Set higher surge upgrade values.** For production environments, it's recommended to use high [max surge](/azure/aks/upgrade-cluster#customize-node-surge-upgrade) upgrade values, up to 33%. These surge values help ensure that sufficient resources are provisioned during upgrade operations, minimizing any impact on application performance.
+- **Plan and schedule maintenance windows.** Upgrade processes may have an impact on the overall performance of your Kubernetes cluster.  Ensure in-place upgrade processes are scheduled outside of peak usage windows, and monitor cluster performance to ensure adequate sizing especially during update processes.
 
 ### Managing the weekly updates to node images and AKS
 
 Microsoft provides patches and new images for image nodes weekly.  An updated node image contains up-to-date OS security patches, kernel updates, Kubernetes security updates, updated versions of binaries like `kubelet`, and component version updates listed in the [release notes](https://github.com/Azure/AKS/releases).
 
-The weekly update process can be managed automatically (recommended) by using [GitHub Actions](/azure/aks/node-upgrade-github-actions) or [AKS planned maintenance](/azure/aks/auto-upgrade-node-image). Timing for [AKS planned maintenance](/azure/aks/auto-upgrade-node-image) can be controlled by configuring a [maintenance window](/azure/aks/planned-maintenance). For more information, see [Use Planned Maintenance to schedule and control upgrades for your Azure Kubernetes Service (AKS) cluster](/azure/aks/planned-maintenance).
-
-> [!NOTE]
-> When using AKS planned maintenance for node OS auto-upgrade, use a maintenance window of four hours or more to ensure proper functionality.
+The weekly update process can be managed automatically (recommended) by using [GitHub Actions](/azure/aks/node-upgrade-github-actions) or [AKS planned maintenance](/azure/aks/auto-upgrade-node-image).
+Timing for [AKS planned maintenance](/azure/aks/auto-upgrade-node-image) can be controlled by configuring a [maintenance window](/azure/aks/planned-maintenance). For more information, see [Use Planned Maintenance to schedule and control upgrades for your Azure Kubernetes Service (AKS) cluster](/azure/aks/planned-maintenance).
 
 Alternatively, the weekly process can be managed manually via the Azure portal, via Azure CLI using [az aks maintenance configuration](/azure/aks/maintenanceconfiguration?view=azure-cli-latest) commands, or via PowerShell using the [Get-AzAksMaintenanceConfiguration](/powershell/module/az.aks/get-azaksmaintenanceconfiguration) cmdlet.
+
+- :warning: When using AKS planned maintenance for node OS auto-upgrade, use a maintenance window of four hours or more to ensure proper functionality.
+
+- :bulb: If you enable [node auto upgrade](/azure/aks/auto-upgrade-node-image) the nightly scan for security patches is disabled as the node upgrade process now manages it.
 
 #### Manual node update process
 
@@ -154,17 +156,6 @@ As part of your cluster upgrade process, it's essential to conduct a thorough re
 
 In addition to these Microsoft resources, consider using open-source tools to optimize your cluster upgrade process. One such tool is [Pluto](https://github.com/FairwindsOps/pluto), which can scan your deployments and Helm charts for deprecated Kubernetes APIs. These tools help ensure that your applications remain compatible with the latest Kubernetes versions.
 
-### To minimize disruptions to workloads during an upgrade
-
-To ensure the smooth operation of your AKS cluster during maintenance events and to optimize its performance, it's recommended to follow these best practices:
-
-- **Define Pod Disruption Budgets (PDBs).** It's essential to set up [Pod Disruption Budgets](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) for your deployments. PDBs enforce a minimum number of available replicas for applications, ensuring their continuous functionality during [disruption events](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/). Pod Disruption Budgets help maintain the stability of your cluster during maintenance or node failures.
-- **Check available compute and network limits.** Before performing any cluster upgrades or scaling operations, verify the available compute and network limits in your Azure subscription using the [az quota](/cli/azure/quota/usage?view=azure-cli-latest#az-quota-usage-list&preserve-view=true) command. This ensures that you don't encounter any capacity issues during these operations.
-- **Check available IP space in node subnets.** It's important to monitor and ensure sufficient available IP address space in your node subnets. This prevents any IP address exhaustion issues when upgrading or scaling your cluster.
-- **Set up multiple environments.** Establishing separate environments such as development, staging, and production is recommended. This allows you to test and validate changes in lower environments before rolling them out to the production environment.
-- **Plan and schedule maintenance windows.**
-- **Set higher surge upgrade values.** For production environments, it's recommended to use high [max surge](/azure/aks/upgrade-cluster#customize-node-surge-upgrade) upgrade values, up to 33%. These surge values help ensure that sufficient resources are provisioned during upgrade operations, minimizing any impact on application performance.
-
 ### Upgrade Process
 
 To check when your cluster requires an upgrade, use [az aks get-upgrades](/cli/azure/aks?view=azure-cli-latest#az-aks-get-upgrades&preserve-view=true) to get a list of available target upgrade versions for your AKS control plane. Determine the target version for your control plane from the results.
@@ -197,7 +188,6 @@ Name          K8version
 ------------  ------------
 systempool    1.26.6
 usernodepool  1.26.6
-usernp181     1.26.6
 ```
 
 #### Manually upgrading
@@ -273,6 +263,7 @@ Principal author:
 Other contributors:
 
 - [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
+- [Rishabh Saha](https://www.linkedin.com/in/rishabhsaha/) | Principal Solution Architect
 - [Ali Yousefi](https://www.linkedin.com/in/iamaliyousefi/) | Cloud Solution Architect
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
