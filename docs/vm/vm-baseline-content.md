@@ -1,7 +1,9 @@
 
 This article provides a foundational reference architecture for a workload deployed on Azure virtual machines (VMs). 
 
-The primary focus of this architecture isn't the application. Instead it provides guidance for configuring and deploying the infrastructure components with which the application interacts. These components include compute, storage, networking, monitoring and more. This architecture serves as a starting point for an Infrastructure-as-a-Service (IaaS) workload. However, the data tier is intentionally excluded from this guidance, to maintain the focus on the infrastructure. 
+The example workload assumed by this architecture is a tired-web application that's deployed on separate set of VMs. 
+
+However, the primary focus of this architecture isn't the application. Instead it provides guidance for configuring and deploying the infrastructure components with which the application interacts. These components include compute, storage, networking, monitoring and more. This architecture serves as a starting point for an Infrastructure-as-a-Service (IaaS) workload. However, the data tier is intentionally excluded from this guidance, to maintain the focus on the infrastructure. 
 
 ## Article layout
 

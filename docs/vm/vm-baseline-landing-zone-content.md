@@ -70,7 +70,19 @@ Here are some networking requirements for this architecture. Use these points as
     Future changes may require additional IP space, which may not be contiguous with the current allocation. The integration of these spaces could introduce additional complexity. Be proactive and request enough network resources upfront to ensure that the allocated space can accomodate future expansion.
 
 - **Deployment region**. It's important to specify the region(s) where the workload will be deployed. This information allows the platform team to ensure that the spoke and hub virtual networks are provisioned in the same region. Networks across different regions can lead to latency issues due to traffic crossing regional boundaries and can also incur additional bandwidth costs.
-- 
+
+- **Workload characteristics and design choices**. Communicate your design choices, components, and characteristics to your platform team. For instance, if your workload is expected to generate a high volume of network traffic ("chatty"), the platform team should ensure that there are sufficient ports available to prevent exhaustion, add extra IP address to the centralized firewall to support that traffic, set up a NAT gateway to route the traffic through an alternate path, and so on. 
+
+    Conversely, if your workload is expected to generate only minimal network traffic ("background noise"), this should also be communicated so that the platform team uses resources efficiently across the organization.
+
+    Any dependencies should be clearly communicated. For example, if the workloads needs access to a database owned by another workload team, if on-premises traffic is to be expected, or if the workload has dependencies outside Azure. Such information is important for the platform team to know.
+
+- **Firewall configuration**. The platform team must know of traffic that's expected to leave the spoke network and tunnelled out to the hub network. This ensures that the firewall in the hub doesn't block that traffic.
+
+    For instance, if your workload needs to access Windows updates to stay patched, the firewall shouldn't block these updates. Similarly, if the installed Azure Monitor agents, which access specific endpoints, firewall shouldn't block that traffic because this could disrupt monitoring data for your workload. The application could require access to third-part endpoints. Regardless, centralized firewall should be able to make the distinction between expected and unwarranted traffic.
+
+- Operational access.
+
 - Any special NAT gateway/SNAT considerations on egress. _There are none for this architecture._
 - Any expected cross-premisis access. _There are none for this architecture._
 - Any expected cross-virtual network access. _There are none for this architecture._
