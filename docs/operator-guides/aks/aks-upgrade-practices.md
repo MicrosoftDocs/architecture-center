@@ -42,19 +42,19 @@ There are three different types of updates for AKS, each building on one another
 
 #### Overall Cluster Impact
 
-- In place upgrades (both node and cluster) will impact the performance of your kubernetes environment while the upgrade is in progress.  If a reduction in cluster capacity/performance is unacceptable utilize a blue/green update strategy instead of an in-place upgrade.
+- In-place upgrades (both node and cluster) will impact the performance of your Kubernetes environment while the upgrade is in progress.  If a reduction in cluster capacity/performance is unacceptable, utilize a blue/green update strategy instead of an in-place upgrade.
 
 #### Cluster Workload best practices
 
 To ensure the smooth operation of your AKS cluster during maintenance events, it's recommended to follow these best practices:
 
 - **Define Pod Disruption Budgets (PDBs).** It's essential to set up [Pod Disruption Budgets](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) for your deployments. PDBs enforce a minimum number of available replicas for applications, ensuring their continuous functionality during [disruption events](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/). Pod Disruption Budgets help maintain the stability of your cluster during maintenance or node failures.
-  - :Warning: A misconfiguration of Pod Disruption budgets could either block upgrade process, or create an outage during an update.
+  - :Warning: A misconfiguration of Pod Disruption budgets could block the upgrade process or create an outage during an update.
 - **Check available compute and network limits.** Before performing any cluster upgrades or scaling operations, verify the available compute and network limits in your Azure subscription using the [az quota](/cli/azure/quota/usage?view=azure-cli-latest#az-quota-usage-list&preserve-view=true) command. This ensures that you don't encounter any capacity issues during these operations.
-- **Check available IP space in node subnets.** It's important to monitor and ensure sufficient available IP address space in your node subnets. This prevents any IP address exhaustion issues when upgrading or scaling your cluster.
+- **Check available IP space in node subnets.** It's important to monitor and ensure sufficient IP address space in your node subnets. This prevents any IP address exhaustion issues when upgrading or scaling your cluster.
 - **Set up multiple environments.** Establishing separate environments such as development, staging, and production is recommended. This allows you to test and validate changes in lower environments before rolling them out to the production environment.
-- **Set higher surge upgrade values.** For production environments, it's recommended to use high [max surge](/azure/aks/upgrade-cluster#customize-node-surge-upgrade) upgrade values, up to 33%. These surge values help ensure that sufficient resources are provisioned during upgrade operations, minimizing any impact on application performance.
-- **Plan and schedule maintenance windows.** Upgrade processes may have an impact on the overall performance of your Kubernetes cluster.  Ensure in-place upgrade processes are scheduled outside of peak usage windows, and monitor cluster performance to ensure adequate sizing especially during update processes.
+- **Set higher surge upgrade values.** For production environments, it's recommended to use high [max surge](/azure/aks/upgrade-cluster#customize-node-surge-upgrade) upgrade values, up to 33%. These surge values help ensure sufficient resources are provisioned during upgrade operations, minimizing any impact on application performance.
+- **Plan and schedule maintenance windows.** Upgrade processes may impact the overall performance of your Kubernetes cluster.  Please ensure in-place upgrade processes are scheduled outside peak usage windows and monitor cluster performance to ensure adequate sizing, especially during update processes.
 
 ### Managing the weekly updates to node images and AKS
 
@@ -67,7 +67,7 @@ Alternatively, the weekly process can be managed manually via the Azure portal, 
 
 - :warning: When using AKS planned maintenance for node OS auto-upgrade, use a maintenance window of four hours or more to ensure proper functionality.
 
-- :bulb: If you enable [node auto upgrade](/azure/aks/auto-upgrade-node-image) the nightly scan for security patches is disabled as the node upgrade process now manages it.
+- :bulb: If you enable [node auto upgrade](/azure/aks/auto-upgrade-node-image), the nightly scan for security patches is disabled as the node upgrade process now manages it.
 
 #### Manual node update process
 
@@ -137,16 +137,16 @@ You can use node image upgrades to streamline upgrades for both Windows and Linu
 
 The Kubernetes community releases minor versions of Kubernetes approximately every three months. To keep you informed about new AKS versions and releases, the [AKS release notes page](https://github.com/Azure/AKS/releases) page is regularly updated. Additionally, you may subscribe to the [GitHub AKS RSS feed](https://github.com/Azure/AKS/releases.atom), which provides real-time updates about changes and enhancements.
 
-Azure Kubernetes Service (AKS) follows a "N - 2" support policy, which means that full support is provided for the latest release (N) and up to two previous minor versions. Limited platform support is offered for the third previous minor version. For detailed information on the support policy, refer to the [AKS Support Policy(/azure/aks/support-policies).
+Azure Kubernetes Service (AKS) follows an "N - 2" support policy, which means that full support is provided for the latest release (N) and up to two previous minor versions. Limited platform support is offered for the third prior minor version. For more information on the support policy, please review the [AKS Support Policy(/azure/aks/support-policies).
 
-To ensure that your AKS clusters remain supported, it's crucial to establish a continuous cluster upgrade process. This process involves testing new versions in lower environments and planning the upgrade to production before the new version becomes the default. By following this approach, you can maintain predictability in your upgrade process and minimize disruption to your applications. For more information, see [Upgrade an Azure Kubernetes Service (AKS) cluster](/azure/aks/upgrade-cluster).
-For customers who require a longer upgrade cycle, Microsoft introduced a [Long Term Support (LTS) option](/azure/aks/supported-kubernetes-versions#long-term-support-lts) starting from AKS version 1.27. With the LTS option, Microsoft provides extended support for Kubernetes versions over a period of two years, allowing for a more prolonged and controlled upgrade cycle. For more information, see [Supported Kubernetes versions in Azure Kubernetes Service (AKS)](/azure/aks/supported-kubernetes-versions).
+To ensure that your AKS clusters remain supported, it's crucial to establish a continuous cluster upgrade process. This process involves testing new versions in lower environments and planning the upgrade to production before the new version becomes the default. Following this approach can maintain predictability in your upgrade process and minimize application disruption. For more information, see [Upgrade an Azure Kubernetes Service (AKS) cluster](/azure/aks/upgrade-cluster).
+For customers who require a longer upgrade cycle, Microsoft introduced a [Long Term Support (LTS) option](/azure/aks/supported-kubernetes-versions#long-term-support-lts) starting from AKS version 1.27. With the LTS option, Microsoft provides extended support for Kubernetes versions over two years, allowing for a more prolonged and controlled upgrade cycle. For more information, see [Supported Kubernetes versions in Azure Kubernetes Service (AKS)](/azure/aks/supported-kubernetes-versions).
 
 ### Before you upgrade
 
-Both cluster upgrades and node image upgrades require due diligence to ensure stability in production environments.  Cluster upgrades require additional testing as they often involve API changes which can impact Kubernetes deployments.
+Both cluster upgrades and node image upgrades require due diligence to ensure stability in production environments.  Cluster upgrades require additional testing as they often involve API changes, which can impact Kubernetes deployments.
 
-As part of your cluster upgrade process, it's essential to conduct a thorough review to ensure a smooth transition. The following resources can assist you in this process:
+As part of your cluster upgrade process, conducting a thorough review is essential to ensure a smooth transition. The following resources can assist you in this process:
 
 - **AKS Workbook for depreciated APIs** From the cluster overview page you can select "Diagnose and solve problems" and navigate to the [Create, Upgrade, Delete and Scale category, and select Kubernetes API deprecations](/azure/aks/upgrade-cluster?tabs=azure-cli#remove-usage-of-deprecated-apis-recommended).  This runs a workbook that checks for depreciated API versions in use in your cluster.
 
@@ -195,7 +195,7 @@ usernodepool  1.26.6
 To minimize disruptions and ensure a smooth upgrade process for your AKS cluster, it's recommended to follow this upgrade approach:
 
 - **Upgrade the AKS control plane first.** Begin by upgrading the AKS control plane. This involves upgrading the control plane components responsible for managing and orchestrating your cluster. Upgrading the control plane first helps ensure compatibility and stability before upgrading the individual node pools.
-- **Then upgrade individual node pools.** After upgrading the control plane, proceed to upgrade the individual node pools in your AKS cluster. Node pools consist of the virtual machine instances running your application workloads. Upgrading the node pools separately allows for a controlled and systematic upgrade of the underlying infrastructure supporting your applications.
+- **Then upgrade individual node pools.** After upgrading the control plane, upgrade the individual node pools in your AKS cluster. Node pools consist of the virtual machine instances running your application workloads. Upgrading the node pools separately allows for a controlled and systematic upgrade of the underlying infrastructure supporting your applications.
 
 By following this approach, you can minimize disruptions during the upgrade process and maintain the availability of your applications.
 
@@ -236,7 +236,7 @@ The cluster auto upgrade offers different release channel options. Below is a re
 
 ## Considerations
 
-The following table describes characteristics of various AKS upgrade and patching scenarios:
+The following table describes the characteristics of various AKS upgrade and patching scenarios:
 
 |Scenario|User initiated|K8S upgrade|OS kernel upgrade|Node image upgrade|
 |--------|--------------|------------------|-----------------|------------------|
@@ -249,8 +249,8 @@ The following table describes characteristics of various AKS upgrade and patchin
 |Cluster auto upgrade | No  | Yes | Yes, if an updated node image uses an updated kernel.  | Yes, if a new release is available.  |
 
 - It's possible that an OS security patch applied as part of a node image upgrade will install a later version of the kernel than creating a new cluster.
-- Node pool scale up uses the model that is currently associated with the virtual machine scale set. The OS kernels upgrade when security patches are applied and the nodes reboot.
-- Node pool scale-up uses the model that is associated with the virtual machine scale set at creation. The OS kernels upgrade when the security patches are applied and the nodes reboot.
+- Node pool scale-up uses the model currently associated with the virtual machine scale set. The OS kernels upgrade when security patches are applied, and the nodes reboot.
+- Node pool scale-up uses the model associated with the virtual machine scale set at creation. The OS kernels upgrade when the security patches are applied and the nodes reboot.
 
 ## Contributors
 
