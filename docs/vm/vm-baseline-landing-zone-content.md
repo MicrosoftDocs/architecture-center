@@ -50,20 +50,27 @@ This architecture assumes these resources are preprovisioned. The central teams 
 
 ## Subscription set up by the platform team
 
-In a landing zone context, workload teams must provide their specific workload requirements to the platform team. The two primary areas of concern are the management group and networking. 
+In a landing zone context, workload teams must provide their specific workload requirements to the platform team. The primary shared responsibility between the two teams is in the areas of management group assignment and networking set up. 
 
-The platform team will assign the workload to the appropriate management groups based on the workload's business criticality and technical requirements, such as whether the workload will be exposed to the Internet. The configuration of these management groups is determined by the organization and implemented by the platform team. 
+The platform team will assign the workload to the appropriate management group based on the workload's business criticality and technical requirements, such as whether the workload will be exposed to the internet. The configuration of these management groups is determined by the organization and implemented by the platform team. 
 
-The specific requirements are used by the platform team to set up a subscription or a group of subscriptions for deployment. These requirements should include detailed information about the networking space to enable the platform team to allocate the necessary network resources. While the workload team provides the requirements, the platform team is responsible for deciding the specific IP addresses to assign within the virtual network and the management group to which the subscription will be assigned.
+The specific requirements, provided by the workload team, are used by the platform team to set up a subscription or a group of subscriptions for deployment. The workload team should include detailed information about the networking space so that the platform team can allocate the necessary network resources. While the workload team provides the requirements, the platform team is responsible for deciding the specific IP addresses to assign within the virtual network and the management group to which the subscription will be assigned.
 
-[!IMPORTANT] The Azure landing zones recommends a subscription vending work stream for the platform team that involves a series of questions designed to capture key pieces of information from the workload team. These questions may vary from one organization to another, but the intent is to gather the requirements for implementing subsription(s). For more information, see [Cloud Adoption Framework: Subscription vending](/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending).
+> [!IMPORTANT] 
+> The Azure landing zones recommends a subscription vending work stream for the platform team that involves a series of questions designed to capture key pieces of information from the workload team. These questions may vary from one organization to another, but the intent is to gather the requirements for implementing subsription(s). For more information, see [Cloud Adoption Framework: Subscription vending](/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending).
 
-Here are some example requirements for this architecture that the workload team must communicate to the platform team:
+##### Workload team
 
+Here are some networking requirements for this architecture that must be communicated to the platform team. 
 
-- Number of spoke virtual networks. _In this architecture, this would just be one._
-- Required size of spoke virtual networks to support full workload operations and expected growth. _In this architecture, this would be `/??` on the single virtual network._
-- What region(s) your workload will be deployed to. _In this architecture, a single region; for example eastus2._
+- **Number of spoke virtual networks**. In this architecture only one dedicated spoke is required. The deployed resources don't need to span across multiple networks and are colocated within a single virtual network. 
+
+- **Size of the spoke network (s)**. The operational requirements and expected growth of the workload must be taken into consideration. For example, if you are planning to implement Blue/Green or Canary updates, the maximum size should account for the space required for side-by-side deployments.
+
+    Future changes may require additional IP space, which may not be contiguous with the current allocation. The integration of these spaces could introduce additional complexity. Be proactive and request enough network resources upfront to ensure that the allocated space can accomodate future expansion.
+
+- **Deployment region**. It's important to specify the region(s) where the workload will be deployed. This information allows the platform team to ensure that the spoke and hub virtual networks are provisioned in the same region. Networks across different regions can lead to latency issues due to traffic crossing regional boundaries and can also incur additional bandwidth costs.
+- 
 - Any special NAT gateway/SNAT considerations on egress. _There are none for this architecture._
 - Any expected cross-premisis access. _There are none for this architecture._
 - Any expected cross-virtual network access. _There are none for this architecture._
