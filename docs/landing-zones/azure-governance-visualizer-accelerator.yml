@@ -1,0 +1,19 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure Governance Visualizer Accelerator guidance
+  description: Azure Governance Visualizer Accelerator guidance to streamline the process of deploying and maintaining the Azure Governance Visualizer tool.
+  author: sebassem
+  ms.author: sebassem
+  ms.date: 11/19/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - devops
+products:
+  - azure
+name: Azure Governance Visualizer Accelerator guidance
+summary: Azure Governance Visualizer Accelerator guidance to streamline the process of deploying and maintaining the Azure Governance Visualizer tool.
+thumbnailUrl: /azure/architecture/browse/thumbs/AzGovViz-accelerator-architecture.png
+content: |
+  [!include[](azure-governance-visualizer-accelerator-content.md)]
