@@ -2,8 +2,8 @@ This article provides implementation guidance for the [Azure Governance Visualiz
 
 This accelerator speeds up the adoption of AzGovViz into your environment by providing:
 
-- Automation to configure the pre-requisites for AzGovViz
-- An easy and fast deployment process using GitHub Actions
+- Automation to configure the prerequisites for AzGovViz
+- An easy and fast deployment process using GitHub actions
 - Automation to deploy and publish AzGovViz to an Azure App Service in your subscription
 
 ## Architecture
@@ -13,29 +13,29 @@ This accelerator speeds up the adoption of AzGovViz into your environment by pro
 
 ## Components
 
-The accelerator is based on a GitHub template repository which consists of the following:
+The accelerator is based on a GitHub template repository that consists of the following:
 
-- Guidance on how to prepare and configure the needed pre-requisites to deploy the accelerator.
+- Guidance on how to prepare and configure the needed prerequisites to deploy the accelerator.
 - PowerShell scripts to automate the configuration of your environment.
-- GitHub Actions to deploy and update the Azure Governance Visualizer tool.
-- GitHub Actions to deploy and update the accelerator's resources like the Azure Web App hosting the Azure Governance Visualizer output.
+- GitHub actions to deploy and update the Azure Governance Visualizer tool.
+- GitHub actions to deploy and update the accelerator's resources like the Azure Web App hosting the Azure Governance Visualizer output.
 
-## Pre-requisites
+## prerequisites
 
 The accelerator requires some requirements to be configured before deploying:
 
-- **Service principals:** Multiple service principals are required to run the Azure Governance Visualizer tool with the needed permissions and to configure Entra ID authentication for the Azure App Service to access the tool output securely.
-- **Private GitHub repository:** Azure Governance Visualizer requires the creation of a private GitHub repository to host the output of the tool. Multiple GitHub Actions Secrets and variables are required to properly and securely configure continuous deployment to your Azure environment via OpenID Connect.
+- **Service principals:** Multiple service principals are required to run the Azure Governance Visualizer tool with the needed permissions and to configure Microsoft Entra ID authentication for the Azure App Service to access the tool output securely.
+- **Private GitHub repository:** Azure Governance Visualizer requires the creation of a private GitHub repository to host the output of the tool. Multiple GitHub actions Secrets and variables are required to properly and securely configure continuous deployment to your Azure environment via OpenID Connect.
 - **Azure requirements:** Azure resource group creation to host the Azure App Service and the needed least-privilege Azure role-based access controls.
 
 ## Deployment
 
-The deployment of the accelerator is implemented through four GitHub Actions. The GitHub acitons leverage the secrets and variables defined in the pre-requisites stage to:
+The deployment of the accelerator is implemented through four GitHub actions. The GitHub acitons use the secrets and variables defined in the prerequisites stage to:
 
 - Deploy an App Service Plan and an Azure Web app to a resource group
-- Configure Entra ID authentication on the Azure Web app
+- Configure Microsoft Entra ID authentication on the Azure Web app
 - Deploy the Azure Governance Visualizer PowerShell script with the needed configuration
-- Publish the output of the tool to the Azure Web app so its securely accessed.
+- Publish the output of the tool to the Azure Web app so it's securely accessed.
 - Schedule a recurring GitHub Action to check and sync newer versions of Azure Governance Visualizer.
 - Schedule a recurring GitHub Action to check and sync newer versions of Azure Governance Visualizer accelerator.
 
@@ -51,7 +51,7 @@ From the collected data AzGovViz provides visibility on your **HierarchyMap**, c
 - Networking
 - Diagnostics
 - Limits
-- Microsoft Entra ID
+- Microsoft Microsoft Entra ID
 - Consumption
 - Change tracking
 
