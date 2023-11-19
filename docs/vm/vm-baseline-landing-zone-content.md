@@ -1,23 +1,32 @@
-This reference architecture extends the IaaS [**baseline architecture**](./vm-baseline.yml) to address common architectural changes and expectations when being deployed into in Azure landing zones.
+This reference architecture extends the [**Virtual machine baseline architecture**](./vm-baseline.yml) to address common architectural changes and expectations when deployed into in Azure landing zones.
 
-In this scenario, your organization expects the vm-based workload to use federated resources managed by central teams (platform), such as networking for cross-premises connectivity, identity access management, and policies. This guidance assumes that the organization has adopted Azure landing zones to apply consistent governance and save costs across multiple workloads.
+In this use case, the baseline architecture and responsibilities of the workload team change. The organization expects the VM-based workload to utilize federated resources that are centrally managed by the platform team. These resources include networking for cross-premises connectivity, identity access management, and policies. It's assumed that the organization has adopted Azure landing zones to enforce consistent governance and cost-efficiency across multiple workloads.
+
+This architecture can be used for these scenarios:
+
+- Private applications. These include internal line-of-business applications or commercial off-the-shelf (COTS) solutions, which are often located under the Corp management group of Azure landing zones.
+- Public applications. These are internet-facing applications that can be found under either the Corp or Online management group. This architecture isn't for high-performance computing (HPC), mission-critical workloads, latency-sensitive applications, or highly specialized use cases. Instead, it serves as a foundational guide for a workload-agnostic perspective in Azure landing zones.
+
+## Article layout
+
+|Architecture| Shared responsibility |Workload concerns|
+|---|---|---|
+|&#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-team-owned-resources) <br> &#9642; [Federated resources](#platform-team-owned-resources)  |&#9642; [Subscription setup](#subscription-set-up-by-the-platform-team)<br> &#9642; [Requirements by the workload team](#workload-team) <br> &#9642; [Fulfillment by the platform team](#platform-team)| &#9642; [Operations](#os-patching) <br> &#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost Optimization](#cost-optimization)|
+
+> [!TIP]
+> ![GitHub logo](../_images/github.svg) The best practices described in this architecture are demonstrated by a [**reference implementation**](https://github.com/mspnp/vm-baseline-lz). 
+> The implementation includes an application that's a small test harness that will exercise the infrastructure set up end-to-end. 
+
 
 ## Architecture
 
 :::image type="content" source="./media/vm-baseline-landing-zone.png" alt-text="A architectural diagram showing the IaaS baseline in an application landing zone." lightbox="./media/vm-baseline-landing-zone.png":::
 
-Typical uses for this architecture include:
-
-- Private applications: Internal line-of-business application or commercial off the shelf (COTS) solutions. These are often found under the "Corp" management group in traditional Azure landing zones.
-- Public applications: Internet facing applications. These can be found under either the "Corp" or "Online" management group in traditional Azure landing zones.
-
-This article will not address scenarios such as high performance compute (HPC), mission-critical workloads, latency-sensitive applications, low RPO/RTO targets, or more accurately any _specific_ workload needs; but instead serves as a foundation for a workload-agnostic perspective in Azure landing zones.
-
 ### Components
 
 All Azure landing zone architectures have dual-ownership between the platform team and the workload team. Application architect and DevOps teams need to have a strong understanding of this responsibility split in order to understand what's under their direct control, under their influence, and what is out of their influence or control.
 
-#### Application team-owned resources
+#### Workload team-owned resources
 
 Your team provisions and owns these resources.
 
@@ -81,33 +90,28 @@ Here are some networking requirements for this architecture. Use these points as
 
     For instance, if your workload needs to access Windows updates to stay patched, the firewall shouldn't block these updates. Similarly, if the installed Azure Monitor agents, which access specific endpoints, firewall shouldn't block that traffic because this could disrupt monitoring data for your workload. The application could require access to third-part endpoints. Regardless, centralized firewall should be able to make the distinction between expected and unwarranted traffic.
 
-- Operational access.
+- **Operator access**. If there are Microsoft Entra ID security groups that operators use to access the VMs via Bastion, inform the platform team. Bastion is typically a central resource, it's crucial to ensure that the secure protocol is supported by both the security groups and the VMs.
 
-- Any special NAT gateway/SNAT considerations on egress. _There are none for this architecture._
-- Any expected cross-premisis access. _There are none for this architecture._
-- Any expected cross-virtual network access. _There are none for this architecture._
-- Azure Firewall egress rules for infrastructure and OS needs
-  - OS-specific time (NTP) endpoints. _In this architecture... _TODO_
-  - OS-specific patching endpoints _In this architecture... _TODO_
-  - Azure Monitor Agent endpoints _In this architecture... _TODO_
-  - Azure Policy reporting endpoints _In this architecture... _TODO_
-- Azure Firewall egress rules for all workload specific traffic, including build agents. _In this architecture... _TODO_
-- Existing Azure Active Directory security groups expected to be able to log into virtual machines as users (via SSH/RDP). _In this architecture... TODO_
-- Expressed ingress traffic profile, including any expected public IP addresses. _In this architecture, we only expect Internet-sourced traffic, and will be handled by our Application Gateway + WAF in the spoke. Application Gateway will have one public IP._
-- Which IP ranges will contain virtual machines so they can be added to the NSGs around Azure Bastion in the hub.
-- _TODO, more?_
-- Plus any other data required specific to your subscription vending process.
+    Additionally, the platform team should be informed about the IP ranges that will contain the VMs. This information is necessary for configuring the Network Security Groups (NSGs) around Azure Bastion in the hub network.
 
-Items you should be made aware of from the platform team after the vending process is complete:
+- **Public IPs**. The platform team should be informed about the ingress traffic profile, including any anticipated public IP addresses. In this architecture, we expect only internet-sourced traffic targetting public IP on Application Gateway. 
 
-- Possible egress IP addresses on the hub's firewall, to provide to dependent services (1st party or 3rd party) for ACL purposes.
-- Update/patch management expectations
-- Any DINE policies that are expected to impact your resources' configuration
-- In region Azure Bastion host access.
-- Platform created managed identities and their intended utility
-- Coverage under DDoS Protection plan for public IPs in this architecture.
-- The IP ranges of the regional and failover Azure Bastion hosts to include in your NSGs around your virtual machines.
-- Any VM Application Gallery endpoints and auth information for approved virtual machine images.
+    There's another public IP for operational access via Bastion. This public IP would be enrolled in a service like DDoS protection, which is managed by by the platform team.
+
+- Deploy If Not Exists (DINE) policies. These policies are part of an automated deployment configured into a subscription by the platform team. DINE policies can either modify workload resources that are deployed or add things to your deployment, which can result in a discrepancy between the workload templates.
+
+    To avoid this, it’s ideal to incorporate these changes into your templates in advance or communicate with your platform team to be excluded from this policy.
+    
+    > [!IMPORTANT] 
+> Azure Landing Zone uses various DINE policies. For example, policies that manage private endpoints at scale. This policy monitors private endpoint deployments and updates Azure DNS in the hub network, which is part of a platform-managed subscription. The workload team doesn’t have permission to modify it in the hub, and the platform team doesn’t monitor the workload teams’ deployments to update DNS automatically. DINE policies are used to provide this connection.
+
+**Golden images for VMs**. Platform team might manage a standardized set of VM images, known as golden images, which are created for use across the organization. Prior to release, these images undergo a certification process by the workload teams to ensure they meet the necessary standards and requirements.
+
+##### Platform team
+
+- Patching?
+- Firewall rules?
+- Golden images?
 
 ## Application considerations
 
