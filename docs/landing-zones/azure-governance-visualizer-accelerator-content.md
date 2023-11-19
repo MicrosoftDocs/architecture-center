@@ -28,6 +28,17 @@ The accelerator requires some requirements to be configured before deploying:
 - **Private GitHub repository:** Azure Governance Visualizer requires the creation of a private GitHub repository to host the output of the tool. Multiple GitHub Actions Secrets and variables are required to properly and securely configure continuous deployment to your Azure environment via OpenID Connect.
 - **Azure requirements:** Azure resource group creation to host the Azure App Service and the needed least-privilege Azure role-based access controls.
 
+## Deployment
+
+The deployment of the accelerator is implemented through four GitHub Actions. The GitHub acitons leverage the secrets and variables defined in the pre-requisites stage to:
+
+- Deploy an App Service Plan and an Azure Web app to a resource group
+- Configure Entra ID authentication on the Azure Web app
+- Deploy the Azure Governance Visualizer PowerShell script with the needed configuration
+- Publish the output of the tool to the Azure Web app so its securely accessed.
+- Schedule a recurring GitHub Action to check and sync newer versions of Azure Governance Visualizer.
+- Schedule a recurring GitHub Action to check and sync newer versions of Azure Governance Visualizer accelerator.
+
 ## Next steps
 
 From the collected data AzGovViz provides visibility on your **HierarchyMap**, creates a **TenantSummary** on Management Groups and Subscriptions. Some of the information exposed by the tool:
