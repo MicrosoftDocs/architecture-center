@@ -147,27 +147,25 @@ The following table shows the rendering time for various GPU configurations. Res
 
 | Number of GPUs | Rendering time (seconds) | Relative speedup |
 | --- | --- | --- |
-| 6 vCPUs (cores) | 1,275 | 1.00 |
+| 6 vCPUs (cores) | 1,275 | NA |
 | 1/3 | 138 | 9.24 |
 | 1/2 | 96 | 13.28 |
 | 1 | 27 | 47.22 |
+
+The following chart shows the relative speed increases for the model as the number of GPUs increases:
+
+:::image type="content" source="media/autodesk-maya/autodesk-maya-render-speedup.png" alt-text="Chart that compares the rendering speed of various CPU configurations with the rendering speed of six vCPUs on Maya 2023.1.":::
 
 #### Results on Maya 2024
 
 | Number of GPUs | Rendering time (seconds) | Relative speedup |
 | --- | --- | --- |
-| 6 vCPUs (cores) | 1,314 | 1.00 |
+| 6 vCPUs (cores) | 1,314 |NA |
 | 1/3 | 115 | 11.43 |
 | 1/2 | 91 | 14.44 |
 | 1 | 35 | 37.54 |
 
-The following charts shows the relative speed increase for the model as the number of GPUs increases:
-
-#### Maya 2023.1
-
-:::image type="content" source="media/autodesk-maya/autodesk-maya-render-speedup.png" alt-text="Chart that compares the rendering speed of various CPU configurations with the rendering speed of six vCPUs on Maya 2023.1.":::
-
-#### Maya 2024
+The following chart shows the relative speed increases for the model as the number of GPUs increases:
 
 :::image type="content" source="media/autodesk-maya/results-new-version.png" alt-text="Chart that compares the rendering speed of various CPU configurations with the rendering speed of six vCPUs on Maya 2024.":::
 
