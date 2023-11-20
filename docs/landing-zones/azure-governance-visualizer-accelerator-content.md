@@ -22,7 +22,7 @@ The accelerator is based on a GitHub template repository that consists of the fo
 
 ## prerequisites
 
-The accelerator requires some requirements to be configured before deploying:
+The accelerator requires some prerequisites to be configured before deploying:
 
 - **Service principals:** Multiple service principals are required to run the Azure Governance Visualizer tool with the needed permissions and to configure Microsoft Entra ID authentication for the Azure App Service to access the tool output securely.
 - **Private GitHub repository:** Azure Governance Visualizer requires the creation of a private GitHub repository to host the output of the tool. Multiple GitHub actions Secrets and variables are required to properly and securely configure continuous deployment to your Azure environment via OpenID Connect.
