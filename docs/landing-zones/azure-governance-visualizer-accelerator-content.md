@@ -20,7 +20,7 @@ The accelerator is based on a GitHub template repository that consists of the fo
 - GitHub actions to deploy and update the Azure Governance Visualizer tool.
 - GitHub actions to deploy and update the accelerator's resources like the Azure Web App hosting the Azure Governance Visualizer output.
 
-## prerequisites
+## Prerequisites
 
 The accelerator requires some prerequisites to be configured before deploying:
 
