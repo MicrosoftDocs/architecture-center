@@ -15,11 +15,13 @@ products:
 ---
 # Continuous validation with Azure Load Testing and Azure Chaos Studio
 
-Deploying changes and new releases for cloud-native applications and services can be challenging as they become more complex. Many outages are caused by faulty deployments or releases. But errors can also happen **after** the deployment when an application starts receiving real traffic, especially in complex workloads that run in highly distributed, multi-tenant cloud environments, and that have multiple development teams working on them. These environments require more resiliency measures, such as retry logic and autoscaling, which are usually hard to test during the development process.
+Deploying changes and new releases for cloud-native applications and services can be challenging as they become more complex - many outages are caused by faulty deployments or releases. But **errors can also happen after the deployment** when an application starts receiving real traffic, especially in complex workloads that run in highly distributed, multi-tenant cloud environments, and that have multiple development teams working on them. These environments require more resiliency measures, such as retry logic and autoscaling, which are usually hard to test during the development process.
 
 That's why **continuous validation in an environment that is similar to production is important**, so that you can find and fix any problems or bugs as soon as possible in the development cycle. Workload teams should test early in the development process (shift left) and make it convenient for developers to do testing that is close to production.
 
-Mission-critical workloads usually aim for high availability levels of 3, 4 or 5 nines (99.9%, 99.99% or 99.999% respectively). It is very important to have **rigorous automated testing** to reach that goal. Since continuous validation depends on each workload and architecture's specific characteristics, use the advice in this article to get ready for your actual implementation.
+Mission-critical workloads usually aim for high availability levels of 3, 4 or 5 nines (99.9%, 99.99% or 99.999% respectively). It is very important to have **rigorous automated testing** to reach that goal.
+
+Continuous validation depends on each workload and architecture's characteristics. This article provides a guide on how to prepare and integrate Azure Load Testing and Azure Chaos Studio into the regular development cycle.
 
 ## 1 – Define tests based on expected thresholds
 
