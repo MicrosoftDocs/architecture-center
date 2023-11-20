@@ -79,7 +79,7 @@ The following table provides details about the testing operating system:
 | Version | Operating system | Architecture | Processor |
 | --- | --- | --- | --- |
 | Maya 2023.1 | Windows 10 Professional, 20H2 | x86-64 | AMD EPYC 74F3V (Milan) |
-| Maya 2024 | Windows 11 Pro-22H2 | x86-64 | AMD EPYC 74F3V (Milan) |
+| Maya 2024 | Windows 11 Professional, 22H2 | x86-64 | AMD EPYC 74F3V (Milan) |
 
 The tests use the following model:
 
