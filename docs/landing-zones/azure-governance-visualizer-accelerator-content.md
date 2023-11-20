@@ -34,7 +34,7 @@ The deployment of the accelerator is implemented through four GitHub actions. Th
 
 - Deploy an App Service Plan and an Azure Web app to a resource group.
 - Configure Microsoft Entra ID authentication on the Azure Web app.
-- Deploy the Azure Governance Visualizer PowerShell script with the needed configuration
+- Deploy the Azure Governance Visualizer PowerShell script with the needed configuration.
 - Publish the output of the tool to the Azure Web app so it's securely accessed.
 - Schedule a recurring GitHub Action to check and sync newer versions of Azure Governance Visualizer.
 - Schedule a recurring GitHub Action to check and sync newer versions of Azure Governance Visualizer accelerator.
