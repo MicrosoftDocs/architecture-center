@@ -30,7 +30,7 @@ The accelerator requires some prerequisites to be configured before deploying:
 
 ## Deployment
 
-The deployment of the accelerator is implemented through four GitHub actions. The GitHub acitons use the secrets and variables defined in the prerequisites stage to:
+The deployment of the accelerator is implemented through four GitHub actions. The GitHub actions use the secrets and variables defined in the prerequisites stage to:
 
 - Deploy an App Service Plan and an Azure Web app to a resource group.
 - Configure Microsoft Entra ID authentication on the Azure Web app.
