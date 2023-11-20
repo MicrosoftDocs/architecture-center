@@ -12,6 +12,7 @@ azureCategories: compute
 categories: compute
 products:
   - azure-kubernetes-service
+  - azure-monitor
 ms.custom:
   - e2e-aks
 ---
@@ -20,22 +21,22 @@ ms.custom:
 
 _This article is part of a series. Start with the [overview](aks-triage-practices.md)._
 
-It's important to monitor the health and performance of your Kubernetes workloads to ensure that they run optimally. Azure Kubernetes Service (AKS) has several tools that you can use to check the health and performance of your deployments, DaemonSet features, and services.
+It's important to monitor the health and performance of your Kubernetes workloads to ensure that they run optimally. Azure Kubernetes Service (AKS) has several tools that you can use to check the health and performance of your deployments, `DaemonSet` features, and services.
 
 ## Tools
 
-It's important to determine if all deployments and DaemonSet features are running. This article describes how to determine whether the replicas in the _ready_ and _available_ states match the expected replica count by using:  
+It's important to determine whether all deployments and `DaemonSet` features are running. This article describes how to determine whether the replicas in the _ready_ and _available_ states match the expected replica count by using:  
 
-- The Azure portal  
-- The container insights feature of Azure Monitor  
-- The kubectl command-line tool  
-- Prometheus and Grafana
+- The Azure portal.
+- The container insights feature of Azure Monitor.
+- The kubectl command-line tool.
+- Prometheus and Grafana.
 
 ### The Azure portal
 
 You can use the Azure portal to verify the health of the following components in your workloads. For more information, see [Access Kubernetes resources from the Azure portal](/azure/aks/kubernetes-portal).
 
-#### Deployments, ReplicaSets, StatefulSets, and DaemonSets
+#### Deployment, `ReplicaSet`, `StatefulSet`, and `DaemonSet`
 
 Verify that the number of replicas that are in a _ready_ state matches the number of desired replicas. The portal shows:
 
@@ -57,7 +58,7 @@ Ensure that the status is _bound_ for all the persistent volume claims and persi
 
 You can use various views and prebuilt workbooks to analyze the collected data. Examine the performance and behavior of various components within your cluster. With container insights, you can get insights about the overall state of your container workloads so you can make informed decisions to optimize their performance and troubleshoot issues.
 
-Use container insights to help understand the performance and health of your Kubernetes cluster and container workloads. You can use container insights to:
+You can use container insights to:
 
 - Identify resource bottlenecks by identifying containers that run on each node and their processor and memory usage.
 
@@ -77,9 +78,9 @@ In the Azure portal, container insights provides several tools to help monitor a
 - **Controllers**: This feature provides visibility into the Kubernetes controllers in your AKS cluster. It shows information such as the number of controller instances, the current state, and the status of controller operations. You can monitor the health and performance of controllers that manage workload deployments, services, and other resources.
 - **Containers**: This feature provides insights into containers that run in your AKS cluster. It provides information related to resource usage, restarts, and the lifecycle events of each container. You can use this data to help monitor and troubleshoot containers in your workloads.
 
-- **Live logs**: [This feature](/azure/azure-monitor/containers/container-insights-livedata-metrics) provides a live stream of log events from running containers, so you can view container logs in real time. You can use this data to effectively monitor and troubleshoot applications and quickly identify and resolve issues in your containers.
+- **Live logs**: The [live logs](/azure/azure-monitor/containers/container-insights-livedata-metrics) feature provides a live stream of log events from running containers, so you can view container logs in real time. You can use this data to effectively monitor and troubleshoot applications and quickly identify and resolve issues in your containers.
 
-For more information, see:
+For more information, see the following resources:
 
 - [Monitor your Kubernetes cluster performance with container insights](/azure/azure-monitor/containers/container-insights-analyze)
 - [Configure GPU monitoring with container insights](/azure/azure-monitor/containers/container-insights-gpu-monitoring)
@@ -104,13 +105,13 @@ To list the pods running in all namespaces, run the following command:
 kubectl get pod -A
 ```
 
-The _READY_ column provides important information about the readiness state of the pod's containers.
+In the output from the command, the _READY_ column provides important information about the readiness state of the pod's containers.
 
-The first number signifies the count of containers that are currently in a _ready_ state. These containers have passed the readiness probes and are prepared to handle incoming traffic. The second number represents the total count of containers that are defined within the pod, regardless of their readiness state. It includes containers that are ready and those that are still initializing or experiencing issues.
+The first number signifies the count of containers that are currently in a _ready_ state. These containers have passed the readiness probes and are prepared to handle incoming traffic. The second number represents the total count of containers that are defined within the pod, regardless of their readiness state. It includes containers that are ready and those that are still being initialized or experiencing issues.
 
 Ensure that the first number (ready containers) matches the second number (total containers) for the pod. If they differ, some containers might not be ready or there might be issues preventing them from reaching the _ready_ state.
 
-#### Deployments, StatefulSets, DaemonSets, and StatefulSets
+#### Deployment, `StatefulSet`, `DaemonSet`, and `StatefulSet`
 
 Run the following command to retrieve the [deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment) in all namespaces:
 
@@ -118,39 +119,39 @@ Run the following command to retrieve the [deployments](https://kubernetes.io/do
 kubectl get deploy -A
 ```
 
-In the output of the `kubectl get deployment` command, the numbers in the _READY_ column indicate the current readiness state of the replicas in a deployment.
+In the output of the `kubectl get deploy` command, the numbers in the _READY_ column indicate the current readiness state of the replicas in a deployment.
 
 The first number represents the number of replicas that are ready and available to serve traffic. These replicas have successfully started and passed their readiness checks. The second number represents the desired number of replicas specified in the deployment configuration. It's the target number of replicas that the deployment aims to maintain.
 
 It's important to ensure that the first number matches the second number. It indicates that the desired number of replicas are running and ready. Any discrepancy between the two numbers might indicate scaling or readiness issues that you must address.
 
-Run the following command to retrieve the [StatefulSets](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset) in all namespaces:
+Run the following command to retrieve the [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset) features in all namespaces:
 
 ```console
 kubectl get statefulset -A
 ```
 
-Run the following command to retrieve the [DaemonSets](https://kubernetes.io/docs/concepts/workloads/controllers/DaemonSet) in all namespaces:
+Run the following command to retrieve the [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/DaemonSet) features in all namespaces:
 
 ```console
 kubectl get ds -A
 ```
 
-You can run the `kubectl get ds` command to verify that a DaemonSet is running as expected. For example, you can run the following command to verify that the container insights agent is deployed successfully:
+You can run the `kubectl get ds` command to verify that a `DaemonSet` is running as expected. For example, you can run the following command to verify that the container insights agent is deployed successfully:
 
 ```console
 kubectl get ds ama-logs --namespace=kube-system
 ```
 
-Likewise, if you configured your AKS cluster to collect Prometheus metrics in [Monitor for managed Prometheus](/azure/azure-monitor/containers/prometheus-metrics-enable), you can run the following command to verify that the DaemonSet was deployed properly on the Linux node pools:
+Likewise, if you configure your AKS cluster to collect Prometheus metrics in [Monitor for managed Prometheus](/azure/azure-monitor/containers/prometheus-metrics-enable), you can run the following command to verify that the `DaemonSet` is deployed properly on the Linux node pools:
 
 ```console
 kubectl get ds ama-metrics-node --namespace=kube-system
 ```
 
-This output provides information about the DaemonSets in your cluster. Examine the output to ensure that the number of pods in the _READY_, _CURRENT_, and _DESIRED_ states are the same. If they're the same, the desired number of pods specified in the DaemonSet configuration is equal to the number of pods that are currently running and ready.
+This output provides information about the `DaemonSet` features in your cluster. Examine the output to ensure that the number of pods in the _ready_, _current_, and _desired_ states are the same. If they're the same, the desired number of pods specified in the `DaemonSet` configuration is equal to the number of pods that are currently running and ready.
 
-We recommended that you perform the same check for [ReplicaSets](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset). You can use the following command to retrieve the ReplicaSets in all namespaces:
+We recommended that you perform the same check for [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset) features. You can use the following command to retrieve the `ReplicaSet` features in all namespaces:
 
 ```console
 kubectl get rs -A
@@ -158,7 +159,7 @@ kubectl get rs -A
 
 Ensure that the numbers in this output are the same for each state so that the intended number of pods or replicas are running as expected. Discrepancies might indicate a need for further investigation or troubleshooting by using one of the following commands.
 
-**kubectl describe:** You can use the [kubectl describe](https://kubernetes.io/docs/reference/kubectl/cheatsheet/#interacting-with-running-pods) command to get detailed information about Kubernetes resources, such as pods, deployments, and services. Get a comprehensive overview of the specified resource, including its current state, events, conditions, and related metadata. The information is retrieved from the Kubernetes API server. This command is useful for troubleshooting and understanding the status of a resource.
+**kubectl describe:** You can use the [kubectl describe](https://kubernetes.io/docs/reference/kubectl/cheatsheet/#viewing-and-finding-resources) command to get detailed information about Kubernetes resources, such as pods, deployments, and services. You can get a comprehensive overview of the specified resource, including its current state, events, conditions, and related metadata. The information is retrieved from the Kubernetes API server. This command is useful for troubleshooting and understanding the status of a resource.
 
 You can run `kubectl describe pod <pod-name>` to get detailed information about a specific pod, including its current state, events, labels, and the containers that are associated with it. The output shows information like pod status, events, volumes, and conditions.
 
@@ -166,17 +167,17 @@ You can run `kubectl describe pod <pod-name>` to get detailed information about 
 
 To view container logs, you can use the command `kubectl logs <pod-name> -c <container-name>`. Replace `<pod-name>` with the name of the pod. Replace `<container-name>` with the name of the container from which you want to fetch the logs. If there's only one container in the pod, you don't need to specify the container name. You can also use the `-f` flag with `kubectl logs` to follow the logs in real time. This flag is similar to the `tail -f` Linux command.
 
-**kubectl events:** You can use the [kubectl events](https://kubernetes.io/docs/reference/kubectl/cheatsheet/#interacting-with-running-pods) command for troubleshooting when a deployment, DaemonSet, ReplicaSet, or pod doesn't start or encounters an issue during startup. This command provides a chronological list of events that are associated with the specified resource. You can get insights into what might have caused the problem.
+**kubectl events:** You can use the [kubectl events](https://kubernetes.io/docs/reference/kubectl/cheatsheet/#viewing-and-finding-resources) command for troubleshooting when a deployment, `DaemonSet`, `ReplicaSet`, or pod doesn't start or encounters an issue during startup. This command provides a chronological list of events that are associated with the specified resource. You can get insights into what might have caused the problem.
 
 To use `kubectl events`, you can run the command `kubectl events` followed by a specific resource name. Or you can use selectors to filter events based on labels, namespaces, or other criteria.
 
 For example, to retrieve events related to a specific pod, you can run `kubectl events --field-selector involvedObject.name=<pod-name> --field-selector involvedObject.kind=Pod`. Replace `<pod-name>` with the name of the pod that you want to investigate. The output of the `kubectl events` command displays information such as the event type (normal or warning), the event message, the reason for the event, and the time stamp when the event occurred. You can use this information to help determine what caused the failure or issue during startup.
 
-If you suspect that a specific resource like a deployment, DaemonSet, or ReplicaSet is experiencing problems, you can filter events by using selectors. For example, `kubectl events --field-selector involvedObject.name=<deployment-name> --field-selector involvedObject.kind=Deployment` shows events related to a specific deployment. Examine events so you can gather important details about potential errors, failures, or other events that might have prevented the resource from starting properly. Use this data to help troubleshoot and resolve issues that affect the resource.
+If you suspect that a specific resource like a deployment, `DaemonSet`, or `ReplicaSet` is experiencing problems, you can filter events by using selectors. For example, `kubectl events --field-selector involvedObject.name=<deployment-name> --field-selector involvedObject.kind=Deployment` shows events related to a specific deployment. Examine events so you can gather important details about potential errors, failures, or other events that might have prevented the resource from starting properly. Use this data to help troubleshoot and resolve issues that affect the resource.
 
 ### In-cluster monitoring with Prometheus and Grafana
 
-If you deployed [Prometheus](https://prometheus.io) and [Grafana](https://grafana.com) in your AKS cluster, you can use the [K8 Cluster Detail Dashboard](https://grafana.com/grafana/dashboards/10856-k8-cluster) to get insights. This dashboard presents information that's gathered from the Prometheus cluster metrics, such as CPU and memory usage, network activity, and file system usage. It also shows detailed statistics for individual pods, containers, and _systemd_ services.
+If you deploy [Prometheus](https://prometheus.io) and [Grafana](https://grafana.com) in your AKS cluster, you can use the [K8 Cluster Detail Dashboard](https://grafana.com/grafana/dashboards/10856-k8-cluster) to get insights. This dashboard presents information that's gathered from the Prometheus cluster metrics, such as CPU and memory usage, network activity, and file system usage. It also shows detailed statistics for individual pods, containers, and _systemd_ services.
 
 To ensure the health and performance of your deployments, jobs, pods, and containers, you can use the features in the dashboard. Select **Deployments** to view the number of replicas for each deployment and the total number of replicas. Select **Containers** to view a chart that shows the running, pending, failed, and succeeded containers.
 
@@ -184,7 +185,7 @@ To ensure the health and performance of your deployments, jobs, pods, and contai
 
 You can use prebuilt dashboards to visualize and analyze Prometheus metrics. To do so, you must set up your AKS cluster to collect Prometheus metrics in [Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview), and connect your [Monitor workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-manage#link-a-grafana-workspace) to an [Azure Managed Grafana](/azure/managed-grafana/overview) workspace.
 
-[Install](https://github.com/Azure/prometheus-collector/tree/main/mixins/kubernetes#how-to-use) [these dashboards](https://aka.ms/azureprometheus-mixins) to get a comprehensive view of your Kubernetes cluster's performance and health. The dashboards are provisioned in the specified Azure Managed Grafana instance in the _Managed Prometheus_ folder. Some dashboards include:
+Install the [prebuilt dashboards](https://aka.ms/azureprometheus-mixins) to get a comprehensive view of your Kubernetes cluster's performance and health. For detailed installation instructions, see [Prometheus monitoring mixin for Kubernetes](https://github.com/Azure/prometheus-collector/tree/main/mixins/kubernetes#how-to-use). The dashboards are provisioned in the specified Azure Managed Grafana instance in the _Managed Prometheus_ folder. Some dashboards include:
 
 - _Kubernetes / Compute Resources / Cluster_
 - _Kubernetes / Compute Resources / Namespace (Pods)_

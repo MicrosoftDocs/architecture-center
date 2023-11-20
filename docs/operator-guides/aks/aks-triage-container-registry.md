@@ -1,10 +1,10 @@
 ---
-title: AKS triage container registry connectivity
+title: AKS triage—Container registry connectivity
 titleSuffix: Azure Architecture Center
-description: Learn about verifying the connection to the container registry, as part of a triage step for Azure Kubernetes Service (AKS) clusters.
+description: Learn about verifying the connection to a container registry. This step is part of the triage practice for Azure Kubernetes Service (AKS) clusters.
 author: kevingbb
 ms.author: kevinhar
-ms.date: 11/15/2023
+ms.date: 11/22/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -16,46 +16,46 @@ ms.custom:
   - e2e-aks
 ---
 
-# Verify the connection to the container registry
+# Verify the connection to a container registry
 
 _This article is part of a series. Start with the [overview](aks-triage-practices.md)._
 
-To ensure a successful deployment of containerized applications in your Azure Kubernetes Service (AKS) cluster, it's essential to verify the connectivity between the cluster and the container registry. This step guarantees that your worker nodes have the necessary permissions to pull the required container images from the registry.
+To successfully deploy containerized applications in your Azure Kubernetes Service (AKS) cluster, it's essential to verify the connectivity between the cluster and the container registry. This step guarantees that your worker nodes have the necessary permissions to pull the required container images from the registry.
 
-## Identifying symptoms
+## Identify symptoms
 
-When the `kubelet` that runs on an agent node starts creating the containers for a pod, it might be possible for one or more container to end up in the [waiting](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-state-waiting) state because of the `ImagePullBackOff` error. The [ImagePullBackoff](https://kubernetes.io/docs/concepts/containers/images/#imagepullbackoff) error is a common error message in Kubernetes that indicates a failure to pull the required container image from a public or private registry. Various factors can cause this error, including network connectivity problems, incorrect image name or tag, insufficient permissions, or missing credentials.
+When the _kubelet_ that runs on an agent node creates the containers for a pod, one or more container might end up in the [waiting state](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-state-waiting) because of the `ImagePullBackOff` error. [ImagePullBackoff](https://kubernetes.io/docs/concepts/containers/images/#imagepullbackoff) is a common error message in Kubernetes that indicates a failure to pull the required container image from a public or private registry. Various factors can cause this error, including network connectivity problems, an incorrect image name or tag, insufficient permissions, or missing credentials.
 
-The `BackOff` component of the status signifies that Kubernetes will continue attempting to pull the image, with an increasing delay between each subsequent attempt. The delay gradually increases until it reaches a predetermined limit, which is typically set to 300 seconds (5 minutes) in Kubernetes.
+The `BackOff` part of the status signifies that Kubernetes continuously attempts to pull the image with an increasing delay between each subsequent attempt. The delay gradually increases until it reaches a predetermined limit, which is typically set to 300 seconds (five minutes) in Kubernetes.
 
-It's crucial to double-check the registry and image name for accuracy. Additionally, ensure that your AKS cluster has the necessary permissions to pull images from the appropriate container registry.
+It's important to double-check the registry and image name for accuracy. Additionally, ensure that your AKS cluster has the necessary permissions to pull images from the appropriate container registry.
 
 ## Azure Container Registry
 
 When you attach a [container registry](/azure/container-registry/container-registry-intro) to an existing AKS cluster, the [AcrPull](/azure/container-registry/container-registry-roles) role is automatically assigned over the registry to the managed identity that's associated with the agent pools in your AKS cluster. [The AKS to Container Registry integration](/azure/aks/cluster-container-registry-integration) assigns the AcrPull role to the Microsoft Entra managed identity that's associated with the agent pool in your AKS cluster.
 
-You can retrieve the kubelet managed identity of Kubernetes cluster and its current role assignments with the following command.
+Use the following command to retrieve the kubelet managed identity of a Kubernetes cluster and its current role assignments:
 
 ```azurecli-interactive
-# Get kubelet managed identity
-ASSIGNEE=$(az aks show -g $RESOURCE_GROUP -n $NAME --query identityProfile.kubeletidentity.clientId -o tsv)
-az role assignment list --assignee $ASSIGNEE --all -o table
+# Get the kubelet managed identity.
+ASSIGNEE=$(az aks show -g <resource-group-name> -n <assignee-name> --query identityProfile.kubeletidentity.clientId -o tsv)
+az role assignment list --assignee <assignee-name> --all -o table
 ```
 
-You can assign the `AcrPull` role to the kubelet managed identity with the following command:
+Use the following command to assign the `AcrPull` role to the kubelet managed identity:
 
 ```azurecli-interactive
-AZURE_CONTAINER_REGISTRY_ID=$(az acr show --name <acr-name> --query id --output tsv)
-az role assignment create --assignee $ASSIGNEE --scope $AZURE_CONTAINER_REGISTRY_ID --role acrpull
+<container-registry-ID>=$(az acr show --name <container-registry-name> --query id --output tsv)
+az role assignment create --assignee <assignee-name> --scope <container-registry-ID> --role acrpull
 ```
 
 ## Troubleshoot Container Registry issues
 
-If you encounter networking, login, or performance issues with an Azure container registry, use the following guides to address the problems.
+If you encounter networking, sign-in, or performance issues with an Azure container registry, refer to the following guides to address the problems.
 
 ### Networking issues
 
-Troubleshoot problems related to accessing an Azure container registry in a virtual network or behind a firewall or proxy server. The following scenarios and solutions are covered:
+Troubleshoot problems that are related to accessing an Azure container registry in a virtual network or behind a firewall or proxy server. The following scenarios and solutions are covered:
 
 - [Configuration of client firewall or proxy preventing access to the registry](/azure/container-registry/container-registry-troubleshoot-access#configure-client-firewall-access)
 - [Registry's public network access rules preventing access](/azure/container-registry/container-registry-troubleshoot-access#configure-public-access-to-registry)
@@ -84,7 +84,7 @@ Resolve potential performance issues encountered with an Azure container registr
 - [Configure geo-replicated registry for optimal performance with replicas in nearby regions](/azure/container-registry/container-registry-troubleshoot-performance#configure-geo-replicated-registry).
 - [Optimize DNS configuration for pulling from a geographically distant registry replica](/azure/container-registry/container-registry-troubleshoot-performance#configure-dns-for-geo-replicated-registry).
 
-Follow these troubleshooting guides to effectively address networking, login, and performance-related issues with Container Registry. Provide seamless image retrieval for your AKS cluster and ensure smooth operation of your workloads.
+Follow these troubleshooting guides to effectively address networking, sign-in, and performance-related issues with Container Registry. Provide seamless image retrieval for your AKS cluster and ensure smooth operation of your workloads.
 
 ## Third-party container registry integration
 

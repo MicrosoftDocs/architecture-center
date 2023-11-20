@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn how to check the overall health of an Azure Kubernetes Service (AKS) cluster, as part of a triage step for AKS clusters.
 author: francisnazareth
 ms.author: fnazaret
-ms.date: 11/15/2023
+ms.date: 11/22/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide

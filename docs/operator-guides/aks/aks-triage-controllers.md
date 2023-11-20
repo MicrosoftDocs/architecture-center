@@ -1,7 +1,7 @@
 ---
 title: AKS triage—Admission controllers
 titleSuffix: Azure Architecture Center
-description: Learn how to validate that the admission controllers are working as expected. This step is part of the triage practices for AKS clusters.
+description: Learn how to verify that the admission controllers are working as expected. This step is part of the triage practices for AKS clusters.
 author: kevingbb
 ms.author: kevinhar
 ms.date: 11/22/2023
@@ -28,20 +28,20 @@ An [admission controller](https://kubernetes.io/docs/reference/access-authn-auth
 
 Admission controllers can be *validating*, *mutating*, or a combination of both. *Mutating* controllers can modify related objects before admitting a request. *Validating* controllers solely ensure that requests meet specific predefined criteria.
 
-One of the primary functions of admission controllers is to regulate requests for object creation, deletion, and modification. Additionally, admission controllers can restrict custom verbs, such as requesting a connection to a pod via an API server proxy. However, admission controllers can't block requests to read objects, including operations like get, watch, or list.
+One of the primary functions of admission controllers is to regulate requests for object creation, deletion, and modification. Additionally, admission controllers can restrict custom verbs, such as requesting a connection to a pod via an API server proxy. However, admission controllers can't block requests to read objects, including operations like `get`, `watch`, or `list`.
 
 Admission controllers that aren't functioning properly can affect:
 
-- **Mutating and validating webhooks**: When you incorporate mutating and validating webhooks in your Kubernetes cluster, it's imperative to ensure high availability. Unhealthy nodes shouldn't block API server requests. It's vital to monitor the admission control pipeline so requests to the API server aren't blocked. Webhook-based admission controllers that you should monitor include:  
+- **Mutating and validating webhooks**: When you incorporate mutating and validating webhooks in your Kubernetes cluster, it's imperative to ensure high availability. Unhealthy nodes shouldn't block API server requests. It's vital to monitor the admission control pipeline so requests to the API server aren't blocked. Unhealthy admission controllers can affect mutating and validating webhooks. Webhook-based admission controllers that you should monitor include:  
 
-  - [The Azure Policy add-on for Kubernetes clusters](/azure/governance/policy/concepts/policy-for-kubernetes), which extends [Gatekeeper](https://open-policy-agent.github.io/gatekeeper). Gatekeeper is an admission controller webhook for [Open Policy Agent](https://www.openpolicyagent.org).
+  - [The Azure Policy add-on for Azure Kubernetes Service (AKS) clusters](/azure/governance/policy/concepts/policy-for-kubernetes), which extends [Gatekeeper](https://open-policy-agent.github.io/gatekeeper). Gatekeeper is an admission controller webhook for [Open Policy Agent](https://www.openpolicyagent.org).
   
   - [Kyverno](https://kyverno.io), which runs as a dynamic admission controller in a Kubernetes cluster. Kyverno receives validating and mutating admission webhook HTTP callbacks from the Kubernetes API server and applies matching policies to return results that enforce admission policies or reject requests.
 - **Service meshes**: Service meshes, such as [Istio](https://istio.io) and [Linkerd](https://linkerd.io), use admission controllers to automate the injection of sidecar containers inside a pod, among other functionalities. It's important to evaluate and verify that admission controllers function properly to ensure the seamless operation of a service mesh.
 
 ## Check the status of the Azure Policy add-on for Kubernetes clusters
 
-If you installed the [Azure Policy add-on for AKS](/azure/governance/policy/concepts/policy-for-kubernetes), you can use the following `kubectl` commands to validate the installation and functionality of Azure Policy admission controllers in your cluster:
+If you install the [Azure Policy add-on for AKS](/azure/governance/policy/concepts/policy-for-kubernetes), you can use the following kubectl commands to validate the installation and functionality of Azure Policy admission controllers in your cluster:
 
 ```console
 # Verify that Azure Policy pods are running.
@@ -101,7 +101,7 @@ k8sazurereadonlyrootfilesystem           23m
 k8sazureserviceallowedports              23m
 ```
 
-For more information, see:
+For more information, see the following resources:
 
 - [Secure your AKS clusters with Azure Policy](/azure/aks/use-azure-policy)
 - [Azure Policy built-in definitions for AKS](/azure/aks/policy-reference)
