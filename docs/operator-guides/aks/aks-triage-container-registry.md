@@ -24,7 +24,7 @@ To successfully deploy containerized applications in your Azure Kubernetes Servi
 
 ## Identify symptoms
 
-When the _kubelet_ that runs on an agent node creates the containers for a pod, one or more container might end up in the [waiting state](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-state-waiting) because of the `ImagePullBackOff` error. [ImagePullBackoff](https://kubernetes.io/docs/concepts/containers/images/#imagepullbackoff) is a common error message in Kubernetes that indicates a failure to pull the required container image from a public or private registry. Various factors can cause this error, including network connectivity problems, an incorrect image name or tag, insufficient permissions, or missing credentials.
+When the kubelet that runs on an agent node creates the containers for a pod, one or more container might end up in the [waiting state](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-state-waiting) because of the `ImagePullBackOff` error. [ImagePullBackoff](https://kubernetes.io/docs/concepts/containers/images/#imagepullbackoff) is a common error message in Kubernetes that indicates a failure to pull the required container image from a public or private registry. Various factors can cause this error, including network connectivity problems, an incorrect image name or tag, insufficient permissions, or missing credentials.
 
 The `BackOff` part of the status signifies that Kubernetes continuously attempts to pull the image with an increasing delay between each subsequent attempt. The delay gradually increases until it reaches a predetermined limit, which is typically set to 300 seconds (5 minutes) in Kubernetes.
 
@@ -49,11 +49,11 @@ AZURE_CONTAINER_REGISTRY_ID=$(az acr show --name <container-registry-name> --que
 az role assignment create --assignee $ASSIGNEE --scope $AZURE_CONTAINER_REGISTRY_ID --role acrpull
 ```
 
-## Troubleshoot Container Registry issues
+## Troubleshoot Container Registry problems
 
-The following sections provide guides that you can refer to if you encounter networking, sign-in, or performance issues with an Azure container registry.
+The following sections provide guides that you can refer to if you encounter networking, sign-in, or performance problems with an Azure container registry.
 
-### Troubleshoot networking issues
+### Troubleshoot networking problems
 
 If you encounter problems that are related to accessing an Azure container registry in a virtual network or behind a firewall or proxy server, consider the following solutions:
 
@@ -62,9 +62,9 @@ If you encounter problems that are related to accessing an Azure container regis
 - [Configure virtual network access](/azure/container-registry/container-registry-troubleshoot-access#configure-vnet-access).
 - [Configure access for services](/azure/container-registry/container-registry-troubleshoot-access#configure-service-access).
 
-### Troubleshoot sign-in issues
+### Troubleshoot sign-in problems
 
-If you encounter authentication and authorization problems when you sign into an Azure container registry, consider the following solutions:
+If you encounter authentication and authorization problems when you sign in to an Azure container registry, consider the following solutions:
 
 - [Check the Docker configuration in your environment](/azure/container-registry/container-registry-troubleshoot-login#check-docker-configuration).
 - [Specify the correct registry name](/azure/container-registry/container-registry-troubleshoot-login#specify-correct-registry-name).
@@ -73,7 +73,7 @@ If you encounter authentication and authorization problems when you sign into an
 - [Troubleshoot registry sign-in problems](/azure/container-registry/container-registry-troubleshoot-login).
 - [Check that credentials aren't expired](/azure/container-registry/container-registry-troubleshoot-login#check-that-credentials-arent-expired).
 
-### Troubleshoot performance issues
+### Troubleshoot performance problems
 
 If you encounter performance issues with an Azure container registry, consider the following solutions:
 
@@ -84,11 +84,11 @@ If you encounter performance issues with an Azure container registry, consider t
 - [Configure the geo-replicated registry for optimal performance with replicas in nearby regions](/azure/container-registry/container-registry-troubleshoot-performance#configure-geo-replicated-registry).
 - [Optimize DNS configuration for pulling from a geographically distant registry replica](/azure/container-registry/container-registry-troubleshoot-performance#configure-dns-for-geo-replicated-registry).
 
-Follow these troubleshooting guides to effectively address networking, sign-in, and performance-related issues with Container Registry. Provide seamless image retrieval for your AKS cluster and ensure smooth operation of your workloads.
+These guides can help you ensure seamless image retrieval for your AKS cluster and ensure smooth operation of your workloads.
 
 ## Integrate a third-party container registry
 
-When you use a third-party container registry, you need to create the appropriate `ImagePullSecret` credentials for the registry so your AKS cluster can securely access the container images. For more information, see [Create an image pull secret](/azure/container-registry/container-registry-auth-kubernetes#create-an-image-pull-secret). Ensure that you set up the correct permissions and credentials so you can verify the connection to the container registry and enable your AKS cluster to successfully pull the required container images during deployments. This best practice ensures smooth and reliable execution of your containerized workloads in Kubernetes.
+When you use a third-party container registry, you need to create the appropriate `ImagePullSecret` credentials for the registry so your AKS cluster can securely access the container images. For more information, see [Create an image pull secret](/azure/container-registry/container-registry-auth-kubernetes#create-an-image-pull-secret). Ensure that you set up the correct permissions and credentials so you can verify the connection to the container registry and enable your AKS cluster to successfully pull the required container images during deployments. This best practice helps ensure smooth and reliable execution of your containerized workloads in Kubernetes.
 
 ## Contributors
 
