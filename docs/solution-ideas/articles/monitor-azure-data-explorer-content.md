@@ -41,7 +41,7 @@ Use cross-service queries to build a single, interactive data lake, joining data
 
     - Collect various types of IT and non-IT data – for example, business, user, and geospatial data - using a range of connectors and APIs.
     - Maximize data management capabilities, with full schema control, processing of incoming data using KQL, materialized views, partitioning, granular retention, and caching controls.  
-    - Take advantage of the full set of KQL's analytics capabilities, including hosting machine learning algorithms in python and federated queries to other data technologies such as SQL server, data lakes, and Cosmos DB. 
+    - Take advantage of the full set of KQL's analytics capabilities, including hosting machine learning algorithms in python and federated queries to other data technologies, such as SQL server, data lakes, and Cosmos DB. 
     - Query data in Azure Monitor, Microsoft Sentinel, and other services that use KQL.
 
 An architecture built on the features and flexibility provided by the three services gives you:
@@ -63,7 +63,7 @@ An architecture built on the features and flexibility provided by the three serv
     - Stream in data using Azure data streaming services, such as Azure IoT Hub, Azure Event Hubs, Azure Stream Analytics. 
 1. Use Azure Sentinel as a cloud-native Security Information and Event Management (SIEM) and Security Orchestration, Automation, and Response (SOAR) solution to analyze and act on security-related data across your IT environment.
 1. Use Azure Monitor for monitoring the performance, availability, and health of applications, services, and IT resources to gain insights into the operational status of your cloud infrastructure, identify issues, and optimize performance.
-1. Use Azure Data Explorer for all kinds of data that require custom or more flexible handling or analytics. Common examples are user and business data and other data streams that are not handled natively by Sentinel and Azure Monitor. Stream security and operational data to Azure Data Explorer when you need more flexible schema control, cache or retention control, data platform deep integrations and ML execution.
+1. Use Azure Data Explorer for all kinds of data that require custom or more flexible handling or analytics. Common examples are user and business data and other data streams that are not handled natively by Sentinel and Azure Monitor. 
 1. Apply advanced machine learning on a broad set of data from your entire data estate to discover patterns, detect anomalies, forecast, and gain other insights.
 1. Leverage the tight integration between services to augment monitoring and analytics capabilities:
    
