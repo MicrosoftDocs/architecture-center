@@ -23,8 +23,8 @@ Use cross-service queries to build a single, interactive data lake, joining data
 
     - Collect security data from various sources, such as Azure resources, Microsoft 365, and other cloud and on-premises solutions, using a variety of connectors and APIs.
     - Detect and investigate threats using advanced analytics, machine learning, and Microsoft threat intelligence.
-    - Respond to incidents and automate common tasks using playbooks and logic apps.
-    - Analyze security data and correlate data in Microsoft Sentinel with data in other services, such as Azure Data Explorer and Azure Monitor, using KQL.
+    - Respond to incidents and automate common case-management tasks using automation rules and logic apps-based playbooks.
+    - Analyze security data and hunt for threats by correlating data from multiple sources and services in Microsoft Sentinel using KQL.
 
 - Azure Monitor is Azure’s managed solution for IT and application monitoring. 
 
