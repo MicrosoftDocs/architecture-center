@@ -30,16 +30,15 @@ Admission controllers can be *validating*, *mutating*, or a combination of both.
 
 One of the primary functions of admission controllers is to regulate requests for object creation, deletion, and modification. Additionally, admission controllers can restrict custom verbs, such as requesting a connection to a pod via an API server proxy. However, admission controllers can't block requests to read objects, including operations like `get`, `watch`, or `list`.
 
-Admission controllers that aren't functioning properly can affect:
+Some components can affect admission controllers, such as *mutating and validating webhooks*. When you incorporate mutating and validating webhooks in your Kubernetes cluster, it's imperative to ensure high availability. Unhealthy nodes shouldn't block API server requests. It's vital to monitor the admission control pipeline so requests to the API server aren't blocked. Unhealthy admission controllers can affect mutating and validating webhooks. Webhook-based admission controllers that you should monitor include:  
 
-- **Mutating and validating webhooks**: When you incorporate mutating and validating webhooks in your Kubernetes cluster, it's imperative to ensure high availability. Unhealthy nodes shouldn't block API server requests. It's vital to monitor the admission control pipeline so requests to the API server aren't blocked. Unhealthy admission controllers can affect mutating and validating webhooks. Webhook-based admission controllers that you should monitor include:  
-
-  - [The Azure Policy add-on for Azure Kubernetes Service (AKS) clusters](/azure/governance/policy/concepts/policy-for-kubernetes), which extends [Gatekeeper](https://open-policy-agent.github.io/gatekeeper). Gatekeeper is an admission controller webhook for [Open Policy Agent](https://www.openpolicyagent.org).
+- [The Azure Policy add-on for Azure Kubernetes Service (AKS) clusters](/azure/governance/policy/concepts/policy-for-kubernetes), which extends [Gatekeeper](https://open-policy-agent.github.io/gatekeeper). Gatekeeper is an admission controller webhook for [Open Policy Agent](https://www.openpolicyagent.org).
   
-  - [Kyverno](https://kyverno.io), which runs as a dynamic admission controller in a Kubernetes cluster. Kyverno receives validating and mutating admission webhook HTTP callbacks from the Kubernetes API server and applies matching policies to return results that enforce admission policies or reject requests.
-- **Service meshes**: Service meshes, such as [Istio](https://istio.io) and [Linkerd](https://linkerd.io), use admission controllers to automate the injection of sidecar containers inside a pod, among other functionalities. It's important to evaluate and verify that admission controllers function properly to ensure the seamless operation of a service mesh.
+- [Kyverno](https://kyverno.io), which runs as a dynamic admission controller in a Kubernetes cluster. Kyverno receives validating and mutating admission webhook HTTP callbacks from the Kubernetes API server and applies matching policies to return results that enforce admission policies or reject requests.
 
-## Check the status of the Azure Policy add-on for Kubernetes clusters
+Alternatively, admission controllers that aren't functioning properly can affect various components, such as *service meshes*. Service meshes, such as [Istio](https://istio.io) and [Linkerd](https://linkerd.io), use admission controllers to automate the injection of sidecar containers inside a pod, among other functionalities. It's important to evaluate and verify that admission controllers function properly to ensure the seamless operation of a service mesh.
+
+## Check the status of the Azure Policy add-on for AKS clusters
 
 If you install the [Azure Policy add-on for AKS](/azure/governance/policy/concepts/policy-for-kubernetes), you can use the following kubectl commands to validate the installation and functionality of Azure Policy admission controllers in your cluster:
 
