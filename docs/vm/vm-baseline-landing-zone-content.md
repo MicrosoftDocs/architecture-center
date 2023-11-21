@@ -1,6 +1,6 @@
 This reference architecture extends the [**Virtual machine baseline architecture**](./vm-baseline.yml) to address common architectural changes and expectations when deployed into in Azure landing zones.
 
-In this use case, the baseline architecture and responsibilities of the workload team change. The organization expects the VM-based workload to utilize federated resources that are centrally managed by the platform team. These resources include networking for cross-premises connectivity, identity access management, and policies. It's assumed that the organization has adopted Azure landing zones to enforce consistent governance and cost-efficiency across multiple workloads.
+In this use case, the organization expects the VM-based workload to utilize federated resources that are centrally managed by the platform team. These resources include networking for cross-premises connectivity, identity access management, and policies. It's assumed that the organization has adopted Azure landing zones to enforce consistent governance and cost-efficiency across multiple workloads. 
 
 This architecture can be used for these scenarios:
 
@@ -8,6 +8,8 @@ This architecture can be used for these scenarios:
 - Public applications. These are internet-facing applications that can be found under either the Corp or Online management group. This architecture isn't for high-performance computing (HPC), mission-critical workloads, latency-sensitive applications, or highly specialized use cases. Instead, it serves as a foundational guide for a workload-agnostic perspective in Azure landing zones.
 
 ## Article layout
+
+To meet the organizational requirements, there are chanes in the **baseline architecture** and responsibilities of the workload team.
 
 |Architecture| Shared responsibility |Workload concerns|
 |---|---|---|
@@ -28,34 +30,34 @@ All Azure landing zone architectures have dual-ownership between the platform te
 
 #### Workload team-owned resources
 
-Your team provisions and owns these resources.
+Your team provisions and owns these resources and remain unchanged from the [**baseline architecture**](vm-baseline.md#workload-resources). 
 
-- Application platform Virtual Machines
-- Load balancer
-- Azure Application Gateway
-- Azure Key Vault
-- Azure Monitor - Log Analytics & Application Insights
-- Azure Policy as it applies to the specific workload
-- Spoke subnetting
-- Build/deployment agents (VMs)
-- Workload-specific private DNS zones
-- Network security groups
-- Private endpoints
-- Disks/Storage
+- **Azure virtual machines (VMs)** serves as application platform and the  compute resources are distributed across availability zones.
+- **Azure Load Balancer** routes traffic from the frontend tier to the backend servers. The load balancer distributes traffic to VMs across zones.
+- **Azure Application Gateway Standard_v2** acts as the reverse proxy routing  requests to the frontend servers. 
+- **Azure Key Vault** stores application secrets and certificates.
+- **Azure Monitor** Azure Log Analytics and Application Insights collect and store observability data. 
+- **Azure Policy** as it applies to the specific workload.
+
+These resources and responsibilities continue to be maintained and fullfiled by the workload team. 
+
+- **Spoke virtual network subnetting and Network Security Groups (NSGs)** placed on those networks to maintain segmentation and control traffic flow. 
+- **Private endpoints** to secure connectivity to PaaS services and the **private DNS zones** required for those endpoints. 
+- **Disks and storage** resources that temporarily log files. Beyond that, this architecture continues to be stateless. 
+- **Build agent VMs** are autonomously owned by the workload team to ensure reliability of the deployment infrastructure.
 
 #### Platform team-owned resources
 
-This architecture assumes these resources are preprovisioned. The central teams of the organization own and maintain the resources. Your application depends on these services to reduce operational overhead and optimize cost.
+The platform team owns and maintains these centralized resources. This architecture  assumes these resources are preprovisioned and considers them as dependencies. 
 
-- **Azure Firewall** inspects and restricts egress traffic.
-- **Azure Bastion** provides secure access to the management jump box.
-- **Azure ExpressRoute** provides private connectivity from cross-premises to Azure infrastructure.
-- **Azure DNS** provides cross-premises name resolution.
-- VPN gateway connects the application with remote teams in your cross-premises network.
-- Private Link Private DNS zone entries
-- Spoke Virtual Network
-- UDR for forced tunneling
-- Azure Policy based governance constraints and DINE policies
+- **Azure Firewall in the hub network** inspects and restricts egress traffic. This component is an addition to the baseline architecture, which didn't provide restrictions on outbound traffic to the internet. 
+- **Azure Bastion in the hub network** provides secure operational access to workload VMs. In the baseline architecture, this was owned by the workload team. 
+- **Spoke virtual network** in which the workload is deployed. 
+- **User-defined routes** (UDRs) for forced tunneling to the hub network.
+- **Azure Policy** based governance constraints and DeployIfNotExists (DINE)  policies as part of the workload subscription.
+
+> [!IMPORTANT]
+> Azure landing zones provides the preceding resources as part of the platform landing zone subscriptions. The networking resources are part of the Connectivity subscription, which has additional resources such as Azure ExpressRoute, VPN gateway, Azure DNS for cross-premises access and name resolution. They are outside the scope of this architecture. 
 
 ## Subscription set up by the platform team
 
@@ -100,12 +102,12 @@ Here are some networking requirements for this architecture. Use these points as
 
 - Deploy If Not Exists (DINE) policies. These policies are part of an automated deployment configured into a subscription by the platform team. DINE policies can either modify workload resources that are deployed or add things to your deployment, which can result in a discrepancy between the workload templates.
 
-    To avoid this, it’s ideal to incorporate these changes into your templates in advance or communicate with your platform team to be excluded from this policy.
+  To avoid this, it’s ideal to incorporate these changes into your templates in advance or communicate with your platform team to be excluded from this policy.
     
-    > [!IMPORTANT] 
-> Azure Landing Zone uses various DINE policies. For example, policies that manage private endpoints at scale. This policy monitors private endpoint deployments and updates Azure DNS in the hub network, which is part of a platform-managed subscription. The workload team doesn’t have permission to modify it in the hub, and the platform team doesn’t monitor the workload teams’ deployments to update DNS automatically. DINE policies are used to provide this connection.
+  > [!IMPORTANT] 
+  > Azure Landing Zone uses various DINE policies. For example, policies that manage private endpoints at scale. This policy monitors private endpoint deployments and updates Azure DNS in the hub network, which is part of a platform-managed subscription. The workload team doesn’t have permission to modify it in the hub, and the platform team doesn’t monitor the workload teams’ deployments to update DNS automatically. DINE policies are used to provide this connection.
 
-**Golden images for VMs**. Platform team might manage a standardized set of VM images, known as golden images, which are created for use across the organization. Prior to release, these images undergo a certification process by the workload teams to ensure they meet the necessary standards and requirements.
+- **Golden images for VMs**. Platform team might manage a standardized set of VM images, known as golden images, which are created for use across the organization. Prior to release, these images undergo a certification process by the workload teams to ensure they meet the necessary standards and requirements.
 
 ##### Platform team
 
@@ -117,91 +119,54 @@ Here are some networking requirements for this architecture. Use these points as
 
 _TODO TBD_
 
-## Networking considerations
+## Networking
 
-In this design, the workload is dependent on key network resources owned by the platform team for accessing or being accessed by cross-premises resources, controlling egress traffic, and so on.
+In the baseline architecture, the workload was deployed in s single virtual network managed by the workload team. In this architecture, the network topology is decided by the platform team. Hub-spoke topology is assumed in this architecture. The single virtual network in the baseline becomes the spoke network, which owned and managed by the platform team. It's peered to the hub network, which provides the centralized services.
 
-### Network topology
+In the [**baseline architecture**](vm-baseline-content.md#networking), the workload was provisioned in a single virtual network, the management of which was the responsibility of the workload team. However, in this architecture, the responsibility for determining the network topology has been offloaded to the platform team.
 
-The platform team decides the network topology. Hub-spoke topology is assumed in this architecture.
+This architecture operates on the assumption of a hub-spoke topology. 
 
-- **Hub virtual network**
+- **Hub virtual network**. This network contains a regional hub designed to provide centralized services that communicate with workload resources in the same region. For information, see [these networking resources](#platform-team-owned-resources). Azure landing zones recommend placing the hub in the [Connectivity subscription](/azure/cloud-adoption-framework/ready/landing-zone/design-area/network-topology-and-connectivity). 
+- **Spoke virtual network**. The single virtual network from the baseline architecture is now transformed into the spoke network. The ownership and management of this spoke network now fall under the purview of the platform team. This network contains the[ workload resources](#workload-team-owned-resources). However, the workload team owns the resources in this network. 
 
-  The [Connectivity subscription](/azure/cloud-adoption-framework/ready/landing-zone/design-area/network-topology-and-connectivity) contains a regional hub shared by all or many of the organization's resources in the same single region. It contains [these networking resources](#platform-team-owned-resources) that are owned and maintained by the platform team. These resources are in scope for this architecture:
+The spoke network is peered with the hub network. Azure landing zone subscription intended for the workload, has at least one preprovisioned virtual network that's peered to the hub network. The preprovisioned virtual network and peerings must be able to support the expected growth of the workload. Make sure you [communicate the workload requirements](#subscription-set-up-by-the-platform-team) to the platform team and review them periodiocally.
 
-  - **Azure Firewall** used for controlling outbound traffic to the internet.
-  - **Azure Bastion** used to securing access to the virtual machine instances.
-
-- **Spoke virtual network**
-
-  The application landing zone has at least one preprovisioned virtual network that's peered to the hub network. You own the resources in this network. The preprovisioned virtual network and peerings must be able to support the expected growth of the workload. Estimate the virtual network size and evaluate the requirements with the platform team regularly.
+> [!IMPORTANT] 
+> The workload network must not be directly peered to another spoke virtual network. All transitive virtual network connections should be facilitated by your platform team.
 
 TODO: IPAM, Org IP overlap
 
-#### Virtual network subnets
+#### Virtual network subnets and network controls
 
-You're responsible for allocating subnets in the spoke virtual network. This architecture requires suggests dedicated subnets for:
+In the spoke virtual network, the workload team has the responsibility of subnet allocation. The intent is segmentation and placing controls to restrict traffic in and out of the subnets. This architecture recommends the creation of dedicated subnets for Application Gateway, Key Vault, frontend VMs, load balancer, backend VMs, and private endpoints.
 
-- Application Gateway
-- Front End VMs
-- Load Balancers between tiers
-- Back End VMs
-- Deployment agents
-- Private Endpoints
+Subnets for those components remain the same as the [**baseline architecture**](vm-baseline-content.md#subnetting-considerations). 
 
-#### Virtual network peering
+Deploying your workload in an Azure landing zone does not take away the responsibility of implementing network controls. There might be additional restrictions imposed by the organization to safeguard against data exfiltration, ensure visibility for central Security Operations Center (SOC) and IT network team.
 
-Your workload should not be architected to expect any direct peering to another spoke virtual network. All transitive virtual network connections should be facilitated by your platform team.
+This approach allows the platform team to optimize costs through centralized services, rather than deploying redundant security controls per workload throughout the organization. In this architecture, Azure Firewall is an example of a central service. It would be neither cost-effective nor practical for each workload team to manage their own firewall instance. Instead, a centralized approach to firewall management is recommended.
 
-#### Network controls
+##### Ingress traffic
 
-Landing your workload in an Azure landing zone does not change the responsibility of applying appropriate network controls to your solution. Azure landing often will enforce specific additional restrictions to ensure the organization is protecting itself against data exfiltration, can support SOC & NOC visibility, and shadow IT. Doing so results in splitting responsibility so that the platform team can optimize cost by having centralized offerings instead of duplicative security controls deployed throughout the org. In this architecture Azure Firewall is an example. It's impractical to govern and not cost optimized for every workload team to manage their own firewall instance.
+The workload owner is responsible for any resources related to public internet ingress into your workload. In this architecture, this is demonstrated by placing Application Gateway and its public IP in the spoke network, and specifically not as part of the hub network. In some organizations, ingress might be expected in a connectivity subscription using a centralized DMZ implementation. Integration with that specific topology is out of scope for this article.
 
-##### Egress controls
+##### Egress traffc
 
-For all traffic that leaves your virtual network, your IaaS workload will be expected to pass that traffic through its regional hub and usually more specifically through an egress firewall in that hub. This is often implemented with a route table that is attached to your spoke virtual network as part of the subscription vending process, directing `0.0.0.0/0` traffic to your regional hub's Azure Firewall.
+All traffic leaving the spoke virtual network is expected to be routed through the peered hub network, typically via an egress firewall. This is usually achieved with a route attached to the spoke network that directs all traffic (0.0.0.0/0) to the hub’s Azure Firewall.
 
-This means that you need to discover and document all outbound traffic flows necessary for both infrastructure operations and workload operations as part of your solution. You'll communicate the flows that leave your spoke, in specificity, with the platform team. The platform team is expected to allow your required traffic and you should expected to all other egress traffic that wasn't specifically communicated to be denied.
+The workload team must identify, document, and communicate all necessary outbound traffic flows for your infrastructure and workload operations. The platform team will allow the  required traffic, while all uncommunicated egress traffic will likely be denied.
 
 > [!TIP]
 >
-> Encourage the platform team to use IP groups to ensure that your workload's specific egress needs are represented in Azure Firewall with tight scoping to just the source subnets. For example the rule that support workload virtual machines being able to reach api.example.org, does not mean that supporting virtual machines, like build agents, even in the same virtual network, should necessarily be able to reach the same endpoint.
+> Encourage the platform team to use IP groups in Azure Firewall. This will ensure that your workload’s specific egress needs are accurately represented with tight scoping to just the source subnets. For instance, a rule that allows workload virtual machines to reach api.example.org doesn't necessarily imply that supporting virtual machines, such as build agents within the same virtual network, should be able to access the same endpoint. This level of granular control can enhance the security posture of your network.
 
-Apply NSG rules that express the required outbound connectivity requirements of your solution, and deny everything else. Do not depend on hub security controls alone. As a workload owner, have the responsibility to stop undesired egress traffic as close to the source as practicable.
 
-Be aware that while you own your subnetting within the virtual network, the platform team likely created firewall rules to specifically represent your captured requirements as part of your subscription vending process. Ensure that changes in subnets and resource placement over the lifetime of your architecture are still compatible with your original request, or work with your network team to ensure continuity of least-access egress control.
-
-Examples of egress in this architecture:
-
-| Endpoint | Purpose | NSG control | Hub control |
-| :------- | :------ | :---------- | :---------- |
-| _TODO_ | _TODO_ | _TODO_ | _TODO_ |
-| _TODO_ | _TODO_ | _TODO_ | _TODO_ |
-| _TODO_ | _TODO_ | _TODO_ | _TODO_ |
 
 **Communicate any special egress requirements.** For example if your workload establishes many concurrent connections to external network endpoints, ensure your platform team is aware of this so they can either provision the appropriate NAT Gateway implementation or add additional public IPs on the regional firewall to mitigate.
 
 As an architect building for a landing zone implementation, you should not expect to design an IaaS solution that depends on workload-owned Public IP addresses for egress. Consider helping enforce this with Azure Policy by denying public IPs on virtual machine NICs and any other public IP other than your well-known ingress points.
 
-##### Ingress controls
-
-Isolation from other workloads' spokes in the organization is achieved through NSGs on your subnets, and potentially also through the non-transitive nature or controls in the regional hub. Always build comprehensive NSGs that only allow the inbound network requirements of your application and its infrastructure; do not depend on any non-transtive nature of the hub you are peered to for security.
-
-As a workload owner, typically you are responsible for any resources related to public Internet ingress into your workload. In this architecture, this is showcased by the inclusion of Application Gateway and its public IP as being part of the workload spoke, and specifically not as part of the hub. In some organizations, ingress is expected to be handled in a connectivity subscription using a centralized DMZ implementation. Integration with that specific topology is out of scope for this article.
-
-Your platform team will likely have specific Azure Policies in place to ensure your Application Gateway has WAF enabled in deny mode, limit the number of public IPs available to your subscription, etc. As a workload owner, also deploy workload-centric policies that enforce your ingress security posture.
-
-Examples of ingress in this architecture:
-
-| Source | Purpose | Workload control | Platform control |
-| :----- | :------ | :--------------- | :--------------- |
-| Internet | _TODO_ | _TODO_ | _TODO_ |
-| Azure Bastion | _TODO_ | _TODO_ | _TODO_ |
-| Other spokes | None | Blocked via NSG rules. | Non-transitive routing or Azure Firewall rules in the case of Azure VWAN secured hub. |
-
-##### Network security group example
-
-Here is an example of a network security group that supports access from the hub for Azure Bastion, etc. TODO
 
 NSG TODO
 
@@ -301,7 +266,35 @@ Here are some examples of policy that might be applied.
 
 TODO
 
-## Security considerations
+## Security
+
+The security considerations carry over from the [**baseline architecture**](vm-baseline-content.md#security).The recommendations are based on the [Security design review checklist given in Azure Well-Architected Framework](/azure/well-architected/security/checklist). The sections are annotated with recommendations from that checklist.
+
+##### Network controls
+
+- **Ingress traffic**. Isolation from other workload spokes within the organization is achieved through the use of Network Security Groups (NSGs) on your subnets, and potentially also through the non-transitive nature or controls in the regional hub. Construct comprehensive NSGs that only permit the inbound network requirements of your application and its infrastructure. Relying on the non-transitive nature of the hub network for security is not recommended.
+
+    The platform team will likely implement specific Azure Policies to ensure that  Application Gateway has the Web Application Firewall (WAF) enabled in deny mode, restrict the number of public IPs available to your subscription, and other checks. In addition to those policies, the workload team should own the responsibility of deploying workload-centric policies that reinforce the ingress security posture.
+
+    Examples of ingress controls in this architecture:
+
+    | Source | Purpose | Workload control | Platform control |
+    | :----- | :------ | :--------------- | :--------------- |
+    | Internet | _TODO_ | _TODO_ | _TODO_ |
+    | Azure Bastion | _TODO_ | _TODO_ | _TODO_ |
+    | Other spokes | None | Blocked via NSG rules. | Non-transitive routing or Azure Firewall rules in the case of Azure VWAN secured hub. |
+
+- **Egress traffic**. Apply NSG rules that express the required outbound connectivity requirements of your solution, and deny everything else. Do not depend on hub security controls alone. As a workload owner, have the responsibility to stop undesired egress traffic as close to the source as practicable.
+
+Be aware that while you own your subnetting within the virtual network, the platform team likely created firewall rules to specifically represent your captured requirements as part of your subscription vending process. Ensure that changes in subnets and resource placement over the lifetime of your architecture are still compatible with your original request, or work with your network team to ensure continuity of least-access egress control.
+
+Examples of egress in this architecture:
+
+| Endpoint | Purpose | NSG control | Hub control |
+| :------- | :------ | :---------- | :---------- |
+| _TODO_ | _TODO_ | _TODO_ | _TODO_ |
+| _TODO_ | _TODO_ | _TODO_ | _TODO_ |
+| _TODO_ | _TODO_ | _TODO_ | _TODO_ |
 
 ### DDoS protection
 
