@@ -270,7 +270,7 @@ This VM configuration was used for the multi-node tests:
 |benchPEP|12,000,000 |8|512|62.708|7.96|         
 |benchPEP|12,000,000 |16|1,024|31.818|15.70|
 
-:::image type="content" source="media/gromacs/benchpep-multi-node-results.png" alt-text="Graph that shows relative speed increases for the benchPEP model in a multi-node configuration." border="false":::
+:::image type="content" source="media/gromacs/benchpep-multi-node.png" alt-text="Graph that shows relative speed increases for the benchPEP model in a multi-node configuration." border="false":::
 
 ## Azure cost
 
