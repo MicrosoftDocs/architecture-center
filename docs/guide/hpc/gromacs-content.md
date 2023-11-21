@@ -117,7 +117,7 @@ The cell and water models described later in this section were used to test GROM
 |water-cut1.0_GMX50_bare|3,072,000|    96 | 68.26       |         4.06|         
 |water-cut1.0_GMX50_bare|3,072,000|120|60.77|4.56|
 
-:::image type="content" source="media/gromacs/water-cut1.0_GMX50_bare-result-single node.png" alt-text="Graph that shows relative speed increases for the water-cut1.0_GMX50_bare model." border="false":::
+:::image type="content" source="media/gromacs/water-cut1-0-gmx50_bare-result-single node.png" alt-text="Graph that shows relative speed increases for the water-cut1.0_GMX50_bare model." border="false":::
 
 **Results for water-cut1.0_bare_hbonds**
 
@@ -131,7 +131,7 @@ The cell and water models described later in this section were used to test GROM
 |water-cut1.0_bare_hbonds|3,072,000|96|69.22|3.96|
 |water-cut1.0_bare_hbonds|3,072,000|120|60.91|4.50|
 
-:::image type="content" source="media/gromacs/water-cut1.0_bare_hbonds-results-single-node.png" alt-text="Graph that shows relative speed increases for the water-cut1.0_bare_hbonds model." border="false":::
+:::image type="content" source="media/gromacs/water-cut1-0-bare-hbonds-results-single-node.png" alt-text="Graph that shows relative speed increases for the water-cut1.0_bare_hbonds model." border="false":::
 
 
 **Results for rnase_bench_systems_old-allbond**
@@ -149,7 +149,7 @@ The cell and water models described later in this section were used to test GROM
  
 
 
-:::image type="content" source="media/gromacs/rnase_bench_systems_old-allbond-results-single-node.png" alt-text="Graphs that show relative speed increases for the rnase_bench_systems_old-allbond models." lightbox="media/gromacs/rnase_bench_systems_old-allbond-results-single-node.png" border="false":::
+:::image type="content" source="media/gromacs/rnase-bench-systems-old-allbond-results-single-node.png" alt-text="Graphs that show relative speed increases for the rnase_bench_systems_old-allbond models." lightbox="media/gromacs/rnase-bench-systems-old-allbond-results-single-node.png" border="false":::
 
 **Results for rnase_bench_systems**
 
@@ -168,7 +168,7 @@ The cell and water models described later in this section were used to test GROM
 |rnase_dodec|16,816|96|0.68|3.21|
 |rnase_dodec|16,816|120|0.67|3.22|
 
-:::image type="content" source="media/gromacs/rnase_bench_systems-results-single-node.png" alt-text="Graphs that show relative speed increases for the rnase_bench_systems models." lightbox="media/gromacs/rnase_bench_systems-results-single-node.png" border="false":::
+:::image type="content" source="media/gromacs/rnase-bench-systems-results-single-node.png" alt-text="Graphs that show relative speed increases for the rnase_bench_systems models." lightbox="media/gromacs/rnase-bench-systems-results-single-node.png" border="false":::
 
 **Results for gmxbench-3.0**
 
@@ -201,7 +201,7 @@ The cell and water models described later in this section were used to test GROM
 |adh_dodec|95,561|96|2.96|3.68|
 |adh_dodec|95,561|120|2.88|3.78|
 
-:::image type="content" source="media/gromacs/ADH_bench_systems_old-allbonds-results-single-node.png" alt-text="Graphs that show the relative speed increases for the ADH_bench_systems_old-allbonds models." lightbox="media/gromacs/ADH_bench_systems_old-allbonds-results-single-node.png" border="false":::
+:::image type="content" source="media/gromacs/Adh-bench-systems-old-allbonds-results-single-node.png" alt-text="Graphs that show the relative speed increases for the ADH_bench_systems_old-allbonds models." lightbox="media/gromacs/adh-bench-systems-old-allbonds-results-single-node.png" border="false":::
 
 **Results for ADH_bench_systems**
 
@@ -220,7 +220,7 @@ The cell and water models described later in this section were used to test GROM
 |adh_dodec|95,561|96|2.78|3.74|
 |adh_dodec|95,561|120|2.65|3.93|
 
-:::image type="content" source="media/gromacs/adh_bench_systems-updated-results.png" alt-text="Graphs that show the relative speed increases for the ADH_bench_systems models." lightbox="media/gromacs/adh_bench_systems-updated-results.png" border="false":::
+:::image type="content" source="media/gromacs/adh-bench-systems-updated-results.png" alt-text="Graphs that show the relative speed increases for the ADH_bench_systems models." lightbox="media/gromacs/adh-bench-systems-updated-results.png" border="false":::
 
 ### Performance results on Multi Node
 
@@ -242,7 +242,7 @@ Note: calculation steps considered = 12000
 |water-cut1.0_GMX50_bare|3,072,000|8|512|35.22|8.44|         
 |water-cut1.0_GMX50_bare|3,072,000|16|1024|19.17|15.51|
 
-:::image type="content" source="media/gromacs/water-cut1.0_GMX50_bare-multi-node-result.png" alt-text="Graph that shows relative speed increases for the water-cut1.0_GMX50_bare model on cluster." border="false":::
+:::image type="content" source="media/gromacs/water-cut1-0-gmx50-bare-multi-node-result.png" alt-text="Graph that shows relative speed increases for the water-cut1.0_GMX50_bare model on cluster." border="false":::
 
 **Results for water-cut1.0_bare_hbonds**
 
@@ -256,7 +256,7 @@ Note : calculation steps considered = 12000
 |water-cut1.0_bare_hbonds|3,072,000|8|512|34.71|8.59|         
 |water-cut1.0_bare_hbonds|3,072,000|16|1024|19.43|15.34|
 
-:::image type="content" source="media/gromacs/water-cut1.0_bare_hbonds-multi-node-results.png" alt-text="Graph that shows relative speed increases for the water-cut1.0_bare_hbonds model on cluster." border="false":::
+:::image type="content" source="media/gromacs/water-cut1-0-bare-hbonds-multi-node-results.png" alt-text="Graph that shows relative speed increases for the water-cut1.0_bare_hbonds model on cluster." border="false":::
 
 **Results for benchPEP**
 
@@ -270,7 +270,7 @@ Note : calculation steps considered = 4000
 |benchPEP|12000000 |8|512|62.708|7.96|         
 |benchPEP|12000000 |16|1024|31.818|15.70|
 
-:::image type="content" source="media/gromacs/benchPEP-multi-node-results.png" alt-text="Graph that shows relative speed increases for the water-cut1.0_bare_hbonds model on cluster." border="false":::
+:::image type="content" source="media/gromacs/benchpep-multi-node-results.png" alt-text="Graph that shows relative speed increases for the water-cut1.0_bare_hbonds model on cluster." border="false":::
 
 ## Azure cost
 
