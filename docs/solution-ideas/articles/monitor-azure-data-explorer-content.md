@@ -31,7 +31,7 @@ Use cross-service queries to build a single, interactive data lake, joining data
     Use Azure Monitor to:
 
     - Collect monitoring data from Azure resources and any sources, applications, and workloads in Azure and hybrid environments using a set of agents, connectors, and APIs.
-    - Track, alert, and act on monitoring data using out-of-the box IT monitoring tools and analytics features, including Artificial Intelligence for IT Operations (AIOps) features and curated experiences tailored for monitoring specific resources, such as virtual machines, containers, and applications.
+    - Track, alert, and act on monitoring data using out-of-the box IT monitoring tools and analytics features, including Artificial Intelligence for IT Operations (AIOps) features and prebuilt workbooks for monitoring specific resources, such as virtual machines, containers, and applications.
     - Improve IT and application efficiency and performance and troubleshoot operational issues.
     - Query and analyze data in Azure Monitor and other services, such as Azure Data Explorer and Azure Resource Graph, using KQL.
  
@@ -61,9 +61,9 @@ An architecture built on the features and flexibility provided by the three serv
     - Use Azure Monitor Agent to ingest data from VMs, containers, and workloads.
     - Use a wide range of connectors, agents, and APIs supported by the three services - such as Logstash, Kafka, and Logstash connectors, OpenTelemetry agents, Azure Data Explorer APIs, and Azure Monitor Log Ingestion API - to ingest data from on-premises resources and other clouds.
     - Stream in data using Azure data streaming services, such as Azure IoT Hub, Azure Event Hubs, Azure Stream Analytics. 
-1. Use Azure Monitor for monitoring the performance, availability, and health of applications, services, and IT resources to gain insights into the operational status of your cloud infrastructure, identify issues, and optimize performance.
 1. Use Azure Sentinel as a cloud-native Security Information and Event Management (SIEM) and Security Orchestration, Automation, and Response (SOAR) solution to analyze and act on security-related data across your IT environment.
-1. Use Azure Data Explorer for real-time analysis of any type of data, such as user and business data.
+1. Use Azure Monitor for monitoring the performance, availability, and health of applications, services, and IT resources to gain insights into the operational status of your cloud infrastructure, identify issues, and optimize performance.
+1. Use Azure Data Explorer for all kinds of data that require custom or more flexible handling or analytics. Common examples are user and business data and other data streams that are not handled natively by Sentinel and Azure Monitor. Stream security and operational data to Azure Data Explorer when you need more flexible schema control, cache or retention control, data platform deep integrations and ML execution.
 1. Apply advanced machine learning on a broad set of data from your entire data estate to discover patterns, detect anomalies, forecast, and gain other insights.
 1. Leverage the tight integration between services to augment monitoring and analytics capabilities:
    
