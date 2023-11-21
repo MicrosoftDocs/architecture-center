@@ -18,19 +18,19 @@ GROMACS is used across the healthcare industry by biotechnology organizations, u
 
 ## Architecture
 
-The architectural diagram below shows GROMACS running on a single Azure VM.
+This diagram shows GROMACS running on a single Azure VM:
 
 :::image type="content" source="media/gromacs/gromacs.svg" alt-text="Diagram that shows an architecture for deploying GROMACS." border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/gromacs.vsdx) of this
 architecture.*
 
-This architecture shows a multi-node configuration, orchestrated with Azure CycleCloud:
+This diagram shows a multi-node configuration, orchestrated with Azure CycleCloud:
 
 
-:::image type="content" source="media/gromacs/gromacs-cluster-architecture.svg" alt-text="Diagram that shows an architecture for deploying GROMACS on multi-node." border="false":::
+:::image type="content" source="media/gromacs/gromacs-cluster-architecture.svg" alt-text="Diagram that shows an architecture for deploying GROMACS in a multi-node configuration." border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/) of this
+*Download a [Visio file](https://arch-center.azureedge.net/gromacs-multi-node-architecture.vsdx) of this
 architecture.*
 
 ### Components
@@ -182,7 +182,7 @@ The cell and water models described later in this section were used to test GROM
 |d.poly-ch2|6,000 atoms and 6,000 vsites|96|0.19|3.01|
 |d.poly-ch2|6,000 atoms and 6,000 vsites|120|0.18|3.17|
 
-:::image type="content" source="media/gromacs/gmxbench-3.0-results-single-node.png" alt-text="Graph that shows relative speed increases for the gmxbench-3.0 model." border="false":::
+:::image type="content" source="media/gromacs/gmxbench-3-0-results-single-node.png" alt-text="Graph that shows relative speed increases for the gmxbench-3.0 model." border="false":::
 
 **Results for ADH_bench_systems_old-allbonds**
 
