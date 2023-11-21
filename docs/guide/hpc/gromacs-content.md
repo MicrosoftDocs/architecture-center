@@ -41,7 +41,7 @@ architecture.*
     used to create a private network infrastructure in the cloud.
   - [Network security groups](/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VM.  
   -  A public IP address connects the internet to the VM.
-- [Azure CycleCloud](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/azurecyclecloud.azure-cyclecloud) is used to create the cluster in the multi-node configuration. 
+- [Azure CycleCloud](https://azuremarketplace.microsoft.com/marketplace/apps/azurecyclecloud.azure-cyclecloud) is used to create the cluster in the multi-node configuration. 
 - A physical solid-state drive (SSD) is used for storage.
 
 ## Compute sizing and drivers
@@ -66,7 +66,7 @@ To use the AMD CPUs on [HBv3-series](/azure/virtual-machines/hbv3-series) VMs, y
 
 ## GROMACS installation
 
-### Install GROMACS on a Virtual Machine
+### Install GROMACS on a virtual machine
 
 Before you install GROMACS, you need to deploy and connect a Linux VM and install the required AMD and InfiniBand drivers.
 
@@ -76,24 +76,24 @@ You can download GROMACS from the [GROMACS download](https://manual.gromacs.org/
 
 For information about using GROMACS, see the [User guide](https://manual.gromacs.org/documentation/current/user-guide/index.html).
 
-### Install GROMACS on HPC cluster
+### Install GROMACS on an HPC cluster
 
-You can easily deploy an HPC cluster on Azure by using [Azure CycleCloud](https://learn.microsoft.com/en-us/azure/cyclecloud/overview?view=cyclecloud-8).
+You can easily deploy an HPC cluster on Azure by using [Azure CycleCloud](/azure/cyclecloud/overview).
 
-Azure CycleCloud is a tool for orchestrating and managing HPC environments on Azure. You can use CycleCloud to provision infrastructure for HPC systems, deploy HPC schedulers, and automatically scale the infrastructure to run jobs efficiently.
+Azure CycleCloud is a tool for orchestrating and managing HPC environments on Azure. You can use it to provision infrastructure for HPC systems, deploy HPC schedulers, and automatically scale the infrastructure to run jobs efficiently.
 
-Azure CycleCloud is a Linux-based web application. Microsoft recommends that begin the implementation by deploying an Azure VM that's based on a preconfigured Azure Marketplace image.
+Azure CycleCloud is a Linux-based web application. We recommend that you begin the implementation by deploying an Azure VM that's based on a preconfigured Azure Marketplace image.
 
 To set up an HPC cluster on Azure, complete these steps:
 
-- [Install and configure Azure CycleCloud](https://learn.microsoft.com/en-us/training/modules/azure-cyclecloud-high-performance-computing/4-exercise-install-configure).
-- [Create an HPC cluster from built-in templates](https://learn.microsoft.com/en-us/training/modules/azure-cyclecloud-high-performance-computing/5-exercise-create-cluster).
-- [Connect to the head node (the scheduler)](https://learn.microsoft.com/en-us/azure/cyclecloud/how-to/connect-to-node?view=cyclecloud-8).
+- [Install and configure Azure CycleCloud](/training/modules/azure-cyclecloud-high-performance-computing/4-exercise-install-configure).
+- [Create an HPC cluster from built-in templates]/training/modules/azure-cyclecloud-high-performance-computing/5-exercise-create-cluster).
+- [Connect to the head node (the scheduler)](/azure/cyclecloud/how-to/connect-to-node?view=cyclecloud-8).
 
 For multi-node configurations, the GROMACS installation process is the same as the process described previously for a single node, except for the path to the installation directory:
 
 - You need to select **/shared** for the installation directory path so that the directory is accessible for all nodes.
-- The shared folder path depends on your network attached storage service, like an NFS server, BeeGFS cluster, [Azure NetApp Files](https://azure.microsoft.com/en-us/products/netapp/) and [Azure HPC Cache](https://azure.microsoft.com/en-us/products/hpc-cache/).
+- The shared folder path depends on your network attached storage service. For example, an NFS server, BeeGFS cluster, [Azure NetApp Files](https://azure.microsoft.com/products/netapp/), or [Azure HPC Cache](https://azure.microsoft.com/products/hpc-cache/).
 
 ## GROMACS performance results
 
@@ -103,7 +103,7 @@ The cell and water models described later in this section were used to test GROM
 |-|-|
 |Ubuntu Linux 20.04|x86-64|
 
-### Performance results on Single Node
+### Performance results on a single node
 
 **Results for water-cut1.0_GMX50_bare**
 
@@ -111,7 +111,7 @@ The cell and water models described later in this section were used to test GROM
 
 |Model| Initial element atom count| Number of cores |Elapsed time (seconds)  |Relative speed increase  |  
 |--|-|------|---------|---------|
-|water-cut1.0_GMX50_bare|3,072,000|  16   |  277.03       | 1.00        |   
+|water-cut1.0_GMX50_bare|3,072,000|  16   |  277.03       | NA        |   
 |water-cut1.0_GMX50_bare|3,072,000|    32 |  153.93      | 1.80        |         
 |water-cut1.0_GMX50_bare|3,072,000|  64   |       85.69  |      3.23   |         
 |water-cut1.0_GMX50_bare|3,072,000|    96 | 68.26       |         4.06|         
@@ -125,7 +125,7 @@ The cell and water models described later in this section were used to test GROM
 
 |Model| Initial element atom count| Number of cores |Elapsed time (seconds)  |Relative speed increase  |  
 |--|-|------|---------|---------|
-|water-cut1.0_bare_hbonds|3,072,000|16|274.25|1.00|
+|water-cut1.0_bare_hbonds|3,072,000|16|274.25|NA|
 |water-cut1.0_bare_hbonds|3,072,000|32|153.92|1.78|
 |water-cut1.0_bare_hbonds|3,072,000|64|87.32|3.14|
 |water-cut1.0_bare_hbonds|3,072,000|96|69.22|3.96|
@@ -141,7 +141,7 @@ The cell and water models described later in this section were used to test GROM
 
 |Model| Initial element atom count| Number of cores |Elapsed time (seconds)  |Relative speed increase  |  
 |--|-|------|---------|---------|
-|rnase_cubic|24,040|16|2.47|1.00|
+|rnase_cubic|24,040|16|2.47|NA|
 |rnase_cubic|24,040|32|1.53|1.61|
 |rnase_cubic|24,040|64|0.92|2.68|
 |rnase_cubic|24,040|96|0.82|3.02|
@@ -157,7 +157,7 @@ The cell and water models described later in this section were used to test GROM
 
 |Model| Initial element atom count| Number of cores |Elapsed time (seconds)  |Relative speed increase  |  
 |--|-|------|---------|---------|
-|rnase_cubic|24,040|16|2.41|1.00|
+|rnase_cubic|24,040|16|2.41|NA|
 |rnase_cubic|24,040|32|1.47|1.64|
 |rnase_cubic|24,040|64|0.85|2.84|
 |rnase_cubic|24,040|96|0.75|3.21|
@@ -176,7 +176,7 @@ The cell and water models described later in this section were used to test GROM
 
 |Model| Initial element atom count| Number of cores |Elapsed time (seconds)  |Relative speed increase  |  
 |--|-|------|---------|---------|
-|d.poly-ch2|6,000 atoms and 6,000 vsites|16|0.58|1.00|
+|d.poly-ch2|6,000 atoms and 6,000 vsites|16|0.58|NA|
 |d.poly-ch2|6,000 atoms and 6,000 vsites|32|0.36|1.61|
 |d.poly-ch2|6,000 atoms and 6,000 vsites|64|0.21|2.76|
 |d.poly-ch2|6,000 atoms and 6,000 vsites|96|0.19|3.01|
@@ -190,7 +190,7 @@ The cell and water models described later in this section were used to test GROM
 
 |Model| Initial element atom count| Number of cores |Elapsed time (seconds)  |Relative speed increase  |  
 |--|-|------|---------|---------|
-|adh_cubic|134,177|16|12.91|1.00|
+|adh_cubic|134,177|16|12.91|NA|
 |adh_cubic|134,177|32|8.18|1.58|
 |adh_cubic|134,177|64|4.52|2.86|
 |adh_cubic|134,177|96|3.40|3.80|
@@ -209,7 +209,7 @@ The cell and water models described later in this section were used to test GROM
 
 |Model| Initial element atom count| Number of cores |Elapsed time (seconds)  |Relative speed increase  |  
 |--|-|------|---------|---------|
-|adh_cubic|134,177|16|12.94|1.00|
+|adh_cubic|134,177|16|12.94|NA|
 |adh_cubic|134,177|32|7.67|1.69|
 |adh_cubic|134,177|64|4.23|3.06|
 |adh_cubic|134,177|96|3.27|3.96|
@@ -222,55 +222,55 @@ The cell and water models described later in this section were used to test GROM
 
 :::image type="content" source="media/gromacs/adh-bench-systems-updated-results.png" alt-text="Graphs that show the relative speed increases for the ADH_bench_systems models." lightbox="media/gromacs/adh-bench-systems-updated-results.png" border="false":::
 
-### Performance results on Multi Node
+### Performance results on a multi-node configuration
 
-VM Configuration used for Cluster Runs
+This VM configuration was used for the multi-node tests:
 
-|Operating System version| OS Architecture | Processor |
+|Operating system version| OS architecture | Processor |
 |-|-|-|
-|Centos 8|X86-64|AMD EPYC 7V73X|
+|CentOS 8|x86-64|AMD EPYC 7V73X|
 
 **Results for water-cut1.0_GMX50_bare**
 
-Note: calculation steps considered = 12000
+12,000 calculation steps were used in these tests. 
 
-|Model| Initial element atom count|Number of Nodes| Number of cores |Elapsed time (seconds)  |Relative speed increase  |  
+|Model| Initial element atom count|Number of nodes| Number of cores |Elapsed time (seconds)  |Relative speed increase  |  
 |--|-|-|------|---------|---------|
-|water-cut1.0_GMX50_bare|3,072,000|1|64|297.30|1.00|   
+|water-cut1.0_GMX50_bare|3,072,000|1|64|297.30|NA|   
 |water-cut1.0_GMX50_bare|3,072,000|2|128|125.37|2.37|         
 |water-cut1.0_GMX50_bare|3,072,000|4|256|66.12|4.50|         
 |water-cut1.0_GMX50_bare|3,072,000|8|512|35.22|8.44|         
-|water-cut1.0_GMX50_bare|3,072,000|16|1024|19.17|15.51|
+|water-cut1.0_GMX50_bare|3,072,000|16|1,024|19.17|15.51|
 
-:::image type="content" source="media/gromacs/water-cut1-0-gmx50-bare-multi-node-result.png" alt-text="Graph that shows relative speed increases for the water-cut1.0_GMX50_bare model on cluster." border="false":::
+:::image type="content" source="media/gromacs/water-cut1-0-gmx50-bare-multi-node-result.png" alt-text="Graph that shows relative speed increases for the water-cut1.0_GMX50_bare model in a multi-node configuration." border="false":::
 
 **Results for water-cut1.0_bare_hbonds**
 
-Note : calculation steps considered = 12000
+12,000 calculation steps were used in these tests. 
 
-|Model| Initial element atom count|Number of Nodes| Number of cores |Elapsed time (seconds)  |Relative speed increase  |  
+|Model| Initial element atom count|Number of nodes| Number of cores |Elapsed time (seconds)  |Relative speed increase  |  
 |--|-|-|------|---------|---------|
-|water-cut1.0_bare_hbonds|3,072,000|1|64|298.15|1.00|   
+|water-cut1.0_bare_hbonds|3,072,000|1|64|298.15|NA|   
 |water-cut1.0_bare_hbonds|3,072,000|2|128|128.19|2.33|         
 |water-cut1.0_bare_hbonds|3,072,000|4|256|65.85|4.53|         
 |water-cut1.0_bare_hbonds|3,072,000|8|512|34.71|8.59|         
-|water-cut1.0_bare_hbonds|3,072,000|16|1024|19.43|15.34|
+|water-cut1.0_bare_hbonds|3,072,000|16|1,024|19.43|15.34|
 
-:::image type="content" source="media/gromacs/water-cut1-0-bare-hbonds-multi-node-results.png" alt-text="Graph that shows relative speed increases for the water-cut1.0_bare_hbonds model on cluster." border="false":::
+:::image type="content" source="media/gromacs/water-cut1-0-bare-hbonds-multi-node-results.png" alt-text="Graph that shows relative speed increases for the water-cut1.0_bare_hbonds model in a multi-node configuration." border="false":::
 
 **Results for benchPEP**
 
-Note : calculation steps considered = 4000
+4,000 calculation steps were used in these tests. 
 
-|Model| Initial element atom count|Number of Nodes| Number of cores |Elapsed time (seconds)  |Relative speed increase  |  
+|Model| Initial element atom count|Number of nodes| Number of cores |Elapsed time (seconds)  |Relative speed increase  |  
 |--|-|-|------|---------|---------|
-|benchPEP|12000000 |1|64|499.414|1.00|   
-|benchPEP|12000000 |2|128|257.945|1.94|         
-|benchPEP|12000000 |4|256|124.556|4.01|         
-|benchPEP|12000000 |8|512|62.708|7.96|         
-|benchPEP|12000000 |16|1024|31.818|15.70|
+|benchPEP|12,000,000 |1|64|499.414|NA|   
+|benchPEP|12,000,000 |2|128|257.945|1.94|         
+|benchPEP|12,000,000 |4|256|124.556|4.01|         
+|benchPEP|12,000,000 |8|512|62.708|7.96|         
+|benchPEP|12,000,000 |16|1,024|31.818|15.70|
 
-:::image type="content" source="media/gromacs/benchpep-multi-node-results.png" alt-text="Graph that shows relative speed increases for the water-cut1.0_bare_hbonds model on cluster." border="false":::
+:::image type="content" source="media/gromacs/benchpep-multi-node-results.png" alt-text="Graph that shows relative speed increases for the benchPEP model in a multi-node configuration." border="false":::
 
 ## Azure cost
 
@@ -280,7 +280,7 @@ Only the wall-clock time for running the test cases is considered for these cost
 
 You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your configuration.
 
-**Azure cost calculation for Single Node configuration**
+### Single-node configurations
 
 |VM size|	Number of CPUs|	Elapsed time (hours)|
 |-|-|-|
@@ -290,7 +290,7 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 |Standard_HB120-96rs_v3|96|0.043|
 |Standard_HB120rs_v3|120|0.038|
 
-**Azure cost calculation for Multi Node configuration**
+### Multi-node configurations
 
 |VM size|	Number of CPUs|	Elapsed time (hours)|
 |-|-|-|
@@ -302,7 +302,7 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 
 ## Summary
 
-- Gromacs is tested successfully on the Azure Standard_HB_v3 Virtual Machines both on Single node and multimode VM’s.
+- GROMACS was tested successfully on Azure HBv3-series virtual machines in single-node and multi-mode configurations.
 - With a 120 vCPU, the performance is three to four times the performance with 16 CPUs.
 
 ## Contributors
@@ -316,7 +316,7 @@ Principal authors:
     Senior Manager
 -   [Gauhar Junnarkar](https://www.linkedin.com/in/gauharjunnarkar) |
     Principal Program Manager
--   Shivakumar tallolli |
+-   Shivakumar Tallolli |
     HPC Performance Engineer
 
 Other contributors:
