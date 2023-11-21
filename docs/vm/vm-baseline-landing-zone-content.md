@@ -137,7 +137,7 @@ The spoke network is peered with the hub network. Azure landing zone subscriptio
 
 TODO: IPAM, Org IP overlap
 
-#### Virtual network subnets and network controls
+#### Virtual network subnets
 
 In the spoke virtual network, the workload team has the responsibility of subnet allocation. The intent is segmentation and placing controls to restrict traffic in and out of the subnets. This architecture recommends the creation of dedicated subnets for Application Gateway, Key Vault, frontend VMs, load balancer, backend VMs, and private endpoints.
 
@@ -161,26 +161,19 @@ The workload team must identify, document, and communicate all necessary outboun
 >
 > Encourage the platform team to use IP groups in Azure Firewall. This will ensure that your workload’s specific egress needs are accurately represented with tight scoping to just the source subnets. For instance, a rule that allows workload virtual machines to reach api.example.org doesn't necessarily imply that supporting virtual machines, such as build agents within the same virtual network, should be able to access the same endpoint. This level of granular control can enhance the security posture of your network.
 
+Communicate any unique egress requirements to the platform team. For instance, if your workload establishes numerous concurrent connections to external network endpoints, inform the platform team. This will allow them to either provision an appropriate NAT Gateway implementation or add additional public IPs on the regional firewall for mitigation.
 
+Avoid architecture patterns that relies on workload-owned public IPs for egress. To enforce this, consider using Azure Policy to deny public IPs on virtual machine Network Interface Cards (NICs) and any other public IP other than your well-known ingress points.
 
-**Communicate any special egress requirements.** For example if your workload establishes many concurrent connections to external network endpoints, ensure your platform team is aware of this so they can either provision the appropriate NAT Gateway implementation or add additional public IPs on the regional firewall to mitigate.
+#### Private DNS zones
 
-As an architect building for a landing zone implementation, you should not expect to design an IaaS solution that depends on workload-owned Public IP addresses for egress. Consider helping enforce this with Azure Policy by denying public IPs on virtual machine NICs and any other public IP other than your well-known ingress points.
+Architectures that use private endpoints, need private DNS zones. The workload team must have a clear understanding of those requirements and management of private DNS zones in the subscription given by the platform team. Private DNS zones are typically managed at a large scale using DINE policies, enabling Azure Firewall to function as a reliable DNS proxy and support Fully Qualified Domain Name (FQDN) network rules. 
 
-
-NSG TODO
-
-#### Private DNS delegation
-
-Architectures that depend on private endpoints need to understand their landing zone's DNS expectations and how private DNS zones are managed. Typically Private DNS zones are managed at scale with DINE policies so that Azure Firewall can reliably act as a DNS proxy to support FQDN network rules. This architecture either will shift responsibility to the Platform team to ensure reliable private DNS resolution for private link endpoints or take on those responsibilities itself. Work with your platform team to understand expectations.
-
-TODO MORE
+//TODO (choose one) This architecture will either delegate the responsibility of ensuring reliable private DNS resolution for private link endpoints to the platform team or assume these responsibilities itself. It is recommended to collaborate with your platform team to understand their expectations.
 
 #### Connectivity testing
 
-In sufficiently complex networking architectures, it's sometimes challenging to figure out network line of sight, routing, DNS issues. In a virtual machine-based architecture such as this, you have some powerful tools available to you to help troubleshoot, even more so than in a PaaS offering in many cases.
-
-You ultimately have OS-level access to perform local traditional troubleshooting using tools such as `netstat`, `nslookup`, or `tcping`. You can also look at the network adaptor's DHCP and DNS settings. But even more so, the fact that you have NICs available give you the ability to run connectivity checks using Azure Network Watcher.
+For VM-based architecture, there are several test tools that can help determining network line of sight, routing, and DNS issues.You can use  traditional troubleshooting using tools such as `netstat`, `nslookup`, or `tcping`. Additionally, you can examine the network adapter’s DHCP and DNS settings. The presence of NICs further enhances your troubleshooting capabilities, enabling you to perform connectivity checks using Azure Network Watcher.
 
 ## Patch compliance reporting
 
