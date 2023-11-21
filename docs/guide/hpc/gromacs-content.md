@@ -87,7 +87,7 @@ Azure CycleCloud is a Linux-based web application. We recommend that you begin t
 To set up an HPC cluster on Azure, complete these steps:
 
 - [Install and configure Azure CycleCloud](/training/modules/azure-cyclecloud-high-performance-computing/4-exercise-install-configure).
-- [Create an HPC cluster from built-in templates]/training/modules/azure-cyclecloud-high-performance-computing/5-exercise-create-cluster).
+- [Create an HPC cluster from built-in templates](/training/modules/azure-cyclecloud-high-performance-computing/5-exercise-create-cluster).
 - [Connect to the head node (the scheduler)](/azure/cyclecloud/how-to/connect-to-node?view=cyclecloud-8).
 
 For multi-node configurations, the GROMACS installation process is the same as the process described previously for a single node, except for the path to the installation directory:
