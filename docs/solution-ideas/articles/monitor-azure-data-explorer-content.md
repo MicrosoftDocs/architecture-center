@@ -1,11 +1,11 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Azure Monitor, Microsoft Sentinel, and Azure Data Explorer are based on a common technology and use Kusto Query Language (KQL) to analyze large volumes of data streamed in from multiple sources in near-real time.
+Microsoft Sentinel, Azure Monitor, and Azure Data Explorer are based on a common technology and use Kusto Query Language (KQL) to analyze large volumes of data streamed in from multiple sources in near-real time.
 
 This solution demonstrates how to leverage the tight integration between Azure Monitor, Microsoft Sentinel, and Azure Data Explorer to consolidate a single interactive data lake and augment your monitoring and analytics capabilities. 
 
 > [!NOTE]
-> This solution applies to Azure Data Explorer and also to [KQL databases](/fabric/real-time-analytics/create-database), which provide real-time analytics capabilities in [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview). 
+> This solution applies to Azure Data Explorer and also to [Real-Time Analytics KQL databases](/fabric/real-time-analytics/create-database), which provide SaaS-grade real-time log, time-series, and advanced analytics capabilities as part of [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview). 
 
 ## Architecture
 
@@ -15,26 +15,39 @@ This solution demonstrates how to leverage the tight integration between Azure M
 
 ### Scenario details
 
-Use cross-service queries to build a single, interactive data lake, joining data in Azure Monitor and Microsoft Sentinel, Azure's managed solutions for monitoring and security, with any data you collect for real-time analytics in Azure Data Explorer:
+Use cross-service queries to build a single, interactive data lake, joining data in Microsoft Sentinel, Azure Monitor, and Azure Data Explorer:
 
-- Azure Monitor and Microsoft Sentinel are Azure’s native solutions for IT and application monitoring and security, which Microsoft develops, manages, and hones to the needs of Azure customers monitoring their Azure and hybrid IT deployments. 
-    
-    Azure Monitor and Microsoft Sentinel:
-    - Provide out-of-the box monitoring, security, and analytics features and capabilities that are tailored to the needs of IT and security professionals.
-    - Natively ingest monitoring data from Azure resources, and provide agents, connectors, and APIs for collecting data from resources, applications and workloads in Azure and hybrid environments.
-    - Store data in Log Analytics workspaces and support KQL. You can query from one Log Analytics workspace to other workspaces, and across monitored resources and other services, such as Azure Data Explorer and Azure Resource Graph. 
+- Microsoft Sentinel is Azure’s cloud-native Security Information and Event Management (SIEM) and Security Orchestration, Automation, and Response (SOAR) solution. 
+
+    Use Microsoft Sentinel to:
+
+    - Collect security data from various sources, such as Azure resources, Microsoft 365, and other cloud and on-premises solutions, using a variety of connectors and APIs.
+    - Detect and investigate threats using advanced analytics, machine learning, and Microsoft threat intelligence.
+    - Respond to incidents and automate common tasks using playbooks and logic apps.
+    - Analyze security data and correlate data in Microsoft Sentinel with data in other services, such as Azure Data Explorer and Azure Monitor, using KQL.
+
+- Azure Monitor is Azure’s managed solution for IT and application monitoring. 
+
+    Use Azure Monitor to:
+
+    - Collect monitoring data from Azure resources and any sources, applications, and workloads in Azure and hybrid environments using a set of agents, connectors, and APIs.
+    - Track, alert, and act on monitoring data using out-of-the box IT monitoring tools and analytics features, including Artificial Intelligence for IT Operations (AIOps) features and curated experiences tailored for monitoring specific resources, such as virtual machines, containers, and applications.
+    - Improve IT and application efficiency and performance and troubleshoot operational issues.
+    - Query and analyze data in Azure Monitor and other services, such as Azure Data Explorer and Azure Resource Graph, using KQL.
  
-- Azure Data Explorer is an Azure real-time data analytics offering that's not tailored to a specific business or IT scenario. 
+- Azure Data Explorer is part of the Azure data platform, providing real-time, advanced analytics of any type of structure and unstructured data. 
 
-    Azure Data Explorer:
-    - Provides connectors for various types of IT and non-IT data – for example, business, user, and geospatial data.
-    - Supports the full set of KQL capabilities, some of which aren't required or supported for IT and security monitoring. 
-    - Enables querying data in Azure Monitor, Microsoft Sentinel, and other services that use KQL.
+    Use Azure Data Explorer to:
+
+    - Collect various types of IT and non-IT data – for example, business, user, and geospatial data - using a range of connectors and APIs.
+    - Maximize data management capabilities, with full schema control, processing of incoming data using KQL, materialized views, partitioning, granular retention, and caching controls.  
+    - Take advantage of the full set of KQL's analytics capabilities, including hosting machine learning algorithms in python and federated queries to other data technologies such as SQL server, data lakes, and Cosmos DB. 
+    - Query data in Azure Monitor, Microsoft Sentinel, and other services that use KQL.
 
 An architecture built on the features and flexibility provided by the three services gives you:
 
 - A broad range of data ingestion options that span various types of data and data sources.
-- A powerful set of native monitoring, security, and analytics features and capabilities.
+- A powerful set of native security, observability, and data analytics features and capabilities.
 - The ability to use cross-service queries to create a single-pane-of-glass view of your data by:
     - Querying IT monitoring and non-IT data.
     - Applying machine learning on a broad data set to discover patterns, anomaly detection, forecasting, and to gain other advanced insights. 
