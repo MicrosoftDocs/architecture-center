@@ -63,7 +63,7 @@ An architecture built on the features and flexibility provided by the three serv
     - Stream in data using Azure data streaming services, such as Azure IoT Hub, Azure Event Hubs, Azure Stream Analytics. 
 1. Use Azure Sentinel to monitor, investigate, and act on security-related data across your IT environment.
 1. Use Azure Monitor for monitoring the performance, availability, and health of applications, services, and IT resources to gain insights into the operational status of your cloud infrastructure, identify issues, and optimize performance.
-1. Use Azure Data Explorer for all kinds of data that require custom or more flexible handling or analytics. Common examples are user and business data and other data streams that are not handled natively by Sentinel and Azure Monitor. 
+1. Use Azure Data Explorer for all kinds of data that require custom or more flexible handling or analytics. Common examples are user and business data and other data streams that are not handled natively by Microsoft Sentinel and Azure Monitor. 
 1. Apply advanced machine learning on a broad set of data from your entire data estate to discover patterns, detect anomalies, forecast, and gain other insights.
 1. Leverage the tight integration between services to augment monitoring and analytics capabilities:
    
