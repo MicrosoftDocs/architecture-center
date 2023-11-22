@@ -28,21 +28,21 @@ Use cross-service queries to build a single, interactive data lake, joining data
 
 - Azure Monitor is Azure’s managed solution for IT and application monitoring. 
 
-    Use Azure Monitor offers:
+    Azure Monitor offers:
 
-    - Agents, connectors, and APIs for collect monitoring data from Azure resources and any sources, applications, and workloads in Azure and hybrid environments.
+    - Natively ingestion of monitoring data from Azure resources, and agents, connectors, and APIs for collect monitoring data from Azure resources and any sources, applications, and workloads in Azure and hybrid environments.
     - IT monitoring tools and analytics features, including Artificial Intelligence for IT Operations (AIOps) features and prebuilt workbooks for monitoring specific resources, such as virtual machines, containers, and applications.
     - End-to-end observability capabilities that let you improve IT and application efficiency and performance.
     - KQL query capabilities that let you analyze data and troubleshoot operational issues by correlating data across resources and services.
  
 - Azure Data Explorer is part of the Azure data platform, providing real-time, advanced analytics of any type of structure and unstructured data. 
 
-    Use Azure Data Explorer to:
+    Azure Data Explorer offers:
 
-    - Collect various types of IT and non-IT data – for example, business, user, and geospatial data - using a range of connectors and APIs.
-    - Maximize data management capabilities, with full schema control, processing of incoming data using KQL, materialized views, partitioning, granular retention, and caching controls.  
-    - Take advantage of the full set of KQL's analytics capabilities, including hosting machine learning algorithms in python and federated queries to other data technologies, such as SQL Server, data lakes, and Cosmos DB.  
-    - Query data in Azure Monitor, Microsoft Sentinel, and other services that use KQL.
+    - Connectors and APIs for various types of IT and non-IT data – for example, business, user, and geospatial data.
+    - The full set of KQL's analytics capabilities, including hosting of machine learning algorithms in python and federated queries to other data technologies, such as SQL Server, data lakes, and Cosmos DB.  
+    - Scalable data management capabilities, including full schema control, processing of incoming data using KQL, materialized views, partitioning, granular retention, and caching controls.  
+    - Cross-service query capabilities that let you query and correlate data in Azure Monitor, Microsoft Sentinel, and other services that use KQL.
 
 An architecture built on the features and flexibility provided by the three services gives you:
 
