@@ -42,7 +42,7 @@ Use cross-service queries to build a single, interactive data lake, joining data
     - Connectors and APIs for various types of IT and non-IT data – for example, business, user, and geospatial data.
     - The full set of KQL's analytics capabilities, including hosting of machine learning algorithms in python and federated queries to other data technologies, such as SQL Server, data lakes, and Cosmos DB.  
     - Scalable data management capabilities, including full schema control, processing of incoming data using KQL, materialized views, partitioning, granular retention, and caching controls.  
-    - Cross-service query capabilities that let you query and correlate data in Azure Monitor, Microsoft Sentinel, and other services that use KQL.
+    - Cross-service query capabilities that let you correlate collected data with data in Microsoft Sentinel, Azure Monitor, and other services.
 
 An architecture built on the features and flexibility provided by the three services gives you:
 
