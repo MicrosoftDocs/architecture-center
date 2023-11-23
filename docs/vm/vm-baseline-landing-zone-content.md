@@ -149,11 +149,15 @@ This approach allows the platform team to optimize costs through centralized ser
 
 ##### Ingress traffic
 
+Ingress traffic flow remains the same as the [**baseline architecture**](vm-baseline-content.md#ingress-traffic). 
+
 The workload owner is responsible for any resources related to public internet ingress into your workload. In this architecture, this is demonstrated by placing Application Gateway and its public IP in the spoke network, and specifically not as part of the hub network. In some organizations, ingress might be expected in a connectivity subscription using a centralized DMZ implementation. Integration with that specific topology is out of scope for this article.
 
 ##### Egress traffc
 
-All traffic leaving the spoke virtual network is expected to be routed through the peered hub network, typically via an egress firewall. This is usually achieved with a route attached to the spoke network that directs all traffic (0.0.0.0/0) to the hub’s Azure Firewall.
+In the baseline architecture, egress traffic to the internet wasn't restricted. 
+
+That design has changed in this arcitecture. All traffic leaving the spoke virtual network is expected to be routed through the peered hub network, typically via an egress firewall. This is usually achieved with a route attached to the spoke network that directs all traffic (0.0.0.0/0) to the hub’s Azure Firewall.
 
 The workload team must identify, document, and communicate all necessary outbound traffic flows for your infrastructure and workload operations. The platform team will allow the  required traffic, while all uncommunicated egress traffic will likely be denied.
 
@@ -165,13 +169,13 @@ Communicate any unique egress requirements to the platform team. For instance, i
 
 Avoid architecture patterns that relies on workload-owned public IPs for egress. To enforce this, consider using Azure Policy to deny public IPs on virtual machine Network Interface Cards (NICs) and any other public IP other than your well-known ingress points.
 
-#### Private DNS zones
+##### Private DNS zones
 
 Architectures that use private endpoints, need private DNS zones. The workload team must have a clear understanding of those requirements and management of private DNS zones in the subscription given by the platform team. Private DNS zones are typically managed at a large scale using DINE policies, enabling Azure Firewall to function as a reliable DNS proxy and support Fully Qualified Domain Name (FQDN) network rules. 
 
 //TODO (choose one) This architecture will either delegate the responsibility of ensuring reliable private DNS resolution for private link endpoints to the platform team or assume these responsibilities itself. It is recommended to collaborate with your platform team to understand their expectations.
 
-#### Connectivity testing
+##### Connectivity testing
 
 For VM-based architecture, there are several test tools that can help determining network line of sight, routing, and DNS issues.You can use  traditional troubleshooting using tools such as `netstat`, `nslookup`, or `tcping`. Additionally, you can examine the network adapter’s DHCP and DNS settings. The presence of NICs further enhances your troubleshooting capabilities, enabling you to perform connectivity checks using Azure Network Watcher.
 
@@ -181,13 +185,6 @@ TBD
 
 - Automation Accounts
 
-## Identity and access management
-
-TBD
-
-- RBAC
-- Automation Accounts here too?
-- User accounts (corporate, etc)
 
 ## Operations access
 
@@ -289,11 +286,20 @@ Examples of egress in this architecture:
 | _TODO_ | _TODO_ | _TODO_ | _TODO_ |
 | _TODO_ | _TODO_ | _TODO_ | _TODO_ |
 
-### DDoS protection
+##### Identity and access management
+
+TBD
+
+- RBAC
+- Automation Accounts here too?
+- User accounts (corporate, etc)
+
+
+##### DDoS protection
 
 Ensure you've understood who will be responsible for applying the DDoS Protection plan that covers all of your solution's public IPs. Your Platform team might use IP protection plans, or might even use Azure Policy to enforce Vnet protection plans. This specific architecture should have coverage as it involves a public IP for ingress from the Internet. VNet protection plan is deployed.
 
-### Secret management
+##### Secret management
 
 This architecture does not introduce any specific dependencies outside of the workload on Key Vault. However, it's common for publicly exposed HTTPS endpoints to be surfaced with TLS using the organization's domain. This involves working with your IT team to understand how those TLS certs are procured, where they are stored, and how they are rotated. This architecture doesn't make any specific affordences for this process.
 
