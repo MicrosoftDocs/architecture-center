@@ -20,7 +20,7 @@ Read and write workloads are often asymmetrical, with very different performance
 
 CQRS separates reads and writes into different models, using **commands** to update data, and **queries** to read data.
 
-- Commands should be task-based, rather than data centric. ("Book hotel room", not "set ReservationStatus to Reserved").
+- Commands should be task-based, rather than data centric. ("Book hotel room", not "set ReservationStatus to Reserved"). The importance of representing this difference in the user interaction style is explained in this presentation: [Better CQRS through asynchronous user interaction patterns](https://particular.net/videos/cqrs-user-interaction-patterns).
 - Commands may be placed on a queue for [asynchronous processing](/dotnet/architecture/microservices/architect-microservice-container-applications/asynchronous-message-based-communication), rather than being processed synchronously.
 - Queries never modify the database. A query returns a DTO that does not encapsulate any domain knowledge.
 
