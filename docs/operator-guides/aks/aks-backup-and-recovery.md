@@ -56,7 +56,7 @@ To find out more about these methodologies, please review the links below:
 When considering Backup and Recovery for AKS and Kubernetes clusters in general, it's crucial to identify exactly which components should be included in a backup to ensure a successful restore. Primarily, these critical components consist of:
 
 - **Cluster State:** This refers to the current and desired configuration or state of all Kubernetes objects within the cluster. It encompasses various objects such as deployments, pods, services, and more.
- The cluster state is stored in a highly available etcd key-value pair database, which is often only accessible from the API Server as is the case of managed clusters like Azure Kubernetes Service (AKS). The cluster state is defined in a declarative manner and is the result of all Kubernetes configuration files (for example, YAML manifests) applied to the cluster.
+ The cluster state is stored in a highly available etcd key-value pair database, which is often only accessible from the API Server as is the case of managed clusters like AKS. The cluster state is defined in a declarative manner and is the result of all Kubernetes configuration files (for example, YAML manifests) applied to the cluster.
 
 - **Application Data:** This refers to the data created, managed, or accessed by the containerized workloads running within the cluster. To ensure data persistence across pod or container restarts, Kubernetes recommends storing application data in Persistent Volumes. These volumes can be created statically or dynamically and can be backed by various types of persistent storage, offering flexibility and scalability for data storage and management requirements.
 
