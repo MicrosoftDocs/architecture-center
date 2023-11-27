@@ -19,13 +19,13 @@ Deploying changes and new releases for cloud-native applications and services ca
 
 That's why **continuous validation in an environment that is similar to production is important**, so that you can find and fix any problems or bugs as soon as possible in the development cycle. Workload teams should test early in the development process (shift left) and make it convenient for developers to do testing that is close to production.
 
-Mission-critical workloads have high availability levels of 3, 4, or 5 nines (99.9%, 99.99% or 99.999% respectively). It's crucial to have **rigorous automated testing** to reach that goal.
+Mission-critical workloads have high availability requirements in levels of 3, 4, or 5 nines (99.9%, 99.99% or 99.999% respectively). It's crucial to have **rigorous automated testing** to reach that goal.
 
-Continuous validation depends on each workload and architecture's characteristics. This article provides a guide on how to prepare and integrate Azure Load Testing and Azure Chaos Studio into the regular development cycle.
+Continuous validation depends on each workload and architectural characteristics. This article provides a guide on how to prepare and integrate Azure Load Testing and Azure Chaos Studio into the regular development cycle.
 
 ## 1 – Define tests based on expected thresholds
 
-Continuous testing is a complex process that requires proper preparation in order to be effective. It must be clear what is being tested and what are the expected outcomes.
+Continuous testing is a complex process that requires proper preparation in order to be effective. It must be clear what is tested and what are the expected outcomes.
 
 The Azure Well-Architected Framework suggests in [PE:06 - Recommendations for performance testing](/azure/well-architected/performance-efficiency/performance-test) and [RE:08 - Recommendations for designing a reliability testing strategy](/azure/well-architected/reliability/testing-strategy) to start by **identifying key scenarios, dependencies, expected usage, availability, performance, and scalability targets**.
 
@@ -61,7 +61,9 @@ The following video shows a [combined implementation of Chaos and Load Testing](
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Y50k]
 
-The Azure Mission-critical framework and reference implementation contains detailed guidance, a sample implementation, and code artifacts for extra reference. It deploys the Azure Load Testing service through Terraform and contains a [collection of PowerShell Core wrapper scripts](https://github.com/Azure/Mission-Critical-Online/tree/main/src/testing/loadtest-azure/scripts) to interact with the service via its API. These scripts can be embedded directly into a deployment pipeline.
+If you are developing a mission-critical workload, take advantage of the reference architectures, detailed guidance, sample implementations, and code artifacts provided as part of the [Azure Mission-Critical project](https://github.com/Azure/Mission-Critical) and [Azure Well-Architected Framework](/azure/architecture/framework/mission-critical). 
+
+It deploys the Azure Load Testing service through Terraform and contains a [collection of PowerShell Core wrapper scripts](https://github.com/Azure/Mission-Critical-Online/tree/main/src/testing/loadtest-azure/scripts) to interact with the service via its API. These scripts can be embedded directly into a deployment pipeline.
 
 One option in the reference implementation is to execute the load test directly from within the end-to-end (e2e) pipeline that is used to spin up individual (branch specific) development environments:
 
@@ -90,7 +92,7 @@ The capability is available through the Azure portal, and via the load testing A
 
 We highly recommend **integrating these tests directly into your CI/CD pipelines** and running them during the early stages of feature development. For an example, see the [sample implementation](https://github.com/Azure/Mission-Critical-Online/tree/main/src/testing/) in the Azure Mission-critical reference implementation.
 
-In summary, failure is inevitable in any complex distributed system and the solution must therefore be architected (and tested) to handle failures. The [Azure Mission-critical framework](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing) with its guidance and reference implementations can help designing and operating highly reliable applications to derive maximum value from the Microsoft cloud.
+In summary, failure is inevitable in any complex distributed system and the solution must therefore be architected (and tested) to handle failures. The [Azure Well-Architected Framework mission-critical workload guidance](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing) and reference implementations can you help design and operate highly reliable applications to derive maximum value from the Microsoft cloud.
 
 ## Next step
 
