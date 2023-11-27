@@ -35,7 +35,7 @@ Implementing Backup and Recovery in AKS allows you to:
 
 It's worth noting that while backups help you to restore your workload if an issue occurs, they don't provide [high availability (HA)](/azure/well-architected/resiliency/reliability-patterns#high-availability).
 
-When it comes to intra-region high availability and cross-region disaster recovery in Azure Kubernetes Service (AKS), there are several other options to consider, including the following:
+When it comes to intra-region high availability and cross-region disaster recovery in AKS, there are several other options to consider, including the following:
 
 - [Availability Zones](/azure/aks/availability-zones): AKS supports the use of Availability Zones, which are physically separate datacenters within an Azure region. By deploying AKS clusters across multiple Availability Zones, you can ensure higher resiliency and fault tolerance within a region. This allows your applications to remain operational even if one zone experiences an outage.
 - [Redundancy options for Persistent Volumes](/azure/aks/concepts-storage#storage-classes): AKS provides various redundancy options for Persistent Volumes. The [Azure Disk CSI driver for Kubernetes](https://github.com/kubernetes-sigs/azuredisk-csi-driver) supports [built-in storage classes](/azure/aks/concepts-storage#storage-classes) and custom storage classes that use the locally redundant storage (LRS) or zone redundant storage (ZRS) for better intra-region resiliency. For more information, see [Driver Parameters](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/docs/driver-parameters.md).
