@@ -119,7 +119,7 @@ To install and configure [AKS Backup](/azure/backup/azure-kubernetes-service-bac
 
 Determining the backup frequency and retention period is a fundamental aspect of Backup and Recovery solutions. These parameters define how often backups are performed and how long they're retained before deletion. The selection of backup frequency and retention period for an AKS cluster and its workloads should align with the predefined goals of Recovery Point Objective (RPO) and Recovery Time Objective (RTO).
 
-In a Kubernetes scenario, the Recovery Point Objective (RPO) represents the maximum acceptable amount of cluster state or data loss that can be tolerated, while the Recovery Time Objective (RTO) specifies the maximum allowable time between cluster state or data loss and the resumption of cluster operations.
+In a Kubernetes scenario, the RPO represents the maximum acceptable amount of cluster state or data loss that can be tolerated, while the RTO specifies the maximum allowable time between cluster state or data loss and the resumption of cluster operations.
 
 The chosen backup frequency and retention period are a trade-off between desirable RPO/RTO targets, storage costs, and backup management overhead. This means there's no one-size-fits-all configuration for all AKS clusters and workloads, and the optimum configuration for each cluster/workload should instead be defined on a case-by-case basis to meet the requirements of the business, following careful planning and consideration. Relevant factors to consider when defining an AKS cluster's backup frequency and retention period include:
 
