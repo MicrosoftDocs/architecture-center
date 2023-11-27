@@ -1,7 +1,7 @@
 
 The article is intended for network architects that want to design Software-defined Wide Area Network (SDWAN) solutions to connect on-prem facilities with each other and with Azure. It describes a reference architecture that allows Azure customers to fully leverage their existing investments in the platform, by building efficient, global SDWAN overlays on top of the Microsoft backbone.
 
-## Applicable scenarios 
+## Applicable scenarios
 
 The recommendations in this article are independent of vendor-specific features and applicable to any 3rd party SDWAN technology that meets two basic prerequisites:
 - Reliance on tunneling protocols that use Transmission Control Protocol (TCP) or User Datagram Protocol (UDP) as the underlying transport (an example being tunnel-mode IPSec ESP with NAT-Traversal).
@@ -161,9 +161,13 @@ Organizations that do not trust public/shared networks to provide the desired pe
 ![MPLS integration architecture ](images/sdwan-integration-mpls-integration.png)
 *Figure 10. The "ExpressRoute as an SDWAN underlay" scenario enables SDWAN and MPLS integration.*
 
+### Azure Route Server routing preference
+In both the MPLS scenarios covered in the two previous sections, some branch sites may be connected both to the MPLS IPVPN and to the SDWAN. As a result, the Route Server instances deployed in the hub VNets may learn the same routes from ExpressRoute Gateways and SDWAN NVAs.
+Azure Route Server routing preference allows controlling which path should be preferred and plumbed into the Azure VNets' route tables. Routing preference is useful when AS Path prepending cannot be used, which may the case for MPLS IPVPN services that do not support custom BGP configurations on the PEs that terminate ExpressRoute connections.
+
 ## Azure Route Server limits and design considerations
 
-Azure Route Server is the cornerstone of the reference architecture described in this article. It propagates routes between SDWAN NVAs deployed in VNets and the underlying Azure SDN stack; it provides a BGP-based approach to running multiple SDWAN NVAs for high availability and horizontal scalability. When designing large SDWANs based on this reference architecture, the [scalability limits of Azure Route Server](/azure/route-server/route-server-faq) must be factored in. 
+Azure Route Server is the cornerstone of the reference architecture described in this article. It propagates routes between SDWAN NVAs deployed in VNets and the underlying Azure SDN stack; it provides a BGP-based approach to running multiple SDWAN NVAs for high availability and horizontal scalability. When designing large SDWANs based on this reference architecture, the [scalability limits of Azure Route Server](/azure/route-server/route-server-faq) must be factored in.
 
 The following sections provide guidance on scalability maximums and how to deal with each limit.
 
