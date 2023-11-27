@@ -19,7 +19,7 @@ Deploying changes and new releases for cloud-native applications and services ca
 
 That's why **continuous validation in an environment that is similar to production is important**, so that you can find and fix any problems or bugs as soon as possible in the development cycle. Workload teams should test early in the development process (shift left) and make it convenient for developers to do testing that is close to production.
 
-Mission-critical workloads usually aim for high availability levels of 3, 4 or 5 nines (99.9%, 99.99% or 99.999% respectively). It is very important to have **rigorous automated testing** to reach that goal.
+Mission-critical workloads have high availability levels of 3, 4, or 5 nines (99.9%, 99.99% or 99.999% respectively). It's crucial to have **rigorous automated testing** to reach that goal.
 
 Continuous validation depends on each workload and architecture's characteristics. This article provides a guide on how to prepare and integrate Azure Load Testing and Azure Chaos Studio into the regular development cycle.
 
@@ -27,7 +27,7 @@ Continuous validation depends on each workload and architecture's characteristic
 
 Continuous testing is a complex process that requires proper preparation in order to be effective. It must be clear what is being tested and what are the expected outcomes.
 
-Start by **identifying key scenarios, dependencies, expected usage, availability, performance, and scalability targets**.
+The Azure Well-Architected Framework suggests in [PE:06 - Recommendations for performance testing](/azure/well-architected/performance-efficiency/performance-test) and [RE:08 - Recommendations for designing a reliability testing strategy](/azure/well-architected/reliability/testing-strategy) to start by **identifying key scenarios, dependencies, expected usage, availability, performance, and scalability targets**.
 
 Then, define a set of **measurable threshold values** to quantify the expected performance of the key scenarios.
 
@@ -80,7 +80,7 @@ Depending on whether chaos testing is enabled and the choice of experiments, bas
 
 ## 3 – Adjust thresholds and establish a baseline
 
-Finally, **adjust the load test thresholds** for regular runs to verify that the application (still) provides the expected performance and doesn't produce any errors. Have a separate baseline for chaos testing that tolerates expected spikes in error rates and temporary reduced performance. This activity is continuous and needs to be repeated regularly (after introducing new features, changing service SKUs, and others).
+Finally, **adjust the load test thresholds** for regular runs to verify that the application (still) provides the expected performance and doesn't produce any errors. Have a separate baseline for chaos testing that tolerates expected spikes in error rates and temporary reduced performance. This activity is continuous and needs to be repeated regularly. For example, after introducing new features, changing service SKUs, and others.
 
 The Azure Load Testing service provides a built-in capability called **test criteria** that allows specifying certain criteria that a test needs to pass. This capability can be used to implement different baselines.
 
