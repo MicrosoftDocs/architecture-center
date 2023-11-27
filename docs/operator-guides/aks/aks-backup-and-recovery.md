@@ -22,7 +22,7 @@ ms.custom:
 
 Backup and Recovery is an essential part of any organization's operational and disaster recovery strategy. A Backup and Recovery plan usually relies on a diverse set of technologies and practices that are based on taking periodic copies of data and applications to a separate, secondary device or service, and then using those copies to recover the data and applications, and the business operations on which they depend, in the event of system failure, data loss or disaster.
 
-As cloud-native architectures in general and Kubernetes in particular continue to advance technologically and grow in adoption, more and more global enterprises turn to Kubernetes to run their business-critical applications in production, so it becomes essential for organizations to include their Kubernetes clusters and workloads in a comprehensive strategy for Backup and Recovery.
+As cloud-native deployments and Kubernetes continue to grow in adoption, it becomes increasingly essential for organizations to include Kubernetes clusters and workloads in a comprehensive Backup and Recovery strategy.
 
 Implementing Backup and Recovery in AKS allows you to:
 
