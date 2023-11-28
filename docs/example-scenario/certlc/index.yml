@@ -3,8 +3,8 @@ metadata:
   title: Certificate Lifecycle Management on Azure
   titleSuffix: Azure Example Scenarios
   description: Learn how to create an infrastructure and workflow to automate the renewal process for certificates issued by a non-integrated CA.
-  author: [fabmas, angelo-mazzucchi]
-  ms.author: [fabmas, angelom]
+  author: angelo-mazzucchi
+  ms.author: angelom
   ms.date: 11/27/2023
   ms.topic: conceptual
   ms.service: architecture-center
