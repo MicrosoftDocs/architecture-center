@@ -179,7 +179,7 @@ The following table shows the elapsed wall-clock time, in hours, for the test ru
 | Taurus (T10M)  |603079  | Standard_HB120-64rs_v3 |8|512|4|30756.00|22801.05|
 | Taurus (T10M)  |603079  | Standard_HB120-64rs_v3|16|1024|4|17486.00|15838.56|
 
-:::image type="content" source="media/altair-radioss/taurus-multi-node-speedup-new-version.png" alt-text="Figure that shows the relative speed up for Taurus model.":::
+:::image type="content" source="media/altair-radioss/taurus-multi-node-speedup-new-version.png" alt-text="Figure that shows the relative speed-up for Taurus model.":::
 
 ## Azure cost
 
