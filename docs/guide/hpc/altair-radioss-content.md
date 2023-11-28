@@ -85,7 +85,7 @@ infrastructure for HPC systems, deploy HPC schedulers, and automatically
 scale the infrastructure to run jobs efficiently at any scale.
 
 Azure CycleCloud is a Linux-based web application. We recommend that you
-set it up by deploying an Azure VM that\'s based on a preconfigured
+set it up by deploying an Azure VM that's based on a preconfigured
 Azure Marketplace image.
 
 To set up an HPC cluster on Azure, complete these steps:
