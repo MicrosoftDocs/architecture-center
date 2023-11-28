@@ -33,7 +33,7 @@ Implementing Backup and Recovery in AKS allows you to:
 - Adhere to data protection requirements to maintain regulatory or organizational compliance.
 - Quickly rollback to a previous deployment if an issue with a recent deployment or change is detected.
 
-It's worth noting that while backups help you to restore your workload if an issue occurs, they don't provide [high availability (HA)](/azure/well-architected/resiliency/reliability-patterns#high-availability).
+It's worth noting that while backups help you to restore your workload if an issue occurs, they don't provide [high availability (HA)](/azure/well-architected/reliability/highly-available-multi-region-design).
 
 When it comes to intra-region high availability and cross-region disaster recovery in AKS, there are several other options to consider, including the following:
 
