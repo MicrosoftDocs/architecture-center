@@ -154,7 +154,9 @@ The following table shows the relative speed increase for each increase in numbe
 
 ### Results for a multi-node configuration
 
-As the preceding performance results show, a [Standard_HB120-64rs_v3](/azure/virtual-machines/hbv3-series) VM with 64 cores is the optimal configuration. This configuration was used in the multi-node tests. 64 cores were used on each node.
+Initially the HPC Performance Testing performed on Radioss 2021.2, Currently Altair is released latest version Radioss 2022.1. Therefore, the Performance testing on Radioss 2022.1 is carried out also and compared the performance improvement between both versions.
+
+Radioss 2022.1 was tested in multi-node configurations. Computation time (Engine run time) was measured. The Linux platform was used, with an Azure Marketplace CentOS 8.1 HPC Gen2 image.
 
 The Taurus model was used as a test case:
 
@@ -166,13 +168,18 @@ The following table provides the numbers of various elements in the model.
 |---------|---------|---------|---|-|-|-|-|--|-|-|-|-|-|-|-|-|-|-|
 | 9,754,355 |1,585|66|762|1|330,418|9,196,272|3,766|417|345,409|1|5|4|4|1,712|901|5|4|8|
 
+For Taurus t10m model, as the preceding performance results show, a Standard_HB120-64rs_v3 VM (AMD EPYC™ 7V73X Milan-X Processors) with 64 cores is the optimal configuration. This configuration was used in the multi-node tests. 64 cores were used on each node.
+
 The following table shows the elapsed wall-clock time, in hours, for the test runs.
 
-|Model|Simulation time (ms)   |  |1 node  | 4 nodes |8 nodes|16 nodes|
-|----|-----|---|------|----|-----|---------|
-| Taurus (T10M)  | 120   | Starter | 00:07:47  |00:11:12| 00:07:04 |00:08:13  |
-| Taurus (T10M)  | 120   | Engine |37:21:22  |10:23:02|08:18:28| 04:34:59  |
-| Taurus (T10M)  | 120  | Total runtime|    37:29:10     |10:34:14|08:25:32|04:43:13|
+|Model|No of Cycles|VM Size|Node|CPU|Thread|v2021.2 Engine Runtime (Sec)|v2022.1 Engine Runtime (Sec)|
+|----|-----|---|------|----|-----|---------|----|
+| Taurus (T10M)  |603079  | Standard_HB120-64rs_v3 |1|64| 1|135417.00|130768.10|
+| Taurus (T10M)  |603079  | Standard_HB120-64rs_v3 |4|256|1| 38726.00|39871.03|
+| Taurus (T10M)  |603079  | Standard_HB120-64rs_v3 |8|512|4|30756.00|22801.05|
+| Taurus (T10M)  |603079  | Standard_HB120-64rs_v3|16|1024|4|17486.00|15838.56|
+
+:::image type="content" source="media/altair-radioss/taurus-multi-node-speedup-new-version.png" alt-text="Figure that shows the relative speed up for Taurus model.":::
 
 ## Azure cost
 
@@ -196,17 +203,18 @@ The following table provides the wall-clock times for multi-node configurations.
 
 |VM size  | Model  |Number of CPUs  |Number of nodes|Wall clock time (hours)  |
 |-|-|-|-|-|
-|HB120-64rs_v3|Taurus (T10M)|64|1|37:29:10|
-|HB120-64rs_v3|Taurus (T10M)|256|4|10:34:14|
-|HB120-64rs_v3|Taurus (T10M)|512|8|08:25:32|
-|HB120-64rs_v3|Taurus (T10M)|1024|16|04:43:13|
+|HB120-64rs_v3|Taurus (T10M)|64|1|36:19:28|
+|HB120-64rs_v3|Taurus (T10M)|256|4|11:04:31|
+|HB120-64rs_v3|Taurus (T10M)|512|8|06:20:01|
+|HB120-64rs_v3|Taurus (T10M)|1024|16|04:23:58|
+
 
 ## Summary
 
 - Radioss was successfully tested on HBv3-series VMs on Azure.
 - Radioss on an Azure VM can solve complex workloads.
 - In a single-node configuration, increasing the number of CPUs increases the relative speed. The optimal configuration is 64 CPUs.
-- Radioss scales impressively up to 16 nodes (1024 CPUs).
+- Radioss scales impressively up to 16 nodes (1024 CPUs) for Taurus t10m model.
 
 ## Contributors
 
@@ -222,6 +230,8 @@ Principal authors:
 -   [Vinod
     Pamulapati](https://www.linkedin.com/in/vinod-reddy-20481a104) |
     HPC Performance Engineer
+-  [Vivi Richard](https://www.linkedin.com/in/vivi-richard) | HPC Performance Engineer
+
 
 Other contributors:
 
