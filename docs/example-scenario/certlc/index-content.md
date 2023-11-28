@@ -62,10 +62,10 @@ The Key Vault Extension is a crucial component for automating certificate renewa
 
 > [!NOTE]
 > You can find sample scripts, that can be executed from Azure Cloud Shell, for configuring the *Key Vault extension* at the links below:
-> - [KV extension for Windows servers](./.scripts/kvextensionWin.ps1)
-> - [KV extension for Linux servers](./blob/main/.scripts/kvextensionLinux.ps1)
-> - [KV extension for Azure ARC-enabled Windows servers](./.scripts/kvextensionARCWin.ps1)
-> - [KV extension for Azure ARC-enabled Linux servers](./.scripts/kvextensionARCLinux.ps1)
+> - [KV extension for Windows servers](https://github.com/Azure/certlc/blob/main/.scripts/kvextensionWin.ps1)
+> - [KV extension for Linux servers](https://github.com/Azure/certlc/blob/main/.scripts/kvextensionLinux.ps1)
+> - [KV extension for Azure ARC-enabled Windows servers](https://github.com/Azure/certlc/blob/main/.scripts/kvextensionARCWin.ps1)
+> - [KV extension for Azure ARC-enabled Linux servers](https://github.com/Azure/certlc/blob/main/.scripts/kvextensionARCLinux.ps1)
 
 Key vault extension is configured with the following parameters:
 
@@ -81,7 +81,7 @@ Both MI and Service Principal must have the 'Key Vault Secret User' role assigne
 
 
 ### Automation Account
-The Automation Account acts as the orchestrator for the certificate renewal process. It needs to be configured with a RunBook, and the PowerShell script for the RunBook can be found [here](./.RunBook/RunBook_v2a.ps1). 
+The Automation Account acts as the orchestrator for the certificate renewal process. It needs to be configured with a RunBook, and the PowerShell script for the RunBook can be found [here](https://github.com/Azure/certlc/blob/main/.runbook/runbook_v2a.ps1). 
 Additionally, an Hybrid Worker Group must be created, associating it with an Azure Windows VM member of the same AD domain of the Certification Authority (ideally the Certification Authority itself) for executing RunBooks. 
 The RunBook should have a [webhook](https://learn.microsoft.com/azure/automation/automation-webhooks) associated with it, initiated from the Hybrid RunBook Worker. 
 The webhook URL should be configured in the Event Subscription of the Event Grid System Topic. 
