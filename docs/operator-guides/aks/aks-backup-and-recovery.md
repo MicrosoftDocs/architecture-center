@@ -129,7 +129,7 @@ The chosen backup frequency and retention period are a trade-off between desirab
 - **Data Volume**: The volume of data affecting storage costs and the time required to complete Backup and Recovery operations.
 - **Compliance**: The requirements for data retention and data sovereignty based on internal compliance rules and industry regulations.
 
-In the AKS Backup service, backup frequency and retention period are stored as a Backup Policy resource, which applies to both the cluster state and the application data from Persistent Volumes.
+In the AKS Backup service, backup frequency and retention period are stored as a *backup policy* resource, which applies to both the cluster state and the application data from Persistent Volumes.
 
 Backup Policies in AKS Backup support daily and hourly backups, with retention periods of up to 360 days, while multiple policies can be defined and applied to the same cluster.
 
