@@ -1,7 +1,7 @@
 ---
 title: AKS Backup and Recovery
 titleSuffix: Azure Architecture Center
-description: Learn to how to backup and recover your AKS clusters and their workloads.
+description: Learn how to backup and recover your AKS clusters and their workloads.
 author: AdamSharif-MSFT
 ms.author: jotavar
 ms.date: 11/03/2023
@@ -51,7 +51,7 @@ To find out more about these methodologies, please review the links below:
 - [What is Bicep?](/azure/azure-resource-manager/bicep/overview)
 - [Overview of Terraform on Azure - What is Terraform?](/azure/developer/terraform/overview)
 
-## What to Backup
+## What to backup
 
 When considering backup and recovery for AKS and Kubernetes clusters in general, it's crucial to identify exactly which components should be included in a backup to ensure a successful restore. Primarily, these critical components consist of:
 
