@@ -3,7 +3,7 @@ title: Continuous validation with Azure Load Testing and Azure Chaos Studio
 description: Guide on performing automated continuous validation in production-like environments with Azure Load Testing and Chaos Studio.
 author: heoelri
 ms.author: msimecek
-ms.date: 03/24/2022
+ms.date: 11/28/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
