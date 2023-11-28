@@ -6,7 +6,7 @@ This article discusses components and principles that play a role in planning an
 
 - Apache HBase in Azure HDInsight
 - Azure IaaS by doing a lift and shift to virtual machines (VMs)
-- Azure Cosmos DB.
+- Azure Cosmos DB
 
 *[Apache](https://www.apache.org), [Apache Spark®](https://spark.apache.org), [Apache Hadoop®](https://hadoop.apache.org), [Apache HBase](https://hbase.apache.org), [Apache Ranger®](https://ranger.apache.org), [Apache ZooKeeper®](https://zookeeper.apache.org),  [Apache Sqoop®](https://sqoop.apache.org), [Apache Kafka®](https://kafka.apache.org), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
