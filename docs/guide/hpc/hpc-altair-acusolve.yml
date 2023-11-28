@@ -2,9 +2,9 @@
 metadata:
   title: Deploy Altair AcuSolve on an Azure virtual machine
   description: Learn how the Altair AcuSolve computational fluid dynamics (CFD) solver performs on an Azure virtual machine.  
-  author: gauharjunnarkar
-  ms.author: gajunnar
-  ms.date: 09/15/2022
+  author: bmoxon
+  ms.author: brucemoxon
+  ms.date: 11/10/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
