@@ -133,7 +133,7 @@ In the AKS Backup service, backup frequency and retention period are stored as a
 
 Backup Policies in AKS Backup support daily and hourly backups, with retention periods of up to 360 days, while multiple policies can be defined and applied to the same cluster.
 
-Check [Create a backup policy](/azure/backup/azure-kubernetes-service-cluster-backup#create-a-backup-policy) for more information on how to configure Backup Policies in AKS Backup.
+Check [Create a backup policy](/azure/backup/azure-kubernetes-service-cluster-backup#create-a-backup-policy) for more information on how to configure backup policies in AKS Backup.
 
 ## Other backup considerations
 
