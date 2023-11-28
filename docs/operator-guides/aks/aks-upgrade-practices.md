@@ -42,8 +42,6 @@ There are three different types of updates for AKS, each building on one another
 
 #### Overall cluster impact
 
-- In-place upgrades (both node and cluster) will impact the performance of your Kubernetes environment while the upgrade is in progress.  This impact can be minimized through proper configuration of pod disruption budgets, node surge, and planning; however, if any reduction in cluster capacity/performance is unacceptable, utilize a blue/green update strategy instead of an in-place upgrade.
-- Regardless of your upgrade/patching strategy it's important to have a robust testing/validation process for your cluster.  Patch/Upgrade lower environments first, and perform a post maintenance validation where you check [cluster](./aks-triage-cluster-health.md), [node](./aks-triage-node-health.md), [deployment](./aks-triage-deployment.md), and application health.
 - In-place upgrades (both node and cluster) affect the performance of your Kubernetes environment while the upgrade is in progress.  This effect can be minimized through proper configuration of pod disruption budgets, node surge configuration, and proper planning.
 - Utilizing a Blue/Green update strategy instead of in-place eliminates any impact to cluster performance, but brings extra cost and complexity.
 - Regardless of your upgrade/patching strategy it's important to have a robust testing/validation process for your cluster.  Patch/Upgrade lower environments first, and perform a post maintenance validation where you check [cluster](azure/architecture/operator-guides/aks/aks-triage-cluster-health), [node](/azure/architecture/operator-guides/aks/aks-triage-node-health), [deployment](/azure/architecture/operator-guides/aks/aks-triage-deployment), and application health.
@@ -53,8 +51,7 @@ There are three different types of updates for AKS, each building on one another
 To ensure the smooth operation of your AKS cluster during maintenance events, follow these best practices:
 
 - **Define Pod Disruption Budgets (PDBs).** Setting up [Pod Disruption Budgets](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) for your deployments is essential. PDBs enforce a minimum number of available application replicas, ensuring continuous functionality during [disruption events](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/). Pod Disruption Budgets help maintain the stability of your cluster during maintenance or node failures.
-  - :warning: A misconfiguration of Pod Disruption Budgets could block the upgrade process as the Kubernetes API prevents the necessary cordon and drain that occurs with a rolling node image upgrade.  Alternatively, if too many pods are moved simultaneously an application outage could occur.
-  - updates to prioritize requested application availability. Likewise, it can create an outage during an update because
+  - :warning: A misconfiguration of Pod Disruption Budgets could block the upgrade process as the Kubernetes API prevents the necessary cordon and drain that occurs with a rolling node image upgrade. Alternatively, if too many pods are moved simultaneously an application outage could occur. PDB configuration mitigates this risk.
 - **Check available compute and network limits.**  Verify the available compute and network limits in your Azure subscription via the [quota page](/azure/quotas/view-quotas) in Azure portal, or by using the [az quota](/cli/azure/quota/usage?view=azure-cli-latest#az-quota-usage-list&preserve-view=true) command.  Check compute and network resources especially VM vCPUs for your nodes, number of virtual machines and virtual machine scale sets.  If you're nearing a limit place a quota increase request prior to upgrade processes.
 - **Check available IP space in node subnets.** During update events extra nodes are created (surge) and pods are moved to these new nodes in your cluster.  It's important that you monitor the ip address space in your node subnets to ensure there's sufficient address space for these changes to occur.  Different Kubernetes [network configurations](azure/aks/concepts-network#azure-virtual-networks) have different ip requirements as a starting point consider the following.
   - During an upgrade, the number of node ip's increases in relation to your surge value (minimum surge value is 1)
@@ -142,7 +139,7 @@ You can use node image upgrades to streamline Windows and Linux node pool upgrad
 
 ## Cluster upgrades
 
-The Kubernetes community releases minor versions of Kubernetes approximately every three months. To keep you informed about new AKS versions and releases, the [AKS release notes page](https://github.com/Azure/AKS/releases) page is regularly updated. Additionally, you may subscribe to the [GitHub AKS RSS feed](https://github.com/Azure/AKS/releases.atom), which provides real-time updates about changes and enhancements.
+The Kubernetes community releases minor versions of Kubernetes approximately every three months. To keep you informed about new AKS versions and releases, the [AKS release notes page](https://github.com/Azure/AKS/releases) page is regularly updated. Additionally, subscribe to the [GitHub AKS RSS feed](https://github.com/Azure/AKS/releases.atom), which provides real-time updates about changes and enhancements.
 
 Azure Kubernetes Service (AKS) follows an "N - 2" support policy, which means that full support is provided for the latest release (N) and up to two previous minor versions. Limited platform support is offered for the third prior minor version. For more information on the support policy, review the [AKS Support Policy(/azure/aks/support-policies).
 
@@ -155,7 +152,6 @@ If your cluster requires a longer upgrade cycle, use the [Long Term Support (LTS
 This article details baseline best practices to ensure stability during upgrades.  As a best practice you should always upgrade and test in lower environments to minimize the risk of disruption in production.  Cluster upgrades require extra testing as they involve API changes, which can impact Kubernetes deployments. The following resources can assist you in this process:
 
 - **AKS Workbook for depreciated APIs** From the cluster overview page you can select "Diagnose and solve problems" and navigate to the [Create, Upgrade, Delete and Scale category, and select Kubernetes API deprecations](/azure/aks/upgrade-cluster#remove-usage-of-deprecated-apis-recommended).  This runs a workbook that checks for depreciated API versions in use in your cluster.
-
 - **AKS release notes page**: The [AKS Release Notes](https://github.com/Azure/AKS/releases) page provides comprehensive information about new AKS versions and releases. It's crucial to review these notes to stay informed about the latest updates and changes.
 - **Kubernetes release notes page**: The [Kubernetes release notes](https://github.com/kubernetes/kubernetes/tree/master/CHANGELOG) page offers detailed insights into the latest Kubernetes versions. Pay special attention to urgent upgrade notes, which highlight critical information that might impact your AKS cluster.
 - **AKS components breaking changes by version**: The [AKS Components Breaking Changes by Version](/azure/aks/supported-kubernetes-versions#aks-components-breaking-changes-by-version) page provides a comprehensive overview of breaking changes in AKS components across different versions. By referring to this guide, you can proactively address any potential compatibility issues before the upgrade process.
@@ -164,7 +160,7 @@ In addition to these Microsoft resources, consider using open-source tools to op
 
 ### Upgrade process
 
-To check when your cluster requires an upgrade, use [az aks get-upgrades](/cli/azure/aks?view=azure-cli-latest#az-aks-get-upgrades&preserve-view=true) to get a list of available target upgrade versions for your AKS control plane. Determine the target version for your control plane from the results.
+To check when your cluster requires an upgrade, use [az aks get-upgrades](/cli/azure/aks?view=azure-cli-latest#az-aks-get-upgrades&preserve-view=true) to get a list of available target upgrade versions for your AKS cluster. Determine the target version for your cluster from the results.
 
 ```azurecli
 az aks get-upgrades \
