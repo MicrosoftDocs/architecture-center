@@ -116,7 +116,7 @@ To install and configure [AKS Backup](/azure/backup/azure-kubernetes-service-bac
 4. Review [Back up AKS using Azure Backup](/azure/backup/azure-kubernetes-service-cluster-backup) for detailed instructions on how to setup Backup and Recovery for your AKS cluster using AKS Backup, including creation and configuration of all the necessary Azure resources such as Backup Vault, Backup Policies, and Backup Instances.
 5. Check [Restore AKS using Azure Backup](/azure/backup/azure-kubernetes-service-cluster-restore) for detailed instructions on how to perform full or item-level restores of your AKS cluster from an existing Backup Instance.
 
-## Backup Frequency and Retention in AKS – Defining a Backup Policy
+## Backup frequency and retention in AKS: defining a backup policy
 
 Determining the backup frequency and retention period is a fundamental aspect of Backup and Recovery solutions. These parameters define how often backups are performed and how long they're retained before deletion. The selection of backup frequency and retention period for an AKS cluster and its workloads should align with the predefined goals of Recovery Point Objective (RPO) and Recovery Time Objective (RTO).
 
