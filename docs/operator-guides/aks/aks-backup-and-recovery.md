@@ -163,7 +163,7 @@ The storage for a Backup Vault is managed automatically by Azure, and there are 
 A [Storage Account](/azure/storage/common/storage-account-overview) is a storage area for your data objects within Azure, and is highly configurable. It provides multiple intra-region and cross-region redundancy options to ensure data durability.
  AKS Backup uses a Blob container within a designated Storage Account to take backups of some components of the AKS cluster.
 
-[Incremental snapshots](/azure/virtual-machines/disks-incremental-snapshots?tabs=azure-cli) are point-in-time backups for managed disks that, when taken, consist only of the changes since the last snapshot. The first incremental snapshot is a full copy of the disk. The subsequent incremental snapshots occupy only delta changes to disks since the last snapshot.
+[Incremental snapshots](/azure/virtual-machines/disks-incremental-snapshots?tabs=azure-cli) are point-in-time backups for managed disks that, when taken, consist only of the changes since the last snapshot. The first incremental snapshot is a full copy of the disk. The subsequent incremental snapshots only capture delta changes to disks since the last snapshot.
 
 ## Using AKS Backup to migrate workloads between AKS clusters
 
