@@ -42,6 +42,8 @@ There are three different types of updates for AKS, each building on one another
 
 #### Overall cluster impact
 
+- In-place upgrades (both node and cluster) will impact the performance of your Kubernetes environment while the upgrade is in progress.  This impact can be minimized through proper configuration of pod disruption budgets, node surge, and planning; however, if any reduction in cluster capacity/performance is unacceptable, utilize a blue/green update strategy instead of an in-place upgrade.
+- Regardless of your upgrade/patching strategy it's important to have a robust testing/validation process for your cluster.  Patch/Upgrade lower environments first, and perform a post maintenance validation where you check [cluster](./aks-triage-cluster-health.md), [node](./aks-triage-node-health.md), [deployment](./aks-triage-deployment.md), and application health.
 - In-place upgrades (both node and cluster) affect the performance of your Kubernetes environment while the upgrade is in progress.  This effect can be minimized through proper configuration of pod disruption budgets, node surge configuration, and proper planning.
 - Utilizing a Blue/Green update strategy instead of in-place eliminates any impact to cluster performance, but brings extra cost and complexity.
 - Regardless of your upgrade/patching strategy it's important to have a robust testing/validation process for your cluster.  Patch/Upgrade lower environments first, and perform a post maintenance validation where you check [cluster](azure/architecture/operator-guides/aks/aks-triage-cluster-health), [node](/azure/architecture/operator-guides/aks/aks-triage-node-health), [deployment](/azure/architecture/operator-guides/aks/aks-triage-deployment), and application health.
@@ -200,7 +202,7 @@ To minimize disruptions and ensure a smooth upgrade for your AKS cluster follow 
 
 - **First upgrade the AKS control plane.** Begin by upgrading the AKS control plane. This involves upgrading the control plane components responsible for managing and orchestrating your cluster. Upgrading the control plane first helps ensure compatibility and stability before upgrading the individual node pools.
 - **Then upgrade your system node pool.** After upgrading the control plane, upgrade the system node pool in your AKS cluster. Node pools consist of the virtual machine instances running your application workloads. Upgrading the node pools separately allows for a controlled and systematic upgrade of the underlying infrastructure supporting your applications.
-- **Lastly upgrade user node pools.** After upgrading the system node pool, upgrade any user node pools in your AKS Cluster.
+- **Lastly upgrade user node pools.** After upgrading the system node pool, upgrade any user node pools in your AKS cluster.
 
 By following this approach, you can minimize disruptions during the upgrade process and maintain the availability of your applications.
 
