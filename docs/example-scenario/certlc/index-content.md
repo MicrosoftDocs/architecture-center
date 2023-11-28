@@ -74,7 +74,7 @@ Key vault extension is configured with the following parameters:
 - **Certificate Store (Name and Location):** The certificate store where the certificate is to be stored. On Windows servers, the default value for Name  is 'My' and for Location is 'LocalMachine', which is the personal certificate store of the computer. On Linux servers, a file system path can be specified, considering that the default value is 'AzureKeyVault', which is the certificate store for Azure Key Vault.
 - **linkOnRenewal:** A flag indicating whether the certificate should be linked to the server on renewal. If 'true' on Windows machines it copies the new certificate in the store and link it to the old one doing an effective rebinding of the certificate. The default value is 'false' meaning that an explicit binding is required.
 - **pollingIntervalInS:** The polling interval for the Key Vault extension to check for certificate updates. The default value is 3600 seconds (1 hour).
-- **authenticationSetting:** The authentication setting for the Key Vault extension. For Azure-based servers this setting can be omitted, meaning that the System Assigned Managed Identity (MI) of the VM is used against the Key Vault. For on-premises servers, specifying the setting 'msiEndpoint = "http://localhost:40342/metadata/identity"' means the usage of the service principal associated with the computer object created during the ARC onboarding.
+- **authenticationSetting:** The authentication setting for the Key Vault extension. For Azure-based servers this setting can be omitted, meaning that the System Assigned Managed Identity (MI) of the VM is used against the Key Vault. For on-premises servers, specifying the setting `msiEndpoint = "http://localhost:40342/metadata/identity"` means the usage of the service principal associated with the computer object created during the ARC onboarding.
 
 If the Key Vault extension is deployed on an Azure VM then the Managed Identity (MI) of the VM is used to authenticate against the Key Vault. If the KV extension is deployed on an Azure ARC-enabled server, then the authentication is performed using a service principal.
 Both MI and Service Principal must have the 'Key Vault Secret User' role assigned on the Key Vault containing the certificate to be renewed. The usage of 'Secret' is due to the fact that the certificate is stored in the Key Vault as a secret behind the scene.
@@ -138,7 +138,7 @@ To integrate the solution with your existing environment, you need to perform th
 - Import the certificates into the Key Vault and **TAG** them with the administrator e-mail address for notification purposes. If multiple recipients are required, the e-mail addresses should be separated by comma or semicolon. The expected tag name is 'Recipient' and the value is the e-mail address(es) of the administrator(s).
 
 > [!IMPORTANT]
-> > If you want to deploy a **full LAB environment** ready to demonstrate the whole automatic certificate renewal workflow, you can refer to the following [code sample](https://github.com/Azure/certlc/blob/main/README.md) that includes the deployment of the following additional resources:
+> > If you want to deploy a **full LAB environment** ready to demonstrate the whole automatic certificate renewal workflow, you can refer to the provided [**code sample**](https://github.com/Azure/certlc/blob/main/README.md) that includes the deployment of the following additional resources:
 > > - **Active Directory Domain Services** (ADDS) within a domain controller virtual machine;
 > > - **Active Directory Certificate Services** (ADCS) within a Certification Authority virtual machine, joined to the domain, configured with a template, *WebServerShort*, for the enrollment of the certificates to be renewed.
 > > - **Windows SMTP Server** installed on the same virtual machine of the Certification Authority for sending e-mail notifications. A MailViewer tool is also installed to facilitate the verification of the e-mail notifications sent.
@@ -157,10 +157,10 @@ Principal author:
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Related resources
-[Azure Key Vault](https://learn.microsoft.com/azure/key-vault/general/overview)
-[Azure Key Vault Extension for Windows](https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/key-vault-windows?tabs=version3)
-[Azure Key Vault Extension for Linux](https://learn.microsoft.com/azure/virtual-machines/extensions/key-vault-linux)
-[Automation account](https://learn.microsoft.com/azure/automation/overview)
-[Automation Hybrid Runbook Worker](https://learn.microsoft.com/azure/automation/automation-hybrid-runbook-worker)
+[Azure Key Vault](https://learn.microsoft.com/azure/key-vault/general/overview)</BR>
+[Azure Key Vault Extension for Windows](https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/key-vault-windows?tabs=version3)</BR>
+[Azure Key Vault Extension for Linux](https://learn.microsoft.com/azure/virtual-machines/extensions/key-vault-linux)</BR>
+[Automation account](https://learn.microsoft.com/azure/automation/overview)</BR>
+[Automation Hybrid Runbook Worker](https://learn.microsoft.com/azure/automation/automation-hybrid-runbook-worker)</BR>
 [Event Grid](https://learn.microsoft.com/azure/event-grid/overview)
 
