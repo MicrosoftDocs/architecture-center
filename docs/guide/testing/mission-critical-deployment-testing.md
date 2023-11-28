@@ -20,7 +20,7 @@ As cloud-native applications and services become more complex, deploying changes
 
 That's why **continuous validation in an environment that's similar to the production environment is important**, so that you can find and fix any problems or bugs as early in the development cycle as possible. Workload teams should test early in the development process (shift left) and make it convenient for developers to do testing in an environment that's close to the production environment.
 
-Mission-critical workloads have high availability requirements, with targets of 3, 4, or 5 nines (99.9%, 99.99%, or 99.999%, respectively). It's crucial to have **rigorous automated testing** to reach those goals.
+Mission-critical workloads have high availability requirements, with targets of 3, 4, or 5 nines (99.9%, 99.99%, or 99.999%, respectively). It's crucial to implement **rigorous automated testing** to reach those goals.
 
 Continuous validation depends on each workload and on architectural characteristics. This article provides a guide for preparing and integrating Azure Load Testing and Azure Chaos Studio into a regular development cycle.
 
