@@ -65,8 +65,8 @@ For information about deploying the VM and installing the drivers, see [Run a Li
 1. Configure and compile WRF. For detailed compiling information, follow the steps at [How to Compile WRF: The Complete Process](https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compilation_tutorial.php).
 1. Configure options for WRF. For the current performance tests, we've selected option 16 as shown here:
 
-<REMOVE THIS STUFF TO SEE THE PREVIEW>
-FOR THE STEP:
+<!--REMOVE THIS STUFF TO SEE THE PREVIEW
+FOR THE STEP:-->
 
 1. Configuring option for WRF: For the current performance tests, we have selected option 16 as shown below in the image
 
@@ -94,10 +94,9 @@ FOR THE STEP:
 1. Run WPS, create an `met_em.*` file for more than one time period, and link or copy WPS output files to the WRF run directory. To run WPS, follow the steps at [How to Compile WRF: The Complete Process](https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compilation_tutorial.php).
 1. Configure options for WRF. For the current performance test, option 19 was selected as shown here:
 
+<!--REMOVE THIS STUFF TO SEE THE PREVIEW
+FOR THE STEP:-->
 
-<REMOVE THIS STUFF TO SEE THE PREVIEW>
-
-FOR THE STEP:
 
 1. Configuring option for WPS: For current performance test option 19 was selected as shown below
 
