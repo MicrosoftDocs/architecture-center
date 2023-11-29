@@ -63,102 +63,77 @@ For information about deploying the VM and installing the drivers, see [Run a Li
 
 1. Open the [WRF Portal](https://www2.mmm.ucar.edu/wrf/users/download/get_source.html) in a web browser and download the WRF source code.
 1. Configure and compile WRF. For detailed compiling information, follow the steps at [How to Compile WRF: The Complete Process](https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compilation_tutorial.php).
-1. Configure options for WRF. For the current performance tests, we've selected option 16 as shown here:
-
-<!--REMOVE THIS STUFF TO SEE THE PREVIEW
-FOR THE STEP:-->
-
-1. Configuring option for WRF: For the current performance tests, we have selected option 16 as shown below in the image
+1. Configure options for WRF. For the current performance tests, we selected option 16 as shown here:
 
     :::code language="console" source="example/wrf-compilation-1.console" highlight="7:42-7:53":::
 
-
-
-
-
-
-
-
-1. Download static geographic data (for geogrid.exe) from the [WPS V4 Geographical Static Data Downloads Page](http://www2.mmm.ucar.edu/wrf/users/download/get_sources_wps_geog.html).
+1. Download static geographic data (for *geogrid.exe*) from the [WPS V4 Geographical Static Data Downloads Page](http://www2.mmm.ucar.edu/wrf/users/download/get_sources_wps_geog.html).
 1. Download real-time data from the [NOMADS Data at NCEP](https://nomads.ncep.noaa.gov/). For real-time cases, the WRF model requires up-to-date meteorological information for both an initial condition and also for lateral boundary conditions. The following data is used for the current performance test:
 
-   **Date**: 12-Feb-2023
+   - **Date**: 12-February-2023
 
-   **Files**:
-   - gfs.0p25.2023021200.f000.grib2
-   - gfs.0p25.2023021200.f003.grib2
-   - gfs.0p25.2023021200.f006.grib2
-   - gfs.0p25.2023021200.f009.grib2
-   - gfs.0p25.2023021200.f384.grib2
+   - **Files**:
+     - gfs.0p25.2023021200.f000.grib2
+     - gfs.0p25.2023021200.f003.grib2
+     - gfs.0p25.2023021200.f006.grib2
+     - gfs.0p25.2023021200.f009.grib2
+     - gfs.0p25.2023021200.f384.grib2
 
 1. Run WPS, create an `met_em.*` file for more than one time period, and link or copy WPS output files to the WRF run directory. To run WPS, follow the steps at [How to Compile WRF: The Complete Process](https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compilation_tutorial.php).
 1. Configure options for WRF. For the current performance test, option 19 was selected as shown here:
 
-<!--REMOVE THIS STUFF TO SEE THE PREVIEW
-FOR THE STEP:-->
-
-
-1. Configuring option for WPS: For current performance test option 19 was selected as shown below
-
     :::code language="console" source="example/wrf-compilation-2.console" highlight="22,45":::
 
+1. Edit the *namelist.input* file for runtime options. At minimum, you must edit `&time` control for start, end, and integration times, and `&domains` for grid dimensions.
 
-
-
-
-
-1. WRF model (In current case CONUS 2.5 km) is defined by the *namelist.input* file, which will have the model geometric details.
-1. Edit the *namelist.input* file for runtime options (at minimum, one must edit &time control for start, end and integration times, and &domains for grid dimensions).
+   The WRF model for this example is **CONUS 2.5 km** and is defined by the *namelist.input* file, which includes the model geometric details.
 
 ## WRF performance results on Azure HPC Cluster
 
  The New CONUS 2.5 km model is used for performance evaluation:
 
- WRF model (In current case CONUS 2.5 km) is defined by the *namelist.input* file, which will have the model geometric details.
- Edit the *namelist.input* file for runtime options (at minimum, one must edit &time control for start, end and integration times, and &domains for grid dimensions)
-
 :::image type="content" source="media/wrf/new-conus-25-km-model.png" alt-text="Screenshot that shows the New CONUS 2.5 km model." border="false":::
 
-The following table provides details about the model.
+The following table provides details about the model:
 
 |Model|	Resolution (km)|	e_we|	e_sn|	e_vert|	Total grid points|	Time step (seconds)|	Simulation hours|
 |-|-|-|-|-|-|-|-|
 |New CONUS 2.5 km	|2.5	|1901|	1301|	35	|2,473,201|	15|	6|
 
-The following table shows the System and Operating System details:
+The following table shows the system and operating system details:
 
-|OS/Softwares| Details |
+| OS/Software | Details |
 |-|-|
-|Operating system version | CentOS Linux release 8.1.1911 (Core)|
-|OS Architecture | X86-64|
-|MPI|Open MPI 4.1.0|
-|Compiler|icc (ICC) 2021.4.0|
+| Operating system version | CentOS Linux release 8.1.1911 (Core) |
+| OS Architecture | X86-64 |
+| MPI | Open MPI 4.1.0 |
+| Compiler | ICC 2021.4.0 |
 
-Standard_HB120-64rs_v3 VM with 64 vCPUs is considered for the cluster runs. The simulation was run on 1, 2, 4, 8 and 16 nodes and the results are shown in the table below.
+Standard_HB120-64rs_v3 VM with 64 vCPUs is considered for the cluster runs. The simulation was run on 1, 2, 4, 8 and 16 nodes and the results are shown in this table:
 
-|VM Size|Nodes|vCPU|Tiles|Threads|Simulation time (Hrs)|Mean time per step (s)|
+| VM Size | Nodes | vCPU | Tiles | Threads | Simulation time (Hrs) | Mean time per step (s) |
 |-|-|-|-|-|-|-|
-|Standard_HB120-64rs_v3|1|64|325|1|02:11:30|4.94|
-|Standard_HB120-64rs_v3|2|128|325|1|01:27:00|3.07|
-|Standard_HB120-64rs_v3|4|256|325|1|00:59:01|1.86|
-|Standard_HB120-64rs_v3|8|512|325|1|00:44:36|1.17|
-|Standard_HB120-64rs_v3|16|1024|325|1|00:34:51|0.83|
+| Standard_HB120-64rs_v3 | 1 | 64 | 325 | 1 | 02:11:30 | 4.94 |
+| Standard_HB120-64rs_v3 | 2 | 128 | 325 | 1 | 01:27:00 | 3.07 |
+| Standard_HB120-64rs_v3 | 4 | 256 | 325 | 1 | 00:59:01 | 1.86 |
+| Standard_HB120-64rs_v3 |8 | 512 | 325 | 1 | 00:44:36 | 1.17 |
+| Standard_HB120-64rs_v3 |16 | 1024 | 325 | 1 | 00:34:51 | 0.83 |
 
-The following graph shows the mean times per step, in seconds.
+The following graph shows the mean times per step, in seconds:
 
-:::image type="content" source="media/wrf/cluster-meantime.png" alt-text="Graph that shows the mean times per step." border="false":::
+:::image type="content" source="media/wrf/cluster-meantime.png" alt-text="Graph that shows the mean times per step in seconds." border="false":::
 
-### Additional notes about tests
+### More notes about tests
 
 1. WRF is successfully deployed and tested on HBv3 AMD EPYC™ 7V73X series VM on Azure Platform.
-1. Expected meantime per step is achieved in all CPU cores in multi-node setup
-1. However, the scalability might vary depending on the dataset being used and the node count being tested. Ensure that to test the impact of the tile size, process, and threads per process before use.
+1. Expected meantime per step is achieved in all CPU cores in multi-node setup.
+1. The scalability might vary depending on the dataset being used and the node count being tested. Consider these factors when you test the impact of the tile size, process, and threads per process.
 
 ## Azure cost
 
 The following table presents the wall-clock times for running the New CONUS 2.5 km simulation. You can multiply these times by the Azure VM hourly costs for HBv3-series VMs to calculate costs. For the current hourly costs, see [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing).
 
-Only elapsed solver running time (Simulation run time) was considered for these cost calculations. Application installation time isn't considered. 
+Only elapsed solver running time (simulation run time) was considered for these cost calculations. Application installation time isn't considered.
 
 You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your configuration.
 
@@ -172,13 +147,12 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 
 ## Summary
 
-- WRF was successfully tested on HBv3-series  VMs on Azure.
+- WRF was successfully tested on HBv3-series VMs on Azure.
 - Expected mean time per step was achieved with all the nodes tested. However, scalability might vary depending on the dataset used and the node count. Be sure to test the effect of the tile size, process, and threads per process.
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by
-the following contributors.*
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 
