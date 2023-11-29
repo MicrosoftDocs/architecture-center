@@ -34,7 +34,8 @@ There are three different types of updates for AKS, each building on one another
 
 - **Nightly security patches to the operating system (OS) of the node image *(Linux only)*:** For Linux nodes both [Ubuntu](https://ubuntu.com/server) and [Azure Linux](/azure/azure-linux/intro-azure-linux) check for, and apply security patches to the OS on each node nightly; however, if a patch requires a node to reboot that process must be managed.
 
-- **Weekly updates to the node images:** AKS provides weekly updates to the node images, these updates include a rollup of the latest OS and AKS security patches, bug fixes and enhancements. These updates help to maintain the overall stability and security of the cluster. For more information, see [AKS release tracker](https://releases.aks.azure.com/).
+- **Weekly updates to the node images:** AKS provides weekly updates to the node images, these updates include a rollup of the latest OS and AKS security patches, bug fixes and enhancements.  Node updates do not change the version of Kubernetes in use and are formatted for linux by date (`202311.07.0`) and for windows by windows server os build and date (`20348.2113.231115`)  You can check the current
+For more information, see [AKS release tracker](https://releases.aks.azure.com/).
 
 - **Quarterly Kubernetes releases:** AKS follows a quarterly update schedule for [Kubernetes releases](https://kubernetes.io/releases/release/#the-release-cycle). These updates allow AKS users to take advantage of the latest Kubernetes features, enhancements, and include security patches and node image enhancements. For more information, see [Supported Kubernetes versions in Azure Kubernetes Service (AKS)](/azure/aks/supported-kubernetes-versions).
 
