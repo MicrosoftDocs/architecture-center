@@ -54,21 +54,21 @@ To ensure the smooth operation of your AKS cluster during maintenance events, fo
 - **Define Pod Disruption Budgets (PDBs).** Setting up [Pod Disruption Budgets](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) for your deployments is essential. PDBs enforce a minimum number of available application replicas, ensuring continuous functionality during [disruption events](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/). Pod Disruption Budgets help maintain the stability of your cluster during maintenance or node failures.
   - :warning: A misconfiguration of Pod Disruption Budgets could block the upgrade process as the Kubernetes API prevents the necessary cordon and drain that occurs with a rolling node image upgrade. Alternatively, if too many pods are moved simultaneously an application outage could occur. PDB configuration mitigates this risk.
 - **Check available compute and network limits.**  Verify the available compute and network limits in your Azure subscription via the [quota page](/azure/quotas/view-quotas) in Azure portal, or by using the [az quota](/cli/azure/quota/usage?view=azure-cli-latest#az-quota-usage-list&preserve-view=true) command.  Check compute and network resources especially VM vCPUs for your nodes, number of virtual machines and virtual machine scale sets.  If you're nearing a limit place a quota increase request prior to upgrade processes.
-- **Check available IP space in node subnets.** During update events extra nodes are created (surge) and pods are moved to these new nodes in your cluster. It's important that you monitor the IP address space in your node subnets to ensure there's sufficient address space for these changes to occur. Different Kubernetes [network configurations](azure/aks/concepts-network#azure-virtual-networks) have different IP requirements as a starting point consider the following.
+- **Check available IP space in node subnets.** During update events extra nodes are created (surge) and pods are moved to these new nodes in your cluster. It's important that you monitor the IP address space in your node subnets to ensure there's sufficient address space for these changes to occur. Different Kubernetes [network configurations](azure/aks/concepts-network#azure-virtual-networks) have different IP requirements. As a starting point, review the following considerations :
   - During an upgrade, the number of node IPs increase in relation to your surge value (minimum surge value is 1)
   - Azure CNI based clusters assign individual pods IP addresses so it's important that there's sufficient IP space for pod movement.
   - Your cluster continues to operate during upgrades, ensure that there's enough IP space left to allow node scaling (if enabled)
-- **Set up multiple environments.** Establishing separate environments such as development, staging, and production is recommended best practice that allows testing and validation of changes prior to rolling them out to production.
+- **Set up multiple environments.** Establishing separate environments such as development, staging, and production is recommended to allow for testing and validation of changes prior to rolling them out to production.
 - **Tune surge upgrade values.** By default, AKS has a surge value of 1 (meaning one extra node is created at a time as part of the upgrade process). You can increase the speed of an AKS upgrade by increasing this value. 33% surge is the recommended maximum value for workloads sensitive to disruptions. For more information, see [customize node surge upgrade](/azure/aks/upgrade-cluster#customize-node-surge-upgrade).
 - **Plan and schedule maintenance windows.** Upgrade processes might impact the overall performance of your Kubernetes cluster. Ensure in-place upgrade processes are scheduled outside peak usage windows and monitor cluster performance to ensure adequate sizing, especially during update processes.
-- **Check other dependencies in your cluster** Kubernetes operators often deploy other tooling to the Kubernetes cluster as part of operations, e.g, Keda Scaler, Dapr, Services meshes etc. As you plan your upgrade processes check releases notes for any components in use to ensure compatibility with your target version.
+- **Check other dependencies in your cluster** Kubernetes operators often deploy other tooling to the Kubernetes cluster as part of operations, like Keda Scaler, Dapr, Services meshes, and others. As you plan your upgrade processes check releases notes for any components in use to ensure compatibility with your target version.
 
 ### Managing the weekly updates to node images and AKS
 
 Microsoft provides patches and new images for image nodes weekly. An updated node image contains up-to-date OS security patches, kernel updates, Kubernetes security updates, updated versions of binaries like `kubelet`, and component version updates listed in the [release notes](https://github.com/Azure/AKS/releases).
 
 The weekly update process can be managed automatically by using [GitHub Actions](/azure/aks/node-upgrade-github-actions) or [AKS planned maintenance](/azure/aks/auto-upgrade-node-image).
-Timing for [AKS planned maintenance](/azure/aks/auto-upgrade-node-image) can be controlled by configuring a [maintenance window](/azure/aks/planned-maintenance). For more information, see [Use Planned Maintenance to schedule and control upgrades for your Azure Kubernetes Service (AKS) cluster](/azure/aks/planned-maintenance).
+Timing for [AKS planned maintenance](/azure/aks/auto-upgrade-node-image) can be controlled by configuring a [maintenance window](/azure/aks/planned-maintenance/#creating-a-maintenance-window). For more information, see [Use Planned Maintenance to schedule and control upgrades for your Azure Kubernetes Service (AKS) cluster](/azure/aks/planned-maintenance).
 
 Alternatively, the weekly process can be managed manually via the Azure portal, Azure CLI [az aks maintenance configuration](/azure/aks/maintenanceconfiguration?view=azure-cli-latest), or via PowerShell using the [Get-AzAksMaintenanceConfiguration](/powershell/module/az.aks/get-azaksmaintenanceconfiguration) cmdlet.
 
@@ -198,7 +198,7 @@ usernodepool  1.26.6
 To minimize disruptions and ensure a smooth upgrade for your AKS cluster follow this upgrade approach:
 
 - **First upgrade the AKS control plane.** Begin by upgrading the AKS control plane. This involves upgrading the control plane components responsible for managing and orchestrating your cluster. Upgrading the control plane first helps ensure compatibility and stability before upgrading the individual node pools.
-- **Then upgrade your system node pool.** After upgrading the control plane, upgrade the system node pool in your AKS cluster. Node pools consist of the virtual machine instances running your application workloads. Upgrading the node pools separately allows for a controlled and systematic upgrade of the underlying infrastructure supporting your applications.
+- **Next, upgrade your system node pool.** After upgrading the control plane, upgrade the system node pool in your AKS cluster. Node pools consist of the virtual machine instances running your application workloads. Upgrading the node pools separately allows for a controlled and systematic upgrade of the underlying infrastructure supporting your applications.
 - **Lastly upgrade user node pools.** After upgrading the system node pool, upgrade any user node pools in your AKS cluster.
 
 By following this approach, you can minimize disruptions during the upgrade process and maintain the availability of your applications.
@@ -213,7 +213,7 @@ By following this approach, you can minimize disruptions during the upgrade proc
    ```
 
 2. Run [az aks nodepool upgrade](/cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-upgrade&preserve-view=true) to upgrade node pools to the target version:
-[During the node pool upgrade](/azure/aks/upgrade-cluster?tabs=azure-cli#upgrade-an-aks-cluster) AKS creates a surge node, [cordon and drain](/azure/aks/concepts-security#cordon-and-drain) pods from the node to be upgraded, reimage the node, and then uncordon it.  This process then repeats for any nodes remaining in the node pool.
+[During the node pool upgrade](/azure/aks/upgrade-cluster?tabs=azure-cli#upgrade-an-aks-cluster) AKS creates a surge node, [cordon and drain](/azure/aks/concepts-security#cordon-and-drain) pods from the node to be upgraded, reimages the node, and then uncordons it.  This process then repeats for any nodes remaining in the node pool.
 
    ```azurecli
    az aks nodepool upgrade \
