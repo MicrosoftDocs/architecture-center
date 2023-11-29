@@ -178,6 +178,10 @@ Principal author:
 
  * [Jonathon Frost](https://www.linkedin.com/in/jjfrost) | Principal Program Manager
 
+Contributor:
+
+ * [Ricardo Galvan](https://www.linkedin.com/in/ricardoericgalvan) | Senior Technical Program Manager
+
 ## Next steps
 
 - [Migrating AIX Workloads to Azure: Approaches and Best Practices](https://techcommunity.microsoft.com/t5/azure-global/migrating-aix-workloads-to-azure-approaches-and-best-practices/ba-p/1085983).
