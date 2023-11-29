@@ -65,7 +65,7 @@ For information about deploying the VM and installing the drivers, see [Run a Li
 1. Configure and compile WRF. For detailed compiling information, follow the steps at [How to Compile WRF: The Complete Process](https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compilation_tutorial.php).
 1. Configure options for WRF. For the current performance tests, we selected option 16 as shown here:
 
-    :::code language="console" source="example/wrf-compilation-1.console" highlight="7:42-7:53":::
+    :::image type="content" source="media/wrf/wrf-compilation-1.png" alt-text="Screenshot that shows first configuration option for WRF." border="false":::
 
 1. Download static geographic data (for *geogrid.exe*) from the [WPS V4 Geographical Static Data Downloads Page](http://www2.mmm.ucar.edu/wrf/users/download/get_sources_wps_geog.html).
 1. Download real-time data from the [NOMADS Data at NCEP](https://nomads.ncep.noaa.gov/). For real-time cases, the WRF model requires up-to-date meteorological information for both an initial condition and also for lateral boundary conditions. The following data is used for the current performance test:
@@ -82,7 +82,7 @@ For information about deploying the VM and installing the drivers, see [Run a Li
 1. Run WPS, create an `met_em.*` file for more than one time period, and link or copy WPS output files to the WRF run directory. To run WPS, follow the steps at [How to Compile WRF: The Complete Process](https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compilation_tutorial.php).
 1. Configure options for WRF. For the current performance test, option 19 was selected as shown here:
 
-    :::code language="console" source="example/wrf-compilation-2.console" highlight="22,45":::
+    :::image type="content" source="media/wrf/wrf-compilation-2.png" alt-text="Screenshot that shows second configuration option for WRF." border="false":::
 
 1. Edit the *namelist.input* file for runtime options. At minimum, you must edit `&time` control for start, end, and integration times, and `&domains` for grid dimensions.
 
