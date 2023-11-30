@@ -3335,12 +3335,8 @@ items:
             href: guide/networking/global-web-applications/mission-critical-content-delivery.md
       - name: Adopting IPv6
         items:
-          - name: Overview of Transitioning to IPv6
-            href: networking/guide/ipv6/ipv6-transition-overview.md
-          - name: IP Space Planning for IPv6 Networks
+          - name: Conceptual planning for IPv6 networking
             href: networking/guide/ipv6/ipv6-ip-planning.md
-          - name: Transitioning Hub Networks to IPv6
-            href: networking/guide/ipv6/ipv6-transition-hub.md
     - name: Architectures
       items:
       - name: Azure DNS Private Resolver
