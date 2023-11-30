@@ -13,7 +13,7 @@ categories:
   - networking
 ---
 
-# IP Space Planning for IPv6 Networks
+# IP space planning for IPv6 networks
 
 Before you add IPv6 to your existing environment, ensure you're planning for your IPv6 network space.  This section gives an overview of how to plan, and of conceptual changes for IP address assignment for IPv6 networks.  This guide focuses on private network planning.  For guidance on planning your public IP address prefixes, see [Public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix).
 
