@@ -143,7 +143,7 @@ Planning IP address space for each virtual network involves assigning a specific
 - _Use /56 Address Block_: Using a /56 address block for each virtual network can streamline the process. It allows for the use of 4,096 virtual networks in your region, which is more than the number of peers supported by a single hub. This size allows for 256 subnets to be created in a single virtual network. As a result, your IP space can be visualized as:
 ![Diagram of Subnets at /64 size, Vnets at /56, and Region at /44, to show the size and scope of these network structures](./media/network-segments.png)
 
-### IPv4 Address Space Reuse Between Regions
+### Reuse IPv4 addresses
 
 Transitioning to IPv6 opens up new options for using your existing IPv4 address space.  As services begin to connect over the new IPv6 addresses, it doesn’t matter what the IPv4 addresses of the virtual network that the resources are in.  As a result, you can reuse IPv4 addresses in different spoke networks, giving you a larger effective IPv4 space.
 
