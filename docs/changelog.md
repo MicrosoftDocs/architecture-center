@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 10/16/2023
+ms.date: 11/06/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -23,15 +23,30 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 
 The following new and updated articles have recently been published in the Azure Architecture Center.
 
+## November 2023
+
+### New articles
+
+- [Deploy CP2K on an Azure virtual machine](./guide/hpc/cp2k.yml)
+- [Deploy NAMD on a virtual machine](./guide/hpc/hpc-namd.yml)
+
+
 ## October 2023
 
 ### New articles
 
+- [The journey to SaaS: Dynamics 365](./guide/saas/case-studies/dynamics-365-journey-saas.md)
+- [Real-time analytics on data with Azure Service Bus and Azure Data Explorer](./solution-ideas/articles/analytics-service-bus.yml)
+- [Virtualization of a Unisys ClearPath Forward OS 2200 enterprise server on Azure](./mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml)
+- [Deploy OpenRadioss on an Azure virtual machine](./guide/hpc/openradioss.yml)
 - [Windows 365 Azure network connection](./guide/virtual-desktop/windows-365-azure-network-connection.yml)
 - [Automotive connected fleets](./industries/automotive/automotive-connected-fleets.yml)
 
 ### Updated articles
 
+- [Microsoft SaaS stories](./guide/saas/case-studies/saas-stories.md)  ([#831aeb8915](https://github.com/MicrosoftDocs/architecture-center/commit/831aeb8915))
+- [SWIFT Alliance Connect Virtual on Azure](./example-scenario/finance/swift-on-azure-vsrx.yml)  ([#cd5aca549a](https://github.com/MicrosoftDocs/architecture-center/commit/cd5aca549a))
+- [Ingest FAA SWIM content to analyze flight data](./example-scenario/analytics/ingest-faa-swim-analyze-flight-data.yml)  ([#6fa8f0f9cc](https://github.com/MicrosoftDocs/architecture-center/commit/6fa8f0f9cc))
 - [Microsoft Entra security for AWS](./reference-architectures/aws/aws-azure-ad-security.yml)  ([#c00d96f670](https://github.com/MicrosoftDocs/architecture-center/commit/c00d96f670))
 - [Baseline architecture for an AKS cluster](./reference-architectures/containers/aks/baseline-aks.yml)  ([#c00d96f670](https://github.com/MicrosoftDocs/architecture-center/commit/c00d96f670))
 - [Azure VMware Solution networking](./solution-ideas/articles/azure-vmware-solution-foundation-networking.yml)  ([#bd323181bd](https://github.com/MicrosoftDocs/architecture-center/commit/bd323181bd))
@@ -67,30 +82,4 @@ The following new and updated articles have recently been published in the Azure
 - [Magento e-commerce platform in Azure Kubernetes Service](./example-scenario/magento/magento-azure.yml)  ([#4206ea3f14](https://github.com/MicrosoftDocs/architecture-center/commit/4206ea3f14))
 - [Considerations for multitenant control planes](./guide/multitenant/considerations/control-planes.yml)  ([#2afb001272](https://github.com/MicrosoftDocs/architecture-center/commit/2afb001272))
 - [Build solutions with availability zones](./high-availability/building-solutions-for-high-availability.yml)  ([#bf5377d475](https://github.com/MicrosoftDocs/architecture-center/commit/bf5377d475))
-
-## July 2023
-
-### New articles
-
-- [Ingest and store medical data in Azure](./example-scenario/data/medical-data-ingestion.yml)
-- [Prevent IPv4 exhaustion in Azure](./guide/networking/ipv4-exhaustion.yml)
-- [Reliable web app pattern for Java - Apply the pattern](./web-apps/guides/reliable-web-app/java/apply-pattern.yml)
-- [Reliable web app pattern for Java - Plan the implementation](./web-apps/guides/reliable-web-app/java/plan-implementation.yml)
-- [Reliable web app pattern](./web-apps/guides/reliable-web-app/overview.md)
-
-### Updated articles
-
-- [Azure Kubernetes Service (AKS) considerations for multitenancy](./guide/multitenant/service/aks.yml)  ([#5b5f7779a3](https://github.com/MicrosoftDocs/architecture-center/commit/5b5f7779a3))
-- [Deploy AD DS in an Azure virtual network](./example-scenario/identity/adds-extend-domain.yml)  ([#02e49e31ef](https://github.com/MicrosoftDocs/architecture-center/commit/02e49e31ef))
-- [Azure DNS Private Resolver](./example-scenario/networking/azure-dns-private-resolver.yml)  ([#8527f21cd1](https://github.com/MicrosoftDocs/architecture-center/commit/8527f21cd1))
-- [Resiliency checklist for services](./checklist/resiliency-per-service.md)  ([#203ec6e76b](https://github.com/MicrosoftDocs/architecture-center/commit/203ec6e76b))
-- [Make all things redundant](./guide/design-principles/redundancy.md)  ([#203ec6e76b](https://github.com/MicrosoftDocs/architecture-center/commit/203ec6e76b))
-- [Failure mode analysis](./resiliency/failure-mode-analysis.md)  ([#203ec6e76b](https://github.com/MicrosoftDocs/architecture-center/commit/203ec6e76b))
-- [Citizen AI with Power Platform](./example-scenario/ai/citizen-ai-power-platform.yml)  ([#9f3fe8f36b](https://github.com/MicrosoftDocs/architecture-center/commit/9f3fe8f36b))
-- [Cyber threat intelligence in Microsoft Sentinel](./example-scenario/data/sentinel-threat-intelligence.yml)  ([#9f3fe8f36b](https://github.com/MicrosoftDocs/architecture-center/commit/9f3fe8f36b))
-- [Choose an Azure data service](./guide/technology-choices/data-options.md)  ([#feca78f312](https://github.com/MicrosoftDocs/architecture-center/commit/feca78f312))
-- [Azure Sandbox](./guide/azure-sandbox/azure-sandbox.yml)  ([#d3f4ce60d5](https://github.com/MicrosoftDocs/architecture-center/commit/d3f4ce60d5))
-- [Microsoft SaaS stories](./guide/saas/case-studies/saas-stories.md)  ([#ab9015d14a](https://github.com/MicrosoftDocs/architecture-center/commit/ab9015d14a))
-- [Azure Database for PostgreSQL considerations for multitenancy](./guide/multitenant/service/postgresql.md)  ([#4438c7638c](https://github.com/MicrosoftDocs/architecture-center/commit/4438c7638c))
-- [Multi-region load balancing](./high-availability/reference-architecture-traffic-manager-application-gateway.yml)  ([#a2b159dbbb](https://github.com/MicrosoftDocs/architecture-center/commit/a2b159dbbb))
 

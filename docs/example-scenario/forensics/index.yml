@@ -5,7 +5,7 @@ metadata:
   description: Learn how to create an infrastructure and workflow to ensure a valid digital evidence chain of custody (CoC) for computer forensics in Azure.
   author: simonesavi
   ms.author: sisavi
-  ms.date: 10/21/2023
+  ms.date: 11/08/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

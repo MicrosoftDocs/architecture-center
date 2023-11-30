@@ -439,6 +439,8 @@ items:
           href: guide/multitenant/approaches/deployment-configuration.yml
         - name: Compute
           href: guide/multitenant/approaches/compute.md
+        - name: Control planes 
+          href: guide/multitenant/approaches/control-planes.md
         - name: Networking
           href: guide/multitenant/approaches/networking.md
         - name: Storage and data
@@ -1061,6 +1063,8 @@ items:
         href: reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.yml
       - name: Precision medicine pipeline with genomics
         href: example-scenario/precision-medicine/genomic-analysis-reporting.yml
+      - name: Real-time sync of MongoDB Atlas to Azure Synapse Analytics
+        href: example-scenario/analytics/sync-mongodb-atlas-azure-synapse-analytics.yml
       - name: Relationship mesh solution on Azure
         href: example-scenario/analytics/relationship-mesh-solution-azure.yml
       - name: Secure a data lakehouse
@@ -1249,6 +1253,8 @@ items:
           href: guide/hpc/hpc-avl-fire-m.yml
         - name: Barracuda Virtual Reactor
           href: guide/hpc/barracuda-virtual-reactor.yml
+        - name: CP2K
+          href: guide/hpc/cp2k.yml
         - name: Engys deployments
           items:
           - name: Engys ELEMENTS
@@ -1263,10 +1269,16 @@ items:
           href: guide/hpc/hpc-lammps.yml  
         - name: Luxion KeyShot
           href: guide/hpc/luxion-keyshot.yml
+        - name: M-Star  
+          href: guide/hpc/m-star.yml
+        - name: NAMD
+          href: guide/hpc/hpc-namd.yml  
         - name: OpenFOAM
           href: guide/hpc/openfoam.yml
         - name: OpenRadioss
           href: guide/hpc/openradioss.yml
+        - name: Quantum ESPRESSO
+          href: guide/hpc/quantum-espresso.yml
         - name: Remcom XFdtd
           href: guide/hpc/remcom-xfdtd.yml
         - name: Samadii deployments
@@ -1369,6 +1381,8 @@ items:
         href: reference-architectures/ibm/deploy-ibm-sterling-oms.yml
       - name: Digital image modeling
         href: example-scenario/infrastructure/image-modeling.yml
+      - name: Host FSI workloads using Azure Batch
+        href: example-scenario/batch/fsi-workloads-using-batch.yml        
       - name: HPC cluster deployed in the cloud
         href: solution-ideas/articles/hpc-cluster.yml
       - name: Linux virtual desktops with Citrix
@@ -2616,6 +2630,9 @@ items:
         - name: Mainframe application migration
           href: /azure/cloud-adoption-framework/infrastructure/mainframe-migration/application-strategies
           maintainContext: true
+        - name: Mainframe workload migration proof of concept
+          href: mainframe/mainframe-proof-of-concept.yml
+          maintainContext: true
       - name: Mainframe rehosting
         items:
         - name: Mainframe rehosting on Azure VMs
@@ -2684,7 +2701,7 @@ items:
           href: example-scenario/mainframe/imsql-rehost-ims.yml
         - name: Rehost mainframe with NTT DATA UniKix
           href: example-scenario/mainframe/rehost-mainframe-ntt-data-unikix.yml
-        - name: Unisys CPF rehost using virtualization
+        - name: Unisys ClearPath MCP virtualization on Azure
           href: example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml
         - name: Unisys Dorado migration
           href: example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml
@@ -4240,6 +4257,8 @@ items:
         href: solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql.yml
       - name: Host a Murex MX.3 workload on Azure
         href: example-scenario/finance/murex-mx3-azure.yml
+      - name: Host FSI workloads using Azure Batch
+        href: example-scenario/batch/fsi-workloads-using-batch.yml
       - name: Location-based conditional access control
         href: example-scenario/financial/location-based-access.yml
       - name: Modernize mainframe & midrange data
@@ -5034,6 +5053,8 @@ items:
         href: example-scenario/ai/deploy-real-time-machine-learning-model-application-ui.yml
       - name: Run CFD simulations
         href: example-scenario/infrastructure/hpc-cfd.yml
+      - name: Software-defined vehicle DevOps toolchain
+        href: industries/automotive/software-defined-vehicle-reference-architecture.yml
     - name: Datasets
       items:
       - name: NYC Taxi
@@ -5259,30 +5280,10 @@ items:
           href: /azure/architecture/browse/?terms=game
         - name: AI in games
           items:
-          - name: Content moderation
-            href: /gaming/azure/reference-architectures/cognitive-content-moderation
-            maintainContext: true
-          - name: Customer service bot for gaming
-            href: /gaming/azure/reference-architectures/cognitive-css-bot
-            maintainContext: true
           - name: Image classification
             href: ai-ml/architecture/intelligent-apps-image-processing.yml
           - name: Speech to text for gaming
             href: /gaming/azure/reference-architectures/cognitive-speech-to-text
-            maintainContext: true
-          - name: Text to speech for gaming
-            href: /gaming/azure/reference-architectures/cognitive-text-to-speech
-            maintainContext: true
-          - name: Text translation for gaming
-            href: /gaming/azure/reference-architectures/cognitive-text-translation
-            maintainContext: true
-        - name: Analytics in games
-          items:
-          - name: In-editor debugging telemetry
-            href: /gaming/azure/reference-architectures/analytics-in-editor-debugging
-            maintainContext: true
-          - name: Non-real-time dashboard
-            href: /gaming/azure/reference-architectures/analytics-non-real-time-dashboard
             maintainContext: true
         - name: Databases for gaming
           items:
@@ -5299,66 +5300,12 @@ items:
           - name: Unreal Pixel Streaming at scale
             href: /gaming/azure/reference-architectures/unreal-pixel-streaming-at-scale
             maintainContext: true
-        - name: Leaderboards
-          items:
-          - name: Leaderboard basics
-            href: /gaming/azure/reference-architectures/leaderboard
-            maintainContext: true
-          - name: Non-relational leaderboard
-            href: /gaming/azure/reference-architectures/leaderboard-non-relational
-            maintainContext: true
-          - name: Relational leaderboard
-            href: /gaming/azure/reference-architectures/leaderboard-relational
-            maintainContext: true
-        - name: Matchmaking
-          items:
-          - name: Multiplayer matchmaker
-            href: /gaming/azure/reference-architectures/multiplayer-matchmaker
-            maintainContext: true
-          - name: Serverless matchmaker
-            href: /gaming/azure/reference-architectures/multiplayer-matchmaker-serverless
-            maintainContext: true
         - name: Rendering
           items:
           - name: 3D video rendering
             href: example-scenario/infrastructure/video-rendering.yml
           - name: Digital image-based modeling
             href: example-scenario/infrastructure/image-modeling.yml
-        - name: Scalable gaming servers
-          items:
-          - name: Multiplayer backend architectures
-            href: /gaming/azure/reference-architectures/multiplayer
-            maintainContext: true
-          - name: Real-time multiplayer
-            items:
-            - name: Azure Batch
-              href: /gaming/azure/reference-architectures/multiplayer-synchronous-batch
-              maintainContext: true
-            - name: Azure Container Instances (ACI)
-              href: /gaming/azure/reference-architectures/multiplayer-synchronous-aci
-              maintainContext: true
-            - name: Azure Kubernetes Services (AKS)
-              href: /gaming/azure/reference-architectures/multiplayer-synchronous-aks
-              maintainContext: true
-            - name: Custom server scaling
-              href: /gaming/azure/reference-architectures/multiplayer-custom-server-scaling
-              maintainContext: true
-          - name: Turn-based multiplayer
-            items:
-            - name: Asynchronous multiplayer basics
-              href: /gaming/azure/reference-architectures/multiplayer-asynchronous
-              maintainContext: true
-            - name: Azure Functions (serverless)
-              href: /gaming/azure/reference-architectures/multiplayer-asynchronous-serverless
-              maintainContext: true
-        - name: Server hosting
-          items:
-          - name: Basic game server hosting
-            href: /gaming/azure/reference-architectures/multiplayer-basic-game-server-hosting
-            maintainContext: true
-          - name: LAMP architectures for gaming
-            href: /gaming/azure/reference-architectures/general-purpose-lamp
-            maintainContext: true
       - name: Compliance solutions
         items:
         - name: GDPR (EU)
