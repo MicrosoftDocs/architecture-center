@@ -232,9 +232,7 @@ The [VM insights](/azure/azure-monitor/vm/vminsights-overview) agent collects da
 
 A custom storage account can be used for greater control over access permissions and log retention. 
 
-The [Azure Monitor Agent (AMA)](/azure/azure-monitor/agents/agents-overview) deployed to VMs collects monitoring data from the guest OS, with OS-specific [Data Collection Rules (DCR)](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent) applied to each VM. The DCRs collect performance counters, OS logs, change tracking, dependency tracking, and web server HTTP logs. As the scale set grows, newly allocated VMs are configured with the AMA settings enforced by a built-in Azure Policy assignment.
-
-The [Azure Monitor Agent (AMA)](/azure/azure-monitor/agents/agents-overview) is deployed to VMs to collect monitoring data from the guest operating system. AMA supports [Data Collection Rules (DCR)](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent), which enables targeted and granular data collection for a machine or subset(s) of machines. DCR allows filtering rules and data transformations to reduce the overall data volume being uploaded, thus lowering ingestion and storage costs significantly.
+The [Azure Monitor Agent (AMA)](/azure/azure-monitor/agents/agents-overview) deployed to VMs collects monitoring data from the guest OS, with OS-specific [Data Collection Rules (DCR)](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent) applied to each VM. The DCRs collect performance counters, OS logs, change tracking, dependency tracking, and web server HTTP logs. DCR allows filtering rules and data transformations to reduce the overall data volume being uploaded, thus lowering ingestion and storage costs significantly. As the scale set grows, newly allocated VMs are configured with the AMA settings enforced by a built-in Azure Policy assignment.
 
 
 ##### Networking
@@ -261,19 +259,29 @@ The [Application Health extension](/azure/virtual-machine-scale-sets/virtual-mac
 
 ## Infrastructure update management
 
-VMs need to be updated and patched regularly so that they don't weaken the security posture of the workload. Automatic and periodic VM assessments are needed for early discovery and application of patches. 
+VMs need to be updated and patched regularly so that they don't weaken the security posture of the workload. Automatic and periodic VM assessments are recommended for early discovery and application of patches. 
 
-VMs provide the option of automatic VM guest patching. When this service is enabled, VMs are evaluated periodically and available patches are classified. It's recommended that Assessment Mode is enabled to allow daily evaluation for pending patches. On-demand assessment can be done, however, that doesn't trigger application of patches. For governance, consider the ‘Require automatic OS image patching on Virtual Machine Scale Sets’ Azure Policy.
+Azure VMs provide the option of automatic VM guest patching. When this service is enabled, VMs are evaluated periodically and available patches are classified. It's recommended that Assessment Mode is enabled to allow daily evaluation for pending patches. On-demand assessment can be done, however, that doesn't trigger application of patches. If Assessment Mode isn't enabled, have manual ways of detecting pending updates. 
 
-Only the patches that are classified as _Critical_ or _Security_, are applied automatically within 30 days of release across all Azure regions. Define custom update management processes that apply other patches. 
+For governance, consider the [Require automatic OS image patching on Virtual Machine Scale Sets](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F465f0161-0087-490a-9ad9-ad6217f4f43a) Azure Policy.
 
-Automatic patching can put a burden on the system and can be disruptive because VMs use resources and may reboot during updates. Over-provisioning is recommended for load management. Deploy VMs in different Availability Zones to avoid concurrent updates and maintain at least two instances per zone for high availability. VMs in the same region might receive different patches, which should be reconciled over time. Use private repositories for patch sources. Health checks are included as part of automatic VM guest patching. These checks verify successful patch application and detect issues. 
+Only the patches that are classified as _Critical_ or _Security_, are applied automatically across all Azure regions. Define custom update management processes that apply other patches. 
+
+Automatic patching can put a burden on the system and can be disruptive because VMs use resources and may reboot during updates. Over-provisioning is recommended for load management. Deploy VMs in different Availability Zones to avoid concurrent updates and maintain at least two instances per zone for high availability. VMs in the same region might receive different patches, which should be reconciled over time. 
+
+Be aware of the tradeoff on cost associated with overprovisioning. 
+
+Health checks are included as part of automatic VM guest patching. These checks verify successful patch application and detect issues. 
+
+If there are custom processes for applying patches, use private repositories for patch sources. This gives you better control in testing the patches to make sure the update doesn't negatively impact performance or security. 
 
 Retire VM images before they reach their End-of-life (EOL) to reduce surface area.
 
 For more information, see [Automatic VM guest patching for Azure VMs](/azure/virtual-machines/automatic-vm-guest-patching).
 
-// TODO: OS patching. 
+When doing OS upgrades, have a golden image that's tested. Consider using Azure Compute Gallery for publishing those images. This allows for better control and efficiency in managing updates. Have a process in place that automatically installs the image when needed. 
+
+Your automation process should account for overprovision with additional capacity. 20% overprovisioning is recommended. 
 
 ## Reliability 
 
@@ -304,7 +312,7 @@ Every architecture is susceptible to failures. The exercise of failure mode anal
 | Azure Storage | Regional outage | Very low | Full workload outage as this is being deployed to a single region. Recovery time objectives (RTOs) are lower in the front-end but while higher in backend where managed disks are needed. Recovery point objectives (RPOs) to be determined during reliability testing. | Full |
 | Azure Storage | Availability zone outage | Low | No effect. The workload is deployed into three different zones overprovisioned to support a full zone outage. | None |
 | Azure Virtual Maching Scale Sets | Service outage | Low | Potential workload outage in case of unhealthy VM instances requires autorepair to kick off. Dependent on Microsoft to remediate. | Potential outage |
-| Azure Virtual Maching Scale Sets | Availability zone outage | Low | No effect. Scale sets have been deployed as zone redundant. | None |
+| Azure Virtual Machine Scale Sets | Availability zone outage | Low | No effect. Scale sets have been deployed as zone redundant. | None |
 
 > Refer to Well-Architected Framework: [RE:03 - Recommendations for performing failure mode analysis](/azure/well-architected/reliability/failure-mode-analysis).
 
@@ -485,9 +493,16 @@ If the main cost driver is the number of instances, it may be more cost-effectiv
 - **Software licensing**. Larger VMs can handle more workload, potentially reducing the number of software licenses required.
 - **Maintenance time**: Managing fewer, larger VMs can reduce operational costs.
 - **Load balancing**: Fewer VMs can result in lower costs for load balancing. For example, in this architecture there are multiple layers of load balancing, such as an Application Gateway at the front and an internal load balancer in the middle. Load balancing costs would increase if higher number of instances need to be managed.
-- **Storage**. If there is stateful applications, more instances need more attached managed disks, increasing cost of storage.
+- **Storage**. If there are stateful applications, more instances need more attached managed disks, increasing cost of storage.
 
 > Refer to Well-Architected Framework: [CO:12 - Recommendations for optimizing scaling costs](/azure/well-architected/cost-optimization/optimize-scaling-costs).
+
+##### Operational costs
+
+Automatic VM guest patching reduces the overhead of manual patching and the associated maintenance costs. Not only does this make the system more secure but also optimizes resource allocation, contributing to overall cost efficiency.
+
+> Refer to Well-Architected Framework: [CO:13 - Recommendations for optimizing personnel time](/azure/well-architected/cost-optimization/optimize-scaling-costs).
+
 
 ## Next steps
 

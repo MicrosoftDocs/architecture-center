@@ -181,6 +181,8 @@ For VM-based architecture, there are several test tools that can help determinin
 
 ## Patch compliance reporting
 
+Organizations with more rigorous update management policies should consider implementing a fully manual VM Guest Patching model or a hybrid approach as they see fit.
+
 TBD
 
 - Automation Accounts
