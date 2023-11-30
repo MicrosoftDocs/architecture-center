@@ -77,7 +77,7 @@ If you use the unique local address range, then there is a chance that your IP a
 > [!NOTE]
 > You can read more about this range assignment in the [Unique Local IPv6 Unicast Addresses](https://www.rfc-editor.org/rfc/rfc4193.html) memo.
 
-### Understanding IPs assigned in Azure
+### Understand IPs addresses in Azure
 
 In your Azure environment, there are three types of IPv6 addresses that can be assigned to your interface.  
 
@@ -96,7 +96,7 @@ Lastly are link-local addresses.  This address is used to communicate within the
 > [!TIP]
 > For more information on other specialty address blocks, see [IANA IPv6 Special-Purpose Address Registry](https://www.iana.org/assignments/iana-ipv6-special-registry/iana-ipv6-special-registry.xhtml)
 
-## Planning your IPv6 Addresses for Azure
+## Plan IPv6 address transition in Azure
 
 > [!IMPORTANT]
 > Your plan for assigning IPv6 addresses to your Azure networks should be aligned with your organization's over all IPv6 addressing plan.  Your organization should already have a plan for on-premises IPv6 use, so that you can allocate space between different locations without the overlapping.  If you do not have a plan, you should define one prior to starting implementation in Azure.
@@ -113,13 +113,9 @@ Now that you understand some of the core concepts and have dedicated an IP addre
 
 ### Understand IPv6 subnet sizing in Azure
 
-One significant difference between IPv6 networks and IPv4 networks in Azure is the minimum size of subnets.  IPv6 subnets in Azure have a minimum size of /64.  Each subnet contains 18,446,744,073,709,551,616 hosts, minus the hosts used for Azure management.  IPv6 subnets reserve the first four IP addresses for management, like IPv4 networks.
+One significant difference between IPv6 networks and IPv4 networks in Azure is the minimum size of subnets. IPv6 subnets in Azure have a minimum size of /64. Each subnet contains 18,446,744,073,709,551,616 hosts, minus the hosts used for Azure management. IPv6 subnets reserve the first four IP addresses for management, like IPv4 networks. The reason for the IPv6 minimum subnet size is to maintain compatibility with network appliances outside of Azure. If the subnets were smaller, routing issues could occur. 
 
-The reason for this minimum size is to maintain compatibility with network appliances outside of Azure; if the subnets were smaller, routing issues could occur.
-
-This subnet size also allows organizations to plan their network conceptually, and not need to worry about resizing subnets due to exhaustion.
-
-You can continue to use your existing subnet architecture and assign a /64 address block to each as part of your IPv6 transition.
+This subnet size also allows organizations to plan their network conceptually. You don't need to worry about resizing subnets due to exhaustion. You can continue to use your existing subnet architecture and assign a /64 address block to each as part of your IPv6 transition.
 
 ### Plan IP address space for Azure regions
 
