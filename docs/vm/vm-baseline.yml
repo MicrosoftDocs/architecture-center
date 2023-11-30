@@ -1,0 +1,29 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure virtual machine baseline architecture
+  titleSuffix: Azure Architecture Center
+  description: Demonstrates how to set up an environment that's configured to run a workload on Azure virtual machines
+  author: BryanLa
+  ms.author: prwilk
+  ms.date: 04/01/2022
+  ms.topic: reference-architecture
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+azureCategories:
+    - compute
+    - migration
+    - networking
+products:
+  - azure-application-gateway
+  - azure-bastion
+  - azure-key-vault
+  - azure-monitor
+  - azure-storage
+  - azure-virtual-machines
+  - azure-virtual-network
+  - azure-vm-scalesets
+name: Azure virtual machine baseline architecture
+summary: Demonstrates how to set up an environment that's configured to run a workload on Azure virtual machiness
+thumbnailUrl: media/vm-baseline-architecture.png
+content: |
+  [!include[](vm-baseline-content.md)]
