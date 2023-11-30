@@ -147,6 +147,14 @@ Each region’s hub needs globally unique CIDR block for its address space, to a
 
 This reuse can be helpful for organizations who have already deployed out many virtual networks in multiple regions, and are needing new IP space for new spoke networks.
 
+## Configure Azure service to support IPv6
+
+You can use the below table to find instructions for transitioning specific services to IPv6.
+
+| Service | Transition Instructions |
+|--|--|
+| Express Route Gateway | [Azure ExpressRoute: Add IPv6 support](/azure/expressroute/expressroute-howto-add-ipv6-portal) |
+
 ## Next steps
 
 - Continue your journey by [Transitioning Hub Networks to IPv6](ipv6-transition-hub.md)
