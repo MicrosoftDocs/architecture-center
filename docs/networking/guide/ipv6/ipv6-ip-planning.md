@@ -21,7 +21,9 @@ In general, the IP space that is utilized within your Azure networks should be a
 
 These instructions are meant to be used in addition to the overall guide in [Plan for IP Addressing](/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing).
 
-## IPv6 Address Space Concepts
+## Understand IPv6 in Azure
+
+"Understanding IPv6 in Azure refers to comprehending how to integrate and manage the vastly larger and more complex IPv6 address space within Azure. Transitioning to IPv6 in Azure is crucial due to the exhaustion of IPv4 addresses and the need for enhanced connectivity and security features offered by IPv6. This transition requires you to understand dual stacking, address space size, IP address allocation, and IP addresses in Azure.
 
 ### Understand dual stacking
 
