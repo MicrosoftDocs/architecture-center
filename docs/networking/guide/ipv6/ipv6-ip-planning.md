@@ -60,7 +60,7 @@ These concepts will be applied in the next sections.
 > [!NOTE]
 > These guidelines apply for IPv6, but not for IPv4 environments.  When planning your IP space for IPv4 there are different guidelines to use.  See [Plan for IP Addressing](/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing) for general guidelines.
 
-### Understand IPv6 address scopes
+### Understand IPv6 address space scopes
 
 Many organizations have acquired a large volume of IPv6 addresses to be used for private networking.  As you're building your Azure IPv6 address plan, you should work with your organization’s IP address administrators to identify if there's already IP space available, and how you can use it in planning Azure.
 
@@ -147,10 +147,12 @@ Planning IP address space for each virtual network involves assigning a specific
 
 Reusing IPv4 addresses means repurposing IPv4 addresses that you don't need in different virtual networks within your Azure environment. It enables you to maintain active services while transitioning, and effectively manage your IP space during the transition to IPv6.
 
+Because the number of IP addresses
+
 As you transition to IPv6, you can reuse your existing IPv4 address space across different spoke networks. This gives you a larger effective IPv4 space.
 
-- *Ensure unique CIDR blocks in hubs*: Each region's hub should have a globally unique CIDR block for its address space. This allows the hubs to be peered using global peering or to connect to each other over other connections. Each spoke can use the same ranges as long as IP addresses aren't reused in the same hub-spoke branch, and traffic between regions uses IPv6 addresses. This avoids any effective overlap.
-- *Consider IP space for new networks*: If you have already deployed many virtual networks in multiple regions and need new IP space for new spoke networks, reusing IPv4 addresses can be beneficial.
+- _Ensure unique CIDR blocks in hubs_: Each region's hub should have a globally unique CIDR block for its address space. This allows the hubs to be peered using global peering or to connect to each other over other connections. Each spoke can use the same ranges as long as IP addresses aren't reused in the same hub-spoke branch, and traffic between regions uses IPv6 addresses. This avoids any effective overlap.
+- _Consider IP space for new networks_: If you have already deployed many virtual networks in multiple regions and need new IP space for new spoke networks, reusing IPv4 addresses can be beneficial.
 
 ## Configure Azure services to use IPv6
 
