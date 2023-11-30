@@ -27,7 +27,7 @@ These instructions are meant to be used in addition to the overall guide in [Pla
 
 Dual stacking is a network configuration method that allows you to process both IPv4 and IPv6 traffic simultaneously. It's also known as having a dual-stack network. Azure Virtual Networks supports dual stacking virtual networks and subnets. You can assign a new IPv6 address block to a subnet with an existing IPv4 block. Services that have been transitioned to use IPv6 can continue to coexist with services that aren't yet transitioned.
 
-### Planning for the Size of IPv6
+### Understand IPv6 address space size
 
 One of IPv6’s most important features is its nearly unlimited IP address space.  There are several practices, like allocating the minimum space needed for network segments, that simply don’t apply.
 
