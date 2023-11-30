@@ -15,7 +15,7 @@ categories:
 
 # Overview of Transitioning to IPv6
 
-This guide outlines a strategy for transitioning a heritage IPv4 network environment in Azure to one that takes advantage of IPv6 addresses.  Many organizations are adopting IPv6 to be compliant with new regulations and mandates and to allow their business to grow unhindered by a lack of IPv4 addresses. By using IPv6, organizations can take advantage of built-in security features such as IPSec and flow labeling, improve performance through the reduction of network address translation, and simplify network configurations as well as the larger volume of IP addresses.
+This guide outlines strategies for transitioning a IPv4 network environment in Azure to IPv6. Transitioning from IPv4 to IPv6 is a necessary evolution in internet technology. It involves updating virtual network infrastructures to support the IPv6 protocol. It's a move that is essential due to the near exhaustion of available IPv4 addresses. The IPv6 protocol not only provides a significantly larger pool of internet addresses to accommodate future growth but also offers enhanced security features (native IPSec), flow labeling, and simplified network configurations.
 
 As organizations utilizing Azure already have IPv4 deployed, this guide gives instructions for transitioning resources to use IPv6 without disrupting the existing resources.
 
