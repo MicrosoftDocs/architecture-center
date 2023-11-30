@@ -111,7 +111,7 @@ Now that you understand some of the core concepts and have dedicated an IP addre
 | Virtual Network | /56 | 4096 per region |
 | Subnet | /64 | 256 per virtual network |
 
-### Subnet Sizing in Azure
+### Understand IPv6 subnet sizing in Azure
 
 One significant difference between IPv6 networks and IPv4 networks in Azure is the minimum size of subnets.  IPv6 subnets in Azure have a minimum size of /64.  Each subnet contains 18,446,744,073,709,551,616 hosts, minus the hosts used for Azure management.  IPv6 subnets reserve the first four IP addresses for management, like IPv4 networks.
 
