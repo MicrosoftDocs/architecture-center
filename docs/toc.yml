@@ -3926,10 +3926,10 @@ items:
         href: example-scenario/wvd/multi-forest-azure-managed.yml
   - name: VM
     items: 
-    - name: IaaS baseline architecture on Azure
-      href: vm/iaas-baseline.yml
-    - name: IaaS baseline in Azure landing zones
-      href: vm/iaas-baseline-landing-zone.yml
+    - name: Baseline architecture
+      href: vm/vm-baseline.yml
+    - name: Baseline in Azure landing zones
+      href: vm/vm-baseline-landing-zone.yml
   - name: Web applications
     href: web-apps/index.md
 - name: Industry solutions with Azure
