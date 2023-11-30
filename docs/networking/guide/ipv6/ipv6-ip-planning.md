@@ -13,7 +13,7 @@ categories:
   - networking
 ---
 
-# IP Space Planning for IPv6 Networks
+# IP space planning for IPv6 networks
 
 Before you add IPv6 to your existing environment, ensure you're planning for your IPv6 network space.  This section gives an overview of how to plan, and of conceptual changes for IP address assignment for IPv6 networks.  This guide focuses on private network planning.  For guidance on planning your public IP address prefixes, see [Public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix).
 
@@ -23,11 +23,9 @@ These instructions are meant to be used in addition to the overall guide in [Pla
 
 ## IPv6 Address Space Concepts
 
-### Shared IP Space
+### Understand dual stacking
 
-Azure Virtual Networks support the use of both IPv4 and IPv6 IP addresses in the same virtual networks and subnets.  This configuration is often referred to having a dual-stack network, or dual-stacking.  Each subnet can be assigned an IPv6 address block and its its existing IPv4 block.  Services that have been transitioned to use IPv6 can continue to coexist with services that aren't yet transitioned.
-
-This guide builds on planning your IPv6 addresses to networks that already are assigned IPv4 addresses.
+Dual stacking is a network configuration method that allows you to process both IPv4 and IPv6 traffic simultaneously. It's also known as having a dual-stack network. Azure Virtual Networks supports dual stacking virtual networks and subnets. You can assign a new IPv6 address block to a subnet with an existing IPv4 block. Services that have been transitioned to use IPv6 can continue to coexist with services that aren't yet transitioned.
 
 ### Planning for the Size of IPv6
 
