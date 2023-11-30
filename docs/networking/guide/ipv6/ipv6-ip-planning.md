@@ -147,11 +147,10 @@ Planning IP address space for each virtual network involves assigning a specific
 
 Reusing IPv4 addresses means repurposing IPv4 addresses that you don't need in different virtual networks within your Azure environment. It enables you to maintain active services while transitioning, and effectively manage your IP space during the transition to IPv6.
 
-Transitioning to IPv6 opens up new options for using your existing IPv4 address space.  As services begin to connect over the new IPv6 addresses, it doesn’t matter what the IPv4 addresses of the virtual network that the resources are in.  As a result, you can reuse IPv4 addresses in different spoke networks, giving you a larger effective IPv4 space.
+As you transition to IPv6, you can reuse your existing IPv4 address space across different spoke networks. This gives you a larger effective IPv4 space.
 
-Each region’s hub needs globally unique CIDR block for its address space, to allow the hubs to be peered using global peering or to connect to each other over other connections.  However, each spoke can then use the same ranges.  So long as IP addresses aren't reused in the same hub-spoke branch, and traffic between regions uses IPv6 addresses, there's no effective overlap.
-
-This reuse can be helpful for organizations who have already deployed out many virtual networks in multiple regions, and are needing new IP space for new spoke networks.
+- *Ensure unique CIDR blocks in hubs*: Each region's hub should have a globally unique CIDR block for its address space. This allows the hubs to be peered using global peering or to connect to each other over other connections. Each spoke can use the same ranges as long as IP addresses aren't reused in the same hub-spoke branch, and traffic between regions uses IPv6 addresses. This avoids any effective overlap.
+- *Consider IP space for new networks*: If you have already deployed many virtual networks in multiple regions and need new IP space for new spoke networks, reusing IPv4 addresses can be beneficial.
 
 ## Configure Azure services to use IPv6
 
