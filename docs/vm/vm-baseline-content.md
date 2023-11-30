@@ -102,7 +102,7 @@ Fault domains configuration is needed to limit the affect of physical hardware f
 It's recommended that you offload fault domain allocation to Azure for maximum instance spreading, enhancing resilience and availability.
 
 ## Disks
-To run the OS and application components, **Storage Area Network (SAN) volumes** are required. In Azure, these volumes or disks are attached to the VM. Use **Ephemeral OS disks for the OS** and **managed disks for data storage**.
+To run the OS and application components, storage disks are attached to the VM. Use **Ephemeral OS disks for the OS** and **managed disks for data storage**.
 
 Azure provides a range of options in terms of performance, tunability, and cost. Start with Premium SSD for most production workloads. The choice is linked to the VM SKU. SKUs that support Premium SSD contain 's' in the resource name, for example 'Dsv4' but not 'Dv4.'
 
