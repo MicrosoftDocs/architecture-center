@@ -1,5 +1,5 @@
 ---
-title: IP Space Planning for IPv6 Networks
+title: Conceptual planning for IPv6 networking
 description: Plan your IPv6 IP space in Azure with specific guidance.
 author: bsteph
 ms.author: bstephenson
@@ -9,11 +9,26 @@ ms.service: architecture-center
 ms.subservice: azure-guide
 products:
   - azure-virtual-network
+  - azure-firewall
+  - azure-expressroute
+  - azure-dns
 categories:
   - networking
 ---
 
-# IP space planning for IPv6 networks
+# Conceptual planning for IPv6 networking
+
+This guide outlines strategies for transitioning a IPv4 network environment in Azure to IPv6. Transitioning from IPv4 to IPv6 is a necessary evolution in internet technology. It involves updating virtual network infrastructures to support the IPv6 protocol. It's a move that is essential due to the near exhaustion of available IPv4 addresses. The IPv6 protocol not only provides a significantly larger pool of internet addresses to accommodate future growth but also offers enhanced security features (native IPSec), flow labeling, and simplified network configurations.
+
+This guide covers the following elements:
+
+- [IP Space Planning for IPv6 Networks](ipv6-ip-planning.md) in Azure, to guide you in planning your address blocks for your environment.
+- [Transitioning Hub Networks to IPv6](ipv6-transition-hub.md), to guide you on updating your hub network to using IPv6 to act as a connection point between workload spokes, hybrid connectivity, and the hosting of shared network appliances.
+
+ > [!NOTE]
+> this needs to be changed for the merger
+
+To understand more about the capabilities of IPv6 virtual networks, see [IPv6 for Azure Virtual Network](/azure/virtual-network/ip-services/ipv6-overview).
 
 Before you add IPv6 to your existing environment, ensure you're planning for your IPv6 network space.  This section gives an overview of how to plan, and of conceptual changes for IP address assignment for IPv6 networks.  This guide focuses on private network planning.  For guidance on planning your public IP address prefixes, see [Public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix).
 
@@ -37,8 +52,8 @@ For context:
 
 | IP Version | Number of IP Addresses Contained |
 |---|---|
-| IPv4 | 17,891,328 |
-| IPv6 | 2,658,455,991,569,830,000,000,000,000,000,000,000 |
+| IPv4 | 4,294,967,296 |
+| IPv6 | 340,282,366,920,938,463,463,374,607,431,768,211,456 |
 
 The increased size is such that it can be hard to fully appreciate.
 
@@ -147,15 +162,16 @@ Each region’s hub needs globally unique CIDR block for its address space, to a
 
 This reuse can be helpful for organizations who have already deployed out many virtual networks in multiple regions, and are needing new IP space for new spoke networks.
 
-## Configure Azure service to support IPv6
+## Configure Azure service to use IPv6
 
 You can use the below table to find instructions for transitioning specific services to IPv6.
 
 | Service | Transition Instructions |
 |--|--|
-| Express Route Gateway | [Azure ExpressRoute: Add IPv6 support](/azure/expressroute/expressroute-howto-add-ipv6-portal) |
+| ExpressRoute Gateway | ExpressRoute Gateways can be transitioned using [Azure ExpressRoute: Add IPv6 support](/azure/expressroute/expressroute-howto-add-ipv6-portal) |
+| Azure DNS Zones | New IPv6 records can be added with [Manage DNS records and record sets](/azure/dns/dns-operations-recordsets-portal#update-a-record) |
 
 ## Next steps
 
-- Continue your journey by [Transitioning Hub Networks to IPv6](ipv6-transition-hub.md)
+- Learn more about [IPv6 for Azure Virtual Network](/azure/virtual-network/ip-services/ipv6-overview)
 - Read more about more generally guidance on how to [Plan for IP Addressing](/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing)
