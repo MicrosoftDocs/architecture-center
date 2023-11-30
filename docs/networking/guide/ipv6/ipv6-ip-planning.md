@@ -22,21 +22,12 @@ This guide outlines strategies for transitioning a IPv4 network environment in A
 
 This guide covers the following elements:
 
-- [IP Space Planning for IPv6 Networks](ipv6-ip-planning.md) in Azure, to guide you in planning your address blocks for your environment.
-- [Transitioning Hub Networks to IPv6](ipv6-transition-hub.md), to guide you on updating your hub network to using IPv6 to act as a connection point between workload spokes, hybrid connectivity, and the hosting of shared network appliances.
-
- > [!NOTE]
-> this needs to be changed for the merger
+- [Planning for IPv6 in Azure](ipv6-ip-planning.md#planning-for-ipv6-in-azure), to guide you in understanding differences with IPv6 and a recommended address planning methodology.
+- [Configure Azure services to use IPv6](ipv6-ip-planning.md#configure-azure-services-to-use-ipv6), to guide you on updating services to use IPv6.
 
 To understand more about the capabilities of IPv6 virtual networks, see [IPv6 for Azure Virtual Network](/azure/virtual-network/ip-services/ipv6-overview).
 
-Before you add IPv6 to your existing environment, ensure you're planning for your IPv6 network space.  This section gives an overview of how to plan, and of conceptual changes for IP address assignment for IPv6 networks.  This guide focuses on private network planning.  For guidance on planning your public IP address prefixes, see [Public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix).
-
-In general, the IP space that is utilized within your Azure networks should be aligned with the overall IPv6 addressing plan for your company.  You should already have a plan for on-premises IPv6 use, so that you can allocate space between different locations without the overlapping.
-
-These instructions are meant to be used in addition to the overall guide in [Plan for IP Addressing](/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing).
-
-## Understand IPv6 in Azure
+## Planning for IPv6 in Azure
 
 "Understanding IPv6 in Azure refers to comprehending how to integrate and manage the vastly larger and more complex IPv6 address space within Azure. Transitioning to IPv6 in Azure is crucial due to the exhaustion of IPv4 addresses and the need for enhanced connectivity and security features offered by IPv6. This transition requires you to understand dual stacking, address space size, IP address allocation, and IP addresses in Azure.
 
@@ -44,7 +35,7 @@ These instructions are meant to be used in addition to the overall guide in [Pla
 
 Dual stacking is a network configuration method that allows you to process both IPv4 and IPv6 traffic simultaneously. It's also known as having a dual-stack network. Azure Virtual Networks supports dual stacking virtual networks and subnets. You can assign a new IPv6 address block to a subnet with an existing IPv4 block. Services that have been transitioned to use IPv6 can continue to coexist with services that aren't yet transitioned.
 
-### Understand IPv6 address space size
+### Understand IPv6 address space
 
 One of IPv6’s most important features is its nearly unlimited IP address space.  There are several practices, like allocating the minimum space needed for network segments, that simply don’t apply.
 
@@ -57,6 +48,8 @@ For context:
 
 The increased size is such that it can be hard to fully appreciate.
 
+One exercise is to understand the number of network segments that can fit in to your larger network space.  In order to determine how many network spaces of a certain size can fit into a address block, you can use the formula of 2^(x-y), where X is the smaller address block’s size and Y is the larger blocks size.  For example, to determine how many /64 subnets can fit in to a /44 address block, we can use 2^(64-44), which is 1,048,576 subnets.
+
 As a result, when planning IP address allocation in IPv6, you should use the following guidelines:
 
 - **Design for over-allocation.**  You could assign each private network segment a scope equivalent to the whole range of the private IPv4 space, and be able to have exponentially more network segments than there are private IPv4 addresses.  In short, trying to optimize IP space allocation at the cost of other functions is an antipattern.
@@ -67,7 +60,7 @@ These concepts will be applied in the next sections.
 > [!NOTE]
 > These guidelines apply for IPv6, but not for IPv4 environments.  When planning your IP space for IPv4 there are different guidelines to use.  See [Plan for IP Addressing](/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing) for general guidelines.
 
-### Deciding Your IPv6 Address Scope
+### Understand IPv6 address scopes
 
 Many organizations have acquired a large volume of IPv6 addresses to be used for private networking.  As you're building your Azure IPv6 address plan, you should work with your organization’s IP address administrators to identify if there's already IP space available, and how you can use it in planning Azure.
 
@@ -75,7 +68,14 @@ If you do not have IPv6 space secured for your organization, you have two option
 
 The first option is to contact a registrar to request a continuous block general allocation or global addresses.  These IPv6 addresses can then be used to assign subnets, virtual networks, and regional supernets in Azure.  To have sufficient space for growth in multiple regions, you should plan to allocate a /36 space for Azure.  You can use global addresses both for private networks and for public endpoints, or you can allocate different ranges.
 
-The second option is to plan to use IPs in the unique local address range.  This address range functions like the IPv4 private address range, such as the `10.0.0.0/8` address space. IPv6 reserves the `fc00::/7` address blocks for unique local addresses.  These addresses aren't globally reachable, even though they are a part of the IPv6 Global Unicast Address Range.  You can read more about this range assignment in the [Unique Local IPv6 Unicast Addresses](https://www.rfc-editor.org/rfc/rfc4193.html) memo.
+Having your IPv6 address space using unique global addresses means that you know your IP addresses are unique.  If you connect your Azure network space to other network locations, you will not have to worry about IP address conflicts.
+
+The second option is to plan to use IPs in the unique local address range.  This address range functions like the IPv4 private address range, such as the `10.0.0.0/8` address space. IPv6 reserves the `fc00::/7` address blocks for unique local addresses.  These addresses aren't globally reachable, even though they are a part of the IPv6 Global Unicast Address Range.
+
+If you use the unique local address range, then there is a chance that your IP addresses will overlap with another organization's.  If there is overlap, you can have challenges with integrating networks.
+
+> [!NOTE]
+> You can read more about this range assignment in the [Unique Local IPv6 Unicast Addresses](https://www.rfc-editor.org/rfc/rfc4193.html) memo.
 
 ### Understanding IPs assigned in Azure
 
@@ -98,6 +98,10 @@ Lastly are link-local addresses.  This address is used to communicate within the
 
 ## Planning your IPv6 Addresses for Azure
 
+> [!IMPORTANT]
+> Your plan for assigning IPv6 addresses to your Azure networks should be aligned with your organization's over all IPv6 addressing plan.  Your organization should already have a plan for on-premises IPv6 use, so that you can allocate space between different locations without the overlapping.  If you do not have a plan, you should define one prior to starting implementation in Azure.
+> See [Plan for IP Addressing](/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing) for more general guidance on planning on IP addressing practices.
+
 Now that you understand some of the core concepts and have dedicated an IP address space for use in Azure, you're ready to continue your planning in to Azure allocation.  As discussed earlier, you should have a /36 address range available to allocate to Azure.  This scope allows you to dedicate the following:
 
 | Scope | Size | Number of Instances |
@@ -117,19 +121,15 @@ This subnet size also allows organizations to plan their network conceptually, a
 
 You can continue to use your existing subnet architecture and assign a /64 address block to each as part of your IPv6 transition.
 
-### Azure Regional IP Space Planning
+### Azure regional IP space planning
 
-Like with IPv4, you can plan a supernet to be used for individual Azure regions. A supernet is a combination of several subnets so they share a single routing prefix. To assign and track supernets in Azure, you need to use an IP Address Management (IPAM) system.
+Organizations should dedicate planned IP space to their Azure regions.  Once this IP address space is allocated to the region, you will be able to easily deploy new networks and workloads by defining virtual networks and subnets from that IP space.
 
-Because IPv6 space is so large, you have more freedom in assigning ranges based off of semantic value.  You can associate numbers and segments to networking concepts, such as the environment (dev, prod, staging, etc) of a network, the business unit responsible, or other management concepts as needed.
+You should plan for a unique /44 IPv6 address block to be allocated to each Azure region.  This allocation will not be done against a resource in Azure.  Instead, you will dedicate this space in your organization's IP Address Management (IPAM) system.
 
-For the regions that you're deployed in, you should plan to assign an IP space for that region to ensure that you do not overlap.  Assigning distinct IP addresses allows you to have active/active services in different regions and making assigning address blocks to individual networks easy as you complete your transition.
+The unique assignment allows for communication between regions, and the use of active/active services.
 
-To start, you should plan to assign a /44 IPv6 address block for your region.  This scope provides space for the hub network and a substantial number of virtual networks of varying sizes.
-
-In addition, it provides a clear address block for the region.  A scope of `fd00:db8:dec0::/44` covers the ranges from `fd00:db8:deca:0000::` to `fd00:db8:decf:ffff::`, meaning that there's a clear break where assigned.
-
-To help visualize how this would work across multiple regions, refer to the following table:
+This assignment provides a clear address block for the region.  This table visualizes what the address blocks would look like for multiple regions:
 
 | Network Scope | CIDR Range| First IP | Last IP |
 | -- | -- | -- | -- |
@@ -137,12 +137,11 @@ To help visualize how this would work across multiple regions, refer to the foll
 | Azure Region 2 | `fd00:db8:ded0::/44` | fd00:db8:ded0:0000:0000:0000:0000:0000 | fd00:db8:dedf:ffff:ffff:ffff:ffff:ffff |
 | Azure Region 3 | `fd00:db8:def0::/44` | fd00:db8:def0:0000:0000:0000:0000:0000 | fd00:db8:deff:ffff:ffff:ffff:ffff:ffff |
 
-> [!NOTE]
-> In order to determine how many network spaces of a certain size can fit into a address block, you can use the formula of 2^(x-y), where X is the smaller address block’s size and Y is the larger blocks size.  For example, to determine how many /64 subnets can fit in to our /44 regional address allocation, we can use 2^(64-44), which is 1,048,576 subnets.
-
 ### Azure Virtual Network Space Planning
 
 Next you need to assign your regional address space to the virtual networks in Azure.
+
+Because IPv6 space is so large, you have more freedom in assigning ranges based off of semantic value.  You can associate numbers and segments to networking concepts, such as the environment (dev, prod, staging, or others) of a network, the business unit responsible, or other management concepts as needed.
 
 Just like planning for your region, you want to plan for a uniform size for your virtual networks.  The address space available, and a focus on ease of management, should drive your assignment.
 
@@ -162,7 +161,7 @@ Each region’s hub needs globally unique CIDR block for its address space, to a
 
 This reuse can be helpful for organizations who have already deployed out many virtual networks in multiple regions, and are needing new IP space for new spoke networks.
 
-## Configure Azure service to use IPv6
+## Configure Azure services to use IPv6
 
 You can use the below table to find instructions for transitioning specific services to IPv6.
 
