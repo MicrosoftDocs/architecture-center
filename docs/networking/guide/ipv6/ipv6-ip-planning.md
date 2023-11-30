@@ -102,7 +102,7 @@ You can continue to use your existing subnet architecture and assign a /64 addre
 
 ### Azure Regional IP Space Planning
 
-Like with IPv4, you can plan a supernet to be used for individual Azure regions.  This supernet does not have a technical representation in Azure; there's no supernet resource in Azure to assign resources to.  Instead, you're assigning and tracking it in your IP Address Management system.
+Like with IPv4, you can plan a supernet to be used for individual Azure regions. A supernet is a combination of several subnets so they share a single routing prefix. To assign and track supernets in Azure, you need to use an IP Address Management (IPAM) system.
 
 Because IPv6 space is so large, you have more freedom in assigning ranges based off of semantic value.  You can associate numbers and segments to networking concepts, such as the environment (dev, prod, staging, etc) of a network, the business unit responsible, or other management concepts as needed.
 
