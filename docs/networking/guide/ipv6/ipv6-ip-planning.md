@@ -121,15 +121,12 @@ This subnet size also allows organizations to plan their network conceptually, a
 
 You can continue to use your existing subnet architecture and assign a /64 address block to each as part of your IPv6 transition.
 
-### Azure regional IP space planning
+### Plan IP address space for Azure regions
 
 Organizations should dedicate planned IP space to their Azure regions.  Once this IP address space is allocated to the region, you will be able to easily deploy new networks and workloads by defining virtual networks and subnets from that IP space.
 
-You should plan for a unique /44 IPv6 address block to be allocated to each Azure region.  This allocation will not be done against a resource in Azure.  Instead, you will dedicate this space in your organization's IP Address Management (IPAM) system.
-
-The unique assignment allows for communication between regions, and the use of active/active services.
-
-This assignment provides a clear address block for the region.  This table visualizes what the address blocks would look like for multiple regions:
+- _Plan a Supernet for each region_: Like with IPv4, plan a supernet for individual Azure regions. This supernet does not have a technical representation in Azure; instead, you’re assigning and tracking it in your IP Address Management system.
+- _Use /44 Address Block_: Using a unique /44 IPv6 address block to be allocated to each Azure region.  This allocation will not be done against a resource in Azure.  Instead, you will dedicate this space in your organization's IP Address Management (IPAM) system.This assignment provides a clear address block for the region.  This table visualizes what the address blocks would look like for multiple regions:
 
 | Network Scope | CIDR Range| First IP | Last IP |
 | -- | -- | -- | -- |
@@ -137,21 +134,14 @@ This assignment provides a clear address block for the region.  This table visua
 | Azure Region 2 | `fd00:db8:ded0::/44` | fd00:db8:ded0:0000:0000:0000:0000:0000 | fd00:db8:dedf:ffff:ffff:ffff:ffff:ffff |
 | Azure Region 3 | `fd00:db8:def0::/44` | fd00:db8:def0:0000:0000:0000:0000:0000 | fd00:db8:deff:ffff:ffff:ffff:ffff:ffff |
 
-### Azure Virtual Network Space Planning
+### Plan IP address space for each virtual network
 
-Next you need to assign your regional address space to the virtual networks in Azure.
+Planning IP address space for each virtual network involves assigning a specific range of IP addresses to each virtual network within your regional address space in Azure. It ensures efficient utilization of the vast IPv6 address space, facilitates ease of management, and allows for streamlined processes such as using a /56 address block for each virtual network.
 
-Because IPv6 space is so large, you have more freedom in assigning ranges based off of semantic value.  You can associate numbers and segments to networking concepts, such as the environment (dev, prod, staging, or others) of a network, the business unit responsible, or other management concepts as needed.
-
-Just like planning for your region, you want to plan for a uniform size for your virtual networks.  The address space available, and a focus on ease of management, should drive your assignment.
-
-Using a /56 address block for each virtual network can streamline the process.  A scope of `fd00:db8:deca::/56` covers the ranges from `fd00:db8:deca:0000::` to `fd00:db8:decf:00ff::`.  It allows for the use of 4,096 virtual networks in your region, which is more than the number of peers supported by a single hub.
-
-This size allows for 256 subnets to be created in a single virtual network.
-
-As a result, your IP space can be visualized as:
-
-![Diagram of Subnets at /64 size, Vnets at /56, and Region at /44, to show the size and scope of these network structures](media\network-segments.png)
+- __Assign Regional Address Space_: Assign your regional address space to the virtual networks in Azure.
+- _Plan for Uniform Size_: Plan for a uniform size for your virtual networks. The address space available, and a focus on ease of management, should drive your assignment.
+- _Use /56 Address Block_: Using a /56 address block for each virtual network can streamline the process. It allows for the use of 4,096 virtual networks in your region, which is more than the number of peers supported by a single hub. This size allows for 256 subnets to be created in a single virtual network. As a result, your IP space can be visualized as:
+![Diagram of Subnets at /64 size, Vnets at /56, and Region at /44, to show the size and scope of these network structures](./media/network-segments.png)
 
 ### IPv4 Address Space Reuse Between Regions
 
