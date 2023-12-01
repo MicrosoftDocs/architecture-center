@@ -1,6 +1,12 @@
 This reference architecture extends the [**Virtual machine baseline architecture**](./vm-baseline.yml) to address common architectural changes and expectations when deployed into in Azure landing zones.
 
-In this use case, the organization expects the VM-based workload to utilize federated resources that are centrally managed by the platform team. These resources include networking for cross-premises connectivity, identity access management, and policies. It's assumed that the organization has adopted Azure landing zones to enforce consistent governance and cost-efficiency across multiple workloads. 
+In this use case, the organization expects the VM-based workload to utilize federated resources that are centrally managed by the platform team. These resources include networking for cross-premises connectivity, identity access management, and policies. It's assumed that the organization has adopted Azure landing zones to enforce consistent governance and cost-efficiency across multiple workloads. As a workload owner, you benefit by offloading management of shared resources to central teams and focus on workload development efforts. This article presents the workload team's perspective.
+
+> [!IMPORTANT]
+> **What is an Azure landing zone?**
+> An application landing zone is a Azure subscription in which the workload runs. It's connected to the organization's shared resources. Through that connection, it has access to basic infrastructure needed to run the workload, such as networking, identity access management, policies, and monitoring. The platform landing zones is a collection of various subscriptions, each with a specific function. For example, the Connectivity subscription provides centralized DNS resolution, on-premises connectivity, and network virtual appliances (NVAs) that's available for use by application teams. 
+>
+> We highly recommend that you understand the concept of [**Azure landing zones**](/azure/cloud-adoption-framework/ready/landing-zone/). 
 
 This architecture can be used for these scenarios:
 
@@ -11,9 +17,9 @@ This architecture can be used for these scenarios:
 
 To meet the organizational requirements, there are chanes in the **baseline architecture** and responsibilities of the workload team.
 
-|Architecture| Shared responsibility |Workload concerns|
+|Architecture| Design decisions |Well-Architected Framework approaches|
 |---|---|---|
-|&#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-team-owned-resources) <br> &#9642; [Federated resources](#platform-team-owned-resources)  |&#9642; [Subscription setup](#subscription-set-up-by-the-platform-team)<br> &#9642; [Requirements by the workload team](#workload-team) <br> &#9642; [Fulfillment by the platform team](#platform-team)| &#9642; [Operations](#os-patching) <br> &#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost Optimization](#cost-optimization)|
+|&#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-team-owned-resources) <br> &#9642; [Federated resources](#platform-team-owned-resources)  |&#9642; [Subscription setup](#subscription-set-up-by-the-platform-team)<br> &#9642; [Networking requirements by the workload team](#workload-requirements-and-fullfilment) <br> &#9642; [Networking changes from the baseline](#networking)| &#9642; [Operations](#os-patching) <br> &#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost Optimization](#cost-optimization)|
 
 > [!TIP]
 > ![GitHub logo](../_images/github.svg) The best practices described in this architecture are demonstrated by a [**reference implementation**](https://github.com/mspnp/vm-baseline-lz). 
@@ -26,7 +32,7 @@ To meet the organizational requirements, there are chanes in the **baseline arch
 
 ### Components
 
-All Azure landing zone architectures have dual-ownership between the platform team and the workload team. Application architect and DevOps teams need to have a strong understanding of this responsibility split in order to understand what's under their direct control, under their influence, and what is out of their influence or control.
+All Azure landing zone architectures have dual-ownership between the platform team and the workload team. Application architects and DevOps teams need to have a strong understanding of this responsibility split in order to understand what's under their direct control, under their influence, and what is out of their influence or control.
 
 #### Workload team-owned resources
 
@@ -63,16 +69,21 @@ The platform team owns and maintains these centralized resources. This architect
 
 In a landing zone context, **workload teams must provide their specific requirements to the platform team**. The primary shared responsibility between the two teams are in the areas of management group assignment and networking setup. 
 
-The platform team will assign the workload to an appropriate management group based on the workload's business criticality and technical requirements, such as whether it'll be exposed to the internet. The configuration of these management groups is determined by the organization and implemented by the platform team. 
+- **Platform team**
 
-The specific requirements, provided by the workload team, are used by the platform team to set up a subscription or a group of subscriptions for deployment. The workload team should include detailed information about the networking space so that the platform team can allocate necessary resources. While the workload team provides the requirements, the platform team is responsible for deciding the specific IP addresses to assign within the virtual network and the management group to which the subscription will be assigned.
+    The platform team will assign an appropriate management group based on the workload's business criticality and technical requirements, such as whether it'll be exposed to the internet. The configuration of these management groups is determined by the organization and implemented by the platform team. The team also is responsible for setting up a subscription or a group of subscriptions for workload deployment.
+
+- **Workload team**
+
+    Include detailed information about the networking space so that the platform team can allocate necessary resources. While you provide the requirements, the platform team is responsible for deciding the specific IP addresses to assign within the virtual network and the management group to which the subscription will be assigned.
+
+
+##### Workload requirements and fullfilment
+
+Here are some networking requirements for this architecture. Communicate such requirements to the platform team. Use these points as examples to understand the discussion and negotiation between the two teams for a similar architecture.
 
 > [!IMPORTANT] 
 > Azure landing zones recommend a subscription vending workstream for the platform team that involves a series of questions designed to capture key pieces of information from the workload team. These questions may vary from one organization to another, but the intent is to gather the requirements for implementing subsription(s). For more information, see [**Cloud Adoption Framework: Subscription vending**](/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending).
-
-##### Workload team
-
-Here are some networking requirements for this architecture. Use these points as examples for a similar architecture that must be communicated to the platform team. 
 
 - **Number of spoke virtual networks**. In this architecture only one dedicated spoke is required. The deployed resources don't need to span across multiple networks and are colocated within a single virtual network. 
 
@@ -108,16 +119,6 @@ Here are some networking requirements for this architecture. Use these points as
   > Azure Landing Zone uses various DINE policies. For example, policies that manage private endpoints at scale. This policy monitors private endpoint deployments and updates Azure DNS in the hub network, which is part of a platform-managed subscription. The workload team doesn’t have permission to modify it in the hub, and the platform team doesn’t monitor the workload teams’ deployments to update DNS automatically. DINE policies are used to provide this connection.
 
 - **Golden images for VMs**. Platform team might manage a standardized set of VM images, known as golden images, which are created for use across the organization. Prior to release, these images undergo a certification process by the workload teams to ensure they meet the necessary standards and requirements.
-
-##### Platform team
-
-- Patching?
-- Firewall rules?
-- Golden images?
-
-## Application considerations
-
-_TODO TBD_
 
 ## Networking
 
@@ -173,7 +174,7 @@ Avoid architecture patterns that relies on workload-owned public IPs for egress.
 
 Architectures that use private endpoints, need private DNS zones. The workload team must have a clear understanding of those requirements and management of private DNS zones in the subscription given by the platform team. Private DNS zones are typically managed at a large scale using DINE policies, enabling Azure Firewall to function as a reliable DNS proxy and support Fully Qualified Domain Name (FQDN) network rules. 
 
-//TODO (choose one) This architecture will either delegate the responsibility of ensuring reliable private DNS resolution for private link endpoints to the platform team or assume these responsibilities itself. It is recommended to collaborate with your platform team to understand their expectations.
+This architecture delegates the responsibility of ensuring reliable private DNS resolution for private link endpoints to the platform team. Collaborate with your platform team to understand their expectations.
 
 ##### Connectivity testing
 
