@@ -124,10 +124,10 @@ In a Kubernetes scenario, the RPO represents the maximum acceptable amount of cl
 
 The chosen backup frequency and retention period are a trade-off between desirable RPO/RTO targets, storage costs, and backup management overhead. This means there's no one-size-fits-all configuration for all AKS clusters and workloads, and the optimum configuration for each cluster or workload should instead be defined on a case-by-case basis to meet the requirements of the business, following careful planning and consideration. Relevant factors to consider when defining an AKS cluster's backup frequency and retention period include:
 
-- **Criticality**: The level of criticality associated with the cluster and its workload application data in terms of business continuity
-- **Access patterns and change rate**: The amount of cluster state and data that is added, modified, deleted in a given period of time
-- **Data Volume**: The volume of data affecting storage costs and the time required to complete backup and recovery operations
-- **Compliance**: The requirements for data retention and data sovereignty based on internal compliance rules and industry regulations
+- **Criticality**: The level of criticality associated with the cluster and its workload application data in terms of business continuity.
+- **Access patterns and change rate**: The amount of cluster state and data that is added, modified, deleted in a given period of time.
+- **Data Volume**: The volume of data affecting storage costs and the time required to complete backup and recovery operations.
+- **Compliance**: The requirements for data retention and data sovereignty based on internal compliance rules and industry regulations.
 
 In the AKS Backup service, backup frequency and retention period are stored as a *backup policy* resource, which applies to both the cluster state and the application data from persistent volumes.
 
