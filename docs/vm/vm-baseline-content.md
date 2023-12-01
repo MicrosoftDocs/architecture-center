@@ -277,7 +277,8 @@ Application Gateway and Azure Load Balancer use health probes to detect endpoint
 
 **//note:**
 
-Not too sure about the content here. I would assume that it should be covering the monitoring of the networking component, instead it talks about using health probes in the RI to monitor the VMs
+Not too sure about the content here. I would assume that it should be covering the monitoring of the networking component, instead it talks about using health probes in the RI to monitor the VMs.
+In the RI, we are collecting logs from the following networking components: application Gateway, vnets, nsgs, public ip addresses (gw+ bastion), and private links.
 
 **//end note:**
 
@@ -286,6 +287,8 @@ Not too sure about the content here. I would assume that it should be covering t
 Disk metrics depend on your workload, requiring a mix of key metrics. Monitoring should consider both the Azure platform and guest OS perspectives on managed disks.
 
 The Azure platform perspective represents the metrics that a SAN operator would view, regardless of what workloads are connected. The guest OS perspective represents the metrics that the workload operator would view, regardless of the underlying disk technology. In Azure, workload teams have the responsibility of monitoring both as part of their solution.
+
+***//note:*** Not sure about the value of bringing the SAN operator role here. Consider removing the paragraph **//end note//**
 
 From the platform perspective, data disk performance metrics (IOPS and throughput) can be viewed individually or collectively for all VM-attached disks. Use Storage IO utilization metrics for troubleshooting or alerting on potential disk capping. If using bursting for cost optimization, monitor Credits Percentage metrics to identify opportunities for further optimization.
 
@@ -297,7 +300,9 @@ Even though the reference implementation doesn't deploy an application, [Applica
 
 It also monitors the performance and health. You can view trends of performance data, running processes on individual machines, and dependencies between machines.
 
-The [Application Health extension](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension) is deployed to VMs to monitor the binary health state of each VM instance in the scale set, and perform instance repairs if necessary by using Automatic Instance Repairs. It tests for the same file as the Application Gateway and Azure Load Balancer health probe to check if the application is responsive.
+**//note:** needs rewording. Right now the RI does not showcase any of the functionality with App Insight, it just deploys the service.  **//end note:**
+
+The [Application Health extension](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension) is deployed to VMs to monitor the binary health state of each VM instance in the scale set, and perform instance repairs if necessary by using VMSS Automatic Instance Repair. It tests for the same file as the Application Gateway and Azure Load Balancer health probe to check if the application is responsive.
 
 ## Infrastructure update management
 
@@ -323,9 +328,25 @@ For more information, see [Automatic VM guest patching for Azure VMs](/azure/vir
 
 When doing OS upgrades, have a golden image that's tested. Consider using Azure Compute Gallery for publishing those images. This allows for better control and efficiency in managing updates. Have a process in place that automatically installs the image when needed.
 
+**//suggestion:**
+
+As Automatic OS upgrades is still in preview in VMSS Flex, we could recommend Update management in Azure Auotmation in the meantime. Although, this is not showcased in the RI
+
+**//end suggestion**
+
+You can use [Update Management in Azure Automation](/azure/automation/update-management/overview) to manage operating system updates for your Windows and Linux virtual machines in Azure. Updates are installed by runbooks in Azure Automation.
+
 Your automation process should account for overprovision with additional capacity. 20% overprovisioning is recommended.
 
 ## Reliability
+
+**//note:**
+
+IMO we should include a paragrah in the intro to highlight how much we rely on availability Zones in the architecture to take care of the reliability aspects. You could say Availability Zones is the foundation of the Reliability aspects are implemented.  
+
+Individual VMs are the only components in this architecture that are zonal (tied to a single zone), and they are easily replaced with other instances by WMSS when they fail. EVerything else is either zone redundant (e.g. App Gateway, public IPs), or Zone resilient (e.g. Key Vault), or a regional or global resource (e.g. Azure AD)
+
+**//end note:**
 
 Workload design should incorporate reliability assurances in application code, infrastructure, and operations. The following sections illustrate some strategies to make sure the workload is resilient to failures and is able to recover if there are outages at the infrastructure level.
 
@@ -390,7 +411,7 @@ Here's an example calculation.
 
 In the preceding example, reliability of VMs and the dependencies are included. For instance, disks associated with VMs. The SLAs associated with disk storage impact the overall reliability.
 
-There are some challenges when calculating the composite SLO. It's important to note that different tiers of service may come with different SLAs, and these often include financially backed guarantees that set reliability targets. Finally there might be components that don't have SLAs defined. For example, in terms of networking, Network Interface Cards (NICs) might not have their own SLAs, they do operate within VNets. However, virtual networks don't have SLAs.
+There are some challenges when calculating the composite SLO. It's important to note that different tiers of service may come with different SLAs, and these often include financially backed guarantees that set reliability targets. Finally, there might be components of the architecture that don't have SLAs defined. For example, in terms of networking, Network Interface Cards (NICs) and virtual networks don't have their own SLAs.
 
 The business requirements and their targets must be clearly defined and factored into the calculation. Be aware of the service limits and other constraints imposed by the organization. If your subscription is shared with other workloads, this could impact the resources available for your VMs. The workload might be allowed to use a limited number of cores available for the VMs. Understanding the resource usage of your subscription can help you design your VMs more effectively.
 
@@ -400,11 +421,9 @@ The business requirements and their targets must be clearly defined and factored
 
 This architecture uses zone-redundancy for several components. Each zone is made up of one or more datacenters with independent power, cooling, and networking. Having instances run in separate zones protects the application against data center failures.
 
-- VMs are automatically spread across Availability Zones.  VMs are also placed in separate fault domains. This makes sure all VMs aren't updated at the same time.
+- Azure Virtual Machine Scale Sets allocate specified number of instances and distribute them evenly across Availability Zones and Fault Domains. This is achieved through the _maximum spread_ capability, which is recommended. Spreading VM instances across Fault Domains makes sure all VMs aren't updated at the same time.
 
-    Azure Virtual Machine Scale Sets allocate specified number of instances and distribute them evenly across Availability Zones and Fault Domains. This is achieved through the _maximum spread_ capability, which is recommended.
-
-    Consider a scenario where there are three Availability Zones. If you have three instances, each instance is allocated to a different Availability Zone and placed in a different Fault Domain. Azure guarantees that only one Fault Domain is updated at a time in each Availability Zone. However, there could be a situation all three Fault Domains in three Availability Zones are updated simultaneously. All zones and domains are impacted. Having atleast two instances in each zone provides a buffer during upgrades.
+    Consider a scenario where there are three Availability Zones. If you have three instances, each instance is allocated to a different Availability Zone and placed in a different Fault Domain. Azure guarantees that only one Fault Domain is updated at a time in each Availability Zone. However, there could be a situation all three Fault Domains hosting your VMs across the three Availability Zones are updated simultaneously. All zones and domains are impacted. Having at least two instances in each zone provides a buffer during upgrades.
 
 - Managed disks can only be attached to a VM in the same region. Their availability typically impacts the availability of the VM. For single-region deployments, disks can be configured for redundancy within a datacenter; locally Redundant Storage (LRS) or zone-Redundant Storage (ZRS). LRS is sufficient as it supports [zonal failure mitigations](/azure/virtual-machines/disks-redundancy#locally-redundant-storage-for-managed-disks). For workloads that need even less time to recover from failure, ZRS is a recommended. It requires a recovery strategy to take advantage of Availability Zones. Ideally pre-provision compute in alternate Availability Zones ready to recover from a zonal failure.
 
@@ -420,13 +439,13 @@ This architecture uses zone-redundancy for several components. Each zone is made
 
 Your scaling operations should be reliable so that when a degraded condition is detected, extra resources are provisioned immediately. One strategy is overprovisioning. This is achieved by having sufficient horizontal capacity. This strategy involves understanding the maximum amount of work that the workload will handle. However, it's not just about having extra capacity. It's also about ensuring that your resources aren't underprovisioned. The VM should be right-sized for the work it's expected to handle.
 
-Another strategy is to use autoscaling capabilities for the  scale sets. Be sure to do adequate performance testing to set the threshold for CPU, memory, and others. When those thresholds are reached, new instances are immediately provisioned.
+Another strategy is to use autoscaling capabilities for the scale sets. Be sure to do adequate performance testing to set the threshold for CPU, memory, and others. When those thresholds are reached, new instances are immediately provisioned.
 
 > Refer to Well-Architected Framework: [RE:06 - Recommendations for designing a reliable scaling strategy](/azure/well-architected/reliability/redundancy).
 
 #### Self-healing and recoverability
 
-[Application Health extension](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension) is deployed to VMs to detect unresponsive VMs and applications. For those instances, repair actions are automatically triggered.
+[Automatic instance repairs] is enabled in the Virtual Machine Scale Sets to automate recovery from VM failures. The [Application Health extension](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension) is deployed to VMs to support detecting unresponsive VMs and applications. For those instances, repair actions are automatically triggered.
 
 > Refer to Well-Architected Framework: [Recommendations for self-healing and self-preservation](/azure/well-architected/reliability/self-preservation).
 
@@ -442,15 +461,15 @@ Security isn't just technical controls. It's highly recommended that you follow 
 
     The advantage of subnet segmentation is that you can place security controls at the perimeter that controls traffic flowing in and out of the subnet, thereby restricting access to the workload resources.
 
-- **Identity segmentation**. Assign distinct roles to different identities with just-enough permissions to do their task. This architecture [Microsoft Entra ID](/entra/fundamentals/whatis) managed identities to segment access to resources.
+- **Identity segmentation**. Assign distinct roles to different identities with just-enough permissions to do their task. This architecture uses [Microsoft Entra ID](/entra/fundamentals/whatis) managed identities to segment access to resources.
 
 > Refer to Well-Architected Framework: [SE:04 - Recommendations for building a segmentation strategy](/azure/well-architected/security/segmentation).
 
 ##### Identity and access management
 
-[Microsoft Entra ID](/entra/fundamentals/whatis) recommended for authentication and authorization of both users and services. Workload resources such as VMs authenticate themselves by using their assigned managed identities to other resources. These identities, based on Microsoft Entra ID service principals, are automatically managed.
+[Microsoft Entra ID](/entra/fundamentals/whatis) is recommended for authentication and authorization of both users and services. Workload resources such as VMs authenticate themselves by using their assigned managed identities to other resources. These identities, based on Microsoft Entra ID service principals, are automatically managed.
 
-In this architecture, [user-assigned managed identities](/entra/managed-identities-azure-resources/overview#managed-identity-types) are used by Azure Application Gateway, front VMs, and backend VMs to access Azure Key Vault and Azure Storage account for boot diagnostics. Those managed identities are configured during deployment and used for authenticating against Key Vault. Access policies on Key Vault are configured to only accept requests from the preceding managed identities.
+In this architecture, [user-assigned managed identities](/entra/managed-identities-azure-resources/overview#managed-identity-types) are used by Azure Application Gateway, frontend VMs, and backend VMs to access Azure Key Vault and Azure Storage account for boot diagnostics. Those managed identities are configured during deployment and used for authenticating against Key Vault. Access policies on Key Vault are configured to only accept requests from the preceding managed identities.
 
 >[!IMPORTANT]
 > The baseline architecture uses only user-assigned managed identities. Even though you may specify a system-assigned managed identity in a Bicep or ARM template with no error, they cannot be used in a Flex VMSS configuration. The Azure portal however will respond with the appropriate error.
