@@ -288,6 +288,9 @@ For more information about the services featured in this solution, see the follo
 
 ## Related resources
 
+- [Unisys ClearPath MCP virtualization on Azure][Unisys ClearPath MCP virtualization on Azure]
+- [Virtualization of Unisys ClearPath Forward OS 2200 enterprise server on Azure][Virtualization of Unisys ClearPath Forward OS 2200 enterprise server on Azure]
+- [SMA OpCon in Azure][SMA OpCon in Azure]
 - [Mainframe rehosting on Azure virtual machines][Mainframe rehosting on Azure virtual machines]
 - Reference architectures:
 
@@ -332,7 +335,10 @@ For more information about the services featured in this solution, see the follo
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator/
 [Unisys mainframe migration]: ../../reference-architectures/migration/unisys-mainframe-migration.yml
 [Optimize VM costs]: /azure/architecture/framework/cost/optimize-vm
+[SMA OpCon in Azure]: ../../solution-ideas/articles/sma-opcon-azure
+[Unisys ClearPath MCP virtualization on Azure]: unisys-clearpath-forward-mainframe-rehost
 [Use auto-failover groups to enable transparent and coordinated failover of multiple databases]: /azure/azure-sql/database/auto-failover-group-overview
+[Virtualization of Unisys ClearPath Forward OS 2200 enterprise server on Azure]: virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure
 [Virtual Network pricing]: https://azure.microsoft.com/pricing/details/virtual-network/
 [Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1813846-PR-2593-migrate-unisys-dorado-mainframe-apps-architecture-diagram.vsdx
 [Visio version of Sperry architecture diagram]: https://arch-center.azureedge.net/US-1813846-PR-2593-migrate-unisys-dorado-mainframe-apps-original-architecture.vsdx

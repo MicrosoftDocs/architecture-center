@@ -164,6 +164,8 @@ For more information, please contact [legacy2azure@microsoft.com](mailto:legacy2
 Explore related resources:
 
 - [Unisys ClearPath Forward MCP mainframe rehost to Azure using Unisys virtualization](../../example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml)
+- [Virtualization of Unisys ClearPath Forward OS 2200 enterprise server on Azure](../../mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml)
+- [SMA OpCon in Azure](../../solution-ideas/articles/sma-opcon-azure.yml)
 - [High-volume batch transaction processing](../../example-scenario/mainframe/process-batch-transactions.yml)
 - [Mainframe file replication and sync on Azure](../../solution-ideas/articles/mainframe-azure-file-replication.yml)
 - [Mainframe access to Azure databases](../../solution-ideas/articles/mainframe-access-azure-databases.yml)
