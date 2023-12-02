@@ -125,16 +125,16 @@ Version 2 of Flux provides these additional features:
 |Category|Feature|
 |-|-|
 |**Infrastructure and workload management**|Deployment dependency management|
-||	Integration with Kubernetes role-based access control (RBAC)|
-||	Health assessments for clusters and their workloads|
-||	Automated container image updates to Git, including image scanning and patching|
-||	Interoperability with Cluster API providers|
-|**Security and governance**|	Alerting to external systems (via webhook senders)|
-||	Policy-driven validation, including support for Open Policy Agent Gatekeeper|
-||	Container image scanning and patching|
-||	Alerting to external systems (via webhook senders)|
-|**Integration with other GitOps flows**|	Integration with a range of Git providers, including GitHub, GitLab, and Bitbucket|
-||	Interoperability with workflow providers, including GitHub Actions|
+|| Integration with Kubernetes role-based access control (RBAC)|
+|| Health assessments for clusters and their workloads|
+|| Automated container image updates to Git, including image scanning and patching|
+|| Interoperability with Cluster API providers|
+|**Security and governance**| Alerting to external systems (via webhook senders)|
+|| Policy-driven validation, including support for Open Policy Agent Gatekeeper|
+|| Container image scanning and patching|
+|| Alerting to external systems (via webhook senders)|
+|**Integration with other GitOps flows**| Integration with a range of Git providers, including GitHub, GitLab, and Bitbucket|
+|| Interoperability with workflow providers, including GitHub Actions|
 
 For more information, see [GitOps Flux v2 configurations with AKS and Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/conceptual-gitops-flux2).
 
