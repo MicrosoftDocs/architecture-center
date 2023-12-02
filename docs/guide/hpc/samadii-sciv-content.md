@@ -32,13 +32,13 @@ architecture.*
 
 The performance tests of Samadii SCIV on Azure used [NVv3](/azure/virtual-machines/nvv3-series), [NCasT4_v3](/azure/virtual-machines/nct4-v3-series), [NCv3](/azure/virtual-machines/ncv3-series), [ND_A100_v4](/azure/virtual-machines/nda100-v4-series), and [NC_A100_v4](/azure/virtual-machines/nc-a100-v4-series) series VMs running Windows 10. The following table provides details about the VMs.
 
-|VM size|	GPU name|	vCPUs|	Memory, in GiB|	Maximum data disks|	GPUs	|GPU memory, in GiB|	Maximum uncached disk throughput, in IOPS / MBps|	Temporary storage (SSD), in GiB|	Maximum NICs|
+|VM size| GPU name| vCPUs| Memory, in GiB| Maximum data disks| GPUs |GPU memory, in GiB| Maximum uncached disk throughput, in IOPS / MBps| Temporary storage (SSD), in GiB| Maximum NICs|
 |-|-|-|-|-|-|-|-|-|-|
-|Standard_NV12s_v3|	Tesla M60|	12|	112|	12|	1|	8|	20,000 / 200|	320|	4|
-|Standard_NC4as_T4_v3|	Tesla T4	|4|	28|	8|	1	|16	|-|	180|	2|
-|Standard_NC6s_v3	|V100|	6	|112|	12	|1	|16|	20,000 / 200|	736|	4|
-|Standard_ND96asr_v4|	A100|	96	|900	|32|	8	|40	|80,000 / 800	|6,000	|8|
-|Standard_NC24ads_A100_v4|A100|	24	|220	|32	|1	|80	|30,000 / 1,000	|1,123	|2|
+|Standard_NV12s_v3| Tesla M60| 12| 112| 12| 1| 8| 20,000 / 200| 320| 4|
+|Standard_NC4as_T4_v3| Tesla T4 |4| 28| 8| 1 |16 |-| 180| 2|
+|Standard_NC6s_v3 |V100| 6 |112| 12 |1 |16| 20,000 / 200| 736| 4|
+|Standard_ND96asr_v4| A100| 96 |900 |32| 8 |40 |80,000 / 800 |6,000 |8|
+|Standard_NC24ads_A100_v4|A100| 24 |220 |32 |1 |80 |30,000 / 1,000 |1,123 |2|
 
 ### Required drivers
 
@@ -69,11 +69,11 @@ The product installation process involves installing a license server, installin
 
 The following table shows the operating system versions and processors that were used for the tests.
 
-|VM series| ND_A100_v4	|NCv3| 	NCasT4_v3|	NVv3| 	NC_A100_v4|
+|VM series| ND_A100_v4 |NCv3|  NCasT4_v3| NVv3|  NC_A100_v4|
 |-|-|-|-|-|-|
 |Operating system version|Windows 10 Professional, version 20H2|Windows 10 Professional, version 20H2|Windows 10 Professional, version 20H2|Windows 10 Professional, version 20H2|Windows 10 Professional, version 21H2|
 |OS architecture|x86-64 |x86-64 |x86-64 |x86-64 |x86-64 |
-|Processor	|AMD EPYC 7V12, 64-core processor, 2.44 GHz (2 processors)	|Intel Xeon CPU E5-2690 v4|	AMD EPYC 7V12, 64-core processor, 2.44 GHz	|Intel Xeon CPU E5-2690 v4|	AMD EPYC 7V13, 64-core processor, 2.44 GHz|
+|Processor |AMD EPYC 7V12, 64-core processor, 2.44 GHz (2 processors) |Intel Xeon CPU E5-2690 v4| AMD EPYC 7V12, 64-core processor, 2.44 GHz |Intel Xeon CPU E5-2690 v4| AMD EPYC 7V13, 64-core processor, 2.44 GHz|
 
 The PNS model was used for testing:
 
@@ -86,13 +86,13 @@ The PNS model was used for testing:
 
 The following table shows the elapsed runtimes and relative speed increases on each VM series. The NVv3 series VM is used as a baseline for the relative speed increases.
 
-|VM series|Number of GPUs|	Elapsed time, in seconds	|Relative speed increase|
+|VM series|Number of GPUs| Elapsed time, in seconds |Relative speed increase|
 |-|-|-|-|
-|NVv3|1|93,483.74	|N/A|
-|NCasT4_v3|1	|38,311.8|2.44|
-|NCv3|1	|27,096.83|3.45|
-|ND_A100_v4|1	|16,322.98|5.73|
-|NC_A100_v4|1	|40,895.55|	2.29|
+|NVv3|1|93,483.74 |N/A|
+|NCasT4_v3|1 |38,311.8|2.44|
+|NCv3|1 |27,096.83|3.45|
+|ND_A100_v4|1 |16,322.98|5.73|
+|NC_A100_v4|1 |40,895.55| 2.29|
 
 This graph shows the relative speed increases:
 
@@ -106,13 +106,13 @@ Only simulation runtime is considered in these cost calculations. Application in
 
 You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your configuration.
 
-|VM size|	Number of GPUs|		Wall-clock time, in hours|
+|VM size| Number of GPUs| Wall-clock time, in hours|
 |-|-|-|
-|Standard_NV12s_v3|	1		|25.97|
-|Standard_NC4as_T4_v3|	1|		10.64|
-|Standard_NC6s_v3	|1		|7.53|
-|Standard_ND96asr_v4|	1	|	4.53|
-|Standard_NC24ads_A100_v4|	1	|11.36|
+|Standard_NV12s_v3| 1 |25.97|
+|Standard_NC4as_T4_v3| 1| 10.64|
+|Standard_NC6s_v3 |1 |7.53|
+|Standard_ND96asr_v4| 1 | 4.53|
+|Standard_NC24ads_A100_v4| 1 |11.36|
 
 ## Summary
 
