@@ -65,22 +65,26 @@ The platform team owns and maintains these centralized resources. This architect
 > [!IMPORTANT]
 > Azure landing zones provides the preceding resources as part of the platform landing zone subscriptions. The networking resources are part of the Connectivity subscription, which has additional resources such as Azure ExpressRoute, VPN gateway, Azure DNS for cross-premises access and name resolution. They are outside the scope of this architecture. 
 
-## Subscription set up by the platform team
+## Subscription setup by the platform team
 
-In a landing zone context, **workload teams must provide their specific requirements to the platform team**. The primary shared responsibility between the two teams are in the areas of management group assignment and networking setup. 
-
-- **Platform team**
-
-    The platform team will assign an appropriate management group based on the workload's business criticality and technical requirements, such as whether it'll be exposed to the internet. The configuration of these management groups is determined by the organization and implemented by the platform team. The team also is responsible for setting up a subscription or a group of subscriptions for workload deployment.
+In a landing zone context, **workload teams must provide their specific requirements to the platform team**. 
 
 - **Workload team**
 
     Include detailed information about the networking space so that the platform team can allocate necessary resources. While you provide the requirements, the platform team is responsible for deciding the specific IP addresses to assign within the virtual network and the management group to which the subscription will be assigned.
 
+- **Platform team**
+
+    The platform team will assign an appropriate management group based on the workload's business criticality and technical requirements, such as whether it'll be exposed to the internet. The configuration of these management groups is determined by the organization and implemented by the platform team. The team also is responsible for setting up a subscription or a group of subscriptions for workload deployment.
+
+    This section provides guidance on the initial subscription setup. However, the platform team will make changes to the  centralized services to address missed or changed requirements.
+
+    Unlike workload teams, whose changes affect only their workload, platform team changes can have a broader impact.  Therefore, the platform team must ensure all VM workloads are ready for any changes and be aware of the life cycle of the VM-based solution and the testing cycle. For more information, see [Managing changes over time](#handle-changes-over-time).
+
 
 ##### Workload requirements and fullfilment
 
-Here are some networking requirements for this architecture. Communicate such requirements to the platform team. Use these points as examples to understand the discussion and negotiation between the two teams for a similar architecture.
+The primary shared responsibility between the two teams are in the areas of management group assignment and networking setup. Here are some networking requirements for this architecture that you should communicate to the platform team. Use these points as examples to understand the discussion and negotiation between the two teams for a similar architecture.
 
 > [!IMPORTANT] 
 > Azure landing zones recommend a subscription vending workstream for the platform team that involves a series of questions designed to capture key pieces of information from the workload team. These questions may vary from one organization to another, but the intent is to gather the requirements for implementing subsription(s). For more information, see [**Cloud Adoption Framework: Subscription vending**](/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending).
@@ -258,6 +262,65 @@ Here are some examples of policy that might be applied.
 - Private Link DNS management
 
 TODO
+
+## Manage changes over time
+ 
+
+Platform-provided service and operations are considered external dependencies in this architecture. The platform team will continue to evolve, onboard users, and apply cost controls. The platform team, serving the organization, may not prioritize individual workloads. Changes to those dependencies, whether they’re golden image changes, firewall modifications, automated patching, or rule changes, can affect multiple workloads. 
+
+Therefore, all external dependencies must be managed with  **bi-directional and timely communication between the workload and platform teams**. Testing those changes is crucial or they might impact  workloads negatively. 
+
+##### Platform changes that impact the workload
+
+Here are some examples from this architecture that managed by the platform team but can have impact on the workload's reliability, security, operations, and performance targets. These changes must be validated against the new platform team change before it goes into effect.
+
+- **Azure policies**. Changes to Azure policies that impact workload resources and their dependencies. This can come from direct policy changes or movement of the subscription into a new management group hierarchy. These may go unnoticed until a new deployment, so thorough testing is needed.
+
+- **Firewall rules**. Modifications to firewall rules affecting the workload’s virtual network or rules that apply broadly across all traffic. These could result in blocked traffic and even silent process failures like failed application of OS patches. This applies to both the egress Azure Firewall and Azure Network Manager applied NSG rules.
+
+- **Shared resources**. Changes to SKU or features on shared resources can impact the workload.
+
+- **Routing in the hub network**. Changes in the transitive nature of routing in the hub, potentially affecting workload functionality if a workload depended on routing to other virtual networks.
+
+- **Bastion host**. Changes in Bastion host availability or configuration can impact operations of the workload. Communicate jump box access pattern changes to have effective routine, ad-hoc, and emergency access.
+
+- **Ownership changes**: Any changes in ownership and points of contact should be communicated to the workload team because it can impact the management and operation of the workload.
+ 
+##### Workload changes that impact the platform:
+ 
+Here are some examples of workload changes in this architecture which would be important for the platform team to have visibility into so that reliability, security, operations, and performance targets for the platform services can be validated against the new workload team change before it goes into effect.
+ 
+- **Network egress**. A significant increase in network egress should be monitored to prevent the workload from becoming a noisy neighbor on network devices, which could potentially impact the performance or reliability targets of other workloads.
+
+- **Public access**. Changes in the public access to workload components may require additional testing. The platform team might relocate the workload to a different management group.
+
+- **Business criticality rating**. If there are changes to the workload's service level agreements, new collaboration approach between the platform and workload teams might be needed.
+
+- **Ownership changes**. Changes in ownership and points of contact  should be communicated to the platform team.
+ 
+##### Workload business requirement changes that impact the platform
+
+To maintain Service Level Objectives (SLOs) of the workload, the platform team needs to be aware of workload architecture changes. These changes may require change requests to the platform team or validation that existing governance supports the change requirements. 
+
+For example, communicate changes to any previously-disallowed egress flow so that the platform team can add that flow in the firewall, Azure Network Manager, or other components to support the required traffic. Conversely, if a previously-allowed egress flow is no longer needed, this should also be communicated to the platform team to block that flow in order to maintain the workload’s security.  Changes in routing to other virtual networks or cross-premises endpoints should be communicated. If there are changes to the architecture components, those changes must also be communicated. Each resource will be subject to policies and potentially egress firewall control.
+
+## Reliability
+ 
+This architecture does not have any additional reliability affordances over the baseline architecture, but in fact has a lower maximum possible composite SLO due to additional components, such as egress network control.
+ 
+Those additional components are not unique to architectures existing in application Azure landing zones, but are common in such environments. The SLO would be similarly lowered if these additional Azure services were in direct control of the workload team.
+ 
+Beyond the reduced maximum possible SLO in this architecture, the most notable reliability consideration is how the workload components in Azure are now split across functional teams within an organization. This can be a boon for the workload team, having an expert, specialized team having a narrow focus on the operations of critical infrastructure used by this workload and others in the organization.
+ 
+All platform and application landing zone functionality used by the workload should be considered a dependency. Incident response plans require dependencies to have point and method-of-contact information known to the workload team. These dependencies that also needs to included into the failure mode analysis (FMA) of the workload. See, [Identify dependencies](/azure/well-architected/reliability/failure-mode-analysis#identify-dependencies).
+ 
+Additional reliability points to consider for components this architecture:
+- Change control on the egress firewall. This centralized component will be undergoing changes unrelated to the workload, due to its shared, multi-workload nature.
+- Network saturation or port exhaustion on the egress firewall due to spikes in usage from all the workloads sharing the network device.
+- DINE policies for Azure DNS Private DNS zones (or any other platform provided dependency) are best effort, with no SLA on execution.
+- Consistent management group policies between environments. Pre-production environments benefit from close approximation of production environments to ensure meaningful testing and to mitigate environment-specific deviations causing different behavior in production that could block deployment or scale.
+ 
+Again, many of these considerations could have existed without Azure landing zones as well, but in the context of Azure landing zones, concerns and understanding for items like the above need to be addressed as a collaboration between the workload team and the platform team to ensure needs are met.
 
 ## Security
 
