@@ -1,12 +1,12 @@
 This article briefly describes the steps for running [Indica Labs HALO AI](https://indicalab.com/halo-ai) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running HALO AI on Azure.
 
-HALO AI is a collection of train-by-example classification and segmentation tools underpinned by advanced deep learning neural network algorithms. It was originally developed as a tool that could decipher and assess the complex patterns of histologically stained tissues in a way that's similar to how a pathologist thinks. 
+HALO AI is a collection of train-by-example classification and segmentation tools underpinned by advanced deep learning neural network algorithms. It was originally developed as a tool that could decipher and assess the complex patterns of histologically stained tissues in a way that's similar to how a pathologist thinks.
 
 :::image type="content" source="media/halo-ai/image-classification.png" alt-text="Figure that shows image classification in HALO AI." border="false":::
 
 HALO AI has the following capabilities.
 
-- Includes three powerful neural networks: VGG, DenseNet, and MiniNet. 
+- Includes three powerful neural networks: VGG, DenseNet, and MiniNet.
 - Provides pretrained networks for H&E, single IHC, or DAPI stained-images. You can also train your own nuclei segmentation network for a specific application.
 - Uses a type of deep learning algorithm called a convolutional neural network (CNN), which is ideally suited for tissue classification in digital pathology.
 
@@ -85,7 +85,7 @@ The following table shows the test results.
 |13|13|7|
 |14|8|4|
 |15|12|6|
-|16	|9|	5|
+|16|9|5|
 |17|7|4|
 |18|18|11|
 |19|6|3|
@@ -101,7 +101,7 @@ NC6s_v3 is consistently faster. This graph shows the relative speed increases:
 
 ## Azure cost
 
-The following table presents elapsed times that you can use to calculate Azure costs. You can multiply the times presented here by the Azure hourly rates for NCasT4_v3 and NCsv3 series VMs to calculate costs. For the current hourly costs, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing). 
+The following table presents elapsed times that you can use to calculate Azure costs. You can multiply the times presented here by the Azure hourly rates for NCasT4_v3 and NCsv3 series VMs to calculate costs. For the current hourly costs, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing).
 
 Only analysis times are considered for the cost calculations. Application installation time isn't considered. These times are indicative. Actual times depend on the size of the model.
 
@@ -111,7 +111,7 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 |-|-|-|
 |Standard_NC4as_T4_v3|T4 |3.38|
 |Standard_NC6s_v3|V100|1.77|
- 
+
 ## Summary
 
 - HALO AI was successfully tested on NC6s_v3 and NC4as_T4 series VMs. HALO AI performs best with single-GPU configurations, so we recommend that you use a VM with that configuration.
