@@ -303,7 +303,7 @@ Apache Spark is a parallel processing framework that supports in-memory processi
 
 [Apache Spark in Azure HDInsight](/azure/hdinsight/spark/apache-spark-overview) is the Microsoft implementation of Apache Spark in the cloud. Spark clusters in HDInsight are compatible with Azure Storage and Azure Data Lake Storage, so you can use HDInsight Spark clusters to process your data stored in Azure.
 
-The Microsoft machine Learning library for Apache Spark is [MMLSpark](https://github.com/Azure/mmlspark). This open-source library adds many deep learning and data science tools, networking capabilities, and production-grade performance to the Spark ecosystem. [Learn more about MMLSpark features and capabilities.](../ai-ml/guide/data-science-and-machine-learning.md#mmlspark)
+The Microsoft machine learning library for Apache Spark is [MMLSpark](https://github.com/Azure/mmlspark). This open-source library adds many deep learning and data science tools, networking capabilities, and production-grade performance to the Spark ecosystem. [Learn more about MMLSpark features and capabilities.](../ai-ml/guide/data-science-and-machine-learning.md#mmlspark)
 
 - [Azure HDInsight overview.](/azure/hdinsight/hdinsight-overview) Basic information about features, cluster architecture, and use cases, with pointers to quickstarts and tutorials.
 
@@ -315,7 +315,7 @@ The Microsoft machine Learning library for Apache Spark is [MMLSpark](https://gi
 
 - [Machine learning on HDInsight](/azure/hdinsight/hdinsight-machine-learning-overview)
 
-- [GitHub repo for MMLSpark: Microsoft Machine Learning library for Apache Spark](https://github.com/Azure/mmlspark)
+- [GitHub repo for MMLSpark: Microsoft machine learning library for Apache Spark](https://github.com/Azure/mmlspark)
 
 - [Create an Apache Spark machine learning pipeline on HDInsight](/azure/hdinsight/spark/apache-spark-creating-ml-pipelines)
 
