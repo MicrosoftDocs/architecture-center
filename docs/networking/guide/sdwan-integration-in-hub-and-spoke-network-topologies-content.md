@@ -64,7 +64,7 @@ Azure Route Server automates route exchange between SDWAN NVAs and the Azure Sof
 
 Azure Route Server should be configured as follows.
 
-- It must be deployed in a dedicated subnet in the hub VNet as per [this article](/azure/route-server/quickstart-configure-route-server-portal) in the public documentation.
+- It must be deployed in a dedicated subnet in the hub VNet as per [this article](/azure/route-server/quickstart-configure-route-server-portal).
 - In order to enable automated route exchange for all spoke VNets, VNet peering must be configured to allow the spoke VNets to use the hub VNet's gateway and route server. Details available in the [public documentation](/azure/route-server/route-server-faq).
 - As Route Server and the SDWAN NVAs are attached to different subnets, BGP sessions between Route Server and SDWAN NVAs must be configured with eBGP multihop support. Any number of hops between 2 and the maximum supported by the SDWAN NVA can be set. Details about configuring BGP adjacencies for Route Server are available in the [public documentation](/azure/route-server/quickstart-configure-route-server-portal).
 - Two /32 static routes must be configured on the SDWAN NVA for the BGP endpoints exposed by Route Server. This ensures that the NVA's route table always contains routes for its multihop (i.e. not directly connected) BGP peers.
