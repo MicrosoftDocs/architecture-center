@@ -69,7 +69,7 @@ Azure Route Server should be configured as follows.
 - As Route Server and the SDWAN NVAs are attached to different subnets, BGP sessions between Route Server and SDWAN NVAs must be configured with eBGP multihop support. Any number of hops between 2 and the maximum supported by the SDWAN NVA can be set. Details about configuring BGP adjacencies for Route Server are available in the [public documentation](/azure/route-server/quickstart-configure-route-server-portal).
 - Two /32 static routes must be configured on the SDWAN NVA for the BGP endpoints exposed by Route Server. This ensures that the NVA's route table always contains routes for its multihop (i.e. not directly connected) BGP peers.
 
-Azure Route Server is not in the data path: It is a pure control plane entity. It propagates routes between the SDWAN NVA and the Azure VNet SDN stack, but actual traffic forwarding between the SDWAN NVA and the Virtual Machines in the VNet is done by the Azure SDN stack, as shown in the figure below. To obtain this routing behavior, the Azure Route Server injects all the routes it learns from the SDWAN NVAs with next hop set to the NVA’s own address.
+Azure Route Server is not in the data path: It is a control plane entity. It propagates routes between the SDWAN NVA and the Azure VNet SDN stack, but actual traffic forwarding between the SDWAN NVA and the Virtual Machines in the VNet is done by the Azure SDN stack, as shown in the figure below. To obtain this routing behavior, the Azure Route Server injects all the routes it learns from the SDWAN NVAs with next hop set to the NVA’s own address.
 
 Azure Route Server does not support IPv6 as of now and hence this reference architecture is only for IPv4.
 
