@@ -191,7 +191,7 @@ Azure Route Server can establish BGP sessions with up to a maximum number of BGP
 
 ### Participating VMs
 
-Virtual Network Gateways and Route Server must provide the routing information they learn from their remote peers to all VMs in their own VNet and in directly peered VNets. To protect Route Server from excessive resource consumption due to routing updates to VMs, Azure defines a limit on the number of VMs that can exist in a single hub and spoke network. No workarounds exist to overcome this limit, beyond creating multiple hub and spoke networks, each one with own gateways and route servers, in the same region.
+Virtual Network Gateways and Route Server configure the routes they learn from their remote peers for all VMs in their own VNet and in directly peered VNets. To protect Route Server from excessive resource consumption due to routing updates to VMs, Azure defines a limit on the number of VMs that can exist in a single hub and spoke network. No workarounds exist to overcome this limit, beyond creating multiple hub and spoke networks, each one with own gateways and route servers, in the same region.
 
 ## Contributors
 
