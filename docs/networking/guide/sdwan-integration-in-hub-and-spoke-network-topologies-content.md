@@ -3,7 +3,7 @@ The article is intended for network architects that want to design Software-defi
 
 ## Applicable scenarios
 
-The recommendations in this article are independent of vendor-specific features and applicable to any 3rd party SDWAN technology that meets two basic prerequisites:
+The recommendations in this article are vendor-agnostic and applicable to any 3rd party SDWAN technology that meets two basic prerequisites:
 - Reliance on tunneling protocols that use Transmission Control Protocol (TCP) or User Datagram Protocol (UDP) as the underlying transport (an example being tunnel-mode IPSec ESP with NAT-Traversal).
 - Border Gateway Protocol (BGP) v4 support for route exchange with external entities (no assumptions are made on the routing protocol used by the 3rd party SDWAN devices to exchange routing information between each other).
 
