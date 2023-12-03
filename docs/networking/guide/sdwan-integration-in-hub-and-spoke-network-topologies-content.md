@@ -8,7 +8,7 @@ The recommendations in this article are vendor-agnostic and applicable to any 3r
 - Border Gateway Protocol (BGP) v4 support for route exchange with external entities (no assumptions are made on the routing protocol used by the 3rd party SDWAN devices to exchange routing information between each other).
 
 By adhering to these recommendations, customers can use their SDWAN technology of choice to achieve the following goals:
-- Integrate SDWAN solutions in an existing Azure hub and spoke network, by automating route exchange between Azure Virtual Networks (VNets) and SDWAN devices.
+- Integrate SDWAN products in an existing Azure hub and spoke network, by automating route exchange between Azure Virtual Networks (VNets) and SDWAN devices.
 - Optimize connectivity (both to Azure and on-premises datacenters) for branches with local internet breakouts. The [reach](https://azure.microsoft.com/blog/how-microsoft-builds-its-fast-and-reliable-global-network/) of the Microsoft backbone, combined with its capacity, resiliency and "[cold potato](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing)" routing policy suggests that it can be used as a high-performance underlay for global SDWANs.
 - Leverage the Microsoft backbone for all Azure-to-Azure traffic (cross region and cross geography).
 - Leverage existing Multi-Protocol-Label-Switching (MPLS) networks as a high-performance underlays.
