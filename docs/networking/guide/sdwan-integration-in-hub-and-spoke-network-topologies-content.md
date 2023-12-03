@@ -166,7 +166,7 @@ Organizations that do not trust public/shared networks to provide the desired pe
 
 ### Azure Route Server routing preference
 In both the MPLS scenarios covered in the two previous sections, some branch sites may be connected both to the MPLS IPVPN and to the SDWAN. As a result, the Route Server instances deployed in the hub VNets may learn the same routes from ExpressRoute Gateways and SDWAN NVAs.
-Azure Route Server routing preference allows controlling which path should be preferred and plumbed into the Azure VNets' route tables. Routing preference is useful when AS Path prepending cannot be used, which may the case for MPLS IPVPN services that do not support custom BGP configurations on the PEs that terminate ExpressRoute connections.
+Azure Route Server routing preference allows controlling which path should be preferred and plumbed into the Azure VNets' route tables. Routing preference is useful when AS Path prepending cannot be used, which may be the case for MPLS IPVPN services that do not support custom BGP configurations on the PEs that terminate ExpressRoute connections.
 
 ## Azure Route Server limits and design considerations
 
