@@ -29,7 +29,7 @@ The reference architecture described in this article supports all the scopes lis
 - SDWAN devices are deployed as Network Virtual Appliances (NVAs) in each Azure region’s hub and spoke network and configured as SDWAN hubs that terminate tunnels from on-prem sites.
 - SDWAN devices in Azure are configured to establish tunnels with each other, thus creating a fully meshed hub-to-hub overlay that can efficiently transport traffic among Azure regions, and relay traffic between geographically distant on-prem sites, on top of the Microsoft backbone.
 - SDWAN devices are deployed in all on-prem sites covered by the SDWAN solution and configured to establish tunnels to the SDWAN NVAs in the closest Azure region(s). Different sites may leverage different transport services as an underlay for the tunnels (public internet, ExpressRoute connectivity, …).
-- Traffic from a site to any destination (in an Azure or in another on-prem site) is routed to the SDWAN NVAs in the closest Azure region and then through hub-to-hub overlay.
+- Traffic from a site to any destination (in an Azure or in another on-prem site) is routed to the SDWAN NVAs in the closest Azure region and then through the hub-to-hub overlay.
 - The recommendations in the article are independent of the Azure supported SDWAN technology used and remains the same for multiple hub architecture.
 
 SDWAN products can use proprietary protocols/features to detect when/if dynamically established, direct tunnels between two sites can provide better performance than relaying traffic via SDWAN NVAs in Azure.
