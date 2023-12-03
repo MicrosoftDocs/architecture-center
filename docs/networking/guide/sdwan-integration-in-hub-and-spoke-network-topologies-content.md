@@ -123,7 +123,7 @@ This coexistence scenario requires SDWAN NVAs deployed in Azure to be capable of
 ![Route propagation when Route Server is configured with "AllowBranchToBranch=TRUE" ](images/sdwan-integration-route-server-allow-branchtobranch.png)
 *Figure 7. Route propagation between the ExpressRoute virtual network gateway and the SDWAN NVA(s) happens over BGP. Azure Route Server establishes BGP sessions with both and propagates routes in both directions when configured with “AllowBranchToBranch=TRUE”. Azure Route Server act as a route  reflector, i.e. it is not part of the data path.*
 
-This SDWAN and ExpressRoute coexistence scenario is beneficial when migrating from MPLS networks to SDWAN. It offers a path between legacy MPLS sites and newly migrated SDWAN sites, eliminating the need for reliance on an on-premises datacenter. This pattern can be leveraged not only during migrations but also in scenarios arising from company mergers and acquisitions, providing a seamless interconnection of disparate networks.
+This SDWAN and ExpressRoute coexistence scenario enables migrations from MPLS networks to SDWAN. It offers a path between legacy MPLS sites and newly migrated SDWAN sites, eliminating the need to route traffic through on-premises datacenters. This pattern can be leveraged not only during migrations but also in scenarios arising from company mergers and acquisitions, providing a seamless interconnection of disparate networks.
 
 ### Scenario #2: Expressroute as an SDWAN underlay
 
