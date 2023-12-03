@@ -50,7 +50,7 @@ Hub and Spoke is the topology that Microsoft recommends for building scalable ne
 SDWAN NVAs should be deployed in hub VNets as follows:
 
 - One single NIC is used for all SDWAN traffic. Additional NICs, such as a management NIC, can be added to meet security/compliance requirements or to adhere to vendor guidelines for Azure deployments.
-- The NIC used for SDWAN traffic must be attached to dedicated subnet. The size of the subnet must be defined based on the number of SDWAN NVAs that will be deployed to meet HA and scale/throughput requirements (discussed below in this article).
+- The NIC used for SDWAN traffic must be attached to a dedicated subnet. The size of the subnet must be defined based on the number of SDWAN NVAs that will be deployed to meet HA and scale/throughput requirements (discussed below in this article).
 - The NIC used for SDWAN traffic must be associated to a Public IP resource. The public IP is the SDWAN NVA's public tunnel endpoint. Standard SKU Public IPs are recommended.
 - Network Security Groups (NSGs) must be associated to the SDWAN traffic NIC (either directly or at the subnet level) to allow connections from remote on-prem sites over the TCP/UDP ports used by the SDWAN solution.
 -  IP Forwarding must be enabled on the NIC used for SDWAN traffic.
