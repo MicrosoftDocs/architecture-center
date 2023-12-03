@@ -57,7 +57,7 @@ SDWAN NVAs should be deployed in hub VNets as follows:
 
 ### Azure Route Server in the hub VNet
 
-Azure Route Server automates route exchange between SDWAN NVAs and the Azure Software Defined Networking (SDN) stack over BGP. By establishing BGP adjacencies between Azure Route Server and the SDWAN NVA(s):
+Azure Route Server automates route exchange between SDWAN NVAs and the Azure Software Defined Networking (SDN) stack. Azure Route Server supports BGP as a dynamic routing protocol. By establishing BGP adjacencies between Azure Route Server and the SDWAN NVA(s):
 
 - Routes for all the on-prem sites connected to the SDWAN are injected in the Azure VNets' route tables and learned by all Azure VMs.
 - Routes for all IP prefixes included in the address space of Azure VNets are propagated to all SDWAN-connected sites.
