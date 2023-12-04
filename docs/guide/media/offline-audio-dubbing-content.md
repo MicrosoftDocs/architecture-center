@@ -209,9 +209,9 @@ However, multiple audio segments in the target audio might overlap. The goal of 
 
 - offset<sub>t</sub><sup>i</sup> > offset<sub>t</sub><sup>(i-1)</sup> + t<sub>t</sub><sup>(i-1)</sup>. In this scenario, both segments fit within the pause assigned between them in the original audio with no issues.
 - offset<sub>t</sub><sup>i</sup> = offset<sub>t</sub><sup>(i-1)</sup> + t<sub>t</sub><sup>(i-1)</sup>. In this scenario, there's no pause between two consecutive audio segments in the target language. Add a small offset (enough for one word in the language) to the offset<sub>t</sub><sup>i</sup> (&#916;t<sub>t</sub>). (&#916;t<sub>t</sub>) is to avoid continuous audio in the target audio that isn't present in the original.
-- offset<sub>t</sub><sup>i</sup> < offset<sub>t</sub><sup>(i-1)</sup> + t<sub>t</sub><sup>(i-1)</sup>. In this case, the two audio segments overlap. There are two possible scenarios: 
-	- offset<sub>s</sub><sup>(i-1)</sup> + t<sub>s</sub><sup>(i-1)</sup> < median \{offset<sub>s</sub><sup>(i-1)</sup> \+ t<sub>s</sub><sup>(i-1)</sup>\}&#8704;i. In this case, the pause is shorter than the nominal pause in the video. You can shift the translated text to resolve the problem. You can assume that the longer pauses make up for the overlap. Therefore, offset<sub>t</sub><sup>i</sup> = offset<sub>t</sub><sup>(i-1)</sup> + t<sub>t</sub><sup>(i-1)</sup> + &#916;t<sub>t</sub>.
-	- offset<sub>s</sub><sup>(i-1)</sup> + t<sub>s</sub><sup>(i-1)</sup> > median \{offset<sub>s</sub><sup>(i-1)</sup> \+ t<sub>s</sub><sup>(i-1)</sup>\}&#8704;i. In this case, the pause is longer than the nominal pause in the video, but it doesn't fit the translated audio. You can use the rate to adjust the segment to be more appropriately timed. You can use this equation to calculate the new rate: rate<sub>t</sub><sup>i</sup> = rate<sub>t</sub><sup>i</sup> * (((offset<sub>t</sub><sup>(i-1)</sup> + t<sub>t</sub><sup>(i-1)</sup>) - offset<sub>t</sub><sup>i</sup>) + t<sub>t</sub><sup>i</sup> + &#916;t<sub>t</sub> )/( t<sub>t</sub><sup>i</sup>).
+- offset<sub>t</sub><sup>i</sup> < offset<sub>t</sub><sup>(i-1)</sup> + t<sub>t</sub><sup>(i-1)</sup>. In this case, the two audio segments overlap. There are two possible scenarios:
+  - offset<sub>s</sub><sup>(i-1)</sup> + t<sub>s</sub><sup>(i-1)</sup> < median \{offset<sub>s</sub><sup>(i-1)</sup> \+ t<sub>s</sub><sup>(i-1)</sup>\}&#8704;i. In this case, the pause is shorter than the nominal pause in the video. You can shift the translated text to resolve the problem. You can assume that the longer pauses make up for the overlap. Therefore, offset<sub>t</sub><sup>i</sup> = offset<sub>t</sub><sup>(i-1)</sup> + t<sub>t</sub><sup>(i-1)</sup> + &#916;t<sub>t</sub>.
+  - offset<sub>s</sub><sup>(i-1)</sup> + t<sub>s</sub><sup>(i-1)</sup> > median \{offset<sub>s</sub><sup>(i-1)</sup> \+ t<sub>s</sub><sup>(i-1)</sup>\}&#8704;i. In this case, the pause is longer than the nominal pause in the video, but it doesn't fit the translated audio. You can use the rate to adjust the segment to be more appropriately timed. You can use this equation to calculate the new rate: rate<sub>t</sub><sup>i</sup> = rate<sub>t</sub><sup>i</sup> * (((offset<sub>t</sub><sup>(i-1)</sup> + t<sub>t</sub><sup>(i-1)</sup>) - offset<sub>t</sub><sup>i</sup>) + t<sub>t</sub><sup>i</sup> + &#916;t<sub>t</sub> )/( t<sub>t</sub><sup>i</sup>).
 
 Implementing this process might cause the last segment to run longer than the time of the original audio, especially if the video ends at the end of the original audio but the target audio is longer. In this situation, you have two choices: 
 - Let the audio run longer.
@@ -369,7 +369,7 @@ interventions = CalculateInterventionReasons(speechOutputSegment.LexicalText, fi
         };
         if (interventions != null && interventions.Count > 0)
         {
-    	    correctionSegment.InterventionNeeded = true;
+            correctionSegment.InterventionNeeded = true;
             correctionSegment.InterventionReasons = interventions;
         }
         else
