@@ -30,7 +30,6 @@ The reference architecture described in this article supports all the scopes lis
 - SDWAN devices in Azure are configured to establish tunnels with each other, thus creating a fully meshed hub-to-hub overlay that can efficiently transport traffic among Azure regions, and relay traffic between geographically distant on-prem sites, on top of the Microsoft backbone.
 - SDWAN devices are deployed in all on-prem sites covered by the SDWAN solution and configured to establish tunnels to the SDWAN NVAs in the closest Azure region(s). Different sites may leverage different transport services as an underlay for the tunnels (public internet, ExpressRoute connectivity, …).
 - Traffic from a site to any destination (in an Azure or in another on-prem site) is routed to the SDWAN NVAs in the closest Azure region and then through the hub-to-hub overlay.
-- The recommendations in the article are independent of the Azure supported SDWAN technology used and remains the same for multiple hub architecture.
 
 SDWAN products can use proprietary protocols/features to detect when/if dynamically established, direct tunnels between two sites can provide better performance than relaying traffic via SDWAN NVAs in Azure.
 
@@ -51,14 +50,12 @@ SDWAN NVAs should be deployed in hub VNets as follows:
 
 - One single NIC is used for all SDWAN traffic. Additional NICs, such as a management NIC, can be added to meet security/compliance requirements or to adhere to vendor guidelines for Azure deployments.
 - The NIC used for SDWAN traffic must be attached to a dedicated subnet. The size of the subnet must be defined based on the number of SDWAN NVAs that will be deployed to meet HA and scale/throughput requirements (discussed below in this article).
-- The NIC used for SDWAN traffic must be associated to a Public IP resource. The public IP is the SDWAN NVA's public tunnel endpoint. Standard SKU Public IPs are recommended.
 - Network Security Groups (NSGs) must be associated to the SDWAN traffic NIC (either directly or at the subnet level) to allow connections from remote on-prem sites over the TCP/UDP ports used by the SDWAN solution.
 -  IP Forwarding must be enabled on the NIC used for SDWAN traffic.
 
 ### Azure Route Server in the hub VNet
 
 Azure Route Server automates route exchange between SDWAN NVAs and the Azure Software Defined Networking (SDN) stack. Azure Route Server supports BGP as a dynamic routing protocol. By establishing BGP adjacencies between Azure Route Server and the SDWAN NVA(s):
-
 - Routes for all the on-prem sites connected to the SDWAN are injected in the Azure VNets' route tables and learned by all Azure VMs.
 - Routes for all IP prefixes included in the address space of Azure VNets are propagated to all SDWAN-connected sites.
 
@@ -181,9 +178,6 @@ Azure Route Server does not define an explicit limit for the number of routes th
 - Leverage native SDWAN devices' features to limit the number of routes announced to Route Server, if such a feature is available.
 - Leverage [Azure Monitor Alerts](azure-monitor/alerts/alerts-overview) to proactively detect spikes in the number of routes announced by ExpressRoute Gateways. The metric to be monitored is named "Count of Routes Advertised to Peer", as documented [here](azure/expressroute/expressroute-monitoring-metrics-alerts).
 
-### Routes advertised by Azure Route Server to ExpressRoute or VPN gateway
-
-This limit determines the maximum number of routes that Route Server can announce to Virtual Network Gateways (ExpressRoute or VPN) when the “AllowBranchToBranch” flag is set (see section “Scenario #1: ExpressRoute and SDWAN coexistence” for more details). Route summarization performed by the SDWAN NVAs as described in the previous section should be used reduce the number of routes learned by Route Server and, consequently, the number of routes it announces to native virtual network gateways.
 
 ### BGP peers
 
