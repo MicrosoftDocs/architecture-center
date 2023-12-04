@@ -492,8 +492,14 @@ In this architecture, [user-assigned managed identities](/entra/managed-identiti
     Alternatively, use a separate VM as a jumpbox, deployed to its own subnet, where you can install your choice of admin and troubleshooting tools. The operator accesses the jumpbox through the Bastion host. Then, sign in to the VMs behind the load balancer from the jumpbox.  
 
     In this architecture, operational traffic is protected using NSG rules to restrict traffic and [just-in-time (JIT) VM access](/azure/defender-for-cloud/just-in-time-access-overview), a feature of Microsoft Defender for Cloud, which allows temporary inbound access to selected ports.
-    **//suggestion:** Add sentence like the following to recommend using PIM for privaledge access and, including JIT access **//end suggestion:**
-    For enhanced security, use [Microsoft Entra Privileged Identity Management (PIM)](https://learn.microsoft.com/entra/id-governance/privileged-identity-management/pim-configure), is a service in Microsoft Entra ID that enables you to manage, control, and monitor access to important resources in your organization. PIM provides time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions on resources that you care about.
+    
+    **//suggestion:**
+
+    Add sentence like the following to recommend using PIM for privaledge access and, including JIT access 
+
+    **//end suggestion:**
+    
+    For enhanced security, use [Microsoft Entra Privileged Identity Management (PIM)](https://learn.microsoft.com/entra/id-governance/privileged-identity-management/pim-configure). PIM is a service in Microsoft Entra ID that enables you to manage, control, and monitor access to important resources in your organization. PIM provides time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions on resources that you care about.
 
 - **Private connectivity to PaaS services**. Communication between the VMs and Azure Key Vault is over Private Links. This service requires private endpoints, which are placed in a separate subnet.
 
@@ -503,7 +509,7 @@ In this architecture, [user-assigned managed identities](/entra/managed-identiti
 
 ##### Encryption
 
-- **Data in transit**. User traffic to and from the frontend VMs is encrypted using external and internal TLS certificates. Traffic between the frontend and backend VMs is also encrypted using internal certificate. Both certificates are stored in [Azure Key Vault](/azure/key-vault/general/overview):
+- **Data in transit**. User traffic between users and the Azure Application Gateway public IP is encrypted using the external certificate. Traffic between the application gateway and the frontent VMs, and between the frontend and backend VMs is encrypted using an internal certificate. Both certificates are stored in [Azure Key Vault](/azure/key-vault/general/overview):
     - **app.contoso.com**: An external certificate used by clients and Application Gateway for secure public Internet traffic.
     - ***.worload.contoso.com**: A wildcard certificate used by the infrastructure components for secure internal traffic.
 
@@ -540,7 +546,7 @@ The use of ephemeral OS disks can also lead to cost savings and improved perform
 
 ##### Flow cost
 
-Choose compute resources based on the criticality of the flow. For workflows that can tolerate interruptions, consider using [Spot VMs](/azure/architecture/guide/spot/spot-eviction) with VM scale setsFlexible Orchestration mode. This approach can be effective for hosting low-priority flows on lower-priority VMs. This strategy allows for cost optimization while still meeting the requirements of different workflows.
+Choose compute resources based on the criticality of the flow. For flows that can tolerate interruptions, consider using [Spot VMs](/azure/architecture/guide/spot/spot-eviction) with VM Scale Sets Flexible Orchestration mode. This approach can be effective for hosting low-priority flows on lower-priority VMs. This strategy allows for cost optimization while still meeting the requirements of different flows.
 
 > Refer to Well-Architected Framework: [CO:09 - Recommendations for optimizing flow costs](/azure/well-architected/cost-optimization/optimize-flow-costs).
 
