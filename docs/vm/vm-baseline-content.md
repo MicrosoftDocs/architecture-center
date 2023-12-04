@@ -477,7 +477,7 @@ In this architecture, [user-assigned managed identities](/entra/managed-identiti
 
 ##### Network controls
 
-- **Ingress traffic**. The workload VMs aren't directly exposed to the public internet. Each VM has a private IP address. Workload users connect using that public IP address of Azure Application Gateway.
+- **Ingress traffic**. The workload VMs aren't directly exposed to the public internet. Each VM has a private IP address. Workload users connect using the public IP address of Azure Application Gateway.
 
     More security is provided through [Web Application Firewall](/azure/application-gateway/waf-overview) that's integrated with Application Gateway. It has rules that _inspect inbound traffic_ and can take an appropriate action. WAF tracks Open Web Application Security Project (OWASP) vulnerabilities preventing known attacks.  
 
@@ -487,15 +487,17 @@ In this architecture, [user-assigned managed identities](/entra/managed-identiti
 
     [Network security groups (NSGs)](/azure/virtual-network/network-security-groups-overview) are placed to restrict traffic between subnets based on parameters such as IP address range, ports, and protocols. [Application security groups (ASG)](/azure/virtual-network/application-security-groups) are placed on frontend and backend VMs. They're used with NSGs to filter traffic to and from the VMs.  
 
-- **Operational traffic**. It's recommended that secure operational access to workload is provided through Azure Bastion, which removes the need for public IP. In this architecture, that communication is over SSH that's supported by both Windows and Linux VMs. Microsoft Entra ID is integrated with SSH for both types of VMs by using the extension. That integration allows operator's identity to be authenticated and authorized through Microsoft Entra ID.
+- **Operational traffic**. It's recommended that secure operational access to workload is provided through Azure Bastion, which removes the need for public IP. In this architecture, that communication is over SSH that's supported by both Windows and Linux VMs. Microsoft Entra ID is integrated with SSH for both types of VMs by using the corresponding VM extension. That integration allows operator's identity to be authenticated and authorized through Microsoft Entra ID.
 
-    Alternatively, use a separate VM as a jumpbox in the subnet in that has the workload resources. The operator accesses the jumpbox through the Bastion host. Then, sign in to the VMs behind the load balancer from the jumpbox.  
+    Alternatively, use a separate VM as a jumpbox, deployed to its own subnet, where you can install your choice of admin and troubleshooting tools. The operator accesses the jumpbox through the Bastion host. Then, sign in to the VMs behind the load balancer from the jumpbox.  
 
-    In both cases, appropriate NSG rules should be applied to restrict traffic. Security can be further enhanced with RBAC permissions and [just-in-time (JIT) VM access](/azure/defender-for-cloud/just-in-time-access-overview), a feature of Microsoft Defender for Cloud, which allows temporary inbound access to selected ports.
+    In this architecture, operational traffic is protected using NSG rules to restrict traffic and [just-in-time (JIT) VM access](/azure/defender-for-cloud/just-in-time-access-overview), a feature of Microsoft Defender for Cloud, which allows temporary inbound access to selected ports.
+    **//suggestion:** Add sentence like the following to recommend using PIM for privaledge access and, including JIT access **//end suggestion:**
+    For enhanced security, use [Microsoft Entra Privileged Identity Management (PIM)](https://learn.microsoft.com/entra/id-governance/privileged-identity-management/pim-configure), is a service in Microsoft Entra ID that enables you to manage, control, and monitor access to important resources in your organization. PIM provides time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions on resources that you care about.
 
 - **Private connectivity to PaaS services**. Communication between the VMs and Azure Key Vault is over Private Links. This service requires private endpoints, which are placed in a separate subnet.
 
-- **DDoS protection**. Azure provides basic DDoS protection by default. Consider enabling [Azure DDoS Protection](/azure/virtual-network/ddos-protection-overview) on the public IP exposed by Application Gateway to detect threats. DDoS Protection also provides alerting, telemetry, and analytics through Azure Monitor. For more information, see [Azure DDoS Protection: Best practices and reference architectures](/azure/security/fundamentals/ddos-best-practices).
+- **DDoS protection**. Azure provides basic DDoS protection by default. Consider enabling [Azure DDoS Protection](/azure/virtual-network/ddos-protection-overview) on the public IPs exposed by Application Gateway and the Bastion Host to detect threats. DDoS Protection also provides alerting, telemetry, and analytics through Azure Monitor. For more information, see [Azure DDoS Protection: Best practices and reference architectures](/azure/security/fundamentals/ddos-best-practices).
 
 > Refer to Well-Architected Framework: [SE:06 - Recommendations for networking and connectivity](/azure/well-architected/security/networking).
 
