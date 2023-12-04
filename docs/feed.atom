@@ -2,12 +2,76 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2023-11-06T17:03:49.056Z</updated>
+    <updated>2023-12-04T17:02:19.706Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[AKS Backup and Recovery]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-backup-and-recovery</id>
+        <link href="https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-backup-and-recovery"/>
+        <updated>2023-12-01T22:39:15.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to back up and recover your AKS clusters and their workloads.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use Azure Batch to run Financial Service Industry (FSI) workloads]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/batch/fsi-workloads-using-batch</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/batch/fsi-workloads-using-batch"/>
+        <updated>2023-11-17T20:05:17.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to run FSI workloads on Azure using Azure Batch.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Quantum ESPRESSO on an Azure virtual machine]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/quantum-espresso</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/quantum-espresso"/>
+        <updated>2023-11-16T20:44:18.000Z</updated>
+        <summary type="html"><![CDATA[Find out how Quantum ESPRESSO materials modeling software performs on an Azure virtual machine.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Mainframe workload migration proof of concept]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/mainframe/mainframe-proof-of-concept</id>
+        <link href="https://learn.microsoft.com/azure/architecture/mainframe/mainframe-proof-of-concept"/>
+        <updated>2023-11-16T17:19:04.000Z</updated>
+        <summary type="html"><![CDATA[Learn about guidance for creating a proof of concept, which helps you migrate a workload from a mainframe to the cloud.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Enable real-time sync of MongoDB Atlas data changes to Azure Synapse Analytics]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/analytics/sync-mongodb-atlas-azure-synapse-analytics</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/analytics/sync-mongodb-atlas-azure-synapse-analytics"/>
+        <updated>2023-11-15T22:06:12.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to keep Azure Synapse Analytics data pools synchronized with operational data changes in MongoDB Atlas.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy M-Star on a virtual machine]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/m-star</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/m-star"/>
+        <updated>2023-11-07T19:21:49.000Z</updated>
+        <summary type="html"><![CDATA[Learn how M-Star computational fluid dynamics software performs on an Azure virtual machine (VM). Learn the steps for running M-Star on an Azure VM.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Software-defined vehicle DevOps toolchain]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/industries/automotive/software-defined-vehicle-reference-architecture</id>
+        <link href="https://learn.microsoft.com/azure/architecture/industries/automotive/software-defined-vehicle-reference-architecture"/>
+        <updated>2023-11-07T15:40:26.000Z</updated>
+        <summary type="html"><![CDATA[Learn about an architecture for transitioning to SDVs in which the in-vehicle software stack undergoes simulation and testing in cloud-based environments.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Architectural approaches for control planes in multitenant solutions]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/control-planes</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/approaches/control-planes"/>
+        <updated>2023-11-06T23:21:06.000Z</updated>
+        <summary type="html"><![CDATA[Learn about approaches to designing and creating control planes for your multitenant solutions, including manual, low-code, and custom approaches.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Deploy CP2K on an Azure virtual machine]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/hpc/cp2k</id>
@@ -23,6 +87,110 @@
         <updated>2023-11-01T20:54:53.000Z</updated>
         <summary type="html"><![CDATA[Learn how NAMD, a parallel molecular dynamics application designed for high-performance simulation of large biomolecular systems, performs on an Azure VM.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy WRF on an Azure virtual machine]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/weather-research-forecasting</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/weather-research-forecasting"/>
+        <updated>2023-11-29T22:22:39.000Z</updated>
+        <summary type="html"><![CDATA[Find out how WRF performs on an Azure virtual machine and get a brief description of the steps for running the software on Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Continuous validation with Azure Load Testing and Azure Chaos Studio]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/testing/mission-critical-deployment-testing</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/testing/mission-critical-deployment-testing"/>
+        <updated>2023-11-28T20:20:52.000Z</updated>
+        <summary type="html"><![CDATA[Guide on performing automated continuous validation in production-like environments with Azure Load Testing and Chaos Studio.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy GROMACS on an Azure virtual machine]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/gromacs</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/gromacs"/>
+        <updated>2023-11-22T20:54:25.000Z</updated>
+        <summary type="html"><![CDATA[Find out how GROMACS molecular dynamics simulation software performs on an Azure virtual machine (VM).]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AKS triage—Cluster health]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-cluster-health</id>
+        <link href="https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-cluster-health"/>
+        <updated>2023-11-22T18:48:56.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to check the overall health of an Azure Kubernetes Service (AKS) cluster, as part of a triage step for AKS clusters.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AKS triage—Container registry connectivity]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-container-registry</id>
+        <link href="https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-container-registry"/>
+        <updated>2023-11-22T18:48:56.000Z</updated>
+        <summary type="html"><![CDATA[Learn about verifying the connection to a container registry. This step is part of the triage practice for Azure Kubernetes Service (AKS) clusters.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AKS triage—Admission controllers]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-controllers</id>
+        <link href="https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-controllers"/>
+        <updated>2023-11-22T18:48:56.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to verify that the admission controllers are working as expected. This step is part of the triage practices for AKS clusters.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AKS triage—Workload deployments]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-deployment</id>
+        <link href="https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-deployment"/>
+        <updated>2023-11-22T18:48:56.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to check whether workload deployments and DaemonSet features are running properly. This step is part of the triage practices for an AKS cluster.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AKS triage—Node health]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-node-health</id>
+        <link href="https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-node-health"/>
+        <updated>2023-11-22T18:48:56.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the triage step in which you examine the health of Azure Kubernetes Service (AKS) worker nodes and pods and resolve issues.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Kubernetes Service (AKS) operations triage]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-practices</id>
+        <link href="https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-practices"/>
+        <updated>2023-11-22T18:48:56.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the five articles that describe the triage practices for AKS operations. Get an overview of the top-down triage approach.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Autodesk Maya on a virtual machine]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/autodesk-maya</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/autodesk-maya"/>
+        <updated>2023-11-21T21:22:50.000Z</updated>
+        <summary type="html"><![CDATA[See how Autodesk Maya performs on an Azure virtual machine. Maya provides 3D animation, modeling, simulation, and rendering capabilities.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[The journey to SaaS: Dynamics 365]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/saas/case-studies/dynamics-365-journey-saas</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/saas/case-studies/dynamics-365-journey-saas"/>
+        <updated>2023-11-14T18:49:18.000Z</updated>
+        <summary type="html"><![CDATA[Learn from a first-hand account about the journey and decisions that made Microsoft Dynamics 365 a successful SaaS product.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure landing zones - Bicep modules design considerations]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/landing-zones/bicep/landing-zone-bicep</id>
+        <link href="https://learn.microsoft.com/azure/architecture/landing-zones/bicep/landing-zone-bicep"/>
+        <updated>2023-11-07T18:14:10.000Z</updated>
+        <summary type="html"><![CDATA[Design considerations for the Azure landing zones Bicep modules.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure landing zones - Terraform module design considerations]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/landing-zones/terraform/landing-zone-terraform</id>
+        <link href="https://learn.microsoft.com/azure/architecture/landing-zones/terraform/landing-zone-terraform"/>
+        <updated>2023-11-07T18:14:10.000Z</updated>
+        <summary type="html"><![CDATA[Design considerations for the Azure landing zones Terraform module.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[The journey to SaaS: Dynamics 365]]></title>
@@ -174,78 +342,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/monitoring"/>
         <updated>2023-09-22T18:52:03.000Z</updated>
         <summary type="html"><![CDATA[Understand monitoring and logging for an Azure Kubernetes Service (AKS) cluster and workloads, and compare Amazon EKS and AKS monitoring and logging.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Multitenancy and Application Insights]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/application-insights</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/application-insights"/>
-        <updated>2023-08-21T17:04:10.000Z</updated>
-        <summary type="html"><![CDATA[Learn about tenancy models that you can use with Application Insights and features that are useful when you use this service in multitenant systems.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Azure Health Data Services architecture guide]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/data/azure-health-data-services</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/data/azure-health-data-services"/>
-        <updated>2023-08-08T21:38:16.000Z</updated>
-        <summary type="html"><![CDATA[Deploy Azure Health Data Services on Azure to improve your ability to safeguard your organization's health data.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Mission-critical baseline with App Service]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/networking/global-web-applications/mission-critical-app-service</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/networking/global-web-applications/mission-critical-app-service"/>
-        <updated>2023-08-02T22:14:28.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to deploy mission-critical web applications by using the Web Apps feature of Azure App Service.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Microsoft SaaS stories]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/saas/case-studies/saas-stories</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/saas/case-studies/saas-stories"/>
-        <updated>2023-08-31T16:53:03.000Z</updated>
-        <summary type="html"><![CDATA[Collection of insightful interviews featuring Microsoft partners who have embarked on their unique software as a service (SaaS) journey.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Deploy Azure landing zones]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/landing-zones/landing-zone-deploy</id>
-        <link href="https://learn.microsoft.com/azure/architecture/landing-zones/landing-zone-deploy"/>
-        <updated>2023-08-21T14:43:45.000Z</updated>
-        <summary type="html"><![CDATA[Learn about the deployment options for platform and application landing zones in Azure.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[HA enterprise deployment using ASE]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment</id>
-        <link href="https://learn.microsoft.com/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment"/>
-        <updated>2023-08-18T19:33:58.000Z</updated>
-        <summary type="html"><![CDATA[Recommended architecture for deploying an enterprise application using App Services Environment in multiple availability zones.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Magento e-commerce platform in Azure Kubernetes Service]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/magento/magento-azure</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/magento/magento-azure"/>
-        <updated>2023-08-17T16:46:32.000Z</updated>
-        <summary type="html"><![CDATA[Deploy the Magento e-commerce platform to Azure Kubernetes Service (AKS), and learn about considerations for hosting Magento on Azure.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Considerations for multitenant control planes]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/considerations/control-planes</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/considerations/control-planes"/>
-        <updated>2023-08-15T03:14:33.000Z</updated>
-        <summary type="html"><![CDATA[Learn about the responsibilities of control planes in multitenant solutions and how to design a control plane that meets your needs.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Build solutions with availability zones]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability</id>
-        <link href="https://learn.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability"/>
-        <updated>2023-08-08T23:00:38.000Z</updated>
-        <summary type="html"><![CDATA[Learn about the Azure availability zones construct, a software and networking solution for high availability (HA) that protects against datacenter failures.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
 </feed>
