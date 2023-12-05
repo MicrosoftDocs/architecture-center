@@ -516,6 +516,13 @@ Automatic VM guest patching reduces the overhead of manual patching and the asso
 
 > Refer to Well-Architected Framework: [CO:13 - Recommendations for optimizing personnel time](/azure/well-architected/cost-optimization/optimize-scaling-costs).
 
+## Deploy this scenario
+
+A deployment for this reference architecture is available on GitHub.
+
+> [!div class="nextstepaction"]
+> [Implementation: Azure Virtual Machine baseline architecture](https://github.com/mspnp/xxx)
+
 
 ## Next steps
 

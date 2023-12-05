@@ -1,6 +1,5 @@
 This reference architecture extends the [**Virtual machine baseline architecture**](./vm-baseline.yml) to address common architectural changes and expectations when deployed into in Azure landing zones.
 
-
 In this use case, the organization expects the VM-based workload to utilize federated resources that are centrally managed by the platform team. These resources include networking for cross-premises connectivity, identity access management, and policies. It's assumed that the organization has adopted Azure landing zones to enforce consistent governance and cost-efficiency across multiple workloads. As a workload owner, you benefit by offloading management of shared resources to central teams and focus on workload development efforts. This article presents the workload team's perspective.
 
 > [!IMPORTANT]
@@ -13,6 +12,13 @@ This architecture can be used for these scenarios:
 
 - Private applications. These include internal line-of-business applications or commercial off-the-shelf (COTS) solutions, which are often located under the Corp management group of Azure landing zones.
 - Public applications. These are internet-facing applications that can be found under either the Corp or Online management group. This architecture isn't for high-performance computing (HPC), mission-critical workloads, latency-sensitive applications, or highly specialized use cases. Instead, it serves as a foundational guide for a workload-agnostic perspective in Azure landing zones.
+
+> [!TIP]
+> ![GitHub logo](../_images/github.svg) The best practices described in this architecture are demonstrated by a [**reference implementation**](https://github.com/mspnp/xxx/). 
+>
+> The repository artifacts offer a customizable foundation for your environment. It sets up a hub network with shared resources like Azure Firewall for demonstration purposes. This setup can be mapped to separate landing zone subscriptions for distinct workload and platform functions.
+>
+> The deployment uses Bicep templates. To deploy the architecture, follow the [step-by-step instructions](https://github.com/mspnp/xxx/go).
 
 ## Article layout
 
@@ -136,9 +142,13 @@ This architecture operates on the assumption of a hub-spoke topology.
 The spoke network is peered with the hub network. Azure landing zone subscription intended for the workload, has at least one preprovisioned virtual network that's peered to the hub network. The preprovisioned virtual network and peerings must be able to support the expected growth of the workload. Make sure you [communicate the workload requirements](#subscription-set-up-by-the-platform-team) to the platform team and review them periodiocally.
 
 > [!IMPORTANT] 
+> **Platform team**
+>
 > The workload network must not be directly peered to another spoke virtual network. All transitive virtual network connections should be facilitated by your platform team.
-
-TODO: IPAM, Org IP overlap
+>
+> Ensure virtual networks involved in peerings have unique addresses. Overlapping addresses, such as those of on-premises and workload networks, can cause disruptions and outages.
+>
+> Alocate IP address spaces that are sufficiently large to accommodate runtime and deployment resources, manage failovers, and facilitate scalability.
 
 #### Virtual network subnets
 
@@ -214,7 +224,9 @@ An organization might impose compliance requirements on the workload team that m
 
 The platform team might use a managed offering such as Azure Compute Gallery or a private repository to store approved OS images or workload artifacts. When choosing an OS images for VMs, consult your platform team about image sources, update frequency, and usage expectations. Also make sure the images are able to meet the necessary business requirements fulfilled by the workload.
 
-> [!NOTE] 
+> [!IMPORTANT] 
+> **Platform team**
+>
 > If Azure Compute Gallery is used, the workload requires network visibility to the gallery and Azure Firewall rules to allow access.
 
 ## Monitoring considerations
@@ -301,22 +313,31 @@ To maintain Service Level Objectives (SLOs) of the workload, the platform team n
 For example, communicate changes to any previously-disallowed egress flow so that the platform team can add that flow in the firewall, Azure Network Manager, or other components to support the required traffic. Conversely, if a previously-allowed egress flow is no longer needed, this should also be communicated to the platform team to block that flow in order to maintain the workload's security.  Changes in routing to other virtual networks or cross-premises endpoints should be communicated. If there are changes to the architecture components, those changes must also be communicated. Each resource will be subject to policies and potentially egress firewall control.
 
 ## Reliability
- 
-This architecture does not have any additional reliability affordances over the baseline architecture, but in fact has a lower maximum possible composite SLO due to additional components, such as egress network control.
- 
-Those additional components are not unique to architectures existing in application Azure landing zones, but are common in such environments. The SLO would be similarly lowered if these additional Azure services were in direct control of the workload team.
- 
-Beyond the reduced maximum possible SLO in this architecture, the most notable reliability consideration is how the workload components in Azure are now split across functional teams within an organization. This can be a boon for the workload team, having an expert, specialized team having a narrow focus on the operations of critical infrastructure used by this workload and others in the organization.
- 
-All platform and application landing zone functionality used by the workload should be considered a dependency. Incident response plans require dependencies to have point and method-of-contact information known to the workload team. These dependencies that also needs to included into the failure mode analysis (FMA) of the workload. See, [Identify dependencies](/azure/well-architected/reliability/failure-mode-analysis#identify-dependencies).
- 
-Additional reliability points to consider for components this architecture:
-- Change control on the egress firewall. This centralized component will be undergoing changes unrelated to the workload, due to its shared, multi-workload nature.
-- Network saturation or port exhaustion on the egress firewall due to spikes in usage from all the workloads sharing the network device.
-- DINE policies for Azure DNS Private DNS zones (or any other platform provided dependency) are best effort, with no SLA on execution.
-- Consistent management group policies between environments. Pre-production environments benefit from close approximation of production environments to ensure meaningful testing and to mitigate environment-specific deviations causing different behavior in production that could block deployment or scale.
- 
-Again, many of these considerations could have existed without Azure landing zones as well, but in the context of Azure landing zones, concerns and understanding for items like the above need to be addressed as a collaboration between the workload team and the platform team to ensure needs are met.
+
+This architecture aligns with the Reliability guarantees provided in the [**baseline architecture**](vm-baseline-content.md#reliability). 
+
+##### Reliability targets
+
+The maximum possible composite Service Level Objective (SLO) is [lower than the baseline composite SLO](vm-baseline-content.md#reliability-targets) due to additional components like egress network control. These components, common in landing zone environments, aren't unique to this architecture. The SLO would be similarly reduced if these additional Azure services were directly controlled by the workload team.
+
+Despite a lower maximum possible SLO, the key reliability aspect is the division of workload components across functional teams. This allows the workload team to benefit from a specialized team focused on operating critical infrastructure used by this and other workloads. 
+
+> Refer to Well-Architected Framework: [RE:04 - Recommendations for defining reliability targets](/azure/well-architected/reliability/metrics).
+
+##### Critical dependencies
+
+All functionality used by the workload in the platform and application landing zone should be viewed as a dependency. Incident response plans necessitate that the workload team is aware of the point and method of contact information for these dependencies. These dependencies also need to be included in the workload's failure mode analysis (FMA).
+
+Here are some dependencies to consider for this architecture:
+
+- **Egress firewall**. The centralized egress firewall, shared by multiple workloads, will undergo changes unrelated to the workload.
+- **Network port exhaustion**. Spikes in usage from all workloads sharing the network device could lead to network saturation or port exhaustion on the egress firewall.
+- **DINE policies**: Deploy If Not Exists (DINE) policies for Azure DNS Private DNS zones (or any other platform-provided dependency) are best effort, with no Service Level Agreement (SLA) on execution.
+- **Management group policies**: Consistent policies between environments are key for reliability. Pre-production environments should be similar to production environments for meaningful testing and to prevent environment-specific deviations that could block deployment or scale. 
+
+> Refer to Well-Architected Framework: [RE:03 - Recommendations for performing failure mode analysis](/azure/well-architected/reliability/failure-mode-analysis#identify-dependencies).
+
+While many of these considerations could exist without Azure landing zones, in their context, these issues need to be collaboratively addressed by the workload and platform teams to ensure needs are met.
 
 ## Security
 
@@ -348,15 +369,6 @@ Examples of egress in this architecture:
 | _TODO_ | _TODO_ | _TODO_ | _TODO_ |
 | _TODO_ | _TODO_ | _TODO_ | _TODO_ |
 
-##### Identity and access management
-
-TBD
-
-- RBAC
-- Automation Accounts here too?
-- User accounts (corporate, etc)
-
-
 ##### DDoS protection
 
 Ensure you've understood who will be responsible for applying the DDoS Protection plan that covers all of your solution's public IPs. Your Platform team might use IP protection plans, or might even use Azure Policy to enforce Vnet protection plans. This specific architecture should have coverage as it involves a public IP for ingress from the Internet. VNet protection plan is deployed.
@@ -369,31 +381,34 @@ As a workload team, continue to keep your workload secrets a function of your la
 
 ## Cost optimization strategies
 
-This architecture benefits significantly from the Azure landing zone platform resources being brought into this architecture. Even if usage of those resources are done through a chargeback model to your team, the added security value and added cross-premisses connectivity is significantly cheeper, from the workload perspective, than purchasing, deploying, and managing those resources yourself. Look for additional centralized offerings from your platform team that extend the same to your workload, without compromising on your workload's SLO, RTO, or RPO.
+The cost optimization strategies in the [**baseline architecture**](vm-baseline-content.md#cost-optimization) still apply to this architecture for the workload resources.
 
-Examples of Platform team resource in this architecture that might be consumption based (charge-back) or even potentially free to the workload team resources:
+This architecture greatly benefits from Azure landing zone platform resources. Even if those resources are used through a chargeback model, the added security and cross-premises connectivity are significantly more cost-effective than self-managing these resources. 
+
+Examples of resources in this architecture managed by the platform team, which might be consumption-based (charge-back) or potentially free to the workload team, include:
 
 - Azure Firewall
-- SIEM
+- Security Information and Event Management (SIEM)
 - Azure Bastion Hosts
-- Cross-premisses connectivity such as ExpressRoute
+- Cross-premises connectivity such as ExpressRoute
+
+Take advantage of other centralized offerings from your platform team that can extend these benefits to your workload without compromising its Service Level Objective (SLO), Recovery Time Objective (RTO), or Recovery Point Objective (RPO).
+
+> Refer to Well-Architected Framework: [CO:03 - Recommendations for collecting and reviewing cost data](/azure/well-architected/cost-optimization/collect-review-cost-data).
 
 ## Deploy this scenario
 
-A deployment for this reference architecture is available at [XXX](https://github.com/mspnp/xxx) on GitHub.
+A deployment for this reference architecture is available on GitHub.
 
-The artifacts in this repository provide a foundation that you can customize for your environment. The implementation provisions a hub network with shared resources such as Azure Firewall only for illustrative purposes. This grouping can be mapped to separate landing zone subscriptions to keep workload and platform functions separate.
-
-The deployment uses Bicep templates. To deploy the architecture, follow the [step-by-step instructions](https://github.com/mspnp/xxx/go).
+> [!div class="nextstepaction"]
+> [Implementation: Virtual machine baseline architecture in an Azure landing zone](https://github.com/mspnp/xxx)
 
 ## Related resources
 
 TODO
 
-For more scenarios, see these articles.
+## Next step
 
-TODO
+Review the collaboration and technical details shared between a workload team and platform teams.
 
-## Next steps
-
-TODO
+[**Cloud Adoption Framework: Subscription vending**](/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending)
