@@ -149,7 +149,7 @@ In this architecture, both backend and frontend VMs utilize Standard HDD LRS (//
 
 
 
-## Networking 
+## Network layout
 
 This architecture deploys the workload in a single virtual network (virtual network). Network controls are a significant part of this architecture, and described in the [Security](#security) section. 
 
@@ -196,7 +196,7 @@ It's recommended that you allocate ports based on the maximum number of backend 
 
 Calculate ports per instance as: `Number of frontend IPs * 64K / Maximum number of backend instances`
 
-There are other options such as deploying a NAT Gateway resource attached to the subnet. Another way is to use Azure Firewall or another NVA with a custom UDR as the next hop through the firewall. Those options are described in [Alternatives](#alternatives).
+There are other options such as deploying a NAT Gateway resource attached to the subnet. Another way is to use Azure Firewall or another NVA with a custom UDR as the next hop through the firewall. That option is shown in [Virtual machine baseline architecture in an Azure landing zone](./vm-baseline-landing-zone.yml).
 
 ##### DNS resolution
 
@@ -423,7 +423,7 @@ Security isn't just technical controls. It's highly recommended that you follow 
 
 Access to VMs requires a user account, controlled by Entra ID authentication and backed by security groups. This architecture supports this by deploying the Entra ID authentication extension to all VMs. It's recommended that human users use their corporate identities in their organization's Entra ID tenant, and any service principal-based access isn't  principals across functions.
 
-Workload resources such as VMs authenticate themselves by using their assigned managed identities to other resources. These identities, based on Microsoft Entra ID service principals, are automatically managed. In this architecture, [user-assigned managed identities](/entra/managed-identities-azure-resources/overview#managed-identity-types) are used by Azure Application Gateway, front VMs, and backend VMs to access Azure Key Vault and Azure Storage account for boot diagnostics. Those managed identities are configured during deployment and used for authenticating against Key Vault. Access policies on Key Vault are configured to only accept requests from the preceding managed identities.
+Workload resources such as VMs authenticate themselves by using their assigned managed identities to other resources. These identities, based on Microsoft Entra ID service principals, are automatically managed. In this architecture, [user-assigned managed identities](/azure/entra/managed-identities-azure-resources/overview#managed-identity-types) are used by Azure Application Gateway, front VMs, and backend VMs to access Azure Key Vault and Azure Storage account for boot diagnostics. Those managed identities are configured during deployment and used for authenticating against Key Vault. Access policies on Key Vault are configured to only accept requests from the preceding managed identities.
 
 >[!IMPORTANT]
 > The baseline architecture uses only user-assigned managed identities. Even though you may specify a system-assigned managed identity in a Bicep or ARM template with no error, they cannot be used in a Flex VMSS configuration. The Azure portal however will respond with the appropriate error. 

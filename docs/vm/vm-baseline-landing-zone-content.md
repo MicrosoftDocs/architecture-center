@@ -26,7 +26,7 @@ To meet the organizational requirements, there are chanes in the **baseline arch
 
 |Architecture| Design decisions |Well-Architected Framework approaches|
 |---|---|---|
-|&#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-team-owned-resources) <br> &#9642; [Federated resources](#platform-team-owned-resources)  |&#9642; [Subscription setup](#subscription-set-up-by-the-platform-team)<br> &#9642; [Networking requirements by the workload team](#workload-requirements-and-fullfilment) <br> &#9642; [Networking changes from the baseline](#networking)| &#9642; [Operations](#os-patching) <br> &#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost Optimization](#cost-optimization)|
+|&#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-team-owned-resources) <br> &#9642; [Federated resources](#platform-team-owned-resources)  |&#9642; [Subscription setup](#subscription-setup-by-the-platform-team)<br> &#9642; [Networking requirements by the workload team](#workload-requirements-and-fullfilment) <br> &#9642; [Networking changes from the baseline](#networking)| &#9642; [Patch compliance](#patch-compliance-and-os-upgrades) <br> &#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost Optimization](#cost-optimization)|
 
 
 > [!TIP]
@@ -46,7 +46,7 @@ All Azure landing zone architectures have dual-ownership between the platform te
 
 #### Workload team-owned resources
 
-Your team provisions and owns these resources and remain unchanged from the [**baseline architecture**](vm-baseline.md#workload-resources). 
+Your team provisions and owns these resources and remain unchanged from the [**baseline architecture**](vm-baseline-content.md#workload-resources). 
 
 - **Azure virtual machines (VMs)** serves as application platform and the  compute resources are distributed across availability zones.
 - **Azure Load Balancer** routes traffic from the frontend tier to the backend servers. The load balancer distributes traffic to VMs across zones.
@@ -90,7 +90,7 @@ In a landing zone context, **workload teams must provide their specific requirem
 
     This section provides guidance on the initial subscription setup. However, the platform team will make changes to the  centralized services to address missed or changed requirements.
 
-    Unlike workload teams, whose changes affect only their workload, platform team changes can have a broader impact.  Therefore, the platform team must ensure all VM workloads are ready for any changes and be aware of the life cycle of the VM-based solution and the testing cycle. For more information, see [Managing changes over time](#handle-changes-over-time).
+    Unlike workload teams, whose changes affect only their workload, platform team changes can have a broader impact.  Therefore, the platform team must ensure all VM workloads are ready for any changes and be aware of the life cycle of the VM-based solution and the testing cycle. For more information, see [Managing changes over time](#manage-changes-over-time).
 
 
 ##### Workload requirements and fullfilment
@@ -98,7 +98,7 @@ In a landing zone context, **workload teams must provide their specific requirem
 The primary shared responsibility between the two teams are in the areas of management group assignment and networking setup. Here are some networking requirements for this architecture that you should communicate to the platform team. Use these points as examples to understand the discussion and negotiation between the two teams for a similar architecture.
 
 > [!IMPORTANT] 
-> Azure landing zones recommend a subscription vending workstream for the platform team that involves a series of questions designed to capture key pieces of information from the workload team. These questions may vary from one organization to another, but the intent is to gather the requirements for implementing subsription(s). For more information, see [**Cloud Adoption Framework: Subscription vending**](/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending).
+> Azure landing zones recommend a subscription vending workstream for the platform team that involves a series of questions designed to capture key pieces of information from the workload team. These questions may vary from one organization to another, but the intent is to gather the requirements for implementing subsription(s). For more information, see [**Cloud Adoption Framework: Subscription vending**](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending).
 
 - **Number of spoke virtual networks**. In this architecture only one dedicated spoke is required. The deployed resources don't need to span across multiple networks and are colocated within a single virtual network. 
 
@@ -131,7 +131,7 @@ The primary shared responsibility between the two teams are in the areas of mana
 
 In the baseline architecture, the workload was deployed in s single virtual network managed by the workload team. In this architecture, the network topology is decided by the platform team. Hub-spoke topology is assumed in this architecture. The single virtual network in the baseline becomes the spoke network, which owned and managed by the platform team. It's peered to the hub network, which provides the centralized services.
 
-In the [**baseline architecture**](vm-baseline-content.md#networking), the workload was provisioned in a single virtual network, the management of which was the responsibility of the workload team. However, in this architecture, the responsibility for determining the network topology has been offloaded to the platform team.
+In the [**baseline architecture**](vm-baseline-content.md#network-layout), the workload was provisioned in a single virtual network, the management of which was the responsibility of the workload team. However, in this architecture, the responsibility for determining the network topology has been offloaded to the platform team.
 
 This architecture operates on the assumption of a hub-spoke topology. 
 
@@ -139,7 +139,7 @@ This architecture operates on the assumption of a hub-spoke topology.
 
 - **Spoke virtual network**. The single virtual network from the baseline architecture is now transformed into the spoke network. The ownership and management of this spoke network now fall under the purview of the platform team. This network contains the[ workload resources](#workload-team-owned-resources). However, the workload team owns the resources in this network. 
 
-The spoke network is peered with the hub network. Azure landing zone subscription intended for the workload, has at least one preprovisioned virtual network that's peered to the hub network. The preprovisioned virtual network and peerings must be able to support the expected growth of the workload. Make sure you [communicate the workload requirements](#subscription-set-up-by-the-platform-team) to the platform team and review them periodiocally.
+The spoke network is peered with the hub network. Azure landing zone subscription intended for the workload, has at least one preprovisioned virtual network that's peered to the hub network. The preprovisioned virtual network and peerings must be able to support the expected growth of the workload. Make sure you [communicate the workload requirements](#subscription-setup-by-the-platform-team) to the platform team and review them periodiocally.
 
 > [!IMPORTANT] 
 > **Platform team**
@@ -379,7 +379,7 @@ This architecture does not introduce any specific dependencies outside of the wo
 
 As a workload team, continue to keep your workload secrets a function of your landing zone. Deploy your own Azure Key Vault instance(s) as needed to support your application and infrastructure operations.
 
-## Cost optimization strategies
+## Cost Optimization
 
 The cost optimization strategies in the [**baseline architecture**](vm-baseline-content.md#cost-optimization) still apply to this architecture for the workload resources.
 
@@ -411,4 +411,4 @@ TODO
 
 Review the collaboration and technical details shared between a workload team and platform teams.
 
-[**Cloud Adoption Framework: Subscription vending**](/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending)
+[**Cloud Adoption Framework: Subscription vending**](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending)
