@@ -70,8 +70,10 @@ There are two types of users that interact with the workload resources.
 
 ##### Operations user
 
-1. The operations user logs into the Azure portal.
-1. The user accesses the Azure Bastion service and remotely connects to the desired VM for troubleshooting using the appropriate tool.
+The VMs in this architecture may require direct access by operators. The use cases are break-fix situations,  troubleshooting, or part of a deployment process from the  build agents. This architecture doesn't have public IPs for control plane access. Azure Bastion acts as a serverless gateway, enabling operations to access via SSH or RDP. This setup ensures secure and efficient access management.
+
+1. The operator logs into the Azure portal.
+1. The operator accesses the Azure Bastion service and remotely connects to the desired VM for troubleshooting using the appropriate tool.
 
 ## Virtual machine design choices
 
@@ -85,6 +87,12 @@ When selecting SKUs, it's important to have a baseline performance expectation. 
 For instance, if you're migrating a workload from an on-premises environment to the cloud, the OS should be a key consideration. In an on-premises setup, the OS operates on a disk with a fixed capacity. However, in Azure, the OS footprint impacts your choice of VM and disk SKUs.
 
 For information about the supported VM SKUs, see [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes).
+
+##### Build agents
+
+The architecture doesn't have public IP access to the control plane. This requires build agents VMs to be included in this design to automate deployment and other management operations.
+
+Similar to [operator access](#operations-user), OS access to these machines is expected through Azure Bastion.
 
 ##### VM connectivity
 
@@ -138,6 +146,8 @@ In this architecture, both backend and frontend VMs utilize Standard HDD LRS (//
 - The OS disks of all virtual machines are ephemeral and located on the cache disk, which also has the Windows page file.
 
 - Each virtual machine has its own Premium SSD P3 managed disk, providing a base provisioned throughput suitable for the workload.
+
+
 
 ## Networking 
 
@@ -260,7 +270,7 @@ The [Application Health extension](/azure/virtual-machine-scale-sets/virtual-mac
 
 ## Infrastructure update management
 
-VMs need to be updated and patched regularly so that they don't weaken the security posture of the workload. Automatic and periodic VM assessments are recommended for early discovery and application of patches. 
+Workload VMs and build agents need to be updated and patched regularly so that they don't weaken the security posture of the workload. Automatic and periodic VM assessments are recommended for early discovery and application of patches. 
 
 Azure VMs provide the option of automatic VM guest patching. When this service is enabled, VMs are evaluated periodically and available patches are classified. It's recommended that Assessment Mode is enabled to allow daily evaluation for pending patches. On-demand assessment can be done, however, that doesn't trigger application of patches. If Assessment Mode isn't enabled, have manual ways of detecting pending updates. 
 
@@ -409,9 +419,11 @@ Security isn't just technical controls. It's highly recommended that you follow 
 
 ##### Identity and access management
 
-[Microsoft Entra ID](/entra/fundamentals/whatis) recommended for authentication and authorization of both users and services. Workload resources such as VMs authenticate themselves by using their assigned managed identities to other resources. These identities, based on Microsoft Entra ID service principals, are automatically managed. 
+[Microsoft Entra ID](/entra/fundamentals/whatis) recommended for authentication and authorization of both users and services. 
 
-In this architecture, [user-assigned managed identities](/entra/managed-identities-azure-resources/overview#managed-identity-types) are used by Azure Application Gateway, front VMs, and backend VMs to access Azure Key Vault and Azure Storage account for boot diagnostics. Those managed identities are configured during deployment and used for authenticating against Key Vault. Access policies on Key Vault are configured to only accept requests from the preceding managed identities.
+Access to VMs requires a user account, controlled by Entra ID authentication and backed by security groups. This architecture supports this by deploying the Entra ID authentication extension to all VMs. It's recommended that human users use their corporate identities in their organization's Entra ID tenant, and any service principal-based access isn't  principals across functions.
+
+Workload resources such as VMs authenticate themselves by using their assigned managed identities to other resources. These identities, based on Microsoft Entra ID service principals, are automatically managed. In this architecture, [user-assigned managed identities](/entra/managed-identities-azure-resources/overview#managed-identity-types) are used by Azure Application Gateway, front VMs, and backend VMs to access Azure Key Vault and Azure Storage account for boot diagnostics. Those managed identities are configured during deployment and used for authenticating against Key Vault. Access policies on Key Vault are configured to only accept requests from the preceding managed identities.
 
 >[!IMPORTANT]
 > The baseline architecture uses only user-assigned managed identities. Even though you may specify a system-assigned managed identity in a Bicep or ARM template with no error, they cannot be used in a Flex VMSS configuration. The Azure portal however will respond with the appropriate error. 
