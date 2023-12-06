@@ -1,6 +1,6 @@
 This reference architecture extends the [**Virtual machine baseline architecture**](./vm-baseline.yml) to address common architectural changes and expectations when deployed into in Azure landing zones.
 
-In this use case, the organization expects the VM-based workload to utilize federated resources that are centrally managed by the platform team. These resources include networking for cross-premises connectivity, identity access management, and policies. It's assumed that the organization has adopted Azure landing zones to enforce consistent governance and cost-efficiency across multiple workloads. As a workload owner, you benefit by offloading management of shared resources to central teams and focus on workload development efforts. This article presents the workload team's perspective.
+In this use case, the organization expects the **VM-based workload to utilize federated resources that are centrally managed by the platform team**. These resources include networking for cross-premises connectivity, identity access management, and policies. It's assumed that the organization has adopted Azure landing zones to enforce consistent governance and cost-efficiency across multiple workloads. As a workload owner, you benefit by offloading management of shared resources to central teams and focus on workload development efforts. This article presents the workload team's perspective.
 
 > [!IMPORTANT]
 > **What is an Azure landing zone?**
@@ -10,15 +10,13 @@ In this use case, the organization expects the VM-based workload to utilize fede
 
 This architecture can be used for these scenarios:
 
-- Private applications. These include internal line-of-business applications or commercial off-the-shelf (COTS) solutions, which are often located under the Corp management group of Azure landing zones.
-- Public applications. These are internet-facing applications that can be found under either the Corp or Online management group. This architecture isn't for high-performance computing (HPC), mission-critical workloads, latency-sensitive applications, or highly specialized use cases. Instead, it serves as a foundational guide for a workload-agnostic perspective in Azure landing zones.
+- **Private applications**. These include internal line-of-business applications or commercial off-the-shelf (COTS) solutions, which are often located under the Corp management group of Azure landing zones.
+- **Public applications**. These are internet-facing applications that can be found under either the Corp or Online management group. This architecture isn't for high-performance computing (HPC), mission-critical workloads, latency-sensitive applications, or highly specialized use cases. Instead, it serves as a foundational guide for a workload-agnostic perspective in Azure landing zones.
 
 > [!TIP]
 > ![GitHub logo](../_images/github.svg) The best practices described in this architecture are demonstrated by a [**reference implementation**](https://github.com/mspnp/xxx/). 
 >
 > The repository artifacts offer a customizable foundation for your environment. It sets up a hub network with shared resources like Azure Firewall for demonstration purposes. This setup can be mapped to separate landing zone subscriptions for distinct workload and platform functions.
->
-> The deployment uses Bicep templates. To deploy the architecture, follow the [step-by-step instructions](https://github.com/mspnp/xxx/go).
 
 ## Article layout
 
@@ -26,11 +24,11 @@ To meet the organizational requirements, there are changes in the **baseline arc
 
 |Architecture| Design decisions |Well-Architected Framework approaches|
 |---|---|---|
-|&#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-team-owned-resources) <br> &#9642; [Federated resources](#platform-team-owned-resources)  |&#9642; [Subscription setup](#subscription-setup-by-the-platform-team)<br> &#9642; [Networking requirements by the workload team](#workload-requirements-and-fullfilment) <br> &#9642; [Networking changes from the baseline](#networking)<br> &#9642; [Patch compliance](#patch-compliance-and-os-upgrades)|<br> &#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost Optimization](#cost-optimization)|
+|&#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-team-owned-resources) <br> &#9642; [Federated resources](#platform-team-owned-resources)  |&#9642; [Subscription setup](#subscription-setup-by-the-platform-team)<br> &#9642; [Networking requirements](#workload-requirements-and-fullfilment) <br> &#9642; [Network design changes from the baseline](#networking)<br> &#9642; [Patch compliance](#patch-compliance-and-os-upgrades)|<br> &#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost Optimization](#cost-optimization)|
 
 
 > [!TIP]
-> ![GitHub logo](../_images/github.svg) The best practices described in this architecture are demonstrated by a [**reference implementation**](https://github.com/mspnp/vm-baseline-lz). 
+> ![GitHub logo](../_images/github.svg) The best practices described in this architecture are demonstrated by a [**reference implementation**](https://github.com/mspnp/iaas-landing-zone-baseline). 
 > The implementation includes an application that's a small test harness that will exercise the infrastructure set up end-to-end. 
 
 
@@ -237,7 +235,8 @@ The workload team provisions the monitoring resources, which include:
 
 - Azure Application Insights as the Application Performance Monitoring (APM) of the workload team.
 - Azure Log Analytics workspace serves as the unified sink for all logs and metrics collected from Azure services and the application.
-- Self-managed Azure Storage account is used to capture boot diagnostics from virtual machines in this architecture.
+
+A custom storage account can be used for greater control over access permissions and log retention.
 
 Similar to the baseline, all resources are configured to send Azure Diagnostics to the Log Analytics workspace provisioned by the workload team as part of the Infrastructure as Code (IaC) deployment of the resources. The platform team might also have Deploy If Not Exists (DINE) policies to configure Azure Diagnostics to send logs to their centralized Management subscriptions. It's important to ensure that your IaC solution or workload-level Azure Policy implementation doesn't restrict those log flows.
 
@@ -266,11 +265,6 @@ To avoid this, it's ideal to incorporate these changes into your IaC templates i
   > Here are some other policies that might impact this architecture:
   > - Enforce that Windows VM join an Active Directory Domain. This ensures the `JsonADDomainExtension` virtual machine extension is installed and configured. See [Enforce Windows Virtual Machines to join AD Domain](https://github.com/Azure/Enterprise-Scale/blob/main/docs/reference/azpol.md#enforce-windows-vms-to-join-ad-domain).
   > - Disallow IP forwarding on network interfaces.
-
-TODO
-
-- Review common Azure policies (both platform and workload)
-- In-guest Azure Policy agent
 
 ## Manage changes over time
 
@@ -369,15 +363,18 @@ Examples of egress in this architecture:
 | _TODO_ | _TODO_ | _TODO_ | _TODO_ |
 | _TODO_ | _TODO_ | _TODO_ | _TODO_ |
 
-##### DDoS protection
+- **DDoS protection**. Ensure you've understood who will be responsible for applying the DDoS Protection plan that covers all of your solution's public IPs. Your Platform team might use IP protection plans, or might even use Azure Policy to enforce virtual network protection plans. This specific architecture should have coverage as it involves a public IP for ingress from the Internet. Virtual network protection plan is deployed.
 
-Ensure you've understood who will be responsible for applying the DDoS Protection plan that covers all of your solution's public IPs. Your Platform team might use IP protection plans, or might even use Azure Policy to enforce virtual network protection plans. This specific architecture should have coverage as it involves a public IP for ingress from the Internet. Virtual network protection plan is deployed.
+> Refer to Well-Architected Framework: [SE:06 - Recommendations for networking and connectivity](/azure/well-architected/security/networking).
+
 
 ##### Secret management
 
 This architecture doesn't introduce any specific dependencies outside of the workload on Key Vault. However, it's common for publicly exposed HTTPS endpoints to be surfaced with TLS using the organization's domain. This involves working with your IT team to understand how those TLS certs are procured, where they're stored, and how they're rotated. This architecture doesn't make any specific affordances for this process.
 
 As a workload team, continue to keep your workload secrets a function of your landing zone. Deploy your own Azure Key Vault instance(s) as needed to support your application and infrastructure operations.
+
+> Refer to Well-Architected Framework: [SE:09 - Recommendations for protecting application secrets](/azure/well-architected/security/application-secrets).
 
 ## Cost Optimization
 
@@ -401,11 +398,7 @@ Take advantage of other centralized offerings from your platform team that can e
 A deployment for this reference architecture is available on GitHub.
 
 > [!div class="nextstepaction"]
-> [Implementation: Virtual machine baseline architecture in an Azure landing zone](https://github.com/mspnp/xxx)
-
-## Related resources
-
-TODO
+> [Implementation: Virtual machine baseline architecture in an Azure landing zone](https://github.com/mspnp/iaas-landing-zone-baseline#deploy-the-reference-implementation)
 
 ## Next step
 
