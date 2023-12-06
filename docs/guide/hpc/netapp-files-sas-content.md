@@ -127,20 +127,20 @@ To estimate the required tier for your SASDATA capacity, use the [Azure NetApp F
 
 Because Azure NetApp Files NFS volumes are shared, they're a good candidate for hosting SASDATA, when used with the properly sized VM instance types and Red Hat Enterprise Linux (RHEL) distribution, discussed later in this article.
 
-## Storage options for SASWORK 
+## Storage options for SASWORK
 
-The following table shows the most common storage options for deploying SASWORK on Azure. Depending on your size (capacity) and speed (bandwidth) requirements, you have three options: temporary storage, managed disk, and Azure NetApp Files. 
+The following table shows the most common storage options for deploying SASWORK on Azure. Depending on your size (capacity) and speed (bandwidth) requirements, you have three options: temporary storage, managed disk, and Azure NetApp Files.
 
-||	Temporary storage|	Managed disk|	Azure NetApp Files|
+|| Temporary storage| Managed disk| Azure NetApp Files|
 |-|-|-|-|
-|Size	|Small	|Large|	Extra large|
-|Speed	|Extra large	|Small|	Medium|
+|Size |Small |Large| Extra large|
+|Speed |Extra large |Small| Medium|
 
 Take these considerations into account when choosing an option:
 
--	[Temporary storage](https://azure.microsoft.com/blog/virtual-machines-best-practices-single-vms-temporary-storage-and-uploaded-disks) (or *ephemeral storage*) provides the highest bandwidth, but it's available only in smaller sizes. (Size depends on the VM SKU.) Depending on the available and required capacities, this option might be best.
--	If the required SASWORK capacity exceeds the temporary storage size of the VM SKU that you've selected, consider using an Azure managed disk to host SASWORK. Keep in mind, however, that the throughput to a managed disk is limited by the VM architecture by design, and that it varies depending on the VM SKU. Therefore, this storage option is viable only for environments that have lower SASWORK performance requirements. 
--	For the highest SASWORK capacity requirements and an average performance requirement beyond what Azure managed disks can provide, consider Azure NetApp Files for SASWORK. It provides a large size together with fast throughput.
+- [Temporary storage](https://azure.microsoft.com/blog/virtual-machines-best-practices-single-vms-temporary-storage-and-uploaded-disks) (or *ephemeral storage*) provides the highest bandwidth, but it's available only in smaller sizes. (Size depends on the VM SKU.) Depending on the available and required capacities, this option might be best.
+- If the required SASWORK capacity exceeds the temporary storage size of the VM SKU that you've selected, consider using an Azure managed disk to host SASWORK. Keep in mind, however, that the throughput to a managed disk is limited by the VM architecture by design, and that it varies depending on the VM SKU. Therefore, this storage option is viable only for environments that have lower SASWORK performance requirements. 
+- For the highest SASWORK capacity requirements and an average performance requirement beyond what Azure managed disks can provide, consider Azure NetApp Files for SASWORK. It provides a large size together with fast throughput.
 
 > [!IMPORTANT]
 > In any scenario, keep in mind that SASWORK can't be shared between VM compute nodes, so you need to create separate SASWORK volumes for each compute node. Volumes need to be NFS-mounted on only one compute node.
@@ -169,9 +169,9 @@ If your capacity requirements for SASWORK exceed the capacities available in tem
 
 ### Dataflow
 
--	A compute node reads input data from SASDATA and writes results back to SASDATA.
--	A subsequent part of the analytics job can be run by another node in the compute tier. It uses the same procedure to obtain and store the information that it needs to process.
--	The temporary work directory SASWORK isn't shared. It's stored on managed disks that are attached to each compute node. 
+- A compute node reads input data from SASDATA and writes results back to SASDATA.
+- A subsequent part of the analytics job can be run by another node in the compute tier. It uses the same procedure to obtain and store the information that it needs to process.
+- The temporary work directory SASWORK isn't shared. It's stored on managed disks that are attached to each compute node. 
 
 ## Azure NetApp Files architecture
 
@@ -181,9 +181,9 @@ For higher SASWORK capacity and/or medium performance requirements, consider usi
 
 ### Dataflow
 
--	A compute node reads input data from SASDATA and writes results back to SASDATA.
--	A subsequent part of the analytics job can be run by another node in the compute tier. It uses the same procedure to obtain and store the information that it needs to process.
--	The temporary work directory SASWORK isn't shared. It's stored on individual Azure NetApp Files volumes that are attached to each compute node. 
+- A compute node reads input data from SASDATA and writes results back to SASDATA.
+- A subsequent part of the analytics job can be run by another node in the compute tier. It uses the same procedure to obtain and store the information that it needs to process.
+- The temporary work directory SASWORK isn't shared. It's stored on individual Azure NetApp Files volumes that are attached to each compute node. 
 
 ## Scale and configuration recommendations
 
@@ -307,10 +307,10 @@ The typical RPO for this solution is less than 20 minutes when the cross-region 
 
 #### Dataflow 
 
--	A compute node reads input data from SASDATA and writes results back to SASDATA.
--	A subsequent part of the analytics job can be run by another node in the compute tier. It uses the same procedure to obtain and store the information that it needs to process.
--	The temporary work directory SASWORK isn't shared. It's stored on individual Azure NetApp Files volumes that are attached to each compute node. 
--	Azure NetApp Files cross-region replication asynchronously replicates the SASDATA volume, including all snapshots, to a DR region to facilitate failover if there's a regional disaster.
+- A compute node reads input data from SASDATA and writes results back to SASDATA.
+- A subsequent part of the analytics job can be run by another node in the compute tier. It uses the same procedure to obtain and store the information that it needs to process.
+- The temporary work directory SASWORK isn't shared. It's stored on individual Azure NetApp Files volumes that are attached to each compute node. 
+- Azure NetApp Files cross-region replication asynchronously replicates the SASDATA volume, including all snapshots, to a DR region to facilitate failover if there's a regional disaster.
 
 ## Considerations
 
@@ -322,7 +322,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 Azure NetApp Files provides a standard 99.99% availability [SLA](https://azure.microsoft.com/support/legal/sla/netapp/v1_1) for all tiers and all supported regions. Azure NetApp Files also supports provisioning volumes in [availability zones](/azure/azure-netapp-files/use-availability-zones) that you choose, and HA deployments across zones.
 
-For improved RPO/RTO SLAs, integrated data protection with [snapshots and backup](/azure/azure-netapp-files/snapshots-introduction) is included with the service. [Cross-region replication](/azure/azure-netapp-files/snapshots-introduction#how-volumes-and-snapshots-are-replicated-cross-region-for-dr) provides the same benefits across Azure regions.	
+For improved RPO/RTO SLAs, integrated data protection with [snapshots and backup](/azure/azure-netapp-files/snapshots-introduction) is included with the service. [Cross-region replication](/azure/azure-netapp-files/snapshots-introduction#how-volumes-and-snapshots-are-replicated-cross-region-for-dr) provides the same benefits across Azure regions.
 
 ### Security
 
@@ -340,7 +340,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 Depending on your requirements for throughput and capacity, keep the following considerations in mind:
 
--	The [performance considerations for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-performance-considerations).
+- The [performance considerations for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-performance-considerations).
 - The required Azure NetApp Files capacity and service levels for SASDATA.
 - The guidance in this article for choosing a storage type for SASWORK.
 

@@ -8,18 +8,18 @@ This solution provides comprehensive logging and monitoring and enhanced securit
  
 ### Workflow
 
-1.	Client applications access Azure OpenAI endpoints to perform text generation (completions) and model training (fine-tuning).
-2.	Azure Application Gateway provides a single point of entry to Azure OpenAI models and provides load balancing for APIs.
+1. Client applications access Azure OpenAI endpoints to perform text generation (completions) and model training (fine-tuning).
+2. Azure Application Gateway provides a single point of entry to Azure OpenAI models and provides load balancing for APIs.
   
     > [!Note]
     > Load balancing of stateful operations like model fine-tuning, deployments, and inference of fine-tuned models isn't supported.
 
-3.	Azure API Management enables security controls and auditing and monitoring of the Azure OpenAI models.  
-   a.	In API Management, enhanced-security access is granted via Microsoft Entra groups with subscription-based access permissions.  
-   b.	Auditing is enabled for all interactions with the models via Azure Monitor request logging.  
-   c.	Monitoring provides detailed Azure OpenAI model usage KPIs and metrics, including prompt information and token statistics for usage traceability.
-4.	API Management connects to all Azure resources via Azure Private Link. This configuration provides enhanced security for all traffic via private endpoints and contains traffic in the private network.
-5.	Multiple Azure OpenAI instances enable scale-out of API usage to ensure high availability and disaster recovery for the service.
+3. Azure API Management enables security controls and auditing and monitoring of the Azure OpenAI models.  
+   a. In API Management, enhanced-security access is granted via Microsoft Entra groups with subscription-based access permissions.  
+   b. Auditing is enabled for all interactions with the models via Azure Monitor request logging.  
+   c. Monitoring provides detailed Azure OpenAI model usage KPIs and metrics, including prompt information and token statistics for usage traceability.
+4. API Management connects to all Azure resources via Azure Private Link. This configuration provides enhanced security for all traffic via private endpoints and contains traffic in the private network.
+5. Multiple Azure OpenAI instances enable scale-out of API usage to ensure high availability and disaster recovery for the service.
 
 ### Components
 
@@ -38,19 +38,19 @@ Azure OpenAI provides native logging and monitoring. You can use this native fun
 
 The following table provides a comparison of the metrics provided by the default Azure OpenAI logging and those provided by this solution. 
 
-|Metric	|Default Azure OpenAI logging|This solution|
+|Metric |Default Azure OpenAI logging|This solution|
 |-|-|-|
-|Request count|	x|	x|
-|Data in (size) / data out (size)| 	x|	x|
-|Latency|	x	|x|
-|Token transactions (total)|	x|	x|
-|Caller IP address	|x (last octet masked)|	x|
-|Model utilization	||	x|
-|Token utilization (input/output)	|x|	x|
-|Input prompt detail	||	x (limited to 8,192 response characters)|
-|Output completion detail||		x (limited to 8,192 response characters)|
-|Deployment operations	|x	|x|
-|Embedding operations	|x|	x (limited to 8,192 response characters)|
+|Request count| x| x|
+|Data in (size) / data out (size)|  x| x|
+|Latency| x |x|
+|Token transactions (total)| x| x|
+|Caller IP address |x (last octet masked)| x|
+|Model utilization || x|
+|Token utilization (input/output) |x| x|
+|Input prompt detail || x (limited to 8,192 response characters)|
+|Output completion detail|| x (limited to 8,192 response characters)|
+|Deployment operations |x |x|
+|Embedding operations |x| x (limited to 8,192 response characters)|
 
 ## Scenario details
 

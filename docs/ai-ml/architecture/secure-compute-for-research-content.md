@@ -31,7 +31,7 @@ This architecture shows a secure research environment intended to allow research
 
 ### Components
 
-This architecture consists of several Azure cloud services that scale resources according to need. The services and their roles are described below. For links to product documentation to get started with these services, see [Next steps](#next-steps).
+This architecture consists of several Azure services that scale resources according to need. The services and their roles are described below. For links to product documentation to get started with these services, see [Next steps](#next-steps).
 
 #### Core workload components
 

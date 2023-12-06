@@ -145,7 +145,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ## Deploy this scenario
 
-The reference implementation of this architecture can be found in the [Jumpstart ArcBox for IT Pros](https://azurearcjumpstart.com/azure_jumpstart_arcbox/ITPro), included as part of the [Arc Jumpstart](https://http://aka.ms/AzureArcJumpstart) project. ArcBox is designed to be completely self-contained within a single Azure subscription and resource group. ArcBox makes it easy for a user to get hands-on experience with all available Azure Arc technology with nothing more than an available Azure subscription.
+The reference implementation of this architecture can be found in the [Jumpstart ArcBox for IT Pros](https://azurearcjumpstart.com/azure_jumpstart_arcbox/ITPro), included as part of the [Arc Jumpstart](https://aka.ms/AzureArcJumpstart) project. ArcBox is designed to be completely self-contained within a single Azure subscription and resource group. ArcBox makes it easy for a user to get hands-on experience with all available Azure Arc technology with nothing more than an available Azure subscription.
 
 To deploy the reference implementation, follow the steps in the GitHub repo by selecting the **Jumpstart ArcBox for IT Pros** button below.
 

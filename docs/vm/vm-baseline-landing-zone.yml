@@ -16,17 +16,14 @@ azureCategories:
 products:
   - azure-application-gateway
   - azure-bastion
-  - azure-portal
   - azure-firewall
   - azure-key-vault
   - azure-load-balancer
   - azure-log-analytics
-  - azure-pipelines
-  - azure-storage
   - azure-virtual-machines
   - azure-virtual-network
   - azure-vm-scalesets
-  - github
+
 name: Virtual machine baseline architecture in an Azure landing zone
 summary: Builds on the baseline architecture and deploys it in an organizational set up provided through an Azure landing zone.
 thumbnailUrl: media/vm-baseline-landing-zone.png

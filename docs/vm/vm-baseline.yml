@@ -17,8 +17,7 @@ products:
   - azure-application-gateway
   - azure-bastion
   - azure-key-vault
-  - azure-monitor
-  - azure-storage
+  - azure-log-analytics
   - azure-virtual-machines
   - azure-virtual-network
   - azure-vm-scalesets

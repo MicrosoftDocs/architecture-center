@@ -18,7 +18,7 @@ This example scenario demonstrates how to run FSI workloads on Azure using Azure
 
 ### Components
 
-This architecture consists of several Azure cloud services and is divided into two categories of resources: hub resources and spoke resources. More detail about the [hub and spoke network topology](#network-topology) is provided later in this article. The services for each and their roles are described in the following sections.
+This architecture consists of several Azure services and is divided into two categories of resources: hub resources and spoke resources. More detail about the [hub and spoke network topology](#network-topology) is provided later in this article. The services for each and their roles are described in the following sections.
 
 #### Hub resources
 

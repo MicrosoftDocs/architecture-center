@@ -31,7 +31,7 @@ An *algorithm* is a sequence of calculations and rules used to solve a problem o
 
 ### Machine learning
 
-*Machine learning* (ML) is an AI technique that uses mathematical algorithms to create predictive models. An algorithm is used to parse data fields and to "learn" from that data by using patterns found within it to generate models. Those models are then used to make informed predictions or decisions about new data.
+*Machine learning* is an AI technique that uses mathematical algorithms to create predictive models. An algorithm is used to parse data fields and to "learn" from that data by using patterns found within it to generate models. Those models are then used to make informed predictions or decisions about new data.
 
 The predictive models are validated against known data, measured by performance metrics selected for specific business scenarios, and then adjusted as needed. This process of learning and validation is called *training*. Through periodic retraining, ML models are improved over time.
 
@@ -171,7 +171,7 @@ During the training phase, a quality set of known data is tagged so that individ
 
 ##### Model selection
 
-The process of training and hyperparameter tuning produces numerous candidate models. These can have many different variances, including the effort needed to prepare the data, the flexibility of the model, the amount of processing time, and of course the degree of accuracy of its results. Choosing the best trained model for your needs and constraints is called *model selectio*n, but this is as much about preplanning before training as it is about choosing the one that works best.
+The process of training and hyperparameter tuning produces numerous candidate models. These can have many different variances, including the effort needed to prepare the data, the flexibility of the model, the amount of processing time, and of course the degree of accuracy of its results. Choosing the best trained model for your needs and constraints is called *model selection*, but this is as much about preplanning before training as it is about choosing the one that works best.
 
 ##### Automated machine learning (AutoML)
 
@@ -303,7 +303,7 @@ Apache Spark is a parallel processing framework that supports in-memory processi
 
 [Apache Spark in Azure HDInsight](/azure/hdinsight/spark/apache-spark-overview) is the Microsoft implementation of Apache Spark in the cloud. Spark clusters in HDInsight are compatible with Azure Storage and Azure Data Lake Storage, so you can use HDInsight Spark clusters to process your data stored in Azure.
 
-The Microsoft Machine Learning library for Apache Spark is [MMLSpark](https://github.com/Azure/mmlspark) (Microsoft ML for Apache Spark). It is an open-source library that adds many deep learning and data science tools, networking capabilities, and production-grade performance to the Spark ecosystem. [Learn more about MMLSpark features and capabilities.](../ai-ml/guide/data-science-and-machine-learning.md#mmlspark)
+The Microsoft machine learning library for Apache Spark is [MMLSpark](https://github.com/Azure/mmlspark). This open-source library adds many deep learning and data science tools, networking capabilities, and production-grade performance to the Spark ecosystem. [Learn more about MMLSpark features and capabilities.](../ai-ml/guide/data-science-and-machine-learning.md#mmlspark)
 
 - [Azure HDInsight overview.](/azure/hdinsight/hdinsight-overview) Basic information about features, cluster architecture, and use cases, with pointers to quickstarts and tutorials.
 
@@ -315,7 +315,7 @@ The Microsoft Machine Learning library for Apache Spark is [MMLSpark](https://gi
 
 - [Machine learning on HDInsight](/azure/hdinsight/hdinsight-machine-learning-overview)
 
-- [GitHub repo for MMLSpark: Microsoft Machine Learning library for Apache Spark](https://github.com/Azure/mmlspark)
+- [GitHub repo for MMLSpark: Microsoft machine learning library for Apache Spark](https://github.com/Azure/mmlspark)
 
 - [Create an Apache Spark machine learning pipeline on HDInsight](/azure/hdinsight/spark/apache-spark-creating-ml-pipelines)
 

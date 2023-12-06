@@ -10,7 +10,7 @@ However, the primary focus of that architecture isn't the application. Instead i
 
 |Architecture| Design decisions|Well-Architected Framework approaches|
 |---|---|---|
-|&#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-resources) <br> &#9642; [Supporting resources](#workload-supporting-resources) <br> &#9642; [User flows](#user-flows) <br> |&#9642; [VM design choices](#virtual-machine-design-choices)<br> &#9642; [Disks](#disks) <br> &#9642; [Networking](#networking) <br> &#9642; [Monitoring](#monitoring) <br>  &#9642; [Patching operations](#infrastructure-update-management) |  <br> &#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost Optimization](#cost-optimization)|
+|&#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-resources) <br> &#9642; [Supporting resources](#workload-supporting-resources) <br> &#9642; [User flows](#user-flows) <br> |&#9642; [VM design choices](#virtual-machine-design-choices)<br> &#9642; [Disks](#disks) <br> &#9642; [Networking](#network-layout) <br> &#9642; [Monitoring](#monitoring) <br>  &#9642; [Patching operations](#infrastructure-update-management) |  <br> &#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost Optimization](#cost-optimization)|
 
 > [!TIP]
 > ![GitHub logo](../_images/github.svg) The best practices described in this architecture are demonstrated by a [**reference implementation**](https://github.com/mspnp/iaas-baseline).
@@ -20,9 +20,11 @@ However, the primary focus of that architecture isn't the application. Instead i
 
 :::image type="content" source="./media/vm-baseline-architecture.svg" alt-text="Virtual machine baseline architectural diagram" lightbox="./media/vm-baseline-architecture.png":::
 
+For information about these resources, see Azure product documentation listed in [Related link](#related-links).
+
 ### Workload resources
 
-- **Azure virtual machine** (VM) serves as the compute resource for the application and is distributed across availability zones. For illustrative purposes, a combination of both Windows and Linux VMs are used.
+- **Azure virtual machine** (VM) serves as the compute resource for the application and is distributed across availability zones. For illustrative purposes, a combination of both Windows and Linux VMs is used.
 
     **Azure Virtual Machine Scale Sets** in Flexible orchestration mode is used to provision and manage the virtual machines.
 
@@ -49,15 +51,6 @@ However, the primary focus of that architecture isn't the application. Instead i
 
 - **Azure Log Analytics** is the monitoring data sink that collects logs and metrics from the Azure resources and Application Insights. A storage account is provisioned as part of the workspace.
 
-**//question:**
-
-what to do with the storage icon in the supporting resources area of the diagram?. 
-The original idea here was to represent where the boot disgnostics log files are saved to. They are always saved to storage but could be saved to a custom storage account (which we would need to manage) or a managed disk
- (to which we won;t even have direct access to )
-The confusing part is that in the RI whe chose to save the log files to a managed disk (recommended option), so we don't get to manage that resource directly.
-
-**//end question:**
-
 ### User flows
 
 There are two types of users that interact with the workload resources.
@@ -68,15 +61,7 @@ There are two types of users that interact with the workload resources.
 
 1. Application Gateway receives HTTPS traffic, decrypts data using an external certificate for WAF inspection, and re-encrypts it using the internal wildcard certificate for transport to the web tier.
 
-1. Application Gateway balances traffic across the availability zones in the frontend and connects to a VM in the pool of web tier VMs, on behalf of the user session.
-**//note:**
-This could be missleading. The traffic is load balanced across the VMs but I don't believe the zones are taken into consideration, just the VMs individually
-**//end note:***
-
-1. The frontend web app decrypts the received request using the internal certificate for inspection, then re-encrypts the data for transport to the backend tier.
-**//note:**
-// missleading. shoulld not say "re-encrypts", even though the example is currently doing it. The communication between the web and api tier is independent from the request
-**//end note:***
+1. Application Gateway balances traffic across frontend VMs. It connects to a frontend VM, on behalf of the user session.
 
 1. The frontend tier connects to Azure Load Balancer, which forwards the request to a VM in the backend tier pool.
 
@@ -98,15 +83,7 @@ When selecting SKUs, it's important to have a baseline performance expectation. 
 - Processors architecture
 - Operating system (OS)
 
-For instance, if you're migrating a workload from an on-premises environment to the cloud, the OS should be a key consideration. In an on-premises setup, the OS operates on a disk with a fixed capacity. However, in Azure, the OS footprint impacts your choice of VM and disk SKUs.
-
-**//note:**
-
-True that a Windows VM would need bigger OS drive than Linux but the example sounds a bit superflous. AFAIK almost all SKUs, if not all, are able to suport windows
-There are better examples to derive from https://learn.microsoft.com/en-us/azure/azure-netapp-files/performance-virtual-machine-sku#sku-selection-considerations. One straighforward one is processor architecture
-    "AMD or Intel: For example, SAS uses a math kernel library designed specifically for Intel processors. In this case, Intel SKUs are preferred over AMD SKU."
-
-**//end note:**
+For instance, if you're migrating a workload from an on-premises environment that uses Intel processor machines, choose VM SKUs that support Intel processors. 
 
 For information about the supported VM SKUs, see [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes).
 
@@ -128,12 +105,13 @@ VMs are provisioned as part of Azure Virtual Machine Scale Sets with [Flexible o
 
 Flexible orchestration mode facilitates operations at scale and offers better control and granular scaling decisions.
 
-Fault domains configuration is needed to limit the affect of physical hardware failures, network outages, or power interruptions. With scale sets, Azure evenly spreads instances across fault domains for resilience against a single hardware or infrastructure issue.
+Fault domains configuration is needed to limit the effect of physical hardware failures, network outages, or power interruptions. With scale sets, Azure evenly spreads instances across fault domains for resilience against a single hardware or infrastructure issue.
 
 It's recommended that you offload fault domain allocation to Azure for maximum instance spreading, enhancing resilience and availability.
-**//note:** already covered, in more detail, in the reliability section **//end note:**
+
 
 ## Disks
+
 To run the OS and application components, storage disks are attached to the VM. Use **Ephemeral disks for the OS** and **managed disks for data storage**.
 
 Azure provides a range of options in terms of performance, tunability, and cost. Start with Premium SSD for most production workloads. The choice is linked to the VM SKU. SKUs that support Premium SSD contain 's' in the resource name, for example 'Dsv4' but not 'Dv4.'
@@ -142,11 +120,11 @@ For more information about the disk options with metrics such as capacity, IOPS,
 
 Consider disk characteristics and performance expectations when selecting a disk.
 
-- **VM SKU limitations**: Disks operate within the VM they're attached to, which have IOPS and throughput limits. Ensure the disk doesn't cap the VM's limits and vice versa. Select the disk size, performance, and VM capabilities (core, CPU, memory) that optimally run the application component. Avoid overprovisioning because it impacts cost.
+- **VM SKU limitations**. Disks operate within the VM they're attached to, which have IOPS and throughput limits. Ensure the disk doesn't cap the VM's limits and vice versa. Select the disk size, performance, and VM capabilities (core, CPU, memory) that optimally run the application component. Avoid overprovisioning because it impacts cost.
 
-- **Configuration changes**: Some disk performance and capacity configurations can be changed while a VM is running. However, many changes may require reprovisioning and rebuilding disk content, affecting workload availability. Therefore, carefully plan disk and VM SKU selection to minimize availability impact and rework.
+- **Configuration changes**. Some disk performance and capacity configurations can be changed while a VM is running. However, many changes may require reprovisioning and rebuilding disk content, affecting workload availability. Therefore, carefully plan disk and VM SKU selection to minimize availability impact and rework.
 
-- **Ephemeral OS disks**: These shouldn't store application components or state. Provision OS disks as [ephemeral disks](/azure/virtual-machines/ephemeral-os-disks). Use managed disks only if OS files need to be persisted.
+- **Ephemeral OS disks**. These shouldn't store application components or state. Provision OS disks as [ephemeral disks](/azure/virtual-machines/ephemeral-os-disks). Use managed disks only if OS files need to be persisted.
 
     The capacity of ephemeral OS disks depends on the chosen VM SKU. Ensure your OS image disk size is less than the SKU's available cache or temp disk. The remaining space can be used for temporary storage.
 
@@ -164,7 +142,7 @@ Consider disk characteristics and performance expectations when selecting a disk
 
     Using read-write caching could cause data loss if the VM crashes and isn't recommended for most data disk scenarios.
 
-In this architecture, both backend and frontend VMs utilize Standard HDD LRS (//?).
+In this architecture,
 
 - The OS disks of all virtual machines are ephemeral and located on the cache disk, which also has the Windows page file.
 
@@ -182,7 +160,7 @@ It can be integrated with an enterprise topology. That example is shown in [Virt
 
 ##### Virtual network
 
-One of the initial decisions relates to the network address range. Keep in mind the anticipated network growth during the capacity planning phase. The network should be large enough to sustain the growth, which may need extra networking constructs. For instance, the virtual network should have the capacity to accommodate the additional VMs that result from a scaling operation.
+One of the initial decisions relates to the network address range. Keep in mind the anticipated network growth during the capacity planning phase. The network should be large enough to sustain the growth, which may need extra networking constructs. For instance, the virtual network should have the capacity to accommodate the other VMs that result from a scaling operation.
 
 Conversely, _right-size your address space_. An excessively large virtual network may lead to underutilization. It's important to note that once the virtual network is created, the address range can't be modified.
 
@@ -211,8 +189,8 @@ The Azure Load Balancer is placed between the frontend and the backend to distri
 
 Azure Virtual Machine Scale Sets with Flexible orchestration don't have outbound internet connectivity by default, it must be explicitly defined in your architecture. To enable that use case, here are some approaches:
 
-This architecture uses Standard SKU Azure Load Balancer with outbound rules defined from the VM instances. Azure Load Balancer supports zone redundancy.
-**//note:** instead of just stating that the load balancer supports zone redundancy, we may want to add that this is the reason why this option was chosen for the RI**//end note:**
+This architecture uses Standard SKU Azure Load Balancer with outbound rules defined from the VM instances. Azure Load Balancer was chosen because it's zone redundant.
+
 This configuration allows you to use the public IP(s) of your load balancer to provide outbound internet connectivity for the VMs. The outbound rules allow you to explicitly define SNAT(source network address translation) ports. The rules allow you to scale and tune this ability through manual port allocation. Manually allocating SNAT port based on the backend pool size and number of frontendIPConfigurations can help avoid SNAT exhaustion.
 
 It's recommended that you allocate ports based on the maximum number of backend instances. If more instances are added than remaining SNAT ports allowed, VMSS scaling operations might be blocked, or the new VMs won't receive sufficient SNAT ports.
@@ -236,6 +214,7 @@ This architecture has a monitoring stack that's decoupled from the utility of th
 Metrics and logs are generated at various data sources, providing observability insights at various altitudes:
 
 - **Underlying infrastructure and components** such as virtual machines, virtual networks, and storage services. Azure platform logs provide information about operations and activities within the Azure platform.
+
 - **Application level** provides insights into the performance and behavior of the applications running on your system.
 
 Azure Log Analytics workspace is the recommended monitoring data sink used to collect logs and metrics from the Azure resources and Application Insights.
@@ -258,62 +237,34 @@ This table links to logs and metrics collected by Azure Monitor and the availabl
 
 For more information on the cost of collecting metrics and logs, see [Log Analytics cost calculations and options](/azure/azure-monitor/logs/cost-logs) and [Pricing for Log Analytics workspace](https://azure.microsoft.com/pricing/details/monitor/). Metric and log collection costs are greatly impacted by the nature of the workload, and the frequency and number of metrics and logs collected.
 
-##### Virtual machines data
-
-**//note:**
-
-removed reference to a VM Insights agent here as incorrect. VMInsights relies on the AMA and DCR to collect the data. This is already explained below.
-
-**//end note:**
+##### Virtual machines 
 
 [Azure boot diagnostics](/azure/virtual-machines/boot-diagnostics) is enabled to observe the state of their VM as it is booting up by collecting serial log information and screenshots. The data is collected in a managed storage account that's accessible through Azure portal for troubleshooting and can be exported. For more information, see [the Azure CLI vm boot-diagnostics get-boot-log command](/cli/azure/vm/boot-diagnostics?view=azure-cli-latest#az-vm-boot-diagnostics-get-boot-log).
 
-A custom storage account can be used for greater control over access permissions and log retention.
 
 The [Azure Monitor Agent (AMA)](/azure/azure-monitor/agents/agents-overview) deployed to VMs collects monitoring data from the guest OS, with OS-specific [Data Collection Rules (DCR)](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent) applied to each VM. The DCRs collect performance counters, OS logs, change tracking, dependency tracking, and web server HTTP logs. DCR allows filtering rules and data transformations to reduce the overall data volume being uploaded, thus lowering ingestion and storage costs significantly. As the scale set grows, newly allocated VMs are configured with the AMA settings enforced by a built-in Azure Policy assignment.
 
-**//suggestion:**
+[VM insights](/azure/azure-monitor/vm/vminsights-overview) offers an efficient way to monitor VMs and scale sets. It gathers data from Log Analytics workspaces and provides predefined workbooks for performance data trending. This data can be viewed per VM or aggregated across multiple VMs via Azure Monitor.
 
-Even though the focus is more on the data collection site. VMInsights is fully wired up on the RI, so I suggest a little blurb on VMInsights from that perspective. Here is some text taken from docs: https://review.learn.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-overview?branch=main and https://learn.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-configure-workspace
-
-**//end suggestion:**
-
-[VM insights](/azure/azure-monitor/vm/vminsights-overview) provides a quick and easy method for getting started monitoring the client workloads on your virtual machines and virtual machine scale sets.
-
-VM insights collects its data from one or more Log Analytics workspaces. It provides a set of predefined workbooks that allow you to view trending of collected performance data over time. You can view this data in a single VM from the virtual machine directly, or you can use Azure Monitor to deliver an aggregated view of multiple VMs.
+Application Gateway and Azure Load Balancer use health probes to detect endpoint status of the VMs before sending traffic. 
 
 ##### Networking
 
-Application Gateway and Azure Load Balancer use health probes to detect endpoint status. If a probe fails, new inbound connections to the unhealthy instance are stopped, while outbound connectivity remains unaffected. In this archcitecture, health probes are set up to perform an HTTP test checking for a file's existence, returning an HTTP 200 to the load balancer, if successful.
-
-**//note:**
-
-Not too sure about the content here. I would assume that it should be covering the monitoring of the networking component, instead it talks about using health probes in the RI to monitor the VMs.
-In the RI, we are collecting logs from the following networking components: application Gateway, vnets, nsgs, public ip addresses (gw+ bastion), and private links.
-
-**//end note:**
+In this architecture, log data is collected from several networking components. These include  Application Gateway, virtual networks, Network Security Groups (NSGs), public IP addresses (both Gateway and Bastion), and Private Links.
 
 ##### Managed disks
 
-Disk metrics depend on your workload, requiring a mix of key metrics. Monitoring should consider both the Azure platform and guest OS perspectives on managed disks.
+Disk metrics depend on your workload, requiring a mix of key metrics. Monitoring should combine these perspectives to isolate OS or application throughput issues.
 
-The Azure platform perspective represents the metrics that a SAN operator would view, regardless of what workloads are connected. The guest OS perspective represents the metrics that the workload operator would view, regardless of the underlying disk technology. In Azure, workload teams have the responsibility of monitoring both as part of their solution.
+- The Azure platform perspective represents the metrics that indicate the Azure service, regardless of the workload that's connected to it. Disk performance metrics (IOPS and throughput) can be viewed individually or collectively for all VM-attached disks. Use Storage IO utilization metrics for troubleshooting or alerting on potential disk capping. If using bursting for cost optimization, monitor Credits Percentage metrics to identify opportunities for further optimization.
 
-***//note:*** Not sure about the value of bringing the SAN operator role here. Consider removing the paragraph **//end note//**
-
-From the platform perspective, data disk performance metrics (IOPS and throughput) can be viewed individually or collectively for all VM-attached disks. Use Storage IO utilization metrics for troubleshooting or alerting on potential disk capping. If using bursting for cost optimization, monitor Credits Percentage metrics to identify opportunities for further optimization.
-
-From the guest OS perspective, VM Insights is recommended for key metrics on attached disks, such as logical disk space used, and the OS kernel's perspective on disk IOPS and throughput. Combination of those perspectives with platform performance metrics can help isolate OS or application throughput issues.
+- The guest OS perspective represents metrics that the workload operator would view, regardless of the underlying disk technology. VM Insights is recommended for key metrics on attached disks, such as logical disk space used, and the OS kernel's perspective on disk IOPS and throughput. 
 
 ### Application-level monitoring
 
 Even though the reference implementation doesn't deploy an application, [Application Insights](/azure/azure-monitor/app/app-insights-overview) is provisioned for extensibility purposes. It's used to collect data from application and send that data to Log Analytics workspace.
 
-It also monitors the performance and health. You can view trends of performance data, running processes on individual machines, and dependencies between machines.
-
-**//note:** needs rewording. Right now the RI does not showcase any of the functionality with App Insight, it just deploys the service.  **//end note:**
-
-The [Application Health extension](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension) is deployed to VMs to monitor the binary health state of each VM instance in the scale set, and perform instance repairs if necessary by using VMSS Automatic Instance Repair. It tests for the same file as the Application Gateway and Azure Load Balancer health probe to check if the application is responsive.
+The [Application Health extension](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension) is deployed to VMs to monitor the binary health state of each VM instance in the scale set, and perform instance repairs if necessary by using scale set Automatic Instance Repair. It tests for the same file as the Application Gateway and Azure Load Balancer health probe to check if the application is responsive.
 
 ## Infrastructure update management
 
@@ -339,25 +290,21 @@ For more information, see [Automatic VM guest patching for Azure VMs](/azure/vir
 
 When doing OS upgrades, have a golden image that's tested. Consider using Azure Compute Gallery for publishing those images. This allows for better control and efficiency in managing updates. Have a process in place that automatically installs the image when needed.
 
-**//suggestion:**
-
-As Automatic OS upgrades is still in preview in VMSS Flex, we could recommend Update management in Azure Auotmation in the meantime. Although, this is not showcased in the RI
-
-**//end suggestion**
-
 You can use [Update Management in Azure Automation](/azure/automation/update-management/overview) to manage operating system updates for your Windows and Linux virtual machines in Azure. Updates are installed by runbooks in Azure Automation.
 
-Your automation process should account for overprovision with additional capacity. 20% overprovisioning is recommended.
+Your automation process should account for overprovision with extra capacity. 20% overprovisioning is recommended.
 
 ## Reliability
 
-**//note:**
+This architecture uses availability zones as a foundational element to address reliability concerns.
 
-IMO we should include a paragrah in the intro to highlight how much we rely on availability Zones in the architecture to take care of the reliability aspects. You could say Availability Zones is the foundation of the Reliability aspects are implemented.  
+In this setup, individual VMs are tied to a single zone. In the event of a failure, these VMs can be readily replaced with other VM instances by the Virtual Machine Scale Sets.
 
-Individual VMs are the only components in this architecture that are zonal (tied to a single zone), and they are easily replaced with other instances by WMSS when they fail. EVerything else is either zone redundant (e.g. App Gateway, public IPs), or Zone resilient (e.g. Key Vault), or a regional or global resource (e.g. Azure AD)
+All other components in this architecture are either:
 
-**//end note:**
+- Zone redundant, meaning they're replicated across multiple zones for high availability, such as Application Gateway, public IPs.
+- Zone resilient implying they can withstand zone failures, such as Key Vault.
+- Regional or global resources that are available across regions or globally, such as Microsoft Entra ID.
 
 Workload design should incorporate reliability assurances in application code, infrastructure, and operations. The following sections illustrate some strategies to make sure the workload is resilient to failures and is able to recover if there are outages at the infrastructure level.
 
@@ -385,7 +332,7 @@ Every architecture is susceptible to failures. The exercise of failure mode anal
 | Azure Storage | Service outage | Low | Full workload outage. Dependent on Microsoft to remediate. | Full |
 | Azure Storage | Regional outage | Very low | Full workload outage as this is being deployed to a single region. Recovery time objectives (RTOs) are lower in the front-end but while higher in backend where managed disks are needed. Recovery point objectives (RPOs) to be determined during reliability testing. | Full |
 | Azure Storage | Availability zone outage | Low | No effect. The workload is deployed into three different zones overprovisioned to support a full zone outage. | None |
-| Azure Virtual Maching Scale Sets | Service outage | Low | Potential workload outage in case of unhealthy VM instances requires autorepair to kick off. Dependent on Microsoft to remediate. | Potential outage |
+| Azure Virtual Machine Scale Sets | Service outage | Low | Potential workload outage if there are unhealthy VM instances that triggers autorepair. Dependent on Microsoft to remediate. | Potential outage |
 | Azure Virtual Machine Scale Sets | Availability zone outage | Low | No effect. Scale sets have been deployed as zone redundant. | None |
 
 > Refer to Well-Architected Framework: [RE:03 - Recommendations for performing failure mode analysis](/azure/well-architected/reliability/failure-mode-analysis).
@@ -480,9 +427,9 @@ Security isn't just technical controls. It's highly recommended that you follow 
 
 [Microsoft Entra ID](/entra/fundamentals/whatis) is recommended for authentication and authorization of both users and services. Workload resources such as VMs authenticate themselves by using their assigned managed identities to other resources. These identities, based on Microsoft Entra ID service principals, are automatically managed.
 
-Access to VMs requires a user account, controlled by Entra ID authentication and backed by security groups. This architecture supports this by deploying the Entra ID authentication extension to all VMs. It's recommended that human users use their corporate identities in their organization's Entra ID tenant, and any service principal-based access isn't  principals across functions.
+Access to VMs requires a user account, controlled by Microsoft Entra ID authentication and backed by security groups. This architecture supports this by deploying Microsoft Entra ID authentication extension to all VMs. It's recommended that human users use their corporate identities in their organization's Microsoft Entra ID tenant, and any service principal-based access isn't  shared across functions.
 
-Workload resources such as VMs authenticate themselves by using their assigned managed identities to other resources. These identities, based on Microsoft Entra ID service principals, are automatically managed. In this architecture, [user-assigned managed identities](/azure/entra/managed-identities-azure-resources/overview#managed-identity-types) are used by Azure Application Gateway, front VMs, and backend VMs to access Azure Key Vault and Azure Storage account for boot diagnostics. Those managed identities are configured during deployment and used for authenticating against Key Vault. Access policies on Key Vault are configured to only accept requests from the preceding managed identities.
+Workload resources such as VMs authenticate themselves by using their assigned managed identities to other resources. These identities, based on Microsoft Entra ID service principals, are automatically managed. In this architecture, [user-assigned managed identities](/entra/identity/managed-identities-azure-resources/overview#managed-identity-types) are used by Azure Application Gateway, front VMs, and backend VMs to access Azure Key Vault and Azure Storage account for boot diagnostics. Those managed identities are configured during deployment and used for authenticating against Key Vault. Access policies on Key Vault are configured to only accept requests from the preceding managed identities.
 
 >[!IMPORTANT]
 > The baseline architecture uses only user-assigned managed identities. Even though you may specify a system-assigned managed identity in a Bicep or ARM template with no error, they cannot be used in a Flex VMSS configuration. The Azure portal however will respond with the appropriate error.
@@ -504,15 +451,9 @@ Workload resources such as VMs authenticate themselves by using their assigned m
 
     Alternatively, use a separate VM as a jumpbox, deployed to its own subnet, where you can install your choice of admin and troubleshooting tools. The operator accesses the jumpbox through the Bastion host. Then, sign in to the VMs behind the load balancer from the jumpbox.  
 
-    In this architecture, operational traffic is protected using NSG rules to restrict traffic and [just-in-time (JIT) VM access](/azure/defender-for-cloud/just-in-time-access-overview), a feature of Microsoft Defender for Cloud, which allows temporary inbound access to selected ports.
-    
-    **//suggestion:**
-
-    Add sentence like the following to recommend using PIM for privaledge access and, including JIT access 
-
-    **//end suggestion:**
-    
-    For enhanced security, use [Microsoft Entra Privileged Identity Management (PIM)](https://learn.microsoft.com/entra/id-governance/privileged-identity-management/pim-configure). PIM is a service in Microsoft Entra ID that enables you to manage, control, and monitor access to important resources in your organization. PIM provides time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions on resources that you care about.
+    In this architecture, operational traffic is protected using NSG rules to restrict traffic and [just-in-time (JIT) VM access](/azure/defender-for-cloud/just-in-time-access-overview) is enabled on the VMs. This feature of Microsoft Defender for Cloud, allows temporary inbound access to selected ports.   
+   
+    For enhanced security, use [Microsoft Entra Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure). PIM is a service in Microsoft Entra ID that enables you to manage, control, and monitor access to important resources in your organization. PIM provides time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions on resources that you care about.
 
 - **Private connectivity to PaaS services**. Communication between the VMs and Azure Key Vault is over Private Links. This service requires private endpoints, which are placed in a separate subnet.
 
@@ -522,7 +463,7 @@ Workload resources such as VMs authenticate themselves by using their assigned m
 
 ##### Encryption
 
-- **Data in transit**. User traffic between users and the Azure Application Gateway public IP is encrypted using the external certificate. Traffic between the application gateway and the frontent VMs, and between the frontend and backend VMs is encrypted using an internal certificate. Both certificates are stored in [Azure Key Vault](/azure/key-vault/general/overview):
+- **Data in transit**. User traffic between users and the Azure Application Gateway public IP is encrypted using the external certificate. Traffic between the application gateway and the frontend VMs, and between the frontend and backend VMs is encrypted using an internal certificate. Both certificates are stored in [Azure Key Vault](/azure/key-vault/general/overview):
     - **app.contoso.com**: An external certificate used by clients and Application Gateway for secure public Internet traffic.
     - ***.worload.contoso.com**: A wildcard certificate used by the infrastructure components for secure internal traffic.
 
@@ -540,7 +481,8 @@ The VMs use the [Azure Key Vault VM extension](/azure/virtual-machines/extension
 
 > [!IMPORTANT]
 > It is your responsibility to ensure your locally stored certificates are rotated regularly. See [Azure Key Vault VM extension for Linux](/azure/virtual-machines/extensions/key-vault-linux) or [Azure Key Vault VM extension for Windows](/azure/virtual-machines/extensions/key-vault-windows) for more details.
->
+
+
 > Refer to Well-Architected Framework: [SE:09 - Recommendations for protecting application secrets](/azure/well-architected/security/application-secrets).
 
 ## Cost Optimization
@@ -559,7 +501,7 @@ The use of ephemeral OS disks can also lead to cost savings and improved perform
 
 ##### Flow cost
 
-Choose compute resources based on the criticality of the flow. For flows that can tolerate interruptions, consider using [Spot VMs](/azure/architecture/guide/spot/spot-eviction) with VM Scale Sets Flexible Orchestration mode. This approach can be effective for hosting low-priority flows on lower-priority VMs. This strategy allows for cost optimization while still meeting the requirements of different flows.
+Choose compute resources based on the criticality of the flow. For flows that can tolerate interruptions, consider using [Spot VMs](/azure/architecture/guide/spot/spot-eviction) with Virtual Machine Scale Sets Flexible Orchestration mode. This approach can be effective for hosting low-priority flows on lower-priority VMs. This strategy allows for cost optimization while still meeting the requirements of different flows.
 
 > Refer to Well-Architected Framework: [CO:09 - Recommendations for optimizing flow costs](/azure/well-architected/cost-optimization/optimize-flow-costs).
 
@@ -585,18 +527,25 @@ Automatic VM guest patching reduces the overhead of manual patching and the asso
 A deployment for this reference architecture is available on GitHub.
 
 > [!div class="nextstepaction"]
-> [Implementation: Azure Virtual Machine baseline architecture](https://github.com/mspnp/xxx)
+> [Implementation: Azure Virtual Machine baseline architecture](https://github.com/mspnp/iaas-baseline/#deploy-the-reference-implementation)
 
 
-## Next steps
+## Related links
 
 See product documentation for details on specific Azure services:
 
 - [Azure Virtual Machines](/azure/virtual-machines)
 - [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)
+- [Azure Virtual Network](/azure/virtual-network/)
+- [Azure Application Gateway Standard_v2](/azure/application-gateway/overview-v2)
+- [Azure Load Balancer](/azure/load-balancer/)
+- [Azure Key Vault](/azure/key-vault/general/)
+- [Azure Bastion](/azure/bastion/)
+- [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview)
+- [Azure Log Analytics](/azure/azure-monitor/logs/log-analytics-overview)
 
-## Related resources
+## Next step
 
-IaaS reference architectures showing options for the data tier:
+Review the IaaS reference architectures showing options for the data tier:
 
 - [Windows N-tier application using SQL Server on Azure](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
