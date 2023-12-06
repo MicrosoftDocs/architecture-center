@@ -48,7 +48,6 @@ With queries using the search index, companies can discover trends about what cu
 
 ## Next steps
 
-- To build an initial knowledge mining prototype with Azure Cognitive Search, use the [knowledge mining solution accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining).
 - Build an Azure Cognitive Search [custom skill](/azure/search/cognitive-search-custom-skill-interface).
 - Explore the learning path [Knowledge mining with Azure Cognitive Search](/training/paths/implement-knowledge-mining-azure-cognitive-search).
 - To learn more about the components in this solution, see these resources:
