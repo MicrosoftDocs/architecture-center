@@ -10,7 +10,7 @@ However, the primary focus of that architecture isn't the application. Instead i
 
 |Architecture| Design decisions|Well-Architected Framework approaches|
 |---|---|---|
-|&#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-resources) <br> &#9642; [Supporting resources](#workload-supporting-resources) <br> &#9642; [User flows](#user-flows) <br> |&#9642; [VM design choices](#virtual-machine-design-choices)<br> &#9642; [Disks](#disks) <br> &#9642; [Networking](#networking) <br> &#9642; [Monitoring](#monitoring) <br>  &#9642; [Patching operations](#infrastructure-update-management) |  <br> &#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost Optimization](#cost-optimization)|
+|&#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-resources) <br> &#9642; [Supporting resources](#workload-supporting-resources) <br> &#9642; [User flows](#user-flows) <br> |&#9642; [VM design choices](#virtual-machine-design-choices)<br> &#9642; [Disks](#disks) <br> &#9642; [Networking](#network-layout) <br> &#9642; [Monitoring](#monitoring) <br>  &#9642; [Patching operations](#infrastructure-update-management) |  <br> &#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost Optimization](#cost-optimization)|
 
 > [!TIP]
 > ![GitHub logo](../_images/github.svg) The best practices described in this architecture are demonstrated by a [**reference implementation**](https://github.com/mspnp/iaas-baseline).
@@ -429,7 +429,7 @@ Security isn't just technical controls. It's highly recommended that you follow 
 
 Access to VMs requires a user account, controlled by Microsoft Entra ID authentication and backed by security groups. This architecture supports this by deploying Microsoft Entra ID authentication extension to all VMs. It's recommended that human users use their corporate identities in their organization's Microsoft Entra ID tenant, and any service principal-based access isn't  shared across functions.
 
-Workload resources such as VMs authenticate themselves by using their assigned managed identities to other resources. These identities, based on Microsoft Entra ID service principals, are automatically managed. In this architecture, [user-assigned managed identities](/azure/entra/managed-identities-azure-resources/overview#managed-identity-types) are used by Azure Application Gateway, front VMs, and backend VMs to access Azure Key Vault and Azure Storage account for boot diagnostics. Those managed identities are configured during deployment and used for authenticating against Key Vault. Access policies on Key Vault are configured to only accept requests from the preceding managed identities.
+Workload resources such as VMs authenticate themselves by using their assigned managed identities to other resources. These identities, based on Microsoft Entra ID service principals, are automatically managed. In this architecture, [user-assigned managed identities](/entra/identity/managed-identities-azure-resources/overview#managed-identity-types) are used by Azure Application Gateway, front VMs, and backend VMs to access Azure Key Vault and Azure Storage account for boot diagnostics. Those managed identities are configured during deployment and used for authenticating against Key Vault. Access policies on Key Vault are configured to only accept requests from the preceding managed identities.
 
 >[!IMPORTANT]
 > The baseline architecture uses only user-assigned managed identities. Even though you may specify a system-assigned managed identity in a Bicep or ARM template with no error, they cannot be used in a Flex VMSS configuration. The Azure portal however will respond with the appropriate error.
@@ -537,12 +537,12 @@ See product documentation for details on specific Azure services:
 - [Azure Virtual Machines](/azure/virtual-machines)
 - [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)
 - [Azure Virtual Network](/azure/virtual-network/)
-- [Azure Application Gateway Standard_v2](azure/application-gateway/overview-v2)
+- [Azure Application Gateway Standard_v2](/azure/application-gateway/overview-v2)
 - [Azure Load Balancer](/azure/load-balancer/)
 - [Azure Key Vault](/azure/key-vault/general/)
 - [Azure Bastion](/azure/bastion/)
 - [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview)
-- [Azure Log Analytics](azure/azure-monitor/logs/log-analytics-overview)
+- [Azure Log Analytics](/azure/azure-monitor/logs/log-analytics-overview)
 
 ## Next step
 
