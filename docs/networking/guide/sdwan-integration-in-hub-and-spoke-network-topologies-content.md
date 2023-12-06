@@ -11,7 +11,7 @@ By adhering to these recommendations, customers can use their SDWAN technology o
 - Integrate SDWAN products in an existing Azure hub and spoke network, by automating route exchange between Azure Virtual Networks (VNets) and SDWAN devices.
 - Optimize connectivity (both to Azure and on-premises datacenters) for branches with local internet breakouts. The [reach](https://azure.microsoft.com/blog/how-microsoft-builds-its-fast-and-reliable-global-network/) of the Microsoft backbone, combined with its capacity, resiliency and "[cold potato](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing)" routing policy suggests that it can be used as a high-performance underlay for global SDWANs.
 - Leverage the Microsoft backbone for all Azure-to-Azure traffic (cross region and cross geography).
-- Leverage existing Multi-Protocol-Label-Switching (MPLS) networks as a high-performance underlays.
+- Leverage existing Multi-Protocol-Label-Switching (MPLS) networks as a high-performance underlays. It can also be used to replace an existing MPLS network in a phased approach that minimizes the impact on the business.
 
 The following sections assume that the reader is familiar with the basics of the [SDWAN paradigm](https://en.wikipedia.org/wiki/SD-WAN) and with the architecture of the [Microsoft backbone](/azure/networking/microsoft-global-network), which interconnects Azure regions with each other and with the public internet.
 
