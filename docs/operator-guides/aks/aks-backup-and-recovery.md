@@ -18,9 +18,11 @@ ms.custom:
 
 # Backup and recovery for AKS
 
-## Why backing up your AKS cluster is important
-
 Backup and recovery are an essential part of any organization's operational and disaster recovery strategy. A backup and recovery plan usually relies on a diverse set of technologies and practices that are based on taking periodic copies of data and applications to a separate, secondary device or service. If a system failure, data loss, or disaster occurs, these copies are used to recover the data and applications, and the business operations on which they depend.
+
+This section of the Azure Kubernetes Service (AKS) day-2 operations guide describes backup and recovery practices for AKS.
+
+## Why backing up your AKS cluster is important
 
 As cloud-native deployments and Kubernetes continue to grow in adoption, it becomes increasingly essential for organizations to include Kubernetes clusters and workloads in a comprehensive backup and recovery strategy.
 

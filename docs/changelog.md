@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 11/06/2023
+ms.date: 12/04/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -23,13 +23,42 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 
 The following new and updated articles have recently been published in the Azure Architecture Center.
 
+## December 2023
+
+### New articles
+
+- [AKS Backup and Recovery](./operator-guides/aks/aks-backup-and-recovery.md)
+
+
 ## November 2023
 
 ### New articles
 
+- [Use Azure Batch to run Financial Service Industry (FSI) workloads](./example-scenario/batch/fsi-workloads-using-batch.yml)
+- [Deploy Quantum ESPRESSO on an Azure virtual machine](./guide/hpc/quantum-espresso.yml)
+- [Mainframe workload migration proof of concept](./mainframe/mainframe-proof-of-concept.yml)
+- [Enable real-time sync of MongoDB Atlas data changes to Azure Synapse Analytics](./example-scenario/analytics/sync-mongodb-atlas-azure-synapse-analytics.yml)
+- [Deploy M-Star on a virtual machine](./guide/hpc/m-star.yml)
+- [Software-defined vehicle DevOps toolchain](./industries/automotive/software-defined-vehicle-reference-architecture.yml)
+- [Architectural approaches for control planes in multitenant solutions](./guide/multitenant/approaches/control-planes.md)
 - [Deploy CP2K on an Azure virtual machine](./guide/hpc/cp2k.yml)
 - [Deploy NAMD on a virtual machine](./guide/hpc/hpc-namd.yml)
 
+### Updated articles
+
+- [Deploy WRF on an Azure virtual machine](./guide/hpc/weather-research-forecasting.yml)  ([#0280138a15](https://github.com/MicrosoftDocs/architecture-center/commit/0280138a15))
+- [Continuous validation with Azure Load Testing and Azure Chaos Studio](./guide/testing/mission-critical-deployment-testing.md)  ([#4522d8522f](https://github.com/MicrosoftDocs/architecture-center/commit/4522d8522f))
+- [Deploy GROMACS on an Azure virtual machine](./guide/hpc/gromacs.yml)  ([#7cf6296c95](https://github.com/MicrosoftDocs/architecture-center/commit/7cf6296c95))
+- [AKS triage—Cluster health](./operator-guides/aks/aks-triage-cluster-health.md)  ([#b0e359ee7e](https://github.com/MicrosoftDocs/architecture-center/commit/b0e359ee7e))
+- [AKS triage—Container registry connectivity](./operator-guides/aks/aks-triage-container-registry.md)  ([#b0e359ee7e](https://github.com/MicrosoftDocs/architecture-center/commit/b0e359ee7e))
+- [AKS triage—Admission controllers](./operator-guides/aks/aks-triage-controllers.md)  ([#b0e359ee7e](https://github.com/MicrosoftDocs/architecture-center/commit/b0e359ee7e))
+- [AKS triage—Workload deployments](./operator-guides/aks/aks-triage-deployment.md)  ([#b0e359ee7e](https://github.com/MicrosoftDocs/architecture-center/commit/b0e359ee7e))
+- [AKS triage—Node health](./operator-guides/aks/aks-triage-node-health.md)  ([#b0e359ee7e](https://github.com/MicrosoftDocs/architecture-center/commit/b0e359ee7e))
+- [Azure Kubernetes Service (AKS) operations triage](./operator-guides/aks/aks-triage-practices.md)  ([#b0e359ee7e](https://github.com/MicrosoftDocs/architecture-center/commit/b0e359ee7e))
+- [Deploy Autodesk Maya on a virtual machine](./guide/hpc/autodesk-maya.yml)  ([#df60074cf9](https://github.com/MicrosoftDocs/architecture-center/commit/df60074cf9))
+- [The journey to SaaS: Dynamics 365](./guide/saas/case-studies/dynamics-365-journey-saas.md)  ([#56ce7c6db6](https://github.com/MicrosoftDocs/architecture-center/commit/56ce7c6db6))
+- [Azure landing zones - Bicep modules design considerations](./landing-zones/bicep/landing-zone-bicep.md)  ([#399bd77fc2](https://github.com/MicrosoftDocs/architecture-center/commit/399bd77fc2))
+- [Azure landing zones - Terraform module design considerations](./landing-zones/terraform/landing-zone-terraform.md)  ([#399bd77fc2](https://github.com/MicrosoftDocs/architecture-center/commit/399bd77fc2))
 
 ## October 2023
 
@@ -65,21 +94,4 @@ The following new and updated articles have recently been published in the Azure
 - [Azure Spring Apps baseline architecture](./web-apps/spring-apps/architectures/spring-apps-multi-zone.yml)  ([#296858b98e](https://github.com/MicrosoftDocs/architecture-center/commit/296858b98e))
 - [Integrate on-premises AD domains with Microsoft Entra ID](./reference-architectures/identity/azure-ad.yml)  ([#29ff11ff52](https://github.com/MicrosoftDocs/architecture-center/commit/29ff11ff52))
 - [Kubernetes monitoring and logging](./aws-professional/eks-to-aks/monitoring.yml)  ([#bf2b17b6cf](https://github.com/MicrosoftDocs/architecture-center/commit/bf2b17b6cf))
-
-## August 2023
-
-### New articles
-
-- [Multitenancy and Application Insights](./guide/multitenant/service/application-insights.md)
-- [Azure Health Data Services architecture guide](./guide/data/azure-health-data-services.yml)
-- [Mission-critical baseline with App Service](./guide/networking/global-web-applications/mission-critical-app-service.yml)
-
-### Updated articles
-
-- [Microsoft SaaS stories](./guide/saas/case-studies/saas-stories.md)  ([#ff907761a0](https://github.com/MicrosoftDocs/architecture-center/commit/ff907761a0))
-- [Deploy Azure landing zones](./landing-zones/landing-zone-deploy.md)  ([#7d7643bb4a](https://github.com/MicrosoftDocs/architecture-center/commit/7d7643bb4a))
-- [HA enterprise deployment using ASE](./web-apps/app-service-environment/architectures/ase-high-availability-deployment.yml)  ([#f63a699611](https://github.com/MicrosoftDocs/architecture-center/commit/f63a699611))
-- [Magento e-commerce platform in Azure Kubernetes Service](./example-scenario/magento/magento-azure.yml)  ([#4206ea3f14](https://github.com/MicrosoftDocs/architecture-center/commit/4206ea3f14))
-- [Considerations for multitenant control planes](./guide/multitenant/considerations/control-planes.yml)  ([#2afb001272](https://github.com/MicrosoftDocs/architecture-center/commit/2afb001272))
-- [Build solutions with availability zones](./high-availability/building-solutions-for-high-availability.yml)  ([#bf5377d475](https://github.com/MicrosoftDocs/architecture-center/commit/bf5377d475))
 
