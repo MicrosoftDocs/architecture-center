@@ -3943,6 +3943,12 @@ items:
         href: example-scenario/wvd/multi-forest.yml
       - name: Multiple forests with Microsoft Entra Domain Services
         href: example-scenario/wvd/multi-forest-azure-managed.yml
+  - name: VM
+    items: 
+    - name: Baseline architecture
+      href: vm/vm-baseline.yml
+    - name: Baseline in Azure landing zones
+      href: vm/vm-baseline-landing-zone.yml
   - name: Web applications
     href: web-apps/index.md
 - name: Industry solutions with Azure
