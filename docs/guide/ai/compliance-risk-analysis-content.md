@@ -723,7 +723,6 @@ Principal authors:
 ## Next Steps
 
 - [Quickstart: Create an Azure Cognitive Search index in the Azure portal](/azure/search/search-get-started-portal)
-- [Knowledge Mining Solution Accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining)
 
 ## Related resources
 
