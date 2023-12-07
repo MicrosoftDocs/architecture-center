@@ -214,7 +214,7 @@ The following table provides the wall-clock times for multi-node configurations.
 - Radioss was successfully tested on HBv3-series VMs on Azure.
 - Radioss on an Azure VM can solve complex workloads.
 - In a single-node configuration, increasing the number of CPUs increases the relative speed. The optimal configuration is 64 CPUs.
-- Radioss scales impressively up to 16 nodes (1024 CPUs) for Taurus t10m model.
+- Radioss scales impressively up to 16 nodes (1024 CPUs) for the Taurus t10m model.
 
 ## Contributors
 
