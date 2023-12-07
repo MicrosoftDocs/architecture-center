@@ -167,7 +167,7 @@ Azure Route Server routing preference allows controlling which path should be pr
 
 ## Azure Route Server limits and design considerations
 
-Azure Route Server is the cornerstone of the reference architecture described in this article. It propagates routes between SDWAN NVAs deployed in VNets and the underlying Azure SDN stack; it provides a BGP-based approach to running multiple SDWAN NVAs for high availability and horizontal scalability. When designing large SDWANs based on this reference architecture, the [scalability limits of Azure Route Server](/azure/route-server/route-server-faq) must be factored in.
+Azure Route Server is the cornerstone of the architecture described in this article. It propagates routes between SDWAN NVAs deployed in VNets and the underlying Azure SDN stack; it provides a BGP-based approach to running multiple SDWAN NVAs for high availability and horizontal scalability. When designing large SDWANs based on this architecture, the [scalability limits of Azure Route Server](/azure/route-server/route-server-faq) must be factored in.
 
 The following sections provide guidance on scalability maximums and how to deal with each limit.
 
