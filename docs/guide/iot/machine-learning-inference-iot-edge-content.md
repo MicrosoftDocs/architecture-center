@@ -178,7 +178,7 @@ class InferenceProcedure():
                     if detection_scores[0, i] > .5:
                         class_id = int(detection_classes[0, i])
                         class_name = new_label_names[class_id]
-                        # top,	left,	bottom,	right
+                        # top, left, bottom, right
                         results_json = "{'Class': '%s','Score': '%s','Location': '%s'}" % (class_name, detection_scores[0, i],detection_boxes[0, i])
                         results.append(results_json)
                         print(results_json)

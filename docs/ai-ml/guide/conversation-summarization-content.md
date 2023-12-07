@@ -134,12 +134,12 @@ The tradeoff is cost. The process of labeling and cleaning datasets can be expen
 ## Example scenario: Summarizing transcripts in call centers
 
 This scenario demonstrates how the Azure OpenAI summarization feature can help customer service agents with summarization tasks. It tests the zero-shot, few-shot, and fine-tuning approaches and compares the results against human-generated summaries.
- 
+
 The dataset used in this scenario is a set of hypothetical conversations between customers and agents in the Xbox customer support center about various Xbox products and services. The hypothetical chat is labeled with *Prompt*. The human-written abstractive summary is labeled with *Completion*.
 
-|Prompt|	Completion|
+|Prompt|Completion|
 |-|-|
-|Customer: Question on XAIL<br><br>Agent: Hello! How can I help you today?<br><br>Customer: Hi, I have a question about the Accessibility insider ring<br><br>Agent: Okay. I can certainly assist you with that.<br><br>Customer: Do I need to sign up for the preview ring to join the accessibility league?<br><br>Agent: No. You can leave your console out of Xbox Preview rings and still join the League. However, note that some experiences made available to you may require that you join an Xbox Preview ring.<br><br>Customer: Okay. And I can just sign up for preview ring later yeah?<br><br>Agent: That is correct.<br><br>Customer: Sweet.|	Customer wants to know if they need to sign up for preview rings to join Xbox Accessibility Insider League. Agent responds that it is not mandatory, but that some experiences may require it.|
+|Customer: Question on XAIL<br><br>Agent: Hello! How can I help you today?<br><br>Customer: Hi, I have a question about the Accessibility insider ring<br><br>Agent: Okay. I can certainly assist you with that.<br><br>Customer: Do I need to sign up for the preview ring to join the accessibility league?<br><br>Agent: No. You can leave your console out of Xbox Preview rings and still join the League. However, note that some experiences made available to you may require that you join an Xbox Preview ring.<br><br>Customer: Okay. And I can just sign up for preview ring later yeah?<br><br>Agent: That is correct.<br><br>Customer: Sweet.| Customer wants to know if they need to sign up for preview rings to join Xbox Accessibility Insider League. Agent responds that it is not mandatory, but that some experiences may require it.|
 
 **Ideal output**. The goal is to create summaries that follow this format: "Customer said *x*. Agent responded *y*." Another goal is to capture salient features of the dialog, like the customer complaint, suggested resolution, and follow-up actions.
 

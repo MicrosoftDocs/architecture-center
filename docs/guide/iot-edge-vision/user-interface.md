@@ -37,7 +37,7 @@ Here are some of the services and software you can use to create user interfaces
 
 - [Azure App Service](https://azure.microsoft.com/services/app-service) is a platform for developers to quickly build, deploy, and scale web and mobile apps. App Service supports frameworks like .NET, .NET Core, Node.js, Java, PHP, Ruby, or Python. Apps can be in containers or run on any supported operating system, mobile device, or IoT Edge hardware. The fully managed App Service platform meets enterprise-grade performance, security, and compliance requirements.
 
-- [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service) adds real-time data communications and reporting to apps, without requiring in-depth real-time communications expertise. SignalR Service integrates easily with many Azure cloud services.
+- [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service) adds real-time data communications and reporting to apps, without requiring in-depth real-time communications expertise. SignalR Service integrates easily with many Azure services.
 
 - [Azure Maps](https://azure.microsoft.com/services/azure-maps) is a technology for IoT visualization and computer vision projects. Azure Maps lets you create location-aware web and mobile apps by using simple and secure geospatial services, APIs, and SDKs. Azure Maps has built-in location intelligence from worldwide technology partners. You can deliver seamless experiences based on geospatial data.
 

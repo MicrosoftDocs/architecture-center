@@ -73,7 +73,7 @@ This article presents a solution for genomic analysis and reporting. The process
 - Moving the data through secondary analysis
 - Providing results that clinicians can consume
 
-The growing scale, complexity, and security requirements of genomics make it an ideal candidate for moving to the cloud. Consequently, the solution uses Azure cloud services in addition to open-source tools. This approach takes advantage of the security, performance, and scalability features of the Azure cloud:
+The growing scale, complexity, and security requirements of genomics make it an ideal candidate for moving to the cloud. Consequently, the solution uses Azure services in addition to open-source tools. This approach takes advantage of the security, performance, and scalability features of the Azure cloud:
 
 - Scientists plan on sequencing hundreds of thousands of genomes in coming years. The task of storing and analyzing this data requires significant computing power and storage capacity. With data centers around the world that provide these resources, Azure can meet these demands.
 - Azure is certified for major global security and privacy standards, such as ISO 27001.

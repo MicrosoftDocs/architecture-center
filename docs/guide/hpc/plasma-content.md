@@ -34,11 +34,11 @@ The performance tests of Samadii Plasma on Azure used [NVv3](/azure/virtual-mach
 
 |VM size|GPU|Number of vCPUs|Memory, in GiB|Maximum data disks|Number of GPUs|GPU memory, in GiB|Maximum uncached disk throughput, in IOPS / MBps|Temporary storage (SSD), in GiB|Maximum NICs|
 |-|-|-|-|-|-|-|-|-|-|
-|Standard_NV12s_v3|	Tesla M60|	12|	112|	12|	1|	8	|20,000 / 200|	320|	4|
-|Standard_NC4as_T4_v3|	Tesla T4|	4|	28|	8	|1	|16|	-|	180|	2|
-|Standard_NC6s_v3	|V100|	6	|112	|12|	1|	16|	20,000 / 200|	736|	4|
-|Standard_ND96asr_v4|	A100|	96|	900	|32|	8	|40	|80,000 / 800	|6,000	|8|
-|Standard_NC24ads_A100_v4|A100|	24|	220|	32|	1|	80|	30,000 / 1,000	|1,123|	2|
+|Standard_NV12s_v3| Tesla M60| 12| 112| 12| 1| 8 |20,000 / 200| 320| 4|
+|Standard_NC4as_T4_v3| Tesla T4| 4| 28| 8 |1 |16| -| 180| 2|
+|Standard_NC6s_v3 |V100| 6 |112 |12| 1| 16| 20,000 / 200| 736| 4|
+|Standard_ND96asr_v4| A100| 96| 900 |32| 8 |40 |80,000 / 800 |6,000 |8|
+|Standard_NC24ads_A100_v4|A100| 24| 220| 32| 1| 80| 30,000 / 1,000 |1,123| 2|
 
 ### Required drivers
 
@@ -68,11 +68,11 @@ The product installation process involves installing a license server, installin
 
 The following table shows the operating system versions and processors that were used for the tests.
 
-|VM series| ND_A100_v4	|NCv3| 	NCasT4_v3|	NVv3| 	NC_A100_v4|
+|VM series| ND_A100_v4 |NCv3|  NCasT4_v3| NVv3|  NC_A100_v4|
 |-|-|-|-|-|-|
 |Operating system version|Windows 10 Professional, version 20H2|Windows 10 Professional, version 20H2|Windows 10 Professional, version 20H2|Windows 10 Professional, version 20H2|Windows 10 Professional, version 21H2|
 |OS architecture|x86-64 |x86-64 |x86-64 |x86-64 |x86-64 |
-|Processor	|AMD EPYC 7V12, 64-core processor, 2.44 GHz (2 processors)	|Intel Xeon CPU E5-2690 v4|	AMD EPYC 7V12, 64-core processor, 2.44 GHz	|Intel Xeon CPU E5-2690 v4|	AMD EPYC 7V13, 64-core processor, 2.44 GHz|
+|Processor |AMD EPYC 7V12, 64-core processor, 2.44 GHz (2 processors) |Intel Xeon CPU E5-2690 v4| AMD EPYC 7V12, 64-core processor, 2.44 GHz |Intel Xeon CPU E5-2690 v4| AMD EPYC 7V13, 64-core processor, 2.44 GHz|
 
 The following three models were used for testing.
 
@@ -108,13 +108,13 @@ The following three models were used for testing.
 
 The following table shows the elapsed runtimes and relative speed increases on each VM series. The NVv3 series VM is used as a baseline for the relative speed increases. 
 
-|VM series |GPU|	Elapsed time, in seconds	|Relative speed increase|
+|VM series |GPU| Elapsed time, in seconds |Relative speed increase|
 |-|-|-|-|
-|NVv3|Tesla M60|	12,825.36|	N/A|
-|NCasT4_v3|Tesla T4	|7,606.59|	1.69|
-|NCv3	|V100|2,798.55|	4.58|
-|ND_A100_v4|A100	|1,977|	6.49|
-|NC_A100_v4|A100|1,590.83|	8.06|
+|NVv3|Tesla M60| 12,825.36| N/A|
+|NCasT4_v3|Tesla T4 |7,606.59| 1.69|
+|NCv3 |V100|2,798.55| 4.58|
+|ND_A100_v4|A100 |1,977| 6.49|
+|NC_A100_v4|A100|1,590.83| 8.06|
 
 This graph shows the relative speed increases.  
 
@@ -124,13 +124,13 @@ This graph shows the relative speed increases.
 
 The following table shows the elapsed runtimes and relative speed increases on each VM series. The NVv3 series VM is used as a baseline for the relative speed increases. 
 
-|VM series|GPU |	Elapsed time, in seconds	|Relative speed increase|
+|VM series|GPU | Elapsed time, in seconds |Relative speed increase|
 |-|-|-|-|
 |NVv3|Tesla M60|248.99| N/A|
-|NCasT4_v3|Tesla T4	|159.61|1.56|
-|NCv3	|V100|141.59|1.76|
-|ND_A100_v4|A100	|112|2.22|
-|NC_A100_v4|A100|44.27|	5.62|
+|NCasT4_v3|Tesla T4 |159.61|1.56|
+|NCv3 |V100|141.59|1.76|
+|ND_A100_v4|A100 |112|2.22|
+|NC_A100_v4|A100|44.27| 5.62|
 
 This graph shows the relative speed increases.  
 
@@ -140,13 +140,13 @@ This graph shows the relative speed increases.
 
 The following table shows the elapsed runtimes and relative speed increases on each VM series. The NVv3 series VM is used as a baseline for the relative speed increases. 
 
-|VM series|GPU|	Elapsed time, in seconds	|Relative speed increase|
+|VM series|GPU| Elapsed time, in seconds |Relative speed increase|
 |-|-|-|-|
 |NVv3|Tesla M60|13.82| N/A|
-|NCasT4_v3	|Tesla T4|8.46|1.63|
-|NCv3|V100	|6.86|2.01|
-|ND_A100_v4|A100	|5.9|2.34|
-|NC_A100_v4|A100	|8.61	|1.61|
+|NCasT4_v3 |Tesla T4|8.46|1.63|
+|NCv3|V100 |6.86|2.01|
+|ND_A100_v4|A100 |5.9|2.34|
+|NC_A100_v4|A100 |8.61 |1.61|
 
 This graph shows the relative speed increases. 
 
@@ -162,33 +162,33 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 
 ### Cost, magnetron sputter model
 
-|VM size|GPU|	Number of GPUs|		Wall-clock time, in hours|
+|VM size|GPU| Number of GPUs| Wall-clock time, in hours|
 |-|-|-|-|
-|Standard_NV12s_v3|Tesla M60|	1		|3.56|
-|Standard_NC4as_T4_v3|Tesla T4|	1|		2.11|
-|Standard_NC6s_v3	|V100|1		|0.78|
-|Standard_ND96asr_v4|A100|	1	|	0.55|
-|Standard_NC24ads_A100_v4|A100|1	|0.44|
+|Standard_NV12s_v3|Tesla M60| 1 |3.56|
+|Standard_NC4as_T4_v3|Tesla T4| 1| 2.11|
+|Standard_NC6s_v3 |V100|1 |0.78|
+|Standard_ND96asr_v4|A100| 1 | 0.55|
+|Standard_NC24ads_A100_v4|A100|1 |0.44|
 
 ### Cost, import inlet model
 
-|VM size|GPU	|Number of GPUs|		Wall-clock time, in hours|
+|VM size|GPU |Number of GPUs| Wall-clock time, in hours|
 |-|-|-|-|
 |Standard_NV12s_v3|Tesla M60|1|0.07|
 |Standard_NC4as_T4_v3|Tesla T4|1|0.04|
-|Standard_NC6s_v3	|V100|1|0.04|
+|Standard_NC6s_v3 |V100|1|0.04|
 |Standard_ND96asr_v4|A100|1|0.03|
-|Standard_NC24ads_A100_v4|A100|	1	|0.01|
+|Standard_NC24ads_A100_v4|A100| 1 |0.01|
 
 ### Cost, sputtering target model
 
-|VM size|	GPU|Number of GPUs|		Wall-clock time, in hours|
+|VM size| GPU|Number of GPUs| Wall-clock time, in hours|
 |-|-|-|-|
 |Standard_NV12s_v3|Tesla M60|1|0.0038|
 |Standard_NC4as_T4_v3|Tesla T4|1|0.0024|
-|Standard_NC6s_v3	|V100|1|0.0019|
+|Standard_NC6s_v3 |V100|1|0.0019|
 |Standard_ND96asr_v4|A100|1|0.0016|
-|Standard_NC24ads_A100_v4|A100|1	|0.0024|
+|Standard_NC24ads_A100_v4|A100|1 |0.0024|
 
 ## Summary
 
