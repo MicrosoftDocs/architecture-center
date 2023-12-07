@@ -68,7 +68,7 @@ Azure Route Server should be configured as follows.
 
 Azure Route Server is not in the data path: It is a control plane entity. It propagates routes between the SDWAN NVA and the Azure VNet SDN stack, but actual traffic forwarding between the SDWAN NVA and the Virtual Machines in the VNet is done by the Azure SDN stack, as shown in the figure below. To obtain this routing behavior, the Azure Route Server injects all the routes it learns from the SDWAN NVAs with next hop set to the NVA’s own address.
 
-Azure Route Server does not support IPv6 as of now and hence this reference architecture is only for IPv4.
+Azure Route Server does not support IPv6 as of now and hence this architecture is only for IPv4.
 
 ![How Azure Route Server works ](images/sdwan-integration-route-server-architecture.png)
 *Figure 2. Azure Route Server supports route propagation between the SDWAN CPE and the Azure VNet SDN stack, but it does not forward traffic between the SDWAN CPE and the Virtual Machines in the VNet.*
