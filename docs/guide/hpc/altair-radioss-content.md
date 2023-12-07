@@ -168,7 +168,7 @@ The following table provides the numbers of various elements in the model.
 |---------|---------|---------|---|-|-|-|-|--|-|-|-|-|-|-|-|-|-|-|
 | 9,754,355 |1,585|66|762|1|330,418|9,196,272|3,766|417|345,409|1|5|4|4|1,712|901|5|4|8|
 
-For Taurus t10m model, as the preceding performance results show, a Standard_HB120-64rs_v3 VM (AMD EPYC™ 7V73X Milan-X Processors) with 64 cores is the optimal configuration. This configuration was used in the multi-node tests. 64 cores were used on each node.
+For the Taurus t10m model, as the preceding performance results show, a Standard_HB120-64rs_v3 VM (AMD EPYC™ 7V73X Milan-X Processors) with 64 cores is the optimal configuration. This configuration was used in the multi-node tests. 64 cores were used on each node.
 
 The following table shows the elapsed wall-clock time, in hours, for the test runs.
 
