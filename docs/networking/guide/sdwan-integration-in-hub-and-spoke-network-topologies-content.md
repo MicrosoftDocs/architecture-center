@@ -106,7 +106,7 @@ Active/Passive HA architectures should only be considered when SDWAN NVAs in Azu
 
 ## ExpressRoute connectivity considerations
 
-While the reference architecture described in this article allows customers to fully embrace the SDWAN paradigm and build their corporate network as a logical overlay on top of the public internet and the Microsoft backbone, it also supports using dedicated Expressroute circuits to address specific scenarios, described below.
+While the architecture described in this article allows customers to fully embrace the SDWAN paradigm and build their corporate network as a logical overlay on top of the public internet and the Microsoft backbone, it also supports using dedicated Expressroute circuits to address specific scenarios, described below.
 
 ### Scenario #1: ExpressRoute and SDWAN coexistence
 
