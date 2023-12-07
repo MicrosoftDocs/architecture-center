@@ -34,22 +34,22 @@ Sandi HiFUN is used in the aerospace, automotive, industrial, and wind/turbine i
 
 Performance tests of HiFUN on Azure used [HBv3](/azure/virtual-machines/hbv3-series) and [NCasT4_v3](/azure/virtual-machines/nct4-v3-series) VMs running the Linux CentOS operating system. The following table provides details about HBv3-series VMs.
 
-|VM size|vCPU|Memory (GiB)|	Memory bandwidth (GBps)|	Base CPU frequency (GHz)|All-cores frequency (GHz, peak)|Single-core frequency (GHz, peak)|	RDMA performance (Gbps)	|Maximum data disks|
+|VM size|vCPU|Memory (GiB)| Memory bandwidth (GBps)| Base CPU frequency (GHz)|All-cores frequency (GHz, peak)|Single-core frequency (GHz, peak)| RDMA performance (Gbps) |Maximum data disks|
 |-|-|-|-|-|-|-|-|-|
-|Standard_HB120rs_v3|	120	|448|	350|	1.9|	3.0	|3.5	|200|	32|
-|Standard_HB120-96rs_v3|	96|	448|	350|	1.9|	3.0	|3.5	|200	|32|
-|Standard_HB120-64rs_v3	|64	|448	|350	|1.9|	3.0	|3.5|	200|	32|
-|Standard_HB120-32rs_v3	|32	|448|	350	|1.9|	3.0	|3.5	|200	|32
-|Standard_HB120-16rs_v3	|16|	448|	350|	1.9|	3.0	|3.5	|200|	32|
+|Standard_HB120rs_v3| 120 |448| 350| 1.9| 3.0 |3.5 |200| 32|
+|Standard_HB120-96rs_v3| 96| 448| 350| 1.9| 3.0 |3.5 |200 |32|
+|Standard_HB120-64rs_v3 |64 |448 |350 |1.9| 3.0 |3.5| 200| 32|
+|Standard_HB120-32rs_v3 |32 |448| 350 |1.9| 3.0 |3.5 |200 |32
+|Standard_HB120-16rs_v3 |16| 448| 350| 1.9| 3.0 |3.5 |200| 32|
 
 The following table provides details about NCasT4_v3 VMs.
 
-|VM size|vCPU|Memory, in GiB|	Temporary storage (SSD), in GiB|GPU|GPU memory, in GiB|Maximum data disks|Maximum NICs / Expected network bandwidth, in Mbps|
+|VM size|vCPU|Memory, in GiB| Temporary storage (SSD), in GiB|GPU|GPU memory, in GiB|Maximum data disks|Maximum NICs / Expected network bandwidth, in Mbps|
 |-|-|-|-|-|-|-|-|
-|Standard_NC4as_T4_v3	|4	|28|	180|	1|	16|	8	|2 / 8,000|
-|Standard_NC8as_T4_v3	|8|	56|	360|	1|	16|	16|	4 / 8,000|
-|Standard_NC16as_T4_v3|	16|	110|	360|	1|	16|	32|	8 / 8,000|
-|Standard_NC64as_T4_v3|	64	|440|	2,880|	4	|64|	32|	8 / 32,000|
+|Standard_NC4as_T4_v3 |4 |28| 180| 1| 16| 8 |2 / 8,000|
+|Standard_NC8as_T4_v3 |8| 56| 360| 1| 16| 16| 4 / 8,000|
+|Standard_NC16as_T4_v3| 16| 110| 360| 1| 16| 32| 8 / 8,000|
+|Standard_NC64as_T4_v3| 64 |440| 2,880| 4 |64| 32| 8 / 32,000|
 
 ### Required drivers
 
@@ -74,26 +74,26 @@ The following tables provide details about the model.
 
 |Flow conditions||
 |-|-|
-|**Parameter**|	**Value**|
-|Mach number|	0.1207|
-|Velocity|	40 m/s|
-|Reynolds number|	1.8 million|
-|Flow direction	|Aligned to x axis|
+|**Parameter**| **Value**|
+|Mach number| 0.1207|
+|Velocity| 40 m/s|
+|Reynolds number| 1.8 million|
+|Flow direction |Aligned to x axis|
 
 |**Workload**|| 
 |-|-|
-|Model| 	Windsor car body |
-|Number of volumes|	7.456 million|
+|Model| Windsor car body |
+|Number of volumes| 7.456 million|
 
 ### Performance results for HiFUN 4.1.1 on HBv3
 
-|VM size|	Number of iterations|	Time per iteration (seconds)<sup>1</sup>|Relative speed increase|
+|VM size| Number of iterations| Time per iteration (seconds)<sup>1</sup>|Relative speed increase|
 |-|-|-|-|
-|Standard_HB120-16rs_v3	|100	|10.13|	1.00|
-|Standard_HB120-32rs_v3	|100|	5.29	|1.91|
-|Standard_HB120-64rs_v3	|100|	2.76|	3.67|
-|Standard_HB120-96rs_v3|	100	|2.00	|5.07|
-|Standard_HB120rs_v3|	100	|1.70|	5.96|
+|Standard_HB120-16rs_v3 |100 |10.13| 1.00|
+|Standard_HB120-32rs_v3 |100| 5.29 |1.91|
+|Standard_HB120-64rs_v3 |100| 2.76| 3.67|
+|Standard_HB120-96rs_v3| 100 |2.00 |5.07|
+|Standard_HB120rs_v3| 100 |1.70| 5.96|
 
 <sup>1</sup> To negate the effect of input/output operations per second (IOPS), the average time of 51-60 recorded iterations is presented here.
 
@@ -107,18 +107,18 @@ This graph shows the relative speed increase<sup>2</sup> as the number of CPUs i
 
 |CPU configuration|Number of CPUs/GPUs|Number of iterations|Time per iteration (seconds)<sup>3</sup>|Relative speed increase|
 |-|-|-|-|-|
-|24 CPU|24 CPU|	100|	7.70|	1.00|
-|	|1 GPU	|100	|5.55	|1.39|
-|	|2 GPU|	100	|4.07	|1.89|
-|	|4 GPU	|100|	2.91|	2.65|
-|32 CPU|32 CPU|	100|	5.59|	1.00|
-|	|1 GPU|	100|	4.99|	1.12|
-|	|2 GPU	|100	|3.59|	1.56|
-|	|4 GPU|	100|	2.45|	2.28|
-|48 CPU|48 CPU	|100	|4.15	|1.00|
-||	1 GPU|	100|	5.18|	0.80|
-||	2 GPU|	100	|3.32	|1.25|
-||	4 GPU|	100|	2.02|	2.05|
+|24 CPU|24 CPU| 100| 7.70| 1.00|
+| |1 GPU |100 |5.55 |1.39|
+| |2 GPU| 100 |4.07 |1.89|
+| |4 GPU |100| 2.91| 2.65|
+|32 CPU|32 CPU| 100| 5.59| 1.00|
+| |1 GPU| 100| 4.99| 1.12|
+| |2 GPU |100 |3.59| 1.56|
+| |4 GPU| 100| 2.45| 2.28|
+|48 CPU|48 CPU |100 |4.15 |1.00|
+|| 1 GPU| 100| 5.18| 0.80|
+|| 2 GPU| 100 |3.32 |1.25|
+|| 4 GPU| 100| 2.02| 2.05|
 
 <sup>3</sup> To negate the effect of IOPS, the average time of 51-60 recorded iterations is presented here.
 
@@ -144,20 +144,20 @@ The following tables provide elapsed times in hours. To compute the total cost, 
 
 ### HBv3
 
-| VM size|	Number of CPUs|	Elapsed time (hours)|
+| VM size| Number of CPUs| Elapsed time (hours)|
 |-|-|-|
-|Standard_HB120-16rs_v3	|16|	0.297|
-|Standard_HB120-32rs_v3	|32|	0.156|
-|Standard_HB120-64rs_v3	|64|	0.083|
-|Standard_HB120-96rs_v3	|96	|0.061|
-|Standard_HB120rs_v3	|120|	0.052|
+|Standard_HB120-16rs_v3 |16| 0.297|
+|Standard_HB120-32rs_v3 |32| 0.156|
+|Standard_HB120-64rs_v3 |64| 0.083|
+|Standard_HB120-96rs_v3 |96 |0.061|
+|Standard_HB120rs_v3 |120| 0.052|
 
 ### NC64as_T4_v3
 
-|CPU/GPU|	Elapsed time (hours)|
+|CPU/GPU| Elapsed time (hours)|
 |-|-|
-|CPU	|0.116|
-|4 GPU|	0.057|
+|CPU |0.116|
+|4 GPU| 0.057|
 
 ## Summary
 
