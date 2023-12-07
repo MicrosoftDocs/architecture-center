@@ -143,7 +143,7 @@ The ExpressRoute Microsoft peering can also be used as an underlay for SDWAN tun
 
 ## MPLS considerations
 
-Migration from traditional MPLS corporate networks to more modern network architectures based on the SDWAN paradigm requires a significant effort and a considerable amount of time. The reference architecture described in this article enables phased SDWAN migrations. Two typical migration scenarios are discussed below.
+Migration from traditional MPLS corporate networks to more modern network architectures based on the SDWAN paradigm requires a significant effort and a considerable amount of time. The architecture described in this article enables phased SDWAN migrations. Two typical migration scenarios are discussed below.
 
 ### Phased MPLS decommissioning
 
