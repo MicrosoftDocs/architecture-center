@@ -1,5 +1,5 @@
 
-The article is intended for network architects that want to design Software-defined Wide Area Networks (SDWANs) to connect on-prem facilities with each other and with Azure. It describes a reference architecture that allows Azure customers to fully leverage their existing investments in the platform, by building efficient, global SDWAN overlays on top of the Microsoft backbone.
+The article is intended for network architects that want to design Software-defined Wide Area Networks (SDWANs) to connect on-prem facilities with each other and with Azure. It describes an architecture that allows Azure customers to fully leverage their existing investments in the platform, by building efficient, global SDWAN overlays on top of the Microsoft backbone.
 
 ## Applicable scenarios
 
