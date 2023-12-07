@@ -15,7 +15,7 @@ By adhering to these recommendations, customers can use their SDWAN technology o
 
 The following sections assume that the reader is familiar with the basics of the [SDWAN paradigm](https://en.wikipedia.org/wiki/SD-WAN) and with the architecture of the [Microsoft backbone](/azure/networking/microsoft-global-network), which interconnects Azure regions with each other and with the public internet.
 
-## Architecture for SDWAN integration in Azure hub and spoke networks
+## Architecture
 
 Organizations with global presence and a multi-region Azure footprint typically use a combination of connectivity services to implement their corporate networks and to connect to the Microsoft backbone:
 - Dedicated connectivity services, such as MPLS Internet-Protocol-Virtual-Private-Networks (IPVPNs), may be used at the largest sites, such as datacenters or headquarters.
