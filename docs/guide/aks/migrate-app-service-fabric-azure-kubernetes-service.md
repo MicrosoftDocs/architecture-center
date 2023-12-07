@@ -125,11 +125,11 @@ spec:
             memory: 800M
         ports:
           - containerPort: 80
-  - env:
-      - name: HttpGatewayPort
-        value: ""
-      - name: BackendServiceName
-        value: ""
+    - env:
+        - name: HttpGatewayPort
+          value: ""
+        - name: BackendServiceName
+          value: ""
   selector:
     matchLabels:
       app: <APP NAME>
