@@ -52,10 +52,10 @@ This diagram shows a single-node configuration:
 
 [HBv3-series](/azure/virtual-machines/hbv3-series) VMs were used to test the performance of AcuSolve on Azure. The following table provides configuration details:
 
-|Size|	vCPU	|RAM memory (GiB)|	Memory bandwidth (GBps)|	Base CPU frequency (GHz)|	All-cores frequency (GHz, peak)|	Single-core frequency (GHz, peak)|	RDMA performance (GBps)|	Maximum data disks|
+|Size| vCPU |RAM memory (GiB)| Memory bandwidth (GBps)| Base CPU frequency (GHz)| All-cores frequency (GHz, peak)| Single-core frequency (GHz, peak)| RDMA performance (GBps)| Maximum data disks|
 |--|--|--|--|--|--|--|--|--|
-|Standard_HB120rs_v3|	120|	448|	350	|2.45|	3.1|	3.675|	200|	32|
-|Standard_HB120-64rs_v3|	64	|448	|350|	2.45|	3.1	|3.675|	200|	32|
+|Standard_HB120rs_v3| 120| 448| 350 |2.45| 3.1| 3.675| 200| 32|
+|Standard_HB120-64rs_v3| 64 |448 |350| 2.45| 3.1 |3.675| 200| 32|
  
 [HBv3-series VMs](/azure/virtual-machines/hbv3-series) are optimized for high-performance computing (HPC) applications like fluid dynamics, explicit and implicit finite-element analysis, weather modeling, seismic processing, reservoir simulation, and RTL simulation.
 
