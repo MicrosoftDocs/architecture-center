@@ -1,4 +1,4 @@
-This reference architecture extends the [**Virtual machine baseline architecture**](./vm-baseline.yml) to address common changes and expectations when deployed into in Azure landing zones.
+This reference architecture extends the [**Virtual machine baseline architecture**](./baseline.yml) to address common changes and expectations when deployed into in Azure landing zones.
 
 In this use case, the organization expects the **VM-based workload to utilize federated resources that are centrally managed by the platform team**. These resources include networking for cross-premises connectivity, identity access management, and policies. It's assumed that the organization has adopted Azure landing zones to enforce consistent governance and cost-efficiency across multiple workloads. As a workload owner, you benefit by offloading management of shared resources to central teams and focus on workload development efforts. This article presents the workload team's perspective. Callouts to the platform team are annotated.
 
@@ -30,7 +30,7 @@ To meet the organizational requirements, there are changes in the **baseline arc
 
 ## Architecture
 
-:::image type="content" source="./media/vm-baseline-landing-zone.png" alt-text="A architectural diagram showing the IaaS baseline in an application landing zone." lightbox="./media/vm-baseline-landing-zone.png":::
+:::image type="content" source="./media/baseline-landing-zone.png" alt-text="A architectural diagram showing the IaaS baseline in an application landing zone." lightbox="./media/baseline-landing-zone.png":::
 
 ### Components
 
@@ -40,7 +40,7 @@ All Azure landing zone architectures have dual-ownership between the platform te
 
 #### Workload team-owned resources
 
-Your team provisions and owns these resources and remain unchanged from the [**baseline architecture**](./vm-baseline-content.md#workload-resources). 
+Your team provisions and owns these resources and remain unchanged from the [**baseline architecture**](./baseline-content.md#workload-resources). 
 
 - **Azure virtual machines (VMs)** serves as application platform and the  compute resources are distributed across availability zones.
 - **Azure Load Balancer** routes traffic from the frontend tier to the backend servers. The load balancer distributes traffic to VMs across zones.
@@ -123,7 +123,7 @@ The primary shared responsibility between the two teams is in the areas of manag
 
 ## Networking
 
-In the [**baseline architecture**](./vm-baseline-content.md#network-layout), the workload was provisioned in a single virtual network, the management of which was the responsibility of the workload team.
+In the [**baseline architecture**](./baseline-content.md#network-layout), the workload was provisioned in a single virtual network, the management of which was the responsibility of the workload team.
 
 In this architecture, the network topology is decided by the platform team. Hub-spoke topology is assumed in this architecture. 
 
@@ -146,7 +146,7 @@ Make sure you [communicate the workload requirements](#subscription-setup-by-the
 
 In the spoke virtual network, the workload team has the responsibility of subnet allocation. The intent is segmentation and placing controls to restrict traffic in and out of the subnets. This architecture recommends the creation of dedicated subnets for Application Gateway, Key Vault, frontend VMs, load balancer, backend VMs, and private endpoints.
 
-Subnets for those components remain the same as the [**baseline architecture**](vm-baseline-content.md#subnetting-considerations). 
+Subnets for those components remain the same as the [**baseline architecture**](baseline-content.md#subnetting-considerations). 
 
 Deploying your workload in an Azure landing zone doesn't take away the responsibility of implementing network controls. There might be other restrictions imposed by the organization to safeguard against data exfiltration, ensure visibility for central Security Operations Center (SOC) and IT network team.
 
@@ -154,7 +154,7 @@ This approach allows the platform team to optimize costs through centralized ser
 
 ##### Ingress traffic
 
-Ingress traffic flow remains the same as the [**baseline architecture**](./vm-baseline-content.md#ingress-traffic). 
+Ingress traffic flow remains the same as the [**baseline architecture**](./baseline-content.md#ingress-traffic). 
 
 The workload owner is responsible for any resources related to public internet ingress into your workload. In this architecture, this is demonstrated by placing Application Gateway and its public IP in the spoke network, and not as part of the hub network. In some organizations, ingress might be expected in a connectivity subscription using a centralized DMZ implementation. Integration with that specific topology is out of scope for this article.
 
@@ -188,14 +188,14 @@ For VM-based architecture, there are several test tools that can help determinin
 
 ## Operator access
 
-Operational access through Azure Bastion is still supported in this architecture much like the [**baseline architecture**](./vm-baseline-content.md#operations-user). 
+Operational access through Azure Bastion is still supported in this architecture much like the [**baseline architecture**](./baseline-content.md#operations-user). 
 
 However, the baseline architecture deploys Azure Bastion as part of the workload. In a typical Azure landing zone architecture, Azure Bastion is a central resource, owned and maintained by the platform team, which is shared by all workloads in the organization. To demonstrate that use case, in this architecture, Azure Bastion has moved to the hub network in the Connectivity subscription.
 
 ##### Operator identity
 
 This architecture uses the same authentication extension as 
-the [**baseline architecture**](./vm-baseline-content.md#identity-and-access-management).
+the [**baseline architecture**](./baseline-content.md#identity-and-access-management).
 
 Just as a reminder, when logging into a virtual machine, operators must use their corporate identities in their Microsoft Entra ID tenant and not share service principals across functions. 
 
@@ -203,14 +203,14 @@ Always start with principle of least-privilege and granular access to the task b
 
 ##### Build agents
 
-The build agents remain the same as the [**baseline architecture**](vm-baseline-content.md#build-agents). This means the workload team is still responsible for these VMs. 
+The build agents remain the same as the [**baseline architecture**](baseline-content.md#build-agents). This means the workload team is still responsible for these VMs. 
 
 Make sure that the patching process for your build agents complies with platform requirements. OS access to these machines should be provided by the centralized Azure Bastion resource.
 
 
 ## Patch compliance and OS upgrades
 
-The [**baseline architecture**](./vm-baseline-content.md#infrastructure-update-management) describes an autonomous approach to patching and upgrades. When the workload is integrated with landing zones, that approach might change.
+The [**baseline architecture**](./baseline-content.md#infrastructure-update-management) describes an autonomous approach to patching and upgrades. When the workload is integrated with landing zones, that approach might change.
 
 An organization might impose compliance requirements on the workload team that mandates the use of specific images. Given such requirements, the platform team might manage a set of standardized VM images, often referred to as _golden images_, which are created for use across the organization. 
 
@@ -223,7 +223,7 @@ The platform team might use a managed offering such as Azure Compute Gallery or 
 
 ## Monitoring considerations
 
-The Azure landing zone platform provides shared observability resources as part of the Management subscription. However, it's recommended to provision your own monitoring resources to facilitate ownership responsibilities of the workload. This approach is consistent with the [**baseline architecture**](./vm-baseline-content.md#monitoring).
+The Azure landing zone platform provides shared observability resources as part of the Management subscription. However, it's recommended to provision your own monitoring resources to facilitate ownership responsibilities of the workload. This approach is consistent with the [**baseline architecture**](./baseline-content.md#monitoring).
 
 The workload team provisions the monitoring resources, which include:
 
@@ -302,11 +302,11 @@ For example, communicate changes to any previously disallowed egress flow so tha
 
 ## Reliability
 
-This architecture aligns with the Reliability guarantees provided in the [**baseline architecture**](./vm-baseline-content.md#reliability). 
+This architecture aligns with the Reliability guarantees provided in the [**baseline architecture**](./baseline-content.md#reliability). 
 
 ##### Reliability targets
 
-The maximum possible composite Service Level Objective (SLO) is [lower than the baseline composite SLO](./vm-baseline-content.md#reliability-targets) due to other components like egress network control. These components, common in landing zone environments, aren't unique to this architecture. The SLO would be similarly reduced if these Azure services were directly controlled by the workload team.
+The maximum possible composite Service Level Objective (SLO) is [lower than the baseline composite SLO](./baseline-content.md#reliability-targets) due to other components like egress network control. These components, common in landing zone environments, aren't unique to this architecture. The SLO would be similarly reduced if these Azure services were directly controlled by the workload team.
 
 Despite a lower maximum possible SLO, the key reliability aspect is the division of workload components across functional teams. This allows the workload team to benefit from a specialized team focused on operating critical infrastructure used by this and other workloads. 
 
@@ -332,7 +332,7 @@ While many of these considerations could exist without Azure landing zones, in t
 
 ## Security
 
-The security considerations carry over from the [**baseline architecture**](./vm-baseline-content.md#security).The recommendations are based on the [Security design review checklist given in Azure Well-Architected Framework](/azure/well-architected/security/checklist). 
+The security considerations carry over from the [**baseline architecture**](./baseline-content.md#security).The recommendations are based on the [Security design review checklist given in Azure Well-Architected Framework](/azure/well-architected/security/checklist). 
 
 ##### Network controls
 
@@ -367,7 +367,7 @@ Examples of egress in this architecture:
 
 ##### Secret management
 
-This architecture follows the new decisions from [**baseline architecture**](./vm-baseline-content.md#secret-management).
+This architecture follows the new decisions from [**baseline architecture**](./baseline-content.md#secret-management).
 
 This architecture doesn't introduce any specific dependencies outside of the workload on Key Vault. However, it's common for publicly exposed HTTPS endpoints to be surfaced with TLS using the organization's domain. This involves working with your IT team to understand how those TLS certs are procured, where they're stored, and how they're rotated. This architecture doesn't make any specific affordances for this process.
 
@@ -377,7 +377,7 @@ As a workload team, continue to keep your workload secrets a function of your la
 
 ## Cost Optimization
 
-The cost optimization strategies in the [**baseline architecture**](./vm-baseline-content.md#cost-optimization) still apply to this architecture for the workload resources.
+The cost optimization strategies in the [**baseline architecture**](./baseline-content.md#cost-optimization) still apply to this architecture for the workload resources.
 
 This architecture greatly benefits from Azure landing zone platform resources. Even if those resources are used through a chargeback model, the added security and cross-premises connectivity are significantly more cost-effective than self-managing these resources. 
 

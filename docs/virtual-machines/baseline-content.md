@@ -1,9 +1,9 @@
 
-This article provides a foundational reference architecture for a workload deployed on Azure virtual machines (VMs).
+This article provides a foundational reference architecture for a workload deployed on Azure Virtual Machines (VMs).
 
 The example workload assumed by this architecture is a multi-tier web application that's deployed on separate sets of VMs. VMs are provisioned as part virtual machine scale set deployments.
 
-However, the primary focus of that architecture isn't the application. Instead it provides guidance for configuring and deploying the infrastructure components with which the application interacts. These components include compute, storage, networking, monitoring and more. This architecture serves as a starting point for an Infrastructure-as-a-Service (IaaS) workload. The data tier is intentionally excluded from this guidance, to maintain the focus on the infrastructure.
+However, the primary focus of that architecture isn't the application. Instead, the article provides guidance for configuring and deploying the infrastructure components with which the application interacts. These components include compute, storage, networking, monitoring and more. This architecture serves as a starting point for an Infrastructure-as-a-Service (IaaS)-hosted workload. The data tier is intentionally excluded from this guidance, to maintain the focus on the infrastructure.
 
 ## Article layout
 
@@ -14,17 +14,17 @@ However, the primary focus of that architecture isn't the application. Instead i
 
 > [!TIP]
 > ![GitHub logo](../_images/github.svg) The best practices described in this architecture are demonstrated by a [**reference implementation**](https://github.com/mspnp/iaas-baseline).
-> The implementation includes an application that's a small test harness that will exercise the infrastructure set up end-to-end.
+> The implementation includes an application that's a small test harness that will exercise the infrastructure setup end-to-end.
 
 ## Architecture
 
-:::image type="content" source="./media/vm-baseline-architecture.svg" alt-text="Virtual machine baseline architectural diagram" lightbox="./media/vm-baseline-architecture.png":::
+:::image type="content" source="./media/baseline-architecture.svg" alt-text="Virtual machine baseline architectural diagram" lightbox="./media/baseline-architecture.png":::
 
 For information about these resources, see Azure product documentation listed in [Related link](#related-links).
 
 ### Workload resources
 
-- **Azure virtual machine** (VM) serves as the compute resource for the application and is distributed across availability zones. For illustrative purposes, a combination of both Windows and Linux VMs is used.
+- **Azure Virtual Machine** (VM) serves as the compute resource for the application and is distributed across availability zones. For illustrative purposes, a combination of both Windows and Linux VMs are used.
 
     **Azure Virtual Machine Scale Sets** in Flexible orchestration mode is used to provision and manage the virtual machines.
 
@@ -33,15 +33,15 @@ For information about these resources, see Azure product documentation listed in
     1. Frontend runs the web server and receives user requests.
     1. Backend runs business logic to process those requests.
 
-    Both compute are stateless to reduce complexity during scaling operations. Temporary state can be stored on [disks](#managed-disks). This layout may be extended to include a database tier for storing state from the frontend and backend compute. That tier is outside the scope of this architecture.
+    The frontend is stateless to reduce complexity during scaling operations. The backend VMs holds temporary state on [disks](#managed-disks). This layout may be extended to include a database tier for storing state from the frontend and backend compute. That tier is outside the scope of this architecture.
 
 - **Azure Virtual Network** provides a private network for all workload resources. The network is segmented into subnets, which serve as isolation boundaries.
 
-- **Azure Application Gateway Standard_v2** is the single point of ingress routing requests to the frontend servers. This SKU has integrated Azure Web Application Firewall (WAF) for added security.
+- **Azure Application Gateway** is the single point of ingress routing requests to the frontend servers. The selected SKU has integrated Azure Web Application Firewall (WAF) for added security.
 
 - **Azure Load Balancer** routes traffic from the frontend tier to the backend servers.  
 
-- **Azure Key Vault** stores application secrets and certificates used for end-to-end TLS communication.
+- **Azure Key Vault** stores the certificates used for end-to-end TLS communication. It could also be used for application secrets.
 
 ### Workload supporting resources
 
@@ -53,26 +53,26 @@ For information about these resources, see Azure product documentation listed in
 
 ### User flows
 
-There are two types of users that interact with the workload resources.
+There are two types of users who interact with the workload resources: Workload user and Operator. These flows are shown the architecture diagram. 
 
 #### Workload user
 
 1. The user accesses the web site by using the exposed public IP address of Azure Application Gateway.
 
-1. Application Gateway receives HTTPS traffic, decrypts data using an external certificate for WAF inspection, and re-encrypts it using the internal wildcard certificate for transport to the web tier.
+1. Application Gateway receives HTTPS traffic, decrypts data using an external certificate for WAF inspection, and re-encrypts it using the internal wildcard certificate for transport to the frontend.
 
-1. Application Gateway balances traffic across frontend VMs. It connects to a frontend VM, on behalf of the user session.
+1. Application Gateway balances traffic across frontend VMs and connects to a  frontend VM.
 
-1. The frontend tier connects to Azure Load Balancer, which forwards the request to a VM in the backend tier pool.
+1. The selected frontend VM communicates to a backend VM by using the private IP address of the Load Balancer, not the IP of any individual VM.
 
-1. The backend VM decrypts the request using the internal certificate. After processing the request, the backend tier returns the result to the frontend, which returns the result to the Application Gateway, and it finally returns the result to the user.
+1. The backend VM decrypts the request using the internal certificate. After processing the request, the backend returns the result to the frontend, which returns the result to the Application Gateway, and it finally returns the result to the user.
 
-#### Operations user
+#### Operator
 
-The VMs in this architecture may require direct access by operators. The use cases are break-fix situations,  troubleshooting, or part of a deployment process from the  build agents. This architecture doesn't have public IPs for control plane access. Azure Bastion acts as a serverless gateway, enabling operations to access via SSH or RDP. This setup ensures secure and efficient access management.
+The VMs in this architecture may require direct access by operators. The use cases are break-fix situations, troubleshooting, or part of a deployment process from the build agents. This architecture doesn't have public IPs for control plane access. Azure Bastion acts as a serverless gateway, enabling operations to access via SSH or RDP. This setup ensures secure and efficient access management.
 
 1. The operator logs into the Azure portal.
-1. The operator accesses the Azure Bastion service and remotely connects to the desired VM for troubleshooting using the appropriate tool.
+1. The operator accesses the Azure Bastion service and remotely connects to the desired VM.
 
 ## Virtual machine design choices
 
@@ -87,11 +87,6 @@ For instance, if you're migrating a workload from an on-premises environment tha
 
 For information about the supported VM SKUs, see [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes).
 
-##### Build agents
-
-The architecture doesn't have public IP access to the control plane. This requires build agents VMs to be included in this design to automate deployment and other management operations.
-
-Similar to [operator access](#operations-user), OS access to these machines is expected through Azure Bastion.
 
 ##### VM connectivity
 
@@ -103,7 +98,7 @@ If the workload needs low latency, take advantage of **accelerated networking** 
 
 VMs are provisioned as part of Azure Virtual Machine Scale Sets with [Flexible orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration). Virtual Machine Scale Sets are logical groupings of VMs that can be identical or of multiple types to meet capacity needs. They allow lifecycle management of machines, network interfaces, and disks using standard Azure VM APIs and commands.
 
-Flexible orchestration mode facilitates operations at scale and offers better control and granular scaling decisions.
+Flexible orchestration mode facilitates operations at scale and helps with granular scaling decisions.
 
 Fault domains configuration is needed to limit the effect of physical hardware failures, network outages, or power interruptions. With scale sets, Azure evenly spreads instances across fault domains for resilience against a single hardware or infrastructure issue.
 
@@ -124,7 +119,7 @@ Consider disk characteristics and performance expectations when selecting a disk
 
 - **Configuration changes**. Some disk performance and capacity configurations can be changed while a VM is running. However, many changes may require reprovisioning and rebuilding disk content, affecting workload availability. Therefore, carefully plan disk and VM SKU selection to minimize availability impact and rework.
 
-- **Ephemeral OS disks**. These shouldn't store application components or state. Provision OS disks as [ephemeral disks](/azure/virtual-machines/ephemeral-os-disks). Use managed disks only if OS files need to be persisted.
+- **Ephemeral OS disks**. Provision OS disks as [ephemeral disks](/azure/virtual-machines/ephemeral-os-disks). Use managed disks only if OS files need to be persisted. Avoid using ephemeral disks for storing application components and state. 
 
     The capacity of ephemeral OS disks depends on the chosen VM SKU. Ensure your OS image disk size is less than the SKU's available cache or temp disk. The remaining space can be used for temporary storage.
 
@@ -146,17 +141,15 @@ In this architecture,
 
 - The OS disks of all virtual machines are ephemeral and located on the cache disk, which also has the Windows page file.
 
-- Each virtual machine has its own Premium SSD P3 managed disk, providing a base provisioned throughput suitable for the workload.
-
-
+- Each virtual machine has its own Premium SSD P1 managed disk, providing a base provisioned throughput suitable for the workload.
 
 ## Network layout
 
 This architecture deploys the workload in a single virtual network. Network controls are a significant part of this architecture, and described in the [Security](#security) section.
 
-:::image type="content" source="./media/vm-baseline-network.svg" alt-text="IaaS baseline architectural diagram" lightbox="./media/vm-baseline-network.png":::
+:::image type="content" source="./media/baseline-network.svg" alt-text="Virtual machine baseline showing the network layout" lightbox="./media/baseline-network.png":::
 
-It can be integrated with an enterprise topology. That example is shown in [Virtual machine baseline architecture in an Azure landing zone](./vm-baseline-landing-zone.yml).
+It can be integrated with an enterprise topology. That example is shown in [Virtual machine baseline architecture in an Azure landing zone](./baseline-landing-zone.yml).
 
 ##### Virtual network
 
@@ -197,7 +190,7 @@ It's recommended that you allocate ports based on the maximum number of backend 
 
 Calculate ports per instance as: `Number of frontend IPs * 64K / Maximum number of backend instances`
 
-There are other options such as deploying a NAT Gateway resource attached to the subnet. Another way is to use Azure Firewall or another NVA with a custom UDR as the next hop through the firewall. That option is shown in [Virtual machine baseline architecture in an Azure landing zone](./vm-baseline-landing-zone.yml).
+There are other options such as deploying a NAT Gateway resource attached to the subnet. Another way is to use Azure Firewall or another NVA with a custom UDR as the next hop through the firewall. That option is shown in [Virtual machine baseline architecture in an Azure landing zone](./baseline-landing-zone.yml).
 
 ##### DNS resolution
 
@@ -219,7 +212,7 @@ Metrics and logs are generated at various data sources, providing observability 
 
 Azure Log Analytics workspace is the recommended monitoring data sink used to collect logs and metrics from the Azure resources and Application Insights.
 
-:::image type="content" source="./media/vm-baseline-monitoring.svg" alt-text="VM monitoring data flow  diagram" lightbox="./media/vm-baseline-monitoring.png":::
+:::image type="content" source="./media/baseline-monitoring.svg" alt-text="VM monitoring data flow  diagram" lightbox="./media/baseline-monitoring.png":::
 
 ### Infrastructure-level monitoring
 This table links to logs and metrics collected by Azure Monitor and the available alerts help you proactively address issues before they impact users.
@@ -441,7 +434,7 @@ Workload resources such as VMs authenticate themselves by using their assigned m
 
     More security is provided through [Web Application Firewall](/azure/application-gateway/waf-overview) that's integrated with Application Gateway. It has rules that _inspect inbound traffic_ and can take an appropriate action. WAF tracks Open Web Application Security Project (OWASP) vulnerabilities preventing known attacks.  
 
-- **Egress traffic**. There are no controls on outbound traffic. It's highly recommended that all outbound internet traffic flows through a single firewall. This firewall is usually a central service provided by organization. That use case is shown in [Virtual machine baseline architecture in an Azure landing zone](./vm-baseline-landing-zone.yml).
+- **Egress traffic**. There are no controls on outbound traffic. It's highly recommended that all outbound internet traffic flows through a single firewall. This firewall is usually a central service provided by organization. That use case is shown in [Virtual machine baseline architecture in an Azure landing zone](./baseline-landing-zone.yml).
 
 - **East-west traffic**. Traffic flow between the subnets is restricted by applying granular security rules.
 
@@ -473,7 +466,7 @@ Workload resources such as VMs authenticate themselves by using their assigned m
 
 ##### Secret management
 
-:::image type="content" source="./media/vm-baseline-certificates.svg" alt-text="Diagram that shows TLS termination and certificates used." lightbox="./media/vm-baseline-certificates.png":::
+:::image type="content" source="./media/baseline-certificates.svg" alt-text="Diagram that shows TLS termination and certificates used." lightbox="./media/baseline-certificates.png":::
 
 [Azure Key Vault](/azure/key-vault/general/overview) provides secure management of secrets, including TLS certificates. In this architecture, the TLS certificates are stored in the Key Vault and retrieved during the provisioning process by the managed identities of Application Gateway and the VMs. After the initial setup, these resources will only access the Key Vault when the certificates are refreshed.
 
