@@ -1,5 +1,7 @@
 The architecture described in this article demonstrates how you can use Teradata VantageCloud Enterprise together with Azure Data Factory to develop data integration pipelines with a low-code or no-code approach. It shows how to quickly ingest or extract Vantage data over an enhanced-security connection by using Data Factory.
 
+<!--docutune:ignored "and/or" -->
+
 *Apache®, [Hadoop](https://hadoop.apache.org/), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by the Apache Software Foundation is implied by the use of these marks.*
 
 ## Architecture
