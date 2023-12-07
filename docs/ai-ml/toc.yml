@@ -258,10 +258,6 @@ items:
                   href: ../data-science-process/explore-data.md
                 - name: Explore Azure Blob Storage
                   href: ../data-science-process/explore-data-blob.md
-                - name: Explore SQL on a VM
-                  href: ../data-science-process/explore-data-sql-server.md
-                - name: Explore Hive tables
-                  href: ../data-science-process/explore-data-hive-tables.md
               - name: Sample data
                 items:
                 - name: Overview
@@ -290,10 +286,6 @@ items:
               items:
               - name: Overview
                 href: ../data-science-process/create-features.md
-              - name: Use SQL and Python
-                href: ../data-science-process/create-features-sql-server.md
-            - name: Select features
-              href: ../data-science-process/select-features.md
           - name: Deploy models in production
             href: ../data-science-process/deploy-models-in-production.md
           - name: Build and deploy a model using Azure Synapse Analytics
