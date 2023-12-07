@@ -77,7 +77,7 @@ Azure Route Server does not support IPv6 as of now and hence this architecture i
 
 Azure Route Server has built-in high availability (HA). A single instance of Azure Route Server is backed by two compute nodes deployed in different availability zones (for the regions that have availability zone support) or in the same availability set and exposes two BGP endpoints. HA for the SDWAN NVAs is achieved by deploying multiple instances in different availability zones (for regions that support them) or in the same availability set. Each SDWAN NVA establishes two BGP sessions with both endpoints exposed by Route Server.
 
-The reference architecture described in this article does not rely on Azure Load Balancers. More specifically:
+The architecture described in this article does not rely on Azure Load Balancers. More specifically:
 
 - No public load balancers are used to exposed SDWAN tunnel endpoints. Each SDWAN NVA exposes its own tunnel endpoint. Remote peers establish multiple tunnels, one for each SDWAN NVA in Azure.
 
