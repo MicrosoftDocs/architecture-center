@@ -98,7 +98,6 @@ The cloud is changing the way applications are designed, including how data is p
 |[Choose a big data storage technology in Azure](../../data-guide/technology-choices/data-storage.md)     |    Compare big data storage options in Azure. View key selection criteria and a capability matrix.     |
 |[OLAP solutions](../../data-guide/relational-data/online-analytical-processing.yml)|Learn about online analytical processing (OLAP) solutions for organizing large databases and supporting complex analysis without affecting transactional systems.|
 |[OLTP solutions](../../data-guide/relational-data/online-transaction-processing.md)|Learn about atomicity, consistency, and other features of online transaction processing (OLTP), which manages transactional data and supports querying.|
-|[Data warehousing](../../data-guide/relational-data/data-warehousing.yml)|Learn about data warehousing in Azure. A data warehouse is a repository of integrated data from disparate sources that's used for reporting and analysis of the data.|
 |[Data lakes](../../data-guide/scenarios/data-lake.md)|Learn about data lake storage repositories, which can hold terabytes or petabytes of data in a native, raw format.|
 |[Non-relational data and NoSQL](../../data-guide/big-data/non-relational-data.yml)|Learn about non-relational databases that store data as key/value pairs, graphs, time series, objects, and other storage models.|
 |[Choose a data pipeline orchestration technology](../../data-guide/technology-choices/pipeline-orchestration-data-movement.md) |Choose an Azure data pipeline orchestration technology to automate pipeline orchestration, control flow, and data movement workflows.|
@@ -144,7 +143,6 @@ Learn about the services that Azure provides to help you deliver events or messa
 |---------|---------|
 |[Compare messaging services](/azure/event-grid/compare-messaging-services?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |     Learn about the three Azure messaging services: Azure Event Grid, Azure Event Hubs, and Azure Service Bus. Choose the best service for your scenario.    |
 |[Asynchronous messaging options](messaging.yml)     |     Learn about asynchronous messaging options in Azure, including the various types of messages and the entities that participate in a messaging infrastructure.    |
-|[Choose a real-time message ingestion technology](../../data-guide/technology-choices/real-time-ingestion.md)     |  Choose an Azure message ingestion store to support message buffering, scale-out processing, reliable delivery, and queuing semantics.       |
 
 ## Choose an IoT option
 

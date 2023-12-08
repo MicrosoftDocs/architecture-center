@@ -175,8 +175,8 @@ In this solution, change data feed is enabled for Delta tables that store the so
 ```SQL
 CREATE TABLE tbl_alarm 
   (alarm_id INT, alarm_type STRING, alarm_desc STRING, valid_from TIMESTAMP, valid_till TIMESTAMP)
-	USING DELTA
-	TBLPROPERTIES (delta.enableChangeDataFeed = true)
+    USING DELTA
+    TBLPROPERTIES (delta.enableChangeDataFeed = true)
 ```
 
 The following query gets the changed rows in the table. `2` is the commit version number.
@@ -200,8 +200,8 @@ You can use change data feed to load data incrementally. To do that, you need th
 
 ```sql
 CREATE TABLE table_commit_version
-	(table_name STRING, last_commit_version LONG)
-	USING DELTA
+    (table_name STRING, last_commit_version LONG)
+    USING DELTA
 ```
 
 Every time you load new data into `tbl_alarm`, you need to complete these steps:
@@ -300,4 +300,4 @@ Other contributor:
 
 ## Related resources
 
-* [Databases architecture design](/azure/architecture/data-guide/databases-architecture-design?branch=main)
+* [Databases architecture design](/azure/architecture/databases/index?branch=main)

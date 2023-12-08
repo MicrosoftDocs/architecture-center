@@ -73,7 +73,7 @@ This article presents a solution for genomic analysis and reporting. The process
 - Moving the data through secondary analysis
 - Providing results that clinicians can consume
 
-The growing scale, complexity, and security requirements of genomics make it an ideal candidate for moving to the cloud. Consequently, the solution uses Azure cloud services in addition to open-source tools. This approach takes advantage of the security, performance, and scalability features of the Azure cloud:
+The growing scale, complexity, and security requirements of genomics make it an ideal candidate for moving to the cloud. Consequently, the solution uses Azure services in addition to open-source tools. This approach takes advantage of the security, performance, and scalability features of the Azure cloud:
 
 - Scientists plan on sequencing hundreds of thousands of genomes in coming years. The task of storing and analyzing this data requires significant computing power and storage capacity. With data centers around the world that provide these resources, Azure can meet these demands.
 - Azure is certified for major global security and privacy standards, such as ISO 27001.
@@ -230,7 +230,6 @@ Fully deployable architectures:
 [Health data consortium on Azure]: ../data/azure-health-data-consortium.yml
 [Health Insurance Portability and Accountability Act (HIPAA) & Health Information Technology for Economic and Clinical Health (HITECH) Act]: /compliance/regulatory/offering-hipaa-hitech
 [HIPAA - Azure Compliance]: /azure/compliance/offerings/offering-hipaa-us
-[Hybrid ETL with Azure Data Factory]: ../data/hybrid-etl-with-adf.yml
 [Introduction to Azure Data Lake Storage Gen2]: /azure/storage/blobs/data-lake-storage-introduction#scalability
 [Azure Storage redundancy]: /azure/storage/common/storage-redundancy
 [Microsoft Azure Compliance Offerings]: https://azure.microsoft.com/mediahandler/files/resourcefiles/microsoft-azure-compliance-offerings/Microsoft%20Azure%20Compliance%20Offerings.pdf

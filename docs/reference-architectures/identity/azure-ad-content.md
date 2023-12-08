@@ -262,7 +262,7 @@ Principal author:
 - For more information on providing AD DS in Azure as infrastructure, review [Integrating on-premises AD with Azure][adds-azure-design].
 - Review [Microsoft Entra application proxy][aad-application-proxy] if you intend on providing Microsoft Entra integrations with on-premises or cloud IaaS applications.
 - Because identity is the new control plane for security, review [Identity Management Best Practices][identity-best-practices].
-- Furthermore, as deplying this solution requires highly privileged accounts, review [Securing privileged access][security-compass-paw], to understand security controls for privileged accounts.
+- Furthermore, as deploying this solution requires highly privileged accounts, review [Securing privileged access][security-compass-paw], to understand security controls for privileged accounts.
 
 ## Related resources
 
@@ -273,8 +273,6 @@ Principal author:
 <!-- links -->
 
 [aaf-cost]: /azure/architecture/framework/cost/overview
-
-[implementing-a-multi-tier-architecture-on-Azure]: ../n-tier/n-tier-sql-server.yml#cost-optimization
 
 [aad-agent-installation]: /azure/active-directory/active-directory-aadconnect-health-agent-install
 

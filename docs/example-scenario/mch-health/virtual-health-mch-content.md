@@ -34,7 +34,7 @@ The architecture consists of the following components:
 
 - **Patient Portal**. This [Power Apps portal](/dynamics365/industry/healthcare/use-patient-access#patient-portal) lets patients view their medical records, book appointments, chat with the health bot instance, and so on. This portal can be extended to support other data. This portal is part of Microsoft Cloud for Healthcare, and allows you to easily spin up a portal, which can connect with entities in Dataverse, pulling in data such as patient information, care plans, appointments, and so on.
 
-- **Intelligent Assistance**. This is an instance of the [Azure Health Bot Service](https://azure.microsoft.com/services/bot-services/health-bot/), accessible to patients through the Patient Portal. This health bot instance is loaded within an Azure App Service website. It is customizable, and can be programmed using the scenarios required by the customers. For more information, read [Embed a health bot instance in your application](/azure/health-bot/integrations/embed).
+- **Intelligent Assistance**. This is an instance of the [Azure Health Bot Service](https://azure.microsoft.com/services/bot-services/health-bot/), accessible to patients through the Patient Portal. This health bot instance is loaded within an Azure App Service website. It is customizable, and can be programmed using the scenarios required by the customers.
 
 - **Bookings App**. Bookings App is a Microsoft 365 service, included in the Microsoft Cloud for Healthcare. It facilitates scheduling of calendar events, and allows creating Teams meetings.
 

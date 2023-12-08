@@ -146,11 +146,9 @@ If you are using Azure Cache for Redis as a temporary data cache and not as a pe
 
 ## Azure Synapse Analytics
 
-**Do not disable geo-backup.** By default, Synapse Analytics takes a full backup of your data every 24 hours for disaster recovery. It is not recommended to turn this feature off. For more information, see [Geo-backups](/azure/sql-data-warehouse/backup-and-restore#geo-backups-and-disaster-recovery).
+**Do not disable geo-backup.** By default, Synapse Analytics takes a full backup of your data in Dedicated SQL Pool every 24 hours for disaster recovery. It is not recommended to turn this feature off. For more information, see [Geo-backups](/azure/sql-data-warehouse/backup-and-restore#geo-backups-and-disaster-recovery).
 
 ## SQL Server running in a VM
-
-**Replicate the database.** Use SQL Server Always On availability groups to replicate the database. Provides high availability if one SQL Server instance fails. For more information, see [Run Windows VMs for an N-tier application](../reference-architectures/n-tier/n-tier-sql-server.yml)
 
 **Back up the database**. If you are already using [Azure Backup](/azure/backup) to back up your VMs, consider using [Azure Backup for SQL Server workloads using DPM](/azure/backup/backup-azure-backup-sql). With this approach, there is one backup administrator role for the organization and a unified recovery procedure for VMs and SQL Server. Otherwise, use [SQL Server Managed Backup to Microsoft Azure](/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure?view=sql-server-ver15&preserve-view=true).
 

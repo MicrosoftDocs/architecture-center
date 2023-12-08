@@ -36,11 +36,11 @@ The performance tests of Samadii EM on Azure used [NVadsA10_v5](/azure/virtual-m
 
 The following table shows information about the operating systems that were used for testing:
 
-||	NCv3| NCasT4_v3|	NVadsA10_v5 |	NC_A100_v4|
+|| NCv3| NCasT4_v3| NVadsA10_v5 | NC_A100_v4|
 |-|-|-|-|-|
-|Operating system version	|Windows 10 Professional, version 20H2|Windows 10 Professional, version 20H2|	Windows 10, version 20H2|	Windows 10, version 21H2|
-|OS architecture|	x86-64|	x86-64|	x86-64|	x86-64|
-|Processor|	Intel Xeon CPU E5-2690 v4	|AMD EPYC 7V12, 64-core processor, 2.44 GHz|	AMD EPYC 74F3V (Milan)|	AMD EPYC 7V13, 64-core processor, 2.44 GHz|
+|Operating system version |Windows 10 Professional, version 20H2|Windows 10 Professional, version 20H2| Windows 10, version 20H2| Windows 10, version 21H2|
+|OS architecture| x86-64| x86-64| x86-64| x86-64|
+|Processor| Intel Xeon CPU E5-2690 v4 |AMD EPYC 7V12, 64-core processor, 2.44 GHz| AMD EPYC 74F3V (Milan)| AMD EPYC 7V13, 64-core processor, 2.44 GHz|
 
 ### Required drivers
 
@@ -69,22 +69,21 @@ The nonlinear current model was used for testing:
 
 To get a baseline, this model was tested on an on-premises VM with the following configuration:
 
-|Processor| 	GPU| 	Elapsed time (seconds)|
+|Processor|  GPU|  Elapsed time (seconds)|
 |-|-|-|
-|Intel i7-3770 CPU|	NVIDIA Titan X (Pascal)	|		4,471|
-
+|Intel i7-3770 CPU| NVIDIA Titan X (Pascal) | 4,471|
 
 The following table shows the relative speed increases over this baseline:
 
-|VM|	GPU |	Number of GPUs used|	Elapsed time (seconds)	|Relative speed increase|
+|VM| GPU | Number of GPUs used| Elapsed time (seconds) |Relative speed increase|
 |-|-|-|-|-|
-|NVadsA10_v5	|NVIDIA A10	|1/6	|17,181	|0.26|
-|NVadsA10_v5	|NVIDIA A10|			1/3|	9,350|	0.48|
-|NVadsA10_v5	|NVIDIA A10	|		1/2|	6,743|	0.66|
-|NVadsA10_v5	|NVIDIA A10	|1	|1,933	|2.31|
-|NCasT4_v3	|Tesla T4	|1	|1,875|	2.38|
-|NCv3	|V100|	1	|1,689	|2.65|
-|NC_A100_v4	|A100 80-GB PCle	|1	|1,290|	3.47|
+|NVadsA10_v5 |NVIDIA A10 |1/6 |17,181 |0.26|
+|NVadsA10_v5 |NVIDIA A10| 1/3| 9,350| 0.48|
+|NVadsA10_v5 |NVIDIA A10 | 1/2| 6,743| 0.66|
+|NVadsA10_v5 |NVIDIA A10 |1 |1,933 |2.31|
+|NCasT4_v3 |Tesla T4 |1 |1,875| 2.38|
+|NCv3 |V100| 1 |1,689 |2.65|
+|NC_A100_v4 |A100 80-GB PCle |1 |1,290| 3.47|
 
 This graph shows the relative speed increases for the previous GPU configurations: 
 
@@ -98,15 +97,15 @@ Only simulation runtime is included in the reported times. Application installat
 
 You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your configuration.
 
-|VM series	|Number of GPUs|	Wall-clock time (hours)|
+|VM series |Number of GPUs| Wall-clock time (hours)|
 |-|-|-|
-|NVadsA10_v5|	1/6	|4.77|
-|NVadsA10_v5|	1/3|	2.60|
-|	NVadsA10_v5|1/2|	1.87|
-|	NVadsA10_v5|1|	0.54|
-|NCasT4_v3|	1|	0.52|
-|NCv3	|1	|0.47|
-|NC_A100_v4|	1	|0.36|
+|NVadsA10_v5| 1/6 |4.77|
+|NVadsA10_v5| 1/3| 2.60|
+| NVadsA10_v5|1/2| 1.87|
+| NVadsA10_v5|1| 0.54|
+|NCasT4_v3| 1| 0.52|
+|NCv3 |1 |0.47|
+|NC_A100_v4| 1 |0.36|
 
 ## Summary
 

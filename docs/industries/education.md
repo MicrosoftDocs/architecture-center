@@ -41,7 +41,7 @@ The following articles provide detailed analysis of architectures created and re
 
 |Architecture|Summary|Technology focus|
 |---|---|---| 
-|[Build a telehealth system on Azure](../example-scenario/apps/telehealth-system.yml) | Learn how to use Azure cloud services to build a system that connects teachers to remote students.|Containers|
+|[Build a telehealth system on Azure](../example-scenario/apps/telehealth-system.yml) | Learn how to use Azure services to build a system that connects teachers to remote students.|Containers|
 |[Computer forensics chain of custody in Azure](../example-scenario/forensics/index.yml)|Create an infrastructure to ensure a valid digital-evidence chain of custody for computer forensics in Azure.|Management|
 |[Create smart places by using Azure Digital Twins](../example-scenario/iot/smart-places.yml)|Use Azure Digital Twins to create models of smart buildings and campuses from IoT device data. View and control systems, environments, and experiences.|IoT|
 |[Enhanced-security hybrid messaging — client access](../example-scenario/hybrid/secure-hybrid-messaging-client.yml)|Learn how to enhance the security of your educational messaging infrastructure in a client access scenario by using Microsoft Entra multifactor authentication.| Hybrid|
@@ -49,7 +49,6 @@ The following articles provide detailed analysis of architectures created and re
 |[Enhanced-security hybrid messaging — web access](../example-scenario/hybrid/secure-hybrid-messaging-web.yml)|Learn how to enhance the security of your educational messaging infrastructure in a web access scenario by using Microsoft Entra multifactor authentication.| Hybrid|
 |[Governance of Teams guest users](../example-scenario/governance/governance-teams-guest-users.yml)|Learn how to use Microsoft Teams and Microsoft Entra entitlement management to collaborate, while maintaining control over resource use.|Identity|
 |[Moodle deployment with Azure NetApp Files](../example-scenario/file-storage/moodle-azure-netapp-files.yml)|Deploy the Moodle learning platform with Azure NetApp Files for a resilient solution that offers high-throughput, low-latency access to scalable shared storage.| Storage|
-|[Optimized storage with logical data classification](../solution-ideas/articles/optimized-storage-logical-data-classification.yml)|Learn about a high-availability solution that handles massive amounts of data. This solution applies to scenarios like university enrollment and scheduling.| Databases|
 |[Secure research environment for regulated data](../ai-ml/architecture/secure-compute-for-research.yml)|Learn about an architecture created for higher education research institutions. It enables researchers to access sensitive data while providing a high level of control and data protection.| Security|
 |[Teacher-provisioned virtual labs in Azure](../example-scenario/devops/teacher-provisioned-virtual-labs-azure.yml)|Use Azure Lab Services to set up identical virtual labs from templates. Virtual labs are ideal for training and other scenarios.| DevOps|
  

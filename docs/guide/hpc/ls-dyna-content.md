@@ -32,9 +32,9 @@ architecture.*
 
 The performance tests of LS-DYNA on Azure used an [HBv3-series](/azure/virtual-machines/hbv3-series) VM running Linux. The following table provides details about the VM.
 
-|Size|vCPU|Memory (GiB)|Memory bandwidth GBps|Base CPU frequency (GHz)|	All-cores frequency (GHz, peak)|Single-core frequency (GHz, peak)|Maximum data disks|
+|Size|vCPU|Memory (GiB)|Memory bandwidth GBps|Base CPU frequency (GHz)| All-cores frequency (GHz, peak)|Single-core frequency (GHz, peak)|Maximum data disks|
 |-|-|-|-|-|-|-|-|
-|Standard_HB120-64rs_v3|	64|		448|	350|	1.9|	3.0|	3.5|	32	|
+|Standard_HB120-64rs_v3| 64| 448| 350| 1.9| 3.0| 3.5| 32 |
 
 ### Required drivers
 
@@ -54,15 +54,15 @@ For information about installing LS-DYNA, see the [Ansys website](https://www.an
 
 The following table provides the details of the operating system that was used for testing.
 
-|Operating system	|OS architecture|Processor|
+|Operating system |OS architecture|Processor|
 |-|-|-|
-|Ubuntu 20.04.3 LTS|x86-64|	AMD EPYC 7V73X (Milan-X)|
+|Ubuntu 20.04.3 LTS|x86-64| AMD EPYC 7V73X (Milan-X)|
 
 A crash simulation model was used for testing:
 
 :::image type="content" source="media/ls-dyna/crash-simulation.png" alt-text="Screenshot that shows the crash simulation that was used for testing." border="false":::
 
-Here are the details of the model: 
+Here are the details of the model:
 
 - **Size:** 18,299,158
 - **Cell type:** Shell and solid
@@ -74,12 +74,12 @@ Based on the results of testing on a single node, the 64-core VM Standard_HB120-
 
 The following table shows the wall-clock times for running the simulation and the relative speed increases as the number of CPUs increases. LS-DYNA 2022 R1 on an HBv3 VM with an AMD Milan processor is used as a reference baseline to determine the speed increases. LS-DYNA 2022 R1 and LS-DYNA 2022 R2 were tested.
 
-|Number of compute nodes|	Number of CPUs|2022 R1 (seconds)| 	2022 R2 (seconds)| 2022 R1, increase| 	2022 R2, increase |
+|Number of compute nodes| Number of CPUs|2022 R1 (seconds)|  2022 R2 (seconds)| 2022 R1, increase|  2022 R2, increase |
 |-|-|-|-|-|-|
-|1	|64|		6,966	|5,888|		1.05|	1.24|
-|2	|128|		4,019	|3,209|		1.82|	2.27|
-|3	|192|		2,902	|2,417|		2.51|	3.02|
-|4	|256|		2,292	|2,043|		3.18|	3.57|
+|1 |64| 6,966 |5,888| 1.05| 1.24|
+|2 |128| 4,019 |3,209| 1.82| 2.27|
+|3 |192| 2,902 |2,417| 2.51| 3.02|
+|4 |256| 2,292 |2,043| 3.18| 3.57|
 
 The performance scales impressively as the number of nodes increases.
 
@@ -95,13 +95,13 @@ Only the wall-clock times for running the model are presented in this table. App
 
 You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your configuration.
 
-|VM |	Number of nodes	| Number of cores|2022 R1 (hours)|	2022 R2 (hours)|
+|VM | Number of nodes | Number of cores|2022 R1 (hours)| 2022 R2 (hours)|
 |-|-|-|-|-|
-|Standard_HB120-64rs_v3|	1|	64|		1.94|	1.64|
-|Standard_HB120-64rs_v3|2	|128		|1.12|	0.89|
-|Standard_HB120-64rs_v3|3	|192	|	0.81|	0.67|
-|Standard_HB120-64rs_v3|4	|256	|	0.64	|0.57|
- 
+|Standard_HB120-64rs_v3| 1| 64| 1.94| 1.64|
+|Standard_HB120-64rs_v3|2 |128 |1.12| 0.89|
+|Standard_HB120-64rs_v3|3 |192 | 0.81| 0.67|
+|Standard_HB120-64rs_v3|4 |256 | 0.64 |0.57|
+
 ## Summary
 
 - Ansys LS-DYNA was successfully tested on HBv3-series Azure VMs.

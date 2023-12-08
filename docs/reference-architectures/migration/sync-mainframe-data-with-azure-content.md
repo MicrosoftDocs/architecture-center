@@ -87,7 +87,7 @@ The solution uses the following components:
 
 - [SQL Server Integration Services (SSIS)][SQL Server Integration Services] is a platform for building enterprise-level data integration and transformation solutions. You can use SSIS to manage, replicate, cleanse, and mine data.
 
-- [Azure Databricks][Azure Databricks] is a data analytics platform. Based on the Apache Spark open-source distributed processing system, Azure Databricks is optimized for Azure cloud services. In an analytics workflow, Azure Databricks reads data from multiple sources and uses Spark to provide insights.
+- [Azure Databricks][Azure Databricks] is a data analytics platform. Based on the Apache Spark open-source distributed processing system, Azure Databricks is optimized for the Azure cloud platform. In an analytics workflow, Azure Databricks reads data from multiple sources and uses Spark to provide insights.
 
 #### Data storage
 
@@ -209,7 +209,6 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 [Azure Blob Storage]: https://azure.microsoft.com/services/storage/blobs/
 [Azure Cosmos DB]: https://azure.microsoft.com/services/cosmos-db/
-[Azure data architecture guide]: ../../data-guide/index.md
 [Azure Data Factory]: https://azure.microsoft.com/services/data-factory/
 [Azure Data Lake Storage]: https://azure.microsoft.com/services/storage/data-lake-storage/
 [Azure Data Lake Storage Gen2]: /azure/databricks/data/data-sources/azure/azure-datalake-gen2

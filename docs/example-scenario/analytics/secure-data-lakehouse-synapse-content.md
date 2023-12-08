@@ -338,8 +338,7 @@ Other contributors:
 
 ## Related resources
 
-- [Big data architectures](../../data-guide/big-data/index.yml)
+- [Big data architectures](../../databases/guide/big-data-architectures.yml)
 - [Choose an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
-- [Secure data solutions](../../data-guide/scenarios/securing-data-solutions.md)
 - [Enterprise data warehouse](../../solution-ideas/articles/enterprise-data-warehouse.yml)
 - [Modern data warehouse for small and medium business](../../example-scenario/data/small-medium-data-warehouse.yml)

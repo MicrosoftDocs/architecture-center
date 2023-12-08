@@ -86,21 +86,21 @@ The following table shows the test results.
 
 The following table shows ATS test results.
 
-|Case number|Description|Case ID|	1 GPU (NV12s_v3) |	2 GPUs (NV24s_v3)|1 GPU (NCasT4, 16 CPU)|
+|Case number|Description|Case ID| 1 GPU (NV12s_v3) | 2 GPUs (NV24s_v3)|1 GPU (NCasT4, 16 CPU)|
 |-|-|-|-|-|-|
-|AT-01|	Verifies that Listing Window shows data correctly|	Listing Window	|1 minute, 11 seconds|	31 seconds	|18 seconds|
-|AT-02|Verifies correct mirror display in various views	|Mirror Display|	1 minute, 40 seconds|	1 minute, 8 seconds|	1 minute, 10 seconds|
-|AT-03|	Verifies de-emphasis displays|	Deemphasis	|1 minute, 13 seconds|	1 minute	|57 seconds|
-|AT-04|	Verifies grid displays|	Grid Display	|1 minute, 47 seconds	|1 minute, 16 seconds	|51 seconds|
-|AT-05|	Verifies correct display of raster images in various view ports|	Raster Image	|20 seconds|	19 seconds|	23 seconds|
-|AT-06|	Shows multiple views in one window|	Multiple Views	|23 seconds|	26 seconds|	25 seconds|
-|AT-07|	Verifies the background setting in the wireframe view|	Background Setting Wireframe	|45 seconds	|29 seconds	|34 seconds|
-|AT-08|	Verifies correct display of light and shadow in Advanced Studio	|Light Direction	|21 seconds	|20 seconds|	23 seconds|
-|AT-09	|Verifies the display section|Display Section|	4 minutes, 35 seconds	|2 minutes, 8 seconds	|1 minute, 52 seconds|
-|AT-10	|Verifies display modes|	Display Modes|	17 minutes	|45 seconds	|43 seconds|
-|AT-11	|Activates HD3D and representation status with tags	|HD3D|	1 minute, 37 seconds	|47 seconds|	47 seconds|
-|AT-12	|Activates face analysis and verifies displays with reflection	|Face Analysis|	52 minutes|	41 minutes	|40 minutes, 33 seconds|
-|AT-13	|Rotates views in sync	|Synchronize View	|18 seconds|	16 seconds	|15 seconds|
+|AT-01| Verifies that Listing Window shows data correctly| Listing Window |1 minute, 11 seconds| 31 seconds |18 seconds|
+|AT-02|Verifies correct mirror display in various views |Mirror Display| 1 minute, 40 seconds| 1 minute, 8 seconds| 1 minute, 10 seconds|
+|AT-03| Verifies de-emphasis displays| Deemphasis |1 minute, 13 seconds| 1 minute |57 seconds|
+|AT-04| Verifies grid displays| Grid Display |1 minute, 47 seconds |1 minute, 16 seconds |51 seconds|
+|AT-05| Verifies correct display of raster images in various view ports| Raster Image |20 seconds| 19 seconds| 23 seconds|
+|AT-06| Shows multiple views in one window| Multiple Views |23 seconds| 26 seconds| 25 seconds|
+|AT-07| Verifies the background setting in the wireframe view| Background Setting Wireframe |45 seconds |29 seconds |34 seconds|
+|AT-08| Verifies correct display of light and shadow in Advanced Studio |Light Direction |21 seconds |20 seconds| 23 seconds|
+|AT-09 |Verifies the display section|Display Section| 4 minutes, 35 seconds |2 minutes, 8 seconds |1 minute, 52 seconds|
+|AT-10 |Verifies display modes| Display Modes| 17 minutes |45 seconds |43 seconds|
+|AT-11 |Activates HD3D and representation status with tags |HD3D| 1 minute, 37 seconds |47 seconds| 47 seconds|
+|AT-12 |Activates face analysis and verifies displays with reflection |Face Analysis| 52 minutes| 41 minutes |40 minutes, 33 seconds|
+|AT-13 |Rotates views in sync |Synchronize View |18 seconds| 16 seconds |15 seconds|
 
 ## Azure cost
 

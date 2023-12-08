@@ -62,7 +62,7 @@ Overall, this workflow involves building and deploying applications, load balanc
 
 - [Azure Functions](https://azure.microsoft.com/products/functions) acts as an orchestrator for traffic distribution. It monitors the readiness conditions of each cluster, assessing factors such as resource utilization, latency, and health. Based on this assessment, the Function App decides where to direct incoming traffic.
 
-- [Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci) is a hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid environment that combines on-premises infrastructure with Azure cloud services.
+- [Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci) is a hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux workloads and their storage in a hybrid environment that combines on-premises infrastructure with Azure services.
 
   - The solution uses [Arc-Enabled Azure Kubernetes Service on Azure Stack HCI (AKS-HCI)](/azure/aks/hybrid/) to host the web app or APIs, [Arc-Enabled Azure Servers](/azure/azure-arc/servers), and [Arc-Enabled Data Services](/azure/azure-arc/data/) in both environments.
 

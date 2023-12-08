@@ -73,6 +73,5 @@ This pattern might not be suitable for
 
 - Windows Active Directory implements an early variant of this pattern. Multi-primary replication means all updates and requests can in theory be served from all serviceable nodes, but Flexible Single Master Operation (FSMO) roles mean that all geodes aren't equal.
 - The [geode pattern accelerator](https://github.com/mspnp/geode-pattern-accelerator) on GitHub showcases this design pattern in practice and is designed to help developers implement it with real-world APIs.
-- The [globally distributed applications using Azure Cosmos DB](../solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db.yml) article examines a geographical based deployment that utilizes Traffic Manager for load balancing and Azure App Service to host the API code.
 - A [QnA sample application](https://github.com/xstof/qnademo) on GitHub showcases this design pattern in practice.
 - Geode [Cache over SAP OData APIs](https://github.com/MartinPankraz/AzCosmosDB-OData-Shim): A sample OData API Geode set backed by Azure Cosmos DB as a globally accelerated data cache for SAP Retail applications.

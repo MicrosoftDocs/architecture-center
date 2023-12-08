@@ -58,25 +58,25 @@ The [RFO Benchmark](https://www.revitforum.org/node/442015) automatic test suite
 
 The following table shows the elapsed times, in seconds, for running the test sets on four NVadsA10_v5 VM configurations.
 
-|RFO Benchmark test name|6 vCPUs (1/6th GPU)|18 vCPUs (1/2 GPU)|	36 vCPUs (1 GPU)|72 vCPUs (2 GPUs)|
+|RFO Benchmark test name|6 vCPUs (1/6th GPU)|18 vCPUs (1/2 GPU)| 36 vCPUs (1 GPU)|72 vCPUs (2 GPUs)|
 |-|-|-|-|-|
-|Graphics Acceleration|3,847.19|	3,366.57|	3,472.25|	3,432.98|
-|Full Expanded	|13,552.75|	12,539.80|	11,590.06|	11,567.43|
-|Full Simplified|	197.70|	174.49	|140.31|	137.95|
-|Full Standard	|784.41	|595.08	|574.08	|536.98|
-|Graphics Comparison|	205.31|	100.58	|83.22|	78.82|
-|Graphics Expanded|2,824.53|	1,259.49|	921.05|	1,000.70|
+|Graphics Acceleration|3,847.19| 3,366.57| 3,472.25| 3,432.98|
+|Full Expanded |13,552.75| 12,539.80| 11,590.06| 11,567.43|
+|Full Simplified| 197.70| 174.49 |140.31| 137.95|
+|Full Standard |784.41 |595.08 |574.08 |536.98|
+|Graphics Comparison| 205.31| 100.58 |83.22| 78.82|
+|Graphics Expanded|2,824.53| 1,259.49| 921.05| 1,000.70|
 
 The following table shows the relative speed increases as the number of vCPUs increases. The elapsed time for 1/6th GPU is used as a baseline.
 
-|RFO Benchmark test name|6 vCPUs (1/6th GPU)|18 vCPUs (1/2 GPU)|36 vCPUs (1 GPU)|	72 vCPUs (2 GPUs)|
+|RFO Benchmark test name|6 vCPUs (1/6th GPU)|18 vCPUs (1/2 GPU)|36 vCPUs (1 GPU)| 72 vCPUs (2 GPUs)|
 |-|-|-|-|-|
-|Graphics Acceleration|	1|	1.14|	1.11|	1.12|
-|Full Expanded|	1|	1.08	|1.17	|1.17|
-|Full Simplified|	1|	1.13|	1.41|	1.43|
-|Full Standard	|1|	1.32|	1.37|	1.46|
-|Graphics Comparison|	1|	2.04|	2.47|	2.60|
-|Graphics Expanded	|1|	2.24	|3.07	|2.82|
+|Graphics Acceleration| 1| 1.14| 1.11| 1.12|
+|Full Expanded| 1| 1.08 |1.17 |1.17|
+|Full Simplified| 1| 1.13| 1.41| 1.43|
+|Full Standard |1| 1.32| 1.37| 1.46|
+|Graphics Comparison| 1| 2.04| 2.47| 2.60|
+|Graphics Expanded |1| 2.24 |3.07 |2.82|
 
 This graph shows the relative speed increases for the six test cases. A high relative speed increase is better than a low one.
 
@@ -86,25 +86,25 @@ This graph shows the relative speed increases for the six test cases. A high rel
 
 The following table shows the elapsed times, in seconds, for running the test sets on two NCasT4_v3 VM configurations.
 
-|RFO Benchmark test name|4 vCPUs<br> (1 GPU)|	64 vCPUs<br> (4 GPUs)|
+|RFO Benchmark test name|4 vCPUs<br> (1 GPU)| 64 vCPUs<br> (4 GPUs)|
 |-|-|-|
-|Full Simplified	|184.47|	193.91|
-|Full Expanded|	864.42	|741.36|
-|Full Standard|	17,353.97	|16,794.71|
-|Graphics Acceleration|	5,534.41|	4691.55|
-|Graphics Comparison	|114.25	|134.06|
-|Graphics Expanded	|1,783.71	|1,632.31|
+|Full Simplified |184.47| 193.91|
+|Full Expanded| 864.42 |741.36|
+|Full Standard| 17,353.97 |16,794.71|
+|Graphics Acceleration| 5,534.41| 4691.55|
+|Graphics Comparison |114.25 |134.06|
+|Graphics Expanded |1,783.71 |1,632.31|
 
 The following table shows the relative speed increases for the six test sets, as the number of vCPUs increases.
 
-|RFO Benchmark test name|4 vCPUs<br>(1 GPU)|	64 vCPUs<br>(4 GPUs)|
+|RFO Benchmark test name|4 vCPUs<br>(1 GPU)| 64 vCPUs<br>(4 GPUs)|
 |-|-|-|
-|Full Simplified|	1	|0.95|
-|Full Expanded	|1	|1.17|
-|Full Standard	|1	|1.03|
-|Graphics Acceleration|	1	|1.18|
-|Graphics Comparison	|1|	0.85|
-|Graphics Expanded	|1|	1.09|
+|Full Simplified| 1 |0.95|
+|Full Expanded |1 |1.17|
+|Full Standard |1 |1.03|
+|Graphics Acceleration| 1 |1.18|
+|Graphics Comparison |1| 0.85|
+|Graphics Expanded |1| 1.09|
 
 This graph shows the relative speed increases for the six test cases. A high relative speed increase is better than a low one.
 
@@ -114,14 +114,14 @@ This graph shows the relative speed increases for the six test cases. A high rel
 
 You can use the following data to calculate the cost of running your workload. To compute the cost, multiply the total elapsed time by the hourly cost for the VM. Because the hourly rates of VMs can change, you should use the [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing) calculator to compute the cost. The total elapsed time doesn't include application installation. It includes only the total time for completing the test scenarios for all models. 
 
-|VM series|	Number of vCPUs|	Number of GPUs|	Total elapsed time, in hours|
+|VM series| Number of vCPUs| Number of GPUs| Total elapsed time, in hours|
 |-|-|-|-|
-|NVadsA10_v5|6| 	1/6	|5.95 |
-||	18| 	1/2|	5.01 |
-||	36	|1|	4.66 |
-||	72 |	2	|4.65 |
-|NCasT4_v3|4| 	1	|7.18 |
-||	64|	4|	6.72 |
+|NVadsA10_v5|6| 1/6 |5.95 |
+|| 18| 1/2| 5.01 |
+|| 36 |1| 4.66 |
+|| 72 | 2 |4.65 |
+|NCasT4_v3|4| 1 |7.18 |
+|| 64| 4| 6.72 |
 
 ## Summary
 
