@@ -30,11 +30,11 @@ This diagram illustrates the differences between these concepts for an organizat
 
 ![Diagram that depicts the differences between a SaaS business model being served by a multitenant application architecture.](./images/saas-business-model.png)
 
-This diagram illustrates the concept of multitenancy as it related to an enterprise business model:
+This diagram illustrates the how a multitenant architecture can be utilized in a non-SaaS business model:
 
 ![Diagram that depicts an enterprise taking advantage of a multitenant architecture](./images/enterprise-business-model.png)
 
-You can see that the main difference between the two diagrams is the business model itself, which ultimately influences how you define a tenant in the context of your business. The design choices that you make for the underlying multitenant architecture will also be influenced by your business model, as well as your choice in defining a tenant, but the principals of multitenancy always remain the same.
+The business model is the main factor that determines how to define a tenant in a multitenant architecture. The design choices for the underlying architecture also depend on the business model and the tenant definition, but the principles of multitenancy always remain the same.
 
 ## Next steps
 
