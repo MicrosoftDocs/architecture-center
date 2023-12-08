@@ -1371,6 +1371,10 @@ items:
         href: guide/spot/spot-eviction.yml
     - name: Architectures
       items:
+      - name: VM baseline
+        href: virtual-machines/baseline.yml
+      - name: VM baseline in Azure landing zones
+        href: virtual-machines/baseline-landing-zone.yml      
       - name: 3D video rendering
         href: example-scenario/infrastructure/video-rendering.yml
       - name: Computer-aided engineering

@@ -1,0 +1,31 @@
+### YamlMime:Architecture
+metadata:
+  title: Virtual machine baseline architecture in an Azure landing zone
+  titleSuffix: Azure Architecture Center
+  description: Builds on the baseline architecture and deploys it in an organizational set up provided through an Azure landing zone.
+  author: PageWriter-MSFT
+  ms.author: architectures
+  ms.date: 04/01/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+azureCategories:
+    - compute
+    - migration
+    - networking
+products:
+  - azure-application-gateway
+  - azure-bastion
+  - azure-firewall
+  - azure-key-vault
+  - azure-load-balancer
+  - azure-log-analytics
+  - azure-virtual-machines
+  - azure-virtual-network
+  - azure-vm-scalesets
+
+name: Virtual machine baseline architecture in an Azure landing zone
+summary: Builds on the baseline architecture and deploys it in an organizational set up provided through an Azure landing zone.
+thumbnailUrl: media/baseline-landing-zone.png
+content: |
+  [!include[](baseline-landing-zone-content.md)]
