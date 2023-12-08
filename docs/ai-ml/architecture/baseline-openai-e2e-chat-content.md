@@ -2,10 +2,10 @@ Enterprise chat applications have seen a resurgence of interest from companies, 
 
 This article provides a baseline architecture for building and deploying enterprise chat applications that use OpenAI Large Language Models (LLMs). The architecture employs Azure Machine Learning (AML) prompt flow to create executable flows that orchestrate the workflow from incoming prompts to data stores to fetch grounding data for the LLMs, along with any other Python logic required. The executable flow is deployed to an Azure Machine Learning compute cluster behind a managed online endpoint.
 
-The chat UI follows the [baseline app services web application](../../web-apps/app-service/architectures/baseline-zone-redundant) guidance for deploying a secure, zone-redundant, and highly available web application on Azure App Services. In that architecture the App Service communicates to Azure PaaS services through virtual network integration over private endpoints. Likewise, the chat UI App Service communicates with the managed online endpoint for the flow over a private endpoint and public access to the Azure Machine Learning workspace is disabled.
+The chat UI follows the [baseline app services web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) guidance for deploying a secure, zone-redundant, and highly available web application on Azure App Services. In that architecture the App Service communicates to Azure PaaS services through virtual network integration over private endpoints. Likewise, the chat UI App Service communicates with the managed online endpoint for the flow over a private endpoint and public access to the Azure Machine Learning workspace is disabled.
 
 > [!IMPORTANT]
-> The article does not cover the components or architecture decisions from the [baseline app services web application](../../web-apps/app-service/architectures/baseline-zone-redundant). Please read that article for architectural guidance for the client UI.
+> The article does not cover the components or architecture decisions from the [baseline app services web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml). Please read that article for architectural guidance for the client UI.
 
 The Machine Learning workspace is configured with [managed virtual network isolation](/azure/machine-learning/how-to-managed-network) that requires all outbound connections to be approved. With this configuration, a managed virtual network is created, along with managed private endpoints that enable connectivity to private resources such as the workplace Azure Storage, Azure Container Registry or Azure OpenAI. These private connections are used during flow authoring and testing, as well as by flows deployed to Azure Machine Learning compute.
 
@@ -23,7 +23,7 @@ The Machine Learning workspace is configured with [managed virtual network isola
 
 ## Components
 
-Many of the components of this architecture are the same as those in the [baseline app services web application](../../web-apps/app-service/architectures/baseline-zone-redundant), as the chat UI in this architecture follows the baseline app service web application's architecture. The components highlighted in this section focus on the components used to build and orchestrate chat flows, as well as data services and the services that expose the LLMs.
+Many of the components of this architecture are the same as those in the [baseline app services web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml), as the chat UI in this architecture follows the baseline app service web application's architecture. The components highlighted in this section focus on the components used to build and orchestrate chat flows, as well as data services and the services that expose the LLMs.
 
 - [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is a managed cloud service that's used to train, deploy, and manage machine learning models. This architecture uses several additional features of Azure Machine Learning used to develop and deploy executable flows for AI applications powered by Large Language Models:
   - [Azure Machine Learning prompt flow](/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow) is a development tool that allows you to build, test, and deploy flows that link user prompts, actions through Python code and LLMs.
@@ -50,10 +50,10 @@ Network security is at the core of the baseline end-to-end chat architecture usi
 :::image-end:::
 *Figure 2: Network flows for the baseline end-to-end chat architecture with OpenAI*
 
-Two flows in this diagram are covered in [baseline app services web application](../../web-apps/app-service/architectures/baseline-zone-redundant): 1. the inbound flow and 2. the App Service to Azure PaaS services flow. Please see that article for details on those flows. This section focuses on the Azure Machine Learning online endpoint flow. The following details the flow from the client UI running in the baseline app services web application to the flow deployed to Azure Machine Learning compute:
+Two flows in this diagram are covered in [baseline app services web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml): 1. the inbound flow and 2. the App Service to Azure PaaS services flow. Please see that article for details on those flows. This section focuses on the Azure Machine Learning online endpoint flow. The following details the flow from the client UI running in the baseline app services web application to the flow deployed to Azure Machine Learning compute:
 
 > [!NOTE]
-> The baseline app services web application's [App Service to Azure PaaS services flow](../../web-apps/web-apps/app-service/architectures/baseline-zone-redundant#app-service-to-azure-paas-services-flow) details how the App Service is able to connect to Azure PaaS services over private endpoints. This section discusses the specific connectivity to the Azure Machine Learning online endpoint.
+> The baseline app services web application's [App Service to Azure PaaS services flow](../../web-apps/web-apps/app-service/architectures/baseline-zone-redundant.yml#app-service-to-azure-paas-services-flow) details how the App Service is able to connect to Azure PaaS services over private endpoints. This section discusses the specific connectivity to the Azure Machine Learning online endpoint.
 
 1. The call from the App Service application is routed through a private endpoint to the Azure Machine Learning online endpoint.
 1. The online endpoint routes the call to a web server running the deployed flow. The online endpoint acts as both a load balancer, as well as a router.
@@ -84,7 +84,7 @@ TODO: Add differences between the baseline and this architecture
 
 ## Reliability
 
-The [baseline app services web application](../../web-apps/app-service/architectures/baseline-zone-redundant) architecture focuses on zonal redundancy for key regional services. Availability zones are physically separate locations within a region. They provide zonal redundancy for supporting services when two or more instances are deployed in supporting regions. When one zone experiences downtime, the other zones may still be unaffected. The architecture also ensures enough instances of Azure services to meet demand. Please see the [baseline](../../web-apps/app-service/architectures/baseline-zone-redundant) to review that guidance.
+The [baseline app services web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) architecture focuses on zonal redundancy for key regional services. Availability zones are physically separate locations within a region. They provide zonal redundancy for supporting services when two or more instances are deployed in supporting regions. When one zone experiences downtime, the other zones may still be unaffected. The architecture also ensures enough instances of Azure services to meet demand. Please see the [baseline](../../web-apps/app-service/architectures/baseline-zone-redundant) to review that guidance.
 
 This section addresses reliability from the perspective of the components in this architecture not addressed in the app services baseline, including Azure Machine Learning, Azure OpenAI, and Azure AI Search.
 
