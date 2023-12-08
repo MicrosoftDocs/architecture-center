@@ -340,32 +340,33 @@ The security considerations carry over from the [**baseline architecture**](./ba
 
 - **Ingress traffic**. Isolation from other workload spokes within the organization is achieved by using Network Security Groups (NSGs) on your subnets, and potentially also through the nontransitive nature or controls in the regional hub. Construct comprehensive NSGs that only permit the inbound network requirements of your application and its infrastructure. Relying on the nontransitive nature of the hub network for security isn't recommended.
 
-    The platform team will likely implement specific Azure Policies to ensure that  Application Gateway has the Web Application Firewall (WAF) enabled in deny mode, restrict the number of public IPs available to your subscription, and other checks. In addition to those policies, the workload team should own the responsibility of deploying workload-centric policies that reinforce the ingress security posture.
+  The platform team will likely implement specific Azure Policies to ensure that Application Gateway has the Web Application Firewall (WAF) enabled in deny mode, restrict the number of public IPs available to your subscription, and other checks. In addition to those policies, the workload team should own the responsibility of deploying workload-centric policies that reinforce the ingress security posture.
 
-    Examples of ingress controls in this architecture:
+  Examples of ingress controls in this architecture:
 
-    | Source | Purpose | Workload control | Platform control |
-    | :----- | :------ | :--------------- | :--------------- |
-    | Internet | _TODO_ | _TODO_ | _TODO_ |
-    | Azure Bastion | _TODO_ | _TODO_ | _TODO_ |
-    | Other spokes | None | Blocked via NSG rules. | Nontransitive routing or Azure Firewall rules in the case of Azure VWAN secured hub. |
+  | Source | Purpose | Workload control | Platform control |
+  | :----- | :------ | :--------------- | :--------------- |
+  | Internet | User traffic flows. | Funnels all requests through a NSG, web application firewall, and routing rules before allowing public traffic to transitioning to private traffic entering the frontend virtual machines. | None |
+  | Azure Bastion | Operator access to virtual machines. | NSG on virtual machine subnets blocking all traffic to remote access ports, unless sourced from the platform's designated Bastion subnet. | None |
+  | Other spokes | None | Blocked via NSG rules. | Nontransitive routing or Azure Firewall rules in the case of Azure VWAN secured hub. |
 
 - **Egress traffic**. Apply NSG rules that express the required outbound connectivity requirements of your solution and deny everything else. Don't only rely on the hub network controls. As a workload operator, you have the responsibility to stop undesired egress traffic as close to the source as practicable.
 
-Be aware that while you own your subnetting within the virtual network, the platform team likely created firewall rules to specifically represent your captured requirements as part of your subscription vending process. Ensure that changes in subnets and resource placement over the lifetime of your architecture are still compatible with your original request, or work with your network team to ensure continuity of least-access egress control.
+  Be aware that while you own your subnetting within the virtual network, the platform team likely created firewall rules to specifically represent your captured requirements as part of your subscription vending process. Ensure that changes in subnets and resource placement over the lifetime of your architecture are still compatible with your original request, or work with your network team to ensure continuity of least-access egress control.
 
-Examples of egress in this architecture:
+  Examples of egress in this architecture:
 
-| Endpoint | Purpose | NSG control | Hub control |
-| :------- | :------ | :---------- | :---------- |
-| _TODO_ | _TODO_ | _TODO_ | _TODO_ |
-| _TODO_ | _TODO_ | _TODO_ | _TODO_ |
-| _TODO_ | _TODO_ | _TODO_ | _TODO_ |
+  | Endpoint | Purpose | Workload (NSG) control | Platform (Hub) control |
+  | :------- | :------ | :---------- | :---------- |
+  | ntp\.ubuntu\.com | Network time protocol (NTP) for linux VMs | UDP/123 to the internet on the frontend virtual machine subnet (this broad opening is expected to be narrowed by the egress firewall) | Firewall network rule allowance for the same |
+  | Windows Update endpoints | Windows Update functionality from Microsoft servers | TCP/443 and TCP/80 to the internet on the backend virtual machine subnet (this broad opening is expected to be narrowed by the egress firewall) | Firewall allowance rule with FQDN tag of `WindowsUpdate` |
+  | Azure Monitor Agent endpoints | Required traffic for Azure Monitor extension on virtual machines | TCP/443 to the internet on both virtual machine subnets (this broad opening is expected to be narrowed by the egress firewall) | Necessary firewall application rule allowances for all specific FQDNs on TCP/443 |
+  | nginx\.org | To install Nginx (an example application component) directly from the vendor | TCP/443 to the internet on the frontend virtual machine subnet (this broad opening is expected to be narrowed by the egress firewall) | Necessary firewall application rule allowance for nginx\.org on TCP/443 |
+  | Key Vault | To import TLS certificates in Application Gateway and virtual machines | - TCP/443 to private endpoint subnet from both VM subnets to private endpoint subnet<br>- TCP/443 to private endpoint subnet from Application Gateway subnet<br>- TCP/443 from virtual machines tagged with a required application security group (ASG) designation and Application Gateway subnet. | None |
 
-- **DDoS protection**. Ensure you've understood who will be responsible for applying the DDoS Protection plan that covers all of your solution's public IPs. The platform team might use IP protection plans, or might even use Azure Policy to enforce virtual network protection plans. This specific architecture should have coverage as it involves a public IP for ingress from the Internet. 
+- **DDoS protection**. Ensure you've understood who will be responsible for applying the DDoS Protection plan that covers all of your solution's public IPs. The platform team might use IP protection plans, or might even use Azure Policy to enforce virtual network protection plans. This specific architecture should have coverage as it involves a public IP for ingress from the Internet.
 
 > Refer to Well-Architected Framework: [SE:06 - Recommendations for networking and connectivity](/azure/well-architected/security/networking).
-
 
 ##### Secret management
 
