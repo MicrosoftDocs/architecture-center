@@ -10,10 +10,10 @@ This solution idea describes how to extend your on-premises big data investments
 
 ### Dataflow
 
-  1. Establish ExpressRoute between on-premises infrastructure and Microsoft datacenters, to allow private connection for reliable, speedy, and secure data replication from an on-premises Hadoop setup to an Azure HDInsight cluster.
-  1. Install the WANdisco Fusion server in the same Azure Virtual Network as the HDInsight cluster, which allows the server to access the cluster in a secure manner.
-  1. Install the WANdisco Fusion app on a HDInsight cluster (new or existing). In the License key field, enter the Public IP of the Fusion Server.
-  1. Configure the Fusion App on an HDInsight cluster to set up continuous active replication from on-premises large data/Hadoop deployments to Azure HDInsight, multi-region replication, backup and restore, and more.
+1. Establish ExpressRoute between on-premises infrastructure and Microsoft datacenters, to allow private connection for reliable, speedy, and secure data replication from an on-premises Hadoop setup to an Azure HDInsight cluster.
+1. Install the WANdisco Fusion server in the same Azure Virtual Network as the HDInsight cluster, which allows the server to access the cluster in a secure manner.
+1. Install the WANdisco Fusion app on a HDInsight cluster (new or existing). In the License key field, enter the Public IP of the Fusion Server.
+1. Configure the Fusion App on an HDInsight cluster to set up continuous active replication from on-premises large data/Hadoop deployments to Azure HDInsight, multi-region replication, backup and restore, and more.
 
 ### Components
 
