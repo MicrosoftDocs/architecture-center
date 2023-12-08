@@ -55,10 +55,10 @@ To communicate with private resources in the back end, Application Gateway and A
 
 You can use other services to deliver a similar level of firewall and Web Application Firewall (WAF) protection:
 
-  - [Azure Front Door](/azure/frontdoor/front-door-overview)
-  - [Azure Firewall](/azure/firewall/overview)
-  - Partner solutions like [Barracuda](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf)
-  - Other solutions available in [Azure Marketplace](https://azure.microsoft.com/partners/marketplace/)
+- [Azure Front Door](/azure/frontdoor/front-door-overview)
+- [Azure Firewall](/azure/firewall/overview)
+- Partner solutions like [Barracuda](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf)
+- Other solutions available in [Azure Marketplace](https://azure.microsoft.com/partners/marketplace/)
 
 ## Considerations
 
