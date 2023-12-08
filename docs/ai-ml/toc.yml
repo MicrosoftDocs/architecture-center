@@ -74,6 +74,11 @@ items:
           href: ../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml  
     - name: Design architectures
       items:
+      - name: Chat bots
+        items:
+        - name: Baseline end-to-end chat with OpenAI
+          href: architecture/baseline-openai-e2e-chat.yml           
+   
       - name: Document processing
         items:
         - name: Automate document classification
@@ -112,10 +117,6 @@ items:
           href: architecture/batch-scoring-R-models.yml
         - name: Batch scoring with Spark on Databricks
           href: architecture/batch-scoring-databricks.yml
-      - name: Chat bots
-        items:
-        - name: Enterprise-grade conversational bot
-          href: architecture/conversational-bot.yml
       - name: Recommendations
         items:
         - name: Real-time recommendation API
