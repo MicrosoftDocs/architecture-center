@@ -96,9 +96,9 @@ For information about deploying the VM and installing the drivers, see [Run a Li
 
 The following table provides details about the model:
 
-|Model|	Resolution (km)|	e_we|	e_sn|	e_vert|	Total grid points|	Time step (seconds)|	Simulation hours|
+|Model| Resolution (km)| e_we| e_sn| e_vert| Total grid points| Time step (seconds)| Simulation hours|
 |-|-|-|-|-|-|-|-|
-|New CONUS 2.5 km	|2.5	|1901|	1301|	35	|2,473,201|	15|	6|
+|New CONUS 2.5 km |2.5 |1901| 1301| 35 |2,473,201| 15| 6|
 
 The following table shows the system and operating system details:
 
