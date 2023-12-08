@@ -181,7 +181,7 @@ KubernetesVersion    LatestNodeImageVersion                         Name     OsT
 
 The Kubernetes community releases minor versions of Kubernetes approximately every three months. To keep you informed about new AKS versions and releases, the [AKS release notes page](https://github.com/Azure/AKS/releases) page is regularly updated. Additionally, subscribe to the [GitHub AKS RSS feed](https://github.com/Azure/AKS/releases.atom), which provides real-time updates about changes and enhancements.
 
-Azure Kubernetes Service (AKS) follows an "N - 2" support policy, which means that full support is provided for the latest release (N) and up to two previous minor versions. Limited platform support is offered for the third prior minor version. For more information on the support policy, review the [AKS Support Policy(/azure/aks/support-policies).
+Azure Kubernetes Service (AKS) follows an "N - 2" support policy, which means that full support is provided for the latest release (N) and up to two previous minor versions. Limited platform support is offered for the third prior minor version. For more information on the support policy, review the [AKS Support Policy](/azure/aks/support-policies).
 
 To ensure that your AKS clusters remain supported, it's crucial to establish a continuous cluster upgrade process. This process involves testing new versions in lower environments and planning the upgrade to production before the new version becomes the default. This approach can maintain predictability in your upgrade process and minimize application disruption. For more information, see [Upgrade an Azure Kubernetes Service (AKS) cluster](/azure/aks/upgrade-cluster).
 
