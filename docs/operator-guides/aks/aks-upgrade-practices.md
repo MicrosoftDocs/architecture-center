@@ -65,6 +65,14 @@ To ensure the smooth operation of your AKS cluster during maintenance events, fo
 ### Managing the weekly updates to node images
 
 Microsoft provides patches and new images for AKS nodes weekly. An updated node image contains up-to-date OS security patches, kernel updates, Kubernetes security updates, updated versions of binaries like `kubelet`, and component version updates listed in the [release notes](https://github.com/Azure/AKS/releases).
+When a node image is updated a `cordon and drain` action is triggered on the cluster.
+
+- An additional node is added to the node pool (this is governed by the surge value)
+- One of the existing nodes is `cordoned` (configured to not schedule pods) and `drained` (have its pods removed and rescheduled to other nodes)
+- Once the node is fully drained it's removed from the node pool.  (The node added by the surge replaces it)
+- This process is repeated for each node to be updated in the node pool
+
+A similar process occurs during a cluster upgrade
 
 #### Node Image Upgrades via Automatic Upgrades
 
@@ -76,7 +84,7 @@ Other available channels include:
 - `Security Patch` (Nightly security patches are deployed as an OS image update)
 - `Node Image` (Weekly AKS patches, and Nightly security patches combined)
 
-If you chose the  `Unmanaged` update channel, it's important the reboot process is managed using a tool such as [Kured](https://kured.dev/docs/) to support graceful maintenance events.  If you chose the `Security Patch` update channel, updates can be applied as frequently as nightly, this patch level requires the VHDs to be stored within your resource group that incurs costs in the 10s of dollars per month.  Additionally, you need to combine the `Security Patch` configuration with a `Node Image` configuration to provide a complete node patching strategy.
+If you chose the  `Unmanaged` update channel, it's important the reboot process is managed using a tool such as [Kured](https://kured.dev/docs/) to support graceful maintenance events.  If you chose the `Security Patch` update channel, updates can be applied as frequently as nightly, this patch level requires the VHDs to be stored within your resource group that incurs a nominal charge.  Additionally, you need to combine the `Security Patch` configuration with a `Node Image` configuration to provide a complete node patching strategy.
 
 As a best practice use the `Node Image` update channel and configure a `aksManagedNodeOSUpgradeSchedule ` maintenance window targeted to a time when the cluster is under nonpeak usage.
 You can review the guide here [maintenance window](/azure/aks/planned-maintenance/#creating-a-maintenance-window) for attributes to configure the cluster maintenance window.  Key attributes to set:
@@ -186,6 +194,8 @@ Azure Kubernetes Service (AKS) follows an "N - 2" support policy, which means th
 To ensure that your AKS clusters remain supported, it's crucial to establish a continuous cluster upgrade process. This process involves testing new versions in lower environments and planning the upgrade to production before the new version becomes the default. This approach can maintain predictability in your upgrade process and minimize application disruption. For more information, see [Upgrade an Azure Kubernetes Service (AKS) cluster](/azure/aks/upgrade-cluster).
 
 If your cluster requires a longer upgrade cycle, use the [Long Term Support (LTS) option](/azure/aks/supported-kubernetes-versions#long-term-support-lts) AKS versions. With the LTS option, Microsoft provides extended support for Kubernetes versions over two years, allowing for a more prolonged and controlled upgrade cycle. For more information, see [Supported Kubernetes versions in Azure Kubernetes Service (AKS)](/azure/aks/supported-kubernetes-versions).
+
+A cluster upgrade includes a node upgrade, and follows a similar cordon and drain process.
 
 ### Before you upgrade
 
