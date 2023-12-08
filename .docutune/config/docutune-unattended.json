@@ -11,7 +11,7 @@
     "body": "",
     "newBranchNamePrefix": "",
     "headRemote": "origin",
-    "draft": false,
+    "draft": true,
     "requestReview": true,
     "signOff": false,
     "properties": {
