@@ -36,13 +36,13 @@ Download a [Visio file](https://arch-center.azureedge.net/elements-architecture.
 
 Performance tests of ELEMENTS on Azure used [HBv3 AMD EPYC 7V73X (Milan-X)](/azure/virtual-machines/hbv3-series) VMs running Linux CentOS. The following table provides details about HBv3-series VMs.
 
-|VM size|	vCPU|	Memory (GiB)|	Memory bandwidth GBps|	Base CPU frequency (GHz)|	All-cores frequency (GHz, peak)|	Single-core frequency (GHz, peak)|	RDMA performance (Gbps)|Maximum data disks|
+|VM size| vCPU| Memory (GiB)| Memory bandwidth GBps| Base CPU frequency (GHz)| All-cores frequency (GHz, peak)| Single-core frequency (GHz, peak)| RDMA performance (Gbps)|Maximum data disks|
 |-|-|-|-|-|-|-|-|-|
-|Standard_HB120rs_v3	|120	|448|	350|	1.9|	3.0|	3.5|	200|	32|
-|Standard_HB120-96rs_v3|	96|	448|	350|	1.9|	3.0|	3.5|	200|	32|
-|Standard_HB120-64rs_v3|	64|	448|	350|	1.9	|3.0|	3.5|	200|	32|
-|Standard_HB120-32rs_v3|	32|	448|	350|	1.9|	3.0|	3.5|	200|	32|
-|Standard_HB120-16rs_v3|	16	|448|	350|1.9|3.0|3.5|200|32|
+|Standard_HB120rs_v3 |120 |448| 350| 1.9| 3.0| 3.5| 200| 32|
+|Standard_HB120-96rs_v3| 96| 448| 350| 1.9| 3.0| 3.5| 200| 32|
+|Standard_HB120-64rs_v3| 64| 448| 350| 1.9 |3.0| 3.5| 200| 32|
+|Standard_HB120-32rs_v3| 32| 448| 350| 1.9| 3.0| 3.5| 200| 32|
+|Standard_HB120-16rs_v3| 16 |448| 350|1.9|3.0|3.5|200|32|
 
 ### Required drivers
 
@@ -80,9 +80,9 @@ The details of each test model are provided in the following sections.
 
 The following table provides details about the model.
 
-|Mesh size	|Solver|Transient|
+|Mesh size |Solver|Transient|
 |-|-|-|
-|17,000,000 cells|	DES (helyxAero)|400 time steps|
+|17,000,000 cells| DES (helyxAero)|400 time steps|
 
 ### Model 2: Automotive_GTU-0001
 
@@ -90,9 +90,9 @@ The following table provides details about the model.
  
 The following table provides details about the model.
 
-|Mesh size	|Solver|Transient|
+|Mesh size |Solver|Transient|
 |-|-|-|
-|116,000,000 cells|	DES (helyxAero)|3,583 time steps|
+|116,000,000 cells| DES (helyxAero)|3,583 time steps|
 
 ### ELEMENTS 3.5.0 performance results on single-node VMs
 
@@ -102,11 +102,11 @@ The following section provides the performance results of running ELEMENTS in pa
 
 |Number of cores|Solver running time (seconds)|Relative speed increase|
 |-|-|-|
-|16|	3,102.28|	1.00|
-|32|	1,938.16|	1.60|
-|64|	1,395.36|	2.22|
-|96|	1,337.25|	2.32|
-|120|	1,318.55|	2.35|
+|16| 3,102.28| 1.00|
+|32| 1,938.16| 1.60|
+|64| 1,395.36| 2.22|
+|96| 1,337.25| 2.32|
+|120| 1,318.55| 2.35|
 
 The following graph shows the relative speed increases as the number of CPUs increases:
 
@@ -126,11 +126,11 @@ The single-node tests confirm that the solver achieves good parallel performance
 
 |Number of nodes|Number of cores|Cells per core|Solver running time (seconds)|Relative speed increase|
 |-|-|-|-|-|
-|1|	64|	265,625|	1,370.81|	1.00|
-|2|	128|	132,813|	630.86|	2.17|
-|4|	256	|66,406|	351.83	|3.90|
-|8|	512	|33,203|	206.36|	6.64|
-|16|	1,024	|16,602	|168.07|	8.16|
+|1| 64| 265,625| 1,370.81| 1.00|
+|2| 128| 132,813| 630.86| 2.17|
+|4| 256 |66,406| 351.83 |3.90|
+|8| 512 |33,203| 206.36| 6.64|
+|16| 1,024 |16,602 |168.07| 8.16|
 
 The following graph shows the relative speed increases as the number of nodes increases:
 
@@ -140,11 +140,11 @@ The following graph shows the relative speed increases as the number of nodes in
 
 |Number of nodes|Number of cores|Cells per core|Solver running time (seconds)|Relative speed increase|
 |-|-|-|-|-|
-|1|	64|	 1,812,500	|102,740.23|	1.00|
-|2|	128|	 906,250|	47,761.85|	2.15|
-|4|	256	| 453,125	|21,484.47	|4.78|
-|8|	512	| 226,563	|9,595.72|	10.71|
-|16|	1,024	| 113,281	|5,125.38|	20.05|
+|1| 64| 1,812,500 |102,740.23| 1.00|
+|2| 128| 906,250| 47,761.85| 2.15|
+|4| 256 | 453,125 |21,484.47 |4.78|
+|8| 512 | 226,563 |9,595.72| 10.71|
+|16| 1,024 | 113,281 |5,125.38| 20.05|
 
 The following graph shows the relative speed increases as the number of nodes increases:
 
@@ -166,23 +166,23 @@ The following tables provide the solver running times in hours. Azure VM hourly 
 
 ### Cost for model 1: Automotive_DESdrivAer
 
-|Number of nodes|	Solver running time (hours)|
+|Number of nodes| Solver running time (hours)|
 |-|-|
-|1|	0.458|
-|2|	0.256|
-|4|	0.168|
-|8|	0.148|
-|16	|0.162|
+|1| 0.458|
+|2| 0.256|
+|4| 0.168|
+|8| 0.148|
+|16 |0.162|
 
 ### Cost for model 2: Automotive_GTU-0001
 
-|Number of nodes|	Solver running time (hours)|
+|Number of nodes| Solver running time (hours)|
 |-|-|
 |1| 28.888|
-|2|	 13.622|
-|4|	 6.249|
-|8|	 2.990|
-|16	| 1.761|
+|2| 13.622|
+|4| 6.249|
+|8| 2.990|
+|16 | 1.761|
 
 ## Summary
 

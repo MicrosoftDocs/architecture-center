@@ -36,7 +36,7 @@ architecture.*
 
 The performance tests of Ansys Rocky on Azure used [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) and [NC_A100_v4](/azure/virtual-machines/nc-a100-v4-series) VMs running Windows. The following table provides details about the VMs.
 
-|VM size|vCPU|Memory, in GiB|Number of GPUs|	GPU memory, in GiB|Maximum data disks|Maximum uncached disk throughput, in IOPS / MBps|
+|VM size|vCPU|Memory, in GiB|Number of GPUs| GPU memory, in GiB|Maximum data disks|Maximum uncached disk throughput, in IOPS / MBps|
 |-|-|-|-|-|-|-|
 |Standard_ND96asr_v4|96|900|8 |40|32|80,000 / 800|
 |Standard_NC24ads_A100_v4|24|220|1|80|12|30,000 / 1,000|
@@ -76,11 +76,11 @@ DEM particle simulation was used to test the application's performance.  Two ver
 
 The following table presents the wall-clock times for running the simulation, for both CPU and GPU configurations.
 
-|Rocky version	|VM series|	96 CPUs	|1 GPU	|2 GPUs|	3 GPUs|	4 GPUs|
+|Rocky version |VM series| 96 CPUs |1 GPU |2 GPUs| 3 GPUs| 4 GPUs|
 |-|-|-|-|-|-|-|
-|2021 R2.2|	ND_A100_v4|	10:57:58|	00:53:24<sup>1|	00:44:30<sup>1|	00:40:42<sup>1	|00:46:01<sup>1|
-|2022 R1.1|	ND_A100_v4|	-	|00:44:41<sup>1|	00:37:47<sup>1|	00:39:40<sup>1|	00:42:29<sup>1|
-|2022 R1.1|	NC_A100_v4|	-	|00:40:19|	00:32:11|	00:30:55<sup>2|	00:32:42|
+|2021 R2.2| ND_A100_v4| 10:57:58| 00:53:24<sup>1| 00:44:30<sup>1| 00:40:42<sup>1 |00:46:01<sup>1|
+|2022 R1.1| ND_A100_v4| - |00:44:41<sup>1| 00:37:47<sup>1| 00:39:40<sup>1| 00:42:29<sup>1|
+|2022 R1.1| NC_A100_v4| - |00:40:19| 00:32:11| 00:30:55<sup>2| 00:32:42|
 
 <sup>1</sup> *In these cases, the number of GPUs was artificially limited. This VM has eight GPUs.*
 
@@ -88,11 +88,11 @@ The following table presents the wall-clock times for running the simulation, fo
 
 The following table shows the relative speed increases as the CPUs are replaced by GPUs in increasing numbers. The 96-CPU configuration in the preceding table is used as the baseline for the comparisons.
 
-|Rocky version	|VM series|	96 CPUs	|1 GPU	|2 GPUs|	3 GPUs|	4 GPUs|
+|Rocky version |VM series| 96 CPUs |1 GPU |2 GPUs| 3 GPUs| 4 GPUs|
 |-|-|-|-|-|-|-|
-|2021 R2.2|	ND_A100_v4|	1.00|12.32<sup>1|14.79<sup>1|16.17<sup>1|14.30<sup>1|
-|2022 R1.1|	ND_A100_v4|	1.00	|14.73<sup>1	|17.41<sup>1	|16.59<sup>1	|15.49<sup>1|
-|2022 R1.1|	NC_A100_v4|	1.00	|16.32	|20.45|21.29<sup>2	|20.12|
+|2021 R2.2| ND_A100_v4| 1.00|12.32<sup>1|14.79<sup>1|16.17<sup>1|14.30<sup>1|
+|2022 R1.1| ND_A100_v4| 1.00 |14.73<sup>1 |17.41<sup>1 |16.59<sup>1 |15.49<sup>1|
+|2022 R1.1| NC_A100_v4| 1.00 |16.32 |20.45|21.29<sup>2 |20.12|
 
 <sup>1</sup> *In these cases, the number of GPUs was artificially limited. This VM has eight GPUs.*
 
@@ -116,11 +116,11 @@ The times here represent tests performed on Ansys Rocky 2022 R1.1.
 
 You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your configuration.
 
-|VM size|	Number of GPUs|	Elapsed time, in hours|
+|VM size| Number of GPUs| Elapsed time, in hours|
 |-|-|-|
-|Standard_NC24ads_A100_v4	|	1|	0.67|
-|Standard_NC48ads_A100_v4	|	2|	0.53|
-|Standard_NC96ads_A100_v4	|	4	|0.54|
+|Standard_NC24ads_A100_v4 | 1| 0.67|
+|Standard_NC48ads_A100_v4 | 2| 0.53|
+|Standard_NC96ads_A100_v4 | 4 |0.54|
 
 ## Summary
 

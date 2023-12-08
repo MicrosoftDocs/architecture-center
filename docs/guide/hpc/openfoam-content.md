@@ -36,11 +36,11 @@ Performance tests of OpenFOAM on Azure used [HBv3-series](/azure/virtual-machine
 
 |VM size|vCPU|Memory (GiB)|Memory bandwidth GBps|Base CPU frequency (GHz)|All-cores frequency (GHz, peak)|Single-core frequency (GHz, peak)|RDMA performance (Gbps)|Temp storage (GiB)|Maximum data disks|
 |-|-|-|-|-|-|-|-|-|-|
-|Standard_HB120rs_v3|	120|	448|	350|	1.9|	3.0|	3.5|	200|	2 * 960|	32|
-|Standard_HB120-96rs_v3|	96|	448	|350|	1.9	|3.0|	3.5	|200|	2 * 960	|32|
-|Standard_HB120-64rs_v3	|64	|448	|350|	1.9	|3.0|	3.5	|200|	2 * 960|	32|
-|Standard_HB120-32rs_v3	|32|	448	|350|	1.9	|3.0|	3.5	|200|	2 * 960|	32|
-|Standard_HB120-16rs_v3	|16|	448	|350|	1.9	|3.0|	3.5	|200|	2 * 960|	32|
+|Standard_HB120rs_v3| 120| 448| 350| 1.9| 3.0| 3.5| 200| 2 * 960| 32|
+|Standard_HB120-96rs_v3| 96| 448 |350| 1.9 |3.0| 3.5 |200| 2 * 960 |32|
+|Standard_HB120-64rs_v3 |64 |448 |350| 1.9 |3.0| 3.5 |200| 2 * 960| 32|
+|Standard_HB120-32rs_v3 |32| 448 |350| 1.9 |3.0| 3.5 |200| 2 * 960| 32|
+|Standard_HB120-16rs_v3 |16| 448 |350| 1.9 |3.0| 3.5 |200| 2 * 960| 32|
 
 The HBv3 (Milan-X) VMs are optimized for HPC applications like fluid dynamics, explicit and implicit finite element analysis, weather modeling, seismic processing, reservoir simulation, and RTL simulation.
 
@@ -62,7 +62,7 @@ For information about installation and about the various versions of OpenFOAM, s
 
 The following table provides the details of the operating system that was used for testing.
 
-|Operating system	|OS architecture|	Processor|
+|Operating system |OS architecture| Processor|
 |-|-|-|
 |CentOS 7.9.2009|x86-64|AMD EPYC 7V73X (Milan-X)|
 
@@ -72,13 +72,13 @@ The motorbike model with 21M cells was used for testing.
 
 The following table shows the elapsed times, in seconds, for running the simulation with varying numbers of CPUs.
 
-|Number of CPUs|Elapsed times (seconds)|	Relative speed increase|
+|Number of CPUs|Elapsed times (seconds)| Relative speed increase|
 |-|-|-|
-|16 |	412.08|	1.00|
-|32 |	253.04|	1.63|
-|64 |	176.43|	2.34|
-|96 |	159.62|	2.58|
-|120 |	157.88|	2.61|
+|16 | 412.08| 1.00|
+|32 | 253.04| 1.63|
+|64 | 176.43| 2.34|
+|96 | 159.62| 2.58|
+|120 | 157.88| 2.61|
 
 This graph shows the relative speed increases as the number of CPUs increases:
 
@@ -92,13 +92,13 @@ Only model running time (wall-clock time) is considered in these cost calculatio
 
 You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your configuration.
 
-|Number of CPU cores	|Wall-clock time (hours)|
+|Number of CPU cores |Wall-clock time (hours)|
 |-|-|
-|16	|0.114|
-|32	|0.070|
-|64	|0.049|
-|96	|0.044|
-|120|	0.044|
+|16 |0.114|
+|32 |0.070|
+|64 |0.049|
+|96 |0.044|
+|120| 0.044|
 
 ## Summary
 
