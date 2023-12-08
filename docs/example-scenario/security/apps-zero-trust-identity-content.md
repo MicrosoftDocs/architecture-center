@@ -26,21 +26,14 @@ Steps 3 and 4 demonstrate an identity-based implementation of the Zero Trust pri
 
 ### Components
 
-- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory)
-provides critical functionality for your Zero Trust strategy. It enables strong authentication, a point of integration for device security, and the core of your user-centric policies to guarantee least-privileged access. Microsoft Entra Conditional Access provides the policy decision point for access to resources based on user identity, environment, device health, and risk, verified explicitly at the point of access.
-  - [Microsoft Entra application registration](/azure/active-directory/develop/app-objects-and-service-principals#application-registration).
-To delegate identity and access management functions to Microsoft Entra ID, an application must be registered with a Microsoft Entra tenant. When you register your application with Microsoft Entra ID, you create an identity configuration for your application that allows it to integrate with Microsoft Entra ID.
-  - [Microsoft Entra managed identities](/azure/active-directory/managed-identities-azure-resources/overview).
-Managed identities provide an automatically managed identity for applications to use when they connect to resources that support Microsoft Entra authentication. Applications can use managed identities to obtain Microsoft Entra tokens. You don't need to manage credentials.
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) provides critical functionality for your Zero Trust strategy. It enables strong authentication, a point of integration for device security, and the core of your user-centric policies to guarantee least-privileged access. Microsoft Entra Conditional Access provides the policy decision point for access to resources based on user identity, environment, device health, and risk, verified explicitly at the point of access.
+  - [Microsoft Entra application registration](/azure/active-directory/develop/app-objects-and-service-principals#application-registration). To delegate identity and access management functions to Microsoft Entra ID, an application must be registered with a Microsoft Entra tenant. When you register your application with Microsoft Entra ID, you create an identity configuration for your application that allows it to integrate with Microsoft Entra ID.
+  - [Microsoft Entra managed identities](/azure/active-directory/managed-identities-azure-resources/overview). Managed identities provide an automatically managed identity for applications to use when they connect to resources that support Microsoft Entra authentication. Applications can use managed identities to obtain Microsoft Entra tokens. You don't need to manage credentials.
 - [API Management](https://azure.microsoft.com/services/api-management) is a hybrid, multicloud management platform for APIs.
-  - [API Management developer portal](/azure/api-management/api-management-howto-developer-portal). 
-The developer portal is a website that provides the documentation of your APIs. On the portal, API consumers can discover your APIs, learn how to use them, request access, and try them out.
-  - [API Management gateway](/azure/api-management/api-management-key-concepts#api-gateway).
-All requests from client applications first reach the API gateway, which then forwards them to appropriate back-end services. The API gateway acts as a facade to the back-end services, allowing you to abstract API implementations and evolve back-end architecture without affecting API consumers. The gateway enables consistent configuration of routing, security, throttling, caching, and observability.
-- [Azure Functions](https://azure.microsoft.com/services/functions)
-is a serverless solution that enables you to write less code, maintain less infrastructure, and save money. The cloud infrastructure provides all the up-to-date resources needed to keep your applications running so you don't have to deploy and maintain servers.
-- [SQL Database](https://azure.microsoft.com/products/azure-sql/database)
-is an always-up-to-date, fully managed relational database service built for the cloud.
+  - [API Management developer portal](/azure/api-management/api-management-howto-developer-portal). The developer portal is a website that provides the documentation of your APIs. On the portal, API consumers can discover your APIs, learn how to use them, request access, and try them out.
+  - [API Management gateway](/azure/api-management/api-management-key-concepts#api-gateway). All requests from client applications first reach the API gateway, which then forwards them to appropriate back-end services. The API gateway acts as a facade to the back-end services, allowing you to abstract API implementations and evolve back-end architecture without affecting API consumers. The gateway enables consistent configuration of routing, security, throttling, caching, and observability.
+- [Azure Functions](https://azure.microsoft.com/services/functions) is a serverless solution that enables you to write less code, maintain less infrastructure, and save money. The cloud infrastructure provides all the up-to-date resources needed to keep your applications running so you don't have to deploy and maintain servers.
+- [SQL Database](https://azure.microsoft.com/products/azure-sql/database) is an always-up-to-date, fully managed relational database service built for the cloud.
 
 ### Alternatives
 
