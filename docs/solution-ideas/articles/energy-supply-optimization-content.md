@@ -10,12 +10,12 @@ This solution provides an Azure-based smart solution, applying external open-sou
 
 ### Dataflow
 
-  1. The sample data is streamed by newly deployed Azure Web Jobs. The web job uses resource-related data from Azure SQL to generate the simulated data.
-  1. The data simulator feeds this simulated data into the Azure Storage and writes message in Storage Queue that will be used in the rest of the solution flow.
-  1. Another Web Job monitors the storage queue and initiate an Azure Batch job once message in the queue is available.
-  1. The Azure Batch service together with Data Science Virtual Machines is used to optimize the energy supply from a particular resource type given the inputs received.
-  1. Azure SQL Database is used to store the optimization results received from the Azure Batch service. These results are then consumed in the Power BI dashboard.
-  1. Finally, Power BI is used for results visualization.
+1. The sample data is streamed by newly deployed Azure Web Jobs. The web job uses resource-related data from Azure SQL to generate the simulated data.
+1. The data simulator feeds this simulated data into the Azure Storage and writes message in Storage Queue that will be used in the rest of the solution flow.
+1. Another Web Job monitors the storage queue and initiate an Azure Batch job once message in the queue is available.
+1. The Azure Batch service together with Data Science Virtual Machines is used to optimize the energy supply from a particular resource type given the inputs received.
+1. Azure SQL Database is used to store the optimization results received from the Azure Batch service. These results are then consumed in the Power BI dashboard.
+1. Finally, Power BI is used for results visualization.
   
 ### Components
 

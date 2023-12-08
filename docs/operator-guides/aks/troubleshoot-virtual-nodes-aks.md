@@ -53,9 +53,9 @@ Virtual nodes use a SKU that requires subnet connectivity. Virtual nodes use tha
 #### Azure role-based access control
 
 As with most operations in AKS that involve attaching nodes to subnets, virtual nodes are no exception. The cluster's identity must have a base set of permissions over the subnet in which the Azure Container Instances are joined. These rights are often provided as the built-in Network Contributor role at the virtual network level, but sometimes permissions are instead handled at the subnet level. The subnet that the Container Instances nodes are joining needs either the built-in Network Contributor role assigned or a custom role defined consisting of the following permissions.
-        
-  * `Microsoft.Network/virtualNetworks/subnets/join/action`
-  * `Microsoft.Network/virtualNetworks/subnets/read`
+
+* `Microsoft.Network/virtualNetworks/subnets/join/action`
+* `Microsoft.Network/virtualNetworks/subnets/read`
 
 These permissions are the same for the [Azure Container Networking Interface prerequisites](/azure/aks/configure-azure-cni#prerequisites).
 
