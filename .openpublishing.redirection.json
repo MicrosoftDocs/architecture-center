@@ -3764,6 +3764,26 @@
       "source_path": "docs/data-guide/big-data/index.yml",
       "redirect_url": "/azure/architecture/databases/guide/big-data-architectures",
       "redirect_document_id": true
-    }
+    },
+    {
+      "source_path": "docs/data-science-process/explore-data-sql-server.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/explore-data-hive-tables.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/select-features.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/create-features-sql-server.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    }           
   ]
 }
