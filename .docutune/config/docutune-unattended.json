@@ -5,17 +5,17 @@
     "maxInFlightFiles": 200
   },
   "pullRequest": {
-    "title": "[BULK] [DocuTune-Remediation] - Scheduled execution to fix known issues in AAC",
+    "title": "[DO NOT MERGE] [PLEASE IGNORE] [DocuTune-Remediation] - Test of DocuTune scheduled execution in AAC",
     "batchSize": 0,
     "maxBatches": 100,
     "body": "",
     "newBranchNamePrefix": "",
     "headRemote": "origin",
-    "draft": false,
+    "draft": true,
     "requestReview": true,
     "signOff": false,
     "properties": {
-      "pointOfContact": "@RobBagby"
+      "pointOfContact": "@BryanLa"
     },
     "sleepInterval": 15
   },
