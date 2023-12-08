@@ -139,7 +139,7 @@ The core concept of AI is the use of algorithms to analyze data and generate mod
 
 - [Introduction to machine learning with Python and Azure Notebooks](/training/paths/intro-to-ml-with-python/)
 
-- [scikit-learn.](https://scikit-learn.org/stable/) An open-source ML library for Python
+- [`scikit-learn`.](https://scikit-learn.org/stable/) An open-source ML library for Python
 
 - [PyTorch.](https://pytorch.org/) An open-source Python library with a rich ecosystem that can be used for deep learning, computer vision, natural language processing, and more
 
