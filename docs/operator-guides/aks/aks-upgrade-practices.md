@@ -44,7 +44,7 @@ There are three different types of updates for AKS, each building on one another
 
 - In-place upgrades (both node and cluster) affect the performance of your Kubernetes environment while the upgrade is in progress.  This effect can be minimized through proper configuration of pod disruption budgets, node surge configuration, and proper planning.
 - Utilizing a Blue/Green update strategy instead of in-place eliminates any impact to cluster performance, but brings extra cost and complexity.
-- Regardless of your upgrade/patching strategy it's important to have a robust testing/validation process for your cluster.  Patch/Upgrade lower environments first, and perform a post maintenance validation where you check [cluster](azure/architecture/operator-guides/aks/aks-triage-cluster-health), [node](/azure/architecture/operator-guides/aks/aks-triage-node-health), [deployment](/azure/architecture/operator-guides/aks/aks-triage-deployment), and application health.
+- Regardless of your upgrade/patching strategy it's important to have a robust testing/validation process for your cluster.  Patch/Upgrade lower environments first, and perform a post maintenance validation where you check [cluster](/azure/architecture/operator-guides/aks/aks-triage-cluster-health), [node](/azure/architecture/operator-guides/aks/aks-triage-node-health), [deployment](/azure/architecture/operator-guides/aks/aks-triage-deployment), and application health.
 
 #### AKS workload best practices
 
