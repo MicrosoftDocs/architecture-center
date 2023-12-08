@@ -34,7 +34,7 @@ There are three different types of updates for AKS, each building on one another
 
 - **Nodes OS security patches *(Linux only)*** For Linux nodes both [Canonical Ubuntu](https://ubuntu.com/server) and [Azure Linux](/azure/azure-linux/intro-azure-linux) publish nightly security patches to the operating system.  These patches are included in the weekly updates to node images.
 
-- **Weekly updates to the node images:** AKS provides weekly updates to the node images, these updates include a rollup of the latest OS and AKS security patches, bug fixes and enhancements.  Node updates don't change the version of Kubernetes in use and are formatted by date (`202311.07.0`) for Linux and for windows by windows server os build and date (`20348.2113.231115`)  For more information, see [AKS release tracker](https://releases.aks.azure.com/).
+- **Weekly updates to the node images:** AKS provides weekly updates to the node images, these updates include a rollup of the latest OS and AKS security patches, bug fixes and enhancements. Node updates don't change the version of Kubernetes in use and are formatted by date (`202311.07.0`) for Linux and for Windows by Windows Server OS build and date (`20348.2113.231115`). For more information, see the [AKS release tracker](https://releases.aks.azure.com/).
 
 - **Quarterly Kubernetes releases:** AKS follows a quarterly update schedule for [Kubernetes releases](https://kubernetes.io/releases/release/#the-release-cycle). These updates allow AKS users to take advantage of the latest Kubernetes features, enhancements, and include security patches and node image enhancements. For more information, see [Supported Kubernetes versions in Azure Kubernetes Service (AKS)](/azure/aks/supported-kubernetes-versions).
 
@@ -68,11 +68,11 @@ Microsoft provides patches and new images for AKS nodes weekly. An updated node 
 When a node image is updated a `cordon and drain` action is triggered on the cluster.
 
 - An additional node is added to the node pool (this is governed by the surge value)
-- One of the existing nodes is `cordoned` (configured to not schedule pods) and `drained` (have its pods removed and rescheduled to other nodes)
-- Once the node is fully drained it's removed from the node pool.  (The node added by the surge replaces it)
-- This process is repeated for each node to be updated in the node pool
+- One of the existing nodes is _cordoned_ (configured to not schedule pods) and _drained_ (have its pods removed and rescheduled to other nodes).
+- Once the node is fully drained it's removed from the node pool. The updated node added by the surge has replaced it.
+- This process is repeated for each node to be updated in the node pool.
 
-A similar process occurs during a cluster upgrade
+A similar process occurs during a cluster upgrade.
 
 #### Node Image Upgrades via Automatic Upgrades
 
@@ -80,48 +80,43 @@ By default newly created clusters are automatically opted in to the `Node Image`
 Other available channels include:
 
 - `None` (No updates automatically applied)
-- `Unmanaged` (Ubuntu/Azure Linux updates applied by the OS on a nightly basis, reboots managed externally)
+- `Unmanaged` (Ubuntu/Azure Linux updates applied by the OS on a nightly basis, reboots must be managed externally.)
 - `Security Patch` (Nightly security patches are deployed as an OS image update)
-- `Node Image` (Weekly AKS patches, and Nightly security patches combined)
+- `Node Image` (Weekly AKS patches and nightly security patches combined)
 
-If you chose the  `Unmanaged` update channel, it's important the reboot process is managed using a tool such as [Kured](https://kured.dev/docs/) to support graceful maintenance events.  If you chose the `Security Patch` update channel, updates can be applied as frequently as nightly, this patch level requires the VHDs to be stored within your resource group that incurs a nominal charge.  Additionally, you need to combine the `Security Patch` configuration with a `Node Image` configuration to provide a complete node patching strategy.
+If you chose the `Unmanaged` update channel, it's important the reboot process is managed using a tool such as [Kured](https://kured.dev/docs/) to support graceful maintenance events. If you chose the `Security Patch` update channel, updates can be applied as frequently as nightly, this patch level requires the VHDs to be stored within your resource group that incurs a nominal charge.  Additionally, you need to combine the `Security Patch` configuration with a `Node Image` configuration to provide a complete node patching strategy.
 
-As a best practice use the `Node Image` update channel and configure a `aksManagedNodeOSUpgradeSchedule ` maintenance window targeted to a time when the cluster is under nonpeak usage.
-You can review the guide here [maintenance window](/azure/aks/planned-maintenance/#creating-a-maintenance-window) for attributes to configure the cluster maintenance window.  Key attributes to set:
+As a best practice use the `Node Image` update channel and configure an `aksManagedNodeOSUpgradeSchedule` maintenance window targeted to a time when the cluster is under nonpeak usage.
+You can review the guide here [maintenance window](/azure/aks/planned-maintenance/#creating-a-maintenance-window) for attributes to configure the cluster maintenance window. Key attributes to set are:
 
-- `name` - Use aksManagedNodeOSUpgradeSchedule for NodeOS updates
+- `name` - Use `aksManagedNodeOSUpgradeSchedule` for node OS updates
 - `utcOffset` - To configure timezone for maintenance
 - `startTime` - Time the maintenance window begins
 - `dayofWeek` - Days of week for window to be applicable for example `Saturday`
 - `schedule` - Set the frequency of the window for Node Image updates recommend `weekly`
 - `durationHours` - Should be a minimum of four hours
 
-Example configuration with [Azure CLI](/azure/aks/maintenanceconfiguration?view=azure-cli-latest#az-aks-maintenanceconfiguration-add) (Weekly maintenance window running at 8pm EST on Saturdays)
+See an example [maintenance window configuration with Azure CLI](/azure/aks/planned-maintenance#add-a-maintenance-window-configuration-with-azure-cli). It sets a weekly maintenance window running at 8pm US Eastern Time on Saturdays.
 
 ```azurecli
-az aks maintenanceconfiguration add -g myResourceGroup --cluster-name myAKSCluster --name aksManagedNodeOSUpgradeSchedule --utcOffset -05:00 --start-time 20:00 --day-of-week Saturday --schedule-type weekly --duration 4
+az aks maintenanceconfiguration add -g <ResourceGroupName> --cluster-name <AKSClusterName> --name aksManagedNodeOSUpgradeSchedule --utcOffset -05:00 --start-time 20:00 --day-of-week Saturday --schedule-type weekly --duration 4
 ```
 
-Configuration can also be deployed via [json](/azure/aks/planned-maintenance#add-a-maintenance-window-configuration-with-a-json-file)
+This configuration ideally would be deployed as part of your infrastructure as code deployment of the cluster.
+
+You can check for configured maintenance windows via the Azure CLI.
 
 ```azurecli
-az aks maintenanceconfiguration add -g MyResourceGroup --cluster-name myAKSCluster -n aksManagedNodeOSUpgradeSchedule --config-file ./aksManagedNodeOSUpgradeSchedule.json
+az aks maintenanceconfiguration list -g <ResourceGroupName> --cluster-name <AKSClusterName>
 ```
 
-You can check for configured maintenance windows via Azure cli
+You can check the details of a specific maintenance window via Azure CLI.
 
 ```azurecli
-az aks maintenanceconfiguration list -g MyResourceGroup --cluster-name myAKSCluster
+az aks maintenanceconfiguration show -g <ResourceGroupName> --cluster-name <AKSClusterName> --name aksManagedNodeOSUpgradeSchedule
 ```
 
-You can check the details of a maintenance window via Azure cli (--name refers to the maintenance configuration name)
-
-```azurecli
-az aks maintenanceconfiguration show --resource-group myResourceGroup --cluster-name myAKSCluster --name aksManagedNodeOSUpgradeSchedule
-```
-
-If a cluster maintenance window isn't configured node image updates occur on a rolling basis bi-weekly.
-AKS maintenance windows are on a "best effort" basis, and aren't guaranteed to occur within the window
+If a cluster maintenance window isn't configured node image updates occur on a rolling basis bi-weekly. AKS maintenance windows are on a "best effort" basis and aren't guaranteed to occur within the window.
 
 #### Node Image Upgrades Alternate Methods
 
