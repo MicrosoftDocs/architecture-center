@@ -91,9 +91,9 @@ When you create a new workspace, it automatically creates the following Azure re
 
 This solution fits scenarios in which a customer uses an MLOps solution to deploy and maintain machine learning models in a more secure environment. Customers can come from various industries, such as manufacturing, telecommunications, retail, healthcare, and so on. For example:
 
-  - A telecommunications carrier helps protect a customer's pictures, data, and machine learning models in its video monitoring system for retail stores. 
+- A telecommunications carrier helps protect a customer's pictures, data, and machine learning models in its video monitoring system for retail stores. 
 
-  - An engine manufacturer needs a more secure solution to help protect the data and machine learning models of its factories and products for its system that uses computer vision to detect defects in parts. 
+- An engine manufacturer needs a more secure solution to help protect the data and machine learning models of its factories and products for its system that uses computer vision to detect defects in parts. 
 
 The MLOps solutions for these scenarios and others might use Azure Machine Learning workspaces, Azure Blob Storage, Azure Kubernetes Service, Container Registry, and other Azure services.
 

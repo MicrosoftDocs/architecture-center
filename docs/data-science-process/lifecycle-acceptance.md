@@ -22,11 +22,11 @@ categories:
 
 This article outlines the goals, tasks, and deliverables associated with the customer acceptance stage of the Team Data Science Process (TDSP). This process provides a recommended lifecycle that you can use to structure your data-science projects. The lifecycle outlines the major stages that projects typically execute, often iteratively:
 
-   1. **Business understanding**
-   2. **Data acquisition and understanding**
-   3. **Modeling**
-   4. **Deployment**
-   5. **Customer acceptance**
+1. **Business understanding**
+2. **Data acquisition and understanding**
+3. **Modeling**
+4. **Deployment**
+5. **Customer acceptance**
 
 Here is a visual representation of the TDSP lifecycle:
 
@@ -38,8 +38,8 @@ Here is a visual representation of the TDSP lifecycle:
 ## How to do it
 There are two main tasks addressed in this stage:
 
-   * **System validation**: Confirm that the deployed model and pipeline meet the customer's needs.
-   * **Project hand-off**: Hand the project off to the entity that's going to run the system in production.
+* **System validation**: Confirm that the deployed model and pipeline meet the customer's needs.
+* **Project hand-off**: Hand the project off to the entity that's going to run the system in production.
 
 The customer should validate that the system meets their business needs and that it answers the questions with acceptable accuracy to deploy the system to production for use by their client's application. All the documentation is finalized and reviewed. The project is handed-off to the entity responsible for operations. This entity might be, for example, an IT or customer data-science team or an agent of the customer that's responsible for running the system in production.
 
@@ -60,10 +60,10 @@ Principal author:
 
 Here are links to each step in the lifecycle of the TDSP:
 
-   1. [Business understanding](lifecycle-business-understanding.md)
-   2. [Data acquisition and understanding](lifecycle-data.md)
-   3. [Modeling](lifecycle-modeling.md)
-   4. [Deployment](lifecycle-deployment.md)
-   5. [Customer acceptance](lifecycle-acceptance.md)
+1. [Business understanding](lifecycle-business-understanding.md)
+2. [Data acquisition and understanding](lifecycle-data.md)
+3. [Modeling](lifecycle-modeling.md)
+4. [Deployment](lifecycle-deployment.md)
+5. [Customer acceptance](lifecycle-acceptance.md)
 
 For Azure, we recommend applying TDSP using Azure Machine Learning:  for an overview of Azure Machine Learning see [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning).

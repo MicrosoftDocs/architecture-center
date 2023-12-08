@@ -22,11 +22,11 @@ categories:
 
 This article outlines the goals, tasks, and deliverables associated with the modeling stage of the Team Data Science Process (TDSP). This process provides a recommended lifecycle that you can use to structure your data-science projects. The lifecycle outlines the major stages that projects typically execute, often iteratively:
 
-   1. **Business understanding**
-   2. **Data acquisition and understanding**
-   3. **Modeling**
-   4. **Deployment**
-   5. **Customer acceptance**
+1. **Business understanding**
+2. **Data acquisition and understanding**
+3. **Modeling**
+4. **Deployment**
+5. **Customer acceptance**
 
 Here is a visual representation of the TDSP lifecycle:
 
@@ -40,9 +40,9 @@ Here is a visual representation of the TDSP lifecycle:
 ## How to do it
 There are three main tasks addressed in this stage:
 
-  * **Feature engineering**: Create data features from the raw data to facilitate model training.
-  * **Model training**: Find the model that answers the question most accurately by comparing their success metrics.
-  * Determine if your model is **suitable for production.**
+* **Feature engineering**: Create data features from the raw data to facilitate model training.
+* **Model training**: Find the model that answers the question most accurately by comparing their success metrics.
+* Determine if your model is **suitable for production.**
 
 ### Feature engineering
 Feature engineering involves the inclusion, aggregation, and transformation of raw variables to create the features used in the analysis. If you want insight into what is driving a model, then you need to understand how the features relate to each other and how the machine-learning algorithms are to use those features.
@@ -54,10 +54,10 @@ Depending on the type of question that you're trying to answer, there are many m
 
 The process for model training includes the following steps:
 
-   * **Split the input data** randomly for modeling into a training data set and a test data set.
-   * **Build the models** by using the training data set.
-   * **Evaluate** the training and the test data set. Use a series of competing machine-learning algorithms along with the various associated tuning parameters (known as a *parameter sweep*) that are geared toward answering the question of interest with the current data.
-   * **Determine the "best" solution** to answer the question by comparing the success metrics between alternative methods.
+* **Split the input data** randomly for modeling into a training data set and a test data set.
+* **Build the models** by using the training data set.
+* **Evaluate** the training and the test data set. Use a series of competing machine-learning algorithms along with the various associated tuning parameters (known as a *parameter sweep*) that are geared toward answering the question of interest with the current data.
+* **Determine the "best" solution** to answer the question by comparing the success metrics between alternative methods.
 
 See [Train models with Azure Machine Learning](/azure/machine-learning/concept-train-machine-learning-model) for options on training models in Azure Machine Learning.
 
@@ -69,21 +69,21 @@ See [Train models with Azure Machine Learning](/azure/machine-learning/concept-t
 ## Model Evaluation
 After training, the data scientist focuses next on model evaluation.
 
-   * **Checkpoint decision**: Evaluate whether the model performs sufficiently for production. Some key questions to ask are:
-     * Does the model answer the question with sufficient confidence given the test data?
-     * Should you try any alternative approaches? 
-     * Should you collect additional data, do more feature engineering, or experiment with other algorithms?
-   * **Interpreting the Model**: Use [the Azure Machine Learning Python SDK](/azure/machine-learning/how-to-machine-learning-interpretability-aml) to perform the following tasks:
-      * Explain the entire model behavior or individual predictions on your personal machine locally.
-      * Enable interpretability techniques for engineered features.
-      * Explain the behavior for the entire model and individual predictions in Azure.
-      * Upload explanations to Azure Machine Learning Run History.
-      * Use a visualization dashboard to interact with your model explanations, both in a Jupyter notebook and in the Azure Machine Learning workspace.
-      * Deploy a scoring explainer alongside your model to observe explanations during inferencing.
-   * **Assessing Fairness**: The [Fairlearn open-source Python package with Azure Machine Learning](/azure/machine-learning/how-to-machine-learning-fairness-aml) performs the following tasks:
-      * Assess the fairness of your model predictions. This process will help you learn more about fairness in machine learning.
-      * Upload, list, and download fairness assessment insights to/from Azure Machine Learning studio.  
-      * See the fairness assessment dashboard in Azure Machine Learning studio to interact with your model(s)' fairness insights. 
+* **Checkpoint decision**: Evaluate whether the model performs sufficiently for production. Some key questions to ask are:
+  * Does the model answer the question with sufficient confidence given the test data?
+  * Should you try any alternative approaches? 
+  * Should you collect additional data, do more feature engineering, or experiment with other algorithms?
+* **Interpreting the Model**: Use [the Azure Machine Learning Python SDK](/azure/machine-learning/how-to-machine-learning-interpretability-aml) to perform the following tasks:
+   * Explain the entire model behavior or individual predictions on your personal machine locally.
+   * Enable interpretability techniques for engineered features.
+   * Explain the behavior for the entire model and individual predictions in Azure.
+   * Upload explanations to Azure Machine Learning Run History.
+   * Use a visualization dashboard to interact with your model explanations, both in a Jupyter notebook and in the Azure Machine Learning workspace.
+   * Deploy a scoring explainer alongside your model to observe explanations during inferencing.
+* **Assessing Fairness**: The [Fairlearn open-source Python package with Azure Machine Learning](/azure/machine-learning/how-to-machine-learning-fairness-aml) performs the following tasks:
+   * Assess the fairness of your model predictions. This process will help you learn more about fairness in machine learning.
+   * Upload, list, and download fairness assessment insights to/from Azure Machine Learning studio.  
+   * See the fairness assessment dashboard in Azure Machine Learning studio to interact with your model(s)' fairness insights. 
 
 ## Contributors
 
@@ -91,7 +91,7 @@ After training, the data scientist focuses next on model evaluation.
 
 Principal author:
 
- - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+- [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -99,8 +99,8 @@ Principal author:
 
 Here are links to each step in the lifecycle of the TDSP:
 
-   1. [Business understanding](lifecycle-business-understanding.md)
-   2. [Data acquisition and understanding](lifecycle-data.md)
-   3. [Modeling](lifecycle-modeling.md)
-   4. [Deployment](lifecycle-deployment.md)
-   5. [Customer acceptance](lifecycle-acceptance.md)
+1. [Business understanding](lifecycle-business-understanding.md)
+2. [Data acquisition and understanding](lifecycle-data.md)
+3. [Modeling](lifecycle-modeling.md)
+4. [Deployment](lifecycle-deployment.md)
+5. [Customer acceptance](lifecycle-acceptance.md)
