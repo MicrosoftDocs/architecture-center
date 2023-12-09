@@ -25,13 +25,14 @@ This solution uses an on-premises instance of Qlik to replicate on-premises data
      - Azure SQL Database
      - Azure SQL Managed Instance
      - Azure Database for PostgreSQL
-     - Azure Database for MariaDB
      - Azure Database for MySQL
+     - Azure Cosmos DB
 
      There are many factors to consider when making a choice: type of workload, cross-database queries, two-phase commit requirements, ability to access the file system, amount of data, required throughput, latency, and so on.
 
-   - **Azure non-relational database services:** Azure Cosmos DB, a NoSQL database, provides quick response, automatic scalability, and guaranteed speed at any scale.
-   - **Azure Synapse Analytics:** Synapse Analytics is an analytics service that brings together data integration, enterprise data warehousing, and big data analytics. With it, you can query data by using either serverless or dedicated resources at scale.
+   - **Azure non-relational database services**: Azure Cosmos DB, a NoSQL database, provides quick response, automatic scalability, and guaranteed speed at any scale.
+   - **Azure Synapse Analytics**: Synapse Analytics is an analytics service that brings together data integration, enterprise data warehousing, and big data analytics. With it, you can query data by using either serverless or dedicated resources at scale.
+   - **Microsoft Fabric**: Microsoft Fabric is an all-in-one analytics solution for enterprises. It covers everything from data movement to data science, Real-Time Analytics, and business intelligence. It offers a comprehensive suite of services, including data lake, data engineering, and data integration.
 
 ### Components
 
@@ -79,7 +80,7 @@ The [Qlik](https://www.qlik.com/microsoft) Data Integration platform includes Ql
 
 ### Potential use cases
 
-This solution may be appropriate for:
+This solution might be appropriate for:
 
 - Hybrid environments that require replication of data changes from a mainframe or midrange system to Azure databases.
 - Online database migration from Db2 to an Azure SQL database with little downtime.
@@ -87,18 +88,18 @@ This solution may be appropriate for:
 
 ## Considerations
 
-Incorporate the following pillars of the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) for a highly available and secure system:
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-### Availability
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
 - Qlik Data Integration can be configured in a high-availability cluster.
 - The Azure database services support zone redundancy and can be designed to fail over to a secondary node in case of an outage or during a maintenance window.
 
-### Scalability
-
-Databricks, Data Lake Storage, and other Azure databases have auto-scaling capabilities. For more information, see [Autoscaling](../../best-practices/auto-scaling.md).
-
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 - ExpressRoute provides a private and efficient connection to Azure from on-premises, but you could instead use [site-to-site VPN](/azure/vpn-gateway/tutorial-site-to-site-portal).
 - Azure resources can be authenticated by using Microsoft Entra ID. Permissions can be managed by role-based access control (RBAC).
@@ -108,14 +109,35 @@ Databricks, Data Lake Storage, and other Azure databases have auto-scaling capab
   - Always-encrypted database.
 - For general guidance on designing secure solutions, see the [Azure Security Documentation](/azure/security).
 
-### Resiliency
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your implementation.
+
+### Operational excellence
+
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
 - You can combine Monitor's Application Insights and Log Analytics features to monitor the health of Azure resources. You can set alerts so that you can manage proactively.
 - For guidance on resiliency in Azure, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
-### Cost optimization
+### Performance efficiency
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution.
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+
+Databricks, Data Lake Storage, and other Azure databases have auto-scaling capabilities. For more information, see [Autoscaling](../../best-practices/auto-scaling.md).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+- [Nithish Aruldoss](https://www.linkedin.com/in/nithish-aruldoss-b4035b2b) | Engineering Architect
+- [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3/) | Principal Engineering Architecture Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

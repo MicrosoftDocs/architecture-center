@@ -1,12 +1,16 @@
 Online transaction processing (OLTP) systems interact directly with users and are the face of the business. With a dynamically adaptable infrastructure, businesses can realize and launch their products quickly to delight their users.
 
-With ever-evolving business needs and data, applications must produce and scale without creating infrastructure issues. This example workload shows how, using Azure platform as a service (PaaS) services, one can migrate a z/OS mainframe OLTP application to a secure, scalable, and highly available system in the cloud. Such a migration helps businesses in finance, health, insurance, and retail to minimize application delivery timelines, and it helps reduce the costs of running the applications.
+## Architecture
 
 The following diagram shows the architecture of the workload to be migrated, an OLTP system running on a z/OS mainframe:
 
 :::image type="content" source="media/ibm-zos-online-transaction-processing-on-zos.svg" alt-text="OLTP architecture on z/OS" lightbox="media/ibm-zos-online-transaction-processing-on-zos.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ibm-zos-online-transaction-processing-on-zos.vsdx) of this architecture.*
+
+### Workflow
+
+The following workflow corresponds to the above diagram:
 
 1. Users connect to the mainframe over TCP/IP using standard mainframe protocols like TN3270 and HTTPS.
 1. The transaction managers interact with the users and invoke the application to satisfy user requests.
@@ -15,16 +19,7 @@ The following diagram shows the architecture of the workload to be migrated, an 
 1. Application code uses storage capabilities of the data layer, typically DB2, IMS DB, or VSAM.
 1. Concurrently with transaction processing, other services provide authentication, security, management, monitoring, and reporting. These services interact with all other services in the system.
 
-In [Architecture](#architecture), we see how to migrate this architecture to Azure.
-
-## Potential use cases
-
-This architecture is ideal for OLTP workloads that have these characteristics:
-
-- They serve an international user base.
-- Their usage varies greatly over time, so they benefit from flexible scaling and usage-based pricing.
-
-## Architecture
+Here, we see how to migrate this architecture to Azure.
 
 :::image type="content" source="media/ibm-zos-online-transaction-processing-on-azure.svg" alt-text="Diagram that shows an architecture for migrating a z/OS OLTP workload." lightbox="media/ibm-zos-online-transaction-processing-on-azure.svg" border="false":::
 
@@ -46,6 +41,8 @@ This architecture is ideal for OLTP workloads that have these characteristics:
 1. Azure native services like Application Insights and Azure Monitor proactively monitor the health of the system. You can integrate the Monitor logs using an Azure dashboard.
 
 ### Components
+
+This architecture consists of several Azure cloud services and is divided into four categories of resources: networking and identity, application, storage, and monitoring. The services for each and their roles are described in the following sections.
 
 #### Networking and identity
 
@@ -84,38 +81,61 @@ This architecture is ideal for OLTP workloads that have these characteristics:
 
 #### Monitoring
 
-- [Azure Monitor](https://azure.microsoft.com/services/monitor) collects, analyzes, and acts on telemetry from your Azure and on-premises environments.
+- [Azure Monitor](https://azure.microsoft.com/services/monitor) collects, analyzes, and acts on personal data from your Azure and on-premises environments.
 - Log Analytics is a tool in the Azure portal used to query Monitor logs using a powerful query language. You can work with the results of your queries interactively or use them with other Azure Monitor features such as log query alerts or workbooks. For more information, see [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview).
-- Application Insights is a feature of Monitor that provides code-level monitoring of application usage, availability, and performance. It monitors the application, detects application anomalies such as mediocre performance and failures, and sends telemetry to the Azure portal. You can also use Application Insights for logging, distributed tracing, and custom application metrics.
-- Azure Monitor Alerts are a feature of Monitor. For more information, see [Create, view, and manage metric alerts using Azure Monitor](/azure/azure-monitor/alerts/alerts-metric)
+- Application Insights is a feature of Monitor that provides code-level monitoring of application usage, availability, and performance. It monitors the application, detects application anomalies such as mediocre performance and failures, and sends personal data to the Azure portal. You can also use Application Insights for logging, distributed tracing, and custom application metrics.
+- Azure Monitor Alerts are a feature of Monitor. For more information, see [Create, view, and manage metric alerts using Azure Monitor](/azure/azure-monitor/alerts/alerts-metric).
+
+## Scenario details
+
+With ever-evolving business needs and data, applications must produce and scale without creating infrastructure issues. This example workload shows how, using Azure platform as a service (PaaS) services, one can migrate a z/OS mainframe OLTP application to a secure, scalable, and highly available system in the cloud. Such a migration helps businesses in finance, health, insurance, and retail to minimize application delivery timelines, and it helps reduce the costs of running the applications.
+
+### Potential use cases
+
+This architecture is ideal for OLTP workloads that have these characteristics:
+
+- They serve an international user base.
+- Their usage varies greatly over time, so they benefit from flexible scaling and usage-based pricing.
 
 ## Considerations
 
-### Availability
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
 - This OLTP architecture can be deployed in multiple regions and can have a geo-replicated data layer.
-- The Azure database services support zone redundancy and can fail over to a secondary node in the event of an outage, or to allow for maintenance activities.
-
-### Scalability
-
-- This architecture uses Azure PaaS services like App Service, which has autoscaling capabilities.
-- For guidance on autoscaling in Azure, see [Autoscaling](../../best-practices/auto-scaling.md).
+- The Azure database services support zone redundancy and can fail over to a secondary node if an outage occurs, or to allow for maintenance activities.
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 - ExpressRoute creates a private connection to Azure from an on-premises environment. You can also use site-to-site VPN.
-- Microsoft Entra ID can authenticate resources and control access using Azure role-based access control (RBAC).
+- Microsoft Entra ID can authenticate resources and control access using Azure role-based access control.
 - Database services in Azure support various security options like data encryption at rest.
 - For general guidance on designing secure solutions, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-### Resiliency
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your implementation.
+
+### Operational excellence
+
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
 - This scenario uses Azure Monitor and Application Insights to monitor the health of the Azure resources. You can set alerts for proactive management.
 - For guidance on resiliency in Azure, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
-## Pricing
+### Performance efficiency
 
-- Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your implementation.
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+
+- This architecture uses Azure PaaS services like App Service, which has autoscaling capabilities.
+- For guidance on autoscaling in Azure, see [Autoscaling](../../best-practices/auto-scaling.md).
 
 ## Contributors
 
@@ -123,16 +143,19 @@ This architecture is ideal for OLTP workloads that have these characteristics:
 
 Principal author:
 
- - [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3/) | Principal Engineering Architecture Manager
+- [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3/) | Principal Engineering Architecture Manager
+- [Nithish Aruldoss](https://www.linkedin.com/in/nithish-aruldoss-b4035b2b) | Engineering Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-- For more information, please contact datasqlninja@microsoft.com.
+- For more information, contact datasqlninja@microsoft.com.
 - [Azure Database Migration Guides](/data-migration).
 
 ## Related resources
+
+See the following related architectures and related technical information:
 
 ### Related architectures
 
