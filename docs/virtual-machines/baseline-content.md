@@ -13,7 +13,7 @@ However, the primary focus of this architecture isn't the application. Instead, 
 
 |Architecture| Design decisions|Well-Architected Framework approaches|
 |---|---|---|
-|&#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-resources) <br> &#9642; [Supporting resources](#workload-supporting-resources) <br> &#9642; [User flows](#user-flows) <br> |&#9642; [VM design choices](#virtual-machine-design-choices)<br> &#9642; [Disks](#disks) <br> &#9642; [Networking](#network-layout) <br> &#9642; [Monitoring](#monitoring) <br>  &#9642; [Update management](#update-management) |  <br> &#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost Optimization](#cost-optimization)|
+|&#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-resources) <br> &#9642; [Supporting resources](#workload-supporting-resources) <br> &#9642; [User flows](#user-flows) <br> |&#9642; [VM design choices](#virtual-machine-design-choices)<br> &#9642; [Disks](#disks) <br> &#9642; [Networking](#network-layout) <br> &#9642; [Monitoring](#monitoring) <br> &#9642; [Update management](#update-management) |  <br> &#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost Optimization](#cost-optimization)|
 
 > [!TIP]
 > ![GitHub logo](../_images/github.svg) The best practices described in this architecture are demonstrated by a [**reference implementation**](https://github.com/mspnp/iaas-baseline).
@@ -31,7 +31,7 @@ For information about these resources, see Azure product documentation listed in
 
     **Azure Virtual Machine Scale Sets** in Flexible orchestration mode is used to provision and manage the virtual machines.
 
-    The sample application can be represented in two tiers, each requiring its own compute.  
+    The sample application can be represented in two tiers, each requiring its own compute.
 
     1. Frontend runs the web server and receives user requests.
     1. Backend runs runs another web server acting as a web API that exposes a single endpoint where the business logic is executed.
@@ -42,7 +42,7 @@ For information about these resources, see Azure product documentation listed in
 
 - **Azure Application Gateway** is the single point of ingress routing requests to the frontend servers. The selected SKU has integrated Azure Web Application Firewall (WAF) for added security.
 
-- **Azure internal Load Balancer** routes traffic from the frontend tier to the backend servers.  
+- **Azure internal Load Balancer** routes traffic from the frontend tier to the backend servers.
 
 - **Azure Load Balancer** Standard SKU provides outbound internet access to the VMs using three public IP addresses.
 
@@ -66,7 +66,7 @@ There are two types of users who interact with the workload resources: Workload 
 
 1. Application Gateway receives HTTPS traffic, decrypts data using an external certificate for WAF inspection, and re-encrypts it using the internal wildcard certificate for transport to the frontend.
 
-1. Application Gateway balances traffic across frontend VMs and connects to a  frontend VM.
+1. Application Gateway balances traffic across frontend VMs and connects to a frontend VM.
 
 1. The selected frontend VM communicates to a backend VM by using the private IP address of the Load Balancer, not the IP of any individual VM.
 
@@ -220,7 +220,7 @@ Azure Log Analytics workspace is the recommended monitoring data sink used to co
 
 This image shows the monitoring stack for the baseline with components for collecting data from infrastructure and application, data sinks, and various consumption tools for analysis and visualization. The implementation deploys some components, such as Application Insights, VM Boot Diagnostics, Azure Log Analytics. Other components are depicted to showcase the extensibility options, such as Dashboards, Alerts.
 
-:::image type="content" source="./media/baseline-monitoring.svg" alt-text="Baseline monitoring data flow  diagram" lightbox="./media/baseline-monitoring.png":::
+:::image type="content" source="./media/baseline-monitoring.svg" alt-text="Baseline monitoring data flow diagram" lightbox="./media/baseline-monitoring.png":::
 
 
 ### Infrastructure-level monitoring
@@ -322,7 +322,7 @@ Because there's no application deployed, resiliency in application code is beyon
 
 ##### Prioritize the reliability assurances per user flow
 
-In most designs, there are multiple user flows, each with its own set of business requirements. Not all these flows require the highest level of assurances. Segmentation is recommended as a reliability strategy. Each segment can be managed independently, ensuring one segment doesn't impact others and the right level of resiliency in each tier. This approach also makes the system flexible.  
+In most designs, there are multiple user flows, each with its own set of business requirements. Not all these flows require the highest level of assurances. Segmentation is recommended as a reliability strategy. Each segment can be managed independently, ensuring one segment doesn't impact others and the right level of resiliency in each tier. This approach also makes the system flexible. 
 
 In this architecture, segmentation is implemented by application tiers. Separate scale sets are provisioned for the frontend and backend tiers. This separation enables independent scaling of each tier, allowing for implementation of design patterns based on their specific requirements, among other benefits.
 
@@ -388,7 +388,7 @@ This architecture uses zone-redundancy for several components. Each zone is made
 
     Consider a scenario where there are three Availability Zones. If you have three instances, each instance is allocated to a different Availability Zone and placed in a different Fault Domain. Azure guarantees that only one Fault Domain is updated at a time in each Availability Zone. However, there could be a situation all three Fault Domains hosting your VMs across the three Availability Zones are updated simultaneously. All zones and domains are impacted. Having at least two instances in each zone provides a buffer during upgrades.
 
-- Managed disks can only be attached to a VM in the same region. Their availability typically impacts the availability of the VM. For single-region deployments, disks can be configured for redundancy to withstand zonal failures. In this architecture, data disks are configured ZRS on the backend VMs. It requires a recovery strategy to take advantage of Availability Zones. Recovery strategy is to redeploy the solution. Ideally pre-provision compute in alternate Availability Zones ready to recover from a zonal failure.    
+- Managed disks can only be attached to a VM in the same region. Their availability typically impacts the availability of the VM. For single-region deployments, disks can be configured for redundancy to withstand zonal failures. In this architecture, data disks are configured ZRS on the backend VMs. It requires a recovery strategy to take advantage of Availability Zones. Recovery strategy is to redeploy the solution. Ideally pre-provision compute in alternate Availability Zones ready to recover from a zonal failure. 
 
 - A zone-redundant Application Gateway or Standard Load Balancer can route traffic to VMs across zones using a single IP address, ensuring continuity even in the event of zone failures. These services use health probes to check VM availability. As long as one zone in the region remains operational, routing continues despite potential failures in other zones. However, inter-zone routing may have higher latency compared to intra-zone routing.
 
@@ -448,19 +448,19 @@ The baseline architecture uses user-assigned managed identities. These identitie
 
 - **Ingress traffic**. The workload VMs aren't directly exposed to the public internet. Each VM has a private IP address. Workload users connect using the public IP address of Azure Application Gateway.
 
-    More security is provided through [Web Application Firewall](/azure/application-gateway/waf-overview) that's integrated with Application Gateway. It has rules that _inspect inbound traffic_ and can take an appropriate action. WAF tracks Open Web Application Security Project (OWASP) vulnerabilities preventing known attacks.  
+    More security is provided through [Web Application Firewall](/azure/application-gateway/waf-overview) that's integrated with Application Gateway. It has rules that _inspect inbound traffic_ and can take an appropriate action. WAF tracks Open Web Application Security Project (OWASP) vulnerabilities preventing known attacks.
 
 - **Egress traffic**. There are no controls on outbound traffic besides the outbound NSG rules on the virtual machine subnets. It's highly recommended that all outbound internet traffic flows through a single firewall. This firewall is usually a central service provided by organization. That use case is shown in [Virtual machine baseline architecture in an Azure landing zone](./baseline-landing-zone.yml).
 
 - **East-west traffic**. Traffic flow between the subnets is restricted by applying granular security rules.
 
-    [Network security groups (NSGs)](/azure/virtual-network/network-security-groups-overview) are placed to restrict traffic between subnets based on parameters such as IP address range, ports, and protocols. [Application security groups (ASG)](/azure/virtual-network/application-security-groups) are placed on frontend and backend VMs. They're used with NSGs to filter traffic to and from the VMs.  
+    [Network security groups (NSGs)](/azure/virtual-network/network-security-groups-overview) are placed to restrict traffic between subnets based on parameters such as IP address range, ports, and protocols. [Application security groups (ASG)](/azure/virtual-network/application-security-groups) are placed on frontend and backend VMs. They're used with NSGs to filter traffic to and from the VMs.
 
 - **Operational traffic**. It's recommended that secure operational access to workload is provided through Azure Bastion, which removes the need for public IP. In this architecture, that communication is over SSH that's supported by both Windows and Linux VMs. Microsoft Entra ID is integrated with SSH for both types of VMs by using the corresponding VM extension. That integration allows operator's identity to be authenticated and authorized through Microsoft Entra ID.
 
-    Alternatively, use a separate VM as a jump box, deployed to its own subnet, where you can install your choice of admin and troubleshooting tools. The operator accesses the jump box through the Bastion host. Then, sign in to the VMs behind the load balancer from the jump box.  
+    Alternatively, use a separate VM as a jump box, deployed to its own subnet, where you can install your choice of admin and troubleshooting tools. The operator accesses the jump box through the Bastion host. Then, sign in to the VMs behind the load balancer from the jump box.
 
-    In this architecture, operational traffic is protected using NSG rules to restrict traffic and [just-in-time (JIT) VM access](/azure/defender-for-cloud/just-in-time-access-overview) is enabled on the VMs. This feature of Microsoft Defender for Cloud, allows temporary inbound access to selected ports.   
+    In this architecture, operational traffic is protected using NSG rules to restrict traffic and [just-in-time (JIT) VM access](/azure/defender-for-cloud/just-in-time-access-overview) is enabled on the VMs. This feature of Microsoft Defender for Cloud, allows temporary inbound access to selected ports. 
    
     For enhanced security, use [Microsoft Entra Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure). PIM is a service in Microsoft Entra ID that enables you to manage, control, and monitor access to important resources in your organization. PIM provides time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions on resources that you care about.
 
@@ -496,7 +496,7 @@ The VMs use the [Azure Key Vault VM extension](/azure/virtual-machines/extension
 
 ## Cost Optimization
 
-Workload requirements must be fulfilled keeping in mind the cost constraints. This section describes  some options for optimizing costs. The strategies used in architecture are based on the [Cost Optimization design review checklist given in Azure Well-Architected Framework](/azure/well-architected/cost-optimization/checklist). The sections are annotated with recommendations from that checklist.
+Workload requirements must be fulfilled keeping in mind the cost constraints. This section describes some options for optimizing costs. The strategies used in architecture are based on the [Cost Optimization design review checklist given in Azure Well-Architected Framework](/azure/well-architected/cost-optimization/checklist). The sections are annotated with recommendations from that checklist.
 
 ##### Component cost
 

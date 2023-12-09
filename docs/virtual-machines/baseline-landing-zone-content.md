@@ -8,10 +8,6 @@ In this use case, the organization expects the **VM-based workload to utilize fe
 >
 > We highly recommend that you understand the concept of [**Azure landing zones**](/azure/cloud-adoption-framework/ready/landing-zone/). 
 
-This architecture can be used for these scenarios:
-
-
-
 ## Article layout
 
 To meet the organizational requirements, there are changes in the **baseline architecture** and responsibilities of the workload team.
@@ -79,12 +75,12 @@ In a landing zone context, **workload teams must provide their specific requirem
 
 - **Platform team**
 
-    The platform team assigns an appropriate management group based on the workload's business criticality and technical requirements, such as whether it will be exposed to the internet. The configuration of these management groups is determined by the organization and implemented by the platform team. 
+    The platform team assigns an appropriate management group based on the workload's business criticality and technical requirements, such as whether it will be exposed to the internet. The configuration of these management groups is determined by the organization and implemented by the platform team. Given the application use cases for this architecture, these management groups can be considered:  
 
     - **Private applications** such as internal line-of-business applications or commercial off-the-shelf (COTS) solutions are often located under the Corp management group of Azure landing zones.
     - **Public applications**, as in internet-facing applications can be found under either the Corp or Online management group. 
 
-    The team also is responsible for setting up a subscription or a group of subscriptions for workload deployment. Given the application use cases for this architecture, these management groups can be considered.  
+    The team also is responsible for setting up a subscription or a group of subscriptions for workload deployment. 
 
     This section provides guidance on the initial subscription setup. However, the platform team is expected to make changes to the centralized services to address missed or changed requirements. Platform changes have a broader impact on all workload teams. 
 
@@ -223,7 +219,6 @@ The build agents remain the same as the [**baseline architecture**](baseline-con
 
 Make sure that the patching process for your build agents complies with platform requirements. OS access to these machines should be provided by the centralized Azure Bastion resource.
 
-
 ## Patch compliance and OS upgrades
 
 The [**baseline architecture**](./baseline-content.md#infrastructure-update-management) describes an autonomous approach to patching and upgrades. When the workload is integrated with landing zones, that approach might change.
@@ -259,9 +254,9 @@ Correlated data is often used during incident response. Make sure the triage run
 
 ## Azure Policy
 
-The platform team will likely apply policies that impact the workload deployment. Applying DeployIfNotExists (DINE) policies is a common way to handle automated deployments into an application landing zone subscription by the platform team. DINE policies can modify workload resources or add resources to your deployment, which can result in a discrepancy between the workload template and what is declaratively deployed.
+The platform team will likely apply policies that impact the workload deployment. Applying DeployIfNotExists (DINE) policies is a common way to handle automated deployments into an application landing zone subscription by the platform team. DINE policies can modify workload resources or add resources to your deployment, which can result in a discrepancy between the resources that are declaratively deployed through the workload template and resources that are actually used in processing requests. Typical approach is fix those changes through imperative approaches, which isn't ideal.
 
-To avoid that discrepancy and the use of imperative deployment approaches to fix those changes, it's ideal to preemptively incorporate these changes into your IaC templates. If through testing you find Azure Policies provided by the platform team conflicts with the requirements of the application, be sure to negotiate a resolution with the platform team.
+To avoid that discrepancy, preemptively incorporate and test the platform-initiated changes into your IaC templates. If Azure Policies provided by the platform team conflict with the requirements of the application, be sure to negotiate a resolution with the platform team.
     
   > [!IMPORTANT] 
   > Azure Landing Zone uses various DINE policies. For example, policies that manage private endpoints at scale. This policy monitors private endpoint deployments and updates Azure DNS in the hub network, which is part of a platform-managed subscription. The workload team doesn't have permission to modify it in the hub, and the platform team doesn't monitor the workload teams' deployments to update DNS automatically. DINE policies are used to provide this connection. 
