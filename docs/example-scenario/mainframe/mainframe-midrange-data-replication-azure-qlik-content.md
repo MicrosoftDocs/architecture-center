@@ -36,7 +36,7 @@ This solution uses an on-premises instance of Qlik to replicate on-premises data
 
 ### Components
 
-The solution uses the components that are listed in the following subsections.
+This architecture consists of several Azure cloud services and is divided into four categories of resources: networking and identity, application, storage, and monitoring. The services for each and their roles are described in the following sections.
 
 #### Networking and identity
 

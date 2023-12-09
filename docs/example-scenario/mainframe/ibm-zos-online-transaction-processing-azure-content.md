@@ -139,7 +139,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
@@ -150,8 +150,8 @@ Principal author:
 
 ## Next steps
 
-- For more information, contact datasqlninja@microsoft.com.
-- [Azure Database Migration Guides](/data-migration).
+- For more information, contact [datasqlninja@microsoft.com](datasqlninja@microsoft.com).
+- [Azure Database Migration Guides](/data-migration)
 
 ## Related resources
 
