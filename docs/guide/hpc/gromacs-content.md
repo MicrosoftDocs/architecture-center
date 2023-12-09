@@ -48,13 +48,13 @@ architecture.*
 
 Performance tests of GROMACS on Azure used [HBv3-series](/azure/virtual-machines/hbv3-series) VMs running the Linux Ubuntu operating system. The following table provides details about HBv3-series VMs.
 
-|VM size|	vCPU |	Ram memory (GiB)|	Memory bandwidth (GBps)|	Base CPU frequency (GHz)|	All-cores frequency (GHz, peak)|	Single-core frequency (GHz, peak)|	RDMA performance (GBps)|	Maximum data disks|
+|VM size| vCPU | Ram memory (GiB)| Memory bandwidth (GBps)| Base CPU frequency (GHz)| All-cores frequency (GHz, peak)| Single-core frequency (GHz, peak)| RDMA performance (GBps)| Maximum data disks|
 |-|-|-|-|-|-|-|-|-|
-|Standard_HB120rs_v3|120|448|	350	|1.9|	3.0|	3.5|	200|	32|
-|Standard_HB120-96rs_v3	|96	|448|	350	|1.9|	3.0	|3.5|	200	|32|
-|Standard_HB120-64rs_v3|64	|448|	350	|1.9|	3.0	|3.5|	200	|32|
-|Standard_HB120-32rs_v3	|32	|448|	350	|1.9|	3.0|	3.5|	200	|32|
-|Standard_HB120-16rs_v3	|16	|448|	350	|1.9|	3.0|	3.5|	200|	32|
+|Standard_HB120rs_v3|120|448| 350 |1.9| 3.0| 3.5| 200| 32|
+|Standard_HB120-96rs_v3 |96 |448| 350 |1.9| 3.0 |3.5| 200 |32|
+|Standard_HB120-64rs_v3|64 |448| 350 |1.9| 3.0 |3.5| 200 |32|
+|Standard_HB120-32rs_v3 |32 |448| 350 |1.9| 3.0| 3.5| 200 |32|
+|Standard_HB120-16rs_v3 |16 |448| 350 |1.9| 3.0| 3.5| 200| 32|
 
 HBv3-series VMs are optimized for HPC applications like fluid dynamics, explicit and implicit finite element analysis, weather modeling, seismic processing, reservoir simulation, and RTL simulation.
 
@@ -282,19 +282,19 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 
 ### Single-node configurations
 
-|VM size|	Number of CPUs|	Elapsed time (hours)|
+|VM size| Number of CPUs| Elapsed time (hours)|
 |-|-|-|
-|Standard_HB120-16rs_v3	|16|0.169|
-|Standard_HB120-32rs_v3|32|	0.095|
+|Standard_HB120-16rs_v3 |16|0.169|
+|Standard_HB120-32rs_v3|32| 0.095|
 |Standard_HB120-64rs_v3|64|0.053|
 |Standard_HB120-96rs_v3|96|0.043|
 |Standard_HB120rs_v3|120|0.038|
 
 ### Multi-node configurations
 
-|VM size|	Number of CPUs|	Elapsed time (hours)|
+|VM size| Number of CPUs| Elapsed time (hours)|
 |-|-|-|
-|Standard_HB120-16rs_v3	|64|0.304|
+|Standard_HB120-16rs_v3 |64|0.304|
 |Standard_HB120-32rs_v3|128|0.142|
 |Standard_HB120-64rs_v3|256|0.071|
 |Standard_HB120-96rs_v3|512|0.037|

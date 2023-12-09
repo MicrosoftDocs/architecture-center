@@ -93,11 +93,11 @@ The following tables and graphs show the rendering times and relative speed incr
 
 This table shows the rendering time, in seconds, for the six Surface-7 images:
 
-|Number of GPUs|	Number of CPUs|	Image 1|	Image 2|	Image 3|	Image 4|	Image 5|	Image 6|
+|Number of GPUs| Number of CPUs| Image 1| Image 2| Image 3| Image 4| Image 5| Image 6|
 |--|--|--|--|--|--|--|--|
-1/6 GPU	|6|	3|	15|	44|	161|	29|	97|
-1/2 GPU	|18	|1	|4	|17	|37	|12	|26|
-|1 GPU|	36|	1	|3	|13|	28|	10|	25|
+1/6 GPU |6| 3| 15| 44| 161| 29| 97|
+1/2 GPU |18 |1 |4 |17 |37 |12 |26|
+|1 GPU| 36| 1 |3 |13| 28| 10| 25|
 
 This graph shows the relative speed increases for the Surface-7 drawings as the number of GPUs increases:
 
@@ -105,11 +105,11 @@ This graph shows the relative speed increases for the Surface-7 drawings as the 
 
 This table shows the rendering time, in seconds, for the six Corridor-5c images:
 
-|Number of GPUs|	Number of CPUs|	Image 1|	Image 2|	Image 3|	Image 4|	Image 5|	Image 6|
+|Number of GPUs| Number of CPUs| Image 1| Image 2| Image 3| Image 4| Image 5| Image 6|
 |--|--|--|--|--|--|--|--|
-1/6 GPU	|6|	5|	30|	92|206	|55	|110	|
-1/2 GPU	|18	|1	|8	|	29|68|18|38|
-|1 GPU|	36|	1	|4	|17|36	|10	|	20|
+1/6 GPU |6| 5| 30| 92|206 |55 |110 |
+1/2 GPU |18 |1 |8 | 29|68|18|38|
+|1 GPU| 36| 1 |4 |17|36 |10 | 20|
 
 This graph shows the relative speed increases for the Corridor-5c drawings as the number of GPUs increases:
 
@@ -123,19 +123,19 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 
 ### Surface-7 drawing on NVadsA10 v5
 
-|VM size |	Number of GPUs|	Total time in hours|
+|VM size | Number of GPUs| Total time in hours|
 |--|--|--|
-|6 vCPU	|1/6|	0.10|
-|18 vCPU	|1/2|	0.03|
-|36 vCPU|	1	|0.02|
+|6 vCPU |1/6| 0.10|
+|18 vCPU |1/2| 0.03|
+|36 vCPU| 1 |0.02|
 
 ### Corridors-5c drawing on NVadsA10 v5
 
-|VM size| 	Number of GPUs|	Total time in hours|
+|VM size| Number of GPUs| Total time in hours|
 |--|--|--|
-|6 vCPU	|1/6|	0.14|
-|18 vCPU	|1/2|	0.05|
-|36 vCPU|	1|	0.02|
+|6 vCPU |1/6| 0.14|
+|18 vCPU |1/2| 0.05|
+|36 vCPU| 1| 0.02|
 
 To compute the cost, multiply the total time by the Azure hourly cost. For the current hourly costs, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing).
 
