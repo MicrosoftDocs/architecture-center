@@ -140,7 +140,7 @@ In the [**baseline architecture**](./baseline-content.md#network-layout), the wo
 
 In this architecture, the network topology is decided by the platform team. Hub-spoke topology is assumed in this architecture. 
 
-:::image type="content" source="./media/baseline-landing-zone-network.png" alt-text="Diagram that shows TLS termination and certificates used." lightbox="./media/baseline-landing-zone-network.png":::
+:::image type="content" source="./media/baseline-landing-zone-network.png" alt-text="Diagram that shows the network layout in a hub-spoke topology." lightbox="./media/baseline-landing-zone-network.png":::
 
 - **Hub virtual network**. This network contains a regional hub designed to provide centralized services that communicate with workload resources in the same region. For information, see [these networking resources](#platform-team-owned-resources). Azure landing zones recommend placing the hub in the [Connectivity subscription](/azure/cloud-adoption-framework/ready/landing-zone/design-area/network-topology-and-connectivity). 
 
@@ -232,9 +232,7 @@ The workload team provisions the monitoring resources, which include:
 - Azure Application Insights as the Application Performance Monitoring (APM) of the workload team.
 - Azure Log Analytics workspace serves as the unified sink for all logs and metrics collected from workload-owned Azure resources and the application code.
 
-A custom storage account can be used for greater control over access permissions and log retention.
-
-:::image type="content" source="./media/baseline-landing-zone-monitoring.png" alt-text="Diagram that shows TLS termination and certificates used." lightbox="./media/baseline-landing-zone-monitoring.png":::
+:::image type="content" source="./media/baseline-landing-zone-monitoring.png" alt-text="Diagram that shows monitoring resources for the workload." lightbox="./media/baseline-landing-zone-monitoring.png":::
 
 Similar to the baseline, all resources are configured to send Azure Diagnostics to the Log Analytics workspace provisioned by the workload team as part of the Infrastructure as Code (IaC) deployment of the resources. The platform team might also have DeployIfNotExists (DINE) policies to configure Azure Diagnostics to send logs to their centralized Management subscriptions. It's important to ensure that your implementation doesn't restrict those additional log flows.
 
