@@ -10,8 +10,7 @@ In this use case, the organization expects the **VM-based workload to utilize fe
 
 This architecture can be used for these scenarios:
 
-- **Private applications**. These include internal line-of-business applications or commercial off-the-shelf (COTS) solutions, which are often located under the Corp management group of Azure landing zones.
-- **Public applications**. These are internet-facing applications that can be found under either the Corp or Online management group. This architecture isn't for high-performance computing (HPC), mission-critical workloads, latency-sensitive applications, or other highly specialized use cases. Instead, it serves as a foundational guide for a workload-agnostic perspective in Azure landing zones.
+
 
 ## Article layout
 
@@ -19,7 +18,7 @@ To meet the organizational requirements, there are changes in the **baseline arc
 
 |Architecture| Design decisions |Well-Architected Framework approaches|
 |---|---|---|
-|&#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-team-owned-resources) <br> &#9642; [Federated resources](#platform-team-owned-resources)  |&#9642; [Subscription setup](#subscription-setup-by-the-platform-team)<br> &#9642; [Networking requirements](#workload-requirements-and-fulfillment) <br> &#9642; [Network design changes from the baseline](#networking)<br> &#9642; [Patch compliance](#patch-compliance-and-os-upgrades) <br> &#9642; [Organizational governance](#azure-policy) <br> &#9642; [Changes management](#manage-changes-over-time)|<br> &#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost Optimization](#cost-optimization)|
+|&#9642; [Architecture diagram](#architecture) <br>&#9642; [Workload resources](#workload-team-owned-resources) <br> &#9642; [Federated resources](#platform-team-owned-resources)  |&#9642; [Subscription setup](#subscription-setup-by-the-platform-team)<br> &#9642; [Networking requirements](#workload-requirements-and-fulfillment) <br> &#9642; [Network design changes from the baseline](#networking)<br> &#9642; [Monitoring](#monitoring) <br> &#9642; [Patch compliance](#patch-compliance-and-os-upgrades) <br> &#9642; [Organizational governance](#azure-policy) <br> &#9642; [Change management](#manage-changes-over-time)|<br> &#9642; [Reliability](#reliability) <br> &#9642; [Security](#security) <br> &#9642; [Cost Optimization](#cost-optimization)|
 
 
 > [!TIP]
@@ -53,7 +52,7 @@ These resources and responsibilities continue to be maintained and fulfilled by 
 
 - **Spoke virtual network subnets and Network Security Groups (NSGs)** placed on those subnets to maintain segmentation and control traffic flow. 
 - **Private endpoints** to secure connectivity to PaaS services and the **private DNS zones** required for those endpoints. 
-- **Disks** that temporarily store log files. Beyond that, this architecture continues to be stateless from an application perspective. 
+- **Disks** temporarily store log files on the backend servers. 
 - **Build agent VMs** are autonomously owned by the workload team to ensure reliability of the deployment infrastructure.
 
 #### Platform team-owned resources
@@ -80,7 +79,12 @@ In a landing zone context, **workload teams must provide their specific requirem
 
 - **Platform team**
 
-    The platform team assigns an appropriate management group based on the workload's business criticality and technical requirements, such as whether it will be exposed to the internet. The configuration of these management groups is determined by the organization and implemented by the platform team. The team also is responsible for setting up a subscription or a group of subscriptions for workload deployment.
+    The platform team assigns an appropriate management group based on the workload's business criticality and technical requirements, such as whether it will be exposed to the internet. The configuration of these management groups is determined by the organization and implemented by the platform team. 
+
+    - **Private applications** such as internal line-of-business applications or commercial off-the-shelf (COTS) solutions are often located under the Corp management group of Azure landing zones.
+    - **Public applications**, as in internet-facing applications can be found under either the Corp or Online management group. 
+
+    The team also is responsible for setting up a subscription or a group of subscriptions for workload deployment. Given the application use cases for this architecture, these management groups can be considered.  
 
     This section provides guidance on the initial subscription setup. However, the platform team is expected to make changes to the centralized services to address missed or changed requirements. Platform changes have a broader impact on all workload teams. 
 
@@ -118,7 +122,20 @@ The primary shared responsibility between the two teams is in the areas of manag
 
 - **Public IPs**. The platform team should be informed about the ingress traffic profile, including any anticipated public IP addresses. In this architecture, only internet-sourced traffic is expected that targets public IP on Application Gateway. The platform team should share with the workload team if these IPs are under a DDoS protection plan or if that's the responsibility of the workload team.
 
-    There's another public IP for operational access via Bastion. This public IP would be enrolled in a service like DDoS protection, which is managed by the platform team.
+    There's another public IP for operational access via Bastion. This public IP is owned by the platform team and would be enrolled in a service like DDoS protection, which is also managed by the platform team.
+
+## Virtual machine design choices
+
+The VM SKU and disk selections remain the same as the [**baseline architecture**](./baseline-content.md#virtual-machine-design-choices).
+
+An organization might impose compliance requirements on the workload team that mandates the use of specific VM images. Given such requirements, the platform team might manage a set of standardized images, often referred to as _golden images_, which are created for use across the organization. 
+
+The platform team might use a managed offering such as Azure Compute Gallery or a private repository to store approved OS images or workload artifacts. When choosing an OS image for VMs, consult your platform team about image sources, update frequency, and usage expectations. Also make sure the images are able to meet the necessary business requirements fulfilled by the workload.
+
+> [!IMPORTANT] 
+> **Platform team**
+>
+> If Azure Compute Gallery is used, the workload will require network visibility to the private gallery. Work with them to establish secure connectivity.
 
 
 ## Networking
@@ -127,30 +144,28 @@ In the [**baseline architecture**](./baseline-content.md#network-layout), the wo
 
 In this architecture, the network topology is decided by the platform team. Hub-spoke topology is assumed in this architecture. 
 
+:::image type="content" source="./media/baseline-landing-zone-network.png" alt-text="Diagram that shows TLS termination and certificates used." lightbox="./media/baseline-landing-zone-network.png":::
+
 - **Hub virtual network**. This network contains a regional hub designed to provide centralized services that communicate with workload resources in the same region. For information, see [these networking resources](#platform-team-owned-resources). Azure landing zones recommend placing the hub in the [Connectivity subscription](/azure/cloud-adoption-framework/ready/landing-zone/design-area/network-topology-and-connectivity). 
 
-- **Spoke virtual network**. The single virtual network from the baseline architecture is now transformed into the spoke network. It's peered to the hub network, which provides the centralized services. The ownership and management of this spoke network now fall under the purview of the platform team. This network contains the [workload resources](#workload-team-owned-resources). The workload team owns the resources in this network including the subnets.
+- **Spoke virtual network**. The single virtual network from the baseline architecture is now transformed into the spoke network. It's peered to the hub network, which provides the centralized services. The ownership and management of this spoke network now fall under the purview of the platform team. This network contains the [workload resources](#workload-team-owned-resources). The workload team owns the resources in this network including its subnets.
 
 Make sure you [communicate the workload requirements](#subscription-setup-by-the-platform-team) to the platform team and review them periodically.
 
 > [!IMPORTANT] 
 > **Platform team**
 >
-> Unless specifically required by the workload, the spoke network must not be directly peered to another spoke virtual network to protect segmentation goals of the workload. All transitive virtual network connections should be facilitated by your platform team.
->
-> Ensure virtual networks involved in peerings have unique addresses. Overlapping addresses, such as those of on-premises and workload networks, can cause disruptions and outages.
->
-> Allocate IP address spaces that are sufficiently large to accommodate runtime and deployment resources, manage failovers, and facilitate scalability.
+> Unless specifically required by the workload, the spoke network must not be directly peered to another spoke virtual network to protect segmentation goals of the workload. All transitive virtual network connections should be facilitated by your team (platform team).
+
 
 #### Virtual network subnets
 
 In the spoke virtual network, the workload team has the responsibility of subnet creation and allocation. The intent is segmentation and placing controls to restrict traffic in and out of the subnets. This architecture recommends the same subnet topology as the [**baseline architecture**](baseline-content.md#subnetting-considerations); dedicated subnets for Application Gateway, frontend VMs, load balancer, backend VMs, and private endpoints.
 
-Subnets for those components remain the same as the [**baseline architecture**](baseline-content.md#subnetting-considerations). 
-
 Deploying your workload in an Azure landing zone doesn't take away the responsibility of implementing network controls. There might be other restrictions imposed by the organization to safeguard against data exfiltration, ensure visibility for central Security Operations Center (SOC) and IT network team.
 
 This approach allows the platform team to optimize overall organizational spend through the use of through centralized services, rather than deploying redundant security controls per workload throughout the organization. In this architecture, Azure Firewall is an example of a central service. It would be neither cost-effective nor practical for each workload team to manage their own firewall instance. Instead, a centralized approach to firewall management is recommended.
+
 
 ##### Ingress traffic
 
@@ -213,16 +228,7 @@ Make sure that the patching process for your build agents complies with platform
 
 The [**baseline architecture**](./baseline-content.md#infrastructure-update-management) describes an autonomous approach to patching and upgrades. When the workload is integrated with landing zones, that approach might change.
 
-An organization might impose compliance requirements on the workload team that mandates the use of specific images. Given such requirements, the platform team might manage a set of standardized VM images, often referred to as _golden images_, which are created for use across the organization. 
-
-The platform team might use a managed offering such as Azure Compute Gallery or a private repository to store approved OS images or workload artifacts. When choosing an OS image for VMs, consult your platform team about image sources, update frequency, and usage expectations. Also make sure the images are able to meet the necessary business requirements fulfilled by the workload.
-
-> [!IMPORTANT] 
-> **Platform team**
->
-> If Azure Compute Gallery is used, the workload will require network visibility to the private gallery. Work with them to establish secure connectivity.
-
-## Monitoring considerations
+## Monitoring
 
 The Azure landing zone platform provides shared observability resources as part of the Management subscription. However, it's recommended to provision your own monitoring resources to facilitate ownership responsibilities of the workload. This approach is consistent with the [**baseline architecture**](./baseline-content.md#monitoring).
 
@@ -232,6 +238,8 @@ The workload team provisions the monitoring resources, which include:
 - Azure Log Analytics workspace serves as the unified sink for all logs and metrics collected from workload-owned Azure resources and the application code.
 
 A custom storage account can be used for greater control over access permissions and log retention.
+
+:::image type="content" source="./media/baseline-landing-zone-monitoring.png" alt-text="Diagram that shows TLS termination and certificates used." lightbox="./media/baseline-landing-zone-monitoring.png":::
 
 Similar to the baseline, all resources are configured to send Azure Diagnostics to the Log Analytics workspace provisioned by the workload team as part of the Infrastructure as Code (IaC) deployment of the resources. The platform team might also have DeployIfNotExists (DINE) policies to configure Azure Diagnostics to send logs to their centralized Management subscriptions. It's important to ensure that your implementation doesn't restrict those additional log flows.
 
@@ -246,15 +254,14 @@ Correlated data is often used during incident response. Make sure the triage run
 > **Platform team**
 >
 > - Where possible, grant role-based access control (RBAC) to query and read log sinks for relevant platform resources.
-> - Enable logs for AzureFirewallApplicationRule, AzureFirewallNetworkRule, AzureFirewallDnsProxy because the application team needs to monitor traffic flows from the application and requests to the DNS server.
-> - Enable firewall logs for network and application rule evaluations and DNS proxy because this information can be useful in troubleshooting activities.
+> - Enable firewall logs for network and application rule evaluations and DNS proxy because the application teams can use this information during troubleshooting activities.
 
 
 ## Azure Policy
 
-The platform team will likely apply policies that impact the workload deployment. Applying DeployIfNotExists (DINE) policies is a common way to handle automated deployments into an application landing zone subscription by the platform team. DINE policies can either modify workload resources that are deployed or add resources to your deployment, which can result in a discrepancy between the workload template and show predictable results.
+The platform team will likely apply policies that impact the workload deployment. Applying DeployIfNotExists (DINE) policies is a common way to handle automated deployments into an application landing zone subscription by the platform team. DINE policies can modify workload resources or add resources to your deployment, which can result in a discrepancy between the workload template and what is declaratively deployed.
 
-To avoid unpredictable results and the use of imperative deployment approaches, it's ideal to incorporate these changes into your IaC templates in advance or communicate with your platform team to be excluded from this policy.
+To avoid that discrepancy and the use of imperative deployment approaches to fix those changes, it's ideal to preemptively incorporate these changes into your IaC templates. If through testing you find Azure Policies provided by the platform team conflicts with the requirements of the application, be sure to negotiate a resolution with the platform team.
     
   > [!IMPORTANT] 
   > Azure Landing Zone uses various DINE policies. For example, policies that manage private endpoints at scale. This policy monitors private endpoint deployments and updates Azure DNS in the hub network, which is part of a platform-managed subscription. The workload team doesn't have permission to modify it in the hub, and the platform team doesn't monitor the workload teams' deployments to update DNS automatically. DINE policies are used to provide this connection. 
