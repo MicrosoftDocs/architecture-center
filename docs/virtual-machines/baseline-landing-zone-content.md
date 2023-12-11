@@ -29,7 +29,6 @@ To meet the organizational requirements, there are changes in the **baseline arc
 
 ### Components
 
-
 All Azure landing zone architectures have separation of ownership between the platform team and the workload team. Application architects and DevOps teams need to have a strong understanding of this responsibility split in order to understand what's under their direct control, under their influence, and what is out of their influence or control.
 
 
