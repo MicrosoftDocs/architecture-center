@@ -10,7 +10,7 @@ The chat UI follows the [baseline app services web application](../../web-apps/a
 The Machine Learning workspace is configured with [managed virtual network isolation](/azure/machine-learning/how-to-managed-network) that requires all outbound connections to be approved. With this configuration, a managed virtual network is created, along with managed private endpoints that enable connectivity to private resources such as the workplace Azure Storage, Azure Container Registry or Azure OpenAI. These private connections are used during flow authoring and testing, as well as by flows deployed to Azure Machine Learning compute.
 
 > [!TIP]
-> ![GitHub logo](../../../_images/github.svg) The guidance is backed by an [example implementation](https://github.com/Azure-Samples/openai-end-to-end-baseline) which showcases a baseline end-to-end chat implementation on Azure. This implementation can be used as a basis for further solution development in your first step towards production.
+> ![GitHub logo](../../_images/github.svg) The guidance is backed by an [example implementation](https://github.com/Azure-Samples/openai-end-to-end-baseline) which showcases a baseline end-to-end chat implementation on Azure. This implementation can be used as a basis for further solution development in your first step towards production.
 
 ## Architecture
 
@@ -53,7 +53,7 @@ Network security is at the core of the baseline end-to-end chat architecture usi
 Two flows in this diagram are covered in [baseline app services web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml): 1. the inbound flow and 2. the App Service to Azure PaaS services flow. Please see that article for details on those flows. This section focuses on the Azure Machine Learning online endpoint flow. The following details the flow from the client UI running in the baseline app services web application to the flow deployed to Azure Machine Learning compute:
 
 > [!NOTE]
-> The baseline app services web application's [App Service to Azure PaaS services flow](../../web-apps/web-apps/app-service/architectures/baseline-zone-redundant.yml#app-service-to-azure-paas-services-flow) details how the App Service is able to connect to Azure PaaS services over private endpoints. This section discusses the specific connectivity to the Azure Machine Learning online endpoint.
+> The baseline app services web application's [App Service to Azure PaaS services flow](../../web-apps/app-service/architectures/baseline-zone-redundant.yml#app-service-to-azure-paas-services-flow) details how the App Service is able to connect to Azure PaaS services over private endpoints. This section discusses the specific connectivity to the Azure Machine Learning online endpoint.
 
 1. The call from the App Service application is routed through a private endpoint to the Azure Machine Learning online endpoint.
 1. The online endpoint routes the call to a web server running the deployed flow. The online endpoint acts as both a load balancer, as well as a router.
@@ -82,13 +82,13 @@ The outbound rules can be private endpoints, service tags or FQDNs. In this arch
 
 TODO: Add differences between the baseline and this architecture
 
-## Reliability
+## Reliability - redundancy
 
-The [baseline app services web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) architecture focuses on zonal redundancy for key regional services. Availability zones are physically separate locations within a region. They provide zonal redundancy for supporting services when two or more instances are deployed in supporting regions. When one zone experiences downtime, the other zones may still be unaffected. The architecture also ensures enough instances of Azure services to meet demand. Please see the [baseline](../../web-apps/app-service/architectures/baseline-zone-redundant) to review that guidance.
+The [baseline app services web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) architecture focuses on zonal redundancy for key regional services. Availability zones are physically separate locations within a region. They provide zonal redundancy for supporting services when two or more instances are deployed in supporting regions. When one zone experiences downtime, the other zones may still be unaffected. The architecture also ensures enough instances of Azure services to meet demand. Please see the [baseline](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) to review that guidance.
 
 This section addresses reliability from the perspective of the components in this architecture not addressed in the app services baseline, including Azure Machine Learning, Azure OpenAI, and Azure AI Search.
 
-### Azure Machine Learning
+### Zonal redundancy for flow deployments
 
 Enterprise deployments usually require at least zonal redundancy. To achieve this in Azure, resources must support [availability zones](/azure/availability-zones/az-overview) and you must deploy at least 3 instances of the resource. Currently, Azure Machine Learning compute doesn’t offer support for availability zones. To mitigate the potential impact of a datacenter-level catastrophe on AML compute clusters, it’s necessary to establish clusters in various regions along with deploying a load balancer to distribute calls among these clusters. You would use health checks to help ensure that calls are only routed to clusters that are functioning properly.
 
@@ -115,4 +115,26 @@ Azure OpenAI does not currently support availability zones. To mitigate the pote
 ### Azure AI Search
 
 Deploy Azure AI Search with Standard pricing tier or above in a [region that supports availability zones](/azure/search/search-reliability#prerequisites) and deploy 3 or more replicas. The replicas will automatically spread evenly across availability zones.
+
+## Reliability - scalability
+
+Scalability allows applications to handle increases and decreases in demand while optimizing performance and cost. This section covers scalability for components in this architecture beyond those covered in the [baseline app services web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml).
+
+### Azure Machine Learning
+
+- Follow the guidance to [autoscale your online endpoints](/azure/machine-learning/how-to-autoscale-endpoints).
+- Consider creating scaling rules based on [deployment metrics](/azure/machine-learning/how-to-autoscale-endpoints#create-a-rule-to-scale-out-using-metrics) such as CPU load and [endpoint metrics](/azure/machine-learning/how-to-autoscale-endpoints#create-a-scaling-rule-based-on-endpoint-metrics) such as request latency.
+
+> [!NOTE]
+> The same [App Service scalability guidance](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#app-service) from the baseline architecture applies if you deploy your flow to Azure App Service.
+
+### Azure AI Search
+
+- Follow the guidance to [analyze performance in Azure AI Search](/azure/search/search-performance-analysis).
+- Follow the guidance to [monitor Azure AI Search](/azure/search/monitor-azure-cognitive-search).
+- Use monitoring metrics and logs and performance analysis to determine the appropriate amount of replicas to avoid query-based throttling and partitions to avoid index-based throttling.
+
+### Azure OpenAI
+
+TODO: What guidance do we want to put here - from proxy guide
 
