@@ -150,9 +150,7 @@ To deploy this reference architecture, follow the steps described in the [Gettin
 
 Principal author:
 
- - [Praneet Singh Solanki](https://www.linkedin.com/in/praneetsolanki/) | Senior Software Engineer
-
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+ - Praneet Singh Solanki | Senior Software Engineer
 
 ## Next steps
 
