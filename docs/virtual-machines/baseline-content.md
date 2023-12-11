@@ -74,7 +74,7 @@ There are two types of users who interact with the workload resources: Workload 
 
 #### Operator
 
-The VMs in this architecture may require direct access by operators but it's recommended that remote access is minimized through automation and access is monitored. The use cases are break-fix situations, troubleshooting, or part of a deployment process from the build agents. This architecture doesn't have public IPs for control plane access. Azure Bastion acts as a serverless gateway, enabling operations to access via SSH or RDP. This setup ensures secure and efficient access management.
+The VMs in this architecture may require direct access by operators but it's recommended that remote access is minimized through automation and access is monitored. The access might be for break-fix situations, troubleshooting, or part of an automated deployment process. This architecture doesn't have public IPs for control plane access. Azure Bastion acts as a serverless gateway, enabling operations to access via SSH or RDP. This setup ensures secure and efficient access management.
 
 1. The operator logs into the Azure portal or az-cli.
 1. The operator accesses the Azure Bastion service and remotely connects to the desired VM.
@@ -171,7 +171,6 @@ Within the virtual network, subnets are carved out based on functionality and se
 - Subnet to host the internal load balancer for distributing traffic to backend VMs.
 - Subnets to host the workload VMs, one for frontend and one for backend. These subnets are created according to the tiers of the application.
 - Subnet for the Bastion host to facilitate operational access to the workload VMs. By design, the Bastion host needs a dedicated subnet.
-- Subnet that's a placeholder for build agent VMs that can be added to this architecture to automate the deployment, scaling, and management of applications.
 - Subnet to host private endpoints created to access other Azure resources over Private Links. While dedicated subnets aren't mandatory for these endpoints, they're highly recommended.
 
 Similar to VNets, subnets must be right-sized. For instance, you might want to apply the maximum limit of VMs supported by Flex orchestration to meet the application's scaling needs. The workload subnets should be capable of accommodating that limit. Another use case to take into consideration is VM OS upgrades, which might require temporary IP addresses. Right-sizing gives your the desired level of segmentation by making sure similar resources are grouped so that meaningful security rules through NSGs can be applied to the subnet boundaries. Other segmentation strategies are described in [Security: Segmentation](#segmentation).
