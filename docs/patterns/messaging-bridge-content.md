@@ -90,7 +90,7 @@ Principal authors:
 ## Next steps
 
 - [Messaging Bridge pattern description](https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessagingBridge.html) from the enterprise integration patterns community.
-- Learn how to implement a [Messaging Bridge](https://docs.spring.io/spring-integration/docs/current/reference/html/bridge.html) in the Spring Java framework.
+- Learn how to implement a [Messaging Bridge](https://docs.spring.io/spring-integration/reference/bridge.html) in the Spring Java framework.
 - [QPid bridge](https://openmama.finos.org/openmama_qpid_bridge.html) can be used to bridge AMQP-enabled messaging technologies.
 - The [NServiceBus Messaging Bridge](https://docs.particular.net/nservicebus/bridge) is a .NET implementation of a queue-to-queue bridge that supports a range of messaging infrastructures including MSMQ, Service Bus, and Azure Queue Storage.
 - [Router](https://github.com/SzymonPobiega/NServiceBus.Router) is an open-source project that implements the Messaging Bridge pattern. It also allows bridging more than two technologies in a single instance and has advanced message-routing capabilities.
