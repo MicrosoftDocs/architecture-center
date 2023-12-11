@@ -613,7 +613,7 @@ After a search solution is implemented, you can query the index directly by usin
 
 A customized user interface, focusing on the user experience, is useful to show the true value of the search solution and to make it possible for organizations to identify and review risk communications across a range of channels and sources.
 
-The [Knowledge Mining Solution Accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining) provides an Azure Cognitive Search UI template—a .NET Core MVC Web app—that can be used to quickly build a prototype to query and view the search results.
+The [Knowledge Mining Solution Accelerator](https://github.com/Azure-Samples/azure-search-knowledge-mining) provides an Azure Cognitive Search UI template—a .NET Core MVC Web app—that can be used to quickly build a prototype to query and view the search results.
 
 In a few steps, the template UI can be configured to connect and query the search index, rendering a simple web page to search and visualize the results. This template can be further customized to enhance the experience of retrieving and analyzing risk communications.
 
@@ -723,7 +723,6 @@ Principal authors:
 ## Next Steps
 
 - [Quickstart: Create an Azure Cognitive Search index in the Azure portal](/azure/search/search-get-started-portal)
-- [Knowledge Mining Solution Accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining)
 
 ## Related resources
 

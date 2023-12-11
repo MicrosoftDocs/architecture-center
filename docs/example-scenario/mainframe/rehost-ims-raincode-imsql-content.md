@@ -2,7 +2,7 @@ This architecture describes how to implement an Information Management System (I
 
 ## IMS DB/DC workload architecture, before migration
 
-:::image type="content" source="media/pre-migration.svg" alt-text="Diagram that shows the pre-migration IMS DB/DC workload architecture." lightbox="media/pre-migration.svg" border="false":::
+:::image type="content" source="media/pre-migration.svg" alt-text="Diagram that shows the premigration IMS DB/DC workload architecture." lightbox="media/pre-migration.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/rehost-ims-raincode-imsql-ibm-ims-dbdc-zos.vsdx) of this architecture.*
 
@@ -13,7 +13,7 @@ This architecture describes how to implement an Information Management System (I
 1. In the front end of the application layer, users interact with IMS screens or with web pages.
 1. Application code uses the storage capabilities of the IMS DB (hierarchical) back-end data layer.
 1. All offline big data operations are performed via batch jobs.
-1. Concurrently with transaction processing, other services provide authentication, security, management, monitoring, and reporting. These services interact with all other services in the system.
+1. Along with transaction processing, other services provide authentication, security, management, monitoring, and reporting. These services interact with all other services in the system.
 
 ## IMSql architecture on Azure
 
@@ -21,38 +21,35 @@ This architecture describes how to implement an Information Management System (I
 
 *Download a [Visio file](https://arch-center.azureedge.net/rehost-ims-raincode-imsql.vsdx) of this architecture.*
 
-### Dataflow
+### Workflow
 
 1. IMSql Terminal Server
 
    Traditionally, the Mainframe z/OS interface is accessed via an IBM in-house terminal or via terminal emulation software. An application that has a geographically dispersed network with thousands of users can connect to the mainframes through any form of terminal. When an IMS Data Communications (DC) application is rehosted on the distributed cloud-based system, you need to centrally host the application and resource and publish them for the remote client devices. You can accomplish these tasks on Azure by using IMSql Terminal Servers.
 
-2. SQL Server Service Broker
+1. SQL Server Service Broker
 
    In Mainframe, IMS DC orchestrates the communication layer between the user terminals and the application programs by transmitting and processing messages in a control region. After the rehost, SQL Server Service Broker orchestrates this asynchronous communication layer. Service Broker helps with communication through its message delivery framework and scales out messages to separate processing servers, current users, and their transaction processing.
 
-3. IMSql Processing Server
+1. IMSql Processing Server
 
-   The Processing Server runs the Raincode-recompiled code for the IMS programs in .NET Framework or .NET Core. It contains the underlying infrastructure that's needed to enable the recompiled programs to run effectively with the correct functional equivalence. IMSql Processing Server can generate dynamic queries and call SQL stored procedures that are created during the recompilation of DL/I calls.
+   The Processing Server runs the Raincode-recompiled code for the IMS programs in .NET Framework or .NET Core. It contains the underlying infrastructure that lets the recompiled programs run effectively with the correct functional equivalence. IMSql Processing Server can generate dynamic queries and call SQL stored procedures that are created during the recompilation of DL/I calls.
 
-4. SQL Server as a hierarchical data store
+1. SQL Server as a hierarchical data store
 
-   Data is stored as hierarchical data in IMS. IMSql uses the same model on SQL Server. This model enables IMSql to take advantage of the high performance of relational databases and logically implement the hierarchical segments from IMS. It also enables the system to scale independently with segments. The segment data is stored in raw EBCDIC format, so it doesn't need to be converted for the application. By using SQL platform as a service (PaaS), IMSql can take advantage of the underlying HA/DR capabilities that are provided by Azure.
+   Data is stored as hierarchical data in IMS. IMSql uses the same model on SQL Server. This model lets IMSql take advantage of the high performance of relational databases and logically implement the hierarchical segments from IMS. It also lets the system scale independently with segments. The segment data is stored in raw EBCDIC format, so it doesn't need to be converted for the application. By using SQL platform as a service (PaaS), IMSql can take advantage of the underlying HA/DR capabilities that are provided by Azure.
 
-5. DL/I call API  
+1. DL/I call API  
 
-   - The IMSql API ensures that the COBOL IMS DL/I calls are translated to equivalent SQL queries, fetches the data, and returns it back to the application program in the expected format.
-   - IMSql also tracks the Program position on the Table record to perform create, read, update, and delete (CRUD) operations, like the hierarchical DB.
-   - IMSql can create SQL stored procedures during compilation to respond to performance-intensive DL/I calls.
+   The IMSql API ensures that the COBOL IMS DL/I calls are translated to equivalent SQL queries. It then fetches the data and returns it back to the application program in the expected format. IMSql also tracks the Program position on the Table record to perform the create, read, update, and delete (CRUD) operations, like the hierarchical DB. IMSql can create SQL stored procedures during compilation to respond to performance-intensive DL/I calls.
 
-6. Raincode JCL
+1. Raincode JCL
 
    Raincode job control language (JCL) is an interpreter that's compatible with z/OS JCL. The Raincode JCL interpreter makes the transition from the intricate business logic embedded in JCL to the Azure and .NET Core platforms as smooth as possible. Raincode JCL is designed to run code compiled by the Raincode COBOL, PL/I, and ASM370 compilers. It can easily run steps written in virtually any language. It can be configured and fine-tuned with user-written code, so you can adapt it to your own needs for batch scheduling.
 
-7. IMSql data view  
+1. IMSql data view  
 
-   - IMSql defines relational SQL views based on copybooks (record layouts), so that the IMS segments can be accessed via plain SQL statements by any Azure service and by new applications.
-   - IMSql views are also writable, so modern applications can interact with IMS in both ways via SQL Server.
+   IMSql defines relational SQL views based on copybooks (record layouts), so that the IMS segments can be accessed via plain SQL statements by any Azure service and by new applications. IMSql views are also writable, so modern applications can interact with IMS in both ways via SQL Server.
 
 ## Data migration via IMSql
 
@@ -64,7 +61,7 @@ This architecture describes how to implement an Information Management System (I
 
 - The original IMS DB database description (DBD) is extracted and transferred from Mainframe. IMSql uses the DBD information to produce SQL scripts for generating a target database and tables in Azure SQL.
 - Each segment in an IMS DBD is translated as a table on Azure.
-- The tables consist of a key field, search fields, and the complete IMS segment data as it's represented in EBCDIC.
+- The tables consist of a key field, search fields, and the complete IMS segment data represented in EBCDIC.
 - The IMS segment tree structure is retained with the primary and foreign key relationship in Azure SQL tables.
 
 ### Initial data load
@@ -72,11 +69,11 @@ This architecture describes how to implement an Information Management System (I
 - The data from IMS DB is extracted via a mainframe job and commonly available download utilities like DFSRRC00 and DFSURGL0.  
 - You can transfer the extracted binary files to Azure by using Azure Data Factory connectors like FTP and SFTP and a Java-based solution that runs on Unix Subsystem Services (USS).  
 - IMSql has a built-in load utility for completing the initial data loads. This tool uses the SQL Server bulk copy program (bcp) utility. It ensures bcp execution and the required referential integrity between the tables to match the expected hierarchical structure.
-- This migration addresses a one-time data load from IMS DB, not co-existence and associated data synchronization.  
+- This migration addresses a one-time data load from IMS DB, not coexistence and associated data synchronization.  
 
-### Dataflow 
+### Dataflow for migration
 
-1. The mainframe non-relational datastore (IMS DB) has two components: the DBD and the actual segment data.
+1. The mainframe nonrelational datastore (IMS DB) has two components: the DBD and the actual segment data.
 1. IBM utilities extract and unload the IMS DB information.
 1. The DBD file and corresponding binary data files are generated separately.
 1. Data ingestion:
@@ -87,13 +84,13 @@ This architecture describes how to implement an Information Management System (I
 1. After data objects are created, IMSql loads the data to the corresponding table in sequential order.
 1. All migrated IMS data is hosted in Azure SQL Managed Instance.
 1. The application database consists of the raw segment data for processing IMS online and batch processing.
-1. The IMS read/write views consist of segment data that's expanded based on the copybook layout.
+1. The IMS read/write views consist of segment data that is expanded based on the copybook layout.
 
 ### Components
 
-- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) enables you to quickly build powerful integration solutions. Mainframe users are familiar with 3270 terminals and on-premises connectivity. They can use the Logic Apps [IBM 3270 connector](/azure/connectors/connectors-run-3270-apps-ibm-mainframe-create-api-3270) to access and run IBM mainframe apps. In the migrated system, they interact with Azure applications via the public internet or a private connection that's implemented via Azure ExpressRoute. [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) provides authentication.
+- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) lets you quickly build powerful integration solutions. Mainframe users are familiar with 3270 terminals and on-premises connectivity. They can use the Logic Apps [IBM 3270 connector](/azure/connectors/connectors-run-3270-apps-ibm-mainframe-create-api-3270) to access and run IBM mainframe apps. In the migrated system, they interact with Azure applications via the public internet or a private connection that is implemented via Azure ExpressRoute. [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) provides authentication.
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for your private network on Azure. Virtual Network enables many types of Azure resources, like Azure virtual machines (VMs), to communicate with each other, the internet, and on-premises networks, all with improved security. Virtual Network is like a traditional network that you operate in your own datacenter, but it brings more of the benefits of the Azure infrastructure, like scale, availability, and isolation.  
-- [ExpressRoute](https://azure.microsoft.com/services/expressroute) enables you to extend your on-premises networks into the Microsoft Cloud over a private connection that's facilitated by a connectivity provider. You can use ExpressRoute to establish connections to Microsoft Cloud services like Azure and Office 365.
+- [ExpressRoute](https://azure.microsoft.com/services/expressroute) lets you extend your on-premises networks into the Microsoft Cloud over a private connection that a connectivity provider facilitates. You can use ExpressRoute to establish connections to Microsoft Cloud services like Azure and Office 365.
 - [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets) provides automated and load balanced VM scaling that simplifies the management of your applications and increases availability.
 - [SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance), part of the Azure SQL service portfolio, is a managed, highly secure, always up-to-date SQL instance in the cloud.
 - [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is a cloud-based enterprise identity and access management service. Microsoft Entra single sign-on and multifactor authentication help users sign in and access resources while helping to protect against cybersecurity attacks.
@@ -136,25 +133,25 @@ Reliability ensures your application can meet the commitments you make to your c
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 - ExpressRoute provides a private and efficient connection to Azure from on-premises.
-- You can use Microsoft Entra ID to authenticate Azure resources. You can use role-based access control (RBAC) to manage permissions.
+- You can use Microsoft Entra ID to authenticate Azure resources. You can use role-based access control to manage permissions.
 - This solution uses an Azure network security group to manage traffic to and from Azure resources. For more information, see [Network security groups](/azure/virtual-network/network-security-groups-overview).
 - These security options are available in Azure database services:
-   - Data encryption at rest
-   - Dynamic data masking
-   - Always Encrypted data
+  - Data encryption at rest
+  - Dynamic data masking
+  - Always Encrypted data
 
 For general guidance on designing highly secure data solutions, see [Azure security recommendations](/sql/relational-databases/security/security-center-for-sql-server-database-engine-and-azure-sql-database?view=sql-server-ver16). 
 
-### Cost optimization  
+### Cost optimization
 
-Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - Virtual Machine Scale Sets optimizes costs by minimizing the number of unnecessary hardware instances that run your application when demand is low.
 - SQL Managed Instance provides various pricing tiers, like general purpose and business critical, to optimize costs based on usage and business criticality.  
-- For compute, use [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) and [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute/#benefits-and-features) with a one-year or three-year contract and receive significant savings off pay-as-you-go prices. In many cases, you can further reduce your costs by implementing reserved-instance size flexibility.
+- [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) and [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute/#benefits-and-features) with a one-year or three-year contract provide significant savings off pay-as-you-go prices. In many cases, you can further reduce your costs by implementing reserved-instance size flexibility.
 - [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit) is a licensing benefit that can help you significantly reduce the costs of running your workloads in the cloud. It works by letting you use your on-premises Software Assurance-enabled Windows Server and SQL Server licenses on Azure.
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution. Here's an [estimate that's based on the components of this solution, at a reasonable scale](https://azure.com/e/f5d10c617bfa410cb7566ee7f30a8e2f).
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution. Here's an [estimate based on the components of this solution, at a reasonable scale](https://azure.com/e/f5d10c617bfa410cb7566ee7f30a8e2f).
 
 ### Performance efficiency
 
@@ -163,7 +160,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 - Virtual Machine Scale Sets ensures that enough VMs are available to meet mission-critical online and batch processing needs.
 - Azure Blob Storage is a scalable system for storing backups, archival data, secondary data files, and other unstructured digital objects.
 - [Database Engine Tuning Advisor](/sql/relational-databases/performance/database-engine-tuning-advisor?view=sql-server-ver16) analyzes databases and makes recommendations that you can use to optimize query performance. You can use Database Engine Tuning Advisor to select and create an optimal set of indexes, indexed views, or table partitions.
-- [Scalability](/azure/azure-sql/database/scale-resources?view=azuresql) is one of the most important characteristics of PaaS. It enables you to dynamically add resources to your service when they're needed. You can use Azure SQL Database to easily change the resources (CPU power, memory, I/O throughput, and storage) that are allocated to your databases. You can use SQL Managed Instance to dynamically add resources to your database with minimal downtime.
+- [Scalability](/azure/azure-sql/database/scale-resources?view=azuresql) is one of the most important characteristics of PaaS. It lets you dynamically add resources to your service when they're needed. You can use Azure SQL Database to easily change the resources (CPU power, memory, I/O throughput, and storage) that are allocated to your databases. You can use SQL Managed Instance to dynamically add resources to your database with minimal downtime.
 - [In-Memory OLTP](/sql/relational-databases/in-memory-oltp/overview-and-usage-scenarios?view=sql-server-ver16) is a technology available in SQL Server and SQL Database for optimizing the performance of transaction processing, data ingestion, data load, and transient data scenarios.  
 
 ## Contributors
@@ -187,6 +184,7 @@ Other contributors:
 - [Mainframe to Azure Data Platform using SFTP](https://techcommunity.microsoft.com/t5/modernization-best-practices-and/mainframe-files-transfer-to-azure-data-platform-using-sftp/ba-p/3302194)
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
 - [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
+- [Microsoft Fabric documentation](/fabric)
 
 For more information, contact [Azure Data Engineering - Mainframe Modernization](mailto:mainframedatamod@microsoft.com).
 

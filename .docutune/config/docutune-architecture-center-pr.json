@@ -8,15 +8,16 @@
   "MetadataMultilineValues": true,
   "MarkdownListIndicator": "-",
   "Exclude": [
-    "architecture_index.md",
-    "hybrid_architecture_index.md",
-    "index.liquid.md",
-    "changelog.md"
+    "SECURITY.md"
   ],
   "TermFiles": [
     "Bundle-Standard.txt",
     "Bundle-Cloud.txt",
+    "Dictionary-EntraRebrand.ps1",
     "Dictionary-AAC.ps1"
   ],
-  "ApplyPolicies": []
+  "RemoveTermSets": [
+    "invalid-microsoft-can-may",
+    "*azure-batch*"
+  ]
 }

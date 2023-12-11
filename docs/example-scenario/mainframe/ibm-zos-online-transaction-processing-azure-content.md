@@ -1,6 +1,6 @@
 Online transaction processing (OLTP) systems interact directly with users and are the face of the business. With a dynamically adaptable infrastructure, businesses can realize and launch their products quickly to delight their users.
 
-With ever-evolving business needs and data, applications must produce and scale without creating infrastructure issues. This example workload shows how, using Azure platform as a service (PaaS) services, one can migrate a z/OS mainframe OLTP application to a secure, scalable, and highly available system in the cloud. Such a migration helps businesses in finance, health, insurance, and retail to minimize application delivery timelines, and it helps reduce the costs of running the applications.
+## Architecture
 
 The following diagram shows the architecture of the workload to be migrated, an OLTP system running on a z/OS mainframe:
 
@@ -8,23 +8,18 @@ The following diagram shows the architecture of the workload to be migrated, an 
 
 *Download a [Visio file](https://arch-center.azureedge.net/ibm-zos-online-transaction-processing-on-zos.vsdx) of this architecture.*
 
+### Workflow
+
+The following workflow corresponds to the preceding diagram:
+
 1. Users connect to the mainframe over TCP/IP using standard mainframe protocols like TN3270 and HTTPS.
 1. The transaction managers interact with the users and invoke the application to satisfy user requests.
 1. In the front end of the application layer, users interact with the CICS/IMS screens or with web pages.
 1. The transaction managers use the business logic written in COBOL or PL/1 to implement the transactions.
 1. Application code uses storage capabilities of the data layer, typically DB2, IMS DB, or VSAM.
-1. Concurrently with transaction processing, other services provide authentication, security, management, monitoring, and reporting. These services interact with all other services in the system.
+1. Along with transaction processing, other services provide authentication, security, management, monitoring, and reporting. These services interact with all other services in the system.
 
-In [Architecture](#architecture), we see how to migrate this architecture to Azure.
-
-## Potential use cases
-
-This architecture is ideal for OLTP workloads that have these characteristics:
-
-- They serve an international user base.
-- Their usage varies greatly over time, so they benefit from flexible scaling and usage-based pricing.
-
-## Architecture
+Here, we see how to migrate this architecture to Azure.
 
 :::image type="content" source="media/ibm-zos-online-transaction-processing-on-azure.svg" alt-text="Diagram that shows an architecture for migrating a z/OS OLTP workload." lightbox="media/ibm-zos-online-transaction-processing-on-azure.svg" border="false":::
 
@@ -47,6 +42,8 @@ This architecture is ideal for OLTP workloads that have these characteristics:
 
 ### Components
 
+This architecture consists of several Azure cloud services and is divided into four categories of resources: networking and identity, application, storage, and monitoring. The services for each and their roles are described in the following sections.
+
 #### Networking and identity
 
 - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) carries private connections between on-premises infrastructure and Azure datacenters.
@@ -64,7 +61,7 @@ This architecture is ideal for OLTP workloads that have these characteristics:
 - [Azure App Service](https://azure.microsoft.com/services/app-service) is a fully managed service for building, deploying, and scaling web apps. You can build apps using .NET, .NET Core, Node.js, Java, Python, or PHP. The apps can run in containers or on Windows or Linux. In a mainframe migration, the front-end screens or web interface can be coded as HTTP-based REST APIs. They can be segregated as per the mainframe application, and can be stateless to orchestrate a microservices-based system.
 - WebJobs is a feature of Azure App Service that runs a program or script in the same instance as a web app, API app, or mobile app. A web job can be a good choice for implementing sharable and reusable program logic. For technical information, see [Run background tasks with WebJobs in Azure App Service](/azure/app-service/webjobs-create).
 - [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS simplifies deployment of a managed AKS cluster in Azure by offloading the operational overhead to Azure.
-- [Azure Spring Apps](https://azure.microsoft.com/services/spring-cloud) is a fully managed Spring service, jointly built and operated by Microsoft and VMware. With it, you can easily deploy, manage and run Spring microservices, and write Spring applications using Java or .NET.
+- [Azure Spring Apps](https://azure.microsoft.com/services/spring-cloud) is a fully managed Spring service, jointly built and operated by Microsoft and VMware. With it, you can easily deploy, manage, and run Spring microservices, and write Spring applications using Java or .NET.
 - [Azure Service Bus](https://azure.microsoft.com/services/service-bus) is a reliable cloud messaging service for simple hybrid integration. Service Bus and Storage queues can connect the front end with the business logic in the migrated system.
 - [Azure Functions](https://azure.microsoft.com/services/functions) provides an environment for running small pieces of code, called functions, without having to establish an application infrastructure. You can use it to process bulk data, integrate systems, work with IoT, and build simple APIs and microservices. With microservices, you can create servers that connect to Azure services and are always up to date.
 - [Azure Cache for Redis](https://azure.microsoft.com/services/cache) is a fully managed in-memory caching service for sharing data and state among compute resources. It includes both the open-source Redis (OSS Redis) and a commercial product from Redis Labs (Redis Enterprise) as a managed service. You can improve performance of high-throughput OLTP applications by designing them to scale and to make use of an in-memory data store such as Azure Cache for Redis.
@@ -84,55 +81,81 @@ This architecture is ideal for OLTP workloads that have these characteristics:
 
 #### Monitoring
 
-- [Azure Monitor](https://azure.microsoft.com/services/monitor) collects, analyzes, and acts on telemetry from your Azure and on-premises environments.
+- [Azure Monitor](https://azure.microsoft.com/services/monitor) collects, analyzes, and acts on personal data from your Azure and on-premises environments.
 - Log Analytics is a tool in the Azure portal used to query Monitor logs using a powerful query language. You can work with the results of your queries interactively or use them with other Azure Monitor features such as log query alerts or workbooks. For more information, see [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview).
-- Application Insights is a feature of Monitor that provides code-level monitoring of application usage, availability, and performance. It monitors the application, detects application anomalies such as mediocre performance and failures, and sends telemetry to the Azure portal. You can also use Application Insights for logging, distributed tracing, and custom application metrics.
-- Azure Monitor Alerts are a feature of Monitor. For more information, see [Create, view, and manage metric alerts using Azure Monitor](/azure/azure-monitor/alerts/alerts-metric)
+- Application Insights is a feature of Monitor that provides code-level monitoring of application usage, availability, and performance. It monitors the application, detects application anomalies such as mediocre performance and failures, and sends personal data to the Azure portal. You can also use Application Insights for logging, distributed tracing, and custom application metrics.
+- Azure Monitor Alerts are a feature of Monitor. For more information, see [Create, view, and manage metric alerts using Azure Monitor](/azure/azure-monitor/alerts/alerts-metric).
+
+## Scenario details
+
+With ever-evolving business needs and data, applications must produce and scale without creating infrastructure issues. This example workload shows how you can migrate a z/OS mainframe OLTP application to a secure, scalable, and highly available system in the cloud, by using Azure platform as a service (PaaS) services. Such a migration helps businesses in finance, health, insurance, and retail to minimize application delivery timelines, and it helps reduce the costs of running the applications.
+
+### Potential use cases
+
+This architecture is ideal for OLTP workloads that have these characteristics:
+
+- They serve an international user base.
+- Their usage varies greatly over time, so they benefit from flexible scaling and usage-based pricing.
 
 ## Considerations
 
-### Availability
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
 - This OLTP architecture can be deployed in multiple regions and can have a geo-replicated data layer.
-- The Azure database services support zone redundancy and can fail over to a secondary node in the event of an outage, or to allow for maintenance activities.
-
-### Scalability
-
-- This architecture uses Azure PaaS services like App Service, which has autoscaling capabilities.
-- For guidance on autoscaling in Azure, see [Autoscaling](../../best-practices/auto-scaling.md).
+- The Azure database services support zone redundancy and can fail over to a secondary node if an outage occurs, or to allow for maintenance activities.
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 - ExpressRoute creates a private connection to Azure from an on-premises environment. You can also use site-to-site VPN.
-- Microsoft Entra ID can authenticate resources and control access using Azure role-based access control (RBAC).
+- Microsoft Entra ID can authenticate resources and control access using Azure role-based access control.
 - Database services in Azure support various security options like data encryption at rest.
 - For general guidance on designing secure solutions, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-### Resiliency
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your implementation.
+
+### Operational excellence
+
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
 - This scenario uses Azure Monitor and Application Insights to monitor the health of the Azure resources. You can set alerts for proactive management.
 - For guidance on resiliency in Azure, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
-## Pricing
+### Performance efficiency
 
-- Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your implementation.
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+
+- This architecture uses Azure PaaS services like App Service, which has autoscaling capabilities.
+- For guidance on autoscaling in Azure, see [Autoscaling](../../best-practices/auto-scaling.md).
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
- - [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3/) | Principal Engineering Architecture Manager
+- [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3/) | Principal Engineering Architecture Manager
+- [Nithish Aruldoss](https://www.linkedin.com/in/nithish-aruldoss-b4035b2b) | Engineering Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-- For more information, please contact datasqlninja@microsoft.com.
-- [Azure Database Migration Guides](/data-migration).
+- For more information, contact [datasqlninja@microsoft.com](mailto:datasqlninja@microsoft.com).
+- [Azure Database Migration Guides](/data-migration)
 
 ## Related resources
+
+See the following related architectures and related technical information:
 
 ### Related architectures
 
