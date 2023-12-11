@@ -48,8 +48,6 @@ The following table summarizes the differences between the main tenancy models f
 
 You might consider deploying a vault for each of your tenants within your (the service provider's) Azure subscription. This approach provides you with strong data isolation between each tenant's data, but it requires that you deploy and manage an increasing number of vaults, as you increase the number of tenants.
 
-This approach makes sense when you have separate application deployments for each tenant. If you have a shared application tier, it's unlikely that using separate vaults will give you much data isolation benefit, because all of the vaults need to trust the same application tier.
-
 There's no limit to the number of vaults you can deploy into an Azure subscription. However, you should consider the following limits:
 
 - [There are subscription-wide limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#key-vault-limits) on the number of requests in a time period. These limits apply regardless of the number of vaults in the subscription. So, it's important to follow our [throttling guidance](/azure/key-vault/general/overview-throttling), even when you have tenant-specific vaults.
