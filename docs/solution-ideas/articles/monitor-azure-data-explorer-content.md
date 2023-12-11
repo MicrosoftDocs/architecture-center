@@ -15,7 +15,7 @@ This solution demonstrates how to leverage the tight integration between Microso
 
 ### Scenario details
 
-Use cross-service queries to build a single, interactive data estate, joining data in Microsoft Sentinel, Azure Monitor, and Azure Data Explorer:
+Use cross-service queries to build a consolidated, interactive data estate, joining data in Microsoft Sentinel, Azure Monitor, and Azure Data Explorer:
 
 - Microsoft Sentinel is Azure’s cloud-native solution for Security Information and Event Management (SIEM) and Security Orchestration, Automation, and Response (SOAR). 
 
