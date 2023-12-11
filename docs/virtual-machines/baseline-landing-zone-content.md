@@ -75,7 +75,7 @@ In a landing zone context, **workload teams must provide their specific requirem
 
 - **Platform team**
 
-    The platform team assigns an appropriate management group based on the workload's business criticality and technical requirements, such as whether it will be exposed to the internet. The configuration of these management groups is determined by the organization and implemented by the platform team. Given the application use cases for this architecture, these management groups can be considered:  
+    The platform team assigns an appropriate management group based on the workload's business criticality and technical requirements, such as whether it will be exposed to the internet. The configuration of these management groups is determined by the organization and implemented by the platform team. For example, for the application scenarios given the [**baseline architecture**](./baseline-content.md), these management groups can be considered:  
 
     - **Private applications** such as internal line-of-business applications or commercial off-the-shelf (COTS) solutions are often located under the Corp management group of Azure landing zones.
     - **Public applications**, as in internet-facing applications can be found under either the Corp or Online management group. 
