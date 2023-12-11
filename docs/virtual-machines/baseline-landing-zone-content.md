@@ -48,7 +48,7 @@ These resources and responsibilities continue to be maintained and fulfilled by 
 - **Spoke virtual network subnets and Network Security Groups (NSGs)** placed on those subnets to maintain segmentation and control traffic flow. 
 - **Private endpoints** to secure connectivity to PaaS services and the **private DNS zones** required for those endpoints. 
 - **Disks** temporarily store log files on the backend servers. 
-- **Build agent VMs** are autonomously owned by the workload team to ensure reliability of the deployment infrastructure.
+
 
 #### Platform team-owned resources
 
@@ -180,7 +180,7 @@ Controlling egress traffic is more than just making sure expected traffic is all
 
 > [!TIP]
 >
-> Encourage the platform team to use IP groups in Azure Firewall. This will ensure that your workload's specific egress needs are accurately represented with tight scoping to just the source subnets. For instance, a rule that allows workload virtual machines to reach api.example.org doesn't necessarily imply that supporting virtual machines, such as build agents within the same virtual network, should be able to access the same endpoint. This level of granular control can enhance the security posture of your network.
+> Encourage the platform team to use IP groups in Azure Firewall. This will ensure that your workload's specific egress needs are accurately represented with tight scoping to just the source subnets. For instance, a rule that allows workload virtual machines to reach api.example.org doesn't necessarily imply that supporting resources within the same virtual network, should be able to access the same endpoint. This level of granular control can enhance the security posture of your network.
 
 Communicate any unique egress requirements to the platform team. For instance, if your workload establishes numerous concurrent connections to external network endpoints, inform the platform team. This will allow them to either provision an appropriate NAT Gateway implementation or add additional public IPs on the regional firewall for mitigation.
 
@@ -212,15 +212,11 @@ Just as a reminder, when logging into a virtual machine, operators must use thei
 
 Always start with principle of least-privilege and granular access to the task being performed instead of long standing access. In the landing zone context, take advantage of Just-In-Time (JIT) support managed by the platform team.
 
-##### Build agents
-
-The build agents remain the same as the [**baseline architecture**](baseline-content.md#build-agents). This means the workload team is still responsible for these VMs. 
-
-Make sure that the patching process for your build agents complies with platform requirements. OS access to these machines should be provided by the centralized Azure Bastion resource.
-
 ## Patch compliance and OS upgrades
 
-The [**baseline architecture**](./baseline-content.md#infrastructure-update-management) describes an autonomous approach to patching and upgrades. When the workload is integrated with landing zones, that approach might change.
+The [**baseline architecture**](./baseline-content.md#infrastructure-update-management) describes an autonomous approach to patching and upgrades. When the workload is integrated with landing zones, that approach might change. The patching operations might be dictated by the platform team so that all workloads are compliant with organizational requirements. 
+
+Make sure that the patching process includes all components that you add to this architecture. For example, if you choose to add build agent VMs to automate the deployment, scaling, and management of applications, those VMs must comply with the platform requirements.  
 
 ## Monitoring
 
@@ -233,11 +229,13 @@ The workload team provisions the monitoring resources, which include:
 
 :::image type="content" source="./media/baseline-landing-zone-monitoring.png" alt-text="Diagram that shows monitoring resources for the workload." lightbox="./media/baseline-landing-zone-monitoring.png":::
 
-Similar to the baseline, all resources are configured to send Azure Diagnostics to the Log Analytics workspace provisioned by the workload team as part of the Infrastructure as Code (IaC) deployment of the resources. The platform team might also have DeployIfNotExists (DINE) policies to configure Azure Diagnostics to send logs to their centralized Management subscriptions. It's important to ensure that your implementation doesn't restrict those additional log flows.
+Similar to the baseline, all resources are configured to send Azure Diagnostics to the Log Analytics workspace provisioned by the workload team as part of the Infrastructure as Code (IaC) deployment of the resources. You might also also need to send logs to a central Log Analytics workspace. In Azure landing zones, that workspace is in the Management subscription.
+
+The platform team might also have DeployIfNotExists (DINE) policies to configure Azure Diagnostics to send logs to their centralized Management subscriptions. It's important to ensure that your implementation doesn't restrict those additional log flows.
 
 ##### Correlating data from multiple sinks
 
-Logs and metrics generated by the workload and its infrastructure components are stored in the workload's Log Analytics workspace. However, logs and metrics produced by centralized services, such as Azure Firewall, Microsoft Entra ID, Bastion, are stored in a central Log Analytics workspace in the Management subscription. There might be complexity when correlating data from multiple sinks. 
+Logs and metrics generated by the workload and its infrastructure components are stored in the workload's Log Analytics workspace. However, logs and metrics produced by centralized services, such as Azure Firewall, Microsoft Entra ID, Bastion, are stored in a central Log Analytics workspace. There might be complexity when correlating data from multiple sinks. 
 
 Correlated data is often used during incident response. Make sure the triage runbook for this architecture addresses this issue and includes organizational points of contact if the problem extends beyond the workload resources. Workload administrators may require assistance from platform administrators in correlating log entries from enterprise networking, security, or other platform services. 
 
