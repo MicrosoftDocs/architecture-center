@@ -230,20 +230,19 @@ This table links to logs and metrics collected by Azure Monitor and the availabl
 | -------------- | ---------------- | ------ |
 |Application Gateway | [Application Gateway metrics and logs description](/azure/application-gateway/monitor-application-gateway-reference) | [Application Gateway alerts](/azure/application-gateway/high-traffic-support#alerts-for-application-gateway-v2-sku-standard_v2waf_v2) |
 | Application Insights | [Application Insights metrics and logging API](/azure/azure-monitor/app/api-custom-events-metrics) | [Application Insights alerts](/azure/azure-monitor/alerts/alerts-smart-detections-migration) |
-| Blob Storage | [Azure Blob Storage metrics and logs description](/azure/storage/blobs/monitor-blob-storage-reference) | [Blob storage alerts](/azure/storage/blobs/monitor-blob-storage?tabs=azure-portal#alerts) |
 |Bastion|[Bastion metrics](/azure/bastion/howto-metrics-monitor-alert)|
 | Key Vault | [Key Vault metrics and logs descriptions](/azure/key-vault/general/monitor-key-vault-reference) | [Key vault alerts](/azure/key-vault/general/monitor-key-vault#alerts) |
 |Standard Load Balancer|[Load balancer logs and metrics](/azure/load-balancer/load-balancer-standard-diagnostics)|[Load Balancer alerts](/azure/load-balancer/load-balancer-standard-diagnostics#configure-alerts-for-multi-dimensional-metrics)
 | Public IP address | [Public IP address metrics and logs description](/azure/virtual-network/ip-services/monitor-public-ip) | [Public IP address metrics alerts](/azure/virtual-network/ip-services/monitor-public-ip#alerts) |
 | Virtual networks | [Virtual network metrics and logs reference](/azure/virtual-network/monitor-virtual-network-reference) | [Virtual network alerts](/azure/virtual-network/monitor-virtual-network#alerts) |
-| VM/VMSS | [VM metrics and logs reference](/azure/virtual-machines/monitor-vm-reference) | [VM alerts and tutorials](/azure/virtual-machines/monitor-vm#alerts) |
+| VM and scale sets | [VM metrics and logs reference](/azure/virtual-machines/monitor-vm-reference) | [VM alerts and tutorials](/azure/virtual-machines/monitor-vm#alerts) |
 | Web Application Firewall | [Web Application Firewall metrics and logs description](/azure/web-application-firewall/ag/application-gateway-waf-metrics) | [Web Application Firewall alerts](/azure/web-application-firewall/ag/application-gateway-waf-metrics#configure-alerts-in-azure-portal) |
 
 For more information on the cost of collecting metrics and logs, see [Log Analytics cost calculations and options](/azure/azure-monitor/logs/cost-logs) and [Pricing for Log Analytics workspace](https://azure.microsoft.com/pricing/details/monitor/). Metric and log collection costs are greatly impacted by the nature of the workload, and the frequency and number of metrics and logs collected.
 
 ##### Virtual machines
 
-[Azure boot diagnostics](/azure/virtual-machines/boot-diagnostics) is enabled to observe the state of their VM as it's booting up by collecting serial log information and screenshots. In this architecture, that data is stored in Microsoft-managed storage accessible through Azure portal and [the Azure CLI vm boot-diagnostics get-boot-log command](/cli/azure/vm/boot-diagnostics?view=azure-cli-latest#az-vm-boot-diagnostics-get-boot-log). However, if your business requirements demand for more control, you can provision your own storage account to store boot diagnostics.
+[Azure boot diagnostics](/azure/virtual-machines/boot-diagnostics) is enabled to observe the state of their VM as it's booting up by collecting serial log information and screenshots. In this architecture, that data is stored in a Microsoft-managed storage resource that's accessible through Azure portal and [the Azure CLI vm boot-diagnostics get-boot-log command](/cli/azure/vm/boot-diagnostics?view=azure-cli-latest#az-vm-boot-diagnostics-get-boot-log). However, if your business requirements demand for more control, you can provision your own storage account to store boot diagnostics.
 
 
 The VMs have [Azure Monitor Agent (AMA)](/azure/azure-monitor/agents/agents-overview) deployed, which collect monitoring data from the guest OS, with OS-specific [Data Collection Rules (DCR)](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent) applied to each VM. The DCRs collect performance counters, OS logs, change tracking, dependency tracking, and web server HTTP logs. DCR allows filtering rules and data transformations to reduce the overall data volume being uploaded, thus lowering ingestion and storage costs significantly. As the scale set grows, newly allocated VMs are configured with the AMA settings enforced by a built-in Azure Policy assignment.
@@ -476,7 +475,7 @@ The baseline architecture uses user-assigned managed identities. These identitie
     - **app.contoso.com**: An external certificate used by clients and Application Gateway for secure public Internet traffic.
     - ***.workload.contoso.com**: A wildcard certificate used by the infrastructure components for secure internal traffic.
 
-- **Data at rest**. Log data is stored in managed disk temporarily. That data is automatically encrypted by using platform-provided encryption in Azure Storage.
+- **Data at rest**. Log data is stored in managed disk temporarily. That data is automatically encrypted by using platform-provided encryption on Azure.
 
 > Refer to Well-Architected Framework: [SE:07 - Recommendations for data encryption](/azure/well-architected/security/encryption).
 
@@ -521,7 +520,7 @@ If the main cost driver is the number of instances, it may be more cost-effectiv
 - **Software licensing**. Larger VMs can handle more workload, potentially reducing the number of software licenses required.
 - **Maintenance time**: Managing fewer, larger VMs can reduce operational costs.
 - **Load balancing**: Fewer VMs can result in lower costs for load balancing. For example, in this architecture there are multiple layers of load balancing, such as an Application Gateway at the front and an internal load balancer in the middle. Load balancing costs would increase if higher number of instances need to be managed.
-- **Storage**. If there are stateful applications, more instances need more attached managed disks, increasing cost of storage.
+- **Disk storage**. If there are stateful applications, more instances need more attached managed disks, increasing cost of storage.
 
 > Refer to Well-Architected Framework: [CO:12 - Recommendations for optimizing scaling costs](/azure/well-architected/cost-optimization/optimize-scaling-costs).
 
