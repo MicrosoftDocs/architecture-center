@@ -10,14 +10,14 @@ The following diagram shows the architecture of the workload to be migrated, an 
 
 ### Workflow
 
-The following workflow corresponds to the above diagram:
+The following workflow corresponds to the preceding diagram:
 
 1. Users connect to the mainframe over TCP/IP using standard mainframe protocols like TN3270 and HTTPS.
 1. The transaction managers interact with the users and invoke the application to satisfy user requests.
 1. In the front end of the application layer, users interact with the CICS/IMS screens or with web pages.
 1. The transaction managers use the business logic written in COBOL or PL/1 to implement the transactions.
 1. Application code uses storage capabilities of the data layer, typically DB2, IMS DB, or VSAM.
-1. Concurrently with transaction processing, other services provide authentication, security, management, monitoring, and reporting. These services interact with all other services in the system.
+1. Along with transaction processing, other services provide authentication, security, management, monitoring, and reporting. These services interact with all other services in the system.
 
 Here, we see how to migrate this architecture to Azure.
 
@@ -61,7 +61,7 @@ This architecture consists of several Azure cloud services and is divided into f
 - [Azure App Service](https://azure.microsoft.com/services/app-service) is a fully managed service for building, deploying, and scaling web apps. You can build apps using .NET, .NET Core, Node.js, Java, Python, or PHP. The apps can run in containers or on Windows or Linux. In a mainframe migration, the front-end screens or web interface can be coded as HTTP-based REST APIs. They can be segregated as per the mainframe application, and can be stateless to orchestrate a microservices-based system.
 - WebJobs is a feature of Azure App Service that runs a program or script in the same instance as a web app, API app, or mobile app. A web job can be a good choice for implementing sharable and reusable program logic. For technical information, see [Run background tasks with WebJobs in Azure App Service](/azure/app-service/webjobs-create).
 - [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS simplifies deployment of a managed AKS cluster in Azure by offloading the operational overhead to Azure.
-- [Azure Spring Apps](https://azure.microsoft.com/services/spring-cloud) is a fully managed Spring service, jointly built and operated by Microsoft and VMware. With it, you can easily deploy, manage and run Spring microservices, and write Spring applications using Java or .NET.
+- [Azure Spring Apps](https://azure.microsoft.com/services/spring-cloud) is a fully managed Spring service, jointly built and operated by Microsoft and VMware. With it, you can easily deploy, manage, and run Spring microservices, and write Spring applications using Java or .NET.
 - [Azure Service Bus](https://azure.microsoft.com/services/service-bus) is a reliable cloud messaging service for simple hybrid integration. Service Bus and Storage queues can connect the front end with the business logic in the migrated system.
 - [Azure Functions](https://azure.microsoft.com/services/functions) provides an environment for running small pieces of code, called functions, without having to establish an application infrastructure. You can use it to process bulk data, integrate systems, work with IoT, and build simple APIs and microservices. With microservices, you can create servers that connect to Azure services and are always up to date.
 - [Azure Cache for Redis](https://azure.microsoft.com/services/cache) is a fully managed in-memory caching service for sharing data and state among compute resources. It includes both the open-source Redis (OSS Redis) and a commercial product from Redis Labs (Redis Enterprise) as a managed service. You can improve performance of high-throughput OLTP applications by designing them to scale and to make use of an in-memory data store such as Azure Cache for Redis.
@@ -88,7 +88,7 @@ This architecture consists of several Azure cloud services and is divided into f
 
 ## Scenario details
 
-With ever-evolving business needs and data, applications must produce and scale without creating infrastructure issues. This example workload shows how, using Azure platform as a service (PaaS) services, one can migrate a z/OS mainframe OLTP application to a secure, scalable, and highly available system in the cloud. Such a migration helps businesses in finance, health, insurance, and retail to minimize application delivery timelines, and it helps reduce the costs of running the applications.
+With ever-evolving business needs and data, applications must produce and scale without creating infrastructure issues. This example workload shows how you can migrate a z/OS mainframe OLTP application to a secure, scalable, and highly available system in the cloud, by using Azure platform as a service (PaaS) services. Such a migration helps businesses in finance, health, insurance, and retail to minimize application delivery timelines, and it helps reduce the costs of running the applications.
 
 ### Potential use cases
 
@@ -150,7 +150,7 @@ Principal author:
 
 ## Next steps
 
-- For more information, contact [datasqlninja@microsoft.com](datasqlninja@microsoft.com).
+- For more information, contact [datasqlninja@microsoft.com](mailto:datasqlninja@microsoft.com).
 - [Azure Database Migration Guides](/data-migration)
 
 ## Related resources

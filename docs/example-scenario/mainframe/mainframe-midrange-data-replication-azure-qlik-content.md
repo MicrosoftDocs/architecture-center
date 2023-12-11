@@ -28,7 +28,7 @@ This solution uses an on-premises instance of Qlik to replicate on-premises data
      - Azure Database for MySQL
      - Azure Cosmos DB
 
-     There are many factors to consider when making a choice: type of workload, cross-database queries, two-phase commit requirements, ability to access the file system, amount of data, required throughput, latency, and so on.
+     There are many factors to consider when choosing a data storage service: type of workload, cross-database queries, two-phase commit requirements, ability to access the file system, amount of data, required throughput, latency, and so on.
 
    - **Azure non-relational database services**: Azure Cosmos DB, a NoSQL database, provides quick response, automatic scalability, and guaranteed speed at any scale.
    - **Azure Synapse Analytics**: Synapse Analytics is an analytics service that brings together data integration, enterprise data warehousing, and big data analytics. With it, you can query data by using either serverless or dedicated resources at scale.
@@ -58,10 +58,10 @@ This architecture consists of several Azure cloud services and is divided into f
 
 #### Monitoring
 
-- [Azure Monitor](https://azure.microsoft.com/services/monitor) delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. It includes these features:
+- [Azure Monitor](https://azure.microsoft.com/services/monitor) delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. It includes:
   - Application Insights, for analyzing and presenting telemetry.
   - Monitor Logs, which collects and organizes log and performance data from monitored resources. Data from different sources such as platform logs from Azure services, log and performance data from virtual machines agents, and usage and performance data from applications can be consolidated into a single workspace to be analyzed together. Analysis uses a sophisticated query language that's capable of quickly analyzing millions of records.
-  - Log Analytics, which can query Monitor logs. A powerful query language allows you to join data from multiple tables, aggregate large sets of data, and perform complex operations with minimal code.
+  - Log Analytics, which can query Monitor logs. A powerful query language lets you join data from multiple tables, aggregate large sets of data, and perform complex operations with minimal code.
 
 ### Alternatives
 
@@ -74,9 +74,6 @@ This architecture consists of several Azure cloud services and is divided into f
 Many organizations use mainframe and midrange systems to run demanding and critical workloads. Most applications use one or more databases, and most databases are shared by many applications, often on multiple systems. In such an environment, modernizing to the cloud means that on-premises data must be provided to cloud-based applications. Therefore, data replication becomes an important modernization tactic.
 
 The [Qlik](https://www.qlik.com/microsoft) Data Integration platform includes Qlik Replication, which does data replication. It uses change data capture (CDC) to replicate on-premises data stores in real time to Azure. The change data can come from Db2, IMS, and VSAM change logs. This replication technique eliminates inconvenient batch bulk loads. This solution uses an on-premises instance of Qlik to replicate on-premises data sources to Azure in real time.
-
-> [!Note]
-> Pronounce "Qlik" like "click".
 
 ### Potential use cases
 
@@ -102,8 +99,8 @@ Reliability ensures your application can meet the commitments you make to your c
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 - ExpressRoute provides a private and efficient connection to Azure from on-premises, but you could instead use [site-to-site VPN](/azure/vpn-gateway/tutorial-site-to-site-portal).
-- Azure resources can be authenticated by using Microsoft Entra ID. Permissions can be managed by role-based access control (RBAC).
-- Database services in Azure support various security options such as:
+- Azure resources can be authenticated by using Microsoft Entra ID. Permissions can be managed by role-based access control.
+- Database services in Azure support various security options, such as:
   - Data Encryption at rest.
   - Dynamic data masking.
   - Always-encrypted database.
