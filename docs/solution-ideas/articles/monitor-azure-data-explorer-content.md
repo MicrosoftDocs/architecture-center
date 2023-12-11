@@ -2,7 +2,7 @@
 
 Microsoft Sentinel, Azure Monitor, and Azure Data Explorer are based on a common technology and use Kusto Query Language (KQL) to analyze large volumes of data streamed in from multiple sources in near-real time.
 
-This solution demonstrates how to leverage the tight integration between Microsoft Sentinel, Azure Monitor, and Azure Data Explorer to consolidate a single interactive data lake and augment your monitoring and analytics capabilities. 
+This solution demonstrates how to leverage the tight integration between Microsoft Sentinel, Azure Monitor, and Azure Data Explorer to consolidate a single interactive data estate and augment your monitoring and analytics capabilities. 
 
 > [!NOTE]
 > This solution applies to Azure Data Explorer and also to [Real-Time Analytics KQL databases](/fabric/real-time-analytics/create-database), which provide SaaS-grade real-time log, time-series, and advanced analytics capabilities as part of [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview). 
@@ -15,7 +15,7 @@ This solution demonstrates how to leverage the tight integration between Microso
 
 ### Scenario details
 
-Use cross-service queries to build a single, interactive data lake, joining data in Microsoft Sentinel, Azure Monitor, and Azure Data Explorer:
+Use cross-service queries to build a single, interactive data estate, joining data in Microsoft Sentinel, Azure Monitor, and Azure Data Explorer:
 
 - Microsoft Sentinel is Azure’s cloud-native solution for Security Information and Event Management (SIEM) and Security Orchestration, Automation, and Response (SOAR). 
 
@@ -55,7 +55,7 @@ An architecture built on the features and flexibility provided by the three serv
 
 ### Dataflow
 
-1. Ingest data using the combined ingestion capabilities of Microsoft Sentinel, Azure Monitor, and Azure Data Explorer:
+1. Ingest data using the combined ingestion capabilities of [Microsoft Sentinel](/azure/sentinel/connect-data-sources), [Azure Monitor](/azure/azure-monitor/essentials/data-collection), and [Azure Data Explorer](/azure/sentinel/connect-data-sources):
 
     - Configure diagnostic settings to ingest data from Azure services such as Azure Kubernetes Service (AKS), Azure App Service, Azure SQL Database, and Azure Storage.
     - Use Azure Monitor Agent to ingest data from VMs, containers, and workloads.
