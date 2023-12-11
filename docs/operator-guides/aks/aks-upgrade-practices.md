@@ -32,7 +32,7 @@ There are three different types of updates for AKS, each building on one another
 
 ### Component details
 
-- **Nodes OS security patches *(Linux only)*** For Linux nodes both [Canonical Ubuntu](https://ubuntu.com/server) and [Azure Linux](/azure/azure-linux/intro-azure-linux) publish nightly security patches to the operating system.  These patches are included in the weekly updates to node images.
+- **Node OS security patches *(Linux only)*** For Linux nodes both [Canonical Ubuntu](https://ubuntu.com/server) and [Azure Linux](/azure/azure-linux/intro-azure-linux) make operating system security patches available once a day. These patches are also included in the weekly updates to node images.
 
 - **Weekly updates to the node images:** AKS provides weekly updates to the node images, these updates include a rollup of the latest OS and AKS security patches, bug fixes and enhancements. Node updates don't change the version of Kubernetes in use and are formatted by date (`202311.07.0`) for Linux and for Windows by Windows Server OS build and date (`20348.2113.231115`). For more information, see the [AKS release tracker](https://releases.aks.azure.com/).
 
@@ -64,10 +64,10 @@ To ensure the smooth operation of your AKS cluster during maintenance events, fo
 
 ### Managing the weekly updates to node images
 
-Microsoft provides patches and new images for AKS nodes weekly. An updated node image contains up-to-date OS security patches, kernel updates, Kubernetes security updates, updated versions of binaries like `kubelet`, and component version updates listed in the [release notes](https://github.com/Azure/AKS/releases).
-When a node image is updated a `cordon and drain` action is triggered on the cluster.
+Microsoft generates a new node image for AKS nodes approximately once a week. A node image contains up-to-date OS security patches, OS kernel updates, Kubernetes security updates, updated versions of binaries like `kubelet`, and component version updates listed in the [release notes](https://github.com/Azure/AKS/releases).
+When a node image is updated a _cordon and drain_ action is triggered on the target node pool's nodes systematically.
 
-- An additional node is added to the node pool (this is governed by the surge value)
+- An additional node is added to the node pool (this is governed by the surge value), with the updated image.
 - One of the existing nodes is _cordoned_ (configured to not schedule pods) and _drained_ (have its pods removed and rescheduled to other nodes).
 - Once the node is fully drained it's removed from the node pool. The updated node added by the surge has replaced it.
 - This process is repeated for each node to be updated in the node pool.
@@ -76,7 +76,7 @@ A similar process occurs during a cluster upgrade.
 
 #### Node Image Upgrades via Automatic Upgrades
 
-By default newly created clusters are automatically opted in to the `Node Image` update channel.  This channel provides an updated Node Image VHD on a weekly basis, and is updated according to your cluster's maintenance window.
+Generally speaking, most clusters should use the `Node Image` update channel.  This channel provides an updated Node Image VHD on a weekly basis and is updated according to your cluster's maintenance window.
 Other available channels include:
 
 - `None` (No updates automatically applied)
@@ -120,7 +120,7 @@ If a cluster maintenance window isn't configured node image updates occur on a r
 
 #### Node Image Upgrades Alternate Methods
 
-The weekly update process can also be managed automatically by using [GitHub Actions](/azure/aks/node-upgrade-github-actions).  The benefit of this method is more granular control to the update process.
+The weekly update process can also be managed externally by using [GitHub Actions](/azure/aks/node-upgrade-github-actions). The benefit of this method is more granular control to the update process.
 
 #### Manual node update process
 
