@@ -28,7 +28,7 @@ This solution demonstrates how to leverage the tight integration between Microso
 1. Optionally, apply advanced machine learning on a broad set of data from your entire data estate to discover patterns, detect anomalies, forecast, and gain other insights.
 1. Leverage the tight integration between services to augment monitoring and analytics capabilities:
    
-     - Run cross-service queries from [Microsoft Sentinel, Azure Monitor](/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy), and [Azure Data Explorer]((/azure/data-explorer/query-monitor-data)) to analyze and correlate data in all three services in one query without moving the data.
+     - Run cross-service queries from [Microsoft Sentinel, Azure Monitor](/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy), and [Azure Data Explorer](/azure/data-explorer/query-monitor-data) to analyze and correlate data in all three services in one query without moving the data.
      - Consolidate a single-pane-of-glass view of your data estate with customized cross-service workbooks, dashboards, and reports.     
 
 ## Components
