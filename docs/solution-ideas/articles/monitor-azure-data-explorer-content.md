@@ -49,7 +49,7 @@ An architecture built on the features and flexibility provided by the three serv
     - Applying machine learning on a broad data set to discover patterns, anomaly detection, forecasting, and to gain other advanced insights. 
     - Creating workbooks and reports that let you monitor, correlate, and act on various types of data.  
 
-### Dataflow
+## Dataflow
 
 1. Ingest data using the combined ingestion capabilities of [Microsoft Sentinel](/azure/sentinel/connect-data-sources), [Azure Monitor](/azure/azure-monitor/essentials/data-collection), and [Azure Data Explorer](/azure/data-explorer/ingest-data-overview):
 
