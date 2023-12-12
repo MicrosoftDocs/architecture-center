@@ -348,31 +348,29 @@ Every architecture is susceptible to failures. The exercise of failure mode anal
 
 To make design decisions, it's important to calculate the reliability targets, such as the composite Service Level Objectives (SLOs) of the workload. This involves understanding the Service Level Agreements (SLAs) provided by Azure services used in the architecture. Workload SLOs must not be higher than the SLAs guaranteed by Azure. Carefully examine each component, from VMs and their dependencies, networking, and storage options.
 
-Here's an example calculation.
+Here's an example calculation where the main goal was to provide with an approximate composite SLO.
+
+While this is rough guideline, it is important to remark that you should arrive to something similar and cannot expect getting a higher maximum composite SLO for the same flows shared below, unless you make modifications to this architecture.
 
 **Operation flow**
 
-|Component  |SLO  |SLO with Zones  |Downtime per week  |Downtime per month  |Downtime per year  |
-|------------|-----------|---------|---------|---------|---------|
-|Microsoft Entra ID | 99.99% |99.99% |0d 0h 0m 58s |0d 0h 4m 22s |0d 0h 52m 33s  |
-|Azure Bastion | 99.95% |99.95% |0d 0h 4m 51s |0d 0h 21m 53s |0d 4h 22m 47s  |
-|Scale set Frontend | 99.99% |100% |0d 0h 0m 0s |0d 0h 0m 0s |0d 0h 0m 0s |
-|Scale set Backend | 99.99% |100% |0d 0h 0m 0s |0d 0h 0m 0s |0d 0h 0m 0s |
+|Component  |SLO  |
+|------------|-----------|
+|Microsoft Entra ID | 99.99% |
+|Azure Bastion | 99.95% |
 
 **Composite SLO: 99.94% | Downtime per year: 0d 5h 15m 20s**
 
 **App User Flow**
 
-|Component  |SLO  |SLO with Zones  |Downtime per week  |Downtime per month  |Downtime per year  |
-|------------|-----------|---------|---------|---------|---------|
-|Azure Application Gateway |99.95% |99.99999999% |0d 0h 0m 0s |0d 0h 0m 0s |0d 0h 0m 0s  |
-|Azure Internal Load Balancer |99.99% |100% |0d 0h 0m 0s |0d 0h 0m 0s |0d 0h 0m 0s |
-|Scale set frontend |99.99% |100% |0d 0h 0m 0s |0d 0h 0m 0s |0d 0h 0m 0s |
-|Scale set backend |99.99% |100% |0d 0h 0m 0s  |0d 0h 0m 0s  |0d 0h 0m 0s |
-|Managed Disk |99.90% |99.9999999% |0d 0h 0m 0s |0d 0h 0m 0s |0d 0h 0m 0s |
-|Azure KeyVault |99.99% |99.99% |0d 0h 0m 58s |0d 0h 4m 22s |0d 0h 52m 33s |
+|Component  |SLO  |
+|------------|-----------|
+|Azure Application Gateway |99.95% |
+|Azure Load Balancer (internal) |99.99% |
+|Frontend VMs using premium storage (composite SLO)|99.70% |
+|Backend VMs using premium storage (composite SLO)|99.70% |
 
-**Composite SLO: 99.98% | Downtime per year: 0d 0h 52m 53s**
+**Composite SLO: 99.34% | Downtime per year: 2d 9h 42m 18s**
 
 In the preceding example, reliability of VMs and the dependencies are included. For instance, disks associated with VMs. The SLAs associated with disk storage impact the overall reliability.
 
