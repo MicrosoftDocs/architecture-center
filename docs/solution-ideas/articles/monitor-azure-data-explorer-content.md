@@ -24,7 +24,7 @@ Use cross-service queries to build a consolidated, interactive data estate, join
     - Rules-based case management and incident response automation capabilities using modular, reusable, Logic Apps-based playbooks. 
     - KQL query capabilities that let you analyze security data and hunt for threats by correlating data from multiple sources and services.
 
-- Azure Monitor is Azure’s managed solution for IT and application monitoring. 
+- [Azure Monitor](/azure/azure-monitor/overview) is Azure’s managed solution for IT and application monitoring. Azure Monitor has the following features:
 
     Azure Monitor offers:
 
