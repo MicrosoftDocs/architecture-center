@@ -33,9 +33,7 @@ Use cross-service queries to build a consolidated, interactive data estate, join
     - End-to-end observability capabilities that let you improve IT and application efficiency and performance.
     - KQL query capabilities that let you analyze data and troubleshoot operational issues by correlating data across resources and services.
  
-- Azure Data Explorer is part of the Azure data platform, providing real-time, advanced analytics of any type of structure and unstructured data. 
-
-    Azure Data Explorer offers:
+- [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) is part of the Azure data platform, providing real-time, advanced analytics of any type of structure and unstructured data. Azure Data Explorer has the following features:
 
     - Connectors and APIs for various types of IT and non-IT data – for example, business, user, and geospatial data.
     - The full set of KQL's analytics capabilities, including hosting of machine learning algorithms in python and federated queries to other data technologies, such as SQL Server, data lakes, and Cosmos DB.  
