@@ -40,14 +40,14 @@ Your team provisions and owns these resources and remain mostly unchanged from t
 - **Azure Internal Load Balancer** privately load balances traffic from the frontend virtual machines to the backend virtual machines. The load balancer distributes traffic to VMs across zones.
 - **Azure Application Gateway** acts as the reverse proxy routing user requests to the frontend virtual machines. The selected SKU also hosts Azure Web Application Firewall to protect the frontend VMs from potentially malicious traffic.
 - **Azure Key Vault** stores application secrets and certificates.
-- **Azure Monitor, Azure Log Analytics and Application Insights** collects, store, and visualizes observability data. 
+- **Azure Monitor, Azure Log Analytics and Application Insights** collect, store, and visualize observability data. 
 - **Azure Policy** applies policies specific to the workload.
 
 These resources and responsibilities continue to be maintained and fulfilled by the workload team. 
 
 - **Spoke virtual network subnets and Network Security Groups (NSGs)** placed on those subnets to maintain segmentation and control traffic flow. 
 - **Private endpoints** to secure connectivity to PaaS services and the **private DNS zones** required for those endpoints. 
-- **Disks** temporarily store log files on the backend servers. 
+- **Disks** stores log files on the backend servers and the data is retained even when VMs reboot. 
 
 
 #### Platform team-owned resources

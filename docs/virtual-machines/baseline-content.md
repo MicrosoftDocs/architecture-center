@@ -52,7 +52,7 @@ For information about these resources, see Azure product documentation listed in
 
 - **Azure Bastion** provides secured operational access to the VMs over secure protocols.
 
-- **Azure Application Insights** collects logs and metrics from the application.
+- **Azure Application Insights** collects logs and metrics from the application. Because the application isn't the focus of this architecture, log collection isn't demonstrated in the implementation.
 
 - **Azure Log Analytics** is the monitoring data sink that collects logs and metrics from the Azure resources and Application Insights. A storage account is provisioned as part of the workspace.
 
@@ -404,7 +404,7 @@ This architecture uses zone-redundancy for several components. Each zone is made
 
 ##### Scaling strategy
 
-Your scaling operations should be reliable so that when a degraded condition is detected, extra resources are provisioned immediately. One strategy is overprovisioning, which is used in this architecture. This is achieved by having sufficient horizontal capacity. This strategy involves understanding the maximum amount of work that the workload will handle. However, it's not just about having extra capacity. It's also about ensuring that your resources aren't underprovisioned. The VM should be right-sized for the work it's expected to handle.
+Your scaling operations should be reliable so that when a degraded condition is detected, extra resources are provisioned immediately. One strategy is overprovisioning. This is achieved by having sufficient horizontal capacity. This strategy involves understanding the maximum amount of work that the workload will handle. However, it's not just about having extra capacity. It's also about ensuring that your resources aren't underprovisioned. The VM should be right-sized for the work it's expected to handle.
 
 Another strategy is to use autoscaling capabilities for the scale sets. Be sure to do adequate performance testing to set the threshold for CPU, memory, and others. When those thresholds are reached, new instances are immediately provisioned.
 
@@ -442,7 +442,7 @@ Access to VMs requires a user account, controlled by Microsoft Entra ID authenti
 
 Workload resources such as VMs authenticate themselves by using their assigned managed identities to other resources. These identities, based on Microsoft Entra ID service principals, are automatically managed. For example, Key Vault extension are installed on VMs, which allows VMs to boot with up certificates in place. In this architecture, [user-assigned managed identities](/entra/identity/managed-identities-azure-resources/overview#managed-identity-types) are used by Azure Application Gateway, frontend VMs, and backend VMs to access Azure Key Vault. Those managed identities are configured during deployment and used for authenticating against Key Vault. Access policies on Key Vault are configured to only accept requests from the preceding managed identities.
 
-The baseline architecture uses user-assigned managed identities. These identities are needed to use Microsoft Entra ID for authorization purposes when accessing other Azure resources.
+The baseline architecture uses a mix of system-assigned and user-assigned managed identities. These identities are needed to use Microsoft Entra ID for authorization purposes when accessing other Azure resources.
 
 > Refer to Well-Architected Framework: [SE:05 - Recommendations for identity and access management](/azure/well-architected/security/identity-access).
 
@@ -478,7 +478,7 @@ The baseline architecture uses user-assigned managed identities. These identitie
     - **app.contoso.com**: An external certificate used by clients and Application Gateway for secure public Internet traffic.
     - ***.workload.contoso.com**: A wildcard certificate used by the infrastructure components for secure internal traffic.
 
-- **Data at rest**. Log data is stored in managed disk temporarily. That data is automatically encrypted by using platform-provided encryption on Azure.
+- **Data at rest**. Log data is stored in managed disk attached to VMs. That data is automatically encrypted by using platform-provided encryption on Azure.
 
 > Refer to Well-Architected Framework: [SE:07 - Recommendations for data encryption](/azure/well-architected/security/encryption).
 
