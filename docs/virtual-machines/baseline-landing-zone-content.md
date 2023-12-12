@@ -139,7 +139,7 @@ In the [**baseline architecture**](./baseline-content.md#network-layout), the wo
 
 In this architecture, the network topology is decided by the platform team. Hub-spoke topology is assumed in this architecture. 
 
-:::image type="content" source="./media/baseline-landing-zone-network.png" alt-text="Diagram that shows the network layout in a hub-spoke topology." lightbox="./media/baseline-landing-zone-network.png":::
+:::image type="content" source="./media/baseline-landing-zone-network-topology.png" alt-text="Diagram that shows the network layout in a hub-spoke topology." lightbox="./media/baseline-landing-zone-network-topology.png":::
 
 - **Hub virtual network**. This network contains a regional hub designed to provide centralized services that communicate with workload resources in the same region. For information, see [these networking resources](#platform-team-owned-resources). Azure landing zones recommend placing the hub in the [Connectivity subscription](/azure/cloud-adoption-framework/ready/landing-zone/design-area/network-topology-and-connectivity). 
 
@@ -170,9 +170,13 @@ The workload owner is responsible for any resources related to public internet i
 
 ##### Egress traffic
 
-In the baseline architecture, egress traffic to the internet wasn't restricted. 
+In the baseline architecture, workload VM scale sets access public internet through Azure Load Balancer however that traffic isn't restricted. 
 
 That design has changed in this architecture. All traffic leaving the spoke virtual network is expected to be routed through the peered hub network, via an egress firewall. This is achieved with a route attached to all the possible subnets in the spoke network that directs all traffic for IPs not found in the local virtual network (0.0.0.0/0) to the hub's Azure Firewall.
+
+:::image type="content" source="./media/baseline-landing-zone-network-egress.png" alt-text="Diagram that shows the network layout in a hub-spoke topology." lightbox="./media/baseline-landing-zone-network-egress.png":::
+
+Workload communication to the private endpoint for Azure Key Vault access remains the same as the [**baseline architecture**](./baseline-content.md#egress-traffic). That path has been omitted from the preceding image for brevity.
 
 The workload team must identify, document, and communicate all necessary outbound traffic flows for your infrastructure and workload operations. The platform team allows the required traffic, while all uncommunicated egress traffic will likely be denied.
 
@@ -369,9 +373,7 @@ The security considerations carry over from the [**baseline architecture**](./ba
 
 This architecture follows the new decisions from [**baseline architecture**](./baseline-content.md#secret-management).
 
-As a workload team, continue to keep your workload secrets a function of your application landing zone. Deploy your own Azure Key Vault instance(s) as needed to support your application and infrastructure operations.
-
-As a workload team, continue the responsibility of keeping your secrets in your landing zone. Deploy your own Azure Key Vault instance(s) as needed to support your application and infrastructure operations.
+As a workload team, continue with the responsibility of keeping your secrets in your Azure Key Vault instance. Deploy more instances as needed to support your application and infrastructure operations.
 
 > Refer to Well-Architected Framework: [SE:09 - Recommendations for protecting application secrets](/azure/well-architected/security/application-secrets).
 
