@@ -153,7 +153,9 @@ In this architecture,
 
 This architecture deploys the workload in a single virtual network. Network controls are a significant part of this architecture, and described in the [Security](#security) section.
 
-It can be integrated with an enterprise topology. That example is shown in [Virtual machine baseline architecture in an Azure landing zone](./baseline-landing-zone.yml).
+:::image type="content" source="./media/baseline-network.png" alt-text="Virtual machine baseline showing the network layout" lightbox="./media/baseline-network.png":::
+
+This layout can be integrated with an enterprise topology. That example is shown in [Virtual machine baseline architecture in an Azure landing zone](./baseline-landing-zone.yml).
 
 ##### Virtual network
 
@@ -181,13 +183,15 @@ Two public IP addresses are used for ingress flows. One for Azure Application Ga
 
 The Azure internal Load Balancer is placed between the frontend and the backend to distribute traffic to the backend VMs.
 
-:::image type="content" source="./media/baseline-network.png" alt-text="Virtual machine baseline showing the network layout" lightbox="./media/baseline-network.png":::
+:::image type="content" source="./media/baseline-network-ingress.png" alt-text="Virtual machine baseline showing ingress flow" lightbox="./media/baseline-network-ingress.png":::
 
 ##### Egress traffic
 
 Azure Virtual Machine Scale Sets with Flexible orchestration don't have outbound internet connectivity by default, it must be explicitly defined in your architecture. To enable that use case, here are some approaches:
 
 This architecture uses Standard SKU Azure Load Balancer with outbound rules defined from the VM instances. Azure Load Balancer was chosen because it's zone redundant.
+
+:::image type="content" source="./media/baseline-network-egress.png" alt-text="Virtual machine baseline showing ingress flow" lightbox="./media/baseline-network-egress.png":::
 
 This configuration allows you to use the public IP(s) of your load balancer to provide outbound internet connectivity for the VMs. The outbound rules allow you to explicitly define SNAT(source network address translation) ports. The rules allow you to scale and tune this ability through manual port allocation. Manually allocating SNAT port based on the backend pool size and number of frontendIPConfigurations can help avoid SNAT exhaustion.
 
@@ -480,7 +484,7 @@ The baseline architecture uses user-assigned managed identities. These identitie
 
 ##### Secret management
 
-:::image type="content" source="./media/baseline-certificates.svg" alt-text="Diagram that shows TLS termination and certificates used." lightbox="./media/baseline-certificates.png":::
+:::image type="content" source="./media/baseline-certificates.png" alt-text="Diagram that shows TLS termination and certificates used." lightbox="./media/baseline-certificates.png":::
 
 [Azure Key Vault](/azure/key-vault/general/overview) provides secure management of secrets, including TLS certificates. In this architecture, the TLS certificates are stored in the Key Vault and retrieved during the provisioning process by the managed identities of Application Gateway and the VMs. After the initial setup, these resources will only access the Key Vault when the certificates are refreshed.
 
