@@ -26,7 +26,6 @@ Use cross-service queries to build a consolidated, interactive data estate, join
 
 - [Azure Monitor](/azure/azure-monitor/overview) is Azure’s managed solution for IT and application monitoring. Azure Monitor has the following features:
 
-    Azure Monitor offers:
 
     - Natively ingestion of monitoring data from Azure resources, and agents, connectors, and APIs for collect monitoring data from Azure resources and any sources, applications, and workloads in Azure and hybrid environments.
     - IT monitoring tools and analytics features, including Artificial Intelligence for IT Operations (AIOps) features and prebuilt workbooks for monitoring specific resources, such as virtual machines, containers, and applications.
