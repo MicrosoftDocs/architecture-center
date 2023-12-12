@@ -17,9 +17,7 @@ This solution demonstrates how to leverage the tight integration between Microso
 
 Use cross-service queries to build a consolidated, interactive data estate, joining data in Microsoft Sentinel, Azure Monitor, and Azure Data Explorer:
 
-- Microsoft Sentinel is Azure’s cloud-native solution for Security Information and Event Management (SIEM) and Security Orchestration, Automation, and Response (SOAR). 
-
-    Microsoft Sentinel offers:
+- [Microsoft Sentinel](/azure/sentinel/overview) is Azure’s cloud-native solution for Security Information and Event Management (SIEM) and Security Orchestration, Automation, and Response (SOAR). Microsoft Sentinel has the following features:
 
     - Connectors and APIs for collecting security data from various sources, such as Azure resources, Microsoft 365, and other cloud and on-premises solutions.
     - Advanced built-in analytics, machine learning, and threat intelligence capabilities for detecting and investigating threats.
