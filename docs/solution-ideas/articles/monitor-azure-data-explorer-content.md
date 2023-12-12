@@ -13,7 +13,25 @@ This solution demonstrates how to leverage the tight integration between Microso
 
 *Download a [Visio file](https://arch-center.azureedge.net/monitor-azure-data-explorer.vsdx) of this architecture.*
 
-### Scenario details
+
+## Dataflow
+
+1. Ingest data using the combined ingestion capabilities of [Microsoft Sentinel](/azure/sentinel/connect-data-sources), [Azure Monitor](/azure/azure-monitor/essentials/data-collection), and [Azure Data Explorer](/azure/data-explorer/ingest-data-overview):
+
+    - Configure diagnostic settings to ingest data from Azure services such as Azure Kubernetes Service (AKS), Azure App Service, Azure SQL Database, and Azure Storage.
+    - Use Azure Monitor Agent to ingest data from VMs, containers, and workloads.
+    - Use a wide range of connectors, agents, and APIs supported by the three services - such as Logstash, Kafka, and Logstash connectors, OpenTelemetry agents, Azure Data Explorer APIs, and Azure Monitor Log Ingestion API - to ingest data from on-premises resources and other clouds.
+    - Stream in data using Azure data streaming services, such as Azure IoT Hub, Azure Event Hubs, Azure Stream Analytics. 
+1. Use Azure Sentinel to monitor, investigate, and act on security-related data across your IT environment.
+1. Use Azure Monitor for monitoring the performance, availability, and health of applications, services, and IT resources to gain insights into the operational status of your cloud infrastructure, identify issues, and optimize performance.
+1. Use Azure Data Explorer for any data that requires custom or more flexible handling or analytics, including full schema control, cache or retention control, deep data platform integrations, and machine learning execution. 
+1. Optionally, apply advanced machine learning on a broad set of data from your entire data estate to discover patterns, detect anomalies, forecast, and gain other insights.
+1. Leverage the tight integration between services to augment monitoring and analytics capabilities:
+   
+     - Run cross-service queries from [Microsoft Sentinel, Azure Monitor](/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy), and [Azure Data Explorer]((/azure/data-explorer/query-monitor-data)) to analyze and correlate data in all three services in one query without moving the data.
+     - Consolidate a single-pane-of-glass view of your data estate with customized cross-service workbooks, dashboards, and reports.     
+
+## Components
 
 Use cross-service queries to build a consolidated, interactive data estate, joining data in Microsoft Sentinel, Azure Monitor, and Azure Data Explorer:
 
@@ -39,6 +57,8 @@ Use cross-service queries to build a consolidated, interactive data estate, join
     - Scalable data management capabilities, including full schema control, processing of incoming data using KQL, materialized views, partitioning, granular retention, and caching controls.  
     - Cross-service query capabilities that let you correlate collected data with data in Microsoft Sentinel, Azure Monitor, and other services.
 
+## Scenario details
+
 An architecture built on the features and flexibility provided by the three services gives you:
 
 - A broad range of data ingestion options that span various types of data and data sources.
@@ -47,23 +67,6 @@ An architecture built on the features and flexibility provided by the three serv
     - Querying IT monitoring and non-IT data.
     - Applying machine learning on a broad data set to discover patterns, anomaly detection, forecasting, and to gain other advanced insights. 
     - Creating workbooks and reports that let you monitor, correlate, and act on various types of data.  
-
-## Dataflow
-
-1. Ingest data using the combined ingestion capabilities of [Microsoft Sentinel](/azure/sentinel/connect-data-sources), [Azure Monitor](/azure/azure-monitor/essentials/data-collection), and [Azure Data Explorer](/azure/data-explorer/ingest-data-overview):
-
-    - Configure diagnostic settings to ingest data from Azure services such as Azure Kubernetes Service (AKS), Azure App Service, Azure SQL Database, and Azure Storage.
-    - Use Azure Monitor Agent to ingest data from VMs, containers, and workloads.
-    - Use a wide range of connectors, agents, and APIs supported by the three services - such as Logstash, Kafka, and Logstash connectors, OpenTelemetry agents, Azure Data Explorer APIs, and Azure Monitor Log Ingestion API - to ingest data from on-premises resources and other clouds.
-    - Stream in data using Azure data streaming services, such as Azure IoT Hub, Azure Event Hubs, Azure Stream Analytics. 
-1. Use Azure Sentinel to monitor, investigate, and act on security-related data across your IT environment.
-1. Use Azure Monitor for monitoring the performance, availability, and health of applications, services, and IT resources to gain insights into the operational status of your cloud infrastructure, identify issues, and optimize performance.
-1. Use Azure Data Explorer for any data that requires custom or more flexible handling or analytics, including full schema control, cache or retention control, deep data platform integrations, and machine learning execution. 
-1. Optionally, apply advanced machine learning on a broad set of data from your entire data estate to discover patterns, detect anomalies, forecast, and gain other insights.
-1. Leverage the tight integration between services to augment monitoring and analytics capabilities:
-   
-     - Run cross-service queries from [Microsoft Sentinel, Azure Monitor](/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy), and [Azure Data Explorer]((/azure/data-explorer/query-monitor-data)) to analyze and correlate data in all three services in one query without moving the data.
-     - Consolidate a single-pane-of-glass view of your data estate with customized cross-service workbooks, dashboards, and reports.     
 
 ## Contributors
 
