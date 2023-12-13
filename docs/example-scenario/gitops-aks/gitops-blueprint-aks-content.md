@@ -4,7 +4,7 @@ The [Flux](https://fluxcd.io), [Argo CD](https://argo-cd.readthedocs.io), [OPA G
 
 ## Architecture
 
-Two GitOps operators that you can use with AKS are [Flux](https://fluxcd.io) and [Argo CD](https://argo-cd.readthedocs.io). They're [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io) projects and are widely used. The following scenarios show ways to use them.
+Two GitOps operators that you can use with AKS are [Flux](https://fluxcd.io) and [Argo CD](https://argo-cd.readthedocs.io). They're both [graduated Cloud Native Computing Foundation (CNCF) projects](https://www.cncf.io/projects/) and are widely used. The following scenarios show ways to use them.
 
 ### Scenario 1: GitOps with Flux and AKS
 
