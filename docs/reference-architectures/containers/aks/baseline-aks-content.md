@@ -4,7 +4,7 @@ This architecture isn't focused on a workload, rather it concentrates on the AKS
 
 The target architecture is influenced by your business requirements, and as a result it can vary between different application contexts. It should be considered as your starting point for pre-production and production stages.
 
-The [AKS Landing Zone Accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator) is an enterprise-scale implementation based this architecture and represents what the target ends state should look like for an Azure Kubernetes Service (AKS) cluster. An implementation of this architecture is also available on [GitHub: Azure Kubernetes Service (AKS) Baseline Reference Implementation](https://github.com/mspnp/aks-baseline). You can use it as an alternative starting point and configure it based on your needs.
+The [AKS Landing Zone Accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator) is an enterprise-scale implementation based this architecture and represents what the target end state should look like for an Azure Kubernetes Service (AKS) cluster. An implementation of this architecture is also available on [GitHub: Azure Kubernetes Service (AKS) Baseline Reference Implementation](https://github.com/mspnp/aks-baseline). You can use it as an alternative starting point and configure it based on your needs.
 
 > [!NOTE]
 > This reference architecture requires knowledge of Kubernetes and its concepts. If you need a refresher, see the [**Learn more about AKS**](#learn-more-about-aks) section for resources.
