@@ -82,7 +82,7 @@ The outbound rules can be private endpoints, service tags or FQDNs. In this arch
 
 TODO: Add differences between the baseline and this architecture
 
-## Reliability - redundancy
+## Reliability
 
 The [baseline app services web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) architecture focuses on zonal redundancy for key regional services. Availability zones are physically separate locations within a region. They provide zonal redundancy for supporting services when two or more instances are deployed in supporting regions. When one zone experiences downtime, the other zones may still be unaffected. The architecture also ensures enough instances of Azure services to meet demand. Please see the [baseline](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) to review that guidance.
 
@@ -112,15 +112,21 @@ The diagram is numbered for areas that are noteworthy in this architecture:
 
 Azure OpenAI does not currently support availability zones. To mitigate the potential impact of a datacenter-level catastrophe on models deployed in Azure OpenAI, it’s necessary to deploy Azure OpenAI to various regions along with deploying a load balancer to distribute calls among the regions. You would use health checks to help ensure that calls are only routed to clusters that are functioning properly.
 
+It is important to monitor the required throughput in terms of Tokens per Minute (TPM) and Requests per Minute (RPM) to ensure you have assigned enough TPM from your quota to meet the demand for your deployments and prevent calls to your deployed models from being throttled. A gateway such as Azure API Management (APIM) can be deployed in front of your OpenAI service(s) and can be configured for retry in the case of transient errors and throttling. APIM can also be used as a [circuit breaker](/azure/api-management/backends?tabs=bicep#circuit-breaker-preview) to prevent the service from getting overwhelmed with call, exceeding it's quota.
+
 ### Azure AI Search
 
 Deploy Azure AI Search with Standard pricing tier or above in a [region that supports availability zones](/azure/search/search-reliability#prerequisites) and deploy 3 or more replicas. The replicas will automatically spread evenly across availability zones.
 
-## Reliability - scalability
+Consider the following guidance for determining the appropriate amount of replicas and partitions:
 
-Scalability allows applications to handle increases and decreases in demand while optimizing performance and cost. This section covers scalability for components in this architecture beyond those covered in the [baseline app services web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml).
+- Follow the guidance to [analyze performance in Azure AI Search](/azure/search/search-performance-analysis).
+- Follow the guidance to [monitor Azure AI Search](/azure/search/monitor-azure-cognitive-search).
+- Use monitoring metrics and logs and performance analysis to determine the appropriate amount of replicas to avoid query-based throttling and partitions to avoid index-based throttling.
 
 ### Azure Machine Learning
+
+If you deploy to compute clusters behind the Azure Machine Learning managed online endpoint, consider the following guidance regarding scaling: 
 
 - Follow the guidance to [autoscale your online endpoints](/azure/machine-learning/how-to-autoscale-endpoints).
 - Consider creating scaling rules based on [deployment metrics](/azure/machine-learning/how-to-autoscale-endpoints#create-a-rule-to-scale-out-using-metrics) such as CPU load and [endpoint metrics](/azure/machine-learning/how-to-autoscale-endpoints#create-a-scaling-rule-based-on-endpoint-metrics) such as request latency.
@@ -128,13 +134,24 @@ Scalability allows applications to handle increases and decreases in demand whil
 > [!NOTE]
 > The same [App Service scalability guidance](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#app-service) from the baseline architecture applies if you deploy your flow to Azure App Service.
 
-### Azure AI Search
+## Security
 
-- Follow the guidance to [analyze performance in Azure AI Search](/azure/search/search-performance-analysis).
-- Follow the guidance to [monitor Azure AI Search](/azure/search/monitor-azure-cognitive-search).
-- Use monitoring metrics and logs and performance analysis to determine the appropriate amount of replicas to avoid query-based throttling and partitions to avoid index-based throttling.
+### Identity and Access Management
 
-### Azure OpenAI
+The following guidance extends the [identity and access management guidance in the App Service baseline](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#identity-and-access-management):
 
-TODO: What guidance do we want to put here - from proxy guide
+- Create separate managed identities for the following AML resources, where applicable:
+  - Workspace - used during flow authoring and management
+  - Compute instance - used when testing flows
+  - Online endpoint - used by the deployed flow if deployed to a managed online endpoint
+
+### OpenAI key rotation
+
+When using Azure OpenAI key-based authentication, it is important to:
+
+- Store the key in a secure key store like Azure Key Vault
+- Implement a key rotation strategy for Azure OpenAI. If you [manually rotate the keys](/azure/storage/common/storage-account-keys-manage?tabs=azure-portal#manually-rotate-access-keys), you should create a key expiration policy and use Azure policy to monitor whether the key has been rotated.
+
+### OpenAI RBAC roles
+
 
