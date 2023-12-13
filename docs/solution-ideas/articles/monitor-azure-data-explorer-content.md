@@ -22,8 +22,8 @@ This solution demonstrates how to leverage the tight integration between Microso
     - Use Azure Monitor Agent to ingest data from VMs, containers, and workloads.
     - Use a wide range of connectors, agents, and APIs supported by the three services - such as Logstash, Kafka, and Logstash connectors, OpenTelemetry agents, Azure Data Explorer APIs, and Azure Monitor Log Ingestion API - to ingest data from on-premises resources and other clouds.
     - Stream in data using Azure data streaming services, such as Azure IoT Hub, Azure Event Hubs, Azure Stream Analytics. 
-1. Use Azure Sentinel to monitor, investigate, and act on security-related data across your IT environment.
-1. Use Azure Monitor for monitoring the performance, availability, and health of applications, services, and IT resources to gain insights into the operational status of your cloud infrastructure, identify issues, and optimize performance.
+1. Use Azure Sentinel to monitor, alert, investigate, and act on security-related data across your IT environment.
+1. Use Azure Monitor to monitor, alert, analyze, and act on the performance, availability, and health of applications, services, and IT resources to gain insights into the operational status of your cloud infrastructure, identify issues, and optimize performance.
 1. Use Azure Data Explorer for any data that requires custom or more flexible handling or analytics, including full schema control, cache or retention control, deep data platform integrations, and machine learning execution. 
 1. Optionally, apply advanced machine learning on a broad set of data from your entire data estate to discover patterns, detect anomalies, forecast, and gain other insights.
 1. Leverage the tight integration between services to augment monitoring and analytics capabilities:
