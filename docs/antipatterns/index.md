@@ -27,7 +27,7 @@ categories:
 
 *Performance antipatterns*, much like design patterns, are common defective processes and implementations within organizations. These are common practices that are likely to cause scalability problems when an application is under pressure. Awareness of these practices can help simplify communication of high-level concepts amongst software practitioners, and knowledge of antipatterns can be helpful when reviewing code or diagnosing performance issues.
 
-Here is a common scenario: An application behaves well during performance testing. It's released to production, and begins to handle real workloads. At that point, it starts to perform poorly&mdash;rejecting user requests, stalling, or throwing exceptions. The development team is then faced with two questions:
+Here's a common scenario: An application behaves well during performance testing. It's released to production, and begins to handle real workloads. At that point, it starts to perform poorly&mdash;rejecting user requests, stalling, or throwing exceptions. The development team is then faced with two questions:
 
 - Why didn't this behavior show up during testing?
 - How do we fix it?
@@ -42,7 +42,7 @@ Some of these antipatterns might seem obvious when you read the descriptions, bu
 
 ## Catalog of antipatterns
 
-Here is the list of the antipatterns that we've identified:
+Here's the list of the antipatterns that we've identified:
 
 | Antipattern | Description |
 |-------------|-------------|
