@@ -404,9 +404,9 @@ This architecture uses zone-redundancy for several components. Each zone is made
 
 #### Scaling strategy
 
-Your scaling operations should be reliable so that when a degraded condition is detected, extra resources are provisioned immediately. One strategy is overprovisioning, which is achieved by having sufficient horizontal capacity. This strategy involves understanding the maximum amount of work that the workload can handle. However, it's not just about having extra capacity. It's also about ensuring that your resources aren't underprovisioned. The VM should be right-sized for the work you expect it to handle.
+Your scaling operations should be reliable so that when a degraded condition is detected, extra resources are provisioned immediately. One strategy is overprovisioning, which you achieve by having sufficient horizontal capacity. This strategy involves understanding the maximum amount of work that the workload can handle. However, it's not just about having extra capacity. It's also about ensuring that your resources aren't underprovisioned. The VM should be right-sized for the work you expect it to handle.
 
-Another strategy is to use autoscaling capabilities for the scale sets. Be sure to do adequate performance testing to set the threshold for CPU, memory, and others. When those thresholds are reached, new instances are immediately provisioned.
+Another strategy is to use autoscaling capabilities for the scale sets. Be sure to do adequate performance testing to set the threshold for CPU, memory, and other VM components. When those thresholds are reached, new instances are immediately provisioned.
 
 > Refer to Well-Architected Framework: [RE:06 - Recommendations for designing a reliable scaling strategy](/azure/well-architected/reliability/redundancy).
 
@@ -420,7 +420,7 @@ Another strategy is to use autoscaling capabilities for the scale sets. Be sure 
 
 This architecture illustrates some of the security assurances given in the [Security design review checklist given in Azure Well-Architected Framework](/azure/well-architected/security/checklist). The sections are annotated with recommendations from that checklist.
 
-Security isn't only technical controls. We recommend that you follow the entire checklist to understand the operational aspects of the Security pillar.
+Security doesn't only refer to technical controls. We recommend that you follow the entire checklist to understand the operational aspects of the Security pillar.
 
 #### Segmentation
 
@@ -428,7 +428,7 @@ Security isn't only technical controls. We recommend that you follow the entire 
 
     The advantage of subnet segmentation is that you can place security controls at the perimeter that controls traffic flowing in and out of the subnet, thereby restricting access to the workload resources.
 
-- **Identity segmentation**. Assign distinct roles to different identities with just-enough permissions to do their task. This architecture uses [Microsoft Entra ID](/entra/fundamentals/whatis) managed identities to segment access to resources.
+- **Identity segmentation**. Assign distinct roles to different identities with just-enough permissions to do their task. This architecture uses identities managed by [Microsoft Entra ID](/entra/fundamentals/whatis) to segment access to resources.
 
 - **Resource segmentation**. The application is segmented by tiers into separate scale sets, which ensures that application components aren't colocated.  
 
@@ -436,13 +436,15 @@ Security isn't only technical controls. We recommend that you follow the entire 
 
 #### Identity and access management
 
-[Microsoft Entra ID](/entra/fundamentals/whatis) is recommended for authentication and authorization of both users and services.
+We recommend [Microsoft Entra ID](/entra/fundamentals/whatis) for authentication and authorization of both users and services.
 
 Access to VMs requires a user account, controlled by Microsoft Entra ID authentication and backed by security groups. This architecture provides support by deploying Microsoft Entra ID authentication extension to all VMs. We recommend that human users use their corporate identities in their organization's Microsoft Entra ID tenant. Also, ensure that any service principal-based access isn't shared across functions.
 
-Workload resources, such as VMs, authenticate themselves by using their assigned managed identities to other resources. These identities, based on Microsoft Entra ID service principals, are automatically managed. For example, Key Vault extensions are installed on VMs, which lets VMs boot up with certificates in place. In this architecture, [user-assigned managed identities](/entra/identity/managed-identities-azure-resources/overview#managed-identity-types) are used by Azure Application Gateway, frontend VMs, and backend VMs to access Azure Key Vault. Those managed identities are configured during deployment and used for authenticating against Key Vault. Access policies on Key Vault are configured to only accept requests from the preceding managed identities.
+Workload resources, such as VMs, authenticate themselves by using their assigned managed identities to other resources. These identities, based on Microsoft Entra ID service principals, are automatically managed.
 
-The baseline architecture uses a mix of system-assigned and user-assigned managed identities. These identities are needed to use Microsoft Entra ID for authorization purposes when accessing other Azure resources.
+For example, Key Vault extensions are installed on VMs, which lets VMs boot up with certificates in place. In this architecture, [user-assigned managed identities](/entra/identity/managed-identities-azure-resources/overview#managed-identity-types) are used by Azure Application Gateway, frontend VMs, and backend VMs to access Azure Key Vault. Those managed identities are configured during deployment and used for authenticating against Key Vault. Access policies on Key Vault are configured to only accept requests from the preceding managed identities.
+
+The baseline architecture uses a mix of system-assigned and user-assigned managed identities. These identities are required to use Microsoft Entra ID for authorization purposes when accessing other Azure resources.
 
 > Refer to Well-Architected Framework: [SE:05 - Recommendations for identity and access management](/azure/well-architected/security/identity-access).
 
@@ -450,19 +452,19 @@ The baseline architecture uses a mix of system-assigned and user-assigned manage
 
 - **Ingress traffic**. The workload VMs aren't directly exposed to the public internet. Each VM has a private IP address. Workload users connect using the public IP address of Azure Application Gateway.
 
-    More security is provided through [Web Application Firewall](/azure/application-gateway/waf-overview) that is integrated with Application Gateway. It has rules that _inspect inbound traffic_ and can take an appropriate action. WAF tracks Open Web Application Security Project (OWASP) vulnerabilities preventing known attacks.
+    More security is provided through [Web Application Firewall](/azure/application-gateway/waf-overview) that is integrated with Application Gateway. It has rules that inspect inbound traffic and can take an appropriate action. WAF tracks Open Web Application Security Project (OWASP) vulnerabilities preventing known attacks.
 
-- **Egress traffic**. There are no controls on outbound traffic besides the outbound NSG rules on the VM subnets. We recommend that all outbound internet traffic flows through a single firewall. This firewall is usually a central service provided by an organization. That use case is shown in [Virtual machine baseline architecture in an Azure landing zone](./baseline-landing-zone.yml).
+- **Egress traffic**. There are no controls on outbound traffic except the outbound NSG rules on the VM subnets. We recommend that all outbound internet traffic flows through a single firewall. This firewall is usually a central service provided by an organization. That use case is shown in [Virtual machine baseline architecture in an Azure landing zone](./baseline-landing-zone.yml).
 
 - **East-west traffic**. Traffic flow between the subnets is restricted by applying granular security rules.
 
     [Network security groups (NSGs)](/azure/virtual-network/network-security-groups-overview) are placed to restrict traffic between subnets based on parameters such as IP address range, ports, and protocols. [Application security groups (ASG)](/azure/virtual-network/application-security-groups) are placed on frontend and backend VMs. They're used with NSGs to filter traffic to and from the VMs.
 
-- **Operational traffic**. We recommend that secure operational access to workload is provided through Azure Bastion, which removes the need for a public IP. In this architecture, that communication is over SSH and is supported by both Windows and Linux VMs. Microsoft Entra ID is integrated with SSH for both types of VMs by using the corresponding VM extension. That integration allows an operator's identity to be authenticated and authorized through Microsoft Entra ID.
+- **Operational traffic**. We recommend that secure operational access to a workload is provided through Azure Bastion, which removes the need for a public IP. In this architecture, that communication is over SSH and is supported by both Windows and Linux VMs. Microsoft Entra ID is integrated with SSH for both types of VMs by using the corresponding VM extension. That integration allows an operator's identity to be authenticated and authorized through Microsoft Entra ID.
 
     Alternatively, use a separate VM as a jump box, deployed to its own subnet, where you can install your choice of admin and troubleshooting tools. The operator accesses the jump box through the Bastion host. Then, they sign in to the VMs behind the load balancer from the jump box.
 
-    In this architecture, operational traffic is protected using NSG rules to restrict traffic, and [just-in-time (JIT) VM access](/azure/defender-for-cloud/just-in-time-access-overview) is enabled on the VMs. This feature of Microsoft Defender for Cloud, allows temporary inbound access to selected ports.
+    In this architecture, operational traffic is protected using NSG rules to restrict traffic, and [just-in-time (JIT) VM access](/azure/defender-for-cloud/just-in-time-access-overview) is enabled on the VMs. This feature of Microsoft Defender for Cloud allows temporary inbound access to selected ports.
 
     For enhanced security, use [Microsoft Entra Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure). PIM is a service in Microsoft Entra ID that lets you manage, control, and monitor access to important resources in your organization. PIM provides time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions on resources that you care about.
 
@@ -497,11 +499,11 @@ The VMs use the [Azure Key Vault VM extension](/azure/virtual-machines/extension
 
 ## Cost Optimization
 
-Workload requirements must be fulfilled keeping in mind the cost constraints. This section describes some options for optimizing costs. The strategies used in architecture are based on the [Cost Optimization design review checklist given in Azure Well-Architected Framework](/azure/well-architected/cost-optimization/checklist). The sections are annotated with recommendations from that checklist.
+Workload requirements must be fulfilled keeping in mind the cost constraints. The strategies used in the architecture are based on the [Cost Optimization design review checklist given in Azure Well-Architected Framework](/azure/well-architected/cost-optimization/checklist). This section describes some options for optimizing costs and are annotated with recommendations from that checklist.
 
 #### Component cost
 
-Select VM images that are optimized for the workload instead of using general-purpose images. In this architecture, relatively small VM images are chosen for both Windows and Linux, which are 30 GB each. With smaller images, VM SKUs with disks are also smaller, leading to lower costs and also faster deployment and boot times, and reduced resource consumption. A side benefit is security because of the reduced surface area.
+Select VM images that are optimized for the workload instead of using general-purpose images. In this architecture, relatively small VM images are chosen for both Windows and Linux, which are 30 GB each. With smaller images, VM SKUs with disks are also smaller, leading to lower costs and also faster deployment and boot times, and reduced resource consumption. A side benefit is enhanced security because of the reduced surface area.
 
 Implementing log rotation with size limits is another cost saving strategy. It allows for using small data disks, which can result in lower costs. The implementation of this architecture uses 4-GB disks.
 
@@ -528,7 +530,7 @@ If the main cost driver is the number of instances, it might be more cost-effect
 
 #### Operational costs
 
-Automatic VM guest patching reduces the overhead of manual patching and the associated maintenance costs. Not only does this action make the system more secure, but it also optimizes resource allocation, contributing to overall cost efficiency.
+Automatic VM guest patching reduces the overhead of manual patching and the associated maintenance costs. Not only does this action help make the system more secure, but it also optimizes resource allocation, contributing to overall cost efficiency.
 
 > Refer to Well-Architected Framework: [CO:13 - Recommendations for optimizing personnel time](/azure/well-architected/cost-optimization/optimize-scaling-costs).
 
@@ -555,6 +557,6 @@ See product documentation for details on specific Azure services:
 
 ## Next step
 
-Review the IaaS reference architectures showing options for the data tier:
+Review the IaaS reference architectures that show options for the data tier:
 
 - [Windows N-tier application using SQL Server on Azure](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
