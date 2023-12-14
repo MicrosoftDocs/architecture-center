@@ -21,7 +21,9 @@ This architecture serves as a starting point for an infrastructure as a service 
 
 ## Architecture
 
-:::image type="content" source="./media/baseline-architecture.png" alt-text="Diagram that shows the virtual machine baseline architecture." lightbox="./media/baseline-architecture.png" border="false":::
+:::image type="content" source="./media/baseline-architecture.svg" alt-text="Diagram that shows the virtual machine baseline architecture." lightbox="./media/baseline-architecture.svg" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/baseline-architecture.vsdx) of this architecture.*
 
 For information about these resources, see Azure product documentation listed in [Related links](#related-links).
 
@@ -155,7 +157,9 @@ In this architecture:
 
 This architecture deploys the workload in a single virtual network. Network controls are a significant part of this architecture and are described in the [Security](#security) section.
 
-:::image type="content" source="./media/baseline-network.png" alt-text="Diagram of a virtual machine baseline that shows the network layout." lightbox="./media/baseline-network.png" border="false":::
+:::image type="content" source="./media/baseline-network.svg" alt-text="Diagram of a virtual machine baseline that shows the network layout." lightbox="./media/baseline-network.svg" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/baseline-network.vsdx) of this architecture.*
 
 This layout can be integrated with an enterprise topology. That example is shown in [Virtual machine baseline architecture in an Azure landing zone](./baseline-landing-zone.yml).
 
@@ -187,7 +191,9 @@ Two public IP addresses are used for ingress flows. One address is for Azure App
 
 The internal Azure Load Balancer is placed between the frontend and the backend to distribute traffic to the backend VMs.
 
-:::image type="content" source="./media/baseline-network-ingress.png" alt-text="Diagram of a virtual machine baseline that shows ingress flow." lightbox="./media/baseline-network-ingress.png" border="false":::
+:::image type="content" source="./media/baseline-network-ingress.svg" alt-text="Diagram of a virtual machine baseline that shows ingress flow." lightbox="./media/baseline-network-ingress.svg" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/baseline-network-ingress.vsdx) of this architecture.*
 
 #### Egress traffic
 
@@ -195,7 +201,9 @@ Azure Virtual Machine Scale Sets with Flexible orchestration don't have outbound
 
 This architecture uses Standard SKU Azure Load Balancer with outbound rules defined from the VM instances. Azure Load Balancer was chosen because it's zone redundant.
 
-:::image type="content" source="./media/baseline-network-egress.png" alt-text="Diagram of a virtual machine baseline that shows ingress flow." lightbox="./media/baseline-network-egress.png" border="false":::
+:::image type="content" source="./media/baseline-network-egress.svg" alt-text="Diagram of a virtual machine baseline that shows ingress flow." lightbox="./media/baseline-network-egress.svg" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/baseline-network-egress.vsdx) of this architecture.*
 
 This configuration lets you use the public IP(s) of your load balancer to provide outbound internet connectivity for the VMs. The outbound rules let you explicitly define source network address translation (SNAT) ports. The rules let you scale and tune this ability through manual port allocation. Manually allocating SNAT port based on the backend pool size and number of `frontendIPConfigurations` can help avoid SNAT exhaustion.
 
@@ -228,7 +236,9 @@ Azure Log Analytics workspace is the recommended monitoring data sink used to co
 
 This image shows the monitoring stack for the baseline with components for collecting data from infrastructure and application, data sinks, and various consumption tools for analysis and visualization. The implementation deploys some components, such as Application Insights, VM Boot Diagnostics, and Azure Log Analytics. Other components are depicted to showcase the extensibility options, such as Dashboards and Alerts.
 
-:::image type="content" source="./media/baseline-monitoring.png" alt-text="Diagram that shows the baseline monitoring data flow." lightbox="./media/baseline-monitoring.png" border="false":::
+:::image type="content" source="./media/baseline-monitoring.svg" alt-text="Diagram that shows the baseline monitoring data flow." lightbox="./media/baseline-monitoring.svg" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/baseline-monitoring.vsdx) of this architecture.*
 
 ### Infrastructure-level monitoring
 
@@ -486,7 +496,9 @@ The baseline architecture uses a mix of system-assigned and user-assigned manage
 
 #### Secret management
 
-:::image type="content" source="./media/baseline-certificates.png" alt-text="Diagram that shows TLS termination and certificates used." lightbox="./media/baseline-certificates.png" border="false":::
+:::image type="content" source="./media/baseline-certificates.svg" alt-text="Diagram that shows TLS termination and certificates used." lightbox="./media/baseline-certificates.svg" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/baseline-certificates.vsdx) of this architecture.*
 
 [Azure Key Vault](/azure/key-vault/general/overview) provides secure management of secrets, including TLS certificates. In this architecture, the TLS certificates are stored in the Key Vault and retrieved during the provisioning process by the managed identities of Application Gateway and the VMs. After the initial setup, these resources only access the Key Vault when the certificates are refreshed.
 
