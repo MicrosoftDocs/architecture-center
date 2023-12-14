@@ -1,6 +1,6 @@
 This article provides a foundational reference architecture for a workload deployed on Azure Virtual Machines.
 
-The example workload assumed by this architecture is an internet-facing multi-tier web application that is deployed on separate sets of virtual machines (VMs). VMs are provisioned as part virtual machine scale sets deployments. This architecture can be used for these scenarios:
+The example workload assumed by this architecture is an internet-facing multi-tier web application that is deployed on separate sets of virtual machines (VMs). VMs are provisioned as part of Azure Virtual Machine Scale Sets deployments. This architecture can be used for these scenarios:
 
 - **Private applications**. These applications include internal line-of-business applications or commercial off-the-shelf solutions.
 - **Public applications**. These applications are internet-facing applications. This architecture isn't for high-performance computing, mission-critical workloads, latency-sensitive applications, or other specialized use cases.
