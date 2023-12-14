@@ -352,9 +352,7 @@ Every architecture is susceptible to failures. The exercise of failure mode anal
 
 To make design decisions, it's important to calculate the reliability targets, such as the composite Service Level Objectives (SLOs) of the workload. Doing so involves understanding the Service Level Agreements (SLAs) provided by Azure services used in the architecture. Workload SLOs must not be higher than the SLAs guaranteed by Azure. Carefully examine each component, from VMs and their dependencies, networking, and storage options.
 
-Here's an example calculation where the main goal was to provide an approximate composite SLO.
-
-While this is a rough guideline, you should arrive at something similar and can't expect to get a higher maximum composite SLO for the same flows shared below, unless you make modifications to this architecture.
+Here's an example calculation where the main goal was to provide an approximate composite SLO. While this is a rough guideline, you should arrive at something similar. You shouldn't get a higher maximum composite SLO for the same flows unless you make modifications to the architecture.
 
 **Operation flow**
 
