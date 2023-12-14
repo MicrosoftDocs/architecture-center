@@ -101,7 +101,7 @@ It is important that your application validates that any requests that it receiv
 When implementing request validation, you should consider the following:
 
 - How will you authorize all the requests to your application? You need to authorize requests, regardless of the approach you use to map them to physical infrastructure.
-- Use trusted and widely used authentication and authorization frameworks and middleware, instead of implementing all of the validation logic yourself. For example, don't build token signature validation logic or client certificate cryptography libraries. Instead, use features of your application platform (or known trusted packages) that have been validated and tested.
+- Use trusted, widely used and well maintained authentication and authorization frameworks and middleware, instead of implementing all of the validation logic yourself. For example, don't build token signature validation logic or client certificate cryptography libraries. Instead, use features of your application platform (or known trusted packages) that have been validated and tested.
 
 ## Performance
 
@@ -128,19 +128,19 @@ Tenants often need to be moved to new infrastructure as part of the [tenant life
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+_This article is maintained by Microsoft. It was originally written by the following contributors._
 
 Principal author:
 
- * [Daniel Scott-Raynsford](http://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
+- [Daniel Scott-Raynsford](http://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
 
 Other contributors:
 
- * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
- * [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
- * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+- [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
+- [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+_To see non-public LinkedIn profiles, sign in to LinkedIn._
 
 ## Next steps
 
