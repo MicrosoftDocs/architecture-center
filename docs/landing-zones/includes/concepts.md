@@ -2,7 +2,7 @@
 author: BryanLa
 ms.author: bryanla
 ms.date: 04/01/2023
-ms.topic: conceptual
+ms.topic: include
 ms.service: architecture-center
 ms.subservice: guide
 ---
