@@ -18,6 +18,9 @@ You can use other ranges, but before you use those ranges in your virtual networ
 - Special-purpose address blocks that are defined by IANA, like 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 198.18.0.0/15, 198.51.100.0/24, 203.0.113.0/24 and 233.252.0.0/24.
 
 > [!NOTE]
+> The Class E IP Address range 240.0.0.0/4 is blocked by Windows from assigning it to a NIC, and has compatibility issues in the case of Linux. So while it may be possible to programmatically assign this in a VNet, we do not recommend its usage in Azure Vnets.
+
+> [!NOTE]
 > The previous ranges don't provide a long-term solution for organizations that have IPv4 exhaustion issues. In that case, you should minimize private address space consumption.
 
 You can't use the following IP address ranges in Azure virtual networks:
