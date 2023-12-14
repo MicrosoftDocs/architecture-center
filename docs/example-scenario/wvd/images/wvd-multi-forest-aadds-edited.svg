@@ -7,7 +7,7 @@
 	<v:documentProperties v:langID="1033" v:viewMarkup="false">
 		<v:userDefs>
 			<v:ud v:nameU="msvNoAutoConnect" v:val="VT0(1):26"/>
-			<v:ud v:nameU="msvWarnOnPersonalInfo" v:val="VT0(1):5"/>
+			<v:ud v:nameU="msvWarnOnPersonalInfo" v:val="VT0(0):5"/>
 		</v:userDefs>
 	</v:documentProperties>
 
@@ -2438,14 +2438,14 @@
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(53000):26"/>
 			</v:userDefs>
 			<title>Sheet.1972</title>
-			<g id="shape1261-787" v:mID="1261" v:groupContext="shape">
+			<g id="shape1261-787" v:mID="1261" v:groupContext="shape" transform="translate(-29.1205,0)">
 				<title>Sheet.1261</title>
-				<desc>Microsoft Entra DS domain controller</desc>
+				<desc>Active Directory Domain Services domain controller</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
-				<v:textRect cx="49.3705" cy="725.171" width="98.75" height="26.4375"/>
-				<rect x="0" y="711.952" width="98.7411" height="26.4375" class="st2"/>
-				<text x="4.02" y="721.87" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft Entra DS <tspan
-							x="6.09" dy="1.2em" class="st4">domain controller</tspan></text>			</g>
+				<v:textRect cx="78.75" cy="725.171" width="157.5" height="26.4375"/>
+				<rect x="0" y="711.952" width="157.5" height="26.4375" class="st2"/>
+				<text x="19.7" y="721.87" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Active Directory Domain <tspan
+							x="14.54" dy="1.2em" class="st4">Services domain controller</tspan></text>			</g>
 			<g id="group1941-791" transform="translate(30.97,-30.1907)" v:mID="1941" v:groupContext="group">
 				<title>Sheet.1941</title>
 				<g id="group1942-792" v:mID="1942" v:groupContext="group">
@@ -2686,14 +2686,14 @@
 					</g>
 				</g>
 			</g>
-			<g id="shape1852-868" v:mID="1852" v:groupContext="shape">
+			<g id="shape1852-868" v:mID="1852" v:groupContext="shape" transform="translate(-22.9327,0)">
 				<title>Sheet.1852</title>
-				<desc>Microsoft Entra DS domain controller</desc>
+				<desc>Active Directory Domain Services domain controller</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
-				<v:textRect cx="49.3705" cy="725.171" width="98.75" height="26.4375"/>
-				<rect x="0" y="711.952" width="98.7411" height="26.4375" class="st2"/>
-				<text x="4.02" y="721.87" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft Entra DS <tspan
-							x="6.09" dy="1.2em" class="st4">domain controller</tspan></text>			</g>
+				<v:textRect cx="76.5" cy="725.171" width="153" height="26.4375"/>
+				<rect x="0" y="711.952" width="153" height="26.4375" class="st2"/>
+				<text x="17.45" y="721.87" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Active Directory Domain <tspan
+							x="12.29" dy="1.2em" class="st4">Services domain controller</tspan></text>			</g>
 		</g>
 		<g id="group1088-872" transform="translate(126.72,-287.1)" v:mID="1088" v:groupContext="group">
 			<v:userDefs>
