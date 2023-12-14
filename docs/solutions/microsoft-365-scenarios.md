@@ -32,7 +32,7 @@ Microsoft 365 is a suite of apps that help you stay connected and get things don
 
 - [Word](https://www.microsoft.com/microsoft-365/word). Create documents and improve your writing with built-in intelligent features.
 - [Excel](https://www.microsoft.com/microsoft-365/excel). Simplify complex data and create easy-to-read spreadsheets.
-- [Microsoft Graph] (https://learn.microsoft.com/en-us/graph/integration-patterns-overview). Integration patterns span transactional and enhanced RESTful APIs, bulk data export, event-driven and streaming integration, and connectors, enabling versatile data management in the Microsoft 365 ecosystem. 
+- [Microsoft Graph] (https://learn.microsoft.com/en-us/graph/integration-patterns-overview). Learn about integration patterns that you can apply to solutions that you can build using Microsoft Graph. 
 - [PowerPoint](https://www.microsoft.com/microsoft-365/powerpoint). Easily create polished presentations.
 - [Teams](https://www.microsoft.com/microsoft-teams/group-chat-software). Bring everyone together in one place to meet, chat, call, and collaborate.
 - [Outlook](https://www.microsoft.com/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook). Manage your email, calendar, tasks, and contacts in one place.
