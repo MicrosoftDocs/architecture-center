@@ -47,7 +47,7 @@ These resources and responsibilities continue to be maintained and fulfilled by 
 
 - **Spoke virtual network subnets and Network Security Groups (NSGs)** placed on those subnets to maintain segmentation and control traffic flow. 
 - **Private endpoints** to secure connectivity to PaaS services and the **private DNS zones** required for those endpoints. 
-- **Disks** stores log files on the backend servers and the data is retained even when VMs reboot. 
+- **Disks** stores log files on the backend servers and the data is retained even when VMs reboot. The frontend servers have disks attached, which could be used to deploy your stateless application.
 
 
 #### Platform team-owned resources
