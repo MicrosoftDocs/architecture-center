@@ -36,7 +36,7 @@ For information about these resources, see Azure product documentation listed in
     1. Frontend runs the web server and receives user requests.
     1. Backend runs runs another web server acting as a web API that exposes a single endpoint where the business logic is executed.
 
-    The frontend is stateless to reduce complexity during scaling operations. The backend VMs persists data to [local disks](#managed-disks) as part of its operation. This layout may be extended to include a database tier for storing state from the frontend and backend compute. That tier is outside the scope of this architecture.
+    The frontend VMs have data disks (Premium_LRS) attached, which could be used to deploy stateless application. The backend VMs persists data to [local disks](#managed-disks) as part of its operation. This layout may be extended to include a database tier for storing state from the frontend and backend compute. That tier is outside the scope of this architecture.
 
 - **Azure Virtual Network** provides a private network for all workload resources. The network is segmented into subnets, which serve as isolation boundaries.
 
