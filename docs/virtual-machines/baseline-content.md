@@ -5,7 +5,9 @@ The example workload assumed by this architecture is an internet-facing multi-ti
 - **Private applications**. These applications include internal line-of-business applications or commercial off-the-shelf solutions.
 - **Public applications**. These applications are internet-facing applications. This architecture isn't for high-performance computing, mission-critical workloads, latency-sensitive applications, or other specialized use cases.
 
-The primary focus of this architecture isn't the application. Instead, the article provides guidance for configuring and deploying the infrastructure components with which the application interacts. These components include compute, storage, networking, and monitoring. This architecture serves as a starting point for an infrastructure as a service (IaaS)-hosted workload. The data tier is intentionally excluded from this guidance to maintain the focus on the infrastructure.
+The primary focus of this architecture isn't the application. Instead, the article provides guidance for configuring and deploying the infrastructure components with which the application interacts. These components include compute, storage, networking, and monitoring. 
+
+This architecture serves as a starting point for an infrastructure as a service (IaaS)-hosted workload. The data tier is intentionally excluded from this guidance to maintain the focus on the infrastructure.
 
 ## Article layout
 
@@ -25,7 +27,7 @@ For information about these resources, see Azure product documentation listed in
 
 ### Components
 
-This architecture consists of several Azure services for both workload resources and workload supporting resources. The services for each and their roles are described in the following sections.
+This architecture consists of several Azure services for both **workload resources** and **workload supporting resources**. The services for each and their roles are described in the following sections.
 
 #### Workload resources
 
@@ -78,7 +80,7 @@ There are two types of users who interact with the workload resources: **workloa
 
 The VMs in this architecture might require direct access by operators, but we recommend that remote access is minimized through automation and that access is monitored. The access might be for break-fix situations, troubleshooting, or part of an automated deployment process. This architecture doesn't have public IPs for control plane access. Azure Bastion acts as a serverless gateway, enabling operations to access via SSH or RDP. This setup ensures secure and efficient access management.
 
-1. The operator logs into the Azure portal or az-cli.
+1. The operator signs into the Azure portal or az-cli.
 1. The operator accesses the Azure Bastion service and remotely connects to the desired VM.
 
 ## Virtual machine design choices
@@ -97,7 +99,7 @@ For information about the supported VM SKUs, see [Sizes for virtual machines in 
 
 To enable private communication between a VM and other devices in a particular Virtual Network, one of its subnets is bound to the VM's network interface card (NIC). If you require multiple NICs for your VM, know that a maximum number of NICs is defined for each VM size.
 
-If the workload needs low latency communication between VMs in the virtual network, take advantage of **accelerated networking** supported by Azure VM NICs. For more information, see [Benefits of accelerated networking](/azure/virtual-network/accelerated-networking-overview?tabs=redhat#benefits).
+If the workload needs low latency communication between VMs in the virtual network, consider **accelerated networking**, which is supported by Azure VM NICs. For more information, see [Benefits of accelerated networking](/azure/virtual-network/accelerated-networking-overview?tabs=redhat#benefits).
 
 #### Virtual Machine Scale Sets with Flexible orchestration
 
@@ -121,11 +123,11 @@ Consider disk characteristics and performance expectations when selecting a disk
 
 - **VM SKU limitations**. Disks operate within the VM they're attached to, which have IOPS and throughput limits. Ensure the disk doesn't cap the VM's limits and vice versa. Select the disk size, performance, and VM capabilities (core, CPU, memory) that optimally run the application component. Avoid overprovisioning because it impacts cost.
 
-- **Configuration changes**. Some disk performance and capacity configurations can be changed while a VM is running. However, many changes can require reprovisioning and rebuilding disk content, affecting workload availability. Therefore, carefully plan disk and VM SKU selection to minimize availability impact and rework.
+- **Configuration changes**. You can change some disk performance and capacity configurations while a VM is running. However, many changes can require reprovisioning and rebuilding disk content, affecting workload availability. Therefore, carefully plan disk and VM SKU selection to minimize availability impact and rework.
 
 - **Ephemeral OS disks**. Provision OS disks as [ephemeral disks](/azure/virtual-machines/ephemeral-os-disks). Use managed disks only if OS files need to be persisted. Avoid using ephemeral disks for storing application components and state. 
 
-    The capacity of Ephemeral OS disks depends on the chosen VM SKU. Ensure your OS image disk size is less than the SKU's available cache or temp disk. The remaining space can be used for temporary storage.
+    The capacity of Ephemeral OS disks depends on the chosen VM SKU. Ensure your OS image disk size is less than the SKU's available cache or temp disk. You can use the remaining space for temporary storage.
 
 - **Disk performance**. Pre-provisioning disk space based on peak load is common, but it can lead to underutilized resources because most workloads don't sustain peak load.
 
@@ -167,7 +169,7 @@ In this architecture, the address space is set to /21, a decision based on the p
 
 #### Subnetting considerations
 
-Within the virtual network, subnets are carved out based on functionality and security requirements.
+Within the virtual network, subnets are divided based on functionality and security requirements, as described here:
 
 - Subnet to host the Application Gateway, which serves as the reverse proxy. Application Gateway requires a dedicated subnet.
 - Subnet to host the internal load balancer for distributing traffic to backend VMs.
@@ -175,11 +177,13 @@ Within the virtual network, subnets are carved out based on functionality and se
 - Subnet for the Bastion host to facilitate operational access to the workload VMs. By design, the Bastion host needs a dedicated subnet.
 - Subnet to host private endpoints created to access other Azure resources over Private Links. While dedicated subnets aren't mandatory for these endpoints, we recommended them.
 
-Similar to VNets, subnets must be right-sized. For instance, you might want to apply the maximum limit of VMs supported by Flex orchestration to meet the application's scaling needs. The workload subnets should be capable of accommodating that limit. Another use case to consider is VM OS upgrades, which might require temporary IP addresses. Right-sizing gives you the desired level of segmentation by making sure similar resources are grouped so that meaningful security rules through network security groups (NSGs) can be applied to the subnet boundaries. Other segmentation strategies are described in [Security: Segmentation](#segmentation).
+Similar to VNets, subnets must be right-sized. For instance, you might want to apply the maximum limit of VMs supported by Flex orchestration to meet the application's scaling needs. The workload subnets should be capable of accommodating that limit.
+
+Another use case to consider is VM OS upgrades, which might require temporary IP addresses. Right-sizing gives you the desired level of segmentation by making sure similar resources are grouped so that meaningful security rules through network security groups (NSGs) can be applied to the subnet boundaries. Other segmentation strategies are described in [Security: Segmentation](#segmentation).
 
 #### Ingress traffic
 
-Two public IP addresses are used for ingress flows. One for Azure Application Gateway that serves as the reverse proxy. Users connect using that public IP address. The reverse proxy load balances ingress traffic to the private IPs of the VMs. The other address is for operational access through Azure Bastion.
+Two public IP addresses are used for ingress flows. One address is for Azure Application Gateway that serves as the reverse proxy. Users connect using that public IP address. The reverse proxy load balances ingress traffic to the private IPs of the VMs. The other address is for operational access through Azure Bastion.
 
 The internal Azure Load Balancer is placed between the frontend and the backend to distribute traffic to the backend VMs.
 
@@ -187,19 +191,19 @@ The internal Azure Load Balancer is placed between the frontend and the backend 
 
 #### Egress traffic
 
-Azure Virtual Machine Scale Sets with Flexible orchestration don't have outbound internet connectivity by default. It must be explicitly defined in your architecture. To enable that use case, here are some approaches.
+Azure Virtual Machine Scale Sets with Flexible orchestration don't have outbound internet connectivity by default. You must explicitly define this in your architecture. To enable that use case, here are some approaches.
 
 This architecture uses Standard SKU Azure Load Balancer with outbound rules defined from the VM instances. Azure Load Balancer was chosen because it's zone redundant.
 
 :::image type="content" source="./media/baseline-network-egress.png" alt-text="Diagram of a virtual machine baseline that shows ingress flow." lightbox="./media/baseline-network-egress.png" border="false":::
 
-This configuration allows you to use the public IP(s) of your load balancer to provide outbound internet connectivity for the VMs. The outbound rules let you explicitly define source network address translation (SNAT) ports. The rules let you scale and tune this ability through manual port allocation. Manually allocating SNAT port based on the backend pool size and number of `frontendIPConfigurations` can help avoid SNAT exhaustion.
+This configuration lets you use the public IP(s) of your load balancer to provide outbound internet connectivity for the VMs. The outbound rules let you explicitly define source network address translation (SNAT) ports. The rules let you scale and tune this ability through manual port allocation. Manually allocating SNAT port based on the backend pool size and number of `frontendIPConfigurations` can help avoid SNAT exhaustion.
 
 We recommend that you allocate ports based on the maximum number of backend instances. If more instances are added than remaining SNAT ports allowed, Virtual Machine Scale Sets scaling operations might be blocked, or the new VMs don't receive sufficient SNAT ports.
 
 Calculate ports per instance as: `Number of frontend IPs * 64K / Maximum number of backend instances`
 
-There are other options you can use, such as deploying a NAT Gateway resource attached to the subnet. Another way is to use Azure Firewall or another NVA with a custom UDR as the next hop through the firewall. That option is shown in [Virtual machine baseline architecture in an Azure landing zone](./baseline-landing-zone.yml).
+There are other options you can use, such as deploying a NAT Gateway resource attached to the subnet. Another option is to use Azure Firewall or another NVA with a custom UDR as the next hop through the firewall. That option is shown in [Virtual machine baseline architecture in an Azure landing zone](./baseline-landing-zone.yml).
 
 #### DNS resolution
 
@@ -246,7 +250,7 @@ For more information on the cost of collecting metrics and logs, see [Log Analyt
 
 ##### Virtual machines
 
-[Azure boot diagnostics](/azure/virtual-machines/boot-diagnostics) is enabled to observe the state of their VM as it's booting up by collecting serial log information and screenshots. In this architecture, that data is stored in a Microsoft-managed storage resource that's accessible through Azure portal and [the Azure CLI vm boot-diagnostics get-boot-log command](/cli/azure/vm/boot-diagnostics?view=azure-cli-latest#az-vm-boot-diagnostics-get-boot-log). However, if your business requirements demand for more control, you can provision your own storage account to store boot diagnostics.
+[Azure boot diagnostics](/azure/virtual-machines/boot-diagnostics) is enabled to observe the state of their VM as it's booting up by collecting serial log information and screenshots. In this architecture, that data is stored in a Microsoft-managed storage resource that's accessible through Azure portal and [the Azure CLI vm boot-diagnostics get-boot-log command](/cli/azure/vm/boot-diagnostics?view=azure-cli-latest#az-vm-boot-diagnostics-get-boot-log). However, if your business requirements require more control, you can provision your own storage account to store boot diagnostics.
 
 The VMs have [Azure Monitor Agent (AMA)](/azure/azure-monitor/agents/agents-overview) deployed, which collects monitoring data from the guest OS, with OS-specific [Data Collection Rules (DCR)](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent) applied to each VM. The DCRs collect performance counters, OS logs, change tracking, dependency tracking, and web server HTTP logs. DCR allows filtering rules and data transformations to reduce the overall data volume being uploaded, thus lowering ingestion and storage costs significantly. As the scale set grows, newly allocated VMs are configured with the AMA settings enforced by a built-in Azure Policy assignment.
 
@@ -262,23 +266,23 @@ In this architecture, log data is collected from several networking components t
 
 Disk metrics depend on your workload, requiring a mix of key metrics. Monitoring should combine these perspectives to isolate OS or application throughput issues.
 
-- The Azure platform perspective represents the metrics that indicate the Azure service, regardless of the workload that is connected to it. Disk performance metrics (IOPS and throughput) can be viewed individually or collectively for all VM-attached disks. Use Storage IO utilization metrics for troubleshooting or alerting on potential disk capping. If using bursting for cost optimization, monitor Credits Percentage metrics to identify opportunities for further optimization.
+- The Azure platform perspective represents the metrics that indicate the Azure service, regardless of the workload that is connected to it. Disk performance metrics (IOPS and throughput) can be viewed individually or collectively for all VM-attached disks. Use Storage IO utilization metrics for troubleshooting or alerting on potential disk capping. If you use bursting for cost optimization, monitor Credits Percentage metrics to identify opportunities for further optimization.
 
 - The guest OS perspective represents metrics that the workload operator would view, regardless of the underlying disk technology. VM Insights is recommended for key metrics on attached disks, such as logical disk space used, and the OS kernel's perspective on disk IOPS and throughput.
 
 ### Application-level monitoring
 
-Even though the reference implementation doesn't deploy an application, [Application Insights](/azure/azure-monitor/app/app-insights-overview) is provisioned as an Application Performance Metrics (APM) for extensibility purposes. It collects data from an application and sends that data to Log Analytics workspace. It also can visualize that data from the workload applications.
+Even though the reference implementation doesn't deploy an application, [Application Insights](/azure/azure-monitor/app/app-insights-overview) is provisioned as an Application Performance Metrics (APM) for extensibility purposes. It collects data from an application and sends that data to the Log Analytics workspace. It also can visualize that data from the workload applications.
 
 The [Application Health extension](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension) is deployed to VMs to monitor the binary health state of each VM instance in the scale set, and perform instance repairs if necessary by using scale set Automatic Instance Repair. It tests for the same file as the Application Gateway and the internal Azure Load Balancer health probe to check if the application is responsive.
 
 ## Update management
 
-VMs need to be updated and patched regularly so that they don't weaken the security posture of the workload. Automatic and periodic VM assessments are recommended for early discovery and application of patches.
+VMs need to be updated and patched regularly so that they don't weaken the security posture of the workload. We recommend automatic and periodic VM assessments for early discovery and application of patches.
 
 #### Microsoft-managed infrastructure updates
 
-Azure VMs provide the option of automatic VM guest patching. When this service is enabled, VMs are evaluated periodically and available patches are classified. We recommend that Assessment Mode is enabled to allow daily evaluation for pending patches. On-demand assessment can be done, but that doesn't trigger application of patches. If Assessment Mode isn't enabled, have manual ways of detecting pending updates.
+Azure VMs provide the option of automatic VM guest patching. When this service is enabled, VMs are evaluated periodically and available patches are classified. We recommend that Assessment Mode is enabled to allow daily evaluation for pending patches. On-demand assessment can be done, but that doesn't trigger the application of patches. If Assessment Mode isn't enabled, have manual ways of detecting pending updates.
 
 For governance, consider the [Require automatic OS image patching on Virtual Machine Scale Sets](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F465f0161-0087-490a-9ad9-ad6217f4f43a) Azure Policy.
 
@@ -320,11 +324,11 @@ Workload design should incorporate reliability assurances in application code, i
 
 The strategies used in architecture are based on the [Reliability design review checklist given in Azure Well-Architected Framework](/azure/well-architected/reliability/checklist). The sections are annotated with recommendations from that checklist.
 
-Because there's no application deployed, resiliency in application code is beyond the scope of this architecture. We recommend that you review all recommendations given in the checklist and adopt them in your workload, if applicable.
+Because no application is deployed, resiliency in application code is beyond the scope of this architecture. We recommend that you review all recommendations in the checklist and adopt them in your workload, if applicable.
 
 #### Prioritize the reliability assurances per user flow
 
-In most designs, there are multiple user flows, each with its own set of business requirements. Not all these flows require the highest level of assurances. Segmentation is recommended as a reliability strategy. Each segment can be managed independently, ensuring that one segment doesn't impact others and providing the right level of resiliency in each tier. This approach also makes the system flexible.
+In most designs, there are multiple user flows, each with its own set of business requirements. Not all of these flows require the highest level of assurances, so segmentation is recommended as a reliability strategy. Each segment can be managed independently, ensuring that one segment doesn't impact others and providing the right level of resiliency in each tier. This approach also makes the system flexible.
 
 In this architecture, application tiers implement the segmentation. Separate scale sets are provisioned for the frontend and backend tiers. This separation enables independent scaling of each tier, allowing for implementation of design patterns based on their specific requirements, among other benefits.
 
@@ -348,27 +352,27 @@ Every architecture is susceptible to failures. The exercise of failure mode anal
 
 To make design decisions, it's important to calculate the reliability targets, such as the composite Service Level Objectives (SLOs) of the workload. Doing so involves understanding the Service Level Agreements (SLAs) provided by Azure services used in the architecture. Workload SLOs must not be higher than the SLAs guaranteed by Azure. Carefully examine each component, from VMs and their dependencies, networking, and storage options.
 
-Here's an example calculation where the main goal was to provide with an approximate composite SLO.
+Here's an example calculation where the main goal was to provide an approximate composite SLO.
 
-While this is rough guideline, it is important to remark that you should arrive to something similar and cannot expect getting a higher maximum composite SLO for the same flows shared below, unless you make modifications to this architecture.
+While this is a rough guideline, you should arrive at something similar and can't expect to get a higher maximum composite SLO for the same flows shared below, unless you make modifications to this architecture.
 
 **Operation flow**
 
-|Component  |SLO  |
+| Component  | SLO  |
 |------------|-----------|
-|Microsoft Entra ID | 99.99% |
-|Azure Bastion | 99.95% |
+| Microsoft Entra ID | 99.99% |
+| Azure Bastion | 99.95% |
 
 **Composite SLO: 99.94% | Downtime per year: 0d 5h 15m 20s**
 
 **App User Flow**
 
-|Component  |SLO  |
+| Component  |SLO  |
 |------------|-----------|
-|Azure Application Gateway |99.95% |
-|Azure Load Balancer (internal) |99.99% |
-|Frontend VMs using premium storage (composite SLO)|99.70% |
-|Backend VMs using premium storage (composite SLO)|99.70% |
+| Azure Application Gateway |99.95% |
+| Azure Load Balancer (internal) |99.99% |
+| Frontend VMs using premium storage (composite SLO)|99.70% |
+| Backend VMs using premium storage (composite SLO)|99.70% |
 
 **Composite SLO: 99.34% | Downtime per year: 2d 9h 42m 18s**
 
