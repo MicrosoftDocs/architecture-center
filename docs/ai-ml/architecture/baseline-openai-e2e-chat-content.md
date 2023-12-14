@@ -82,6 +82,21 @@ The outbound rules can be private endpoints, service tags or FQDNs. In this arch
 
 TODO: Add differences between the baseline and this architecture
 
+## Content filtering
+
+Azure OpenAI service includes a [content filtering system](/azure/ai-services/openai/concepts/content-filter) that uses an ensemble of classification models to detect and prevent specific categories of potentially harmful content in both input prompts and output completions. While you can customize per your requirements, the following are typical enterprise environment configurations:
+
+| Policy name | Blocking enabled * | Filtering enabled * | Content filter level | Source |
+|---|---|---|---|---|
+| hate | true | true | Low, Med, High | Prompt and Completion |
+| sexual | true | true | Low, Med, High | Prompt and Completion |
+| selfharm | true | true | Low, Med, High | Prompt and Completion |
+| violence | true | true | Low, Med, High | Prompt and Completion |
+| profanity | true | true | Med, High | Prompt and Completion |
+| jailbreak | true | true | Med, High | Prompt |
+
+\* Only customers who have been approved for modified content filtering have full content filtering control and can turn content filters partially or fully off - [Content filtering](/azure/ai-services/openai/concepts/content-filter?tabs=warning%2Cpython#configurability-preview)
+
 ## Reliability
 
 The [baseline app services web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) architecture focuses on zonal redundancy for key regional services. Availability zones are physically separate locations within a region. They provide zonal redundancy for supporting services when two or more instances are deployed in supporting regions. When one zone experiences downtime, the other zones may still be unaffected. The architecture also ensures enough instances of Azure services to meet demand. Please see the [baseline](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) to review that guidance.
