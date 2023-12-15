@@ -137,7 +137,7 @@ As per the sample architecture, the following services could be used for perform
 | ----------- | ----------- |
 | Eventhub | Premium with one PU. |
 | Azure Function | Linux with Premium Plan (EP1) - 210 ACU, 3.5 GB Memory and 1 vCPU equivalent Standard_D1_v2 |
-| Region | West US 2 |
+| Region | East US |
 
 Choosing of a service tier for any Azure services including Azure Event Hubs and Azure Functions is a complex process and depends on many factors. For more information, see [Azure Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/) and [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
 
@@ -178,7 +178,17 @@ In order to measure KPIs using Azure Monitor service, we need to enable Applicat
 
 After enabling Azure Monitor service, you can use the following queries to measure KPIs:
 
-- IR: `FunctionAppLogs | where Category startswith "your-function-name" and Message startswith "Executed" | summarize count() by FunctionName, Level Aggregate by hour | order by FunctionName desc`
-- RT: `FunctionAppLogs\n| where Category startswith "your-function-name" and Message startswith "Executed "| parse Message with "Executed " Name " ("  Result ", Id=" Id ", Duration=" Duration:long "ms)\n| project  TimeGenerated, Message, FunctionName, Result, FunctionInvocationId, Duration\n`
-- SR: `FunctionAppLogs\n| where Category startswith "Function." and Message startswith "Executed" | summarize Success=countif(Level == "Information" ), Total=count() by FunctionName| extend Result=Success*1.0/Total| project FunctionName, Result| order by FunctionName desc`
+- IR: `FunctionAppLogs | where Category startswith "name-space-of-your-function" and Message startswith "Executed" | summarize count() by FunctionName, Level, bin(TimeGenerated, 1h) | order by FunctionName desc`
+- RT: `FunctionAppLogs| where Category startswith "name-space-of-your-function" and Message startswith "Executed "| parse Message with "Executed " Name " ("  Result ", Id=" Id ", Duration=" Duration:long "ms)"| project  TimeGenerated, Message, FunctionName, Result, FunctionInvocationId, Duration`
+- SR: `FunctionAppLogs| where Category startswith "name-space-of-your-function" and Message startswith "Executed" | summarize Success=countif(Level == "Information" ), Total=count() by FunctionName| extend Result=Success*100.0/Total| project FunctionName, Result| order by FunctionName desc`
 
+### Sample of Azure Monitor Dashboard
+
+Here is a sample of Azure Monitor dashboard that shows the KPIs for Azure Functions based on the queries mentioned above:
+
+:::image type="content" source="images/load-testing-azure-monitor-dashboard.png" alt-text="Sample of Azure Monitor Dashboard" border="false":::
+
+## Conclusion
+
+In this article, you learned how to design KPIs and develop a dashboard for Azure Load Test. You also learned how to use custom plugins in JMeter to perform load testing on Azure Functions integrated with Event Hubs. You can use the same approach to perform load testing on other Azure services. You can also set up a continuous integration and deployment pipeline for your load testing scripts using Azure DevOps.
+For more information, see [Azure Load Testing](https://docs.microsoft.com/azure/load-testing/overview).
