@@ -109,7 +109,7 @@ One significant difference between IPv6 networks and IPv4 networks in Azure is t
 
 This subnet size also allows organizations to plan their network conceptually. You don't need to worry about resizing subnets due to exhaustion. You can continue to use your existing subnet architecture and assign a /64 address block to each as part of your IPv6 transition.
 
-### Plan IP address space for Azure regions
+### Transition regions to IPv6
 
 You should assign a /44 IPv6 address space to each Azure region. Once this IP address space is allocated to the region, you will be able to easily deploy new networks and workloads by defining virtual networks and subnets from that IP space. Here are strategies to transitioning Azure regions to IPv6:
 
