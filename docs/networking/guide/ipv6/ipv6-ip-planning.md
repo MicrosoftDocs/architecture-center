@@ -29,7 +29,7 @@ Understanding IPv6 in Azure refers to comprehending how to integrate and manage 
 
 ### Understand dual stacking
 
-Dual stacking is a network configuration method that allows you to process both IPv4 and IPv6 traffic simultaneously. It's also known as having a dual-stack network. Azure Virtual Networks supports dual stacking virtual networks and subnets. You can assign a new IPv6 address block to a subnet with an existing IPv4 block. Services that have been transitioned to use IPv6 can continue to coexist with services that aren't yet transitioned.
+Dual stacking is a network configuration method that allows you to process both IPv4 and IPv6 traffic simultaneously. It's also known as having a dual-stack network. Azure Virtual Network allows you to dual stack virtual networks and subnets. You can assign a new IPv6 address block to a subnet with an existing IPv4 block. Services that have been transitioned to use IPv6 can continue to coexist with services that aren't yet transitioned.
 
 ### Understand IPv6 address space
 
