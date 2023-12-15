@@ -43,14 +43,11 @@ For context:
 | IPv6 | 340,282,366,920,938,463,463,374,607,431,768,211,456 |
 
 
-One exercise is to understand the number of network segments that can fit in to your larger network space.  In order to determine how many network spaces of a certain size can fit into a address block, you can use the formula of 2^(x-y), where X is the smaller address block’s size and Y is the larger blocks size.  For example, to determine how many /64 subnets can fit in to a /44 address block, we can use 2^(64-44), which is 1,048,576 subnets.
+When planning IP address allocation in IPv6, you should use the following guidelines:
 
-As a result, when planning IP address allocation in IPv6, you should use the following guidelines:
-
-- **Design for over-allocation.**  You could assign each private network segment a scope equivalent to the whole range of the private IPv4 space, and be able to have exponentially more network segments than there are private IPv4 addresses.  In short, trying to optimize IP space allocation at the cost of other functions is an antipattern.
-- **Design for ease of management.** IPv6 allows you to apply practices such as default sizing, and building context in to network addresses.  You should err on the side of easy management and planning, to have to avoid troubleshooting.
-
-These concepts will be applied in the next sections.
+- **Calculate fit.** To calculate the number of subnets of a certain size that can fit into a larger address block, you can use the formula 2^(X-Y). The X is the smaller address block size and Y is the larger block size.  For example, to determine how many /64 subnets can fit in to a /44 address block, we can use 2^(64-44), which is 1,048,576 subnets.
+- **Design for over-allocation.** You could assign each private network segment a scope equivalent to the whole range of the private IPv4 space and be able to have exponentially more network segments than there are private IPv4 addresses.  In short, trying to optimize IP space allocation at the cost of other functions is an antipattern.
+- **Design for ease of management.** IPv6 allows you to apply practices such as default sizing, and building context into network addresses.  You should err on the side of easy management and planning to avoid troubleshooting.
 
 > [!NOTE]
 > These guidelines apply for IPv6, but not for IPv4 environments.  When planning your IP space for IPv4 there are different guidelines to use.  See [Plan for IP Addressing](/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing) for general guidelines.
