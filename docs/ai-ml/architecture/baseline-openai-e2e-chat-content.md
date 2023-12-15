@@ -135,7 +135,6 @@ Deploy Azure AI Search with Standard pricing tier or above in a [region that sup
 
 Consider the following guidance for determining the appropriate amount of replicas and partitions:
 
-- Follow the guidance to [analyze performance in Azure AI Search](/azure/search/search-performance-analysis).
 - Follow the guidance to [monitor Azure AI Search](/azure/search/monitor-azure-cognitive-search).
 - Use monitoring metrics and logs and performance analysis to determine the appropriate amount of replicas to avoid query-based throttling and partitions to avoid index-based throttling.
 
@@ -168,5 +167,32 @@ When using Azure OpenAI key-based authentication, it is important to:
 - Implement a key rotation strategy for Azure OpenAI. If you [manually rotate the keys](/azure/storage/common/storage-account-keys-manage?tabs=azure-portal#manually-rotate-access-keys), you should create a key expiration policy and use Azure policy to monitor whether the key has been rotated.
 
 ### OpenAI RBAC roles
+
+TODO: Add guidance
+
+
+## Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Overview of the performance efficiency pillar](/azure/well-architected/performance-efficiency/).
+
+This section discusses performance efficiency from the perspective of Azure Search, Azure OpenAI and Azure Machine Learning.
+
+### Azure Machine Learning
+
+If deploying to Azure Machine Learning online endpoints:
+
+- Follow the guidance on how to [autoscale an online endpoint](/azure/machine-learning/how-to-autoscale-endpoints).
+- Choose the appropriate virtual machine SKU for the online endpoint to meet your performance targets.
+
+### Azure OpenAI
+
+- Determine whether your application requires [provisioned throughput](/azure/ai-services/openai/concepts/provisioned-throughput) or will use the pay-as-you-go model. Provisioned throughput offers reserved processing capacity for your OpenAI models, providing predictable performance for your models.
+- For provisioned throughput, you should monitor [provision-managed utilization](/azure/ai-services/openai/how-to/monitoring)
+
+### Azure Search
+
+Follow the guidance to [analyze performance in Azure AI Search](/azure/search/search-performance-analysis).
+
+
 
 
