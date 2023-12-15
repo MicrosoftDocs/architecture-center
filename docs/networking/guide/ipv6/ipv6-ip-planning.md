@@ -115,10 +115,10 @@ This subnet size also allows organizations to plan their network conceptually. Y
 
 ### Plan IP address space for Azure regions
 
-Organizations should dedicate planned IP space to their Azure regions.  Once this IP address space is allocated to the region, you will be able to easily deploy new networks and workloads by defining virtual networks and subnets from that IP space.
+You should assign a /44 IPv6 address space to each Azure region. Once this IP address space is allocated to the region, you will be able to easily deploy new networks and workloads by defining virtual networks and subnets from that IP space. Here are strategies to transitioning Azure regions to IPv6:
 
-- _Plan a Supernet for each region_: Like with IPv4, plan a supernet for individual Azure regions. This supernet does not have a technical representation in Azure; instead, you’re assigning and tracking it in your IP Address Management system.
-- _Use /44 Address Block_: Using a unique /44 IPv6 address block to be allocated to each Azure region.  This allocation will not be done against a resource in Azure.  Instead, you will dedicate this space in your organization's IP Address Management (IPAM) system.This assignment provides a clear address block for the region.  This table visualizes what the address blocks would look like for multiple regions:
+- *Use a supernet*: Like with IPv4, plan a supernet for individual Azure regions. This supernet does not have a technical representation in Azure. Instead, you assign and track it in your IP Address Management system (IPAM).
+- *Use a /44 address block*: Using a unique /44 IPv6 address block to be allocated to each Azure region.  This allocation will not be done against a resource in Azure.  Instead, you will dedicate this space in your organization's IP Address Management (IPAM) system. This assignment provides a clear address block for the region.  This table visualizes what the address blocks would look like for multiple regions:
 
 | Network Scope | CIDR Range| First IP | Last IP |
 | -- | -- | -- | -- |
