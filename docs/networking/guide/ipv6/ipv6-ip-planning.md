@@ -20,10 +20,6 @@ categories:
 
 This guide outlines strategies for transitioning a IPv4 network environment in Azure to IPv6. Transitioning from IPv4 to IPv6 is a necessary evolution in internet technology. It involves updating virtual network infrastructures to support the IPv6 protocol. It's a move that is essential due to the near exhaustion of available IPv4 addresses. The IPv6 protocol not only provides a significantly larger pool of internet addresses to accommodate future growth but also offers enhanced security features (native IPSec), flow labeling, and simplified network configurations.
 
-This guide covers the following elements:
-
-- [Planning for IPv6 in Azure](ipv6-ip-planning.md#planning-for-ipv6-in-azure), to guide you in understanding differences with IPv6 and a recommended address planning methodology.
-- [Configure Azure services to use IPv6](ipv6-ip-planning.md#configure-azure-services-to-use-ipv6), to guide you on updating services to use IPv6.
 
 To understand more about the capabilities of IPv6 virtual networks, see [IPv6 for Azure Virtual Network](/azure/virtual-network/ip-services/ipv6-overview).
 
