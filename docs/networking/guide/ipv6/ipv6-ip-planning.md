@@ -33,7 +33,7 @@ Dual stacking is a network configuration method that allows you to process both 
 
 ### Understand IPv6 address space
 
-One of IPv6’s most important features is its nearly unlimited IP address space.  There are several practices, like allocating the minimum space needed for network segments, that simply don’t apply.
+One of IPv6’s most important features is its nearly unlimited IP address space.  This means that in IPv6, unlike in IPv4, there is no need to use the smallest possible subnet size for each network segment. IPv6 has such a large address space that it allows for over-allocation. For example, each IPv6 subnet in Azure has a fixed size of /64 and can accommodate more hosts than the entire IPv4 address space. Some of the practices that were necessary in IPv4 to conserve addresses are not applicable in IPv6.
 
 For context:
 
