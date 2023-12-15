@@ -418,7 +418,7 @@ Your scaling operations should be reliable so that when a degraded condition is 
 
 Another strategy is to use automatic scaling capabilities for the scale sets. Be sure to do adequate performance testing to set the threshold for CPU, memory, and other VM components. When those thresholds are reached, new instances are immediately provisioned.
 
-> Refer to Well-Architected Framework: [RE:06 - Recommendations for designing a reliable scaling strategy](/azure/well-architected/reliability/redundancy).
+> Refer to Well-Architected Framework: [RE:06 - Recommendations for designing a reliable scaling strategy](/azure/well-architected/reliability/scaling).
 
 #### Self-healing and recoverability
 
@@ -544,7 +544,7 @@ If the main cost driver is the number of instances, it might be more cost-effect
 
 Automatic VM guest patching reduces the overhead of manual patching and the associated maintenance costs. Not only does this action help make the system more secure, but it also optimizes resource allocation, contributing to overall cost efficiency.
 
-> Refer to Well-Architected Framework: [CO:13 - Recommendations for optimizing personnel time](/azure/well-architected/cost-optimization/optimize-scaling-costs).
+> Refer to Well-Architected Framework: [CO:13 - Recommendations for optimizing personnel time](/azure/well-architected/cost-optimization/optimize-personnel-time).
 
 ## Deploy this scenario
 
