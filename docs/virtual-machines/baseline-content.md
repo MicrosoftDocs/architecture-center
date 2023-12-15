@@ -21,7 +21,7 @@ This architecture serves as a starting point for an infrastructure as a service 
 
 ## Architecture
 
-:::image type="content" source="./media/baseline-architecture.svg" alt-text="Diagram that shows the virtual machine baseline architecture." lightbox="./media/baseline-architecture.svg" border="false":::
+:::image type="content" source="./media/baseline-architecture.svg" alt-text="Virtual machine baseline architectural diagram" lightbox="./media/baseline-architecture.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/baseline-architecture.vsdx) of this architecture.*
 
@@ -157,9 +157,7 @@ In this architecture:
 
 This architecture deploys the workload in a single virtual network. Network controls are a significant part of this architecture and are described in the [Security](#security) section.
 
-:::image type="content" source="./media/baseline-network.svg" alt-text="Diagram of a virtual machine baseline that shows the network layout." lightbox="./media/baseline-network.svg" border="false":::
-
-*Download a [Visio file](https://arch-center.azureedge.net/baseline-network.vsdx) of this architecture.*
+:::image type="content" source="./media/baseline-network.svg" alt-text="Virtual machine baseline showing the network layout" lightbox="./media/baseline-network.png":::
 
 This layout can be integrated with an enterprise topology. That example is shown in [Virtual machine baseline architecture in an Azure landing zone](./baseline-landing-zone.yml).
 
@@ -189,7 +187,7 @@ Another use case to consider is VM OS upgrades, which might require temporary IP
 
 Two public IP addresses are used for ingress flows. One address is for Application Gateway that serves as the reverse proxy. Users connect using that public IP address. The reverse proxy load balances ingress traffic to the private IPs of the VMs. The other address is for operational access through Azure Bastion.
 
-The internal load balancer is placed between the front end and the back end to distribute traffic to the back-end VMs.
+:::image type="content" source="./media/baseline-network-ingress.svg" alt-text="Virtual machine baseline showing ingress flow" lightbox="./media/baseline-network-ingress.png":::
 
 :::image type="content" source="./media/baseline-network-ingress.svg" alt-text="Diagram of a virtual machine baseline that shows ingress flow." lightbox="./media/baseline-network-ingress.svg" border="false":::
 
@@ -197,7 +195,7 @@ The internal load balancer is placed between the front end and the back end to d
 
 #### Egress traffic
 
-Virtual Machine Scale Sets with Flexible orchestration don't have outbound internet connectivity by default. You must explicitly define this in your architecture. To enable that use case, here are some approaches.
+:::image type="content" source="./media/baseline-network-egress.svg" alt-text="Virtual machine baseline showing ingress flow" lightbox="./media/baseline-network-egress.png":::
 
 This architecture uses standard SKU Load Balancer with outbound rules defined from the VM instances. Load Balancer was chosen because it's zone redundant.
 
@@ -236,7 +234,7 @@ The Log Analytics workspace is the recommended monitoring data sink used to coll
 
 This image shows the monitoring stack for the baseline with components for collecting data from the infrastructure and application, data sinks, and various consumption tools for analysis and visualization. The implementation deploys some components, such as Application Insights, VM boot diagnostics, and Log Analytics. Other components are depicted to showcase the extensibility options, such as dashboards and alerts.
 
-:::image type="content" source="./media/baseline-monitoring.svg" alt-text="Diagram that shows the baseline monitoring data flow." lightbox="./media/baseline-monitoring.svg" border="false":::
+:::image type="content" source="./media/baseline-monitoring.svg" alt-text="Baseline monitoring data flow diagram" lightbox="./media/baseline-monitoring.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/baseline-monitoring.vsdx) of this architecture.*
 
@@ -260,9 +258,7 @@ For more information on the cost of collecting metrics and logs, see [Log Analyt
 
 ##### Virtual machines
 
-[Azure boot diagnostics](/azure/virtual-machines/boot-diagnostics) is enabled to observe the state of their VM as it's booting up by collecting serial log information and screenshots. In this architecture, that data is stored in a Microsoft-managed storage resource that's accessible through the Azure portal and [the Azure CLI vm boot-diagnostics get-boot-log command](/cli/azure/vm/boot-diagnostics?view=azure-cli-latest#az-vm-boot-diagnostics-get-boot-log). However, if your business requirements require more control, you can provision your own storage account to store boot diagnostics.
-
-The VMs have [Azure Monitor Agent (AMA)](/azure/azure-monitor/agents/agents-overview) deployed, which collects monitoring data from the guest OS, with OS-specific [data collection rules (DCR)](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent) applied to each VM. The DCRs collect performance counters, OS logs, change tracking, dependency tracking, and web server HTTP logs. DCRs allow filtering rules and data transformations to reduce the overall data volume being uploaded, thus lowering ingestion and storage costs significantly. As the scale set grows, newly allocated VMs are configured with the AMA settings enforced by a built-in Azure Policy assignment.
+[Azure boot diagnostics](/azure/virtual-machines/boot-diagnostics) is enabled to observe the state of the VMs during boot by collecting serial log information and screenshots. In this architecture, that data can be accessed through Azure portal and the [the Azure CLI vm boot-diagnostics get-boot-log command](/cli/azure/vm/boot-diagnostics?view=azure-cli-latest#az-vm-boot-diagnostics-get-boot-log). The data is managed by Azure and you have no control or access to the underlying storage resource. However, if your business requirements demand for more control, you can provision your own storage account to store boot diagnostics.
 
 [VM insights](/azure/azure-monitor/vm/vminsights-overview) offers an efficient way to monitor VMs and scale sets. It gathers data from Log Analytics workspaces and provides predefined workbooks for performance data trending. This data can be viewed per VM or aggregated across multiple VMs via Monitor.
 
@@ -496,7 +492,7 @@ The baseline architecture uses a mix of system-assigned and user-assigned manage
 
 #### Secret management
 
-:::image type="content" source="./media/baseline-certificates.svg" alt-text="Diagram that shows TLS termination and certificates used." lightbox="./media/baseline-certificates.svg" border="false":::
+:::image type="content" source="./media/baseline-certificates.svg" alt-text="Diagram that shows TLS termination and certificates used." lightbox="./media/baseline-certificates.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/baseline-certificates.vsdx) of this architecture.*
 

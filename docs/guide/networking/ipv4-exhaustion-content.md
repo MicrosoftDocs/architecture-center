@@ -15,7 +15,10 @@ You can use other ranges, but before you use those ranges in your virtual networ
 
 - Shared address space defined by RFC 6598 for carrier-grade network address translation (NAT) that's treated as private address space in Azure Virtual Network. The address block is 100.64.0.0/10.
 - Public, internet-routable IP addresses that your organization doesn't own. This practice is discouraged because resources in the virtual network can’t access internet endpoints that are exposed over the public IP addresses.
-- Special-purpose address blocks that are defined by IANA, like 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 198.18.0.0/15, 198.51.100.0/24, 203.0.113.0/24, 233.252.0.0/24, and 240.0.0.0/4.
+- Special-purpose address blocks that are defined by IANA, like 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 198.18.0.0/15, 198.51.100.0/24, 203.0.113.0/24, and 233.252.0.0/24.
+
+> [!NOTE]
+> The Class E IP address range 240.0.0.0/4 is blocked by Windows from assigning it to a NIC and has compatibility issues in the case of Linux. So, while it may be possible to programmatically assign range to a virtual network, we do not recommend its usage in Azure virtual networks.
 
 > [!NOTE]
 > The previous ranges don't provide a long-term solution for organizations that have IPv4 exhaustion issues. In that case, you should minimize private address space consumption.

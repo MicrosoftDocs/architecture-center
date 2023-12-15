@@ -3,7 +3,7 @@ title: Performance testing and antipatterns
 description: Build scalability solutions for common stressors by learning about performance antipatterns. These are common practices that are likely to cause scalability problems when an application is under pressure.
 author: johndowns
 ms.author: jodowns
-ms.date: 08/23/2021
+ms.date: 12/13/2023
 ms.topic: design-pattern
 ms.service: architecture-center
 ms.subservice: anti-pattern
@@ -25,9 +25,9 @@ categories:
 
 # Performance testing and antipatterns for cloud applications
 
-*Performance antipatterns*, much like design patterns, are common defective processes and implementations within organizations. These are common practices that are likely to cause scalability problems when an application is under pressure. Awareness of these practices can help simplify communication of high-level concepts amongst software practitioners.
+*Performance antipatterns*, much like design patterns, are common defective processes and implementations within organizations. These are common practices that are likely to cause scalability problems when an application is under pressure. Awareness of these practices can help simplify communication of high-level concepts amongst software practitioners, and knowledge of antipatterns can be helpful when reviewing code or diagnosing performance issues.
 
-Here is a common scenario: An application behaves well during performance testing. It's released to production, and begins to handle real workloads. At that point, it starts to perform poorly&mdash;rejecting user requests, stalling, or throwing exceptions. The development team is then faced with two questions:
+Here's a common scenario: An application behaves well during performance testing. It's released to production, and begins to handle real workloads. At that point, it starts to perform poorly&mdash;rejecting user requests, stalling, or throwing exceptions. The development team is then faced with two questions:
 
 - Why didn't this behavior show up during testing?
 - How do we fix it?
@@ -38,11 +38,11 @@ The answer to the second question, how to fix the problem, is less straightforwa
 
 Based on our engagements with Microsoft Azure customers, we've identified some of the most common performance issues that customers see in production. For each antipattern, we describe why the antipattern typically occurs, symptoms of the antipattern, and techniques for resolving the problem. We also provide sample code that illustrates both the antipattern and a suggested scalability solution.
 
-Some of these antipatterns may seem obvious when you read the descriptions, but they occur more often than you might think. Sometimes an application inherits a design that worked on-premises, but doesn't scale in the cloud. Or an application might start with a very clean design, but as new features are added, one or more of these antipatterns creeps in. Regardless, this guide will help you to identify and fix these antipatterns.
+Some of these antipatterns might seem obvious when you read the descriptions, but they occur more often than you might think. Sometimes an application inherits a design that worked on-premises, but doesn't scale in the cloud. Or an application might start with a very clean design, but as new features are added, one or more of these antipatterns creeps in. Regardless, this guide will help you to identify and fix these antipatterns.
 
 ## Catalog of antipatterns
 
-Here is the list of the antipatterns that we've identified:
+Here's the list of the antipatterns that we've identified:
 
 | Antipattern | Description |
 |-------------|-------------|

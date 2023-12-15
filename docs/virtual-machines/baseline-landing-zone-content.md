@@ -25,7 +25,7 @@ To meet the organizational requirements, there are changes in the **baseline arc
 
 ## Architecture
 
-:::image type="content" source="./media/baseline-landing-zone.png" alt-text="A architectural diagram showing the virtual machine baseline in an application landing zone." lightbox="./media/baseline-landing-zone.png":::
+:::image type="content" source="./media/baseline-landing-zone.svg" alt-text="A architectural diagram showing the virtual machine baseline in an application landing zone." lightbox="./media/baseline-landing-zone.png":::
 
 ### Components
 
@@ -139,7 +139,7 @@ In the [**baseline architecture**](./baseline-content.md#network-layout), the wo
 
 In this architecture, the network topology is decided by the platform team. Hub-spoke topology is assumed in this architecture. 
 
-:::image type="content" source="./media/baseline-landing-zone-network-topology.png" alt-text="Diagram that shows the network layout in a hub-spoke topology." lightbox="./media/baseline-landing-zone-network-topology.png":::
+:::image type="content" source="./media/baseline-landing-zone-network-topology.svg" alt-text="Diagram that shows the network layout in a hub-spoke topology." lightbox="./media/baseline-landing-zone-network-topology.png":::
 
 - **Hub virtual network**. This network contains a regional hub designed to provide centralized services that communicate with workload resources in the same region. For information, see [these networking resources](#platform-team-owned-resources). Azure landing zones recommend placing the hub in the [Connectivity subscription](/azure/cloud-adoption-framework/ready/landing-zone/design-area/network-topology-and-connectivity). 
 
@@ -174,7 +174,7 @@ In the baseline architecture, workload VM scale sets access public internet thro
 
 That design has changed in this architecture. All traffic leaving the spoke virtual network is expected to be routed through the peered hub network, via an egress firewall. This is achieved with a route attached to all the possible subnets in the spoke network that directs all traffic for IPs not found in the local virtual network (0.0.0.0/0) to the hub's Azure Firewall.
 
-:::image type="content" source="./media/baseline-landing-zone-network-egress.png" alt-text="Diagram that shows the network layout in a hub-spoke topology." lightbox="./media/baseline-landing-zone-network-egress.png":::
+:::image type="content" source="./media/baseline-landing-zone-network-egress.svg" alt-text="Diagram that shows the network layout in a hub-spoke topology." lightbox="./media/baseline-landing-zone-network-egress.png":::
 
 Workload communication to the private endpoint for Azure Key Vault access remains the same as the [**baseline architecture**](./baseline-content.md#egress-traffic). That path has been omitted from the preceding image for brevity.
 
@@ -231,7 +231,7 @@ The workload team provisions the monitoring resources, which include:
 - Azure Application Insights as the Application Performance Monitoring (APM) of the workload team.
 - Azure Log Analytics workspace serves as the unified sink for all logs and metrics collected from workload-owned Azure resources and the application code.
 
-:::image type="content" source="./media/baseline-landing-zone-monitoring.png" alt-text="Diagram that shows monitoring resources for the workload." lightbox="./media/baseline-landing-zone-monitoring.png":::
+:::image type="content" source="./media/baseline-landing-zone-monitoring.svg" alt-text="Diagram that shows monitoring resources for the workload." lightbox="./media/baseline-landing-zone-monitoring.png":::
 
 Similar to the baseline, all resources are configured to send Azure Diagnostics to the Log Analytics workspace provisioned by the workload team as part of the Infrastructure as Code (IaC) deployment of the resources. You might also also need to send logs to a central Log Analytics workspace. In Azure landing zones, that workspace is in the Management subscription.
 
@@ -327,7 +327,7 @@ Here are some dependencies to consider for this architecture:
 
 - **DINE policies**. DINE policies for Azure DNS Private DNS zones (or any other platform-provided dependency) are best effort, with no Service Level Agreement (SLA) on execution. A delay in DNS configuration can cause delays in the readiness of an application to handle traffic.
 
-- **Management group policies**. Consistent policies between environments are key for reliability. Preproduction environments should be similar to production environments for meaningful testing and to prevent environment-specific deviations that could block deployment or scale. 
+- **Management group policies**. Consistent policies between environments are key for reliability. Preproduction environments should be similar to production environments for meaningful testing and to prevent environment-specific deviations that could block deployment or scale. For information about how cloud platform teams can implement guardrails to manage application environments in Azure landing zones, see [Cloud Adoption Framework: Manage application development environments in Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-application-environments).
 
 > Refer to Well-Architected Framework: [RE:03 - Recommendations for performing failure mode analysis](/azure/well-architected/reliability/failure-mode-analysis#identify-dependencies).
 

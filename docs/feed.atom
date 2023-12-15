@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2023-12-04T17:02:19.706Z</updated>
+    <updated>2023-12-11T17:01:43.141Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
@@ -15,6 +15,14 @@
         <updated>2023-12-01T22:39:15.000Z</updated>
         <summary type="html"><![CDATA[Learn how to back up and recover your AKS clusters and their workloads.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[DR for Azure Data Platform - Deploy this scenario]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-deploy-this-scenario</id>
+        <link href="https://learn.microsoft.com/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-deploy-this-scenario"/>
+        <updated>2023-12-08T22:19:08.000Z</updated>
+        <summary type="html"><![CDATA[Fifth article in a series covering disaster recovery for an Azure data platform]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Use Azure Batch to run Financial Service Industry (FSI) workloads]]></title>
