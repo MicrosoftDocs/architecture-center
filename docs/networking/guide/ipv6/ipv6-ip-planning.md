@@ -41,7 +41,7 @@ In your Azure environment, there are three types of IPv6 addresses that can be a
 
 1. *Public IP addresses*: You can apply public IPv6 addresses to network interfaces. Public IP addresses must be globally unique and routable on the internet. you need to generate a unique IPv6 address that can be used for public endpoints in Azure, such as load balancers or application gateways. You can use the New-AzPublicIpAddress cmdlet to create an IPv6 public address in PowerShell. 
 
-The operating system configuration doesn't show the public IP address, but you can see the public IP address in the Azure portal. You can use public IPv6 addresses for inbound and outbound communication to the internet, when there's no default routing configured to direct traffic in another way. Many customers use shared network virtual appliances (NVAs) for public communication and don't assign a public IP address to network interfaces. Azure Public IPv6 addresses have no charge, unlike IPv4 addresses.  For more information, see [IP Address Pricing](https://azure.microsoft.com/pricing/details/ip-addresses/).
+    The operating system configuration doesn't show the public IP address, but you can see the public IP address in the Azure portal. You can use public IPv6 addresses for inbound and outbound communication to the internet, when there's no default routing configured to direct traffic in another way. Many customers use shared network virtual appliances (NVAs) for public communication and don't assign a public IP address to network interfaces. Azure Public IPv6 addresses have no charge, unlike IPv4 addresses.  For more information, see [IP Address Pricing](https://azure.microsoft.com/pricing/details/ip-addresses/).
 
 1. *Link-local addresses*: Link-local addresses are a special type of private IP address. In IPv6, link-local addresses are automatically configured on all interfaces. They're used for communication within a single network segment and aren't routable on the internet. They come from the `fe80::/10` space instead of from your subnet’s address block. You can see the `fe80::/10` address assigned to your interface from within the operating system.
 
@@ -49,9 +49,7 @@ For more information on other specialty address blocks, see [IANA IPv6 Special-P
 
 ## Acquire IPv6 addresses
 
-If your organization already has IPv6 addresses, you can use them to use these benefits in your Azure environment. If not, you need to acquire new ones. Using existing addresses can be more cost-effective and efficient, but acquiring new ones ensures you have a sufficient and continuous block of addresses for your needs. It also reduces the chance of address conflicts.
-
-If you don't have IPv6 space secured for your organization, you can use global addresses or local addresses
+If your organization already has IPv6 addresses, you can use them to use these benefits in your Azure environment. If not, you need to acquire new ones. Using existing addresses can be more cost-effective and efficient, but acquiring new ones ensures you have a sufficient and continuous block of addresses for your needs. It also reduces the chance of address conflicts. If you don't have IPv6 space secured for your organization, you can use global addresses or local addresses
 
 ### Use global addresses
 
@@ -65,9 +63,7 @@ If you use the unique local address range, then there's a chance that your IP ad
 
 ## Transition to IPv6
 
-You should align your plan for assigning IPv6 addresses to your Azure networks with your organization's IPv6 addressing plan. Your organization should already have a plan for on-premises IPv6 use, so that you can allocate space between different locations without the overlapping.
-
-If you don't have a plan, you should define one prior to starting implementation in Azure. For more information, see [Plan for IP addressing](/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing).
+You should align your plan for assigning IPv6 addresses to your Azure networks with your organization's IPv6 addressing plan. Your organization should already have a plan for on-premises IPv6 use, so that you can allocate space between different locations without the overlapping. If you don't have a plan, you should define one prior to starting implementation in Azure. For more information, see [Plan for IP addressing](/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing).
 
 Some of the practices that were necessary in IPv4 to conserve addresses aren't applicable in IPv6. You should over allocate IPv6 addresses and use a standard block size for Azure, regions, virtual networks, and subnets (*see table*).
 
