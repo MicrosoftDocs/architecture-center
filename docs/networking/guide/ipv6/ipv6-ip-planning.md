@@ -42,7 +42,6 @@ For context:
 | IPv4 | 4,294,967,296 |
 | IPv6 | 340,282,366,920,938,463,463,374,607,431,768,211,456 |
 
-The increased size is such that it can be hard to fully appreciate.
 
 One exercise is to understand the number of network segments that can fit in to your larger network space.  In order to determine how many network spaces of a certain size can fit into a address block, you can use the formula of 2^(x-y), where X is the smaller address block’s size and Y is the larger blocks size.  For example, to determine how many /64 subnets can fit in to a /44 address block, we can use 2^(64-44), which is 1,048,576 subnets.
 
