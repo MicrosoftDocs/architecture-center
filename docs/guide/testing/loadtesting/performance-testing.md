@@ -191,4 +191,4 @@ Here is a sample of Azure Monitor dashboard that shows the KPIs for Azure Functi
 ## Conclusion
 
 In this article, you learned how to design KPIs and develop a dashboard for Azure Load Test. You also learned how to use custom plugins in JMeter to perform load testing on Azure Functions integrated with Event Hubs. You can use the same approach to perform load testing on other Azure services. You can also set up a continuous integration and deployment pipeline for your load testing scripts using Azure DevOps.
-For more information, see [Azure Load Testing](https://docs.microsoft.com/azure/load-testing/overview).
+For more information, see [Azure Load Testing](https://docs.microsoft.com/azure/load-testing/).
