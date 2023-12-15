@@ -2,7 +2,7 @@
 metadata:
   title: Azure virtual machine baseline architecture
   titleSuffix: Azure Architecture Center
-  description: Learn how to set up an environment that's configured to run a workload on Azure virtual machines
+  description: Learn how to set up an environment that's configured to run a workload on Azure Virtual Machines.
   author: BryanLa
   ms.author: prwilk
   ms.date: 12/14/2023
@@ -14,15 +14,13 @@ azureCategories:
     - migration
     - networking
 products:
-  - azure-application-gateway
   - azure-bastion
   - azure-key-vault
-  - azure-log-analytics
   - azure-virtual-machines
   - azure-virtual-network
   - azure-vm-scalesets
 name: Azure virtual machine baseline architecture
-summary: Learn how to set up an environment that's configured to run a workload on Azure virtual machiness
+summary: Learn how to set up an environment that's configured to run a workload on Azure Virtual Machines.
 thumbnailUrl: /azure/architecture/browse/thumbs/virtual-machine-baseline-architecture.png
 content: |
   [!include[](baseline-content.md)]
