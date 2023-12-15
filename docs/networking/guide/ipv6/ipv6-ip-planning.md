@@ -49,8 +49,7 @@ When planning IP address allocation in IPv6, you should use the following guidel
 - **Design for over-allocation.** You could assign each private network segment a scope equivalent to the whole range of the private IPv4 space and be able to have exponentially more network segments than there are private IPv4 addresses.  In short, trying to optimize IP space allocation at the cost of other functions is an antipattern.
 - **Design for ease of management.** IPv6 allows you to apply practices such as default sizing, and building context into network addresses.  You should err on the side of easy management and planning to avoid troubleshooting.
 
-> [!NOTE]
-> These guidelines apply for IPv6, but not for IPv4 environments.  When planning your IP space for IPv4 there are different guidelines to use.  See [Plan for IP Addressing](/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing) for general guidelines.
+These recommendations apply to IPv6, not IPv4 environments. For more information on IPv4, see [Plan for IP addressing](/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing).
 
 ### Understand IPv6 address space scopes
 
