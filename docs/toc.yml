@@ -3631,7 +3631,7 @@ items:
         - name: Connect Defender for Cloud
           href: /azure/sentinel/connect-defender-for-cloud
           maintainContext: true
-        - name: Connect Microsoft 365 Defender
+        - name: Connect Microsoft Defender XDR
           href: /azure/sentinel/connect-microsoft-365-defender
           maintainContext: true
         - name: Integrate Data Explorer with Sentinel

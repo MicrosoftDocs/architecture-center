@@ -85,11 +85,6 @@ Following are some examples of backup and recovery solutions that you can use wi
 
 AKS Backup allows for on-demand or scheduled backups of full or fine-grained cluster state and application data stored in Azure disk-based persistent volumes. It integrates with the [Azure Backup Center](/azure/backup/backup-center-overview) to provide a single area in the Azure portal that can help you govern, monitor, operate, and analyze backups at scale.
 
->[!NOTE]
-> AKS Backup is currently in public preview. Preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. AKS previews are partially covered by customer support on a best-effort basis. As such, these features aren't meant for production use. For more information, see the following support articles:
-> - [AKS support policies](/azure/aks/support-policies)
-> - [Azure support FAQ](/azure/aks/faq)
-
 See [About AKS Backup using Azure Backup](/azure/backup/azure-kubernetes-service-backup-overview) for a detailed description of how AKS Backup works and its capabilities.
 
 ### Kasten
