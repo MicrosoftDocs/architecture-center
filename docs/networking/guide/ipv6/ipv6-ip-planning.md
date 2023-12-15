@@ -18,24 +18,24 @@ categories:
 
 # Conceptual planning for IPv6 networking
 
-This guide outlines strategies for transitioning a IPv4 network environment in Azure to IPv6. It's a necessary transition as the number of internet-connected devices expands and IPv4 addresses near exhaustion. It's a move that is essential due to the near exhaustion of available IPv4 addresses. The IPv6 protocol provides a larger pool of internet addresses to accommodate future growth but also offers enhanced security features (native IPSec), flow labeling, and simplified network configurations. To make the transition, you update networking to support the IPv6 protocol.
+This guide outlines strategies for transitioning a IPv4 network environment in Azure to IPv6. It's a necessary transition as the number of internet-connected devices expands and IPv4 addresses near exhaustion. The IPv6 protocol provides a larger pool of internet addresses to accommodate future growth but also offers enhanced security features (native IPSec), flow labeling, and simplified network configurations. To make the transition, you need to undersatnd IPv6, acquire IPv6 addresses, and transition to IPv6.
 
 ## Understand IPv6
 
-IPv6 has a massive address space. Unlike in IPv4, there's no need to use the smallest possible subnet size for each network segment. IPv6 has such a large address space that it allows for over-allocation (*see table*).
+IPv6 has such a massive address space (*see table*) that you should use consisten IPv6 addresses block sizes that over allocate IPv6 addesses. This networking strategy constrast with IPv4. The limited number of IPv4 addresses forced you use the smallest possible subnet size.
 
 | IP Version | Number of IP Addresses Contained |
 |---|---|
 | IPv4 | 4,294,967,296 |
 | IPv6 | 340,282,366,920,938,463,463,374,607,431,768,211,456 |
 
-### Understand dual stacking
+### Use dual stacking
 
-Dual stacking means your network can process both IPv4 and IPv6 traffic simultaneously. Azure Virtual Network supports dual stacking. You can assign a new IPv6 address block to a subnet with an existing IPv4 block. Services using IPv6 can coexist with services using IPv4.
+Azure virtual networks support dual stacking. Dual stacking means your network can process both IPv4 and IPv6 traffic simultaneously. You can assign a new IPv6 address block to a subnet with an existing IPv4 block. Services using IPv6 can coexist with services using IPv4. So you can start the IPv6 transition before all services support IPv6. 
 
 ### Understand IPv6 in Azure
 
-In your Azure environment, there are three types of IPv6 addresses that can be assigned to your interfaces. These addresses function the same as their equivalents in IPv4.
+In your Azure environment, there are three types of IPv6 addresses and are equivalents to IPv4:
   
 1. *Private IP addresses*: To enable IPv6 on private IP addresses, you apply an IPv6 address range to the virtual networks and its subnets. The network interfaces in subnets get a static or dynamic address based on your configuration. You can see the IP address assignment in Azure portal. You can also see it inside the virtual machine configuration, if you have them. In the operating system, this address is shown as the *IPv6 Address*.
 
