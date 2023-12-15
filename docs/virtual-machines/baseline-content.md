@@ -283,7 +283,7 @@ Host updates rarely affect the hosted VMs. If the update doesn’t require a reb
 
 Some sensitive workloads, like gaming, media streaming, and financial transactions, can't tolerate even few seconds of a VM freezing or disconnecting for maintenance. For greater control over all maintenance activities, including zero-impact and rebootless updates, you can create [Maintenance Configurations](/azure/virtual-machines/maintenance-configurations). Creating a Maintenance Configuration gives you the option to skip all platform updates and apply the updates at your choice of time. When the Azure updater sees this custom configuration, it will skip all non-zero-impact updates, including rebootless updates. For more information, see [Managing platform updates with Maintenance Configurations]
 
-#### Operating system (OS) image upgrades
+### Operating system (OS) image upgrades
 
 When doing OS upgrades, have a golden image that's tested. Consider using Azure Shared Image Gallery and Azure Compute Gallery for publishing your custom images. You should have a process in place that upgrades batches of instances in a rolling manner each time a new image is published by the publisher.
 
