@@ -4,7 +4,7 @@
 
 For Azure services
 
-- Be familiar with [Azure Service Health](/azure/service-health/service-health-overview) in the Azure portal. This page will act as the “one-stop shop” during an incident
+- Be familiar with [Azure Service Health](/azure/service-health/service-health-portal-update) in the Azure portal. This page will act as the “one-stop shop” during an incident
 - Consider the use of [Service Health alerts](/azure/service-health/alerts-activity-log-service-notifications-portal), which can be configured to automatically produce notifications when Azure incidents occur
 
 For Power BI
