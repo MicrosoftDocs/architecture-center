@@ -18,7 +18,7 @@ For Azure services
 
 - [Azure Service Health](/azure/service-health/service-health-overview) within their Azure management portal will provide the latest updates
     - If there are issues accessing Service Health, refer to the [Azure Status page](https://status.azure.com/en-us/status)
-    - If there are ever issues accessing the Status page, go to @AzureSupport on Twitter
+    - If there are ever issues accessing the Status page, go to @AzureSupport on X (formerly Twitter)
 - If impact/issues don’t match the incident (or persist after mitigation), then [contact support](https://www.aka.ms/AzurePortalSupportRequest) to raise a service support ticket
 
 For Power BI
