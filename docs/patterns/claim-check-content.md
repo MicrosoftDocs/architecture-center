@@ -10,7 +10,7 @@ Sending such large messages to the message bus directly is not recommended, beca
 
 ## Solution
 
-Store the entire message payload into an external service, such as a database. Get the reference to the stored payload, and send just that reference to the message bus. The reference acts like a claim check used to retrieve a piece of luggage, hence the name of the pattern. Clients interested in processing that specific message can use the obtained reference to retrieve the payload, if needed.
+There are two similar ways of handling this. The first is to store the entire message payload into an external service, such as a database, and then send just that stored payload reference to the message bus. The second is to store just the specific large-object, putting the reference to it in a message, which is then sent to the message bus. In both cases, the reference acts like a "claim check" used to retrieve a piece of luggage, hence the name of the pattern. Clients interested in processing that specific message can use the obtained reference to retrieve the payload, if needed.
 
 ![Diagram of the Claim-Check pattern.](./_images/claim-check.png)
 
