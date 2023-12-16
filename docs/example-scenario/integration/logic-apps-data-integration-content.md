@@ -1,4 +1,6 @@
-This solution uses Azure Logic Apps to integrate cloud data into on-premises data storage.
+This solution uses Azure Logic Apps to integrate cloud data into on-premises data storage. 
+
+The following architecture illustrates the use of API Management, storage of secrets and API keys with Azure Key Vault, connection to SQL Server through an on-premises data gateway, and performance monitoring with Azure Monitor. All of this integrated through the orchestration of Logic Apps.
 
 ## Architecture
 
@@ -50,9 +52,9 @@ A few alternatives exist for this solution:
 
 - Instead of using an on-premises instance of SQL Server, consider migrating to an up-to-date, fully managed Azure database service. The SQL Server connector that Logic Apps uses also works for [Azure SQL Database][Azure SQL Database] and [Azure SQL Managed Instance][Azure SQL Managed Instance]. For more information, see [Automate workflows for a SQL database by using Azure Logic Apps][Automate workflows for a SQL database by using Azure Logic Apps]. To get started with migration, see [Azure Database Migration Service][Azure Database Migration Service].
 
-- For complex automation tasks, consider using [Azure Functions][Azure Functions] instead of Logic Apps. For more information, see [Compare Azure Functions and Azure Logic Apps][Compare Azure Functions and Azure Logic Apps].
+- For complex automation tasks, consider using [Azure Functions][Azure Functions] instead of Logic Apps. Both services allow you to create serverless workflows. However, while Azure Functions is a compute service aimed at executing custom code, complex processing, or integration with other services, Azure Logic Apps is a cloud service intended for automating and orchestrating tasks and business workflows, through a visual designer and a large number of pre-built connectors. For more information, see [Compare Azure Functions and Azure Logic Apps][Compare Azure Functions and Azure Logic Apps].
 
-- For simple integrations, consider using [Power Automate][Get started with Power Automate] instead of Logic Apps. For more information, see [Compare Microsoft Power Automate and Azure Logic Apps][Compare Microsoft Power Automate and Azure Logic Apps].
+- For simpler integrations, consider using [Power Automate][Get started with Power Automate] instead of Logic Apps. See more details at [Compare Microsoft Power Automate and Azure Logic Apps][Compare Microsoft Power Automate and Azure Logic Apps].
 
 - [Power Apps][What is Power Apps?] also provides solutions for automating workflows that involve connecting to on-premises data sources.
 
@@ -66,7 +68,7 @@ Use this solution to automate data integration tasks that you perform in respons
 
 ## Considerations
 
-Keep these points in mind when considering this architecture.
+Keep the following points in mind when considering this architecture:
 
 ### Availability
 
@@ -108,7 +110,7 @@ The profiles don't include the [costs of a SQL Server database][SQL Server 2019 
 
 Explore these strategies for minimizing Logic Apps costs:
 
-- Run SQL statements in batches.
+- Run [SQL statements in batches][Batches of SQL Statements].
 - [Create stored procedures][Stored Procedures (Database Engine)] to organize database results in an efficient way.
 - [Specify precise trigger conditions][Trigger conditions] for workflows.
 - [Turn off logic apps][Disable or enable logic apps] that don't have to run constantly.
@@ -120,7 +122,7 @@ Explore these strategies for minimizing Logic Apps costs:
 Principal authors:
 
 - [Shan Singh](https://uk.linkedin.com/in/shantnus) | Software Engineer
-- [Beatriz Matsui](https://br.linkedin.com/in/beatrizmatsui) | Consultant – Azure Cloud & AI
+- [Beatriz Matsui](https://br.linkedin.com/in/beatrizmatsui) | Consultant
 
 ## Next steps
 
@@ -156,6 +158,7 @@ Principal authors:
 [Azure SQL Database]: /azure/azure-sql/database/sql-database-paas-overview
 [Azure SQL Managed Instance]: /azure/azure-sql/managed-instance/sql-managed-instance-paas-overview
 [Azure Storage documentation]: /azure/storage/
+[Batches of SQL Statements]: /sql/odbc/reference/develop-app/batches-of-sql-statements?view=sql-server-ver16
 [Compare Azure Functions and Azure Logic Apps]: /azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-azure-functions-and-azure-logic-apps
 [Compare Microsoft Power Automate and Azure Logic Apps]: /azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-microsoft-power-automate-and-azure-logic-apps
 [Connect to on-premises data sources from Azure Logic Apps]: /azure/logic-apps/logic-apps-gateway-connection
