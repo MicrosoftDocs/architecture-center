@@ -193,6 +193,11 @@ If deploying to Azure Machine Learning online endpoints:
 
 Follow the guidance to [analyze performance in Azure AI Search](/azure/search/search-performance-analysis).
 
+## Cost optimization
 
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see Overview of the [cost optimization pillar](/azure/well-architected/cost-optimization/). The following are some cost optimization considerations for OpenAI:
 
-
+- Start with [pay-as-you-go pricing](/pricing/details/cognitive-services/openai-service/) for OpenAI models. When your token utilization is high and predictable, consider the [provisioned throughput](/azure/ai-services/openai/concepts/provisioned-throughput) pricing model.
+- Fine-tune the design by prioritizing the use of the right model for the given task. Models have different token limits and cost-per-token. Further, models have different fine-tuning costs which should be taken into account if fine-tuning is required in your solution.
+- Optimize prompt input and response length. Longer prompts consume more tokens, raising the cost, yet prompts that are missing sufficient context will not help the models yield good results. Create concise prompts that provide enough context to allow the model to generate a useful response. Likewise, ensure you optimize the limit of the response length.
+- Set up the appropriate governance processes to track, limit, and inform, to ensure appropriate usage.
