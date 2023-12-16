@@ -221,7 +221,7 @@ If your runbook timings exceed your RTO, there are several options:
 
 [Azure Chaos Studio](/azure/chaos-studio/) is a managed service for improving resilience by injecting faults into your Azure applications. Chaos Studio enables you to orchestrate fault injection on your Azure resources in a safe and controlled way, using experiments.  See the product documentation for a description of the types of faults currently supported.
 
-The current iteration of Chaos Studio is focused on the scope of VMs with limited faults testing for [Cosmos DB](/azure/chaos-studio/chaos-studio-fault-library#cosmos-db-failover), [Azure Cache](/azure/chaos-studio/chaos-studio-fault-library#azure-cache-for-redis-reboot) and [Key Vault](/azure/chaos-studio/chaos-studio-fault-library#key-vault-deny-access). Until more fault libraries are added, Chaos Studio is a recommended approach for isolated resiliency testing rather than full system DR testing.
+The current iteration of Chaos Studio only covers a subset of [Azure components and services](/azure/chaos-studio/chaos-studio-fault-providers). Until more fault libraries are added, Chaos Studio is a recommended approach for isolated resiliency testing rather than full system DR testing.
 
 More information on Chaos studio can be found [here](/azure/chaos-studio/)
 
