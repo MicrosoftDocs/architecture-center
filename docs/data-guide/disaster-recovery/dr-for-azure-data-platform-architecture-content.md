@@ -273,7 +273,7 @@ The following tables present a breakdown of each Azure service and component use
     - Contoso SKU selection: Computed Optimized, Small (4 cores)
     - DR Uplift options: N/A, Synapse resiliency is part of its SaaS offering
     - Notes
-        - Availability Zones are enabled by default for [Synapse Data Explorer](/azure/synapse-analytics/data-explorer/data-explorer-compare) where available
+        - Availability Zones are enabled by default for [Synapse Data Explorer](/azure/synapse-analytics/data-explorer/data-explorer-compare#:~:text=Enabled%20by%20default%20where%20Availability%20Zones%20are%20available) where available
 
 - **Azure Synapse: Spark Pools**
     - Component Recovery Responsibility: Microsoft
