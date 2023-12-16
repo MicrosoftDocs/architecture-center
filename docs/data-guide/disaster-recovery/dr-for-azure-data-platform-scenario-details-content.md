@@ -205,7 +205,7 @@ The following sections present a breakdown of Contoso activity necessary across 
     - Notes
         - A key feature of Stream Analytics is its ability to recover from [Node failure](/azure/stream-analytics/stream-analytics-concepts-checkpoint-replay#job-recovery-from-node-failure-including-os-upgrade)
 
-- **Azure Cognitive Services**
+- **Azure AI Services (formerly Cognitive Services)**
     - Contoso SKU selection: Pay As You Go
     - DR Impact
         - Azure Data Center Failure: N/A
@@ -271,15 +271,15 @@ The following sections present a breakdown of Contoso activity necessary across 
         - [Single-region accounts may lose availability](/azure/cosmos-db/high-availability#availability) following a regional outage. To ensure high availability of your Cosmos DB instance, configure it with a single write region and at least a second (read) region and enable Service-Managed failover
         - To avoid the loss of write availability, it advised that production workloads are configured with "enable service-managed failover", enabling automatic failover to [available regions](/azure/cosmos-db/high-availability#availability)
 
-- **Azure Cognitive Search**
+- **Azure AI Search (formerly Cognitive Search)**
     - Contoso SKU selection: Standard S1
     - DR Impact
         - Azure Data Center Failure: Contoso would need to validate availability and redeploy if necessary
         - Availability Zone Failure: Contoso would need to validate availability and redeploy if necessary
-        - Azure Regional Failure: Contoso would need to redeploy the Cognitive Search into the secondary region
+        - Azure Regional Failure: Contoso would need to redeploy AI Search into the secondary region
     - Notes
         - there's [no built-in mechanism for disaster recovery](/azure/search/search-performance-optimization#disaster-recovery-and-service-outages)
-        - Implementing multiple Cognitive Search replicas across [availability zones](/azure/search/search-performance-optimization#availability-zones) will address the data center outage risk 
+        - Implementing multiple AI Search replicas across [availability zones](/azure/search/search-performance-optimization#availability-zones) will address the data center outage risk 
 
 - **Azure Data Share**
     - Contoso SKU selection: N/A
