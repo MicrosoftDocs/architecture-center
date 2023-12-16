@@ -174,7 +174,7 @@ The following sections present a breakdown of Contoso activity necessary across 
         - Azure Regional Failure: Contoso would need to deploy and [restore](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-restore-from-geo-backup) the Data Platform Azure Synapse Analytics into the secondary region and redeploy the pipelines
     - Notes
         - Automatic restore points are [deleted after seven days](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#restore-point-retention)
-        - [User-defined restore points](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#user-defined-restore-points) are available. Currently (Mar 2023), there's a ceiling of 42 user-defined restore points that are automatically [deleted after seven days](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#restore-point-retention)
+        - [User-defined restore points](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#user-defined-restore-points) are available. Currently, there's a ceiling of 42 user-defined restore points that are automatically [deleted after seven days](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#restore-point-retention)
         - Synapse can also perform a DB restore in the local or remote region, and then immediately PAUSE the instance. This process will only incur storage costs – and have zero compute costs. This offers a way to keep a ”live” DB copy at specific intervals
 
 - **Azure Event Hubs**
