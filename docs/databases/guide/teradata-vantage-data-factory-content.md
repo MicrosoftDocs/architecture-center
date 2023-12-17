@@ -1,5 +1,7 @@
 The architecture described in this article demonstrates how you can use Teradata VantageCloud Enterprise together with Azure Data Factory to develop data integration pipelines with a low-code or no-code approach. It shows how to quickly ingest or extract Vantage data over an enhanced-security connection by using Data Factory.
 
+<!--docutune:ignored "and/or" -->
+
 *Apache®, [Hadoop](https://hadoop.apache.org/), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by the Apache Software Foundation is implied by the use of these marks.*
 
 ## Architecture
@@ -373,13 +375,13 @@ This scenario describes how to use the Vantage [Native Object Store (NOS)](https
 
     :::image type="content" source="_images/query-blob-3.png" alt-text="Screenshot that shows how to query the data from the foreign table." lightbox="_images/query-blob-3.png":::
 
--	You've seen how to query data in object storage in place. However, you might want to load the data permanently into a table in the database for better query performance. You can load data from Blob Storage into a permanent table by using the following statements. Some options might work only for certain data file formats. For details, see the Teradata documentation. For sample code, see [Loading External Data into a Database](https://docs.teradata.com/r/Teradata-VantageTM-Native-Object-Store-Getting-Started-Guide/January-2021/Reading-Parquet-Data/Parquet-Examples-For-DBAs-and-Advanced-Users/Loading-External-Parquet-Data-into-the-Database/Loading-External-Data-into-the-Database-Using-CREATE-TABLE-AS...WITH-DATA). 
+-	You've seen how to query data in object storage in place. However, you might want to load the data permanently into a table in the database for better query performance. You can load data from Blob Storage into a permanent table by using the following statements. Some options might work only for certain data file formats. For details, see the Teradata documentation. For sample code, see [Loading External Data into a Database](https://docs.teradata.com/r/Teradata-VantageTM-Native-Object-Store-Getting-Started-Guide/January-2021/Reading-Parquet-Data/Parquet-Examples-For-DBAs-and-Advanced-Users/Loading-External-Parquet-Data-into-the-Database/Loading-External-Data-into-the-Database-Using-CREATE-TABLE-AS...WITH-DATA).
 
-    |Method|	Description|
+    |Method|Description|
     |-|-|
-    |CREATE TABLE AS…WITH DATA	|Accesses table definitions and data from an existing foreign table and creates a new permanent table in the database|
-    |CREATE TABLE AS...FROM READ_NOS	|Accesses data directly from the object store and creates a permanent table in the database|
-    |INSERT SELECT	|Stores values from external data in a persistent database table |
+    |CREATE TABLE AS…WITH DATA |Accesses table definitions and data from an existing foreign table and creates a new permanent table in the database|
+    |CREATE TABLE AS...FROM READ_NOS |Accesses data directly from the object store and creates a permanent table in the database|
+    |INSERT SELECT |Stores values from external data in a persistent database table |
 
      The following samples show how to create a permanent table from `GreenTaxiData`:
 

@@ -16,7 +16,7 @@ azureCategories:
   - web
 products:
   - azure-devops
-  - azare-dev-tool-integrations
+  - azure-dev-tool-integrations
   - azure-managed-applications
   - azure-resource-manager
 ---

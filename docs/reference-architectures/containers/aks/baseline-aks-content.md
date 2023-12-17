@@ -662,7 +662,7 @@ Monitor your container infrastructure for both active threats and potential secu
 
 ## Cluster and workload operations (DevOps)
 
-Here are some considerations. For more information, see the [Operational Excellence](/azure/architecture/framework/devops/release-engineering-cd) pillar.
+Here are some considerations. For more information, see the [Operational Excellence](/azure/well-architected/operational-excellence/principles) pillar.
 
 ### Cluster bootstrapping
 

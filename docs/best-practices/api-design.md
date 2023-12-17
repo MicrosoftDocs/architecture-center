@@ -47,15 +47,15 @@ Here are some of the main design principles of RESTful APIs using HTTP:
 
 - A resource has an *identifier*, which is a URI that uniquely identifies that resource. For example, the URI for a particular customer order might be:
 
-    ```http
-    https://adventure-works.com/orders/1
-    ```
+  ```http
+  https://adventure-works.com/orders/1
+  ```
 
 - Clients interact with a service by exchanging *representations* of resources. Many web APIs use JSON as the exchange format. For example, a GET request to the URI listed above might return this response body:
 
-    ```json
-    {"orderId":1,"orderValue":99.90,"productId":1,"quantity":1}
-    ```
+  ```json
+  {"orderId":1,"orderValue":99.90,"productId":1,"quantity":1}
+  ```
 
 - REST APIs use a uniform interface, which helps to decouple the client and service implementations. For REST APIs built on HTTP, the uniform interface includes using standard HTTP verbs to perform operations on resources. The most common operations are GET, POST, PUT, PATCH, and DELETE.
 
@@ -63,18 +63,18 @@ Here are some of the main design principles of RESTful APIs using HTTP:
 
 - REST APIs are driven by hypermedia links that are contained in the representation. For example, the following shows a JSON representation of an order. It contains links to get or update the customer associated with the order.
 
-    ```json
-    {
-        "orderID":3,
-        "productID":2,
-        "quantity":4,
-        "orderValue":16.60,
-        "links": [
-            {"rel":"product","href":"https://adventure-works.com/customers/3", "action":"GET" },
-            {"rel":"product","href":"https://adventure-works.com/customers/3", "action":"PUT" }
-        ]
-    }
-    ```
+  ```json
+  {
+    "orderID":3,
+    "productID":2,
+    "quantity":4,
+    "orderValue":16.60,
+    "links": [
+      {"rel":"product","href":"https://adventure-works.com/customers/3", "action":"GET" },
+      {"rel":"product","href":"https://adventure-works.com/customers/3", "action":"PUT" }
+    ]
+  }
+  ```
 
 In 2008, Leonard Richardson proposed the following [maturity model](https://martinfowler.com/articles/richardsonMaturityModel.html) for web APIs:
 
@@ -156,7 +156,7 @@ This section describes some typical considerations for designing an API that con
 
 As mentioned earlier, clients and servers exchange representations of resources. For example, in a POST request, the request body contains a representation of the resource to create. In a GET request, the response body contains a representation of the fetched resource.
 
-In the HTTP protocol, formats are specified through the use of *media types*, also called MIME types. For non-binary data, most web APIs support JSON (media type = application/json) and possibly XML (media type = application/xml).
+In the HTTP protocol, formats are specified through the use of *media types*, also called MIME types. For non-binary data, most web APIs support JSON (media type = `application/json`) and possibly XML (media type = `application/xml`).
 
 The Content-Type header in a request or response specifies the format of the representation. Here is an example of a POST request that includes JSON data:
 

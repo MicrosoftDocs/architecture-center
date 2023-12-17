@@ -95,7 +95,7 @@ The following diagram shows the patient record creation request flow:
 [Lift and shift]: https://www.tmaxsoft.com/wp-content/uploads/TmaSof_eBook_OpenFrame.pdf
 [Mainframe rehosting on Azure virtual machines]: /azure/virtual-machines/workloads/mainframe-rehosting/overview
 [Message queues]: https://www.ibm.com/cloud/learn/message-queues
-[OSI model]: https://www.networkworld.com/article/3239677/the-osi-model-explained-how-to-understand-and-remember-the-7-layer-network-model.html
+[OSI model]: https://www.networkworld.com/article/964816/the-osi-model-explained-and-how-to-easily-remember-its-7-layers.html
 [RDP]: /troubleshoot/windows-server/remote/understanding-remote-desktop-protocol
 [SSH]: https://www.ssh.com/ssh
 [SMB protocol]: /openspecs/windows_protocols/ms-smb/f210069c-7086-4dc2-885e-861d837df688

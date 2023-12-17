@@ -24,7 +24,7 @@ This article describes how to use Precisely Connect to migrate mainframe and mid
 
 #### Networking and identity
 
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends your on-premises networks to Azure cloud services over a private connection from a connectivity provider. 
+- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends your on-premises networks to the Azure cloud platform over a private connection from a connectivity provider. 
 - [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway) enables you to create virtual network gateways that send encrypted traffic between an Azure virtual network and an on-premises location over the public internet.
 - [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is an identity and access management service that synchronizes with on-premises Active Directory.
 

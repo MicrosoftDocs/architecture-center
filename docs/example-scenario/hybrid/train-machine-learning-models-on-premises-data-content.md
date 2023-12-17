@@ -77,7 +77,7 @@ To enable this solution to scale, you'll need to create an appropriately sized V
 
 Principal authors:
 
- - [Ronmia Bess](https://www.linkedin.com/in/ronmia-bess-8715625) | Content Developer 2
+ - Ronmia Bess | Content Developer 2
 
 Other contributors:
 

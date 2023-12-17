@@ -52,48 +52,54 @@ Once this process has been completed, technical and business SME validation can 
 For a “Redeploy on Disaster” strategy, the following high-level process flow can be described.
 
 1. **Recover Contoso – Enterprise Shared Services and source systems**  
-![Diagram showing the recovery of Contoso's shared services and source systems.](../images/dr-for-azure-data-platform-recover-contoso.png)
 
-    - This step is a prerequisite to the recovery of the data platform 
-    - This step would be completed by the various Contoso operational support groups responsible for the enterprise shared services and operational source systems 
+   ![Diagram showing the recovery of Contoso's shared services and source systems.](../images/dr-for-azure-data-platform-recover-contoso.png)
+
+   - This step is a prerequisite to the recovery of the data platform
+   - This step would be completed by the various Contoso operational support groups responsible for the enterprise shared services and operational source systems
 
 2. **Recover Azure services**
 Azure Services refers to the applications and services that make the Azure Cloud offering, are available within the secondary region for deployment.
-![Diagram showing the recovery of the Azure services.](../images/dr-for-azure-data-platform-recover-azure.png)
-Azure Services refers to the applications and services that make the Azure Cloud offering, are available within the secondary region for deployment.
 
-    - This step is a prerequisite to the recovery of data platform
-    - This step would be completed by Microsoft and other PaaS/SaaS partners
+   ![Diagram showing the recovery of the Azure services.](../images/dr-for-azure-data-platform-recover-azure.png)
+
+   Azure Services refers to the applications and services that make the Azure Cloud offering, are available within the secondary region for deployment.
+
+   - This step is a prerequisite to the recovery of data platform
+   - This step would be completed by Microsoft and other PaaS/SaaS partners
 
 3. **Recover the data platform foundation**  
-![Diagram showing the recovery of the data platform foundational systems.](../images/dr-for-azure-data-platform-recover-platform-foundations.png)
 
-    - This step is the entry point for the Platform recovery activities
-    - For the Redeployment strategy, each required component/service would be procured and deployed into the secondary region
-        - See the [Azure Service and Component Section](/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-architecture#azure-service-and-component-view) in this series for a detailed breakdown of the components and deployment strategies
-    - This process should also include activities like the binding to the enterprise shared services, ensuring connectivity to access/authentication, and validating that the log offloading is working, while also ensuring connectivity to both upstream and downstream processes
-    - Data/Processing should be confirmed. For example, validation of the timestamp of the recovered platform
-        - If there are questions about data integrity, the decision could be made to roll back further in time before executing the new processing to bring the platform up to date
-    - Having a priority order for processes (based upon business impact) will help in orchestrating the recovery
-    - This step should be closed out by technical validation unless business users directly interact with the services. If there is direct access, there will need to be a business validation step
-    - Once validation has been completed, a handover to the individual solution teams to start their own DR recovery process happens
-        - This handover should include confirmation of the current timestamp of the data/processes
-        - If core enterprise data processes are going to be executed, the individual solutions should be made aware of this - inbound/outbound flows, for example
+   ![Diagram showing the recovery of the data platform foundational systems.](../images/dr-for-azure-data-platform-recover-platform-foundations.png)
 
-4. **Recover the individual solutions hosted by the platform**  
-![Diagram showing the recovery of individual platform systems.](../images/dr-for-azure-data-platform-recover-platform-foundations.png)
+   - This step is the entry point for the Platform recovery activities
+   - For the Redeployment strategy, each required component/service would be procured and deployed into the secondary region
+     - See the [Azure Service and Component Section](/azure/architecture/data-guide/disaster-recovery/dr-for-azure-data-platform-architecture#azure-service-and-component-view) in this series for a detailed breakdown of the components and deployment strategies
+   - This process should also include activities like the binding to the enterprise shared services, ensuring connectivity to access/authentication, and validating that the log offloading is working, while also ensuring connectivity to both upstream and downstream processes
+   - Data/Processing should be confirmed. For example, validation of the timestamp of the recovered platform
+     - If there are questions about data integrity, the decision could be made to roll back further in time before executing the new processing to bring the platform up to date
+   - Having a priority order for processes (based upon business impact) will help in orchestrating the recovery
+   - This step should be closed out by technical validation unless business users directly interact with the services. If there is direct access, there will need to be a business validation step
+   - Once validation has been completed, a handover to the individual solution teams to start their own DR recovery process happens
+     - This handover should include confirmation of the current timestamp of the data/processes
+     - If core enterprise data processes are going to be executed, the individual solutions should be made aware of this - inbound/outbound flows, for example
 
-    - Each individual solution should have its own DR runbook. The runbooks should at least contain the nominated business stakeholders who will test and confirm that service recovery has been completed
-    - Depending on resource contention or priority, key solutions/workloads may be prioritized over others - core enterprise processes over ad hoc labs, for example
-    - Once the validation steps have been completed, a handover to the downstream solutions to start their DR recovery process happens
+4. **Recover the individual solutions hosted by the platform**
+
+   ![Diagram showing the recovery of individual platform systems.](../images/dr-for-azure-data-platform-recover-platform-foundations.png)
+
+   - Each individual solution should have its own DR runbook. The runbooks should at least contain the nominated business stakeholders who will test and confirm that service recovery has been completed
+   - Depending on resource contention or priority, key solutions/workloads may be prioritized over others - core enterprise processes over ad hoc labs, for example
+   - Once the validation steps have been completed, a handover to the downstream solutions to start their DR recovery process happens
 
 5. **Handover to downstream, dependent systems**
-![Diagram showing the dependent systems.](../images/dr-for-azure-data-platform-recover-dependent-services.png)
 
-    - Once the dependent services have been recovered, the E2E DR recovery process is complete
+   ![Diagram showing the dependent systems.](../images/dr-for-azure-data-platform-recover-dependent-services.png)
 
->[!NOTE]
->While it's theoretically possible to completely automate an E2E DR process, it’s unlikely given the risk of the event vs. the cost of the SDLC activities required to cover the E2E process
+   - Once the dependent services have been recovered, the E2E DR recovery process is complete
+
+   >[!NOTE]
+   >While it's theoretically possible to completely automate an E2E DR process, it’s unlikely given the risk of the event vs. the cost of the SDLC activities required to cover the E2E process
 
 6. **Fallback to the primary region**
 Fallback is the process of moving the data platform service and its data back to the primary region, once it's available for BAU.  

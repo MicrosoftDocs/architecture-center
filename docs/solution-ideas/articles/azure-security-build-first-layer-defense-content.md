@@ -159,7 +159,7 @@ In the following resources, you can find more information about the services, te
 - [Overview of the Azure Security Benchmark (v3)](/security/benchmark/azure/overview)
 - [Embrace proactive security with Zero Trust](/security/zero-trust/)
 - [Microsoft 365](/microsoft-365) subscription information
-- [Microsoft 365 Defender](/microsoft-365/security/defender/microsoft-365-defender)
+- [Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-365-defender)
 
 ## Related resources
 
@@ -167,5 +167,5 @@ For more details about this reference architecture, see the other articles in th
 
 - Part 1: [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml)
 - Part 2: [Map threats to your IT environment](./map-threats-it-environment.yml)
-- Part 4: [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense.yml)
-- Part 5: [Integration between Azure and Microsoft 365 Defender security services](./microsoft-365-defender-security-integrate-azure.yml)
+- Part 4: [Build the second layer of defense with Microsoft Defender XDR Security services](./microsoft-365-defender-build-second-layer-defense.yml)
+- Part 5: [Integration between Azure and Microsoft Defender XDR security services](./microsoft-365-defender-security-integrate-azure.yml)

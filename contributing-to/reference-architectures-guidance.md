@@ -2,7 +2,7 @@
 
 ## What is a Reference Architecture?
 
-The term *reference architecture* means a lot of things, but in the context of the Azure Architecture Center, it refers to a specific type of guidance artifact, found [here](https://learn.microsoft.com/azure/architecture/reference-architectures).
+The term *reference architecture* means a lot of things, but in the context of the Azure Architecture Center, it refers to a specific type of guidance artifact, found at [Browse Azure Architectures](https://learn.microsoft.com/azure/architecture/reference-architectures).
 
 Our reference architectures focus on real-world scenarios. Each reference architecture consists of:
 
@@ -28,7 +28,7 @@ In other cases, the series contains a set of recommended alternatives for a sing
 
 - **Concrete**. Our reference architectures show specific Azure services, as opposed to logical components such as "data store" or "stream processing."
 
-  > We know that more generalized architectures, showing logical components, are also very useful. However, we treat these as a separate type of guidance artifact. For example, see [here](https://learn.microsoft.com/azure/architecture/guide/architecture-styles/web-queue-worker) and [here](https://learn.microsoft.com/azure/architecture/guide/architecture-styles/web-queue-worker).
+  > We know that more generalized architectures, showing logical components, are also very useful. However, we treat these as a separate type of guidance artifact. For example, see [here](https://learn.microsoft.com/azure/architecture/guide/architecture-styles/web-queue-worker).
 
 - **Infrastructure**. A reference architecture focuses on infrastructure (what you deploy), rather than application development. It can be IaaS or PaaS, or a mix of both.
 
