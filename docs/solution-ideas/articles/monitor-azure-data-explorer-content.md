@@ -7,6 +7,8 @@ This solution demonstrates how to take advantage of the tight integration betwee
 > [!NOTE]
 > This solution applies to Azure Data Explorer and also to [Real-Time Analytics KQL databases](/fabric/real-time-analytics/create-database), which provide SaaS-grade real-time log, time-series, and advanced analytics capabilities as part of [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview). 
 
+*The Grafana and Jupyter logos and are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
+
 ## Architecture
 
 :::image type="content" source="../media/azure-augmented-security-monitoring-analytics.svg" alt-text="Diagram that shows an augmented monitoring and analytics solution that uses Monitor, Microsoft Sentinel, and Azure Data Explorer." lightbox="../media/azure-augmented-security-monitoring-analytics.svg" border="false":::
