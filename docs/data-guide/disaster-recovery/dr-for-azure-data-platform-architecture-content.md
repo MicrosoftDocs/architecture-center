@@ -273,7 +273,7 @@ The following tables present a breakdown of each Azure service and component use
     - Contoso SKU selection: Computed Optimized, Small (4 cores)
     - DR Uplift options: N/A, Synapse resiliency is part of its SaaS offering
     - Notes
-        - Availability Zones are enabled by default for [Synapse Data Explorer](/azure/synapse-analytics/data-explorer/data-explorer-compare#:~:text=Enabled%20by%20default%20where%20Availability%20Zones%20are%20available) where available
+        - Availability Zones are enabled by default for [Synapse Data Explorer](/azure/synapse-analytics/data-explorer/data-explorer-compare) where available.
 
 - **Azure Synapse: Spark Pools**
     - Component Recovery Responsibility: Microsoft
@@ -281,7 +281,7 @@ The following tables present a breakdown of each Azure service and component use
     - Contoso SKU selection: Computed Optimized, Small (4 cores)
     - DR Uplift options: N/A, Synapse resiliency is part of its SaaS offering
     - Notes
-        - Currently, Azure Synapse Analytics only supports disaster recovery for [dedicated SQL pools](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore?source=recommendations#geo-backups-and-disaster-recovery) and [doesn’t support it for Apache Spark pools](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-key-vault-deploy-to-azure-synapse/ba-p/3201308#:~:text=Azure%20Synapse%20Analytics%20only%20supports%20disaster%20recovery%20for,snapshots%20for%20disaster%20recovery%20of%20dedicated%20SQL%20pools.)
+        - Currently, Azure Synapse Analytics only supports disaster recovery for [dedicated SQL pools](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#geo-backups-and-disaster-recovery) and [doesn’t support it for Apache Spark pools](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-key-vault-deploy-to-azure-synapse/ba-p/3201308)
 
 - **Azure Synapse: Serverless and Dedicated SQL Pools**
     - Component Recovery Responsibility: Microsoft

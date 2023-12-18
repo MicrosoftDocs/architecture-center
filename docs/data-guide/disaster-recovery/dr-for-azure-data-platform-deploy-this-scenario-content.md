@@ -25,7 +25,7 @@ For Power BI
 
 - The [Service Health](https://portal.office.com/AdminPortal/Home) page within their Microsoft 365 admin center will provide the latest updates
     - If there are issues accessing Service Health, refer to the [Microsoft 365 status page](https://status.office.com)
-    - If impact/issues don’t match the incident (or if issues persist after mitigation), they should contact support to raise a [service support ticket](https://learn.microsoft.com/power-bi/support/create-support-ticket)
+    - If impact/issues don't match the incident (or if issues persist after mitigation), you should raise a [service support ticket](/power-bi/support/create-support-ticket).
 
 ### Post Microsoft recovery
 
