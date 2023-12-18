@@ -35,7 +35,7 @@ Azure virtual networks support dual stacking. Dual stacking means your network c
 
 ### Understand IPv6 in Azure
 
-In your Azure environment, there are three types of IPv6 addresses and are equivalents to IPv4:
+In your Azure environment, IP addresses will be assigned to network interfaces.  There are three types of IP addresses that you should be aware of:
   
 1. *Private IP addresses*: To enable IPv6 on private IP addresses, you apply an IPv6 address range to the virtual networks and its subnets. The network interfaces in subnets get a static or dynamic address based on your configuration. You can see the IP address assignment in Azure portal. You can also see it inside the virtual machine configuration, if you have them. In the operating system, this address is shown as the *IPv6 Address*.
 
