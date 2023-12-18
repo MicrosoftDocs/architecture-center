@@ -1,6 +1,6 @@
 This article describes the steps for running [Engys HELYX](https://engys.com/products/helyx) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running HELYX on single-node and multi-node VM configurations.
 
-HELYX is a general purpose computational fluid dynamics (CFD) application for engineering analysis and design optimization. It's based on OpenFOAM libraries and uses  an advanced automatic meshing utility to simulate complex flows. 
+HELYX is a general purpose computational fluid dynamics (CFD) application for engineering analysis and design optimization. It's based on OpenFOAM libraries and uses  an advanced automatic meshing utility to simulate complex flows.
 
 HELYX provides:
 
@@ -44,13 +44,13 @@ Single-node configuration:
 
 Performance tests of HELYX on Azure used [HBv3 AMD EPYC 7V73X (Milan-X)](/azure/virtual-machines/hbv3-series) VMs running Linux CentOS. The following table provides details about HBv3-series VMs.
 
-|VM size|vCPU|Memory (GiB)|Memory bandwidth (GBps)|Base CPU frequency (GHz)|	All-cores frequency (GHz, peak)|Single-core frequency (GHz, peak)|RDMA performance (Gbps)|Maximum data disks|
+|VM size|vCPU|Memory (GiB)|Memory bandwidth (GBps)|Base CPU frequency (GHz)| All-cores frequency (GHz, peak)|Single-core frequency (GHz, peak)|RDMA performance (Gbps)|Maximum data disks|
 |-|-|-|-|-|-|-|-|-|
-|Standard_HB120rs_v3|	120	|448|	350|	1.9|	3.0|	3.5|	200|	32|
-|Standard_HB120-96rs_v3|	96|	448|	350|	1.9|	3.0|	3.5|	200	|32|
-|Standard_HB120-64rs_v3	|64	|448|	350	|1.9	|3.0	|3.5|	200|	32|
-|Standard_HB120-32rs_v3	|32	|448|	350	|1.9	|3.0	|3.5|	200|	32|
-|Standard_HB120-16rs_v3	|16|	448|	350	|1.9|	3.0	|3.5|	200	|32|
+|Standard_HB120rs_v3| 120 |448| 350| 1.9| 3.0| 3.5| 200| 32|
+|Standard_HB120-96rs_v3| 96| 448| 350| 1.9| 3.0| 3.5| 200 |32|
+|Standard_HB120-64rs_v3 |64 |448| 350 |1.9 |3.0 |3.5| 200| 32|
+|Standard_HB120-32rs_v3 |32 |448| 350 |1.9 |3.0 |3.5| 200| 32|
+|Standard_HB120-16rs_v3 |16| 448| 350 |1.9| 3.0 |3.5| 200 |32|
 
 ### Required drivers
 
@@ -87,9 +87,9 @@ The details of each test model are provided in the following sections.
 
 The following table provides details about the model.
 
-|Model number|	Mesh size|	Solver|	Steady state|
+|Model number| Mesh size| Solver| Steady state|
 |-|-|-|-|
-|1|	26,500,000 cells|	Single phase, turbulent flow|	1,000 iterations|
+|1| 26,500,000 cells| Single phase, turbulent flow| 1,000 iterations|
 
 ### Model 2: Turbomachine_Ventilator-AFnq182
 
@@ -97,10 +97,10 @@ The following table provides details about the model.
 
 The following table provides details about the model.
 
-|Model number|	Mesh size|	Solver|	Steady state|
+|Model number| Mesh size| Solver| Steady state|
 |-|-|-|-|
-|2a|3,100,000 cells	|Single phase, turbulent flow with MRF (AMI)	|1,000 iterations	|
-|2b|11,800,000 cells	|Single phase, turbulent flow with MRF (AMI)	|1,000 iterations	|
+|2a|3,100,000 cells |Single phase, turbulent flow with MRF (AMI) |1,000 iterations |
+|2b|11,800,000 cells |Single phase, turbulent flow with MRF (AMI) |1,000 iterations |
 
 ### Model 3: Marine_G2010-C2.2b-KCS-Fn026
 
@@ -108,7 +108,7 @@ The following table provides details about the model.
 
 The following table provides details about the model.
 
-|Model number|	Mesh size|	Solver|	Steady state|
+|Model number| Mesh size| Solver| Steady state|
 |-|-|-|-|
 |3a|1,350,000 cells|Two-phase VOF with automatic mesh refinement|CFL regulated for 20 seconds|
 |3b|11,100,000 cells|Two-phase VOF with automatic mesh refinement|CFL regulated for 20 seconds|
@@ -121,12 +121,12 @@ The following sections provide the performance results of running HELYX in paral
 
 This table shows total elapsed solver running times recorded for varying numbers of CPUs on the Standard HBv3-series VM:
 
-|Number of cores|Solver running time (seconds)|	Relative speed increase|
+|Number of cores|Solver running time (seconds)| Relative speed increase|
 |-|-|-|
-|16|	6,176.48|	1.00|
-|32	|4,301.36	|1.44|
-|64	|3,783.12	|1.63|
-|120|	3,774.44	|1.64|
+|16| 6,176.48| 1.00|
+|32 |4,301.36 |1.44|
+|64 |3,783.12 |1.63|
+|120| 3,774.44 |1.64|
 
 The following graph shows the relative speed increases as the number of CPUs increases:
 
@@ -136,12 +136,12 @@ The following graph shows the relative speed increases as the number of CPUs inc
 
 This table shows total elapsed solver running times recorded for varying numbers of CPUs on the Standard HBv3-series VM:
 
-|Number of cores|Solver running time (seconds)|	Relative speed increase|
+|Number of cores|Solver running time (seconds)| Relative speed increase|
 |-|-|-|
-|16|1,609.85|	1.00|
-|32	|1,081.2	|1.49|
-|64	|850.98	|1.89|
-|120|715.07	|2.25|
+|16|1,609.85| 1.00|
+|32 |1,081.2 |1.49|
+|64 |850.98 |1.89|
+|120|715.07 |2.25|
 
 The following graph shows the relative speed increases as the number of CPUs increases:
 
@@ -151,11 +151,11 @@ The following graph shows the relative speed increases as the number of CPUs inc
 
 This table shows total elapsed solver running times recorded for varying numbers of CPUs on the Standard HBv3-series VM:
 
-|Number of cores|Solver running time (seconds)|	Relative speed increase|
+|Number of cores|Solver running time (seconds)| Relative speed increase|
 |-|-|-|
-|16|16,608.29|	1.00|
-|32	|13,622.88	|1.22|
-|64	|7,979.05	|2.08|
+|16|16,608.29| 1.00|
+|32 |13,622.88 |1.22|
+|64 |7,979.05 |2.08|
 |120|8,007.08|2.07|
 
 The following graph shows the relative speed increases as the number of CPUs increases:
@@ -176,13 +176,13 @@ The single-node tests confirm that the solver achieves parallel performance unti
 
 This table shows the total elapsed solver running times recorded for varying numbers of CPUs on Standard HBv3-series VMs:
 
-|Number of nodes|	Number of cores|	Cells per core|	Solver running time (seconds)|	Relative speed increase|
+|Number of nodes| Number of cores| Cells per core| Solver running time (seconds)| Relative speed increase|
 |-|-|-|-|-|
-|1	|64	|414,063	|3,741.59	|1.00|
-|2	|128	|207,031	|1,528.34	|2.45|
-|4	|256	|103,516	|640.64	|5.84|
-|8	|512	|51,758	|398.73	|9.38|
-|16	|1,024	|25,879	|193.72	|19.31|
+|1 |64 |414,063 |3,741.59 |1.00|
+|2 |128 |207,031 |1,528.34 |2.45|
+|4 |256 |103,516 |640.64 |5.84|
+|8 |512 |51,758 |398.73 |9.38|
+|16 |1,024 |25,879 |193.72 |19.31|
 
 The following graph shows the relative speed increase as the number of cores increases:
 
@@ -192,12 +192,12 @@ The following graph shows the relative speed increase as the number of cores inc
 
 This table shows the total elapsed solver running times recorded for varying numbers of CPUs on Standard HBv3-series VMs:
 
-|Number of nodes|	Number of cores|	Cells per core|	Solver running time (seconds)|	Relative speed increase|
+|Number of nodes| Number of cores| Cells per core| Solver running time (seconds)| Relative speed increase|
 |-|-|-|-|-|
-|1	|64	|48,438	|838.4|1.00|
-|2	|128	|24,219	|567.48|	1.48|
-|4	|256	|12,109	|455.9	|1.84|
-|8	|512	|6,055	|372.82	|2.25|
+|1 |64 |48,438 |838.4|1.00|
+|2 |128 |24,219 |567.48| 1.48|
+|4 |256 |12,109 |455.9 |1.84|
+|8 |512 |6,055 |372.82 |2.25|
 
 The following graph shows the relative speed increase as the number of cores increases:
 
@@ -207,12 +207,12 @@ The following graph shows the relative speed increase as the number of cores inc
 
 This table shows the total elapsed solver running times recorded for varying numbers of CPUs on Standard HBv3-series VMs:
 
-|Number of nodes|	Number of cores|	Cells per core|	Solver running time (seconds)|	Relative speed increase|
+|Number of nodes| Number of cores| Cells per core| Solver running time (seconds)| Relative speed increase|
 |-|-|-|-|-|
-|1	|64	|184,375|	2,710.14	|1.00|
-|2	|128		|92,188	|1,602.64|	1.69|
-|4	|256	|46,094	|1,076.27	|2.52|
-|8	|512	|23,047	|756.73	|3.58|
+|1 |64 |184,375| 2,710.14 |1.00|
+|2 |128 |92,188 |1,602.64| 1.69|
+|4 |256 |46,094 |1,076.27 |2.52|
+|8 |512 |23,047 |756.73 |3.58|
 
 The following graph shows the relative speed increase as the number of cores increases:
 
@@ -222,12 +222,12 @@ The following graph shows the relative speed increase as the number of cores inc
 
 This table shows the total elapsed solver running times recorded for varying numbers of CPUs on Standard HBv3-series VMs:
 
-|Number of nodes|	Number of cores|	Cells per cores|	Solver running time (seconds)|	Relative speed increase|
+|Number of nodes| Number of cores| Cells per cores| Solver running time (seconds)| Relative speed increase|
 |-|-|-|-|-|
-|1	|64	|21,094|	8,028.75	|1.00|
-|2	|128		|10,547|	6,354.25|	1.26|
-|4	|256	|5,273	|4,320.72|	1.86|
-|8	|512	|2,637	|4,518.09|	1.78|
+|1 |64 |21,094| 8,028.75 |1.00|
+|2 |128 |10,547| 6,354.25| 1.26|
+|4 |256 |5,273 |4,320.72| 1.86|
+|8 |512 |2,637 |4,518.09| 1.78|
 
 The following graph shows the relative speed increase as the number of cores increases:
 
@@ -237,12 +237,12 @@ The following graph shows the relative speed increase as the number of cores inc
 
 This table shows the total elapsed solver running times recorded for varying numbers of CPUs on Standard HBv3-series VMs:
 
-|Number of nodes|	Number of cores|	Cells per core|	Solver running time (seconds)|	Relative speed increase|
+|Number of nodes| Number of cores| Cells per core| Solver running time (seconds)| Relative speed increase|
 |-|-|-|-|-|
-|1	|64	|173,438|	66,860.55|	1.00|
-|2	|128		|86,719|	41,243.12|	1.62|
-|4	|256	|43,359	|25,901.95	|2.58|
-|8	|512	|21,680	|16,781.86	|3.98|
+|1 |64 |173,438| 66,860.55| 1.00|
+|2 |128 |86,719| 41,243.12| 1.62|
+|4 |256 |43,359 |25,901.95 |2.58|
+|8 |512 |21,680 |16,781.86 |3.98|
 
 The following graph shows the relative speed increase as the number of cores increases:
 
@@ -264,50 +264,49 @@ The following tables provide the elapsed solver running times in hours. Azure VM
 
 ### Cost for model 1: City_landscape_Niigata-NNE
 
-|Number of nodes	|Solver running time (hours)|
+|Number of nodes |Solver running time (hours)|
 |-|-|
-|1	|1.052|
-|2	|0.436|
-|4	|0.186|
-|8	|0.118|
-|16|	0.062|
+|1 |1.052|
+|2 |0.436|
+|4 |0.186|
+|8 |0.118|
+|16| 0.062|
 
 ### Cost for model 2a: Turbomachine_Ventilator-AFnq182
 
-|Number of nodes	|Solver time (hours)|
+|Number of nodes |Solver time (hours)|
 |-|-|
-|1	|0.244|
-|2	|0.168|
-|4	|0.138|
-|8	|0.118|
+|1 |0.244|
+|2 |0.168|
+|4 |0.138|
+|8 |0.118|
 
 ### Cost for model 2b: Turbomachine_Ventilator-AFnq182_large
 
-|Number of nodes	|Solver time (hours)|
+|Number of nodes |Solver time (hours)|
 |-|-|
-|1	|0.801|
-|2	|0.483|
-|4	|0.337|
-|8	|0.247|
+|1 |0.801|
+|2 |0.483|
+|4 |0.337|
+|8 |0.247|
 
 ### Cost for model 3a: Marine_G2010-C2.2b-KCS-Fn026
 
-|Number of nodes	|Solver time (hours)|
+|Number of nodes |Solver time (hours)|
 |-|-|
-|1	|2.291|
-|2	|1.823|
-|4	|1.264|
-|8	|1.336|
-
+|1 |2.291|
+|2 |1.823|
+|4 |1.264|
+|8 |1.336|
 
 ### Cost for model 3b: Marine_G2010-C2.2b-KCS-Fn026_large
 
-|Number of nodes	|Solver time (hours)|
+|Number of nodes |Solver time (hours)|
 |-|-|
-|1	|18.800|
-|2	|11.670|
-|4	|7.406|
-|8	|4.890|
+|1 |18.800|
+|2 |11.670|
+|4 |7.406|
+|8 |4.890|
 
 ## Summary
 

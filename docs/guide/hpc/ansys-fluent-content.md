@@ -37,13 +37,13 @@ architecture.*
 
 Performance tests of Fluent on Azure used [HBv3-series](/azure/virtual-machines/hbv3-series) VMs running the Linux CentOS operating system. The following table provides details about HBv3-series VMs.
 
-VM size|	vCPU|	Memory (GiB)|	Memory bandwidth GBps|	Base CPU frequency (Ghz)|	All-cores frequency (Ghz, peak)|	Single-core frequency (Ghz, peak)	|RDMA performance (Gbps)|	Maximum data disks|
+VM size| vCPU| Memory (GiB)| Memory bandwidth GBps| Base CPU frequency (Ghz)| All-cores frequency (Ghz, peak)| Single-core frequency (Ghz, peak) |RDMA performance (Gbps)| Maximum data disks|
 |-|-|-|-|-|-|-|-|-|
-|Standard_HB120rs_v3|120|448|	350|	1.9|	3.0|	3.5|	200	|32|
-|Standard_HB120-96rs_v3	|96	|448|	350	|1.9	|3.0	|3.5|	200	|32|
-|Standard_HB120-64rs_v3	|64	|448|	350	|1.9	|3.0	|3.5|	200	|32|
-|Standard_HB120-32rs_v3	|32	|448|	350	|1.9	|3.0	|3.5|	200	|32|
-|Standard_HB120-16rs_v3	|16	|448|	350	|1.9	|3.0	|3.5|	200	|32|
+|Standard_HB120rs_v3|120|448| 350| 1.9| 3.0| 3.5| 200 |32|
+|Standard_HB120-96rs_v3 |96 |448| 350 |1.9 |3.0 |3.5| 200 |32|
+|Standard_HB120-64rs_v3 |64 |448| 350 |1.9 |3.0 |3.5| 200 |32|
+|Standard_HB120-32rs_v3 |32 |448| 350 |1.9 |3.0 |3.5| 200 |32|
+|Standard_HB120-16rs_v3 |16 |448| 350 |1.9 |3.0 |3.5| 200 |32|
 
 
 
@@ -82,11 +82,11 @@ The following table and graph present the test results.
 
 |Cores|Wall-time per <br> 100 iterations <br> (seconds)|Relative speed increase|
 |-|-|-|
-|16	|860.67|	1.00|
-|32 |569.03	|1.51	|
-|64 |442.69	|1.94|
-|96 |433.45	|1.99|
-|120| 429.54|	2.00|
+|16 |860.67| 1.00|
+|32 |569.03 |1.51 |
+|64 |442.69 |1.94|
+|96 |433.45 |1.99|
+|120| 429.54| 2.00|
 
 :::image type="content" source="media/ansys-fluent/aircraft-wing-graph.png" alt-text="Graph that shows the relative speed increase for the aircraft wing test case." border="false":::
 
@@ -102,11 +102,11 @@ The following table and graph present the test results.
 
 |Cores|Wall-time per <br> 100 iterations <br> (seconds)|Relative speed increase|
 |-|-|-|
-|16|	213.83|	1.00|
-|32	|146.38	|1.46|
-|64	|118.26	|1.81|
-|96	|112.53	|1.90|
-|120	|115.47|	1.85|
+|16| 213.83| 1.00|
+|32 |146.38 |1.46|
+|64 |118.26 |1.81|
+|96 |112.53 |1.90|
+|120 |115.47| 1.85|
 
 :::image type="content" source="media/ansys-fluent/pump-graph.png" alt-text="Graph that shows the relative speed increase for the pump test case." border="false":::
 
@@ -116,17 +116,17 @@ The following table and graph present the test results.
 
 |Test case name|Number of cells  |Cell type  |Solver  |Models  |
 |---------|--|-------|---------|---------|
-|landing_gear_15m|15,000,000|Mixed|	Pressure-based coupled solver, Least Squares cell based, Unsteady|LES, Acoustics|
+|landing_gear_15m|15,000,000|Mixed| Pressure-based coupled solver, Least Squares cell based, Unsteady|LES, Acoustics|
 
 The following table and graph present the test results.
 
 |Cores|Wall-time per <br> 100 iterations <br> (seconds)|Relative speed increase|
 |-|-|-|
-|16|	871.37|	1.00|
-|32|	580.31|	1.50|
-|64|	501.02|	1.74|
-|96|	484.46|	1.80|
-|120|	489.96|	1.78|
+|16| 871.37| 1.00|
+|32| 580.31| 1.50|
+|64| 501.02| 1.74|
+|96| 484.46| 1.80|
+|120| 489.96| 1.78|
 
 :::image type="content" source="media/ansys-fluent/landing-gear-graph.png" alt-text="Graph that shows the relative speed increase for the landing gear test case.":::
 
@@ -142,11 +142,11 @@ The following table and graph present the test results.
 
 |Cores|Wall-time per <br> 100 iterations <br> (seconds)|Relative speed increase|
 |-|-|-|
-|16|	377.11|	1.00|
-|32|	224.16|	1.68|
-|64|	152.42|	2.47|
-|96|	140.81|	2.68|
-|120|	132.34	|2.85|
+|16| 377.11| 1.00|
+|32| 224.16| 1.68|
+|64| 152.42| 2.47|
+|96| 140.81| 2.68|
+|120| 132.34 |2.85|
 
 :::image type="content" source="media/ansys-fluent/oil-rig-graph.png" alt-text="Graph that shows the relative speed increase for the oil rig test case.":::
 
@@ -162,11 +162,11 @@ The following table and graph present the test results.
 
 |Cores|Wall-time per <br> 100 iterations <br> (seconds)|Relative speed increase|
 |-|-|-|
-|16	|154.02|	1.00|
-|32	|99.88|	1.54|
-|64	|79.40|	1.94|
-|96	|74.88|	2.06|
-|120|	75.62|	2.04|
+|16 |154.02| 1.00|
+|32 |99.88| 1.54|
+|64 |79.40| 1.94|
+|96 |74.88| 2.06|
+|120| 75.62| 2.04|
 
 :::image type="content" source="media/ansys-fluent/sedan-graph.png" alt-text="Graph that shows the relative speed increase for the sedan test case.":::
 
@@ -182,11 +182,11 @@ The following table and graph present the test results.
 
 |Cores|Wall-time per <br> 100 iterations <br> (seconds)|Relative speed increase|
 |-|-|-|
-|16	|3,238|	1.00|
-|32	|2,085|	1.55|
-|64|	1,513|	2.14|
-|96|	1,360|	2.38|
-|120|	1,236|	2.62|
+|16 |3,238| 1.00|
+|32 |2,085| 1.55|
+|64| 1,513| 2.14|
+|96| 1,360| 2.38|
+|120| 1,236| 2.62|
 
 :::image type="content" source="media/ansys-fluent/combustor-graph.png" alt-text="Graph that shows the relative speed increase for the combustor test case.":::
 
@@ -202,11 +202,11 @@ The following table and graph present the test results.
 
 |Cores|Wall-time per <br> 100 iterations <br> (seconds)|Relative speed increase|
 |-|-|-|
-|16	|2,685|	1.00|
-|32	|1,628|	1.65|
-|64|	1,334	|2.01|
-|96	|1,205|	2.23|
-|120|	1,112|	2.42|
+|16 |2,685| 1.00|
+|32 |1,628| 1.65|
+|64| 1,334 |2.01|
+|96 |1,205| 2.23|
+|120| 1,112| 2.42|
 
 :::image type="content" source="media/ansys-fluent/exhaust-system-graph.png" alt-text="Graph that shows the relative speed increase for the exhaust system test case.":::
 
@@ -218,12 +218,12 @@ The multi-node configuration was evaluated for the same test cases.
 
 #### Aircraft wing test case
 
-Number of nodes|Number of cores|Wall-clock time per 100 iterations (seconds)|	Relative speed increase|
+Number of nodes|Number of cores|Wall-clock time per 100 iterations (seconds)| Relative speed increase|
 |-|-|-|-|
-|1|	64|	442.69	|1.00|
-|2|	128|	226.06	|1.96|
-|3|	192	|149.31	|2.96|
-|4|	256	|109.23|	4.05|
+|1| 64| 442.69 |1.00|
+|2| 128| 226.06 |1.96|
+|3| 192 |149.31 |2.96|
+|4| 256 |109.23| 4.05|
 
 This graph shows the relative speed increases:
 
@@ -231,12 +231,12 @@ This graph shows the relative speed increases:
 
 #### Pump test case
 
-Number of nodes|Number of cores|Wall-clock time per 100 iterations (seconds)|	Relative speed increase|
+Number of nodes|Number of cores|Wall-clock time per 100 iterations (seconds)| Relative speed increase|
 |-|-|-|-|
-|1|	64|	118.26	|1.00|
-|2|	128|	55.42|	2.13|
-|3|	192|	35.53|	3.33|
-|4|	256	|24.26|	4.88|
+|1| 64| 118.26 |1.00|
+|2| 128| 55.42| 2.13|
+|3| 192| 35.53| 3.33|
+|4| 256 |24.26| 4.88|
 
 This graph shows the relative speed increases:
 
@@ -244,12 +244,12 @@ This graph shows the relative speed increases:
 
 #### Landing gear test case
 
-Number of nodes|Number of cores|Wall-clock time per 100 iterations (seconds)|	Relative speed increase|
+Number of nodes|Number of cores|Wall-clock time per 100 iterations (seconds)| Relative speed increase|
 |-|-|-|-|
-|1|	64|	501.02	|1.00|
-|2|	128|	247.17|	2.03|
-|3|	192	|160.02	|3.13|
-|4|	256	|117.78|	4.25|
+|1| 64| 501.02 |1.00|
+|2| 128| 247.17| 2.03|
+|3| 192 |160.02 |3.13|
+|4| 256 |117.78| 4.25|
 
 This graph shows the relative speed increases:
 
@@ -257,12 +257,12 @@ This graph shows the relative speed increases:
 
 #### Oil rig test case
 
-Number of nodes|Number of cores|Wall-clock time per 100 iterations (seconds)|	Relative speed increase|
+Number of nodes|Number of cores|Wall-clock time per 100 iterations (seconds)| Relative speed increase|
 |-|-|-|-|
-|1|	64|	152.42	|1.00|
-|2|	128|	75.48|	2.02|
-|3|	192	|52.76|	2.89|
-|4|	256	|41.38|	3.68|
+|1| 64| 152.42 |1.00|
+|2| 128| 75.48| 2.02|
+|3| 192 |52.76| 2.89|
+|4| 256 |41.38| 3.68|
 
 This graph shows the relative speed increases:
 
@@ -270,12 +270,12 @@ This graph shows the relative speed increases:
 
 #### Sedan test case
 
-Number of nodes|Number of cores|Wall-clock time per 100 iterations (seconds)|	Relative speed increase|
+Number of nodes|Number of cores|Wall-clock time per 100 iterations (seconds)| Relative speed increase|
 |-|-|-|-|
-|1|	64|	79.40	|1.00|
-|2|	128|	39.66|	2.00|
-|3|	192	|23.90|	3.32|
-|4|	256	|20.15|	3.94|
+|1| 64| 79.40 |1.00|
+|2| 128| 39.66| 2.00|
+|3| 192 |23.90| 3.32|
+|4| 256 |20.15| 3.94|
 
 
 This graph shows the relative speed increases:
@@ -284,12 +284,12 @@ This graph shows the relative speed increases:
 
 #### Combustor test case
 
-Number of nodes|Number of cores|Wall-clock time per 100 iterations (seconds)|	Relative speed increase|
+Number of nodes|Number of cores|Wall-clock time per 100 iterations (seconds)| Relative speed increase|
 |-|-|-|-|
-|1|	64|	1,512.56	|1.00|
-|2|	128|	828.63|	1.83|
-|3|	192	|531.82	|2.84|
-|4|	256	|359.86|	4.20|
+|1| 64| 1,512.56 |1.00|
+|2| 128| 828.63| 1.83|
+|3| 192 |531.82 |2.84|
+|4| 256 |359.86| 4.20|
 
 
 This graph shows the relative speed increases:
@@ -298,11 +298,11 @@ This graph shows the relative speed increases:
 
 #### Exhaust system test case 
 
-Number of nodes|Number of cores|Wall-clock time per 100 iterations (seconds)|	Relative speed increase|
+Number of nodes|Number of cores|Wall-clock time per 100 iterations (seconds)| Relative speed increase|
 |-|-|-|-|
-|1|	64	|1,333.72	|1.00|
-|2|	128	|629.02	|2.12|
-|3|	192	|399.66	|3.34|
+|1| 64 |1,333.72 |1.00|
+|2| 128 |629.02 |2.12|
+|3| 192 |399.66 |3.34|
 |4|256|304.05|4.39|
 
 
@@ -318,22 +318,22 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 
 For a single-node configuration, you can multiply the wall-clock times by the Azure hourly costs for HBv3-series VMs to compute total costs. For the current hourly costs, see [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing). Here are the times for a single-node configuration:
 
-|VM size|	 Number of CPUs|	Wall-clock time (hours)|
+|VM size| Number of CPUs| Wall-clock time (hours)|
 |-|-|-|
-|Standard_HB120-16rs_v3|	16|	2.33|
-|Standard_HB120-32rs_v3|	32|	1.48|
-|Standard_HB120-64rs_v3|	64|	1.15|
-|Standard_HB120-96rs_v3|	96|	1.06|
-|Standard_HB120rs_v3	|120	|1.00|
+|Standard_HB120-16rs_v3| 16| 2.33|
+|Standard_HB120-32rs_v3| 32| 1.48|
+|Standard_HB120-64rs_v3| 64| 1.15|
+|Standard_HB120-96rs_v3| 96| 1.06|
+|Standard_HB120rs_v3 |120 |1.00|
 
 For a multi-node configuration, you can multiply the wall-clock times by the number of nodes and the Azure hourly costs for HBv3-series VMs to compute total costs. For the current hourly costs, see [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing). Here are the times for a multi-node configuration:
 
-VM size|	Number of nodes|	Number of cores|	Wall-clock time (hours)|
+VM size| Number of nodes| Number of cores| Wall-clock time (hours)|
 |-|-|-|-|
-|Standard_HB120-64rs_v3|	1	|64	|1.15|
-|Standard_HB120-64rs_v3|	2	|128|	0.58|
-|Standard_HB120-64rs_v3|	3|	192	|0.38|
-|Standard_HB120-64rs_v3|	4|	256|	0.27|
+|Standard_HB120-64rs_v3| 1 |64 |1.15|
+|Standard_HB120-64rs_v3| 2 |128| 0.58|
+|Standard_HB120-64rs_v3| 3| 192 |0.38|
+|Standard_HB120-64rs_v3| 4| 256| 0.27|
 
 ## Summary
 

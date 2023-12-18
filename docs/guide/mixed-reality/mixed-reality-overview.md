@@ -47,7 +47,7 @@ The following image shows the continuum of mixed-reality apps from physical to d
 
 ## Azure mixed reality services
 
-Several Azure cloud services help developers build compelling mixed reality experiences on various platforms. Azure mixed reality services help people create, learn, and collaborate within their own context by bringing 3D to mobile devices, headsets, and other untethered devices. All Azure services build in comprehensive security and compliance capabilities.
+Several Azure services help developers build compelling mixed reality experiences on various platforms. Azure mixed reality services help people create, learn, and collaborate within their own context by bringing 3D to mobile devices, headsets, and other untethered devices. All Azure services build in comprehensive security and compliance capabilities.
 
 - [Azure Remote Rendering](https://azure.microsoft.com/services/remote-rendering) lets you render highly complex 3D models in real time and stream them to a device. You can add Azure Remote Rendering to Unity or native C++ projects that target HoloLens 2 or Windows desktop PC.
 

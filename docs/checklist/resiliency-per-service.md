@@ -146,7 +146,7 @@ If you are using Azure Cache for Redis as a temporary data cache and not as a pe
 
 ## Azure Synapse Analytics
 
-**Do not disable geo-backup.** By default, Synapse Analytics takes a full backup of your data every 24 hours for disaster recovery. It is not recommended to turn this feature off. For more information, see [Geo-backups](/azure/sql-data-warehouse/backup-and-restore#geo-backups-and-disaster-recovery).
+**Do not disable geo-backup.** By default, Synapse Analytics takes a full backup of your data in Dedicated SQL Pool every 24 hours for disaster recovery. It is not recommended to turn this feature off. For more information, see [Geo-backups](/azure/sql-data-warehouse/backup-and-restore#geo-backups-and-disaster-recovery).
 
 ## SQL Server running in a VM
 

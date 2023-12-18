@@ -157,7 +157,7 @@ Azure NetApp Files also optimizes costs for [Oracle](https://techcommunity.micro
 - Managed disks (OS boot disks)
 - Networking components
 
-**Use the Azure NetApp Files performance calculator.** The [Azure NetApp Files performance calculator](https://azure.github.io/azure-netapp-files/calc/) can help you determine the correct Azure NetApp Files storage tier for your cost and performance needs.
+**Use the Azure NetApp Files performance calculator.** The [Azure NetApp Files performance calculator](https://aka.ms/anfcalc) can help you determine the correct Azure NetApp Files storage tier for your cost and performance needs.
 
 **Consult an Azure Cloud Solutions Architect.** We recommend that you consult an Azure Cloud Solutions Architect (CSA) to help you with application sizing and selecting the smallest applicable VM SKU.
 

@@ -91,12 +91,12 @@ The following sections present the performance results for each model. Rendering
 
 |VM size|CPU/GPU| Rendering<br> time, 256|Rendering<br> time, 512|Rendering<br> time, 1024|
 |-|-|-|-|-|
-|Standard_NV12ads_A10_v5|	12 vCPU|	365|	728|	813|
-|Standard_NV12ads_A10_v5|	1/3 GPU	|48.44|	95.89|	191|
-|Standard_NV18ads_A10_v5|	1/2 GPU	|29.47|	58.93|	116|
-|Standard_NV36ads_A10_v5|	1 GPU	|13.98|	27.97|	55.94|
-|Standard_NV36adms_A10_v5|	1 GPU	|12.98|	25.98|	51.95|
-|Standard_NV72ads_A10_v5|	2 GPU	|6.99|	13.98|	28.47|
+|Standard_NV12ads_A10_v5| 12 vCPU| 365| 728| 813|
+|Standard_NV12ads_A10_v5| 1/3 GPU |48.44| 95.89| 191|
+|Standard_NV18ads_A10_v5| 1/2 GPU |29.47| 58.93| 116|
+|Standard_NV36ads_A10_v5| 1 GPU |13.98| 27.97| 55.94|
+|Standard_NV36adms_A10_v5| 1 GPU |12.98| 25.98| 51.95|
+|Standard_NV72ads_A10_v5| 2 GPU |6.99| 13.98| 28.47|
 
 This graph shows the relative speed increases as the CPU/GPU increases:
 
@@ -107,12 +107,12 @@ This graph shows the relative speed increases as the CPU/GPU increases:
 
 |VM size|CPU/GPU| Rendering<br> time, 256|Rendering<br> time, 512|Rendering<br> time, 1024|
 |-|-|-|-|-|
-|Standard_NV12ads_A10_v5|	12 vCPU|	1,244|2,445|4,908|
-|Standard_NV12ads_A10_v5|	1/3 GPU	|117|234|459|
-|Standard_NV18ads_A10_v5|	1/2 GPU	|62.95|125|248|
-|Standard_NV36ads_A10_v5|	1 GPU	|27.98|55.94|111|
-|Standard_NV36adms_A10_v5|	1 GPU	|24.98|48.94|99.4|
-|Standard_NV72ads_A10_v5|	2 GPU	|13.48|26.96|53.45|
+|Standard_NV12ads_A10_v5| 12 vCPU| 1,244|2,445|4,908|
+|Standard_NV12ads_A10_v5| 1/3 GPU |117|234|459|
+|Standard_NV18ads_A10_v5| 1/2 GPU |62.95|125|248|
+|Standard_NV36ads_A10_v5| 1 GPU |27.98|55.94|111|
+|Standard_NV36adms_A10_v5| 1 GPU |24.98|48.94|99.4|
+|Standard_NV72ads_A10_v5| 2 GPU |13.48|26.96|53.45|
 
 This graph shows the relative speed increases as the CPU/GPU increases:
 
@@ -122,12 +122,12 @@ This graph shows the relative speed increases as the CPU/GPU increases:
 
 |VM size|CPU/GPU| Rendering<br> time, 256|Rendering<br> time, 512|Rendering<br> time, 1024|
 |-|-|-|-|-|
-|Standard_NV12ads_A10_v5|	12 vCPU|	786|1,573|3,223|
-|Standard_NV12ads_A10_v5|	1/3 GPU	|188|375|747|
-|Standard_NV18ads_A10_v5|	1/2 GPU	|123|247|492|
-|Standard_NV36ads_A10_v5|	1 GPU	|54.97|110|220|
-|Standard_NV36adms_A10_v5|	1 GPU	|42.45|81.42|162|
-|Standard_NV72ads_A10_v5|	2 GPU	|26.97|43.97|87.43|
+|Standard_NV12ads_A10_v5| 12 vCPU| 786|1,573|3,223|
+|Standard_NV12ads_A10_v5| 1/3 GPU |188|375|747|
+|Standard_NV18ads_A10_v5| 1/2 GPU |123|247|492|
+|Standard_NV36ads_A10_v5| 1 GPU |54.97|110|220|
+|Standard_NV36adms_A10_v5| 1 GPU |42.45|81.42|162|
+|Standard_NV72ads_A10_v5| 2 GPU |26.97|43.97|87.43|
 
 This graph shows the relative speed increases as the CPU/GPU increases:
 
@@ -141,11 +141,11 @@ The following sections present the performance results for each model. Rendering
 
 |VM size|CPU/GPU| Rendering<br> time, 256|Rendering<br> time, 512|Rendering<br> time, 1024|
 |-|-|-|-|-|
-|Standard_NC64as_T4_v3|64 vCPU|	66.92	|133|	268|
-|Standard_NC64as_T4_v3|1 GPU<sup>1	|32.98|	66.93|	133|
-|Standard_NC64as_T4_v3|2 GPU<sup>1	|17.48|	34.48|	68.43|
-|Standard_NC64as_T4_v3|3 GPU<sup>1	|12.49|	23.98|	47.95|
-|Standard_NC64as_T4_v3|4 GPU	|9.98|	18.96|	37.46|
+|Standard_NC64as_T4_v3|64 vCPU| 66.92 |133| 268|
+|Standard_NC64as_T4_v3|1 GPU<sup>1 |32.98| 66.93| 133|
+|Standard_NC64as_T4_v3|2 GPU<sup>1 |17.48| 34.48| 68.43|
+|Standard_NC64as_T4_v3|3 GPU<sup>1 |12.49| 23.98| 47.95|
+|Standard_NC64as_T4_v3|4 GPU |9.98| 18.96| 37.46|
 
 This graph shows the relative speed increases as the CPU/GPU increases:
 
@@ -155,11 +155,11 @@ This graph shows the relative speed increases as the CPU/GPU increases:
 
 |VM size|CPU/GPU| Rendering<br> time, 256|Rendering<br> time, 512|Rendering<br> time, 1024|
 |-|-|-|-|-|
-|Standard_NC64as_T4_v3|64 vCPU|	260	|509|	1,008|
-|Standard_NC64as_T4_v3|1 GPU<sup>1	|88.91	|169	|334|
-|Standard_NC64as_T4_v3|2 GPU<sup>1	|49.95|93.4|180|
-|Standard_NC64as_T4_v3|3 GPU<sup>1	|36.48	|66.43|	126|
-|Standard_NC64as_T4_v3|4 GPU	|30.96	|54.45|	101|
+|Standard_NC64as_T4_v3|64 vCPU| 260 |509| 1,008|
+|Standard_NC64as_T4_v3|1 GPU<sup>1 |88.91 |169 |334|
+|Standard_NC64as_T4_v3|2 GPU<sup>1 |49.95|93.4|180|
+|Standard_NC64as_T4_v3|3 GPU<sup>1 |36.48 |66.43| 126|
+|Standard_NC64as_T4_v3|4 GPU |30.96 |54.45| 101|
 
 This graph shows the relative speed increases as the CPU/GPU increases:
 
@@ -169,11 +169,11 @@ This graph shows the relative speed increases as the CPU/GPU increases:
 
 |VM size|CPU/GPU| Rendering<br> time, 256|Rendering<br> time, 512|Rendering<br> time, 1024|
 |-|-|-|-|-|
-|Standard_NC64as_T4_v3|64 vCPU|	139	|273	|547|
-|Standard_NC64as_T4_v3|1 GPU<sup>1	|102|	203|	406|
-|Standard_NC64as_T4_v3|2 GPU<sup>1	|52.44	|104	|208|
-|Standard_NC64as_T4_v3|3 GPU<sup>1	|35.96	|70.93|	140|
-|Standard_NC64as_T4_v3|4 GPU	|27.47	|53.96|	106|
+|Standard_NC64as_T4_v3|64 vCPU| 139 |273 |547|
+|Standard_NC64as_T4_v3|1 GPU<sup>1 |102| 203| 406|
+|Standard_NC64as_T4_v3|2 GPU<sup>1 |52.44 |104 |208|
+|Standard_NC64as_T4_v3|3 GPU<sup>1 |35.96 |70.93| 140|
+|Standard_NC64as_T4_v3|4 GPU |27.47 |53.96| 106|
 
 <sup>1</sup> *In these cases, the number of GPUs was artificially limited. This VM has four GPUs.*
 
@@ -205,11 +205,11 @@ This table shows elapsed times, in hours, for running all three models.
 
 This table shows elapsed times, in hours, for running all three models.
 
-|Sample size|	64-core CPU|	1 GPU|	2 GPU|	3 GPU|	4 GPU|
+|Sample size| 64-core CPU| 1 GPU| 2 GPU| 3 GPU| 4 GPU|
 |-|-|-|-|-|-|
-|256	|0.129	|0.062	|0.033	|0.024	|0.019|
-|512	|0.254	|0.122	|0.064	|0.045	|0.035|
-|1024	|0.506	|0.243|	0.127	|0.087|	0.068|
+|256 |0.129 |0.062 |0.033 |0.024 |0.019|
+|512 |0.254 |0.122 |0.064 |0.045 |0.035|
+|1024 |0.506 |0.243| 0.127 |0.087| 0.068|
 
 ## Summary
 

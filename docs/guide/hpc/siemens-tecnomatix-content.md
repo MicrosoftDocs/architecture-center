@@ -2,10 +2,10 @@ This article briefly describes the steps for running [Siemens Tecnomatix](https:
 
 Siemens Tecnomatix is a comprehensive portfolio of digital manufacturing solutions. It includes part manufacturing, assembly planning, resource planning, plant simulation, human performance, quality, production management, and manufacturing data management. Tecnomatix:
 
--	Provides discrete event simulation and statistical analysis capabilities to optimize material handling, logistics, machine utilization, and labor requirements. 
--	Uses powerful graphical visualization outputs for automatic bottleneck detection, analysis of throughput, and utilization of machines, resources, and buffers.
--	Includes an integrated energy analyzer that dynamically visualizes energy and that shows current, maximum, and total energy consumption.
--	Provides assembly simulation for virtual verification of all process details before the start of production.
+- Provides discrete event simulation and statistical analysis capabilities to optimize material handling, logistics, machine utilization, and labor requirements. 
+- Uses powerful graphical visualization outputs for automatic bottleneck detection, analysis of throughput, and utilization of machines, resources, and buffers.
+- Includes an integrated energy analyzer that dynamically visualizes energy and that shows current, maximum, and total energy consumption.
+- Provides assembly simulation for virtual verification of all process details before the start of production.
 
 Tecnomatix is used in the automotive, electronics, manufacturing, and aerospace industries. 
 
@@ -38,12 +38,12 @@ architecture.*
 
 Performance tests of Tecnomatix on Azure used [NVadsA10_v5](/azure/virtual-machines/nva10v5-series) and [NCasT4_v3](/azure/virtual-machines/nct4-v3-series) series VMs running Windows 10. The following table provides details about the operating system and NVIDIA drivers.
 
-| 	|NVadsA10_v5|	NCasT4_v3|
+|  |NVadsA10_v5| NCasT4_v3|
 |-|-|-|
-|Operating system |	Windows 10 Enterprise|	Windows 10 Professional|
-|OS architecture	|x86-64|	x86-64|
-|NVIDIA driver version	|462.31|	511.65|
-|Cuda version	|11.2	|11.6|
+|Operating system | Windows 10 Enterprise| Windows 10 Professional|
+|OS architecture |x86-64| x86-64|
+|NVIDIA driver version |462.31| 511.65|
+|Cuda version |11.2 |11.6|
 
 ### Required drivers
 
@@ -120,15 +120,15 @@ Only model running time (CPU time) is considered for these cost calculations. Ap
 
 Because the simulation is set to run for one hour, the runtime is in seconds, so the cost estimations shown here are negligible.
 
-|VM size|	GPU partition|	CPU time (seconds)|
+|VM size| GPU partition| CPU time (seconds)|
 |-|-|-|
-|NVadsA10_v5	|1/6 GPU|		2.05|
-|NVadsA10_v5	|1/6 GPU|		14.31|
-|NVadsA10_v5	|1/6 GPU|		2.08|
-|NCasT4_v3|	1 GPU|	43.22|
-|NCasT4_v3|	1 GPU|		2.91|
-|NCasT4_v3|	1 GPU|		62.81|
-|NCasT4_v3|	1 GPU|		2.94|
+|NVadsA10_v5 |1/6 GPU| 2.05|
+|NVadsA10_v5 |1/6 GPU| 14.31|
+|NVadsA10_v5 |1/6 GPU| 2.08|
+|NCasT4_v3| 1 GPU| 43.22|
+|NCasT4_v3| 1 GPU| 2.91|
+|NCasT4_v3| 1 GPU| 62.81|
+|NCasT4_v3| 1 GPU| 2.94|
 
 ## Summary
 

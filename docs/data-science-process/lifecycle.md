@@ -28,11 +28,11 @@ This lifecycle is designed for data-science projects that are intended to ship a
 
 The TDSP lifecycle is composed of five major stages that are executed iteratively. These stages include:
 
-   1. [Business understanding](lifecycle-business-understanding.md)
-   2. [Data acquisition and understanding](lifecycle-data.md)
-   3. [Modeling](lifecycle-modeling.md)
-   4. [Deployment](lifecycle-deployment.md)
-   5. [Customer acceptance](lifecycle-acceptance.md)
+1. [Business understanding](lifecycle-business-understanding.md)
+2. [Data acquisition and understanding](lifecycle-data.md)
+3. [Modeling](lifecycle-modeling.md)
+4. [Deployment](lifecycle-deployment.md)
+5. [Customer acceptance](lifecycle-acceptance.md)
 
 Here is a visual representation of the TDSP lifecycle:
 
@@ -42,9 +42,9 @@ The TDSP lifecycle is modeled as a sequence of iterated steps that provide guida
 
 For each stage, we provide the following information:
 
-   * **Goals**: The specific objectives.
-   * **How to do it**: An outline of the specific tasks and guidance on how to complete them.
-   * **Artifacts**: The deliverables and the support to produce them.
+* **Goals**: The specific objectives.
+* **How to do it**: An outline of the specific tasks and guidance on how to complete them.
+* **Artifacts**: The deliverables and the support to produce them.
 
 ## Next steps
 

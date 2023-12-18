@@ -243,7 +243,6 @@ Consider using these communities to get answers to questions and for help with s
 - [Default outbound access in Azure](/azure/virtual-network/ip-services/default-outbound-access)
 - [Public endpoint connectivity for virtual machines using Azure Standard Load Balancer in SAP high-availability scenarios](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)
 - [Subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions)
-- [SAP Blogs | SAP Fiori using Azure CDN for SAPUI5 libraries](https://blogs.sap.com/2021/03/22/sap-fiori-using-azure-cdn-for-sapui5-libraries/)
 - [YouTube | Deploying Fiori at Scale](https://www.youtube.com/watch?v=IJQlSjxb8pE)
 
 ## Related resources

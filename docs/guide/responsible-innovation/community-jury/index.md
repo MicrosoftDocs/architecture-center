@@ -78,9 +78,9 @@ Relevant artifacts could include:
 
 Bring on a neutral user researcher to ensure everyone is heard, avoiding domination of the communications by any one member. The moderator will facilitate brainstorms and deliberations, as well as educate jury members in uncovering bias, and ways to ask difficult questions. If a user researcher is not available, choose a moderator who is skilled at facilitating group discussions. Following the session, the moderator is responsible for the following:
 
-  - ensure that the agreed-upon compensation is provided to the jury members;
-  - produce a report that describes key insights, concerns, and recommendations, and
-  - share key insights and next steps with the jury, and thank them for their participation.
+- Ensure that the agreed-upon compensation is provided to the jury members;
+- Produce a report that describes key insights, concerns, and recommendations, and
+- Share key insights and next steps with the jury, and thank them for their participation.
 
 #### Preparation
 

@@ -39,12 +39,12 @@ This architecture uses the following Azure components:
 
 The AKS infrastructure features used in this architecture include:
 
-  - [System and user node pool separation](/azure/aks/use-system-pools#system-and-user-node-pools)
-  - [AKS-managed Microsoft Entra ID for role-based access control (RBAC)](/azure/aks/managed-aad)
-  - [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview)
-  - [Azure Policy Add-on for AKS](/azure/aks/use-pod-security-on-azure-policy)
-  - [Azure Container Networking Interface (CNI)](/azure/aks/configure-azure-cni)
-  - [Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-overview)
+- [System and user node pool separation](/azure/aks/use-system-pools#system-and-user-node-pools)
+- [AKS-managed Microsoft Entra ID for role-based access control (RBAC)](/azure/aks/managed-aad)
+- [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview)
+- [Azure Policy Add-on for AKS](/azure/aks/use-pod-security-on-azure-policy)
+- [Azure Container Networking Interface (CNI)](/azure/aks/configure-azure-cni)
+- [Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-overview)
 
 **[Azure Virtual Networks](https://azure.microsoft.com/services/virtual-network)** are isolated and highly secure environments for running virtual machines (VMs) and applications. This reference architecture uses a peered hub-spoke virtual network topology. The hub virtual network holds the Azure firewall and Azure Bastion subnets. The spoke virtual network holds the AKS system and user node pool subnets and the Azure Application Gateway subnet.
 
@@ -333,6 +333,8 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 - AKS has no costs associated with deployment, management, and operations of the Kubernetes cluster. You only pay for the VM instances, storage, and networking resources the cluster consumes. Cluster autoscaling can significantly reduce the cost of the cluster by removing empty or unused nodes.
 
 - To estimate the cost of the required resources, see the [Container Services calculator](https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service).
+
+- Consider enabling [AKS cost analysis](/azure/aks/cost-analysis) for granular cluster infrastructure cost allocation by Kubernetes specific constructs.
 
 ## Next steps
 
