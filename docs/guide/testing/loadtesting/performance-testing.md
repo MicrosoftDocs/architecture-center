@@ -14,6 +14,8 @@ products:
 ---
 # Azure Load Testing for Azure Functions integrated with Event Hubs
 
+**Summary**: The article aims to guide readers on how to use Azure Load Testing, a service that allows them to run Apache JMeter scripts on Azure Functions and Event Hubs. The article also explains how to design key performance indicators (KPIs) and develop a dashboard for monitoring and analyzing the results of the load test. The article assumes that readers have some familiarity with JMeter, its plugins and custom plugins, as well as Azure Functions and Event Hubs.
+
 Azure Load Testing enables you to take an existing Apache JMeter script, and use it to run a load test at cloud scale on any Azure resources.
 JMeter is a popular open-source load testing tool that is primarily used to test the performance of web applications. It was originally developed for testing web applications. However it can also be used to test other types of applications, such as SOAP and REST web services, FTP servers, databases, and more.
 JMeter allows testers to create and execute load tests, stress tests, and functional tests. It simulates multiple users simultaneously accessing a web application, enabling testers to identify potential performance bottlenecks or other issues that might arise under heavy loads. JMeter can be used to measure various performance metrics, such as response time, throughput, and error rate.
