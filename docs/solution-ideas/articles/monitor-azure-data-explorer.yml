@@ -5,7 +5,7 @@ metadata:
   description: Consolidate your data estate across Microsoft Sentinel, Azure Monitor, and Azure Data Explorer to augment your security, observability, and analytics capabilities.
   author: guywi-ms
   ms.author: guywild
-  ms.date: 12/06/2023
+  ms.date: 12/19/2023
   ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
