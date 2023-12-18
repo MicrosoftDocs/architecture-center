@@ -15,7 +15,7 @@ azureCategories:
 products:
   - azure-cognitive-search
   - ai-services
-  - microsoft-graph-data-connect
+  - ms-graph
 name: Compliance risk analysis by using Azure Cognitive Search
 summary: Learn how to implement a compliance risk analysis solution that's based on real-world experience. It uses Azure Cognitive Search and Azure Cognitive Services.
 thumbnailUrl: /azure/architecture/browse/thumbs/compliance-risk-analysis-diagram-solution-architecture-thumb.png

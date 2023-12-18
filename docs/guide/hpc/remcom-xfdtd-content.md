@@ -36,9 +36,9 @@ architecture.*
 
 The performance tests of Remcom XFdtd used an [ND_A100_v4](/azure/virtual-machines/nda100-v4-series) VM running Windows 10. The following table provides details about the VM.
 
-|VM size|vCPU|Memory, in GiB|Temporary storage (SSD), in GiB|	GPUs	|GPU memory, in GiB|Maximum data disks|
+|VM size|vCPU|Memory, in GiB|Temporary storage (SSD), in GiB| GPUs |GPU memory, in GiB|Maximum data disks|
 |-|-|-|-|-|-|-|
-|Standard_ND96asr_v4	|96	|900	|6,000	|8 A100	|40	|32|
+|Standard_ND96asr_v4 |96 |900 |6,000 |8 A100 |40 |32|
 
 ### Required drivers
 
@@ -73,11 +73,11 @@ The following table provides details about the model.
 
 Throughput is used as a metric to test the performance of the simulation. The following table provides the test results. 
 
-|Number of GPUs|	Simulation timesteps |Total cells|Elapsed time (seconds)|Timesteps per second|Throughput (cells per second)|Throughput (Gcells<sup>1</sup> per second)|
+|Number of GPUs| Simulation timesteps |Total cells|Elapsed time (seconds)|Timesteps per second|Throughput (cells per second)|Throughput (Gcells<sup>1</sup> per second)|
 |-|-|-|-|-|-|-|
-|1<sup>2	|39,141	|1,077,552,576	|3,003	|13.03	|14,044,783,675	|14.04|
-|4<sup>2|	39,141|	1,077,552,576|	954|	41.03|	44,210,152,387|	44.21|
-|8|	39,141	|1,077,552,576|	834	|46.93|	50,571,325,392	|50.57|
+|1<sup>2 |39,141 |1,077,552,576 |3,003 |13.03 |14,044,783,675 |14.04|
+|4<sup>2| 39,141| 1,077,552,576| 954| 41.03| 44,210,152,387| 44.21|
+|8| 39,141 |1,077,552,576| 834 |46.93| 50,571,325,392 |50.57|
 
 <sup>1</sup> *Gcells is the cell count divided by 1,000,000,000.*
 
@@ -95,9 +95,9 @@ Only simulation runtime is included in the reported time. Application installati
 
 You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your configuration.
 
-|VM size|	Number of GPUs|	Elapsed time (hours)|
+|VM size| Number of GPUs| Elapsed time (hours)|
 |-|-|-|
-|Standard_ND96asr_v4	|	8|	0.23| 
+|Standard_ND96asr_v4 | 8| 0.23| 
 
 ## Summary
 

@@ -60,9 +60,9 @@ You can install Turbostream by signing in to [ExaVault](https://app.exavault.com
 
 Four simulations were tested, as described in the following table.  
 
-|Model number|	Number of grid nodes (millions)|
+|Model number| Number of grid nodes (millions)|
 |-|-|
-|1|	6|
+|1| 6|
 | 2|12|
 |3|24|
 | 4|48|
@@ -99,9 +99,9 @@ Only simulation runtime is included in the reported time. Application installati
 
 You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your configuration.
 
-|VM size|	GPUs	|Elapsed time (seconds)|
+|VM size| GPUs |Elapsed time (seconds)|
 |-|-|-|
-|Standard_ND96asr_v4	|	8 A100|	196.10|
+|Standard_ND96asr_v4 | 8 A100| 196.10|
 
 ## Summary
 

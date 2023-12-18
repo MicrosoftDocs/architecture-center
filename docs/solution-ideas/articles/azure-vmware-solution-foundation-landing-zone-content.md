@@ -20,7 +20,7 @@ Azure Enterprise Scale Landing Zone (ESLZ) provides prescriptive deployment guid
 
 #### Identity and access management (B)
 
-Azure VMware Solution Resource Provider (RP) exposes multiple [operations](/cli/azure/VMware#commands). Customers and partners want to control access to these operations, to specific roles. [Identity and access management](/azure/cloud-adoption-framework/ready/enterprise-scale/identity-and-access-management) can help you create such roles. Other operations (such as just-in-time (JIT) access, access reviews, and so on) can also be configured on these roles. For Azure VMware Solution workloads that might need Windows Authentication, services such as Azure AD Domain Services (Azure AD DS) or Active Directory Domain Services (AD DS) can be configured as part of identity and access management.
+Azure VMware Solution Resource Provider (RP) exposes multiple [operations](/cli/azure/VMware#commands). Customers and partners want to control access to these operations, to specific roles. [Identity and access management](/azure/cloud-adoption-framework/ready/enterprise-scale/identity-and-access-management) can help you create such roles. Other operations (such as just-in-time (JIT) access, access reviews, and so on) can also be configured on these roles. For Azure VMware Solution workloads that might need Windows Authentication, services such as Microsoft Entra Domain Services or Active Directory Domain Services (AD DS) can be configured as part of identity and access management.
 
 #### Management group and subscription management (C)
 
@@ -45,7 +45,7 @@ Sandbox subscriptions are deployed under [Sandbox Management Group](/azure/cloud
 ### Components
 
 - [Azure VMware Solution](https://azure.microsoft.com/services/azure-vmware)
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory)
+- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory)
 - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute)
 - [Azure Policy](https://azure.microsoft.com/services/azure-policy)
 

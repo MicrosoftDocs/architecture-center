@@ -165,7 +165,7 @@ This architecture uses the following Azure services:
 
 The effectiveness of any alternative choices depends greatly on the [tenancy model](../../guide/multitenant/considerations/tenancy-models.yml) that you intend for your SaaS application to support. The following are some examples of alternative approaches that you can follow when you implement this solution:
 
-- The current solution uses Azure Active Directory B2C as the identity provider. You could instead use other identity providers, such as [Azure Active Directory](https://azure.microsoft.com/services/active-directory/).
+- The current solution uses Azure Active Directory B2C as the identity provider. You could instead use other identity providers, such as [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/).
 
 - For stricter security and compliance requirements, you could choose to implement private networking for cross-service communication.
 
@@ -179,7 +179,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-This solution relies on identity as its security paradigm. Authentication and authorization for the web apps and APIs is governed by the [Microsoft Identity Platform](/azure/active-directory/develop/v2-overview), which is responsible for issuing and verifying user ID tokens (JWTs).
+This solution relies on identity as its security paradigm. Authentication and authorization for the web apps and APIs is governed by the [Microsoft identity platform](/azure/active-directory/develop/v2-overview), which is responsible for issuing and verifying user ID tokens (JWTs).
 
 ### Cost optimization
 
@@ -189,7 +189,7 @@ The components in this solution have some cost associated with their operation, 
 
 - You can scale the App Service plan that runs the application to fit the throughput that you need. In addition, you could run each app on a separate plan if you require higher throughput, but you'll incur a higher cost as a result. For more information, see [Azure App Service plan overview](/azure/app-service/overview-hosting-plans).
 
-- Azure AD B2C provides two SKUs: Premium P1 and Premium P2. Both SKUs include a free allowance for the number of monthly active users (MAUs), but you need to evaluate which features that each SKU provides to determine which is required for your use case. For more information, see [Azure Active Directory External Identities pricing](https://azure.microsoft.com/pricing/details/active-directory/external-identities/).
+- Azure AD B2C provides two SKUs: Premium P1 and Premium P2. Both SKUs include a free allowance for the number of monthly active users (MAUs), but you need to evaluate which features that each SKU provides to determine which is required for your use case. For more information, see [Microsoft Entra External ID pricing](https://azure.microsoft.com/pricing/details/active-directory/external-identities/).
 
 - Azure SQL has several purchasing models to fit a wide array of use cases, including the ability to autoscale. You need to evaluate the usage on your own databases to ensure you size them correctly. For more information, see [Compare vCore and DTU-based purchasing models of Azure SQL Database](/azure/azure-sql/database/purchasing-models).
 
@@ -198,8 +198,6 @@ The components in this solution have some cost associated with their operation, 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Overview of the performance efficiency pillar](/azure/architecture/framework/scalability/overview).
 
 This architecture should be able to scale to easily meet most medium to medium-large workloads. Since the architecture mostly uses Azure's platform (PaaS) services, you have many options to adjust the scale of the solution based on your requirements and load.
-
-For high-throughput scenarios, or scenarios in which you need to serve customers in multiple geographies, you can also consider deploying the applications and databases in multiple regions. For a great example of this architecture, see [Multi-region web app with private connectivity to a database](../sql-failover/app-service-private-sql-multi-region.yml).
 
 ## Deploy this scenario
 
@@ -242,5 +240,4 @@ Here are some additional recommended resources for building a SaaS application o
 - [Architectural approaches for storage and data in multitenant solutions](/azure/architecture/guide/multitenant/approaches/storage-data)
 - [Azure App Service and Azure Functions considerations for multitenancy](/azure/architecture/guide/multitenant/service/app-service)
 - [Multitenant SaaS on Azure](/azure/architecture/example-scenario/multi-saas/multitenant-saas)
-- [Tenancy models for SaaS applications](/azure/architecture/isv/application-tenancy)
 - [Cloud Design Patterns](/azure/architecture/patterns/)

@@ -27,7 +27,7 @@ This scenario covers purchasing tickets from an e-commerce site, the data flows 
 - [Azure CDN][docs-cdn] delivers static, cached content from locations close to users to reduce latency.
 - [Azure Traffic Manager][docs-traffic-manager] controls the distribution of user traffic for service endpoints in different Azure regions.
 - [App Services - Web Apps][docs-webapps] hosts web applications allowing autoscale and high availability without having to manage infrastructure.
-- [Azure Active Directory - B2C][docs-b2c] is an identity management service that enables customization and control over how customers sign up, sign in, and manage their profiles in an application.
+- [Azure Active Directory B2C][docs-b2c] is an identity management service that enables customization and control over how customers sign up, sign in, and manage their profiles in an application.
 - [Storage Queues][docs-storage-queues] stores large numbers of queue messages that can be accessed by an application.
 - [Functions][docs-functions] are serverless compute options that allow applications to run on-demand without having to manage infrastructure.
 - [Cognitive Services - Sentiment Analysis][docs-sentiment-analysis] uses machine learning APIs and enables developers to easily add intelligent features – such as emotion and video detection; facial, speech, and vision recognition; and speech and language understanding – into applications.

@@ -34,28 +34,28 @@ The solution uses the following components.
 
 #### Networking and identity components
 
-  - [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) - ExpressRoute lets you extend your on-premises networks into the Microsoft Cloud over a private connection handled by a connectivity provider. With ExpressRoute, you can establish connections to cloud services, such as Microsoft Azure and Microsoft 365.
-  - [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) - A VPN gateway is a specific type of virtual network gateway that sends encrypted traffic between an Azure virtual network and an on-premises location over the public internet.
-  - [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) - Azure Active Directory is an identity and access management service that you can sync with an on-premises directory.
+- [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) - ExpressRoute lets you extend your on-premises networks into the Microsoft Cloud over a private connection handled by a connectivity provider. With ExpressRoute, you can establish connections to cloud services, such as Microsoft Azure and Microsoft 365.
+- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) - A VPN gateway is a specific type of virtual network gateway that sends encrypted traffic between an Azure virtual network and an on-premises location over the public internet.
+- [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) - Microsoft Entra ID is an identity and access management service that you can sync with an on-premises directory.
 
 #### Application components
 
-  - [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) - Logic Apps helps create and run automated recurring tasks and processes on a schedule. You can call services inside and outside Azure, such as HTTP or HTTPS endpoints, post messages to Azure services such as Azure Storage and Azure Service Bus, or upload files to a file share.
-  - [Azure Functions](/azure/azure-functions/functions-overview) - Functions lets you run small pieces of code, or functions, without worrying about application infrastructure. With Functions, the cloud infrastructure provides the up-to-date servers you need to keep your application running at scale.
-  - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) - Azure VMs are on-demand, scalable computing resources that are available with Azure. An Azure VM provides the flexibility of virtualization. But it eliminates the maintenance demands of physical hardware. Azure VMs offer a choice of operating systems, including Windows and Linux.
+- [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) - Logic Apps helps create and run automated recurring tasks and processes on a schedule. You can call services inside and outside Azure, such as HTTP or HTTPS endpoints, post messages to Azure services such as Azure Storage and Azure Service Bus, or upload files to a file share.
+- [Azure Functions](/azure/azure-functions/functions-overview) - Functions lets you run small pieces of code, or functions, without worrying about application infrastructure. With Functions, the cloud infrastructure provides the up-to-date servers you need to keep your application running at scale.
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) - Azure VMs are on-demand, scalable computing resources that are available with Azure. An Azure VM provides the flexibility of virtualization. But it eliminates the maintenance demands of physical hardware. Azure VMs offer a choice of operating systems, including Windows and Linux.
 
 #### Storage components
 
-  - [Azure Storage](/azure/storage/common/storage-introduction) - This offers un-managed storage solutions like Azure Blob, Azure Tables, Azure Files, and Azure Queues. Files can particularly come in handy for reengineered mainframe solutions. This provides an effective add-on with the managed SQL storage.
-  - [Azure SQL](/azure/azure-sql/database/sql-database-paas-overview) - This is a fully managed PaaS service for SQL Server from Azure. The relational data can be migrated and used efficiently with other Azure services (Azure SQL Managed Instance, Azure SQL VM, Azure Database for PostgreSQL, Azure Database for MariaDB, MySQL, and so on.)
-  - [Azure Cosmos DB](/azure/cosmos-db/introduction) - Azure Cosmos DB is no-SQL offering that you can use to migrate non-tabular data off the mainframe.
+- [Azure Storage](/azure/storage/common/storage-introduction) - This offers un-managed storage solutions like Azure Blob, Azure Tables, Azure Files, and Azure Queues. Files can particularly come in handy for reengineered mainframe solutions. This provides an effective add-on with the managed SQL storage.
+- [Azure SQL](/azure/azure-sql/database/sql-database-paas-overview) - This is a fully managed PaaS service for SQL Server from Azure. The relational data can be migrated and used efficiently with other Azure services (Azure SQL Managed Instance, Azure SQL VM, Azure Database for PostgreSQL, Azure Database for MariaDB, MySQL, and so on.)
+- [Azure Cosmos DB](/azure/cosmos-db/introduction) - Azure Cosmos DB is no-SQL offering that you can use to migrate non-tabular data off the mainframe.
 
 #### Monitoring components
 
-  - [Azure Monitor](/azure/azure-monitor/overview) - Azure Monitor delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments.
-  - [Application Insights](/azure/azure-monitor/app/app-insights-overview) - Application telemetry is sent to Application Insights for analysis and presentation.
-  - [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) - Azure Monitor Logs is a feature of Azure Monitor that collects and organizes log and performance data from monitored resources. Data from different sources such as platform logs from Azure services, log and performance data from VM agents, and usage and performance data from applications can be consolidated into a single workspace so they can be analyzed together using a sophisticated query language that's capable of quickly analyzing millions of records.
-  - [Log Analytics](/azure/azure-monitor/log-query/log-query-overview) - Log queries help you gain the value of the data collected in Azure Monitor Logs. A powerful query language lets you join data from multiple tables, aggregate large sets of data, and perform complex operations with minimal code.
+- [Azure Monitor](/azure/azure-monitor/overview) - Azure Monitor delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments.
+- [Application Insights](/azure/azure-monitor/app/app-insights-overview) - Application telemetry is sent to Application Insights for analysis and presentation.
+- [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) - Azure Monitor Logs is a feature of Azure Monitor that collects and organizes log and performance data from monitored resources. Data from different sources such as platform logs from Azure services, log and performance data from VM agents, and usage and performance data from applications can be consolidated into a single workspace so they can be analyzed together using a sophisticated query language that's capable of quickly analyzing millions of records.
+- [Log Analytics](/azure/azure-monitor/log-query/log-query-overview) - Log queries help you gain the value of the data collected in Azure Monitor Logs. A powerful query language lets you join data from multiple tables, aggregate large sets of data, and perform complex operations with minimal code.
 
 ## Considerations
 
@@ -79,10 +79,10 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-* Control authentication and access for tcVISION with Azure Active Directory.
+* Control authentication and access for tcVISION with Microsoft Entra ID.
 * Encrypt data transfer between tcVISION products (mainframe to Azure) with transport layer security (TLS).
 * Use Express Route or site-to-site VPN for private and efficient connection to Azure from an on-premises environment.
-* Authenticate Azure resources with Azure AD and manage permissions with role-based access control.
+* Authenticate Azure resources with Microsoft Entra ID and manage permissions with role-based access control.
 * Use the database services in Azure to support various security options like data encryption at rest (TDE), data encryption in transit (TLS), and data encryption while processing, as in, always encrypted.
 * For guidelines about designing secure solutions, see the [Azure security documentation](/azure/security).
 * To find out your security baseline, see [Azure security baseline assessment](/security/benchmark/azure/security-baselines-overview).
@@ -123,7 +123,7 @@ Other contributors:
 
 * [Application Insights](/azure/azure-monitor/app/app-insights-overview)
 * [Architect a data platform in Azure](/training/paths/architect-data-platform/)
-* [Azure AD](https://azure.microsoft.com/services/active-directory/)
+* [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/)
 * [Azure Artifacts](https://azure.microsoft.com/services/devops/artifacts/)
 * [Azure Boards](https://azure.microsoft.com/services/devops/boards/)
 * [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)

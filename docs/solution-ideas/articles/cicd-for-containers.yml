@@ -28,7 +28,7 @@ azureCategories:
   - containers
 summary: Learn how to orchestrate CI/CD of containers using Kubernetes in Azure Kubernetes Service, so you can achieve replicable, manageable clusters of containers.
 products:
-  - azure-application-insights
+  - azure-monitor
   - azure-container-registry
   - azure-devops
   - azure-kubernetes-service

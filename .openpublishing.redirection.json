@@ -1859,6 +1859,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/patterns/messaging-bridge-patterns.yml",
+      "redirect_url": "/azure/architecture/patterns/messaging-bridge",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/guide/design-principles/use-the-best-data-store.md",
       "redirect_url": "/azure/architecture/guide/design-principles/use-best-data-store",
       "redirect_document_id": true
@@ -2302,8 +2307,8 @@
     },
     {
       "source_path": "docs/reference-architectures/ai/realtime-scoring-python.yml",
-      "redirect_url": "/azure/architecture/reference-architectures/ai/real-time-scoring-machine-learning-models",
-      "redirect_document_id": true
+      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/reference-architectures/containers/aks/secure-baseline-aks.yml",
@@ -2766,6 +2771,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/industries/manufacturing/predictive-maintenance-solution.yml",
+      "redirect_url": "/azure/architecture/industries/manufacturing",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/serverless-quest/ads.md",
       "redirect_url": "/azure/architecture/serverless-quest/serverless-overview",
       "redirect_document_id": false
@@ -3034,6 +3044,746 @@
       "source_path": "docs/serverless/code.yml",
       "redirect_url": "/azure/architecture/web-apps/serverless/architectures/code",
       "redirect_document_id": true
-    }
+    },
+    {
+      "source_path": "docs/data-guide/big-data/ai-overview.md",
+      "redirect_url": "/azure/architecture/ai-ml/index",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/ai-at-the-edge.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/ai-at-the-edge",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/ai-at-the-edge-disconnected.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/ai-at-the-edge-disconnected",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/customer-feedback-and-analytics.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/customer-feedback-and-analytics",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/large-scale-custom-natural-language-processing.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/large-scale-custom-natural-language-processing",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/website-content-tag-suggestion-with-deep-learning-and-nlp",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/image-classification-with-convolutional-neural-networks.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/image-classification-with-convolutional-neural-networks",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/retail-assistant-or-vacation-planner-with-visual-capabilities",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/visual-assistant.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/visual-assistant",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/dronerescue/vision-classifier-model-with-custom-vision.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/vision-classifier-model-with-custom-vision",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/digital-media-speech-text.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/digital-media-speech-text",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/customer-churn-prediction.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/customer-churn-prediction",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/personalized-offers.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/personalized-offers",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/optimize-marketing-with-machine-learning.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/optimize-marketing-with-machine-learning",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/machine-learning-model-deployment-aks.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/machine-learning-model-deployment-aks",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/orchestrate-mlops-azure-databricks.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/orchestrate-mlops-azure-databricks",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/video-ingestion-object-detection-edge-cloud.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/video-ingestion-object-detection-edge-cloud",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/auditing-and-risk-compliance.yml",
+      "redirect_url": "https://azure.microsoft.com/solutions/knowledge-mining/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/business-process-management.yml",
+      "redirect_url": "https://azure.microsoft.com/solutions/knowledge-mining/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/contract-management.yml",
+      "redirect_url": "https://azure.microsoft.com/solutions/knowledge-mining/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/defect-prevention-with-predictive-maintenance.yml",
+      "redirect_url": "/industries/manufacturing/predictive-maintenance-overview/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/digital-asset-management.yml",
+      "redirect_url": "https://azure.microsoft.com/solutions/knowledge-mining/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/commerce-chatbot.yml",
+      "redirect_url": "/azure/ai-services/openai/chatgpt-quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/enterprise-chatbot-disaster-recovery.yml",
+      "redirect_url": "/azure/ai-services/openai/chatgpt-quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/enterprise-productivity-chatbot.yml",
+      "redirect_url": "/azure/ai-services/openai/chatgpt-quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/faq-chatbot-with-data-champion-model.yml",
+      "redirect_url": "/azure/ai-services/openai/chatgpt-quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/interactive-voice-response-bot.yml",
+      "redirect_url": "/azure/ai-services/openai/chatgpt-quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/predictive-maintenance.yml",
+      "redirect_url": "/industries/manufacturing/predictive-maintenance-overview/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/predictive-marketing-campaigns-with-machine-learning-and-spark.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/optimize-marketing-with-machine-learning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/product-recommendations.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/personalized-offers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/speech-services.yml",
+      "redirect_url": "/azure/architecture/data-guide/cognitive-services/speech-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/personalized-marketing.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/personalized-marketing",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/ai/automate-document-classification-durable-functions.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/automate-document-classification-durable-functions",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/ai/automate-document-processing-azure-form-recognizer.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/automate-document-processing-azure-form-recognizer",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/document-processing/automate-pdf-forms-processing.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/automate-pdf-forms-processing",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/document-processing/build-deploy-custom-models.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/build-deploy-custom-models",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/data/search-blob-metadata.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/search-blob-metadata",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/ai/analyze-video-computer-vision-machine-learning.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/analyze-video-computer-vision-machine-learning",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/ai/intelligent-apps-image-processing.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/intelligent-apps-image-processing",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/ai/speech-to-text-transcription-analytics.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/speech-to-text-transcription-analytics",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/batch-scoring-deep-learning.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/batch-scoring-deep-learning",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/batch-scoring-python.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/batch-scoring-python",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/batch-scoring-R-models.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/batch-scoring-R-models",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/batch-scoring-databricks.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/batch-scoring-databricks",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/conversational-bot.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/conversational-bot",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/real-time-recommendation.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/real-time-recommendation",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/ai/analyze-browser-info-for-security-insights.yml",
+      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/ai/form-recognizer-healthcare.yml",
+      "redirect_url": "/azure/architecture/ai-ml/automate-document-processing-azure-form-recognizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs//data-guide/big-data/baseball-ml-workload.yml",
+      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/ai/commerce-chatbot.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/conversational-bot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/ai/multiline-model-deployment.yml",
+      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/ai/movie-recommendations-with-machine-learning.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/real-time-recommendation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/training-deep-learning.yml",
+      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/ai/training-python-models.yml",
+      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/real-time-scoring-machine-learning-models.yml",
+      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/hybrid/deploy-ai-ml-azure-stack-edge.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/deploy-ai-ml-azure-stack-edge",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/ai/customer-lifecycle-churn.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/customer-lifecycle-churn",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/ai/many-models-machine-learning-azure-spark.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/many-models-machine-learning-azure-spark",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/ai/many-models-machine-learning-azure-machine-learning.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/many-models-machine-learning-azure-machine-learning",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/ai/network-security-mlops.yml",
+      "redirect_url": "/azure/architecture/ai-ml/guide/network-security-mlops",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/mlops-python.yml",
+      "redirect_url": "/azure/architecture/ai-ml/guide/mlops-python",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/realtime-scoring-r.yml",
+      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/ai/secure-compute-for-research.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/secure-compute-for-research",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/ai/build-deploy-social-media-analytics-solution.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/build-deploy-social-media-analytics-solution",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/guide/ai/query-based-summarization.md",
+      "redirect_url": "/azure/architecture/ai-ml/guide/query-based-summarization",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/guide/ai/custom-speech-text.yml",
+      "redirect_url": "/azure/architecture/ai-ml/guide/custom-speech-text",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/guide/ai/conversation-summarization.yml",
+      "redirect_url": "/azure/architecture/ai-ml/guide/conversation-summarization",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/mlops/mlops-technical-paper.yml",
+      "redirect_url": "/azure/architecture/ai-ml/guide/mlops-technical-paper",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/mlops/mlops-maturity-model.yml",
+      "redirect_url": "/azure/architecture/ai-ml/guide/mlops-maturity-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/data-guide/technology-choices/machine-learning-operations-v2.md",
+      "redirect_url": "/azure/architecture/ai-ml/guide/machine-learning-operations-v2",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/data-guide/technology-choices/data-science-and-machine-learning.md",
+      "redirect_url": "/azure/architecture/ai-ml/guide/data-science-and-machine-learning",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/data-guide/big-data/machine-learning-at-scale.md",
+      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/azure-machine-learning-solution-architecture.yml",
+      "redirect_url": "/azure/architecture/ai-ml/idea/azure-machine-learning-solution-architecture",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/ai/call-center-openai-analytics.yml",
+      "redirect_url": "/azure/architecture/ai-ml/openai/architecture/call-center-openai-analytics",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/ai/log-monitor-azure-openai.yml",
+      "redirect_url": "/azure/architecture/ai-ml/openai/architecture/log-monitor-azure-openai",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/guide/ai/custom-speech-text-deploy.yml",
+      "redirect_url": "/azure/architecture/ai-ml/guide/custom-speech-text-deploy",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/guide/ai/language-model-pipelines.yml",
+      "redirect_url": "/azure/architecture/ai-ml/openai/guide/language-model-pipelines",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/mlops/aml-decision-tree.yml",
+      "redirect_url": "/azure/architecture/ai-ml/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/search-and-query-using-openai-service.yml",
+      "redirect_url": "/azure/architecture/ai-ml/openai/idea/search-and-query-using-openai-service",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/dev-test-image-factory.yml",
+      "redirect_url": "/devops",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/media-services/set-up-azure-devops.yml",
+      "redirect_url": "/devops",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/devops-in-a-hybrid-environment.yml",
+      "redirect_url": "/devops",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/sharepoint-farm-devtest.yml",
+      "redirect_url": "/devops",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/hybrid-continuous-integration.yml",
+      "redirect_url": "/devops",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/apps/devops-cicd-chatbot.yml",
+      "redirect_url": "/devops",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/create-features-hive.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/data-blob.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/sample-data-hive.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/databases-architecture-design.yml",
+      "redirect_url": "/azure/architecture/databases/index",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/data-cache-with-redis-cache.yml",
+      "redirect_url": "/azure/architecture/databases/idea/data-cache-with-redis-cache",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/messaging.yml",
+      "redirect_url": "/azure/architecture/databases/idea/messaging",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/intelligent-apps-using-azure-database-for-mysql.yml",
+      "redirect_url": "/azure/architecture/databases/idea/intelligent-apps-using-azure-database-for-mysql",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/intelligent-apps-using-azure-database-for-postgresql.yml",
+      "redirect_url": "/azure/architecture/databases/idea/intelligent-apps-using-azure-database-for-postgresql",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/serverless-apps-using-cosmos-db.yml",
+      "redirect_url": "/azure/architecture/databases/idea/serverless-apps-using-cosmos-db",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/data-warehouse/dataops-mdw.yml",
+      "redirect_url": "/azure/architecture/databases/architecture/dataops-mdw",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/data/profisee-master-data-management-data-factory.yml",
+      "redirect_url": "/azure/architecture/databases/architecture/profisee-master-data-management-data-factory",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/data/migrate-master-data-services-with-cluedin.yml",
+      "redirect_url": "/azure/architecture/databases/architecture/migrate-master-data-services-with-cluedin",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/profisee-mds/profisee-mds-migration-utility.yml",
+      "redirect_url": "/azure/architecture/databases/architecture/profisee-mds-migration-utility",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/data/cluedin.yml",
+      "redirect_url": "/azure/architecture/databases/architecture/cluedin",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/data/profisee-master-data-management-purview.yml",
+      "redirect_url": "/azure/architecture/databases/architecture/profisee-master-data-management-purview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/minimal-storage-change-feed-replicate-data.yml",
+      "redirect_url": "/azure/architecture/databases/idea/minimal-storage-change-feed-replicate-data",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/n-tier/n-tier-cassandra.yml",
+      "redirect_url": "/azure/architecture/databases/architecture/n-tier-cassandra",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/reference-architecture-for-oracle-database-migration-to-azure.yml",
+      "redirect_url": "/azure/architecture/databases/idea/reference-architecture-for-oracle-database-migration-to-azure",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/data/sql-managed-instance-cmk.yml",
+      "redirect_url": "/azure/architecture/databases/architecture/sql-managed-instance-cmk",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/data/azure-sql-htap.yml",
+      "redirect_url": "/azure/architecture/databases/guide/azure-sql-htap",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/best-practices/transactional-outbox-cosmos.yml",
+      "redirect_url": "/azure/architecture/databases/guide/transactional-outbox-cosmos",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/best-practices/cassandra.md",
+      "redirect_url": "/azure/architecture/databases/guide/cassandra",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/data-guide/scenarios/hybrid-on-premises-and-cloud.md",
+      "redirect_url": "/azure/architecture/databases/guide/hybrid-on-premises-and-cloud",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/guide/data/teradata-vantage-data-factory.yml",
+      "redirect_url": "/azure/architecture/databases/guide/teradata-vantage-data-factory",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/ai/data-obfuscation-with-delphix-in-azure-data-factory.yml",
+      "redirect_url": "/azure/architecture/databases/guide/data-obfuscation-with-delphix-in-azure-data-factory",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/ai/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml",
+      "redirect_url": "/azure/architecture/databases/guide/data-scrambling-for-sap-using-delphix-and-azure-data-factory",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/data/extend-reporting-capabilities.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/data/hybrid-etl-with-adf.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/sql-failover/app-service-private-sql-multi-region.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/high-availability/ref-arch-iaas-web-and-db.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/optimized-storage-time-based-data-lake.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/n-tier/n-tier-sql-server.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/optimized-storage-time-based-multi-writes.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/optimized-storage-logical-data-classification.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/campaign-optimization-with-sql-server.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/gaming-using-azure-database-for-mysql.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/interactive-querying-with-hdinsight.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/loan-chargeoff-prediction-with-sql-server.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/loan-credit-risk-with-sql-server.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/multi-region-web-app-cosmos-db-replication.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/personalization-using-cosmos-db.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/ops-automation-using-event-grid.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/design-principles/use-best-data-store.md",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/big-data/batch-processing.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/big-data/real-time-processing.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/relational-data/data-warehousing.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/scenarios/search.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/scenarios/time-series.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/scenarios/interactive-data-exploration.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/scenarios/securing-data-solutions.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/technology-choices/real-time-ingestion.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/isv/application-tenancy.yml",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/index.md",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/scenarios/csv-and-json.md",
+      "redirect_url": "/azure/architecture/databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-guide/big-data/index.yml",
+      "redirect_url": "/azure/architecture/databases/guide/big-data-architectures",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/data-science-process/explore-data-sql-server.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/explore-data-hive-tables.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/select-features.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/create-features-sql-server.md",
+      "redirect_url": "/azure/architecture/data-science-process/overview",
+      "redirect_document_id": false
+    }           
   ]
 }

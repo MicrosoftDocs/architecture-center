@@ -22,7 +22,7 @@ The architecture consists of the following:
 - **On-premises corporate network**. A private local area network that runs within an organization.
 - **On-premises corporate firewall**. An organizational firewall configured to allow users access to the Windows Admin Center gateway when the gateway is deployed on-premises.
 - **Windows VM**. A Windows VM installed with the Windows Admin Center gateway that hosts web services that users can connect to.
-- **Azure AD app**. An app used for all points of Azure integration in Windows Admin Center, including Azure Active Directory (Azure AD) authentication to the gateway.
+- **Microsoft Entra app**. An app used for all points of Azure integration in Windows Admin Center, including Microsoft Entra authentication to the gateway.
 - **Managed nodes**. Nodes managed by Windows Admin Center, which might include physical servers running Azure Stack, or Windows Server or virtual machines running Windows Server.
 - **VPN or ExpressRoute**. A Site-to-Site (S2S) VPN or ExpressRoute to manage nodes on-premises when Windows Admin Center is deployed in Azure.
 - **Azure network adapter**. An adapter for a Point-to-Site (P2S) VPN to Azure when Windows Admin Center is deployed on-premises. Windows Admin Center can automatically deploy the adapter and also create an Azure gateway.
@@ -106,7 +106,7 @@ Windows Admin Center gateway is a web-based tool that uses a Secure Sockets Laye
 
 ### Administrative recommendations
 
-Deploying Windows Admin Center on a local Windows 10 client is great for quick-start tests, and ad-hoc or small-scale scenarios. However, for production scenarios with multiple administrators, we recommend Windows Server. When deployed on Windows Server, Windows Admin Center provides a centralized management hub for your server environment with additional capabilities such as smart card authentication, conditional access, and multi-factor authentication. For more information about controlling access to Windows Admin Center, refer to [User Access Options with Windows Admin Center][user-access-options].
+Deploying Windows Admin Center on a local Windows 10 client is great for quick-start tests, and ad-hoc or small-scale scenarios. However, for production scenarios with multiple administrators, we recommend Windows Server. When deployed on Windows Server, Windows Admin Center provides a centralized management hub for your server environment with additional capabilities such as smart card authentication, conditional access, and multifactor authentication. For more information about controlling access to Windows Admin Center, refer to [User Access Options with Windows Admin Center][user-access-options].
 
 ## Considerations
 
@@ -130,7 +130,7 @@ Reliability ensures that your application can meet the commitments that you make
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 - Deploying Windows Admin Center provides your organization with a centralized management interface for your server environment. By controlling access to Windows Admin Center, you can improve the security of your management landscape.
-- Windows Admin Center provides multiple features to help secure your management platform. For starters, Windows Admin Center gateway authentication can use local groups,  Active Directory Domain Services (AD DS), and cloud-based Azure AD. You can also enforce smart card authentication by specifying an additional required group for smart card-based security groups. And, by requiring Azure AD authentication for the gateway, you can use other Azure AD security features such as conditional access and Azure Active Directory Multi-Factor Authentication.
+- Windows Admin Center provides multiple features to help secure your management platform. For starters, Windows Admin Center gateway authentication can use local groups,  Active Directory Domain Services (AD DS), and cloud-based Microsoft Entra ID. You can also enforce smart card authentication by specifying an additional required group for smart card-based security groups. And, by requiring Microsoft Entra authentication for the gateway, you can use other Microsoft Entra security features such as conditional access and Microsoft Entra multifactor authentication.
 - Access to the Windows Admin Center gateway doesn't imply access to the target servers that are made visible by the gateway. To manage a target server, users must connect with credentials that grant administrator privileges on the servers they want to manage. However, some users might not need administrative access to perform their responsibilities. In this scenario, you can use role-based access control (RBAC) in Windows Admin Center to provide these users with limited access to servers rather than granting them full administrative access.
   > [!NOTE]
   > If you deployed Local Administrator Password Solution (LAPS) in your environment, use LAPS credentials through Windows Admin Center to authenticate with a target server.
@@ -188,7 +188,7 @@ For a complete list of server management capabilities, refer to [Manage Servers 
   > For more information on Azure integration, refer to [Connecting Windows Server to Azure hybrid services][azure-hybrid-services].
 
   > [!IMPORTANT]
-  > The Azure AD app requires Azure integration in Windows Admin Center.
+  > The Microsoft Entra app requires Azure integration in Windows Admin Center.
 
 #### DevOps
 

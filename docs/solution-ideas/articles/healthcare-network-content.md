@@ -47,7 +47,7 @@ This solution uses the following Azure components:
 
 ## Scenario details
 
-Cloud services can store and analyze the IoT data to diagnose anomalies and take corrective or preventive actions. Azure cloud services can further analyze and store the data, and use machine learning to optimize building settings.
+Cloud services can store and analyze the IoT data to diagnose anomalies and take corrective or preventive actions. Azure services can further analyze and store the data, and use machine learning to optimize building settings.
 
 ### Potential use cases
 
@@ -75,4 +75,4 @@ Principal author:
 ## Related resources
 
 - [Manage configurations for Azure Arc enabled servers](../../hybrid/azure-arc-hybrid-config.yml)
-- [Deploy AI and ML computing on-premises and to the edge](../../hybrid/deploy-ai-ml-azure-stack-edge.yml)
+- [Deploy AI and ML computing on-premises and to the edge](../../ai-ml/idea/deploy-ai-ml-azure-stack-edge.yml)

@@ -103,7 +103,6 @@ The following sections, organized by category, provide links to sample web app a
 ### Multi-region apps
 
 - [Highly available multi-region web application](../web-apps/app-service/architectures/multi-region.yml)
-- [Multi-region web app with private connectivity to database](../example-scenario/sql-failover/app-service-private-sql-multi-region.yml)
 
 ### Scalability
 
@@ -133,7 +132,6 @@ Here are some additional implementations to consider:
 
 - [Eventual consistency between multiple Power Apps instances](/azure/architecture/guide/power-platform/eventual-consistency)
 - [App Service networking features](/azure/app-service/networking-features)
-- [IaaS: Web application with relational database](../high-availability/ref-arch-iaas-web-and-db.yml)
 - [Migrate a web app using Azure APIM](../example-scenario/apps/apim-api-scenario.yml)
 - [Sharing location in real time using low-cost serverless Azure services](../example-scenario/signalr/index.yml)
 - [Serverless web application](../web-apps/serverless/architectures/web-app.yml)

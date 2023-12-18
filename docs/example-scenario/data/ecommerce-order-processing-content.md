@@ -40,7 +40,7 @@ Other relevant use cases include:
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-Many technology options are available for real-time message ingestion, data storage, stream processing, storage of analytical data, and analytics and reporting. For an overview of these options, their capabilities, and key selection criteria, see [Big data architectures: Real-time processing](../../data-guide/technology-choices/real-time-ingestion.md) in the [Azure Data Architecture Guide](../../data-guide/index.md).
+Many technology options are available for real-time message ingestion, data storage, stream processing, storage of analytical data, and analytics and reporting.
 
 Microservices have become a popular architectural style for building cloud applications that are resilient, highly scalable, independently deployable, and able to evolve quickly. Microservices require a different approach to designing and building applications. Tools such as Docker, Kubernetes, Azure Service Fabric, and Nomad enable the development of microservices-based architectures. For guidance on building and running a microservices-based architecture, see [Designing microservices on Azure](../../microservices/index.yml) in the Azure Architecture Center.
 
@@ -110,12 +110,9 @@ See this other content:
 
 See the related architectural content:
 
-- See the [Real time processing architecture](../../data-guide/big-data/real-time-processing.yml) in the [Azure Data Architecture Guide](../../data-guide/index.md).
 - [E-commerce front end](/azure/architecture/example-scenario/apps/ecommerce-scenario)
 - [Architect scalable e-commerce web app](/azure/architecture/web-apps/idea/scalable-ecommerce-web-app)
 - [Intelligent product search engine for e-commerce](/azure/architecture/example-scenario/apps/ecommerce-search)
-- [Retail and e-commerce using Azure MySQL](/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql)
-- [Retail and e-commerce using Azure PostgreSQL](/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql)
 - [Magento e-commerce platform in Azure Kubernetes Service](/azure/architecture/example-scenario/magento/magento-azure)
 - [E-commerce website running in secured App Service Environment](/azure/architecture/web-apps/idea/ecommerce-website-running-in-secured-ase)
 - [Dynamics Business Central as a service on Azure](/azure/architecture/solution-ideas/articles/business-central)

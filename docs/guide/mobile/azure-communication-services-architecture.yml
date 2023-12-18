@@ -14,7 +14,7 @@ name: Azure Communication Services architecture design
 summary: Learn how to add communication features to your applications by using Azure Communication Services.
 products:
   - azure-communication-services
-  - azure-active-directory
+  - entra-id
   - azure-functions
 azureCategories:
   - identity

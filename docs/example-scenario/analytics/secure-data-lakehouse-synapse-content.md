@@ -21,7 +21,7 @@ The dataflow for the solution is shown in the following diagram:
 1. Azure Data Lake stores the raw data that's obtained from different sources. It's protected by firewall rules and virtual networks. It blocks all connection attempts coming from the public internet.
 1. The arrival of data in the data lake triggers the Azure Synapse pipeline, or a timed trigger runs a data processing job. Apache Spark in Azure Synapse is activated and runs a Spark job or notebook. It also orchestrates the data process flow in the data lakehouse. Azure Synapse pipelines convert data from [the Bronze zone to the Silver Zone and then to the Gold Zone](/training/modules/describe-azure-databricks-delta-lake-architecture/2-describe-bronze-silver-gold-architecture).
 1. A Spark job or notebook runs the data processing job. Data curation or a machine learning training job can also run in Spark. Structured data in the gold zone is stored in [Delta Lake](https://docs.delta.io/latest/delta-intro.html) format.
-1. A serverless SQL pool [creates external tables](/azure/synapse-analytics/sql/develop-tables-external-tables) that use the data stored in Delta Lake. The serverless SQL pool provides a powerful and efficient SQL query engine and can support traditional SQL user accounts or Azure Active Directory (Azure AD) user accounts.
+1. A serverless SQL pool [creates external tables](/azure/synapse-analytics/sql/develop-tables-external-tables) that use the data stored in Delta Lake. The serverless SQL pool provides a powerful and efficient SQL query engine and can support traditional SQL user accounts or Microsoft Entra user accounts.
 1. Power BI connects to the serverless SQL pool to visualize the data. It creates reports or dashboards using the data in the data lakehouse.
 1. Data Analysts or scientists can log in to Azure Synapse Studio to:
    - Further enhance the data.
@@ -188,7 +188,7 @@ For example, in the plan we want to:
 
 - Create an Azure Synapse workspace with a managed virtual network.
 - Secure data egress from Azure Synapse workspaces by using [Azure Synapse workspaces Data exfiltration protection.](/azure/synapse-analytics/security/workspace-data-exfiltration-protection)
-- Manage the list of approved Azure AD tenants for the Azure Synapse workspace.
+- Manage the list of approved Microsoft Entra tenants for the Azure Synapse workspace.
 - Configure network rules to grant traffic to the Storage account from selected virtual networks, access only, and disable public network access.
 - Use [Managed Private Endpoints](/azure/synapse-analytics/security/synapse-workspace-managed-private-endpoints) to connect the virtual network that's managed by Azure Synapse to the data lake.
 - Use [Resource Instance](/azure/storage/common/storage-network-security) to securely connect Azure Synapse SQL to the data lake.
@@ -208,9 +208,9 @@ There are several components in the system. Each one requires a different identi
 - **Choose an identity solution for different access control layers**
   - There are four different identity solutions in the system.
     - SQL account (SQL Server)
-    - Service principal (Azure AD)
-    - Managed identity (Azure AD)
-    - User Account (Azure AD)
+    - Service principal (Microsoft Entra ID)
+    - Managed identity (Microsoft Entra ID)
+    - User Account (Microsoft Entra ID)
   - There are four different access control layers in the system.
     - The application access layer: choose the identity solution for AP Roles.
     - The Azure Synapse DB/Table access layer: choose the identity solution for roles in databases.
@@ -219,10 +219,10 @@ There are several components in the system. Each one requires a different identi
 
   :::image type="content" source="media/secure-data-lakehouse-access-control.svg" alt-text="Diagram that shows Azure Synapse Analytics and its capabilities." lightbox="media/secure-data-lakehouse-access-control.svg"border="false" :::
 
-  A crucial part of identity and access control is choosing the right identity solution for each access control layer. The [security design principles](/azure/architecture/framework/security/security-principles) of the Azure Well-Architected Framework suggest using native controls and driving simplicity. Therefore, this solution uses the Azure AD User Account of the end user in the application and Azure Synapse DB access layers. It leverages the native first-party IAM solutions and provides fine-grained access control. The Azure Synapse access external resource layer and Data Lake access layer use managed identity in Azure Synapse to simplify the authorization process.
+  A crucial part of identity and access control is choosing the right identity solution for each access control layer. The [security design principles](/azure/architecture/framework/security/security-principles) of the Azure Well-Architected Framework suggest using native controls and driving simplicity. Therefore, this solution uses the Microsoft Entra user Account of the end user in the application and Azure Synapse DB access layers. It leverages the native first-party IAM solutions and provides fine-grained access control. The Azure Synapse access external resource layer and Data Lake access layer use managed identity in Azure Synapse to simplify the authorization process.
 - **Consider least-privileged access**
 
-  A Zero Trust guiding principle suggests providing just-in-time and just-enough access to critical resources. See Azure [AD Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-configure) to enhance security in the future.
+  A Zero Trust guiding principle suggests providing just-in-time and just-enough access to critical resources. See [Microsoft Entra Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-configure) to enhance security in the future.
 - **Protect linked service**
 
     Linked services define the connection information that's needed for a service to connect to external resources. It's important to secure linked services configurations.
@@ -312,8 +312,7 @@ Other contributors:
   - [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
   - [Serverless SQL pool in Azure Synapse Analytics](/azure/synapse-analytics/sql/on-demand-workspace-overview)
   - [Apache Spark in Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-overview)
-  - [Pipelines and activities in Azure Data Factory and Azure Synapse Analytics
-](/azure/data-factory/concepts-pipelines-activities?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics)
+  - [Pipelines and activities in Azure Data Factory and Azure Synapse Analytics](/azure/data-factory/concepts-pipelines-activities?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics)
   - [What is Azure Synapse Data Explorer? (Preview)](/azure/synapse-analytics/data-explorer/data-explorer-overview)
   - [Machine Learning capabilities in Azure Synapse Analytics](/azure/synapse-analytics/machine-learning/what-is-machine-learning)
   - [What is Microsoft Purview?](/azure/purview/overview)
@@ -338,8 +337,7 @@ Other contributors:
 
 ## Related resources
 
-- [Big data architectures](../../data-guide/big-data/index.yml)
+- [Big data architectures](../../databases/guide/big-data-architectures.yml)
 - [Choose an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
-- [Secure data solutions](../../data-guide/scenarios/securing-data-solutions.md)
 - [Enterprise data warehouse](../../solution-ideas/articles/enterprise-data-warehouse.yml)
 - [Modern data warehouse for small and medium business](../../example-scenario/data/small-medium-data-warehouse.yml)

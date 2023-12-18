@@ -15,7 +15,7 @@ azureCategories:
 products:
   - azure-kubernetes-service
   - azure-storage
-  - azure-linux-vm
+  - azure-virtual-machines
   - azure-app-service
   - azure-virtual-network
 name: Elastic Enterprise Search on Azure

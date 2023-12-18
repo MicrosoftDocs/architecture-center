@@ -1,4 +1,7 @@
-
+---
+ms.custom:
+  - devx-track-azurecli
+---
 This article describes how to set up a local Gridwich development environment in either Visual Studio 2022 or above, or Visual Studio Code.
 
 ## Prerequisites

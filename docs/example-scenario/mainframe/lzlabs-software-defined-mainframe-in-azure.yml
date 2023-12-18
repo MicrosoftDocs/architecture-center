@@ -18,7 +18,6 @@ azureCategories:
   - networking
 products:
   - azure-virtual-machines
-  - azure-linux-vm
   - azure-database-postgresql
   - azure-virtual-network
   - azure-resource-manager

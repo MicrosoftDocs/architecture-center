@@ -56,8 +56,6 @@ You can test your deployed application in Azure or locally, and in both cases, y
 
 ## How to test Gridwich projects locally
 
-Make sure your Gridwich project and pipelines are in place, and developer permissions are set up. For more information, see [Gridwich Azure DevOps setup](set-up-azure-devops.yml).
-
 To create a new cloud development environment, see [Create a new environment](create-delete-cloud-environment.yml). Verify that you have the correct settings for the environment you're targeting.
 
 To set up your local environment, see [Gridwich local development environment](set-up-local-environment.yml).

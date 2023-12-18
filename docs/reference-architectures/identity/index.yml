@@ -22,7 +22,7 @@ azureCategories:
   - hybrid
 summary: Compare options for integrating your on-premises Active Directory (AD) environment with an Azure network.
 products:
-  - azure-active-directory
+  - entra-id
 thumbnailUrl: /azure/architecture/browse/thumbs/default.png
 content: |
    [!include[](index-content.md)]

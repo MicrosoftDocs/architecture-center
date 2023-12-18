@@ -144,10 +144,6 @@ Other contributors:
 
 Implementing visual search need not be complex. You can use Bing or build your own with Azure services, while benefiting from Microsoft's AI research and tools.
 
-### Trial
-
-- Try out the [Visual Search API Testing Console](https://dev.cognitive.microsoft.com/docs/services/878c38e705b84442845e22c7bff8c9ac)
-
 ### Develop
 
 - To begin creating a customized service, see [Bing Visual Search API Overview](/azure/cognitive-services/bing-visual-search/overview/?WT.mc_id=vsearchgio-article-gmarchet)
@@ -164,7 +160,5 @@ Implementing visual search need not be complex. You can use Bing or build your o
 ## Related resources
 
 - [Image classification on Azure](../../example-scenario/ai/intelligent-apps-image-processing.yml)
-- [Knowledge mining in digital asset management](../../solution-ideas/articles/digital-asset-management.yml)
 - [Image classification with convolutional neural networks (CNNs)](../../solution-ideas/articles/image-classification-with-convolutional-neural-networks.yml)
 - [Vision classifier model with Azure Custom Vision Cognitive Service](../../example-scenario/dronerescue/vision-classifier-model-with-custom-vision.yml)
-- [Retail and e-commerce using Azure Cosmos DB](../../solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.yml)

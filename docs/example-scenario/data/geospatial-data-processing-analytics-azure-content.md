@@ -283,7 +283,6 @@ To start implementing this solution, see this information:
 [Azure Databricks Workspace concepts]: /azure/databricks/getting-started/concepts
 [Azure Event Hubs — A big data streaming platform and event ingestion service]: /azure/event-hubs/event-hubs-about
 [Azure Event Hubs - Geo-disaster recovery]: /azure/event-hubs/event-hubs-geo-dr
-[Azure Machine Learning decision guide for optimal tool selection]: ../mlops/aml-decision-tree.yml
 [Azure Monitor Logs overview]: /azure/azure-monitor/logs/data-platform-logs
 [Azure Monitor Metrics overview]: /azure/azure-monitor/essentials/data-platform-metrics
 [Azure Monitor overview]: /azure/azure-monitor/overview
@@ -291,13 +290,12 @@ To start implementing this solution, see this information:
 [Basic web application scalability considerations]: ../../reference-architectures/app-service-web-app/basic-web-app.yml?tabs=cli#performance-efficiency
 [Big data analytics with Azure Data Explorer]: ../../solution-ideas/articles/big-data-azure-data-explorer.yml
 [Chapter 4. PostGIS Usage]: https://postgis.net/docs/using_raster_dataman.html#RT_Loading_Rasters
-[Compare the machine learning products and technologies from Microsoft - Azure Databricks]: ../../data-guide/technology-choices/data-science-and-machine-learning.md#azure-databricks
+[Compare the machine learning products and technologies from Microsoft - Azure Databricks]: ../../ai-ml/guide/data-science-and-machine-learning.md#azure-databricks
 [Configure customer-managed keys for encrypting Azure Event Hubs data at rest by using the Azure portal]: /azure/event-hubs/configure-customer-managed-key
 [Connect to a WFS service]: /azure/azure-maps/spatial-io-connect-wfs-service
 [Copy performance and scalability achievable using ADF]: /azure/data-factory/copy-activity-performance#copy-performance-and-scalability-achievable-using-adf
 [Create a data source for Azure Maps]: /azure/azure-maps/create-data-source-web-sdk#geojson-data-source
 [Create a data source for a map in Microsoft Azure Maps]: /azure/azure-maps/create-data-source-web-sdk#vector-tile-source
-[DataOps for the modern data warehouse]: ../data-warehouse/dataops-mdw.yml
 [Enforce HTTPS]: /azure/app-service/configure-ssl-bindings#enforce-https
 [Frameworks - OpenStreetMap Wiki]: https://wiki.openstreetmap.org/wiki/Frameworks
 [GeoJSON format]: https://tools.ietf.org/html/rfc7946

@@ -108,7 +108,7 @@ Azure WebJobs run within the sandbox of the web app. This means that they can ac
 Azure WebJobs have the following characteristics:
 
 - **Security**: WebJobs are protected by the deployment credentials of the web app.
-- **Supported file types**: You can define WebJobs by using command scripts (.cmd), batch files (.bat), PowerShell scripts (.ps1), bash shell scripts (.sh), PHP scripts (.php), Python scripts (.py), JavaScript code (.js), and executable programs (.exe, .jar, and more).
+- **Supported file types**: You can define WebJobs by using command scripts (`.cmd`), batch files (`.bat`), PowerShell scripts (`.ps1`), bash shell scripts (`.sh`), PHP scripts (`.php`), Python scripts (`.py`), JavaScript code (`.js`), and executable programs (`.exe`, `.jar`, and more).
 - **Deployment**: You can deploy scripts and executables by using the [Azure portal](/azure/app-service-web/web-sites-create-web-jobs), by using [Visual Studio](/azure/app-service-web/websites-dotnet-deploy-webjobs), by using the [Azure WebJobs SDK](/azure/app-service/webjobs-sdk-get-started), or by copying them directly to the following locations:
   - For triggered execution: site/wwwroot/app_data/jobs/triggered/{job name}
   - For continuous execution: site/wwwroot/app_data/jobs/continuous/{job name}

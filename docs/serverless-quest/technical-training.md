@@ -26,8 +26,8 @@ Workshops related to application development workloads include:
 
 - [Serverless APIs in Azure](https://github.com/Azure-Samples/Serverless-APIs). Set of entry-level exercises, which cover the basics of building and managing serverless APIs in Microsoft Azure - with Azure Functions, Azure API Management, and Azure Application Insights.
 - [Serverless architecture](https://github.com/Microsoft/MCW-Serverless-Architecture). Implement a series of Azure Functions that independently scale and break down business logic to discrete components, allowing customers to pay only for the services they use.
-- [App modernization](https://github.com/Microsoft/MCW-App-Modernization). Design a modernization plan to move services from on-premises to the cloud by using cloud, web, and mobile services, secured by Azure Active Directory.
-- [Modern cloud apps](https://github.com/Microsoft/MCW-Modern-Cloud-Apps). Deploy, configure, and implement an end-to-end secure and Payment Card Industry (PCI) compliant solution for e-commerce, based on Azure App Services, Azure Active Directory, and Azure DevOps.
+- [App modernization](https://github.com/Microsoft/MCW-App-Modernization). Design a modernization plan to move services from on-premises to the cloud by using cloud, web, and mobile services, secured by Microsoft Entra ID.
+- [Modern cloud apps](https://github.com/Microsoft/MCW-Modern-Cloud-Apps). Deploy, configure, and implement an end-to-end secure and Payment Card Industry (PCI) compliant solution for e-commerce, based on Azure App Services, Microsoft Entra ID, and Azure DevOps.
 - [Cloud-native applications](https://github.com/microsoft/MCW-Cloud-native-applications). Using DevOps best practices, build a proof of concept (PoC) to transform a platform-as-a-service (PaaS) application to a container-based application with multi-tenant web app hosting.
 - [Continuous delivery in Azure DevOps](https://github.com/Microsoft/MCW-Continuous-Delivery-in-Azure-DevOps). Set up and configure continuous delivery (CD) in Azure to reduce manual errors, using Azure Resource Manager templates, Azure DevOps, and Git repositories for source control.
 

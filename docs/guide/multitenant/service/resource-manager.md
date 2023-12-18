@@ -58,7 +58,7 @@ If you are at risk of exceeding the limits defined by Resource Manager or a reso
 
 - Shard your workload across multiple Azure subscriptions.
 - Use multiple resource groups within subscriptions.
-- Send requests from different Azure Active Directory (Azure AD) principals.
+- Send requests from different Microsoft Entra principals.
 - Request additional quota allocations. In general, quota allocation requests are [submitted by opening a support case](/azure/azure-resource-manager/management/azure-subscription-service-limits#managing-limits), although some services provide APIs for these requests, such as for [virtual machine reserved instances](/rest/api/reserved-vm-instances/quotaapi).
 
 The mitigations you select need to be appropriate for the specific limit you encounter.

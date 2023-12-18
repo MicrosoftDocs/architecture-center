@@ -35,15 +35,15 @@ This article shows how to set up improved-security private connectivity to a mul
 - Virtual networks are linked to all the Azure private DNS zones.
   - The virtual network that has private endpoints is automatically linked to the private DNS zones. You need to link the other virtual networks separately.
 - The web app communicates with the private endpoints of the PaaS services in *Private Endpoint Virtual Network* via Azure Firewall.
-- On Azure Firewall, the [application rules](/azure/private-link/inspect-traffic-with-azure-firewall) are configured to allow communication between *VNet Integration Subnet* and the private endpoints of PaaS resources.
-The target fully qualified domain names (FQDNs) are:
-  - *.azurewebsites.net
-  - *.database.windows.net
-  - *.core.windows.net
-  - *.vaultcore.azure.net
+- On Azure Firewall, the [application rules](/azure/private-link/inspect-traffic-with-azure-firewall) are configured to allow communication between *VNet Integration Subnet* and the private endpoints of PaaS resources. The target fully qualified domain names (FQDNs) are:
+  - `*.azurewebsites.net`
+  - `*.database.windows.net`
+  - `*.core.windows.net`
+  - `*.vaultcore.azure.net`
 - Firewall and virtual network configuration for Azure SQL, Azure Storage Account, and Azure Key Vault allows traffic only from *VNet Integration Subnet*. The configuration doesn't allow communication with any other virtual network or with the public internet.
 
 ### Components
+
 - [Azure App Service](https://azure.microsoft.com/services/app-service) hosts web applications and function apps, allowing autoscale and high availability without requiring you to manage infrastructure.
  - [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is a general-purpose relational-database managed service that supports relational data, spatial data, JSON, and XML.
  - [Azure Storage account](https://azure.microsoft.com/product-categories/storage) provides a unique namespace for Azure Storage data that's accessible from anywhere in the world over HTTP or HTTPS. It contains all Azure Storage data objects: blobs, file shares, queues, tables, and disks.
@@ -130,7 +130,7 @@ For information about integrating Azure Private Link for PaaS services with Azur
 
 Any service in any Azure region that can connect through the virtual network can reach the PaaS services' private endpoints, for example, through [virtual network peering](/azure/virtual-network/virtual-network-peering-overview) in hub-and-spoke topologies. However, for App Service regional VNet Integration, the peered virtual networks must be located in the same Azure region.
 
-Lack of global peering support means you can't use this solution for cross-region connectivity from App Service to a database or other private endpoint in another Azure region. For example, this solution wouldn't work for a multiregional deployment to support a partial failover, in which the web app remains active in one region but must connect to a failed-over database in another region, or vice versa. But other solutions exist for this situation. See [Multi-region web app with private connectivity to database](/azure/architecture/example-scenario/sql-failover/app-service-private-sql-multi-region) for an architecture that supports partial failovers when either the web app or the database fails over to another region.
+Lack of global peering support means you can't use this solution for cross-region connectivity from App Service to a database or other private endpoint in another Azure region. For example, this solution wouldn't work for a multiregional deployment to support a partial failover, in which the web app remains active in one region but must connect to a failed-over database in another region, or vice versa. But other solutions exist for this situation. 
 
 If you need to connect Web Apps to a virtual network in another region, you can set up gateway-required VNet Integration. The limitation is that gateway-required VNet Integration can't be used with a virtual network connected with Azure ExpressRoute.
 

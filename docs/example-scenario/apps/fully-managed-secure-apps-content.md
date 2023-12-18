@@ -19,7 +19,7 @@ Consider this scenario for the following use cases:
 ### Dataflow
 
 1. HTTP/HTTPS requests first hit the Application Gateway.
-1. Optionally (not shown in the diagram), you can have Azure Active Directory (Azure AD) authentication enabled for the Web App. After the traffic first hits the Application Gateway, the user would be prompted to supply credentials to authenticate with the application.
+1. Optionally (not shown in the diagram), you can have Microsoft Entra authentication enabled for the Web App. After the traffic first hits the Application Gateway, the user would be prompted to supply credentials to authenticate with the application.
 1. User requests flow through the internal load balancer (ILB) of the environment, which in turn routes the traffic to the Expenses Web App.
 1. The user then proceeds to create an expense report.
 1. As part of creating the expense report, the deployed API App is invoked to retrieve the user's manager name and email.
@@ -97,7 +97,7 @@ Another point to consider is DNS. In order to allow applications within the App 
 - Review the security considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
 - Consider following a [secure development lifecycle][secure-development] process to help developers build more secure software and address security compliance requirements while reducing development cost.
 - Review the blueprint architecture for [Azure PCI DSS compliance][pci-dss-blueprint].
-- [Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+- [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
 ### Resiliency
 

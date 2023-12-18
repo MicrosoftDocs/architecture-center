@@ -82,7 +82,7 @@ It's a common practice to deploy web apps, API apps, and mobile apps to an Azure
 
 ### Security
 
-[Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+[Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
 ## Deploy this scenario
 
@@ -94,7 +94,7 @@ You must have an existing Azure account. If you don't have an Azure subscription
 
 1. Run the following Azure CLI commands in Azure Cloud Shell or your preferred deployment shell.
 
-    This set of commands creates the necessary resource group, virtual network, and subnets that are required for this walkthrough. The IP range used by Teams is [52.112.0.0/14](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide#skype-for-business-online-and-microsoft-teams).
+    This set of commands creates the necessary resource group, virtual network, and subnets that are required for this walkthrough. The IP range used by Teams is [52.112.0.0/14,52.122.0.0/15](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide#skype-for-business-online-and-microsoft-teams).
 
     ```azurecli
     # Declare variables (bash syntax)
@@ -104,7 +104,7 @@ You must have an existing Azure account. If you don't have an Azure subscription
     export SUBNET_INT_NAME='VnetIntegrationSubnet'
     export SUBNET_PVT_NAME='PrivateEndpointSubnet'
     export LOCATION='eastus'
-    export TEAMS_IP_RANGE='13.107.64.0/18 52.112.0.0/14 52.122.0.0/15'
+    export TEAMS_IP_RANGE='52.112.0.0/14 52.122.0.0/15'
     export FIREWALL_NAME='afw-'${LOCATION}'-'${PREFIX}
 
     # Create a resource group
@@ -292,7 +292,7 @@ You must have an existing Azure account. If you don't have an Azure subscription
 
     ![Screenshot of the rt-SecureBotRouteTable pane.](media/securing-bot-image-009.png)
 
-    After you've created the route table, you add rules to your firewall to deliver traffic from the public IP to the bot app service, and to restrict traffic from any endpoint other than Microsoft Teams. In addition, you'll allow traffic between the virtual network and Azure Bot Services or Azure Active Directory by using service tags.
+    After you've created the route table, you add rules to your firewall to deliver traffic from the public IP to the bot app service, and to restrict traffic from any endpoint other than Microsoft Teams. In addition, you'll allow traffic between the virtual network and Azure Bot Services or Microsoft Entra ID by using service tags.
 
 1. Run the following commands:
 
@@ -380,7 +380,7 @@ Principal author:
 
 - [Azure Firewall Architecture Guide - Azure Architecture Center](../firewalls/index.yml)
 
-- [Azure Active Directory IDaaS in Security Operations - Azure Example Scenarios](../aadsec/azure-ad-security.yml)
+- [Microsoft Entra IDaaS in Security Operations - Azure Example Scenarios](../aadsec/azure-ad-security.yml)
 
 - [Threat indicators for cyber threat intelligence in Microsoft Sentinel - Azure Example Scenarios](../data/sentinel-threat-intelligence.yml)
 

@@ -129,7 +129,7 @@ After running the uninstall script, the following will be gone.
 
 - Users installed by the installer script
 - The resource groups and their respective services are gone, including data storage
-- The application registered with Azure AD
+- The application registered with Microsoft Entra ID
 
 Note that the key vault is held as a “soft delete” and while it isn’t seen in the portal, it doesn’t get deallocated for 30 days. This enables reconstituting the key vault if needed. To learn more about the implications of this and how to handle it, see the [Key vaults](#key-vaults) section of this article.
 
@@ -139,15 +139,15 @@ If there's a need to reinstall the blueprint after an uninstall, you must change
 
 #### Required administrator roles
 
-The person installing the blueprint must be in the Global Administrator role in Azure AD. The installing account must also be an Azure subscription administrator for the subscription being used. If the person doing the install isn't in both of these roles, the install will fail.
+The person installing the blueprint must be in the Global Administrator role in Microsoft Entra ID. The installing account must also be an Azure subscription administrator for the subscription being used. If the person doing the install isn't in both of these roles, the install will fail.
 
 ![Blueprint installer](images/healthcare-ai-blueprint/blueprint-installer.png)
 
-Further, the install isn't designed to work with MSDN subscriptions, due to the tight integration with Azure AD. A standard Azure account must be used. If needed, [get a free trial](https://azure.microsoft.com/free/?WT.mc_id=ms-docs-dastarr) with credit to spend for installing the blueprint solution and running its demos.
+Further, the install isn't designed to work with MSDN subscriptions, due to the tight integration with Microsoft Entra ID. A standard Azure account must be used. If needed, [get a free trial](https://azure.microsoft.com/free/?WT.mc_id=ms-docs-dastarr) with credit to spend for installing the blueprint solution and running its demos.
 
 ### Adding other resources
 
-The Azure blueprint installation doesn’t include more services than those needed to implement the AI and machine learning use case. However, more resources or services can be added to the Azure environment. This capability makes it a good test bed for additional initiatives, or a starting point for a production system. For instance, you could add other PaaS services or IaaS resources in the same subscription and Azure AD.
+The Azure blueprint installation doesn’t include more services than those needed to implement the AI and machine learning use case. However, more resources or services can be added to the Azure environment. This capability makes it a good test bed for additional initiatives, or a starting point for a production system. For instance, you could add other PaaS services or IaaS resources in the same subscription and Microsoft Entra ID.
 
 New resources, like [Azure Cosmos DB](/azure/cosmos-db/introduction?WT.mc_id=ms-docs-dastarr) or a new [Azure Functions](/azure/azure-functions/functions-overview?WT.mc_id=ms-docs-dastarr), can be added to the solution as more Azure capabilities are needed. When adding new resources or services, ensure they're configured to meet security and privacy policies to remain compliant with regulations and policy.
 
@@ -199,7 +199,7 @@ This security model ensures the system’s compliance with HIPAA and HITRUST req
 
 System designs using multiple abstraction layers of security controls are using defense in depth. Defense in depth provides security redundancy at multiple levels. It means you're not dependent on a single layer of defense. It ensures that user and service accounts have appropriate access to resources, services, and data. Azure provides security and monitoring resources at every level of system architecture, in order to provide defense in depth for the entire landscape of technologies.
 
-In a software system like the one installed by the blueprint, a user can log in but not have permission to a specific resource. This example of defense in depth is provided by RBAC (Role Based Access Control) and Azure AD, supporting the principle of least privilege.
+In a software system like the one installed by the blueprint, a user can log in but not have permission to a specific resource. This example of defense in depth is provided by RBAC (Role Based Access Control) and Microsoft Entra ID, supporting the principle of least privilege.
 
 Two-factor authentication is also a form of technical defense in depth and can be optionally included when the blueprint is installed.
 
@@ -207,7 +207,7 @@ Two-factor authentication is also a form of technical defense in depth and can b
 
 The Key Vault service is used to store secrets, certificates, and other data used by applications. These include database strings, REST endpoint URLs, API keys, and other things developers don’t want to hard-code into an application or distribute in a .config file.
 
-Vaults are accessible by application service identities or other accounts in with Azure AD permissions. This allows secrets to be accessed at runtime by applications needing a vault’s contents.
+Vaults are accessible by application service identities or other accounts in with Microsoft Entra permissions. This allows secrets to be accessed at runtime by applications needing a vault’s contents.
 
 Keys stored in a vault can be encrypted or signed, and key usage can be monitored for any security concerns.
 
@@ -300,9 +300,11 @@ Key vaults are unique when deleting an Azure resource. Vaults are kept by Azure 
 
 A key vault created by the installation script is retained as a “soft delete” for 30 days. Although not currently accessible through the portal, soft deleted [Key Vaults are manageable from PowerShell](/azure/key-vault/key-vault-soft-delete-powershell?WT.mc_id=ms-docs-dastarr), and can even be deleted manually.
 
-### Azure AD
+<a name='azure-ad'></a>
 
-It's strongly recommended that you install the blueprint in an empty Azure AD rather than into a production system. Create a new Azure AD instance and use its tenant ID during installs to avoid adding blueprint accounts to your live Azure AD instance.
+### Microsoft Entra ID
+
+It's strongly recommended that you install the blueprint in an empty Microsoft Entra rather than into a production system. Create a new Microsoft Entra instance and use its tenant ID during installs to avoid adding blueprint accounts to your live Microsoft Entra instance.
 
 ## Components
 

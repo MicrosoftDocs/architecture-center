@@ -35,6 +35,8 @@ If you have a mission-critical workload and need to mitigate the risk of a regio
 > [!TIP]
 > For many workloads, a zone-redundant architecture provides the best set of tradeoffs. Consider a multi-region architecture if your business requirements indicate that you need to mitigate the unlikely risk of a region-wide outage, and if you're prepared to accept the tradeoffs involved in such an approach.
 
+To learn more about how to design your solution to use availability zones and regions, see [Recommendations for using availability zones and regions](/azure/well-architected/resiliency/regions-availability-zones).
+
 **Place VMs behind a load balancer**. Don't use a single VM for mission-critical workloads. Instead, place multiple VMs behind a load balancer. If any VM becomes unavailable, the load balancer distributes traffic to the remaining healthy VMs. To learn how to deploy this configuration, see [Multiple VMs for scalability and availability][multi-vm-blueprint].
 
 ![Diagram of load-balanced VMs](./images/load-balancing.svg)
@@ -62,8 +64,6 @@ To achieve this, disable the primary endpoint of Traffic Manager after failover.
 **Include redundancy for Traffic Manager**. Traffic Manager is a possible failure point. Review the Traffic Manager SLA, and determine whether using Traffic Manager alone meets your business requirements for high availability. If not, consider adding another traffic management solution as a failback. If the Azure Traffic Manager service fails, change your CNAME records in DNS to point to the other traffic management service.
 
 <!-- links -->
-
-[multi-vm-blueprint]: ../../reference-architectures/n-tier/n-tier-sql-server.yml
 
 [cosmos-db-geo-replication]: /azure/cosmos-db/distribute-data-globally
 [sql-always-on]: /sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15&preserve-view=true

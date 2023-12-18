@@ -2,13 +2,18 @@
 author: BryanLa
 ms.author: bryanla
 ms.date: 04/01/2023
-ms.topic: conceptual
+ms.topic: include
 ms.service: architecture-center
 ms.subservice: guide
 ---
-If you understand Azure landing zones, you can skip ahead to the [Reference architecture section](#reference-architecture). If not, here are some concepts to review before proceeding:
+<!-- NOTE that this include is used by files in the following repos:
+- architecture-center-pr
+- cloud-adoption-framework-pr repo 
+-->
 
-- Abstractly speaking, a ***landing zone*** helps you plan for and design an Azure deployment, by conceptualizing a designated area for placement and integration of resources. There are [two types of landing zones](/azure/cloud-adoption-framework/ready/landing-zone/#platform-vs-application-landing-zones):
+If you understand Azure landing zones, you can skip ahead to the next section. If not, here are some concepts to review before proceeding:
+
+- Abstractly speaking, a ***landing zone*** helps you plan for and design an Azure deployment, by conceptualizing a designated area for placement and integration of resources. There are [two types of landing zones](/azure/cloud-adoption-framework/ready/landing-zone/#platform-landing-zones-vs-application-landing-zones):
    - ***platform landing zone:*** provides centralized enterprise-scale foundational services for workloads and applications.
    - ***application landing zone:*** provides services specific to an application or workload. 
 

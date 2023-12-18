@@ -75,15 +75,12 @@ There are some additional challenges for Kubernetes-based architectures:
 
 In Kubernetes, the standard approach to logging is for a container to write logs to stdout and stderr. The container engine redirects these streams to a logging driver. To make querying easier, and to prevent possible loss of log data if a node stops responding, the usual approach is to collect the logs from each node and send them to a central storage location.
 
-Azure Monitor integrates with AKS to support this approach. Monitor collects container logs and sends them to a Log Analytics workspace. From there, you can use the [Kusto Query Language](/azure/kusto/query/) to write queries across the aggregated logs. For example, here's a Kusto query for showing the container logs for a specified pod:
+Azure Monitor integrates with AKS to support this approach. Monitor collects container logs and sends them to a Log Analytics workspace. From there, you can use the [Kusto Query Language](/azure/kusto/query/) to write queries across the aggregated logs. For example, here's a [Kusto query for showing the container logs](/azure/azure-monitor/containers/container-insights-log-query#container-logs) for a specified pod:
 
 ```kusto
-let ContainerIdList = KubePodInventory
-| where ClusterName =~ '<cluster-name>'
-| where Name =~ '<pod-name>'
-| distinct ContainerID;
-ContainerLog
-| where ContainerID in (ContainerIdList)
+ContainerLogV2
+| where PodName == "podName" //update with target pod
+| project TimeGenerated, Computer, ContainerId, LogMessage, LogSource
 ```
 
 Azure Monitor is a managed service, and configuring an AKS cluster to use Monitor is a simple configuration change in the CLI or Azure Resource Manager template. (For more information, see [How to enable Azure Monitor Container insights](/azure/azure-monitor/insights/container-insights-onboard).) Another advantage of using Azure Monitor is that it consolidates your AKS logs with other Azure platform logs to provide a unified monitoring experience.

@@ -190,7 +190,7 @@ The following diagram shows an audio ingestion and speech-to-text pipeline. The 
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/US-1989213-compliance-risk-analysis.pptx) of this architecture.*
 
-In this reference architecture, audio files are uploaded to Blob Storage via a client application. During this process, the application authenticates by using Azure Active Directory and calls the REST API to get a token for Blob Storage. Secure access to the REST API is provided by Azure API Management, and an Azure Key Vault provides secure storage of the secrets needed to generate the tokens, as well as account credentials.
+In this reference architecture, audio files are uploaded to Blob Storage via a client application. During this process, the application authenticates by using Microsoft Entra ID and calls the REST API to get a token for Blob Storage. Secure access to the REST API is provided by Azure API Management, and an Azure Key Vault provides secure storage of the secrets needed to generate the tokens, as well as account credentials.
 
 After the files are uploaded, an Azure Event Grid trigger is emitted to invoke an Azure function. The function then processes the audio file by using the Cognitive Services Speech-to-Text API. The transcribed JSON document is then stored in a separate blob container, which can be ingested as a data source by Azure Cognitive Search.
 
@@ -198,7 +198,7 @@ After the files are uploaded, an Azure Event Grid trigger is emitted to invoke a
 >
 > Refer to the following article for details on integrating speech transcription:
 >
-> - [Use a speech-to-text transcription pipeline to analyze recorded conversations](../../example-scenario/ai/speech-to-text-transcription-analytics.yml)
+> - [Use a speech-to-text transcription pipeline to analyze recorded conversations](../../ai-ml/architecture/speech-to-text-transcription-analytics.yml)
 
 ## Search solution
 
@@ -613,7 +613,7 @@ After a search solution is implemented, you can query the index directly by usin
 
 A customized user interface, focusing on the user experience, is useful to show the true value of the search solution and to make it possible for organizations to identify and review risk communications across a range of channels and sources.
 
-The [Knowledge Mining Solution Accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining) provides an Azure Cognitive Search UI template—a .NET Core MVC Web app—that can be used to quickly build a prototype to query and view the search results.
+The [Knowledge Mining Solution Accelerator](https://github.com/Azure-Samples/azure-search-knowledge-mining) provides an Azure Cognitive Search UI template—a .NET Core MVC Web app—that can be used to quickly build a prototype to query and view the search results.
 
 In a few steps, the template UI can be configured to connect and query the search index, rendering a simple web page to search and visualize the results. This template can be further customized to enhance the experience of retrieving and analyzing risk communications.
 
@@ -723,14 +723,10 @@ Principal authors:
 ## Next Steps
 
 - [Quickstart: Create an Azure Cognitive Search index in the Azure portal](/azure/search/search-get-started-portal)
-- [Knowledge Mining Solution Accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining)
 
 ## Related resources
 
-- [Knowledge mining in auditing, risk, and compliance management](/azure/architecture/solution-ideas/articles/auditing-and-risk-compliance)
 - [Knowledge mining for customer support and feedback analysis](/azure/architecture/solution-ideas/articles/customer-feedback-and-analytics)
 - [Natural language processing technology](/azure/architecture/data-guide/technology-choices/natural-language-processing)
 - [Large-scale custom natural language processing](/azure/architecture/solution-ideas/articles/large-scale-custom-natural-language-processing)
 - [Knowledge mining for content research](/azure/architecture/solution-ideas/articles/content-research)
-- [Knowledge mining in contract management](/azure/architecture/solution-ideas/articles/contract-management)
-- [Knowledge mining in digital asset management](/azure/architecture/solution-ideas/articles/digital-asset-management)

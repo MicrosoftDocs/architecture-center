@@ -37,8 +37,8 @@ This article describes how to achieve Trusted Internet Connections (TIC) 3.0 com
 - Logging and authentication.
   - Log Analytics is a tool that's available in the Azure portal that you can use to edit and run log queries against Azure Monitor Logs. For more information, see [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview).
   - [Azure Monitor](https://azure.microsoft.com/services/monitor) is a comprehensive solution for collecting, analyzing, and acting on telemetry.
-  - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) provides identity services, single sign-on, and multifactor authentication across Azure workloads.
-  - A [service principal](/azure/active-directory/develop/app-objects-and-service-principals) (registered application) is an entity that defines the access policy and permissions for a user or application in an Azure AD tenant.
+  - [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) provides identity services, single sign-on, and multifactor authentication across Azure workloads.
+  - A [service principal](/azure/active-directory/develop/app-objects-and-service-principals) (registered application) is an entity that defines the access policy and permissions for a user or application in a Microsoft Entra tenant.
   - [Event Hubs Standard](https://azure.microsoft.com/products/event-hubs) is a modern big data streaming platform and event ingestion service.
   - CISA TALON is a CISA-operated service that runs on Azure. TALON connects to your Event Hubs service, authenticates by using a CISA-supplied certificate that's associated with your service principal, and collects logs for CLAW consumption.
 
@@ -46,7 +46,7 @@ This article describes how to achieve Trusted Internet Connections (TIC) 3.0 com
 
 There are a few alternatives that you can use in these solutions:
 
-- You can separate log collection into areas of responsibility. For example, you can send Azure AD logs to a Log Analytics workspace that's managed by the identity team, and send network logs to a different Log Analytics workspace that's managed by the network team.
+- You can separate log collection into areas of responsibility. For example, you can send Microsoft Entra logs to a Log Analytics workspace that's managed by the identity team, and send network logs to a different Log Analytics workspace that's managed by the network team.
 - The examples in this article each use a single firewall, but some organizational requirements or architectures require two or more. For example, an architecture can include an Azure Firewall instance and an Application Gateway instance with WAF. Logs for each firewall must be collected and made available for CISA TALON to collect.
 - If your environment requires internet egress from Azure-based virtual machines, you can use a layer 3 solution like Azure Firewall or a third-party firewall to monitor and log the outbound traffic.
 
@@ -56,7 +56,7 @@ TIC 3.0 moves TIC from on-premises data collection to a cloud-based approach tha
 
 Routing application traffic through a firewall and logging that traffic is the core functionality demonstrated in the solutions presented here. The firewall can be Azure Firewall, Azure Front Door with WAF, Application Gateway with WAF, or a third-party NVA. The firewall helps to secure the cloud perimeter and saves logs of each transaction. Independently of the firewall layer, the log collection and delivery solution requires a Log Analytics workspace, a registered application, and an event hub. The Log Analytics workspace sends logs to the event hub.  
 
-CLAW is a CISA managed service. In late 2022, CISA released TALON. TALON is a CISA managed service that uses Azure native capabilities. An instance of TALON runs in each Azure region. TALON connects to event hubs that are managed by government agencies to pull agency firewall and  Azure AD logs into CISA CLAW.
+CLAW is a CISA managed service. In late 2022, CISA released TALON. TALON is a CISA managed service that uses Azure native capabilities. An instance of TALON runs in each Azure region. TALON connects to event hubs that are managed by government agencies to pull agency firewall and  Microsoft Entra logs into CISA CLAW.
 
 For more information on CLAW, TIC 3.0, and MTIPS, see:
 
@@ -99,7 +99,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 - When you register an enterprise application, a service principal is created. Use a naming scheme for service principals that indicates the purpose of each one.
 - Perform audits to determine the activity of service principals and the status of service principal owners.
 - Azure Firewall has standard policies. WAFs associated with Application Gateway and Azure Front Door have managed rule sets to help secure your web service. Start with these rule sets and build organizational policies over time based on industry requirements, best practices, and government regulations.
-- Event Hubs access is authorized via Azure AD managed identities and a certificate that's provided by CISA.
+- Event Hubs access is authorized via Microsoft Entra managed identities and a certificate that's provided by CISA.
 
 ### Cost optimization
 
@@ -281,12 +281,12 @@ Other contributor:
 - [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview)
 - [What is Azure Event Hubs?](/azure/event-hubs/event-hubs-about)
 - [Overview of alerts in Azure](/azure/azure-monitor/alerts/alerts-overview)
-- [Application and service principal objects in Azure AD](/azure/active-directory/develop/app-objects-and-service-principals)
-- [Use the portal to create an Azure AD application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal)
+- [Application and service principal objects in Microsoft Entra ID](/azure/active-directory/develop/app-objects-and-service-principals)
+- [Use the portal to create a Microsoft Entra application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal)
 - [Register an application with the Microsoft identity platform](/graph/auth-register-app-v2)
 - [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal)
 - [Create resource groups](/azure/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups)
-- [How to find your Azure AD tenant ID](/azure/active-directory-b2c/tenant-management-read-tenant-name)
+- [How to find your Microsoft Entra tenant ID](/azure/active-directory-b2c/tenant-management-read-tenant-name)
 - [Collect Syslog data sources with the Log Analytics agent](/azure/azure-monitor/agents/data-sources-syslog)
 - [Parse text data in Azure Monitor logs](/azure/azure-monitor/logs/parse-text)
 - [Introduction to flow logging for network security groups](/azure/network-watcher/network-watcher-nsg-flow-logging-overview)

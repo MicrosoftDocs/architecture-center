@@ -26,7 +26,7 @@ azureCategories:
   - mixed-reality
 summary: With this mixed reality scenario, clients, designers, and onsite engineers can easily share and review designs as 3D holograms in the context of their environment.
 products:
-  - azure-active-directory
+  - entra-id
   - azure-blob-storage
   - azure-cosmos-db
   - azure-spatial-anchors

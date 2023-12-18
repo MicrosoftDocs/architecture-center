@@ -27,8 +27,8 @@ The target architecture is influenced by your business requirements, and as a re
     :::column:::
 
       #### Identity management
-      [Integrate Azure AD for the cluster](#integrate-azure-active-directory-for-the-cluster)\
-      [Integrate Azure AD for the workload](#integrate-azure-active-directory-for-the-workload)
+      [Integrate Microsoft Entra ID for the cluster](#integrate-azure-active-directory-for-the-cluster)\
+      [Integrate Microsoft Entra ID for the workload](#integrate-azure-active-directory-for-the-workload)
     :::column-end:::
 :::row-end:::
 
@@ -199,7 +199,9 @@ For the user node pool, here are some considerations:
 
 - Set the maximum pods per node based on your capacity planning. If you are trying to establish a capacity baseline, start with a value of 30. Adjust that value based on the requirements of the workload, the node size, and your IP constraints.
 
-## Integrate Azure Active Directory for the cluster
+<a name='integrate-azure-active-directory-for-the-cluster'></a>
+
+## Integrate Microsoft Entra ID for the cluster
 
 Securing access to and from the cluster is critical. Think from the cluster's perspective when you're making security choices:
 
@@ -208,17 +210,17 @@ Securing access to and from the cluster is critical. Think from the cluster's pe
 
 ### AKS access to Azure
 
-There are two ways to manage AKS to Azure access through Azure Active Directory (Azure AD): *service principals* or *managed identities for Azure resources*.
+There are two ways to manage AKS to Azure access through Microsoft Entra ID: *service principals* or *managed identities for Azure resources*.
 
-Of the two ways, managed identities is recommended. With service principals, you are responsible for managing and rotating secrets, either manually or programmatically. With managed identities, Azure AD manages and performs the authentication and timely rotation of secrets for you.
+Of the two ways, managed identities is recommended. With service principals, you are responsible for managing and rotating secrets, either manually or programmatically. With managed identities, Microsoft Entra ID manages and performs the authentication and timely rotation of secrets for you.
 
-It's recommended that [managed identities is enabled](/azure/aks/use-managed-identity#summary-of-managed-identities) so that the cluster can interact with external Azure resources through Azure AD. You can enable this setting only during cluster creation. Even if Azure AD isn't used immediately, you can incorporate it later.
+It's recommended that [managed identities is enabled](/azure/aks/use-managed-identity#summary-of-managed-identities) so that the cluster can interact with external Azure resources through Microsoft Entra ID. You can enable this setting only during cluster creation. Even if Microsoft Entra ID isn't used immediately, you can incorporate it later.
 
 By default, there are two primary [identities](/azure/aks/use-managed-identity#summary-of-managed-identities) used by the cluster, the *cluster identity* and the *kubelet identity*. The *cluster identity* is used by the AKS control plane components to manage cluster resources including ingress load balancers, AKS managed public IPs, etc. The *kubelet identity* is used to authenticate with Azure Container Registry (ACR). Some add-ons also support authentication using a managed identity.
 
 As an example for the inside-out case, let's study the use of managed identities when the cluster needs to pull images from a container registry. This action requires the cluster to get the credentials of the registry. One way is to store that information in the form of Kubernetes Secrets object and use `imagePullSecrets` to retrieve the secret. That approach isn't recommended because of security complexities. Not only do you need prior knowledge of the secret but also disclosure of that secret through the DevOps pipeline. Another reason is the operational overhead of managing the rotation of the secret. Instead, grant `acrPull` access to the kubelet managed identity of the cluster to your registry. This approach addresses those concerns.
 
-In this architecture, the cluster accesses Azure resources that are secured by Azure AD and perform operations that support managed identities. Assign Azure role-based access control (Azure RBAC) and permissions to the cluster's managed identities, depending on the operations that the cluster intends to do. The cluster authenticates itself to Azure AD and then it's allowed or denied access based on the roles it has been assigned. Here are some examples from this reference implementation where Azure built-in roles have been assigned to the cluster:
+In this architecture, the cluster accesses Azure resources that are secured by Microsoft Entra ID and perform operations that support managed identities. Assign Azure role-based access control (Azure RBAC) and permissions to the cluster's managed identities, depending on the operations that the cluster intends to do. The cluster authenticates itself to Microsoft Entra ID and then it's allowed or denied access based on the roles it has been assigned. Here are some examples from this reference implementation where Azure built-in roles have been assigned to the cluster:
 
 - [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor). The cluster's ability to control the spoke virtual network. This role assignment allows AKS cluster system assigned identity to work with the dedicated subnet for the Internal Ingress Controller services.
 - [Monitoring Metrics Publisher](/azure/role-based-access-control/built-in-roles#monitoring-metrics-publisher). The cluster's ability to send metrics to Azure Monitor.
@@ -226,11 +228,13 @@ In this architecture, the cluster accesses Azure resources that are secured by A
 
 ### Cluster access
 
-Azure AD integration also simplifies security for outside-in access. Suppose a user wants to use kubectl. As an initial step, they run the `az aks get-credentials` command to get the credentials of the cluster. Azure AD will authenticate the user's identity against the Azure roles that are allowed to get cluster credentials. For more information, see [Available cluster roles permissions](/azure/aks/control-kubeconfig-access#available-cluster-roles-permissions).
+Microsoft Entra integration also simplifies security for outside-in access. Suppose a user wants to use kubectl. As an initial step, they run the `az aks get-credentials` command to get the credentials of the cluster. Microsoft Entra ID will authenticate the user's identity against the Azure roles that are allowed to get cluster credentials. For more information, see [Available cluster roles permissions](/azure/aks/control-kubeconfig-access#available-cluster-roles-permissions).
 
-AKS allows for Kubernetes access using Azure Active Directory in two ways. The first is using Azure Active Directory as an identity provider integrated with the native Kubernetes RBAC system. The other is using native Azure RBAC to control cluster access. Both are detailed below.
+AKS allows for Kubernetes access using Microsoft Entra ID in two ways. The first is using Microsoft Entra ID as an identity provider integrated with the native Kubernetes RBAC system. The other is using native Azure RBAC to control cluster access. Both are detailed below.
 
-#### Associate Kubernetes RBAC to Azure Active Directory
+<a name='associate-kubernetes-rbac-to-azure-active-directory'></a>
+
+#### Associate Kubernetes RBAC to Microsoft Entra ID
 
 Kubernetes supports role-based access control (RBAC) through:
 
@@ -238,27 +242,29 @@ Kubernetes supports role-based access control (RBAC) through:
 
 - Bindings that assign users and groups who are allowed to do the actions. Defined by a `RoleBinding` or `CluserRoleBinding` object.
 
-Kubernetes has some built-in roles such as cluster-admin, edit, view, and so on. Bind those roles to Azure Active Directory users and groups to use enterprise directory to manage access. For more information, see [Use Kubernetes RBAC with Azure AD integration](/azure/aks/azure-ad-rbac).
+Kubernetes has some built-in roles such as cluster-admin, edit, view, and so on. Bind those roles to Microsoft Entra users and groups to use enterprise directory to manage access. For more information, see [Use Kubernetes RBAC with Microsoft Entra integration](/azure/aks/azure-ad-rbac).
 
-Be sure your Azure AD groups used for cluster and namespace access are included in your [Azure AD access reviews](/azure/active-directory/governance/access-reviews-overview).
+Be sure your Microsoft Entra groups used for cluster and namespace access are included in your [Microsoft Entra access reviews](/azure/active-directory/governance/access-reviews-overview).
 
 #### Use Azure RBAC for Kubernetes authorization
 
-Instead of using Kubernetes native RBAC ([ClusterRoleBindings and RoleBindings](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding)) for authorization with integrated Azure AD authentication, another option that we recommend, is to use Azure RBAC and Azure role assignments to enforce authorization checks on the cluster. These role assignments can even be added at the subscription or resource group scopes so that all clusters under the scope inherit a consistent set of role assignments with respect to who has permissions to access the objects on the Kubernetes cluster.
+Instead of using Kubernetes native RBAC ([ClusterRoleBindings and RoleBindings](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding)) for authorization with integrated Microsoft Entra authentication, another option that we recommend, is to use Azure RBAC and Azure role assignments to enforce authorization checks on the cluster. These role assignments can even be added at the subscription or resource group scopes so that all clusters under the scope inherit a consistent set of role assignments with respect to who has permissions to access the objects on the Kubernetes cluster.
 
 For more information, see [Azure RBAC for Kubernetes Authorization](/azure/aks/manage-azure-rbac).
 
 #### Local accounts
 
-AKS supports native [Kubernetes user authentication](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#users-in-kubernetes). User access to clusters using this method is not suggested. It is certificate-based and is performed external to your primary identity provider; making centralized user access control and governance difficult. Always manage access to your cluster using Azure Active Directory, and configure your cluster to explicitly disable local account access.
+AKS supports native [Kubernetes user authentication](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#users-in-kubernetes). User access to clusters using this method is not suggested. It is certificate-based and is performed external to your primary identity provider; making centralized user access control and governance difficult. Always manage access to your cluster using Microsoft Entra ID, and configure your cluster to explicitly disable local account access.
 
 In this reference implementation, access via local cluster accounts is explicitly disabled when the cluster is deployed.
 
-## Integrate Azure Active Directory for the workload
+<a name='integrate-azure-active-directory-for-the-workload'></a>
 
-Similar to having an Azure system-assigned managed identity for the entire cluster, you can assign managed identities at the pod level. A workload identity allows the hosted workload to access resources through Azure Active Directory. For example, the workload stores files in Azure Storage. When it needs to access those files, the pod will authenticate itself against the resource as an Azure managed identity.
+## Integrate Microsoft Entra ID for the workload
 
-In this reference implementation, managed identities for pods is provided through [Azure AD workload identity on AKS](/azure/aks/workload-identity-overview). This integrates with the Kubernetes native capabilities to federate with external identity providers. For more information about Azure AD workload identity federation, see the following [overview](/azure/active-directory/develop/workload-identity-federation).
+Similar to having an Azure system-assigned managed identity for the entire cluster, you can assign managed identities at the pod level. A workload identity allows the hosted workload to access resources through Microsoft Entra ID. For example, the workload stores files in Azure Storage. When it needs to access those files, the pod will authenticate itself against the resource as an Azure managed identity.
+
+In this reference implementation, managed identities for pods is provided through [Microsoft Entra Workload ID on AKS](/azure/aks/workload-identity-overview). This integrates with the Kubernetes native capabilities to federate with external identity providers. For more information about Microsoft Entra Workload ID federation, see the following [overview](/azure/active-directory/develop/workload-identity-federation).
 
 ## Deploy Ingress resources
 
@@ -287,7 +293,7 @@ The ingress controller is a critical component of cluster. Consider these points
 > [!NOTE]
 > The choice for the appropriate ingress controller is driven by the requirements the workload, the skill set of the operator, and the supportability of the technology options. Most importantly, the ability to meet your SLO expectation.
 >
-> Traefik is a popular open-source option for a Kubernetes cluster and is chosen in this architecture for _illustrative_ purposes. It shows third-party product integration with Azure services. For example, the implementation shows how to integrate Traefik with Azure AD workload identity and Azure Key Vault.
+> Traefik is a popular open-source option for a Kubernetes cluster and is chosen in this architecture for _illustrative_ purposes. It shows third-party product integration with Azure services. For example, the implementation shows how to integrate Traefik with Microsoft Entra Workload ID and Azure Key Vault.
 >
 > Another choice is Azure Application Gateway Ingress Controller, and it's well integrated with AKS. Apart from its capabilities as an ingress controller, it offers other benefits. For example, Application Gateway acts as the virtual network entry point of your cluster. It can observe traffic entering the cluster. If you have an application that requires WAF, Application Gateway is a good choice because it's integrated with WAF. Also, it provides the opportunity to do TLS termination.
 
@@ -610,7 +616,7 @@ With AKS, Azure manages some core Kubernetes services and the logs for the AKS c
 - Logging on the **ClusterAutoscaler** to gain observability into the scaling operations. For more information, see [Retrieve cluster autoscaler logs and status](/azure/aks/cluster-autoscaler#retrieve-cluster-autoscaler-logs-and-status).
 - **KubeControllerManager** to have observability into the interaction between Kubernetes and the Azure control plane.
 - **KubeAuditAdmin** to have observability into activities that modify your cluster.  There is no reason to have both **KubeAudit** and **KubeAuditAdmin** both enabled, as **KubeAudit** is a superset of **KubeAuditAdmin** that includes non-modify (read) operations as well.
-- **Guard** captures Azure Active Directory and Azure RBAC audits.
+- **Guard** captures Microsoft Entra ID and Azure RBAC audits.
 
 Other log categories, such as **KubeScheduler** or **KubeAudit**, may be very helpful to enable during early cluster or workload lifecycle development, where added cluster autoscaling, pod placement & scheduling, and similar data could help troubleshoot cluster or workload operations concerns. Keeping the extended troubleshooting logs on full time, once the troubleshooting needs are over, might be considered an unnecessary cost to ingest and store in Azure Monitor.
 
@@ -656,7 +662,7 @@ Monitor your container infrastructure for both active threats and potential secu
 
 ## Cluster and workload operations (DevOps)
 
-Here are some considerations. For more information, see the [Operational Excellence](/azure/architecture/framework/devops/release-engineering-cd) pillar.
+Here are some considerations. For more information, see the [Operational Excellence](/azure/well-architected/operational-excellence/principles) pillar.
 
 ### Cluster bootstrapping
 
@@ -683,7 +689,7 @@ Divide the workload by teams and types of resources to individually manage each 
 
 Start with a basic workload that contains the fundamental components and build on it. An initial task would be to configure networking. Provision virtual networks for the hub and spoke and subnets within those networks. For instance, the spoke has separate subnets for system and user node pools, and ingress resources. A subnet for Azure Firewall in the hub.
 
-Another portion could be to integrate the basic workload with Azure Active Directory.
+Another portion could be to integrate the basic workload with Microsoft Entra ID.
 
 ### Use Infrastructure as Code (IaC)
 
@@ -751,6 +757,8 @@ Advanced deployment techniques such as [Blue-green deployment](https://martinfow
 ## Cost management
 
 Start by reviewing the cost optimization design checklist and list of recommendations outlined in the [Well Architected Framework for AKS](/azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service#cost-optimization). Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for the services used in the architecture. Other best practices are described in the [Cost Optimization](/azure/architecture/framework/cost/overview) section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview).
+
+Consider enabling [AKS cost analysis](/azure/aks/cost-analysis) for granular cluster infrastructure cost allocation by Kubernetes specific constructs.
 
 To review cost management considerations specific to Windows-based workloads included in the Windows containers on AKS baseline reference architecture, see the [companion article](./windows-containers-on-aks.yml#cost-management).
 

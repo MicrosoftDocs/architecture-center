@@ -69,7 +69,7 @@ The following recommendations apply to most scenarios. Follow these recommendati
 
 This example solution uses a single Azure resource group. You can also implement the hub and each spoke in different resource groups and subscriptions.
 
-When you peer virtual networks in different subscriptions, you can associate the subscriptions to the same or different Azure Active Directory (Azure AD) tenants. This flexibility allows for decentralized management of each workload while maintaining shared services in the hub. See [Create a virtual network peering - Resource Manager, different subscriptions, and Azure AD tenants](/azure/virtual-network/create-peering-different-subscriptions).
+When you peer virtual networks in different subscriptions, you can associate the subscriptions to the same or different Microsoft Entra tenants. This flexibility allows for decentralized management of each workload while maintaining shared services in the hub. See [Create a virtual network peering - Resource Manager, different subscriptions, and Microsoft Entra tenants](/azure/virtual-network/create-peering-different-subscriptions).
 
 As a general rule, it's best to have at least one hub per region. This configuration helps avoid a single point of failure, for example to avoid Region A resources being affected at the network level by an outage in Region B.
 
@@ -162,7 +162,7 @@ Example Virtual Network Manager use case scenarios include:
 - Democratization of spoke virtual network management to groups such as business units or application teams. Democratization can result in large numbers of virtual network-to-virtual network connectivity and network security rules requirements.
 - Standardization of multiple replica architectures in multiple Azure regions to ensure a global footprint for applications.
 
-To ensure uniform connectivity and network security rules, you can use [network groups](/azure/virtual-network-manager/concept-network-groups) to group virtual networks in any subscription, management group, or region under the same Azure AD tenant. You can automatically or manually onboard virtual networks to network groups through dynamic or static membership assignments.
+To ensure uniform connectivity and network security rules, you can use [network groups](/azure/virtual-network-manager/concept-network-groups) to group virtual networks in any subscription, management group, or region under the same Microsoft Entra tenant. You can automatically or manually onboard virtual networks to network groups through dynamic or static membership assignments.
 
 You define discoverability of the virtual networks that Virtual Network Manager manages by using [Scopes](/azure/virtual-network-manager/concept-network-manager-scope). This feature provides flexibility for a desired number of network manager instances, which allows further management democratization for virtual network groups.
 
@@ -188,7 +188,7 @@ To ensure a baseline set of security rules, make sure to associate [security adm
 
 Use Virtual Network Manager [deployments](/azure/virtual-network-manager/concept-deployments) to facilitate controlled rollout of potentially breaking changes to network group security rules.
 
-[Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+[Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
 ### Cost optimization
 

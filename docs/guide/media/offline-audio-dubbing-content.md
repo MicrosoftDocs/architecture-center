@@ -23,7 +23,7 @@ This architecture shows a pipeline that performs human-assisted speech-to-speech
 1. **Timing adjustment and SSML file production:** The audio segments in source and target languages might be of different lengths, and the specifics for each language might differ. The pipeline adjusts the timing and positioning of the speech within the target output stream to be truthful to the source audio but still sound natural in the target language. It converts the output speech to an SSML file. It also matches the audio segments to the right speaker and provides the right tone and emotions. The pipeline produces one SSML file as output for the input audio. The SSML file is stored in Azure Storage. It highlights segments that might benefit from human revision, for both placement and rate.
 1. **Merge:** FFmpeg adds the generated WAV file to the video stream to produce a final output. The subtitles that are generated in this pipeline can be added to the video.
 1. **Azure Storage:** The pipeline uses Azure Storage to store and retrieve content as it's produced and processed. Intermediate files are editable if you need to correct errors at any stage. You can restart the pipeline from different modules to improve the final output via human verification.
-1. **Platform:** The platform components complete the pipeline, enabling enhanced security, access rights, and logging. Azure Active Directory (Azure AD) and Azure Key Vault regulate access and store secrets. You can enable Application Insights to perform logging for debugging.
+1. **Platform:** The platform components complete the pipeline, enabling enhanced security, access rights, and logging. Microsoft Entra ID and Azure Key Vault regulate access and store secrets. You can enable Application Insights to perform logging for debugging.
 
 The pipeline is aware of errors. This awareness is significant when the language or speaker changes. The key to getting the right speech-to-text and translation output is understanding the context of the speech. You might need to check and correct the output text after each step. For certain use cases, the pipeline can perform automatic dubbing, but it's not optimized for real-time speech-to-speech dubbing. In offline mode, the full audio is processed before the pipeline continues. This enables each module to run for the full length of the audio and aligns with module design.
 
@@ -209,9 +209,9 @@ However, multiple audio segments in the target audio might overlap. The goal of 
 
 - offset<sub>t</sub><sup>i</sup> > offset<sub>t</sub><sup>(i-1)</sup> + t<sub>t</sub><sup>(i-1)</sup>. In this scenario, both segments fit within the pause assigned between them in the original audio with no issues.
 - offset<sub>t</sub><sup>i</sup> = offset<sub>t</sub><sup>(i-1)</sup> + t<sub>t</sub><sup>(i-1)</sup>. In this scenario, there's no pause between two consecutive audio segments in the target language. Add a small offset (enough for one word in the language) to the offset<sub>t</sub><sup>i</sup> (&#916;t<sub>t</sub>). (&#916;t<sub>t</sub>) is to avoid continuous audio in the target audio that isn't present in the original.
-- offset<sub>t</sub><sup>i</sup> < offset<sub>t</sub><sup>(i-1)</sup> + t<sub>t</sub><sup>(i-1)</sup>. In this case, the two audio segments overlap. There are two possible scenarios: 
-	- offset<sub>s</sub><sup>(i-1)</sup> + t<sub>s</sub><sup>(i-1)</sup> < median \{offset<sub>s</sub><sup>(i-1)</sup> \+ t<sub>s</sub><sup>(i-1)</sup>\}&#8704;i. In this case, the pause is shorter than the nominal pause in the video. You can shift the translated text to resolve the problem. You can assume that the longer pauses make up for the overlap. Therefore, offset<sub>t</sub><sup>i</sup> = offset<sub>t</sub><sup>(i-1)</sup> + t<sub>t</sub><sup>(i-1)</sup> + &#916;t<sub>t</sub>.
-	- offset<sub>s</sub><sup>(i-1)</sup> + t<sub>s</sub><sup>(i-1)</sup> > median \{offset<sub>s</sub><sup>(i-1)</sup> \+ t<sub>s</sub><sup>(i-1)</sup>\}&#8704;i. In this case, the pause is longer than the nominal pause in the video, but it doesn't fit the translated audio. You can use the rate to adjust the segment to be more appropriately timed. You can use this equation to calculate the new rate: rate<sub>t</sub><sup>i</sup> = rate<sub>t</sub><sup>i</sup> * (((offset<sub>t</sub><sup>(i-1)</sup> + t<sub>t</sub><sup>(i-1)</sup>) - offset<sub>t</sub><sup>i</sup>) + t<sub>t</sub><sup>i</sup> + &#916;t<sub>t</sub> )/( t<sub>t</sub><sup>i</sup>).
+- offset<sub>t</sub><sup>i</sup> < offset<sub>t</sub><sup>(i-1)</sup> + t<sub>t</sub><sup>(i-1)</sup>. In this case, the two audio segments overlap. There are two possible scenarios:
+  - offset<sub>s</sub><sup>(i-1)</sup> + t<sub>s</sub><sup>(i-1)</sup> < median \{offset<sub>s</sub><sup>(i-1)</sup> \+ t<sub>s</sub><sup>(i-1)</sup>\}&#8704;i. In this case, the pause is shorter than the nominal pause in the video. You can shift the translated text to resolve the problem. You can assume that the longer pauses make up for the overlap. Therefore, offset<sub>t</sub><sup>i</sup> = offset<sub>t</sub><sup>(i-1)</sup> + t<sub>t</sub><sup>(i-1)</sup> + &#916;t<sub>t</sub>.
+  - offset<sub>s</sub><sup>(i-1)</sup> + t<sub>s</sub><sup>(i-1)</sup> > median \{offset<sub>s</sub><sup>(i-1)</sup> \+ t<sub>s</sub><sup>(i-1)</sup>\}&#8704;i. In this case, the pause is longer than the nominal pause in the video, but it doesn't fit the translated audio. You can use the rate to adjust the segment to be more appropriately timed. You can use this equation to calculate the new rate: rate<sub>t</sub><sup>i</sup> = rate<sub>t</sub><sup>i</sup> * (((offset<sub>t</sub><sup>(i-1)</sup> + t<sub>t</sub><sup>(i-1)</sup>) - offset<sub>t</sub><sup>i</sup>) + t<sub>t</sub><sup>i</sup> + &#916;t<sub>t</sub> )/( t<sub>t</sub><sup>i</sup>).
 
 Implementing this process might cause the last segment to run longer than the time of the original audio, especially if the video ends at the end of the original audio but the target audio is longer. In this situation, you have two choices: 
 - Let the audio run longer.
@@ -369,7 +369,7 @@ interventions = CalculateInterventionReasons(speechOutputSegment.LexicalText, fi
         };
         if (interventions != null && interventions.Count > 0)
         {
-    	    correctionSegment.InterventionNeeded = true;
+            correctionSegment.InterventionNeeded = true;
             correctionSegment.InterventionReasons = interventions;
         }
         else
@@ -467,4 +467,4 @@ Other contributors:
 ## Related resources
 
 - [Choose an Azure Cognitive Services technology](../../data-guide/technology-choices/cognitive-services.md)
-- [Implement custom speech-to-text](../../guide/ai/custom-speech-text.yml)
+- [Implement custom speech-to-text](../../ai-ml/guide/custom-speech-text.yml)

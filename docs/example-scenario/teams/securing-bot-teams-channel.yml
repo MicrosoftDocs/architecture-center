@@ -15,7 +15,7 @@ metadata:
 azureCategories:
   - security
 products:
-  - azure-web-apps
+  - azure-app-service
   - azure-web-application-firewall
 name: Help secure your Microsoft Teams channel bot and web app behind a firewall
 summary: Help secure the connection to a Microsoft Teams channel bot’s web app by using Azure Private Link and Azure Private Endpoint.

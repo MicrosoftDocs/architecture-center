@@ -21,7 +21,7 @@ azureCategories:
   - management-and-governance
 summary: Learn how to design a hybrid Windows Admin Center solution to manage workloads that are hosted on-premises and in Microsoft Azure.
 products:
-  - azure-active-directory
+  - entra-id
   - azure-key-vault
   - azure-portal
   - azure-virtual-machines
