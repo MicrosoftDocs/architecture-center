@@ -174,7 +174,7 @@ The following sections present a breakdown of Contoso activity necessary across 
         - Azure Regional Failure: Contoso would need to deploy and [restore](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-restore-from-geo-backup) the Data Platform Azure Synapse Analytics into the secondary region and redeploy the pipelines
     - Notes
         - Automatic restore points are [deleted after seven days](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#restore-point-retention)
-        - [User-defined restore points](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#user-defined-restore-points) are available. Currently (Mar 2023), there's a ceiling of 42 user-defined restore points that are automatically [deleted after seven days](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#restore-point-retention)
+        - [User-defined restore points](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#user-defined-restore-points) are available. Currently, there's a ceiling of 42 user-defined restore points that are automatically [deleted after seven days](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#restore-point-retention)
         - Synapse can also perform a DB restore in the local or remote region, and then immediately PAUSE the instance. This process will only incur storage costs – and have zero compute costs. This offers a way to keep a ”live” DB copy at specific intervals
 
 - **Azure Event Hubs**
@@ -205,7 +205,7 @@ The following sections present a breakdown of Contoso activity necessary across 
     - Notes
         - A key feature of Stream Analytics is its ability to recover from [Node failure](/azure/stream-analytics/stream-analytics-concepts-checkpoint-replay#job-recovery-from-node-failure-including-os-upgrade)
 
-- **Azure Cognitive Services**
+- **Azure AI services (formerly Cognitive Services)**
     - Contoso SKU selection: Pay As You Go
     - DR Impact
         - Azure Data Center Failure: N/A
@@ -248,7 +248,7 @@ The following sections present a breakdown of Contoso activity necessary across 
         - Azure Regional Failure: Contoso would need to deploy and [restore](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-restore-from-geo-backup) the Data Platform Azure Synapse Analytics into the secondary region 
     - Notes
         - Automatic restore points are [deleted after seven days](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#restore-point-retention)
-        - [User-defined restore points](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#user-defined-restore-points) are available. Currently (Mar 2023), there's a ceiling of 42 user-defined restore points that are automatically [deleted after seven days](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#restore-point-retention)
+        - [User-defined restore points](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#user-defined-restore-points) are available. Currently, there's a ceiling of 42 user-defined restore points that are automatically [deleted after seven days](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#restore-point-retention)
         - Synapse can also perform a DB restore in the local or remote region, and then immediately PAUSE the instance.  This will only incur storage costs – and have zero compute costs. This solution offers a way to keep a ”live” DB copy at specific intervals
 
 - **Power BI**
@@ -271,15 +271,15 @@ The following sections present a breakdown of Contoso activity necessary across 
         - [Single-region accounts may lose availability](/azure/cosmos-db/high-availability#availability) following a regional outage. To ensure high availability of your Cosmos DB instance, configure it with a single write region and at least a second (read) region and enable Service-Managed failover
         - To avoid the loss of write availability, it advised that production workloads are configured with "enable service-managed failover", enabling automatic failover to [available regions](/azure/cosmos-db/high-availability#availability)
 
-- **Azure Cognitive Search**
+- **Azure AI Search (formerly Cognitive Search)**
     - Contoso SKU selection: Standard S1
     - DR Impact
         - Azure Data Center Failure: Contoso would need to validate availability and redeploy if necessary
         - Availability Zone Failure: Contoso would need to validate availability and redeploy if necessary
-        - Azure Regional Failure: Contoso would need to redeploy the Cognitive Search into the secondary region
+        - Azure Regional Failure: Contoso would need to redeploy AI Search into the secondary region
     - Notes
         - there's [no built-in mechanism for disaster recovery](/azure/search/search-performance-optimization#disaster-recovery-and-service-outages)
-        - Implementing multiple Cognitive Search replicas across [availability zones](/azure/search/search-performance-optimization#availability-zones) will address the data center outage risk 
+        - Implementing multiple AI Search replicas across [availability zones](/azure/search/search-performance-optimization#availability-zones) will address the data center outage risk 
 
 - **Azure Data Share**
     - Contoso SKU selection: N/A
