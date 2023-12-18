@@ -87,11 +87,7 @@ This approach can be used for:
 
 ### Potential use cases
 
-This solution is optimal for the finance industry.
-
-The following examples are intended for existing SWIFT customers, and can be used for the following scenarios:
-
-- Migrating Alliance Access from on-premises to Azure
+This solution is optimal for the finance industry. It's intended for existing SWIFT customers and can be used when migrating Alliance Access from on-premises to Azure.
 
 ## Considerations
 
