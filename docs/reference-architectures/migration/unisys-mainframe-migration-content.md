@@ -149,12 +149,8 @@ Principal author:
 
 - [Cloud Adoption Framework](/azure/cloud-adoption-framework/overview)
 - [Create, change, or delete a network interface](/azure/virtual-network/virtual-network-network-interface)
-- [Azure ExpressRoute](/azure/expressroute/expressroute-introduction)
-- [Azure Files](/azure/storage/files/storage-files-introduction)
-- [Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview)
-- [Azure Setup Guide](/azure/cloud-adoption-framework/ready/azure-setup-guide)
-- [Azure Virtual Networks](/azure/virtual-network/virtual-networks-overview)
-- [Migration Best Practices](/azure/cloud-adoption-framework/migrate/azure-best-practices)
+- [Azure setup guide](/azure/cloud-adoption-framework/ready/azure-setup-guide)
+- [Migration best practices](/azure/cloud-adoption-framework/migrate/azure-best-practices)
 - [Avanade](https://avanade.com)
 
 For more information, please contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
