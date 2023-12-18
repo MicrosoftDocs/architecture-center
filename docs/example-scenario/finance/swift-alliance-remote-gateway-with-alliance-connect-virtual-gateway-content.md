@@ -1,7 +1,7 @@
 > [!NOTE]
 > For updates on SWIFT product availability in the cloud, see the [SWIFT website](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect-virtual).
 
-This article provides an overview of deploying SWIFT's Alliance Remote Gateway(ARG) on Azure. Alliance Remote Gateway is a secure cloud-based service that enables Alliance Access customers to outsource their Alliance Gateway operations to SWIFT, while retaining full control over their Alliance Access and Alliance Entry systems.The overall solution can be deployed using single Azure subscription. But for the better management and governance of the overall solution, we recommend to use two different Azure subscriptions:
+This article provides an overview of deploying SWIFT's Alliance Remote Gateway (ARG) on Azure. Alliance Remote Gateway is a secure, cloud-based service. It enables Alliance Access customers to outsource their Alliance Gateway operations to SWIFT while retaining full control over their Alliance Access and Alliance Entry systems. You can deploy the solution using single Azure subscription. However, for better management and governance of the overall solution, we recommend you use two different Azure subscriptions:
 - One subscription contains the SWIFT Alliance Access components. 
 - The other subscription contains the resources to connect to SWIFT's network via Alliance Connect Virtual.
 
