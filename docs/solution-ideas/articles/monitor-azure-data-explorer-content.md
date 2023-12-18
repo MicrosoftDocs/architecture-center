@@ -2,14 +2,14 @@
 
 Microsoft Sentinel, Azure Monitor, and Azure Data Explorer are based on a common technology and use Kusto Query Language (KQL) to analyze large volumes of data streamed in from multiple sources in near-real time.
 
-This solution demonstrates how to leverage the tight integration between Microsoft Sentinel, Azure Monitor, and Azure Data Explorer to consolidate a single interactive data estate and augment your monitoring and analytics capabilities. 
+This solution demonstrates how to take advantage of the tight integration between Microsoft Sentinel, Monitor, and Azure Data Explorer to consolidate a single interactive data estate and augment your monitoring and analytics capabilities. 
 
 > [!NOTE]
 > This solution applies to Azure Data Explorer and also to [Real-Time Analytics KQL databases](/fabric/real-time-analytics/create-database), which provide SaaS-grade real-time log, time-series, and advanced analytics capabilities as part of [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview). 
 
 ## Architecture
 
-:::image type="content" source="../media/azure-augmented-monitoring-analytics.svg" alt-text="Augmented monitoring and analytics solution with Azure Monitor, Microsoft Sentinel, and Azure Data Explorer." lightbox="../media/azure-augmented-monitoring-analytics.svg" border="false":::
+:::image type="content" source="../media/azure-augmented-security-monitoring-analytics.svg" alt-text="Augmented monitoring and analytics solution that uses Monitor, Microsoft Sentinel, and Azure Data Explorer." lightbox="../media/azure-augmented-security-monitoring-analytics.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/monitor-azure-data-explorer.vsdx) of this architecture.*
 
