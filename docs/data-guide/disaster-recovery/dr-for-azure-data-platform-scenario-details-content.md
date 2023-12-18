@@ -205,7 +205,7 @@ The following sections present a breakdown of Contoso activity necessary across 
     - Notes
         - A key feature of Stream Analytics is its ability to recover from [Node failure](/azure/stream-analytics/stream-analytics-concepts-checkpoint-replay#job-recovery-from-node-failure-including-os-upgrade)
 
-- **Azure AI Services (formerly Cognitive Services)**
+- **Azure AI services (formerly Cognitive Services)**
     - Contoso SKU selection: Pay As You Go
     - DR Impact
         - Azure Data Center Failure: N/A
