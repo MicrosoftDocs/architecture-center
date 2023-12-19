@@ -18,7 +18,7 @@ This solution demonstrates how to take advantage of the tight integration betwee
 
 ### Dataflow
 
-1. Ingest data by using the combined ingestion capabilities of [Microsoft Sentinel](/azure/sentinel/connect-data-sources), [Monitor](/azure/azure-monitor/essentials/data-collection), and [Azure Data Explorer](/azure/data-explorer/ingest-data-overview):
+1. Ingest data by using the combined ingestion capabilities of [Microsoft Sentinel](/azure/sentinel/connect-data-sources), [Azure Monitor](/azure/azure-monitor/essentials/data-collection), and [Azure Data Explorer](/azure/data-explorer/ingest-data-overview):
 
     - Configure diagnostic settings to ingest data from Azure services like Azure Kubernetes Service (AKS), Azure App Service, Azure SQL Database, and Azure Storage.
     - Use Azure Monitor Agent to ingest data from VMs, containers, and workloads.
