@@ -22,7 +22,7 @@ ms.custom:
 
 # Multitenancy and Azure SQL Database
 
-Multitenant solutions on Azure commonly use Azure SQL Database. On this page, we describe some of the features of Azure SQL Database that are useful when you design a multitenant system, and we link to guidance and examples for how to use Azure SQL in a multitenant solution.
+Multitenant solutions on Azure commonly use Azure SQL Database. On this page, we describe some of the features of Azure SQL Database that are useful when you design a multitenant system. We also link to guidance and examples for how to use Azure SQL in a multitenant solution.
 
 ## Guidance
 
@@ -44,7 +44,7 @@ More information:
 
 ### Elastic database tools
 
-The [Sharding pattern](../../../patterns/sharding.yml) enables you to scale your workload across multiple databases. Azure SQL Database provides tools to support sharding. These tools include the management of *shard maps* (a database that tracks the tenants assigned to each shard), as well as initiating and tracking queries and management operations on multiple shards by using *elastic jobs*.
+The [Sharding pattern](../../../patterns/sharding.yml) enables you to scale your workload across multiple databases. Azure SQL Database provides tools to support sharding. These tools include the management of *shard maps* (a database that tracks the tenants assigned to each shard). THey also include initiating and tracking queries and management operations on multiple shards by using *elastic jobs*.
 
 More information:
 
@@ -97,5 +97,5 @@ Review [storage and data approaches for multitenancy](../approaches/storage-data
 
 * [Data partitioning strategies for Azure SQL Database](../../../best-practices/data-partitioning-strategies.yml#partitioning-azure-sql-database)
 * **Case study:** [Running 1M databases on Azure SQL for a large SaaS provider: Microsoft Dynamics 365 and Power Platform](https://devblogs.microsoft.com/azure-sql/running-1m-databases-on-azure-sql-for-a-large-saas-provider-microsoft-dynamics-365-and-power-platform/)
-* **Sample:** The [Wingtip Tickets SaaS application](/azure/azure-sql/database/saas-tenancy-welcome-wingtip-tickets-app) provides three multi-tenant examples of the same app; each explores a different database tenancy pattern on Azure SQL Database. The first uses a standalone application, per tenant with its own database. The second uses a multi-tenant app with a database, per tenant. The third sample uses a multi-tenant app with sharded multi-tenant databases.
+* **Sample:** The [Wingtip Tickets SaaS application](/azure/azure-sql/database/saas-tenancy-welcome-wingtip-tickets-app) provides three multitenant examples of the same app; each explores a different database tenancy pattern on Azure SQL Database. The first uses a standalone application, per tenant with its own database. The second uses a multitenant app with a database, per tenant. The third sample uses a multitenant app with sharded multitenant databases.
 * **Video:** [Multitenant design patterns for SaaS applications on Azure SQL Database](https://www.youtube.com/watch?v=jjNmcKBVjrc)
