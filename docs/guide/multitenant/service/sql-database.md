@@ -1,7 +1,7 @@
 ---
 title: Azure SQL Database considerations for multitenancy
 titleSuffix: Azure Architecture Center
-description: This article describes the features of Azure SQL Database that are useful when working with multitenant systems, and links to guidance and examples for how to use Azure SQL in a multitenant solution.
+description: This article describes the features of Azure SQL Database that are useful when you design a multitenant system, and links to guidance and examples for how to use Azure SQL in a multitenant solution.
 author: johndowns
 ms.author: jodowns
 ms.date: 12/19/2023
@@ -22,19 +22,19 @@ ms.custom:
 
 # Multitenancy and Azure SQL Database
 
-Multitenant solutions on Azure commonly use Azure SQL Database. On this page, we describe some of the features of Azure SQL Database that are useful when working with multitenant systems, and we link to guidance and examples for how to use Azure SQL in a multitenant solution.
+Multitenant solutions on Azure commonly use Azure SQL Database. On this page, we describe some of the features of Azure SQL Database that are useful when you design a multitenant system, and we link to guidance and examples for how to use Azure SQL in a multitenant solution.
 
 ## Guidance
 
-The Azure SQL Database team has published extensive guidance on implementing multitenant architectures with Azure SQL Database. See [Multi-tenant SaaS patterns with Azure SQL Database](/azure/azure-sql/database/saas-tenancy-app-design-patterns). Also, consider the guidance for [partitioning Azure SQL databases](../../../best-practices/data-partitioning-strategies.yml#partitioning-azure-sql-database).
+The Azure SQL Database team publishes extensive guidance on implementing multitenant architectures with Azure SQL Database. See [Multi-tenant SaaS patterns with Azure SQL Database](/azure/azure-sql/database/saas-tenancy-app-design-patterns). Also, consider the guidance for [partitioning Azure SQL databases](../../../best-practices/data-partitioning-strategies.yml#partitioning-azure-sql-database).
 
 ## Features of Azure SQL Database that support multitenancy
 
-Azure SQL Database includes a number of features that support multitenancy.
+Azure SQL Database includes many features that support multitenancy.
 
 ### Elastic pools
 
-Elastic pools enable you to share compute resources between a number of databases on the same server. By using elastic pools, you can achieve performance elasticity for each database, while also achieving cost efficiency by sharing your provisioned resources across databases. Elastic pools provide built-in protections against the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml).
+Elastic pools enable you to share compute resources between many databases on the same server. By using elastic pools, you can achieve performance elasticity for each database, while also achieving cost efficiency by sharing your provisioned resources across databases. Elastic pools provide built-in protections against the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml).
 
 More information:
 
