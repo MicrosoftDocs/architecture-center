@@ -12,7 +12,7 @@ metadata:
   ms.category:
     - analytics
     - iot
-name: Augment security, observability, and analytics by using Microsoft Sentinel, Monitor, and Azure Data Explorer
+name: Augment security, observability, and analytics by using Microsoft Sentinel, Azure Monitor, and Azure Data Explorer
 azureCategories:
   - analytics
   - iot
