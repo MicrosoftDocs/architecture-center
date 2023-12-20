@@ -13,7 +13,7 @@ The architecture consists of the following components:
 - **Microsoft Entra tenant**. This component is an instance of Microsoft Entra that's created by your organization. It acts as a directory service for cloud applications, by storing objects that are copied from the on-premises Active Directory. It also provides identity services when accessing Azure file shares.
 - **AD DS server**. This component is an on-premises directory and identity service. The AD DS directory is synchronized with Microsoft Entra ID to enable it to authenticate on-premises users.
 - **Microsoft Entra Connect Sync server**. This component is an on-premises server that runs the Microsoft Entra Connect Sync service. This service synchronizes information held in the on-premises Active Directory to Microsoft Entra ID.
-- **Virtual network gateway**. This optional component is used to send encrypted traffic between a Azure Virtual Network and an on-premises location over the internet.
+- **Virtual network gateway**. This optional component is used to send encrypted traffic between an Azure Virtual Network and an on-premises location over the internet.
 - **Azure file shares**. Azure file shares provide storage for files and folders that you can access over Server Message Block (SMB), Network File System (NFS), and Hypertext Transfer Protocol (HTTP) protocols. File shares are deployed into Azure storage accounts.
 - **Recovery Services Vault**. This optional component provides Azure file shares backup.
 - **Clients**. These components are AD DS member computers, from which users can access Azure file shares.
