@@ -81,7 +81,7 @@ With a *zone-redundant* architecture, Azure automatically replicates a resource 
 
 For example, when you configure an Azure Storage account to use zone-redundant storage (ZRS), Azure replicates the data in your storage account across multiple zones. ZRS means that a zone failure doesn't impact the availability of the data.
 
-In general, zone-redundant configuration is supported by platform as a service (PaaS) services, including Azure Storage, Azure Service Bus, Azure Application Gateway, virtual private network (VPN) gateways, Azure ExpressRoute gateways, Azure Event Hubs, Azure Cosmos DB. Standard load balancers also support zone redundancy, as illustrated in the following figure:
+In general, zone-redundant configuration is supported by platform as a service (PaaS) services, including Azure Storage, Azure Service Bus, Azure Application Gateway, virtual private network (VPN) gateways, Azure ExpressRoute gateways, Azure Event Hubs, Azure Cosmos DB, Azure SQL (both Azure SQL Database and Azure SQL Managed Instance). Standard load balancers also support zone redundancy, as illustrated in the following figure:
 
 ![Diagram showing a zone-redundant load balancer.](./images/high-availability-003.png)
 
