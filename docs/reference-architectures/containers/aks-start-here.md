@@ -1,10 +1,10 @@
 ---
-title: Azure Kubernetes Service (AKS) design
+title: Azure Kubernetes Service (AKS) - planning
 titleSuffix: Azure Architecture Center
 description: An overview of Microsoft Azure Kubernetes Service (AKS) guidance offerings ranging from &quot;just starting out&quot;, to production, and through sustained operations.
 author: ckittel
 ms.author: chkittel
-ms.date: 07/28/2022
+ms.date: 12/13/2023
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -17,7 +17,7 @@ ms.custom:
   - e2e-aks
 ---
 
-# Azure Kubernetes Service (AKS) architecture design
+# Azure Kubernetes Service (AKS) - Plan your design and operations
 
 Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications. [Azure Kubernetes Service (AKS)](/azure/aks/) makes it simple to deploy a managed Kubernetes cluster in Azure.
 
