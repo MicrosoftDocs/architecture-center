@@ -35,11 +35,11 @@ This guide aims to help you select a container service while instilling confiden
 
 ## Azure container services in scope for this guide
 
-This guide will focus on a subset of the container services which Azure currently offers. This subset offers a mature feature set around web applications and APIs, networking, observability, developer tools, and operations. Focus will be given to the container services:
+This guide will focus on a subset of the container services which Azure currently offers. This subset offers a mature feature set around web applications and APIs, networking, observability, developer tools, and operations. Focus will be given to the container services: 
 
-|||
+||<!-- -->|
 |-|-|
-|![Container Apps logo](media/images/container-apps.svg)|[Azure Container Apps](https://azure.microsoft.com/products/container-apps) is a fully managed Kubernetes-based application platform that helps you deploy http and non-http apps from code or containers without orchestrating complex infrastructure. For details, see [ACA documentation](/azure/container-apps).|
+|![Container Apps logo](media/images/container-apps.png)|[Azure Container Apps](https://azure.microsoft.com/products/container-apps) is a fully managed Kubernetes-based application platform that helps you deploy http and non-http apps from code or containers without orchestrating complex infrastructure. For details, see [ACA documentation](/azure/container-apps).|
 |![](media/image4.svg)|[Azure Kubernetes Service (AKS)](https://azure.microsoft.com/products/kubernetes-service) is a managed Kubernetes service for running containerized applications. Leverage managed [add-ons and extensions](/azure/aks/integrations) for additional capabilities while preserving the broadest level of flexibility and control. For details, see [AKS documentation](/azure/aks/).|
 |image|  [Web App for Containers](https://azure.microsoft.com/products/app-service/containers) is an offering of Azure App Service, a fully managed service for hosting http-based web apps with built-in infrastructure maintenance, security patching, scaling, diagnostic tooling and more. For details, see [App Service documentation](/azure/app-service/).|
 
