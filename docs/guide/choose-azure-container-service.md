@@ -1,23 +1,33 @@
 ---
-title: Choose an Azure container service
-author: Julie Ng
-ms.date: 12/22/2023
+title: Choose an Azure container service 
+description: Understand how to evaluate container services on Azure, based on your specific workload scenarios and requirements.  
+author: julie-ng
+ms.author: julng
+ms.date: 12/29/2023
+ms.topic: conceptual
+ms.service: architecture-center
+ms.subservice: azure-guide
+products:
+  - azure-kubernetes-service
+  - azure-container-apps
+  - azure-app-service
+categories:
+  - containers
 ---
-Choose an Azure container service
+
+# Choose an Azure container service
 
 Azure offers a range of container hosting services designed to accommodate various workloads, architectures, as well as business requirements. This container service selection guide will help you understand how to evaluate container services on Azure depending on workload scenarios and requirements. 
 
-**[blue note box]**
-
-In this guide, the term *workload* refers to a collection of application resources that support a common business goal or the execution of a common business process, with multiple services, such as APIs and data stores, working together to deliver specific end-to-end functionality.
+> [!important]
+> In this guide, the term *workload* refers to a collection of application resources that support a common business goal or the execution of a common business process, with multiple services, such as APIs and data stores, working together to deliver specific end-to-end functionality.
 
 ## How to use this guide
 
 This guide includes two articles: this introduction article and an additional article on shared considerations across all workload types.
 
-[blue or purple note box]
-
-If you have not yet committed to containerization, please also see this "choose an Azure compute service” article for further compute options to host your workload.
+> [!note]
+> If you have not yet committed to containerization, please also see this "choose an Azure compute service” article for further compute options to host your workload.
 
 This introduction article lists Azure container services in scope for this guide and covers how service models compare when it comes to understanding trade-offs between control and ease of use, such as customer managed vs. Microsoft managed services. After identifying candidate services based on service model preferences, the next step is to evaluate the candidates against workload requirements by leveraging the article on shared considerations around networking, security, operations, and reliability.
 
@@ -27,38 +37,19 @@ This guide aims to help you select a container service while instilling confiden
 
 This guide will focus on a subset of the container services which Azure currently offers. This subset offers a mature feature set around web applications and APIs, networking, observability, developer tools, and operations. Focus will be given to the container services:
 
-:::row:::
-    :::column:::
-    ![](media/image2.svg)
-    :::column-end:::
-    :::column:::
-    [**Azure Container Apps**](https://azure.microsoft.com/en-us/products/container-apps) **Azure Container Apps (ACA) is a fully managed Kubernetes-based application platform that helps you deploy** **http and non-http** **apps from code or containers without orchestrating complex infrastructure. For details, see** [**ACA documentation**](https://learn.microsoft.com/en-us/azure/container-apps/?ocid=AID3042118)**.**
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-    ![](media/image4.svg)
-    :::column-end:::
-    :::column:::
-    [**Azure Kubernetes Service**](https://azure.microsoft.com/en-us/products/kubernetes-service) **Azure Kubernetes Service (AKS) is a managed Kubernetes service for running containerized applications. Leverage managed** [**add-ons and extensions**](https://learn.microsoft.com/en-us/azure/aks/integrations)** for additional capabilities while preserving the broadest level of flexibility and control. For details, see** [**AKS documentation**](https://learn.microsoft.com/en-us/azure/aks/)**.**
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-    ![](media/image6.svg)
-    :::column-end:::
-    :::column:::
-    [**Web App for Containers**](https://azure.microsoft.com/en-us/products/app-service/containers?activetab=pivot:deploytab)**Web App for Containers is an offering of Azure App Service, a fully managed service for hosting http-based web apps** **with built-in infrastructure maintenance, security patching, scaling, diagnostic tooling and more. For details, see** [**App Service documentation**](https://learn.microsoft.com/en-us/azure/app-service/)**.**
-    :::column-end:::
-:::row-end:::
+|||
+|-|-|
+|![Container Apps logo](media/images/container-apps.svg)|[Azure Container Apps](https://azure.microsoft.com/products/container-apps) is a fully managed Kubernetes-based application platform that helps you deploy http and non-http apps from code or containers without orchestrating complex infrastructure. For details, see [ACA documentation](/azure/container-apps).|
+|![](media/image4.svg)|[Azure Kubernetes Service (AKS)](https://azure.microsoft.com/products/kubernetes-service) is a managed Kubernetes service for running containerized applications. Leverage managed [add-ons and extensions](/azure/aks/integrations) for additional capabilities while preserving the broadest level of flexibility and control. For details, see [AKS documentation](/azure/aks/).|
+|image|  [Web App for Containers](https://azure.microsoft.com/products/app-service/containers) is an offering of Azure App Service, a fully managed service for hosting http-based web apps with built-in infrastructure maintenance, security patching, scaling, diagnostic tooling and more. For details, see [App Service documentation](/azure/app-service/).|
 
-For a complete list of all Azure container services, please see [the container services product category page](https://azure.microsoft.com/en-us/products/category/containers/).
+For a complete list of all Azure container services, please see [the container services product category page](https://azure.microsoft.com/products/category/containers/).
 
 ## Service model considerations
 
 It is important to understand that the service model provides the broadest insight into the level of flexibility and control any Azure container service provides in exchange for its overall simplicity and ease of use.
 
-For a general introduction into the terminology and concepts around service models, including infrastructure as a service (IaaS) and platform as a service (PaaS), see this article on [shared responsibility in the cloud.](https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility)
+For a general introduction into the terminology and concepts around service models, including infrastructure as a service (IaaS) and platform as a service (PaaS), see this article on [shared responsibility in the cloud.](/azure/security/fundamentals/shared-responsibility)
 
 ### Comparing service models of Azure container solutions
 
@@ -80,9 +71,7 @@ Web App for Containers is also a PaaS offering, but leans more towards simplicit
 
 Customers can use Azure resources, such as an AKS cluster, to host multiple workloads which can help streamline operations and thereby reduce overall cost. If you choose this path, here are a few important considerations:
 
-- **Azure Kubernetes Service** is commonly used to host multiple workloads or disparate workload components, which can be isolated with Kubernetes native functionality, such as namespaces, access controls, and network controls to meet security requirements. 
-
-  
+- **Azure Kubernetes Service** is commonly used to host multiple workloads or disparate workload components, which can be isolated with Kubernetes native functionality, such as namespaces, access controls, and network controls to meet security requirements.   
 
 - AKS can also be used in single workload scenarios if there’s a need for the additional functionality that the Kubernetes API provides and the workload team has enough experience and confidence to operate a Kubernetes cluster. Teams with less Kubernetes experience can still successfully operate their own clusters, by leveraging Azure managed addons and features like cluster auto-upgrade to reduce operational overhead.
 
@@ -136,8 +125,6 @@ Be aware that for any given workload some requirements may be more critical than
 ![A blue and green scale with green check marks  Description automatically generated](media/image9.png)
 
 ![](media/image10.png)
-
-*Figure 2 –* *Compare* *tradeoffs and look for* *solutions with more advantages than disadvantages.*
 
 Lastly, please note that the shared considerations above include the most common requirements but are not exhaustive. It is the workload team’s responsibility to investigate *every* requirement against the preferred service’s feature set before confirming a decision.
 
