@@ -208,7 +208,7 @@ In addition to these Microsoft resources, consider using open-source tools to op
 
 ### Upgrade process
 
-To check when your cluster requires an upgrade, use [az aks get-upgrades](/cli/azure/aks?view=azure-cli-latest#az-aks-get-upgrades&preserve-view=true) to get a list of available target upgrade versions for your AKS cluster. Determine the target version for your cluster from the results.
+To check when your cluster requires an upgrade, use [az aks get-upgrades](/cli/azure/aks?view=azure-cli-latest#az-aks-get-upgrades) to get a list of available target upgrade versions for your AKS cluster. Determine the target version for your cluster from the results.
 
 Here's an example:
 
@@ -252,7 +252,7 @@ To minimize disruptions and help ensure a smooth upgrade for your AKS cluster, f
 
 By following this approach, you can minimize disruptions during the upgrade process and maintain the availability of your applications. These are the detailed steps:
 
-1. Run the [az aks upgrade](/cli/azure/aks?view=azure-cli-latest#az-aks-upgrade&preserve-view=true) command with the `--control-plane-only` flag to upgrade only the cluster control plane and not the cluster's node pools:
+1. Run the [az aks upgrade](/cli/azure/aks?view=azure-cli-latest#az-aks-upgrade) command with the `--control-plane-only` flag to upgrade only the cluster control plane and not the cluster's node pools:
 
    ```azurecli
    az aks upgrade \
@@ -261,7 +261,7 @@ By following this approach, you can minimize disruptions during the upgrade proc
       --kubernetes-version <KubernetesVersion>
    ```
 
-2. Run [az aks nodepool upgrade](/cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-upgrade&preserve-view=true) to upgrade node pools to the target version:
+2. Run [az aks nodepool upgrade](/cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-upgrade) to upgrade node pools to the target version:
 
    ```azurecli
    az aks nodepool upgrade \
@@ -314,8 +314,8 @@ Principal author:
 
 Other contributors:
 
-- [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
 - [Rishabh Saha](https://www.linkedin.com/in/rishabhsaha/) | Principal Solution Architect
+- [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
 - [Ali Yousefi](https://www.linkedin.com/in/iamaliyousefi/) | Cloud Solution Architect
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
@@ -323,7 +323,7 @@ Other contributors:
 ## Next steps
 
 - [AKS product documentation](/azure/aks/)
-- [AKS Roadmap](https://aka.ms/aks/roadmap)
+- [AKS roadmap](https://aka.ms/aks/roadmap)
 - [AKS landing zone accelerator](https://github.com/Azure/AKS-Landing-Zone-Accelerator)
 - [Troubleshoot AKS Issues](/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes)
 - [AKS Construction](https://github.com/Azure/Aks-Construction)
