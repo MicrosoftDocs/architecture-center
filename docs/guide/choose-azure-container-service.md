@@ -41,12 +41,12 @@ This guide will focus on a subset of the container services which Azure currentl
     :::column::: 
     ![Container Apps logo](media/images/container-apps.png) 
     :::column-end:::
-    :::column:::
+    :::column span="3":::
     [Azure Container Apps](https://azure.microsoft.com/products/container-apps) is a fully managed Kubernetes-based application platform that helps you deploy http and non-http apps from code or containers without orchestrating complex infrastructure. For details, see [ACA documentation](/azure/container-apps).
     :::column-end:::
 :::row-end:::
 
-|![](media/image4.svg)|[Azure Kubernetes Service (AKS)](https://azure.microsoft.com/products/kubernetes-service) is a managed Kubernetes service for running containerized applications. Leverage managed [add-ons and extensions](/azure/aks/integrations) for additional capabilities while preserving the broadest level of flexibility and control. For details, see [AKS documentation](/azure/aks/).|
+|![AKS logo](media/image4.svg)|[Azure Kubernetes Service (AKS)](https://azure.microsoft.com/products/kubernetes-service) is a managed Kubernetes service for running containerized applications. Leverage managed [add-ons and extensions](/azure/aks/integrations) for additional capabilities while preserving the broadest level of flexibility and control. For details, see [AKS documentation](/azure/aks/).|
 |image|  [Web App for Containers](https://azure.microsoft.com/products/app-service/containers) is an offering of Azure App Service, a fully managed service for hosting http-based web apps with built-in infrastructure maintenance, security patching, scaling, diagnostic tooling and more. For details, see [App Service documentation](/azure/app-service/).|
 
 For a complete list of all Azure container services, please see [the container services product category page](https://azure.microsoft.com/products/category/containers/).
@@ -83,7 +83,7 @@ Customers can use Azure resources, such as an AKS cluster, to host multiple work
 
 **Azure Container Apps** should be used to host a single workload with a shared security boundary. ACA has a single top level logical boundary called an ACA Environment, which also serves as a secure boundary. There are no mechanisms for additional granular access control. For example, intra-environment communication is unrestricted, and all applications share a single log analytics workspace.
 
-If the workload has multiple components and multiple security boundaries, deploy multiple ACA environments, or consider AKS instead.<br>
+If the workload has multiple components and multiple security boundaries, deploy multiple ACA environments, or consider AKS instead.
 
 - **Web App for Containers** is a part of the App Service offering, which groups applications into a billing boundary called an App Service Plan. Although it is tempting to host multiple workloads within a single plan because role-based access control (RBAC) can be scoped to the application level, it is recommended to host a single workload per plan to avoid the noisy neighbor problem. All apps within the same App Service plan share the same allocated compute, memory, and storage.<br><br>When considering hardware isolation, it is important to note that App Service Plans generally runs on infrastructure shared with other Azure customers. Customers can choose **Dedicated** tiers for dedicated VMs or **Isolated** tiers for dedicated VMs and a dedicated virtual network.
 
