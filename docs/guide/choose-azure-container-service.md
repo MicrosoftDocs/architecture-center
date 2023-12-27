@@ -1,6 +1,6 @@
 ---
 title: Choose an Azure container service 
-description: Understand how to evaluate container services on Azure, based on your specific workload scenarios and requirements.  
+description: Understand how to evaluate which Azure container service is best suited to your specific workload scenarios and requirements.  
 author: julie-ng
 ms.author: julng
 ms.date: 12/29/2023
@@ -17,32 +17,32 @@ categories:
 
 # Choose an Azure container service
 
-Azure offers a range of container hosting services designed to accommodate various workloads, architectures, as well as business requirements. This container service selection guide will help you understand how to evaluate container services on Azure depending on workload scenarios and requirements. 
+Azure offers a range of container hosting services that are designed to accommodate various workloads, architectures, and business requirements. This container service selection guide can help you understand which Azure container service is best suited to your workload scenarios and requirements.
 
-> [!important]
-> In this guide, the term *workload* refers to a collection of application resources that support a common business goal or the execution of a common business process, with multiple services, such as APIs and data stores, working together to deliver specific end-to-end functionality.
+> [!note]
+> In this guide, the term *workload* refers to a collection of application resources that support a business goal or the execution of a business process. A workload uses multiple services, like APIs and data stores, that work together to deliver specific end-to-end functionality.
 
 ## How to use this guide
 
-This guide includes two articles: this introduction article and an additional article on shared considerations across all workload types.
+This guide includes two articles: this introduction article and another article about [considerations that are shared](container-service-general-considerations.md) across all workload types.
 
 > [!note]
-> If you have not yet committed to containerization, please also see this "choose an Azure compute service” article for further compute options to host your workload.
+> If you aren't yet committed to containerization, see [Choose an Azure compute service](/azure/architecture/guide/choose-azure-container-service) for information about other compute options that you can use to host your workload.
 
-This introduction article lists Azure container services in scope for this guide and covers how service models compare when it comes to understanding trade-offs between control and ease of use, such as customer managed vs. Microsoft managed services. After identifying candidate services based on service model preferences, the next step is to evaluate the candidates against workload requirements by leveraging the article on shared considerations around networking, security, operations, and reliability.
+This introduction article describes the Azure container services that are in scope for this guide and how the service models compare in terms of tradeoffs between control and ease of use, for example, customer-managed versus Microsoft-managed approaches. After you identify candidate services based on your service model preferences, the next step is to evaluate the options against your workload requirements by reviewing the article on shared considerations for networking, security, operations, and reliability.
 
-This guide aims to help you select a container service while instilling confidence in decision-making leading to tradeoffs that you may ultimately have to make depending on the technical requirements, size, and complexity of the workload and expertise of the workload’s team. 
+This guide takes into consideration tradeoffs that you might need to make, based on the technical requirements, size, and complexity of your workload and the expertise of your workload's team.
 
 ## Azure container services in scope for this guide
 
-This guide will focus on a subset of the container services which Azure currently offers. This subset offers a mature feature set around web applications and APIs, networking, observability, developer tools, and operations. Focus will be given to the container services: 
+This guide focuses on a subset of the container services that Azure currently offers. This subset provides a mature feature set for web applications and APIs, networking, observability, developer tools, and operations. These container services are compared: 
 
 :::row:::
     :::column::: 
     ![Container Apps logo](media/images/container-apps.png) 
     :::column-end:::
     :::column span="3":::
-    [Azure Container Apps](https://azure.microsoft.com/products/container-apps) is a fully managed Kubernetes-based application platform that helps you deploy http and non-http apps from code or containers without orchestrating complex infrastructure. For details, see [ACA documentation](/azure/container-apps).
+    [Azure Container Apps](https://azure.microsoft.com/products/container-apps) is a fully managed Kubernetes-based application platform that helps you deploy HTTP and non-HTTP apps from code or containers without orchestrating complex infrastructure. For more information, see [Azure Container Apps documentation](/azure/container-apps).
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -50,7 +50,7 @@ This guide will focus on a subset of the container services which Azure currentl
     ![AKS logo](media/images/aks.png)
     :::column-end:::
     :::column span="3":::
-    [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/products/kubernetes-service) is a managed Kubernetes service for running containerized applications. Leverage managed [add-ons and extensions](/azure/aks/integrations) for additional capabilities while preserving the broadest level of flexibility and control. For details, see [AKS documentation](/azure/aks/). 
+    [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/products/kubernetes-service) is a managed Kubernetes service for running containerized applications. Take advantage of managed [add-ons and extensions](/azure/aks/integrations) for additional capabilities while preserving the broadest level of flexibility and control. For more information, see [AKS documentation](/azure/aks/). 
     :::column-end:::
 :::row-end:::
 :::row:::
