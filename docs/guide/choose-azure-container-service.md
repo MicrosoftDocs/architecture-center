@@ -110,9 +110,7 @@ If you need to host disparate, potentially unrelated, applications components or
 
 The diagram below illustrates how services and their service models can compare. AKS offers the greatest configurability but at the cost of increased operational overhead compared to the other services. While Container Apps and Web Apps are both PaaS services with similar levels of Microsoft managed features, Web App emphasizes simplicity to cater to its target audience - existing Azure PaaS customers, who will find the interface of Web App very familiar. This diagram also illustrates the trade-offs between responsibility and configurability. 
 
-![A diagram of a diagram  Description automatically generated](media/image7.png)
-
-![](media/image8.png)
+![A diagram of a diagram  Description automatically generated](media/images/control-tradeoffs.png)
 
 *Figure 1 – understanding tradeoffs in customer managed vs Microsoft managed service* *model* *flavors*
 
@@ -143,9 +141,9 @@ Choosing a cloud service is not a check-off exercise. Given the complexity of cl
 
 Be aware that for any given workload some requirements may be more critical than others. For example, an application team would prefer a PaaS solution like Container Apps but choose AKS because their security team may require deny-by-default network controls between co-located workload components, an AKS only feature leveraging Kubernetes Network Policies.
 
-![A blue and green scale with green check marks  Description automatically generated](media/image9.png)
+![A blue and green scale with green check marks  Description automatically generated]
 
-![](media/image10.png)
+
 
 Lastly, please note that the shared considerations above include the most common requirements but are not exhaustive. It is the workload team’s responsibility to investigate *every* requirement against the preferred service’s feature set before confirming a decision.
 
