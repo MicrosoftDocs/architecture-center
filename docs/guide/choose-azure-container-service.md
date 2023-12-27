@@ -174,10 +174,7 @@ Other contributors:
 
 ## Next step
 
-For more information about shared architectural considerations for the services mentioned in this article, see
+Learn more about shared architectural considerations for the services mentioned in this article.
 
 > [!div class="nextstepaction"]
-> [Shared architectural considerations](/azure/architecture/guide/choose-azure-container-service)
-
-
-
+> [Shared architectural considerations](container-service-general-considerations.md)
