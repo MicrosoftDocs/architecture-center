@@ -58,124 +58,126 @@ This guide focuses on a subset of the container services that Azure currently of
     ![App Service logo](media/images/app-service.png) 
     :::column-end:::
     :::column span="3":::
-    [Web App for Containers](https://azure.microsoft.com/products/app-service/containers) is an offering of Azure App Service, a fully managed service for hosting http-based web apps with built-in infrastructure maintenance, security patching, scaling, diagnostic tooling and more. For details, see [App Service documentation](/azure/app-service/).
+    [Web App for Containers](https://azure.microsoft.com/products/app-service/containers) is a feature of Azure App Service, a fully managed service for hosting HTTP-based web apps with built-in infrastructure maintenance, security patching, scaling, and diagnostic tooling. For more information, see [App Service documentation](/azure/app-service/).
     :::column-end:::
 :::row-end:::
 
-For a complete list of all Azure container services, please see [the container services product category page](https://azure.microsoft.com/products/category/containers/).
+For a complete list of all Azure container services, see [the container services product category page](https://azure.microsoft.com/products/category/containers/).
 
 ## Service model considerations
 
-It is important to understand that the service model provides the broadest insight into the level of flexibility and control any Azure container service provides in exchange for its overall simplicity and ease of use.
+The service model provides the broadest insight into the level of flexibility and control that any Azure container service provides, in exchange for its overall simplicity and ease of use.
 
-For a general introduction into the terminology and concepts around service models, including infrastructure as a service (IaaS) and platform as a service (PaaS), see this article on [shared responsibility in the cloud.](/azure/security/fundamentals/shared-responsibility)
+For a general introduction into the terminology and concepts around service models, including infrastructure as a service (IaaS) and platform as a service (PaaS), see [Shared responsibility in the cloud](/azure/security/fundamentals/shared-responsibility).
 
-### Comparing service models of Azure container solutions
+### Comparing the service models of Azure container solutions
 
-#### Azure Kubernetes Service (AKS)
+#### AKS
 
-As a hybrid of IaaS and PaaS, AKS falls on the control side of the control vs. simplicity spectrum. Though AKS streamlines the management of the underlying core infrastructure, this virtual machine based platform is still exposed to your applications and requires appropriate guardrails and processes, such as patching, to ensure security and business continuity. The compute infrastructure is supported by additional Azure resources hosted directly in your subscription, such as Azure Load Balancers. 
+As a hybrid of IaaS and PaaS, AKS proritizes control over simplicity. Though AKS streamlines the management of the underlying core infrastructure, this VM-based platform is still exposed to your applications and requires appropriate guardrails and processes, like patching, to ensure security and business continuity. The compute infrastructure is supported by additional Azure resources that are hosted directly in your subscription, like Azure load balancers.
 
-AKS also provides access to the Kubernetes API server, which enables customers to customize the container orchestration and thus deploy projects from the Cloud Native Computing Foundation (CNCF) landscape. Consequently, there is a significant learning curve for workload teams new to Kubernetes. You should not feel inclined to start with Kubernetes when starting with containerized solutions. The PaaS solutions below offer a lower barrier to entry. You can move to Kubernetes when your requirements dictate that move.
+AKS also provides access to the Kubernetes API server, which enables you to customize the container orchestration and thus deploy projects from the Cloud Native Computing Foundation (CNCF). Consequently, there's a significant learning curve for workload teams that are new to Kubernetes. If you're new to containerized solutions, this learning curve might be a deterent. The PaaS solutions below offer a lower barrier to entry. You can move to Kubernetes when your requirements dictate that move.
 
 #### Azure Container Apps  
 
-Container Apps strikes a balance of control and simplicity, as a PaaS offering. It has both serverless and dedicated compute options, which abstract away the need to patch the operating system or build guardrails around applications relative to the operating system. Container Apps also completely abstracts away the container orchestration API and provides a subset of its most vital functionality through already familiar Azure APIs. Furthermore, Layer 7 ingress, traffic splitting, A/B testing and application lifecycle management are all fully available out of the box.
+Container Apps, a PaaS offering, balances control with simplicity. It offers both serverless and dedicated compute options, which abstract away the need to patch the operating system or build guardrails around applications, relative to the operating system. Container Apps also completely abstracts away the container orchestration API and provides a subset of its key functionality through Azure APIs that your team might already be familiar with. Additionally, Layer 7 ingress, traffic splitting, A/B testing, and application lifecycle management are all fully available out of the box.
 
 #### Web App for Containers
 
-Web App for Containers is also a PaaS offering, but leans more towards simplicity compared to Container Apps. It abstracts away container orchestration, while still offering appropriate scaling, application lifecycle management, traffic splitting, network integration, and observability.
+Web App for Containers is also a PaaS offering, but it provides more simplicity, and less control, than Container Apps. It abstracts away container orchestration but still provides appropriate scaling, application lifecycle management, traffic splitting, network integration, and observability.
 
 ### Hosting model considerations
 
-Customers can use Azure resources, such as an AKS cluster, to host multiple workloads which can help streamline operations and thereby reduce overall cost. If you choose this path, here are a few important considerations:
+You can use Azure resources, like AKS clusters, to host multiple workloads. Doing so can help you streamline operations and thereby reduce overall cost. If you choose this path, here are a few important considerations:
 
-- **AKS** is commonly used to host multiple workloads or disparate workload components, which can be isolated with Kubernetes native functionality, such as namespaces, access controls, and network controls to meet security requirements.   
+- **AKS** is commonly used to host multiple workloads or disparate workload components. You can isolate these workloads and components by using Kubernetes native functionality, like namespaces, access controls, and network controls, to meet security requirements.
 
-- AKS can also be used in single workload scenarios if there's a need for the additional functionality that the Kubernetes API provides and the workload team has enough experience and confidence to operate a Kubernetes cluster. Teams with less Kubernetes experience can still successfully operate their own clusters, by leveraging Azure managed addons and features like cluster auto-upgrade to reduce operational overhead.
+   You can also use AKS in single-workload scenarios if you need the additional functionality that the Kubernetes API provides and your workload team has enough experience and confidence to operate a Kubernetes cluster. Teams with less Kubernetes experience can still successfully operate their own clusters by taking advantage of Azure managed add-ins and features, like cluster auto-upgrade, to reduce operational overhead.
 
-**Azure Container Apps** should be used to host a single workload with a shared security boundary. Container Apps has a single top level logical boundary called an Container Apps Environment, which also serves as a secure boundary. There are no mechanisms for additional granular access control. For example, intra-environment communication is unrestricted, and all applications share a single log analytics workspace.
+- **Container Apps** should be used to host a single workload with a shared security boundary. Container Apps has a single top-level logical boundary called a *Container Apps environment*, which also serves as an enhanced-security boundary. There are no mechanisms for additional granular access control. For example, intra-environment communication is unrestricted, and all applications share a single log analytics workspace.
 
-If the workload has multiple components and multiple security boundaries, deploy multiple Container Apps environments, or consider AKS instead.
+  If the workload has multiple components and multiple security boundaries, deploy multiple Container Apps environments, or consider AKS instead.
 
-- **Web App for Containers** is a part of the App Service offering, which groups applications into a billing boundary called an App Service Plan. Although it is tempting to host multiple workloads within a single plan because role-based access control (RBAC) can be scoped to the application level, it is recommended to host a single workload per plan to avoid the noisy neighbor problem. All apps within the same App Service plan share the same allocated compute, memory, and storage.
+- **Web App for Containers** is a feature of App Service. App Service groups applications into a billing boundary called an *App Service plan*. Because you can scope role-based access control (RBAC) at the application level, it might be tempting to host multiple workloads in a single plan. However, we recommend that you host a single workload per plan to avoid the Noisy Neighbor problem. All apps in a single App Service plan share the same allocated compute, memory, and storage.
 
-  When considering hardware isolation, it is important to note that App Service Plans generally runs on infrastructure shared with other Azure customers. Customers can choose **Dedicated** tiers for dedicated VMs or **Isolated** tiers for dedicated VMs and a dedicated virtual network.
+  When you consider hardware isolation, you need to be aware that App Service plans generally run on infrastructure that's shared with other Azure customers. You can choose Dedicated tiers for dedicated VMs or Isolated tiers for dedicated VMs in a dedicated virtual network.
 
-In general, all Azure container services can host multiple applications with multiple components. However, Container Apps and Web App are better suited for a single workload component or multiple highly related workload components sharing a similar lifecycle, where a single team owns and runs the applications.
+In general, all Azure container services can host multiple applications that have multiple components. However, Container Apps and Web App for Containers are better suited for a single workload component or multiple highly related workload components that share a similar lifecycle, where a single team owns and runs the applications.
 
-If you need to host disparate, potentially unrelated, applications components or workloads on one host consider AKS.
+If you need to host disparate, potentially unrelated application components or workloads on one host, consider AKS.
 
-## The trade-off between control and ease of use
+## The tradeoff between control and ease of use
 
-The diagram below illustrates how services and their service models can compare. AKS offers the greatest configurability but at the cost of increased operational overhead compared to the other services. While Container Apps and Web Apps are both PaaS services with similar levels of Microsoft managed features, Web App emphasizes simplicity to cater to its target audience - existing Azure PaaS customers, who will find the interface of Web App very familiar. This diagram also illustrates the trade-offs between responsibility and configurability. 
+The following diagram illustrates how the service models of services compare. AKS provides the most configurability, but it comes at the cost of increased operational overhead, as compared to the other services. Although Container Apps and Web App for Containers are both PaaS services that have similar levels of Microsoft managed features, Web App for Containers emphasizes simplicity to cater to its target audience: existing Azure PaaS customers, who will find the interface familiar. The diagram also illustrates the tradeoffs between responsibility and configurability.
 
-![A diagram of a diagram  Description automatically generated](media/images/control-tradeoffs.png)
+![Diagram that shows how service models compare.](media/images/control-tradeoffs.png)
 
-*Figure 1 – understanding tradeoffs in customer managed vs Microsoft managed service* *model* *flavors*
+### Rule of thumb
 
-### Rule of Thumb
+Generally, services that offer more simplicity tend to suit customers who prefer to focus more on feature development and less on infrastructure. Services that offer more control tend to suit customers who need more configurability and have the skills, resources, and business justification necessary to manage their own infrastructure.
 
-Generally, services that offer more “simplicity” tend to suit customers who prefer to focus more on feature development and less on infrastructure. Inversely, services that offer more “control” tend to suit customers who need more configurability and have the skills, resources, and business justification necessary to manage their own infrastructure.
+## Shared considerations across all workloads
 
-**Shared considerations across all workloads**
+Although a workload team might prefer a particular service model, that model might not meet the requirements for the organization as a whole. For example, developers might prefer less operational overhead, but security teams might consider this type of overhead necessary to meet compliance requirements. Teams need to collaborate to make the appropriate tradeoffs.
 
-While a workload team may prefer a particular service model, that model may not meet the requirements for the organization. For example, developers may prefer less operational overhead, whereas security teams may see this type of overhead as necessary to meet compliance requirements. Internal collaboration across teams is necessary to make the appropriate tradeoffs.
+Be aware that shared considerations are broad. Only a subset might be relevant to you, depending not just on the workload type but also on your role within the organization.
 
-Be aware that shared considerations are broad and only a subset may be relevant to you depending not just on workload type, but also one’s role within an organization.
+The following table provides a high-level overview of considerations, including service feature comparison tables. Review the considerations in each category and compare them against your workload's requirements.
 
-This next section is a high level overview of considerations including service feature comparison tables when choosing a service. Please review the considerations in each category and compare them against your workload’s requirements.
-
-| Category| High-level overview|
+| Category| Overview|
 |---|---|
-| **Networking considerations** | Networking within Azure container services varies depending on user preferences for simplicity versus configurability. AKS is highly configurable, providing extensive control over network flow, but requires more operational effort. Container Apps offers Azure-managed networking features; it serves as a middle ground between AKS and Web App for Containers, which is tailored to those familiar with the App Service offering. Crucially, network design decisions can have long-term consequences due to the challenges of changing them without re-deploying workloads. Several factors, such as IP address planning, load balancing responsibilities, service discovery methods, and private networking capabilities, differ across these services and should be carefully reviewed to meet specific networking requirements. |
-| **Security considerations** | Container Apps, AKS, and Web App for Containers all offer integration with key Azure security offerings such as Key Vault and Managed Identities. AKS offers additional features such as runtime threat protection and network policies. While it seems PaaS offerings like Container Apps offer fewer security protections, this is in part because more of the underlying infrastructure components are Azure managed and not exposed to the customer, which reduces risk. |
-| **Operations considerations** | While Azure Kubernetes Service (AKS) offers the most customization, it demands greater operational input. In contrast, Platform-as-a-Service (PaaS) solutions like Container Apps and Web App for Containers let Azure handle tasks like OS updates. Scalability and hardware SKU flexibility are crucial. AKS provides flexible hardware options, while Container Apps and Web App have set configurations. Application scalability in AKS is the sole responsibility of the customer while Container Apps and Web App for Containers offer more streamlined approaches. |
-| **Reliability considerations** | Web App for Containers and Container Apps health probe configurations are more streamlined than AKS, given the use of the familiar ARM API. AKS requires the use of the Kubernetes API and has the additional responsibility of managing Kubernetes node pool scalability/availability to properly schedule application instances. This results in additional overhead for AKS. Moreover, SLAs for Container Apps and Web App for Containers are more straightforward in understanding compared to AKS in which the control plane and node pools each have their own SLAs and need to be compounded accordingly. All services offer zone redundancy in datacenters that offer it. |
+| **Networking considerations** | Networking in Azure container services varies depending on your preference for simplicity versus configurability. AKS is highly configurable, providing extensive control over network flow, but it requires more operational effort. Container Apps offers Azure-managed networking features. It's a middle ground between AKS and Web App for Containers, which is tailored to customers who are familiar with App Service. <br><br>Crucially, network design decisions can have long-term consequences because of the challenges of changing them without re-deploying workloads. Several factors, like IP address planning, load balancing responsibilities, service discovery methods, and private networking capabilities, differ across these services. You should carefully review how they meet specific networking requirements. |
+| **Security considerations** | Container Apps, AKS, and Web App for Containers all provide integration with key Azure security offerings like Azure Key Vault and managed identities. AKS offers additional features like runtime threat protection and network policies. Although it might seem that PaaS services like Container Apps offer fewer security features, that's partly because more of the underlying infrastructure components are managed by Azure and not exposed to customers, which reduces risk. |
+| **Operations considerations** | Although AKS offers the most customization, it demands greater operational input. In contrast, PaaS solutions like Container Apps and Web App for Containers let Azure handle tasks like OS updates. Scalability and hardware SKU flexibility are crucial. AKS provides flexible hardware options, whereas Container Apps and Web App for Containers provide set configurations. Application scalability in AKS is the sole responsibility of the customer. Container Apps and Web App for Containers offer more streamlined approaches. |
+| **Reliability considerations** | Web App for Containers and Container Apps health probe configurations are more streamlined than those of AKS, given that they use the familiar Azure Resource Manager API. AKS requires the use of the Kubernetes API. It also adds the additional responsibility of managing Kubernetes node pool scalability and availability to properly schedule application instances. These requirements result in additional overhead for AKS. Moreover, SLAs for Container Apps and Web App for Containers are more straightforward than those of AKS, for which the control plane and node pools each have their own SLAs and need to be compounded accordingly. All services offer zone redundancy in datacenters that offer it. |
 
-After reviewing the considerations above, were you able to choose an Azure container solution? If you didn’t find a perfect fit, that is perfectly normal.
+After reviewing the preceding considerations, you still might not have found the perfect fit. That's perfectly normal.
 
 ## Evaluating trade-offs
 
-Choosing a cloud service is not a check-off exercise. Given the complexity of cloud computing, collaboration between many teams, and resource constraints like people, budget, and time - every solution has trade-offs.
+Choosing a cloud service isn't a straightforward exercise. Given the complexity of cloud computing, the collaboration between many teams, and resource constraints like people, budget, and time, every solution has tradeoffs.
 
-Be aware that for any given workload some requirements may be more critical than others. For example, an application team would prefer a PaaS solution like Container Apps but choose AKS because their security team may require deny-by-default network controls between co-located workload components, an AKS only feature leveraging Kubernetes Network Policies.
+Be aware that, for any given workload, some requirements might be more critical than others. For example, an application team might prefer a PaaS solution like Container Apps but choose AKS because their security team might require deny-by-default network controls between co-located workload components, which is an AKS-only feature that uses Kubernetes network policies.
 
-![A blue and green scale with green check marks  Description automatically generated]
-
-
-
-Lastly, please note that the shared considerations above include the most common requirements but are not exhaustive. It is the workload team’s responsibility to investigate *every* requirement against the preferred service’s feature set before confirming a decision.
+Finally, note that the preceding shared considerations include the most common requirements but aren't comprehensive. It's the workload team's responsibility to investigate every requirement against the preferred service's feature set before confirming a decision.
 
 ## Conclusion
 
-This guide covers the most common considerations customers face when choosing an Azure container service. It is designed to guide workload teams in making informed decisions. It starts with choosing a cloud service model, which involves determining the desired level of control at the expense of simplicity. In other words, it’s about finding the right balance between a self-managed infrastructure and one managed by Microsoft.
+This guide describes the most common considerations that you face when you choose an Azure container service. It's designed to guide workload teams in making informed decisions. The process starts with choosing a cloud service model, which involves determining the desired level of control, at the expense of simplicity. In other words, it's a process of finding the right balance between a self-managed infrastructure and one that's managed by Microsoft.
 
-Many workload teams can choose an Azure container service solely based on service model preference, PaaS vs IaaS. Other teams will need to dig deeper to determine how service-specific features address workload or organizational requirements.
+Many workload teams can choose an Azure container service solely based on the preferred service model: PaaS versus IaaS. Other teams need to investigate further to determine how service-specific features address workload or organizational requirements.
 
-All workload teams should use this guide while they perform due diligence to avoid difficult-to-reverse decisions. Be aware, however, that the decision is not confirmed until developers have tried the service and decide based on experience, not theory.
+All workload teams should use this guide in addition to incorporating due diligence to avoid difficult-to-reverse decisions. Be aware, however, that the decision isn't confirmed until developers try the service and decide based on experience rather than theory.
 
 ## Contributors
 
-**Principal Authors**
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-- Andre Dewes 
-- Marcos Martinez
-- Julie Ng
+Principal authors:
 
-**Contributors**
+- [Andre Dewes](https://www.linkedin.com/in/andre-dewes-480b5b62/) | Senior Customer Engineer
+- [Marcos Martinez](https://www.linkedin.com/in/marcosmarcusm/) | Senior Service Engineer  
+- [Julie Ng](https://www.linkedin.com/in/julie-io/) | Senior Engineer 
 
-- Martin Gjoshevski 
-- Don High
-- Nelly Kiboi  
-- Xuhong Liu 
-- Faisal Mustafa
-- Walter Myers
-- Sonalika Roy 
-- Paolo Salvatori
-- Victor Santana
+Other contributors:
+
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer 
+- [Martin Gjoshevski](https://www.linkedin.com/in/martin-gjoshevski/) | Senior Customer Engineer
+- [Don High](https://www.linkedin.com/in/donhighdevops/) |  Principal Customer Engineer
+- [Nelly Kiboi](https://www.linkedin.com/in/nellykiboi/)  | Service Engineer
+- [Xuhong Liu](https://www.linkedin.com/in/xuhong-l-5937159b/) | Senior Service Engineer  
+- [Faisal Mustafa](https://www.linkedin.com/in/faisalmustafa/) |  Senior Customer Engineer
+- [Walter Myers](https://www.linkedin.com/in/waltermyersiii/) | Principal Customer Engineering Manager
+- [Sonalika Roy](https://www.linkedin.com/in/sonalika-roy-27138319/) | Senior Customer Engineer
+- [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori/) |  Principal Customer Engineer
+- [Victor Santana](https://www.linkedin.com/in/victorwelascosantana/) |  Principal Customer Engineer
 
 ## Next step
 
-For a deeper dive into shared architectural considerations for the services mentioned in this article, please see this article on shared considerations across all workloads.
+For more information about shared architectural considerations for the services mentioned in this article, see
+
+> [!div class="nextstepaction"]
+> [Shared architectural considerations](/azure/architecture/guide/choose-azure-container-service)
+
+
 
