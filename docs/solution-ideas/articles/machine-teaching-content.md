@@ -374,7 +374,6 @@ Principal author:
 - [Innovation space: Autonomous systems (Video)](https://www.youtube.com/watch?v=3hSAFtWcui8&feature=youtu.be)
 - [Microsoft The AI Blog](https://blogs.microsoft.com/ai/)
 - [Bonsai documentation](/bonsai/)
-- [Microsoft AirSim on GitHub](https://github.com/Microsoft/AirSim)
 - [Aerial Informatics and Robotics Platform (AirSim)](https://www.microsoft.com/research/project/aerial-informatics-robotics-platform/)
 - [Gazebo](http://gazebosim.org/)
 - [Simulink](https://www.mathworks.com/products/simulink.html)
