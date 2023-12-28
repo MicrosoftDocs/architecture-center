@@ -176,7 +176,6 @@ Principal author:
 - [Autonomy for industrial control systems](https://www.microsoft.com/ai/autonomous-systems-solutions)
 - [Innovation space: Autonomous systems (Video)](https://www.youtube.com/watch?v=3hSAFtWcui8&feature=youtu.be)
 - [Microsoft The AI Blog](https://blogs.microsoft.com/ai)
-- [Microsoft Autonomous Systems](/autonomous-systems)
 - [Aerial Informatics and Robotics Platform (AirSim)](https://www.microsoft.com/research/project/aerial-informatics-robotics-platform)
 - [How Azure Machine Learning works: Architecture and concepts](/azure/machine-learning/concept-azure-machine-learning-architecture)
 
