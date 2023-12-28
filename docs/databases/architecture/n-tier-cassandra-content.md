@@ -223,7 +223,6 @@ For more information, see the Operational Excellence section in [Microsoft Azure
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [WAF-devops]: /azure/architecture/framework/devops/overview
 [az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
-[azbb-template]: https://github.com/mspnp/template-building-blocks/wiki/overview
 [WAF-cost]: /azure/architecture/framework/cost/overview
 [app-gw-scaling]: /azure/application-gateway
 [azure-dns]: /azure/dns/dns-overview
