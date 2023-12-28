@@ -105,7 +105,7 @@ When you integrate applications into virtual networks, you need to do some IP ad
 | |  Container Apps | AKS | Web App for Containers |
 |---|---|---|---|
 | **Dedicated subnets** | Consumption plan: optional<br>Dedicated plan: required | Required | Optional |
-| **IP address requirements** | Consumption plan: See [Consumption-only environment](/azure/container-apps/networking?tabs=azure-cli).<br>Dedicated plan: See [Workload profiles environment](/azure/container-apps/networking?tabs=azure-cli). | See [Azure virtual networks for AKS](/azure/aks/concepts-network). | See [App Service Subnet requirements](/azure/app-service/overview-vnet-integration). |
+| **IP address requirements** | Consumption plan: See [Consumption-only environment](/azure/container-apps/networking#subnet?tabs=consumption-only-environment).<br>Dedicated plan: See [Workload profiles environment](/azure/container-apps/networking#subnet?tabs=workload-profiles-environment). | See [Azure virtual networks for AKS](/azure/aks/concepts-network). | See [App Service Subnet requirements](/azure/app-service/overview-vnet-integration). |
 
 Please note Azure Kubernetes Service (AKS) requirements depend on the chosen network plugin. Some network plugins for AKS require broader IP reservations, which is outside the scope of this article. For more information, see network concepts for Azure Kubernetes Services (AKS).
 
