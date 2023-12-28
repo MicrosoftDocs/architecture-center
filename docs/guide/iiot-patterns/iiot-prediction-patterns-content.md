@@ -133,9 +133,7 @@ Automate a quality inspection in manufacturing by using a custom vision.
 
 ### Deploy this scenario
 
-- Deployment samples:
-  - [Vision on Edge (VoE)](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/factory-ai-vision)
-  - [Machine Learning anywhere with Kubernetes](https://github.com/Azure/AML-Kubernetes)
+Learn how to [Configure Kubernetes cluster for Azure Machine Learning](https://github.com/Azure/AML-Kubernetes).
 
 ## Contributors
 
