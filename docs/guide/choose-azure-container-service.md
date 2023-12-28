@@ -3,7 +3,7 @@ title: Choose an Azure container service
 description: Understand how to evaluate which Azure container service is best suited to your specific workload scenarios and requirements.  
 author: julie-ng
 ms.author: julng
-ms.date: 12/29/2023
+ms.date: 01/02/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -27,7 +27,7 @@ Azure offers a range of container hosting services that are designed to accommod
 This guide includes two articles: this introduction article and another article about [considerations that are shared](container-service-general-considerations.md) across all workload types.
 
 > [!note]
-> If you aren't yet committed to containerization, see [Choose an Azure compute service](/azure/architecture/guide/choose-azure-container-service) for information about other compute options that you can use to host your workload.
+> If you aren't yet committed to containerization, see [Choose an Azure compute service](technology-choices/compute-decision-tree.yml) for information about other compute options that you can use to host your workload.
 
 This introduction article describes the Azure container services that are in scope for this guide and how the service models compare in terms of tradeoffs between control and ease of use, such as customer-managed versus Microsoft-managed approaches. After you identify candidate services based on your service model preferences, the next step is to evaluate the options against your workload requirements by reviewing the article on [shared considerations](container-service-general-considerations.md) for networking, security, operations, and reliability.
 
@@ -92,7 +92,7 @@ You can use Azure resources, like AKS clusters, to host multiple workloads. Doin
 
 - **AKS** is commonly used to host multiple workloads or disparate workload components. You can isolate these workloads and components by using Kubernetes native functionality, like namespaces, access controls, and network controls, to meet security requirements.
 
-   You can also use AKS in single-workload scenarios if you need the additional functionality that the Kubernetes API provides and your workload team has enough experience to operate a Kubernetes cluster. Teams with less Kubernetes experience can still successfully operate their own clusters by taking advantage of Azure managed [add-ins](/azure/aks/integrations#available-add-ons) and features, like [cluster auto-upgrade](/azure/aks/auto-upgrade-cluster), to reduce operational overhead.
+   You can also use AKS in single-workload scenarios if you need the additional functionality that the Kubernetes API provides and your workload team has enough experience to operate a Kubernetes cluster. Teams with less Kubernetes experience can still successfully operate their own clusters by taking advantage of Azure managed [add-ons](/azure/aks/integrations#available-add-ons) and features, like [cluster auto-upgrade](/azure/aks/auto-upgrade-cluster), to reduce operational overhead.
 
 - **Container Apps** should be used to host a single workload with a shared security boundary. Container Apps has a single top-level logical boundary called a *Container Apps environment*, which also serves as an enhanced-security boundary. There are no mechanisms for additional granular access control. For example, intra-environment communication is unrestricted, and all applications share a single Log Analytics workspace.
 
