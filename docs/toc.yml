@@ -91,7 +91,7 @@ items:
     - name: Choose a container option
       items:
       - name: Container options
-        href: /azure/container-apps/compare-options
+        href: guide/choose-azure-container-service.md
         maintainContext: true
       - name: Containers for confidential computing
         href: /azure/confidential-computing/choose-confidential-containers-offerings
@@ -1416,6 +1416,13 @@ items:
       - name: Hybrid HPC with HPC Packwindows-containers-on-aks
         href: solution-ideas/articles/hybrid-hpc-in-azure-with-hpc-pack.yml
   - name: Containers
+    items: 
+    - name: Choose a container host
+      items: 
+      - name: Overview
+        href: guide/choose-azure-container-service.md
+      - name: Considerations
+        href: guide/container-service-general-considerations.md 
     items:
     - name: Kubernetes-based hosting
       items:
