@@ -19,52 +19,72 @@ categories:
 
 Successful architectures require that planning and design decisions are made to ensure workload requirements are met and ensure quality around reliability, security, cost optimization, operational excellence, and performance efficiency.
 
-# Overview
+## Overview
 
 Use this article to get a quick overview of common feature level considerations that can be deal-breakers for some workloads when choosing an Azure container service. 
 
-**[important note box]**
+> [!note]
+> This article builds upon the “Choose an Azure container service” overview article. It’s strongly recommended to first read that overview article for additional context to architectural considerations.
 
-This article builds upon the “Choose an Azure container service” overview article. It’s strongly recommended to first read that overview article for additional context to architectural considerations.
+The considerations in this article are divided into four categories:
 
-The considerations in this article are divided into four categories.
+[Architectural and network considerations]
 
-| **Architectural** **and network** **considerations** | **Security Considerations** |
-|---|---|
-| **Operating system supportNetwork address** **spacesUnderstanding traffic flowSubnet planning** **Number of ingress IPs availableUser Defined Routes and NAT Gateway supportPrivate networking integrationProtocol** **coverageLoad** **balancing** **Service** **discoveryCustom domains and managed TLSMutual TLSAzure service-specific networking concepts** | Securing intra cluster traffic with network policiesNetwork Security GroupsKey Vault IntegrationManaged identity supportThreat protection and vulnerability assessments with Defender for ContainersSecurity BaselinesAzure Well-Architected Framework for Security |
-| | |
-| | **Reliability Considerations** |
-| | Service Level AgreementsRedundancy with Availability ZonesHealth checks and self-healingZero downtime application deploymentsResource limitsAzure Well-Architected Framework for Reliability |
+- Operating system support
+- Network address spaces
+- Understanding traffic flow
+- Subnet planning 
+- Number of ingress IPs available
+- User Defined Routes and NAT Gateway support
+- Private networking integration
+- Protocol coverage
+- Load balancing
+- Service discovery
+- Custom domains and managed TLS
+- Mutual TLS
+- Azure service-specific networking concepts
 
-### **Operational Considerations**
+[Security considerations]
 
-### **Updates and patches**
+- Securing intra cluster traffic with network policies
+- Network Security Groups
+- Key Vault Integration
+- Managed identity support
+- Threat protection and vulnerability assessments with Defender for Containers
+- Security Baselines
+- Azure Well-Architected Framework for Security 
 
-### **Container image updates**
+[Operational considerations]
 
-### **Infrastructure vertical scalability**
+- Updates and patches
+- Container image updates
+- Infrastructure vertical scalability
+- Infrastructure horizontal scalability
+- Application scalability
+- Observability
+- Azure Well-Architected Framework for Operational Excellence
 
-### **Infrastructure horizontal scalability**
+[Reliability considerations] 
 
-### **Application Scalability**
+- Service Level Agreements
+- Redundancy with Availability Zones
+- Health checks and self-healing
+- Zero downtime application deployments
+- Resource limits
+- Azure Well-Architected Framework for Reliability
 
-### **Observability**
+Please note that this article focuses on a subset of Azure container services that offer a mature feature set around web applications and APIs, networking, observability, developer tools, and operations: Azure Kubernetes Service, Azure Container Apps, and Web App for Containers. For a complete list of all Azure container services, please see [the container services product category page](https://azure.microsoft.com/products/category/containers/).
 
-### **Azure Well-Architected Framework for Operational Excellence**
+> [!note]
+> In this guide, the term *workload* refers to a collection of application resources that support a common business goal or the execution of a common business process, with multiple components, such as APIs and data stores, working together to deliver specific end-to-end functionality.
 
-Please note that this article focuses on a subset of Azure container services that offer a mature feature set around web applications and APIs, networking, observability, developer tools, and operations: Azure Kubernetes Service, Azure Container Apps, and Web App for Containers. For a complete list of all Azure container services, please see [the container services product category page](https://azure.microsoft.com/en-us/products/category/containers/).
-
-**[blue note box]**
-
-In this guide, the term *workload* refers to a collection of application resources that support a common business goal or the execution of a common business process, with multiple components, such as APIs and data stores, working together to deliver specific end-to-end functionality.
-
-# Architectural considerations
+## Architectural considerations
 
 This section explores architectural decisions that are **difficult to reverse or pivot without** **causing** **significant downtime or re-deployment**. This is especially relevant for fundamental components like networking and security.
 
 These considerations are not specific to Well Architected Framework pillars. However, they deserve extra scrutiny and evaluation against businesses requirements when deciding on an Azure container service.
 
-## Operating system support
+### Operating system support
 
 Most containerized applications run in Linux containers, which are supported by all Azure container services. Workload components that require Windows containers are limited in choices.
 
@@ -93,7 +113,7 @@ Integrating applications into virtual networks requires some IP address planning
 | | **ACA** | **AKS** | **Web App for Containers** |
 |---|:---:|:---:|:---:|
 | **Dedicated subnet(s)** | Consumption plan: optionalDedicated plan: required | required | optional |
-| **IP Address requirements** | Consumption plan: [See](https://learn.microsoft.com/en-us/azure/container-apps/networking?tabs=azure-cli)[See Consumption only environment](https://learn.microsoft.com/en-us/azure/container-apps/networking?tabs=azure-cli)Dedicated plan: See Workload Profile Environment | [See Azure virtual networks for AKS](https://learn.microsoft.com/en-us/azure/aks/concepts-network) | [See App Service Subnet requirements](https://learn.microsoft.com/en-us/azure/app-service/overview-vnet-integration) |
+| **IP Address requirements** | Consumption plan: [See](/azure/container-apps/networking?tabs=azure-cli)[See Consumption only environment](/azure/container-apps/networking?tabs=azure-cli)Dedicated plan: See Workload Profile Environment | [See Azure virtual networks for AKS](/azure/aks/concepts-network) | [See App Service Subnet requirements](/azure/app-service/overview-vnet-integration) |
 
 Please note Azure Kubernetes Service (AKS) requirements depend on the chosen network plugin. Some network plugins for AKS require broader IP reservations, which is outside the scope of this article. For more information, see network concepts for Azure Kubernetes Services (AKS).
 
@@ -255,7 +275,7 @@ Important – please note this section is not relevant for Web App for Container
 
 Customers are responsible for securing identity based access to the API. Out of the box, Kubernetes provides its own authentication and authorization management system, which also needs to be secured with access controls. 
 
-To leverage a single plane of glass for identity and access management on Azure, it is best practice to [disable Kubernetes specific local accounts](https://learn.microsoft.com/en-us/azure/aks/manage-local-accounts-managed-azure-ad) and instead [implement AKS-managed Microsoft Entra integration](https://learn.microsoft.com/en-us/azure/aks/enable-authentication-microsoft-entra-id) and combine with [Azure RBAC for Kubernetes](https://learn.microsoft.com/en-us/azure/aks/manage-azure-rbac). In this way, administrators do not have to perform IAM on multiple platforms. 
+To leverage a single plane of glass for identity and access management on Azure, it is best practice to [disable Kubernetes specific local accounts](/azure/aks/manage-local-accounts-managed-azure-ad) and instead [implement AKS-managed Microsoft Entra integration](/azure/aks/enable-authentication-microsoft-entra-id) and combine with [Azure RBAC for Kubernetes](/azure/aks/manage-azure-rbac). In this way, administrators do not have to perform IAM on multiple platforms. 
 
 | | **ACA** | **AKS** |
 |---|:---:|:---:|
@@ -265,7 +285,7 @@ To leverage a single plane of glass for identity and access management on Azure,
 
 #### **Network** **Based** **Security**
 
-Customers who wish to restrict network access to the Kubernetes control plane must use AKS, which offers two options. The first option is to use [private AKS clusters](https://learn.microsoft.com/en-us/azure/aks/private-clusters?tabs=azure-portal), which uses private link between the API Server’s private network and the AKS cluster’s private network. The second option is [API Server VNet integration (preview)](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration), where the API server is integrated into a delegated subnet. Please review the documentation to learn more.
+Customers who wish to restrict network access to the Kubernetes control plane must use AKS, which offers two options. The first option is to use [private AKS clusters](/azure/aks/private-clusters?tabs=azure-portal), which uses private link between the API Server’s private network and the AKS cluster’s private network. The second option is [API Server VNet integration (preview)](/azure/aks/api-server-vnet-integration), where the API server is integrated into a delegated subnet. Please review the documentation to learn more.
 
 There are consequences to network restricted access to the Kubernetes API, most notably, management can only be performed from within the private network, which means customers need to deploy their self-hosted agents for Azure DevOps or GitHub Actions. See the feature specific documentation for further limitations.
 
@@ -323,7 +343,7 @@ Key Vault integration allows application developers to focus on their applicatio
 
 It is best practice to use managed identities to access Azure resources without secrets, e.g., pull images from Azure Container Registry without a username and password.
 
-Azure container services offer managed identity support, configurable out of the box for ACA and Web App for Containers. For AKS, Azure offers integrated managed identity support for the Kubernetes control plane, ACR image management, and cluster add-ons. Managed identity for AKS applications is provided through the [Workload Identity](https://learn.microsoft.com/en-us/azure/aks/workload-identity-overview) feature. Workload identities are relatively more complex than how managed identities are provided to application code in the other Azure services in this guide.
+Azure container services offer managed identity support, configurable out of the box for ACA and Web App for Containers. For AKS, Azure offers integrated managed identity support for the Kubernetes control plane, ACR image management, and cluster add-ons. Managed identity for AKS applications is provided through the [Workload Identity](/azure/aks/workload-identity-overview) feature. Workload identities are relatively more complex than how managed identities are provided to application code in the other Azure services in this guide.
 
 | | **ACA** | **AKS** | **Web App for Containers** |
 |---|:---:|:---:|:---:|
@@ -357,7 +377,7 @@ The security baselines cover more Azure integrations, including hardware encrypt
 
 This article focusses on the main differences between the container services features in Azure. If you want to explore the full Security guidance for each service available in the Azure Well-Architected Framework, check out these references:
 
-- **AKS**: [Azure Well-Architected Framework review for Azure Kubernetes Service (AKS) - Microsoft Azure Well-Architected Framework | Microsoft Learn](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/azure-kubernetes-service)
+- **AKS**: [Azure Well-Architected Framework review for Azure Kubernetes Service (AKS) - Microsoft Azure Well-Architected Framework | Microsoft Learn](/azure/well-architected/service-guides/azure-kubernetes-service)
 
 # Operational considerations
 
@@ -381,7 +401,7 @@ ACA and Web App for Containers are PaaS solutions and thus Azure is responsible 
 
 ### Container image updates
 
-Irrespective of the Azure container solution, customers are always responsible for their own container images. Thus, if there are security patches for container base images, it is the responsibility of customers to rebuild their images. To be alerted of such vulnerabilities, customers should use [Microsoft Defender for Containers](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-introduction) for containers hosted in Azure Container Registry.
+Irrespective of the Azure container solution, customers are always responsible for their own container images. Thus, if there are security patches for container base images, it is the responsibility of customers to rebuild their images. To be alerted of such vulnerabilities, customers should use [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) for containers hosted in Azure Container Registry.
 
 ## Scalability
 
@@ -391,9 +411,9 @@ Scaling is used to adjust resource capacity to meet the current demands, adding 
 
 Vertical scaling refers to the ability to increase or decrease existing infrastructure, e.g. compute CPU and memory. Different workloads will require different amounts of compute resources. When choosing an Azure container solution, it is important to be aware of the hardware SKU offerings available to a particular Azure service as they vary and can pose additional constraints. See the articles below for more details on SKU offerings for each:
 
-For Azure Kubernetes Service, review the [sizes for virtual machines in Azure](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes) documentation paired with [per-region AKS restrictions](https://learn.microsoft.com/en-us/azure/aks/quotas-skus-regions) documentation.
+For Azure Kubernetes Service, review the [sizes for virtual machines in Azure](/azure/virtual-machines/sizes) documentation paired with [per-region AKS restrictions](/azure/aks/quotas-skus-regions) documentation.
 
-[Workload profiles types in Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/workload-profiles-overview)
+[Workload profiles types in Azure Container Apps](/azure/container-apps/workload-profiles-overview)
 
 [App Service Pricing](https://azure.microsoft.com/en-us/pricing/details/app-service/linux/)
 
@@ -465,8 +485,8 @@ For a more detailed description of each of the resource logs in the table above,
 
 This article focusses on the main differences between the container services features in Azure. If you want to explore the full Operational Excellence guidance for each service available in the Azure Well-Architected Framework, check out these references:
 
-- **AKS**: [Azure Well-Architected Framework review for Azure Kubernetes Service (AKS) - Microsoft Azure Well-Architected Framework | Microsoft Learn](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/azure-kubernetes-service)
-- **Web App for Containers**: [Azure App Service and operational excellence - Microsoft Azure Well-Architected Framework | Microsoft Learn](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/azure-app-service/operational-excellence)
+- **AKS**: [Azure Well-Architected Framework review for Azure Kubernetes Service (AKS) - Microsoft Azure Well-Architected Framework | Microsoft Learn](/azure/well-architected/service-guides/azure-kubernetes-service)
+- **Web App for Containers**: [Azure App Service and operational excellence - Microsoft Azure Well-Architected Framework | Microsoft Learn](/azure/well-architected/service-guides/azure-app-service/operational-excellence)
 
 # Reliability
 
@@ -578,9 +598,9 @@ Another important aspect of having a reliable shared environment is how you cont
 
 This article focusses on the main differences between the container services features in Azure. If you want to explore the full reliability guidance for each service available in the Azure Well-Architected Framework, check out these references:
 
-- **AKS**: [Azure Well-Architected Framework review for Azure Kubernetes Service (AKS) - Microsoft Azure Well-Architected Framework | Microsoft Learn](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/azure-kubernetes-service)
-- **ACA**: [Reliability in Azure Container Apps | Microsoft Learn](https://learn.microsoft.com/en-us/azure/reliability/reliability-azure-container-apps?tabs=azure-cli)
-- **Web App for Containers**: [Azure App Service and reliability - Microsoft Azure Well-Architected Framework | Microsoft Learn](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/azure-app-service/reliability)
+- **AKS**: [Azure Well-Architected Framework review for Azure Kubernetes Service (AKS) - Microsoft Azure Well-Architected Framework | Microsoft Learn](/azure/well-architected/service-guides/azure-kubernetes-service)
+- **ACA**: [Reliability in Azure Container Apps | Microsoft Learn](/azure/reliability/reliability-azure-container-apps?tabs=azure-cli)
+- **Web App for Containers**: [Azure App Service and reliability - Microsoft Azure Well-Architected Framework | Microsoft Learn](/azure/well-architected/service-guides/azure-app-service/reliability)
 
 # Conclusion
 
@@ -596,11 +616,11 @@ Be aware that generalizations can help narrow down the list of Azure containers 
 
 To learn more about the services covered in this article, please review their documentation.
 
-[Azure Kubernetes Service (AKS) documentation | Microsoft Learn](https://learn.microsoft.com/en-us/azure/aks/)
+[Azure Kubernetes Service (AKS) documentation | Microsoft Learn](/azure/aks/)
 
-[Azure Container Apps documentation | Microsoft Learn](https://learn.microsoft.com/en-us/azure/container-apps/)
+[Azure Container Apps documentation | Microsoft Learn](/azure/container-apps/)
 
-[Azure App Service documentation - Azure App Service | Microsoft Learn](https://learn.microsoft.com/en-us/azure/app-service/)
+[Azure App Service documentation - Azure App Service | Microsoft Learn](/azure/app-service/)
 
 ## Contributors
 
