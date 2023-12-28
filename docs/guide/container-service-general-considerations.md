@@ -253,7 +253,7 @@ The topics above are just a selection of the most common topics to consider. For
 
 The topics above focus on network design. Continue to the next section on security considerations to learn more about networking security and securing network traffic.
 
-# Security considerations
+## Security considerations
 
 Security is of the utmost importance for every workload. Failure to address security risks could lead to unauthorized access, data breaches, or leakage of sensitive information. Containers offer an encapsulated environment for your application. The hosting systems and underlying network overlays, however, require additional guardrails. Your Azure container service selection needs to support your specific requirements on how to secure each application individually and implement proper security measures to prevent unauthorized access and mitigate the risk of attacks.
 
@@ -379,7 +379,7 @@ This article focusses on the main differences between the container services fea
 
 - **AKS**: [Azure Well-Architected Framework review for Azure Kubernetes Service (AKS) - Microsoft Azure Well-Architected Framework | Microsoft Learn](/azure/well-architected/service-guides/azure-kubernetes-service)
 
-# Operational considerations
+## Operational considerations
 
 To successfully run a workload in production, teams need to implement operational excellence practices including centralized logging, monitoring, scalability, regular updates/patching, image management and more. 
 
@@ -488,7 +488,7 @@ This article focusses on the main differences between the container services fea
 - **AKS**: [Azure Well-Architected Framework review for Azure Kubernetes Service (AKS) - Microsoft Azure Well-Architected Framework | Microsoft Learn](/azure/well-architected/service-guides/azure-kubernetes-service)
 - **Web App for Containers**: [Azure App Service and operational excellence - Microsoft Azure Well-Architected Framework | Microsoft Learn](/azure/well-architected/service-guides/azure-app-service/operational-excellence)
 
-# Reliability
+## Reliability
 
 Reliability refers to the ability of a system to react to failures and remain fully functional. At an application software level, workloads should implement best practices, e.g. caching, retry, circuit breaker patterns and health checks. At the infrastructure level, Azure is responsible for handling physical failures in data centers, e.g., hardware failures and power outages. Failures can still happen, and workload teams should select the appropriate Azure service tier and apply necessary minimum instance configuration to leverage automatic failovers between availability zones.
 
@@ -602,7 +602,7 @@ This article focusses on the main differences between the container services fea
 - **ACA**: [Reliability in Azure Container Apps | Microsoft Learn](/azure/reliability/reliability-azure-container-apps?tabs=azure-cli)
 - **Web App for Containers**: [Azure App Service and reliability - Microsoft Azure Well-Architected Framework | Microsoft Learn](/azure/well-architected/service-guides/azure-app-service/reliability)
 
-# Conclusion
+## Conclusion
 
 Well-architected solutions set the foundations for successful workloads, which require conscious research and decision making. While architecture can be adjusted as a workload grows and teams progress on their cloud journeys, some decisions, especially around networking are difficult to reverse without significant downtime or re-deployments.
 
@@ -612,7 +612,7 @@ Although ACA and Web App for Containers are both PaaS offerings with similar lev
 
 Be aware that generalizations can help narrow down the list of Azure containers services to explore. But it is also important to verify a service fit by examining individual requirements in detail and matching them to Azure service specific feature sets. 
 
-# Next Steps
+## Next Steps
 
 To learn more about the services covered in this article, please review their documentation.
 

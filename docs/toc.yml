@@ -1423,7 +1423,6 @@ items:
         href: guide/choose-azure-container-service.md
       - name: Considerations
         href: guide/container-service-general-considerations.md 
-    items:
     - name: Kubernetes-based hosting
       items:
       - name: Get started
