@@ -50,7 +50,7 @@ This guide focuses on a subset of the container services that Azure currently of
     ![AKS logo](media/images/aks.png)
     :::column-end:::
     :::column span="3":::
-    [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/products/kubernetes-service) is a managed Kubernetes service for running containerized applications. Take advantage of managed [add-ons and extensions](/azure/aks/integrations) for additional capabilities while preserving the broadest level of flexibility and control. For more information, see [AKS documentation](/azure/aks/). 
+    [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/products/kubernetes-service) is a managed Kubernetes service for running containerized applications. With AKS, you can take advantage of managed [add-ons and extensions](/azure/aks/integrations) for additional capabilities while preserving the broadest level of flexibility and control. For more information, see [AKS documentation](/azure/aks/). 
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -108,7 +108,7 @@ If you need to host disparate, potentially unrelated application components or w
 
 ## The tradeoff between control and ease of use
 
-The following diagram illustrates how the service models of services compare. AKS provides the most configurability, but this configurability comes at the cost of increased operational overhead, as compared to the other services. Although Container Apps and Web App for Containers are both PaaS services that have similar levels of Microsoft managed features, Web App for Containers emphasizes simplicity to cater to its target audience: existing Azure PaaS customers, who will find the interface familiar. The diagram also illustrates the tradeoffs between responsibility and configurability.
+The following diagram illustrates how the service models of services compare. AKS provides the most configurability, but this configurability comes at the cost of increased operational overhead, as compared to the other services. Although Container Apps and Web App for Containers are both PaaS services that have similar levels of Microsoft-managed features, Web App for Containers emphasizes simplicity to cater to its target audience: existing Azure PaaS customers, who find the interface familiar. The diagram also illustrates the tradeoffs between responsibility and configurability.
 
 ![Diagram that shows how service models compare.](media/images/control-tradeoffs.png)
 
@@ -133,9 +133,9 @@ The following table provides a high-level overview of considerations, including 
 
 After reviewing the preceding considerations, you still might not have found the perfect fit. That's perfectly normal.
 
-## Evaluating trade-offs
+## Evaluating tradeoffs
 
-Choosing a cloud service isn't a straightforward exercise. Given the complexity of cloud computing, the collaboration between many teams, and resource constraints like people, budget, and time, every solution has tradeoffs.
+Choosing a cloud service isn't a straightforward exercise. Given the complexity of cloud computing, the collaboration between many teams, and resource constraints involving people, budgets, and time, every solution has tradeoffs.
 
 Be aware that, for any given workload, some requirements might be more critical than others. For example, an application team might prefer a PaaS solution like Container Apps but choose AKS because their security team requires deny-by-default network controls between colocated workload components, which is an AKS-only feature that uses Kubernetes network policies.
 
