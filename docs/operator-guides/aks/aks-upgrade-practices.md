@@ -50,9 +50,9 @@ There are three types of updates for AKS, each one building on the next:
 
 To ensure the smooth operation of your AKS cluster during maintenance, follow these best practices:
 
-- **Define pod disruption budgets (PDBs).** Setting up [pod disruption budgets](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) for your deployments is essential. PDBs enforce a minimum number of available application replicas to ensure continuous functionality during [disruption events](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/). Pod disruption budgets help maintain the stability of your cluster during maintenance or node failures.
+- **Define pod disruption budgets (PDBs).** Setting up [pod disruption budgets](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) for your deployments is essential. PDBs enforce a minimum number of available application replicas to ensure continuous functionality during [disruption events](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/). PDBs help maintain the stability of your cluster during maintenance or node failures.
    > [!warning] 
-   > Misconfigured pod disruption budgets can block the upgrade process because the Kubernetes API prevents the necessary cordon and drain that occurs with a rolling node-image upgrade. Additionally, if too many pods are moved simultaneously, an application outage can occur. PDB configuration mitigates this risk.
+   > Misconfigured PDBs can block the upgrade process because the Kubernetes API prevents the necessary cordon and drain that occurs with a rolling node-image upgrade. Additionally, if too many pods are moved simultaneously, an application outage can occur. PDB configuration mitigates this risk.
 - **Check available compute and network limits.**  Verify the available compute and network limits in your Azure subscription via the [quota page](/azure/quotas/view-quotas) in the Azure portal, or by using the [az quota](/cli/azure/quota/usage?view=azure-cli-latest#az-quota-usage-list&preserve-view=true) command. Check compute and network resources, especially VM vCPUs for your nodes, and the number of virtual machines and virtual machine scale sets. If you're close to a limit, request a quota increase before you upgrade.
 - **Check available IP space in node subnets.** During updates, extra surge nodes are created in your cluster and pods are moved to these nodes. It's important that you monitor the IP address space in your node subnets to ensure there's sufficient address space for these changes to occur. Different Kubernetes [network configurations](/azure/aks/concepts-network#azure-virtual-networks) have different IP requirements. As a starting point, review these considerations:
   - During an upgrade, the number of node IPs increases according to your surge value. (The minimum surge value is 1.)
@@ -71,7 +71,7 @@ When a node image is updated, a _cordon and drain_ action is triggered on the ta
 
 - A node with the updated image is added to the node pool. The number of nodes added at a time is governed by the surge value.
 - One of the existing nodes is _cordoned_ and _drained_. Cordoning ensures that the node doesn't schedule pods. Draining removes its pods and schedules them to other nodes.
-- After the node is fully drained, it's removed from the node pool. The updated node added by the surge has replaced it.
+- After the node is fully drained, it's removed from the node pool. The updated node added by the surge replaces it.
 - This process is repeated for each node that needs to be updated in the node pool.
 
 A similar process occurs during a cluster upgrade.
@@ -90,7 +90,7 @@ Available channels include the following:
 If you choose the `Unmanaged` update channel, you need to manage the reboot process by using a tool like [kured](https://kured.dev/docs/). If you choose the `SecurityPatch` update channel, updates can be applied as frequently as nightly. This patch level requires the VHDs to be stored in your resource group, which incurs a nominal charge. Additionally, you need to combine the `SecurityPatch` configuration with a `NodeImage` configuration to enable a complete node patching process.
 
 As a best practice, use the `NodeImage` update channel and configure an `aksManagedNodeOSUpgradeSchedule` maintenance window to a time when the cluster is outside of peak usage windows.
-See [Creating a maintenance window](/azure/aks/planned-maintenance/#creating-a-maintenance-window) for attributes that you can use to configure the cluster maintenance window. Following are the key attributes:
+See [Creating a maintenance window](/azure/aks/planned-maintenance/#creating-a-maintenance-window) for attributes that you can use to configure the cluster maintenance window. The key attributes are:
 
 - `name`. Use `aksManagedNodeOSUpgradeSchedule` for node OS updates.
 - `utcOffset`. Configure the time zone.
@@ -208,7 +208,7 @@ In addition to these Microsoft resources, consider using open-source tools to op
 
 ### Upgrade process
 
-To check when your cluster requires an upgrade, use [az aks get-upgrades](/cli/azure/aks?view=azure-cli-latest#az-aks-get-upgrades&preserve-view=true) to get a list of available upgrade versions for your AKS cluster. Determine the target version for your cluster from the results.
+To check when your cluster requires an upgrade, use [az aks get-upgrades](/cli/azure/aks#az-aks-get-upgrades) to get a list of available upgrade versions for your AKS cluster. Determine the target version for your cluster from the results.
 
 Here's an example:
 
@@ -252,7 +252,7 @@ To minimize disruptions and help ensure a smooth upgrade for your AKS cluster, f
 
 By following this approach, you can minimize disruptions during the upgrade process and maintain the availability of your applications. These are the detailed steps:
 
-1. Run the [az aks upgrade](/cli/azure/aks?view=azure-cli-latest#az-aks-upgrade&preserve-view=true) command with the `--control-plane-only` flag to upgrade only the cluster control plane and not the cluster's node pools:
+1. Run the [az aks upgrade](/cli/azure/aks#az-aks-upgrade) command with the `--control-plane-only` flag to upgrade only the cluster control plane and not the cluster's node pools:
 
    ```azurecli
    az aks upgrade \
@@ -302,7 +302,7 @@ The following table describes the characteristics of various AKS upgrade and pat
 |Cluster auto-upgrade | No  | Yes | Yes, if an updated node image uses an updated kernel | Yes, if a new release is available  |
 
 - An OS security patch that's applied as part of a node image upgrade might install a later version of the kernel than creation of a new cluster would install.
-- Node pool scale-up uses the model that's currently associated with the virtual machine scale set. The OS kernels upgrade when security patches are applied, and the nodes reboot.
+- Node pool scale-up uses the model that's currently associated with the virtual machine scale set. The OS kernels are upgraded when security patches are applied, and the nodes reboot.
 
 ## Contributors
 
