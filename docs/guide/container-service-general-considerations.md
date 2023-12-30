@@ -504,7 +504,7 @@ Here's a short summary of the logging capabilities of the container services:
 - **AKS** provides all Kubernetes-related logs and granular control over what can be logged. It also retains full compatibility with Kubernetes client tools for log streaming, like kubectl.
 - **Web App for Containers** provides many categories of resource logs because its platform (App Service) isn't exclusively for container workloads. For container-specific operations that manage its internal Docker platform, it provides the AppServicePlatformLogs log category. Another important category is AppServiceEnvironmentPlatformLogs, which logs events like scaling and configuration changes.
 
-## Well-Architected Framework for Operational Excellence
+### Well-Architected Framework for Operational Excellence
 
 This article focusses on the main differences among the container services features described here. See these articles to review the complete Operational Excellence guidance for the following services:
 
@@ -513,108 +513,108 @@ This article focusses on the main differences among the container services featu
 
 ## Reliability
 
-*Reliability* refers to the ability of a system to react to failures and remain fully functional. At an application software level, workloads should implement best practices, e.g. caching, retry, circuit breaker patterns and health checks. At the infrastructure level, Azure is responsible for handling physical failures in data centers, e.g., hardware failures and power outages. Failures can still happen, and workload teams should select the appropriate Azure service tier and apply necessary minimum instance configuration to leverage automatic failovers between availability zones.
+*Reliability* refers to the ability of a system to react to failures and remain fully functional. At the application-software level, workloads should implement best practices like caching, retry, circuit breaker patterns, and health checks. At the infrastructure level, Azure is responsible for handling physical failures, like hardware failures and power outages, in datacenters. Failures can still happen. Workload teams should select the appropriate Azure service tier and apply necessary minimum-instance configurations to implement automatic failovers between availability zones.
 
-To choose the appropriate service tier customers need to understand how service level agreements (SLAs) and availability zones (AZs) work.
+To choose the appropriate service tier, you need to understand how service-level agreements (SLAs) and availability zones work.
 
-### Service Level Agreements
+### Service-level agreements
 
-Reliability is commonly measured by business driven metrics such as service level agreements (SLA) or recovery metrics like recovery time objective (RTO). 
+Reliability is commonly measured by business-driven metrics like SLAs or recovery metrics like recovery time objectives (RTOs). 
 
-Azure has many different SLAs, depending on the Azure specific service. It is important to understand that there is no such thing as a 100% service level, because failures can always occur in software, hardware and in nature, e.g., storms, earthquakes, etc. An SLA is not a guarantee but rather a financially backed agreement of service availability.
+Azure has many SLAs for specific services. There's no such thing as a 100% service level, because failures can always occur in software and hardware, and in nature, for example, storms and earthquakes. An SLA isn't a guarantee but rather a financially backed agreement of service availability.
 
-For the latest SLAs and details, please[ download the latest Service Level Agreement for Microsoft Online Services (WW) document](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) from the Microsoft licensing website.
+For the latest SLAs and details, [download the latest SLA for Microsoft Online Services document](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) from the Microsoft licensing website.
 
-#### Azure free vs. paid tiers
+#### Free vs. paid tiers
 
-Generally, free tiers of Azure services do not offer an SLA, which makes them cost effective choices for non-production environments. For production environments, however, it is best practice to choose a paid tier with an SLA.
+Generally, free tiers of Azure services don't offer an SLA, which makes them cost-effective choices for non-production environments. For production environments, however, it's a best practice to choose a paid tier that has an SLA.
 
-#### Additional factors for Azure Kubernetes Service
+#### Additional factors for AKS
 
-Azure Kubernetes Service (AKS) has different SLAs for different components and configurations: 
+AKS has different SLAs for different components and configurations: 
 
-- **Control plane**: the Kubernetes API server has a separate SLA
-- **Data plane**: the node pools use the underlying VM SKU SLAs 
-- **Availability zones**: there are different SLAs for both planes depending on whether the AKS cluster has availability zones enabled *and* running multiple instances across AZs.
+- **Control plane**. The Kubernetes API server has a separate SLA.
+- **Data plane**. Node pools use the underlying VM SKU SLAs. 
+- **Availability zones**. There are different SLAs for the two planes, depending on whether the AKS cluster has availability zones enabled *and* running multiple instances across availability zones.
 
-Please note that when choosing multiple Azure services, composite SLAs may differ from and be lower than individual service SLAs.
+Note that when you use multiple Azure services, composite SLAs might differ from and be lower than individual service SLAs.
 
-### Redundancy with Availability Zones
+### Redundancy with availability zones
 
-**Availability Zones** are distinct data centers with independent electric power, cooling, etc. within the same region. This redundancy increases the tolerance of failures without customers having to implement multi-region architectures. 
+*Availability zones* are distinct datacenters that have independent electric power, cooling, and so on within a single region. The resulting redundancy increases the tolerance of failures without requiring you to implement multi-region architectures.
 
-Azure has availability zones in every country/region in which Azure operates a datacenter region. To allow multiple instances of containers to spread across availability, be sure to select the corresponding SKUs, service tiers, and region that offer availability zone support.
+Azure has availability zones in every country/region in which Azure operates a datacenter region. To allow multiple instances of containers to cross availability zones, be sure to select SKUs, service tiers, and regions that provide availability zone support.
 
-| **Feature** | **Container Apps** | **AKS** | **Web Apps** |
+| Feature| Container Apps | AKS | Web App for Containers |
 |---|--|--|--|
-| **Availability Zone Support** | Full | Full | Full |
+| **Availability zone support** | Full | Full | Full |
 
-For example, any application or infrastructure configured to run one single instance will become unavailable if a problem occurs in that availability zone where the corresponding hardware is hosted. To fully use availability zone support, workloads should also deploy with a minimum configuration of three instances of the container, spread across the zones.
+For example, an application or infrastructure that's configured to run a single instance becomes unavailable if a problem occurs in the availability zone where the hardware is hosted. To fully use availability zone support, workloads should deploy with a minimum configuration of three instances of the container, spread across zones.
 
 ### Health checks and self-healing
 
-Having health check endpoints is crucial to a reliable workload because that is how an application can tell its host if it is healthy or not. But building those endpoints is half of the solution, the other half is to control what/how the hosting platform does when there are failures.
+Health check endpoints are crucial to a reliable workload. But building those endpoints is only half of the solution. The other half is controlling what the hosting platform does, and how, when there are failures.
 
-To better distinguish between different types of health probes, let’s borrow the concept from built-in types of probes from Kubernetes: 
+To better distinguish among types of health probes, take a look at the built-in types of Kubernetes probes:
 
-- **Startup:** Checks if your application has successfully started
-- **Readiness**: Checks to see if the application is ready to handle incoming requests
-- **Liveness**: Checks if your application is still running and responsive
+- **Startup**. Checks whether the application successfully started.
+- **Readiness**. Checks whether the application is ready to handle incoming requests.
+- **Liveness**. Checks whether the application is still running and responsive.
 
-Another important consideration is how often those health checks are requested from the application (internal granularity). If you have a large interval between them, you might continue to serve the traffic until the instance is deemed unhealthy. 
+Another important consideration is how often those health checks are requested from the application (internal granularity). If you have a long interval between them, you might continue to serve traffic until the instance is deemed unhealthy.
 
-Most applications support health check using the HTTP(S) protocol. However, some might need other protocols such as TCP or gRPC to perform those checks. Keep this in mind when designing your health check system.
+Most applications support health check via the HTTP(S) protocol. However, some might need other protocols, like TCP or gRPC, to perform those checks. Keep this in mind when you design your health check system.
 
 | | Container Apps| AKS| Web App for Containers|
 |---|--|--|--|
 | **Startup probes** | ✅ | ✅ | Partial support |
 | **Readiness probes** | ✅ | ✅ | ❌ |
 | **Liveness probes** | ✅ | ✅ | ✅ |
-| **Interval granularity** | Second | Second | 1 minute |
-| **Protocol support** | HTTP(S)TCP | HTTP(S)TCPgRPC | HTTP(S) |
+| **Interval granularity** | Seconds | Seconds | 1 minute |
+| **Protocol support** | HTTP(S)<br>TCP | HTTP(S)<br>TCP<br>gRPC | HTTP(S) |
 
-**Web App for Containers** is the simplest implementation and has some important considerations:
+Web App for Containers is the easiest to implementent. There are some important considerations:
 
-- Its startup probes are built-in and cannot be changed. Internally it will send a HTTP request in the starting port of your container and any response back from your application will be considered a successful start.
-- It doesn’t support readiness probes. If the startup probe was successful, this container instance will be added to the pool of “healthy” instances.
-- It sends the health check at 1-minute intervals, this cannot be changed.
-- The minimum configurable threshold you can set for your unhealthy instance to be removed from the internal load balancing mechanism is 2 minutes. That means your “unhealthy” instance will be getting traffic for at least 2 minutes after it fails a health check. The default value for this setting is 10 minutes
+- Its startup probes are built-in and can't be changed. It sends an HTTP request to the starting port of your container. Any response from your application is considered a successful start.
+- It doesn't support readiness probes. If the startup probe is successful, the container instance is added to the pool of healthy instances.
+- It sends the health check at one-minute intervals. You can't change the interval.
+- The minimum threshold that you can set for an unhealthy instance to be removed from the internal load balancing mechanism is two minutes. The unhealthy instance gets traffic for at least two minutes after it fails a health check. The default value for this setting is 10 minutes.
 
-Container Apps and AKS, on the other hand, are much more flexible and offer similar options (since Container Apps is based on an internal Kubernetes platform). In comparison to AKS, Container Apps lacks the following options for health checking:
+Container Apps and AKS, on the other hand, are much more flexible and offer similar options (because Container Apps is based on an internal Kubernetes platform). In terms of specific differences, AKS provides the following options for health checking, which Container Apps lacks:
 
 - gRPC support
 - Named ports
-- *Exec* commands<br>
+- *Exec* commands
 
 #### Auto-healing
 
-Identifying a bad container instance and stop sending traffic to it is one thing. But what can be done about the faulty instance after that? “Auto-healing” is the process of restarting the application in an attempt to recover from an unhealthy state. These are the differences between the Azure container services in that regard:
+To identify a bad container instance and stop sending traffic to it is a start. The next step is to implement auto-healing. *Auto-healing* is the process of restarting the application in an attempt to recover from an unhealthy state. Here's how the three container services compare:
 
-- **Web App for Containers**: there is no option to restart a container instance right after a health check fails. If it keeps failing for one hour, then it is replaced by a new instance. There is another feature called “*Auto-healing*” to monitor and restart instances not directly related to health checks but looking at different metrics of the application (such as memory limit, HTTP requests duration or status codes)
-- **Container Apps** and** AKS** will automatically try to restart the container instance if the *liveness* probe reaches the defined failure threshold.
+- In Web App for Containers, there's no option to restart a container instance immediately after a health check fails. If the instance keeps failing for one hour, it's replaced by a new instance. There's another feature, called *Auto-healing*, that monitors and restarts instances. It's not directly related to health checks. It uses various application metrics, like memory limits, HTTP request duration, and status codes.
+- Container Apps and AKS automatically try to restart a container instance if the liveness probe reaches the defined failure threshold.
 
-### Zero downtime application deployments
+### Zero-downtime application deployments
 
-The ability to deploy and replace applications without having any downtime for the users is a crucial aspect for a reliable workload. All three Azure container services covered by this article support zero downtime deployments although in different ways.
+The ability to deploy and replace applications without causing any downtime for users is crucial for a reliable workload. All three of the container services that are described in this article support zero-downtime deployments, but in different ways.
 
 | | Container Apps| AKS| Web App for Containers|
 |---|--|--|--|
-| **Zero downtime strategy** | Rolling update | Rolling update+All other Kubernetes strategies | Slots |
+| **Zero-downtime strategy** | Rolling update | Rolling update and all other Kubernetes strategies | Slots |
 
-- **Web App for Containers**: it has a concept of slots, which are placeholders where you can deploy new versions of your containers and test them before sending to the Production slot. Each slot has its own separate host name, configuration, and binaries from the Production slot. However, this feature needs to be implemented and is not configured out-of-the-box.
-- **Container Apps**: by default, any container deployed to Container Apps will have zero downtime (works like a Kubernetes rolling update) and you also have the possibility to validate and test them before sending to Production by using multiple revisions direct access
-- **AKS**: the default deployment strategy in Kubernetes is called rolling update, which will start new instances of your container in parallel with the existing and only after kill the old ones after the new are started, resulting in no downtime. However, you can also choose among other deployment strategies available in Kubernetes.
+- **Web App for Containers**: Web App for Containers implements *slots*, which are placeholders in which you can deploy new versions of your containers and test them before sending them to the production slot. Each slot has its own separate host name, configuration, and binaries from the production slot. However, this feature needs to be implemented and isn't configured out-of-the-box.
+- **AKS**: The default deployment strategy in Kubernetes is called [rolling update](https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/). The process starts a new instance of your container in parallel with the existing one. The old one is removed only after the new one starts, so there's no downtime. You can also choose other deployment strategies that are available in Kubernetes.
+- **Container Apps**: By default, any container that's deployed to Container Apps has zero downtime. It works like a Kubernetes rolling update. You also have the option to validate and test containers before you send them to production by using [direct revision access](/azure/container-apps/revisions#direct-revision-access).
 
 ### Resource limits
 
-Another important aspect of having a reliable shared environment is how you control the resource usage (like CPU or memory) of your containers, to avoid a single application taking over all the resources leaving other applications in a bad state.
+Another important component of a reliable shared environment is your control over the resource usage (like CPU or memory) of your containers. You need to avoid scenarios in which a single application takes up all the resources and leaves other applications in a bad state.
 
 | | Container Apps| AKS| Web App for Containers|
 |---|--|--|--|
-| **Resource limits (CPU/Memory)** | Per app/container | Per app/containerPer namespace | Per App Service Plan |
+| **Resource limits (CPU or memory)** | Per app/container | Per app/container<br>Per namespace | Per App Service plan |
 
-- **Web App for Containers:** You can host multiple applications (containers) within a single App Service Plan. For example, you might allocate a plan with 2 CPU cores and 4 GiB RAM and there you can run multiple web apps with containers. However, you can not restrict one of these apps to take certain amount of CPU or memory. They all will compete for the same resources of the App Service Plan. If you want to isolate your application resources, you will need to create additional App Service Plans.
-- **Container Apps: You can set CPU and Memory limits per application within your environment. However, the choice of CPU and Memory must match one of the allowed combinations from the official documentation. For example, you can’t set 1 vCPU + 1 GiB memory, it needs to be 1 vCPU + 2 GiB memory. An Container Apps environment is analogue to a Kubernetes namespace.**
+- **Web App for Containers**: You can host multiple applications (containers) in a single App Service plan. For example, you might allocate a plan with two CPU cores and 4 GiB RAM where you can run multiple web apps in containers. However, you can't restrict one of these apps to take certain amount of CPU or memory. They all will compete for the same resources of the App Service Plan. If you want to isolate your application resources, you will need to create additional App Service Plans.
+- **Container Apps**: You can set CPU and Memory limits per application within your environment. However, the choice of CPU and Memory must match one of the allowed combinations from the official documentation. For example, you can’t set 1 vCPU + 1 GiB memory, it needs to be 1 vCPU + 2 GiB memory. An Container Apps environment is analogue to a Kubernetes namespace.
 - **AKS: You are free to choose your own combination of vCPU and Memory as long as your nodes have the hardware for it. Additionally, you can limit resources in the namespace level if you want to segment your cluster that way.**
 
 ### Azure Well-Architected Framework for Reliability
