@@ -60,7 +60,7 @@ The Contoso Boards solution focuses on edge detection.
 The following camera choices supported this workload:
 
 - Camera placement: The camera is directly above at 90 degrees and about 16 inches from the part.
-- Camera type: Since the conveyer system moves relatively slowly, the solution can use an area scan camera with a global shutter.
+- Camera type: Since the conveyor system moves relatively slowly, the solution can use an area scan camera with a global shutter.
 - Frame rate: For this use case, the camera captures about 30 frames per second.
 - Resolution: The formula for required resolution is `Res=(object size) / (details to capture)`. Based on this formula, `Res=16"/8"` gives 2 megapixels (MP) in `x` and 4MP in `y`, so Contoso Boards needs a camera capable of 4MP resolution.
 - Sensor type: The targets aren't fast moving, and only require edge detection, so a CMOS sensor works well.

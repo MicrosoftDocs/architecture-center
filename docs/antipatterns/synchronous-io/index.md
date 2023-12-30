@@ -125,7 +125,7 @@ public class AsyncController : ApiController
         _userProfileService = new FakeUserProfileService();
     }
 
-    // This is an synchronous method that calls the Task based GetUserProfileAsync method.
+    // This is a synchronous method that calls the Task based GetUserProfileAsync method.
     public Task<UserProfile> GetUserProfileAsync()
     {
         return _userProfileService.GetUserProfileAsync();
