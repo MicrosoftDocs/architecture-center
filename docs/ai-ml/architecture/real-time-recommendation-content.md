@@ -57,7 +57,7 @@ The combination of AKS and Azure Cosmos DB enables this architecture to provide 
 
 ![Graph of throughput](_images/recommenders-throughput.png)
 
-Azure Cosmos DB is recommended for its turnkey global distribution and usefulness in meeting any database requirements your app has. To [reduce latency][latency] slightly, consider using [Azure Cache for Redis][redis] instead of Azure Cosmos DB to serve lookups. Azure Cache for Redis can improve performance of systems that rely heavily on data in back-end stores.
+Azure Cosmos DB is recommended for its turnkey global distribution and usefulness in meeting any database requirements your app has. To reduce latency slightly, consider using [Azure Cache for Redis][redis] instead of Azure Cosmos DB to serve lookups. Azure Cache for Redis can improve performance of systems that rely heavily on data in back-end stores.
 
 ### Scalability
 
@@ -154,7 +154,6 @@ Principal authors:
 [eval-guide]: https://github.com/Microsoft/Recommenders/blob/main/examples/03_evaluate/evaluation.ipynb
 [github]: https://github.com/Microsoft/Recommenders
 [guide]: https://github.com/Microsoft/Recommenders/blob/main/examples/01_prepare_data/data_split.ipynb
-[latency]: https://github.com/jessebenson/azure-performance
 [mls]: /azure/machine-learning/overview-what-is-azure-machine-learning
 [mls-service-page]: https://azure.microsoft.com/products/machine-learning
 [nodes]: /azure/aks/scale-cluster
