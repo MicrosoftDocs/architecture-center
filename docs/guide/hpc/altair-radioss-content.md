@@ -154,11 +154,9 @@ The following table shows the relative speed increase for each increase in numbe
 
 ### Results for a multi-node configuration
 
-The initial performance testing was performed on Radioss 2021.2, while the latest released version of Altair is Radioss 2022.1. Therefore, this article includes the performance testing on Radioss 2022.1 and the performance improvement between both versions is included.
+The initial performance testing for the multi-node configuration was performed on Radioss 2021.2. This article also includes test results for Radioss 2022.1, which is the most recent version.
 
-Radioss 2022.1 was tested in multi-node configurations. Computation time (Engine run time) was measured. The Linux platform was used, with an Azure Marketplace CentOS 8.1 HPC Gen2 image.
-
-The Taurus model was used as a test case:
+The Taurus T10M model was used as a test case:
 
 :::image type="content" source="media/altair-radioss/taurus.png" alt-text="Figure that shows the Taurus model.":::
 
@@ -168,18 +166,18 @@ The following table provides the numbers of various elements in the model.
 |---------|---------|---------|---|-|-|-|-|--|-|-|-|-|-|-|-|-|-|-|
 | 9,754,355 |1,585|66|762|1|330,418|9,196,272|3,766|417|345,409|1|5|4|4|1,712|901|5|4|8|
 
-For the Taurus t10m model, as the preceding performance results show, a Standard_HB120-64rs_v3 VM (AMD EPYC™ 7V73X Milan-X Processors) with 64 cores is the optimal configuration. This configuration was used in the multi-node tests. 64 cores were used on each node.
+For the Taurus T10M model, as the preceding performance results show, a Standard_HB120-64rs_v3 VM (AMD EPYC 7V73X Milan-X processors) with 64 cores is the optimal configuration. This configuration was used in the multi-node tests. 64 cores were used on each node.
 
-The following table shows the elapsed wall-clock time, in hours, for the test runs.
+The following table shows the elapsed wall-clock times for the test runs.
 
-|Model|No of Cycles|VM Size|Node|CPU|Thread|v2021.2 Engine Runtime (Sec)|v2022.1 Engine Runtime (Sec)|
+|Model|Number of cycles|VM size|Number of nodes|Number of CPUs|Number of threads|Version 2021.2 runtime (seconds)|Version 2022.1 runtime (seconds)|
 |----|-----|---|------|----|-----|---------|----|
-| Taurus (T10M)  |603079  | Standard_HB120-64rs_v3 |1|64| 1|135417.00|130768.10|
-| Taurus (T10M)  |603079  | Standard_HB120-64rs_v3 |4|256|1| 38726.00|39871.03|
-| Taurus (T10M)  |603079  | Standard_HB120-64rs_v3 |8|512|4|30756.00|22801.05|
-| Taurus (T10M)  |603079  | Standard_HB120-64rs_v3|16|1024|4|17486.00|15838.56|
+| Taurus (T10M)  |603,079  | Standard_HB120-64rs_v3 |1|64| 1|135,417.00|130,768.10|
+| Taurus (T10M)  |603,079  | Standard_HB120-64rs_v3 |4|256|1| 38,726.00|39,871.03|
+| Taurus (T10M)  |603,079  | Standard_HB120-64rs_v3 |8|512|4|30,756.00|22,801.05|
+| Taurus (T10M)  |603,079  | Standard_HB120-64rs_v3|16|1024|4|17,486.00|15,838.56|
 
-:::image type="content" source="media/altair-radioss/taurus-multi-node-speedup-new-version.png" alt-text="Figure that shows the relative speed-up for Taurus model.":::
+:::image type="content" source="media/altair-radioss/taurus-multi-node-speed-increase.png" alt-text="Graph that shows the relative speed increase for the Taurus model.":::
 
 ## Azure cost
 
@@ -214,7 +212,7 @@ The following table provides the wall-clock times for multi-node configurations.
 - Radioss was successfully tested on HBv3-series VMs on Azure.
 - Radioss on an Azure VM can solve complex workloads.
 - In a single-node configuration, increasing the number of CPUs increases the relative speed. The optimal configuration is 64 CPUs.
-- Radioss scales impressively up to 16 nodes (1024 CPUs) for the Taurus t10m model.
+- Radioss scales impressively up to 16 nodes (1024 CPUs) for the Taurus T10M model.
 
 ## Contributors
 
