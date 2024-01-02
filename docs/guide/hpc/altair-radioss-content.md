@@ -154,7 +154,7 @@ The following table shows the relative speed increase for each increase in numbe
 
 ### Results for a multi-node configuration
 
-Initially the HPC Performance Testing was performed on Radioss 2021.2, while the latest released version of Altair is Radioss 2022.1. Therefore, this article includes the performance testing on Radioss 2022.1 and the performance improvement between both versions is included.
+The initial performance testing was performed on Radioss 2021.2, while the latest released version of Altair is Radioss 2022.1. Therefore, this article includes the performance testing on Radioss 2022.1 and the performance improvement between both versions is included.
 
 Radioss 2022.1 was tested in multi-node configurations. Computation time (Engine run time) was measured. The Linux platform was used, with an Azure Marketplace CentOS 8.1 HPC Gen2 image.
 
