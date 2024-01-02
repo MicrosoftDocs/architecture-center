@@ -132,7 +132,7 @@ The Neon model was used as a test case:
 
 The following table provides the numbers of various elements in the model.
 
-|Nodal points |Parts |Materials  |Property sets  |3D solid elements |3D shell elements (4 nodes)|3D beam elements|3D spring elements|3D shell elements (3 nodes)|Accelerometers|Interfaces|Rigid walls|Rigid bodies|Added nodal masses|
+|Nodal points |Parts |Materials  |Property sets  |3D solid elements |3D shell elements (four nodes)|3D beam elements|3D spring elements|3D shell elements (three nodes)|Accelerometers|Interfaces|Rigid walls|Rigid bodies|Added nodal masses|
 |---------|---------|---------|---------|-|-|-|-|-|-|-|-|-|-|
 |1,096,865 |340|21|148|2,860|1,054,611|63|4,180|176|7|18|1|694|273|
 
@@ -162,7 +162,7 @@ The Taurus T10M model was used as a test case:
 
 The following table provides the numbers of various elements in the model.
 
-|Nodal points |Parts |Materials  |Property sets |Boundary conditions |3D solid elements |3D shell elements (4 nodes)|3D beam elements|3D spring elements|3D shell elements (3 nodes)|Gravity loads|Initial velocities|Accelerometers|Sensors|Interfaces|Rigid bodies|Added nodal masses|Rayleigh damping groups|Monitored volumes|
+|Nodal points |Parts |Materials  |Property sets |Boundary conditions |3D solid elements |3D shell elements (four nodes)|3D beam elements|3D spring elements|3D shell elements (three nodes)|Gravity loads|Initial velocities|Accelerometers|Sensors|Interfaces|Rigid bodies|Added nodal masses|Rayleigh damping groups|Monitored volumes|
 |---------|---------|---------|---|-|-|-|-|--|-|-|-|-|-|-|-|-|-|-|
 | 9,754,355 |1,585|66|762|1|330,418|9,196,272|3,766|417|345,409|1|5|4|4|1,712|901|5|4|8|
 
@@ -233,15 +233,13 @@ Principal authors:
 
 Other contributors:
 
--   [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) |
-    Technical Writer
 -   [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director
     Business Strategy
 -   [Sachin
     Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) |
     Manager
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
