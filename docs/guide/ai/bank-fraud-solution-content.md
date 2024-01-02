@@ -209,7 +209,7 @@ automl_settings = {
     "primary_metric": "average_precision_score_weighted", # This is the metric that you want to optimize.
     "experiment_timeout_hours": 0.25, # Percentage of an hour you want this to run.
     "verbosity": logging.INFO, # Logging info level, debug, info, warning, error, critical.
-    "enable_stack_ensemble": False, # VotingEnsembled is enabled by defualt.
+    "enable_stack_ensemble": False, # VotingEnsembled is enabled by default.
 }
 
 automl_config = AutoMLConfig(

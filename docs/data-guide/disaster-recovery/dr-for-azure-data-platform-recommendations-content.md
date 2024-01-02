@@ -36,7 +36,7 @@
     1. Adopt versioning of source code and resource configuration
     1. Use CI/CD release pipelines rather than click-ops
 1. As you have a plan for failover, you should consider procedures to fallback to the primary instances
-1. Define clear indicators/metrics to validate that the failover has been success and solutions are up and running or that the situation is back to normal (also know as primary functional)
+1. Define clear indicators/metrics to validate that the failover has been success and solutions are up and running or that the situation is back to normal (also known as primary functional)
 1. Decide if your SLAs should remain the same after a failover or if you allow for degraded service
     1. This decision will greatly depend on the business service process being supported. For example, the failover for a room-booking system will look much different than a core operational system
 1. An RTO/RPO definition should be based on specific user scenarios/solutions rather than at the infrastructure level. It will give you more granularity on what processes and components should be recovered first if there's an outage or disaster

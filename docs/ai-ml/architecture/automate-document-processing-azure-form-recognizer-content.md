@@ -257,7 +257,6 @@ Principal author:
 ## Next steps
 
 * [What is Azure Form Recognizer?][What is Azure Form Recognizer?]
-* [Get started: Document Intelligence Studio Studio][Get started: Document Intelligence Studio Studio]
 * [Use Form Recognizer SDKs or REST API][Use Form Recognizer SDKs or REST API]
 * [What is Azure Cognitive Service for Language?][What is Azure Cognitive Service for Language?]
 * [What is Azure Machine Learning?][What is Azure Machine Learning?]

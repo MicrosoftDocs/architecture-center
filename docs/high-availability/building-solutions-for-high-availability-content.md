@@ -42,7 +42,7 @@ The key to improving the reliability of a solution is to design it to continue t
 <hr />
 </div>
 
-When designing a resilent architecture, consider all three layers - foundation, services, and applications - so that you can achieve highest level of reliability. Because a solution can be made up of many components, each component should be designed for reliability.
+When designing a resilient architecture, consider all three layers - foundation, services, and applications - so that you can achieve highest level of reliability. Because a solution can be made up of many components, each component should be designed for reliability.
 
 ## Zonal and zone-redundant architectures
 
