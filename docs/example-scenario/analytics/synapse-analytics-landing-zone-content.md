@@ -125,8 +125,7 @@ Cost optimization is about reducing unnecessary expenses and improving operation
 
 **Prerequisites**: You must have an Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you start.
 
-All code for this scenario is available in [the 
-SynapseEnterpriseCodebase repository on GitHub](https://github.com/Azure/SynapseEnterpriseCodebase).
+All code for this scenario is available in the [Synapse Enterprise Codebase repository](https://github.com/Azure/SynapseEnterpriseCodebase) on GitHub.
 
 The automated deployment uses Bicep templates to deploy the following components:
 

@@ -122,7 +122,7 @@ You can use Power Automate to build a low-code workflow to parse a user's input,
 
 :::image type="content" source="media/deploy-real-time-machine-learning-model-car-price-predictor-dashboard.png" alt-text="Diagram that shows the dashboard workflow." lightbox="media/deploy-real-time-machine-learning-model-car-price-predictor-dashboard.png" :::
 
-To deploy this end-to-end example, follow the [step by step instructions by using this sample Power App](https://github.com/Azure/carprice-aml-powerapp).
+To deploy this end-to-end example, follow step by step instructions in [Car Price Predictor - Azure ML + Power App Solution](https://github.com/Azure/carprice-aml-powerapp).
 
 ## Contributors
 

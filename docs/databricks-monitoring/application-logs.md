@@ -23,11 +23,11 @@ products:
 # Send Azure Databricks application logs to Azure Monitor
 
 > [!NOTE]
-> This article relies on an open source library hosted on GitHub at: https://github.com/mspnp/spark-monitoring.
+> This article relies on an open source library hosted on GitHub at: <https://github.com/mspnp/spark-monitoring>.
 >
 > The original library supports Azure Databricks Runtimes 10.x (Spark 3.2.x) and earlier.
 >
-> Databricks has contributed an updated version to support Azure Databricks Runtimes 11.0 (Spark 3.3.x) and above on the `l4jv2` branch at: https://github.com/mspnp/spark-monitoring/tree/l4jv2.
+> Databricks has contributed an updated version to support Azure Databricks Runtimes 11.0 (Spark 3.3.x) and above on the `l4jv2` branch at: <https://github.com/mspnp/spark-monitoring/tree/l4jv2>.
 >
 > Please note that the 11.0 release is not backwards compatible due to the different logging systems used in the Databricks Runtimes. Be sure to use the correct build for your Databricks Runtime. The library and GitHub repository are in maintenance mode. There are no plans for further releases, and issue support will be best-effort only. For any additional questions regarding the library or the roadmap for monitoring and logging of your Azure Databricks environments, please contact [azure-spark-monitoring-help@databricks.com](mailto:azure-spark-monitoring-help@databricks.com).
 
@@ -175,7 +175,7 @@ Deploy the performance monitoring dashboard that accompanies this code library t
 
 <!-- links -->
 
-[config-cluster]: https://github.com/mspnp/spark-monitoring/blob/master/README.md
-[log4j.properties]: https://github.com/mspnp/spark-monitoring/blob/master/sample/spark-sample-job/src/main/resources/com/microsoft/pnp/samplejob/log4j.properties
-[sample-app]: https://github.com/mspnp/spark-monitoring/tree/master/sample/spark-sample-job
+[config-cluster]: https://github.com/mspnp/spark-monitoring/blob/main/README.md
+[log4j.properties]: https://github.com/mspnp/spark-monitoring/blob/main/sample/spark-sample-job/src/main/resources/com/microsoft/pnp/samplejob/log4j.properties
+[sample-app]: https://github.com/mspnp/spark-monitoring/tree/main/sample/spark-sample-job
 [spark-logging]: https://spark.apache.org/docs/2.3.0/api/java/org/apache/spark/internal/Logging.html

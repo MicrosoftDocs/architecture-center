@@ -131,7 +131,7 @@ Other contributor:
 ## Next steps
  
 - [Create a managed image of a generalized VM in Azure](/azure/virtual-machines/windows/capture-image-resource) 
-- [Prepare an Azure Virtual Desktop image with this script](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool)
+- Prepare an Azure Virtual Desktop image with the [Virtual Desktop Optimization Tool (VDOT)](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool)
 - [Download and install FSLogix](/FSLogix/install-ht)
 - [Create a golden image in Azure](/azure/virtual-desktop/set-up-golden-image)
 - [Create an Azure Virtual Desktop host pool](/azure/virtual-desktop/create-host-pools-azure-marketplace?tabs=azure-portal)

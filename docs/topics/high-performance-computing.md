@@ -392,7 +392,6 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
 ### AI and deep learning
 
 - [Microsoft Cognitive Toolkit](/cognitive-toolkit/cntk-on-azure)
-- [Batch Shipyard recipes for deep learning](https://github.com/Azure/batch-shipyard/tree/master/recipes#deeplearning)
 
 ### MPI providers
 
@@ -483,8 +482,6 @@ These tutorials will provide you with details on running applications on Microso
 - [Get started developing with Batch](/azure/batch/quick-run-dotnet)
 - [Use Azure Batch code samples](https://github.com/Azure/azure-batch-samples)
 - [Use low-priority VMs with Batch](/azure/batch/batch-low-pri-vms)
-- [Run containerized HPC workloads with Batch Shipyard](https://github.com/Azure/batch-shipyard)
-- [Run on-demand Spark jobs on Batch](https://github.com/Azure/aztk)
 - [Use compute-intensive VMs in Batch pools](/azure/batch/batch-pool-compute-intensive-sizes)
 
 ## Related resources

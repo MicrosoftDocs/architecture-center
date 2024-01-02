@@ -90,7 +90,7 @@ All services deployed in this solution use a consumption-based pricing model. Yo
 
 ## Deploy this scenario
 
-A proof-of-concept implementation of this scenario is available on GitHub at [employee-retention-databricks-kubernetes-poc](https://github.com/Azure/employee-retention-databricks-kubernetes-poc), a repository.
+A proof-of-concept implementation of this scenario is available on GitHub at [Employee Retention with Databricks and Kubernetes](https://github.com/Azure/employee-retention-databricks-kubernetes-poc).
 
 :::image type="content" alt-text="Diagram of the deployment of the architecture in this article, showing develop, build, deploy, and monitor." source="media/employee-retention-databricks-kubernetes-workflow.svg" lightbox="media/employee-retention-databricks-kubernetes-workflow.svg":::
 

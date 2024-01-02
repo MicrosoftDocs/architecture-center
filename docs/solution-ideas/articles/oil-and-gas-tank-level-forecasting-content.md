@@ -45,18 +45,6 @@ Forecasts are created by harnessing the power of real-time and historical data r
 * Detect pipeline leaks and slugging
 * Reduce costs, fines, and downtime
 
-## Deploy this scenario
-
-For more details on how this solution is built, visit the solution guide in [GitHub](https://github.com/Azure/cortana-intelligence-tank-level-forecast). This guide was built with a similar, previous set of Azure AI services.
-
-This solution provides advanced analytics tools through Microsoft Azure - data ingestion, data storage, data processing, and advanced analytics components - all of the essential elements for building a tank level forecasting solution.
-
-This solution combines several Azure services to provide powerful advantages. Event Hubs collects real-time tank level data. Stream Analytics aggregates the streaming data and makes it available for visualization. Azure Synapse Analytics stores and transforms the tank level data. Machine Learning implements and executes the forecasting model. Power BI visualizes the real-time tank level and the forecast results. Finally, Data Factory orchestrates and schedules the entire data flow.
-
-The 'Deploy' button will launch a workflow. This process deploys an instance of the solution within a Resource Group in the Azure subscription that you specify. The solution includes multiple Azure services (described below) along with a web job that simulates data so that immediately after deployment you have a working end-to-end solution.
-
-After deployment, see the post deployment instructions in GitHub.
-
 ## Next steps
 
 Product documentation:
