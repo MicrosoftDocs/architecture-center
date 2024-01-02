@@ -308,7 +308,7 @@ These considerations don't apply to Container Apps. Because it's PaaS, Microsoft
 
 The following networking features can be used to control access to, from, and within a workload.
 
-#### Use network polices to provide security for intra-cluster traffic
+#### Using network polices to provide security for intra-cluster traffic
 
 Some security postures require network traffic segregation *within* an environment, for example when you use multitenant environments to host multiple or multi-tiered applications. In these scenarios, you should choose AKS and implement [network policies](/azure/aks/use-network-policies), a cloud-native technology that enables granular configuration of Layer 4 networking within Kubernetes clusters.
 
