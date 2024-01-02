@@ -197,8 +197,6 @@ items:
           href: data-guide/relational-data/online-analytical-processing.yml
         - name: OLTP solutions
           href: data-guide/relational-data/online-transaction-processing.md
-        - name: Data warehousing
-          href: data-guide/relational-data/data-warehousing.yml
         - name: Data lakes
           href: data-guide/scenarios/data-lake.md
       - name: Data Movement
