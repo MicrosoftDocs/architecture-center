@@ -274,7 +274,7 @@ While there are many places to get started with a complex domain like Batch
 computing for risk grid computing, here are some logical starting points to
 better understand the Batch technology.
 
-[This is a great place to start](/azure/batch/?WT.mc_id=gridbanksg-docs-dastarr) working with Batch using coding and Azure portal examples. The Azure Batch sample applications are also freely available [on GitHub](https://github.com/Azure-Samples/azure-batch-samples).
+[The Azure Batch documentation](/azure/batch/?WT.mc_id=gridbanksg-docs-dastarr) is a great place to start. The documentation includes portal examples, API references, and step-by-step tutorials with code examples. The Azure Batch sample applications are also freely available [on GitHub](https://github.com/Azure-Samples/azure-batch-samples).
 
 Below are some quick tutorials to help you build a simple application to create and run batch compute jobs. Options for building the application are as follows:
 
