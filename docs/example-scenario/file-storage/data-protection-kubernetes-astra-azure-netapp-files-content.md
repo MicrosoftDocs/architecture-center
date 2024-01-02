@@ -28,9 +28,9 @@ Users can also group cluster-scoped objects, such as storageclasses, with (a) sp
 
    Astra Control Service orchestrates [point-in-time snapshots][What volume snapshots are] and backups, [backup policies][Understand Azure NetApp Files backup], and [instant active clones][Restoring (cloning) an online snapshot to a new volume] to help protect application workloads. Astra Control Service achieves this protection by:
 
-    - Creating Astra Control Service protection policies. These can be made for snapshots and/or backups and specify a schedule and backup target. These policies make it possible to automatically protect applications on a pre-determined schedule.
-    - Taking snapshots on demand for individual or a group of applications.
-    - Making instantaneous backups or clones for individual or a group of applications.
+- Creating Astra Control Service protection policies. These can be made for snapshots and/or backups and specify a schedule and backup target. These policies make it possible to automatically protect applications on a pre-determined schedule.
+- Taking snapshots on demand for individual or a group of applications.
+- Making instantaneous backups or clones for individual or a group of applications.
 
    When disasters or app failures occur, backups and snapshots restore applications' state. Users can clone and migrate apps across namespaces and AKS clusters. The clusters can be in the same or separate regions.
 
