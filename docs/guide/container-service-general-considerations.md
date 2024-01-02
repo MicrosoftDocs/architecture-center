@@ -3,7 +3,7 @@ title: General considerations for choosing an Azure container service
 description: Get a quick overview of common feature-level considerations that can help you choose an Azure container service. Part two of a series. 
 author: julie-ng
 ms.author: julng
-ms.date: 01/02/2024
+ms.date: 01/03/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -17,7 +17,7 @@ categories:
 
 # General architectural considerations for choosing an Azure container service
 
-This article guides you through the process of choosing an Azure container service. It provides a overview of feature-level considerations that are common and critical for some workloads. It can help you make decisions to ensure that your workload meets requirements for reliability, security, cost optimization, operational excellence, and performance efficiency.
+This article guides you through the process of choosing an Azure container service. It provides an overview of feature-level considerations that are common and critical for some workloads. It can help you make decisions to ensure that your workload meets requirements for reliability, security, cost optimization, operational excellence, and performance efficiency.
 
 > [!note]
 > This article is part two in a series that starts with [Choose an Azure container service](choose-azure-container-service.md). We strongly recommended that you read that overview article first to get a context for these architectural considerations.
@@ -96,11 +96,11 @@ Most containerized applications run in Linux containers, which are supported by 
 
 ## Networking considerations
 
-It's impportant to understand networking design early in your planning processes due to security and compliance constraints and imposed guidelines. In general, the major differences among the Azure services covered in this guide depend on whether simplicity or configurability is prioritized:
+It's important to understand networking design early in your planning processes due to security and compliance constraints and imposed guidelines. In general, the major differences among the Azure services covered in this guide depend on whether simplicity or configurability is prioritized:
 
-- Container Apps is a PaaS offering that provides many Azure-managed networking features, like service discovery and internal managed domains. Workload teams that need a bit more configurability might be able to take advantage of workload/dedicated profiles rather than resorting to AKS to meet their networking requirements.
-- AKS is the most configurable of the three services and provides the most control over network flow. For example, it provides custom ingress controllers and the control of intra-cluster traffic via Kubernetes network policies. These implementations, however, are customer managed, so they increase operational overhead.
-- Web App for Containers is feature of App Service, so the networking concepts, especially private networking integration, are very specifiec to App Service. It will be familiar to workload teams that already use App Service. Teams without App Service experience that want a more familiar Azure virtual network integration are encouraged to consider Container Apps.
+- [Container Apps](https://azure.microsoft.com/products/container-apps) is a PaaS offering that provides many Azure-managed networking features, like service discovery and internal managed domains. Workload teams that need a bit more configurability might be able to take advantage of workload/dedicated profiles rather than resorting to AKS to meet their networking requirements.
+- [AKS](https://azure.microsoft.com/products/kubernetes-service/) is the most configurable of the three services and provides the most control over network flow. For example, it provides custom ingress controllers and the control of intra-cluster traffic via Kubernetes network policies. These implementations, however, are customer managed, so they increase operational overhead.
+- [Web App for Containers](https://azure.microsoft.com/products/app-service/containers/?activetab=pivot:deploytab) is feature of App Service, so the networking concepts, especially private networking integration, are very specific to App Service. It will be familiar to workload teams that already use App Service. Teams without App Service experience that want a more familiar Azure virtual network integration are encouraged to consider Container Apps.
 
 Keep in mind that networking is a foundational infrastructure layer. Changes in design are often difficult without workload re-deployment, which can lead to downtime. Therefore, review this section carefully before you narrow down your Azure container service selection if your workload has specific networking requirements.
 
@@ -121,7 +121,7 @@ The types of traffic flow required for a solution can affect the network design.
 
 The following sections provide information about various networking constraints. These constraints affect your need to deploy additional subnets, depending on whether you require:
 
-- Multiple co-located workloads.  
+- Multiple colocated workloads.  
 - Private and/or public ingress.  
 - An access-controlled flow of east-west traffic in a cluster (for  Container Apps and AKS) or within a virtual network (for all Azure container services).
 
@@ -137,7 +137,7 @@ Ensuring that you have a subnet that's large enough to include instances of your
 
 For  Container Apps, subnet integration applies only to a single Container Apps environment. Each Container Apps environment is constrained to a single ingress IP, public or private. 
 
-Each Container Apps environment is meant only for a single workload in which dependent applications are co-located. Therefore, additional Azure networking appliances for ingress load balancing must be introduced if you need both public and private ingress. Examples include Azure Application Gateway and Azure Front Door. Also, if you have multiple workloads that need to be segregated, additional Container Apps environments are required, so an additional subnet must be allocated for each environment.
+Each Container Apps environment is meant only for a single workload in which dependent applications are colocated. Therefore, additional Azure networking appliances for ingress load balancing must be introduced if you need both public and private ingress. Examples include Azure Application Gateway and Azure Front Door. Also, if you have multiple workloads that need to be segregated, additional Container Apps environments are required, so an additional subnet must be allocated for each environment.
 
 AKS provides granular east-west network flow control within the cluster in the form of Kubernetes network policy. This flow control enables you to host multiple workloads within the same subnet, which you can't do in Container Apps. As a consequence, AKS has a steeper adoption curve but more configurability options.
 
@@ -177,7 +177,7 @@ For workloads that require strict Layer 4 private networking for both ingress an
 |---|--|--|---|
 | **Private ingress into a virtual network** | ✅ | ✅ | Via [private endpoint](/azure/app-service/networking/private-endpoint) |
 | **Private egress from a virtual network** | ✅ | ✅ | Via [virtual network](/azure/app-service/overview-vnet-integration) integration |
-| **Fully suppressed public endpoint** | ✅ | ✅ | [ASE only](/azure/app-service/environment/networking?source=recommendations#addresses) |
+| **Fully suppressed public endpoint** | ✅ | ✅ | [ASE only](/azure/app-service/environment/networking#addresses) |
 
 ##### Private networking with Web App for Containers
 
@@ -191,7 +191,7 @@ If you want a PaaS solution and prefer networking concepts that are shared acros
 
 An important consideration for the hosting platform is the networking protocols that are supported for incoming application requests (ingress). Web App for Containers is the strictest option, supporting only HTTP and HTTPS. Container Apps additionally allows incoming TCP connections. AKS is the most flexible, supporting unconstrained use of TCP and UDP on self-selected ports.
 
-| | [Container Apps](web-apps/idea/migrate-existing-applications-to-container-apps)| AKS| [Web App for Containers](web-apps/idea/migrate-existing-applications-to-container-apps)|
+| | [Container Apps](/azure/container-apps/ingress-overview)| AKS| [Web App for Containers](/azure/app-service/networking-features#app-service-ports)|
 |---|--|--|--|
 | **Protocol and port support** | HTTP (port 80)* <br>HTTPS (port 443)*<br>TCP (ports 1-65535, except 80 and 443) | TCP (any port)<br>UDP (any port) | HTTP (port 80)<br>HTTPS (port 443) |
 | **WebSocket support** | ✅ | ✅ | ✅ |
@@ -237,7 +237,7 @@ Both Container Apps and Web App for Containers provide out-of-the-box solutions 
 |---|--|--|--|
 | **Configure custom domains** | Out of the box | BYO | Out of the box |
 | **Managed TLS for Azure FQDNs** | Out of the box | N/A | Out of the box |
-| **Managed TLS for custom domains** | [In preview](/azure/container-apps/custom-domains-managed-certificates?pivots=azure-portal) | BYO | Out of the box or BYO |
+| **Managed TLS for custom domains** | [In preview](/azure/container-apps/custom-domains-managed-certificates) | BYO | Out of the box or BYO |
 
 AKS requires workload teams to set up their own ingress controllers, configure custom domain names on the cluster and DNS, and manage their own certificates. Teams considering AKS can use the CNCF [cert-manager]( https://www.cncf.io/projects/cert-manager/) to manage TLS certificates, and nginx or Traefik for ingress.
 
@@ -310,7 +310,7 @@ The following networking features can be used to control access to, from, and wi
 
 #### Securing intra-cluster traffic by using network policies
 
-Some security postures require network traffic segregation *within* an environment, for example when you use multi-tenant environments to host multiple or multi-tiered applications. In these scenarios, you should choose AKS and implement [network policies](/azure/aks/use-network-policies), a cloud-native technology that enables granular configuration of Layer 4 networking within Kubernetes clusters.
+Some security postures require network traffic segregation *within* an environment, for example when you use multitenant environments to host multiple or multi-tiered applications. In these scenarios, you should choose AKS and implement [network policies](/azure/aks/use-network-policies), a cloud-native technology that enables granular configuration of Layer 4 networking within Kubernetes clusters.
 
 | | Container Apps| AKS| Web App for Containers|
 |---|--|--|--|
@@ -342,7 +342,7 @@ You need to secure workloads not just at the network and infrastructure level, b
 
 It's a best practice to store and manage secrets, keys, and certificates in a key management solution like Azure Key Vault, which provides enhanced security for these components. Instead of storing and configuring secrets in code or in an Azure compute service, all applications should integrate with Key Vault.
 
-Key Vault integration enables application developers to focus on their application code. All three of the Azure container services desribed in this article can automatically sync secrets from the Key Vault service and provide them to the application, typically as environment variables or mounted files.
+Key Vault integration enables application developers to focus on their application code. All three of the Azure container services described in this article can automatically sync secrets from the Key Vault service and provide them to the application, typically as environment variables or mounted files.
 
 | | Container Apps| AKS| Web App for Containers|
 |---|--|--|--|
@@ -386,7 +386,7 @@ Note that container image vulnerability assessments aren't real-time scans. The 
 
 ## Security baselines
 
-In general, most Azure container services integrate Azure security offerings. AKS is more configurable, in part because its attack surface is larger. Overall, keep in mind that a security feature set is just a small part of implmenting cloud security. For more information about implementing security for container services, see the following service-specific security baselines:
+In general, most Azure container services integrate Azure security offerings. AKS is more configurable, in part because its attack surface is larger. Overall, keep in mind that a security feature set is just a small part of implementing cloud security. For more information about implementing security for container services, see the following service-specific security baselines:
 
 - [Azure security baseline for Container Apps](/security/benchmark/azure/baselines/azure-container-apps-security-baseline)
 - [Azure security baseline for Azure Kubernetes Service](/security/benchmark/azure/baselines/azure-kubernetes-service-aks-security-baseline)
@@ -406,7 +406,7 @@ In general, AKS provides the most configurability and therefore the most diversi
 
 ### Updates and patches
 
-You need to ensure that your application's underlying OS is updated and regularly patched. Keep in mind, however, that with every update there's a risk of failure. This section and the next one desribe the main considerations for the three container services with regard to the shared responsibility between customer and platform.
+You need to ensure that your application's underlying OS is updated and regularly patched. Keep in mind, however, that with every update there's a risk of failure. This section and the next one describe the main considerations for the three container services with regard to the shared responsibility between customer and platform.
 
 AKS is a hybrid IaaS and PaaS solution, so the workload team, not Microsoft, is responsible for upgrading clusters' control and application planes. Azure provides the updated images for the node OS and control plane components, but customers are responsible for triggering or scheduling the updates. See the AKS day-2 operations guide to learn about [patching and upgrading AKS clusters](/azure/architecture/operator-guides/aks/aks-upgrade-practices).
 
@@ -417,11 +417,6 @@ Container Apps and Web App for Containers are PaaS solutions. Azure is responsib
 | **Control plane updates** | Platform | [Customer](/azure/aks/upgrade-cluster) | Platform |
 | **Host updates and patches** | Platform | [Customer](/azure/aks/node-image-upgrade) | Platform |
 | **Container image updates and patches** | Customer | Customer | Customer |
-
-For more information, see:
-
-- [Upgrade options for AKS clusters](/azure/aks/upgrade-cluster)
-- [Upgrade AKS node images](/azure/aks/node-image-upgrade)
 
 ### Container image updates
 
@@ -469,7 +464,7 @@ The typical measure on which to trigger scaling of infrastructure and applicatio
 
 ### Workload instrumentation
 
-Gatthering metrics for complex or multi-tiered applications can be challenging. To get metrics, you can integrate containerized workloads with Azure Monitor in two ways:
+Gathering metrics for complex or multi-tiered applications can be challenging. To get metrics, you can integrate containerized workloads with Azure Monitor in two ways:
 
 - **Automatic instrumentation**. No code changes required.
 - **Manual instrumentation**. Minimal code changes required to integrate and configure the SDK and/or client.
@@ -477,7 +472,7 @@ Gatthering metrics for complex or multi-tiered applications can be challenging. 
  | | Container Apps| AKS| Web App for Containers|
   |---|--|--|--|
   | **Automatic instrumentation via platform** | ❌ | ❌ | Partial support* |
-  | **Automaic instrumentation via agent** | ❌ | Partial support* | N/A |
+  | **Automatic instrumentation via agent** | ❌ | Partial support* | N/A |
   | **Manual instrumentation** | Via SDK or OpenTelemetry | Via SDK or OpenTelemetry | Via SDK or OpenTelemetry |
 
 *AKS and Web App for Containers support automatic instrumentation for certain configurations of Linux and Windows workloads, depending on the application language. For more information, see these articles:
@@ -487,7 +482,7 @@ Gatthering metrics for complex or multi-tiered applications can be challenging. 
 
 Instrumentation within application code is the responsibility of application developers, so it's independent of any Azure container solution. Your workload can use solutions like:
 
-- [Application Insights SDKs](azure/azure-monitor/app/app-insights-overview#supported-languages)
+- [Application Insights SDKs](/azure/azure-monitor/app/app-insights-overview#supported-languages)
 - [OpenTelemetry distributions](/azure/azure-monitor/app/opentelemetry-add-modify)
 
 ### Logs
@@ -512,7 +507,7 @@ Here's a short summary of the logging capabilities of the container services:
 
 ### Well-Architected Framework for Operational Excellence
 
-This article focusses on the main differences among the container services features described here. See these articles to review the complete Operational Excellence guidance for the following services:
+This article focuses on the main differences among the container services features described here. See these articles to review the complete Operational Excellence guidance for the following services:
 
 - [AKS](/azure/well-architected/service-guides/azure-kubernetes-service)
 - [Web App for Containers](/azure/well-architected/service-guides/azure-app-service/operational-excellence)
@@ -529,7 +524,7 @@ Reliability is commonly measured by [business-driven metrics](/azure/well-archit
 
 Azure has many SLAs for specific services. There's no such thing as a 100% service level, because failures can always occur in software and hardware, and in nature, for example, storms and earthquakes. An SLA isn't a guarantee but rather a financially backed agreement of service availability.
 
-For the latest SLAs and details, [download the latest SLA for Microsoft Online Services document](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) from the Microsoft licensing website.
+For the latest SLAs and details, [download the latest SLA for Microsoft Online Services document](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) from the Microsoft licensing website.
 
 #### Free vs. paid tiers
 
@@ -581,7 +576,7 @@ Most applications support health check via the HTTP(S) protocol. However, some m
 
 Health checks are easiest to [implement in Web App for Containers](/azure/app-service/monitor-instances-health-check#enable-health-check). There are some important considerations:
 
-- Its startup probes are built-in and can't be changed. It sends an HTTP request to the starting port of your container. Any response from your application is considered a successful start.
+- Its startup probes are built in and can't be changed. It sends an HTTP request to the starting port of your container. Any response from your application is considered a successful start.
 - It doesn't support readiness probes. If the startup probe is successful, the container instance is added to the pool of healthy instances.
 - It sends the health check at one-minute intervals. You can't change the interval.
 - The minimum threshold that you can set for an unhealthy instance to be removed from the internal load balancing mechanism is two minutes. The unhealthy instance gets traffic for at least two minutes after it fails a health check. The default value for this setting is 10 minutes.
@@ -619,16 +614,16 @@ Another important component of a reliable shared environment is your control ove
 |---|--|--|--|
 | **Resource limits (CPU or memory)** | Per app/container | Per app/container<br>Per namespace | Per App Service plan |
 
-- **Web App for Containers**: You can host multiple applications (containers) in a single App Service plan. For example, you might allocate a plan with two CPU cores and 4 GiB RAM in which you can run multiple web apps in containers. You can't, however, restrict one of the apps to a certain amount of CPU or memory. They all compete for the same App Service plan resources. If you want to isolate your application resources, you need to create additional App Service plans.
-- **Container Apps**: You can set CPU and memory limits per application in your environment. You are restricted, however, to a set of [allowed combinations of CPU and memory](/azure/container-apps/containers#configuration). For example, you can't configure one vCPU and 1 GiB memory, but you can configure one vCPU and 2 GiB memory. A Container Apps environment is analogous to a Kubernetes namespace.
+- **Web App for Containers**: You can host multiple applications (containers) in a single App Service plan. For example, you might allocate a plan with two CPU cores and 4-GiB RAM in which you can run multiple web apps in containers. You can't, however, restrict one of the apps to a certain amount of CPU or memory. They all compete for the same App Service plan resources. If you want to isolate your application resources, you need to create additional App Service plans.
+- **Container Apps**: You can set CPU and memory limits per application in your environment. You're restricted, however, to a set of [allowed combinations of CPU and memory](/azure/container-apps/containers#configuration). For example, you can't configure one vCPU and 1-GiB memory, but you can configure one vCPU and 2-GiB memory. A Container Apps environment is analogous to a Kubernetes namespace.
 - **AKS**: You can choose [any combination of vCPU and memory](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/), as long as your nodes have the hardware to support it. You can also limit resources at the [namespace level](https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/quota-memory-cpu-namespace/) if you want to segment your cluster that way.
 
 ### Well-Architected Framework for Reliability
 
-This article focusses on the main differences among the container services features in Azure. If you want to review the complete reliability guidance for a specific service, see these articles:
+This article focuses on the main differences among the container services features in Azure. If you want to review the complete reliability guidance for a specific service, see these articles:
 
 - [Well-Architected Framework review for AKS](/azure/well-architected/service-guides/azure-kubernetes-service)
-- [Reliability in Container Apps](/azure/reliability/reliability-azure-container-apps?tabs=azure-cli)
+- [Reliability in Container Apps](/azure/reliability/reliability-azure-container-apps)
 - [Azure App Service and reliability](/azure/well-architected/service-guides/azure-app-service/reliability)
 
 ## Conclusion
@@ -639,20 +634,20 @@ In general, when you compare Azure container services, a theme emerges: AKS prov
 
 Although Container Apps and Web App for Containers are both PaaS offerings that provide similar levels of Microsoft-managed infrastructure, a key difference is that Container Apps is closer to Kubernetes and provides additional cloud-native capabilities for service discovery, event-driven autoscaling, [Dapr](https://dapr.io/) integration, and more. However, teams that don't need these capabilities and are familiar with App Service networking and deployment models might prefer Web App for Containers. 
 
-Be aware that generalizations can help you narrow down the list of Azure containers services to consider. But you also need to verify you choice by examining individual requirements in detail and matching them to service-specific feature sets.
+Be aware that generalizations can help you narrow down the list of Azure containers services to consider. But you also need to verify your choice by examining individual requirements in detail and matching them to service-specific feature sets.
 
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors**
+Principal authors
 
 - [Andre Dewes](https://www.linkedin.com/in/andre-dewes-480b5b62/) | Senior Customer Engineer
 - [Xuhong Liu](https://www.linkedin.com/in/xuhong-l-5937159b/) | Senior Service Engineer
 - [Marcos Martinez](https://www.linkedin.com/in/marcosmarcusm/) | Senior Service Engineer  
 - [Julie Ng](https://www.linkedin.com/in/julie-io/) | Senior Engineer 
 
-**Contributors**
+Other contributors
 
 - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer 
 - [Martin Gjoshevski](https://www.linkedin.com/in/martin-gjoshevski/) | Senior Customer Engineer
