@@ -151,7 +151,7 @@ Similarly, the maximum DTU utilization of the log database only reaches about 70
 - [Data Access for Highly Scalable Solutions: Using SQL, NoSQL, and Polyglot Persistence][Data-Access-Guide]
 - [Data partitioning][DataPartitioningGuidance]
 
-[sample-app]: https://github.com/mspnp/performance-optimization/tree/master/MonolithicPersistence
+[sample-app]: https://github.com/mspnp/performance-optimization/tree/main/MonolithicPersistence
 [cosmos-db]: https://azure.microsoft.com/services/cosmos-db
 [azure-cache]: /azure/azure-cache-for-redis/cache-overview
 [Data-Access-Guide]: /previous-versions/msp-n-p/dn271399(v=pandp.10)

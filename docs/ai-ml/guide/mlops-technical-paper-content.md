@@ -423,7 +423,7 @@ Here you'll find a list of considerations to explore. They're based on the lesso
 * Data scientists develop most of their machine learning models by using Python, often starting with Jupyter notebooks. It can be a challenge to implement these notebooks as production code. Jupyter notebooks are more of an experimental tool, while Python scripts are more appropriate for production. Teams often need to spend time refactoring model creation code into Python scripts.
 * Make clients who are new to DevOps and machine learning aware that experimentation and production require different rigor, so it's good practice to separate the two.
 * Tools like the [Azure Machine Learning Visual Designer](/azure/machine-learning/concept-designer) or AutoML can be effective in getting basic models off the ground while the client ramps up on standard DevOps practices to apply to the rest of the solution.
-* Azure DevOps has plug-ins that can integrate with Azure Machine Learning to help trigger pipeline steps. The [MLOpsPython repo](https://github.com/Microsoft/MLOpsPython) has a few examples of such pipelines.
+* Azure DevOps has plug-ins that can integrate with Azure Machine Learning to help trigger pipeline steps. The [MLOpsPython repo](https://github.com/microsoft/MLOpsPython) has a few examples of such pipelines.
 * Machine learning often requires powerful GPU machines for training. If the client doesn't already have such hardware available, Azure Machine Learning compute clusters can provide an effective path for quickly provisioning cost-effective powerful hardware that autoscales. If a client has advanced security or monitoring needs, there are other options such as standard VMs, Databricks, or local compute.
 * For a client to be successful, their model building teams (data scientists) and deployment teams (DevOps engineers) need to have a strong communication channel. They can accomplish this with daily stand-up meetings or a formal online chat service. Both approaches help in integrating their development efforts in an MLOps framework.
 
@@ -459,7 +459,6 @@ Here you'll find a list of considerations to explore. They're based on the lesso
 * [Azure Machine Learning CLI](/azure/machine-learning/reference-azure-machine-learning-cli)
 * [Trigger applications, processes, or CI/CD workflows based on Azure Machine Learning events](/azure/machine-learning/service/how-to-use-event-grid)
 * [Set up model training and deployment with Azure DevOps](/azure/devops/pipelines/targets/azure-machine-learning)
-* [Set up MLOps with Azure Machine Learning and Databricks](https://github.com/Azure-Samples/MLOpsDatabricks)
 
 ## Related resources
 

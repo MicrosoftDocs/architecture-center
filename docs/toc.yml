@@ -4752,9 +4752,6 @@ items:
         href: industries/manufacturing/compute-manufacturing-overview.yml
       - name: AI and ML scenarios
         items:
-        - name: Continuous manufacturing with Bonsai
-          href: /bonsai/concepts/continuous-manufacturing
-          maintainContext: true
         - name: Machine teaching for manufacturing
           href: solution-ideas/articles/machine-teaching.yml
         - name: MLOps to upscale ML lifecycle

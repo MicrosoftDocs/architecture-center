@@ -333,12 +333,7 @@ Manage remote access to your VMs through [Azure Bastion](https://azure.microsoft
 
 It's best to deploy workloads using an infrastructure as code (IaC) process. SAS workloads can be sensitive to misconfigurations that often occur in manual deployments and reduce productivity.
 
-When building your environment, see quickstart reference material in these repositories:
-
-- [Automating SAS Deployment on Azure using GitHub Actions](https://github.com/grtn316/viya4-iac-azure)
-- [CoreCompete SAS 9 or Viya on Azure](https://github.com/corecompete/sas94-viya)
-
-<!--More details can be found in the pages specific to [Viya 3.5](sas-viya-35-overview.md) and [Grid](sas-grid-94-overview.md). -->
+When building your environment, see quickstart reference material at [CoreCompete SAS 9 or Viya on Azure](https://github.com/corecompete/sas94-viya).
 
 ## Contributors
 

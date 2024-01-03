@@ -58,8 +58,7 @@ Principal author:
 - [Copy data from FTP server by using Azure Data Factory](/azure/data-factory/connector-ftp)
 - [Load files from Azure Blob storage and Azure Data Lake Storage Gen1 and Gen2 using Auto Loader](/azure/databricks/spark/latest/structured-streaming/auto-loader)
 - [Azure Synapse Analytics](/azure/databricks/data/data-sources/azure/synapse-analytics)
-- [On GitHub: azure-notificationhubs-dotnet/Samples/AzFunctions/
-](https://github.com/Azure/azure-notificationhubs-dotnet/tree/main/Samples/AzFunctions)
+- [On GitHub: azure-notificationhubs-dotnet/Samples/AzFunctions/](https://github.com/Azure/azure-notificationhubs-dotnet/tree/main/Samples/AzFunctions)
 - [Azure SQL Data Warehouse with DirectQuery](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect)
 - [Power Apps visual for Power BI](/powerapps/maker/canvas-apps/powerapps-custom-visual)
 

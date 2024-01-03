@@ -88,7 +88,7 @@ Cost optimization is about reducing unnecessary expenses and improving operation
 
 ## Deploy this scenario
 
-Because Lab Services labs are designed to be easy for teachers to deploy, the [portal deployment method](/azure/lab-services/how-to-manage-classroom-labs#create-a-classroom-lab) is simple and quick. In large scale, uniform deployments or highly customized scenarios, [REST APIs](/rest/api/labservices) can be used to automate deployment and configuration actions at scale. The [Az.LabServices PowerShell](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library) module project facilitates various actions.
+Because Lab Services labs are designed to be easy for teachers to deploy, the [portal deployment method](/azure/lab-services/how-to-manage-classroom-labs#create-a-classroom-lab) is simple and quick. In large scale, uniform deployments or highly customized scenarios, [REST APIs](/rest/api/labservices) can be used to automate deployment and configuration actions at scale. The [Az.LabServices PowerShell](https://github.com/Azure/LabServices) module project facilitates various actions.
 
 ## Contributors
 

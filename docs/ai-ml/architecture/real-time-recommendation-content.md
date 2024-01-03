@@ -57,7 +57,7 @@ The combination of AKS and Azure Cosmos DB enables this architecture to provide 
 
 ![Graph of throughput](_images/recommenders-throughput.png)
 
-Azure Cosmos DB is recommended for its turnkey global distribution and usefulness in meeting any database requirements your app has. To [reduce latency][latency] slightly, consider using [Azure Cache for Redis][redis] instead of Azure Cosmos DB to serve lookups. Azure Cache for Redis can improve performance of systems that rely heavily on data in back-end stores.
+Azure Cosmos DB is recommended for its turnkey global distribution and usefulness in meeting any database requirements your app has. To reduce latency slightly, consider using [Azure Cache for Redis][redis] instead of Azure Cosmos DB to serve lookups. Azure Cache for Redis can improve performance of systems that rely heavily on data in back-end stores.
 
 ### Scalability
 
@@ -103,7 +103,7 @@ To deploy this architecture, follow the **Azure Databricks** instructions in the
    1. Click **Home** on the left side of the workspace.
    1. Right-click on white space in your home directory. Select **Import**.
    1. Select **URL**, and paste the following into the text field:
-      `https://github.com/Microsoft/Recommenders/blob/master/examples/05_operationalize/als_movie_o16n.ipynb`
+      `https://github.com/Microsoft/Recommenders/blob/main/examples/05_operationalize/als_movie_o16n.ipynb`
    1. Click **Import**.
 1. Open the notebook within Azure Databricks and attach the configured cluster.
 1. Run the notebook to create the Azure resources required to create a recommendation API that provides the top-10 movie recommendations for a given user.
@@ -141,7 +141,7 @@ Principal authors:
 [aks]: /azure/aks/intro-kubernetes
 [aks-service-page]: https://azure.microsoft.com/products/kubernetes-service
 [als]: https://spark.apache.org/docs/latest/ml-collaborative-filtering.html
-[als-example]: https://github.com/Microsoft/Recommenders/blob/master/examples/05_operationalize/als_movie_o16n.ipynb
+[als-example]: https://github.com/Microsoft/Recommenders/blob/main/examples/05_operationalize/als_movie_o16n.ipynb
 [autoscaling]: /azure/databricks/clusters/configure#autoscaling
 [batch-scoring]: ../../ai-ml/architecture/batch-scoring-databricks.yml
 [blog]: /azure/machine-learning/how-to-deploy-azure-kubernetes-service?tabs=python#autoscaling
@@ -151,17 +151,16 @@ Principal authors:
 [databricks]: /azure/azure-databricks/what-is-azure-databricks
 [databricks-service-page]: https://azure.microsoft.com/products/databricks
 [dsvm]: /azure/machine-learning/data-science-virtual-machine/overview
-[eval-guide]: https://github.com/Microsoft/Recommenders/blob/master/examples/03_evaluate/evaluation.ipynb
+[eval-guide]: https://github.com/Microsoft/Recommenders/blob/main/examples/03_evaluate/evaluation.ipynb
 [github]: https://github.com/Microsoft/Recommenders
-[guide]: https://github.com/Microsoft/Recommenders/blob/master/examples/01_prepare_data/data_split.ipynb
-[latency]: https://github.com/jessebenson/azure-performance
+[guide]: https://github.com/Microsoft/Recommenders/blob/main/examples/01_prepare_data/data_split.ipynb
 [mls]: /azure/machine-learning/overview-what-is-azure-machine-learning
 [mls-service-page]: https://azure.microsoft.com/products/machine-learning
 [nodes]: /azure/aks/scale-cluster
 [partition-data]: /azure/cosmos-db/partition-data
 [redis]: /azure/azure-cache-for-redis/cache-overview
 [ru]: /azure/cosmos-db/request-units
-[setup]: https://github.com/Microsoft/Recommenders/blob/master/SETUP.md#repository-installation
-[setupo16n]: https://github.com/Microsoft/Recommenders/blob/master/SETUP.md#prepare-azure-databricks-for-operationalization
+[setup]: https://github.com/Microsoft/Recommenders/blob/main/SETUP.md
+[setupo16n]: https://github.com/Microsoft/Recommenders/blob/main/SETUP.md#prepare-azure-databricks-for-operationalization
 [scale]: /azure/aks/tutorial-kubernetes-scale
 [workspace]: /azure/azure-databricks
