@@ -32,9 +32,9 @@ This diagram shows a multi-node configuration:
    - [Network security groups](https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VMs.
    - A public IP address connects the internet to the VM. 
 - [Azure CycleCloud](https://azuremarketplace.microsoft.com/marketplace/apps/azurecyclecloud.azure-cyclecloud) is used to create the cluster in the multi-node configuration.
-- A physical SSD is used for storage. 
+- A physical SSD is used for storage.
 
-## Compute sizing and drivers
+## Compute sizing 
 
 [HBv3-series](https://learn.microsoft.com/en-us/azure/virtual-machines/hbv3-series) VMs running on the Linux OS were used to test the performance of tNavigator on Azure. The following table provides configuration details:
 
@@ -50,7 +50,7 @@ The following table provides details about the operating system used in these te
 
 | Operating system version | OS architecture |
 |---|---|
-| Linux CentOS-HPC-8.1 | x64-Bit |
+| Linux CentOS 8.1 HPC | x86-64  |
 
 ## tNavigator installation
 
@@ -58,105 +58,91 @@ Before you install tNavigator, you need to deploy and connect a VM. For informat
 
 ## tNavigator performance results
 
-Two standard, stable models were used to test tNavigator. Details about the models are shown in the following tables.
+Two standard, stable models were used to test tNavigator: speed test and speed test 9. Details about the models are shown in the following tables.
 
-**Model 1:**
+**Speed test model**
 
-| Model Name | Speed test model |
-|---|---|
-| Model dimensions | NX = 88, NY = 215, NZ = 177 (SIZE = 3,348,840) |
-| Total active grid blocks | 2,418,989 |
-| Total pore volume | 13,563,305,518.45987 rm3 |
-| Mesh connections statistics | total = 7,052,853<br>geometrical = 7,052,853 |
+:::image type="content" source="media/speed-test-model.png" alt-text="Image that shows a 3D view of the speed test model." border="true":::
 
-:::image type="content" source="media/image3.png" alt-text="The image shows 3D view of Speed test model" border="true":::
+|Dimensions| Total active grid blocks| Total pore volume | Mesh connection statistics|
+|---|---|-|-|
+| X: 88<br> Y: 215<br> Z: 177<br> Size: 3,348,840 | 2,418,989 | 13,563,305,518.45987 rm3 | Total: 7,052,853<br>Geometrical: 7,052,853 |
 
-**Model 2:**
+**Speed test 9 model**
 
-| Model Name | Speed test 9 model |
-|---|---|
-| Model dimensions | NX = 264, NY = 645, NZ = 177 (SIZE = 30,139,560) |
-| Total active grid blocks | 21770901 |
-| Total pore volume | 13,563,305,518.45987 rm3 |
-| Mesh connections statistics | total = 64,533,441<br>geometrical = 64,533,441 |
+|Dimensions| Total active grid blocks| Total pore volume | Mesh connection statistics|
+|---|---|-|-|
+| X: 264<br> Y: 645<br> Z: 177<br> Size: 30,139,560 | 21,770,901 |13,563,305,518.45987 rm3 |Total: 64,533,441<br>Geometrical: 64,533,441 |
 
-:::image type="content" source="media/image3.png" alt-text="The image shows 3D view of Speed test 9 model" border="true":::
+### Results on a single node
 
-### tNavigator performance results on single node
+The following sections provide the performance results of running tNavigator on single-node Azure [HBv3 AMD EPYC 7V73X](/azure/virtual-machines/hbv3-series) VMs.
 
-The following sections provide the performance results of running tNavigator on single-node Azure [HBv3 AMD EPYC™ 7V73X](https://docs.microsoft.com/en-us/azure/virtual-machines/hbv3-series) VMs. 
+#### Speed test model
 
-#### Model 1 – Speed test
-
-The following table shows elapsed time of the speed test model in seconds:
-
-| VM Size | No. of vCPU used | Total Elapsed time in Seconds | Relative speed increase |
+| VM size | Number of vCPUs used | Total elapsed time (seconds) | Relative speed increase |
 |---|---|---|---|
-| Standard_HB120-16rs_v3 | 8 | 643 | 1 |
+| Standard_HB120-16rs_v3 | 8 | 643 | N/A|
 | Standard_HB120-16rs_v3 | 16 | 352 | 1.82 |
 | Standard_HB120-32rs_v3 | 32 | 208 | 3.09 |
 | Standard_HB120-64rs_v3 | 64 | 139 | 4.62 |
 | Standard_HB120-96rs_v3 | 96 | 128 | 5.05 |
 | Standard_HB120-120rs_v3 | 120 | 132 | 4.87 |
 
-The following chart shows relative speed increases in terms of total elapsed time of the speed test model:
+The following chart shows relative speed increases as the number of vCPUs increases:
 
-#### Model 2 – Speed test 9
+:::image type="content" source="media/speed-test-graph.png" alt-text="Graph that shows the relative speed increases as the number of vCPUs increases." lightbox="media/speed-test-graph.png" border="false":::
 
-The following table shows total elapsed time of speed test 9 in seconds:
+#### Speed test 9 model
 
-| VM Size | No. of vCPU used | Total Elapsed time in Seconds | Relative speed increase |
+| VM size | Number of vCPUs used | Total elapsed time (seconds) | Relative speed increase |
 |---|---|---|---|
-| Standard_HB120-16rs_v3 | 8 | 20045 | 1 |
-| Standard_HB120-16rs_v3 | 16 | 11541 | 1.73 |
-| Standard_HB120-32rs_v3 | 32 | 6588 | 3.04 |
-| Standard_HB120-64rs_v3 | 64 | 4572 | 4.38 |
-| Standard_HB120-96rs_v3 | 96 | 4113 | 4.87 |
-| Standard_HB120-120rs_v3 | 120 | 4061 | 4.93 |
+| Standard_HB120-16rs_v3 | 8 | 20,045 | N/A |
+| Standard_HB120-16rs_v3 | 16 | 11,541 | 1.73 |
+| Standard_HB120-32rs_v3 | 32 | 6,588 | 3.04 |
+| Standard_HB120-64rs_v3 | 64 | 4,572 | 4.38 |
+| Standard_HB120-96rs_v3 | 96 | 4,113 | 4.87 |
+| Standard_HB120-120rs_v3 | 120 | 4,061 | 4.93 |
 
-The following chart shows relative speed increases of speed test 9 model:
+The following chart shows relative speed increases as the number of vCPUs increases:
 
-#### Additional notes about tests on tNavigator
+:::image type="content" source="media/speed-test-9-single-node.png" alt-text="Graph that shows the relative speed increases for the speed test 9 model." lightbox="media/speed-test-9-single-node.png" border="false":::
 
-Near linear relative speed up was observed as the number of CPU cores were increased up to the optimal configuration for a given model. 
+#### Notes about the single-node tests
 
-- For all single-node tests, we have taken the slower time on HB120-16rs_v3 (8 cores) as the reference to calculate the relative speed up with respect to other similar VMs with more cores. The results presented above show that computation performance improves as we increase from 8 to 120 cores, up to the optimal configuration for a given model.
+For all single-node tests, the slower time on a Standard_HB120-16rs_v3 VM with 8 cores is used as a reference to calculate the relative speed increases with respect to similar VMs that have more cores. The results presented previously show near linear computation performance improvements as the number of cores increases from 8 to 120, until to the optimal configuration for a given model is reached.
 
-  
+### Results in a multi-node configuration
 
-**tNavigator performance results on multi-node**
+The following sections provide the performance results of running tNavigator on multi-node Azure HBv3-series VMs. The speed test model isn't suitable for testing in a multi-node environment, so tests are restricted to the speed test 9 model.
 
-The following sections provide the performance results of running tNavigator on multi-node Azure HBv3-series VMs. Model1 is not a suitable for testing in multi node environment, so test were restricted to Model 2.
+This table shows the times recorded for varying numbers of nodes of the Standard_HB120-64rs_v3 VM on CycleCloud:
 
-#### Model 2 – Speed test 9
-
-This table shows the total elapsed time recorded for varying numbers of Nodes with Standard_HB120-64rs_v3 VMs on Azure CycleCloud.
-
-| VM size | Number of nodes | Number ofvCPU | Total Elapsed time(seconds) | Relative speed increase |
+| VM size | Number of nodes | Number of vCPUs | Total elapsed time (seconds) | Relative speed increase |
 |---|---|---|---|---|
-| Standard_HB120-64rs_v3 | 1 | 64 | 5025 | 1.00 |
-| | 2 | 128 | 3323 | 1.51 |
-| | 4 | 256 | 2264 | 2.22 |
-| | 8 | 512 | 1697 | 2.96 |
-| | 16 | 1024 | 1383 | 3.63 |
+| Standard_HB120-64rs_v3 | 1 | 64 | 5,025 | N/A |
+|Standard_HB120-64rs_v3  | 2 | 128 | 3,323 | 1.51 |
+|Standard_HB120-64rs_v3  | 4 | 256 | 2,264 | 2.22 |
+|Standard_HB120-64rs_v3 | 8 | 512 | 1,697 | 2.96 |
+| Standard_HB120-64rs_v3 | 16 | 1024 | 1,383 | 3.63 |
 
-The following graph shows the relative speed up as the number of nodes increases:
+The following graph shows the relative speed increases as the number of nodes increases:
 
- 
+:::image type="content" source="media/speed-test-9-multi-node.png" alt-text="Graph that shows the relative speed increases for the speed test 9 model in a multi-node configuration." lightbox="media/speed-test-9-multi-node.png" border="false":::
 
-**Notes about the multi-node tests** 
+#### Notes about the multi-node tests
 
-From the multi-node results, we can observe that models scale linearly up to 16 nodes, giving maximum speed up of 3.63 times the single node. We have limited our validation study to a few iterations.
+The multi-node results show that models scale linearly until the 16-node configuration is reached. This configuration provides maximum speed increase of 3.63 times that of the single node. Testing was limited to a few iterations.
 
-## Azure Cost
+## Azure cost
 
-Only the model running time (elapsed time) is considered for these cost calculations. Application installation time isn't considered. The calculations are indicative. The actual cost depends on the size of the model. You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your configuration.
+Only model running time (elapsed time) is considered for these cost calculations. Application installation time isn't considered. The calculations are indicative. The actual cost depends on the size of the model. You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your configuration.
 
-The following tables provide elapsed times in hours. To compute the total cost, multiply by the Azure VM hourly cost, which you can find[ here for Linux.](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/)
+The following tables provide elapsed times in hours. To compute the total cost, multiply by the [Azure VM hourly costs for Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-### Total elapsed time for model 1 (Single node):  Speed Test model
+### Total elapsed times for the speed test model, single-node 
 
-| Number<br>of VCPUs | Total Elapsed time (Hr) |
+| Number of vCPUs | Total elapsed time (hours) |
 |---|---|
 | 8 | 0.17 |
 | 16 | 0.09 |
@@ -165,9 +151,9 @@ The following tables provide elapsed times in hours. To compute the total cost, 
 | 96 | 0.03 |
 | 120 | 0.03 |
 
-### Total elapsed time for model 2 (Single node): Speed Test 9 Model
+### Total elapsed times the speed test 9 model, single-node
 
-| Number<br>of VCPUs | Total Elapsed time (Hr) |
+| Number of vCPUs | Total elapsed time (hours) |
 |---|---|
 | 8 | 5.56 |
 | 16 | 3.20 |
@@ -176,9 +162,9 @@ The following tables provide elapsed times in hours. To compute the total cost, 
 | 96 | 1.14 |
 | 120 | 1.12 |
 
-### Total elapsed time for model 2 (Multi-Node): Speed Test 9 Model
+### Total elapsed times for the speed test model, multi-node
 
-| Number<br>of nodes | Total Elapsed time (Hr) |
+| Number of nodes | Total elapsed time (hours) |
 |---|---|
 | 1 | 1.40 |
 | 2 | 0.92 |
@@ -188,38 +174,37 @@ The following tables provide elapsed times in hours. To compute the total cost, 
 
 ## Summary
 
-- RFD tNavigator, powered by Microsoft Azure platform exhibits high scalability when deployed on HBv3-series (AMD EPYC™ 7V73X [Milan-X] CPU cores).  To calculate scalability, we calculate the ratio of the inverse of time elapsed to solve a given model.
-- For evaluating the performance, the lowest VM configuration of the series is considered as the baseline i.e. 8 vCPUs for HBv3. The results are assessed based on the relative performance, where higher values indicate better performance. 
-- For the single node setup on HBv3, it is observed that the solution is completed approximately 1.5x times faster whenever the cores are doubled. Moderation of scaleup is observed as we reach optimal configuration. Further increase of cores beyond optimal configuration doesn’t result in improving the performance.
-- For the multimode setup on HBv3 using Azure Cycle Cloud, , it is observed that the solution is completed approximately 1.3x to 1.5x times faster whenever the nodes are doubled. Moderation of scaleup is observed as we reach optimal configuration. 
+- tNavigator exhibits high scalability when deployed on HBv3-series VMs (AMD EPYC 7V73X Milan-X CPU cores) on Azure. To determine the scalability, we calculate the ratio of the inverse of the time it takes to solve a given model.
+- To evaluate the performance, the lowest VM configuration in the series, 8 vCPUs for HBv3, is used as a baseline. The results are assessed based on the performance relative to this baseline. Higher values indicate better performance.
+- For the single-node configuration on HBv3, the solution completes approximately 1.5 times faster whenever the number of cores is doubled. Scale-up decreases as the optimal configuration is reached. Further increase of cores beyond the optimal configuration doesn't result in improved performance.
+- For the multi-mode configuration on HBv3, implemented via CycleCloud, the solution completes approximately 1.3 to 1.5 times faster whenever the number of nodes is doubled. Scale-up decreases as the optimal configuration is reached. 
 
-Contributors
+## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 
+- [Aashay Anjankar](https://www.linkedin.com/in/aashay-anjankar-6a44291ba) | HPC Performance Engineer
 - [Hari Bagudu](https://www.linkedin.com/in/hari-bagudu-88732a19) | Senior Manager
 - [Gauhar Junnarkar](https://www.linkedin.com/in/gauharjunnarkar) | Principal Program Manager
 - [Saurabh Parave](https://www.linkedin.com/in/saurabh-parave-957303162/) | HPC Performance Engineer
-- [Aashay Anjankar](https://www.linkedin.com/in/aashay-anjankar-6a44291ba) | HPC Performance Engineer
 
 Other contributors:
 
 - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
-- [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director Business Strategy
+- [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director of Business Strategy
 - [Sachin Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) | Manager
 
 ## Next steps
 
-- [GPU optimized virtual machine sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-gpu)
-- [Linux virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/overview)
-- [Virtual networks and virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-network/network-overview)
-- [Learning path: Run high-performance computing (HPC) applications on Azure](https://docs.microsoft.com/en-us/learn/paths/run-high-performance-computing-applications-azure)
+- [GPU-optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
+- [Linux virtual machines on Azure](/azure/virtual-machines/linux/overview)
+- [Virtual networks and virtual machines on Azure](/azure/virtual-network/network-overview)
+- [Learning path: Run high-performance computing (HPC) applications on Azure](/learn/paths/run-high-performance-computing-applications-azure)
 
 ## Related resources
 
-- [Run a Windows VM on Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/windows-vm)
 - [Run a Linux VM on Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/linux-vm)
 - [HPC system and big-compute solutions](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/big-compute-with-azure-batch)
 - [HPC cluster deployed in the cloud](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/hpc-cluster)
