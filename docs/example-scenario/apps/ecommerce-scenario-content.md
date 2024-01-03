@@ -165,7 +165,7 @@ Principal author:
 [docs-traffic-manager]: https://www.microsoft.com/azure/traffic-manager/traffic-manager-overview
 [docs-webapps]: https://www.microsoft.com/azure/app-service/app-service-web-overview
 [end-to-end-walkthrough]: https://github.com/Azure/fta-customerfacingapps/tree/master/ecommerce/articles
-[microservices-ecommerce]: https://github.com/dotnet-architecture/eShopOnContainers
+[microservices-ecommerce]: https://github.com/dotnet/eShop
 [multi-region-web-app]: ../../web-apps/app-service/architectures/multi-region.yml
 [baseline-web-app]: ../../web-apps/app-service/architectures/baseline-zone-redundant.yml
 [pci-dss-blueprint]: /azure/security/blueprints/payment-processing-blueprint

@@ -67,10 +67,8 @@ For more information about solution components, see the following product docume
 * [Virtual machines in Azure](/azure/virtual-machines/)
 * [Azure hybrid and multicloud patterns and solutions documentation](/hybrid/app-solutions)
 
-For samples, see the following resources:
+For samples, see the following resource:
 
-* [AKS engine on Azure Stack Hub (on GitHub)](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md)
-* [Azure samples - edge intelligence on Azure Stack Hub (on GitHub)](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/factory-ai-vision)
 * [Azure samples - Azure Stack Hub foundation (on GitHub)](https://github.com/Azure-Samples/Azure-Stack-Hub-Foundation-Core)
 
 ## Related resources

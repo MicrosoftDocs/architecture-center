@@ -281,4 +281,4 @@ CPU and DTU utilization shows that the system took longer to reach saturation, d
 
 [dtu]: /azure/sql-database/sql-database-service-tiers-dtu
 [ExtraneousFetching]: ../extraneous-fetching/index.md
-[sample-app]: https://github.com/mspnp/performance-optimization/tree/master/BusyDatabase
+[sample-app]: https://github.com/mspnp/performance-optimization/tree/main/BusyDatabase

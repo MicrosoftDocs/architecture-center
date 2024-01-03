@@ -1,9 +1,9 @@
 > [!NOTE]
-> This article relies on an open source library hosted on GitHub at: https://github.com/mspnp/spark-monitoring.
+> This article relies on an open source library hosted on GitHub at: <https://github.com/mspnp/spark-monitoring>.
 >
 > The original library supports Azure Databricks Runtimes 10.x (Spark 3.2.x) and earlier.
 >
-> Databricks has contributed an updated version to support Azure Databricks Runtimes 11.0 (Spark 3.3.x) and above on the `l4jv2` branch at: https://github.com/mspnp/spark-monitoring/tree/l4jv2.
+> Databricks has contributed an updated version to support Azure Databricks Runtimes 11.0 (Spark 3.3.x) and above on the `l4jv2` branch at: <https://github.com/mspnp/spark-monitoring/tree/l4jv2>.
 >
 > Please note that the 11.0 release is not backwards compatible due to the different logging systems used in the Databricks Runtimes. Be sure to use the correct build for your Databricks Runtime. The library and GitHub repository are in maintenance mode. There are no plans for further releases, and issue support will be best-effort only. For any additional questions regarding the library or the roadmap for monitoring and logging of your Azure Databricks environments, please contact [azure-spark-monitoring-help@databricks.com](mailto:azure-spark-monitoring-help@databricks.com).
 
@@ -100,14 +100,14 @@ The steps to set up performance tuning for a big data system are as follows:
     - The Azure Resource Manager (ARM) template for creating an Azure Log Analytics workspace, which also installs prebuilt queries for collecting Spark metrics
     - Azure Databricks monitoring libraries
     - The sample application for sending application metrics and application logs from Azure Databricks to Azure Monitor
-1. Using the [Azure CLI](/cli/azure) command for deploying an ARM template, [create an Azure Log Analytics workspace with prebuilt Spark metric queries](https://github.com/mspnp/spark-monitoring/blob/master/perftools/deployment/readme.md#step-1-deploy-log-analytics-with-spark-metrics). From the command output, copy and save the generated name for the new Log Analytics workspace (in the format *spark-monitoring-\<randomized-string>*).
+1. Using the [Azure CLI](/cli/azure) command for deploying an ARM template, [create an Azure Log Analytics workspace with prebuilt Spark metric queries](https://github.com/mspnp/spark-monitoring/blob/main/perftools/deployment/readme.md#step-1-deploy-log-analytics-with-spark-metrics). From the command output, copy and save the generated name for the new Log Analytics workspace (in the format *spark-monitoring-\<randomized-string>*).
 1. In the Azure portal, copy and save your Log Analytics [workspace ID and key](/azure/azure-monitor/agents/log-analytics-agent#workspace-id-and-key) for later use.
 1. Install the Community Edition of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/), an integrated development environment (IDE) that has built-in support for the [Java Development Kit](https://www.oracle.com/java/technologies/javase-downloads.html) (JDK) and [Apache Maven](https://maven.apache.org/). Add the [Scala plug-in](https://plugins.jetbrains.com/plugin/1347-scala).
-1. Using IntelliJ IDEA, [build the Azure Databricks monitoring libraries](https://github.com/mspnp/spark-monitoring/blob/master/README.md#option-2-maven). To do the actual build step, select **View** > **Tool Windows** > **Maven** to show the Maven tools window, and then select **Execute Maven Goal** > **mvn package**.
+1. Using IntelliJ IDEA, [build the Azure Databricks monitoring libraries](https://github.com/mspnp/spark-monitoring/blob/main/README.md#option-2-maven). To do the actual build step, select **View** > **Tool Windows** > **Maven** to show the Maven tools window, and then select **Execute Maven Goal** > **mvn package**.
 1. Using a [Python](https://www.python.org/downloads/windows/) package installation tool, install the [Azure Databricks CLI](/azure/databricks/dev-tools/cli/) and set up authentication with the Databricks personal access token you copied earlier.
-1. [Configure the Azure Databricks workspace](https://github.com/mspnp/spark-monitoring/blob/master/README.md#configure-the-databricks-workspace) by modifying the Databricks init script with the Databricks and Log Analytics values you copied earlier, and then using the Azure Databricks CLI to copy the init script and the Azure Databricks monitoring libraries to your Databricks workspace.
-1. In your Databricks workspace portal, [create and configure an Azure Databricks cluster](https://github.com/mspnp/spark-monitoring/blob/master/README.md#create-and-configure-the-azure-databricks-cluster).
-1. In IntelliJ IDEA, [build the sample application](https://github.com/mspnp/spark-monitoring/blob/master/README.md#run-the-sample-job-optional) using Maven. Then in your Databricks workspace portal, run the sample application to generate sample logs and metrics for Azure Monitor.
+1. [Configure the Azure Databricks workspace](https://github.com/mspnp/spark-monitoring/blob/main/README.md#configure-the-databricks-workspace) by modifying the Databricks init script with the Databricks and Log Analytics values you copied earlier, and then using the Azure Databricks CLI to copy the init script and the Azure Databricks monitoring libraries to your Databricks workspace.
+1. In your Databricks workspace portal, [create and configure an Azure Databricks cluster](https://github.com/mspnp/spark-monitoring/blob/main/README.md#create-and-configure-the-azure-databricks-cluster).
+1. In IntelliJ IDEA, [build the sample application](https://github.com/mspnp/spark-monitoring/blob/main/README.md#run-the-sample-job-optional) using Maven. Then in your Databricks workspace portal, run the sample application to generate sample logs and metrics for Azure Monitor.
 1. While the sample job is running in Azure Databricks, go to the Azure portal to view and query the event types (application logs and metrics) in the [Log Analytics interface](/azure/azure-monitor/logs/log-analytics-overview#log-analytics-interface):
     1. Select **Tables** > **Custom Logs** to view the table schema for Spark listener events (**SparkListenerEvent_CL**), Spark logging events (**SparkLoggingEvent_CL**), and Spark metrics (**SparkMetric_CL**).
     1. Select **Query explorer** > **Saved Queries** > **Spark Metrics** to view and run the queries that were added when you created the Log Analytics workspace.
@@ -337,8 +337,8 @@ Principal author:
 ## Next steps
 
 - Read the [Log Analytics tutorial](/azure/azure-monitor/log-query/log-analytics-tutorial).
-- [Monitoring Azure Databricks in an Azure Log Analytics workspace](https://github.com/mspnp/spark-monitoring/blob/master/README.md)
-- [Deployment of Azure Log Analytics with Spark metrics](https://github.com/mspnp/spark-monitoring/tree/master/perftools/deployment#deployment-of-log-analytics-with-spark-metrics)
+- [Monitoring Azure Databricks in an Azure Log Analytics workspace](https://github.com/mspnp/spark-monitoring/blob/main/README.md)
+- [Deployment of Azure Log Analytics with Spark metrics](https://github.com/mspnp/spark-monitoring/tree/main/perftools/deployment#deployment-of-log-analytics-with-spark-metrics)
 - [Observability patterns](/dotnet/architecture/cloud-native/observability-patterns)
 
 ## Related resources

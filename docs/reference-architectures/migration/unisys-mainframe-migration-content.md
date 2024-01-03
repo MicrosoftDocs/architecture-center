@@ -149,12 +149,8 @@ Principal author:
 
 - [Cloud Adoption Framework](/azure/cloud-adoption-framework/overview)
 - [Create, change, or delete a network interface](/azure/virtual-network/virtual-network-network-interface)
-- [Azure ExpressRoute](/azure/expressroute/expressroute-introduction)
-- [Azure Files](/azure/storage/files/storage-files-introduction)
-- [Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview)
-- [Azure Setup Guide](/azure/cloud-adoption-framework/ready/azure-setup-guide)
-- [Azure Virtual Networks](/azure/virtual-network/virtual-networks-overview)
-- [Migration Best Practices](/azure/cloud-adoption-framework/migrate/azure-best-practices)
+- [Azure setup guide](/azure/cloud-adoption-framework/ready/azure-setup-guide)
+- [Migration best practices](/azure/cloud-adoption-framework/migrate/azure-best-practices)
 - [Avanade](https://avanade.com)
 
 For more information, please contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
@@ -164,6 +160,8 @@ For more information, please contact [legacy2azure@microsoft.com](mailto:legacy2
 Explore related resources:
 
 - [Unisys ClearPath Forward MCP mainframe rehost to Azure using Unisys virtualization](../../example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml)
+- [Virtualization of Unisys ClearPath Forward OS 2200 enterprise server on Azure](../../mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml)
+- [SMA OpCon in Azure](../../solution-ideas/articles/sma-opcon-azure.yml)
 - [High-volume batch transaction processing](../../example-scenario/mainframe/process-batch-transactions.yml)
 - [Mainframe file replication and sync on Azure](../../solution-ideas/articles/mainframe-azure-file-replication.yml)
 - [Mainframe access to Azure databases](../../solution-ideas/articles/mainframe-access-azure-databases.yml)

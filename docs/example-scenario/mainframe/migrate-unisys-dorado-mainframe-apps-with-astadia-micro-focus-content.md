@@ -114,7 +114,7 @@ This architecture uses the following components:
 
 - [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) is the fundamental building block for private networks in Azure. Through Virtual Network, Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks. An Azure virtual network is like a traditional network operating in a datacenter. But an Azure virtual network also provides scalability, availability, isolation, and other benefits of Azure's infrastructure.
 
-  Virtual network interface cards provide a way for VMs to communicate with internet, Azure, and on-premises resources. You can add network interface cards to a VM to give Solaris child VMs their own dedicated network interface devices and IP addresses.
+  [Virtual network interface cards][Create, change, or delete a network interface] provide a way for VMs to communicate with internet, Azure, and on-premises resources. You can add network interface cards to a VM to give Solaris child VMs their own dedicated network interface devices and IP addresses.
 
 - [Azure Files](https://azure.microsoft.com/products/storage/files) is a service that's part of [Azure Storage][Introduction to the core Azure Storage services]. Azure Files offers fully managed file shares in the cloud. Azure file shares are accessible via the industry standard Server Message Block (SMB) protocol. You can mount these file shares concurrently by cloud or on-premises deployments. Windows, Linux, and macOS clients can access these file shares.
 
@@ -269,25 +269,11 @@ Principal author:
 - Contact [legacy2azure@microsoft.com][Email address for information on migrating legacy systems to Azure] for more information.
 - See the [Azure Friday tech talk with Astadia on mainframe modernization][Azure is the new mainframe].
 
-For more information about the services featured in this solution, see the following articles:
-- [Azure solid-state drive (SSD) managed disks][Introduction to Azure managed disks]
-- [Virtual Network][What is Azure Virtual Network?] 
-- [Virtual network interface cards][Create, change, or delete a network interface] 
-- [Azure Files][What is Azure Files?]
-- [Azure Storage][Introduction to the core Azure Storage services]
-- [Blob Storage][Introduction to Azure Blob storage]
-- [SQL Database][What is Azure SQL Database?]
-- [Data Factory][What is Azure Data Factory?]
-- [Load Balancer][What is Azure Load Balancer?]
-- [ExpressRoute][What is Azure ExpressRoute?]
-- [Azure Bastion][What is Azure Bastion?]
-- [Private Link][What is Azure Private Link?]
-- [Azure network security groups][Network security groups]
-- [Site Recovery][About Site Recovery]
-- An [auto-failover group][Use auto-failover groups to enable transparent and coordinated failover of multiple databases]
-
 ## Related resources
 
+- [Unisys ClearPath MCP virtualization on Azure][Unisys ClearPath MCP virtualization on Azure]
+- [Virtualization of Unisys ClearPath Forward OS 2200 enterprise server on Azure][Virtualization of Unisys ClearPath Forward OS 2200 enterprise server on Azure]
+- [SMA OpCon in Azure][SMA OpCon in Azure]
 - [Mainframe rehosting on Azure virtual machines][Mainframe rehosting on Azure virtual machines]
 - Reference architectures:
 
@@ -332,7 +318,10 @@ For more information about the services featured in this solution, see the follo
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator/
 [Unisys mainframe migration]: ../../reference-architectures/migration/unisys-mainframe-migration.yml
 [Optimize VM costs]: /azure/architecture/framework/cost/optimize-vm
+[SMA OpCon in Azure]: /azure/architecture/solution-ideas/articles/sma-opcon-azure
+[Unisys ClearPath MCP virtualization on Azure]: /azure/architecture/example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost
 [Use auto-failover groups to enable transparent and coordinated failover of multiple databases]: /azure/azure-sql/database/auto-failover-group-overview
+[Virtualization of Unisys ClearPath Forward OS 2200 enterprise server on Azure]: /azure/architecture/mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure
 [Virtual Network pricing]: https://azure.microsoft.com/pricing/details/virtual-network/
 [Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1813846-PR-2593-migrate-unisys-dorado-mainframe-apps-architecture-diagram.vsdx
 [Visio version of Sperry architecture diagram]: https://arch-center.azureedge.net/US-1813846-PR-2593-migrate-unisys-dorado-mainframe-apps-original-architecture.vsdx

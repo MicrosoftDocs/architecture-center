@@ -42,7 +42,7 @@ The key to improving the reliability of a solution is to design it to continue t
 <hr />
 </div>
 
-When designing a resilent architecture, consider all three layers - foundation, services, and applications - so that you can achieve highest level of reliability. Because a solution can be made up of many components, each component should be designed for reliability.
+When designing a resilient architecture, consider all three layers - foundation, services, and applications - so that you can achieve highest level of reliability. Because a solution can be made up of many components, each component should be designed for reliability.
 
 ## Zonal and zone-redundant architectures
 
@@ -81,7 +81,7 @@ With a *zone-redundant* architecture, Azure automatically replicates a resource 
 
 For example, when you configure an Azure Storage account to use zone-redundant storage (ZRS), Azure replicates the data in your storage account across multiple zones. ZRS means that a zone failure doesn't impact the availability of the data.
 
-In general, zone-redundant configuration is supported by platform as a service (PaaS) services, including Azure Storage, Azure Service Bus, Azure Application Gateway, virtual private network (VPN) gateways, Azure ExpressRoute gateways, Azure Event Hubs, Azure Cosmos DB. Standard load balancers also support zone redundancy, as illustrated in the following figure:
+In general, zone-redundant configuration is supported by platform as a service (PaaS) services, including Azure Storage, Azure Service Bus, Azure Application Gateway, virtual private network (VPN) gateways, Azure ExpressRoute gateways, Azure Event Hubs, Azure Cosmos DB, Azure SQL (both Azure SQL Database and Azure SQL Managed Instance). Standard load balancers also support zone redundancy, as illustrated in the following figure:
 
 ![Diagram showing a zone-redundant load balancer.](./images/high-availability-003.png)
 

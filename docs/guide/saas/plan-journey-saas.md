@@ -60,7 +60,7 @@ After deciding what your business requirements are, the next stage in the journe
 You need to implement the architecture you developed. In this stage, you develop and iterate on your SaaS product using the normal software development life cycle (SDLC) process. It's important in this stage to not put too many requirements into development at one time. Try to figure out which features would provide the most benefit to your customers and start from a minimum viable product (MVP). More iterations with smaller improvements over time are easier to implement than larger chunks of development. For more information, see these articles:
 
 - [SaaS starter web app architecture](../../example-scenario/apps/saas-starter-web-app.yml) - A reference architecture for a starter web-based SaaS application.
-- [Azure SaaS Dev Kit](https://github.com/azure/azure-saas) - A modular implementation of the architecture designed to provide a starting place for building a SaaS application in .NET.
+- [Azure SaaS Development Kit (ASDK)](https://github.com/azure/azure-saas) - A modular implementation of the architecture designed to provide a starting place for building a SaaS application in .NET.
 
 ## 4. Operate your SaaS solution
 

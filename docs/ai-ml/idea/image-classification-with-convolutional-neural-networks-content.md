@@ -59,7 +59,7 @@ Principal author:
 - To learn more about Blob Storage, see [Introduction to Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction).
 - To learn more about Container Registry, see [Introduction to Container registries in Azure](/azure/container-registry/container-registry-intro).
 - To learn more about model management (MLOps), see [MLOps: Model management, deployment, lineage, and monitoring with Azure Machine Learning](/azure/machine-learning/concept-model-management-and-deployment).
-- To browse an implementation of this solution idea on GitHub, see [Synapse Machine Learning](https://github.com/azure/mmlspark).
+- To learn more about SynapseML, see [Synapse Machine Learning](https://github.com/microsoft/SynapseML).
 - To explore a Microsoft Learn module that includes a section on CNNs, see [Train and evaluate deep learning models](/training/modules/train-evaluate-deep-learn-models).
 
 ## Related resources

@@ -1,43 +1,74 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution idea demonstrates a hybrid end-to-end monitoring solution integrated with Microsoft Sentinel and Azure Monitor for ingesting streamed and batched logs from diverse sources, on-premises, or any cloud, within an enterprise ecosystem.
+Microsoft Sentinel, Azure Monitor, and Azure Data Explorer are based on a common technology and use Kusto Query Language (KQL) to analyze large volumes of data streamed in from multiple sources in near-real time.
 
-*Apache®, [Apache Nifi®](https://projects.apache.org/project.html?nifi) and Apache Kafka are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks. 
-[Fluentd](https://www.fluentd.org/),  [Logstash](https://www.elastic.co/logstash/), [Grafana](https://grafana.com/), and [Jupyter Notebooks](https://jupyter.org/) are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
+This solution demonstrates how to take advantage of the tight integration between Microsoft Sentinel, Azure Monitor, and Azure Data Explorer. You can use these services to consolidate a single interactive data estate and augment your monitoring and analytics capabilities. 
+
+> [!NOTE]
+> This solution applies to Azure Data Explorer and also to [Real-Time Analytics KQL databases](/fabric/real-time-analytics/create-database), which provide SaaS-grade real-time log, time-series, and advanced analytics capabilities as part of [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview). 
+
+*The Grafana and Jupyter logos and are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
 
 ## Architecture
 
-:::image type="content" source="../media/monitor-azure-data-explorer.svg" alt-text="Monitoring solution with Azure Data Explorer." lightbox="../media/monitor-azure-data-explorer.svg" border="false":::
+:::image type="content" source="../media/azure-augmented-security-monitoring-analytics.svg" alt-text="Diagram that shows an augmented monitoring and analytics solution that uses Monitor, Microsoft Sentinel, and Azure Data Explorer." lightbox="../media/azure-augmented-security-monitoring-analytics.svg" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/monitor-azure-data-explorer.vsdx) of this architecture.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/azure-augmented-security-monitoring-analytics.pptx) of this architecture.*
+
 
 ### Dataflow
 
-1. Combine features provided by Microsoft Sentinel and Azure Monitor with Azure Data Explorer to build a flexible and cost-optimized end-to-end monitoring solution.  Below are some examples:
-   - Use Microsoft Sentinel as a SIEM and SOAR component in the overall monitoring solution where you can ingest security logs from firewalls, Defender for Cloud, and so on. SIEM is short for *security information and event management*, whereas SOAR is short for *security orchestration, automation and response*.
-   - Use Azure Monitor's native capabilities for IT asset monitoring, dashboarding, and alerting so you can ingest logs from VMs, services, and so on.
-   - Use Azure Data Explorer for full flexibility and control in all aspects for all types of logs in the following scenarios:
-     - No *out of the box* features provided by Microsoft Sentinel and Azure Monitor SaaS solutions such as application trace logs.
-     - Greater flexibility for building quick and easy near-real-time analytics dashboards, granular role-based access control, [time series analysis](/azure/data-explorer/time-series-analysis), pattern recognition, [anomaly detection and forecasting](/azure/data-explorer/anomaly-detection), and [machine learning](/azure/data-explorer/machine-learning-clustering). Azure Data Explorer is also well integrated with ML services such as Databricks and Azure Machine Learning. This integration allows you to build models using other tools and services and export ML models to Azure Data Explorer for scoring data.
-     - Longer data retention is required in cost effective manner.
-     - Centralized repository is required for different types of logs. Azure Data Explorer, as a unified big data analytics platform, allows you to build advanced analytics scenarios.
-1. Query across different products without moving data using the [Azure Data Explorer proxy](/azure/data-explorer/query-monitor-data) feature to analyze data from Microsoft Sentinel, Azure Monitor, and Azure Data Explorer in a single query.
-1. To ingest logs with low latency and high throughput from on-premises or any other cloud, use native Azure Data Explorer connectors such as [Logstash](/azure/data-explorer/ingest-data-logstash), [Azure Event Hubs](/azure/data-explorer/ingest-data-event-hub), or [Kafka](/azure/data-explorer/ingest-data-kafka).
-1. Alternatively, ingest data through Azure Storage (Blob or ADLS Gen2) using Apache [Nifi](https://nifi.apache.org), [Fluentd](https://www.fluentd.org), or [Fluentbit](https://fluentbit.io) connectors. Then use [Azure Event Grid](/azure/data-explorer/ingest-data-event-grid) to trigger the ingestion pipeline to Azure Data Explorer.
-1. You can also continuously export data to Azure Storage in compressed, partitioned parquet format and seamlessly query that data as detailed in the [Continuous data export overview](/azure/data-explorer/kusto/management/data-export/continuous-data-export).
+1. Ingest data by using the combined ingestion capabilities of [Microsoft Sentinel](/azure/sentinel/connect-data-sources), [Azure Monitor](/azure/azure-monitor/essentials/data-collection), and [Azure Data Explorer](/azure/data-explorer/ingest-data-overview):
 
-> [!NOTE]
-> Microsoft Sentinel is built on Azure Monitor (Log Analytics) which in turn, is built on Azure Data Explorer. Therefore, switching between these services is seamless. This allows you to reuse Kusto query language queries and dashboards across these services.
+    - Configure diagnostic settings to ingest data from Azure services like Azure Kubernetes Service (AKS), Azure App Service, Azure SQL Database, and Azure Storage.
+    - Use Azure Monitor Agent to ingest data from VMs, containers, and workloads.
+    - Use a wide range of connectors, agents, and APIs supported by the three services to ingest data from on-premises resources and other clouds. Supported connectors, agents, and APIs include Logstash, Kafka, and Logstash connectors, OpenTelemetry agents, Azure Data Explorer APIs, and the Azure Monitor Log Ingestion API. 
+    - Stream data in by using Azure services like Azure IoT Hub, Azure Event Hubs, and Azure Stream Analytics. 
+1. Use Microsoft Sentinel to monitor, investigate, and alert and act on security-related data across your IT environment.
+1. Use Azure Monitor to monitor, analyze, and alert and act on the performance, availability, and health of applications, services, and IT resources. Doing so enables you to gain insights into the operational status of your cloud infrastructure, identify problems, and optimize performance.
+1. Use Azure Data Explorer for any data that requires custom or more flexible handling or analytics, including full schema control, cache or retention control, deep data platform integrations, and machine learning. 
+1. Optionally, apply advanced machine learning on a broad set of data from your entire data estate to discover patterns, detect anomalies, get forecasts, and gain other insights.
+1. Take advantage of the tight integration between services to augment monitoring and analytics capabilities:
+   
+     - Run cross-service queries from [Microsoft Sentinel, Monitor](/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy), and [Azure Data Explorer](/azure/data-explorer/query-monitor-data) to analyze and correlate data in all three services in one query without moving the data.
+     - Consolidate a single-pane-of-glass view of your data estate with customized cross-service workbooks, dashboards, and reports.     
 
 ### Components
 
-- [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs): Fully managed, real-time data ingestion service that's simple, trusted, and scalable.
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub): Managed service to enable bi-directional communication between IoT devices and Azure.
-- [Kafka on HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction): Easy, cost-effective, enterprise-grade service for open source analytics with Apache Kafka.
-- [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer): Fast, fully managed and highly scalable data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more.
-- [Azure Data Explorer Dashboards](/azure/data-explorer/azure-data-explorer-dashboards): Natively export Kusto queries that were explored in the Web UI to optimized dashboards.
-- [Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel): Intelligent security analytics for your entire enterprise.
-- [Azure Monitor](https://azure.microsoft.com/services/monitor): Full observability into your applications, infrastructure, and network
+Use cross-service queries to build a consolidated, interactive data estate, joining data in Microsoft Sentinel, Monitor, and Azure Data Explorer:
+
+- [Microsoft Sentinel](https://azure.microsoft.com/products/microsoft-sentinel) is the Azure cloud-native solution for security information and event management (SIEM) and security orchestration, automation, and response (SOAR). Microsoft Sentinel has the following features:
+
+    - Connectors and APIs for collecting security data from various sources, like Azure resources, Microsoft 365, and other cloud and on-premises solutions.
+    - Advanced built-in analytics, machine learning, and threat intelligence capabilities for detecting and investigating threats.
+    - Rules-based case management and incident response automation capabilities that use modular, reusable playbooks that are based on Azure Logic Apps.
+    - KQL query capabilities that let you analyze security data and hunt for threats by correlating data from multiple sources and services.
+
+- [Azure Monitor](https://azure.microsoft.com/products/monitor/) is the Azure managed solution for IT and application monitoring. Monitor has the following features:
+
+
+    - Native ingestion of monitoring data from Azure resources. Agents, connectors, and APIs for collecting monitoring data from Azure resources and any sources, applications, and workloads in Azure and hybrid environments.
+    - IT monitoring tools and analytics features, including AI for IT operations (AIOps) features, alerting and automated actions, and prebuilt workbooks for monitoring specific resources, like virtual machines, containers, and applications.
+    - End-to-end observability capabilities that help you improve IT and application efficiency and performance.
+    - KQL query capabilities that enable you to analyze data and troubleshoot operational issues by correlating data across resources and services.
+ 
+- [Azure Data Explorer](https://azure.microsoft.com/products/data-explorer/) is part of the Azure data platform. It provides real-time advanced analytics for any type of structured and unstructured data. It has the following features:
+
+    - Connectors and APIs for various types of IT and non-IT data, for example, business, user, and geospatial data.
+    - The full set of KQL's analytics capabilities, including hosting of machine learning algorithms in Python and federated queries to other data technologies, like SQL Server, data lakes, and Azure Cosmos DB.  
+    - Scalable data management capabilities, including full schema control, processing of incoming data by using KQL, materialized views, partitioning, granular retention, and caching controls.  
+    - Cross-service query capabilities that enable you to correlate collected data with data in Microsoft Sentinel, Monitor, and other services.
+
+## Scenario details
+
+An architecture built on the features and flexibility provided by Microsoft Sentinel, Monitor, and Azure Data Explorer gives you:
+
+- A broad range of data ingestion options that span various types of data and data sources.
+- A powerful set of native security, observability, and data analytics features and capabilities.
+- The ability to use cross-service queries to create a single-pane-of-glass view of your data by:
+    - Querying IT monitoring and non-IT data.
+    - Applying machine learning on a broad dataset to discover patterns, implement anomaly detection and forecasting, and get other advanced insights. 
+    - Creating workbooks and reports that enable you to monitor, correlate, and act on various types of data.  
 
 ## Contributors
 
@@ -45,7 +76,7 @@ This solution idea demonstrates a hybrid end-to-end monitoring solution integrat
 
 Principal author:
 
- * [Ornat Spodek](https://www.linkedin.com/in/ornat-s-89123544) | Senior Content Manager
+ * [Guy Wild](https://www.linkedin.com/in/guy-wild-596aa91a2) | Senior Content Developer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
