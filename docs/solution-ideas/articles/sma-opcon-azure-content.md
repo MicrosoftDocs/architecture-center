@@ -71,8 +71,6 @@ Throughout the solution, you can use network security groups to limit traffic fl
 
 - [SQL Managed Instance](https://azure.microsoft.com/services/azure-sql/sql-managed-instance) is an intelligent and scalable cloud database service that combines the broadest SQL Server engine compatibility with all the benefits of a fully managed and evergreen PaaS. The OpCon back end can use SQL Managed Instance to manage OpCon entries.
 
-- [OpCon](https://smatechnologies.com/opcon-cloud) core services run in a Linux container within a Kubernetes replica set. This solution uses SQL Database for the OpCon database.
-
 - [OpCon Self Service](https://smatechnologies.com/products-self-service) is a web-based implementation that provides a way for users to run on-demand tasks and optionally enter arguments within an OpCon environment.
 
 - [OpCon Vision](https://smatechnologies.com/products-opcon-vision) provides a dashboard for monitoring OpCon tasks. The dashboard displays a logical representation of the tasks across all flows. Vision uses tags to group associated tasks together. When problems occur, you can drill down from the dashboard to failed tasks. Vision also provides a way to set SLA values for each group. The dashboard gives early warning when defined SLA values might not be met.
