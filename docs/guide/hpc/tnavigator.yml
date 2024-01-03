@@ -17,6 +17,6 @@ products:
   - azure-cyclecloud
 name: Deploy tNavigator on a virtual machine
 summary: Learn how tNavigator software performs on an Azure VM. 
-thumbnailUrl: /azure/architecture/browse/thumbs/tnavigator-architecure.png
+thumbnailUrl: /azure/architecture/browse/thumbs/tnavigator-architecture.png
 content: |
   [!include[](tnavigator-content.md)]

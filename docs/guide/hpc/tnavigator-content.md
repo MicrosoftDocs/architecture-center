@@ -1,8 +1,8 @@
 This article briefly describes the steps for running Rock Flow Dynamics [tNavigator](https://rfdyn.com/) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running tNavigator.
 
-tNavigator is a reservoir modeling and simulation platform. It provides tools for geoscience, reservoir, and production engineering. It builds static and dynamic reservoir models and runs dynamic simulations. tNavigator runs on workstations and clusters. A cloud-based solution with full GUI capabilities via a remote desktop is also available.
+tNavigator is a reservoir modeling and simulation platform. It provides tools for geoscience, reservoir, and production engineering. It builds static and dynamic reservoir models and runs dynamic simulations. tNavigator runs on workstations and clusters. A cloud-based solution with full GUI capabilities via remote desktop is also available.
 
-You can perform extended uncertainty analysis and surface networks builds as part of one integrated workflow. All the parts of the workflow share an internal data storage system, scalable parallel numerical engine, data input and output mechanism, and graphical user interface. tNavigator supports the metric, lab, and field unit systems.
+WIth tNavigator you can perform extended uncertainty analysis and surface networks builds as part of one integrated workflow. All the parts of the workflow share an internal data storage system, scalable parallel numerical engine, data input and output mechanism, and graphical user interface. tNavigator supports the metric, lab, and field unit systems.
 
 ## Why deploy tNavigator on Azure?
 
@@ -27,14 +27,14 @@ This diagram shows a multi-node configuration:
 
 ### Components
 
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is used to create Linux VMs. For information about deploying the VM and installing the drivers, see [Linux VMs on Azure](../../reference-architectures/n-tier/linux-vm.yml).
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is used to create Linux VMs. For information about deploying the VMs and installing the drivers, see [Linux VMs on Azure](../../reference-architectures/n-tier/linux-vm.yml).
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is used to create a private network infrastructure in the cloud. 
    - [Network security groups](/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VMs.
-   - A public IP address connects the internet to the VM. 
+   - A public IP address connects the internet to the VMs. 
 - [Azure CycleCloud](https://azuremarketplace.microsoft.com/marketplace/apps/azurecyclecloud.azure-cyclecloud) is used to create the cluster in the multi-node configuration.
 - A physical SSD is used for storage.
 
-## Compute sizing 
+## Compute sizing
 
 [HBv3-series](/azure/virtual-machines/hbv3-series) VMs running on the Linux OS were used to test the performance of tNavigator on Azure. The following table provides configuration details:
 
@@ -60,9 +60,9 @@ Before you install tNavigator, you need to deploy and connect a VM. For informat
 
 Two standard, stable models were used to test tNavigator: speed test and speed test 9. Details about the models are shown in the following tables.
 
-**Speed test model**
-
 :::image type="content" source="media/speed-test-model.png" alt-text="Image that shows a 3D view of the speed test model." border="true":::
+
+**Speed test model**
 
 |Dimensions| Total active grid blocks| Total pore volume | Mesh connection statistics|
 |---|---|-|-|
@@ -132,7 +132,7 @@ The following graph shows the relative speed increases as the number of nodes in
 
 #### Notes about the multi-node tests
 
-The multi-node results show that models scale linearly until the 16-node configuration is reached. This configuration provides maximum speed increase of 3.63 times that of the single node. Testing was limited to a few iterations.
+The multi-node results show that models scale linearly until the 16-node configuration is reached. This configuration provides a maximum speed increase of 3.63 times that of the single node. Testing was limited to a few iterations.
 
 ## Azure cost
 
@@ -140,7 +140,7 @@ Only model running time (elapsed time) is considered for these cost calculations
 
 The following tables provide elapsed times in hours. To compute the total cost, multiply by the [Azure VM hourly costs for Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-### Total elapsed times for the speed test model, single-node 
+### Elapsed times for the speed test model, single-node 
 
 | Number of vCPUs | Total elapsed time (hours) |
 |---|---|
@@ -151,7 +151,7 @@ The following tables provide elapsed times in hours. To compute the total cost, 
 | 96 | 0.03 |
 | 120 | 0.03 |
 
-### Total elapsed times the speed test 9 model, single-node
+### Elapsed times for the speed test 9 model, single-node
 
 | Number of vCPUs | Total elapsed time (hours) |
 |---|---|
@@ -162,7 +162,7 @@ The following tables provide elapsed times in hours. To compute the total cost, 
 | 96 | 1.14 |
 | 120 | 1.12 |
 
-### Total elapsed times for the speed test model, multi-node
+### Elapsed times for the speed test model, multi-node
 
 | Number of nodes* | Total elapsed time (hours) |
 |---|---|
@@ -171,13 +171,14 @@ The following tables provide elapsed times in hours. To compute the total cost, 
 | 4 | 0.63 |
 | 8 | 0.47 |
 | 16 | 0.38 |
+
 *64 cores per node.
 
 ## Summary
 
-- tNavigator exhibits high scalability when deployed on HBv3-series VMs (AMD EPYC 7V73X Milan-X CPU cores) on Azure. To determine the scalability, we calculate the ratio of the inverse of the time it takes to solve a given model.
+- tNavigator exhibits high scalability when deployed on HBv3-series VMs (AMD EPYC 7V73X Milan-X CPU cores) on Azure. To determine the scalability, the ratio of the inverse of the time it takes to solve a given model is calculated.
 - To evaluate the performance, the lowest VM configuration in the series, 8 vCPUs for HBv3, is used as a baseline. The results are assessed based on the performance relative to this baseline. Higher values indicate better performance.
-- For the single-node configuration on HBv3, the solution completes approximately 1.5 times faster whenever the number of cores is doubled. Scale-up decreases as the optimal configuration is reached. Further increase of cores beyond the optimal configuration doesn't result in improved performance.
+- For the single-node configuration on HBv3, the solution completes approximately 1.5 times faster whenever the number of cores is doubled. Scale-up decreases as the optimal configuration is reached. Increasing the number of cores beyond the optimal configuration doesn't result in improved performance.
 - For the multi-mode configuration on HBv3, implemented via CycleCloud, the solution completes approximately 1.3 to 1.5 times faster whenever the number of nodes is doubled. Scale-up decreases as the optimal configuration is reached. 
 
 ## Contributors
@@ -202,7 +203,7 @@ Other contributors:
 ## Next steps
 
 - [GPU-optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
-- [Linux virtual machines on Azure](/azure/virtual-machines/linux/overview)
+- [Virtual machines on Azure](/azure/virtual-machines/linux/overview)
 - [Virtual networks and virtual machines on Azure](/azure/virtual-network/network-overview)
 - [Learning path: Run high-performance computing (HPC) applications on Azure](/learn/paths/run-high-performance-computing-applications-azure)
 
