@@ -5,7 +5,7 @@ metadata:
   description: Learn how to create an infrastructure and workflow to automate the renewal process for certificates issued by a non-integrated CA.
   author: angelo-mazzucchi
   ms.author: angelom
-  ms.date: 11/27/2023
+  ms.date: 01/03/2024
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -17,6 +17,6 @@ products:
   - azure-key-vault
 name: Certificate Lifecycle Management on Azure
 summary: Learn how to create an infrastructure and workflow to automate the renewal process for certificates issued by a non-integrated CA.
-thumbnailUrl: /media/certlc-thumb.png
+thumbnailUrl: media/certlc-thumb.png
 content: |
    [!include[](index-content.md)]

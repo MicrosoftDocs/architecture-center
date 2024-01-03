@@ -38,17 +38,17 @@ The Copy-VmDigitalEvidence runbook implements these macro steps:
 
 ### Components
 
-- [Azure Automation](https://azure.microsoft.com/en-us/products/automation) automates frequent, time-consuming, and error-prone cloud management tasks.
+- [Azure Automation](https://azure.microsoft.com/products/automation) automates frequent, time-consuming, and error-prone cloud management tasks.
 - [Storage](https://azure.microsoft.com/services/storage) is a cloud storage solution that includes object, file, disk, queue, and table storage.
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) provides optimized cloud object storage that manages massive amounts of unstructured data.
-- [Azure Files](https://azure.microsoft.com/en-us/products/storage/files) shares can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS. Azure Files shares can also be cached on Windows Servers with Azure File Sync for fast access near where the data is being used.
-- [Azure Monitor](https://azure.microsoft.com/en-us/products/monitor) supports your operations at scale by helping you maximize the performance and availability of your resources and proactively identify problems.
+- [Azure Files](https://azure.microsoft.com/products/storage/files) shares can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS. Azure Files shares can also be cached on Windows Servers with Azure File Sync for fast access near where the data is being used.
+- [Azure Monitor](https://azure.microsoft.com/products/monitor) supports your operations at scale by helping you maximize the performance and availability of your resources and proactively identify problems.
 - [Key Vault](https://azure.microsoft.com/services/key-vault) helps you safeguard cryptographic keys and other secrets used by cloud apps and services.
 - [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) is a cloud-based identity service that helps you control access to Azure and other cloud apps.
 
 #### Automation
 
-The SOC team uses an [Automation](https://azure.microsoft.com/en-us/products/automation) account to create and maintain the Copy-VmDigitalEvidence runbook. The team also uses [Automation](/azure/automation/automation-intro) to create the hybrid runbook workers that run the runbook.
+The SOC team uses an [Automation](https://azure.microsoft.com/products/automation) account to create and maintain the Copy-VmDigitalEvidence runbook. The team also uses [Automation](/azure/automation/automation-intro) to create the hybrid runbook workers that run the runbook.
 
 #### Hybrid runbook worker
 
@@ -100,7 +100,7 @@ Ensure the [firewall](/azure/key-vault/general/network-security#key-vault-firewa
 
 #### Log Analytics
 
-A [Log Analytics workspace](/azure/azure-monitor/platform/resource-logs-collect-workspace) stores activity logs used to audit all relevant events on the SOC subscription. Log Analytics is a feature of [Monitor](https://azure.microsoft.com/en-us/products/monitor/).
+A [Log Analytics workspace](/azure/azure-monitor/platform/resource-logs-collect-workspace) stores activity logs used to audit all relevant events on the SOC subscription. Log Analytics is a feature of [Monitor](https://azure.microsoft.com/products/monitor/).
 
 ## Scenario details
 
@@ -254,7 +254,7 @@ For more information about Azure logging and auditing features, see:
 For more information about Microsoft Azure Compliance, see:
 
 - [Azure compliance](https://azure.microsoft.com/overview/trusted-cloud/compliance)
-- [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/en-us/resources/microsoft-azure-compliance-offerings/en-us)
+- [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/en-us)
 
 ## Related resources
 

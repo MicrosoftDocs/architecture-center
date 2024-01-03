@@ -16,7 +16,7 @@ The Azure environment in question comprises the following Platform as a Service 
 
 The following drawing shows the automated workflow for certificate renewal within the Azure ecosystem. 
 
-![workflow](./media/workflow.png)
+![detailed workflow](./media/workflow.png)
 
 1. **Key Vault Configuration:**
 The process begins with the certificates residing within the Key Vault. The certificate should be tagged with the administrator e-mail address for notification purposes. If multiple recipients are required, the e-mail addresses should be separated by comma or semicolon. The expected tag name is 'Recipient' and the value is the e-mail address(es) of the administrator(s).
