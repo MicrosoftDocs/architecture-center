@@ -82,7 +82,6 @@ For more information, automation, and documentation for Microsoft Entra Workload
 - [Minimal Microsoft Entra Workload ID federation](https://cookbook.geuer-pollmann.de/azure/workload-identity-federation)
 - [Microsoft Entra Workload ID](https://azure.github.io/azure-workload-identity/docs/introduction.html)
 - [Microsoft Entra Workload ID quick start](https://azure.github.io/azure-workload-identity/docs/quick-start.html)
-- [Use Microsoft Entra Workload ID for Kubernetes in a .NET Standard application](/samples/azure-samples/azure-ad-workload-identity/azure-ad-workload-identity)
 
 ### Example workload
 
