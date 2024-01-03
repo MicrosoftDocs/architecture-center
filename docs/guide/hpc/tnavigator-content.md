@@ -1,107 +1,84 @@
----
-author: Anjankar, Aashay Vinod
-ms.date: 01/03/2024
----
-# Deploy tNavigator on an Azure virtual machine
+This article briefly describes the steps for running Rock Flow Dynamics [tNavigator](https://rfdyn.com/) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running tNavigator.
 
-This article briefly describes the steps for running Rock Flow Dynamic’s [tNavigator](https://rfdyn.com/) application on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running tNavigator. 
+tNavigator is a reservoir modelling and simulation platform. It provides tools for geoscience, reservoir, and production engineering. It builds static and dynamic reservoir models and runs dynamic simulations. tNavigator runs on workstations and clusters. A cloud-based solution with full GUI capabilities via a remote desktop is also available.
 
-tNavigator is a reservoir modelling and simulation platform. It provides tools for geoscience, reservoir, and production engineering. It builds static and dynamic reservoir models and runs dynamic simulations. tNavigator runs on workstations and clusters. A cloud-based solution with full GUI capabilities via a remote desktop is also available. 
-
-You can perform extended uncertainty analysis and surface networks builds as part of one integrated workflow. All the parts of the workflow share an internal data storage system, scalable parallel numerical engine, data input/output mechanism, and graphical user interface. tNavigator supports the metric, lab, field unit systems.
+You can perform extended uncertainty analysis and surface networks builds as part of one integrated workflow. All the parts of the workflow share an internal data storage system, scalable parallel numerical engine, data input and output mechanism, and graphical user interface. tNavigator supports the metric, lab, and field unit systems.
 
 ## Why deploy tNavigator on Azure?
 
-Modern and diverse compute options to align to your workload's needs.
+- Modern and diverse compute options to align to your workload's needs
+- Flexible virtualization without the purchase of physical hardware
+- Rapid provisioning
+- Complex simulations solved in few hours via an increase in the number of CPU cores
 
-Flexible virtualization without purchasing physical hardware.
+## Architecture
 
-- Rapid provisioning.
-- Complex simulations can be solved in few hours by using greater number of CPU cores.
+This diagram shows a single-node configuration:
 
-## Architectures
+:::image type="content" source="media/tnavigator-single-node.svg" alt-text="Diagram that shows a single-node architecture for running tNavigator on an Azure VM." lightbox="media/tnavigator-single-node.svg" border="false":::
 
-:::image type="content" source="media/image1.jpg" alt-text="Diagram that shows architecture for running tNavigator on Azure VM" border="true":::
+*Download a [Visio file](https://arch-center.azureedge.net/tnavigator-single-node.vsdx) of this architecture.* 
 
-*Figure 1: Single-node configuration*
+This diagram shows a multi-node configuration:
 
-**Components:**
+:::image type="content" source="media/tnavigator-multi-node.svg" alt-text="Diagram that shows a multi-node architecture for running tNavigator on an Azure VM." border="false" lightbox="media/tnavigator-multi-node.svg":::
 
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is used to create Linux and Windows VMs. For information about deploying the VM and installing the drivers, see [Linux VMs on Azure](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/linux-vm).
+*Download a [Visio file](https://arch-center.azureedge.net/tnavigator-multi-node.vsdx) of this architecture.* 
 
-[Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is used to create a private network infrastructure in the cloud. 
+### Components
 
-Network security groups are used to restrict access to the VMs.  
-
-A public IP address connects the internet to the VM.   
-
-A physical SSD is used for storage.  
-
-- 
-
-:::image type="content" source="media/image2.png" alt-text="Image showing a architecture diagram of a multi node cluster in azure." border="true":::
-
-**Components:** 
-
-- Azure Virtual Machines is used to create Linux and Windows VMs. For information about deploying the VM and installing the drivers, see [Linux VMs on Azure](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/linux-vm).
-
-[Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is used to create a private network infrastructure in the cloud. 
-
-- Azure CycleCloud is used to create the cluster in the multi-node configuration.
-
-[Network security groups](https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VMs.  
-
-A public IP address connects the internet to the VM.   
-
-A physical SSD is used for storage.   
-
-- 
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is used to create Linux VMs. For information about deploying the VM and installing the drivers, see [Linux VMs on Azure](../../reference-architectures/n-tier/linux-vm.yml).
+- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is used to create a private network infrastructure in the cloud. 
+   - [Network security groups](https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VMs.
+   - A public IP address connects the internet to the VM. 
+- [Azure CycleCloud](https://azuremarketplace.microsoft.com/marketplace/apps/azurecyclecloud.azure-cyclecloud) is used to create the cluster in the multi-node configuration.
+- A physical SSD is used for storage. 
 
 ## Compute sizing and drivers
 
-Performance tests of tNavigator on Azure used [HBv3-series](https://learn.microsoft.com/en-us/azure/virtual-machines/hbv3-series) VM running on Linux OS. The following table provides the configuration details of HBv3-series VM:
+[HBv3-series](https://learn.microsoft.com/en-us/azure/virtual-machines/hbv3-series) VMs running on the Linux OS were used to test the performance of tNavigator on Azure. The following table provides configuration details:
 
-| **VM** **Size** | **vCPU** | **Memory: GiB** | **Memory bandwidth GB/s** | **Base CPU frequency (GHz)** | **All-cores frequency (GHz, peak)** | **Single-core frequency (GHz, peak)** | **RDMA performance (Gb/s)** |
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **Standard_HB120-16rs_v3** | 16 | 448 | 350 | 1.9 | 3.0 | 3.5 | 200 |
-| **Standard_HB120-32rs_v3** | 32 | 448 | 350 | 1.9 | 3.0 | 3.5 | 200 |
-| **Standard_HB120-64rs_v3** | 64 | 448 | 350 | 1.9 | 3.0 | 3.5 | 200 |
-| **Standard_HB120-96rs_v3** | 96 | 448 | 350 | 1.9 | 3.0 | 3.5 | 200 |
-| **Standard_HB120-120rs_v3** | 120 | 448 | 350 | 1.9 | 3.0 | 3.5 | 200 |
+| VM size | vCPU | Memory (GiB) | Memory bandwidth (GBps) | Base CPU frequency (GHz) | All-cores frequency (GHz, peak) | Single-core frequency (GHz, peak) | RDMA performance (Gbps) |
+|---|---|---|---|---|---|---|---|
+| Standard_HB120-16rs_v3 | 16 | 448 | 350 | 1.9 | 3.0 | 3.5 | 200 |
+| Standard_HB120-32rs_v3 | 32 | 448 | 350 | 1.9 | 3.0 | 3.5 | 200 |
+| Standard_HB120-64rs_v3 | 64 | 448 | 350 | 1.9 | 3.0 | 3.5 | 200 |
+| Standard_HB120-96rs_v3 | 96 | 448 | 350 | 1.9 | 3.0 | 3.5 | 200 |
+| Standard_HB120-120rs_v3 | 120 | 448 | 350 | 1.9 | 3.0 | 3.5 | 200 |
+
+The following table provides details about the operating system used in these tests:
+
+| Operating system version | OS architecture |
+|---|---|
+| Linux CentOS-HPC-8.1 | x64-Bit |
 
 ## tNavigator installation
 
-Before you install tNavigator, you need to deploy and connect a VM. For information about deploying the VM and installing the drivers, see Run a Linux VM on Azure. You can download and install tNavigator from the Rock Flow Dynamics Portal. For information about the installation process, see Rock Flow Dynamics resource hub.
+Before you install tNavigator, you need to deploy and connect a VM. For information about deploying the VM and installing the drivers, see [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml). You can download and install tNavigator from the [Rock Flow Dynamics Resources Hub](https://rfdyn.com/resources-hub/). You can also get information about the installation process from this hub.
 
 ## tNavigator performance results
 
-Performance tests of tNavigator on Azure used [HBv3-series](https://learn.microsoft.com/en-us/azure/virtual-machines/hbv3-series) VM running on Linux OS. The following table provides the Operating system details.
-
-| **Operating system version** | **OS Architecture** |
-|:---:|:---:|
-| **Linux** **CentOS-HPC-8.1** | x64-Bit |
-
-The performance of tNavigator was tested on two different models using the Azure HBv3 series VM. These are two standard and stable models to test the performance of tNavigator. The model details are shown below.
+Two standard, stable models were used to test tNavigator. Details about the models are shown in the following tables.
 
 **Model 1:**
 
-| **Model Name** | **Speed test model** |
+| Model Name | Speed test model |
 |---|---|
-| **Model dimensions** | NX = 88, NY = 215, NZ = 177 (SIZE = 3,348,840) |
-| **Total active grid blocks** | 2,418,989 |
-| **Total pore volume** | 13,563,305,518.45987 rm3 |
-| **Mesh connections statistics** | total = 7,052,853<br>geometrical = 7,052,853 |
+| Model dimensions | NX = 88, NY = 215, NZ = 177 (SIZE = 3,348,840) |
+| Total active grid blocks | 2,418,989 |
+| Total pore volume | 13,563,305,518.45987 rm3 |
+| Mesh connections statistics | total = 7,052,853<br>geometrical = 7,052,853 |
 
 :::image type="content" source="media/image3.png" alt-text="The image shows 3D view of Speed test model" border="true":::
 
 **Model 2:**
 
-| **Model Name** | **Speed test 9** **model** |
+| Model Name | Speed test 9 model |
 |---|---|
-| **Model dimensions** | NX = 264, NY = 645, NZ = 177 (SIZE = 30,139,560) |
-| **Total active grid blocks** | 21770901 |
-| **Total pore volume** | 13,563,305,518.45987 rm3 |
-| **Mesh connections statistics** | total = 64,533,441<br>geometrical = 64,533,441 |
+| Model dimensions | NX = 264, NY = 645, NZ = 177 (SIZE = 30,139,560) |
+| Total active grid blocks | 21770901 |
+| Total pore volume | 13,563,305,518.45987 rm3 |
+| Mesh connections statistics | total = 64,533,441<br>geometrical = 64,533,441 |
 
 :::image type="content" source="media/image3.png" alt-text="The image shows 3D view of Speed test 9 model" border="true":::
 
@@ -113,14 +90,14 @@ The following sections provide the performance results of running tNavigator on 
 
 The following table shows elapsed time of the speed test model in seconds:
 
-| **VM** **Size** | **No. of vCPU used** | **Total Elapsed time in Seconds** | **Relative speed** **increase** |
-|:---:|:---:|:---:|:---:|
-| **Standard_HB120-16rs_v3** | 8 | 643 | 1 |
-| **Standard_HB120-16rs_v3** | 16 | 352 | 1.82 |
-| **Standard_HB120-32rs_v3** | 32 | 208 | 3.09 |
-| **Standard_HB120-64rs_v3** | 64 | 139 | 4.62 |
-| **Standard_HB120-96rs_v3** | 96 | 128 | 5.05 |
-| **Standard_HB120-120rs_v3** | 120 | 132 | 4.87 |
+| VM Size | No. of vCPU used | Total Elapsed time in Seconds | Relative speed increase |
+|---|---|---|---|
+| Standard_HB120-16rs_v3 | 8 | 643 | 1 |
+| Standard_HB120-16rs_v3 | 16 | 352 | 1.82 |
+| Standard_HB120-32rs_v3 | 32 | 208 | 3.09 |
+| Standard_HB120-64rs_v3 | 64 | 139 | 4.62 |
+| Standard_HB120-96rs_v3 | 96 | 128 | 5.05 |
+| Standard_HB120-120rs_v3 | 120 | 132 | 4.87 |
 
 The following chart shows relative speed increases in terms of total elapsed time of the speed test model:
 
@@ -128,14 +105,14 @@ The following chart shows relative speed increases in terms of total elapsed tim
 
 The following table shows total elapsed time of speed test 9 in seconds:
 
-| **VM** **Size** | **No. of vCPU used** | **Total Elapsed time in Seconds** | **Relative speed** **increase** |
-|:---:|:---:|:---:|:---:|
-| **Standard_HB120-16rs_v3** | 8 | 20045 | 1 |
-| **Standard_HB120-16rs_v3** | 16 | 11541 | 1.73 |
-| **Standard_HB120-32rs_v3** | 32 | 6588 | 3.04 |
-| **Standard_HB120-64rs_v3** | 64 | 4572 | 4.38 |
-| **Standard_HB120-96rs_v3** | 96 | 4113 | 4.87 |
-| **Standard_HB120-120rs_v3** | 120 | 4061 | 4.93 |
+| VM Size | No. of vCPU used | Total Elapsed time in Seconds | Relative speed increase |
+|---|---|---|---|
+| Standard_HB120-16rs_v3 | 8 | 20045 | 1 |
+| Standard_HB120-16rs_v3 | 16 | 11541 | 1.73 |
+| Standard_HB120-32rs_v3 | 32 | 6588 | 3.04 |
+| Standard_HB120-64rs_v3 | 64 | 4572 | 4.38 |
+| Standard_HB120-96rs_v3 | 96 | 4113 | 4.87 |
+| Standard_HB120-120rs_v3 | 120 | 4061 | 4.93 |
 
 The following chart shows relative speed increases of speed test 9 model:
 
@@ -155,9 +132,9 @@ The following sections provide the performance results of running tNavigator on 
 
 This table shows the total elapsed time recorded for varying numbers of Nodes with Standard_HB120-64rs_v3 VMs on Azure CycleCloud.
 
-| **VM size** | **Number of nodes** | **Number ofvCPU** | **Total Elapsed time(seconds)** | **Relative speed** **increase** |
-|:---:|:---:|:---:|:---:|:---:|
-| **Standard_HB120-64rs_v3** | 1 | 64 | 5025 | 1.00 |
+| VM size | Number of nodes | Number ofvCPU | Total Elapsed time(seconds) | Relative speed increase |
+|---|---|---|---|---|
+| Standard_HB120-64rs_v3 | 1 | 64 | 5025 | 1.00 |
 | | 2 | 128 | 3323 | 1.51 |
 | | 4 | 256 | 2264 | 2.22 |
 | | 8 | 512 | 1697 | 2.96 |
@@ -179,8 +156,8 @@ The following tables provide elapsed times in hours. To compute the total cost, 
 
 ### Total elapsed time for model 1 (Single node):  Speed Test model
 
-| **Number**<br>**of** **VCPUs** | **Total Elapsed time** **(Hr)** |
-|:---:|:---:|
+| Number<br>of VCPUs | Total Elapsed time (Hr) |
+|---|---|
 | 8 | 0.17 |
 | 16 | 0.09 |
 | 32 | 0.05 |
@@ -190,8 +167,8 @@ The following tables provide elapsed times in hours. To compute the total cost, 
 
 ### Total elapsed time for model 2 (Single node): Speed Test 9 Model
 
-| **Number**<br>**of** **VCPUs** | **Total Elapsed time** **(Hr)** |
-|:---:|:---:|
+| Number<br>of VCPUs | Total Elapsed time (Hr) |
+|---|---|
 | 8 | 5.56 |
 | 16 | 3.20 |
 | 32 | 1.83 |
@@ -201,8 +178,8 @@ The following tables provide elapsed times in hours. To compute the total cost, 
 
 ### Total elapsed time for model 2 (Multi-Node): Speed Test 9 Model
 
-| **Number**<br>**of** **nodes** | **Total Elapsed time** **(Hr)** |
-|:---:|:---:|
+| Number<br>of nodes | Total Elapsed time (Hr) |
+|---|---|
 | 1 | 1.40 |
 | 2 | 0.92 |
 | 4 | 0.63 |
@@ -236,7 +213,6 @@ Other contributors:
 ## Next steps
 
 - [GPU optimized virtual machine sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-gpu)
-- [Windows virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/overview)
 - [Linux virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/overview)
 - [Virtual networks and virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-network/network-overview)
 - [Learning path: Run high-performance computing (HPC) applications on Azure](https://docs.microsoft.com/en-us/learn/paths/run-high-performance-computing-applications-azure)
