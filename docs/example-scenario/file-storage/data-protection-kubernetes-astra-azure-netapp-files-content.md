@@ -1,4 +1,4 @@
-This article outlines a solution for managing and performing stateful backups of containerized applications and their resources. The solution uses NetApp Astra Control Service and is appropriate for stateful applications that run on Azure Kubernetes Service (AKS).
+This article outlines a solution for managing and performing application data management of stateful containerized applications, their resources, and their data.
 
 ## Architecture
 
@@ -15,21 +15,22 @@ This article outlines a solution for managing and performing stateful backups of
    - In a region where AKS and Azure NetApp Files are available. For regions where these products are available, see [Products available by region][Products available by region].
    - In a virtual network that has direct access to a subnet that's delegated for Azure NetApp Files. For more information, see [Guidelines for Azure NetApp Files network planning][Guidelines for Azure NetApp Files network planning - Subnets].
 
-1. A user signs up for an Astra Control Service account. Astra Control Service uses a *service principal* that has contributor access to locate the AKS clusters. A service principal is an Azure service account. Astra Control Service uses Astra Trident to create Kubernetes `StorageClass` objects that map to the Azure NetApp Files capacity pools. The mapping takes into account the service level of the capacity pools. This step doesn't use Azure or Kubernetes role-based access control.
+1. A user signs up for an [Astra Control Service account](https://docs.netapp.com/us-en/astra-control-service/get-started/register.html). Astra Control Service uses an Azure service principal credential that has contributor access to locate the AKS clusters to be managed. Astra Control Service installs Astra Trident and creates StorageClasses mapped to each tier of service when a cluster is added to Astra Control Service. Astra Trident creates Kubernetes PersistentVolumes (PVs) from application PersistentVolumeClaims (PVCs) using the automatically deployed StorageClass (SC) objects that map to the Azure NetApp Files capacity pools. The mapping takes into account the service level of the capacity pools.
 
-1. The user installs applications on the AKS clusters. Possible deployment methods include Helm charts, operators, and YAML manifests that are grouped by labels or namespaces. Astra Control Service provisions persistent volumes on the `StorageClass` objects.
+1. The user installs applications on the AKS clusters. Possible deployment methods include Helm charts, operators, and YAML manifests. The applications can be grouped by labels or namespaces. Astra Trident provisions persistent volumes based on the PersistentVolumeClaims using the `StorageClass` objects.
 
-1. Astra Control Service manages applications and their associated resources, such as pods, services, deployments, and `PersistentVolumeClaim` (PVC) objects. Users define applications by using one of these methods:
+1. Astra Control Service manages applications and their associated resources, such as pods, services, deployments, and `PersistentVolumeClaim` (PVC) objects. It also manages the PersistentVolume (PV) bound to the PVC. Users define applications by using one of these methods:
 
    - Confining them to a namespace
    - Using a custom Kubernetes label to group resources
-   - Deploying them with Helm3 in a namespace
 
-   Astra Control Service orchestrates [point-in-time snapshots][What volume snapshots are], [backup policies][Understand Azure NetApp Files backup], and [instant active clones][Restoring (cloning) an online snapshot to a new volume] to help protect application workloads. Astra Control Service achieves this protection by:
+Users can also group cluster-scoped objects, such as storageclasses, with (a) specific application(s) to manage them together.
 
-    - Creating Astra Control Service protection policies that specify a schedule and backup target. These policies make it possible to automatically back up applications.
-    - Taking snapshots on demand for individual applications.
-    - Making instantaneous backups or clones for individual applications.
+   Astra Control Service orchestrates [point-in-time snapshots][What volume snapshots are] and backups, [backup policies][Understand Azure NetApp Files backup], and [instant active clones][Restoring (cloning) an online snapshot to a new volume] to help protect application workloads. Astra Control Service achieves this protection by:
+
+- Creating Astra Control Service protection policies. These can be made for snapshots and/or backups and specify a schedule and backup target. These policies make it possible to automatically protect applications on a pre-determined schedule.
+- Taking snapshots on demand for individual or a group of applications.
+- Making instantaneous backups or clones for individual or a group of applications.
 
    When disasters or app failures occur, backups and snapshots restore applications' state. Users can clone and migrate apps across namespaces and AKS clusters. The clusters can be in the same or separate regions.
 
@@ -56,13 +57,13 @@ In certain environments, you can reduce costs by avoiding cross-peered virtual n
 
 ## Scenario details
 
-With containerized applications, it can be challenging to protect data and perform stateful backups. When you deploy business-critical workloads on Kubernetes, application backup and recovery should be:
+With containerized applications, it can be challenging to perform application-data protection. The application consists of multiple microservices, which must be managed as one entity. When you deploy business-critical workloads on Kubernetes, application data management should be:
 
-- Simple. Establishing data protection policies and on-demand backups should be intuitive. These policies and backups shouldn't be dependent on the details of the underlying infrastructure.
+- Simple. Establishing data protection policies and on-demand snapshots and backups should be intuitive. These policies shouldn't be dependent on the details of the underlying infrastructure.
 - Portable. To make cross-region mobility possible for applications, multiple Kubernetes clusters should be able to consume the backups.
-- Application-aware. Your solution should protect the entire application, including standard Kubernetes resources like secrets, `ConfigMap` objects, and persistent volumes. You also need to protect custom Kubernetes resources. When possible, backup and recovery procedures should quiesce the application. This practice prevents the loss of in-flight data during backups.
+- Application-aware. Your solution should protect the entire application, including standard Kubernetes resources like secrets, `ConfigMap` objects, and persistent volumes. You also need to protect custom Kubernetes resources. When possible, procedures should quiesce the application prior to the snapshot and backup. This practice prevents the loss of in-flight data during backups.
 
-[NetApp Astra Control Service][NetApp Astra Control Service] is a solution for performing stateful backups that helps you meet these goals. Astra Control Service offers data protection, disaster recovery, and application mobility capabilities. It provides stateful AKS workloads with a rich set of storage and application-aware data management services. The data protection technology of Azure NetApp Files underlies these services.
+[NetApp Astra Control Service][NetApp Astra Control Service] is a solution for performing stateful application data management that helps you meet these goals. Astra Control Service offers data protection, disaster recovery, and application mobility capabilities. It provides stateful AKS workloads with a rich set of storage and application-aware data management services. The data protection technology of Azure NetApp Files underlies these services.
 
 ### Potential use cases
 
