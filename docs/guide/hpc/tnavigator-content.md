@@ -1,6 +1,6 @@
 This article briefly describes the steps for running Rock Flow Dynamics [tNavigator](https://rfdyn.com/) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running tNavigator.
 
-tNavigator is a reservoir modelling and simulation platform. It provides tools for geoscience, reservoir, and production engineering. It builds static and dynamic reservoir models and runs dynamic simulations. tNavigator runs on workstations and clusters. A cloud-based solution with full GUI capabilities via a remote desktop is also available.
+tNavigator is a reservoir modeling and simulation platform. It provides tools for geoscience, reservoir, and production engineering. It builds static and dynamic reservoir models and runs dynamic simulations. tNavigator runs on workstations and clusters. A cloud-based solution with full GUI capabilities via a remote desktop is also available.
 
 You can perform extended uncertainty analysis and surface networks builds as part of one integrated workflow. All the parts of the workflow share an internal data storage system, scalable parallel numerical engine, data input and output mechanism, and graphical user interface. tNavigator supports the metric, lab, and field unit systems.
 
@@ -29,14 +29,14 @@ This diagram shows a multi-node configuration:
 
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is used to create Linux VMs. For information about deploying the VM and installing the drivers, see [Linux VMs on Azure](../../reference-architectures/n-tier/linux-vm.yml).
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is used to create a private network infrastructure in the cloud. 
-   - [Network security groups](https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VMs.
+   - [Network security groups](/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VMs.
    - A public IP address connects the internet to the VM. 
 - [Azure CycleCloud](https://azuremarketplace.microsoft.com/marketplace/apps/azurecyclecloud.azure-cyclecloud) is used to create the cluster in the multi-node configuration.
 - A physical SSD is used for storage.
 
 ## Compute sizing 
 
-[HBv3-series](https://learn.microsoft.com/en-us/azure/virtual-machines/hbv3-series) VMs running on the Linux OS were used to test the performance of tNavigator on Azure. The following table provides configuration details:
+[HBv3-series](/azure/virtual-machines/hbv3-series) VMs running on the Linux OS were used to test the performance of tNavigator on Azure. The following table provides configuration details:
 
 | VM size | vCPU | Memory (GiB) | Memory bandwidth (GBps) | Base CPU frequency (GHz) | All-cores frequency (GHz, peak) | Single-core frequency (GHz, peak) | RDMA performance (Gbps) |
 |---|---|---|---|---|---|---|---|
@@ -164,13 +164,14 @@ The following tables provide elapsed times in hours. To compute the total cost, 
 
 ### Total elapsed times for the speed test model, multi-node
 
-| Number of nodes | Total elapsed time (hours) |
+| Number of nodes* | Total elapsed time (hours) |
 |---|---|
 | 1 | 1.40 |
 | 2 | 0.92 |
 | 4 | 0.63 |
 | 8 | 0.47 |
 | 16 | 0.38 |
+*64 cores per node.
 
 ## Summary
 
@@ -196,6 +197,8 @@ Other contributors:
 - [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director of Business Strategy
 - [Sachin Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) | Manager
 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [GPU-optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
@@ -205,7 +208,7 @@ Other contributors:
 
 ## Related resources
 
-- [Run a Linux VM on Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/linux-vm)
-- [HPC system and big-compute solutions](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/big-compute-with-azure-batch)
-- [HPC cluster deployed in the cloud](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/hpc-cluster)
+- [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
+- [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
+- [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)
 
