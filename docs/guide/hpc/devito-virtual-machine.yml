@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: Deploy Devito on an Azure virtual machine
+  description: Learn how to deploy ADS CFD Code Leo for high performance computing (HPC) on an Azure virtual machine.
+  author: bmoxon
+  ms.author: brucemoxon
+  ms.date: 01/06/2024
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - compute
+products:
+  - azure-virtual-machines
+  - azure-virtual-network
+name: Deploy Devito on an Azure virtual machine
+summary: Learn how to deploy ADS CFD Code Leo for high performance computing (HPC) on an Azure virtual machine.
+thumbnailUrl: /azure/architecture/browse/thumbs/.png
+content: |
+  [!include[](devito-virtual-machine-content.md)]
