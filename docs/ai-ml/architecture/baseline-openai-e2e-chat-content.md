@@ -195,8 +195,22 @@ When using Azure OpenAI key-based authentication, it is important to:
 
 ### OpenAI RBAC roles
 
-TODO: Add guidance
+There are 5 [default roles](/azure/machine-learning/how-to-assign-roles#default-roles) you can use to manage access to your Azure Machine Learning workspace: AzureML Data Scientist, AzureML Compute Operator, Reader, Contributor, and Owner. Along with these default roles, there is an AzureML Workspace Connection Secrets Reader and an AzureML Registry User that grant access to workspace resources such as the workspace secrets and registry.
 
+This architecture follows the least privilege principle by only assigning roles to the above identities where they are required. The following are the role assignments.
+
+| Managed identity | Scope | Role assignments |
+| --- | --- | --- |
+| Workspace managed identity | Resource group | Contributor |
+| Workspace managed identity | Workspace Storage Account | Storage Blob Data Contributor |
+| Workspace managed identity | Workspace Storage Account | Storage File Data Contributor |
+| Workspace managed identity | Workspace Key Vault | Key Vault Administrator |
+| Workspace managed identity | Workspace Container Registry | ACRPush |
+| Online endpoint managed identity | Workspace Container Registry | AcrPull |
+| Online endpoint managed identity | Workspace Storage Account | Storage Blob Data Reader |
+| Online endpoint managed identity | Machine Learning workspace | AzureML Workspace Connection Secrets Reader |
+| Compute instance managed identity | Workspace Container Registry | ACRPull |
+| Compute instance managed identity | Workspace Storage Account | Storage Blob Data Reader |
 
 ## Performance efficiency
 
