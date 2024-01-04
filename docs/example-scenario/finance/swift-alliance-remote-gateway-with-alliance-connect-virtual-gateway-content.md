@@ -42,13 +42,10 @@ Once the SWIFT Alliance Remote Gateway(ARG) infrastructure in Azure is deployed,
 - **[Azure managed disks](https://azure.microsoft.com/products/storage/disks):** If you use Premium SSD managed disks, Alliance Access components benefit from high-throughput, low-latency disk performance. The components can also back up and restore disks that are attached to VMs.
 - **Azure proximity placement groups:** You can consider using Azure [proximity placement groups](/azure/virtual-machines/co-location) to ensure that all Alliance Access VMs are close to each other. Proximity placement groups reduce network latency between Alliance Access components.
 
-### Alternatives 
-
-
-
 ## Scenario details
 
 This approach can be used for:
+
 - Migrating SWIFT connectivity from on-premises to Azure.
 - Establishing new SWIFT connectivity by using Azure.
 
@@ -62,27 +59,19 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 The following considerations apply to this solution. For more details, you can engage your account team at Microsoft to help guide your Azure implementation for SWIFT.
 
-
 ### Reliability
 
 Reliability ensures that your application can meet the commitments that you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-When you deploy SWIFT components on-premises, you need to make decisions about availability and resilience. For on-premises resilience, we recommend that you deploy into at least two separate data centers. This approach prevents a data center failure from compromising your business. The same considerations apply in Azure, although some different concepts apply.
-
-Alliance Access/Entry and Alliance Web Platform using the embedded database can be deployed into an Azure cloud infrastructure. The Azure need to comply with the corresponding application’s requirements for performance and latency. 
-
-For information about the database recovery process, see the Alliance Access administration guide, section 14, on the [SWIFT website](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect-virtual).
+For on-premises resilience, we recommend that you deploy into at least two separate data centers for reliability. The same considerations apply in Azure with some variations. Alliance Access/Entry and Alliance Web Platform using the embedded database can be deployed into Azure cloud. The Azure need to comply with the corresponding application’s requirements for performance and latency. For information about the database recovery process, see the Alliance Access administration guide, section 14, on the [SWIFT website](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect-virtual).
 
 #### Azure resiliency concepts
 
-Azure provides service-level agreements (SLAs) for VM availability. These SLAs vary, depending on whether you deploy a single VM, multiple VMs in an [availability set](/azure/virtual-machines/availability-set-overview), or multiple VMs spread over multiple [availability zones](/azure/reliability/availability-zones-overview). To mitigate the risk of a regional outage, deploy SWIFT Alliance Access in multiple Azure regions.
- 
-For more information, see [Availability options for Azure Virtual Machines](/azure/virtual-machines/availability).
+Azure provides service-level agreements (SLAs) for VM availability. These SLAs vary, depending on whether you deploy a single VM, multiple VMs in an [availability set](/azure/virtual-machines/availability-set-overview), or multiple VMs spread over multiple [availability zones](/azure/reliability/availability-zones-overview). To mitigate the risk of a regional outage, deploy SWIFT Alliance Access in multiple Azure regions. For more information, see [Availability options for Azure Virtual Machines](/azure/virtual-machines/availability).
 
 #### Single-region multi-active resiliency
 
 Alliance Access uses an embedded Oracle database. To align with a multi-active Alliance Access deployment, you can use a path-resilient architecture. A path-resilient architecture places all required SWIFT components in one path. You duplicate each path as many times as you need to for resiliency and scaling. If there's a failure, you fail over an entire path instead of a single component. The following diagram shows what this resiliency approach looks like when you use availability zones. This architecture is easier to configure, but a failure in any component in a path requires that you switch to another path. 
-
 
 By combining Web Platform and Alliance Access on a single VM, you reduce the number of infrastructure components that can fail. Depending on the usage pattern of the SWIFT components, you might consider that configuration. For Alliance Access components and Alliance Connect Virtual instances, deploy the related systems in the same Azure zone, as shown in the preceding architecture diagram. For example, deploy Alliance Access Web Platform 1 VMs, Alliance Access 1 VMs, SAG-SNL 1, HA-VM 1, and VA vSRX VM1 in AZ1.
 
