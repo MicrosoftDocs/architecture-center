@@ -80,7 +80,34 @@ The outbound rules can be private endpoints, service tags or FQDNs. In this arch
 
 ### Virtual network segmentation and security
 
-TODO: Add differences between the baseline and this architecture
+The network in this architecture has separate subnets for the following:
+
+- Application Gateway
+- App Service integration components
+- Private endpoints
+- Azure Bastion
+- Jumpbox virtual machine
+- Training
+- Scoring
+
+Each subnet has a network security group that limits both inbound and outbound traffic for those subnets to just what is required. The following table shows a simplified view of the NSG rules the baseline adds to each subnet. The table gives the rule name and function.
+
+| Subnet   | Inbound | Outbound |
+| -------  | ---- | ---- |
+| snet-appGateway    | `AppGw.In.Allow.ControlPlane`: Allow inbound control plane access<br><br>`AppGw.In.Allow443.Internet`: Allow inbound internet HTTPS access<br><br>`AppGw.In.AllowLoadBalancer`: Allow inbound traffic from azure load balancer<br><br>`DenyAllInBound`: Deny all other inbound traffic | `AppGw.Out.Allow.AppServices`: Allow outbound access to AppServicesSubnet<br><br>`AppGw.Out.Allow.PrivateEndpoints`: Allow outbound access to PrivateEndpointsSubnet<br><br>`AppPlan.Out.Allow.AzureMonitor`: Allow outbound access to Azure Monitor |
+| snet-PrivateEndpoints | Default rules: Allow inbound from virtual network | Default rules: Allow outbound to virtual network |
+| snet-AppService | Default rules: Allow inbound from vnet  | `AppPlan.Out.Allow.PrivateEndpoints`: Allow outbound access to PrivateEndpointsSubnet<br><br>`AppPlan.Out.Allow.AzureMonitor`: Allow outbound access to Azure Monitor |
+| AzureBastionSubnet | See guidance in [working with NSG access and Azure Bastion](/azure/bastion/bastion-nsg) | See guidance in [working with NSG access and Azure Bastion](/azure/bastion/bastion-nsg) |
+| snet-jumpbox | `Jumpbox.In.Allow.SshRdp`: Allow inbound RDP and SSH from the Bastion Host subnet | `Jumpbox.Out.Allow.PrivateEndpoints`: Allow outbound traffic from the jumpbox subnet to the Private Endpoints subnet.<br><br>`Jumpbox.Out.Allow.Internet1`: Allow outbound traffic from all VMs to Internet<br><br>`DenyAllOutBound`: Deny all other outbound traffic |
+| snet-agents | Default rules: Allow inbound from virtual network | Default rules: Allow outbound to virtual network |
+| snet-training | Default rules: Allow inbound from virtual network | Default rules: Allow outbound to virtual network |
+| snet-scoring | Default rules: Allow inbound from virtual network | Default rules: Allow outbound to virtual network |
+
+Consider the following points when implementing virtual network segmentation and security.
+
+- Enable [DDoS protection](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa7aca53f-2ed4-4466-a25e-0b45ade68efd) for the virtual network with a subnet that is part of an application gateway with a public IP.
+- [Add an NSG](/azure/virtual-network/network-security-groups-overview) to every subnet where possible. You should use the strictest rules that enable full solution functionality.
+- Use [application security groups](/azure/virtual-network/tutorial-filter-network-traffic#create-application-security-groups). Application security groups allow you to group NSGs, making rule creation easier for complex environments.
 
 ## Content filtering
 
