@@ -9,7 +9,7 @@ With tNavigator, you can perform extended uncertainty analysis and surface netwo
 - Modern and diverse compute options to align to your workload's needs
 - Flexible virtualization without the purchase of physical hardware
 - Rapid provisioning
-- Complex simulations solved in few hours via an increase in the number of CPU cores
+- Complex simulations solved in a few hours via an increase in the number of CPU cores
 
 ## Architecture
 
@@ -61,12 +61,15 @@ Before you install tNavigator, you need to deploy and connect a VM. For informat
 Two standard, stable models were used to test tNavigator: speed test and speed test 9. Details about the models are shown in the following tables.
 
 :::image type="content" source="media/speed-test-model.png" alt-text="Image that shows a 3D view of the speed test model." border="true":::
+<br>
 
 **Speed test model**
 
 |Dimensions| Total active grid blocks| Total pore volume | Mesh connection statistics|
 |---|---|-|-|
 | X: 88<br> Y: 215<br> Z: 177<br> Size: 3,348,840 | 2,418,989 | 13,563,305,518.45987 rm3 | Total: 7,052,853<br>Geometrical: 7,052,853 |
+
+<br>
 
 **Speed test 9 model**
 
@@ -110,13 +113,13 @@ The following chart shows relative speed increases as the number of vCPUs increa
 
 #### Notes about the single-node tests
 
-For all single-node tests, the slower time on a Standard_HB120-16rs_v3 VM with 8 cores is used as a reference to calculate the relative speed increases with respect to similar VMs that have more cores. The results presented previously show near linear computation performance improvements as the number of cores increases from 8 to 120, until to the optimal configuration for a given model is reached.
+For all single-node tests, the slower time on a Standard_HB120-16rs_v3 VM with 8 cores is used as a reference to calculate the relative speed increases with respect to similar VMs that have more cores. The results presented previously show near linear computation performance improvements as the number of cores increases from 8 to 120, until the optimal configuration for a given model is reached.
 
 ### Results in a multi-node configuration
 
 The following sections provide the performance results of running tNavigator on multi-node Azure HBv3-series VMs. The speed test model isn't suitable for testing in a multi-node environment, so tests are restricted to the speed test 9 model.
 
-This table shows the times recorded for varying numbers of nodes of the Standard_HB120-64rs_v3 VM on CycleCloud:
+This table shows the times recorded for varying numbers of nodes of the Standard_HB120-64rs_v3 VM on Azure CycleCloud:
 
 | VM size | Number of nodes | Number of vCPUs | Total elapsed time (seconds) | Relative speed increase |
 |---|---|---|---|---|
@@ -136,7 +139,7 @@ The multi-node results show that models scale linearly until the 16-node configu
 
 ## Azure cost
 
-Only model running time (elapsed time) is considered for these cost calculations. Application installation time isn't considered. The calculations are indicative. The actual cost depends on the size of the model. You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your configuration.
+Only model running time (elapsed time) is considered for these cost calculations. Application installation time isn't considered. The calculations are indicative or your potential results. The actual cost depends on the size of the model. You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your configuration.
 
 The following tables provide elapsed times in hours. To compute the total cost, multiply by the [Azure VM hourly costs for Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
@@ -178,8 +181,8 @@ The following tables provide elapsed times in hours. To compute the total cost, 
 
 - tNavigator exhibits high scalability when deployed on HBv3-series VMs (AMD EPYC 7V73X Milan-X CPU cores) on Azure. To determine the scalability, the ratio of the inverse of the time it takes to solve a given model is calculated.
 - To evaluate the performance, the lowest VM configuration in the series, 8 vCPUs for HBv3, is used as a baseline. The results are assessed based on the performance relative to this baseline. Higher values indicate better performance.
-- For the single-node configuration on HBv3, the solution completes approximately 1.5 times faster whenever the number of cores is doubled. Scale-up decreases as the optimal configuration is reached. Increasing the number of cores beyond the optimal configuration doesn't result in improved performance.
-- For the multi-mode configuration on HBv3, implemented via CycleCloud, the solution completes approximately 1.3 to 1.5 times faster whenever the number of nodes is doubled. Scale-up decreases as the optimal configuration is reached. 
+- For the single-node configuration on HBv3, the solution finishes approximately 1.5 times faster whenever the number of cores is doubled. Scale-up decreases as the optimal configuration is reached. Increasing the number of cores beyond the optimal configuration doesn't result in improved performance.
+- For the multi-mode configuration on HBv3, implemented via CycleCloud, the solution finishes approximately 1.3 to 1.5 times faster whenever the number of nodes is doubled. Scale-up decreases as the optimal configuration is reached. 
 
 ## Contributors
 

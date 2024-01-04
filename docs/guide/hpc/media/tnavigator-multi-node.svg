@@ -54,7 +54,7 @@
 		.st44 {fill:url(#grad0-316);stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st45 {fill:url(#grad0-320);stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st46 {fill:none;stroke:#000000;stroke-dasharray:3,3;stroke-linecap:round;stroke-linejoin:round;stroke-width:1}
-		.st47 {marker-start:url(#mrkr4-339);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
+		.st47 {marker-start:url(#mrkr4-340);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
 		.st48 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
 	]]>
 	</style>
@@ -149,7 +149,7 @@
 				markerUnits="strokeWidth" overflow="visible">
 			<use xlink:href="#lend4" transform="scale(-2.68,-2.68) "/>
 		</marker>
-		<marker id="mrkr4-339" class="st25" v:arrowType="4" v:arrowSize="2" v:setback="5.12" refX="5.12" orient="auto"
+		<marker id="mrkr4-340" class="st25" v:arrowType="4" v:arrowSize="2" v:setback="5.12" refX="5.12" orient="auto"
 				markerUnits="strokeWidth" overflow="visible">
 			<use xlink:href="#lend4" transform="scale(2.68) "/>
 		</marker>
@@ -954,7 +954,7 @@
 			<v:textRect cx="39.0647" cy="435.329" width="78.13" height="28.8098"/>
 			<rect x="0" y="420.924" width="78.1293" height="28.8098" class="st6"/>
 			<text x="21.94" y="438.63" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Subnet</text>		</g>
-		<g id="group139-311" transform="translate(325.405,-257.72)" v:mID="139" v:groupContext="group">
+		<g id="group139-311" transform="translate(325.405,-256.103)" v:mID="139" v:groupContext="group">
 			<title>Sheet.139</title>
 			<g id="group140-312" transform="translate(16.5647,-17.4705)" v:mID="140" v:groupContext="group">
 				<title>Icon-web-42</title>
@@ -978,33 +978,34 @@
 								 445.66 Z" class="st45"/>
 				</g>
 			</g>
-			<g id="shape143-321" v:mID="143" v:groupContext="shape">
+			<g id="shape143-321" v:mID="143" v:groupContext="shape" transform="translate(0,4.10305)">
 				<title>Sheet.143</title>
-				<desc>Azure API</desc>
+				<desc>Azure API Management</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 				<v:textRect cx="39.0647" cy="440.617" width="78.13" height="18.2332"/>
 				<rect x="0" y="431.501" width="78.1293" height="18.2332" class="st6"/>
-				<text x="15.53" y="443.92" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure API</text>			</g>
+				<text x="15.53" y="437.32" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure API <tspan
+							x="6.71" dy="1.2em" class="st42">Management</tspan></text>			</g>
 		</g>
-		<g id="shape144-324" v:mID="144" v:groupContext="shape" transform="translate(194,-28.22)">
+		<g id="shape144-325" v:mID="144" v:groupContext="shape" transform="translate(194,-28.22)">
 			<title>VnetBox.1214</title>
 			<rect x="0" y="64.984" width="585" height="384.75" rx="4.5" ry="4.5" class="st46"/>
 		</g>
-		<g id="shape145-326" v:mID="145" v:groupContext="shape" transform="translate(638.916,-413.141)">
+		<g id="shape145-327" v:mID="145" v:groupContext="shape" transform="translate(638.916,-413.141)">
 			<title>Sheet.145</title>
 			<desc>Virtual network</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="47.7398" cy="440.617" width="95.48" height="18.2332"/>
 			<rect x="0" y="431.501" width="95.4796" height="18.2332" class="st6"/>
 			<text x="10.77" y="443.92" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Virtual network</text>		</g>
-		<g id="shape146-329" v:mID="146" v:groupContext="shape" v:layerMember="1" transform="translate(270.5,-213.845)">
+		<g id="shape146-330" v:mID="146" v:groupContext="shape" v:layerMember="1" transform="translate(270.5,-213.845)">
 			<title>Dynamic connector.1228</title>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
 			</v:userDefs>
 			<path d="M0 449.73 L46.13 449.73 L46.13 369.86 L62.84 369.86" class="st26"/>
 		</g>
-		<g id="shape147-334" v:mID="147" v:groupContext="shape" v:layerMember="1" transform="translate(698,601.248) scale(1,-1)">
+		<g id="shape147-335" v:mID="147" v:groupContext="shape" v:layerMember="1" transform="translate(698,601.248) scale(1,-1)">
 			<title>Sides.1229</title>
 			<v:userDefs>
 				<v:ud v:nameU="TextPos" v:val="VT0(1):26"/>
@@ -1014,7 +1015,7 @@
 			</v:userDefs>
 			<path d="M7.68 449.73 L8.04 449.73 L51.75 449.73 L51.75 276.4 L32.25 276.4" class="st47"/>
 		</g>
-		<g id="shape148-340" v:mID="148" v:groupContext="shape" transform="translate(-1.86219,5.26687)">
+		<g id="shape148-341" v:mID="148" v:groupContext="shape" transform="translate(-1.86219,5.26687)">
 			<title>Sheet.148</title>
 			<rect v:rectContext="foreign" x="0" y="385.967" width="120.724" height="63.7669" class="st6"/>
 			<image x="0" y="385.967" width="120.724" height="63.7669" preserveAspectRatio="none" xlink:href="data:image/png;base64,
