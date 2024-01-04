@@ -3,7 +3,7 @@ title: Conceptual planning for IPv6 networking
 description: Plan your IPv6 IP space in Azure with specific guidance.
 author: bsteph
 ms.author: bstephenson
-ms.date: 10/25/2023
+ms.date: 01/08/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
