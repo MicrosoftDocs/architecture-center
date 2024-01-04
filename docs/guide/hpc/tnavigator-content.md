@@ -139,7 +139,7 @@ The multi-node results show that models scale linearly until the 16-node configu
 
 ## Azure cost
 
-Only model running time (elapsed time) is considered for these cost calculations. Application installation time isn't considered. The calculations are indicative or your potential results. The actual cost depends on the size of the model. You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your configuration.
+Only model running time (elapsed time) is considered for these cost calculations. Application installation time isn't considered. The calculations are indicative of your potential results. The actual cost depends on the size of the model. You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your configuration.
 
 The following tables provide elapsed times in hours. To compute the total cost, multiply by the [Azure VM hourly costs for Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
