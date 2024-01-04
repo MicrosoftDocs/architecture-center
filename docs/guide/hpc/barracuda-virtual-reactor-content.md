@@ -42,7 +42,7 @@ Performance tests of Barracuda Virtual Reactor on Azure used [ND A100_v4](/azure
 |Standard_ND96asr_v4| 96| 900 |6,000| 8 A100| 40| 32|
 |Standard_NC24s_v3 |24 |448 |2,948| 4 V100 |64|32|
 |Standard_NC64as_T4_v3| 64| 440 |2,880| 4 T4 |64| 32|
-|Standard_ND96amsr_A100_v4|96|1900|8 A100 80 GB GPUs (NVLink 3.0) |80|32|
+|Standard_ND96amsr_A100_v4|96|1900|6400|8 A100 80 GB GPUs (NVLink 3.0) |80|32|
 |Standard_NC96ads_A100_v4 |96|880|4492|4|320|32|
 ### Required drivers
 
@@ -189,7 +189,7 @@ These graphs provide comparisons of models that are similar but have different p
 
 :::image type="content" source="media/barracuda-virtual-reactor/comparison-ncast4.png" alt-text="Graphs that provide comparisons for similar models on NCasT4_v3."  border="false":::
 
-## Barracuda Virtual Reactor 21.1.0  performance results
+## Barracuda Virtual Reactor 22.0.0  performance results
 
 The following table provides details about the operating system and NVIDIA drivers that were used.
 
@@ -224,7 +224,7 @@ Results are presented in seconds.
 |1-GPU|	3.70|	10.50|	23.74|	13.03|	6.82|	19.40|	49.90|	28.40|
 |2-GPU|	2.90|	6.10|	13.88|	8.37|	4.37|	10.60|	28.30|	17.00|
 |3-GPU|	2.50|	4.50|	10.89|	6.92|	3.76|	7.70|	20.60|	13.30|
-|4-GPU|	2.50|	4.10|	9.14|	6.25	3.18|	6.90|	17.50|	11.70|
+|4-GPU|	2.50|	4.10|	9.14|	6.25|	3.18|	6.90|	17.50|	11.70|
 |5-GPU|	2.50|	4.00|	8.70|	6.10|	2.97|	6.30|	15.70|	11.10|
 |6-GPU|	2.60|	3.70|	7.82|	5.84|	3.06|	5.50|	14.00|	10.10|
 |7-GPU|	2.60|	3.70|	8.10|	6.30|	3.28|	5.70|	13.60|	10.70|
