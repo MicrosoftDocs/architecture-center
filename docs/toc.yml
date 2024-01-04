@@ -4482,9 +4482,7 @@ items:
           maintainContext: true
         - name: HITRUST overview
           href: /azure/compliance/offerings/offering-hitrust
-          maintainContext: true
-        - name: Implement healthcare blueprint for AI
-          href: industries/healthcare/healthcare-ai-blueprint.yml
+          maintainContext: true        
         - name: HIPAA/HITRUST compliant health data
           href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
         - name: HIPAA HITRUST 9.2 compliance
