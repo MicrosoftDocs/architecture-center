@@ -12,14 +12,11 @@ This article provides an overview of deploying SWIFT's Alliance Remote Gateway (
 
 *Download a [Visio file](https://arch-center.azureedge.net/swift-alliance-vSRX-GA-allModules.vsdx) that contains this architecture diagram. See the **ARG (All-GoldSilverBronze)** tab.*
 
-The Alliance Remote Gateway (ARG) subscription contains resources managed by the customer. Once the service is implemented, the Alliance Access or Alliance Entry systems on
-
-premises connect to the Alliance Remote Gateway (ARG) server deployed at the Swift operating center (OPC) . The customer retains full control of the Alliance Access or Alliance Entry configuration and features, including message entry and display, routing, operator definitions, scheduling, manual or automated printing.
+The Alliance Remote Gateway (ARG) subscription contains resources managed by the customer. Once the service is implemented, the Alliance Access or Alliance Entry systems on premises connect to the Alliance Remote Gateway (ARG) server deployed at the Swift operating center (OPC). The customer retains full control of the Alliance Access or Alliance Entry configuration and features, including message entry and display, routing, operator definitions, scheduling, manual or automated printing.
 
 The resources for Alliance Remote Gateway (ARG) can be deployed with an Azure Resource Manager template to create the core infrastructure as described in this architecture. An Alliance Remote Access deployment in Azure should adhere to SWIFT's Customer Security Program (CSP) Control Framework (CSCF). We recommend that customers use the SWIFT CSP-CSCF Azure policies in this subscription.
 
 The Alliance Connect Virtual subscription contains the components required to enable the connectivity to the Alliance Remote Gateway (ARG) server through Multi-Vendor Secure IP Network (MV-SIPN). The deployment of the respective Juniper Virtual Firewall (vSRX) components depicted in the above architecture diagram enables high availability by deploying the redundant resources in two different Azure Availability Zones. Additionally, the HA- VM 1 & HA-VM 2 monitor and maintain the route tables to provide higher resiliency and improves the availability of the overall solution.
-
 
 The connection between the Alliance Remote Gateway (ARG) server and these customer specific networking components can be maintained over the dedicated ExpressRoute or over the Internet. SWIFT offers three different connectivity options i.e. Bronze, Silver and Gold. The customers can choose the option most suited to tier message traffic volumes and required level of resilience. More details about these connectivity options can be found here [Alliance Connect: Bronze, Silver, and Gold packages](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect/alliance-connect-bronze-silver-and-gold-packages).
 
@@ -30,16 +27,6 @@ Once the SWIFT Alliance Remote Gateway(ARG) infrastructure in Azure is deployed,
 
 ### Workflow
 
-The SWIFT customer establishes a secure connection from their on-premises or colocation site to the SWIFT Alliance Remote Gateway Secure Zone subscription.
-
-- ExpressRoute can be used to connect the customer's on-premises to Azure over a private connection.
-- Site-to-site VPN can be used to connect the customer's on-premises to Azure over the internet.
-- Using Remote Desktop Protocol (RDP) over the internet to connect customers (Azure Bastion can be utilized for the same).The customer's Azure environment can be peered. 
-
-
-![Diagram that shows three connectivity methods.](media/secure-zone-alliance-connect-virtual.png)
-
-The SWIFT customer's business and application systems can connect with Alliance Access/Entry Gateway VMs as shown in the previous diagram. However, business users can connect to the Alliance Web Platform only. The recommended Azure Firewall and Azure Network Security Group are configured to only allow appropriate traffic to pass to the Alliance Web Platform.
 
 ### Components  
   
@@ -122,9 +109,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Administrators who manage the SWIFT infrastructure on Azure need to have an identity in the [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) (Microsoft Entra ID) service of the Azure tenant that's associated with the subscription. Microsoft Entra ID can be a part of an enterprise hybrid identity configuration that integrates your on-premises enterprise identity system with the cloud. However, SWIFT's CSP-CSCF recommends separating the identity system for SWIFT deployments from your enterprise identity system. If your current tenant is already integrated with your on-premises directory, you can create a separate tenant with a separate Microsoft Entra ID instance to comply with this recommendation.
 
-
 Users enrolled in Microsoft Entra ID can sign in to the Azure portal or authenticate by using other management tools, like [Azure PowerShell](/powershell/azure/overview) or [Azure CLI](/powershell/azure/overview). You can configure [Active Directory multifactor authentication](/azure/active-directory/authentication/concept-mfa-howitworks) and other safeguards, like IP range restrictions, by using [Conditional Access](/azure/active-directory/conditional-access/overview). Users get permissions on Azure subscriptions via [role-based access control (RBAC)](/azure/role-based-access-control/overview), which governs the operations that users can do in a subscription.
-
 
 The Microsoft Entra ID associated with a subscription enables only the management of Azure services. For example, you might provision VMs in Azure under a subscription. Microsoft Entra ID provides credentials for signing in to those VMs only if you explicitly enable Microsoft Entra ID authentication. To learn about using Microsoft Entra ID for application authentication, see [Migrate application authentication to Microsoft Entra ID](/azure/active-directory/manage-apps/migrate-application-authentication-to-azure-active-directory).
 
@@ -137,6 +122,17 @@ SWIFT has a policy framework that can help you enforce a subset of SWIFT CSP-CSC
 
 We recommend that you deploy SWIFT components in a subscription that's separate from any back-office applications. By using separate subscriptions, you can ensure that SWIFT CSP-CSCF applies only to SWIFT components and not to your own components. Consider using the latest implementation of SWIFT CSP controls, but first consult the Microsoft team that you're working with.
 
+#### Connectivity methods
+
+The SWIFT customer establishes a secure connection from their on-premises or colocation site to the SWIFT Alliance Remote Gateway Secure Zone subscription.
+
+- ExpressRoute can be used to connect the customer's on-premises to Azure over a private connection.
+- Site-to-site VPN can be used to connect the customer's on-premises to Azure over the internet.
+- Using Remote Desktop Protocol (RDP) over the internet to connect customers (Azure Bastion can be utilized for the same).The customer's Azure environment can be peered. 
+
+![Diagram that shows three connectivity methods.](media/secure-zone-alliance-connect-virtual.png)
+
+The SWIFT customer's business and application systems can connect with Alliance Access/Entry Gateway VMs. However, business users can connect to the Alliance Web Platform only. The recommended Azure Firewall and Azure Network Security Group are configured to only allow appropriate traffic to pass to the Alliance Web Platform.
 
 ### Operational excellence
 
