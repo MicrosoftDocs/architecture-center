@@ -1,27 +1,28 @@
- This article describes the steps to install and run [Ansys HFSS](https://www.ansys.com/products/electronics/ansys-hfss) application on a VM deployed in Azure  and presents the performance results.
+This article describes the steps for installing and running [Ansys HFSS](https://www.ansys.com/products/electronics/ansys-hfss) on a virutal machine (VM) that's deployed on Azure. It also presents the performance results of running HFSS.
 
-Ansys HFSS is a 3D electromagnetic (EM) simulation software for designing and simulating high-frequency electronic products. HFSS’s unmatched capacity, coupled with indisputable accuracy, enables engineers to address RF, microwave, IC, PCB and EMI problems for most complex systems. HFSS is the premier EM tool for R&D and virtual design prototyping. It reduces design cycle time and boosts your product’s reliability and performance.
+Ansys HFSS is a 3D electromagnetic (EM) simulation application for designing and simulating high-frequency electronic products. HFSS enables engineers to address RF, microwave, IC, PCB, and EMI problems for most complex systems.
 
-HFSS is used in simulations of high-frequency electronic products such as antennas, antenna arrays, RF or microwave components, high-speed interconnects, IC packages and printed circuit boards. Engineers use Ansys HFSS to design high-frequency, high-speed electronics found in communications systems, advanced driver assistance systems (ADAS), satellites, and IoT products.
+HFSS is used in simulations of high-frequency electronic products like antennas, antenna arrays, RF or microwave components, high-speed interconnects, IC packages, and printed circuit boards. Engineers use HFSS to design high-frequency, high-speed electronics found in communications systems, advanced driver assistance systems (ADAS), satellites, and IoT products.
 
-## Benefits of deploying on Azure
+## Benefits of deploying HFSS on Azure
 
 Azure offers:
 
-- Modern and diverse compute  such as Virtual Machine SKUs options to align to your workload requirements.
-- Flexibility to create your own customised virtual machines within seconds by defining an operating system, language, and workload.
-- Rapid provisioning
-- Strong GPU acceleration, with increased performance as GPUs ar e added.
+- Modern and diverse compute options, like VM SKUs, to align to your workload requirements.
+- The flexibility to create customised VMs within seconds by defining an operating system, language, and workload.
+- Rapid provisioning.
+- Strong GPU acceleration, with increased performance as GPUs are added.
 
 ## Architecture
 
-![Diagram that shows architecture for running Ansys HFSS on Azure](media/image1.png)
+![Diagram that shows an architecture for running Ansys HFSS on Azure.](media/hpc-ansys-hfss.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/hpc-ansys-hfss.vsdx) of this architecture.*
 
 ### Components
 
-[Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is used to create Windows or Linux VMs.
-
-- For information about deploying the VM and installing the drivers, see [Windows VMs on Azure](/azure/architecture/reference-architectures/n-tier/windows-vm).
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is used to create a Windows VM. 
+   - For information about deploying the VM and installing the drivers, see [Windows VMs on Azure](../../reference-architectures/n-tier/windows-vm.yml).
 - For storing data related to VM, physical solid-state drive (SSD) is used.
 
 [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is used to create a private network infrastructure in the cloud.
