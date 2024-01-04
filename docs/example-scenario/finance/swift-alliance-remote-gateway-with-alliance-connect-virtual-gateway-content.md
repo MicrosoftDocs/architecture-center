@@ -1,9 +1,10 @@
 > [!NOTE]
 > For updates on SWIFT product availability in the cloud, see the [SWIFT website](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect-virtual).
 
-This article provides an overview of deploying SWIFT's Alliance Remote Gateway (ARG) on Azure. Alliance Remote Gateway is a secure, cloud-based service. It enables Alliance Access customers to outsource their Alliance Gateway operations to SWIFT while retaining full control over their Alliance Access and Alliance Entry systems. You can deploy the solution using single Azure subscription. However, for better management and governance of the overall solution, we recommend you use two different Azure subscriptions:
+This article provides an overview of deploying SWIFT's Alliance Remote Gateway (ARG) on Azure. Alliance Remote Gateway is a secure, cloud-based service. It allows you to connect Alliance Access or Alliance Entry directly to SWIFT without hosting connectivity product on-premises. You retain full control over your Alliance Access and Alliance Entry systems. You can deploy the solution using single Azure subscription. However, for better management and governance of the overall solution, you should use two different Azure subscriptions:
 - One subscription contains the SWIFT Alliance Access components. 
-- The other subscription contains the resources to connect to SWIFT's network via Alliance Connect Virtual.
+- Second subscription contains the resources to connect to SWIFT's network via Alliance Connect Virtual.
+
 
 ## Architecture
 
@@ -11,18 +12,21 @@ This article provides an overview of deploying SWIFT's Alliance Remote Gateway (
 
 *Download a [Visio file](https://arch-center.azureedge.net/swift-alliance-vSRX-GA-allModules.vsdx) that contains this architecture diagram. See the **ARG (All-GoldSilverBronze)** tab.*
 
-The Alliance Remote Gateway(ARG) Secure Zone subscription contains resources managed by the customer. Once the service is implemented, the Alliance Access or Alliance Entry systems at the customer
+The Alliance Remote Gateway (ARG) subscription contains resources managed by the customer. Once the service is implemented, the Alliance Access or Alliance Entry systems on
+
 premises connect to the Alliance Remote Gateway (ARG) server deployed at the Swift operating center (OPC) . The customer retains full control of the Alliance Access or Alliance Entry configuration and features, including message entry and display, routing, operator definitions, scheduling, manual or automated printing.
 
 The resources for Alliance Remote Gateway (ARG) can be deployed with an Azure Resource Manager template to create the core infrastructure as described in this architecture. An Alliance Remote Access deployment in Azure should adhere to SWIFT's Customer Security Program (CSP) Control Framework (CSCF). We recommend that customers use the SWIFT CSP-CSCF Azure policies in this subscription.
 
-The Alliance Connect Virtual subscription contains the components required to enable the connectivity to the Alliance Remote Gateway (ARG) server through MV-SIPN. The deployment of the respective vSRX components depicted in the above architecture diagram enables high availability by deploying the redundant resources in two different Azure Availability Zones. Additionally, the HA- VM 1 & HA-VM 2 monitor and maintain the route tables to provide higher resiliency and improves the availability of the overall solution.
+The Alliance Connect Virtual subscription contains the components required to enable the connectivity to the Alliance Remote Gateway (ARG) server through Multi-Vendor Secure IP Network (MV-SIPN). The deployment of the respective Juniper Virtual Firewall (vSRX) components depicted in the above architecture diagram enables high availability by deploying the redundant resources in two different Azure Availability Zones. Additionally, the HA- VM 1 & HA-VM 2 monitor and maintain the route tables to provide higher resiliency and improves the availability of the overall solution.
+
 
 The connection between the Alliance Remote Gateway (ARG) server and these customer specific networking components can be maintained over the dedicated ExpressRoute or over the Internet. SWIFT offers three different connectivity options i.e. Bronze, Silver and Gold. The customers can choose the option most suited to tier message traffic volumes and required level of resilience. More details about these connectivity options can be found here [Alliance Connect: Bronze, Silver, and Gold packages](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect/alliance-connect-bronze-silver-and-gold-packages).
 
 For more information about resiliency, see [Single-region multi-active resiliency](#single-region-multi-active-resiliency) and [Multi-region multi-active resiliency](#multi-region-multi-active-resiliency) later in this article.
 
-Once the SWIFT Alliance Remote Gateway(ARG) infrastructure in Azure is deployed, the customer follows SWIFT's instructions for installing the Alliance Alliance Remote Gateway(ARG) software.
+Once the SWIFT Alliance Remote Gateway(ARG) infrastructure in Azure is deployed, the customer follows SWIFT's instructions for installing the Alliance Remote Gateway(ARG) software.
+
 
 ### Workflow
 
@@ -63,9 +67,8 @@ The SWIFT customer's business and application systems can connect with Alliance 
 
 #### Single-region multi-active resiliency
 
-Alliance Access uses an embedded Oracle database. To align with a multi-active Alliance Access deployment, you can use a path-resilient architecture.
+Alliance Access uses an embedded Oracle database. To align with a multi-active Alliance Access deployment, you can use a path-resilient architecture. A path-resilient architecture places all required SWIFT components in one path. You duplicate each path as many times as you need to for resiliency and scaling. If there's a failure, you fail over an entire path instead of a single component. The following diagram shows what this resiliency approach looks like when you use availability zones. This architecture is easier to configure, but a failure in any component in a path requires that you switch to another path. 
 
-When you use path resiliency, you place all required SWIFT components in one path. You duplicate each path as many times as you need to for resiliency and scaling. If there's a failure, you fail over an entire path instead of a single component. The following diagram shows what this resiliency approach looks like when you use availability zones. This architecture is easier to configure, but a failure in any component in a path requires that you switch to another path. 
 
 By combining Web Platform and Alliance Access on a single VM, you reduce the number of infrastructure components that can fail. Depending on the usage pattern of the SWIFT components, you might consider that configuration. For Alliance Access components and Alliance Connect Virtual instances, deploy the related systems in the same Azure zone, as shown in the preceding architecture diagram. For example, deploy Alliance Access Web Platform 1 VMs, Alliance Access 1 VMs, SAG-SNL 1, HA-VM 1, and VA vSRX VM1 in AZ1.
 
@@ -93,7 +96,8 @@ This solution is optimal for the finance industry. It's intended for existing SW
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-The following considerations apply to this solution.For more details, you can engage your account team at Microsoft to help guide your Azure implementation for SWIFT.
+The following considerations apply to this solution. For more details, you can engage your account team at Microsoft to help guide your Azure implementation for SWIFT.
+
 
 ### Reliability
 
@@ -121,11 +125,14 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 #### Authentication and authorization
 
-Administrators who manage the SWIFT infrastructure on Azure need to have an identity in the [Azure Active Directory](https://azure.microsoft.com/services/active-directory) (Azure AD) service of the Azure tenant that's associated with the subscription. Azure AD can be a part of an enterprise hybrid identity configuration that integrates your on-premises enterprise identity system with the cloud. However, SWIFT's CSP-CSCF recommends separating the identity system for SWIFT deployments from your enterprise identity system. If your current tenant is already integrated with your on-premises directory, you can create a separate tenant with a separate Azure AD instance to comply with this recommendation.
+Administrators who manage the SWIFT infrastructure on Azure need to have an identity in the [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) (Microsoft Entra ID) service of the Azure tenant that's associated with the subscription. Microsoft Entra ID can be a part of an enterprise hybrid identity configuration that integrates your on-premises enterprise identity system with the cloud. However, SWIFT's CSP-CSCF recommends separating the identity system for SWIFT deployments from your enterprise identity system. If your current tenant is already integrated with your on-premises directory, you can create a separate tenant with a separate Microsoft Entra ID instance to comply with this recommendation.
 
-Users enrolled in Azure AD can sign in to the Azure portal or authenticate by using other management tools, like [Azure PowerShell](/powershell/azure/overview) or [Azure CLI](/powershell/azure/overview). You can configure [Active Directory multifactor authentication](/azure/active-directory/authentication/concept-mfa-howitworks) and other safeguards, like IP range restrictions, by using [Conditional Access](/azure/active-directory/conditional-access/overview). Users get permissions on Azure subscriptions via [role-based access control (RBAC)](/azure/role-based-access-control/overview), which governs the operations that users can do in a subscription.
 
-The Azure AD service that's associated with a subscription enables only the management of Azure services. For example, you might provision VMs in Azure under a subscription. Azure AD provides credentials for signing in to those VMs only if you explicitly enable Azure AD authentication. To learn about using Azure AD for application authentication, see [Migrate application authentication to Azure AD](/azure/active-directory/manage-apps/migrate-application-authentication-to-azure-active-directory).
+Users enrolled in Microsoft Entra ID can sign in to the Azure portal or authenticate by using other management tools, like [Azure PowerShell](/powershell/azure/overview) or [Azure CLI](/powershell/azure/overview). You can configure [Active Directory multifactor authentication](/azure/active-directory/authentication/concept-mfa-howitworks) and other safeguards, like IP range restrictions, by using [Conditional Access](/azure/active-directory/conditional-access/overview). Users get permissions on Azure subscriptions via [role-based access control (RBAC)](/azure/role-based-access-control/overview), which governs the operations that users can do in a subscription.
+
+
+The Microsoft Entra ID associated with a subscription enables only the management of Azure services. For example, you might provision VMs in Azure under a subscription. Microsoft Entra ID provides credentials for signing in to those VMs only if you explicitly enable Microsoft Entra ID authentication. To learn about using Microsoft Entra ID for application authentication, see [Migrate application authentication to Microsoft Entra ID](/azure/active-directory/manage-apps/migrate-application-authentication-to-azure-active-directory).
+
 
 #### Enforcing SWIFT CSP-CSCF policies
 
@@ -133,15 +140,13 @@ You can use [Azure Policy](https://azure.microsoft.com/services/azure-policy) to
 
 SWIFT has a policy framework that can help you enforce a subset of SWIFT CSP-CSCF requirements. A part of this framework enables you to use Azure policies within your subscription. For simplicity, you can create a separate subscription in which you deploy SWIFT secure zone components and another subscription for other potentially related components. Separate subscriptions enable you to apply the SWIFT CSP-CSCF Azure policies only to subscriptions that contain a SWIFT secure zone.
 
-We recommend that you deploy SWIFT components in a subscription that's separate from any back-office applications. By using separate subscriptions, you can ensure that SWIFT CSP-CSCF applies only to SWIFT components and not to your own components.
+We recommend that you deploy SWIFT components in a subscription that's separate from any back-office applications. By using separate subscriptions, you can ensure that SWIFT CSP-CSCF applies only to SWIFT components and not to your own components. Consider using the latest implementation of SWIFT CSP controls, but first consult the Microsoft team that you're working with.
 
-Consider using the latest implementation of SWIFT CSP controls, but first consult the Microsoft team that you're working with.
 
 ### Operational excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview). You're responsible for operating the Alliance Access software and the underlying Azure resources in the Alliance Access subscription.
 
-- You're responsible for operating the Alliance Access software and the underlying Azure resources in the Alliance Access subscription.
 - Azure Monitor provides a comprehensive set of monitoring capabilities. It can monitor the Azure infrastructure but not the SWIFT software. You can use a monitoring agent to collect event logs, performance counters, and other logs, and send those logs and metrics to Azure Monitor. For more information, see [Overview of the Azure monitoring agents](/azure/azure-monitor/platform/agents-overview).
 - [Azure Alerts](/azure/azure-monitor/alerts/alerts-overview) uses your Azure Monitor data to notify you when it detects problems with your infrastructure or application. The alerts enable you to identify and address problems before the users of your system notice them.
 - You can use [Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview) to edit and run log queries against data in Azure Monitor Logs.
