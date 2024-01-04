@@ -150,13 +150,13 @@ The diagram is numbered for areas that are noteworthy in this architecture:
 1. There are 3 additional instances of Azure App Service deployed to host the containerized prompt flow. These App Service instances will connect to ACR over a private endpoint when loading the container image.
 1. The prompt flow App Service will connect to Azure AI Search and Azure OpenAI service over private endpoints deployed in our virtual network.
 
-### Azure OpenAI
+### Azure OpenAI - reliability
 
 Azure OpenAI does not currently support availability zones. To mitigate the potential impact of a datacenter-level catastrophe on models deployed in Azure OpenAI, it’s necessary to deploy Azure OpenAI to various regions along with deploying a load balancer to distribute calls among the regions. You would use health checks to help ensure that calls are only routed to clusters that are functioning properly.
 
 It is important to monitor the required throughput in terms of Tokens per Minute (TPM) and Requests per Minute (RPM) to ensure you have assigned enough TPM from your quota to meet the demand for your deployments and prevent calls to your deployed models from being throttled. A gateway such as Azure API Management (APIM) can be deployed in front of your OpenAI service(s) and can be configured for retry in the case of transient errors and throttling. APIM can also be used as a [circuit breaker](/azure/api-management/backends?tabs=bicep#circuit-breaker-preview) to prevent the service from getting overwhelmed with call, exceeding it's quota.
 
-### Azure AI Search
+### Azure AI Search - reliability
 
 Deploy Azure AI Search with Standard pricing tier or above in a [region that supports availability zones](/azure/search/search-reliability#prerequisites) and deploy 3 or more replicas. The replicas will automatically spread evenly across availability zones.
 
@@ -165,7 +165,7 @@ Consider the following guidance for determining the appropriate amount of replic
 - Follow the guidance to [monitor Azure AI Search](/azure/search/monitor-azure-cognitive-search).
 - Use monitoring metrics and logs and performance analysis to determine the appropriate amount of replicas to avoid query-based throttling and partitions to avoid index-based throttling.
 
-### Azure Machine Learning
+### Azure Machine Learning - reliability
 
 If you deploy to compute clusters behind the Azure Machine Learning managed online endpoint, consider the following guidance regarding scaling: 
 
@@ -186,13 +186,6 @@ The following guidance extends the [identity and access management guidance in t
   - Compute instance - used when testing flows
   - Online endpoint - used by the deployed flow if deployed to a managed online endpoint
 
-### OpenAI key rotation
-
-When using Azure OpenAI key-based authentication, it is important to:
-
-- Store the key in a secure key store like Azure Key Vault
-- Implement a key rotation strategy for Azure OpenAI. If you [manually rotate the keys](/azure/storage/common/storage-account-keys-manage?tabs=azure-portal#manually-rotate-access-keys), you should create a key expiration policy and use Azure policy to monitor whether the key has been rotated.
-
 ### OpenAI RBAC roles
 
 There are 5 [default roles](/azure/machine-learning/how-to-assign-roles#default-roles) you can use to manage access to your Azure Machine Learning workspace: AzureML Data Scientist, AzureML Compute Operator, Reader, Contributor, and Owner. Along with these default roles, there is an AzureML Workspace Connection Secrets Reader and an AzureML Registry User that grant access to workspace resources such as the workspace secrets and registry.
@@ -212,25 +205,32 @@ This architecture follows the least privilege principle by only assigning roles 
 | Compute instance managed identity | Workspace Container Registry | ACRPull |
 | Compute instance managed identity | Workspace Storage Account | Storage Blob Data Reader |
 
+### OpenAI key rotation
+
+There are 2 services in this architecture that use key-based authentication: Azure OpenAI and the Azure Machine Learning managed online endpoint. Because you are using key-based authentication for these services, it is important to:
+
+- Store the key in a secure key store like Azure Key Vault
+- Implement a key rotation strategy. If you [manually rotate the keys](/azure/storage/common/storage-account-keys-manage?tabs=azure-portal#manually-rotate-access-keys), you should create a key expiration policy and use Azure policy to monitor whether the key has been rotated.
+
 ## Performance efficiency
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Overview of the performance efficiency pillar](/azure/well-architected/performance-efficiency/).
 
 This section discusses performance efficiency from the perspective of Azure Search, Azure OpenAI and Azure Machine Learning.
 
-### Azure Machine Learning
+### Azure Machine Learning - performance efficiency
 
 If deploying to Azure Machine Learning online endpoints:
 
 - Follow the guidance on how to [autoscale an online endpoint](/azure/machine-learning/how-to-autoscale-endpoints).
 - Choose the appropriate virtual machine SKU for the online endpoint to meet your performance targets.
 
-### Azure OpenAI
+### Azure OpenAI - performance efficiency
 
 - Determine whether your application requires [provisioned throughput](/azure/ai-services/openai/concepts/provisioned-throughput) or will use the pay-as-you-go model. Provisioned throughput offers reserved processing capacity for your OpenAI models, providing predictable performance for your models.
 - For provisioned throughput, you should monitor [provision-managed utilization](/azure/ai-services/openai/how-to/monitoring)
 
-### Azure Search
+### Azure Search - performance efficiency
 
 Follow the guidance to [analyze performance in Azure AI Search](/azure/search/search-performance-analysis).
 
