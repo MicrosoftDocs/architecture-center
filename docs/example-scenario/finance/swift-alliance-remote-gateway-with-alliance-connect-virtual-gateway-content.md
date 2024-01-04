@@ -15,15 +15,34 @@ This article provides an overview of deploying SWIFT's Alliance Remote Gateway (
 
 ### Workflow
 
-The Alliance Remote Gateway (ARG) subscription contains resources managed by the customer. Once the service is implemented, the Alliance Access or Alliance Entry systems on premises connect to the Alliance Remote Gateway (ARG) server deployed at the Swift operating center (OPC). The customer retains full control of the Alliance Access or Alliance Entry configuration and features, including message entry and display, routing, operator definitions, scheduling, manual or automated printing.
+- End Users: Business users are located at the customer premises, likely within an enterprise or financial institution environment. They access the system through back-office applications.
 
-The resources for Alliance Remote Gateway (ARG) can be deployed with an Azure Resource Manager template to create the core infrastructure as described in this architecture. An Alliance Remote Access deployment in Azure should adhere to SWIFT's Customer Security Program (CSP) Control Framework (CSCF). We recommend that customers use the SWIFT CSP-CSCF Azure policies in this subscription.
+- Customer Premises Connectivity: These users connect to the Azure-hosted applications via an ExpressRoute or VPN (Virtual Private Network) gateway, ensuring secure and reliable connectivity.
 
-The Alliance Connect Virtual subscription contains the components required to enable the connectivity to the Alliance Remote Gateway (ARG) server through Multi-Vendor Secure IP Network (MV-SIPN). The deployment of the respective Juniper Virtual Firewall (vSRX) components depicted in the above architecture diagram enables high availability by deploying the redundant resources in two different Azure Availability Zones. Additionally, the HA- VM 1 & HA-VM 2 monitor and maintain the route tables to provide higher resiliency and improves the availability of the overall solution.
+- Customer Backoffice Subscription: This area contains back-office application VMs (Virtual Machines) that are part of the Azure services. It's connected to the main Azure infrastructure through VNET peering, indicating a direct network link between different Azure virtual networks.
 
-The connection between the Alliance Remote Gateway (ARG) server and these customer specific networking components can be maintained over the dedicated ExpressRoute or over the Internet. SWIFT offers three different connectivity options i.e. Bronze, Silver and Gold. The customers can choose the option most suited to tier message traffic volumes and required level of resilience. More details about these connectivity options can be found here [Alliance Connect: Bronze, Silver, and Gold packages](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect/alliance-connect-bronze-silver-and-gold-packages).
+- Alliance Remote Gateway Subscription: The central part of this architecture is the Alliance Remote Gateway Subscription. Within this subscription, there are different components:
+  - Hub VNET: Acts as the central point of connectivity with an ExpressRoute/VPN Gateway and Azure Firewall for secure and filtered internet access.
+  - SWIFT Alliance Access Spoke VNET: Contains infrastructure for SWIFT Alliance Access, with subnets for web platforms and access services, along with High Availability (HA) VMs.
+  - Security and Management Services: Services like Microsoft Defender for Cloud, Managed Identity, Azure Monitor, and Azure Storage for diagnostics are used to manage, secure, and monitor the environment.
+  
+  The HA subnets and VMs ensure that the system remains operational even in the event of individual component failures.
 
-Once the SWIFT Alliance Remote Gateway(ARG) infrastructure in Azure is deployed, the customer follows SWIFT's instructions for installing the Alliance Remote Gateway(ARG) software.
+  The Alliance Remote Gateway (ARG) subscription contains resources managed by the customer. Once the service is implemented, the Alliance Access or Alliance Entry systems on premises connect to the Alliance Remote Gateway (ARG) server deployed at the Swift operating center (OPC). The customer retains full control of the Alliance Access or Alliance Entry configuration and features, including message entry and display, routing, operator definitions, scheduling, manual or automated printing.
+
+  The resources for Alliance Remote Gateway (ARG) can be deployed with an Azure Resource Manager template to create the core infrastructure as described in this architecture. An Alliance Remote Access deployment in Azure should adhere to SWIFT's Customer Security Program (CSP) Control Framework (CSCF). We recommend that customers use the SWIFT CSP-CSCF Azure policies in this subscription.
+
+  Once the SWIFT Alliance Remote Gateway(ARG) infrastructure in Azure is deployed, the customer follows SWIFT's instructions for installing the Alliance Remote Gateway(ARG) software.
+
+- Alliance Connect Virtual Subscription: The Alliance Connect Virtual subscription contains the components required to enable the connectivity to the Alliance Remote Gateway (ARG) server through Multi-Vendor Secure IP Network (MV-SIPN). The deployment of the respective Juniper Virtual Firewall (vSRX) components depicted in the above architecture diagram enables high availability by deploying the redundant resources in two different Azure Availability Zones. Additionally, the HA- VM 1 & HA-VM 2 monitor and maintain the route tables to provide higher resiliency and improves the availability of the overall solution.
+
+  This subscription is peered with the Alliance Remote Gateway Subscription. It contains subnets for trust, interconnect, and untrust zones, each with their respective network interface cards (NICs) and user-defined routes (UDR) for controlled network traffic flow. Virtual Network Gateways are present in the gateway subnet with public IP addresses, suggesting external connectivity. There are also virtual appliances for VA and VB SRX, which are set up for redundancy and are connected to the management, untrust, and gateway subnets.
+
+  The connection between the Alliance Remote Gateway (ARG) server and these customer specific networking components can be maintained over the dedicated ExpressRoute or over the Internet. SWIFT offers three different connectivity options i.e. Bronze, Silver and Gold. The customers can choose the option most suited to tier message traffic volumes and required level of resilience. More details about these connectivity options can be found here [Alliance Connect: Bronze, Silver, and Gold packages](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect/alliance-connect-bronze-silver-and-gold-packages).
+
+- External connectivity: The architecture includes connections to the SWIFTNet via the ExpressRoute or the internet, which would be used for the secure transfer of financial messages and transactions.
+
+- Routing and policies: Route tables and policies like SWIFTCSP CSCF Policies and SWIFTVNet PolicySet are likely to govern the routing of traffic and enforce security compliance within the deployment.
 
 ### Components  
   
