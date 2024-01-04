@@ -315,7 +315,7 @@ Principal authors:
 - [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
 - [Azure Monitor overview](/azure/azure-monitor/overview)
 - [ROS Log Files (rosbags)](https://www.mathworks.com/help/ros/ug/ros-log-files-rosbags.html)
-- [Large-scale Data Operations Platform for Autonomous Vehicles](https://devblogs.microsoft.com/cse/2023/03/02/large-scale-data-operations-platform-for-autonomous-vehicles)
+- [Large-scale Data Operations Platform for Autonomous Vehicles](https://devblogs.microsoft.com/ise/large-scale-data-operations-platform-for-autonomous-vehicles/)
 
 ## Related resources
 
