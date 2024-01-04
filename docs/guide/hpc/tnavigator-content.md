@@ -63,7 +63,7 @@ Two standard, stable models were used to test tNavigator: speed test and speed t
 :::image type="content" source="media/speed-test-model.png" alt-text="Image that shows a 3D view of the speed test model." border="true":::
 <br>
 
-**Speed test model**
+These are the details for the speed test model:
 
 |Dimensions| Total active grid blocks| Total pore volume | Mesh connection statistics|
 |---|---|-|-|
@@ -71,7 +71,7 @@ Two standard, stable models were used to test tNavigator: speed test and speed t
 
 <br>
 
-**Speed test 9 model**
+These are the details for the speed test 9 model:
 
 |Dimensions| Total active grid blocks| Total pore volume | Mesh connection statistics|
 |---|---|-|-|
