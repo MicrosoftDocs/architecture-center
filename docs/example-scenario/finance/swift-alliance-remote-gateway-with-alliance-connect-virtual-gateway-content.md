@@ -2,15 +2,18 @@
 > For updates on SWIFT product availability in the cloud, see the [SWIFT website](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect-virtual).
 
 This article provides an overview of deploying SWIFT's Alliance Remote Gateway (ARG) on Azure. Alliance Remote Gateway is a secure, cloud-based service. It allows you to connect Alliance Access or Alliance Entry directly to SWIFT without hosting connectivity product on-premises. You retain full control over your Alliance Access and Alliance Entry systems. You can deploy the solution using single Azure subscription. However, for better management and governance of the overall solution, you should use two different Azure subscriptions:
-- One subscription contains the SWIFT Alliance Access components. 
-- Second subscription contains the resources to connect to SWIFT's network via Alliance Connect Virtual.
 
+- One subscription contains the SWIFT Alliance Access components. 
+- The second subscription contains the resources to connect to SWIFT's network via Alliance Connect Virtual.
 
 ## Architecture
 
 [![Diagram that shows the architecture for SWIFT Alliance Access Remote Gateway with Alliance Connect Virtual on Azure.](media/swift-alliance-access-remote-gateway-with-alliance-connect-virtual.png)](media/swift-alliance-access-remote-gateway-with-alliance-connect-virtual.png#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/swift-alliance-vSRX-GA-allModules.vsdx) that contains this architecture diagram. See the **ARG (All-GoldSilverBronze)** tab.*
+
+
+### Workflow
 
 The Alliance Remote Gateway (ARG) subscription contains resources managed by the customer. Once the service is implemented, the Alliance Access or Alliance Entry systems on premises connect to the Alliance Remote Gateway (ARG) server deployed at the Swift operating center (OPC). The customer retains full control of the Alliance Access or Alliance Entry configuration and features, including message entry and display, routing, operator definitions, scheduling, manual or automated printing.
 
@@ -20,13 +23,7 @@ The Alliance Connect Virtual subscription contains the components required to en
 
 The connection between the Alliance Remote Gateway (ARG) server and these customer specific networking components can be maintained over the dedicated ExpressRoute or over the Internet. SWIFT offers three different connectivity options i.e. Bronze, Silver and Gold. The customers can choose the option most suited to tier message traffic volumes and required level of resilience. More details about these connectivity options can be found here [Alliance Connect: Bronze, Silver, and Gold packages](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect/alliance-connect-bronze-silver-and-gold-packages).
 
-For more information about resiliency, see [Single-region multi-active resiliency](#single-region-multi-active-resiliency) and [Multi-region multi-active resiliency](#multi-region-multi-active-resiliency) later in this article.
-
 Once the SWIFT Alliance Remote Gateway(ARG) infrastructure in Azure is deployed, the customer follows SWIFT's instructions for installing the Alliance Remote Gateway(ARG) software.
-
-
-### Workflow
-
 
 ### Components  
   
