@@ -30,21 +30,6 @@ Once the SWIFT Alliance Remote Gateway(ARG) infrastructure in Azure is deployed,
 
 ### Workflow
 
-- **Azure subscription:** An Azure subscription is needed to deploy Alliance Remote Gateway. We recommend that you use a new Azure subscription to manage and scale Alliance Remote Gateway and its components.
-- **Azure resource group:** The Alliance Remote Gateway Secure Zone subscription has an Azure resource group that hosts these Alliance Remote Gateway components:
-  - Alliance Web Platform, running on an Azure virtual machine (VM).
-  - Alliance Access, running on an Azure VM. The Alliance Access software contains an embedded Oracle database.
-  - SWIFTNet Link (SNL) and SWIFT Alliance Gateway (SAG), running together on an Azure VM.
-- **Azure Virtual Network:** Virtual Network forms a private network boundary around the SWIFT deployment. Choose a network address space that doesn't conflict with your on-premises sites, like back-office, Hardware Security Module (HSM), and user sites.
-- **Virtual Network subnet:** Alliance Access components should be deployed in separate subnets to allow traffic control between them via Azure network security groups.
-- **Azure route table:** You can control network connectivity between Alliance Access VMs and your on-premises sites by using an Azure route table. 
-- **Azure Firewall:** Any outbound connectivity from Alliance Access VMs to the internet should be routed by Azure Firewall. Typical examples of such connectivity are time syncs and antivirus definition updates.
-- **Azure Virtual Machines:** Virtual Machines provides compute services for running Alliance Access. Use these guidelines to choose the right SKU:
-  - Use a compute-optimized SKU for the Alliance Web Platform front end.
-  - Use a memory-optimized SKU for Alliance Access with an embedded Oracle database.
-- **Azure managed disks:** If you use Premium SSD managed disks, Alliance Access components benefit from high-throughput, low-latency disk performance. The components can also back up and restore disks that are attached to VMs.
-- **Azure proximity placement groups:** You can consider using Azure [proximity placement groups](/azure/virtual-machines/co-location) to ensure that all Alliance Access VMs are close to each other. Proximity placement groups reduce network latency between Alliance Access components.
-
 The SWIFT customer establishes a secure connection from their on-premises or colocation site to the SWIFT Alliance Remote Gateway Secure Zone subscription.
 
 - ExpressRoute can be used to connect the customer's on-premises to Azure over a private connection.
@@ -57,11 +42,21 @@ The SWIFT customer establishes a secure connection from their on-premises or col
 The SWIFT customer's business and application systems can connect with Alliance Access/Entry Gateway VMs as shown in the previous diagram. However, business users can connect to the Alliance Web Platform only. The recommended Azure Firewall and Azure Network Security Group are configured to only allow appropriate traffic to pass to the Alliance Web Platform.
 
 ### Components  
-
-- [Virtual Network](https://azure.microsoft.com/products/virtual-network)  
-- [Virtual Machines](https://azure.microsoft.com/products/virtual-machines)  
-- [Azure Firewall](https://azure.microsoft.com/products/azure-firewall) 
-- [Azure managed disks](https://azure.microsoft.com/products/storage/disks)
+  
+- **Azure subscription:** An Azure subscription is needed to deploy Alliance Remote Gateway. We recommend that you use a new Azure subscription to manage and scale Alliance Remote Gateway and its components.
+- **Azure resource group:** The Alliance Remote Gateway Secure Zone subscription has an Azure resource group that hosts these Alliance Remote Gateway components:
+  - Alliance Web Platform, running on an Azure virtual machine (VM).
+  - Alliance Access, running on an Azure VM. The Alliance Access software contains an embedded Oracle database.
+  - SWIFTNet Link (SNL) and SWIFT Alliance Gateway (SAG), running together on an Azure VM.
+- **[Azure Virtual Network](https://azure.microsoft.com/products/virtual-network):** Virtual Network forms a private network boundary around the SWIFT deployment. Choose a network address space that doesn't conflict with your on-premises sites, like back-office, Hardware Security Module (HSM), and user sites.
+- **Virtual Network subnet:** Alliance Access components should be deployed in separate subnets to allow traffic control between them via Azure network security groups.
+- **Azure route table:** You can control network connectivity between Alliance Access VMs and your on-premises sites by using an Azure route table. 
+- **[Azure Firewall](https://azure.microsoft.com/products/azure-firewall):** Any outbound connectivity from Alliance Access VMs to the internet should be routed by Azure Firewall. Typical examples of such connectivity are time syncs and antivirus definition updates.
+- **Azure Virtual Machines:** Virtual Machines provides compute services for running Alliance Access. Use these guidelines to choose the right SKU:
+  - Use a compute-optimized SKU for the Alliance Web Platform front end.
+  - Use a memory-optimized SKU for Alliance Access with an embedded Oracle database.
+- **[Azure managed disks](https://azure.microsoft.com/products/storage/disks):** If you use Premium SSD managed disks, Alliance Access components benefit from high-throughput, low-latency disk performance. The components can also back up and restore disks that are attached to VMs.
+- **Azure proximity placement groups:** You can consider using Azure [proximity placement groups](/azure/virtual-machines/co-location) to ensure that all Alliance Access VMs are close to each other. Proximity placement groups reduce network latency between Alliance Access components.
 
 ### Alternatives 
 
