@@ -23,48 +23,43 @@ Azure offers:
 
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is used to create a Windows VM. 
    - For information about deploying the VM and installing the drivers, see [Windows VMs on Azure](../../reference-architectures/n-tier/windows-vm.yml).
-- For storing data related to VM, physical solid-state drive (SSD) is used.
-
-[Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is used to create a private network infrastructure in the cloud.
-
-- [Network security groups](/azure/virtual-network/network-security-groups-overview) are used to restrict access to VMs.
-- Azure Bastion provides more secure and seamless Remote Desktop Protocol (RDP) and Secure Shell Protocol (SSH) access to virtual machines (VMs) without any exposure through public IP addresses.
+   - A physical solid-state drive (SSD) is used to store data that's related to the VM.
+- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is used to create a private network infrastructure in the cloud. [Network security groups](/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VM.
+- [Azure Bastion](https://azure.microsoft.com/products/azure-bastion) provides improved-security Remote Desktop Protocol (RDP) and Secure Shell Protocol (SSH) access to VMs without any exposure through public IP addresses.
 
 ## Compute sizing and drivers
 
-[NCA100_v4](/azure/virtual-machines/nc-a100-v4-series) series VMs were used to test performance of Ansys HFSS on Azure.
+[NC A100 v4](/azure/virtual-machines/nc-a100-v4-series) series VMs were used to test the performance of HFSS on Azure.
 
-The following table shows configuration details:
+The following table provides the configuration details:
 
-| Size | vCPU | Memory: GiB | Temp Storage (with NVMe) : GiB | GPU | GPU Memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max NICs/network bandwidth (MBps) |
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|---|
-| Standard_NC24ads_A100_v4 | 24 | 220 | 1123 | 1 | 80 | 12 | 30000/1000 | 2/20,000 |
-| Standard_NC48ads_A100_v4 | 48 | 440 | 2246 | 2 | 160 | 24 | 60000/2000 | 4/40,000 |
-| Standard_NC96ads_A100_v4 | 96 | 880 | 4492 | 4 | 320 | 32 | 120000/4000 | 8/80,000 |
+| Size | vCPU | Memory, in GiB | Temporary storage (with NVMe), in GiB | GPU | GPU memory, in GiB | Maximum data disks | Maximum uncached disk throughput, in IOPS / MBps | Maximum NICs / network bandwidth, in MBps |
+|---|---|---|---|---|---|---|---|---|
+| Standard_NC24ads_A100_v4 | 24 | 220 | 1,123 | 1 | 80 | 12 | 30,000 / 1,000 | 2 / 20,000 |
+| Standard_NC48ads_A100_v4 | 48 | 440 | 2,246 | 2 | 160 | 24 | 60,000 / 2,000 | 4 / 40,000 |
+| Standard_NC96ads_A100_v4 | 96 | 880 | 4,492 | 4 | 320 | 32 | 120,000 / 4,000 | 8 / 80,000 |
 
 ### Required drivers
 
-To take the advantage of the  GPU capabilities of the [NCA100_v4](/azure/virtual-machines/nc-a100-v4-series) series VMs, you need to install NVIDIA GPU drivers.
+To take the advantage of the  GPU capabilities of [NC A100 v4](/azure/virtual-machines/nc-a100-v4-series) series VMs, you need to install NVIDIA GPU drivers.
 
 ## Ansys HFSS installation
 
-Before you install HFSS, you need to deploy a VM using NVIDIA GPU Driver Extensions provided by Azure.
+Before you install HFSS, you need to deploy a VM and use the NVIDIA GPU Driver Extension provided by Azure to install NVIDIA drivers.
 
-For information about deploying the VM and installing the drivers, see these articles:
+For information about deploying the VM and installing the drivers, see [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml).
 
-- [Run a Windows VM on Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/windows-vm)
-- [Run a Linux VM on Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/linux-vm)
+For information about installing HFSS, see the [Ansys website](https://www.ansys.com/products/electronics/ansys-hfss).
 
-For information about installing HFSS, see the [Ansys Website](https://www.ansys.com/en-in/products/electronics/ansys-hfss).
+## Ansys HFSS performance results
 
-## Ansys HFSS_v2021R2 performance results
+The following table describes the VM that was used for testing.
 
-The following table provides the details of the VM that was used for testing.
-
-Note: This performance study has been conducted on Windows 10 Pro 22H2 Operating system and this software can also be deployed on newer OS versions.
+> [!Note] 
+> These performance tests were conducted on Windows 10 Pro 22H2. HFSS can also be deployed on newer OS versions.
 
 | Operating system | OS architecture | GPU driver version | CUDA version |
-|:---:|:---:|:---:|:---:|
+|---|---|---|---|
 | Windows 10 Pro 22H2 | x64 | 527.41 | 12 |
 
 Three models were considered for testing the scalability performance of HFSS version 2021 R2 on Azure.
@@ -80,7 +75,7 @@ The details of each test model are provided in the following sections.
 The following table provides details about the model.
 
 | Model Name | Solver | Ray Density | Maximum Bounces | Distribution | Solution Frequency | Far Field Observation Points |
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|---|---|---|---|---|---|---|
 | Pedestrian | HFSS SBR+ | 2 | 3 | Single point | 77GHz | 519841 |
 
 **Model** **2:** **Autonomous Vehicular** **Radar_ADP**
@@ -92,7 +87,7 @@ The following table provides details about the model.
 The following table provides details about the model.
 
 | Model Name | Solver | Ray Density | Maximum Bounces | Distribution | Solution Frequency | Far Field Observation Points |
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|---|---|---|---|---|---|---|
 | Autonomous Vehicular Radar_ADP | HFSS SBR+ | 4 | 5 | Single point | 77GHz | 260281 |
 
 **Model** **3:** **Urban_city** 
@@ -104,7 +99,7 @@ The following table provides details about the model.
 The following table provides details about the model.
 
 | Model Name | Solver | Ray Density | Maximum Bounces | Distribution | Solution Frequency | Far Field Observation Points |
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|---|---|---|---|---|---|---|
 | Urban_city | HFSS SBR+ | 1 | 5 | Single point | 35GHz | 519841 |
 
 The following sections provide the performance results of running Ansys HFSS on single-node Azure [NCA100_v4](/azure/virtual-machines/nc-a100-v4-series) VMs. 
@@ -114,7 +109,7 @@ The following sections provide the performance results of running Ansys HFSS on 
 This table shows total elapsed time recorded for running the simulation for varying number of GPUs on the Standard NCv4-series VM:
 
 | VM/Processor | Number ofcores | Number of GPU | Total Elapsedtime(seconds) | Relativespeedincrease |
-|:---:|:---:|:---:|:---:|:---:|
+|---|---|---|---|---|
 | EPYC 7V73X | 32 | 0 | 154475 | 1.00 |
 | NCv4 | 8 | 1 | 1201 | 128.62 |
 | NCv4 | 8 | 2 | 599 | 257.89 |
@@ -130,7 +125,7 @@ The following graph shows the relative speed increase as the number of GPUs incr
 This table shows total elapsed time recorded for running the simulation for varying number of GPUs on the Standard NCv4-series VM:
 
 | VM | Number ofcores | Number of GPU | Total Elapsedtime(seconds) | Relativespeedincrease |
-|:---:|:---:|:---:|:---:|:---:|
+|---|---|---|---|---|
 | NCv4 | 8 | 1 | 15164 | 1.00 |
 | NCv4 | 8 | 2 | 7750 | 1.96 |
 | NCv4 | 8 | 3 | 5175 | 2.93 |
@@ -145,7 +140,7 @@ The following graph shows the relative speed increase as the number of GPUs incr
 This table shows total elapsed time recorded for running the simulation for varying number of GPUs on the Standard NCv4-series VM
 
 | VM | Number ofcores | Number of GPU | Total Elapsedtime(seconds) | Relativespeedincrease |
-|:---:|:---:|:---:|:---:|:---:|
+|---|---|---|---|---|
 | NCv4 | 8 | 1 | 4635 | 1.00 |
 | NCv4 | 8 | 2 | 2753 | 1.68 |
 | NCv4 | 8 | 3 | 2181 | 2.13 |
@@ -170,7 +165,7 @@ The following tables provide the solver times in hours. The Azure VM hourly rate
 **Cost for model 1: Pedestrian**
 
 | Number<br>of GPUs | Elapsedtime (Hr) |
-|:---:|:---:|
+|---|---|
 | 0 | 42.91 |
 | 1 | 0.33 |
 | 2 | 0.17 |
@@ -180,7 +175,7 @@ The following tables provide the solver times in hours. The Azure VM hourly rate
 **Cost for model 2: Autonomous Vehicular Radar_ADP**
 
 | Number<br>of GPUs | Elapsedtime (Hr) |
-|:---:|:---:|
+|---|---|
 | 1 | 4.21 |
 | 2 | 2.15 |
 | 3 | 1.44 |
@@ -189,7 +184,7 @@ The following tables provide the solver times in hours. The Azure VM hourly rate
 **Cost for model 3: Urban_city**
 
 | Number<br>of GPUs | Elapsedtime (Hr) |
-|:---:|:---:|
+|---|---|
 | 1 | 1.29 |
 | 2 | 0.76 |
 | 3 | 0.61 |
