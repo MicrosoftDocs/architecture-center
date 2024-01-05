@@ -110,7 +110,7 @@ For more information, please contact **legacy2azure@microsoft.com**, or check ou
 
 ## Related resources
 
-- [Virtualization of Unisys ClearPath Forward OS 2200 enterprise server on Azure](../../mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml)
+- [Unisys ClearPath Forward OS 2200 enterprise server virtualization on Azure](../../mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml)
 - [Mainframe file replication and sync on Azure](../../solution-ideas/articles/mainframe-azure-file-replication.yml)
 - [Azure Database Migration Guides](https://datamigration.microsoft.com)
 - [Unisys mainframe migration to Azure using Avanade AMT](../../reference-architectures/migration/unisys-mainframe-migration.yml)
