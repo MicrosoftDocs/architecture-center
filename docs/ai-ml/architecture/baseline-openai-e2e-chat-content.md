@@ -236,9 +236,23 @@ Follow the guidance to [analyze performance in Azure AI Search](/azure/search/se
 
 ## Cost optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see Overview of the [cost optimization pillar](/azure/well-architected/cost-optimization/). The following are some cost optimization considerations for OpenAI:
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see Overview of the [cost optimization pillar](/azure/well-architected/cost-optimization/). 
+
+To see a pricing example for this scenario, use the [Azure pricing calculator](https://azure.com/e/148740d7b9d74b61b27a20442994ce07). You will need to customize the example to match your usage, as this example just includes the components included in the architecture. The most expensive components in the scenario are compute and Azure OpenAI.
+
+### Compute
+
+Azure Machine Learning prompt flow supports multiple options to host the executable flows, including managed online endpoints in Azure Machine Learning, Azure Kubernetes Service, Azure App Service, and Azure Container Service. Each of these options has their own billing model. The choice of compute will impact the overall cost of the solution.
+
+### Azure OpenAI
+
+The following are some cost optimization considerations for OpenAI:
 
 - Start with [pay-as-you-go pricing](/pricing/details/cognitive-services/openai-service/) for OpenAI models. When your token utilization is high and predictable, consider the [provisioned throughput](/azure/ai-services/openai/concepts/provisioned-throughput) pricing model.
 - Fine-tune the design by prioritizing the use of the right model for the given task. Models have different token limits and cost-per-token. Further, models have different fine-tuning costs which should be taken into account if fine-tuning is required in your solution.
 - Optimize prompt input and response length. Longer prompts consume more tokens, raising the cost, yet prompts that are missing sufficient context will not help the models yield good results. Create concise prompts that provide enough context to allow the model to generate a useful response. Likewise, ensure you optimize the limit of the response length.
 - Set up the appropriate governance processes to track, limit, and inform, to ensure appropriate usage.
+
+## Operations
+
+
