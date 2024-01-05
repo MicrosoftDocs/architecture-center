@@ -525,14 +525,14 @@
 			<text x="5.37" y="413.64" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Private IP</text>		</g>
 		<g id="shape44-93" v:mID="44" v:groupContext="shape" v:layerMember="0" transform="translate(308.268,-228.189)">
 			<title>Shape44</title>
-			<desc>(RDP,SSH)</desc>
+			<desc>(RDP, SSH)</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(32000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)"/>
 			<v:textRect cx="17.7165" cy="414.709" width="32.6" height="11.3386"/>
 			<rect x="0" y="407.622" width="35.4331" height="14.1732" class="st4"/>
-			<text x="3.72" y="416.77" class="st11" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>(RDP,SSH)</text>		</g>
+			<text x="2.94" y="416.77" class="st11" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>(RDP, SSH)</text>		</g>
 		<g id="shape45-96" v:mID="45" v:groupContext="shape" v:layerMember="0" transform="translate(439.37,-235.098)">
 			<title>Shape45</title>
 			<desc>Ansys  HFSS</desc>

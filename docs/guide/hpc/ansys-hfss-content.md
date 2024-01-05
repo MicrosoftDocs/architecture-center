@@ -62,11 +62,11 @@ The following table describes the VM that was used for testing.
 |---|---|---|---|
 | Windows 10 Pro, 22H2 | x64 | 527.41 | 12 |
 
-HFSS 2021 R2 was used to test the scalability performance of HFSS on Azure. Three models were used for the tests. The following sections describe each test model.
+HFSS 2021 R2 was used to test the scalability performance of HFSS on Azure. Three models were used for the tests. The following sections describe the test models and provide the performance results for each.
 
 ### Pedestrian model
 
-The following scene shows the detection and classification of vulnerable road users, such as pedestrians, via a sensor. [HFFS SBR+](https://www.ansys.com/products/electronics/ansys-hfss) is an asymptotic ray tracing electromagnetic solver that solves electrically large problems.
+The following scene shows the detection and classification of vulnerable road users, such as pedestrians, via a sensor. [HFFS SBR+](https://www.ansys.com/products/electronics/ansys-hfss) is an asymptotic ray tracing electromagnetic solver that solves large problems.
 
 ![Image that shows the Pedestrian model.](media/pedestrian-model.png)
 
@@ -76,7 +76,7 @@ The following table provides details about the model.
 |---|---|---|---|---|---|---|
 | Pedestrian | HFSS SBR+ | 2 | 3 | Single point | 77 GHz | 519,841 |
 
-This table shows total elapsed times recorded for running the simulation with varying numbers of GPUs on the NC A100 v4 series VM:
+This table shows the total elapsed times recorded for running the simulation with varying numbers of GPUs on the NC A100 v4 series VM:
 
 | VM/processor | Number of cores | Number of GPUs | Total elapsed time, in seconds | Relative speed increase |
 |---|---|---|---|---|
@@ -95,7 +95,7 @@ The following graph shows the relative speed increase as the number of GPUs incr
 
 ### Autonomous Vehicular Radar_ADP model
 
-In the following scene, one of the two vehicles detects obstacles or pedestrians before they're visible to the driver by using automotive radar.  Because radar uses electromagnetic waves to sense the environment, it can operate over long distances and in poor visibility or inclement weather conditions. Designing automotive radar that accurately captures diverse traffic situations is essential to making autonomous operations safe.
+In the following scene, one of the two vehicles uses automotive radar to detect obstacles or pedestrians  before they're visible to the driver.  Because radar uses electromagnetic waves to sense the environment, it can operate over long distances and in poor visibility or inclement weather conditions. Designing automotive radar that accurately captures diverse traffic situations is essential to making autonomous operations safe.
 
 ![Image that shows the Autonomous Vehicular Radar_ADP model.](media/autonomous-vehicle-radar-model.png)
 
@@ -154,7 +154,7 @@ The following graph shows the relative speed increase as the number of GPUs incr
 The tests for the Pedestrian model compare the use of CPUs to the use of GPUs.
 The 32-vCPU EPYC 7V73X processor is used as a baseline for these tests. The tests for the Autonomous Vehicular Radar_ADP and Urban_city models, for which step sizes are smaller, requires more computation time. Only GPU scaleup is shown for these two models, using the elapsed time with one GPU as a baseline. 
 
-## Azure Cost
+## Azure cost
 
 Only simulation running time is considered for these cost calculations. Installation time, simulation setup time, and software costs aren't considered.
 
