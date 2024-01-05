@@ -66,7 +66,7 @@ HFSS 2021 R2 was used to test the scalability performance of HFSS on Azure. Thre
 
 ### Pedestrian model
 
-The following scene shows the detection and classification of vulnerable road users, such as pedestrians, via a sensor. [HFFS SBR+](https://www.ansys.com/products/electronics/ansys-hfss) is an asymptotic ray tracing electromagnetic solver that solves large problems.
+The following image shows the detection and classification of vulnerable road users, such as pedestrians, via a sensor. [HFFS SBR+](https://www.ansys.com/products/electronics/ansys-hfss) is an asymptotic ray tracing electromagnetic solver that solves large problems.
 
 ![Image that shows the Pedestrian model.](media/pedestrian-model.png)
 
@@ -87,7 +87,7 @@ This table shows the total elapsed times recorded for running the simulation wit
 | NC A100 v4 | 8 | 4 | 309 | 499.92 |
 
 > [!note] 
-> The time taken to complete the simulation with only CPUs is used as a baseline to calculate the relative speed increases.
+> The time it takes to complete the simulation with only CPUs is used as a baseline to calculate the relative speed increases.
 
 The following graph shows the relative speed increase as the number of GPUs increases:
 
@@ -95,7 +95,7 @@ The following graph shows the relative speed increase as the number of GPUs incr
 
 ### Autonomous Vehicular Radar_ADP model
 
-In the following scene, one of the two vehicles uses automotive radar to detect obstacles or pedestrians  before they're visible to the driver.  Because radar uses electromagnetic waves to sense the environment, it can operate over long distances and in poor visibility or inclement weather conditions. Designing automotive radar that accurately captures diverse traffic situations is essential to making autonomous operations safe.
+In the following image, one of the two vehicles uses automotive radar to detect obstacles or pedestrians before they're visible to the driver. Because radar uses electromagnetic waves to sense the environment, it can operate over long distances and in poor visibility or inclement weather conditions. Designing automotive radar that accurately captures diverse traffic situations is essential to making autonomous operations safe.
 
 ![Image that shows the Autonomous Vehicular Radar_ADP model.](media/autonomous-vehicle-radar-model.png)
 
@@ -105,7 +105,7 @@ The following table provides details about the model.
 |---|---|---|---|---|---|---|
 | Autonomous Vehicular Radar_ADP | HFSS SBR+ | 4 | 5 | Single point | 77 GHz | 260,281 |
 
-This table shows total elapsed times recorded for running the simulation with varying number of GPUs on the NC A100 v4 series VM:
+This table shows the total elapsed times recorded for running the simulation with varying number of GPUs on the NC A100 v4 series VM:
 
 | VM | Number of cores | Number of GPUs | Total elapsed time, in seconds | Relative speed increase |
 |---|---|---|---|---|
@@ -115,7 +115,7 @@ This table shows total elapsed times recorded for running the simulation with va
 | NC A100 v4  | 8 | 4 | 3,879 | 3.91 |
 
 > [!note] 
-> The time taken to complete the simulation with one GPU is used as a baseline to calculate the relative speed increases.
+> The time it takes to complete the simulation with one GPU is used as a baseline to calculate the relative speed increases.
 
 The following graph shows the relative speed increase as the number of GPUs increases:
 
@@ -123,7 +123,7 @@ The following graph shows the relative speed increase as the number of GPUs incr
 
 ### Urban_city model
 
-The following scene shows a 3D view of urban city, with buildings adjacent to each other. HFSS is used to simulate the design and testing of various city features.
+The following image shows a 3D view of an urban city, with buildings adjacent to each other. HFSS is used to simulate the design and testing of various city features.
 
 ![Image that shows the Urban_city model.](media/urban-city-model.png)
 
@@ -133,7 +133,7 @@ The following table provides details about the model.
 |---|---|---|---|---|---|---|
 | Urban_city | HFSS SBR+ | 1 | 5 | Single point | 35 GHz | 519,841 |
 
-This table shows total elapsed times recorded for running the simulation with varying number of GPUs on the NC A100 v4 series VM.
+This table shows the total elapsed times recorded for running the simulation with varying number of GPUs on the NC A100 v4 series VM.
 
 | VM | Number of cores | Number of GPUs | Total elapsed time, in seconds | Relative speed increase |
 |---|---|---|---|---|
@@ -143,7 +143,7 @@ This table shows total elapsed times recorded for running the simulation with va
 | NC A100 v4  | 8 | 4 | 1,886 | 2.46 |
 
 > [!note] 
-> The time taken to complete the simulation with one GPU is used as a baseline to calculate the relative speed increases.
+> The time it takes to complete the simulation with one GPU is used as a baseline to calculate the relative speed increases.
 
 The following graph shows the relative speed increase as the number of GPUs increases:
 
@@ -152,7 +152,7 @@ The following graph shows the relative speed increase as the number of GPUs incr
 ### Notes about the tests
 
 The tests for the Pedestrian model compare the use of CPUs to the use of GPUs.
-The 32-vCPU EPYC 7V73X processor is used as a baseline for these tests. The tests for the Autonomous Vehicular Radar_ADP and Urban_city models, for which step sizes are smaller, requires more computation time. Only GPU scaleup is shown for these two models, using the elapsed time with one GPU as a baseline. 
+The 32-vCPU EPYC 7V73X processor is used as a baseline for these tests. The tests for the Autonomous Vehicular Radar_ADP and Urban_city models, for which step sizes are smaller, require more computation time. Only GPU scaleup is shown for these two models. The elapsed time with one GPU is used as a baseline. 
 
 ## Azure cost
 
@@ -183,7 +183,7 @@ The following tables provide elapsed times in hours. To compute the cost, multip
 
 ### Elapsed times for the Urban_city model
 
-| Number of GPUs | Elapsedstime, in hours |
+| Number of GPUs | Elapseds time, in hours |
 |---|---|
 | 1 | 1.29 |
 | 2 | 0.76 |
@@ -193,9 +193,9 @@ The following tables provide elapsed times in hours. To compute the cost, multip
 ## Summary
 
 - HFSS was successfully deployed and tested on NC A100 v4 series VMs on Azure.
-- Running the Pedestrian model simulation with the SBR+ solver is 128 times faster with one GPU than running it without using GPUs. With four GPUs, it's as much as 500 times faster. 
+- Running the Pedestrian model simulation with the SBR+ solver is 128 times faster with one GPU than running it without using GPUs. With four GPUs, it's as much as 500 times faster than it is without using GPUs. 
 - When four GPUs are used to run the Autonomous Vehicular Radar_ADP model, it runs 97% more efficiently than it does with one GPU.
-- HFSS and the SBR+ solver use the power GPUs to accelerate simulations. Azure provides VMs that are equipped with the latest GPUs.
+- HFSS and the SBR+ solver use the power of GPUs to accelerate simulations. Azure provides VMs that are equipped with the latest GPUs.
 
 ## Contributors
 
@@ -218,7 +218,7 @@ Other contributors:
 ## Next steps
 
 - [GPU-optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
-- [Virtual Machines on Azure](/azure/virtual-machines/windows/overview)
+- [Virtual machines on Azure](/azure/virtual-machines/windows/overview)
 - [Virtual networks and virtual machines on Azure](/azure/virtual-network/network-overview)
 - [Learning path: Run high-performance computing (HPC) applications on Azure](/training/paths/run-high-performance-computing-applications-azure)
 
