@@ -3927,8 +3927,6 @@ items:
         - name: Connection quality
           href: /azure/virtual-desktop/connection-latency
           maintainContext: true
-      - name: Microsoft Entra join for Azure Virtual Desktop
-        href: example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join.md
       - name: Multiregion BCDR for AVD
         href: example-scenario/wvd/azure-virtual-desktop-multi-region-bcdr.yml
       - name: AVD for Azure Stack HCI
