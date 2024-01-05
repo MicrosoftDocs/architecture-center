@@ -183,7 +183,7 @@ The following tables provide elapsed times in hours. To compute the cost, multip
 
 ### Elapsed times for the Urban_city model
 
-| Number of GPUs | Elapseds time, in hours |
+| Number of GPUs | Elapsed time, in hours |
 |---|---|
 | 1 | 1.29 |
 | 2 | 0.76 |
