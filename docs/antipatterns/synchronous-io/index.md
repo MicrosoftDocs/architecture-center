@@ -125,7 +125,7 @@ public class AsyncController : ApiController
         _userProfileService = new FakeUserProfileService();
     }
 
-    // This is an synchronous method that calls the Task based GetUserProfileAsync method.
+    // This is a synchronous method that calls the Task based GetUserProfileAsync method.
     public Task<UserProfile> GetUserProfileAsync()
     {
         return _userProfileService.GetUserProfileAsync();
@@ -203,7 +203,7 @@ The next graph shows the results from load testing the asynchronous version of t
 
 Throughput is far higher. Over the same duration as the previous test, the system successfully handles a nearly tenfold increase in throughput, as measured in requests per second. Moreover, the average response time is relatively constant and remains approximately 25 times smaller than the previous test.
 
-[sample-app]: https://github.com/mspnp/performance-optimization/tree/master/SynchronousIO
+[sample-app]: https://github.com/mspnp/performance-optimization/tree/main/SynchronousIO
 [async-wrappers]: https://blogs.msdn.microsoft.com/pfxteam/2012/03/24/should-i-expose-asynchronous-wrappers-for-synchronous-methods
 [performance-counters]: /azure/cloud-services/cloud-services-dotnet-diagnostics-performance-counters
 [web-sites-monitor]: /azure/app-service-web/web-sites-monitor

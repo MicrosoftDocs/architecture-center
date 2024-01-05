@@ -160,7 +160,7 @@ The disadvantage is lack of standardization. There are many ways of expressing s
 
 ### Protocol Buffers (protobuf)
 
-[Google Protocol Buffers](https://github.com/google/protobuf) (or protobuf) is a serialization format that uses strongly typed definition files to define schemas in key/value pairs. These definition files are then compiled to language-specific classes that are used for serializing and deserializing messages.
+[Protocol Buffers](https://protobuf.dev) (or protobuf) is a serialization format that uses strongly typed definition files to define schemas in key/value pairs. These definition files are then compiled to language-specific classes that are used for serializing and deserializing messages.
 
 The message contains a compressed binary small payload, which results is faster transfer. The downside is the payload isn't human readable. Also, because the schema is external, it's not recommended for cases where you have to retrieve archived data.
 

@@ -234,7 +234,7 @@ For detailed information and additional deployment options, see the Azure Resour
 
 [aaf-cost]: /azure/architecture/framework/cost/overview
 [azure-forced-tunneling]: /azure/vpn-gateway/vpn-gateway-forced-tunneling-rm
-[azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
+[azurect]: https://github.com/Azure/NetworkMonitoring/tree/main/AzureCT
 [cloud-services-network-security]: /azure/best-practices-network-security
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [Firewall-NVA]: https://azure.microsoft.com/blog/azure-firewall-and-network-virtual-appliances

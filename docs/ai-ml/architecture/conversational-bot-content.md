@@ -129,10 +129,9 @@ To get started, you can build your bot online using the [Azure Bot Service](/azu
 
 - [C#](https://github.com/microsoft/botbuilder-dotnet)
 - [JavaScript](https://github.com/microsoft/botbuilder-js)
-- [Java](https://github.com/microsoft/botbuilder-java) (preview)
-- [Python](https://github.com/microsoft/botbuilder-python) (preview)
+- [Python](https://github.com/microsoft/botbuilder-python)
 
-As a starting point, you can download the source code for the bot you created using the Azure Bot Service. You can also find [sample code](https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md), from simple echo bots to more sophisticated bots that integrate with various AI services.
+As a starting point, you can download the source code for the bot you created using the Azure Bot Service. You can also find [sample code](https://github.com/Microsoft/BotBuilder-Samples/blob/main/README.md), from simple echo bots to more sophisticated bots that integrate with various AI services.
 
 ### Add smarts to your bot
 

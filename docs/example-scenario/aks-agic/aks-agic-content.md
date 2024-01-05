@@ -187,7 +187,7 @@ Although the security considerations are not fully pertaining to multitenancy in
 - Whenever possible, avoid running containers as a root user.
 - Use the [AppArmor](https://kubernetes.io/docs/tutorials/clusters/apparmor) Linux kernel security module to limit the actions that containers can do.
 - Regularly upgrade your AKS clusters to the latest Kubernetes version to take advantage of new features and bug fixes.
-- AKS automatically downloads and installs security fixes on each Linux node, but it doesn't automatically reboot the node if necessary. Use [kured](https://github.com/weaveworks/kured) to watch for pending reboots, cordon and drain nodes, and finally, apply your updates. For Windows Server nodes, regularly run an AKS upgrade operation to safely cordon and drain pods and to deploy any updated nodes.
+- AKS automatically downloads and installs security fixes on each Linux node, but it doesn't automatically reboot the node if necessary. Use [kured](https://github.com/kubereboot/kured) to watch for pending reboots, cordon and drain nodes, and finally, apply your updates. For Windows Server nodes, regularly run an AKS upgrade operation to safely cordon and drain pods and to deploy any updated nodes.
 - Consider using HTTPS and gRPC secure transport protocols for all intra-pod communications and to use a more advanced authentication mechanism that does not require you to send the plain credentials on every request, like OAuth or JWT. Secure intra-service communication can be achieved by leveraging a service mesh, like [Istio](https://istio.io/), [Linkerd](https://linkerd.io), [Consul](https://www.consul.io), or [Open Service Mesh](https://openservicemesh.io), or by using [Dapr](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview).
 
 #### Azure Container Registry
@@ -307,7 +307,7 @@ After you assess these aspects, go to the [Azure pricing calculator](https://azu
 
 ## Deploy this scenario
 
-The source code for this scenario is available [on GitHub](https://github.com/Azure-Samples/aks-agic). This solution is open source and provided with an [MIT License](https://github.com/Azure-Samples/aks-agic/blob/main/LICENSE.md). You can also find a demo application, as shown in the following figure, in [this GitHub repository](https://github.com/Azure-Samples/aks-multi-tenant-agic).
+The source code for this scenario is available [on GitHub](https://github.com/Azure-Samples/aks-agic). You can also find a demo application, as shown in the following figure, in [this GitHub repository](https://github.com/Azure-Samples/aks-multi-tenant-agic).
 
 :::image type="content" border="false" source="./media/aks-agic-sample.png" alt-text="The diagram shows the deployment of this AGIC with AKS architecture." lightbox="./media/aks-agic-sample.png":::
 
@@ -342,7 +342,7 @@ Principal authors:
 
 ### Azure Kubernetes Service
 
-- [Create a private Azure Kubernetes Service cluster](https://github.com/paolosalvatori/private-aks-cluster)
+- [Create a private Azure Kubernetes Service cluster](https://github.com/azure-samples/private-aks-cluster)
 - [Best practices for multitenancy and cluster isolation](/azure/aks/operator-best-practices-cluster-isolation)
 - [Best practices for basic scheduler features in Azure Kubernetes Service (AKS)](/azure/aks/operator-best-practices-scheduler)
 - [Best practices for advanced scheduler features](/azure/aks/operator-best-practices-advanced-scheduler)

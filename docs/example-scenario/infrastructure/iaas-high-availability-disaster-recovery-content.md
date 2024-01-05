@@ -89,7 +89,7 @@ Network latency depends, among other things, on the physical distance between de
 You can use the following tools to gain better insight into latency conditions for a variety of scenarios:
 
 - To test the latency between VMs, see [Test VM network latency](/azure/virtual-network/virtual-network-test-latency).
-- To test latency between zones, use the [AvZone-Latency-Test](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/master/AvZone-Latency-Test). This test can help you determine which logical zones have the lowest latency for your subscription.
+- To test latency between zones, use the [AvZone-Latency-Test](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/AvZone-Latency-Test). This test can help you determine which logical zones have the lowest latency for your subscription.
 - To test latency between Azure regions, use [http://www.azurespeed.com/](http://www.azurespeed.com). This regularly updated tool can be useful when considering asynchronous replication between regions.
 
 ### Disaster recovery

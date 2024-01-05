@@ -52,9 +52,7 @@ Connect to manufacturing machines by using OPC UA standards and an Azure IoT Edg
 
 ### Deploy this scenario
 
-- Deployment samples:
-  - [Connectivity with industrial assets by using OPC UA and IoT Edge for Linux on Windows (EFLOW)](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/1_Connectivity)
-  - [Connect OPC UA devices to Azure IoT Central by using custom modules](https://github.com/iot-for-all/iotc-opcua-iotedge-gateway)
+- [Connectivity with industrial assets by using OPC UA and IoT Edge for Linux on Windows (EFLOW)](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/1_Connectivity)
 
 ## Protocol translation and an IoT Edge gateway
 
@@ -83,11 +81,6 @@ Connect to manufacturing machines over non-standard protocols by using an IoT Ed
 - You can install IoT Edge runtime on a Linux or Windows VM and dedicated hardware like [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/#overview).
 - For partner solutions, eee the [IoT Edge module marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules).
 - To learn when to use IoT Hub instead of Azure IoT Central, see the [Cloud gateway options](#cloud-gateway-options).
-
-### Deploy this scenario
-
-- Deployment sample:
-  - [Connect modbus devices with an Azure IoT Central application via an IoT Edge gateway device](https://github.com/iot-for-all/iotc-modbus-iotedge-gateway)
 
 ## Cloud connector from industrial connectivity software or a historian
 
@@ -315,7 +308,6 @@ Select a cloud gateway for connectivity.
 #### Deploy this scenario
 
 - Deployment samples:
-  - [Connect OPC UA devices with Azure IoT Central](https://github.com/iot-for-all/iotc-opcua-iotedge-gateway)
   - [Industrial IoT (IIoT) architecture patterns with Azure IoT Central](/azure/iot-central/core/concepts-iiot-architecture)
   - [Streaming at scale with Event Hubs and Azure Data Explorer](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-dataexplorer)
 
@@ -335,8 +327,7 @@ Other contributor:
 
 ## Next steps
 
-- Try the deployment sample for [Connectivity with Industrial Assets using OPC UA and Edge for Linux on Windows (EFLOW)](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/1_Connectivity).
-- Try the deployment sample for [Connecting OPC UA devices to IoT Central using custom modules](https://github.com/iot-for-all/iotc-opcua-iotedge-gateway).
+Try the deployment sample for [Connectivity with Industrial Assets using OPC UA and Edge for Linux on Windows (EFLOW)](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/1_Connectivity).
 
 ## Related resources
 

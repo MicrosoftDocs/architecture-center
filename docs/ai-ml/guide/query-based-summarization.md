@@ -117,7 +117,7 @@ Zero-shot prompt engineering is used to summarize the  bills. The prompt and set
 
 The first dataset is the BillSum dataset for summarization of US Congressional and California state bills. This example uses only the Congressional bills. The data is split into 18,949 bills to use for training and 3,269 bills to use for testing. BillSum focuses on mid-length legislation that's between 5,000 and 20,000 characters long. It's cleaned and preprocessed.
 
-For more information about the dataset and instructions for download, see [FiscalNote / BillSum](https://github.com/FiscalNote/BillSum).
+For more information about the dataset and instructions for download, see [FiscalNote/BillSum](https://github.com/FiscalNote/BillSum) on GitHub.
 
 ##### BillSum schema
 

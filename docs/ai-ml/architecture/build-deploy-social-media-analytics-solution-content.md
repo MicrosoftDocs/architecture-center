@@ -156,7 +156,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 ## Deploy this scenario
 
-To deploy this solution and run a sample social media analytics scenario, see the deployment guide in [Getting Started](https://github.com/microsoft/Azure-Social-Media-Analytics-Solution-Accelerator#getting-started). That guide helps you set up the [Social Media Analytics Solution Accelerator](https://github.com/microsoft/Azure-Social-Media-Analytics-Solution-Accelerator.git) resources, which the architecture diagram in [Alternatives](#alternatives) shows. The deployment doesn't include the following components: Machine Learning, the managed endpoints, and the App Service web app.
+To deploy this solution and run a sample social media analytics scenario, see the deployment guide in [Getting Started](https://github.com/microsoft/Azure-Social-Media-Analytics-Solution-Accelerator#getting-started). That guide helps you set up the [Social Media Analytics Solution Accelerator](https://github.com/microsoft/Azure-Social-Media-Analytics-Solution-Accelerator) resources, which the architecture diagram in [Alternatives](#alternatives) shows. The deployment doesn't include the following components: Machine Learning, the managed endpoints, and the App Service web app.
 
 ### Prerequisites
 
@@ -183,7 +183,7 @@ Principal author:
 - [What is Azure Maps?](/azure/azure-maps/about-azure-maps)
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
 - [Tutorial: Sentiment analysis with Cognitive Services in Azure Synapse Analytics](/azure/synapse-analytics/machine-learning/tutorial-cognitive-services-sentiment)
-- [Tutorial: Text Analytics with Cognitive Service in Azure Synapse Analytics](/azure/synapse-analytics/machine-learning/tutorial-text-analytics-use-mmlspark)
+- [Tutorial: Text Analytics with Azure AI services](/azure/synapse-analytics/machine-learning/tutorial-text-analytics-use-mmlspark)
 
 ## Related resources
 

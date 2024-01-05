@@ -346,22 +346,9 @@ spec:
 
 ## Next steps
 
-For more information about solution components, see the following resources:
-
 - [What is Azure Kubernetes Service?](/azure/aks/intro-kubernetes)
-- [Virtual machines in Azure](/azure/virtual-machines/overview)
-- [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
-- [What is Azure Private Link?](/azure/private-link/private-link-overview)
 - [What is a private endpoint?](/azure/private-link/private-endpoint-overview)
-- [Introduction to Azure Storage](/azure/storage/common/storage-introduction)
-- [Introduction to Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
-- [What is Azure SQL?](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql)
-- [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview?view=azuresql)
-- [What is Azure SQL Managed Instance?](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview?view=azuresql)
-- [What is Azure VPN Gateway?](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
 - [Network security groups](/azure/virtual-network/network-security-groups-overview)
-- [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
-- [About Site Recovery](/azure/site-recovery/site-recovery-overview)
 - [Quickstart: Set up disaster recovery to a secondary Azure region for an Azure VM](/azure/site-recovery/azure-to-azure-quickstart)
 
 For more information about this solution:
@@ -371,6 +358,7 @@ For more information about this solution:
 
 ## Related resources
 
+- [Virtualization of Unisys ClearPath Forward OS 2200 enterprise server on Azure](../../mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml)
 - [Unisys ClearPath Forward MCP mainframe rehost to Azure using Unisys virtualization](../../example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml)
 - [Azure Automation in a hybrid environment](../../hybrid/azure-automation-hybrid.yml)
 - [Manage hybrid Azure workloads using Windows Admin Center](../../hybrid/hybrid-server-os-mgmt.yml)

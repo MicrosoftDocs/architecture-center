@@ -36,7 +36,7 @@ This architecture makes use of the following components:
 
 ## Scenario details
 
-The approach described in this article focuses on building a content-based recommendation system. For more information about the best practices of building recommendation systems, see the documentation and examples for [Recommenders](https://github.com/microsoft/recommenders) on GitHub.
+The approach described in this article focuses on building a content-based recommendation system. For more information about the best practices of building recommendation systems, see the documentation and examples for [Recommenders](https://github.com/recommenders-team/recommenders) on GitHub.
 
 This example scenario shows how you can use machine learning to automate content-based personalization for your customers. The solution uses [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) to train a model that predicts the probability that a user will be interested in an item. [batched managed endpoints](/azure/machine-learning/concept-endpoints#what-are-batch-endpoints) deploys that model as a prediction service. You can use this service to create personalized recommendations by ranking items based on the content that a user is most likely to be interested in. 
 
@@ -75,7 +75,7 @@ Other contributor:
 
 ## Next steps
 
-- To see more examples, tutorials, and tools to help you build your own recommendation system, see [Microsoft Recommenders](https://github.com/Microsoft/Recommenders), a GitHub repository.
+- To see more examples, tutorials, and tools to help you build your own recommendation system, see [Microsoft Recommenders](https://github.com/recommenders-team/recommenders), a GitHub repository.
 
 - See [Building recommender systems with Azure Machine Learning service](https://azure.microsoft.com/blog/building-recommender-systems-with-azure-machine-learning-service), a post on the Microsoft Azure blog.
 
