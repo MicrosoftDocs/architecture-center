@@ -1258,6 +1258,8 @@ items:
           href: guide/hpc/barracuda-virtual-reactor.yml
         - name: CP2K
           href: guide/hpc/cp2k.yml
+        - name: Deploy Devito on an Azure virtual machine
+          href: guide/hpc/devito-virtual-machine.yml
         - name: Engys deployments
           items:
           - name: Engys ELEMENTS
