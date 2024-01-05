@@ -2714,6 +2714,8 @@ items:
           href: example-scenario/mainframe/imsql-rehost-ims.yml
         - name: Rehost mainframe with NTT DATA UniKix
           href: example-scenario/mainframe/rehost-mainframe-ntt-data-unikix.yml
+        - name: Unisys ClearPath Forward OS 2200 enterprise server virtualization on Azure
+          href: mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml
         - name: Unisys ClearPath MCP virtualization on Azure
           href: example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml
         - name: Unisys Dorado migration
@@ -2722,8 +2724,7 @@ items:
           href: reference-architectures/migration/unisys-mainframe-migration.yml
         - name: Use LzLabs SDM in Azure
           href: example-scenario/mainframe/lzlabs-software-defined-mainframe-in-azure.yml
-        - name: Virtualization of Unisys ClearPath Forward OS 2200 Enterprise Server on Azure
-          href: mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml
+        
       - name: Solution ideas
         items:
         - name: Migrate IBM apps with TmaxSoft
