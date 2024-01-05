@@ -53,7 +53,7 @@ ONNX is an open-standard format for representing machine learning models. It's s
 
 - ONNX supports tools for building and deploying models and for accomplishing other tasks. For more information, see, [Supported ONNX tools](https://onnx.ai/supported-tools.html).
 - You can use ONNX Runtime to run ONNX pre-trained models. For information about pre-trained models, see [ONNX Model Zoo](https://github.com/onnx/models).
-- For this scenario, you can use an object detection and image segmentation model: [Tiny YOLOv3](https://github.com/onnx/models/tree/main/vision/object_detection_segmentation/tiny-yolov3).
+- For this scenario, you can use an object detection and image segmentation model: [Tiny YOLOv3](https://github.com/onnx/models/tree/main/validated/vision/object_detection_segmentation/tiny-yolov3).
 
 The ONNX community [provides tools](https://onnx.ai/supported-tools.html) to help you create and deploy your deep learning model.
 

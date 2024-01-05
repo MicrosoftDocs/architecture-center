@@ -91,7 +91,7 @@ items:
     - name: Choose a container option
       items:
       - name: Container options
-        href: /azure/container-apps/compare-options
+        href: guide/choose-azure-container-service.md
         maintainContext: true
       - name: Containers for confidential computing
         href: /azure/confidential-computing/choose-confidential-containers-offerings
@@ -1302,6 +1302,8 @@ items:
             href: guide/hpc/siemens-nx.yml
           - name: Siemens Tecnomatix
             href: guide/hpc/siemens-tecnomatix.yml
+        - name: tNavigator
+          href: guide/hpc/tnavigator.yml
         - name: Turbostream
           href: guide/hpc/turbostream.yml
         - name: Visiopharm
@@ -1419,7 +1421,13 @@ items:
       - name: Hybrid HPC with HPC Packwindows-containers-on-aks
         href: solution-ideas/articles/hybrid-hpc-in-azure-with-hpc-pack.yml
   - name: Containers
-    items:
+    items: 
+    - name: Choose a container host
+      items: 
+      - name: Overview
+        href: guide/choose-azure-container-service.md
+      - name: Considerations
+        href: guide/container-service-general-considerations.md 
     - name: Kubernetes-based hosting
       items:
       - name: Get started
@@ -4483,9 +4491,7 @@ items:
           maintainContext: true
         - name: HITRUST overview
           href: /azure/compliance/offerings/offering-hitrust
-          maintainContext: true
-        - name: Implement healthcare blueprint for AI
-          href: industries/healthcare/healthcare-ai-blueprint.yml
+          maintainContext: true        
         - name: HIPAA/HITRUST compliant health data
           href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
         - name: HIPAA HITRUST 9.2 compliance
