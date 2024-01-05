@@ -254,6 +254,53 @@ The following are some cost optimization considerations for OpenAI:
 - Optimize prompt input and response length. Longer prompts consume more tokens, raising the cost, yet prompts that are missing sufficient context will not help the models yield good results. Create concise prompts that provide enough context to allow the model to generate a useful response. Likewise, ensure you optimize the limit of the response length.
 - Set up the appropriate governance processes to track, limit, and inform, to ensure appropriate usage.
 
-## Operations
+## Large Language Model Operations - LLMOps
 
+Deployment for the baseline Azure OpenAI end-to-end chat components follows the guidance in [LLMOps with prompt flow with Azure DevOps](/azure/machine-learning/prompt-flow/how-to-end-to-end-azure-devops-with-prompt-flow) and [GitHub](/azure/machine-learning/prompt-flow/how-to-end-to-end-llmops-with-prompt-flow). Additionally, it considers best practices for CI/CD and network-secured architectures. The following guidance focuses on the deployment of Flows and their attendant infrastructure, not the front-end application components, which are covered in Baseline highly available zone-redundant app services web application.
 
+### Development
+
+TODO:
+
+### Evaluation
+
+TODO: 
+
+### Deployment Flow
+
+:::image type="complex" source="_images/openai-end-to-end-deployment-flow.svg" lightbox="_images/openai-end-to-end-deployment-flow.svg" alt-text="Diagram that shows the deployment flow for a prompt flow.":::
+  The diagram shows the deployment flow for a prompt flow. The following are annotated with numbers: 1. The local development step, 2. A box containing a PR pipeline, 3. A manual approval, 4. Development environment, 5. Test environment, 6. Production environment, 7. a list of monitoring tasks, and a. CI pipeline and b. CD pipeline.
+:::image-end:::
+*Figure 5: Prompt flow deployment*
+
+1. The prompt engineer/data scientist opens a feature branch where they will work on the specific task or feature. The prompt engineer/data scientist iterates on the flow using Prompt flow for VS Code, periodically committing changes and pushing those changes to the feature branch.
+2. Once local development and experimentation is completed, the prompt engineer/data scientist opens a pull request from the Feature branch to the Main branch. The pull request (PR) triggers a PR pipeline. This pipeline runs fast quality checks that should include:
+  
+    - Execution of experimentation flows
+    - Execution of configured unit tests
+    - Compilation of the codebase
+    - Static code analysis
+
+3. The pipeline can contain a step that requires role x to manually approve the PR prior to merging. If the PR is not approved, the merge is blocked. If the PR is approved, or there is no approval step, the feature branch is merged into the Main branch.
+4. The merge to Main triggers the build and release process for the Development environment. Specifically:
+
+    a. The CI pipeline is triggered from the merge to Main. The CI pipeline performs all the steps done in the PR pipeline, as well as the following steps:
+
+        - Experimentation flow
+        - Evaluation flow
+        - Registers the flows in the Azure Machine Learning Registry when changes are detected
+
+    b. The CD pipeline is triggered after the completion of the CI pipeline. This flow performs the following steps:
+
+        - Deploys the flow from the Azure Machine Learning Registry to an Azure Machine Learning online endpoint
+        - Runs integration tests that target the online endpoint
+        - Runs smoke tests that target the online endpoint
+
+5. An approval process is built into the code promotion process – upon approval, the CI & CD processes described in steps 4.a. & 4.b. are repeated, targeting the Test environment. Steps a. and b. are the same, except that User Acceptance tests are run after the Smoke tests in the Test environment.
+6. The  CI & CD processes described in steps 4.a. & 4.b. are run in the Production Environment after the Test environment is verified and approved.
+7. After release into a live environment, the operational tasks of monitoring performance metrics and evaluating the deployed LLM take place. This includes but is not limited to:
+
+    - Detecting data drifts
+    - Observing the infrastructure
+    - Managing costs
+    - Communicating the model's performance to stakeholders
