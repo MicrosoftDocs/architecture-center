@@ -26,12 +26,24 @@ The Machine Learning workspace is configured with [managed virtual network isola
 Many of the components of this architecture are the same as those in the [baseline app services web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml), as the chat UI in this architecture follows the baseline app service web application's architecture. The components highlighted in this section focus on the components used to build and orchestrate chat flows, as well as data services and the services that expose the LLMs.
 
 - [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is a managed cloud service that's used to train, deploy, and manage machine learning models. This architecture uses several additional features of Azure Machine Learning used to develop and deploy executable flows for AI applications powered by Large Language Models:
-  - [Azure Machine Learning prompt flow](/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow) is a development tool that allows you to build, test, and deploy flows that link user prompts, actions through Python code and LLMs.
+  - [Azure Machine Learning prompt flow](/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow) is a development tool that allows you to build, test, and deploy flows that link user prompts, actions through Python code and LLMs. Prompt flow is used in this architecture as the layer that orchestrates flows between the prompt, different data stores, and the LLM model.
   - [Managed online endpoints](/azure/machine-learning/prompt-flow/how-to-deploy-for-real-time-inference) allow you to deploy a flow for real-time inference.
 - [Azure Storage](https://azure.microsoft.com/services/storage) is used to persist the prompt flow source files for prompt flow development.
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry) enables you to build, store, and manage container images and artifacts in a private registry for all types of container deployments.
 - [Azure OpenAI](https://azure.microsoft.com/products/ai-services/openai-service) is a fully managed service that provides REST API access to OpenAI’s powerful language models, including the GPT-4, GPT-3.5-Turbo, and Embeddings model series1. In addition to model access, it adds enterprise features such as [virtual network and private link](/azure/ai-services/cognitive-services-virtual-networks), as well as [managed identity](/azure/ai-services/openai/how-to/managed-identity) support.
-- [Azure AI Search](/azure/search/) is a cloud search service that supports [full-text search](/azure/search/search-lucene-query-architecture), [semantic search](/azure/search/semantic-search-overview), [vector search](/azure/search/vector-search-overview), and [hybrid search](/azure/search/vector-search-ranking#hybrid-search). This is included in the architecture, as it will be a common service used in chat applications.
+- [Azure AI Search](/azure/search/) is a cloud search service that supports [full-text search](/azure/search/search-lucene-query-architecture), [semantic search](/azure/search/semantic-search-overview), [vector search](/azure/search/vector-search-overview), and [hybrid search](/azure/search/vector-search-ranking#hybrid-search). This is included in the architecture, as it will be a common service used in chat applications. Azure AI Search can be used to store data that is relevant for user queries. The prompt flow will extract the appropriate query from the prompt, query AI Search, and use the results as grounding data for the Azure OpenAI model.
+
+### Azure Machine Learning prompt flow
+
+The back end for enterprise chat applications generally follow a pattern similar to the following:
+
+- The user question is extracted from the prompt
+- (optional) The back end determines the data store(s) that holds data that is relevant to the user query
+- The back end queries the relevant data store(s)
+- The back end sends the question, the relevant grounding data, and any history provided in the prompt to the LLM model
+- The back end returns the result to the user interface
+
+The back end could be implemented in any number of languages and deployed to a variety of Azure Services. In this architecture, Azure Machine Learning prompt flow was chosen because it provides a [streamlined experience](/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow) to build, test, and deploy flows that orchestrate between prompts, back end data stores, and LLMs.
 
 ## Networking
 
@@ -238,7 +250,7 @@ Follow the guidance to [analyze performance in Azure AI Search](/azure/search/se
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see Overview of the [cost optimization pillar](/azure/well-architected/cost-optimization/). 
 
-To see a pricing example for this scenario, use the [Azure pricing calculator](https://azure.com/e/148740d7b9d74b61b27a20442994ce07). You will need to customize the example to match your usage, as this example just includes the components included in the architecture. The most expensive components in the scenario are compute and Azure OpenAI.
+To see a pricing example for this scenario, use the [Azure pricing calculator](https://azure.com/e/a5a243c3b0794b2787e611c65957217f). You will need to customize the example to match your usage, as this example just includes the components included in the architecture. The most expensive components in the scenario are compute and Azure OpenAI.
 
 ### Compute
 
