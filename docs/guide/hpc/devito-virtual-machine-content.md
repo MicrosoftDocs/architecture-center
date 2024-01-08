@@ -113,15 +113,15 @@ The Devito forward operator performance for the acoustic model was tested on Sta
 
 The following table shows the results for the CentOS-based 8.1 HPC image:
 
-| Number of vCPUs (cores) | Forward operator runtime (in seconds) | GFLOPS/second | Relative increase |
+| Number of vCPUs (cores) | Forward operator runtime (in seconds) | GFLOPS/second | Relative speed increase |
 |:---:|:---:|:---:|:---:|
-| 16 | 184.39 | 211.24 | 1.00 |
+| 16 | 184.39 | 211.24 | N/A |
 | 32 | 126.20 | 308.55 | 1.46 |
 | 64 | 117.61 | 331.22 | 1.57 |
 | 96 | 132.86 | 293.25 | 1.39 |
 | 120 | 149.99 | 259.78 | 1.23 |
 
-Note that for the single-node tests, the Devito operator is run on all HBv3-series VM configurations. The Standard_HB120-16rs_v3 VM runtime is used as the baseline to calculate the relative increase.
+Note that for the single-node tests, the Devito operator is run on all HBv3-series VM configurations. The Standard_HB120-16rs_v3 VM runtime is used as the baseline to calculate the relative speed increase.
 
 #### Devito performance on a cluster (multi-node)
 
@@ -129,18 +129,18 @@ The forward operator performance in the single-node tests show the scale-up beha
 
 The following table shows the results for a cluster with 64 vCPUs per node:
 
-| Number of nodes | Number of vCPUs (cores) | Forward operator runtime (in seconds) | GFLOPS/second | Relative increase |
+| Number of nodes | Number of vCPUs (cores) | Forward operator runtime (in seconds) | GFLOPS/second | Relative speed increase |
 |:---:|:---:|:---:|:---:|:---:|
-| 1 | 64 | 121.73 | 320.04 | 1.00 |
+| 1 | 64 | 121.73 | 320.04 | N/A |
 | 2 | 128 | 75.68 | 514.86 | 1.61 |
 | 4 | 256 | 60.77 | 641.30 | 2.00 |
 | 8 | 512 | 51.94 | 750.40 | 2.34 |
 
 The following table shows the results for a cluster with 96 vCPUs per node:
 
-| VM configuration | Number of nodes | Number of vCPUs (cores) | Forward operator runtime (in seconds) | GFLOPS/second | Relative increase |
+| VM configuration | Number of nodes | Number of vCPUs (cores) | Forward operator runtime (in seconds) | GFLOPS/second | Relative speed increase |
 |:---:|:---:|:---:|:---:|:---:|:---:|
-| Standard_HB120-96rs_v3 | 1 | 96 | 137.19 | 284 | 1.00 |
+| Standard_HB120-96rs_v3 | 1 | 96 | 137.19 | 284 | N/A |
 | Standard_HB120-96rs_v3 | 2 | 192 | 88.72 | 439.27 | 1.55 |
 | Standard_HB120-96rs_v3 | 4 | 384 | 75.11 | 518.93 | 1.83 |
 | Standard_HB120-96rs_v3 | 8 | 768 | 69.38 | 561 | 1.98 |
