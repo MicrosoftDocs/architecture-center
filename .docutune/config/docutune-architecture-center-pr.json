@@ -17,7 +17,7 @@
     "Dictionary-AAC.ps1"
   ],
   "RemoveTermSets": [
-    "invalid-microsoft-can-may",
-    "*azure-batch*"
+//    "invalid-microsoft-can-may",
+//    "*azure-batch*"
   ]
 }
