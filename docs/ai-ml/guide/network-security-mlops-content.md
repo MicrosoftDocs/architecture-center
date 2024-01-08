@@ -449,7 +449,7 @@ This example scenario also ensures that the container registry has a contributor
 
 An Azure Machine Learning compute cluster or instance in a virtual network requires a network security group (NSG) with some specific rules for its subnet. For a list of those rules, see [Limitations](/azure/machine-learning/how-to-secure-training-vnet?tabs=azure-studio%2Cipaddress#limitations).
 
-Also note that for the compute cluster or instance, it's now possible to remove the public IP address, which helps provide better protection for compute resources in the MLOps solution. For more information, see [No public IP for compute instances](/azure/machine-learning/how-to-secure-training-vnet?tabs=ipaddress&branch=main#no-public-ip).
+Also note that for the compute cluster or instance, it's now possible to remove the public IP address, which helps provide better protection for compute resources in the MLOps solution. For more information, see [No public IP for compute instances](/azure/machine-learning/how-to-secure-training-vnet#compute-instancecluster-or-serverless-compute-with-no-public-ip).
 
 ## Contributors
 
@@ -468,13 +468,13 @@ Other contributors:
 ## Next steps
 
 - [Terraform on Azure documentation](/azure/developer/terraform)
-- [Azure Machine Learning Enterprise Terraform Example](https://github.com/csiebler/azure-machine-learning-terraform)
+- [Azure Machine Learning Enterprise Terraform Examples](https://github.com/microsoft/azureml-terraform-examples)
 - [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2)
 - [Azure Virtual Network pricing](https://azure.microsoft.com/en-us/pricing/details/virtual-network/)
-- [Pricing for Azure DevOps](https://azure.microsoft.com/en-us/pricing/details/devops/azure-devops-services) 
+- [Pricing for Azure DevOps](https://azure.microsoft.com/en-us/pricing/details/devops/azure-devops-services)
 
 ## Related resources
 
 - [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](/azure/architecture/ai-ml/guide/mlops-technical-paper)
-- [Secure an Azure Machine Learning workspace with virtual networks](/azure/machine-learning/how-to-secure-workspace-vnet?tabs=pe)
-- [Azure Pipelines agents](/azure/devops/pipelines/agents/agents?tabs=browser&view=azure-devops)
+- [Secure an Azure Machine Learning workspace with virtual networks](/azure/machine-learning/how-to-secure-workspace-vnet)
+- [Azure Pipelines agents](/azure/devops/pipelines/agents/agents)
