@@ -91,7 +91,7 @@ items:
     - name: Choose a container option
       items:
       - name: Container options
-        href: /azure/container-apps/compare-options
+        href: guide/choose-azure-container-service.md
         maintainContext: true
       - name: Containers for confidential computing
         href: /azure/confidential-computing/choose-confidential-containers-offerings
@@ -1302,6 +1302,8 @@ items:
             href: guide/hpc/siemens-nx.yml
           - name: Siemens Tecnomatix
             href: guide/hpc/siemens-tecnomatix.yml
+        - name: tNavigator
+          href: guide/hpc/tnavigator.yml
         - name: Turbostream
           href: guide/hpc/turbostream.yml
         - name: Visiopharm
@@ -1419,7 +1421,13 @@ items:
       - name: Hybrid HPC with HPC Packwindows-containers-on-aks
         href: solution-ideas/articles/hybrid-hpc-in-azure-with-hpc-pack.yml
   - name: Containers
-    items:
+    items: 
+    - name: Choose a container host
+      items: 
+      - name: Overview
+        href: guide/choose-azure-container-service.md
+      - name: Considerations
+        href: guide/container-service-general-considerations.md 
     - name: Kubernetes-based hosting
       items:
       - name: Get started
@@ -2706,6 +2714,8 @@ items:
           href: example-scenario/mainframe/imsql-rehost-ims.yml
         - name: Rehost mainframe with NTT DATA UniKix
           href: example-scenario/mainframe/rehost-mainframe-ntt-data-unikix.yml
+        - name: Unisys ClearPath Forward OS 2200 enterprise server virtualization on Azure
+          href: mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml
         - name: Unisys ClearPath MCP virtualization on Azure
           href: example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml
         - name: Unisys Dorado migration
@@ -2714,8 +2724,7 @@ items:
           href: reference-architectures/migration/unisys-mainframe-migration.yml
         - name: Use LzLabs SDM in Azure
           href: example-scenario/mainframe/lzlabs-software-defined-mainframe-in-azure.yml
-        - name: Virtualization of Unisys ClearPath Forward OS 2200 Enterprise Server on Azure
-          href: mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml
+        
       - name: Solution ideas
         items:
         - name: Migrate IBM apps with TmaxSoft
@@ -3349,6 +3358,10 @@ items:
             href: guide/networking/global-web-applications/mission-critical-global-http-ingress.md
           - name: Mission-critical content delivery
             href: guide/networking/global-web-applications/mission-critical-content-delivery.md
+      - name: Adopting IPv6
+        items:
+          - name: Conceptual planning for IPv6 networking
+            href: networking/guide/ipv6/ipv6-ip-planning.md
     - name: Architectures
       items:
       - name: Azure DNS Private Resolver
@@ -3919,8 +3932,6 @@ items:
         - name: Connection quality
           href: /azure/virtual-desktop/connection-latency
           maintainContext: true
-      - name: Microsoft Entra join for Azure Virtual Desktop
-        href: example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join.md
       - name: Multiregion BCDR for AVD
         href: example-scenario/wvd/azure-virtual-desktop-multi-region-bcdr.yml
       - name: AVD for Azure Stack HCI
@@ -4482,9 +4493,7 @@ items:
           maintainContext: true
         - name: HITRUST overview
           href: /azure/compliance/offerings/offering-hitrust
-          maintainContext: true
-        - name: Implement healthcare blueprint for AI
-          href: industries/healthcare/healthcare-ai-blueprint.yml
+          maintainContext: true        
         - name: HIPAA/HITRUST compliant health data
           href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
         - name: HIPAA HITRUST 9.2 compliance

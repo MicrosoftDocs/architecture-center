@@ -272,7 +272,7 @@ Principal author:
 ## Related resources
 
 - [Unisys ClearPath MCP virtualization on Azure][Unisys ClearPath MCP virtualization on Azure]
-- [Virtualization of Unisys ClearPath Forward OS 2200 enterprise server on Azure][Virtualization of Unisys ClearPath Forward OS 2200 enterprise server on Azure]
+- [Unisys ClearPath Forward OS 2200 enterprise server virtualization on Azure][Virtualization of Unisys ClearPath Forward OS 2200 enterprise server on Azure]
 - [SMA OpCon in Azure][SMA OpCon in Azure]
 - [Mainframe rehosting on Azure virtual machines][Mainframe rehosting on Azure virtual machines]
 - Reference architectures:
