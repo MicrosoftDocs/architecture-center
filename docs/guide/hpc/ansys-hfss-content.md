@@ -1,6 +1,6 @@
 This article describes the steps for installing and running [Ansys HFSS](https://www.ansys.com/products/electronics/ansys-hfss) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running HFSS.
 
-Ansys HFSS is a 3D electromagnetic (EM) simulation application for designing and simulating high-frequency electronic products. HFSS enables engineers to address RF, microwave, IC, PCB, and EMI problems for most complex systems.
+Ansys HFSS is a 3D electromagnetic simulation application for designing and simulating high-frequency electronic products. HFSS enables engineers to address RF, microwave, IC, PCB, and EMI problems for most complex systems.
 
 HFSS is used in simulations of high-frequency electronic products like antennas, antenna arrays, RF or microwave components, high-speed interconnects, IC packages, and printed circuit boards. Engineers use HFSS to design high-frequency, high-speed electronics found in communications systems, advanced driver assistance systems (ADAS), satellites, and IoT products.
 
@@ -53,7 +53,7 @@ For information about installing HFSS, see the [Ansys website](https://www.ansys
 
 ## Ansys HFSS performance results
 
-The following table describes the VM that was used for testing.
+The following table describes the VM that was used for testing:
 
 > [!Note] 
 > These performance tests were conducted on Windows 10 Pro, 22H2. HFSS can also be deployed on newer versions of Windows.
@@ -70,7 +70,7 @@ The following image shows the detection and classification of vulnerable road us
 
 ![Image that shows the Pedestrian model.](media/pedestrian-model.png)
 
-The following table provides details about the model.
+The following table provides details about the model:
 
 | Model name | Solver | Ray density | Maximum bounces | Distribution | Solution frequency | Far field observation points |
 |---|---|---|---|---|---|---|
@@ -99,7 +99,7 @@ In the following image, one of the two vehicles uses automotive radar to detect 
 
 ![Image that shows the Autonomous Vehicular Radar_ADP model.](media/autonomous-vehicle-radar-model.png)
 
-The following table provides details about the model.
+The following table provides details about the model:
 
 | Model name | Solver | Ray density | Maximum bounces | Distribution | Solution frequency | Far field observation points |
 |---|---|---|---|---|---|---|
@@ -127,7 +127,7 @@ The following image shows a 3D view of an urban city, with buildings adjacent to
 
 ![Image that shows the Urban_city model.](media/urban-city-model.png)
 
-The following table provides details about the model.
+The following table provides details about the model:
 
 | Model name | Solver | Ray density | Maximum bounces | Distribution | Solution frequency | Far field observation points |
 |---|---|---|---|---|---|---|
@@ -152,7 +152,7 @@ The following graph shows the relative speed increase as the number of GPUs incr
 ### Notes about the tests
 
 The tests for the Pedestrian model compare the use of CPUs to the use of GPUs.
-The 32-vCPU EPYC 7V73X processor is used as a baseline for these tests. The tests for the Autonomous Vehicular Radar_ADP and Urban_city models, for which step sizes are smaller, require more computation time. Only GPU scaleup is shown for these two models. The elapsed time with one GPU is used as a baseline. 
+The 32-vCPU EPYC 7V73X processor is used as a baseline for these tests. The tests for the Autonomous Vehicular Radar_ADP and Urban_city models, for which step sizes are smaller, require more computation time. Only GPU scale-up is shown for these two models. The elapsed time with one GPU is used as a baseline. 
 
 ## Azure cost
 
