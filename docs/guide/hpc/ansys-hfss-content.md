@@ -213,7 +213,7 @@ Other contributors:
 - [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director of Business Strategy
 - [Sachin Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) | Manager
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see non-public LinkedIn profiles, sign in to LinkedIn.* 
 
 ## Next steps
 
