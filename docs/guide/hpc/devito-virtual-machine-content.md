@@ -1,15 +1,15 @@
-Devito is a functional language that you can implement as a Python package. With Devito, you can use high-level symbolic problem definitions to create optimized stencil computation, such as finite differences, image processing, and machine learning. Devito is built on [SymPy](https://www.sympy.org) and uses automated code generation and just-in-time compilation to run optimized computational kernels on several compute platforms, including CPUs, GPUs, and clusters.
-
 This article describes how to run [Devito](https://www.devitoproject.org) on an Azure virtual machine (VM). It also presents the performance results of running Devito on Azure.
+
+Devito is a functional language that you can implement as a Python package. With Devito, you can use high-level symbolic problem definitions to create optimized stencil computation, such as finite differences, image processing, and machine learning. Devito is built on [SymPy](https://www.sympy.org) and uses automated code generation and just-in-time compilation to run optimized computational kernels on several compute platforms, including CPUs, GPUs, and clusters.
 
 ## Architecture
 
-The following diagram shows the single-node architecture:
+The following diagram shows a single-node architecture:
 
 :::image type="content" source="./media/hpc-devito-single-node.svg" alt-text="Diagram that shows the single-node architecture." lightbox="./media/hpc-devito-single-node.svg" border="false":::
 *Download a [Visio file](https://arch-center.azureedge.net/hpc-devito-single-node.vsdx) of this architecture.*
 
-The following diagram shows the multi-node architecture:
+The following diagram shows a multi-node architecture:
 
 :::image type="content" source="./media/hpc-devito-multi-node.svg" alt-text="Diagram that shows the multi-node architecture." lightbox="./media/hpc-devito-multi-node.svg" border="false":::
 *Download a [Visio file](https://arch-center.azureedge.net/hpc-devito-multi-node.vsdx) of this architecture.*
@@ -28,7 +28,7 @@ The following diagram shows the multi-node architecture:
 
 - An [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs) physical solid-state drive (SSD) is used for storage.
 
-- An [Azure CycleCloud REST API](/azure/cyclecloud/how-to/use-rest-api) is used to add automated and programmatic cluster management capabilities, like determining a cluster's status or creating nodes.
+- The [Azure CycleCloud REST API](/azure/cyclecloud/how-to/use-rest-api) is used to add automated and programmatic cluster management capabilities, like determining a cluster's status or creating nodes.
 
 ## Scenario details
 
@@ -40,6 +40,9 @@ Devito provides key offerings like:
 - The ability to generate highly optimized parallel code.
 - Distributed NumPy arrays.
 - Smooth integration with popular Python packages.
+
+Deploy Devito on Azure to get benefits like:
+
 - Modern and diverse compute options to meet your workload's needs.
 - The flexibility of virtualization without the need to buy and maintain physical hardware.
 - Rapid provisioning.
@@ -48,7 +51,7 @@ Devito provides a functional language to implement sophisticated operators that 
 
 :::image type="content" source="./media/operator-equation.png" alt-text="Screenshot that shows the operator equation." lightbox="./media/operator-equation.png":::
 
-An operator generates low-level code from an ordered collection of *Eq* (this example is for a single equation).
+An operator generates low-level code from an ordered collection of `Eq`. This example is for a single equation.
 
 There's virtually no limit to the complexity of an operator. The Devito compiler automatically analyzes the input, detects and applies optimizations (including single-node and multi-node parallelism), and generates code with suitable loops and expressions.
 
@@ -78,21 +81,21 @@ The Devito performance tests that are presented in the next sections used [HBv3-
 
 ## Devito performance results
 
-### Benchmarking Devito on Virtual Machines
+### Benchmarking Devito on Azure
 
-To test the performance of Devito on Virtual Machines, benchmarking was performed by using the HB120rs_v3 series SKU. There are many seismic models, like acoustic, tti, elastic, and visco-elastic, available on [the tutorials page of the Devito website](https://www.devitoproject.org/tutorials.html). The tests in this article use a forward operator under the acoustic model for benchmarking the performance of Devito.
+To test the performance of Devito on Azure, benchmarking was performed by using the HB120rs_v3 series SKU. There are many seismic models, like acoustic, tti, elastic, and visco-elastic, available on [the tutorials page of the Devito website](https://www.devitoproject.org/tutorials.html). The tests in this article use a forward operator under the acoustic model for benchmarking the performance of Devito.
 
 The following table provides information about the operating system that was used for testing:
 
 |Operating system and hardware details (Azure infrastructure)||
 |---|---|
 |Operating system version|CentOS-based 8.1 HPC|
-|OS architecture|X86-64|
+|OS architecture|x86-64|
 |Processor|AMD EPYC 7V73X|
 
 ### Benchmarking a Devito operator
 
-You can use the *benchmark.py* python file to test the performance of a Devito operator. The file is located under the */benchmarks/user* folder that's in the Devito folder. The *benchmark.py* file implements a minimalist framework to evaluate the performance of a Devito operator, while varying:
+You can use the *benchmark.py* python file to test the performance of a Devito operator. The file is located in the */benchmarks/user* folder that's in the Devito folder. The *benchmark.py* file implements a minimalist framework to evaluate the performance of a Devito operator, while varying:
 
 - The problem size, for example the shape of the computational grid.
 
@@ -104,13 +107,13 @@ You can use the *benchmark.py* python file to test the performance of a Devito o
 
 - The autotuning level.
 
-#### Devito performance on the HB120rs_v3 (single-node) series
+#### Devito performance on the HB120rs_v3 series (single-node)
 
-The Devito forward operator performance for the acoustic model is tested on Standard HBv3 series virtual machines with 16, 32, 64, 96, and 120 vCPU configurations. The tests were performed with CentOS 8.1 HPC image.
+The Devito forward operator performance for the acoustic model was tested on Standard HBv3 series virtual machines with 16, 32, 64, 96, and 120 vCPU configurations.
 
-The following table shows the results for CentOS-based 8.1 HPC image:
+The following table shows the results for the CentOS-based 8.1 HPC image:
 
-| Number of vCPUs (cores) | Forward operator runtime (in seconds) | GFLOPS/sec | Relative speed up |
+| Number of vCPUs (cores) | Forward operator runtime (in seconds) | GFLOPS/second | Relative increase |
 |:---:|:---:|:---:|:---:|
 | 16 | 184.39 | 211.24 | 1.00 |
 | 32 | 126.20 | 308.55 | 1.46 |
@@ -118,15 +121,15 @@ The following table shows the results for CentOS-based 8.1 HPC image:
 | 96 | 132.86 | 293.25 | 1.39 |
 | 120 | 149.99 | 259.78 | 1.23 |
 
-Note that for single-node tests, the Devito operator is run on all HBv3-series VM configurations. The Standard_HB120-16rs_v3 VM runtime is used as the baseline to calculate the relative speed up.
+Note that for the single-node tests, the Devito operator is run on all HBv3-series VM configurations. The Standard_HB120-16rs_v3 VM runtime is used as the baseline to calculate the relative increase.
 
 #### Devito performance on a cluster (multi-node)
 
-Based on the Devito forward operator performance on HB120rs_v3 single nodes, you can observe the scale-up behavior for the 64 and 96 vCPU configurations. The following performance tests run the Devito operator on two cluster configurations with 64 vCPUs and 96 vCPUs respectively. CentOS-based 8.1 HPC image is used for these two clusters.
+The forward operator performance in the single-node tests show the scale-up behavior for the 64 and 96 vCPU configurations. The following performance tests run the Devito operator on two cluster configurations with 64 vCPUs and 96 vCPUs, respectively. The CentOS-based 8.1 HPC image is used for these two clusters.
 
 The following table shows the results for a cluster with 64 vCPUs per node:
 
-| Number of nodes | Number of vCPUs (cores) | Forward operator runtime (in seconds) | GFLOPS/sec | Relative speed up |
+| Number of nodes | Number of vCPUs (cores) | Forward operator runtime (in seconds) | GFLOPS/second | Relative increase |
 |:---:|:---:|:---:|:---:|:---:|
 | 1 | 64 | 121.73 | 320.04 | 1.00 |
 | 2 | 128 | 75.68 | 514.86 | 1.61 |
@@ -135,7 +138,7 @@ The following table shows the results for a cluster with 64 vCPUs per node:
 
 The following table shows the results for a cluster with 96 vCPUs per node:
 
-| VM configuration | Number of nodes | Number of vCPUs (cores) | Forward operator runtime (in seconds) | GFLOPS/sec | Relative speed up |
+| VM configuration | Number of nodes | Number of vCPUs (cores) | Forward operator runtime (in seconds) | GFLOPS/second | Relative increase |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | Standard_HB120-96rs_v3 | 1 | 96 | 137.19 | 284 | 1.00 |
 | Standard_HB120-96rs_v3 | 2 | 192 | 88.72 | 439.27 | 1.55 |
@@ -144,7 +147,7 @@ The following table shows the results for a cluster with 96 vCPUs per node:
 
 ## Azure cost
 
-The following table presents the wall-clock times for running the simulation. You can multiply these times by the Azure VM hourly costs for HB120rs_v3-series VMs to calculate costs. For the current hourly costs, see [Linux virtual machines pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux).
+The following table presents the wall-clock times for running the simulations. You can multiply these times by the Azure VM hourly costs for HB120rs_v3-series VMs to calculate costs. For the current hourly costs, see [Linux virtual machines pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux).
 
 The following runtimes represent only the simulation time. Application installation time isn't considered.
 
@@ -160,11 +163,11 @@ The following table shows runtimes for the HB120rs_v3 series:
 
 ## Summary
 
-- Devito is successfully deployed and tested on the HB120rs_v3 series VM on Azure.
+- Devito was successfully deployed and tested on the HB120rs_v3 series VM on Azure.
 
 - For the single-node configuration, the Devito scales well up to 64 and 96 cores. It has a maximum scale up of 1.57 times with 64 cores.  
 
-- For the multi-node configuration, there's a gradual scale up from one node to eight nodes in both the clusters with the Standard_HB120-64rs_v3 and the Standard_HB120-96rs_v3 virtual machines respectively.
+- For the multi-node configuration, there's a gradual scale up from one node to eight nodes in both the clusters with the Standard_HB120-64rs_v3 and the Standard_HB120-96rs_v3 virtual machines.
 
 ## Contributors
 
@@ -178,11 +181,10 @@ Principal authors:
 
 Other contributors:
 
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 - [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director Business Strategy
 - [Sachin Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) | Manager
 
-_To see non-public LinkedIn profiles, sign into LinkedIn._
+_To see non-public LinkedIn profiles, sign in to LinkedIn._
 
 ## Next steps
 
@@ -193,7 +195,6 @@ _To see non-public LinkedIn profiles, sign into LinkedIn._
 
 ## Related resources
 
-- [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
 - [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
 - [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
 - [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)
