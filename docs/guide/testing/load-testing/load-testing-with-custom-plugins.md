@@ -42,6 +42,16 @@ In this example, the data flow is as follows:
 - Azure Monitor service is used to monitor the Azure Function and Azure Event hubs.
 - Azure Load Testing service will collect the data from Azure Monitor service and then display it in a dashboard.
 
+### Components
+
+In this example, the following components are used:
+
+- Azure Load Testing: Azure Load Testing is a service that allows you to run Apache JMeter scripts and custom plugins to simulate user/device behaviors. It provides a web-based interface for managing and running load tests, as well as a set of APIs that can be used to automate the process. Azure Load Testing is a fully managed service, which means that you don't need to worry about managing servers or infrastructure. You can simply upload your JMeter scripts and custom plugins, and Azure Load Testing will take care of the rest.
+- Azure Event Hubs: Azure Event Hubs is a cloud-based event processing service that can be used to collect, process, and analyze events and streaming data from various sources in real-time. Azure Event Hubs supports multiple protocols, including: AMQP (Advanced Message Queuing Protocol), HTTPS, Kafka Protocol, MQTT (Message Queuing Telemetry Transport) and AMQP over WebSockets. Choosing the right protocol depends on several factors, including the type of data you're working with, the specific requirements of your application, and the capabilities and limitations of the protocols themselves.
+- Azure Functions: Azure Functions is a serverless compute service that allows you to run code without having to manage servers or infrastructure. It supports multiple programming languages, including C#, F#, Java, JavaScript, PowerShell, Python, and TypeScript. Azure Functions can be used to process events and streaming data from Azure Event Hubs, as well as other sources such as Azure Storage and Azure Cosmos DB.
+- JMeter GUI: JMeter GUI is an open-source load testing tool that is primarily used to test the performance of web applications. It was originally developed for testing web applications. However it can also be used to test other types of applications, such as SOAP and REST web services, FTP servers, databases, and more.
+- Azure Monitor: Azure Monitor is a service that provides monitoring and alerting capabilities for Azure resources. It allows you to monitor the performance and health of your applications, as well as the underlying infrastructure. Azure Monitor can be used to monitor Azure Event Hubs and Azure Functions, as well as other Azure services such as Azure Storage and Azure Cosmos DB.
+
 ## Scenario details
 
 In this example, we assume that there's a device that is reporting temperature and humidity in a period of time. In the current implementation of the plugin, we just simply generate a random data using a provided template. However, the plugin can contain any possible complex behavior for any devices. In this example, the device is sending the data to an Azure event hub. The event hub triggers an Azure Function that is responsible for processing the data and then sending data to other downstream services such as Azure SQL Database. The Azure Function is the service that we want to test. The test plan is designed to simulate the behavior of the device and send data to the event hub.
@@ -230,7 +240,15 @@ Principal authors: Mahdi Setayesh
 ## Next steps
 
 * [Azure Load Testing](/azure/load-testing/)
-* [Sample code for a Custom JMeter Plugin](https://github.com/Azure-Samples/load-testing-jmeter-plugins#how-to-setup-visual-studio-code-for-eventhub-plugin-development)
-* [How to develop a new custom plugin?](/azure/cognitive-services/what-are-cognitive-services)
+* [Sample code for a custom JMeter plugin](https://github.com/Azure-Samples/load-testing-jmeter-plugins)
+* [How to develop a new custom plugin?](https://jmeter.apache.org/usermanual/jmeter_tutorial.html)
 * [Customize a load test with Apache JMeter plugins and Azure Load Testing](/azure/load-testing/how-to-use-jmeter-plugins?tabs=portal)
 * [What is Application Insights](/azure/azure-monitor/app/app-insights-overview)
+
+## Related resources
+
+* [Load testing your Azure App Service applications](/azure/load-testing/concept-load-test-app-service)
+* [Quickstart: Create and run a load test with Azure Load Testing](azure/load-testing/quickstart-create-and-run-load-test?tabs=portal)
+* [Load test a website by using a JMeter script in Azure Load Testing](azure/load-testing/how-to-create-and-run-load-test-with-jmeter-script?tabs=portal)
+* [Quickstart: Automate an existing load test with CI/CD](/azure/load-testing/quickstart-add-load-test-cicd)
+* [Tutorial: Run a load test to identify performance bottlenecks in a web app](/azure/load-testing/tutorial-identify-bottlenecks-azure-portal)
