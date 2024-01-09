@@ -1236,6 +1236,8 @@ items:
             href: guide/hpc/ansys-cfx.yml
           - name: Ansys Fluent
             href: guide/hpc/ansys-fluent.yml
+          - name: Ansys HFSS
+            href: guide/hpc/ansys-hfss.yml  
           - name: Ansys LS-DYNA
             href: guide/hpc/ls-dyna.yml
           - name: Ansys Rocky
