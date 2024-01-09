@@ -256,7 +256,7 @@ The following are some cost optimization considerations for OpenAI:
 
 ## Large Language Model Operations - LLMOps
 
-Deployment for the baseline Azure OpenAI end-to-end chat components follows the guidance in [LLMOps with prompt flow with Azure DevOps](/azure/machine-learning/prompt-flow/how-to-end-to-end-azure-devops-with-prompt-flow) and [GitHub](/azure/machine-learning/prompt-flow/how-to-end-to-end-llmops-with-prompt-flow). Additionally, it considers best practices for CI/CD and network-secured architectures. The following guidance focuses on the deployment of Flows and their attendant infrastructure, not the front-end application components, which are covered in Baseline highly available zone-redundant app services web application.
+Deployment for the baseline Azure OpenAI end-to-end chat components follows the guidance in [LLMOps with prompt flow with Azure DevOps](/azure/machine-learning/prompt-flow/how-to-end-to-end-azure-devops-with-prompt-flow) and [GitHub](/azure/machine-learning/prompt-flow/how-to-end-to-end-llmops-with-prompt-flow). Additionally, it considers best practices for CI/CD and network-secured architectures. This guidance addresses the implementation of Flows and their associated infrastructure. It does not include the front-end application elements, which are discussed in the [Baseline highly available zone-redundant web application architecture](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#deployment).
 
 ### Development
 
