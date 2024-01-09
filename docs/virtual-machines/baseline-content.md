@@ -21,7 +21,7 @@ This architecture serves as a starting point for an infrastructure as a service 
 
 ## Architecture
 
-:::image type="content" source="./media/baseline-architecture.svg" alt-text="Virtual machine baseline architectural diagram" lightbox="./media/baseline-architecture.png":::
+:::image type="content" source="./media/baseline-architecture.svg" alt-text="Virtual machine baseline architectural diagram" lightbox="./media/baseline-architecture.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/baseline-architecture.vsdx) of this architecture.*
 
@@ -157,7 +157,7 @@ In this architecture:
 
 This architecture deploys the workload in a single virtual network. Network controls are a significant part of this architecture and are described in the [Security](#security) section.
 
-:::image type="content" source="./media/baseline-network.svg" alt-text="Virtual machine baseline showing the network layout" lightbox="./media/baseline-network.png":::
+:::image type="content" source="./media/baseline-network.svg" alt-text="Virtual machine baseline showing the network layout" lightbox="./media/baseline-network.svg":::
 
 This layout can be integrated with an enterprise topology. That example is shown in [Virtual machine baseline architecture in an Azure landing zone](./baseline-landing-zone.yml).
 
@@ -187,7 +187,7 @@ Another use case to consider is VM OS upgrades, which might require temporary IP
 
 Two public IP addresses are used for ingress flows. One address is for Application Gateway that serves as the reverse proxy. Users connect using that public IP address. The reverse proxy load balances ingress traffic to the private IPs of the VMs. The other address is for operational access through Azure Bastion.
 
-:::image type="content" source="./media/baseline-network-ingress.svg" alt-text="Diagram of a virtual machine baseline that shows ingress flow." lightbox="./media/baseline-network-ingress.png" border="false":::
+:::image type="content" source="./media/baseline-network-ingress.svg" alt-text="Diagram of a virtual machine baseline that shows ingress flow." lightbox="./media/baseline-network-ingress.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/baseline-network-ingress.vsdx) of this architecture.*
 
@@ -195,7 +195,7 @@ Two public IP addresses are used for ingress flows. One address is for Applicati
 
 This architecture uses standard SKU Load Balancer with outbound rules defined from the VM instances. Load Balancer was chosen because it's zone redundant.
 
-:::image type="content" source="./media/baseline-network-egress.svg" alt-text="Diagram of a virtual machine baseline that shows ingress flow." lightbox="./media/baseline-network-egress.png" border="false":::
+:::image type="content" source="./media/baseline-network-egress.svg" alt-text="Diagram of a virtual machine baseline that shows ingress flow." lightbox="./media/baseline-network-egress.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/baseline-network-egress.vsdx) of this architecture.*
 
@@ -230,7 +230,7 @@ The Log Analytics workspace is the recommended monitoring data sink used to coll
 
 This image shows the monitoring stack for the baseline with components for collecting data from the infrastructure and application, data sinks, and various consumption tools for analysis and visualization. The implementation deploys some components, such as Application Insights, VM boot diagnostics, and Log Analytics. Other components are depicted to showcase the extensibility options, such as dashboards and alerts.
 
-:::image type="content" source="./media/baseline-monitoring.svg" alt-text="Baseline monitoring data flow diagram" lightbox="./media/baseline-monitoring.png":::
+:::image type="content" source="./media/baseline-monitoring.svg" alt-text="Baseline monitoring data flow diagram" lightbox="./media/baseline-monitoring.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/baseline-monitoring.vsdx) of this architecture.*
 
