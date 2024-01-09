@@ -251,3 +251,7 @@ docs/.vscode/settings.json
 .temp
 .env
 .cache_ggshield
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
