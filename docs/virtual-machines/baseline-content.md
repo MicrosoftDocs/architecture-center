@@ -187,19 +187,15 @@ Another use case to consider is VM OS upgrades, which might require temporary IP
 
 Two public IP addresses are used for ingress flows. One address is for Application Gateway that serves as the reverse proxy. Users connect using that public IP address. The reverse proxy load balances ingress traffic to the private IPs of the VMs. The other address is for operational access through Azure Bastion.
 
-:::image type="content" source="./media/baseline-network-ingress.svg" alt-text="Virtual machine baseline showing ingress flow" lightbox="./media/baseline-network-ingress.png":::
-
-:::image type="content" source="./media/baseline-network-ingress.svg" alt-text="Diagram of a virtual machine baseline that shows ingress flow." lightbox="./media/baseline-network-ingress.svg" border="false":::
+:::image type="content" source="./media/baseline-network-ingress.svg" alt-text="Diagram of a virtual machine baseline that shows ingress flow." lightbox="./media/baseline-network-ingress.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/baseline-network-ingress.vsdx) of this architecture.*
 
 #### Egress traffic
 
-:::image type="content" source="./media/baseline-network-egress.svg" alt-text="Virtual machine baseline showing ingress flow" lightbox="./media/baseline-network-egress.png":::
-
 This architecture uses standard SKU Load Balancer with outbound rules defined from the VM instances. Load Balancer was chosen because it's zone redundant.
 
-:::image type="content" source="./media/baseline-network-egress.svg" alt-text="Diagram of a virtual machine baseline that shows ingress flow." lightbox="./media/baseline-network-egress.svg" border="false":::
+:::image type="content" source="./media/baseline-network-egress.svg" alt-text="Diagram of a virtual machine baseline that shows ingress flow." lightbox="./media/baseline-network-egress.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/baseline-network-egress.vsdx) of this architecture.*
 
