@@ -26,7 +26,7 @@ This diagram shows Conditional Access and related elements that can help protect
 
 Conditional Access has mainly been focusing on protecting access from interactive humans to resources. As the number of non-human identities grow, access from these must be considered as well. Microsoft offers two features related to protecting access to and from workload identities.
 - Protecting access to applications represented by a workload identity that is not selectable in the Microsoft Entra Conditional Access portal. This option is supported by using security attributes. Assigning a security attribute to workload identities and selecting these in the Microsoft Entra Conditional Access portal is part of Microsoft Entra ID P1 license.
-- Protecting access to resources initiated by workload identities (service principals). A new feature "Microsoft Entra Workload Identies" is offered in a separate license that supports this scenario. It includes lifecycle management of workload identities including protecting access to resources with Conditional Access.
+- Protecting access to resources initiated by workload identities (service principals). A new feature "Microsoft Entra Workload Identities" is offered in a separate license that supports this scenario. It includes lifecycle management of workload identities including protecting access to resources with Conditional Access.
 
 ### Enterprise access model
 
@@ -100,7 +100,7 @@ Here are some more detailed principles and recommended practices for Conditional
 - Protect privileged users in all Microsoft 365 role-based access control (RBAC) systems.
 - Require password change and multi-factor authentication for high-risk users and sign-ins (enforced by sign-in frequency).
 - Restrict access from high-risk devices. Use an Intune compliance policy with a compliance check in Conditional Access.
-- Protect privileged systems, like access to the admininistrator portals for Office 365, Azure, AWS, and Google Cloud.
+- Protect privileged systems, like access to the administrator portals for Office 365, Azure, AWS, and Google Cloud.
 - Prevent persistent browser sessions for admins and on untrusted devices.
 - Block legacy authentication.
 - Restrict access from unknown or unsupported device platforms.

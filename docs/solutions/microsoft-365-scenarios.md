@@ -42,6 +42,8 @@ Microsoft 365 is a suite of apps that help you stay connected and get things don
 - [Publisher](https://www.microsoft.com/microsoft-365/publisher). Create professional layouts and publish content in a way that suits your audience.
 - [Intune](https://www.microsoft.com/security/business/microsoft-endpoint-manager). Secure, deploy, and manage all users, apps, and devices without disrupting your processes.
 
+API access to Microsoft 365 apps and services is facilitated through [Microsoft Graph](/graph/integration-patterns-overview).
+
 This article provides a summary of architectures and solutions that use Azure together with Microsoft 365.
 
 Watch this short video to learn how Microsoft 365 apps and services can help your organization work, learn, connect, and create: 

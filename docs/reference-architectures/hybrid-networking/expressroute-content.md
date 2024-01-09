@@ -304,7 +304,7 @@ Microsoft Learn modules:
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute/
 [aaf-cost]: /azure/architecture/framework/cost/overview
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
+[azurect]: https://github.com/Azure/NetworkMonitoring/tree/main/AzureCT
 [0]: ./images/expressroute.png "Diagram showing hybrid network architecture using Azure ExpressRoute"
 [1]: ../_images/guidance-hybrid-network-expressroute/figure2.png "Using redundant routers with ExpressRoute primary and secondary circuits"
 [2]: ../_images/guidance-hybrid-network-expressroute/figure3.png "Adding security devices to the on-premises network"
