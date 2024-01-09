@@ -89,23 +89,6 @@ Select the following button to deploy the reference architecture as an Azure Res
 
 For detailed information and extra deployment options, see the [Hub and Spoke ARM and Bicep templates](/samples/mspnp/samples/hub-and-spoke-deployment-with-connected-groups/) that deploy this solution.
 
-## IPv6 Generally Available and Ready
-
-The below services are generally available for use with IPv6 in Azure:
-- [Virtual Machines](https://azure.microsoft.com/services/virtual-machines)
-- [Virtual Machine Scale Set](https://azure.microsoft.com/products/virtual-machine-scale-sets/)
-- [Kubernetes Service](https://azure.microsoft.com/products/kubernetes-service/)
-- [Azure Service Fabric](https://azure.microsoft.com/products/service-fabric/)
-- [Azure Data Explorer (Kusto)](https://azure.microsoft.com/products/data-explorer/)
-- [App Service Static Web Apps](https://azure.microsoft.com/products/app-service/static/)
-- [Azure Media Services](https://azure.microsoft.com/products/media-services/)
-- [Virtual Network](https://azure.microsoft.com/services/virtual-network)
-- [Azure Load Balancer](https://azure.microsoft.com/solutions/load-balancing-with-azure/)
-- [ExpressRoute](https://azure.microsoft.com/products/expressroute/)
-- [Azure DNS Public Zones](https://azure.microsoft.com/products/dns/)
-- [Azure Front Door](https://azure.microsoft.com/products/frontdoor/)
-- [Azure CNI overlay for AKS](https://azure.microsoft.com/en-us/updates/public-preview-dualstack-networking-in-azure-cni-overlay-for-aks/)
-
 ## Contributors
 
 *Microsoft maintains this article. The following contributors wrote it.*
