@@ -266,5 +266,4 @@ Product documentation:
 
 Azure Architecture Center overview articles:
 
-- [Implementing the Azure blueprint for AI](/previous-versions/azure/industry-marketing/health/sg-healthcare-ai-blueprint)
 - [Microsoft Azure Well-Architected Framework](/azure/architecture/framework)
