@@ -97,6 +97,21 @@ You can use the following table to find instructions for transitioning specific 
 | Azure ExpressRoute gateway |  To transition ExpressRoute gateways, see [Azure ExpressRoute: Add IPv6 support](/azure/expressroute/expressroute-howto-add-ipv6-portal). |
 | Azure DNS zones | To add new IPv6 records, see [Manage DNS records and record sets](/azure/dns/dns-operations-recordsets-portal#update-a-record). |
 
+The below services are generally available for use with IPv6 in Azure:
+- [Virtual Machines](https://azure.microsoft.com/services/virtual-machines)
+- [Virtual Machine Scale Set](https://azure.microsoft.com/products/virtual-machine-scale-sets/)
+- [Kubernetes Service](https://azure.microsoft.com/products/kubernetes-service/)
+- [Azure Service Fabric](https://azure.microsoft.com/products/service-fabric/)
+- [Azure Data Explorer (Kusto)](https://azure.microsoft.com/products/data-explorer/)
+- [App Service Static Web Apps](https://azure.microsoft.com/products/app-service/static/)
+- [Azure Media Services](https://azure.microsoft.com/products/media-services/)
+- [Virtual Network](https://azure.microsoft.com/services/virtual-network)
+- [Azure Load Balancer](https://azure.microsoft.com/solutions/load-balancing-with-azure/)
+- [ExpressRoute](https://azure.microsoft.com/products/expressroute/)
+- [Azure DNS Public Zones](https://azure.microsoft.com/products/dns/)
+- [Azure Front Door](https://azure.microsoft.com/products/frontdoor/)
+- [Azure CNI overlay for AKS](https://azure.microsoft.com/en-us/updates/public-preview-dualstack-networking-in-azure-cni-overlay-for-aks/)
+
 ## Next steps
 
 - [IPv6 for Azure Virtual Network](/azure/virtual-network/ip-services/ipv6-overview)
