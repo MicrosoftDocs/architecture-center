@@ -260,7 +260,11 @@ Deployment for the baseline Azure OpenAI end-to-end chat components follows the 
 
 ### Development
 
-TODO:
+Azure Machine Learning prompt flow offers both a browser-based authering experience in Azure Machine Learning Studio or through a [VS Code extension](/azure/machine-learning/prompt-flow/community-ecosystem#vs-code-extension). Both options store the flow code as files. When using Azure Machine Learning Studio, the files are stored in an Azure Storage Account. When working in VS Code, the files are stored on your local filesystem.
+
+In order to follow [best practices for collaborative development](/azure/machine-learning/prompt-flow/how-to-integrate-with-llm-app-devops#best-practice-for-collaborative-development), the source files should be maintained in an online source code repository such as GitHub. This facilitates tracking of all code changes, collaboration between flow authors and integration with [deployment flows](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#deployment-flow) that test and validate all code changes.
+
+For enterprise development, you should consider using the [VS Code extension](/azure/machine-learning/prompt-flow/community-ecosystem#vs-code-extension) and the [prompt flow SDK/CLI](/azure/machine-learning/prompt-flow/community-ecosystem#prompt-flow-sdkcli) for development. The browser-based experience can be used for exploratory development. If Prompt Engineers and Data Scientists want to use the browser-based Prompt Flow UI to develop flows, the flow folder can be downloaded from the flow page in the ```Files``` panel and integrated with the source control system.
 
 ### Evaluation
 
@@ -281,7 +285,7 @@ TODO:
     - Compilation of the codebase
     - Static code analysis
 
-3. The pipeline can contain a step that requires role x to manually approve the PR prior to merging. If the PR is not approved, the merge is blocked. If the PR is approved, or there is no approval step, the feature branch is merged into the Main branch.
+3. The pipeline can contain a step that requires at least one team member aside from the committer with prompt flow expertise and familiarity with the project requirements to manually approve the PR before merging. If the PR is not approved, the merge is blocked. If the PR is approved, or there is no approval step, the feature branch is merged into the Main branch.
 4. The merge to Main triggers the build and release process for the Development environment. Specifically:
 
     a. The CI pipeline is triggered from the merge to Main. The CI pipeline performs all the steps done in the PR pipeline, as well as the following steps:
