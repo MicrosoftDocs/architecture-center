@@ -28,109 +28,64 @@ For a Microsoft-managed hub infrastructure solution, see [Hub-spoke network topo
 
 ## Architecture
 
-[ ![Diagram that shows 3 Subscriptions that explains scenarios for IPv6. Scenarios are broken up into Subscriptions. Subscription A has Hub and Spoke. Subscription B showcases internet connectivity with IPv6. Subscription C showcases private connectivity to On-Premise](media/ipv6-hub-spoke-architecture-example-001.png)](media/ipv6-hub-spoke-architecture-example-001.png#lightbox)
+[ ![Diagram that shows a Hub and Spoke architecture with the necessary components for IPv6 support.](./media/ipv6-hub-spoke.png)](./media/ipv6-hub-spoke.png#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/hub-spoke-network-topology-architecture.vsdx) of this architecture.*
 
-## Azure Approach to IPv6
+### Worklow
+- Cross-premises network connectivity: VPN Gateway or Express Route 
+- [ Express Route scenario content] - This diagram offers a detailed illustration of establishing private network connectivity utilizing the capabilities of IPv6. It provides a visual representation of the secure and efficient linkage between private networks and external systems using IPv6. Key elements such as IPv6's unique addressing scheme, security protocols, and routing strategies are depicted to enhance understanding of private network configurations in a modern, IPv6-enabled environment.
 
-During Phase 1, Azure employs a Dual Stack approach, but plans to transition to an IPv6-Only model as the platform services mature.
+- BULLET POINT 
+- BULLET POINT 
+- ETC...
 
-![Diagram that showcases the Phase 1 and Phase 2 IPv6 Approaches.](media/ipv6-azure-approach.png)
-
-## Scenario 1: Subscription A
-
-### Hub and Spoke
-
-This reference architecture implements a hub-spoke network pattern where the hub virtual network acts as a central point of connectivity to many spoke virtual networks. The spoke virtual networks connect with the hub and can be used to isolate workloads. The components required to enable IPv6 have been included. These components are User Defined Routes that must be set per subnet and optional Load Balancers.  You can also enable cross-premises scenarios by using the hub to connect to on-premises networks. 
-
-### Connectivity Components
-
-The components used in the scenario are:
-
-- [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network)
-- [Network Interface](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface?tabs=azure-portal)
-- [Azure VPN Gateway](https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways)
-- [Azure Firewall](https://learn.microsoft.com/en-us/azure/firewall/overview)
-- [Azure Bastion](https://learn.microsoft.com/en-us/azure/bastion/bastion-overview)
-- [Route Table](https://learn.microsoft.com/en-us/azure/virtual-network/manage-route-table)
-- [Load Balancer](https://azure.microsoft.com/en-us/products/load-balancer/)
-- [Network Security Group](https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview)
-- [Virtual Machines](https://azure.microsoft.com/en-us/products/virtual-machines/)
-- [Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/overview)
-- [Azure Subscription](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/organize-subscriptions)
-
-### Example
-
-![Diagram that demonstrates Hub-Spoke Diagram with IPv6 components.](media/ipv6-hub-spoke.png)
-
-## Scenario 2: Subscription B
-
-### Internet Connectivity
-
-This diagram presents a view of internet connectivity via IPv6. It showcases the connectivity from the Internet whether it be a client or a browser that enters the Virtual Network by passing through an Azure Front Door. The subnets where the Virtual Machines are, have to be configured to be Dual Stack. To learn how to enable Dual-Stack to existing Virtual Machines and Virtual Networks see [Add a dual-stack network to an existing virtual machine using Azure PowerShell](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-powershell)
-
-### Connectivity Components
-The components used in the scenario are:
-- [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network)
-- [Network Interface](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface?tabs=azure-portal)
-- [Route Table](https://learn.microsoft.com/en-us/azure/virtual-network/manage-route-table)
-- [Load Balancer](https://azure.microsoft.com/en-us/products/load-balancer/)
-- [Network Security Group](https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview)
-- [Virtual Machines](https://azure.microsoft.com/en-us/products/virtual-machines/)
-- [Azure Subscription](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/organize-subscriptions)
-
-### Example
-
-![Diagram that demonstrates internet connectivity.](media/ipv6-internet-connectivity-2.png)
-
-## Scenario 3: Subscription C
-
-### Private Connectivity
-
-This diagram offers a detailed illustration of establishing private network connectivity utilizing the capabilities of IPv6. It provides a visual representation of the secure and efficient linkage between private networks and external systems using IPv6. Key elements such as IPv6's unique addressing scheme, security protocols, and routing strategies are depicted to enhance understanding of private network configurations in a modern, IPv6-enabled environment.
-
-### Connectivity Components
-
-The components used in the scenario are:
-- [ExpressRoute](https://azure.microsoft.com/products/expressroute/)
-- [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network)
-- [Network Interface](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface?tabs=azure-portal)
-- [Azure VPN Gateway](https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways)
-- [Route Table](https://learn.microsoft.com/en-us/azure/virtual-network/manage-route-table)
-- [Load Balancer](https://azure.microsoft.com/en-us/products/load-balancer/)
-- [Virtual Machines](https://azure.microsoft.com/en-us/products/virtual-machines/)
-- [Azure Subscription](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/organize-subscriptions)
-
-### Example
-
-![Diagram that demonstrates private connectivity.](media/ipv6-private-connectivity-2.png)
-
-## Deploy an Example IPv6 Scenario
-
-This reference architecture implements a Virtual Machine in a Virtual Network behind a Load Balancer to showcase how IPv6 can be used. 
-The architecture described can be used with an existing Hub and Spoke implementation and more scenarios are added as they become available.
-
-For more information, see [Hub-and-spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology).
 
 ### Components
 
 - [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) is the fundamental building block for private networks in Azure. Virtual Network enables many Azure resources, such as Azure VMs, to securely communicate with each other, cross-premises networks, and the internet.
-- [Public IP Address](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses) is used respectively for incoming IPv4 and IPv6 connectivity to the Load Balancer. 
-- [Load Balancer](https://azure.microsoft.com/en-us/products/load-balancer/) is used to send the incoming traffic to the backend Virtual Machines. 
-- [Route Table](https://learn.microsoft.com/en-us/azure/virtual-network/manage-route-table) A Route Table in Azure is a set of user-defined routes that allow for custom path definitions for network traffic. Each route in the table specifies a destination CIDR block and the next hop, which could be a virtual appliance, a virtual network gateway, a network interface, or a peering.
-- [Network Security Group](https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview) is configured to accept or reject certain IPv6 ranges. A Network Security Group (NSG) in Azure is a feature that provides security for virtual networks by filtering and analyzing inbound and outbound traffic. NSGs contain a list of Access Control List (ACL) rules that allow or deny network traffic to your resources based on source and destination IP address, port, and protocol
-- [Virtual Machines](https://azure.microsoft.com/en-us/products/virtual-machines/) is configured to receive IPv4 and IPv6 traffic. 
+- [Public IP Address](/azure/virtual-network/ip-services/public-ip-addresses) is used respectively for incoming IPv4 and IPv6 connectivity to the Load Balancer. 
+- [Load Balancer](/products/load-balancer/) is used to send the incoming traffic to the backend Virtual Machines. 
+- [Route Table](/azure/virtual-network/manage-route-table) A Route Table in Azure is a set of user-defined routes that allow for custom path definitions for network traffic. Each route in the table specifies a destination CIDR block and the next hop, which could be a virtual appliance, a virtual network gateway, a network interface, or a peering.
+- [Network Security Group](s/azure/virtual-network/network-security-groups-overview) is configured to accept or reject certain IPv6 ranges. A Network Security Group (NSG) in Azure is a feature that provides security for virtual networks by filtering and analyzing inbound and outbound traffic. NSGs contain a list of Access Control List (ACL) rules that allow or deny network traffic to your resources based on source and destination IP address, port, and protocol
+- [Virtual Machines](/products/virtual-machines/) is configured to receive IPv4 and IPv6 traffic. 
+- [ExpressRoute](https://azure.microsoft.com/products/expressroute/)
+- [Network Interface](/azure/virtual-network/virtual-network-network-interface)
+- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
+- [Azure Subscription](/azure/cloud-adoption-framework/ready/azure-best-practices/organize-subscriptions)
+- [Azure Firewall](/azure/firewall/overview)
+- [Azure Bastion](/azure/bastion/bastion-overview)
+- [Azure Monitor](/azure/azure-monitor/overview)
 
-## Deploy the sample architecture
 
-#### [Azure portal](#tab/portal)
+### Alternatives
+
+Instead of connecting to the cloud environment via a VPN Gateway or Express Route, you can also use Azure Front Door to connect over the internet. You can use a client or a browser that enters the Virtual Network by passing through an Azure Front Door. 
+
+![Diagram that demonstrates internet connectivity.](media/ipv6-internet-connectivity-2.png)
+
+The subnets where the Virtual Machines are, have to be configured to be Dual Stack. To learn how to enable Dual-Stack to existing Virtual Machines and Virtual Networks see [Add a dual-stack network to an existing virtual machine using Azure PowerShell](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-powershell)
+
+## Update hub virtual network
+
+This reference architecture implements a hub-spoke network pattern where the hub virtual network acts as a central point of connectivity to many spoke virtual networks. The spoke virtual networks connect with the hub and can be used to isolate workloads. The components required to enable IPv6 have been included. These components are User Defined Routes that must be set per subnet and optional Load Balancers.  You can also enable cross-premises scenarios by using the hub to connect to on-premises networks. 
+
+[ADD CONTENT, EXAMPLES, ETC.]
+
+## Update spoke virtual networks
+
+[ADD CONTENT, EXAMPLES ETC.]
+
+
+## Deploy an Example IPv6 Scenario
+
+This reference architecture implements a Virtual Machine in a Virtual Network behind a Load Balancer to showcase how IPv6 can be used. The architecture described can be used with an existing Hub and Spoke implementation and more scenarios are added as they become available.
+
+For more information, see [Hub-and-spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology).
 
 Select the following button to deploy the reference architecture as an Azure Resource Manager (ARM) template in the Azure portal:
 
 [![Deploy to Azure](../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fipv6-in-vnet-stdlb%2Fazuredeploy.json)
-
----
 
 For detailed information and extra deployment options, see the [Hub and Spoke ARM and Bicep templates](/samples/mspnp/samples/hub-and-spoke-deployment-with-connected-groups/) that deploy this solution.
 
