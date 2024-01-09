@@ -41,7 +41,7 @@ The following table provides the configuration details:
 
 ### Required drivers
 
-To take the advantage of the  GPU capabilities of [NC A100 v4](/azure/virtual-machines/nc-a100-v4-series) series VMs, you need to install NVIDIA GPU drivers.
+To take advantage of the GPU capabilities of [NC A100 v4](/azure/virtual-machines/nc-a100-v4-series) series VMs, you need to install NVIDIA GPU drivers.
 
 ## Ansys HFSS installation
 
@@ -91,7 +91,7 @@ This table shows the total elapsed times recorded for running the simulation wit
 
 The following graph shows the relative speed increase as the number of GPUs increases:
 
-![Graph that shows a the relative speed increases for the Pedestrian model.](media/pedestrian-graph.png)
+![Graph that shows the relative speed increases for the Pedestrian model.](media/pedestrian-graph.png)
 
 ### Autonomous Vehicular Radar_ADP model
 
