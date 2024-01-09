@@ -26,7 +26,7 @@ There are three types of updates for AKS, each one building on the next:
 
 |Update type|Frequency of upgrade|[Planned Maintenance supported](/azure/aks/planned-maintenance)|Supported operation methods|Target|Link to documentation |
 |--|--|--|--|--|--|
-|Node OS security patches |Nightly|Yes |Automatic (weekly), manual (nightly)|Node|[AKS upgrade](/azure/aks/upgrade)|
+|Node OS security patches |Nightly|Yes |Automatic (weekly), manual (nightly)|Node|[Auto Upgrade Node Images](/azure/aks/auto-upgrade-node-os-image)|
 |Node image version upgrades|**Linux**: [Weekly](https://releases.aks.azure.com/)<br>**Windows**: [Monthly](https://releases.aks.azure.com/)|Yes|[Automatic](/azure/aks/auto-upgrade-node-os-image), manual|Node pool|[AKS node image upgrade](/azure/aks/node-image-upgrade)|
 |Kubernetes version (cluster) upgrades|[Quarterly](https://kubernetes.io/releases/)|Yes| [Automatic](/azure/aks/auto-upgrade-cluster), manual|Cluster and node pool|[AKS cluster upgrade](/azure/aks/upgrade-cluster?tabs=azure-cli)|
 
