@@ -132,7 +132,7 @@ publish/
 # Publish Web Output
 *.[Pp]ublish.xml
 *.azurePubxml
-# TODO: Comment the next line if you want to checkin your web deploy settings 
+# TODO: Comment the next line if you want to checkin your web deploy settings
 # but database connection strings (with potential passwords) will be unencrypted
 *.pubxml
 *.publishproj
@@ -255,3 +255,10 @@ docs/.vscode/settings.json
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+/e2e/.example.spec.ts
+.github/workflows/playwright.yml
+package-lock.json
+package.json
+playwright.config.ts
+tests-examples/demo-toyota.spec.ts
+playwright.config.ts
