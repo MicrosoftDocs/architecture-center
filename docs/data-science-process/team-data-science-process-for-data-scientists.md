@@ -72,7 +72,8 @@ Principal author:
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
-See [Team Data Science Process for Developer Operations](team-data-science-process-for-devops.md). This article explores the Developer Operations (DevOps) functions that are specific to an Advanced Analytics and Cognitive Services solution implementation.
+
+Read [set up data science environments for use in the Team Data Science Process](environment-setup.md).
 
 ## Related resources
 
