@@ -1236,6 +1236,8 @@ items:
             href: guide/hpc/ansys-cfx.yml
           - name: Ansys Fluent
             href: guide/hpc/ansys-fluent.yml
+          - name: Ansys HFSS
+            href: guide/hpc/ansys-hfss.yml  
           - name: Ansys LS-DYNA
             href: guide/hpc/ls-dyna.yml
           - name: Ansys Rocky
@@ -1258,6 +1260,8 @@ items:
           href: guide/hpc/barracuda-virtual-reactor.yml
         - name: CP2K
           href: guide/hpc/cp2k.yml
+        - name: Devito
+          href: guide/hpc/devito-virtual-machine.yml
         - name: Engys deployments
           items:
           - name: Engys ELEMENTS
