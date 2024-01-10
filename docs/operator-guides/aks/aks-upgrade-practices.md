@@ -26,7 +26,7 @@ There are three types of updates for AKS, each one building on the next:
 
 |Update type|Frequency of upgrade|[Planned Maintenance supported](/azure/aks/planned-maintenance)|Supported operation methods|Target|Link to documentation |
 |--|--|--|--|--|--|
-|Node OS security patches |Nightly|Yes |Automatic (weekly), manual (nightly)|Node|[Auto Upgrade Node Images](/azure/aks/auto-upgrade-node-os-image)|
+|Node OS security patches |Nightly|Yes |Automatic (weekly), manual/unmanaged (nightly)|Node|[Auto Upgrade Node Images](/azure/aks/auto-upgrade-node-os-image)|
 |Node image version upgrades|**Linux**: [Weekly](https://releases.aks.azure.com/)<br>**Windows**: [Monthly](https://releases.aks.azure.com/)|Yes|[Automatic](/azure/aks/auto-upgrade-node-os-image), manual|Node pool|[AKS node image upgrade](/azure/aks/node-image-upgrade)|
 |Kubernetes version (cluster) upgrades|[Quarterly](https://kubernetes.io/releases/)|Yes| [Automatic](/azure/aks/auto-upgrade-cluster), manual|Cluster and node pool|[AKS cluster upgrade](/azure/aks/upgrade-cluster?tabs=azure-cli)|
 
@@ -123,6 +123,8 @@ az aks maintenanceconfiguration show -g <ResourceGroupName> --cluster-name <AKSC
 ```
 
 If a cluster maintenance window isn't configured, node image updates occur biweekly. As much as possible, AKS maintenance occurs within the configured window, but the time of maintenance isn't guaranteed.
+
+You can check the status of upgrade events through your [azure activity logs](/azure/azure-monitor/essentials/activity-log?tabs=powershell), or by reviewing the [resource logs](/azure/aks/monitor-aks-reference#resource-logs) on your cluster.
 
 You can [subscribe via Azure Event Grid](/azure/aks/quickstart-event-grid?tabs=azure-cli) to AKS upgrade events.  These events help to track node status changes during upgrade processes, and alert you when new version of Kubernetes is available.
 
