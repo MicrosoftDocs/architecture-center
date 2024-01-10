@@ -74,7 +74,6 @@ Principal author:
 
 ## Next steps
 
-- [Detailed information about the classifiers that this model uses](https://github.com/Azure/cortana-intelligence-personalization-data-science-playbook/blob/master/Personalized_Offers_from_Classifiers_Use_Case.md#types)
 - [MLOps: Model management, deployment, lineage, and monitoring with Azure Machine Learning](/azure/machine-learning/concept-model-management-and-deployment)
 - [Build a real-time recommendation API on Azure](../../reference-architectures/ai/real-time-recommendation.yml)
 - [Microsoft Certified: Data Scientist Associate certification](/certifications/azure-data-scientist)

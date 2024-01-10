@@ -36,7 +36,7 @@ The *paradox of automation* claims that the more efficient an automated system b
 
 In the preceding diagram, the **Control** and **Optimization** categories relate to automation of work. On this side of the AI spectrum, there are practically infinite problem spaces. Subject matter expertise is a strategic asset, simulations are the most doable training option, and explainability is paramount.
 
-Orchestrators include [smart manufacturing](https://en.wikipedia.org/wiki/Smart_manufacturing) and the [Bonsai machine teaching platform](https://azure.microsoft.com/services/project-bonsai/). Use cases include advanced robotics, autonomous vehicles, dark factories, smart sensors, route optimization, inventory optimization, and virtual assistants.
+Orchestrators include [smart manufacturing](https://en.wikipedia.org/wiki/Smart_manufacturing) and the [Bonsai machine teaching platform](https://www.microsoft.com/ai/autonomous-systems-project-bonsai-how-it-works). Use cases include advanced robotics, autonomous vehicles, dark factories, smart sensors, route optimization, inventory optimization, and virtual assistants.
 
 ## Reinforcement learning
 
@@ -189,7 +189,7 @@ While ML experts are few, subject-matter experts are plentiful. Globally, there 
 
 For engineers, machine teaching raises the bar of abstraction beyond AI algorithm selection and hyper-parameter tweaking to focus on more valuable application domain problems. Engineers building autonomous systems can create accurate, detailed models of systems and environments, and make them intelligent using methods like deep learning, imitation learning, and reinforcement learning. Another welcome outcome of machine teaching is a faster time to model deployment, by reducing or eliminating the need for manual intervention from machine learning experts during development.
 
-Machine teaching streamlines the process of building ML solutions by looking at common ML practices and adopting beneficial strategies into its own methods. With instruction and configuration from the developer, [Bonsai](https://azure.microsoft.com/services/project-bonsai/), the machine teaching service in the [Microsoft Autonomous Systems Platform](https://www.microsoft.com/ai/autonomous-systems-platform), can automate the development of AI models into an AI system.
+Machine teaching streamlines the process of building ML solutions by looking at common ML practices and adopting beneficial strategies into its own methods. With instruction and configuration from the developer, [Bonsai](https://www.microsoft.com/ai/autonomous-systems-project-bonsai-how-it-works), the machine teaching service in the [Microsoft Autonomous Systems Platform](https://www.microsoft.com/ai/autonomous-systems-platform), can automate the development of AI models into an AI system.
 
 Bonsai provides an easily understandable central dashboard that tracks the current state of each project with version control tools. Using this machine-teaching infrastructure ensures that model results can be reproduced, and lets developers easily refresh AI systems with future AI algorithmic breakthroughs.
 
@@ -295,7 +295,7 @@ The following diagram shows the phases of iterative machine teaching model devel
 4. Measure real system dynamics and test trained model on real equipment.
 5. Expand model to cover more equipment variation.
 
-Defining exact parameters for machine teaching projects requires quite a bit of experimentation and empirical exploration. A machine teaching platform like [Bonsai](https://azure.microsoft.com/services/project-bonsai/) in the [Microsoft Autonomous Systems platform](https://www.microsoft.com/ai/autonomous-systems-platform) uses DRL innovations and simulations to help simplify AI model development.
+Defining exact parameters for machine teaching projects requires quite a bit of experimentation and empirical exploration. A machine teaching platform like Bonsai in the [Microsoft Autonomous Systems platform](https://www.microsoft.com/ai/autonomous-systems-platform) uses DRL innovations and simulations to help simplify AI model development.
 
 ### Example project
 
@@ -307,9 +307,7 @@ First, find or develop a simulator that can simulate agents, sensors, and the en
 
 ![Simulink model for steel beam manufacturing process.](../media/machine-teaching-4-4-3.png)
 
-Use the [Bonsai](/bonsai/) machine teaching service in the Microsoft Autonomous Systems Platform to build a machine teaching plan into a model, train the model against the simulator, and deploy the trained AI system to the real production facility.
-
-[Inkling](/bonsai/inkling/) is a purpose-specific language to formally describe machine teaching plans. In Bonsai, you can use Inkling to deconstruct the problem into schema:
+Use the Bonsai machine teaching service in the Microsoft Autonomous Systems Platform to build a machine teaching plan into a model, train the model against the simulator, and deploy the trained AI system to the real production facility. Inkling is a purpose-specific language to formally describe machine teaching plans. In Bonsai, you can use Inkling to deconstruct the problem into schema:
 
 ![Define machine state and control action in Inkling code.](../media/machine-teaching-4-4-4.png)
 
@@ -331,7 +329,7 @@ In the sample Cartpole project in Bonsai, the goal is to teach a pole to remain 
 
 Applying a force to the cart controls the system. The supported agent actions are to push the cart to the left or the right. The program provides a positive reward for every time step that the pole remains upright. The episode ends when the pole is over 15 degrees from vertical, or the cart moves more than a predefined number of units from the center.
 
-The example uses [Inkling](/bonsai/inkling/) language to write the machine teaching program, and the provided Cartpole simulator to speed and improve the training.
+The example uses Inkling language to write the machine teaching program, and the provided Cartpole simulator to speed and improve the training.
 
 ![Inkling code and Cartpole simulator](../media/cartpole.png)
 
@@ -339,10 +337,7 @@ The following Bonsai screenshot shows a Cartpole training, with **Goal satisfact
 
 ![Bonsai dashboard showing the Cartpole training example.](../media/bonsai.png)
 
-For more information about the Cartpole example or to try it yourself, see:
-
-- [Quickstart: Balance a pole with AI (Cartpole)](/bonsai/quickstart/cartpole/)
-- [Learn how you can teach an AI agent to balance a pole](https://blogs.microsoft.com/ai-for-business/cartpole-demo/)
+For more information about the Cartpole example or to try it yourself, see [Learn how you can teach an AI agent to balance a pole](https://blogs.microsoft.com/ai-for-business/cartpole-demo/).
 
 #### Oil drilling
 
@@ -373,8 +368,6 @@ Principal author:
 - [Microsoft broadens availability of autonomous systems tools for engineers and developers](https://blogs.microsoft.com/ai-for-business/build-bonsai-public-preview/)
 - [Innovation space: Autonomous systems (Video)](https://www.youtube.com/watch?v=3hSAFtWcui8&feature=youtu.be)
 - [Microsoft The AI Blog](https://blogs.microsoft.com/ai/)
-- [Bonsai documentation](/bonsai/)
-- [Microsoft AirSim on GitHub](https://github.com/Microsoft/AirSim)
 - [Aerial Informatics and Robotics Platform (AirSim)](https://www.microsoft.com/research/project/aerial-informatics-robotics-platform/)
 - [Gazebo](http://gazebosim.org/)
 - [Simulink](https://www.mathworks.com/products/simulink.html)

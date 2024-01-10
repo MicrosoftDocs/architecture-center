@@ -91,7 +91,7 @@ The following diagram shows the patient record creation request flow:
 [IMS-DC]: https://www.sawaal.com/mainframe-interview-questions/what-is-ims-db-dc_9366
 [Information about TmaxSoft OpenFrame on the Microsoft commercial marketplace]: https://azuremarketplace.microsoft.com/marketplace/apps/tmaxsoft.openframe?tab=Overview
 [Install TmaxSoft OpenFrame on Azure article]: /azure/virtual-machines/workloads/mainframe-rehosting/tmaxsoft/install-openframe-azure
-[Lift-and-Shift Me Up: The Benefits of Mainframe Rehosting]: https://www.tmaxsoft.com/lift-and-shift-me-up-the-benefits-of-mainframe-rehosting
+[Lift-and-Shift Me Up: The Benefits of Mainframe Rehosting]: https://www.tmaxsoft.com/en/press/view?seq=262
 [Lift and shift]: https://www.tmaxsoft.com/wp-content/uploads/TmaSof_eBook_OpenFrame.pdf
 [Mainframe rehosting on Azure virtual machines]: /azure/virtual-machines/workloads/mainframe-rehosting/overview
 [Message queues]: https://www.ibm.com/cloud/learn/message-queues

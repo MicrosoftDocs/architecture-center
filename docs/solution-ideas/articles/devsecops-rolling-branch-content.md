@@ -67,7 +67,6 @@ Principal author:
 ## Next steps
 
 * [Secure DevOps](https://www.microsoft.com/securityengineering/devsecops)
-* [Security strategy essentials](https://github.com/githubtraining/security-strategy-essentials)
 * [Learn GitHub Actions](https://docs.github.com/actions/learn-github-actions)
 * [Azure Boards documentation](/azure/devops/boards)
 * [Azure Container Registry documentation](/azure/container-registry)

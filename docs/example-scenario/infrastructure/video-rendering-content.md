@@ -149,7 +149,6 @@ Click the link below to deploy the solution.
 Product documentation:
 
 - [What is Azure Batch?](/azure/batch/batch-technical-overview)
-- [Using containers on Azure Batch][batch-containers]
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
 - [Azure Storage accounts](/azure/storage/common/storage-account-overview)
 - [What are Virtual Machine Scale Sets?](/azure/virtual-machine-scale-sets/overview)
@@ -185,7 +184,6 @@ Learn modules:
 [batch-pricing]: https://azure.microsoft.com/pricing/details/batch
 [batch-doc]: /azure/batch
 [batch-overview]: https://azure.microsoft.com/services/batch
-[batch-containers]: https://github.com/Azure/batch-shipyard
 [azure-arm-templates]: /azure/azure-resource-manager/template-deployment-overview
 [batch-plugins]: /azure/batch/batch-rendering-service#options-for-rendering-on-azure
 [visio-download]: https://arch-center.azureedge.net/architecture-video-rendering.vsdx

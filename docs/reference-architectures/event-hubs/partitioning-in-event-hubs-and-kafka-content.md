@@ -356,7 +356,7 @@ Principal author:
 [Azure Event Hubs client library for Java]: /java/api/overview/azure/messaging-eventhubs-readme
 [Azure Event Hubs client library for Javascript]: /javascript/api/overview/azure/event-hubs-readme
 [Azure Event Hubs client library for Python]: /python/api/overview/azure/eventhub-readme
-[Azure Event Hubs Event Processor client library for .NET]: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor
+[Azure Event Hubs Event Processor client library for .NET]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub/Azure.Messaging.EventHubs.Processor
 [Balance partition load across multiple instances of your application]: /azure/event-hubs/event-processor-balance-partition-load
 [Dynamically add partitions to an event hub in Azure Event Hubs]: /azure/event-hubs/dynamically-add-partitions
 [Effective strategies for Kafka topic partitioning]: https://blog.newrelic.com/engineering/effective-strategies-kafka-topic-partitioning/

@@ -114,7 +114,7 @@ Principal author:
 ## Next steps
 
 - [Citrix documentation for planning and deployment](https://docs.citrix.com/en-us/citrix-virtual-apps-desktops/install-configure)
-- [Azure Resource Manager templates to deploy Citrix ADC](https://github.com/citrix/netscaler-azure-templates)
+- [Azure Resource Manager templates to deploy Citrix ADC](https://github.com/netscaler/citrix-adc-azure-templates)
 - [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview)
 - [Azure Load Balancer](/azure/application-gateway/overview)
 - [Active Directory Domain Services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)

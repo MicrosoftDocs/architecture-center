@@ -136,9 +136,8 @@ Security and monitoring are considerations for IoT Edge systems. For this exampl
 **GitHub projects:**
 
 - [CloudEvents](https://github.com/cloudevents/spec)
-- [NVIDIA Container Toolkit](https://github.com/nvidia/nvidia-docker/wiki)
 - [Azure IoT Edge and RabbitMQ](https://github.com/idavis/iot-edge-rabbitmq)
-- [Cookiecutter Template for Azure IoT Edge Python Module](https://github.com/Azure/cookiecutter-azure-iot-edge-module)
+- [Cookiecutter template for Azure IoT Edge Python Module](https://github.com/Azure/cookiecutter-azure-iot-edge-module)
 - [Streaming at Scale](https://github.com/Azure-Samples/streaming-at-scale)
 - [ServiceBusExplorer](https://github.com/paolosalvatori/ServiceBusExplorer)
 - [DASH for Azure Storage](https://github.com/MicrosoftDX/Dash)

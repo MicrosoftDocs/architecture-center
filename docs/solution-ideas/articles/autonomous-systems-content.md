@@ -26,7 +26,7 @@ Project Bonsai speeds the creation of AI-powered automation. Development and dep
 
 ### Components
 
-- [Project Bonsai](https://azure.microsoft.com/services/project-bonsai) simplifies machine teaching with DRL to train and deploy smart autonomous systems.
+- [Project Bonsai](https://www.microsoft.com/ai/autonomous-systems-project-bonsai-how-it-works) simplifies machine teaching with DRL to train and deploy smart autonomous systems.
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry) is a managed, private Docker registry service that's used to store and manage container images and artifacts for all types of container deployments. Images are securely stored, and can be replicated to other regions to speed up deployment. You can build on demand or automate builds with triggers, such as source code commits and base image updates. Container Registry is based on the open-source Docker Registry 2.0
 
   This architecture uses the basic tier of Container Registry to store exported brains and uploaded simulators.
@@ -94,11 +94,9 @@ The Bonsai platform runs on Azure and charges resource costs to your Azure subsc
 
 #### Inkling
 
-[Inkling](/bonsai/inkling) is a declarative, statically typed programming language for training AI in Bonsai. Inkling abstracts away the dynamic AI algorithms that require expertise in machine learning, enabling more developers to program AI. An Inkling file defines _concepts_ necessary to teach the AI, and _curriculum_, or methods for teaching the concepts.
+Inkling is a declarative, statically typed programming language for training AI in Bonsai. Inkling abstracts away the dynamic AI algorithms that require expertise in machine learning, enabling more developers to program AI. An Inkling file defines _concepts_ necessary to teach the AI, and _curriculum_, or methods for teaching the concepts.
 
 ![Inkling example](../media/inkling.png)
-
-For more information about Inkling, see the [Inkling programming language reference](/bonsai/inkling).
 
 #### Training engine
 
@@ -118,7 +116,7 @@ The Cartpole sample has a pole attached to a cart by an unactivated joint. The c
 
 The pole starts upright, and the goal is to keep it upright as the cart moves. There is a reward generated for every time interval that the pole remains upright. A training episode ends when the pole is more than 15 degrees from vertical, or when the cart moves more than a predefined number of units from the center of the track.
 
-The sample uses [Inkling](/bonsai/inkling) language to write the machine teaching program, and the provided Cartpole simulator to speed and improve the training.
+The sample uses Inkling language to write the machine teaching program, and the provided Cartpole simulator to speed and improve the training.
 
 ![A depiction of the Cartpole simulator, and some Inkling code](../media/cartpole.png)
 
@@ -128,7 +126,6 @@ The following Bonsai screenshot shows Cartpole training progress, with **Goal sa
 
 For more information about the Cartpole example, or to try it yourself, see:
 
-- [Quickstart: Balance a pole with AI (Cartpole)](/bonsai/quickstart/cartpole)
 - [Learn how you can teach an AI agent to balance a pole](https://blogs.microsoft.com/ai-for-business/cartpole-demo)
 
 ### Simulators
@@ -179,8 +176,6 @@ Principal author:
 - [Autonomy for industrial control systems](https://www.microsoft.com/ai/autonomous-systems-solutions)
 - [Innovation space: Autonomous systems (Video)](https://www.youtube.com/watch?v=3hSAFtWcui8&feature=youtu.be)
 - [Microsoft The AI Blog](https://blogs.microsoft.com/ai)
-- [Microsoft Autonomous Systems](/autonomous-systems)
-- [Bonsai documentation](/bonsai)
 - [Aerial Informatics and Robotics Platform (AirSim)](https://www.microsoft.com/research/project/aerial-informatics-robotics-platform)
 - [How Azure Machine Learning works: Architecture and concepts](/azure/machine-learning/concept-azure-machine-learning-architecture)
 

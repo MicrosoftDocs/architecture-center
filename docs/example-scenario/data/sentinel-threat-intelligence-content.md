@@ -233,9 +233,9 @@ To add a new chart that shows threat indicators by threat type:
 
 ## Next steps
 
-Go to Microsoft Sentinel on [GitHub](https://github.com/Azure/Azure-Sentinel) to see contributions by the community at large and by Microsoft. Here you find new ideas, templates, and conversations about all the feature areas of Microsoft Sentinel.
+Go to the [Microsoft Sentinel repo](https://github.com/Azure/Azure-Sentinel) on GitHub to see contributions by the community at large and by Microsoft. Here you find new ideas, templates, and conversations about all the feature areas of Microsoft Sentinel.
 
-Microsoft Sentinel workbooks are based on Azure Monitor workbooks, so extensive documentation and templates are available. A great place to start is [Create interactive reports with Azure Monitor workbooks](/azure/azure-monitor/app/usage-workbooks). There's a rich community of Azure Monitor workbook users on [GitHub](https://github.com/microsoft/Application-Insights-Workbooks), where you can download more templates and contribute your own templates.
+Microsoft Sentinel workbooks are based on Azure Monitor workbooks, so extensive documentation and templates are available. A great place to start is [Create interactive reports with Azure Monitor workbooks](/azure/azure-monitor/app/usage-workbooks). There's collection of community driven [Azure Monitor Workbook Templates](https://github.com/microsoft/Application-Insights-Workbooks) on GitHub to download.
 
 To learn more about the featured technologies, see:
 
