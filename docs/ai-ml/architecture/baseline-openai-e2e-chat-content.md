@@ -260,7 +260,7 @@ Deployment for the baseline Azure OpenAI end-to-end chat components follows the 
 
 ### Development
 
-Azure Machine Learning prompt flow offers both a browser-based authering experience in Azure Machine Learning Studio or through a [VS Code extension](/azure/machine-learning/prompt-flow/community-ecosystem#vs-code-extension). Both options store the flow code as files. When using Azure Machine Learning Studio, the files are stored in an Azure Storage Account. When working in VS Code, the files are stored on your local filesystem.
+Azure Machine Learning prompt flow offers both a browser-based authoring experience in Azure Machine Learning Studio or through a [VS Code extension](/azure/machine-learning/prompt-flow/community-ecosystem#vs-code-extension). Both options store the flow code as files. When using Azure Machine Learning Studio, the files are stored in an Azure Storage Account. When working in VS Code, the files are stored on your local filesystem.
 
 In order to follow [best practices for collaborative development](/azure/machine-learning/prompt-flow/how-to-integrate-with-llm-app-devops#best-practice-for-collaborative-development), the source files should be maintained in an online source code repository such as GitHub. This facilitates tracking of all code changes, collaboration between flow authors and integration with [deployment flows](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#deployment-flow) that test and validate all code changes.
 
