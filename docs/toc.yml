@@ -1985,8 +1985,6 @@ items:
       - name: CI/CD for Synapse Analytics
         href: /azure/synapse-analytics/cicd/continuous-integration-delivery
         maintainContext: true
-      - name: DevOps for quantum computing
-        href: guide/quantum/devops-for-quantum-computing.yml
       - name: DevSecOps on AKS
         href: guide/devsecops/devsecops-on-aks.yml
       - name: Platform automation for VMware Solution
