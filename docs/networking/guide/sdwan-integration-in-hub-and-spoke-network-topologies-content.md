@@ -204,7 +204,7 @@ There's a limit to the number of routes that ExpressRoute Gateways can advertise
 The total number of routes advertised to circuits by ExpressRoute Gateways is the sum of the number of routes learned from Route Server and the number of prefixes that make up the Azure hub and spoke network’s address space. To avoid outages due to dropped BGP sessions, we recommend you implement the following mitigations:
 
 - Use native SDWAN devices' features to limit the number of routes announced to Route Server, if the feature is available.
-- Use [Azure Monitor Alerts](azure-monitor/alerts/alerts-overview) to proactively detect spikes in the number of routes announced by ExpressRoute Gateways. The metric to monitor is named *Count of Routes Advertised to Peer*, as documented in [ExpressRoute monitoring](/azure/expressroute/expressroute-monitoring-metrics-alerts).
+- Use [Azure Monitor Alerts](/azure/azure-monitor/alerts/alerts-overview) to proactively detect spikes in the number of routes announced by ExpressRoute Gateways. The metric to monitor is named *Count of Routes Advertised to Peer*, as documented in [ExpressRoute monitoring](/azure/expressroute/expressroute-monitoring-metrics-alerts).
 
 ### BGP peers
 
