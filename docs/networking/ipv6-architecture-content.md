@@ -20,10 +20,9 @@ categories:
 
 # Overview
 
-IPv6 is part of Microsoft's Promise, a commitment we uphold to our customers. This Promise outlines the expected behaviors and capabilities of our cloud platforms. It signifies our top-level commitment and mirrors the key developments across our platform.
+This reference architecture showcases an IPv6 hub-spoke network pattern with customer-managed hub infrastructure components. It uses the [Hub-spoke network topology](/azure/architecture/reference-architectures\hybrid-networking\hub-spoke-content) as its starting point.
 
-This reference architecture showcases an IPv6 hub-spoke network pattern with customer-managed hub infrastructure components. 
-For a Hub-Spoke topology that doesn't use IPv6, see [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures\hybrid-networking\hub-spoke-content).
+IPv6 is part of Microsoft's Promise, a commitment we uphold to our customers. This Promise outlines the expected behaviors and capabilities of our cloud platforms. It signifies our top-level commitment and mirrors the key developments across our platform.  
 For a Microsoft-managed hub infrastructure solution, see [Hub-spoke network topology with Azure Virtual WAN](/azure/architecture/networking/hub-spoke-vwan-architecture).
 
 ## Architecture
@@ -84,6 +83,14 @@ Instead of connecting to the cloud environment via a VPN Gateway or Express Rout
 The Azure Front Door natively supports end-to-end IPv6 connectivity and the HTTP/2 protocol. Currently, HTTP/2 support is active for all Azure Front Door configurations. No further action is required from customers, see [HTTP/2 support in Azure Front Door](/azure/frontdoor/front-door-http2)
 
 The subnets where the Virtual Machines are, have to be configured to be Dual Stack. To learn how to enable Dual-Stack to existing Virtual Machines and Virtual Networks see [Add a dual-stack network to an existing virtual machine using Azure PowerShell](/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-powershell)
+
+## Transition the hub virtual network
+
+
+
+## Transition the spoke virtual networks
+
+
 
 ## Changes to Reference Architecture to enable IPv6
 
