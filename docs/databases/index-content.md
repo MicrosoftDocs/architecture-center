@@ -2,15 +2,17 @@ This article provides an overview of the Azure database solutions described in A
 
 ![Diagram that contrasts relational database management system and big data solutions.](_images/architecture-design-types.svg)
 
-Azure Database solutions include both traditional relational database management system (RDBMS) and big data solutions.
+Azure Database solutions include traditional relational database management system (RDBMS) (this includes analytic solutions) and NoSQL solutions.
 
 RDBMS workloads include online transaction processing (OLTP) and online analytical processing (OLAP).
 Data from multiple sources in the organization can be consolidated into a data warehouse.
 You can use an extract, transform, and load (ETL) process to move and transform the source data.
 
 A big data architecture is designed to handle the ingestion, processing, and analysis of large or complex data.
-Big data solutions typically involve a large amount of non-relational data, which traditional RDBMS systems aren't well suited to store.
-This type of database is referred to as *NoSQL* (not only SQL).
+Big data solutions typically involve a large amount of relational and non-relational data, which traditional RDBMS systems aren't well suited to store.
+This type of datastores are made of Data Lakes, lakehouses, etc.
+
+NoSQL databases are interchangeably referred to as “nonrelational,” “NoSQL DBs,” or “non-SQL” to highlight the fact that they can handle huge volumes of rapidly changing, unstructured data in different ways than a relational (SQL, RDBMS) database with rows and tables. For more information on NoSQL databases, please refer to [What are NoSQL databases?](https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-nosql-database)
 
 This article provides resources to learn about Azure databases. It outlines paths to implement the architectures that meet your needs, and best practices to keep in mind as you design your solutions.
 
