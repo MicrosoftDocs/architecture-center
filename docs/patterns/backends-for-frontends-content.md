@@ -38,7 +38,7 @@ Use this pattern when:
 - A shared or general purpose backend service must be maintained with significant development overhead.
 - You want to optimize the backend for the requirements of specific client interfaces.
 - Customizations are made to a general-purpose backend to accommodate multiple interfaces.
-- An alternative language is better suited for the backend of a different user interface.
+- A programming language is better suited for the backend of a specific user interface, but not all user interfaces.
 
 This pattern may not be suitable:
 
