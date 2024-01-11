@@ -62,7 +62,6 @@ Plan your path to production by reviewing:
 | [Advanced Azure Resource Manager template functionality](../../guide/azure-resource-manager/advanced-templates/index.md) | Some advanced examples of template use. |
 | Azure Monitor guidance | A series of articles to help you use Azure Monitor to monitor cloud environments. The first article in the series is [Azure Monitor best practices - Planning your monitoring strategy and configuration](/azure/azure-monitor/best-practices-plan?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json).
 | [Continuous integration and delivery for an Azure Synapse Analytics workspace](/azure/synapse-analytics/cicd/continuous-integration-delivery?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | An outline of how to use an Azure DevOps release pipeline and GitHub Actions to automate the deployment of an Azure Synapse workspace to multiple environments. |
-| [DevOps for quantum computing](../../guide/quantum/devops-for-quantum-computing.yml) | A discussion of the DevOps requirements for hybrid quantum applications. |
 | [Platform automation for Azure VMware Solution enterprise-scale scenario](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-platform-automation-and-devops?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | An overview for deploying Azure VMware Solution, including guidance for operational automation. |
 
 ### Azure DevOps services
