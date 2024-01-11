@@ -110,21 +110,5 @@ Seif Bassem | Cloud Solution Architect
 
 ## Next steps
 
-From the collected data AzGovViz provides visibility on your **HierarchyMap**, creates a **TenantSummary** on Management Groups and Subscriptions. Some of the information exposed by the tool:
-
-- Azure Policy
-- Role-Based Access Control (RBAC)
-- Blueprints
-- Hierarchy of Management Groups
-- Subscriptions, Resources & Defender
-- Networking
-- Diagnostics
-- Limits
-- Microsoft Microsoft Entra ID
-- Consumption
-- Change tracking
-
-For more information, see:
-
 - [Azure Governance Visualizer accelerator](https://github.com/Azure/Azure-Governance-Visualizer-Accelerator)
 - [Azure Governance Visualizer](https://github.com/JulianHayward/Azure-MG-Sub-Governance-Reporting)
