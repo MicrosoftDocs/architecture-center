@@ -25,6 +25,11 @@ This reference architecture showcases an IPv6 hub-spoke network pattern with cus
 IPv6 is part of Microsoft's Promise, a commitment we uphold to our customers. This Promise outlines the expected behaviors and capabilities of our cloud platforms. It signifies our top-level commitment and mirrors the key developments across our platform.  
 For a Microsoft-managed hub infrastructure solution, see [Hub-spoke network topology with Azure Virtual WAN](/azure/architecture/networking/hub-spoke-vwan-architecture).
 
+
+This reference architecture implements a hub-spoke network pattern where the hub virtual network acts as a central point of connectivity to many spoke virtual networks. The spoke virtual networks connect with the hub and can be used to isolate workloads. The components required to enable IPv6 have been included. These components are User Defined Routes that must be set per subnet and optional Load Balancers. You can also enable cross-premises scenarios by using the hub to connect to on-premises networks. 
+
+Follow the steps [Add IPv6 support for private peering using the Azure portal](/azure/expressroute/expressroute-howto-add-ipv6-portal)
+
 ## Architecture
 
 [ ![Diagram that shows a Hub and Spoke architecture with the necessary components for IPv6 support.](./media/ipv6-hub-spoke.png)](./media/ipv6-hub-spoke.png#lightbox)
@@ -91,12 +96,6 @@ The subnets where the Virtual Machines are, have to be configured to be Dual Sta
 ## Transition the spoke virtual networks
 
 
-
-## Changes to Reference Architecture to enable IPv6
-
-This reference architecture implements a hub-spoke network pattern where the hub virtual network acts as a central point of connectivity to many spoke virtual networks. The spoke virtual networks connect with the hub and can be used to isolate workloads. The components required to enable IPv6 have been included. These components are User Defined Routes that must be set per subnet and optional Load Balancers. You can also enable cross-premises scenarios by using the hub to connect to on-premises networks. 
-
-Follow the steps [Add IPv6 support for private peering using the Azure portal](/azure/expressroute/expressroute-howto-add-ipv6-portal)
 
 ## Deploy an Example IPv6 in Azure Virtual Network (VNET)
 
