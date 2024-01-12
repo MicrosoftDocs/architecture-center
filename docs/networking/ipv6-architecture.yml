@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: IPv6 Hub-Spoke network topology in Azure
-  description: Learn about Azure Virtual Networking using Ipv6
+  title: IPv6 hub-Spoke network topology in Azure
+  description: Learn to support and transition to IPv6
   author: WernerRall147
   ms.author: weral
   ms.date: 12/06/2023
@@ -9,12 +9,12 @@ metadata:
   ms.service: architecture-center
   ms.subservice: azure-guide
   ms.custom: fcp
-name: IPv6 Architecture
+name: IPv6 hub-spoke network topology
 azureCategories:
   - networking
   - security
   - management-and-governance
-summary: Learn about Azure Virtual Networking using Ipv6
+summary: Learn to support and transition to IPv6
 products:
   - azure-firewall
   - azure-virtual-network
