@@ -38,21 +38,37 @@ Follow the steps [Add IPv6 support for private peering using the Azure portal](/
 
 ### Worklow
 
+1. On-premises network: VPN connection from on-premises network to connected Azure regions.
+1. Dual Stack Hub virtual network: A virtual network spoke for the central hub in the primary region or region A. Dual Stack means the IPv4 and IPv6 Address spaces have been defined correctly. 
+1. Azure Firewall: Allowing traffic from the Internet can be filtered and secured using the Azure Firewall rules. 
+1. Spoke Virtual Networks: There are 4 spokes that are peered to the Hub Virtual Network. Two Production and Two Non Production spokes. 
+1. Virtual Machines: These Virtual Machines are set up with Dual Stack Network Interfaces, meaning there is a IPv4 and IPv6 address on the network interface. 
+1. Network Security Groups: The network security groups on the subnets in the spokes can be used to filter out unwanted traffic. 
+1. User Defined Routes: These routes will allow our IPv6 traffic to flow according to our expectations
+1. Optional Load Balancers: Share the load over multiple machines for higher resiliency. 
+1. Azure Bastion: Makes secure virtual machine connectivity possible without using RDP.
+1. Azure Monitor: All of the monitoring requirements for resources are handled by Azure Monitor. 
+1. Azure Subscription: All of this is hosted in an Azure Subscription. 
+
+### Components
+
 This hub-spoke network configuration with dual stack uses the following architectural elements:
 
-- **Hub virtual network.** The hub virtual network hosts shared Azure services. Workloads hosted in the spoke virtual networks can use these services. The hub virtual network is the central point of connectivity for cross-premises networks. 
+- **Hub virtual network.** Azure Virtual Network is the fundamental building block for private networks in Azure. Virtual Network enables many Azure resources, such as Azure VMs, to securely communicate with each other, cross-premises networks, and the internet.The hub virtual network hosts shared Azure services. Workloads hosted in the spoke virtual networks can use these services. The hub virtual network is the central point of connectivity for cross-premises networks. 
 
 - **Spoke virtual networks.** Spoke virtual networks isolate and manage workloads separately in each spoke. Each workload can include multiple tiers, with multiple subnets connected through Azure load balancers. Spokes can exist in different subscriptions and represent different environments, such as Production and Non-production.
+
+- **Network Interfaces.** Required for Virtual Machine communication. Virtual Machines and other resources can be set up to have multiple network interfaces. This allows for Dual Stack (IPv4 and IPv6) configurations to be created.
+
+- **Public IP Address.** Is used respectively for incoming IPv4 and IPv6 connectivity to Azure resources.
 
 - **Virtual network connectivity.** This architecture connects virtual networks by using [peering connections](/azure/virtual-network/virtual-network-peering-overview) or [connected groups](/azure/virtual-network-manager/concept-connectivity-configuration). Peering connections and connected groups are non-transitive, low-latency connections between virtual networks. Peered or connected virtual networks can exchange traffic over the Azure backbone without needing a router. [Azure Virtual Network Manager](/azure/virtual-network-manager/overview) creates and manages [network groups](/azure/virtual-network-manager/concept-network-groups) and their connections.
 
 - **Azure Bastion host.** Azure Bastion provides secure connectivity from the Azure portal to virtual machines (VMs) by using your browser. An Azure Bastion host deployed inside an Azure virtual network can access VMs in that virtual network or in connected virtual networks.
 
-- **Azure Firewall.** An Azure Firewall managed firewall instance exists in its own subnet. 
+- **Azure Firewall.** Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. An Azure Firewall managed firewall instance exists in its own subnet.
 
 - **Azure VPN Gateway or Azure ExpressRoute gateway.** A virtual network gateway enables a virtual network to connect to a virtual private network (VPN) device or Azure ExpressRoute circuit. The gateway provides cross-premises network connectivity. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network](/microsoft-365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network?view=o365-worldwide) and [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager). To use IPv6 in Azure route table, you need to create or modify an ExpressRoute circuit and enable IPv6 Private Peering. You can either add IPv6 Private Peering to your existing IPv4 Private Peering configuration by selecting "Both" for Subnets, or only use IPv6 Private Peering by selecting "IPv6". You also need to provide a pair of /126 IPv6 subnets that you own for your primary and secondary links.
-
-- **VPN device.** A VPN device or service provides external connectivity to the cross-premises network. The VPN device can be a hardware device or a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server. For more information, see [Validated VPN devices and device configuration guides](/azure/vpn-gateway/vpn-gateway-about-vpn-devices#devicetable).
 
 - **Load Balancer.** Load Balancers allow you to share traffic between multiple machines that have the same purpose. In this scenario the Load Balancers are used to allow traffic to be distributed between multiple subnets that have been configured in Dual Stack to support IPv6. Optional IPv6 health probe to determine which backend pool instances are health and thus can receive new flows. Optional IPv6 ports can be reused on backend instances using the Floating IP feature of load-balancing rules. Also see, [Deploy an IPv6 dual stack application using Standard Internal Load Balancer in Azure using PowerShell
 ](/azure/load-balancer/ipv6-dual-stack-standard-internal-load-balancer-powershell)
@@ -61,41 +77,28 @@ This hub-spoke network configuration with dual stack uses the following architec
 
 - **Virtual Machines** Linux and Windows Virtual Machines can all use IPv6 for Azure Virtual Network, see [Add IPv6 configuration to virtual machine](/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-portal#add-ipv6-configuration-to-virtual-machine)
 
+- **Azure Subscription.** A logical container for your resources. Each Azure resource is associated with only one subscription. Creating a subscription is the first step in adopting Azure.
 
-### Components
+- **Azure Bastion.** Azure Bastion is a fully managed Platform-as-a-Service (PaaS) offering provided and maintained by Microsoft. It is designed to provide secure and seamless Remote Desktop Protocol (RDP) and Secure Shell Protocol (SSH) access to virtual machines (VMs) without any exposure through public IP addresses.
 
-- [Azure Virtual Network](/products/virtual-network) is the fundamental building block for private networks in Azure. Virtual Network enables many Azure resources, such as Azure VMs, to securely communicate with each other, cross-premises networks, and the internet.
-- [Public IP Address](/azure/virtual-network/ip-services/public-ip-addresses) is used respectively for incoming IPv4 and IPv6 connectivity to the Load Balancer. 
-- [Load Balancer](/products/load-balancer/) is used to send the incoming traffic to the backend Virtual Machines. 
-- [Route Table](/azure/virtual-network/manage-route-table) A Route Table in Azure is a set of user-defined routes that allow for custom path definitions for network traffic. Each route in the table specifies a destination CIDR block and the next hop, which could be a virtual appliance, a virtual network gateway, a network interface, or a peering.
-- [Network Security Group](/azure/virtual-network/network-security-groups-overview) is configured to accept or reject certain IPv6 ranges. A Network Security Group (NSG) in Azure is a feature that provides security for virtual networks by filtering and analyzing inbound and outbound traffic. NSGs contain a list of Access Control List (ACL) rules that allow or deny network traffic to your resources based on source and destination IP address, port, and protocol
-- [Virtual Machines](/products/virtual-machines/) is configured to receive IPv4 and IPv6 traffic. 
-- [ExpressRoute](/products/expressroute/) ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection with the help of a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure and Microsoft 365. 
-- [Network Interface](/azure/virtual-network/virtual-network-network-interface) Network Interfaces are required for Virtual Machine communication. Virtual Machines and other resources can be set up to have multiple network interfaces. This allows for Dual Stack (IPv4 and IPv6) configurations to be created. 
-- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) Azure VPN Gateway is a service that uses a specific type of virtual network gateway to send encrypted traffic between an Azure virtual network and on-premises locations over the public Internet
-- [Azure Subscription](/azure/cloud-adoption-framework/ready/azure-best-practices/organize-subscriptions) A logical container for your resources. Each Azure resource is associated with only one subscription. Creating a subscription is the first step in adopting Azure.
-- [Azure Firewall](/azure/firewall/overview) Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources
-- [Azure Bastion](/azure/bastion/bastion-overview) Azure Bastion is a fully managed Platform-as-a-Service (PaaS) offering provided and maintained by Microsoft. It is designed to provide secure and seamless Remote Desktop Protocol (RDP) and Secure Shell Protocol (SSH) access to virtual machines (VMs) without any exposure through public IP addresses.
-- [Azure Monitor](/azure/azure-monitor/overview) Azure Monitor is a comprehensive monitoring solution for collecting, analyzing, and responding to monitoring data from your cloud and on-premises environments. You can use Azure Monitor to maximize the availability and performance of your applications and services.
-
-
-### Alternatives
-
-Instead of connecting to the cloud environment via a VPN Gateway or Express Route, you can also use Azure Front Door to connect over the internet. You can use a client or a browser that enters the Virtual Network by passing through an Azure Front Door. 
-
-![Diagram that demonstrates internet connectivity.](media/ipv6-internet-connectivity-2.png)
-
-The Azure Front Door natively supports end-to-end IPv6 connectivity and the HTTP/2 protocol. Currently, HTTP/2 support is active for all Azure Front Door configurations. No further action is required from customers, see [HTTP/2 support in Azure Front Door](/azure/frontdoor/front-door-http2)
-
-The subnets where the Virtual Machines are, have to be configured to be Dual Stack. To learn how to enable Dual-Stack to existing Virtual Machines and Virtual Networks see [Add a dual-stack network to an existing virtual machine using Azure PowerShell](/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-powershell)
+- **Azure Monitor.** Azure Monitor is a comprehensive monitoring solution for collecting, analyzing, and responding to monitoring data from your cloud and on-premises environments. You can use Azure Monitor to maximize the availability and performance of your applications and services.
 
 ## Transition the hub virtual network
 
+To start using IPv6 from the Hub-Spoke deployment model we need to make a few changes to some of our resources:
 
+- Add IPv6 Address Space to the Virtual Network
+- If you are using ExpressRoute you need to add IPv6 Private Peering to your ExpressRoute circuit
+- Modify any User Defined Routes to allow IPv6 Traffic
 
 ## Transition the spoke virtual networks
 
+To start using IPv6 from the spoke Virtual Networks we need to make a few changes to some of our resources:
 
+- Create a dual-stack virtual network with both IPv4 and IPv6 address space
+- Create Network interfaces for resources in the spokes like Virtual Machines, Load Balancers and other resources.
+- Associate the interfaces to the resources
+- Modify any User Defined Routes to allow IPv6 Traffic
 
 ## Deploy an Example IPv6 in Azure Virtual Network (VNET)
 
