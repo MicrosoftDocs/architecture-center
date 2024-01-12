@@ -1,11 +1,11 @@
 This solution uses Azure Logic Apps to integrate cloud data into on-premises data storage. 
 
-The following architecture illustrates the use of API Management, storage of secrets and API keys with Azure Key Vault, connection to SQL Server through an on-premises data gateway, and performance monitoring with Azure Monitor. All of this integrated through the orchestration of Logic Apps.
+The following architecture illustrates the use of Azure API Management, storage of secrets and API keys with Azure Key Vault, connection to SQL Server through an on-premises data gateway, and performance monitoring with Azure Monitor. All of this integrated through the orchestration of Logic Apps.
 
 ## Architecture
 
-:::image type="complex" source="./media/logic-apps-data-integration.png" alt-text="Architecture diagram showing how to use Logic Apps to respond to A P I calls by updating or accessing S Q L Server." border="false":::
-   The diagram contains two boxes, one for Azure components, and one for on-premises components. Outside the Azure box is a data file labeled J S O N. An arrow points from the J S O N file into an A P I Management icon that's inside the Azure box. A second arrow points from the A P I Management icon to a Logic Apps icon that's also inside the Azure box. Three arrows point away from the Logic Apps icon. One leads to a Key Vault icon that's inside the Azure box. One leads to an on-premises data gateway icon that's between the two boxes. And the third leads to an Azure Monitor icon that's inside the Azure box. Another arrow points from the gateway to a SQL Server icon that's inside the on-premises box. A final arrow points from the SQL Server icon to a person outside the on-premises box.
+:::image type="complex" source="./media/logic-apps-data-integration.png" alt-text="Architecture diagram showing how to use Logic Apps to respond to API calls by updating or accessing SQL Server." border="false":::
+   The diagram contains two boxes, one for Azure components, and one for on-premises components. Outside the Azure box is a data file labeled JSON. An arrow points from the JSON file into an API Management icon that's inside the Azure box. A second arrow points from the API Management icon to a Logic Apps icon that's also inside the Azure box. Three arrows point away from the Logic Apps icon. One leads to a Key Vault icon that's inside the Azure box. One leads to an on-premises data gateway icon that's between the two boxes. And the third leads to an Azure Monitor icon that's inside the Azure box. Another arrow points from the gateway to a SQL Server icon that's inside the on-premises box. A final arrow points from the SQL Server icon to a person outside the on-premises box.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/logic-apps-data-integration.vsdx) of this architecture.*
