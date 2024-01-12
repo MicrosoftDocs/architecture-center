@@ -2630,14 +2630,14 @@
 							class="st33"/>
 				</g>
 			</g>
-			<g id="shape1467-961" v:mID="1467" v:groupContext="shape" transform="translate(0,-8.625)">
+			<g id="shape1467-961" v:mID="1467" v:groupContext="shape" transform="translate(0,-7.125)">
 				<title>Sheet.1467</title>
-				<desc>Compute Instance private endpoint</desc>
+				<desc>Machine learning workspace private endpoint</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="42.888" cy="668.889" width="85.78" height="19.125"/>
 				<rect x="0" y="659.326" width="85.776" height="19.125" class="st8"/>
-				<text x="22.48" y="659.89" class="st12" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Compute <tspan
-							x="8.11" dy="1.2em" class="st24">Instance private </tspan><tspan x="22.9" dy="1.2em" class="st24">endpoint</tspan></text>			</g>
+				<text x="4.77" y="659.89" class="st12" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Machine learning <tspan
+							x="19.59" dy="1.2em" class="st24">workspace </tspan><tspan x="6.39" dy="1.2em" class="st24">private endpoint</tspan></text>			</g>
 		</g>
 		<g id="group1665-966" transform="translate(628.02,-362.716)" v:mID="1665" v:groupContext="group">
 			<title>Sheet.1665</title>

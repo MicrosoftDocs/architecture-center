@@ -2567,7 +2567,7 @@
 				</v:userDefs>
 				<path d="M0 671.83 A2.25 2.25 0 0 1 4.5 671.83 A2.25 2.25 0 1 1 0 671.83 Z" class="st45"/>
 			</g>
-			<g id="group1458-937" transform="translate(30.0799,-34.1728)" v:mID="1458" v:groupContext="group">
+			<g id="group1458-937" transform="translate(30.0799,-35.2978)" v:mID="1458" v:groupContext="group">
 				<title>Sheet.1458</title>
 				<g id="shape1459-938" v:mID="1459" v:groupContext="shape" transform="translate(12.5542,-11.8049)">
 					<title>Sheet.1459</title>
@@ -2615,14 +2615,14 @@
 							class="st33"/>
 				</g>
 			</g>
-			<g id="shape1467-956" v:mID="1467" v:groupContext="shape" transform="translate(0,-8.625)">
+			<g id="shape1467-956" v:mID="1467" v:groupContext="shape" transform="translate(0,-7.125)">
 				<title>Sheet.1467</title>
-				<desc>Compute Instance private endpoint</desc>
+				<desc>Machine learning workspace private endpoint</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="42.888" cy="664.521" width="85.78" height="19.125"/>
 				<rect x="0" y="654.958" width="85.776" height="19.125" class="st8"/>
-				<text x="22.48" y="655.52" class="st12" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Compute <tspan
-							x="8.11" dy="1.2em" class="st24">Instance private </tspan><tspan x="22.9" dy="1.2em" class="st24">endpoint</tspan></text>			</g>
+				<text x="4.77" y="655.52" class="st12" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Machine learning <tspan
+							x="19.59" dy="1.2em" class="st24">workspace </tspan><tspan x="6.39" dy="1.2em" class="st24">private endpoint</tspan></text>			</g>
 		</g>
 		<g id="group1665-961" transform="translate(628.02,-358.348)" v:mID="1665" v:groupContext="group">
 			<title>Sheet.1665</title>
