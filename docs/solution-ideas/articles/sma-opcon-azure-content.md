@@ -71,7 +71,7 @@ Throughout the solution, you can use network security groups to limit traffic fl
 
 - [SQL Managed Instance](https://azure.microsoft.com/services/azure-sql/sql-managed-instance) is an intelligent and scalable cloud database service that combines the broadest SQL Server engine compatibility with all the benefits of a fully managed and evergreen PaaS. The OpCon back end can use SQL Managed Instance to manage OpCon entries.
 
-- [OpCon](https://smatechnologies.com/opcon-cloud) core services run in a Linux container within a Kubernetes replica set. This solution uses SQL Database for the OpCon database.
+- [OpCon](https://smatechnologies.com/products-opcon-automation) core services run in a Linux container within a Kubernetes replica set. This solution uses SQL Database for the OpCon database.
 
 - [OpCon Self Service](https://smatechnologies.com/products-self-service) is a web-based implementation that provides a way for users to run on-demand tasks and optionally enter arguments within an OpCon environment.
 
@@ -358,7 +358,7 @@ For more information about this solution:
 
 ## Related resources
 
-- [Virtualization of Unisys ClearPath Forward OS 2200 enterprise server on Azure](../../mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml)
+- [Unisys ClearPath Forward OS 2200 enterprise server virtualization on Azure](../../mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml)
 - [Unisys ClearPath Forward MCP mainframe rehost to Azure using Unisys virtualization](../../example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml)
 - [Azure Automation in a hybrid environment](../../hybrid/azure-automation-hybrid.yml)
 - [Manage hybrid Azure workloads using Windows Admin Center](../../hybrid/hybrid-server-os-mgmt.yml)

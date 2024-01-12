@@ -48,7 +48,7 @@ You manage the following components of Azure Virtual Desktop solutions:
 
 - **Microsoft Entra ID**: Azure Virtual Desktop uses [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) for identity and access management. Microsoft Entra integration applies Microsoft Entra security features, such as conditional access, multifactor authentication, and [Intelligent Security Graph](https://www.microsoft.com/security/business/intelligence), and it helps maintain app compatibility in domain-joined VMs.
 
-- **Active Directory Domain Services (Optional)**: Azure Virtual Desktop VMs can either be domain joined to an [AD DS](https://azure.microsoft.com/services/active-directory-ds/) service or use [Microsoft Entra join for AVD](/azure/architecture/example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join) 
+- **Active Directory Domain Services (Optional)**: Azure Virtual Desktop VMs can either be domain joined to an [AD DS](https://azure.microsoft.com/services/active-directory-ds/) service or use [Deploy Microsoft Entra joined virtual machines in Azure Virtual Desktop](/azure/virtual-desktop/azure-ad-joined-session-hosts?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
     - When using an AD DS domain, the domain must be in sync with Microsoft Entra ID to associate users between the two services. You can use [Microsoft Entra Connect](/azure/active-directory/hybrid/whatis-azure-ad-connect) to associate AD DS with Microsoft Entra ID.
     - When using Microsoft Entra join, review the [supported configurations](/azure/virtual-desktop/azure-ad-joined-session-hosts#supported-configurations) to ensure your scenario is supported.
 
