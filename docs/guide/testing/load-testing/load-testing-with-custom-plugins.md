@@ -208,7 +208,14 @@ As per these requirements, the KPIs for performance testing could be:
 In order to measure KPIs, you need to have a performance testing strategy. The strategy defines the performance testing approach for each component. In this example, the following performance testing strategy is used:
 
 - Event Hub: The performance testing approach for the event hub is to send many messages to the event hub and then measure the RPS and LOAD. The RPS is the number of messages that are sent to the event hub per second. The LOAD is the total number of messages that are sent to the event hub during the performance testing. Azure Load Testing service can measure RPS and LOAD.
-- Azure Function: The performance testing approach for Azure Function is to measure the IR, RT, AMU and SR. The IR is the number of function executions or ingestion rate. The RT is the average time for Azure Function Execution Time. The AMU is the average memory usage for Azure Functions. The SR is the success rate of all function executions. The ARS is the average downstream service response time. The DF is the dependency failure count including internal Azure function errors. Azure Monitor service doesn't measure IR, RT and SR but does AMU, ARS and DF.
+- Azure Functions: The performance testing approach for Azure Functions is to measure the following metrics:
+  - The IR is the number of function executions or ingestion rate. 
+  - The RT is the average time for Azure Function Execution Time. 
+  - The AMU is the average memory usage for Azure Functions. 
+  - The SR is the success rate of all function executions. 
+  - The ARS is the average downstream service response time. 
+  - The DF is the dependency failure count including internal Azure function errors. 
+  - Azure Monitor service can measure AMU, ARS and DF, but not IR, RT and SR.
 
 In order to measure KPIs using Azure Monitor service, we need to enable Application Insights for Azure Functions. For more information, see [Enable Application Insights for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring?tabs=cmd#enable-application-insights).
 
