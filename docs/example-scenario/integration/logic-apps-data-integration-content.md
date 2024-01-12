@@ -158,7 +158,7 @@ Principal authors:
 [Azure SQL Database]: /azure/azure-sql/database/sql-database-paas-overview
 [Azure SQL Managed Instance]: /azure/azure-sql/managed-instance/sql-managed-instance-paas-overview
 [Azure Storage documentation]: /azure/storage/
-[Batches of SQL Statements]: /sql/odbc/reference/develop-app/batches-of-sql-statements?view=sql-server-ver16
+[Batches of SQL Statements]: /sql/odbc/reference/develop-app/batches-of-sql-statements
 [Compare Azure Functions and Azure Logic Apps]: /azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-azure-functions-and-azure-logic-apps
 [Compare Microsoft Power Automate and Azure Logic Apps]: /azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-microsoft-power-automate-and-azure-logic-apps
 [Connect to on-premises data sources from Azure Logic Apps]: /azure/logic-apps/logic-apps-gateway-connection
