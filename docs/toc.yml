@@ -374,7 +374,7 @@ items:
           href: /azure/machine-learning/concept-differential-privacy
           maintainContext: true
   - name: Architecture for SaaS and multitenancy
-    href: guide/saas/index.md 
+    href: guide/saas-multitenant-solution-architecture/index.md 
   - name: Mission-critical applications
     items:
     - name: Mission-critical baseline architecture
