@@ -14,7 +14,7 @@ categories:
 ---
 # SaaS and multitenant solution architecture
 
-Software-as-a-Service (SaaS) is a business model that enables an organization to deliver its software to customers quickly and efficiently. Many independent software vendors (ISVs) are migrating away from providing software that a customer has to install and manage themselves to a SaaS model due to the greater customer experience and lower overhead that it provides. This series of articles provides guidance and resources for organizations that build software as a service (SaaS), including startups. It also provides extensive guidance about architecting multitenant solutions on Azure.
+Software as a Service (SaaS) is a business model that enables an organization to deliver its software to customers quickly and efficiently. Typically, the SaaS vendor operates and manages the software on behalf of their customers. Many independent software vendors (ISVs) are migrating away from providing software that a customer has to install and manage themselves to a SaaS model due to the greater customer experience and lower overhead that it provides. This series of articles provides guidance and resources for organizations that build software as a service (SaaS), including startups. It also provides extensive guidance about architecting multitenant solutions on Azure.
 
 ## Key concepts
 
@@ -24,7 +24,7 @@ The key concepts found in this article are *SaaS*, *startups*, and *multitenancy
 
 **Startups are businesses in an early stage of their lifecycle.** Many software startups build SaaS solutions, but some might provide software in other ways instead. Startups often have specific concerns, including rapid innovation, finding a product and market fit, and anticipating scale and growth.
 
-**Multitenancy is a way of architecting a solution to share components between multiple customers, or *tenants*.** Multitenant architectures are frequently used in SaaS solutions, but there are also some places where they're used outside of SaaS, such as in enterprises who build a platform for multiple business units to share. Multitenancy doesn't imply that every component in a solution is shared. Rather, it implies that at least *some* components of a solution are reused across multiple tenants. How you [define a tenant](../multitenant/considerations/tenancy-models.yml#define-a-tenant) and pick a [tenancy model](../multitenant/considerations/tenancy-models.yml#common-tenancy-models) will heavily depend on if your business model is B2C SaaS, B2B SaaS, or you are an enterprise.
+**Multitenancy is a way of architecting a solution to share components between multiple tenants, which usually correspond to customers.** Multitenant architectures are frequently used in SaaS solutions, but there are also some places where they're used outside of SaaS, such as in enterprises who build a platform for multiple business units to share. Multitenancy doesn't imply that every component in a solution is shared. Rather, it implies that at least *some* components of a solution are reused across multiple tenants. How you [define a tenant](../multitenant/considerations/tenancy-models.yml#define-a-tenant) and pick a [tenancy model](../multitenant/considerations/tenancy-models.yml#common-tenancy-models) will heavily depend on if your business model is B2C SaaS, B2B SaaS, or you are an enterprise.
 
 This diagram illustrates the differences between these concepts for an organization with a SaaS business model:
 
@@ -34,7 +34,7 @@ This diagram illustrates the how a multitenant architecture can be utilized in a
 
 ![Diagram that depicts an enterprise taking advantage of a multitenant architecture](./images/enterprise-business-model.png)
 
-The business model is the main factor that determines how to define a tenant in a multitenant architecture. The design choices for the underlying architecture also depend on the business model and the tenant definition, but the principles of multitenancy always remain the same.
+The main difference between the two diagrams is the business model itself, which ultimately influences how you define a tenant in the context of your business. The design choices that you make for the underlying multitenant architecture will also be influenced by your business model, but the principals of multitenancy always remain the same.
 
 ## Next steps
 
