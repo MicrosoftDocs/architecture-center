@@ -109,10 +109,12 @@ Each subnet has a network security group that limits both inbound and outbound t
 | snet-PrivateEndpoints | Allow only traffic from the virtual network. | Allow only traffic to the virtual network.
 | snet-AppService | Allow only traffic from the virtual network. | Allow access to the private endpoints and Azure Monitor. |
 | AzureBastionSubnet | See guidance in [working with NSG access and Azure Bastion](/azure/bastion/bastion-nsg) | See guidance in [working with NSG access and Azure Bastion](/azure/bastion/bastion-nsg) |
-| snet-jump box |  Allow inbound RDP and SSH from the Bastion Host subnet. | Allow access to the private endpoints |
+| snet-jumpbox |  Allow inbound RDP and SSH from the Bastion Host subnet. | Allow access to the private endpoints |
 | snet-agents | Allow only traffic from the virtual network. | Allow only traffic to the virtual network.
 | snet-training | Allow only traffic from the virtual network. | Allow only traffic to the virtual network.
 | snet-scoring | Allow only traffic from the virtual network. | Allow only traffic to the virtual network.
+
+All other traffic is explicitly denied.
 
 Consider the following points when implementing virtual network segmentation and security.
 
