@@ -295,7 +295,9 @@ items:
         - name: Search and query a knowledge base
           href: openai/idea/search-and-query-using-openai-service.yml           
       - name: Design architectures 
-        items:      
+        items:
+        - name: Baseline end-to-end chat with OpenAI
+          href: architecture/baseline-openai-e2e-chat.yml     
         - name: Extract and analyze call center data
           href: openai/architecture/call-center-openai-analytics.yml
         - name: Monitor OpenAI models
