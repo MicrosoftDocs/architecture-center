@@ -56,11 +56,11 @@ Before you install Virtual Reactor, you need to deploy and connect a Linux VM an
 
 |Virtual Machine Tested|Barracuda Virtual Reactor 21.1.0|Barracuda Virtual Reactor 22.0.0|
 |-|-|-|
-|Standard_ND96asr_v4|:heavy_check_mark:|:heavy_multiplication_x:|
-|Standard_NC24s_v3|:heavy_check_mark:|:heavy_multiplication_x:|
-|Standard_NC64as_T4_v3|:heavy_check_mark:|:heavy_multiplication_x:|
-|Standard_ND96amsr_A100_v4|:heavy_multiplication_x:|:heavy_check_mark:|
-|Standard_NC96ads_A100_v4|:heavy_multiplication_x:|:heavy_check_mark:|
+|Standard_ND96asr_v4|✅|❌|
+|Standard_NC24s_v3|✅|❌|
+|Standard_NC64as_T4_v3|✅|❌|
+|Standard_ND96amsr_A100_v4|❌|✅|
+|Standard_NC96ads_A100_v4|❌|✅|
 
 
 > [!IMPORTANT]
