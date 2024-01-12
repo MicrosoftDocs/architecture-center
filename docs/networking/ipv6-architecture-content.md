@@ -20,15 +20,8 @@ categories:
 
 # Overview
 
-This reference architecture showcases an IPv6 hub-spoke network pattern with customer-managed hub infrastructure components. It uses the [Hub-spoke network topology](/azure/architecture/reference-architectures\hybrid-networking\hub-spoke-content) as its starting point.
+This guide shows you how to transition an IPv4 hub and spoke network topology to IPv6. It uses the [Hub and spoke network topology](/azure/architecture/reference-architectures\hybrid-networking\hub-spoke-content) as the starting point and walks you through the steps required to support IPv6. The hub virtual network acts as a central point of connectivity to spoke virtual networks. The spoke virtual networks connect with the hub and isolate application resources. For more information, see [Transitioning to IPv6](/azure/architecture/networking/guide/ipv6/ipv6-ip-planning).
 
-IPv6 is part of Microsoft's Promise, a commitment we uphold to our customers. This Promise outlines the expected behaviors and capabilities of our cloud platforms. It signifies our top-level commitment and mirrors the key developments across our platform.  
-For a Microsoft-managed hub infrastructure solution, see [Hub-spoke network topology with Azure Virtual WAN](/azure/architecture/networking/hub-spoke-vwan-architecture).
-
-
-This reference architecture implements a hub-spoke network pattern where the hub virtual network acts as a central point of connectivity to many spoke virtual networks. The spoke virtual networks connect with the hub and can be used to isolate workloads. The components required to enable IPv6 have been included. These components are User Defined Routes that must be set per subnet and optional Load Balancers. You can also enable cross-premises scenarios by using the hub to connect to on-premises networks. 
-
-Follow the steps [Add IPv6 support for private peering using the Azure portal](/azure/expressroute/expressroute-howto-add-ipv6-portal)
 
 ## Architecture
 
@@ -142,7 +135,6 @@ Other contributors:
 - [Brandon Stephenson](https://www.linkedin.com/in/brandon-stephenson-3340219b/) | Senior Customer Engineer
 - [Sherri Babylon](https://www.linkedin.com/in/sbabylon/) | Senior Technical Program Manager
 - [Dawn Bedard](https://www.linkedin.com/in/dawnbedard/) | Principal Technical Program Manager
-- [Stephen Sumner](https://www.linkedin.com/in/stephen-t-sumner/) | Senior Content Developer
 
 *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
@@ -160,6 +152,7 @@ Read more about IPv6:
 - [ExpressRoute Support for IPv6](/azure/expressroute/expressroute-howto-add-ipv6-portal)
 - [Azure DNS IPv6 support](/azure/dns/dns-reverse-dns-overview)
 - [Azure Load Balancer IPv6 Support](/azure/load-balancer/load-balancer-ipv6-overview)
+- [Add IPv6 support for private peering using the Azure portal](/azure/expressroute/expressroute-howto-add-ipv6-portal)
 
 Read more about virtual network architecture:
 
