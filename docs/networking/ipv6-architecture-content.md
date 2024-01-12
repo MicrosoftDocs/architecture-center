@@ -9,17 +9,26 @@ This guide shows you how to transition an IPv4 hub and spoke network topology to
 
 ### Worklow
 
-1. On-premises network: VPN connection from on-premises network to connected Azure regions.
-1. Dual Stack Hub virtual network: A virtual network spoke for the central hub in the primary region or region A. Dual Stack means the IPv4 and IPv6 Address spaces have been defined correctly. 
-1. Azure Firewall: Allowing traffic from the Internet can be filtered and secured using the Azure Firewall rules. 
-1. Spoke Virtual Networks: There are 4 spokes that are peered to the Hub Virtual Network. Two Production and Two Non Production spokes. 
-1. Virtual Machines: These Virtual Machines are set up with Dual Stack Network Interfaces, meaning there is a IPv4 and IPv6 address on the network interface. 
-1. Network Security Groups: The network security groups on the subnets in the spokes can be used to filter out unwanted traffic. 
-1. User Defined Routes: These routes will allow our IPv6 traffic to flow according to our expectations
-1. Optional Load Balancers: Share the load over multiple machines for higher resiliency. 
-1. Azure Bastion: Makes secure virtual machine connectivity possible without using RDP.
-1. Azure Monitor: All of the monitoring requirements for resources are handled by Azure Monitor. 
-1. Azure Subscription: All of this is hosted in an Azure Subscription. 
+1. **Public Internet and Cross-premises Network:**
+- Users or services begin by accessing the system via the Public Internet, connecting to Azure resources.
+- Cross-premises network has on-premises virtual machines that connect to the Azure network through a VPN Gateway, creating a secure connection from on-premises to Azure.
+
+1. **Azure Virtual Network Manager:**
+- It's the management layer that oversees the entire network infrastructure within Azure. It handles the routing, policies, and overall health of the virtual network.
+
+1. **Dual Stack Hub Virtual Network:**
+- The hub is the central point of the network topology and is configured to support both IPv4 and IPv6 (hence "Dual Stack").
+- Azure Bastion provides secure and seamless RDP/SSH connectivity to your virtual machines directly in the Azure portal over SSL.
+- Azure Firewall serves as a barrier between the hub and the public internet, filtering traffic and providing protection.
+- VPN Gateway connects the cross-premises network to the hub.
+- The services in the hub virtual network send logs and metrics (diagnostics) to Azure Monitor for monitoring.
+
+1. **Spoke Virtual Networks:**
+- There are four identical spokes that are all connected to the hub. Each spoke is a "Dual Stack" network, supporting both IPv4 and IPv6.
+- All outbound traffic from the spoke virtual networks flows through the hub ("Forced Tunnel")
+- Within each spoke, there are three subnets indicated as resource subnets, each hosting a virtual machine.
+- Each virtual machine is connected to an Internal Load Balancer, which distributes incoming network traffic across the virtual machines to ensure that no single VM becomes a point of congestion.
+- IPv6 User Defined Routes (UDR) define custom routes for IPv6 traffic from the spoke.
 
 ### Components
 
