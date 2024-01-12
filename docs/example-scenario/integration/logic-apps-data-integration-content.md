@@ -1,6 +1,6 @@
 This solution uses Azure Logic Apps to integrate cloud data into on-premises data storage. 
 
-The following architecture illustrates the use of Azure API Management, storage of secrets and API keys with Azure Key Vault, connection to SQL Server through an on-premises data gateway, and performance monitoring with Azure Monitor. All of this integrated through the orchestration of Logic Apps.
+The architecture illustrates the use of Azure API Management, the storage of secrets and API keys in Azure Key Vault, a connection to SQL Server through an on-premises data gateway, and performance monitoring with Azure Monitor. All of these components are integrated via Azure Logic Apps orchestration.
 
 ## Architecture
 
@@ -52,9 +52,9 @@ A few alternatives exist for this solution:
 
 - Instead of using an on-premises instance of SQL Server, consider migrating to an up-to-date, fully managed Azure database service. The SQL Server connector that Logic Apps uses also works for [Azure SQL Database][Azure SQL Database] and [Azure SQL Managed Instance][Azure SQL Managed Instance]. For more information, see [Automate workflows for a SQL database by using Azure Logic Apps][Automate workflows for a SQL database by using Azure Logic Apps]. To get started with migration, see [Azure Database Migration Service][Azure Database Migration Service].
 
-- For complex automation tasks, consider using [Azure Functions][Azure Functions] instead of Logic Apps. Both services allow you to create serverless workflows. However, while Azure Functions is a compute service aimed at executing custom code, complex processing, or integration with other services, Azure Logic Apps is a cloud service intended for automating and orchestrating tasks and business workflows, through a visual designer and a large number of pre-built connectors. For more information, see [Compare Azure Functions and Azure Logic Apps][Compare Azure Functions and Azure Logic Apps].
+- For complex automation tasks, consider using [Azure Functions][Azure Functions] instead of Logic Apps. Both services enable you to create serverless workflows. Azure Functions is a compute service that's intended for running custom code or complex processing or for integration with other services. Logic Apps is a cloud service that's intended for automating and orchestrating tasks and business workflows. It provides a visual designer and many pre-built connectors. For more information, see [Compare Azure Functions and Azure Logic Apps][Compare Azure Functions and Azure Logic Apps].
 
-- For simpler integrations, consider using [Power Automate][Get started with Power Automate] instead of Logic Apps. See more details at [Compare Microsoft Power Automate and Azure Logic Apps][Compare Microsoft Power Automate and Azure Logic Apps].
+- For simpler integrations, consider using [Power Automate][Get started with Power Automate] instead of Logic Apps. For more information, see [Compare Microsoft Power Automate and Azure Logic Apps][Compare Microsoft Power Automate and Azure Logic Apps].
 
 - [Power Apps][What is Power Apps?] also provides solutions for automating workflows that involve connecting to on-premises data sources.
 
@@ -68,17 +68,19 @@ Use this solution to automate data integration tasks that you perform in respons
 
 ## Considerations
 
-Keep the following points in mind when considering this architecture:
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-### Availability
+### Reliability
+
+Reliability ensures that your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
 For high availability, [add the on-premises gateway to a cluster][Install a gateway cluster] instead of installing a standalone gateway.
 
-### Scalability
 
-With the serverless model that Logic Apps uses, the service automatically scales to meet demand. But be aware of [limits on read and write operations with the on-premises data gateway][Limits on read and write operations with the on-premises data gateway].
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 - The on-premises data gateway uses credential encryption and user authentication to protect data during transfers between on-premises and Azure systems.
 - API Management helps to ensure that only authorized clients call your logic app. You can also take these steps:
@@ -98,6 +100,8 @@ With the serverless model that Logic Apps uses, the service automatically scales
 
 ### Cost optimization
 
+Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
 The following table provides cost profiles that use varying levels of expected throughput:
 
 |API Management|Logic Apps action executions|Logic Apps connector executions|Profile|
@@ -115,14 +119,22 @@ Explore these strategies for minimizing Logic Apps costs:
 - [Specify precise trigger conditions][Trigger conditions] for workflows.
 - [Turn off logic apps][Disable or enable logic apps] that don't have to run constantly.
 
+### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+
+With the serverless model that Logic Apps uses, the service automatically scales to meet demand. But be aware of [limits on read and write operations with the on-premises data gateway][Limits on read and write operations with the on-premises data gateway].
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 
-- [Shan Singh](https://uk.linkedin.com/in/shantnus) | Software Engineer
 - [Beatriz Matsui](https://br.linkedin.com/in/beatrizmatsui) | Consultant
+- [Shan Singh](https://uk.linkedin.com/in/shantnus) | Software Engineer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
