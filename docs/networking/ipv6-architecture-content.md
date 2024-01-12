@@ -1,25 +1,3 @@
----
-title: IPv6 Dual Stack 
-description: Learn about Azure Virtual Networking using IPv6
-author: WernerRall147
-ms.author: weral
-ms.date: 12/06/2023
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-products:
-  - azure-firewall
-  - azure-virtual-network
-  - azure-virtual-wan
-  - azure-vpn-gateway
-categories:
-  - networking
-  - security
-  - management-and-governance
----
-
-# Overview
-
 This guide shows you how to transition an IPv4 hub and spoke network topology to IPv6. It uses the [Hub and spoke network topology](/azure/architecture/reference-architectures\hybrid-networking\hub-spoke-content) as the starting point and walks you through the steps required to support IPv6. The hub virtual network acts as a central point of connectivity to spoke virtual networks. The spoke virtual networks connect with the hub and isolate application resources. For more information, see [Transitioning to IPv6](/azure/architecture/networking/guide/ipv6/ipv6-ip-planning).
 
 
