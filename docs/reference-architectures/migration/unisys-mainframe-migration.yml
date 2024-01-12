@@ -3,8 +3,8 @@ metadata:
   title: Unisys mainframe migration with Avanade AMT
   titleSuffix: Azure Reference Architectures
   description: Learn about options for using the Avanade Automated Migration Technology (AMT) Framework to migrate Unisys mainframe workloads to Azure.
-  author: jjfrost
-  ms.author: pbrooks
+  author: Venkat-Github-Account
+  ms.author: vramakrishna
   ms.date: 12/01/2023
   ms.topic: reference-architecture
   ms.service: architecture-center
