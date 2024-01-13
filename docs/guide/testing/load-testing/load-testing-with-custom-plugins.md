@@ -49,12 +49,12 @@ In this example, the following components are used:
 - **[Azure Load Testing](/azure/load-testing/overview-what-is-azure-load-testing)**: Azure Load Testing is a service that allows you to run Apache JMeter scripts and custom plugins to simulate user/device behaviors. It provides a web-based interface for managing and running load tests, as well as a set of APIs that can be used to automate the process. Azure Load Testing is a fully managed service, which means that you don't need to worry about managing servers or infrastructure. You can simply upload your JMeter scripts and custom plugins, and Azure Load Testing will take care of the rest.
 - **[Azure Event Hubs](/event-hubs/event-hubs-about)**: Azure Event Hubs is a cloud-based event processing service that can be used to collect, process, and analyze events and streaming data from various sources in real-time. Azure Event Hubs supports multiple protocols, including: AMQP (Advanced Message Queuing Protocol), HTTPS, Kafka Protocol, MQTT (Message Queuing Telemetry Transport) and AMQP over WebSockets. Choosing the right protocol depends on several factors, including the type of data you're working with, the specific requirements of your application, and the capabilities and limitations of the protocols themselves.
 - **[Azure Functions](/azure/azure-functions/functions-overview)**: Azure Functions is a serverless compute service that allows you to run code without having to manage servers or infrastructure. It supports multiple programming languages, including C#, F#, Java, JavaScript, PowerShell, Python, and TypeScript. Azure Functions can be used to process events and streaming data from Azure Event Hubs, as well as other sources such as Azure Storage and Azure Cosmos DB.
-- JMeter GUI: JMeter GUI is an open-source load testing tool that is primarily used to test the performance of web applications. It was originally developed for testing web applications. However it can also be used to test other types of applications, such as SOAP and REST web services, FTP servers, databases, and more.
+- **[JMeter GUI](https://jmeter.apache.org/download_jmeter.cgi)**: JMeter GUI is an open-source load testing tool that is primarily used to test the performance of web applications. It was originally developed for testing web applications. However it can also be used to test other types of applications, such as SOAP and REST web services, FTP servers, databases, and more.
 - Azure Monitor: Azure Monitor is a service that provides monitoring and alerting capabilities for Azure resources. It allows you to monitor the performance and health of your applications, as well as the underlying infrastructure. Azure Monitor can be used to monitor Azure Event Hubs and Azure Functions, as well as other Azure services such as Azure Storage and Azure Cosmos DB.
 
 ## Scenario details
 
-In this example, we assume that there's a device that is reporting temperature and humidity in a period of time. In the current implementation of the plugin, we just simply generate a random data using a provided template. However, the plugin can contain any possible complex behavior for any devices. In this example, the device is sending the data to an Azure event hub. The event hub triggers an Azure Function that is responsible for processing the data and then sending data to other downstream services such as Azure SQL Database. The Azure Function is the service that we want to test. The test plan is designed to simulate the behavior of the device and send data to the event hub.
+In this example, we assume that there's a device that is reporting temperature and humidity in a period of time. We can simulate this simple behavior using a custom JMeter plugin. In the current implementation of the custom plugin provided [here](https://github.com/Azure-Samples/load-testing-jmeter-plugins/blob/main/target/loadtestplugins-1.0.jar), we just simply generate a random data using a provided template. However, the plugin can contain any possible complex behavior for any devices. In this example, the device is sending the data to an Azure event hub. The event hub triggers an Azure Function that is responsible for processing the data and then sending data to other downstream services such as Azure SQL Database. The Azure Function is the service that we want to test. The test plan is designed to simulate the behavior of the device and send data to the event hub.
 
 ### Potential use cases
 
@@ -209,12 +209,12 @@ In order to measure KPIs, you need to have a performance testing strategy. The s
 
 - Event Hub: The performance testing approach for the event hub is to send many messages to the event hub and then measure the RPS and LOAD. The RPS is the number of messages that are sent to the event hub per second. The LOAD is the total number of messages that are sent to the event hub during the performance testing. Azure Load Testing service can measure RPS and LOAD.
 - Azure Functions: The performance testing approach for Azure Functions is to measure the following metrics:
-  - The IR is the number of function executions or ingestion rate. 
-  - The RT is the average time for Azure Function Execution Time. 
-  - The AMU is the average memory usage for Azure Functions. 
-  - The SR is the success rate of all function executions. 
-  - The ARS is the average downstream service response time. 
-  - The DF is the dependency failure count including internal Azure function errors. 
+  - The IR is the number of function executions or ingestion rate.
+  - The RT is the average time for Azure Function Execution Time.
+  - The AMU is the average memory usage for Azure Functions.
+  - The SR is the success rate of all function executions.
+  - The ARS is the average downstream service response time.
+  - The DF is the dependency failure count including internal Azure function errors.
   - Azure Monitor service can measure AMU, ARS and DF, but not IR, RT and SR.
 
 In order to measure KPIs using Azure Monitor service, we need to enable Application Insights for Azure Functions. For more information, see [Enable Application Insights for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring?tabs=cmd#enable-application-insights).
