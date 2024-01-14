@@ -46,7 +46,9 @@ The accelerator is based on a GitHub template repository that consists of the fo
 
 ## Alternatives
 
-The Azure Governance Visualizer is a powerShell script which can be run directly on a local machine or configured to be run as part of a GitHub Action or Azure DevOps pipeline to always receive up-to-date information about your environment. The visualizer produces a wiki as an output that can be published in GitHub or Azure DevOps.
+- The Azure Governance Visualizer is a powerShell script which can be run directly on a local machine or configured to be run as part of a GitHub Action or Azure DevOps pipeline to always receive up-to-date information about your environment. The visualizer produces a wiki as an output that can be published in GitHub or Azure DevOps.
+
+- The visualizer can also be hosted on any other hosting platform that is secure and also cost-effective like [Azure Static Web Apps](https://learn.microsoft.com/azure/static-web-apps/overview).
 
 ## Scenario
 
@@ -56,17 +58,21 @@ Azure Governance Visualizer is a PowerShell based script that iterates your Azur
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](https://learn.microsoft.com/azure/architecture/framework).
 
-### Cost optimization
-
-Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see Overview of the [cost optimization pillar](https://learn.microsoft.com/azure/architecture/framework/cost/overview).
-
-- Azure App Service: The B1 (Basic) tier is used for the deployed Azure App Service. This app service will host the HTML output of the Azure Governance Visualizer tool so its very lightweight. The accelerator only deploys one instance of Azure App Service but you can choose to deploy more if needed.
-
 ### Security
 
 - **Data collection :** The visualizer is using least-privilege roles to collect the needed information from your tenant, service principals are used to iterate through your tenant and resources to collect this information. Microsoft Entra ID is used to grant thos privileges to the service principles.
 
 - **Data visualization :** The output of the visualizer is published to an Azure App Service that is implementing the security best practices. The app service is also protected by Entra ID authentication so you can grant access to the output to the right users and groups.
+
+- **Secure communication :** The Azure App Service is configured to implement security best practices like HTTPS only communication, a minimum TLS version of 1.2 and allowing only FTPS.
+
+- **Azure App Service private access:** It is recommended to enable [Private endpoints](https://learn.microsoft.com/azure/private-link/private-endpoint-overview) to protect the deployed Azure App Service by not exposing it to the public internet. See also [more security recommendations](https://learn.microsoft.com/azure/app-service/security-recommendations) for additional security controls.
+
+### Cost optimization
+
+Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see Overview of the [cost optimization pillar](https://learn.microsoft.com/azure/architecture/framework/cost/overview).
+
+- Azure App Service: The B1 (Basic) tier is used for the deployed Azure App Service. This app service will host the HTML output of the Azure Governance Visualizer tool so its very lightweight. The accelerator only deploys one instance of Azure App Service but you can choose to deploy more if needed.
 
 ### Operational excellence
 
