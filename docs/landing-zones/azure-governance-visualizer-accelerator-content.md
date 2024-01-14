@@ -35,16 +35,16 @@ This flow explains how a uer would use the tool:
 
 ## Components
 
-The accelerator is based on a GitHub template repository that consists of the following:
+The accelerator is based on a GitHub template repository that consists of the following components:
 
 - [Microsoft Entra ID](https://azure.microsoft.com/products/active-directory) is an enterprise identity service that provides single sign-on, multifactor authentication, and conditional access.output.
 - [Azure App Service](https://azure.microsoft.com/services/app-service) is a fully managed platform for creating and deploying cloud applications. It lets you define a set of compute resources for a web app to run, deploy web apps, and configure deployment slots.
-- [GitHub](https://docs.github.com/) is a popular SaaS offering from Microsoft that's frequently used by developers to build, ship, and maintain their software projects
+- [GitHub](https://docs.github.com/) is a popular SaaS offering from Microsoft that is frequently used by developers to build, ship, and maintain their software projects
 - [GitHub Actions](https://learn.microsoft.com/azure/developer/github/github-actions) provides continuous integration and continuous deployment capabilities in this architecture.
 
 ## Alternatives
 
-- The Azure Governance Visualizer is a powerShell script, which can be run directly on a local machine or configured to be run as part of a GitHub Action or Azure DevOps pipeline to always receive up-to-date information about your environment. The visualizer produces a wiki as an output that can be published in GitHub or Azure DevOps.
+- The Azure Governance Visualizer is a powerShell script, which can be run directly on a local machine, configured to run as part of a GitHub Action or Azure DevOps pipeline to receive up-to-date information about your environment. The visualizer produces a wiki as an output that can be published in GitHub or Azure DevOps.
 
 - The visualizer can also be hosted on any other hosting platform that is secure and also cost-effective like [Azure Static Web Apps](https://learn.microsoft.com/azure/static-web-apps/overview).
 
@@ -60,9 +60,9 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Protecting the reporting HTML to only those users authorized to view this data is important as this data is a gold mine for both insider and external threats, as it exposes your Azure landscape, including security controls.
 
-- It's recommended that you use Microsoft Entra authentication to restrict access to those individuals. Consider using Azure Web Apps authentication to provide this service. In the accelerator, the deployment configures to Azure Web Apps actively verifies that authentication is enabled before deploying.
+- It's recommended to use Microsoft Entra authentication to restrict access to those individuals. Consider using Azure Web Apps authentication to provide this service. In the accelerator, the deployment configures to Azure Web Apps actively verifies that authentication is enabled before deploying.
 
-- In addition to identity-based access controls, consider providing network security controls such as exposing the site only over a [private endpoint](https://learn.microsoft.com/azure/private-link/private-endpoint-overview) to your team or using IP restrictions of Azure Web Apps to restrict traffic.
+- In addition to identity-based access controls, consider providing network security controls such as exposing the site only over a [private endpoint](https://learn.microsoft.com/azure/private-link/private-endpoint-overview) to your team or the use of IP restrictions of Azure Web Apps to restrict traffic.
 
 - Access logging should be enabled on the Azure Web App to be able to audit access. Configure the Azure Web App to send those logs to a Log Analytics workspace.
 
@@ -88,13 +88,13 @@ Cost optimization is about reducing unnecessary expenses and improving operation
 
 - The accelerator consists mainly of an Azure Web App that hosts the HTML output of the visualizer tool. It's recommended to enable the diagnostic settings of the web app to monitor traffic, access audit logs, metrics and more.
 
-- Its also important to monitor the performance of the web app, to identify if you need to scale up or scale out depending on the amount of traffic directed towards the visualizer.
+- Its also important to monitor the performance of the web app. This will help to identify if you need to scale up or scale out depending on the amount of visualizer usage.
 
 - Always stay on the [latest versions of the runtime stack](https://learn.microsoft.com/azure/app-service/language-support-policy?tabs=windows) of the Azure Web App.
 
-- The Azure Governance Visualizer gets new versions regularly with new features, bug fixes or improvements. In the accelerator, this is handled by a dedicated GitHub workflow. This is implemented by a configurable option to automatically update the visualizer's code or manually by just opening a pull request with the changes for you to review and merge.
+- The Azure Governance Visualizer gets new versions regularly with new features, bug fixes or improvements. In the accelerator, this update process is handled by a dedicated GitHub workflow. This is implemented by a configurable option to automatically update the visualizer's code or manually by just opening a pull request with the changes for you to review and merge.
 
-- The accelerate code might get updated with new settings on the Azure App service bicep code or new instructions for the visualizer prerequisites. In the accelerator, this is handled by a dedicated GitHub workflows. This is implemented by a configurable option to automatically update the accelerator's code or manually by just opening a pull request with the changes for you to review and merge.
+- The accelerate code might get updated with new settings on the Azure App service bicep code or new instructions for the visualizer prerequisites. In the accelerator, this update process is handled by a dedicated GitHub workflows. This is implemented by a configurable option to automatically update the accelerator's code or manually by just opening a pull request with the changes for you to review and merge.
 
 ## Deploy this scenario
 
