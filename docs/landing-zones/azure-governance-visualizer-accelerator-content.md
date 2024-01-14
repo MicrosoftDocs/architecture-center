@@ -23,14 +23,14 @@ The solution architecture implements the following workflow:
 
 1. The user prepares all the prerequisites needed by either running the provided powerShell commands or through the portal.
 2. A GitHub workflow is triggered to deploy the needed Azure infrastructure including an Azure web app.
-3. A GitHub workflow is triggered to deploy the Azure Governance Visualizer (AzGovViz) tool. This workflow runs the tool once its deployed to start collecting all the needed insights from your tenant.
-4. The output of the AzGovViz tool in HTML format is published to the created Azure web app, that is protected by Entra ID authentication.
+3. A GitHub workflow is triggered to deploy the Azure Governance Visualizer (AzGovViz) tool. This workflow runs the tool once it's deployed to start collecting all the needed insights from your tenant.
+4. The output of the AzGovViz tool in HTML format is published to the created Azure web app that is protected by Entra ID authentication.
 
 ### User flow
 
-This flow explains how a uer would use the tool:
+This flow explains how a user would use the tool:
 
-1. The user browses to the Azure web app URl to access the html report of the visualizer.
+1. The user browses to the Azure web app Url to access the html report of the visualizer.
 2. The user can start drilling down through the various insights provided by the visualizer.
 
 ## Components
@@ -44,7 +44,7 @@ The accelerator is based on a GitHub template repository that consists of the fo
 
 ## Alternatives
 
-- The Azure Governance Visualizer is a powerShell script, which can be run directly on a local machine, configured to run as part of a GitHub Action or Azure DevOps pipeline to receive up-to-date information about your environment. The visualizer produces a wiki as an output that can be published in GitHub or Azure DevOps.
+- The Azure Governance Visualizer is a powerShell script, which can be run directly on a local machine. The visualizer can be configured to run as part of a GitHub Action or Azure DevOps pipeline to receive up-to-date information about your environment. The visualizer produces a wiki as an output that can be published in GitHub or Azure DevOps.
 
 - The visualizer can also be hosted on any other hosting platform that is secure and also cost-effective like [Azure Static Web Apps](https://learn.microsoft.com/azure/static-web-apps/overview).
 
@@ -60,9 +60,9 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Protecting the reporting HTML to only those users authorized to view this data is important as this data is a gold mine for both insider and external threats, as it exposes your Azure landscape, including security controls.
 
-- It's recommended to use Microsoft Entra authentication to restrict access to those individuals. Consider using Azure Web Apps authentication to provide this service. In the accelerator, the deployment configures to Azure Web Apps actively verifies that authentication is enabled before deploying.
+- It is recommended to use Microsoft Entra authentication to restrict access to those individuals. Consider using Azure Web Apps authentication to provide this service. In the accelerator, the deployment configures to Azure Web Apps actively verifies that authentication is enabled before deploying.
 
-- In addition to identity-based access controls, consider providing network security controls such as exposing the site only over a [private endpoint](https://learn.microsoft.com/azure/private-link/private-endpoint-overview) to your team or the use of IP restrictions of Azure Web Apps to restrict traffic.
+- Consider leveraging network security controls to expose the site only over a [private endpoint](https://learn.microsoft.com/azure/private-link/private-endpoint-overview) to your team. Also consider the use of IP restrictions of Azure Web Apps to restrict traffic.
 
 - Access logging should be enabled on the Azure Web App to be able to audit access. Configure the Azure Web App to send those logs to a Log Analytics workspace.
 
@@ -80,21 +80,21 @@ Protecting the reporting HTML to only those users authorized to view this data i
 
 Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see Overview of the [cost optimization pillar](https://learn.microsoft.com/azure/architecture/framework/cost/overview).
 
-- Azure App Service: The B1 (Basic) tier is used for the deployed Azure web app. This app service hosts the HTML output of the Azure Governance Visualizer tool so its lightweight.
+- Azure App Service: The B1 (Basic) tier is used for the deployed Azure web app. This app service hosts the HTML output of the Azure Governance Visualizer tool so it's lightweight.
 
 - The accelerator only deploys one instance of Azure App Service but you can choose to deploy more if needed.
 
 ### Operational excellence
 
-- The accelerator consists mainly of an Azure Web App that hosts the HTML output of the visualizer tool. It's recommended to enable the diagnostic settings of the web app to monitor traffic, access audit logs, metrics and more.
+- The accelerator consists mainly of an Azure Web App that hosts the HTML output of the visualizer tool. It is recommended to enable the diagnostic settings of the web app to monitor traffic, access audit logs, metrics and more.
 
-- Its also important to monitor the performance of the web app. This will help to identify if you need to scale up or scale out depending on the amount of visualizer usage.
+- It's also important to monitor the performance of the web app. This helps to identify if you need to scale up or scale out depending on the amount of visualizer usage.
 
 - Always stay on the [latest versions of the runtime stack](https://learn.microsoft.com/azure/app-service/language-support-policy?tabs=windows) of the Azure Web App.
 
-- The Azure Governance Visualizer gets new versions regularly with new features, bug fixes or improvements. In the accelerator, this update process is handled by a dedicated GitHub workflow. This is implemented by a configurable option to automatically update the visualizer's code or manually by just opening a pull request with the changes for you to review and merge.
+- The Azure Governance Visualizer gets new versions regularly with new features, bug fixes or improvements. In the accelerator, the update process is handled by a dedicated GitHub workflow. This logic is implemented by a configurable option to update the visualizer's code automatically or manually by just opening a pull request with the changes for you to review and merge.
 
-- The accelerate code might get updated with new settings on the Azure App service bicep code or new instructions for the visualizer prerequisites. In the accelerator, this update process is handled by a dedicated GitHub workflows. This is implemented by a configurable option to automatically update the accelerator's code or manually by just opening a pull request with the changes for you to review and merge.
+- The accelerate code might get updated with new settings on the Azure App service bicep code or new instructions for the visualizer prerequisites. In the accelerator, a dedicated GitHub workflows handles this update process. This logic is implemented by a configurable option to update the accelerator's code automatically or manually by just opening a pull request with the changes for you to review and merge.
 
 ## Deploy this scenario
 
