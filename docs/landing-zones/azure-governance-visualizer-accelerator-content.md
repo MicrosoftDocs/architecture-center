@@ -58,13 +58,19 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Security
 
-- **Data collection :** The visualizer is using least-privilege roles to collect the needed information from your tenant, service principals are used to iterate through your tenant and resources to collect this information. Microsoft Entra ID is used to grant thos privileges to the service principles.
+- Protecting the reporting HTML to only those users authorized to view this data is important as this data is a gold mine for both insider and external threats, as it exposes your Azure landscape, including security controls. It's recommended that you use Microsoft Entra authentication to restrict access to those individuals. Consider using Azure Web Apps authentication to provide this service. In the accelerator, the deployment configures to Azure Web Apps actively verifies that authentication is enabled before deploying.
 
-- **Data visualization :** The output of the visualizer is published to an Azure App Service that is implementing the security best practices. The app service is also protected by Entra ID authentication so you can grant access to the output to the right users and groups.
+- In addition to identity-based access controls, consider providing network security controls such as exposing the site only over a [private endpoint](https://learn.microsoft.com/azure/private-link/private-endpoint-overview) to your team or using IP restrictions of Azure Web Apps to restrict traffic.
 
-- **Secure communication :** The Azure App Service is configured to implement security best practices like HTTPS only communication, a minimum TLS version of 1.2 and allowing only FTPS.
+- Access logging should be enabled on the Azure Web App to be able to audit access. Configure the Azure Web App to send those logs to a Log Analytics workspace.
 
-- **Azure App Service private access:** It is recommended to enable [Private endpoints](https://learn.microsoft.com/azure/private-link/private-endpoint-overview) to protect the deployed Azure App Service by not exposing it to the public internet. See also [more security recommendations](https://learn.microsoft.com/azure/app-service/security-recommendations) for additional security controls.
+- Ensure secure communication is enabled on the Azure Web App. In the accelerator, only HTTPS and FTPs are allowed and the minimum version of TLS is configured as 1.2.
+
+- Consider using Microsoft Defender for Cloud's Microsoft Defender for App Service.
+
+- Use the [latest versions of the runtime stack](https://learn.microsoft.com/azure/app-service/language-support-policy?tabs=windows) of the Azure Web App.
+
+- See also [more security recommendations](https://learn.microsoft.com/azure/app-service/security-recommendations) for additional security controls.
 
 ### Cost optimization
 
