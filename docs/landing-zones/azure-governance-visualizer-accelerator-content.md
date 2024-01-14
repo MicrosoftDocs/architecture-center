@@ -1,6 +1,4 @@
-The [Azure Governance Visualizer Accelerator](https://github.com/Azure/Azure-Governance-Visualizer-Accelerator) is a GitHub repository that contains guidance and code for running the [Azure Governance Visualizer](https://github.com/azure/azure-governance-visualizer) in a GitHub pipeline.
-
-The Azure Governance Visualizer is a repository containing a PowerShell script that captures pertinent governance information about your Azure Tenant, including the following:
+Organizations use the Azure Governance Visualizer to capture pertinent governance information about their Azure tenants. The tool captures:
 
 - Management group hierarchy.
 - Policy information such as custom policy definitions, orphaned custom policy definitions, and policy assignments.
@@ -8,9 +6,9 @@ The Azure Governance Visualizer is a repository containing a PowerShell script t
 - Azure security and best practice analysis.
 - Microsoft Entra ID insights.
 
-The visualizer outputs the summary as html, md, and csv files. Ideally, the visualizer would be run periodically as a pipeline and would output the results to a location where authorized users could easily view the governance information.
+Azure Governance Visualizer runs in an automated way through Azure pipelines or GitHub actions, but the generated HTML report might be better served through a hosting platform that is reachable by more staff in the organization. This article will show how to securely host the reporting output both securely and cost effectively on Azure Web Apps.
 
-The Azure Governance Visualizer Accelerator provides guidance and code for running the Azure Governance Visualizer in GitHub Actions and publishes the results to an Azure App Service.
+An example implementation of this is available on GitHub at [Azure Governance Visualizer accelerator](https://github.com/Azure/Azure-Governance-Visualizer-Accelerator).
 
 ## Architecture
 
