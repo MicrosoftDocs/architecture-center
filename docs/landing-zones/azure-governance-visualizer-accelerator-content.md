@@ -111,4 +111,4 @@ Seif Bassem | Cloud Solution Architect
 ## Next steps
 
 - [Azure Governance Visualizer accelerator](https://github.com/Azure/Azure-Governance-Visualizer-Accelerator)
-- [Azure Governance Visualizer](https://github.com/JulianHayward/Azure-MG-Sub-Governance-Reporting)
+- [Azure Governance Visualizer](https://github.com/Azure/Azure-Governance-Visualizer)
