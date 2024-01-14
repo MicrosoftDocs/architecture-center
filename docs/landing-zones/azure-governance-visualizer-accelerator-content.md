@@ -58,7 +58,9 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Security
 
-- Protecting the reporting HTML to only those users authorized to view this data is important as this data is a gold mine for both insider and external threats, as it exposes your Azure landscape, including security controls. It's recommended that you use Microsoft Entra authentication to restrict access to those individuals. Consider using Azure Web Apps authentication to provide this service. In the accelerator, the deployment configures to Azure Web Apps actively verifies that authentication is enabled before deploying.
+Protecting the reporting HTML to only those users authorized to view this data is important as this data is a gold mine for both insider and external threats, as it exposes your Azure landscape, including security controls.
+
+- It's recommended that you use Microsoft Entra authentication to restrict access to those individuals. Consider using Azure Web Apps authentication to provide this service. In the accelerator, the deployment configures to Azure Web Apps actively verifies that authentication is enabled before deploying.
 
 - In addition to identity-based access controls, consider providing network security controls such as exposing the site only over a [private endpoint](https://learn.microsoft.com/azure/private-link/private-endpoint-overview) to your team or using IP restrictions of Azure Web Apps to restrict traffic.
 
