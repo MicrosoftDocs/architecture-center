@@ -60,7 +60,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see Overview of the [cost optimization pillar](https://learn.microsoft.com/azure/architecture/framework/cost/overview).
 
-- Azure App Service: The F1 (free) tier is used for the deployed Azure App Service. This app service will host the HTML output of the Azure Governance Visualizer tool so its very lightweight. The accelerator only deploys one instance of Azure App Service but you can choose to deploy more if needed.
+- Azure App Service: The B1 (Basic) tier is used for the deployed Azure App Service. This app service will host the HTML output of the Azure Governance Visualizer tool so its very lightweight. The accelerator only deploys one instance of Azure App Service but you can choose to deploy more if needed.
 
 ### Security
 
