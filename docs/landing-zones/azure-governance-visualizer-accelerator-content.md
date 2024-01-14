@@ -77,17 +77,6 @@ This accelerator has four GitHub workflows:
 3. *SyncAccelerator :* This workflow is responsible for checking for any new updates to the accelerator code itself, like the Azure App Service and if any change is detected a pull request will be created to be reviewed.
 4. *SyncAzGovViz :* This workflow is responsible for checking for any new version of the Azure Governance Visualizer tool and if any new version is found, it will be update either automatically or through a pull request.
 
-## Deployment
-
-The deployment of the accelerator is implemented through four GitHub actions. The GitHub actions use the secrets and variables defined in the prerequisites stage to:
-
-- Deploy an App Service Plan and an Azure Web app to a resource group.
-- Configure Microsoft Entra ID authentication on the Azure Web app.
-- Deploy the Azure Governance Visualizer PowerShell script with the needed configuration.
-- Publish the output of the tool to the Azure Web app so it's securely accessed.
-- Schedule a recurring GitHub Action to check and sync newer versions of Azure Governance Visualizer.
-- Schedule a recurring GitHub Action to check and sync newer versions of Azure Governance Visualizer accelerator
-
 ## Deploy this scenario
 
 To deploy this scenario, please navigate to this [Azure Governance Visualizer accelerator](https://github.com/Azure/Azure-Governance-Visualizer-Accelerator).
