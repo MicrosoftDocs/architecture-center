@@ -31,7 +31,7 @@ Many of the components of this architecture are the same as those in the [baseli
 - [Azure Storage](https://azure.microsoft.com/services/storage) is used to persist the prompt flow source files for prompt flow development.
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry) enables you to build, store, and manage container images and artifacts in a private registry for all types of container deployments. In this architecture, flows are packaged as container images and stored in Azure Container Registry.
 - [Azure OpenAI](https://azure.microsoft.com/products/ai-services/openai-service) is a fully managed service that provides REST API access to Azure OpenAI's large language models, including the GPT-4, GPT-3.5-Turbo, and Embeddings set of models. In this architecture, in addition to model access, it's used to add common enterprise features such as [virtual network and private link](/azure/ai-services/cognitive-services-virtual-networks), [managed identity](/azure/ai-services/openai/how-to/managed-identity) support, and content filtering.
-- [Azure AI Search](/azure/search/) is a cloud search service that supports [full-text search](/azure/search/search-lucene-query-architecture), [semantic search](/azure/search/semantic-search-overview), [vector search](/azure/search/vector-search-overview), and [hybrid search](/azure/search/vector-search-ranking#hybrid-search). This is included in the architecture as it is a common service used in the flows behind chat applications. Azure AI Search can be used to retrieve and index data that is relevant for user queries. The prompt flow implements the RAG pattern (Retrieval Augmented Generation)[https://learn.microsoft.com/en-us/azure/search/retrieval-augmented-generation-overview] will extract the appropriate query from the prompt, query AI Search, and use the results as grounding data for the Azure OpenAI model.
+- [Azure AI Search](/azure/search/) is a cloud search service that supports [full-text search](/azure/search/search-lucene-query-architecture), [semantic search](/azure/search/semantic-search-overview), [vector search](/azure/search/vector-search-overview), and [hybrid search](/azure/search/vector-search-ranking#hybrid-search). This is included in the architecture as it is a common service used in the flows behind chat applications. Azure AI Search can be used to retrieve and index data that is relevant for user queries. The prompt flow implements the RAG pattern (Retrieval Augmented Generation)[https://learn.microsoft.com/en-us/azure/search/retrieval-augmented-generation-overview] to extract the appropriate query from the prompt, query AI Search, and use the results as grounding data for the Azure OpenAI model.
 
 ### Azure Machine Learning prompt flow
 
@@ -98,7 +98,7 @@ The network in this architecture has separate subnets for the following:
 - Private endpoints
 - Azure Bastion
 - Jump box virtual machine
-- Training
+- Training - not used for model training in this architecture
 - Scoring
 
 Each subnet has a network security group that limits both inbound and outbound traffic for those subnets to just what is required. The following table shows a simplified view of the NSG rules the baseline adds to each subnet. The table gives the rule name and function.
@@ -216,7 +216,7 @@ This architecture follows the least privilege principle by only assigning roles 
 | Compute instance managed identity | Workspace Container Registry | ACRPull |
 | Compute instance managed identity | Workspace Storage Account | Storage Blob Data Reader |
 
-### OpenAI key rotation
+### Key rotation
 
 There are two services in this architecture that use key-based authentication: Azure OpenAI and the Azure Machine Learning managed online endpoint. Because you are using key-based authentication for these services, it is important to:
 
