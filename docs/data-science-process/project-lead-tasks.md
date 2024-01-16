@@ -8,7 +8,7 @@ services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 01/15/2024
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -21,77 +21,98 @@ categories:
 
 # Project lead tasks in the Team Data Science Process
 
-This article describes tasks that a *project lead* completes to set up a repository for their project team in the [Team Data Science Process](overview.yml) (TDSP). The TDSP is a framework developed by Microsoft that provides a structured sequence of activities to efficiently execute cloud-based, predictive analytics solutions. The TDSP is designed to help improve collaboration and team learning. For an outline of the personnel roles and associated tasks for a data science team standardizing on the TDSP, see [Team Data Science Process roles and tasks](roles-tasks.md).
+This article describes tasks that a *project lead* completes setting up a repository for their project team in the [Team Data Science Process](overview.yml) (TDSP). The TDSP is a framework developed by Microsoft that provides a structured sequence of activities to efficiently execute cloud-based, predictive analytics solutions. The TDSP is designed to help improve collaboration and team learning. For an outline of the personnel roles and associated tasks, see [Team Data Science Process roles and tasks](roles-tasks.md).
 
-A project lead manages the daily activities of individual data scientists on a specific data science project in the TDSP. The following diagram shows the workflow for project lead tasks:
+A project lead manages the daily activities of individual data scientists on a specific data science project in the TDSP. 
 
-![Project lead task workflow](./media/project-lead-tasks/project-leads-1-tdsp-creating-projects.png)
+## Major Roles of the Project Lead:
 
-This tutorial covers Step 1: Create project repository, and Step 2: Seed project repository from your team ProjectTemplate repository.
+1.  **Project Planning and Execution:**
+    -   Develop and execute detailed project plans, including defining project scope, timelines, milestones, and deliverables.
+    -   Coordinate and oversee all project activities, ensuring adherence to the project plan.
+2.  **Team Coordination and Management:**
+    -   Direct and coordinate the work of individual contributors within the project team.
+    -   Assign tasks, monitor progress, and ensure efficient collaboration among team members.
+3.  **Technical Oversight:**
+    -   Provide technical oversight and guidance on data science methodologies, tools, and techniques used in the project.
+    -   Ensure that the technical approach aligns with project objectives and TDSP best practices.
+4.  **Stakeholder Communication:**
+    -   Serve as the primary point of contact for the project with stakeholders.
+    -   Communicate project status, progress, and any issues or changes to stakeholders regularly.
+5.  **Problem-Solving and Decision Making:**
+    -   Lead problem-solving efforts, addressing technical challenges and adjusting the project plan as needed.
+    -   Make key decisions affecting the project's direction and outcomes.
+6.  **Quality Assurance:**
+    -   Ensure the quality and accuracy of project deliverables.
+    -   Implement quality control processes throughout the project lifecycle.
+7.  **Risk Management:**
+    -   Identify potential risks to the project and develop strategies to mitigate them.
+    -   Manage and address issues as they arise, minimizing impact on the project.
 
-For Step 3: Create Feature work item for project, and Step 4: Add Stories for project phases, see [Agile development of data science projects](agile-development.md).
+## Key Tasks for the Project Lead:
 
-For Step 5: Create and customize storage/analysis assets and share, if necessary, see [Create team data and analytics resources](team-lead-tasks.md#create-team-data-and-analytics-resources).
+-   **Detailed Project Scheduling:**
+    -   Create and maintain a detailed schedule of project activities and deadlines.
+-   **Resource Allocation:**
+    -   Allocate resources (human, technical, data) effectively to meet project needs.
+-   **Technical Review and Guidance:**
+    -   Conduct technical reviews and provide guidance to team members on data processing, analysis, and modeling.
+-   **Monitoring and Reporting:**
+    -   Monitor project progress against goals and objectives.
+    -   Regularly report on project status to the team, stakeholders, and management.
+-   **Documentation:**
+    -   Ensure comprehensive documentation of methodologies, analyses, and results.
+-   **Facilitating Meetings:**
+    -   Organize and lead project meetings, reviews, and brainstorming sessions.
+-   **Training and Support:**
+    -   Provide training and support to team members as needed.
+-   **Compliance and Ethical Standards:**
+    -   Ensure adherence to ethical standards, data privacy regulations, and organizational policies.
+   
+## Using Large Language Models and Microsoft Copilots
 
-For Step 6: Set up security control of project repository, see [Add team members and configure permissions](team-lead-tasks.md#add-team-members-and-configure-permissions).
+In Microsoft's Team Data Science Process (TDSP), the "Project Lead" is pivotal in driving individual data science projects towards their goals. Here's how a Project Lead can use Large Language Models (LLMs) and Microsoft copilots within the TDSP framework:
 
-> [!NOTE]
-> This article uses Azure Repos to set up a TDSP project, because that is how to implement TDSP at Microsoft. If your team uses another code hosting platform, the project lead tasks are the same, but the way to complete them may be different.
+### Detailed Project Management:
 
-## Prerequisites
+-   **Project Planning and Scheduling:** Use LLMs to help creating detailed project plans, timelines, and scheduling, considering various project phases and milestones.
+-   **Task Delegation and Monitoring:** Employ copilots to assign tasks to team members and monitor progress, ensuring adherence to the project timeline.
 
-This tutorial assumes that your [group manager](group-manager-tasks.md) and [team lead](team-lead-tasks.md) have set up the following resources and permissions:
+### Technical Oversight and Decision Making:
 
-- The Azure DevOps **organization** for your data unit
-- A team **project** for your data science team
-- Team template and utilities **repositories**
-- **Permissions** on your organization account for you to create and edit repositories for your project
+-   **Technical Research and Validation:** Use LLMs for researching and validating technical approaches, algorithms, and methodologies suitable for the project.
+-   **Decision Support:** Use LLMs to analyze various technical options and provide data-driven recommendations for critical project decisions.
 
-To clone repositories and modify content on your local machine or Data Science Virtual Machine (DSVM), or set up Azure file storage and mount it to your DSVM, you also need to consider this checklist:
+### Team Coordination and Support:
 
-- An Azure subscription.
-- Git installed on your machine. If you're using a DSVM, Git is pre-installed. Otherwise, see the [Platforms and tools appendix](platforms-and-tools.md#appendix).
-- If you want to use a DSVM, the Windows or Linux DSVM created and configured in Azure. For more information and instructions, see the [Data Science Virtual Machine Documentation](/azure/machine-learning/data-science-virtual-machine/).
-- For a Windows DSVM, [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) installed on your machine. In the *README.md* file, scroll down to the **Download and Install** section and select the **latest installer**. Download the *.exe* installer from the installer page and run it.
-- For a Linux DSVM, an SSH public key set up on your DSVM and added in Azure DevOps. For more information and instructions, see the **Create SSH public key** section in the [Platforms and tools appendix](platforms-and-tools.md#appendix).
+-   **Team Communication:** Utilize LLMs for drafting clear and concise communication to keep the team aligned and informed about project objectives and updates.
+-   **Resource Management:** Employ copilots to track and manage the allocation and utilization of resources effectively within the project.
 
-## Create a project repository in your team project
+### Quality Control and Assurance:
 
-To create a project repository in your team's **MyTeam** project:
+-   **Code and Model Review:** Use LLMs for automated code and model reviews, ensuring adherence to best practices and identifying potential issues or improvements.
+-   **Documentation Review and Enhancement:** Use LLMs to help reviewing and refining project documentation, including technical reports and user guides.
 
-1. Go to your team's project **Summary** page at *https:\//\<server name>/\<organization name>/\<team name>*, for example, **https:\//dev.azure.com/DataScienceUnit/MyTeam**, and select **Repos** from the left navigation.
+### Stakeholder Communication and Reporting:
 
-1. Select the repository name at the top of the page, and then select **New repository** from the dropdown.
+-   **Progress Reporting:** Utilize LLMs to generate comprehensive progress reports and presentations for stakeholders, clearly communicating the status, challenges, and achievements of the project.
+-   **Stakeholder Meeting Preparation:** Employ copilots to prepare for stakeholder meetings, including agenda setting, creating presentations, and summarizing key discussion points.
 
-   ![Select New repository](./media/project-lead-tasks/project-leads-9-select-repos.png)
+### Risk Management and Issue Resolution:
 
-1. In the **Create a new repository** dialog, make sure **Git** is selected under **Type**. Enter *DSProject1* under **Repository name**, and then select **Create**.
+-   **Risk Analysis:** Use LLMs to identify potential risks and develop mitigation strategies, ensuring the smooth progress of the project.
+-   **Problem-Solving Assistance:** Utilize copilots and LLMs for brainstorming and developing solutions to address project challenges or bottlenecks.
 
-   ![Create repository](./media/project-lead-tasks/project-leads-3-create-project-repo-2.png)
+### Continuous Improvement and Learning:
 
-1. Confirm that you can see the new **DSProject1** repository on your project settings page.
+-   **Feedback Analysis:** Use LLMs to analyze feedback from team members and stakeholders, identifying areas for improvement in the project.
+-   **Process Optimization:** Employ copilots to refine project workflows, enhance efficiency, and implement best practices.
 
-   ![Project repository in Project Settings](./media/project-lead-tasks/project-leads-4-create-project-repo-3.png)
+The Project Lead in TDSP can effectively use LLMs and Microsoft copilots for these tasks: detailed project management, technical oversight, team coordination, quality control, stakeholder communication, risk management, and continuous improvement. These tools can significantly contribute to the project's success by enhancing decision-making, efficiency, and overall project execution.
 
-## Import the team template into your project repository
+## Summary
 
-To populate your project repository with the contents of your team template repository:
-
-1. From your team's project **Summary** page, select **Repos** in the left navigation.
-
-1. Select the repository name at the top of the page, and select **DSProject1** from the dropdown.
-
-1. On the **DSProject1 is empty** page, select **Import**.
-
-   ![Select Import](./media/project-lead-tasks/project-leads-5-create-project-repo-4.png)
-
-1. In the **Import a Git repository** dialog, select **Git** as the **Source type**, and enter the URL for your **TeamTemplate** repository under **Clone URL**. The URL is *https:\//\<server name>/\<organization name>/\<team name>/_git/\<team template repository name>*. For example: **https:\//dev.azure.com/DataScienceUnit/MyTeam/_git/TeamTemplate**.
-
-1. Select **Import**. The contents of your team template repository are imported into your project repository.
-
-   ![Import team template repository](./media/project-lead-tasks/project-leads-6-create-project-repo-5.png)
-
-If you need to customize the contents of your project repository to meet your project's specific needs, you can add, delete, or modify repository files and folders. You can work directly in Azure Repos, or clone the repository to your local machine or DSVM, make changes, and commit and push your updates to the shared project repository. Follow the instructions at [Customize the contents of the team repositories](team-lead-tasks.md#customize-the-contents-of-the-team-repositories).
+In summary, the Project Lead in TDSP is responsible for the detailed planning, execution, and management of specific data science projects. They play a key role in coordinating team efforts, providing technical guidance, managing stakeholder communication, and ensuring the quality and success of project outcomes.
 
 ## Contributors
 

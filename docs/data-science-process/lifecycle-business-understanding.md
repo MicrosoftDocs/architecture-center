@@ -1,5 +1,5 @@
 ---
-title: Business understanding in Team Data Science Process
+title: Business understanding stage of the Team Data Science Process lifecycle
 description: The goals, tasks, and deliverables for the business understanding stage of your data-science projects in the Team Data Science Process.
 author: marktab
 manager: marktab
@@ -8,7 +8,7 @@ services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: conceptual
-ms.date: 01/31/2022
+ms.date: 01/15/2024
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -20,7 +20,7 @@ categories:
 ---
 # The business understanding stage of the Team Data Science Process lifecycle
 
-This article outlines the goals, tasks, and deliverables associated with the business understanding stage of the Team Data Science Process (TDSP). This process provides a recommended lifecycle that you can use to structure your data-science projects. The lifecycle outlines the major stages that projects typically execute, often iteratively:
+This article outlines the goals, tasks, and deliverables associated with the business understanding stage of the Team Data Science Process (TDSP). This process provides a recommended lifecycle that your team can use to structure your data-science projects. The lifecycle outlines the major stages that projects typically execute, often iteratively:
 
 1. **Business understanding**
 2. **Data acquisition and understanding**
@@ -28,7 +28,7 @@ This article outlines the goals, tasks, and deliverables associated with the bus
 4. **Deployment**
 5. **Customer acceptance**
 
-Here is a visual representation of the TDSP lifecycle:
+Here's a visual representation of the TDSP lifecycle:
 
 ![TDSP lifecycle](./media/lifecycle/tdsp-lifecycle2.png)
 
@@ -71,14 +71,22 @@ Identify data sources that contain known examples of answers to your sharp quest
 * Data that's relevant to the question. Do you have measures of the target and features that are related to the target?
 * Data that's an accurate measure of your model target and the features of interest.
 
-For example, you might find that the existing systems need to collect and log additional kinds of data to address the problem and achieve the project goals. In this situation, you might want to look for external data sources or update your systems to collect new data.
+For example, you might find that the existing systems need to collect and log other kinds of data to address the problem and achieve the project goals. In this situation, you might want to look for external data sources or update your systems to collect new data.
+
+## Integration with MLflow
+
+There are no direct tools from MLflow; however, the documentation and experiment tracking can indirectly support this phase by providing insights and historical context to align the project with business objectives.
 
 ## Artifacts
 Here are the deliverables in this stage:
 
-* [Charter document](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): A standard template is provided in the TDSP project structure definition. The charter document is a living document. You update the template throughout the project as you make new discoveries and as business requirements change. The key is to iterate upon this document, adding more detail, as you progress through the discovery process. Keep the customer and other stakeholders involved in making the changes and clearly communicate the reasons for the changes to them.
-* [Data sources](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources): The **Raw data sources** section of the **Data definitions** report that's found in the TDSP project **Data report** folder contains the data sources. This section specifies the original and destination locations for the raw data. In later stages, you fill in additional details like the scripts to move the data to your analytic environment.
-* [Data dictionaries](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): This document provides descriptions of the data that's provided by the client. These descriptions include information about the schema (the data types and information on the validation rules, if any) and the entity-relation diagrams, if available.
+* Charter document: The charter document is a living document. You update the document throughout the project as you make new discoveries and as business requirements change. The key is to iterate upon this document, adding more detail, as you progress through the discovery process. Keep the customer and other stakeholders involved in making the changes and clearly communicate the reasons for the changes to them.
+* Data sources: Data source management can be [handled within Azure Machine Learning](/azure/machine-learning/concept-data?view=azureml-api-2).  This Azure technology is recommended for active and especially large projects because it integrates with MLflow.
+* Data dictionaries: This document, one your team creates, provides descriptions of the data provided by the client. These descriptions include information about the schema (the data types and information on the validation rules, if any) and the entity-relation diagrams, if available.  Some or all of this information can be documented within a project notebook.
+
+## Peer-Reviewed Literature
+
+Researchers publish studies about TDSP in peer-reviewed literature.  [The citations](/azure/architecture/data-science-process/lifecycle#peer-reviewed-citations) provide an opportunity to investigate other applications or similar ideas to TDSP, including the business understanding lifecycle stage.
 
 ## Contributors
 
