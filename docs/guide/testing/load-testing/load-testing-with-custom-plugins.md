@@ -170,7 +170,7 @@ As per the sample architecture, the following services could be used for perform
 
 | Service | Configuration |
 | ----------- | ----------- |
-| Eventhub | Premium with one PU. |
+| Eventhub | Premium with one Processing Unit (PU). |
 | Azure Function | Linux with Premium Plan (EP1) - 210 ACU, 3.5 GB Memory and 1 vCPU equivalent Standard_D1_v2 |
 | Region | East US |
 
