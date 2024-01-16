@@ -185,7 +185,7 @@ In this example, the business requirements are:
 - The system should be able to handle 1,000 requests per second.
 - The system reliability should be higher than 0.99.
 - The system should be able to handle 1,000 concurrent devices reporting their telemetry information.
-- What is the maximum capacity of the system in terms of the number of devices that can be supported? For example, can system with 3x of the current capacity support 1000 concurrent devices?
+- What is the maximum capacity of the system in terms of the number of devices that can be supported? For example, can the system with 3x of the current capacity support 1,000 concurrent devices?
 
 As per these requirements, the KPIs for performance testing could be:
 
