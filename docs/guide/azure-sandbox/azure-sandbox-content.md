@@ -68,28 +68,27 @@ For example, you can use the following capabilities and configurations that the 
 - Use a preconfigured Active Directory Domain Services local domain as a domain administrator.
   - Preconfigured integrated DNS server
   - Preconfigured integration with Azure private DNS zones
-  - Preconfigured integration with Azure PrivateLink private endpoints. 
+  - Preconfigured integration with Azure Private Link private endpoints.
 
 - Use an Azure Files preconfigured file share.
 
 - Use a Windows jumpbox VM as a developer workstation.
   - Domain joined to local domain
-  - Administer Active Directory and DNS with pre-installed Windows Server Remote Server Administration Tools
+  - Administer Active Directory and DNS with preinstalled Windows Server Remote Server Administration Tools
   - Visual Studio Code preinstalled with Remote-SSH into a Linux jump box
   - Azure Storage Explorer, AzCopy, and Azure Data Studio preinstalled
   - SQL Server Management Studio preinstalled
   - MySQL Workbench preinstalled
 
-- Use a Linux jumpbox VM as a DevOps agent.
+- Use a Linux jump box VM as a DevOps agent.
   - Domain joined to local domain using Winbind
-  - Azure CLI, PowerShell and Terraform preinstalled
-  - Dynamic CIFS mount to Azure Files preconfigured file share  
+  - Azure CLI, PowerShell, and Terraform preinstalled
+  - Dynamic CIFS mount to Azure Files preconfigured file share
 
 - Use a preconfigured SQL Server VM.
   - Domain joined to local domain 
 
 - Use a preconfigured Azure SQL database or Azure Database for MySQL Flexible Server through private endpoints.
-  
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributor.*
