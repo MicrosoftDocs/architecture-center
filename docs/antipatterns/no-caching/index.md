@@ -220,7 +220,7 @@ The volume of successful tests still reaches a plateau, but at a higher user loa
 - [Caching best practices][caching-guidance]
 - [Circuit Breaker pattern][circuit-breaker]
 
-[sample-app]: https://github.com/mspnp/performance-optimization/tree/master/NoCaching
+[sample-app]: https://github.com/mspnp/performance-optimization/tree/main/NoCaching
 [cache-aside-pattern]: ../../patterns/cache-aside.yml
 [caching-guidance]: ../../best-practices/caching.yml
 [circuit-breaker]: ../../patterns/circuit-breaker.yml

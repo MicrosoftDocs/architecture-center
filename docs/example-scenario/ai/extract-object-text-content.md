@@ -83,7 +83,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 ## Deploy this scenario
 
-For more information on deploying this scenario, see the [Power Automate Community Blog](https://powerusers.microsoft.com/t5/Power-Automate-Community-Blog/Extract-Text-From-Objects/ba-p/1249705) and the [Extract Text From Objects](https://github.com/Spucelik/ExtractTextFromObjects) GitHub repo.
+For more information on deploying this scenario, see the [Power Automate Community Blog](https://powerusers.microsoft.com/t5/Power-Automate-Community-Blog/Extract-Text-From-Objects/ba-p/1249705) and the [Extract Text From Objects](https://github.com/microsoft/ExtractTextFromObjects) GitHub repo.
 
 ## Contributors
 

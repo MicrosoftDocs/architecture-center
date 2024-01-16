@@ -4,7 +4,7 @@
 
 For Azure services
 
-- Be familiar with [Azure Service Health](/azure/service-health/service-health-overview) in the Azure portal. This page will act as the “one-stop shop” during an incident
+- Be familiar with [Azure Service Health](/azure/service-health/service-health-portal-update) in the Azure portal. This page will act as the “one-stop shop” during an incident
 - Consider the use of [Service Health alerts](/azure/service-health/alerts-activity-log-service-notifications-portal), which can be configured to automatically produce notifications when Azure incidents occur
 
 For Power BI
@@ -18,14 +18,14 @@ For Azure services
 
 - [Azure Service Health](/azure/service-health/service-health-overview) within their Azure management portal will provide the latest updates
     - If there are issues accessing Service Health, refer to the [Azure Status page](https://status.azure.com/en-us/status)
-    - If there are ever issues accessing the Status page, go to @AzureSupport on Twitter
+    - If there are ever issues accessing the Status page, go to @AzureSupport on X (formerly Twitter)
 - If impact/issues don’t match the incident (or persist after mitigation), then [contact support](https://www.aka.ms/AzurePortalSupportRequest) to raise a service support ticket
 
 For Power BI
 
 - The [Service Health](https://portal.office.com/AdminPortal/Home) page within their Microsoft 365 admin center will provide the latest updates
     - If there are issues accessing Service Health, refer to the [Microsoft 365 status page](https://status.office.com)
-    - If impact/issues don’t match the incident (or if issues persist after mitigation), they should contact support to raise a [service support ticket](https://dynamics.microsoft.com/en-us/support/)
+    - If impact/issues don't match the incident (or if issues persist after mitigation), you should raise a [service support ticket](/power-bi/support/create-support-ticket).
 
 ### Post Microsoft recovery
 
@@ -221,7 +221,7 @@ If your runbook timings exceed your RTO, there are several options:
 
 [Azure Chaos Studio](/azure/chaos-studio/) is a managed service for improving resilience by injecting faults into your Azure applications. Chaos Studio enables you to orchestrate fault injection on your Azure resources in a safe and controlled way, using experiments.  See the product documentation for a description of the types of faults currently supported.
 
-The current iteration of Chaos Studio is focused on the scope of VMs with limited faults testing for [Cosmos DB](/azure/chaos-studio/chaos-studio-fault-library#cosmos-db-failover), [Azure Cache](/azure/chaos-studio/chaos-studio-fault-library#azure-cache-for-redis-reboot) and [Key Vault](/azure/chaos-studio/chaos-studio-fault-library#key-vault-deny-access). Until more fault libraries are added, Chaos Studio is a recommended approach for isolated resiliency testing rather than full system DR testing.
+The current iteration of Chaos Studio only covers a subset of [Azure components and services](/azure/chaos-studio/chaos-studio-fault-providers). Until more fault libraries are added, Chaos Studio is a recommended approach for isolated resiliency testing rather than full system DR testing.
 
 More information on Chaos studio can be found [here](/azure/chaos-studio/)
 

@@ -50,7 +50,6 @@ AKS uses the following [user-assigned managed identities](/azure/active-director
 | Add-on | Ingress application gateway | Manages required network resources| Contributor role for node resource group | No
 | Add-on | omsagent | Send AKS metrics to Azure Monitor | Monitoring Metrics Publisher role | No
 | Add-on | Virtual-Node (ACIConnector) | Manages required network resources for Azure Container Instances | Contributor role for node resource group | No
-| OSS project | Microsoft Entra ID-pod-identity | Allows applications to access cloud resources securely with Microsoft Entra ID | NA | See steps to grant permission at [Microsoft Entra Pod Identity](https://github.com/Azure/aad-pod-identity#role-assignment).
 
 For more information, see [Use a managed identity in Azure Kubernetes Service](/azure/aks/use-managed-identity).
 
@@ -61,8 +60,6 @@ For more information, see [Use a managed identity in Azure Kubernetes Service](/
 Kubernetes workloads require Microsoft Entra application credentials to access Microsoft Entra ID protected resources, such as Azure Key Vault and Microsoft Graph. A common challenge for developers is managing secrets and credentials to secure communication between different components of a solution.
 
 [Microsoft Entra Workload ID for Kubernetes](https://azure.github.io/azure-workload-identity/docs) eliminates the need to manage credentials to access cloud services like Azure Cosmos DB, Azure Key Vault, or Azure Blob Storage. An AKS-hosted workload application can use Microsoft Entra Workload ID to access an Azure managed service by using a Microsoft Entra security token, instead of explicit credentials like a connection string, username and password, or primary key.
-
-The [Microsoft Entra Pod Identity](https://github.com/Azure/aad-pod-identity) open-source project introduced a way to avoid needing secrets, such as connection strings and primary keys, by using Azure managed identities. Microsoft Entra Workload ID for Kubernetes integrates with Kubernetes native capabilities to federate with any external identity providers. This approach is simpler to use and deploy, and it overcomes several limitations of Microsoft Entra Pod Identity.
 
 As shown in the following diagram, the Kubernetes cluster becomes a security token issuer that issues tokens to Kubernetes service accounts. You can configure these tokens to be trusted on Microsoft Entra applications. The tokens can then be exchanged for Microsoft Entra access tokens by using the [Azure Identity SDKs](/dotnet/api/overview/azure/identity-readme) or the [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet).
 
@@ -85,7 +82,7 @@ For more information, automation, and documentation for Microsoft Entra Workload
 - [Minimal Microsoft Entra Workload ID federation](https://cookbook.geuer-pollmann.de/azure/workload-identity-federation)
 - [Microsoft Entra Workload ID](https://azure.github.io/azure-workload-identity/docs/introduction.html)
 - [Microsoft Entra Workload ID quick start](https://azure.github.io/azure-workload-identity/docs/quick-start.html)
-- [Use Microsoft Entra Workload ID for Kubernetes in a .NET Standard application](/samples/azure-samples/azure-ad-workload-identity/azure-ad-workload-identity)
+- [Use Microsoft Entra Workload ID for Kubernetes with a user-assigned managed identity in a .NET Standard application](/samples/azure-samples/azure-ad-workload-identity-mi/azure-ad-workload-identity-mi/)
 
 ### Example workload
 

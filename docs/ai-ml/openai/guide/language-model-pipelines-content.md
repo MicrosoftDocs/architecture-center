@@ -69,7 +69,7 @@ Other contributor:
 
 - [Azure Business Process Accelerator](https://github.com/Azure/business-process-automation)
 - [Azure OpenAI](/azure/cognitive-services/openai)
-- [Azure OpenAI embeddings QnA](https://github.com/ruoccofabrizio/azure-open-ai-embeddings-qna)
+- [Azure OpenAI embeddings QnA](https://github.com/azure-samples/azure-open-ai-embeddings-qna)
 - [ChatGPT](https://chat.openai.com)
 - [Enterprise search with OpenAI architecture](https://github.com/MSUSAzureAccelerators/Knowledge-Mining-with-OpenAI)
 - [Generative AI for developers: Exploring new tools and APIs in Azure OpenAI Service](https://techcommunity.microsoft.com/t5/ai-cognitive-services-blog/generative-ai-for-developers-exploring-new-tools-and-apis-in/ba-p/3817003)

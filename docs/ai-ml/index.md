@@ -203,13 +203,11 @@ quickly as possible. The classic example is credit card fraud detection, but rea
 
 - [Microsoft AI on GitHub: Samples, reference architectures, and best practices](https://github.com/microsoft/AI)
 
-- [Custom AI on Azure GitHub repo.](https://github.com/Azure/custom-ai-on-azure) A collection of scripts and tutorials to help developers effectively use Azure for their AI workloads
-
 - [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true)
 
-- [Azure Machine Learning service example notebooks (Python).](https://github.com/Azure/MachineLearningNotebooks) A GitHub repo of example notebooks demonstrating the Azure Machine Learning Python SDK
+- [Azure Machine Learning Python SDK notebooks](https://github.com/Azure/MachineLearningNotebooks). A GitHub repo of example notebooks demonstrating the Azure Machine Learning Python SDK.
 
-- [Azure Machine Learning SDK for R](https://azure.github.io/azureml-sdk-for-r/)
+- [Train R models using the Azure ML CLI (v2)](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step/r)
 
 ## Azure AI platform offerings
 
@@ -295,7 +293,7 @@ This is a purpose-built bot development environment with out-of-the-box template
 
 - [Microsoft Bot Framework](https://dev.botframework.com/)
 
-- [GitHub Bot Builder repo](https://github.com/Microsoft/BotBuilder)
+- [Microsoft Bot Framework SDK repo](https://github.com/Microsoft/BotBuilder)
 
 ### Apache Spark on Azure
 
@@ -303,7 +301,7 @@ Apache Spark is a parallel processing framework that supports in-memory processi
 
 [Apache Spark in Azure HDInsight](/azure/hdinsight/spark/apache-spark-overview) is the Microsoft implementation of Apache Spark in the cloud. Spark clusters in HDInsight are compatible with Azure Storage and Azure Data Lake Storage, so you can use HDInsight Spark clusters to process your data stored in Azure.
 
-The Microsoft machine learning library for Apache Spark is [MMLSpark](https://github.com/Azure/mmlspark). This open-source library adds many deep learning and data science tools, networking capabilities, and production-grade performance to the Spark ecosystem. [Learn more about MMLSpark features and capabilities.](../ai-ml/guide/data-science-and-machine-learning.md#mmlspark)
+The Microsoft machine learning library for Apache Spark is [SynapseML](https://github.com/microsoft/SynapseML) (formerly known as MMLSpark). This open-source library adds many deep learning and data science tools, networking capabilities, and production-grade performance to the Spark ecosystem. [Learn more about SynapseML features and capabilities](../ai-ml/guide/data-science-and-machine-learning.md#synapseml).
 
 - [Azure HDInsight overview.](/azure/hdinsight/hdinsight-overview) Basic information about features, cluster architecture, and use cases, with pointers to quickstarts and tutorials.
 
@@ -315,7 +313,7 @@ The Microsoft machine learning library for Apache Spark is [MMLSpark](https://gi
 
 - [Machine learning on HDInsight](/azure/hdinsight/hdinsight-machine-learning-overview)
 
-- [GitHub repo for MMLSpark: Microsoft machine learning library for Apache Spark](https://github.com/Azure/mmlspark)
+- [GitHub repo for SynapseML: Microsoft machine learning library for Apache Spark](https://github.com/microsoft/SynapseML)
 
 - [Create an Apache Spark machine learning pipeline on HDInsight](/azure/hdinsight/spark/apache-spark-creating-ml-pipelines)
 

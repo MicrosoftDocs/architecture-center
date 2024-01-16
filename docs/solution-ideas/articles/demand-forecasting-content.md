@@ -46,8 +46,6 @@ The following scenarios are ways an organization can utilize demand forecasting:
 
 ## Next steps
 
-- [Forecasting Best Practices (on GitHub)](https://github.com/microsoft/forecasting)
-- [AutoML For Forecasting (on GitHub)](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
 - [Azure Machine Learning documentation](/azure/machine-learning)
 - [Training: Get started with Azure Stream Analytics](/training/modules/introduction-to-data-streaming)
 - [Welcome to Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)
