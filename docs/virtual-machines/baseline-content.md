@@ -42,7 +42,7 @@ This architecture consists of several Azure services for both workload resources
     - The front end runs the web server and receives user requests.
     - The back end runs another web server acting as a web API that exposes a single endpoint where the business logic is executed.
 
-    The front-end VMs have data disks (Premium_LRS) attached, which could be used to deploy a stateless application. The back-end VMs persists data to [local disks](#managed-disks) as part of its operation. This layout can be extended to include a database tier for storing state from the front-end and back-end compute. That tier is outside the scope of this architecture.
+    The front-end VMs have data disks (Premium_LRS) attached, which could be used to deploy a stateless application. The back-end VMs persist data to [local disks](#managed-disks) as part of its operation. This layout can be extended to include a database tier for storing state from the front-end and back-end compute. That tier is outside the scope of this architecture.
 
 - **Azure Virtual Network** provides a private network for all workload resources. The network is segmented into subnets, which serve as isolation boundaries.
 
@@ -64,7 +64,7 @@ This architecture consists of several Azure services for both workload resources
 
 #### User flows
 
-There are two types of users who interact with the workload resources: the **workload user** and **operator**. he flows for these users are shown in the preceding architecture diagram.
+There are two types of users who interact with the workload resources: the **workload user** and **operator**. The flows for these users are shown in the preceding architecture diagram.
 
 ##### Workload user
 
@@ -103,7 +103,7 @@ VMs often need to be bootstrapped, which is a process in which VMs are prepared 
 
 - **Virtual machine extensions**. These extensions are Azure Resource Manager objects that are managed through your Infrastructure-as-Code (IaC) deployment. This way, any failure is reported as a failed deployment that you can take action on. If there isn't an extension for your bootstrapping needs, create custom scripts. It's recommended that you run the scripts through should be executed through Azure Custom Script Extension.
 
-    Here are some other extensions that can be used to automatically zinstall or configure functionality on the VMs.
+    Here are some other extensions that can be used to automatically install or configure functionality on the VMs.
 
     - [Azure Monitor Agent (AMA)](/azure/azure-monitor/agents/agents-overview ) collects monitoring data from the guest OS and delivers it to Azure Monitor.
     - Azure The Custom Script Extension ([Windows](/azure/virtual-machines/extensions/custom-script-windows), [Linux](/azure/virtual-machines/extensions/custom-script-linux)) Version 2 downloads and runs scripts on Azure virtual machines (VMs). This extension is useful for automating post-deployment configuration, software installation, or any other configuration or management tasks.
@@ -111,9 +111,9 @@ VMs often need to be bootstrapped, which is a process in which VMs are prepared 
     - [Application Health extension with Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension) are important when Azure Virtual Machine Scale Sets does automatic rolling upgrades. Azure relies on health monitoring of the individual instances to do the updates. You can also use the extension to monitor the application health of each instance in your scale set and perform instance repairs using Automatic Instance Repairs.
     - Microsoft Entra ID and OpenSSH ([Windows](/entra/identity/devices/howto-vm-sign-in-azure-ad-windows), [Linux](/entra/identity/devices/howto-vm-sign-in-azure-ad-linux)) integrate with Microsoft Entra authentication. You can now use Microsoft Entra ID as a core authentication platform and a certificate authority to SSH into a Linux VM by using Microsoft Entra ID and OpenSSH certificate-based authentication. This functionality allows you to manage access to VMs with Azure role-based access control (RBAC) and Conditional Access policies.
 
-- **Agent-based configuration**. Linux VMs can use a lightweight native desired state configuration available through cloud-init on many Azure provided VM images. The configuration is specified and versioned with your IaC artifacts. Bringing your own configuration management solution is another way. Most solutions follow a declarative-first approach to bootstrapping, but do support custom scripts for flexibility. Popular choices include Desired State Configuration for Windows, Desired State Configuration for Linux, Ansible, Chef, Puppet, or Saltstack. All of these configuration solutions can be paired with VM extensions for a best-of-both experience. 
+- **Agent-based configuration**. Linux VMs can use a lightweight native desired state configuration available through cloud-init on various Azure provided VM images. The configuration is specified and versioned with your IaC artifacts. Bringing your own configuration management solution is another way. Most solutions follow a declarative-first approach to bootstrapping, but do support custom scripts for flexibility. Popular choices include Desired State Configuration for Windows, Desired State Configuration for Linux, Ansible, Chef, Puppet, and others. All of these configuration solutions can be paired with VM extensions for a best-of-both experience. 
 
-In the reference implementation, all bootstapping is done through VM extensions, including a custom script for automating data disk formatting and mounting. 
+In the reference implementation, all bootstrapping is done through VM extensions, including a custom script for automating data disk formatting and mounting. 
 
 > Refer to Well-Architected Framework: [RE:02 - Recommendations for automation design](/azure/well-architected/operational-excellence/enable-automation?branch=main#bootstrapping).
 
@@ -225,7 +225,7 @@ We recommend that you allocate ports based on the maximum number of back-end ins
 
 Calculate ports per instance as: `Number of front-end IPs * 64K / Maximum number of back-end instances`.
 
-There are other options you can use, such as deploying an Azure NAT Gateway resource attached to the subnet. Another option is to use Azure Firewall or another Network Virtual Appliance with a custom user-defined routes (UDR) as the next hop through the firewall. That option is shown in [Virtual machine baseline architecture in an Azure landing zone](./baseline-landing-zone.yml).
+There are other options you can use, such as deploying an Azure NAT Gateway resource attached to the subnet. Another option is to use Azure Firewall or another Network Virtual Appliance with a custom user-defined route (UDR) as the next hop through the firewall. That option is shown in [Virtual machine baseline architecture in an Azure landing zone](./baseline-landing-zone.yml).
 
 #### DNS resolution
 
@@ -314,7 +314,7 @@ Some workloads might not tolerate even few seconds of a VM freezing or disconnec
 
 When doing OS upgrades, have a golden image that's tested. Consider using Azure Shared Image Gallery and Azure Compute Gallery for publishing your custom images. You should have a process in place that upgrades batches of instances in a rolling manner each time a new image is published by the publisher.
 
-Retire VM images before they reach their End-of-life (EOL) to reduce surface area.
+Retire VM images before they reach their end-of-life to reduce surface area.
 
 Your automation process should account for overprovision with extra capacity.
 
@@ -472,7 +472,7 @@ Access to VMs requires a user account, controlled by Microsoft Entra ID authenti
 
 Workload resources, such as VMs, authenticate themselves by using their assigned managed identities to other resources. These identities, based on Microsoft Entra ID service principals, are automatically managed.
 
-For example, Key Vault extensions are installed on VMs, which lets VMs boot up with certificates in place. In this architecture, [user-assigned managed identities](/entra/identity/managed-identities-azure-resources/overview#managed-identity-types) are used by Application Gateway, front-end VMs, and back-end VMs to access Key Vault. Those managed identities are configured during deployment and used for authenticating against Key Vault. Access policies on Key Vault are configured to only accept requests from the preceding managed identities.
+For example, Key Vault extensions are installed on VMs, which boots up the VMs with certificates in place. In this architecture, [user-assigned managed identities](/entra/identity/managed-identities-azure-resources/overview#managed-identity-types) are used by Application Gateway, front-end VMs, and back-end VMs to access Key Vault. Those managed identities are configured during deployment and used for authenticating against Key Vault. Access policies on Key Vault are configured to only accept requests from the preceding managed identities.
 
 The baseline architecture uses a mix of system-assigned and user-assigned managed identities. These identities are required to use Microsoft Entra ID for authorization purposes when accessing other Azure resources.
 
@@ -554,7 +554,7 @@ Choose compute resources based on the criticality of the flow. For flows that ar
 If the main cost driver is the number of instances, it might be more cost-effective to scale up by increasing the size or performance of the VMs. This approach can lead to cost savings in several areas:
 
 - **Software licensing**. Larger VMs can handle more workload, potentially reducing the number of software licenses required.
-- **Maintenance time**: Managing fewer, larger VMs can reduce operational costs.
+- **Maintenance time**: Fewer, larger VMs can reduce operational costs.
 - **Load balancing**: Fewer VMs can result in lower costs for load balancing. For example, in this architecture there are multiple layers of load balancing, such as an application gateway at the front and an internal load balancer in the middle. Load balancing costs would increase if a higher number of instances need to be managed.
 - **Disk storage**. If there are stateful applications, more instances need more attached managed disks, increasing cost of storage.
 
