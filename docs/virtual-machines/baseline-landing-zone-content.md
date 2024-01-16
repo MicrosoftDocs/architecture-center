@@ -85,7 +85,7 @@ Therefore, the platform team must ensure that all VM workloads are prepared for 
 
 #### Workload requirements and fulfillments
 
-The workload team and platform team share two main responsibilities: management group assignment and networking setup. For this architecture, consider the following networking requirements that you should communicate to the platform team. Use these points as examples to understand the discussion and negotiation between the two teams when you implement a similar architecture.
+The workload team and platform teams share two main responsibilities: management group assignment and networking setup. For this architecture, consider the following networking requirements that you should communicate to the platform team. Use these points as examples to understand the discussion and negotiation between the two teams when you implement a similar architecture.
 
 - **The number of spoke virtual networks**: In this architecture, only one dedicated spoke is required. The deployed resources don't need to span across multiple networks and are colocated within a single virtual network.
 
@@ -174,7 +174,7 @@ Workload communication to the private endpoint for Key Vault access remains the 
 
 The workload team must identify, document, and communicate all necessary outbound traffic flows for the infrastructure and workload operations. The platform team allows the required traffic, and all uncommunicated egress traffic is likely denied.
 
-Controlling egress traffic is more than just making sure expected traffic is allowed. It's also about making sure *only* expected traffic is allowed. Uncommunicated egress traffic is likely denied by default, but it's in the workload's best security interest to ensure that traffic is properly routed.
+Controlling egress traffic is more than just making sure that the expected traffic be allowed. It's also about making sure *only* expected traffic be allowed. Uncommunicated egress traffic is likely denied by default, but it's in the workload's best security interest to ensure that traffic is properly routed.
 
 > [!TIP]
 >
@@ -244,7 +244,7 @@ Correlated data is often used during incident response. If there's a problem wit
 
 ## Azure Policy
 
-The platform team likely applies policies that affect the workload deployment. They often apply DINE policies to handle automated deployments into an application landing zone subscription. DINE policies can modify workload resources or add resources to your deployment, which can result in a discrepancy between the resources that are declaratively deployed through the workload template and the resources that the processing requests actually use. A typical solution is to fix those changes with imperative approaches, which isn't ideal.
+The platform team likely applies policies that affect the workload deployment. They often apply DINE policies to handle automated deployments into an application landing zone subscription. DINE policies can modify workload resources or add resources to your deployment, which can result in a discrepancy between the resources that are declaratively deployed through the workload template and the resources that the processing requests actually use. A typical solution, is to fix those changes with imperative approaches, which isn't ideal.
 
 To avoid that discrepancy, preemptively incorporate and test the platform-initiated changes into your IaC templates. If the platform team uses Azure policies that conflict with the requirements of the application, you can negotiate a resolution with the platform team.
 
