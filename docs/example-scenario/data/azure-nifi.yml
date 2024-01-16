@@ -3,9 +3,9 @@ metadata:
   title: Apache NiFi on Azure
   titleSuffix: Azure Architecture Center
   description: Automate data flows with Apache NiFi on Azure. Use a scalable, highly available solution to move data into the cloud or storage and between cloud systems.
-  author: MuazmaZ
-  ms.author: muzahid
-  ms.date: 08/26/2022
+  author: jfrazee
+  ms.author: jfrazee
+  ms.date: 01/16/2024
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
