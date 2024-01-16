@@ -178,7 +178,7 @@ Choosing the right service tier for any Azure services including Azure Event Hub
 
 ### Designing KPIs for Performance Testing
 
-In order to design KPIs for performance testing, you need to understand the business requirements and the system architecture. The business requirements are the key performance indicators (KPIs) that you need to measure. The system architecture is the foundation for the performance testing strategy. It defines the components that you need to test and the performance testing approach for each component.
+Before you can design Key Performance Indicators (KPIs) for performance testing, you need two things: the business requirements and the system architecture. The business requirements tell you what KPIs you want to measure, such as response time, throughput, or error rate. The system architecture tells you how to test the performance of each component, such as web servers, databases, or APIs. It also helps you choose the best performance testing strategy, such as load testing, stress testing, or endurance testing.
 
 In this example, the business requirements are:
 
