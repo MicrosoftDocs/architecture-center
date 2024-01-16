@@ -182,7 +182,7 @@ In order to design KPIs for performance testing, you need to understand the busi
 
 In this example, the business requirements are:
 
-- The system should be able to handle 1000 requests per second.
+- The system should be able to handle 1,000 requests per second.
 - The system reliability should be higher than 0.99.
 - The system should be able to handle 1000 concurrent devices reporting their telemetry information.
 - What is the maximum capacity of the system in terms of the number of devices that can be supported? For example, can system with 3x of the current capacity support 1000 concurrent devices?
