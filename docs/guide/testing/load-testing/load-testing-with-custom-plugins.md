@@ -14,7 +14,7 @@ metadata:
     products:
     - load-testing
 ---
-**Summary**: The article aims to guide readers on how to use Azure Load Testing, a service that allows them to run Apache JMeter scripts and custom plugins to simulate user/device behaviors. The article also explains how to design key performance indicators (KPIs) and develop a dashboard for monitoring and analyzing the results of the load test in a sample application with Azure Functions and Event Hubs. The article assumes that readers have some familiarity with JMeter, its plugins and custom plugins, as well as Azure Functions and Event Hubs.
+**Summary**: The article aims to guide readers on how to use Azure Load Testing, a service that allows them to run Apache JMeter scripts and custom plugins to simulate user/device behaviors. The article also explains how to design Key Performance Indicators (KPIs) and develop a dashboard for monitoring and analyzing the results of the load test in a sample application with Azure Functions and Event Hubs. The article assumes that readers have some familiarity with JMeter, its plugins and custom plugins, as well as Azure Functions and Event Hubs.
 
 ## Azure Load Testing with Custom Plugins
 
