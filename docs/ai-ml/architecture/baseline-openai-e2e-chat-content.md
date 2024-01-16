@@ -354,8 +354,8 @@ Azure Machine Learning Endpoints allow you to deploy models in a way that enable
 - Include linting of Python files that are part of the prompt flow in your pipelines. Linting will check for compliance to style standards, errors, code complexity, unused imports, and variable naming.
 - When deploying your flow to the network-isolated Azure Machine Learning workspace, use a self-hosted agent to deploy artifacts to your Azure resources.
 - The Azure Machine Learning model registry should only be updated when there are changes to the model.
-•	Perform release promotions with LLMs.
-•	If you have deployed an LLM that is used within a chat application, the LLM and app components should be loosely coupled; updates to the app can and should be able to be made without affecting the model and vice versa. However, if you make changes to the model, you may need to update the app to reflect those changes (e.g., describe in the app how model behavior has changed).
+- As detailed in the deployment flow, perform release promotions with LLM flows.
+- The LLM, the flows, and the client UI should be loosely coupled. Updates to the flows and the client UI can and should be able to be made without affecting the model and vice versa.
 - When developing and deploying multiple flows, each flow should have its own lifecycle, which allows for a loosely coupled experience when promoting flows from experimentation to production.
 
 ### Infrastructure
