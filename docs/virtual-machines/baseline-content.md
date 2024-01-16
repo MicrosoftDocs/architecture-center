@@ -97,6 +97,26 @@ For instance, if you're migrating a workload from an on-premises environment tha
 
 For information about the supported VM SKUs, see [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes).
 
+#### Bootstrapping
+ 
+VMs often need to be bootstrapped, which is a process in which VMs are prepared and tuned to run the application. Common bootstrapping tasks include, installing certificates, configuring remote access, installing packages, tuning and hardening the OS configuration, and formatting and mounting data disks. It's important to automate the bootstrapping process as much as possible, so that the application can start on the VM without delay or manual intervention. Here are the recommendations for automation:
+
+- **Virtual machine extensions**. These extensions are Azure Resource Manager objects that are managed through your Infrastructure-as-Code (IaC) deployment. This way, any failure is reported as a failed deployment that you can take action on. If there isn't an extension for your bootstrapping needs, create custom scripts. It's recommended that you run the scripts through should be executed through Azure Custom Script Extension.
+
+    Here are some other extensions that can be used to automatically zinstall or configure functionality on the VMs.
+
+    - [Azure Monitor Agent (AMA)](/azure/azure-monitor/agents/agents-overview ) collects monitoring data from the guest OS and delivers it to Azure Monitor.
+    - Azure The Custom Script Extension ([Windows](/azure/virtual-machines/extensions/custom-script-windows), [Linux](/azure/virtual-machines/extensions/custom-script-linux)) Version 2 downloads and runs scripts on Azure virtual machines (VMs). This extension is useful for automating post-deployment configuration, software installation, or any other configuration or management tasks.
+    - Azure Key Vault virtual machine extension ([Windows](/azure/virtual-machines/extensions/key-vault-windows), [Linux](/azure/virtual-machines/extensions/key-vault-linux)) provides automatic refresh of certificates stored in a Key Vault by detecting changes and installing the corresponding certificates.
+    - [Application Health extension with Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension) are important when Azure Virtual Machine Scale Sets does automatic rolling upgrades. Azure relies on health monitoring of the individual instances to do the updates. You can also use the extension to monitor the application health of each instance in your scale set and perform instance repairs using Automatic Instance Repairs.
+    - Microsoft Entra ID and OpenSSH ([Windows](/entra/identity/devices/howto-vm-sign-in-azure-ad-windows), [Linux](/entra/identity/devices/howto-vm-sign-in-azure-ad-linux)) integrate with Microsoft Entra authentication. You can now use Microsoft Entra ID as a core authentication platform and a certificate authority to SSH into a Linux VM by using Microsoft Entra ID and OpenSSH certificate-based authentication. This functionality allows you to manage access to VMs with Azure role-based access control (RBAC) and Conditional Access policies.
+
+- **Agent-based configuration**. Linux VMs can use a lightweight native desired state configuration available through cloud-init on many Azure provided VM images. The configuration is specified and versioned with your IaC artifacts. Bringing your own configuration management solution is another way. Most solutions follow a declarative-first approach to bootstrapping, but do support custom scripts for flexibility. Popular choices include Desired State Configuration for Windows, Desired State Configuration for Linux, Ansible, Chef, Puppet, or Saltstack. All of these configuration solutions can be paired with VM extensions for a best-of-both experience. 
+
+In the reference implementation, all bootstapping is done through VM extensions, including a custom script for automating data disk formatting and mounting. 
+
+> Refer to Well-Architected Framework: [RE:02 - Recommendations for automation design](/azure/well-architected/operational-excellence/enable-automation?branch=main#bootstrapping).
+
 #### VM connectivity
 
 To enable private communication between a VM and other devices in a particular virtual network, one of its subnets is bound to the VM's network interface card (NIC). If you require multiple NICs for your VM, know that a maximum number of NICs is defined for each VM size.

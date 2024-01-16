@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Virtual machine baseline architecture in an Azure landing zone
+  title: Azure Virtual Machines baseline architecture in an Azure landing zone
   titleSuffix: Azure Architecture Center
   description: Learn how to build on the baseline architecture to address changes and expectations when you deploy it in an Azure landing zone.
   author: PageWriter-MSFT
@@ -20,7 +20,7 @@ products:
   - azure-virtual-machines
   - azure-virtual-network
 
-name: Virtual machine baseline architecture in an Azure landing zone
+name: Azure Virtual Machines baseline architecture in an Azure landing zone
 summary: Learn how to build on the baseline architecture to address changes and expectations when you deploy it in an Azure landing zone.
 thumbnailUrl: /azure/architecture/browse/thumbs/baseline-landing-zone.png
 content: |
