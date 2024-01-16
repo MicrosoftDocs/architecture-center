@@ -37,10 +37,10 @@ In order to perform load testing, you need to have a test plan, which is a set o
 
 In this example, the data flow is as follows:
 
-- A simulated device sends data to an Azure Event Hub through Azure Load Testing agent. Any behavior of the device can be simulated using JMeter custom plugins. Azure Load Test agent will be responsible for sending data to the event hub after running the custom plugin for any types of simulated devices.
-- The Azure Event Hub triggers an Azure Function that is responsible for processing the data and then sending data to other downstream services such as Azure SQL Database and Azure Digital Twins.
-- Azure Monitor service is used to monitor the Azure Function and Azure Event hubs.
-- Azure Load Testing service will collect the data from Azure Monitor service and then display it in a dashboard.
+1. A simulated device sends data to an Azure Event Hub through Azure Load Testing agent. Any behavior of the device can be simulated using JMeter custom plugins. Azure Load Test agent will be responsible for sending data to the event hub after running the custom plugin for any types of simulated devices.
+1. The Azure Event Hub triggers an Azure Function that is responsible for processing the data and then sending data to other downstream services such as Azure SQL Database and Azure Digital Twins.
+1. Azure Monitor service is used to monitor the Azure Function and Azure Event hubs.
+1. Azure Load Testing service will collect the data from Azure Monitor service and then display it in a dashboard.
 
 ### Components
 
@@ -70,7 +70,7 @@ Using Azure Load Testing with custom plugins can be useful in a variety of scena
 Custom plugins in the context of JMeter are software components that can be added to JMeter to extend its functionality beyond what comes out of the box. Users or third-party developers can develop custom plugins to add new features, functions, or integrations to JMeter. Custom plugins can be developed using Java programming language and the JMeter Plugin Development Kit (PDK). The PDK provides a set of tools and APIs that make it easier to create new plugins, including GUI elements, listeners, and samplers.
 Custom plugins can add a wide range of functionality to JMeter, such as new load testing samplers, visualizers, and listeners. They can also integrate JMeter with other systems, such as logging and reporting tools, or enable the use of other data sources for test data. Overall, custom plugins allow users to extend JMeter to meet their specific needs and improve the accuracy and effectiveness of their load testing efforts.
 
-To implement a custom sampler for Event hubs in JMeter, follow the instruction provided [here](https://github.com/Azure-Samples/load-testing-jmeter-plugins#how-to-setup-visual-studio-code-for-eventhub-plugin-development). Once your custom sampler is implemented, you can use it in your JMeter test plan in Azure Load Test just like any other sampler. You can add it to a Thread Group, set its parameters, and configure it as needed. Custom samplers can be powerful tools in JMeter, allowing you to simulate complex scenarios and requests that the built-in samplers don't support.
+To implement a custom sampler for Event hubs in JMeter, follow the instruction provided [here](https://github.com/Azure-Samples/load-testing-jmeter-plugins#how-to-setup-visual-studio-code-for-eventhub-plugin-development). Once your custom sampler is implemented, you can use it in your JMeter test plan in Azure Load Test just like any other sampler. A test plan can be implemented using a Thread Group that controls the number of threads (virtual users/devices) to execute a specific scenario. Each Thread Group can have different settings for the number of threads, ramp-up period, loop count, and duration. Thread Groups can be run either sequentially or in parallel, depending on the test plan configuration and the application requirements. You can add the sampler to a Thread Group, set its parameters, and configure it as needed. Custom samplers can be powerful tools in JMeter, allowing you to simulate complex scenarios and requests that the built-in samplers don't support.
 
 ### Create an Apache JMeter script with custom plugin
 
