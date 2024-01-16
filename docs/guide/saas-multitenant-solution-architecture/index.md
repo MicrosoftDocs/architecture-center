@@ -43,6 +43,6 @@ The main difference between the two diagrams is the business model itself, which
 
 ## Next steps
 
-- [Plan your own journey to SaaS](plan-journey-saas.md)
+- [Plan your own journey to SaaS](../saas/plan-journey-saas.md)
 - [Understand how startups architect their solutions](../startups/startup-architecture.md)
 - [Learn about multitenant architectural approaches](../multitenant/overview.md)

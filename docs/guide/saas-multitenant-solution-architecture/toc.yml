@@ -23,7 +23,7 @@ items:
         - name: Overview
           href: ../startups/startup-architecture.md
         - name: Core startup stack architecture
-          href: example-scenario/startups/core-startup-stack.yml
+          href: ../../example-scenario/startups/core-startup-stack.yml
       - name: Multitenant applications
         items:
         - name: Overview

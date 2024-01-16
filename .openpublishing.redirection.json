@@ -3804,6 +3804,11 @@
       "source_path": "docs/guide/quantum/devops-for-quantum-computing.yml",
       "redirect_url": "/azure/architecture/guide/devops/devops-start-here",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/saas/overview.md",
+      "redirect_url": "/azure/architecture/guide/saas-multitenant-solution-architecture",
+      "redirect_document_id": false
     }
   ]
 }
