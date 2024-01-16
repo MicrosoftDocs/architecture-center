@@ -302,15 +302,33 @@ The [application health extension](/azure/virtual-machine-scale-sets/virtual-mac
 
 VMs need to be updated and patched regularly so that they don't weaken the security posture of the workload. We recommend automatic and periodic VM assessments for early discovery and application of patches.
 
-#### Microsoft-managed infrastructure updates
+### Infrastructure updates
 
-Azure VMs provide the option of automatic VM guest patching. When this service is enabled, VMs are evaluated periodically and available patches are classified. We recommend that assessment mode is enabled to allow daily evaluation for pending patches. On-demand assessment can be done, but that doesn't trigger the application of patches. If assessment mode isn't enabled, implement manual ways of detecting pending updates.
+Azure updates its platform periodically to enhance the reliability, performance, and security of the host infrastructure for virtual machines. These updates include patching software components in the hosting environment, upgrading networking components or decommissioning hardware, and more. For information about the update process, see [Maintenance for virtual machines in Azure](/azure/virtual-machines/maintenance-and-updates).
 
-For governance, consider the [Require automatic OS image patching on Virtual Machine Scale Sets](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F465f0161-0087-490a-9ad9-ad6217f4f43a) Azure policy.
+If an update doesn’t require a reboot, the VM is paused while the host is updated, or the VM is live-migrated to an already updated host. If maintenance requires a reboot, you’re notified of the planned maintenance. Azure also provides a time window in which you can start the maintenance, at your convenience. For information about the self-maintenance window and how to configure the available options, see [Handling planned maintenance notifications](/azure/virtual-machines/maintenance-notifications).
+
+Some workloads might not tolerate even few seconds of a VM freezing or disconnection for maintenance. For greater control over all maintenance activities, including zero-impact and rebootless updates, see [Maintenance Configurations](/azure/virtual-machines/maintenance-configurations). Creating a Maintenance Configuration gives you the option to skip all platform updates and apply the updates at your convenience. When this custom configuration is set, Azure skips all non-zero-impact updates, including rebootless updates. For more information, see [Managing platform updates with Maintenance Configurations](/azure/virtual-machines/maintenance-configurations)
+
+### Operating system (OS) image upgrades
+
+When doing OS upgrades, have a golden image that's tested. Consider using Azure Shared Image Gallery and Azure Compute Gallery for publishing your custom images. You should have a process in place that upgrades batches of instances in a rolling manner each time a new image is published by the publisher.
+
+Retire VM images before they reach their End-of-life (EOL) to reduce surface area.
+
+Your automation process should account for overprovision with extra capacity.
+
+You can use [Azure Update Management](/azure/update-manager/overview) to manage OS updates for your Windows and Linux virtual machines in Azure.Azure Update Manager provides a SaaS solution to manage and govern software updates to Windows and Linux machines across Azure, on-premises, and multicloud environments.
+
+### Guest OS patching
+
+Azure VMs provide the option of automatic VM guest patching. When this service is enabled, VMs are evaluated periodically and available patches are classified. It's recommended that Assessment Mode is enabled to allow daily evaluation for pending patches. On-demand assessment can be done, however, that doesn't trigger application of patches. If Assessment Mode isn't enabled, have manual ways of detecting pending updates.
 
 Only the patches that are classified as *critical* or *security* are applied automatically across all Azure regions. Define custom update management processes that apply other patches.
 
-Automatic patching can put a burden on the system and can be disruptive because VMs use resources and might reboot during updates. Overprovisioning is recommended for load management. Deploy VMs in different availability zones to avoid concurrent updates, and maintain at least two instances per zone for high availability. VMs in the same region might receive different patches, which should be reconciled over time.
+For governance, consider the [Require automatic OS image patching on Virtual Machine Scale Sets](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F465f0161-0087-490a-9ad9-ad6217f4f43a) Azure Policy.
+
+Automatic patching can put a burden on the system and can be disruptive because VMs use resources and may reboot during updates. Over-provisioning is recommended for load management. Deploy VMs in different Availability Zones to avoid concurrent updates and maintain at least two instances per zone for high availability. VMs in the same region might receive different patches, which should be reconciled over time.
 
 Be aware of the tradeoff on cost associated with overprovisioning.
 
@@ -319,16 +337,6 @@ Health checks are included as part of automatic VM guest patching. These checks 
 If there are custom processes for applying patches, use private repositories for patch sources. Doing so gives you better control in testing the patches to make sure the update doesn't negatively impact performance or security.
 
 For more information, see [Automatic VM guest patching for Azure VMs](/azure/virtual-machines/automatic-vm-guest-patching).
-
-#### Operating system updates
-
-When doing OS upgrades, have a golden image that is tested. Consider using Azure Compute Gallery for publishing those images. Doing so allows for better control and efficiency in managing updates. Have a process in place that automatically installs the image when needed.
-
-Retire VM images before they reach their end of life to reduce surface area.
-
-We recommend that you use [Update Management in Azure Automation](/azure/automation/update-management/overview) to manage OS updates for your Windows and Linux VMs in Azure. Use runbooks in Automation to install the updates.
-
-Your automation process should account for overprovisioning with extra capacity.
 
 ## Reliability
 
