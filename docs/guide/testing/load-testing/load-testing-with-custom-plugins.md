@@ -197,7 +197,7 @@ As per these requirements, the KPIs for performance testing could be:
 | RT | Average time for Azure Function Execution Time |
 | AMU | Average Memory Usage for Azure Functions |
 | SR | Success Rate of all function executions |
-| ARS | Average Downstream Service Response Time (for example, Sql server or a microservice) |
+| ARS | Average Downstream Service Response Time (for example, SQL server or a microservice) |
 | DF | Dependency Failure count including internal Azure function errors |
 | MRPS | Maximum RPS with no Backlog in the event hub (System Capacity) |
 
