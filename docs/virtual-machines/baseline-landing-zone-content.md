@@ -118,7 +118,7 @@ The workload team and platform team share two main responsibilities: management 
 
 ## VM design choices
 
-The VM SKU and disk selections remain the same as the [baseline architecture](baseline.yml#virtual-machine-design-choices).
+The VM SKU and disk selections remain the same as the [baseline architecture](baseline.yml#vm-design-choices).
 
 An organization might impose compliance requirements on the workload team that mandates the use of specific VM images. Given such requirements, the platform team might manage a set of standardized images, often referred to as *golden images*, which are created for use across the organization.
 
