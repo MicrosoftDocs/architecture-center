@@ -344,3 +344,41 @@ Consider the following guidance when implementing automated evaluations:
     - Observing the infrastructure
     - Managing costs
     - Communicating the model's performance to stakeholders
+
+### Deployment Guidance
+
+Azure Machine Learning Endpoints allow you to deploy models in a way that enables flexibility when releasing to production. Consider the following strategies to ensure the best model performance and quality:
+
+- Blue/green deployments: With this strategy, you can safely deploy your new version of the web service to a limited group of users or requests before cutting over all traffic to the new deployment.
+- A/B Testing: Not only are Blue/Green deployments effective for safely rolling out changes, they can also be used to deploy new behavior that allows a subset of users to evaluate the impact of the change.
+- Include linting of Python files that are part of the prompt flow in your pipelines. Linting will check for compliance to style standards, errors, code complexity, unused imports, and variable naming.
+- When deploying your flow to the network-isolated Azure Machine Learning workspace, use a self-hosted agent to deploy artifacts to your Azure resources.
+- The Azure Machine Learning model registry should only be updated when there are changes to the model.
+•	Perform release promotions with LLMs.
+•	If you have deployed an LLM that is used within a chat application, the LLM and app components should be loosely coupled; updates to the app can and should be able to be made without affecting the model and vice versa. However, if you make changes to the model, you may need to update the app to reflect those changes (e.g., describe in the app how model behavior has changed).
+- When developing and deploying multiple flows, each flow should have its own lifecycle, which allows for a loosely coupled experience when promoting flows from experimentation to production.
+
+### Infrastructure
+
+When deploying the baseline Azure OpenAI end-to-end chat components, some of the services provisioned are foundational and permanent within the architecture, whereas other components are ephemeral and serve a short-lived process.
+
+#### Foundational components
+
+Some components in this architecture exist with a lifecycle that extends beyond any individual prompt flow or any model deployment. These resources are typically deployed once as part of the foundational deployment for the workload team, and maintained apart from new, removed, or updates to the prompt flows or model deployments.
+
+- Azure Machine Learning workspace
+- Azure Storage account for the Azure Machine Learning workspace
+- Azure Container Registry
+- Azure AI Search
+- Azure OpenAI
+- Azure Application Insights
+
+### Ephemeral components
+
+Some Azure resources are more tightly coupled to the design of specific prompt flows. These resources are more ephemeral in nature. They are affected when the workload evolves, such as when flows are added or removed or when new models are introduced. These resources get recreated and prior instances removed. Some of these resources are direct Azure resources and some are data plane manifestations within their containing service.
+
+- The model in the Azure Machine Learning model registry should be updated, if changed, as part of the (TODO: Enter pipeline - the original text stated: "On push to main branch, the registered model is updated if changed")
+- The container image should be updated in the container registry as part of the (TODO: Enter pipeline - the original text stated: "On push to main branch, the container image is updated in the container registry")
+- An Azure Machine Learning endpoint is created when a prompt flow is deployed if the deployment references an endpoint that does not exist. That endpoint needs to be updated to turn public access off (TODO: Link)
+- The Azure Machine Learning endpoint's deployments are updated when a flow is deployed or deleted.
+- The Key Vault for the client UI must be updated with the key to the endpoint when a new endpoint is created.
