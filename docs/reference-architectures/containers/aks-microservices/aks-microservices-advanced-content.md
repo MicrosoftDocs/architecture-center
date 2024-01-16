@@ -39,12 +39,12 @@ This architecture uses the following Azure components:
 
 The AKS infrastructure features used in this architecture include:
 
-  - [System and user node pool separation](/azure/aks/use-system-pools#system-and-user-node-pools)
-  - [AKS-managed Microsoft Entra ID for role-based access control (RBAC)](/azure/aks/managed-aad)
-  - [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview)
-  - [Azure Policy Add-on for AKS](/azure/aks/use-pod-security-on-azure-policy)
-  - [Azure Container Networking Interface (CNI)](/azure/aks/configure-azure-cni)
-  - [Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-overview)
+- [System and user node pool separation](/azure/aks/use-system-pools#system-and-user-node-pools)
+- [AKS-managed Microsoft Entra ID for role-based access control (RBAC)](/azure/aks/managed-aad)
+- [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview)
+- [Azure Policy Add-on for AKS](/azure/aks/use-pod-security-on-azure-policy)
+- [Azure Container Networking Interface (CNI)](/azure/aks/configure-azure-cni)
+- [Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-overview)
 
 **[Azure Virtual Networks](https://azure.microsoft.com/services/virtual-network)** are isolated and highly secure environments for running virtual machines (VMs) and applications. This reference architecture uses a peered hub-spoke virtual network topology. The hub virtual network holds the Azure firewall and Azure Bastion subnets. The spoke virtual network holds the AKS system and user node pool subnets and the Azure Application Gateway subnet.
 

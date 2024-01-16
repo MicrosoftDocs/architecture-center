@@ -16,17 +16,17 @@ Calculate business metrics by using IoT telemetry and other business systems dat
 
 ### Dataflow
 
-    1. The edgeHub module sends the machine availability data to Azure IoT Hub or Azure IoT Central by using advanced message queuing protocol (AMQP) or MQTT. IoT Hub or Azure IoT Central sends module updates to the edge and provides an edge management control plan.
-    2. IoT Hub or Azure IoT Central uses data connection or data export to send data to Azure Data Explorer.
-    3. Azure Data Explorer dashboards use Kusto Query Language (KQL) to fetch the data from the cluster and build a near real-time dashboard around machine availability.
-    4. Data from IoT Hub or Azure IoT Central is pushed to Azure Data Lake Storage by using message routing or data export. Data Lake Storage provides long-term storage and processing.
-    5. An Azure Synapse Analytics pipeline fetches the production quality data—after every shift—from an on-premises system.
-    6. The Azure Synapse pipeline stores the data in the data lake for calculation.
-    7. The Azure Synapse pipeline runs PySpark code, which contains the overall equipment effectiveness (OEE) calculation business logic.
-    8. The PySpark code fetches the machine availability data from Azure Data Explorer, and then calculates the availability.
-    9. The PySpark code fetches the production quality data from Data Lake Storage, and then calculates quality, performance, and OEE per shift.
-    10. The PySpark code stores the OEE data in Azure SQL Database.
-    11. Power BI connects with SQL Database for reporting and visualization.
+1. The edgeHub module sends the machine availability data to Azure IoT Hub or Azure IoT Central by using advanced message queuing protocol (AMQP) or MQTT. IoT Hub or Azure IoT Central sends module updates to the edge and provides an edge management control plan.
+2. IoT Hub or Azure IoT Central uses data connection or data export to send data to Azure Data Explorer.
+3. Azure Data Explorer dashboards use Kusto Query Language (KQL) to fetch the data from the cluster and build a near real-time dashboard around machine availability.
+4. Data from IoT Hub or Azure IoT Central is pushed to Azure Data Lake Storage by using message routing or data export. Data Lake Storage provides long-term storage and processing.
+5. An Azure Synapse Analytics pipeline fetches the production quality data—after every shift—from an on-premises system.
+6. The Azure Synapse pipeline stores the data in the data lake for calculation.
+7. The Azure Synapse pipeline runs PySpark code, which contains the overall equipment effectiveness (OEE) calculation business logic.
+8. The PySpark code fetches the machine availability data from Azure Data Explorer, and then calculates the availability.
+9. The PySpark code fetches the production quality data from Data Lake Storage, and then calculates quality, performance, and OEE per shift.
+10. The PySpark code stores the OEE data in Azure SQL Database.
+11. Power BI connects with SQL Database for reporting and visualization.
 
 ### Potential use cases
 
@@ -37,9 +37,9 @@ Calculate business metrics by using IoT telemetry and other business systems dat
 
 ## Considerations
 
-  - For more information on data flows, see [Data flows in Azure Synapse](/azure/synapse-analytics/concepts-data-flow-overview).
-  - For more information on spark connectors, see [Azure Data Explorer (Kusto) spark connector](/azure/synapse-analytics/quickstart-connect-azure-data-explorer).
-  - For a less compute intensive and serverless calculation engine, use [Azure Functions](https://azure.microsoft.com/en-us/services/functions) instead of an Azure Synapse spark pool.
+- For more information on data flows, see [Data flows in Azure Synapse](/azure/synapse-analytics/concepts-data-flow-overview).
+- For more information on spark connectors, see [Azure Data Explorer (Kusto) spark connector](/azure/synapse-analytics/quickstart-connect-azure-data-explorer).
+- For a less compute intensive and serverless calculation engine, use [Azure Functions](https://azure.microsoft.com/en-us/services/functions) instead of an Azure Synapse spark pool.
 
 ### Deploy this scenario
 

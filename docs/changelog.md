@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 12/04/2023
+ms.date: 12/18/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -29,6 +29,11 @@ The following new and updated articles have recently been published in the Azure
 
 - [AKS Backup and Recovery](./operator-guides/aks/aks-backup-and-recovery.md)
 
+### Updated articles
+
+- [IBM z/OS online transaction processing on Azure](./example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml)  ([#4b3e0077c0](https://github.com/MicrosoftDocs/architecture-center/commit/4b3e0077c0))
+- [Mainframe and midrange data replication to Azure using Qlik](./example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml)  ([#4b3e0077c0](https://github.com/MicrosoftDocs/architecture-center/commit/4b3e0077c0))
+- [DR for Azure Data Platform - Deploy this scenario](./data-guide/disaster-recovery/dr-for-azure-data-platform-deploy-this-scenario.yml)  ([#fb09637e3d](https://github.com/MicrosoftDocs/architecture-center/commit/fb09637e3d))
 
 ## November 2023
 

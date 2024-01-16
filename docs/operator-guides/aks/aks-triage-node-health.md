@@ -41,31 +41,31 @@ You can evaluate the health of your nodes by using one of the following methods.
 
 To view the health of nodes, user pods, and system pods in your AKS cluster, follow these steps:
 
-  1. In the Azure portal, go to **Azure Monitor**.
-  1. In the **Insights** section of the navigation pane, select **Containers**.
-  1. Select **Monitored clusters** for a list of the AKS clusters that are being monitored.
-  1. Choose an AKS cluster from the list to view the health of the nodes, user pods, and system pods.
+1. In the Azure portal, go to **Azure Monitor**.
+1. In the **Insights** section of the navigation pane, select **Containers**.
+1. Select **Monitored clusters** for a list of the AKS clusters that are being monitored.
+1. Choose an AKS cluster from the list to view the health of the nodes, user pods, and system pods.
 
-  :::image type="content" source="images/azure-monitor-containers-health.png" alt-text="Screenshot that shows the Monitor containers health view." lightbox="images/azure-monitor-containers-health.png":::
+:::image type="content" source="images/azure-monitor-containers-health.png" alt-text="Screenshot that shows the Monitor containers health view." lightbox="images/azure-monitor-containers-health.png":::
 
 #### AKS nodes view
 
 To ensure that all nodes in your AKS cluster are in the ready state, follow these steps:
 
-  1. In the Azure portal, go to your AKS cluster.
-  1. In the **Settings** section of the navigation pane, select **Node pools**.
-  1. Select **Nodes**.
-  1. Verify that all nodes are in the ready state.
+1. In the Azure portal, go to your AKS cluster.
+1. In the **Settings** section of the navigation pane, select **Node pools**.
+1. Select **Nodes**.
+1. Verify that all nodes are in the ready state.
 
- :::image type="content" source="images/aks-node-health.png" alt-text="Screenshot that shows the AKS nodes view." lightbox="images/aks-node-health.png":::
+:::image type="content" source="images/aks-node-health.png" alt-text="Screenshot that shows the AKS nodes view." lightbox="images/aks-node-health.png":::
 
 #### In-cluster monitoring with Prometheus and Grafana
 
 If you deployed [Prometheus](https://prometheus.io) and [Grafana](https://grafana.com) in your AKS cluster, you can use the [K8 Cluster Detail Dashboard](https://grafana.com/grafana/dashboards/10856-k8-cluster) to get insights. This dashboard shows Prometheus cluster metrics and presents vital information, such as CPU usage, memory usage, network activity, and file system usage. It also shows detailed statistics for individual pods, containers, and _systemd_ services.
 
-  In the dashboard, select **Node conditions** to see metrics about the health and performance of your cluster. You can track nodes that might have issues, such as issues with their schedule, the network, disk pressure, memory pressure, proportional integral derivative (PID) pressure, or disk space. Monitor these metrics, so you can proactively identify and address any potential issues that affect the availability and performance of your AKS cluster.
+In the dashboard, select **Node conditions** to see metrics about the health and performance of your cluster. You can track nodes that might have issues, such as issues with their schedule, the network, disk pressure, memory pressure, proportional integral derivative (PID) pressure, or disk space. Monitor these metrics, so you can proactively identify and address any potential issues that affect the availability and performance of your AKS cluster.
 
-  :::image type="content" source="images/node-conditions.png" alt-text="Screenshot that shows the Prometheus and Grafana dashboard node." lightbox="images/node-conditions.png":::
+:::image type="content" source="images/node-conditions.png" alt-text="Screenshot that shows the Prometheus and Grafana dashboard node." lightbox="images/node-conditions.png":::
 
 #### Monitor managed service for Prometheus and Azure Managed Grafana
 
@@ -256,15 +256,17 @@ Verify the condition of the kubelet process that runs on each worker node, and e
 
 To ensure that agent node kubelets work properly, follow these steps:
 
-  1. Go to your AKS cluster in the Azure portal.
-  1. In the **Monitoring** section of the navigation pane, select **Workbooks**.
-  1. Select the **Kubelet** workbook.
-  
-     :::image type="content" source="images/kubelet-workbook.png" alt-text="Screenshot that shows the Kubelet workbook." lightbox="images/kubelet-workbook.png":::
-  
-  1. Select **Operations** and make sure that the operations for all worker nodes are complete.
+1. Go to your AKS cluster in the Azure portal.
 
-     :::image type="content" source="images/kubelet-workbook-detail.png" alt-text="Screenshot that shows the operations page." lightbox="images/kubelet-workbook-detail.png":::
+1. In the **Monitoring** section of the navigation pane, select **Workbooks**.
+
+1. Select the **Kubelet** workbook.
+  
+   :::image type="content" source="images/kubelet-workbook.png" alt-text="Screenshot that shows the Kubelet workbook." lightbox="images/kubelet-workbook.png":::
+  
+1. Select **Operations** and make sure that the operations for all worker nodes are complete.
+
+   :::image type="content" source="images/kubelet-workbook-detail.png" alt-text="Screenshot that shows the operations page." lightbox="images/kubelet-workbook-detail.png":::
 
 #### In-cluster monitoring with Prometheus and Grafana
 
@@ -292,21 +294,21 @@ To ensure that IOPS aren't being throttled and affecting services and workloads 
 
 To monitor the disk I/O-related metrics of the worker nodes in your AKS cluster, you can use the [node disk I/O](/azure/azure-monitor/containers/container-insights-analyze#workbooks) workbook. Follow these steps to access the workbook:
 
-  1. Go to your AKS cluster in the Azure portal.
-  1. In the **Monitoring** section of the navigation pane, select **Workbooks**.
-  1. Select the **Node Disk IO** workbook.
+1. Go to your AKS cluster in the Azure portal.
+1. In the **Monitoring** section of the navigation pane, select **Workbooks**.
+1. Select the **Node Disk IO** workbook.
   
-     :::image type="content" source="images/node-disk-io-workbook.png" alt-text="Screenshot that shows the node disk IO workbook." lightbox="images/node-disk-io-workbook.png":::
+   :::image type="content" source="images/node-disk-io-workbook.png" alt-text="Screenshot that shows the node disk IO workbook." lightbox="images/node-disk-io-workbook.png":::
   
-  1. Review the I/O-related metrics.
+1. Review the I/O-related metrics.
 
-     :::image type="content" source="images/node-disk-io-workbook-detail.png" alt-text="Screenshot that shows the disk IO metrics." lightbox="images/node-disk-io-workbook-detail.png":::
+   :::image type="content" source="images/node-disk-io-workbook-detail.png" alt-text="Screenshot that shows the disk IO metrics." lightbox="images/node-disk-io-workbook-detail.png":::
 
 #### In-cluster monitoring with Prometheus and Grafana
 
 If you deployed [Prometheus](https://prometheus.io) and [Grafana](https://grafana.com) in your AKS cluster, you can use the [USE Method / Node](https://grafana.com/grafana/dashboards/12136-use-method-node) dashboard to get insights about the disk I/O for the cluster worker nodes.
 
-   :::image type="content" source="images/node-diskio.png" alt-text="Screenshot that shows the Prometheus and Grafana dashboard node disk." lightbox="images/node-diskio.png":::
+:::image type="content" source="images/node-diskio.png" alt-text="Screenshot that shows the Prometheus and Grafana dashboard node disk." lightbox="images/node-diskio.png":::
 
 #### Monitor managed service for Prometheus and Azure Managed Grafana
 

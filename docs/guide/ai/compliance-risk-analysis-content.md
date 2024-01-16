@@ -85,8 +85,7 @@ Implementing a risk analysis solution is a multidisciplinary exercise that requi
 
 > [!TIP]
 >
-> - Refer to this [step-by-step guide](https://github.com/MicrosoftLearning/AI-102-AIEngineer/blob/master/Instructions/22-azure-search.md) for a hands-on experience of creating an Azure Cognitive Search solution.
-> - Check out the [documentation](/azure/search/search-what-is-azure-search) for more information about Azure Cognitive Search.
+> - Check out the [documentation](/azure/search/search-what-is-azure-search) for more information about Azure AI Search.
 
 ## Data Ingestion
 
@@ -390,9 +389,8 @@ For information about how to use the Azure Cognitive Search REST API to programm
 > [!TIP]
 >
 > - [Quickstart: Create a knowledge store in the Azure portal](/azure/search/knowledge-store-create-portal)
-> - [Create a Knowledge Store with Azure Cognitive Search](https://github.com/MicrosoftLearning/AI-102-AIEngineer/blob/master/Instructions/24-knowledge-store.md)
-> - [Knowledge store in Azure Cognitive Search](/azure/search/knowledge-store-concept-intro?tabs=portal)
-> - [Semantic search in Azure Cognitive Search](/azure/search/semantic-search-overview)
+> - [Knowledge store in Azure AI Search](/azure/search/knowledge-store-concept-intro?tabs=portal)
+> - [Semantic search in Azure AI Search](/azure/search/semantic-search-overview)
 > - [Tutorial: Use REST and AI to generate searchable content from Azure blobs](/azure/search/cognitive-search-tutorial-blob)
 
 ## AI enrichments
@@ -558,7 +556,6 @@ The architecture can be reused to integrate more advanced NLP models (for exampl
 >
 > How to implement:
 >
-> - Refer to this [step-by-step guide](https://github.com/MicrosoftLearning/AI-102-AIEngineer/blob/master/Instructions/23-search-skills.md) from Microsoft Learn for a hands-on experience to create a custom skill for Azure Cognitive Search.
 > - This [example from the documentation](/azure/search/cognitive-search-custom-skill-python) was used as starting point for building the risk analysis solution described in this guide.
 > - Use this guide to [build and deploy a custom skill with Azure Machine Learning](/azure/search/cognitive-search-tutorial-aml-custom-skill).
 
@@ -613,7 +610,7 @@ After a search solution is implemented, you can query the index directly by usin
 
 A customized user interface, focusing on the user experience, is useful to show the true value of the search solution and to make it possible for organizations to identify and review risk communications across a range of channels and sources.
 
-The [Knowledge Mining Solution Accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining) provides an Azure Cognitive Search UI template—a .NET Core MVC Web app—that can be used to quickly build a prototype to query and view the search results.
+The [Knowledge Mining Solution Accelerator](https://github.com/Azure-Samples/azure-search-knowledge-mining) provides an Azure Cognitive Search UI template—a .NET Core MVC Web app—that can be used to quickly build a prototype to query and view the search results.
 
 In a few steps, the template UI can be configured to connect and query the search index, rendering a simple web page to search and visualize the results. This template can be further customized to enhance the experience of retrieving and analyzing risk communications.
 
@@ -680,7 +677,7 @@ The evaluation of employee communications requires special attention and raises 
 
 In cases where the risk signs are more subtle and span several sentences, training a state-of-the-art NLP model is likely the better choice. However, this approach typically requires significantly more training data. We recommend using, whenever possible,  the real-world data when the solution is in production, to adjust for potential mispredictions and to continuously retrain the model to improve its performance over time.
 
-**Adapt the UI based on your specific requirements:** A rich user interface can make available all the added value of Azure Cognitive Search and the AI enrichments. Although the [Azure Cognitive Search UI Template](https://github.com/Azure-Samples/azure-search-knowledge-mining/tree/main/02%20-%20Web%20UI%20Template) provides an easy and quick way to implement an initial web application, it probably has to be adapted to integrate additional features. It also needs to accommodate the types of communications that are processed, the types of AI enrichments that are used, and any additional business requirements. Continuous collaboration and iteration between front-end developers, business stakeholders, and end users will help enhance the value of the solution by optimizing the user experience of finding and reviewing relevant communications.
+**Adapt the UI based on your specific requirements:** A rich user interface can make available all the added value of Azure Cognitive Search and the AI enrichments. Although the [Azure AI Search UI Template](https://github.com/Azure-Samples/azure-search-knowledge-mining/tree/main/02%20-%20Web%20UI%20Template) provides an easy and quick way to implement an initial web application, it probably has to be adapted to integrate additional features. It also needs to accommodate the types of communications that are processed, the types of AI enrichments that are used, and any additional business requirements. Continuous collaboration and iteration between front-end developers, business stakeholders, and end users will help enhance the value of the solution by optimizing the user experience of finding and reviewing relevant communications.
 
 **Optimize costs for translation services:** By default, all documents flow through the AI enrichment pipeline. This means that English language documents are passed to the translation service even though no actual translation is needed. However, because the content is processed by the Translation API, charges nevertheless apply. In our solution, we use language detection in conjunction with conditional skills to avoid translation in these cases. If the detected language of the original document isn't English, the content is copied to a specific field for non-English content and then passed to the translation service. If the document is in English, this field is empty and no translation charges are generated. Finally, all content (originally English or translated) is merged into a common field for further processing. You can also [enable caching](/azure/search/cognitive-search-incremental-indexing-conceptual) to reuse existing enrichments.
 
@@ -723,7 +720,6 @@ Principal authors:
 ## Next Steps
 
 - [Quickstart: Create an Azure Cognitive Search index in the Azure portal](/azure/search/search-get-started-portal)
-- [Knowledge Mining Solution Accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining)
 
 ## Related resources
 

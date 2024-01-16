@@ -85,7 +85,7 @@ Azure services like Azure Storage accounts, Key Vault, Container Registry, Appli
 
 ## Deploy this scenario
 
-To deploy this solution, follow the steps in the [Getting Started guide](https://github.com/microsoft/Azure-Synapse-Customer-Insights-Customer360-Solution-Accelerator#getting-started) and the step-by-step [Deployment Guide](https://github.com/microsoft/Azure-Synapse-Customer-Insights-Customer360-Solution-Accelerator/blob/main/Deployment/AzureSetup.md). You can find them in the [GitHub repository](https://github.com/microsoft/Azure-Synapse-Customer-Insights-Customer360-Solution-Accelerator#about-this-repository) for the solution.
+To deploy this solution, follow the steps in the [Getting Started guide](https://github.com/microsoft/Azure-Synapse-Customer-Insights-Customer360-Solution-Accelerator#getting-started) and the step-by-step [Deployment Guide](https://github.com/microsoft/Azure-Synapse-Customer-Insights-Customer360-Solution-Accelerator/blob/main/Deployment/AzureSetup.md). You can find them in the [GitHub repository](https://github.com/microsoft/Azure-Synapse-Customer-Insights-Customer360-Solution-Accelerator) for the solution.
 
 ## Contributors
 

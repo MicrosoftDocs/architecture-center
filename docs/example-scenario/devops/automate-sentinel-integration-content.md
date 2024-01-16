@@ -299,7 +299,7 @@ Enabling connectors as part of the DevOps model must be supported by the service
 | Microsoft Defender for Identity | Level 0 | global Admin or security admin | Recommended |
 | Microsoft Office 365 | Level 0 | global admin or security admin | Recommended |
 | Microsoft Cloud App Security | Level 0 | global admin or security admin | Recommended |
-| Microsoft 365 Defender | Level 0 | global admin or security admin | Recommended |
+| Microsoft Defender XDR | Level 0 | global admin or security admin | Recommended |
 | Microsoft Defender for IOT | Level 2 | Contributor | Recommended |
 | Microsoft Defender for Cloud | Level 2 | Security Reader | Optional |
 | Azure Activity | Level 2 | Subscription Reader | Optional |

@@ -4,7 +4,7 @@ The [Flux](https://fluxcd.io), [Argo CD](https://argo-cd.readthedocs.io), [OPA G
 
 ## Architecture
 
-Two GitOps operators that you can use with AKS are [Flux](https://fluxcd.io) and [Argo CD](https://argo-cd.readthedocs.io). They're [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io) projects and are widely used. The following scenarios show ways to use them.
+Two GitOps operators that you can use with AKS are [Flux](https://fluxcd.io) and [Argo CD](https://argo-cd.readthedocs.io). They're both [graduated Cloud Native Computing Foundation (CNCF) projects](https://www.cncf.io/projects/) and are widely used. The following scenarios show ways to use them.
 
 ### Scenario 1: GitOps with Flux and AKS
 
@@ -132,13 +132,12 @@ If you want to enforce that only GitOps can change the cluster state, you can re
 It's possible to have a need to deploy AKS clusters as part of the baseline configuration. An example is that you have to deploy a set of shared services or a configuration before you deploy workloads. These shared-services can configure AKS add-ons such as:
 
 - [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview).
-- [Secret Store CSI Driver Provider](https://github.com/Azure/secrets-store-csi-driver-provider-azure).
+- [Azure Key Vault Provider for Secrets Store CSI Driver](https://github.com/Azure/secrets-store-csi-driver-provider-azure).
 - Partner tools such as:
   - [Prisma Cloud Defender](https://docs.paloaltonetworks.com/prisma/prisma-cloud).
-  - [Splunk Daemonset](https://github.com/splunk/splunk-connect-for-kubernetes).
 - Open-source tools such as:
   - [KEDA](https://keda.sh).
-  - [External-dns](https://github.com/kubernetes-sigs/external-dns).
+  - [ExternalDNS](https://github.com/kubernetes-sigs/external-dns).
   - [Cert-manager](https://cert-manager.io/docs).
 
 You can enable Flux as an extension that's applied when you create an AKS cluster. Flux can then bootstrap the baseline configuration to the cluster. The [Baseline architecture for an AKS cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks) suggests using GitOps for bootstrapping. If you use the Flux extension, you can bootstrap clusters very soon after you deploy.

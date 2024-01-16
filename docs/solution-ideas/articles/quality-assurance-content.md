@@ -69,7 +69,6 @@ For general guidance on designing resilient solutions, see [Reliability design p
 - [Build a serverless web app in Azure][serverless]
 - [Learn how to Create Predictive models on Azure](/training/paths/create-no-code-predictive-models-azure-machine-learning)
 - [Learn how to Implement a Data Streaming Solution with Azure Streaming Analytics](/training/paths/implement-data-streaming-with-asa)
-- [Quality Assurance Workshop](https://github.com/Azure/iot-workshop-quality-assurance)
 - [Azure Event Hubs documentation](/azure/event-hubs)
 - [Azure Stream Analytics documentation](/azure/stream-analytics)
 - [Azure Machine Learning documentation](/azure/machine-learning)

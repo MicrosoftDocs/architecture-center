@@ -98,7 +98,7 @@ Here's the class diagram:
 
 `PivotItem` is the base class. `PivotClassificationItem`, `PivotAssetItem`, and `PivotGlossaryItem` inherit from the base class.
 
-By using the information that's passed in the pivot classes, the import step [can create or update an entity](/rest/api/purview/catalogdataplane/entity/create-or-update-entities), [a glossary term](/rest/api/purview/catalogdataplane/glossary/create-glossary-term), or a [classification](/rest/api/purview/scanningdataplane/classification-rules/create-or-update) via, for example, the REST API.
+By using the information that's passed in the pivot classes, the import step [can create or update an entity](/rest/api/purview/catalogdataplane/entity/create-or-update-entities), a [a glossary term](/rest/api/purview/catalogdataplane/glossary/create-glossary-term), or a [classification](/rest/api/purview/scanningdataplane/classification-rules/create-or-replace) via, for example, the REST API.
 
 You can use `PivotAssetItem` to create relationships between assets. You can also assign [glossary terms](/rest/api/purview/catalogdataplane/glossary/assign-term-to-entities) or [classifications](/rest/api/purview/catalogdataplane/entity/add-classification) to assets by using the `glossary_items` and `classification_items` properties.
 

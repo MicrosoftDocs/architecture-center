@@ -119,7 +119,7 @@ client.RetryPolicy = RetryPolicy.Default;
 
 ### Next steps
 
-[.NET Standard client library for Azure Event Hubs](https://github.com/Azure/azure-event-hubs-dotnet)
+[Azure Event Hubs client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub/Azure.Messaging.EventHubs)
 
 ## IoT Hub
 
@@ -199,7 +199,7 @@ The following table shows the default settings for the built-in retry policy.
 | ConfigurationOptions |ConnectRetry<br /><br />ConnectTimeout<br /><br />SyncTimeout<br /><br />ReconnectRetryPolicy |3<br /><br />Maximum 5000 ms plus SyncTimeout<br />1000<br /><br />LinearRetry 5000 ms |The number of times to repeat connect attempts during the initial connection operation.<br />Timeout (ms) for connect operations. Not a delay between retry attempts.<br />Time (ms) to allow for synchronous operations.<br /><br />Retry every 5000 ms.|
 
 > [!NOTE]
-> For synchronous operations, `SyncTimeout` can add to the end-to-end latency, but setting the value too low can cause excessive timeouts. See [How to troubleshoot Azure Cache for Redis][redis-cache-troubleshoot]. In general, avoid using synchronous operations, and use asynchronous operations instead. For more information, see [Pipelines and Multiplexers](https://github.com/StackExchange/StackExchange.Redis/blob/master/docs/PipelinesMultiplexers.md).
+> For synchronous operations, `SyncTimeout` can add to the end-to-end latency, but setting the value too low can cause excessive timeouts. See [How to troubleshoot Azure Cache for Redis][redis-cache-troubleshoot]. In general, avoid using synchronous operations, and use asynchronous operations instead. For more information, see [Pipelines and Multiplexers](https://github.com/StackExchange/StackExchange.Redis/blob/main/docs/PipelinesMultiplexers.md).
 
 ### Retry usage guidance
 
@@ -321,7 +321,7 @@ namespace RetryCodeSamples
 }
 ```
 
-For more examples, see [Configuration](https://github.com/StackExchange/StackExchange.Redis/blob/master/docs/Configuration.md) on the project website.
+For more examples, see [Configuration](https://github.com/StackExchange/StackExchange.Redis/blob/main/docs/Configuration.md) on the project website.
 
 ### Next steps
 
@@ -981,7 +981,7 @@ The following are the typical types of retry strategy intervals:
 <!-- links -->
 
 [msal]: /azure/active-directory/develop/msal-overview
-[autorest]: https://github.com/Azure/autorest/tree/master/docs
+[autorest]: https://github.com/Azure/autorest/tree/main/docs
 [dotnet-foundation]: https://dotnetfoundation.org
 [redis-cache-troubleshoot]: /azure/redis-cache/cache-how-to-troubleshoot
 [SearchIndexClient]: /dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet&preserve-view=true

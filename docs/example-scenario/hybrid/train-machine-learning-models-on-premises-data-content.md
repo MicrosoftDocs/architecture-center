@@ -77,7 +77,7 @@ To enable this solution to scale, you'll need to create an appropriately sized V
 
 Principal authors:
 
- - [Ronmia Bess](https://www.linkedin.com/in/ronmia-bess-8715625) | Content Developer 2
+ - Ronmia Bess | Content Developer 2
 
 Other contributors:
 
@@ -88,7 +88,6 @@ Other contributors:
 
 ## Next steps
 
-- [Deploy an Edge Training Solution](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/edge-training). When you're ready to test the example solution, continue with this deployment guide.
 - [Azure Machine Learning documentation](/azure/machine-learning) provides an overview of machine learning and related topics.
 - [Azure Container Registry documentation](/azure/container-registry/) describes how to build, store, and manage images for container deployments.
 - [Azure App Service and Azure Functions on Azure Stack Hub overview](/azure-stack/operator/azure-stack-app-service-overview) describes the resource provider and how to deploy it.

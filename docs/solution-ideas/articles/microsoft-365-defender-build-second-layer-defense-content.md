@@ -11,7 +11,7 @@ To consider using security services from Microsoft 365, it's helpful to know som
 
 Microsoft 365 and Office 365 are cloud-based services that are designed to help you meet your organization's needs for robust security, reliability, and user productivity. Microsoft 365 includes services like Power Automate, Forms, Stream, Sway, and Office 365. Office 365 includes the well-known suite of productivity applications. For more information about subscription options for these two services, see [Microsoft 365 and Office 365 plan options](/office365/servicedescriptions/office-365-platform-service-description/office-365-plan-options).
 
-Depending on the license that you acquire for Microsoft 365, you can also get the security services for Microsoft 365. These security services are called Microsoft 365 Defender, which provides multiple services:
+Depending on the license that you acquire for Microsoft 365, you can also get the security services for Microsoft 365. These security services are called Microsoft Defender XDR, which provides multiple services:
 
 -   Microsoft Defender for Endpoint
 -   Microsoft Defender for Identity
@@ -30,13 +30,13 @@ But the confusion isn't only about terminology. Some services deliver similar pr
 
 These examples show that if you understand how Microsoft 365 security services work and the differences compared to Azure security services, you're able to plan your strategy for security in the Microsoft cloud in an effective way and still provide a great security posture for your IT environment. That is the purpose of this article.
 
-The following diagram illustrates a real use case in which you might consider using Microsoft 365 Defender security services. The diagram shows the resources that need to be protected. The services that run in the environment are shown on top. Some potential threats are shown at the bottom. Microsoft 365 Defender services are in the middle, defending the organization's resources from potential threats.
+The following diagram illustrates a real use case in which you might consider using Microsoft Defender XDR security services. The diagram shows the resources that need to be protected. The services that run in the environment are shown on top. Some potential threats are shown at the bottom. Microsoft Defender XDR services are in the middle, defending the organization's resources from potential threats.
 
-:::image type="content" alt-text="Diagram that shows threats, their attack order, the targeted resources, and the services of Microsoft 365 Defender that can provide protection." source="../media/microsoft-365-defender-build-second-layer-defense-attack-order.png" lightbox="../media/microsoft-365-defender-build-second-layer-defense-attack-order.png":::
+:::image type="content" alt-text="Diagram that shows threats, their attack order, the targeted resources, and the services of Microsoft Defender XDR that can provide protection." source="../media/microsoft-365-defender-build-second-layer-defense-attack-order.png" lightbox="../media/microsoft-365-defender-build-second-layer-defense-attack-order.png":::
 
 ## Architecture
 
-The following diagram shows a layer, labeled as **DEFENDER**, that represents the Microsoft 365 Defender security services. Adding these services to your IT environment helps you to build better defense for your environment. The services in the Defender layer can work with Azure security services.
+The following diagram shows a layer, labeled as **DEFENDER**, that represents the Microsoft Defender XDR security services. Adding these services to your IT environment helps you to build better defense for your environment. The services in the Defender layer can work with Azure security services.
 
 :::image type="content" alt-text="Diagram of services, threats, and the security services that you can configure to provide protection to the resources in your I T environment." source="../media/microsoft-365-defender-build-second-layer-defense-architecture.png" lightbox="../media/microsoft-365-defender-build-second-layer-defense-architecture.png":::
 
@@ -93,11 +93,11 @@ The threats named in the diagram follow a common attack order:
 
 6. If the credentials provide access to an account that has elevated privilege, the attacker compromises additional systems.
 
-The diagram also shows in the layer labeled as **DEFENDER** which Microsoft 365 Defender services can monitor and mitigate those attacks. This is an example of how Defender provides an additional layer of security that works with Azure security services to offer additional protection of the resources that are shown in the diagram. For more information about how potential attacks threaten your IT environment, see the second article in this series, [Map threats to your IT environment](../../solution-ideas/articles/map-threats-it-environment.yml). For more information about Microsoft 365 Defender, see [Microsoft 365 Defender](/microsoft-365/security/defender/microsoft-365-defender?view=o365-worldwide).
+The diagram also shows in the layer labeled as **DEFENDER** which Microsoft Defender XDR services can monitor and mitigate those attacks. This is an example of how Defender provides an additional layer of security that works with Azure security services to offer additional protection of the resources that are shown in the diagram. For more information about how potential attacks threaten your IT environment, see the second article in this series, [Map threats to your IT environment](../../solution-ideas/articles/map-threats-it-environment.yml). For more information about Microsoft Defender XDR, see [Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-365-defender?view=o365-worldwide).
 
-### Access and manage Microsoft 365 Defender Security services
+### Access and manage Microsoft Defender XDR Security services
 
-Currently, you might need to use multiple portals to manage Microsoft 365 Defender services. However, Microsoft is working to centralize functionality as much as possible. The following diagram shows which portals are currently available and their relationships with each other.
+Currently, you might need to use multiple portals to manage Microsoft Defender XDR services. However, Microsoft is working to centralize functionality as much as possible. The following diagram shows which portals are currently available and their relationships with each other.
 
 :::image type="content" alt-text="A diagram that shows the current relationship of portals to services." source="../media/microsoft-365-defender-build-second-layer-defense-portals.png" lightbox="../media/microsoft-365-defender-build-second-layer-defense-portals.png":::
 
@@ -145,8 +145,8 @@ Other contributors:
 ## Next steps
 
 - [Defend against threats with Microsoft 365](/training/paths/m365-security-threat-protection)
-- [Detect and respond to cyber attacks with Microsoft 365 Defender](/training/paths/defender-detect-respond)
-- [Get started with Microsoft 365 Defender](/microsoft-365/security/defender/get-started)
+- [Detect and respond to cyber attacks with Microsoft Defender XDR](/training/paths/defender-detect-respond)
+- [Get started with Microsoft Defender XDR](/microsoft-365/security/defender/get-started)
 - [Implement threat intelligence in Microsoft 365](/training/paths/implement-microsoft-365-threat-intelligence)
 - [Manage security with Microsoft 365](/training/paths/m365-security-management)
 - [Protect against malicious threats with Microsoft Defender for Office 365](/training/paths/defender-office-365-malicious-threats)
@@ -159,4 +159,4 @@ For more details about this reference architecture, see the other articles in th
 - Part 1: [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml)
 - Part 2: [Map threats to your IT environment](./map-threats-it-environment.yml)
 - Part 3: [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
-- Part 5: [Integration between Azure and Microsoft 365 Defender security services](./microsoft-365-defender-security-integrate-azure.yml)
+- Part 5: [Integration between Azure and Microsoft Defender XDR security services](./microsoft-365-defender-security-integrate-azure.yml)

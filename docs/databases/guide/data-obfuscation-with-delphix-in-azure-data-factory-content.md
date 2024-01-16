@@ -29,7 +29,7 @@ The data flows through the scenario as follows:
 
 ### Alternatives
 
-You can also perform data obfuscation using GitHub with Microsoft Presidio.  Learn more about this option at [microsoft/presidio: Context aware, pluggable and customizable data protection and anonymization SDK for text and images](https://github.com/microsoft/presidio).
+You can also perform data obfuscation using Microsoft Presidio.  Learn more about this option at [Presidio - Data Protection and De-identification SDK](https://github.com/microsoft/presidio) on GitHub.
 
 ## Scenario details
 

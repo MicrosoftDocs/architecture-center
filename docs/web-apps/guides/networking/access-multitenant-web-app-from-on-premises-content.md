@@ -35,15 +35,15 @@ This article shows how to set up improved-security private connectivity to a mul
 - Virtual networks are linked to all the Azure private DNS zones.
   - The virtual network that has private endpoints is automatically linked to the private DNS zones. You need to link the other virtual networks separately.
 - The web app communicates with the private endpoints of the PaaS services in *Private Endpoint Virtual Network* via Azure Firewall.
-- On Azure Firewall, the [application rules](/azure/private-link/inspect-traffic-with-azure-firewall) are configured to allow communication between *VNet Integration Subnet* and the private endpoints of PaaS resources.
-The target fully qualified domain names (FQDNs) are:
-  - *.azurewebsites.net
-  - *.database.windows.net
-  - *.core.windows.net
-  - *.vaultcore.azure.net
+- On Azure Firewall, the [application rules](/azure/private-link/inspect-traffic-with-azure-firewall) are configured to allow communication between *VNet Integration Subnet* and the private endpoints of PaaS resources. The target fully qualified domain names (FQDNs) are:
+  - `*.azurewebsites.net`
+  - `*.database.windows.net`
+  - `*.core.windows.net`
+  - `*.vaultcore.azure.net`
 - Firewall and virtual network configuration for Azure SQL, Azure Storage Account, and Azure Key Vault allows traffic only from *VNet Integration Subnet*. The configuration doesn't allow communication with any other virtual network or with the public internet.
 
 ### Components
+
 - [Azure App Service](https://azure.microsoft.com/services/app-service) hosts web applications and function apps, allowing autoscale and high availability without requiring you to manage infrastructure.
  - [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is a general-purpose relational-database managed service that supports relational data, spatial data, JSON, and XML.
  - [Azure Storage account](https://azure.microsoft.com/product-categories/storage) provides a unique namespace for Azure Storage data that's accessible from anywhere in the world over HTTP or HTTPS. It contains all Azure Storage data objects: blobs, file shares, queues, tables, and disks.

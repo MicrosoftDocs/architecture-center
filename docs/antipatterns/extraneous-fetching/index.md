@@ -256,7 +256,7 @@ Here is the corresponding telemetry for the `AggregateOnDatabaseAsync` method. T
 [data-partitioning]: ../../best-practices/data-partitioning.yml
 [new-relic]: https://newrelic.com/products/application-monitoring
 
-[sample-app]: https://github.com/mspnp/performance-optimization/tree/master/ExtraneousFetching
+[sample-app]: https://github.com/mspnp/performance-optimization/tree/main/ExtraneousFetching
 
 [chatty-io]: ../chatty-io/index.md
 [MonolithicPersistence]: ../monolithic-persistence/index.md

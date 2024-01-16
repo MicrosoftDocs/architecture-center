@@ -153,7 +153,7 @@ Principal author:
 - [Set up a staging environment in Azure Spring Apps](/azure/spring-cloud/how-to-staging-environment)
 - [GitHub: Understand GitHub Actions](https://docs.github.com/actions/learn-github-actions/understanding-github-actions)
 - [GitHub: Use environments for deployment](https://docs.github.com/actions/deployment/targeting-different-environments/using-environments-for-deployment)
-- [GitHub: Reuse workflows](https://docs.github.com/actions/learn-github-actions/reusing-workflows)
+- [GitHub: Reuse workflows](https://docs.github.com/actions/using-workflows/reusing-workflows)
 
 ## Related resources
 

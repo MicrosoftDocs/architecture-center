@@ -91,7 +91,7 @@ items:
     - name: Choose a container option
       items:
       - name: Container options
-        href: /azure/container-apps/compare-options
+        href: guide/choose-azure-container-service.md
         maintainContext: true
       - name: Containers for confidential computing
         href: /azure/confidential-computing/choose-confidential-containers-offerings
@@ -167,16 +167,30 @@ items:
           maintainContext: true
     - name: Choose a data store
       items:
-      - name: Understand data store models
-        href: guide/technology-choices/data-store-overview.md
-      - name: Select a data store
-        href: guide/technology-choices/data-store-decision-tree.md
-      - name: Review data options
-        href: guide/technology-choices/data-options.md
-      - name: Criteria for choosing a data store
-        href: guide/technology-choices/data-store-considerations.md
-      - name: Big data storage
-        href: data-guide/technology-choices/data-storage.md
+      - name: Understanding data store models
+        items:
+          - name: Types of data store models
+            href: guide/technology-choices/data-store-overview.md
+          - name: Non-relational data store
+            href: data-guide/big-data/non-relational-data.yml
+          - name: Review data options
+            href: guide/technology-choices/data-options.md
+          - name: Criteria for choosing a data store
+            href: guide/technology-choices/data-store-considerations.md
+      - name: Selecting a data store model
+        items:
+          - name: Big data storage
+            href: data-guide/technology-choices/data-storage.md
+          - name: Compare NoSQL and relational
+            href: /azure/cosmos-db/relational-nosql
+          - name: Choose an API in Cosmos DB
+            href: /azure/cosmos-db/choose-api
+          - name: PostgreSQL options
+            href: /azure/postgresql/single-server/overview-postgres-choose-server-options
+          - name: Search data store
+            href: data-guide/technology-choices/search-options.md
+          - name: Select a data store
+            href: guide/technology-choices/data-store-decision-tree.md 
       - name: Database scenarios
         items:
         - name: OLAP solutions
@@ -185,23 +199,12 @@ items:
           href: data-guide/relational-data/online-transaction-processing.md
         - name: Data lakes
           href: data-guide/scenarios/data-lake.md
-        - name: Non-relational data store
-          href: data-guide/big-data/non-relational-data.yml
-        - name: Compare NoSQL and relational
-          href: /azure/cosmos-db/relational-nosql
-          maintainContext: true
+      - name: Data movement
+        items:
         - name: Pipeline orchestration
           href: data-guide/technology-choices/pipeline-orchestration-data-movement.md
-        - name: Search data store
-          href: data-guide/technology-choices/search-options.md
-        - name: PostgreSQL options
-          href: /azure/postgresql/single-server/overview-postgres-choose-server-options
-          maintainContext: true
         - name: Data transfer options
           href: data-guide/scenarios/data-transfer.md
-        - name: Choose an API in Cosmos DB
-          href: /azure/cosmos-db/choose-api
-          maintainContext: true
     - name: Choose an analytics solution
       items:
       - name: Analytical data stores
@@ -948,7 +951,7 @@ items:
           href: solution-ideas/articles/interactive-azure-data-explorer.yml
         - name: IoT analytics with Data Explorer
           href: solution-ideas/articles/iot-azure-data-explorer.yml
-        - name: Monitoring with Data Explorer
+        - name: Augmented security, observability, and analytics
           href: solution-ideas/articles/monitor-azure-data-explorer.yml
       - name: Big data analytics with enterprise security
         href: solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml
@@ -1086,6 +1089,8 @@ items:
             href: guide/hpc/ansys-cfx.yml
           - name: Ansys Fluent
             href: guide/hpc/ansys-fluent.yml
+          - name: Ansys HFSS
+            href: guide/hpc/ansys-hfss.yml  
           - name: Ansys LS-DYNA
             href: guide/hpc/ls-dyna.yml
           - name: Ansys Rocky
@@ -1108,6 +1113,8 @@ items:
           href: guide/hpc/barracuda-virtual-reactor.yml
         - name: CP2K
           href: guide/hpc/cp2k.yml
+        - name: Devito
+          href: guide/hpc/devito-virtual-machine.yml
         - name: Engys deployments
           items:
           - name: Engys ELEMENTS
@@ -1152,6 +1159,8 @@ items:
             href: guide/hpc/siemens-nx.yml
           - name: Siemens Tecnomatix
             href: guide/hpc/siemens-tecnomatix.yml
+        - name: tNavigator
+          href: guide/hpc/tnavigator.yml
         - name: Turbostream
           href: guide/hpc/turbostream.yml
         - name: Visiopharm
@@ -1269,7 +1278,13 @@ items:
       - name: Hybrid HPC with HPC Packwindows-containers-on-aks
         href: solution-ideas/articles/hybrid-hpc-in-azure-with-hpc-pack.yml
   - name: Containers
-    items:
+    items: 
+    - name: Choose a container host
+      items: 
+      - name: Overview
+        href: guide/choose-azure-container-service.md
+      - name: Considerations
+        href: guide/container-service-general-considerations.md 
     - name: Kubernetes-based hosting
       items:
       - name: Get started
@@ -1755,20 +1770,6 @@ items:
           href: guide/azure-resource-manager/advanced-templates/collector.md
         - name: Infrastructure as code with Bicep
           href: guide/azure-resource-manager/advanced-templates/enterprise-infrastructure-bicep-container-registry.yml
-      - name: DevTest Labs guidance
-        items:
-        - name: Deliver a proof of concept
-          href: /azure/devtest-labs/deliver-proof-concept
-          maintainContext: true
-        - name: Orchestrate the implementation
-          href: /azure/devtest-labs/devtest-lab-guidance-orchestrate-implementation
-          maintainContext: true
-        - name: Scale up DevTest Labs infrastructure
-          href: /azure/devtest-labs/devtest-lab-guidance-scale
-          maintainContext: true
-        - name: Security baseline for DevTest Labs
-          href: /security/benchmark/azure/baselines/devtest-labs-security-baseline
-          maintainContext: true
       - name: Azure Monitor guidance
         items:
         - name: Best practices
@@ -1823,8 +1824,6 @@ items:
       - name: CI/CD for Synapse Analytics
         href: /azure/synapse-analytics/cicd/continuous-integration-delivery
         maintainContext: true
-      - name: DevOps for quantum computing
-        href: guide/quantum/devops-for-quantum-computing.yml
       - name: DevSecOps on AKS
         href: guide/devsecops/devsecops-on-aks.yml
       - name: Platform automation for VMware Solution
@@ -2556,6 +2555,8 @@ items:
           href: example-scenario/mainframe/imsql-rehost-ims.yml
         - name: Rehost mainframe with NTT DATA UniKix
           href: example-scenario/mainframe/rehost-mainframe-ntt-data-unikix.yml
+        - name: Unisys ClearPath Forward OS 2200 enterprise server virtualization on Azure
+          href: mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml
         - name: Unisys ClearPath MCP virtualization on Azure
           href: example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml
         - name: Unisys Dorado migration
@@ -2564,8 +2565,7 @@ items:
           href: reference-architectures/migration/unisys-mainframe-migration.yml
         - name: Use LzLabs SDM in Azure
           href: example-scenario/mainframe/lzlabs-software-defined-mainframe-in-azure.yml
-        - name: Virtualization of Unisys ClearPath Forward OS 2200 Enterprise Server on Azure
-          href: mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml
+        
       - name: Solution ideas
         items:
         - name: Migrate IBM apps with TmaxSoft
@@ -3199,6 +3199,10 @@ items:
             href: guide/networking/global-web-applications/mission-critical-global-http-ingress.md
           - name: Mission-critical content delivery
             href: guide/networking/global-web-applications/mission-critical-content-delivery.md
+      - name: Adopting IPv6
+        items:
+          - name: Conceptual planning for IPv6 networking
+            href: networking/guide/ipv6/ipv6-ip-planning.md
     - name: Architectures
       items:
       - name: Azure DNS Private Resolver
@@ -3480,7 +3484,7 @@ items:
         - name: Connect Defender for Cloud
           href: /azure/sentinel/connect-defender-for-cloud
           maintainContext: true
-        - name: Connect Microsoft 365 Defender
+        - name: Connect Microsoft Defender XDR
           href: /azure/sentinel/connect-microsoft-365-defender
           maintainContext: true
         - name: Integrate Data Explorer with Sentinel
@@ -3769,8 +3773,6 @@ items:
         - name: Connection quality
           href: /azure/virtual-desktop/connection-latency
           maintainContext: true
-      - name: Microsoft Entra join for Azure Virtual Desktop
-        href: example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join.md
       - name: Multiregion BCDR for AVD
         href: example-scenario/wvd/azure-virtual-desktop-multi-region-bcdr.yml
       - name: AVD for Azure Stack HCI
@@ -4332,9 +4334,7 @@ items:
           maintainContext: true
         - name: HITRUST overview
           href: /azure/compliance/offerings/offering-hitrust
-          maintainContext: true
-        - name: Implement healthcare blueprint for AI
-          href: industries/healthcare/healthcare-ai-blueprint.yml
+          maintainContext: true        
         - name: HIPAA/HITRUST compliant health data
           href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
         - name: HIPAA HITRUST 9.2 compliance
@@ -4602,9 +4602,6 @@ items:
         href: industries/manufacturing/compute-manufacturing-overview.yml
       - name: AI and ML scenarios
         items:
-        - name: Continuous manufacturing with Bonsai
-          href: /bonsai/concepts/continuous-manufacturing
-          maintainContext: true
         - name: Machine teaching for manufacturing
           href: solution-ideas/articles/machine-teaching.yml
         - name: MLOps to upscale ML lifecycle

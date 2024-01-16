@@ -69,7 +69,6 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 - **Separate model repos:** To protect the deployed models, consider storing them in their own repository that the training and testing pipelines don't touch.
 - **ParallelRunStep Class:** The Python [ParallelRunStep Class](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py) is a powerful option to run many models training and inferencing. It can partition your data in a variety of ways, and then apply your ML script on elements of the partition in parallel. Like other forms of Machine Learning training, you can specify a custom training environment with access to Python Package Index (PyPI) packages, or a more advanced custom docker environment for configurations that require more than standard PyPI. There are many CPUs and GPUs to choose from.
 - **Online inferencing:** If a pipeline loads and caches all models at the start, the models might exhaust the container's memory. Therefore, load the models on demand in the run method, even though it might increase latency slightly.
-- **Implementation details:** For detailed information on implementing a many models solution, see [Implement many models for ML in Azure](https://github.com/microsoft/csa-misc-utils/tree/master/sa-dsml-many-models).
 
 ### Cost optimization
 
@@ -95,7 +94,7 @@ Principal author:
 
 ## Next steps
 
-- [Azure Arc-enabled Machine Learning](https://github.com/Azure/AML-Kubernetes#azure-arc-enabled-machine-learning)
+- [Configure a Kubernetes cluster for Azure Machine Learning](https://github.com/Azure/AML-Kubernetes#azure-arc-enabled-machine-learning)
 - [Many Models Solution Accelerator](https://github.com/microsoft/solution-accelerator-many-models#many-models-solution-accelerator)
 - [ParallelRunStep Class](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py)
 - [DataTransferStep Class](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep)
