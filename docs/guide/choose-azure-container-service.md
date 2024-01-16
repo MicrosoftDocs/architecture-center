@@ -108,9 +108,7 @@ If you need to host disparate, potentially unrelated application components or w
 
 ## The tradeoff between control and ease of use
 
-The following diagram illustrates how the service models of services compare. AKS provides the most configurability, but this configurability comes at the cost of increased operational overhead, as compared to the other services. Although Container Apps and Web App for Containers are both PaaS services that have similar levels of Microsoft-managed features, Web App for Containers emphasizes simplicity to cater to its target audience: existing Azure PaaS customers, who find the interface familiar. The diagram also illustrates the tradeoffs between responsibility and configurability.
-
-![Diagram that shows how service models compare.](media/images/control-tradeoffs.png)
+AKS provides the most configurability, but this configurability comes at the cost of increased operational overhead, as compared to the other services. Although Container Apps and Web App for Containers are both PaaS services that have similar levels of Microsoft-managed features, Web App for Containers emphasizes simplicity to cater to its target audience: existing Azure PaaS customers, who find the interface familiar. 
 
 ### Rule of thumb
 
