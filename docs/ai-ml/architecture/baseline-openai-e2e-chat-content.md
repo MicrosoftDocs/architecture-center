@@ -1,4 +1,4 @@
-Enterprise chat applications have the ability empower employees through conversational interaction, especially due to the continuous advancement of large language models such as OpenAI's GPT models and Meta's LLaMA models. These chat applications consist of a user interface for chatting, data repositories containing domain-specific information pertinent to the user’s queries, large language models (LLMs) that reason over the domain-specific data to produce a relevant response, and an orchestrator that oversees the interaction between these components.
+Enterprise chat applications have the ability empower employees through conversational interaction, especially due to the continuous advancement of large language models such as OpenAI's GPT models and Meta's LLaMA models. These chat applications consist of a user interface for chatting, data repositories containing domain-specific information pertinent to the user's queries, large language models (LLMs) that reason over the domain-specific data to produce a relevant response, and an orchestrator that oversees the interaction between these components.
 
 This article provides a baseline architecture for building and deploying enterprise chat applications that use OpenAI large language models. The architecture employs Azure Machine Learning (AML) prompt flow to create executable flows that orchestrate the workflow from incoming prompts out to data stores to fetch grounding data for the LLMs, along with any other Python logic required. The executable flow is deployed to an Azure Machine Learning compute cluster behind a managed online endpoint.
 
@@ -134,7 +134,7 @@ This section addresses reliability from the perspective of the components in thi
 
 ### Zonal redundancy for flow deployments
 
-Enterprise deployments usually require at least zonal redundancy. To achieve this in Azure, resources must support [availability zones](/azure/availability-zones/az-overview) and you must deploy at least the instances of the resource or enable the platform support when instance control isn't available. Currently, Azure Machine Learning compute doesn’t offer support for availability zones. To mitigate the potential impact of a datacenter-level catastrophe on AML components, it's necessary to establish clusters in various regions along with deploying a load balancer to distribute calls among these clusters. You would use health checks to help ensure that calls are only routed to clusters that are functioning properly.
+Enterprise deployments usually require at least zonal redundancy. To achieve this in Azure, resources must support [availability zones](/azure/availability-zones/az-overview) and you must deploy at least the instances of the resource or enable the platform support when instance control isn't available. Currently, Azure Machine Learning compute doesn't offer support for availability zones. To mitigate the potential impact of a datacenter-level catastrophe on AML components, it's necessary to establish clusters in various regions along with deploying a load balancer to distribute calls among these clusters. You would use health checks to help ensure that calls are only routed to clusters that are functioning properly.
 
 Deploying prompt flows is not limited to Azure Machine Learning compute clusters. The executable flow, being a containerized application, can be deployed to any Azure service that is compatible with containers. This includes services like Azure Kubernetes Service (AKS), Azure Functions, Azure Container Apps (ACA), and Azure App Service. Each of those services support availability zones. To achieve zonal redundancy for prompt flow execution, without the added complexity of a multi-region deployment, you should deploy your flows to one of those services.
 
@@ -291,7 +291,20 @@ For enterprise development, you should consider using the [VS Code extension](/a
 
 ### Evaluation
 
-TODO: 
+You should test the flows used in a chat application just as you test other software artifacts. It is challenging to specify and assert a single "right" answer for LLM outputs, but you can use an LLM itself to evaluate responses. Consider implementing the following automated evaluations of your LLM flows:
+
+- **Classification Accuracy**: Evaluates whether the LLM gives a "correct" or "incorrect" score and aggregates the outcomes to produce an accuracy grade.
+- **Coherence**: Evaluates how well the sentences in a model's predicted answer are written and how they coherently connect with each other.
+- **Fluency**: Assesses the model's predicted answer for its grammatical and linguistic accuracy.
+- **Groundedness Against Context**: Evaluates how well the model's predicted answers are based on preconfigured context. Even if LLM's responses are correct, if they cannot be validated against the given context, then such responses are not grounded.
+- **Relevance**: Evaluates how well the model's predicted answers align with the question asked.
+
+Consider the following guidance when implementing automated evaluations:
+
+- Produce scores from evaluations and measure them against a predefined success threshold. Use these scored to report test pass/fail in your pipelines.
+- Some of these tests require pre-configured data inputs of questions, context, and ground truth.
+- Include enough question-answer pairs to ensure the results of the tests are reliable, with at least 100-150 pairs recommended. This is referred to as your "golden dataset". A larger population might be required depending on the size and domain of your dataset.
+- Avoid using LLMs to generate any of the data in your golden dataset.
 
 ### Deployment Flow
 
