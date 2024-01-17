@@ -281,7 +281,7 @@ Azure OpenAI is a consumption-based service, and as with any consumption-based s
 
 ## Large language model operations (LLMOps)
 
-Deployment for the baseline Azure OpenAI end-to-end chat components follows the guidance in [LLMOps with prompt flow with Azure DevOps](/azure/machine-learning/prompt-flow/how-to-end-to-end-azure-devops-with-prompt-flow) and [GitHub](/azure/machine-learning/prompt-flow/how-to-end-to-end-llmops-with-prompt-flow). Additionally, it considers best practices for CI/CD and network-secured architectures. This guidance addresses the implementation of Flows and their associated infrastructure. It doesn't include the front-end application elements, which are discussed in the [Baseline highly available zone-redundant web application architecture](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#deployment).
+Deployment for Azure OpenAI based chat solutions like this architecture should follow the guidance in [LLMOps with prompt flow with Azure DevOps](/azure/machine-learning/prompt-flow/how-to-end-to-end-azure-devops-with-prompt-flow) and [GitHub](/azure/machine-learning/prompt-flow/how-to-end-to-end-llmops-with-prompt-flow). Additionally, it must consider best practices for CI/CD and network-secured architectures. The following guidance addresses the implementation of Flows and their associated infrastructure based on the LLMOps recommendations. This deployment guidance doesn't include the front-end application elements, which are unchanged from in the [Baseline highly available zone-redundant web application architecture](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant#deployment).
 
 ### Development
 
@@ -289,7 +289,7 @@ Azure Machine Learning prompt flow offers both a browser-based authoring experie
 
 In order to follow [best practices for collaborative development](/azure/machine-learning/prompt-flow/how-to-integrate-with-llm-app-devops#best-practice-for-collaborative-development), the source files should be maintained in an online source code repository such as GitHub. This approach facilitates tracking of all code changes, collaboration between flow authors and integration with [deployment flows](/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat#deployment-flow) that test and validate all code changes.
 
-For enterprise development, you should consider using the [VS Code extension](/azure/machine-learning/prompt-flow/community-ecosystem#vs-code-extension) and the [prompt flow SDK/CLI](/azure/machine-learning/prompt-flow/community-ecosystem#prompt-flow-sdkcli) for development. Prompt flow authors can build and test their flows from VS Code and seamlessly integrate the locally stored files with the online source control system and pipelines. While the browser-based experience is well suited for exploratory development, with some work, it can be integrated with the source control system. The flow folder can be downloaded from the flow page in the ```Files``` panel, unzipped, and pushed to the source control system.
+For enterprise development, you should use the [VS Code extension](/azure/machine-learning/prompt-flow/community-ecosystem#vs-code-extension) and the [prompt flow SDK/CLI](/azure/machine-learning/prompt-flow/community-ecosystem#prompt-flow-sdkcli) for development. Prompt flow authors can build and test their flows from VS Code and integrate the locally stored files with the online source control system and pipelines. While the browser-based experience is well suited for exploratory development, with some work, it can be integrated with the source control system. The flow folder can be downloaded from the flow page in the ```Files``` panel, unzipped, and pushed to the source control system.
 
 ### Evaluation
 
@@ -338,8 +338,8 @@ Consider the following guidance when implementing automated evaluations:
       - Runs integration tests that target the online endpoint
       - Runs smoke tests that target the online endpoint
 
-5. An approval process is built into the code promotion process – upon approval, the CI & CD processes described in steps 4.a. & 4.b. are repeated, targeting the Test environment. Steps a. and b. are the same, except that User Acceptance tests are run after the Smoke tests in the Test environment.
-6. The  CI & CD processes described in steps 4.a. & 4.b. are run in the Production Environment after the Test environment is verified and approved.
+5. An approval process is built into the release promotion process – upon approval, the CI & CD processes described in steps 4.a. & 4.b. are repeated, targeting the Test environment. Steps a. and b. are the same, except that user acceptance tests are run after the smoke tests in the Test environment.
+6. The CI & CD processes described in steps 4.a. & 4.b. are run to promote the release to the Production environment after the Test environment is verified and approved.
 7. After release into a live environment, the operational tasks of monitoring performance metrics and evaluating the deployed LLM take place. This includes but isn't limited to:
 
     - Detecting data drifts
@@ -351,7 +351,7 @@ Consider the following guidance when implementing automated evaluations:
 
 Azure Machine Learning Endpoints allow you to deploy models in a way that enables flexibility when releasing to production. Consider the following strategies to ensure the best model performance and quality:
 
-- Blue/green deployments: With this strategy, you can safely deploy your new version of the web service to a limited group of users or requests before cutting over all traffic to the new deployment.
+- Blue/green deployments: With this strategy, you can safely deploy your new version of the web service to a limited group of users or requests before directing all traffic over to the new deployment.
 - A/B Testing: Not only are Blue/Green deployments effective for safely rolling out changes, they can also be used to deploy new behavior that allows a subset of users to evaluate the impact of the change.
 - Include linting of Python files that are part of the prompt flow in your pipelines. Linting checks for compliance with style standards, errors, code complexity, unused imports, and variable naming.
 - When deploying your flow to the network-isolated Azure Machine Learning workspace, use a self-hosted agent to deploy artifacts to your Azure resources.
@@ -365,7 +365,7 @@ When deploying the baseline Azure OpenAI end-to-end chat components, some of the
 
 #### Foundational components
 
-Some components in this architecture exist with a lifecycle that extends beyond any individual prompt flow or any model deployment. These resources are typically deployed once as part of the foundational deployment for the workload team, and maintained apart from new, removed, or updates to the prompt flows or model deployments.
+Some components in this architecture exist with a lifecycle that extends beyond any individual prompt flow or any model deployment. These resources are typically deployed once as part of the foundational deployment by the workload team, and maintained apart from new, removed, or updates to the prompt flows or model deployments.
 
 - Azure Machine Learning workspace
 - Azure Storage account for the Azure Machine Learning workspace
@@ -374,11 +374,11 @@ Some components in this architecture exist with a lifecycle that extends beyond 
 - Azure OpenAI
 - Azure Application Insights
 - Azure Bastion
-- Azure Virtual Machine for the Jump box
+- Azure Virtual Machine for the jump box
 
 #### Ephemeral components
 
-Some Azure resources are more tightly coupled to the design of specific prompt flows. These resources are more ephemeral in nature. They're affected when the workload evolves, such as when flows are added or removed or when new models are introduced. These resources get recreated and prior instances removed. Some of these resources are direct Azure resources and some are data plane manifestations within their containing service.
+Some Azure resources are more tightly coupled to the design of specific prompt flows, allowing these resources to be bound to the lifecycle of the component and become ephemeral in this architecture. They're affected when the workload evolves, such as when flows are added or removed or when new models are introduced. These resources get recreated and prior instances removed. Some of these resources are direct Azure resources and some are data plane manifestations within their containing service.
 
 - The model in the Azure Machine Learning model registry should be updated, if changed, as part of the CD pipeline.
 - The container image should be updated in the container registry as part of the CD pipeline.
