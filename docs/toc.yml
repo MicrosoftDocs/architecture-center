@@ -1921,20 +1921,6 @@ items:
           href: guide/azure-resource-manager/advanced-templates/collector.md
         - name: Infrastructure as code with Bicep
           href: guide/azure-resource-manager/advanced-templates/enterprise-infrastructure-bicep-container-registry.yml
-      - name: DevTest Labs guidance
-        items:
-        - name: Deliver a proof of concept
-          href: /azure/devtest-labs/deliver-proof-concept
-          maintainContext: true
-        - name: Orchestrate the implementation
-          href: /azure/devtest-labs/devtest-lab-guidance-orchestrate-implementation
-          maintainContext: true
-        - name: Scale up DevTest Labs infrastructure
-          href: /azure/devtest-labs/devtest-lab-guidance-scale
-          maintainContext: true
-        - name: Security baseline for DevTest Labs
-          href: /security/benchmark/azure/baselines/devtest-labs-security-baseline
-          maintainContext: true
       - name: Azure Monitor guidance
         items:
         - name: Best practices
@@ -1989,8 +1975,6 @@ items:
       - name: CI/CD for Synapse Analytics
         href: /azure/synapse-analytics/cicd/continuous-integration-delivery
         maintainContext: true
-      - name: DevOps for quantum computing
-        href: guide/quantum/devops-for-quantum-computing.yml
       - name: DevSecOps on AKS
         href: guide/devsecops/devsecops-on-aks.yml
       - name: Platform automation for VMware Solution

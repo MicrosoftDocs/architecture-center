@@ -28,7 +28,7 @@ summary: Use population health management to improve clinical and health outcome
 products:
   - azure-data-factory
   - azure-databricks
-  - azure-api-fhir
+  - azure
   - power-bi
   - azure-machine-learning
 thumbnailUrl: /azure/architecture/browse/thumbs/population-health-management-for-healthcare.png
