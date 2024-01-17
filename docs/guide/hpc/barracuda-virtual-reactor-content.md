@@ -1,13 +1,13 @@
 This article briefly describes the steps for running CPFD's [Barracuda Virtual Reactor](https://cpfd-software.com) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running Virtual Reactor on Azure.
 
-Virtual Reactor simulates the 3D transient behavior in fluid-particle systems, including multiphase hydrodynamics, heat balance, and chemical reactions. 
+Virtual Reactor simulates the 3D transient behavior in fluid-particle systems, including multiphase hydrodynamics, heat balance, and chemical reactions.
 
 Virtual Reactor has these capabilities:
 
 - Uses the Lagrangian formula for the particulate phase, which allows inclusion of discrete particle properties, including the particle size distribution (PSD), composition, temperature, residence time, and history.
 - Provides directional particle filtering through baffles and a GUI.
 
-Barracuda is most widely used in the oil refining, petrochemical, energy, and minerals processing industries, including the clean energy sector in the production of electricity, gas, and liquid fuels from coal and biomass.
+Barracuda is most widely used in the oil-refining, petrochemical, energy, and mineral-processing industries, including the clean energy sector in the production of electricity, gas, and liquid fuels from coal and biomass.
 
 ## Why deploy Barracuda Virtual Reactor on Azure?
 
@@ -25,17 +25,15 @@ architecture.*
 
 ### Components
 
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is
-    used to create a Linux VM. For information about deploying the VM and installing the drivers, see [Linux VMs on Azure](../../reference-architectures/n-tier/linux-vm.yml).
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is
-    used to create a private network infrastructure in the cloud.
-  - [Network security groups](/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VM.  
-  -  A public IP address connects the internet to the VM.
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is used to create a Linux VM. For information about deploying the VM and installing the drivers, see [Linux VMs on Azure](../../reference-architectures/n-tier/linux-vm.yml).
+- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is used to create a private network infrastructure in the cloud.
+  - [Network security groups](/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VM. 
+  - A public IP address connects the internet to the VM.
 - A physical solid-state drive (SSD) is used for storage.
 
 ## Compute sizing and drivers
 
-Performance tests of Barracuda Virtual Reactor on Azure used [ND A100_v4](/azure/virtual-machines/nda100-v4-series), [NCv3](/azure/virtual-machines/ncv3-series), [NCasT4_v3](/azure/virtual-machines/nct4-v3-series), [NDm A100 v4](https://learn.microsoft.com/en-us/azure/virtual-machines/ndm-a100-v4-series) and [NC A100 v4](https://learn.microsoft.com/en-us/azure/virtual-machines/nc-a100-v4-series) series VMs running Linux. The following table provides details.
+Performance tests of Barracuda Virtual Reactor on Azure used [ND A100_v4](/azure/virtual-machines/nda100-v4-series), [NCv3](/azure/virtual-machines/ncv3-series), [NCasT4_v3](/azure/virtual-machines/nct4-v3-series), [NDm A100 v4](/azure/virtual-machines/ndm-a100-v4-series), and [NC A100 v4](/azure/virtual-machines/nc-a100-v4-series) series VMs running Linux. The following table provides details.
 
 |VM size|vCPU| Memory (GiB)| SSD (GiB)|GPU|GPU memory (GiB)|Maximum data disks|
 |-|-|-|-|-|-|-|
@@ -44,17 +42,17 @@ Performance tests of Barracuda Virtual Reactor on Azure used [ND A100_v4](/azure
 |Standard_NC64as_T4_v3| 64| 440 |2,880| 4 T4 |64| 32|
 |Standard_ND96amsr_A100_v4|96|1900|6400|8 A100 80 GB GPUs (NVLink 3.0) |80|32|
 |Standard_NC96ads_A100_v4 |96|880|4492|4|320|32|
+
 ### Required drivers
 
-To take advantage of the GPU capabilities of [ND A100_v4](/azure/virtual-machines/nda100-v4-series), [NCv3](/azure/virtual-machines/ncv3-series), [NCasT4_v3](/azure/virtual-machines/nct4-v3-series), [NDm A100 v4](https://learn.microsoft.com/en-us/azure/virtual-machines/ndm-a100-v4-series) and [NC A100 v4](https://learn.microsoft.com/en-us/azure/virtual-machines/nc-a100-v4-series) series VMs, you need to install NVIDIA GPU drivers.
+To take advantage of the GPU capabilities of [ND A100_v4](/azure/virtual-machines/nda100-v4-series), [NCv3](/azure/virtual-machines/ncv3-series), [NCasT4_v3](/azure/virtual-machines/nct4-v3-series), [NDm A100 v4](/azure/virtual-machines/ndm-a100-v4-series), and [NC A100 v4](/azure/virtual-machines/nc-a100-v4-series) series VMs, you need to install NVIDIA GPU drivers.
 
- 
 ## Barracuda Virtual Reactor installation
 
-The Barracuda VR 21.1.0 and 22.0.0 versions are tested on different Virtual Machines shown below.
+The Barracuda Virtual Reactor 21.1.0 and 22.0.0 versions are tested on different VMs shown below.
 Before you install Virtual Reactor, you need to deploy and connect a Linux VM and install the required NVIDIA and AMD drivers.
 
-|Virtual Machine Tested|Barracuda Virtual Reactor 21.1.0|Barracuda Virtual Reactor 22.0.0|
+|VM|Barracuda Virtual Reactor 21.1.0|Barracuda Virtual Reactor 22.0.0|
 |-|-|-|
 |Standard_ND96asr_v4|✅|❌|
 |Standard_NC24s_v3|✅|❌|
@@ -70,11 +68,11 @@ For information about deploying the VM and installing the drivers, see [Run a Li
 
 You can install Virtual Reactor from the [CPFD Downloads page](https://cpfd-software.com/downloads). For information about the installation process, see [CPFD customer support](https://cpfd-software.com/login/?returnUrl=/user-manual/installation.html).
 
-## Barracuda Virtual Reactor 21.1.0  performance results
+## Barracuda Virtual Reactor 21.1.0 performance results
 
 Particle-based fluid dynamics simulations were run to test Virtual Reactor. The following table provides details about the operating system and NVIDIA drivers that were used.
 
-|Operating system version|OS architecture|GPU driver version|Cuda version|
+|Operating system version|Operating system architecture|GPU driver version|Cuda version|
 |-|-|-|-|
 |CentOS Linux release 8.1.1911 (Core)| x86-64| 470.57.02|11.4 |
 
@@ -91,9 +89,9 @@ A number of test cases were run. The following table provides details.
 |482| 821,781| 55,070,200| Enabled |Enabled| Disabled|
 |502| 821,781| 22,625,700| Enabled |Enabled| Disabled|
 
-### Results on NDv4 
+### Results on NDv4
 
-Results are presented in seconds. 
+Results are presented in seconds.
 
 |Test case number| 479| 480| 481| 482| 499| 500| 501| 502|
 |-|-|-|-|-|-|-|-|--|
@@ -123,11 +121,11 @@ The following table and graph show speed increases, in seconds of chemical react
 
 *1. In these cases, the number of GPUs was artificially limited. This VM has eight GPUs.*
 
-:::image type="content" source="media/barracuda-virtual-reactor/increase-ndv4.png" alt-text="Graph that shows the speed increase on an NDv4 VM." border="false":::
+:::image type="content" source="media/barracuda-virtual-reactor/increase-ndv4.png" alt-text="Graph that shows the speed increase on an NDv4 VM.":::
 
 These graphs provide comparisons of models that are similar but have different particle counts:
 
-:::image type="content" source="media/barracuda-virtual-reactor/ndv4-comparisons.png" alt-text="Graphs that provide comparisons for similar models on NDv4." border="false":::
+:::image type="content" source="media/barracuda-virtual-reactor/ndv4-comparisons.png" alt-text="Graphs that provide comparisons for similar models on NDv4.":::
 
 ### Results on NCv3
 
@@ -153,11 +151,11 @@ The following table and graph show speed increases, in seconds of chemical react
 
 *2. In these cases, the number of GPUs was artificially limited. NCv3 VMs are available with one, two, or four GPUs.*
 
-:::image type="content" source="media/barracuda-virtual-reactor/increase-ncv3.png" alt-text="Graph that shows the speed increase on an NCv3 VM." border="false":::
+:::image type="content" source="media/barracuda-virtual-reactor/increase-ncv3.png" alt-text="Graph that shows the speed increase on an NCv3 VM.":::
 
 These graphs provide comparisons of models that are similar but have different particle counts:
 
-:::image type="content" source="media/barracuda-virtual-reactor/comparison-ncv3.png" alt-text="Graphs that provide comparisons for similar models on NCv3." border="false":::
+:::image type="content" source="media/barracuda-virtual-reactor/comparison-ncv3.png" alt-text="Graphs that provide comparisons for similar models on NCv3.":::
 
 ### Results on NCasT4_v3
 
@@ -183,21 +181,21 @@ The following table and graph show speed increases, in seconds of chemical react
 
 *3. In these cases, the number of GPUs was artificially limited.  NCasT4_v3 VMs are available with one or four GPUs.*
 
-:::image type="content" source="media/barracuda-virtual-reactor/increase-ncast4.png" alt-text="Graph that shows the speed increase on an NCasT4_v3 VM." border="false":::
+:::image type="content" source="media/barracuda-virtual-reactor/increase-ncast4.png" alt-text="Graph that shows the speed increase on an NCasT4_v3 VM.":::
 
 These graphs provide comparisons of models that are similar but have different particle counts:
 
-:::image type="content" source="media/barracuda-virtual-reactor/comparison-ncast4.png" alt-text="Graphs that provide comparisons for similar models on NCasT4_v3."  border="false":::
+:::image type="content" source="media/barracuda-virtual-reactor/comparison-ncast4.png" alt-text="Graphs that provide comparisons for similar models on NCasT4_v3." :::
 
 ## Barracuda Virtual Reactor 22.0.0  performance results
 
 The following table provides details about the operating system and NVIDIA drivers that were used.
 
-|Operating system version|OS architecture|GPU driver version|Cuda version|
+|Operating system version|Operating system architecture|GPU driver version|Cuda version|
 |-|-|-|-|
 |Linux - Centos HPC 8.1 gen 2| x86-64| 515.65.01|11.70 |
 
-Several test models were run. The following table provides details
+Several test models were run. The following table provides details.
 
  |Test case number| Cell count| Number of particles |Chemistry| Thermal| P1 model|
 |-|-|-|-|-|-|
@@ -210,9 +208,9 @@ Several test models were run. The following table provides details
 |2Xres.00481|	833411|	109245000|	Enabled|	Enabled|	Disabled|
 |2Xres.00482|	1670030|	110418000|	Enabled|	Enabled|	Disabled|
 
-Performance tests of Barracuda Virtual Reactor on Azure  [NC A100 v4](https://learn.microsoft.com/en-us/azure/virtual-machines/nc-a100-v4-series) and   [NDm A100 v4](https://learn.microsoft.com/en-us/azure/virtual-machines/ndm-a100-v4-series) 
+Performance tests of Barracuda Virtual Reactor on Azure  [NC A100 v4](/azure/virtual-machines/nc-a100-v4-series) and   [NDm A100 v4](/azure/virtual-machines/ndm-a100-v4-series)
 series VMs running Linux.
-Model results are covered in the sub-sequent sections. 
+Model results are covered in the subsequent sections.
 
 ### Results on NDm A100 v4
 
@@ -221,32 +219,30 @@ Results are presented in seconds.
 |Test case number| 479| 480| 481| 482| 2Xres.00479| 2Xres.00480| 2Xres.00481| 2Xres.00482|
 |-|-|-|-|-|-|-|-|--|
 |CPU|	426.40|	1870.50|	1758.04|	1403.22|	719.04|	5727.00|	6956.90|	6689.70|
-|1-GPU|	3.70|	10.50|	23.74|	13.03|	6.82|	19.40|	49.90|	28.40|
-|2-GPU|	2.90|	6.10|	13.88|	8.37|	4.37|	10.60|	28.30|	17.00|
-|3-GPU|	2.50|	4.50|	10.89|	6.92|	3.76|	7.70|	20.60|	13.30|
-|4-GPU|	2.50|	4.10|	9.14|	6.25|	3.18|	6.90|	17.50|	11.70|
-|5-GPU|	2.50|	4.00|	8.70|	6.10|	2.97|	6.30|	15.70|	11.10|
-|6-GPU|	2.60|	3.70|	7.82|	5.84|	3.06|	5.50|	14.00|	10.10|
-|7-GPU|	2.60|	3.70|	8.10|	6.30|	3.28|	5.70|	13.60|	10.70|
-|8-GPU|	2.70|	3.70|	7.91|	5.84|	3.14|	5.60|	12.90|	10.70|
+|1 GPU|	3.70|	10.50|	23.74|	13.03|	6.82|	19.40|	49.90|	28.40|
+|2 GPU|	2.90|	6.10|	13.88|	8.37|	4.37|	10.60|	28.30|	17.00|
+|3 GPU|	2.50|	4.50|	10.89|	6.92|	3.76|	7.70|	20.60|	13.30|
+|4 GPU|	2.50|	4.10|	9.14|	6.25|	3.18|	6.90|	17.50|	11.70|
+|5 GPU|	2.50|	4.00|	8.70|	6.10|	2.97|	6.30|	15.70|	11.10|
+|6 GPU|	2.60|	3.70|	7.82|	5.84|	3.06|	5.50|	14.00|	10.10|
+|7 GPU|	2.60|	3.70|	8.10|	6.30|	3.28|	5.70|	13.60|	10.70|
+|8 GPU|	2.70|	3.70|	7.91|	5.84|	3.14|	5.60|	12.90|	10.70|
 
 The following table and graph show speed increase, in seconds of chemical reaction completed per day, for each configuration.
 
 |Test case number| 479| 480| 481| 482| 2Xres.00479| 2Xres.00480| 2Xres.00481| 2Xres.00482|
 |-|-|-|-|-|-|-|-|--|
 |CPU|	1.62|	0.46|	0.44|	0.55|	0.84|	0.20|	0.13|	0.18|
-|1-GPU|	190.92|	82.18|	32.85|	59.64|	88.98|	44.34|	15.57|	30.43|
-|2-GPU|	240.94|	141.72|	56.16|	92.85|	138.67|	81.03|	27.55|	50.78|
-|3-GPU|	278.31|	191.92|	71.64|	112.51|	161.02|	111.92|	37.74|	65.21|
-|4-GPU|	282.70|	207.17|	85.21|	124.38|	190.44|	125.01|	44.55|	74.15|
-|5-GPU|	284.52|	214.44|	89.60|	127.50|	204.29|	136.90|	49.70|	77.47|
-|6-GPU|	269.43|	232.31|	99.64|	133.15|	198.25|	154.82|	55.68|	86.32|
-|7-GPU|	264.52|	234.45|	96.11|	123.59|	184.45|	150.85|	57.44|	80.68|
-|8-GPU|	257.80|	230.81|	98.43|	133.25|	192.84|	154.42|	60.29|	80.91|
+|1 GPU|	190.92|	82.18|	32.85|	59.64|	88.98|	44.34|	15.57|	30.43|
+|2 GPU|	240.94|	141.72|	56.16|	92.85|	138.67|	81.03|	27.55|	50.78|
+|3 GPU|	278.31|	191.92|	71.64|	112.51|	161.02|	111.92|	37.74|	65.21|
+|4 GPU|	282.70|	207.17|	85.21|	124.38|	190.44|	125.01|	44.55|	74.15|
+|5 GPU|	284.52|	214.44|	89.60|	127.50|	204.29|	136.90|	49.70|	77.47|
+|6 GPU|	269.43|	232.31|	99.64|	133.15|	198.25|	154.82|	55.68|	86.32|
+|7 GPU|	264.52|	234.45|	96.11|	123.59|	184.45|	150.85|	57.44|	80.68|
+|8 GPU|	257.80|	230.81|	98.43|	133.25|	192.84|	154.42|	60.29|	80.91|
 
-*1.	In these cases, the number of GPUs was artificially limited. This VM has eight GPUs.*
-
-:::image type="content" source="media/barracuda-virtual-reactor/increase-ndma100v4.png" alt-text="Graph that shows the speed increase on an NDm A100 v4." border="false":::
+:::image type="content" source="media/barracuda-virtual-reactor/increase-ndma100v4.png" alt-text="Graph that shows the speed increase on an NDm A100 v4.":::
 
 ### Results on NC A100 v4
 
@@ -255,45 +251,45 @@ Results are presented in seconds.
 |Test case number| 479| 480| 481| 482| 2Xres.00479| 2Xres.00480| 2Xres.00481| 2Xres.00482|
 |-|-|-|-|-|-|-|-|--|
 |CPU|	346.80|	1758.90|	1592.30|	1114.20|	636.37|	5497.00|	5803.40|	2607.00|
-|1-GPU|	3.50|	10.40|	23.56|	12.21|	6.53|	19.50|	49.40|	26.50|
-|2-GPU|	2.40|	5.90|	13.19|	7.82|	3.87|	10.50|	27.10|	15.10|
-|3-GPU|	4.20|	6.30|	17.19|	9.84|	5.39|	9.40|	219.00|	18.10|
-|4-GPU|	4.00|	6.00|	42.20|	9.96|	5.28|	9.90|	179.50|	17.60|
+|1 GPU|	3.50|	10.40|	23.56|	12.21|	6.53|	19.50|	49.40|	26.50|
+|2 GPU|	2.40|	5.90|	13.19|	7.82|	3.87|	10.50|	27.10|	15.10|
+|3 GPU|	4.20|	6.30|	17.19|	9.84|	5.39|	9.40|	219.00|	18.10|
+|4 GPU|	4.00|	6.00|	42.20|	9.96|	5.28|	9.90|	179.50|	17.60|
 
 The following table and graph show speed increase, in seconds of chemical reaction completed per day, for each configuration.
 
 |Test case number| 479| 480| 481| 482| 2Xres.00479| 2Xres.00480| 2Xres.00481| 2Xres.00482|
 |-|-|-|-|-|-|-|-|--|
 |CPU|	1.99|	0.49|	0.49|	0.70|	0.95|	0.21|	0.17|	0.33|
-|1-GPU|	201.42|	82.50|	33.09|	63.71|	92.81|	44.31|	15.76|	32.61|
-|2-GPU|	280.60|	146.38|	59.09|	101.01|	156.16|	82.58|	28.78|	56.97|
-|3-GPU|	165.59|	136.94|	128.23|	79.06|	112.29|	92.35|	47.11|	47.88|
-|4-GPU|	176.10|	143.20|	137.57|	78.19|	115.20|	87.14|	4.33|	49.29|
+|1 GPU|	201.42|	82.50|	33.09|	63.71|	92.81|	44.31|	15.76|	32.61|
+|2 GPU|	280.60|	146.38|	59.09|	101.01|	156.16|	82.58|	28.78|	56.97|
+|3 GPU|	165.59|	136.94|	128.23|	79.06|	112.29|	92.35|	47.11|	47.88|
+|4 GPU|	176.10|	143.20|	137.57|	78.19|	115.20|	87.14|	4.33|	49.29|
 
-*2. In these cases, the number of GPUs was artificially limited. NCv4 VMs are available with one, two, or four GPUs.*
-
-:::image type="content" source="media/barracuda-virtual-reactor/increase-nca100v4.png" alt-text="Graph that shows the speed increase on an NC A100 v4." border="false":::
+:::image type="content" source="media/barracuda-virtual-reactor/increase-nca100v4.png" alt-text="Graph that shows the speed increase on an NC A100 v4.":::
 
 ## Additional notes about tests on Barracuda 21.1.0
-- Barracuda Virtual Reactor 21.1.0 is successfully tested on NDV4, NCv3, and NCas-T4 Virtual Machines on Azure Cloud Platform
-- For NDv4 Virtual Machine, application scales well up to 4 GPUs for the models with larger particle counts, and for the models with lesser particle counts, it is scaling only up to 2 GPUs.
-- For NCv3 Virtual Machine, we can see a performance improvement of up to 3 GPUs for the models with larger particle counts, and for models with smaller particle counts, only 1 GPU configuration is recommended
--	For NCas-T4 Virtual Machine, the application is speed-up well with all the 4 GPUs for models with larger particle count, and for the models with lesser particle count, it is scaling well only with 1 GPU configuration.
--	For simulations with large numbers of particles and cells, a single 16 GB GPU may not be sufficient to run well due to the memory requirements.  In these cases, simulating with two GPUs is critical.  This is seen in test problems 480, 481, and 482 on the NCV3 and NCAS T4 machines
--	For smaller simulations where there are performance penalties when utilizing all GPUs on an instance, concurrent simulations can be run using the other GPUs.  In this scenario, multiple points in the simulation parameter space could be explored more quickly.
+
+- Barracuda Virtual Reactor 21.1.0 was tested on NDV4, NCv3, and NCas-T4 VMs on Azure.
+
+- On the NDv4 VM, Virtual Reactor scales well up to 4 GPUs for the models with larger particle counts. For the models with smaller particle counts, it scales well up to 2 GPUs.
+- On the NCv3 VM, performance improves up to 3 GPUs for the models with larger particle counts. For models with smaller particle counts, we recommend that you use the 1-GPU configuration.
+- On the NCasT4 VM, Virtual Reactor scales well up to 4 GPUs for the models with larger particle counts. For the models with smaller particle counts, it scales well only with the 1-GPU configuration.
+- For simulations with large numbers of particles and cells, a single 16-GB GPU might not be sufficient because of memory requirements. In these cases, you must run simulations with two GPUs. For examples of this configuration, see the test case numbers 480, 481, and 482 on the NCV3 and NCasT4 VMs.
+- Sometimes there are performance penalties if you use all GPUs for a small simulation. Instead, you can run concurrent simulations with fewer GPUs for each instance. With this method, you can quickly explore multiple points in the simulation parameter space.
 
 ## Additional notes about tests on Barracuda 22.0.0
 
--	Barracuda Virtual Reactor 22.0.0 is successfully tested on NDmV4 and NCv4 Virtual Machines on the Azure Cloud Platform.
--	For NDmv4 Virtual Machine, we can see a performance improvement of up to 6 GPUs for all the models.
--	For NCv4 Virtual Machine, we can see a performance improvement of up to 4 GPUs for model 481 and all other models are scaling up to 2 GPUs.
--	The AMD EPYC 7V13 (Milan) CPUs in the NC A100 v4-series VMs are faster than the 7V12 CPUs in the NDm A100 v4-series VMs.  If users want to run a model with just 1 or 2 GPUs, the 7V13 systems give the fastest absolute performance.
--	The NC A100 v4-series VMs only had individual pairs of GPUs connected peer-to-peer, while the NDm A100 v4-series VMs had full peer-to-peer between all GPUs.  Effectively, this means that users should use the NC 100 v4-series systems for simulations running on 1 or 2 GPUs.  But for anything that needs more than 2 GPUs, it is much better to use the NDm A100 v4-series VMs.
+- Barracuda Virtual Reactor 22.0.0 was successfully tested on NDmV4 and NCv4 VMs on Azure.
 
+- For the NDmv4 VM, performance improves up to 6 GPUs for all models.
+- For the NCv4 VM, performance improves up to 4 GPUs for model 481. All other models scale well up to 2 GPUs.
+- The AMD EPYC 7V13 (Milan) CPUs in the NC A100 v4-series VMs are faster than the 7V12 CPUs in the NDm A100 v4-series VMs. If you want to run a model with just 1 or 2 GPUs, the 7V13 systems give the fastest absolute performance.
+- The NC A100 v4-series VMs only had individual pairs of GPUs connected peer-to-peer, while the NDm A100 v4-series VMs had full peer-to-peer between all GPUs. Effectively, this means that users should use the NC 100 v4-series systems for simulations running on 1 or 2 GPUs. But for anything that needs more than 2 GPUs, it is much better to use the NDm A100 v4-series VMs.
 
 ## Azure cost
 
-The following tables present wall-clock times that you can use to calculate Azure costs. You can multiply the times presented here by the Azure hourly rates for NDA100v4, NCsv3, NCas_T4_v3, NDm A100 v4 and NC A100 v4  series VMs to calculate costs. For the current hourly costs, see [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing).
+The following tables present wall-clock times that you can use to calculate Azure costs. You can multiply the times presented here by the Azure hourly rates for NDA100v4, NCsv3, NCas_T4_v3, NDm A100 v4, and NC A100 v4 series VMs to calculate costs. For the current hourly costs, see [Linux virtual machines pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing).
 
 The times presented in the following tables represent the total elapsed time for running all eight of the tests described earlier in this document. Only the wall-clock time for running the test cases is considered for these cost calculations. Application installation time isn't considered. The times presented are indicative. The actual times depend on the size of the simulation. The elapsed times for full production-level test cases are higher than the results presented here, so the associated costs are higher.
 
@@ -311,7 +307,6 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 |6|	0.01|
 |7|	0.01|
 |8|	0.01|
-
 
 ### Cost for NC24s_v3
 
@@ -344,7 +339,7 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 |7|	0.01|
 |8|	0.03|
 
- ### Cost for NC A100 v4
+### Cost for NC A100 v4
 
 | Number of GPUs| Elapsed time (hours)|
 |-|-|
