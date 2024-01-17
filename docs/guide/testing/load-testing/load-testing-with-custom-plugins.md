@@ -78,7 +78,7 @@ In this section, you create a sample JMeter test script to load test an applicat
 
 To create a sample JMeter test script:
 
-1. Create a *SampleTest.jmx* file on your local machine:
+1. Create a *LoadTest.jmx* file on your local machine:
 
 ```bash
 touch LoadTest.jmx
