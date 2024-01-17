@@ -1,5 +1,15 @@
-In the realm of cybersecurity, the automatic renewal of certificates stands as a pivotal aspect in maintaining a secure and reliable environment. Failure to update or renew certificates in a timely manner exposes systems to vulnerabilities such as expired SSL/TLS certificates, leaving networks susceptible to potential breaches, unauthorized access, the interception of sensitive data, service down for business-to-business processes, and loss of brand reputation thereby compromising the integrity and confidentiality of digital transactions. Azure Key Vault actually presents mechanisms supporting the [automatic renewal of certificates](https://learn.microsoft.com/en-us/azure/key-vault/certificates/overview-renew-certificate?tabs=azure-portal) issued by integrated Certification Authority (*DigiCert* or *GlobalSign*), however, for non-integrated CAs, the process require a [manual](https://learn.microsoft.com/en-us/azure/key-vault/certificates/overview-renew-certificate?tabs=azure-portal#renew-a-nonintegrated-ca-certificate) approach. 
-This article aims to bridge this gap by elucidating an **automated renewal process tailored for certificates from non-integrated CAs**. This process seamlessly stores the new certificates in the Key Vault, ensuring efficiency by leveraging automation for faster error-free procedures, heightened security through the exclusive use of a dedicated service principal, and integration with various Azure resources. This integration simplifies deployment by guaranteeing that all services utilizing the KeyVault benefit from up-to-date certificates.
+In the realm of cybersecurity, the automatic renewal of certificates stands as a pivotal aspect in maintaining a secure and reliable environment. Failure to update or renew certificates in a timely manner exposes systems to vulnerabilities such as expired SSL/TLS certificates, leaving networks susceptible to potential breaches, unauthorized access, the interception of sensitive data, service down for business-to-business processes, and loss of brand reputation thereby compromising the integrity and confidentiality of digital transactions. 
+
+Azure Key Vault actually presents mechanisms supporting the [automatic renewal of certificates](https://learn.microsoft.com/en-us/azure/key-vault/certificates/overview-renew-certificate?tabs=azure-portal) issued by integrated Certification Authority (*DigiCert* or *GlobalSign*), however, for non-integrated CAs, the process require a [manual](https://learn.microsoft.com/en-us/azure/key-vault/certificates/overview-renew-certificate?tabs=azure-portal#renew-a-nonintegrated-ca-certificate) approach. 
+
+This article aims to bridge this gap by elucidating an **automated renewal process tailored for certificates from non-integrated CAs**. 
+This process seamlessly stores the new certificates in the Key Vault, ensuring efficiency, enhanced security, and integration with various Azure resources, thereby simplifying deployment.
+
+The pursuit of an automated renewal process is fueled by a desire to minimize human errors and reduce service interruptions. Automating the certificate renewal not only accelerates the process but also decreases the likelihood of errors that might occur during manual handling. By leveraging the capabilities of Key Vault and its extensions, this article aims to establish an efficient automated process that aligns with the intent of optimizing operations and increasing Service Level Objectives (SLO).
+
+While the initial focus is on automating certificate renewal, the broader objective is to enhance security across all dimensions of the process. This includes guiding users on implementing the Principle of Least Privilege (PoLP) or similar access controls over Key Vault and emphasizing the importance of robust logging and monitoring practices for Key Vault. The article aims to demonstrate that the security benefits extend beyond merely storing certificates, highlighting the significance of proper Key Vault usage in fortifying the entire certificate management lifecycle.
+
+By utilizing Key Vault and an automated renewal procedure, continual updates to certificates are ensured. This guarantees that all Azure services integrated with Key Vault can benefit from up-to-date certificates, forming an integral part of the deployment process. The article will provide insights into how this continuous renewal and accessibility contribute to the overall deployment efficiency and reliability of Azure services.
 
 ## Architecture
 
@@ -19,13 +29,13 @@ The following drawing shows the automated workflow for certificate renewal withi
 ![detailed workflow](./media/workflow.png)
 
 1. **Key Vault Configuration:**
-The first step of the renewal process involves storing the certificate object within the designated "Certificates" section of the Key Vault blade in Azure. It's essential to tag this certificate with the recipent's email address to ensure timely notifications at the conclusion of the renewal procedure. If multiple recipients are required, the e-mail addresses should be separated by comma or semicolon. The expected tag name is 'Recipient' and the value is the e-mail address(es) of the administrator(s).
+The initial phase of the renewal process entails storing the certificate object in the designated "Certificates" section of the Azure Key Vault blade. While not mandatory, for those interested in implementing email notifications, it's advisable to tag this certificate with the recipient's email address. This tagging ensures timely notifications upon the completion of the renewal procedure. If multiple recipients are necessary, their email addresses should be separated by a comma or semicolon. The suggested tag name for this purpose is '*Recipient*,' and its value should be the email address(es) of the designated administrator(s).
 
 1. **Key Vault Extension Configuration:**
 The servers that need to utilize these certificates must be equipped with the Key Vault extension, a versatile tool compatible with *[Windows](https://learn.microsoft.com/azure/virtual-machines/extensions/key-vault-windows)* and *[Linux](https://learn.microsoft.com/azure/virtual-machines/extensions/key-vault-linux)* both Azure-based (IaaS) servers and on-premises/other-clouds servers integrated through *[Azure ARC](https://learn.microsoft.com/azure/azure-arc/overview)*. The Key Vault extension must be configured to periodically poll the Key Vault for any updated certificates. This polling interval is customizable, allowing flexibility to align with specific operational requirements.
 
 1. **Event Grid and Automation Account Integration:**
-When the certificate is near to expire, the Event Grid intercepts this event. Upon detection, the Event Grid triggers the execution of a RunBook through the webhook configured in the Automation Account.
+As the certificate approaches its expiration, the Event Grid actively intercepts this critical lifetime action. Once detected, the Event Grid promptly initiates the execution of a RunBook via the webhook configured in the Automation Account. This seamless process ensures timely and automated renewal procedures triggered by the impending expiration of the certificate.
 
 1. **Hybrid RunBook Worker Execution:**
     - The RunBook, executed within the Certification Authority server configured as a Hybrid RunBook Worker, takes as input the webhook body containing the name of the expiring certificate and the Key Vault hosting it. 
@@ -203,7 +213,7 @@ To integrate the solution with your existing environment, you need to perform th
     ```
 
 
-- Add the 'System' account of the Hybrid RunBook Worker VM to the Certificate Template(s) used to generate the certificates.
+- Add the 'System' account of the Hybrid RunBook Worker VM the "Read" and "Enroll" permissions to the Certificate Template(s) used to generate the certificates.
 - Install the [Key Vault extension](#key-vault-extension) on the servers that need to retrieve the renewed certificates from the Key Vault.
 - Add the 'Key Vault Secret User' role to the the servers with the Key Vault extension on the Key Vault containing the certificates.
 - If you've specified the SMTPServer parameter during deployment, ensure the following: 
