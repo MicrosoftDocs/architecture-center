@@ -377,7 +377,7 @@ Some components in this architecture exist with a lifecycle that extends beyond 
 - Azure Bastion
 - Azure Virtual Machine for the Jump box
 
-### Ephemeral components
+#### Ephemeral components
 
 Some Azure resources are more tightly coupled to the design of specific prompt flows. These resources are more ephemeral in nature. They're affected when the workload evolves, such as when flows are added or removed or when new models are introduced. These resources get recreated and prior instances removed. Some of these resources are direct Azure resources and some are data plane manifestations within their containing service.
 
@@ -386,3 +386,7 @@ Some Azure resources are more tightly coupled to the design of specific prompt f
 - An Azure Machine Learning endpoint is created when a prompt flow is deployed if the deployment references an endpoint that doesn't exist. That endpoint needs to be updated to turn off public access.
 - The Azure Machine Learning endpoint's deployments are updated when a flow is deployed or deleted.
 - The Key Vault for the client UI must be updated with the key to the endpoint when a new endpoint is created.
+
+### Monitoring
+
+Diagnostics are configured for all services. All services but Azure Machine Learning and Azure App Service are configured to capture all logs. The Azure Machine Learning diagnostics is configured to capture the audit logs which are all resource logs that record customer interactions with data or the settings of the service. Azure App Service is configured to capture AppServiceHTTPLogs, AppServiceConsoleLogs, AppServiceAppLogs and AppServicePlatformLogs.
