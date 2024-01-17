@@ -1,6 +1,6 @@
 Enterprise chat applications have the ability empower employees through conversational interaction. This is especially true due to the continuous advancement of large language models such as OpenAI's GPT models and Meta's LLaMA models. These chat applications consist of a user interface for chatting, data repositories containing domain-specific information pertinent to the user's queries, large language models (LLMs) that reason over the domain-specific data to produce a relevant response, and an orchestrator that oversees the interaction between these components.
 
-This article provides a baseline architecture for building and deploying enterprise chat applications that use [Azure OpenAI large language models](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models). The architecture employs Azure Machine Learning (AML) prompt flow to create executable flows that orchestrate the workflow from incoming prompts out to data stores to fetch grounding data for the LLMs, along with any other Python logic required. The executable flow is deployed to an Azure Machine Learning compute cluster behind a managed online endpoint.
+This article provides a baseline architecture for building and deploying enterprise chat applications that use [Azure OpenAI large language models](/azure/ai-services/openai/concepts/models). The architecture employs Azure Machine Learning (AML) prompt flow to create executable flows that orchestrate the workflow from incoming prompts out to data stores to fetch grounding data for the LLMs, along with any other Python logic required. The executable flow is deployed to an Azure Machine Learning compute cluster behind a managed online endpoint.
 
 The hosting of the custom chat user interface (UI) follows the [baseline app services web application](../../web-apps/app-service/architectures/baseline-zone-redundant.yml) guidance for deploying a secure, zone-redundant, and highly available web application on Azure App Services. In that architecture the App Service communicates to Azure PaaS services through virtual network integration over private endpoints. Likewise, the chat UI App Service communicates with the managed online endpoint for the flow over a private endpoint and public access to the Azure Machine Learning workspace is disabled.
 
@@ -31,7 +31,7 @@ Many of the components of this architecture are the same as the resources in the
 - [Azure Storage](https://azure.microsoft.com/services/storage) is used to persist the prompt flow source files for prompt flow development.
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry) enables you to build, store, and manage container images and artifacts in a private registry for all types of container deployments. In this architecture, flows are packaged as container images and stored in Azure Container Registry.
 - [Azure OpenAI](https://azure.microsoft.com/products/ai-services/openai-service) is a fully managed service that provides REST API access to Azure OpenAI's large language models, including the GPT-4, GPT-3.5-Turbo, and Embeddings set of models. In this architecture, in addition to model access, it's used to add common enterprise features such as [virtual network and private link](/azure/ai-services/cognitive-services-virtual-networks), [managed identity](/azure/ai-services/openai/how-to/managed-identity) support, and content filtering.
-- [Azure AI Search](/azure/search/) is a cloud search service that supports [full-text search](/azure/search/search-lucene-query-architecture), [semantic search](/azure/search/semantic-search-overview), [vector search](/azure/search/vector-search-overview), and [hybrid search](/azure/search/vector-search-ranking#hybrid-search). Azure AI Search is included in the architecture as It's a common service used in the flows behind chat applications. Azure AI Search can be used to retrieve and index data that is relevant for user queries. The prompt flow implements the RAG pattern (Retrieval Augmented Generation)[https://learn.microsoft.com/en-us/azure/search/retrieval-augmented-generation-overview] to extract the appropriate query from the prompt, query AI Search, and use the results as grounding data for the Azure OpenAI model.
+- [Azure AI Search](/azure/search/) is a cloud search service that supports [full-text search](/azure/search/search-lucene-query-architecture), [semantic search](/azure/search/semantic-search-overview), [vector search](/azure/search/vector-search-overview), and [hybrid search](/azure/search/vector-search-ranking#hybrid-search). Azure AI Search is included in the architecture as It's a common service used in the flows behind chat applications. Azure AI Search can be used to retrieve and index data that is relevant for user queries. The prompt flow implements the RAG pattern [Retrieval Augmented Generation](/azure/search/retrieval-augmented-generation-overview) to extract the appropriate query from the prompt, query AI Search, and use the results as grounding data for the Azure OpenAI model.
 
 ### Azure Machine Learning prompt flow
 
@@ -382,10 +382,40 @@ Some Azure resources are more tightly coupled to the design of specific prompt f
 
 - The model in the Azure Machine Learning model registry should be updated, if changed, as part of the CD pipeline.
 - The container image should be updated in the container registry as part of the CD pipeline.
-- An Azure Machine Learning endpoint is created when a prompt flow is deployed if the deployment references an endpoint that doesn't exist. That endpoint needs to be updated to turn off public access.
+- An Azure Machine Learning endpoint is created when a prompt flow is deployed if the deployment references an endpoint that doesn't exist. That [endpoint needs to be updated to turn off public access](/azure/machine-learning/concept-secure-online-endpoint#secure-inbound-scoring-requests).
 - The Azure Machine Learning endpoint's deployments are updated when a flow is deployed or deleted.
 - The Key Vault for the client UI must be updated with the key to the endpoint when a new endpoint is created.
 
 ### Monitoring
 
 Diagnostics are configured for all services. All services but Azure Machine Learning and Azure App Service are configured to capture all logs. The Azure Machine Learning diagnostics is configured to capture the audit logs which are all resource logs that record customer interactions with data or the settings of the service. Azure App Service is configured to capture AppServiceHTTPLogs, AppServiceConsoleLogs, AppServiceAppLogs and AppServicePlatformLogs.
+
+## Deploy this scenario
+
+To the deploy and run the reference implementation, follow the steps in the [OpenAI end-to-end baseline reference implementation](https://github.com/Azure-Samples/openai-end-to-end-baseline/).
+
+## Contributors
+
+_This article is maintained by Microsoft. It was originally written by the following contributors._
+
+- [Rob Bagby](https://www.linkedin.com/in/robbagby/) | Patterns & Practices - Microsoft
+- [Freddy Ayala](https://www.linkedin.com/in/freddyayala/) | Cloud Solution Architect - Microsoft
+- [Prabel Deb](https://www.linkedin.com/in/prabaldeb/) | Senior Software Engineer - Microsoft
+- [Raouf Aliouat](https://www.linkedin.com/in/raouf-aliouat/) | Software Engineer II - Microsoft
+- [Ritesh Modi](https://www.linkedin.com/in/ritesh-modi/) | Principal Software Engineer - Microsoft
+- [Ryan Pfalz](https://www.linkedin.com/in/ryanpfalz/) | Senior Solution Architect - Microsoft
+
+_To see non-public LinkedIn profiles, sign in to LinkedIn._
+
+## Next steps
+
+[Read more about Azure OpenAI](/azure/ai-services/openai/overview)
+
+## Related resources
+
+- [Azure OpenAI](https://azure.microsoft.com/products/ai-services/openai-service)
+- [Azure OpenAI large language models](/azure/ai-services/openai/concepts/models)
+- [Azure Machine Learning prompt flow](/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow)
+- [Workspace managed virtual network isolation](/azure/machine-learning/how-to-managed-network)
+- [Configure a private endpoint for an Azure Machine Learning workspace](/azure/machine-learning/how-to-configure-private-link)
+- [Content filtering](/azure/ai-services/openai/concepts/content-filter)
