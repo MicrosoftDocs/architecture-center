@@ -5,7 +5,7 @@ metadata:
   description: Learn about proven practices for building and deploying enterprise chat applications with OpenAI, Azure Machine Learning, and Azure App Services.
   author: robbagby
   ms.author: robbag
-  ms.date: 12/05/2023
+  ms.date: 1/17/2024
   ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
@@ -22,6 +22,6 @@ products:
   - azure-monitor
 name: Baseline OpenAI end-to-end chat reference architecture
 summary: Learn about proven practices for building and deploying enterprise chat applications with OpenAI, Azure Machine Learning, and Azure App Services.
-thumbnailUrl: /azure/architecture/browse/thumbs/basic-web-app.png
+thumbnailUrl: /azure/architecture/browse/thumbs/openai-end-to-end.png
 content: |
    [!include[](baseline-openai-e2e-chat-content.md)]

@@ -19,7 +19,7 @@ The Machine Learning workspace is configured with [managed virtual network isola
 :::image-end:::
 *Figure 1: Baseline end-to-end chat architecture with OpenAI*
 
-*Download a [Visio file](https://arch-center.azureedge.net/) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/openai-end-to-end.vsdx) of this architecture.*
 
 ## Components
 
@@ -87,7 +87,7 @@ The diagram shows a prompt flow author connecting through Azure Bastion to a vir
 
 It's recommended that the Azure Machine Learning workspace is configured for [managed virtual network isolation](/azure/machine-learning/how-to-managed-network) with a configuration that requires all outbound connections to be approved. This architecture follows that recommendation. There are two types of approved outbound rules. *Required outbound rules* are to resources required for the solution to work, such as Azure Container Registry and Azure Storage. *User-defined outbound rules* are to custom resources, such as Azure OpenAI or Azure AI Search, that your workflow is going to use. It's your responsibility to configure user-defined outbound rules, while required outbound rules are configured when the managed virtual network is created.
 
-The outbound rules can be private endpoints, service tags, or FQDNs for external public endpoints. In this architecture, connectivity to Azure services such as Azure Container Registry, Azure Storage, Azure Key Vault, Azure OpenAI service, and Azure AI Search are connected through private link.
+The outbound rules can be private endpoints, service tags, or FQDNs for external public endpoints. In this architecture, connectivity to Azure services such as Azure Container Registry, Azure Storage, Azure Key Vault, Azure OpenAI service, and Azure AI Search are connected through private link. Although not in this architecture, some common operations that might require configuring an FQDN outbound rule are downloading a pip package, cloning a GitHub repo, downloading base container images from external repositories.
 
 ### Virtual network segmentation and security
 
@@ -356,13 +356,12 @@ Azure Machine Learning Endpoints allow you to deploy models in a way that enable
 - Include linting of Python files that are part of the prompt flow in your pipelines. Linting checks for compliance with style standards, errors, code complexity, unused imports, and variable naming.
 - When deploying your flow to the network-isolated Azure Machine Learning workspace, use a self-hosted agent to deploy artifacts to your Azure resources.
 - The Azure Machine Learning model registry should only be updated when there are changes to the model.
-- As detailed in the deployment flow, perform release promotions with LLM flows.
 - The LLM, the flows, and the client UI should be loosely coupled. Updates to the flows and the client UI can and should be able to be made without affecting the model and vice versa.
 - When developing and deploying multiple flows, each flow should have its own lifecycle, which allows for a loosely coupled experience when promoting flows from experimentation to production.
 
 ### Infrastructure
 
-When deploying the baseline Azure OpenAI end-to-end chat components, some of the services provisioned are foundational and permanent within the architecture, whereas other components are ephemeral and serve a short-lived process.
+When deploying the baseline Azure OpenAI end-to-end chat components, some of the services provisioned are foundational and permanent within the architecture, whereas other components are more ephemeral in nature, their existence tied to a deployment.
 
 #### Foundational components
 
