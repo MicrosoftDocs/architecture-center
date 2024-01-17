@@ -207,7 +207,7 @@ This architecture follows the least privilege principle by only assigning roles 
 | --- | --- | --- |
 | Workspace managed identity | Resource group | Contributor |
 | Workspace managed identity | Workspace Storage Account | Storage Blob Data Contributor |
-| Workspace managed identity | Workspace Storage Account | Storage File Data Contributor |
+| Workspace managed identity | Workspace Storage Account | Storage File Data Privileged Contributor |
 | Workspace managed identity | Workspace Key Vault | Key Vault Administrator |
 | Workspace managed identity | Workspace Container Registry | ACRPush |
 | Online endpoint managed identity | Workspace Container Registry | AcrPull |
