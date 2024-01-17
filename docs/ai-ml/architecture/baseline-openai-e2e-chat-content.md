@@ -323,7 +323,7 @@ Consider the following guidance when implementing automated evaluations:
     - Compilation of the codebase
     - Static code analysis
 
-3. The pipeline can contain a step that requires at least one team member to manually approve the PR before merging. The approver can't be the committer and they mush have prompt flow expertise and familiarity with the project requirements . If the PR isn't approved, the merge is blocked. If the PR is approved, or there's no approval step, the feature branch is merged into the Main branch.
+3. The pipeline can contain a step that requires at least one team member to manually approve the PR before merging. The approver can't be the committer and they mush have prompt flow expertise and familiarity with the project requirements. If the PR isn't approved, the merge is blocked. If the PR is approved, or there's no approval step, the feature branch is merged into the Main branch.
 4. The merge to Main triggers the build and release process for the Development environment. Specifically:
 
     a. The CI pipeline is triggered from the merge to Main. The CI pipeline performs all the steps done in the PR pipeline, and the following steps:
