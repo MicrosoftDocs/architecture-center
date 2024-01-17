@@ -1,0 +1,29 @@
+### YamlMime:Architecture
+metadata:
+  title: Architecural Guidance for a Domain Name System solution with Azure
+  description: Architectural reference for a hybrid Domain Name System (DNS) solution to resolve names for workloads that are hosted on-premises and in Microsoft Azure.
+  author: burakozkan
+  ms.author: architectures
+  ms.date: 01/17/2024
+  ms.topic: reference-architecture
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.category:
+    - hybrid
+    - networking
+  ms.custom:
+    - fcp
+    - reference-architecture
+    - e2e-hybrid
+name: Design a hybrid Domain Name System solution with Azure
+azureCategories:
+  - hybrid
+  - networking
+summary: Architectural reference for a hybrid Domain Name System (DNS) solution to resolve names for workloads that are hosted on-premises and in Microsoft Azure.
+products:
+  - azure-dns
+  - azure-expressroute
+  - azure-virtual-network
+thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-dns-infra-reference-architecture.png
+content: |
+   [!include[](hybrid-dns-infra-guide.md)]
