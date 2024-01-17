@@ -49,7 +49,7 @@ The script downloads the CSR and submits it to the Certification Authority.
  The Certification Authority generate a new certificate based on the correct template and send it back to the script. This ensures that the renewed certificate aligns with the predefined security policies.
 
 1. **Certificate Import and Key Vault Update:**
-The script imports the renewed certificate back into the Key Vault, finalizing the update process. 
+The script merges the renewed certificate back into the Key Vault, finalizing the update process. 
 
 1. **Monitoring and e-mail notification:**
 All operations performed by the different Azure components (Automation account, Key Vault, and Event Grid) are logged within the Log Analytics workspace to enable monitoring. Following the certificate import phase into the Key Vault, the script sends an email message to administrators to notify them of the renewal procedure's outcome.
