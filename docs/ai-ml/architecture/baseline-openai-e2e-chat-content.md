@@ -372,13 +372,15 @@ Some components in this architecture exist with a lifecycle that extends beyond 
 - Azure AI Search
 - Azure OpenAI
 - Azure Application Insights
+- Azure Bastion
+- Azure Virtual Machine for the Jump box
 
 ### Ephemeral components
 
 Some Azure resources are more tightly coupled to the design of specific prompt flows. These resources are more ephemeral in nature. They're affected when the workload evolves, such as when flows are added or removed or when new models are introduced. These resources get recreated and prior instances removed. Some of these resources are direct Azure resources and some are data plane manifestations within their containing service.
 
-- The model in the Azure Machine Learning model registry should be updated, if changed, as part of the (TODO: Enter pipeline - the original text stated: "On push to main branch, the registered model is updated if changed")
-- The container image should be updated in the container registry as part of the (TODO: Enter pipeline - the original text stated: "On push to main branch, the container image is updated in the container registry")
-- An Azure Machine Learning endpoint is created when a prompt flow is deployed if the deployment references an endpoint that doesn't exist. That endpoint needs to be updated to turn off public access (TODO: Link)
+- The model in the Azure Machine Learning model registry should be updated, if changed, as part of the CD pipeline.
+- The container image should be updated in the container registry as part of the CD pipeline.
+- An Azure Machine Learning endpoint is created when a prompt flow is deployed if the deployment references an endpoint that doesn't exist. That endpoint needs to be updated to turn off public access.
 - The Azure Machine Learning endpoint's deployments are updated when a flow is deployed or deleted.
 - The Key Vault for the client UI must be updated with the key to the endpoint when a new endpoint is created.
