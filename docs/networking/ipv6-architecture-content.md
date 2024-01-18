@@ -20,12 +20,14 @@ This guide shows you how to transition an IPv4 hub and spoke network topology to
     - The hub is the central point of the network topology and is configured to support both IPv4 and IPv6 (hence "Dual Stack").
     - Azure Bastion provides secure and seamless RDP/SSH connectivity to your virtual machines directly in the Azure portal over SSL.
     - Azure Firewall serves as a barrier between the hub and the public internet, filtering traffic and providing protection.
-    - VPN Gateway connects the cross-premises network to the hub.
+    - Express Route connects the cross-premises network to the hub.
+    - VPN Gateway also connects the cross-premises network to the hub and is used for redundancy.
     - The services in the hub virtual network send logs and metrics (diagnostics) to Azure Monitor for monitoring.
 
 1. **Spoke virtual networks:**
     - There are four spokes  connected to the hub. Each spoke is a dual stack network, supporting both IPv4 and IPv6.
-    - The networks are connected using [peering connections](/azure/virtual-network/virtual-network-peering-overview) or [connected groups](/azure/virtual-network-manager/concept-connectivity-configuration). Peering connections and connected groups are non-transitive, low-latency connections between virtual networks. Peered or connected virtual networks can exchange traffic over the Azure backbone without needing a router.
+    - The networks are connected using [peering connections](/azure/virtual-network/virtual-network-peering-overview) or [connected groups](/azure/virtual-network-manager/concept-connectivity-configuration). Peering connections and connected groups are non-transitive, low-latency connections between virtual networks. Peered or connected virtual networks can exchange traffic over the Azure backbone without needing a router. 
+    - In the production virtual networks, consider implement user-defined routes (UDRs) to direct traffic from the spokes through Azure Firewall or an alternative Network Virtual Appliance (NVA) functioning as a router in the hub. This adjustment facilitates inter-spoke connectivity. To enable this setup, Azure Firewall must be configured with forced tunneling. Further details are available in the Azure Firewall forced tunneling documentation see [forced tunneling](/azure/firewall/forced-tunneling).
     - All outbound traffic from the spoke virtual networks flows through the hub, using a configuration in Azure Firewall called forced tunneling.
     - Within each spoke, there are three subnets indicated as resource subnets, each hosting a virtual machine.
     - Each virtual machine is connected to an Internal Load Balancer, which distributes incoming network traffic across the virtual machines to ensure that no single VM becomes a point of congestion.
@@ -59,13 +61,9 @@ This guide shows you how to transition an IPv4 hub and spoke network topology to
 
 To start using IPv6 from the Hub-Spoke deployment model we need to make a few changes to some of our resources:
 
-**Add IPv6 Address Space to the Virtual Network.** ADD DETAILS ON HOW TO DO THIS
+**Add IPv6 Address Space to the Virtual Network.** Search for the Virtual Network you are going to add the address space to. Under Settings you will find Address Space. You can then select the box **Add additional address range**. Remember to save your changes. The next step is to find the subnets you would like to enable IPv6 traffic for. Under the subnet configuration you can select the box **Add IPv6 address space**. 
 
-THESE ARE VPN LINKS I BELIEVE. ADD CONTENT FOR VPN SINCE ITS WHAT'S IN THE DIAGRAM. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network](/microsoft-365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network?view=o365-worldwide) and [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager). .
-
-
-**Modify ExpressRoute circuit.** If you are using ExpressRoute you need to add IPv6 Private Peering to your ExpressRoute circuit
-
+**Modify ExpressRoute circuit.** If you are using ExpressRoute you need to add IPv6 Private Peering to your ExpressRoute circuit. 
 To use IPv6 in Azure route table, you need to create or modify an ExpressRoute circuit and enable IPv6 Private Peering. You can either add IPv6 Private Peering to your existing IPv4 Private Peering configuration by selecting "Both" for Subnets, or only use IPv6 Private Peering by selecting "IPv6". You also need to provide a pair of /126 IPv6 subnets that you own for your primary and secondary links
 
 **Modify any User Defined Routes to allow IPv6 traffic.**  Each route in the table specifies a destination CIDR block and the next hop, which could be a virtual appliance, a virtual network gateway, a network interface, or a peering.Azure automatically creates system routes and assigns the routes to each subnet in a virtual network. 
@@ -76,8 +74,8 @@ You can't create system routes, nor can you remove system routes, but you can ov
 
 To start using IPv6 from the spoke Virtual Networks we need to make a few changes to some of our resources:
 
-**Create a dual-stack virtual network with both IPv4 and IPv6 address space.** ADD DETAILS ON HOW TO DO THIS
-
+**Create a dual-stack virtual network with both IPv4 and IPv6 address space.** To add an IPv6 address range to your Virtual Network in Azure, start by signing in to the Azure portal. Once logged in, use the search box at the top of the portal to search for "Virtual network." From the search results, select the required Virtual Network. In the Virtual Network's settings, click on "Address space." Here, you can add an additional address range by selecting "Add additional address range." For example, you might enter something like "2404:f800:8000:122::/63." After entering the new address range, make sure to save your changes. Next, go to "Subnets" in the settings. In the Subnets section, select your desired subnet name from the list. Within the subnet configuration, check the option to "Add IPv6 address space." Here, enter the specific IPv6 address space you require, such as "2404:f800:8000:122::/64." Remember to save your configuration to apply these changes.
+For an example to set this up with a Virtual Machine see [Add Dual Stack IPv6 for VM in Portal](/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-portal)
 
 **Create network interfaces.** Resources in the spokes, like virtual machines, load balancers, need a network interface. Create a network interface for each resource and associate the interface to the appropriate resources: Here's how to complete these steps for virtual machines and load balancers:
 
@@ -85,10 +83,7 @@ To start using IPv6 from the spoke Virtual Networks we need to make a few change
   - Load balancers: Optional IPv6 health probe to determine which backend pool instances are health and thus can receive new flows. Optional IPv6 ports can be reused on backend instances using the Floating IP feature of load-balancing rules. Also see, [Deploy an IPv6 dual stack application using Standard Internal Load Balancer in Azure using PowerShell
 ](/azure/load-balancer/ipv6-dual-stack-standard-internal-load-balancer-powershell)
 
-
-**Modify any User Defined Routes to allow IPv6 Traffic.** ADD DETAILS ON HOW TO DO THIS
-
-
+**Modify any User Defined Routes to allow IPv6 Traffic.** Customize the routing of IPv6 traffic in your virtual network with User-Defined Routes especially when using Network Virtual Appliances to augment your application. To modify user-defined routes (UDRs) in Azure, you need to go to the route table that contains the routes you want to change, and click on “Edit routes”. Then you can remove, add, or edit the routes as needed, and save the changes. You can also use PowerShell or Azure CLI commands to modify UDRs. For example, to remove a route using PowerShell, you can use the ```Remove-AzRouteConfig``` cmdlet. To add a route using Azure CLI, you can use the ```az network route-table route create``` command.
 
 ## Contributors
 
