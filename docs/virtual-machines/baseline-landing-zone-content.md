@@ -244,7 +244,7 @@ Correlated data is often used during incident response. If there's a problem wit
 
 ## Azure Policy
 
-The platform team likely applies policies that affect the workload deployment. They often apply DINE policies to handle automated deployments into an application landing zone subscription. DINE policies can modify workload resources or add resources to your deployment, which can result in a discrepancy between the resources that are declaratively deployed through the workload template and the resources that the processing requests actually use. A typical solution, is to fix those changes with imperative approaches, which isn't ideal.
+The platform team likely applies policies that affect the workload deployment. They often apply DINE policies to handle automated deployments into an application landing zone subscription. DINE policies can modify workload resources or add resources to your deployment, which can result in a discrepancy between the resources that are declaratively deployed through the workload template and the resources that the processing requests actually use. A typical solution is to fix those changes with imperative approaches, which aren't ideal.
 
 To avoid that discrepancy, preemptively incorporate and test the platform-initiated changes into your IaC templates. If the platform team uses Azure policies that conflict with the requirements of the application, you can negotiate a resolution with the platform team.
 
