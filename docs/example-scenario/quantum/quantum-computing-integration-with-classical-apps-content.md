@@ -157,8 +157,6 @@ As quantum computing resources are typically limited, resiliency expectations sh
 
 Incorporating quantum jobs into classical CI/CD pipelines can be accomplished using Azure DevOps with minor changes to a typical design. The design below illustrates a DevOps pipeline workflow that can be applied to the tightly coupled and loosely coupled architectures.
 
-In-depth guidance for DevOps and quantum computing can be found at [DevOps for quantum computing](/azure/architecture/guide/quantum/devops-for-quantum-computing)
-
 #### Architecture
 
 :::image type="content" alt-text="Architecture diagram that shows a classical CI/CD pipeline with Azure Quantum incorporated into it." source="media/cicd-for-quantum-computing-jobs.svg" lightbox="media/cicd-for-quantum-computing-jobs.svg":::
