@@ -30,11 +30,13 @@ For information about choosing a published VM image, see [Find Linux VM images][
 
 ### Disks
 
-For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid-state drives (SSDs). Cost is based on the capacity of the provisioned disk. IOPS and throughput (that is, data transfer rate) also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput).
+For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid-state drives (SSDs). Cost is based on the capacity of the provisioned disk. IOPS and throughput (that is, data transfer rate) also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). Premium storage also features free bursting, combined with an understanding of workload patterns, offers an effective SKU selection and cost optimization strategy for IaaS infrastructure, enabling high performance without excessive over-provisioning and minimizing the cost of unused capacity.
 
-We also recommend using [Managed Disks][managed-disks]. Managed disks simplify disk management by handling the storage for you. Managed disks do not require a storage account. You simply specify the size and type of disk and it is deployed as a highly available resource
+[Managed Disks][managed-disks] simplify disk management by handling the storage for you. Managed disks don't require a storage account. You simply specify the size and type of disk and it's deployed as a highly available resource. Managed disks also offer cost optimization by providing desired performance without the need for over-provisioning, accounting for fluctuating workload patterns, and minimizing unused provisioned capacity.
 
-The OS disk is a VHD stored in [Azure Storage][azure-storage], so it persists even when the host machine is down.  For Linux VMs, the OS disk is `/dev/sda1`. We also recommend creating one or more [data disks][data-disk], which are persistent VHDs used for application data.
+The OS disk is a VHD stored in [Azure Storage][azure-storage], so it persists even when the host machine is down. The VHD can be locally attached NVMe or similar devices available on many VM SKUs. 
+
+Ephemeral disks provide good performance at no extra cost, but come with the significant drawbacks of being non-persistent, having limited capacity, and being restricted to OS and temp disk use only. For Linux VMs, the OS disk is `/dev/sda1`. We also recommend creating one or more [data disks][data-disk], which are persistent VHDs used for application data.
 
 When you create a VHD, it is unformatted. Log in to the VM to format the disk. In the Linux shell, data disks are displayed as `/dev/sdc`, `/dev/sdd`, and so on. You can run `lsblk` to list the block devices, including the disks. To use a data disk, create a partition and file system, and mount the disk. For example:
 
@@ -135,7 +137,7 @@ Use [Microsoft Defender for Cloud][security-center] to get a central view of the
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-Use a single [Azure Resource Manager template][arm-template] for provisioning the Azure resources and its dependencies. Since all the resources are in the same virtual network, they are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a DevOps team, so that the team can independently manage all aspects of those resources. This isolation enables the DevOps Team to perform continuous integration and continuous delivery (CI/CD).
+Use a single [Azure Resource Manager template][arm-template] for provisioning the Azure resources and its dependencies. Because all the resources are in the same virtual network, they are isolated in the same basic workload. It makes it easier to associate the workload's specific resources to a DevOps team, so that the team can independently manage all aspects of those resources. This isolation enables the DevOps Team to perform continuous integration and continuous delivery (CI/CD).
 
 Also, you can use different [Azure Resource Manager templates][arm-template] and integrate them with [Azure DevOps Services][az-devops] to provision different environments in minutes, for example to replicate production like scenarios or load testing environments only when needed, saving cost.
 
@@ -155,7 +157,6 @@ Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the pe
 - [Linux virtual desktops with Citrix](/azure/architecture/example-scenario/infrastructure/linux-vdi-citrix)
 - [Run a Windows VM on Azure](windows-vm.yml)
 
-<!-- links -->
 
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
