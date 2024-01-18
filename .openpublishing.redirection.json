@@ -3959,6 +3959,11 @@
 	  "source_path": "docs/data-science-process/sqldw-walkthrough.md",
 	  "redirect_url": "/azure/architecture/data-science-process/overview",
 	  "redirect_document_id": false
-	}
+	},
+    {
+      "source_path": "docs/ai-ml/architecture/conversational-bot.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat",
+      "redirect_document_id": false
+    }
   ]
 }

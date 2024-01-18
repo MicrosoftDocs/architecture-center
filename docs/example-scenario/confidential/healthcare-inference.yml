@@ -17,7 +17,6 @@ azureCategories:
   - containers
   - security
 products:
-  - azure-attestation
   - azure-kubernetes-service
 name: Confidential computing on a healthcare platform
 summary: Use confidential computing and containers to support a provider-hosted application. Securely collaborate with hospitals and diagnostic providers.
