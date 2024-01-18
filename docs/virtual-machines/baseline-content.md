@@ -21,7 +21,7 @@ This architecture serves as a starting point for an infrastructure as a service 
 
 ## Architecture
 
-:::image type="content" source="./media/baseline-architecture.svg" alt-text="Virtual machine baseline architectural diagram" lightbox="./media/baseline-architecture.svg":::
+:::image type="content" source="./media/baseline-architecture.svg" alt-text="Virtual machine baseline architectural diagram." lightbox="./media/baseline-architecture.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/baseline-architecture.vsdx) of this architecture.*
 
@@ -177,7 +177,7 @@ In this architecture:
 
 This architecture deploys the workload in a single virtual network. Network controls are a significant part of this architecture and are described in the [Security](#security) section.
 
-:::image type="content" source="./media/baseline-network.svg" alt-text="Virtual machine baseline showing the network layout" lightbox="./media/baseline-network.svg":::
+:::image type="content" source="./media/baseline-network.svg" alt-text="Virtual machine baseline showing the network layout." lightbox="./media/baseline-network.svg":::
 
 This layout can be integrated with an enterprise topology. That example is shown in [Virtual machine baseline architecture in an Azure landing zone](./baseline-landing-zone.yml).
 
@@ -250,7 +250,7 @@ The Log Analytics workspace is the recommended monitoring data sink used to coll
 
 This image shows the monitoring stack for the baseline with components for collecting data from the infrastructure and application, data sinks, and various consumption tools for analysis and visualization. The implementation deploys some components, such as Application Insights, VM boot diagnostics, and Log Analytics. Other components are depicted to showcase the extensibility options, such as dashboards and alerts.
 
-:::image type="content" source="./media/baseline-monitoring.svg" alt-text="Baseline monitoring data flow diagram" lightbox="./media/baseline-monitoring.svg":::
+:::image type="content" source="./media/baseline-monitoring.svg" alt-text="Baseline monitoring data flow diagram." lightbox="./media/baseline-monitoring.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/baseline-monitoring.vsdx) of this architecture.*
 
