@@ -434,9 +434,15 @@ This architecture uses zone-redundancy for several components. Each zone is made
 
 #### Scaling strategy
 
-Your scaling operations should be reliable so that when a degraded condition is detected, extra resources are provisioned immediately. One strategy is overprovisioning, which you achieve by having sufficient horizontal capacity. This strategy involves understanding the maximum amount of work that the workload can handle. However, it's not just about having extra capacity. It's also about ensuring that your resources aren't underprovisioned. The VM should be right-sized for the work you expect it to handle.
+To prevent service level degradation and failures, ensure reliable scaling operations. Scale the workload horizontally (scale out), vertically (scale up), or use a combination of both those approaches. Use [Azure Monitor Autoscale](/azure/azure-monitor/autoscale/autoscale-overview) to provision enough resources to support the demand on your application without allocating more capacity than needed and incurring unnecessary costs. 
 
-Another strategy is to use automatic scaling capabilities for the scale sets. Be sure to do adequate performance testing to set the threshold for CPU, memory, and other VM components. When those thresholds are reached, new instances are immediately provisioned.
+Autoscale allows you to define different profiles based on different event types, such as time, schedule, or metrics. Metrics-based profiles can use built-in metrics (host-based) or more detailed metrics (in-guest VM metrics) that requires installing the Azure Monitor Agent to collect them.  Every profile contains rules for scale-out (increase) and scale-in (decrease). Consider exploring all different scaling scenarios based on designed profiles and evaluate them for potential loop conditions that can cause a series of opposing scale events. Azure Monitor will attempt to mitigate this situation by waiting for the cooldown period before it scales again. 
+
+Although Azure Virtual Machine Scale Sets in Flexible mode supports heterogenous environments, autoscaling of multiple profiles is not supported. Consider creating different scale sets to manage them separately if you plan to use autoscale with more than one type of VM. 
+
+Consider other aspects such as bootstrapping, graceful shutdowns, installing the workload and all its dependencies, and disk management when creating or deleting VMs instances. 
+
+Stateful workloads might require extra management for managed disks that need to live beyond a workload instance. Design your workload for data management under scaling events for consistency, synchronization, replication, and integrity of the workload’s data. For those scenarios, consider [adding pre-populated disks to scale sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks#adding-pre-populated-data-disks-to-an-existing-scale-set). For use cases where scaling is used to prevent bottlenecks when accessing data, plan for partitioning and sharding. For more information, see [Autoscale best practices](/azure/azure-monitor/autoscale/autoscale-best-practices#autoscale-best-practices).
 
 > Refer to Well-Architected Framework: [RE:06 - Recommendations for designing a reliable scaling strategy](/azure/well-architected/reliability/scaling).
 
