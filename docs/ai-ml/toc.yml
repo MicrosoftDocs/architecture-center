@@ -196,20 +196,8 @@ items:
             href: ../data-science-process/team-data-science-process-for-data-scientists.md
         - name: How To
           items:
-          - name: Set up data science environments
-            items:
-          - name: Acquire and understand data
-            items:
-            - name: Ingest data
-              items:
-              - name: Move to/from Blob storage
-                items:
-                - name: Use SSIS
-                  href: ../data-science-process/move-data-to-azure-blob-using-ssis.md
-            - name: Explore and visualize data
-              items:
-              - name: Prepare data
-                href: ../data-science-process/prepare-data.md
+          - name: Prepare data
+            href: ../data-science-process/prepare-data.md
     - name: OpenAI
       items: 
       - name: Explore ideas about
