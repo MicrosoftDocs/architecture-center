@@ -438,11 +438,11 @@ To prevent service level degradation and failures, ensure reliable scaling opera
 
 Autoscale allows you to define different profiles based on different event types, such as time, schedule, or metrics. Metrics-based profiles can use built-in metrics (host-based) or more detailed metrics (in-guest VM metrics) that requires installing the Azure Monitor Agent to collect them.  Every profile contains rules for scale-out (increase) and scale-in (decrease). Consider exploring all different scaling scenarios based on designed profiles and evaluate them for potential loop conditions that can cause a series of opposing scale events. Azure Monitor will attempt to mitigate this situation by waiting for the cooldown period before it scales again. 
 
-Although Azure Virtual Machine Scale Sets in Flexible mode supports heterogenous environments, autoscaling of multiple profiles is not supported. Consider creating different scale sets to manage them separately if you plan to use autoscale with more than one type of VM. 
+Although Azure Virtual Machine Scale Sets in Flexible mode supports heterogenous environments, autoscaling of multiple profiles isn't supported. Consider creating different scale sets to manage them separately if you plan to use autoscale with more than one type of VM. 
 
 Consider other aspects such as bootstrapping, graceful shutdowns, installing the workload and all its dependencies, and disk management when creating or deleting VMs instances. 
 
-Stateful workloads might require extra management for managed disks that need to live beyond a workload instance. Design your workload for data management under scaling events for consistency, synchronization, replication, and integrity of the workload’s data. For those scenarios, consider [adding pre-populated disks to scale sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks#adding-pre-populated-data-disks-to-an-existing-scale-set). For use cases where scaling is used to prevent bottlenecks when accessing data, plan for partitioning and sharding. For more information, see [Autoscale best practices](/azure/azure-monitor/autoscale/autoscale-best-practices#autoscale-best-practices).
+Stateful workloads might require extra management for managed disks that need to live beyond a workload instance. Design your workload for data management under scaling events for consistency, synchronization, replication, and integrity of the workload’s data. For those scenarios, consider [adding prepopulated disks to scale sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks#adding-pre-populated-data-disks-to-an-existing-scale-set). For use cases where scaling is used to prevent bottlenecks when accessing data, plan for partitioning and sharding. For more information, see [Autoscale best practices](/azure/azure-monitor/autoscale/autoscale-best-practices#autoscale-best-practices).
 
 > Refer to Well-Architected Framework: [RE:06 - Recommendations for designing a reliable scaling strategy](/azure/well-architected/reliability/scaling).
 
@@ -478,7 +478,7 @@ Access to VMs requires a user account, controlled by Microsoft Entra ID authenti
 
 Workload resources, such as VMs, authenticate themselves by using their assigned managed identities to other resources. These identities, based on Microsoft Entra ID service principals, are automatically managed.
 
-For example, Key Vault extensions are installed on VMs, which boots up the VMs with certificates in place. In this architecture, [user-assigned managed identities](/entra/identity/managed-identities-azure-resources/overview#managed-identity-types) are used by Application Gateway, front-end VMs, and back-end VMs to access Key Vault. Those managed identities are configured during deployment and used for authenticating against Key Vault. Access policies on Key Vault are configured to only accept requests from the preceding managed identities.
+For example, Key Vault extensions are installed on VMs, which boot up the VMs with certificates in place. In this architecture, [user-assigned managed identities](/entra/identity/managed-identities-azure-resources/overview#managed-identity-types) are used by Application Gateway, front-end VMs, and back-end VMs to access Key Vault. Those managed identities are configured during deployment and used for authenticating against Key Vault. Access policies on Key Vault are configured to only accept requests from the preceding managed identities.
 
 The baseline architecture uses a mix of system-assigned and user-assigned managed identities. These identities are required to use Microsoft Entra ID for authorization purposes when accessing other Azure resources.
 
@@ -537,7 +537,7 @@ The VMs use the [Key Vault VM extension](/azure/virtual-machines/extensions/key-
 
 ## Cost Optimization
 
-Workload requirements must be fulfilled keeping in mind the cost constraints. The strategies used in the architecture are based on the [Cost Optimization design review checklist given in Azure Well-Architected Framework](/azure/well-architected/cost-optimization/checklist). This section describes some options for optimizing costs and are annotated with recommendations from that checklist.
+Workload requirements must be fulfilled keeping in mind the cost constraints. The strategies used in the architecture are based on the [Cost Optimization design review checklist given in Azure Well-Architected Framework](/azure/well-architected/cost-optimization/checklist). This section describes some options for optimizing cost and is annotated with recommendations from that checklist.
 
 #### Component cost
 
