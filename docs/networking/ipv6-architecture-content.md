@@ -110,6 +110,7 @@ Other contributors:
 
 Read more about IPv6:
 
+- [Cloud Adoption Framework plan for ip addressing](/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing#ipv6-considerations)
 - [Azure Public IPv6 offerings are free](/azure-public-ipv6-offerings-are-free-as-of-july-31)
 - [Azure Virtual Networking IPv6](/azure/virtual-network/ip-services/ipv6-overview)
 - [ExpressRoute Support for IPv6](/azure/expressroute/expressroute-howto-add-ipv6-portal)
