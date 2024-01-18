@@ -400,7 +400,7 @@ _This article is maintained by Microsoft. It was originally written by the follo
 
 - [Rob Bagby](https://www.linkedin.com/in/robbagby/) | Patterns & Practices - Microsoft
 - [Freddy Ayala](https://www.linkedin.com/in/freddyayala/) | Cloud Solution Architect - Microsoft
-- [Prabel Deb](https://www.linkedin.com/in/prabaldeb/) | Senior Software Engineer - Microsoft
+- [Prabal Deb](https://www.linkedin.com/in/prabaldeb/) | Senior Software Engineer - Microsoft
 - [Raouf Aliouat](https://www.linkedin.com/in/raouf-aliouat/) | Software Engineer II - Microsoft
 - [Ritesh Modi](https://www.linkedin.com/in/ritesh-modi/) | Principal Software Engineer - Microsoft
 - [Ryan Pfalz](https://www.linkedin.com/in/ryanpfalz/) | Senior Solution Architect - Microsoft
