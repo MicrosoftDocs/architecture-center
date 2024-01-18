@@ -270,17 +270,17 @@ The following table and graph show speed increase, in seconds of chemical reacti
 - Barracuda Virtual Reactor 21.1.0 was tested on NDv4, NCv3, and NCasT4_v3 VMs on Azure.
 
 - On the NDv4 VM, Virtual Reactor scales well up to four GPUs for the models with larger particle counts. For the models with smaller particle counts, it scales well up to two GPUs.
-- On the NCv3 VM, performance improves up to three GPUs for the models with larger particle counts. For models with smaller particle counts, we recommend that you use the one-GPU configuration.
+- On the NCv3 VM, Virtual Reactor scales well up to three GPUs for the models with larger particle counts. For the models with smaller particle counts, it scales well only with the one-GPU configuration.
 - On the NCasT4_v3 VM, Virtual Reactor scales well up to four GPUs for the models with larger particle counts. For the models with smaller particle counts, it scales well only with the one-GPU configuration.
 - For simulations with large numbers of particles and cells, a single 16-GB GPU might not be sufficient because of memory requirements. In these cases, you must run simulations with two GPUs. For examples of this configuration, see the test case numbers 480, 481, and 482 on the NCv3 and NCasT4_v3 VMs.
-- Sometimes there are performance penalties if you use all GPUs for a small simulation. Instead, you can run concurrent simulations with fewer GPUs for each instance. With this method, you can quickly explore multiple points in the simulation parameter space.
+- For small simulations, sometimes there are performance penalties if you use all GPUs on an instance. Instead, you can run concurrent simulations with fewer GPUs for each instance. With this method, you can quickly explore multiple points in the simulation parameter space.
 
 ## Additional notes about tests on Barracuda 22.0.0
 
-- Barracuda Virtual Reactor 22.0.0 was successfully tested on NDm_A100_v4 and NC_A100_v4 VMs on Azure.
+- Barracuda Virtual Reactor 22.0.0 was tested on NDm_A100_v4 and NC_A100_v4 VMs on Azure.
 
-- On the NDm_A100_v4 VM, performance improves up to six GPUs for all models.
-- On the NC_A100_v4 VM, performance improves up to four GPUs for model 481. All other models scale well up to two GPUs.
+- On the NDm_A100_v4 VM, Virtual Reactor scales well up to six GPUs for all models.
+- On the NC_A100_v4 VM, Virtual Reactor scales well up to four GPUs for model 481. All other models scale well up to two GPUs.
 - The AMD EPYC 7V13 (Milan) CPUs in the NC_A100_v4-series VMs are faster than the AMD EPYC 7V12 CPUs in the NDm_A100_v4-series VMs. If you want to run a model with only one or two GPUs, the 7V13 systems provide the fastest absolute performance.
 - The NC_A100_v4-series VMs had individual pairs of GPUs connected peer to peer, while the NDm_A100_v4-series VMs had full peer-to-peer connections between all GPUs. Therefore, you should use the NC_A100_v4-series VMs for simulations that run on one or two GPUs. But for simulations that need more than two GPUs, you should use the NDm_A100_v4-series VMs.
 
@@ -358,7 +358,7 @@ Principal authors:
     Principal Program Manager
 -   [Vinod Pamulapati](https://www.linkedin.com/in/vinod-reddy-20481a104) |
     HPC Performance Engineer
--   [Bhagat Sujata](https://www.linkedin.com/in/sujata-b-a420bb23a/) | HPC Performance Engineer
+-   [Sujata Bhagat](https://www.linkedin.com/in/sujata-bapu-bhagat) | HPC Performance Engineer
 
 Other contributors:
 
