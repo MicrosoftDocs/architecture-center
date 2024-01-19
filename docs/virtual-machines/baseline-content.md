@@ -3,11 +3,11 @@ This article provides a foundational reference architecture for a workload deplo
 The example workload assumed by this architecture is an internet-facing multi-tier web application that is deployed on separate sets of virtual machines (VMs). VMs are provisioned as part of Azure Virtual Machine Scale Sets deployments. This architecture can be used for these scenarios:
 
 - **Private applications**. These applications include internal line-of-business applications or commercial off-the-shelf solutions.
-- **Public applications**. These applications are internet-facing applications. This architecture isn't for high-performance computing, mission-critical workloads, latency-sensitive applications, or other specialized use cases.
+- **Public applications**. These applications are internet-facing applications. This architecture isn't for high-performance computing, mission-critical workloads, applications highly impacted by latency, or other specialized use cases.
 
 The primary focus of this architecture isn't the application. Instead, this article provides guidance for configuring and deploying the infrastructure components with which the application interacts. These components include compute, storage, networking, and monitoring components.
 
-This architecture serves as a starting point for an infrastructure as a service (IaaS)-hosted workload. The data tier is intentionally excluded from this guidance to maintain the focus on the infrastructure.
+This architecture serves as a starting point for an infrastructure as a service (IaaS)-hosted workload. The data tier is intentionally excluded from this guidance to maintain the focus on the compute infrastructure.
 
 ## Article layout
 
@@ -42,7 +42,7 @@ This architecture consists of several Azure services for both workload resources
     - The front end runs the web server and receives user requests.
     - The back end runs another web server acting as a web API that exposes a single endpoint where the business logic is executed.
 
-    The front-end VMs have data disks (Premium_LRS) attached, which could be used to deploy a stateless application. The back-end VMs persist data to [local disks](#managed-disks) as part of its operation. This layout can be extended to include a database tier for storing state from the front-end and back-end compute. That tier is outside the scope of this architecture.
+    The front-end VMs have data disks (Premium_LRS) attached, which could be used to deploy a stateless application. The back-end VMs persist data to Premium_ZRS [local disks](#managed-disks) as part of its operation. This layout can be extended to include a database tier for storing state from the front-end and back-end compute. That tier is outside the scope of this architecture.
 
 - **Azure Virtual Network** provides a private network for all workload resources. The network is segmented into subnets, which serve as isolation boundaries.
 
@@ -56,7 +56,7 @@ This architecture consists of several Azure services for both workload resources
 
 #### Workload supporting resources
 
-- **Azure Bastion** provides secured operational access to the VMs over secure protocols.
+- **Azure Bastion** provides operational access to the VMs over secure protocols.
 
 - **Application Insights** collects logs and metrics from the application. Because the application isn't the focus of this architecture, log collection isn't demonstrated in the implementation.
 
@@ -72,9 +72,9 @@ There are two types of users who interact with the workload resources: the **wor
 
 1. Application Gateway receives HTTPS traffic, decrypts data using an external certificate for WAF inspection, and re-encrypts it using the internal wildcard certificate for transport to the front end.
 
-1. Application Gateway balances traffic across front-end VMs and connects to a front-end VM.
+1. Application Gateway balances traffic across front-end VMs and forwards the request to a front-end VM.
 
-1. The selected front-end VM communicates to a back-end VM by using the private IP address of the load balancer, not the IP of any individual VM.
+1. The selected front-end VM communicates to a back-end VM by using the private IP address of the load balancer, not the IP of any individual VM. This communication is also encrypted using the internal wildcard certificate.
 
 1. The back-end VM decrypts the request using the internal certificate. After the back end processes the request, it returns the result to the front end, which returns the result to the application gateway, and it finally returns the result to the user.
 
@@ -93,7 +93,7 @@ When selecting SKUs, it's important to have a baseline performance expectation. 
 - Processors architecture.
 - Operating system (OS) image size.
 
-For instance, if you're migrating a workload from an on-premises environment that uses Intel processor machines, choose VM SKUs that support Intel processors.
+For instance, if you're migrating a workload from an on-premises environment that requires Intel processor machines, choose VM SKUs that support Intel processors.
 
 For information about the supported VM SKUs, see [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes).
 
@@ -101,25 +101,25 @@ For information about the supported VM SKUs, see [Sizes for virtual machines in 
  
 VMs often need to be bootstrapped, which is a process in which VMs are prepared and tuned to run the application. Common bootstrapping tasks include, installing certificates, configuring remote access, installing packages, tuning and hardening the OS configuration, and formatting and mounting data disks. It's important to automate the bootstrapping process as much as possible, so that the application can start on the VM without delay or manual intervention. Here are the recommendations for automation:
 
-- **Virtual machine extensions**. These extensions are Azure Resource Manager objects that are managed through your Infrastructure-as-Code (IaC) deployment. This way, any failure is reported as a failed deployment that you can take action on. If there isn't an extension for your bootstrapping needs, create custom scripts. It's recommended that you run the scripts through should be executed through Azure Custom Script Extension.
+- **Virtual machine extensions**. These extensions are Azure Resource Manager objects that are managed through your Infrastructure-as-Code (IaC) deployment. This way, any failure is reported as a failed deployment that you can take action on. If there isn't an extension for your bootstrapping needs, create custom scripts. It's recommended that you run the scripts through the Azure Custom Script Extension.
 
     Here are some other extensions that can be used to automatically install or configure functionality on the VMs.
 
     - [Azure Monitor Agent (AMA)](/azure/azure-monitor/agents/agents-overview ) collects monitoring data from the guest OS and delivers it to Azure Monitor.
-    - Azure The Custom Script Extension ([Windows](/azure/virtual-machines/extensions/custom-script-windows), [Linux](/azure/virtual-machines/extensions/custom-script-linux)) Version 2 downloads and runs scripts on Azure virtual machines (VMs). This extension is useful for automating post-deployment configuration, software installation, or any other configuration or management tasks.
+    - The Azure Custom Script Extension ([Windows](/azure/virtual-machines/extensions/custom-script-windows), [Linux](/azure/virtual-machines/extensions/custom-script-linux)) Version 2 downloads and runs scripts on Azure virtual machines (VMs). This extension is useful for automating post-deployment configuration, software installation, or any other configuration or management tasks.
     - Azure Key Vault virtual machine extension ([Windows](/azure/virtual-machines/extensions/key-vault-windows), [Linux](/azure/virtual-machines/extensions/key-vault-linux)) provides automatic refresh of certificates stored in a Key Vault by detecting changes and installing the corresponding certificates.
     - [Application Health extension with Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension) are important when Azure Virtual Machine Scale Sets does automatic rolling upgrades. Azure relies on health monitoring of the individual instances to do the updates. You can also use the extension to monitor the application health of each instance in your scale set and perform instance repairs using Automatic Instance Repairs.
     - Microsoft Entra ID and OpenSSH ([Windows](/entra/identity/devices/howto-vm-sign-in-azure-ad-windows), [Linux](/entra/identity/devices/howto-vm-sign-in-azure-ad-linux)) integrate with Microsoft Entra authentication. You can now use Microsoft Entra ID as a core authentication platform and a certificate authority to SSH into a Linux VM by using Microsoft Entra ID and OpenSSH certificate-based authentication. This functionality allows you to manage access to VMs with Azure role-based access control (RBAC) and Conditional Access policies.
 
 - **Agent-based configuration**. Linux VMs can use a lightweight native desired state configuration available through cloud-init on various Azure provided VM images. The configuration is specified and versioned with your IaC artifacts. Bringing your own configuration management solution is another way. Most solutions follow a declarative-first approach to bootstrapping, but do support custom scripts for flexibility. Popular choices include Desired State Configuration for Windows, Desired State Configuration for Linux, Ansible, Chef, Puppet, and others. All of these configuration solutions can be paired with VM extensions for a best-of-both experience. 
 
-In the reference implementation, all bootstrapping is done through VM extensions, including a custom script for automating data disk formatting and mounting. 
+In the reference implementation, all bootstrapping is done through VM extensions and custom scripts, including a custom script for automating data disk formatting and mounting. 
 
 > Refer to Well-Architected Framework: [RE:02 - Recommendations for automation design](/azure/well-architected/operational-excellence/enable-automation?branch=main#bootstrapping).
 
 #### VM connectivity
 
-To enable private communication between a VM and other devices in a particular virtual network, one of its subnets is bound to the VM's network interface card (NIC). If you require multiple NICs for your VM, know that a maximum number of NICs is defined for each VM size.
+To enable private communication between a VM and other devices in a particular virtual network, the VM's network interface card (NIC) is connected to one of the subnets of the virtual network. If you require multiple NICs for your VM, know that a maximum number of NICs is defined for each VM size.
 
 If the workload needs low latency communication between VMs in the virtual network, consider accelerated networking, which is supported by Azure VM NICs. For more information, see [Benefits of accelerated networking](/azure/virtual-network/accelerated-networking-overview?tabs=redhat#benefits).
 
@@ -276,7 +276,7 @@ For more information on the cost of collecting metrics and logs, see [Log Analyt
 
 [Azure boot diagnostics](/azure/virtual-machines/boot-diagnostics) is enabled to observe the state of the VMs during boot by collecting serial log information and screenshots. In this architecture, that data can be accessed through Azure portal and the [the Azure CLI vm boot-diagnostics get-boot-log command](/cli/azure/vm/boot-diagnostics?view=azure-cli-latest#az-vm-boot-diagnostics-get-boot-log). The data is managed by Azure and you have no control or access to the underlying storage resource. However, if your business requirements demand for more control, you can provision your own storage account to store boot diagnostics.
 
-[VM insights](/azure/azure-monitor/vm/vminsights-overview) offers an efficient way to monitor VMs and scale sets. It gathers data from Log Analytics workspaces and provides predefined workbooks for performance data trending. This data can be viewed per VM or aggregated across multiple VMs via Monitor.
+[VM insights](/azure/azure-monitor/vm/vminsights-overview) offers an efficient way to monitor VMs and scale sets. It gathers data from Log Analytics workspaces and provides predefined workbooks for performance data trending. This data can be viewed per VM or aggregated across multiple VMs.
 
 Application Gateway and the internal load balancer use health probes to detect the endpoint status of the VMs before sending traffic.
 
@@ -294,7 +294,7 @@ Disk metrics depend on your workload, requiring a mix of key metrics. Monitoring
 
 ### Application-level monitoring
 
-Even though the reference implementation doesn't deploy an application, [Application Insights](/azure/azure-monitor/app/app-insights-overview) is provisioned as an Application Performance Management (APM) for extensibility purposes. It collects data from an application and sends that data to the Log Analytics workspace. It also can visualize that data from the workload applications.
+Even though the reference implementation doesn't make use of it, [Application Insights](/azure/azure-monitor/app/app-insights-overview) is provisioned as an Application Performance Management (APM) for extensibility purposes. Application Insights  collects data from an application and sends that data to the Log Analytics workspace. It also can visualize that data from the workload applications.
 
 The [application health extension](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension) is deployed to VMs to monitor the binary health state of each VM instance in the scale set, and perform instance repairs if necessary by using scale set automatic instance repair. It tests for the same file as the Application Gateway and the internal Azure load balancer health probe to check if the application is responsive.
 
