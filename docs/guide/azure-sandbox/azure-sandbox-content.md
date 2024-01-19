@@ -36,7 +36,7 @@ To integrate [AzureSandbox](https://github.com/Azure-Samples/azuresandbox) with 
 - Keep the sandbox isolated from your private network.
 - Audit sandbox subscription activity.
 - Limit sandbox access, and remove access when it is no longer required.
-- Decomission sandboxes after an expiration period to control costs.
+- Decommission sandboxes after an expiration period to control costs.
 - Create a budget on sandbox subscriptions to control costs.
 
 See [Landing zone sandbox environments](/azure/cloud-adoption-framework/ready/considerations/sandbox-environments) for more information.
