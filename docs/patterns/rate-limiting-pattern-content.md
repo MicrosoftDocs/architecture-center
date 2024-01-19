@@ -122,7 +122,10 @@ This diagram incorporates the following workflow:
 
 After 15 seconds, one or both jobs still will not be completed. As the leases expire, a processor should also reduce the number of requests it dequeues and writes.
 
-![GitHub logo](../_images/github.png) An implementation of this pattern, implemented in Go, is available on [GitHub](https://github.com/mspnp/go-batcher).
+![GitHub logo](../_images/github.png) Implementations of this pattern are available in different programming languages: 
+
+- **Go** implementation is available on [GitHub](https://github.com/mspnp/go-batcher).
+- **Java** implementation is available on [GitHub](https://github.com/Azure-Samples/java-rate-limiting-pattern-sample).
 
 ## Related resources
 
