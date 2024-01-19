@@ -9,7 +9,7 @@ Virtual Reactor has these capabilities:
 
 Barracuda is most widely used in the oil-refining, petrochemical, energy, and mineral-processing industries, including the clean energy sector in the production of electricity, gas, and liquid fuels from coal and biomass.
 
-## Why deploy Barracuda Virtual Reactor on Azure?
+## Why deploy Virtual Reactor on Azure?
 
 - Modern and diverse compute options to align to your workload's needs
 - The flexibility of virtualization without the need to buy and maintain physical hardware
@@ -33,7 +33,7 @@ architecture.*
 
 ## Compute sizing and drivers
 
-Performance tests of Barracuda Virtual Reactor on Azure used [ND_A100_v4](/azure/virtual-machines/nda100-v4-series), [NCv3](/azure/virtual-machines/ncv3-series), [NCasT4_v3](/azure/virtual-machines/nct4-v3-series), [NDm_A100_v4](/azure/virtual-machines/ndm-a100-v4-series), and [NC_A100_v4](/azure/virtual-machines/nc-a100-v4-series)-series VMs running Linux. The following table provides details.
+Performance tests of Virtual Reactor on Azure used [ND_A100_v4](/azure/virtual-machines/nda100-v4-series), [NCv3](/azure/virtual-machines/ncv3-series), [NCasT4_v3](/azure/virtual-machines/nct4-v3-series), [NDm_A100_v4](/azure/virtual-machines/ndm-a100-v4-series), and [NC_A100_v4](/azure/virtual-machines/nc-a100-v4-series)-series VMs running Linux. The following table provides details.
 
 |VM size|vCPU| Memory (GiB)| SSD (GiB)|GPU|GPU memory (GiB)|Maximum data disks|
 |-|-|-|-|-|-|-|
@@ -47,11 +47,11 @@ Performance tests of Barracuda Virtual Reactor on Azure used [ND_A100_v4](/azure
 
 To take advantage of the GPU capabilities of [ND_A100_v4](/azure/virtual-machines/nda100-v4-series), [NCv3](/azure/virtual-machines/ncv3-series), [NCasT4_v3](/azure/virtual-machines/nct4-v3-series), [NDm_A100_v4](/azure/virtual-machines/ndm-a100-v4-series), and [NC_A100_v4](/azure/virtual-machines/nc-a100-v4-series)-series VMs, you need to install NVIDIA GPU drivers.
 
-## Barracuda Virtual Reactor installation
+## Virtual Reactor installation
 
-Before you install Virtual Reactor, you need to deploy and connect a Linux VM and install the required NVIDIA and AMD drivers. The Barracuda Virtual Reactor 21.1.0 and 22.0.0 versions were tested on the following VMs.
+Before you install Virtual Reactor, you need to deploy and connect a Linux VM and install the required NVIDIA and AMD drivers. The Virtual Reactor 21.1.0 and 22.0.0 versions were tested on the following VMs.
 
-|VM|Barracuda Virtual Reactor 21.1.0|Barracuda Virtual Reactor 22.0.0|
+|VM|Virtual Reactor 21.1.0|Virtual Reactor 22.0.0|
 |-|-|-|
 |Standard_ND96asr_v4|✅|❌|
 |Standard_NC24s_v3|✅|❌|
@@ -66,7 +66,7 @@ For information about deploying the VM and installing the drivers, see [Run a Li
 
 You can install Virtual Reactor from the [CPFD downloads page](https://cpfd-software.com/downloads). For information about the installation process, see [CPFD customer support](https://cpfd-software.com/login/?returnUrl=/user-manual/installation.html).
 
-## Barracuda Virtual Reactor 21.1.0 performance results
+## Virtual Reactor 21.1.0 performance results
 
 Particle-based fluid dynamics simulations were run to test Virtual Reactor. The following table provides details about the operating system and NVIDIA drivers that were used.
 
@@ -185,7 +185,7 @@ These graphs provide comparisons of models that are similar but have different p
 
 :::image type="content" source="media/barracuda-virtual-reactor/comparison-ncast4.png" alt-text="Graphs that provide comparisons for similar models on NCasT4_v3." :::
 
-## Barracuda Virtual Reactor 22.0.0  performance results
+## Virtual Reactor 22.0.0 performance results
 
 The following table provides details about the operating system and NVIDIA drivers that were used.
 
@@ -206,7 +206,7 @@ Several test models were run. The following table provides details.
 |2Xres.00481|	833411|	109245000|	Enabled|	Enabled|	Disabled|
 |2Xres.00482|	1670030|	110418000|	Enabled|	Enabled|	Disabled|
 
-Performance tests of Barracuda Virtual Reactor on Azure [NC_A100_v4](/azure/virtual-machines/nc-a100-v4-series) and [NDm_A100_v4](/azure/virtual-machines/ndm-a100-v4-series)-series VMs running Linux.
+Performance tests of Virtual Reactor on Azure [NC_A100_v4](/azure/virtual-machines/nc-a100-v4-series) and [NDm_A100_v4](/azure/virtual-machines/ndm-a100-v4-series)-series VMs running Linux.
 Model results are covered in the subsequent sections.
 
 ### Results on NDm_A100_v4
@@ -265,9 +265,9 @@ The following table and graph show speed increase, in seconds of chemical reacti
 
 :::image type="content" source="media/barracuda-virtual-reactor/increase-nca100v4.png" alt-text="Graph that shows the speed increase on an NC_A100_v4.":::
 
-## Additional notes about tests on Barracuda 21.1.0
+## Additional notes about tests on Virtual Reactor 21.1.0
 
-- Barracuda Virtual Reactor 21.1.0 was tested on NDv4, NCv3, and NCasT4_v3 VMs on Azure.
+- Virtual Reactor 21.1.0 was tested on NDv4, NCv3, and NCasT4_v3 VMs on Azure.
 
 - On the NDv4 VM, Virtual Reactor scales well up to four GPUs for the models with larger particle counts. For the models with smaller particle counts, it scales well up to two GPUs.
 - On the NCv3 VM, Virtual Reactor scales well up to three GPUs for the models with larger particle counts. For the models with smaller particle counts, it scales well only with the one-GPU configuration.
@@ -275,9 +275,9 @@ The following table and graph show speed increase, in seconds of chemical reacti
 - For simulations with large numbers of particles and cells, a single 16-GB GPU might not be sufficient because of memory requirements. In these cases, you must run simulations with two GPUs. For examples of this configuration, see the test case numbers 480, 481, and 482 on the NCv3 and NCasT4_v3 VMs.
 - For small simulations, sometimes there are performance penalties if you use all GPUs on an instance. Instead, you can run concurrent simulations with fewer GPUs for each instance. With this method, you can quickly explore multiple points in the simulation parameter space.
 
-## Additional notes about tests on Barracuda 22.0.0
+## Additional notes about tests on Virtual Reactor 22.0.0
 
-- Barracuda Virtual Reactor 22.0.0 was tested on NDm_A100_v4 and NC_A100_v4 VMs on Azure.
+- Virtual Reactor 22.0.0 was tested on NDm_A100_v4 and NC_A100_v4 VMs on Azure.
 
 - On the NDm_A100_v4 VM, Virtual Reactor scales well up to six GPUs for all models.
 - On the NC_A100_v4 VM, Virtual Reactor scales well up to four GPUs for model 481. All other models scale well up to two GPUs.
