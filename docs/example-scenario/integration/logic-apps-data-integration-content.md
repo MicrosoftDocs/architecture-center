@@ -131,8 +131,8 @@ With the serverless model that Logic Apps uses, the service automatically scales
 
 Principal authors:
 
-- [Beatriz Matsui](https://br.linkedin.com/in/beatrizmatsui) | Consultant
-- [Shan Singh](https://uk.linkedin.com/in/shantnus) | Software Engineer
+- [Beatriz Matsui](https://linkedin.com/in/beatrizmatsui) | Consultant
+- [Shan Singh](https://linkedin.com/in/shantnus) | Software Engineer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
