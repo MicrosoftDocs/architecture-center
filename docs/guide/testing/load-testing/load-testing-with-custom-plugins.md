@@ -17,7 +17,7 @@ metadata:
 
 # Azure Load Testing with custom plugins
 
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
+[!INCLUDE [header_file](../../../../includes/sol-idea-header.md)]
 
 This solution provides guidance for how to use Azure Load Testing, a service that lets you run Apache JMeter scripts and custom plugins to simulate user and device behaviors. This solution also explains how to design Key Performance Indicators (KPIs) and develop a dashboard for monitoring and analyzing the results of the load test in a sample application with Azure Functions and Azure Event Hubs. The article assumes that you have some familiarity with JMeter, its plugins and custom plugins, as well as Azure Functions and Event Hubs.
 

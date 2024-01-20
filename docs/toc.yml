@@ -2580,7 +2580,7 @@ items:
       - name: Azure digital twins builder
         href: solution-ideas/articles/azure-digital-twins-builder.yml
       - name: Azure load testing
-        href: guide/testing/load-testing-with-custom-plugins.md
+        href: guide/testing/load-testing/load-testing-with-custom-plugins.md
       - name: Buy online, pick up in store
         href: example-scenario/iot/vertical-buy-online-pickup-in-store.yml
       - name: Condition monitoring
