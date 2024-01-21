@@ -23,7 +23,7 @@ categories:
 
 The Team Data Science Process (TDSP) is a framework developed by Microsoft that provides a structured methodology to efficiently build predictive analytics solutions and intelligent applications. This article outlines the key personnel roles and associated tasks for a data science team standardizing on this process.
 
-A git-compatible environment is suggested to supplement the MLflow artifacts stored in Azure Machine Learning.  Azure Machine Learning [integrates with Git repositories](/azure/machine-learning/concept-train-model-git-integration?view=azureml-api-2&tabs=python) allowing for using any number of git-compatible services:  GitHub, GitLab, Bitbucket, Azure DevOps, or any other git-compatible service. 
+A git-compatible environment is suggested to supplement the MLflow artifacts stored in Azure Machine Learning.  Azure Machine Learning [integrates with Git repositories](/azure/machine-learning/concept-train-model-git-integration?tabs=python) allowing for using any number of git-compatible services:  GitHub, GitLab, Bitbucket, Azure DevOps, or any other git-compatible service. 
 
 ## Structure of data science groups and teams
 
