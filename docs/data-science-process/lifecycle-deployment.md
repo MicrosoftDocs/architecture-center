@@ -55,8 +55,8 @@ For examples of model operationalization with Azure Machine Learning, see [Deplo
 
 The following features in Azure Machine Learning help support this deployment lifecycle element:
 
-- [Model Management](/azure/machine-learning/how-to-manage-models-mlflow?view=azureml-api-2): Deployment involves taking a selected model and placing it into a production or operational environment. MLflow supports operationalization by managing and versioning deployment-ready models.
-- [Model Serving and Deployment](/azure/machine-learning/how-to-deploy-mlflow-models?view=azureml-api-2&tabs=azureml): MLflow's model serving functionalities facilitate the deployment process, allowing models to be easily served in various environments.
+- [Model Management](/azure/machine-learning/how-to-manage-models-mlflow): Deployment involves taking a selected model and placing it into a production or operational environment. MLflow supports operationalization by managing and versioning deployment-ready models.
+- [Model Serving and Deployment](/azure/machine-learning/how-to-deploy-mlflow-models?tabs=azureml): MLflow's model serving functionalities facilitate the deployment process, allowing models to be easily served in various environments.
 
 ## Artifacts
 
