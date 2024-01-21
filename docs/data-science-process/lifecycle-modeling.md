@@ -89,10 +89,10 @@ After training, the data scientist focuses next on model evaluation.
 
 The following features in Azure Machine Learning help support this modeling lifecycle element:
 
-- [Tracking Experiments](/azure/machine-learning/how-to-track-monitor-analyze-runs?view=azureml-api-2): MLflow's core functionality is extensively used in the modeling stage to track various experiments, parameters, metrics, and artifacts.
-- [Project Deployment](/azure/machine-learning/concept-endpoints?view=azureml-api-2): Packaging code with MLflow Projects ensures consistent runs and easy sharing among team members, which is essential during iterative model development.
-- [Model Management](/azure/machine-learning/concept-mlflow-models?view=azureml-api-2): Managing and versioning models is critical in this phase as different models are built, evaluated, and refined.
-- [Model Registry](/azure/machine-learning/how-to-manage-models-mlflow?view=azureml-api-2): The model registry is used for versioning and managing models throughout their lifecycle.
+- [Tracking Experiments](/azure/machine-learning/how-to-track-monitor-analyze-runs): MLflow's core functionality is extensively used in the modeling stage to track various experiments, parameters, metrics, and artifacts.
+- [Project Deployment](/azure/machine-learning/concept-endpoints): Packaging code with MLflow Projects ensures consistent runs and easy sharing among team members, which is essential during iterative model development.
+- [Model Management](/azure/machine-learning/concept-mlflow-models): Managing and versioning models is critical in this phase as different models are built, evaluated, and refined.
+- [Model Registry](/azure/machine-learning/how-to-manage-models-mlflow): The model registry is used for versioning and managing models throughout their lifecycle.
 
 ## Peer-Reviewed Literature
 
