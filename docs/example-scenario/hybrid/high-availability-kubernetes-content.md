@@ -29,7 +29,7 @@ Services like Azure Container Registry and Azure Monitor are hosted outside of A
 ### Components
 
 - [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub) is an extension of Azure that can run workloads in an on-premises environment by providing Azure services in your datacenter.
-- [AKS Engine](https://github.com/Azure/aks-engine-azurestack) AKS Engine is an ARM template-driven way to provision a self-managed Kubernetes cluster on Azure Stack Hub. By leveraging ARM (Azure Resource Manager), AKS Engine helps you create, destroy and maintain clusters provisioned with basic IaaS resources in Azure Stack Hub. 
+- [AKS Engine](https://github.com/Azure/aks-engine-azurestack) for Azure Stack provides a command-line tool to help provision a self-managed Kubernetes cluster on Azure Stack Hub. It uses the Azure Resource Manager to create, destroy and maintain clusters provisioned with basic IaaS resources in Azure Stack Hub.
       
 - [Virtual Network](https://azure.microsoft.com/products/virtual-network) provides the network infrastructure on each Azure Stack Hub instance for the virtual machines (VMs) that host the Kubernetes cluster infrastructure.
 - [Azure Load Balancer](https://azure.microsoft.com/products/load-balancer) is used for the Kubernetes API endpoint and the Nginx Ingress Controller. The load balancer routes external (for example, internet) traffic to nodes and VMs that provide a specific service.
