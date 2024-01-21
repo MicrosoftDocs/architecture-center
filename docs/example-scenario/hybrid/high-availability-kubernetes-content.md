@@ -147,7 +147,7 @@ Besides ingress traffic to the application, you also need to consider outbound, 
 - Pulling container images that are stored in Docker Hub or Container Registry
 - Retrieving Helm charts
 - Emitting Application Insights data or other monitoring data
-- Connecting to external applications. 
+- Connecting to external applications
 
 Some enterprise environments might require the use of _transparent_ or _non-transparent_ proxy servers. These servers require specific configuration on various components of the cluster. The AKS Engine documentation contains details on how to accommodate network proxies. For more information, see [AKS Engine and proxy servers](https://github.com/Azure/aks-engine-azurestack/blob/master/docs/topics/proxy-servers.md).
 
