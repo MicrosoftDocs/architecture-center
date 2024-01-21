@@ -24,11 +24,11 @@ The Team Data Science Process (TDSP) provides a recommended lifecycle that your 
 
 This lifecycle is designed for data-science projects that are intended to ship as part of intelligent applications. These applications deploy machine learning or artificial intelligence models for predictive analytics. Exploratory data-science projects and improvised analytics projects may also benefit from the use of this process. But for those projects, some of the steps described here might not be needed.
 
-The supporting links provide additional guidance especially on how to apply TDSP within Microsoft Azure.
+The supporting links provide more guidance, especially on how to apply TDSP within Microsoft Azure.
 
 ## Purpose and Impact
 
-The purpose of TDSP is to streamline and standardize the approach to data science and artificial intelligence projects.  The methodology is structured, has been used in hundreds of projects at Microsoft, and has been studied in the peer-reviewed literature.  The broad applicability and academic framework provide assurance of the utility of this architectural framework.
+The purpose of TDSP is to streamline and standardize the approach to data science and artificial intelligence projects.  Microsoft teams have applied this structured methodology in hundreds of projects at Microsoft.  Researchers have studied TDSP and published their findings in the peer-reviewed literature.  The broad applicability and academic rigor provide assurance of the impact and effectiveness of the TDSP architectural framework.
 
 ## Five lifecycle stages
 
@@ -40,7 +40,7 @@ The TDSP lifecycle is composed of five major stages that are executed iterativel
 4. [Deployment](lifecycle-deployment.md)
 5. [Customer acceptance](lifecycle-acceptance.md)
 
-Here is a visual representation of the TDSP lifecycle:
+Here's a visual representation of the TDSP lifecycle:
 
 ![TDSP lifecycle](./media/lifecycle/tdsp-lifecycle2.png)
 
