@@ -3804,6 +3804,11 @@
       "source_path": "docs/guide/quantum/devops-for-quantum-computing.yml",
       "redirect_url": "/azure/architecture/guide/devops/devops-start-here",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/ai-ml/architecture/conversational-bot.yml",
+      "redirect_url": "/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat",
+      "redirect_document_id": false
     }
   ]
 }

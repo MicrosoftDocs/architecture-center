@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 12/18/2023
+ms.date: 01/17/2024
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -23,6 +23,23 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 
 The following new and updated articles have recently been published in the Azure Architecture Center.
 
+## January 2024
+
+### New articles
+
+- [Baseline OpenAI end-to-end chat reference architecture](./ai-ml/architecture/baseline-openai-e2e-chat.yml)
+- [Deploy Devito on an Azure virtual machine](./guide/hpc/devito-virtual-machine.yml)
+- [Deploy Ansys HFSS on an Azure virtual machine](./guide/hpc/ansys-hfss.yml)
+- [Conceptual planning for IPv6 networking](./networking/guide/ipv6/ipv6-ip-planning.md)
+- [Choose an Azure container service](./guide/choose-azure-container-service.md)
+- [General considerations for choosing an Azure container service](./guide/container-service-general-considerations.md)
+- [Deploy tNavigator on an Azure virtual machine](./guide/hpc/tnavigator.yml)
+
+### Updated articles
+
+- [AKS day-2 guide: Patch and upgrade guidance](./operator-guides/aks/aks-upgrade-practices.md)  ([#e6cba7ec73](https://github.com/MicrosoftDocs/architecture-center/commit/e6cba7ec73))
+- [Deploy Altair Radioss on an Azure virtual machine](./guide/hpc/altair-radioss.yml)  ([#274173ea1e](https://github.com/MicrosoftDocs/architecture-center/commit/274173ea1e))
+
 ## December 2023
 
 ### New articles
@@ -31,6 +48,7 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [Augment security, observability, and analytics by using Microsoft Sentinel, Azure Monitor, and Azure Data Explorer](./solution-ideas/articles/monitor-azure-data-explorer.yml)  ([#7f08993a2d](https://github.com/MicrosoftDocs/architecture-center/commit/7f08993a2d))
 - [IBM z/OS online transaction processing on Azure](./example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml)  ([#4b3e0077c0](https://github.com/MicrosoftDocs/architecture-center/commit/4b3e0077c0))
 - [Mainframe and midrange data replication to Azure using Qlik](./example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml)  ([#4b3e0077c0](https://github.com/MicrosoftDocs/architecture-center/commit/4b3e0077c0))
 - [DR for Azure Data Platform - Deploy this scenario](./data-guide/disaster-recovery/dr-for-azure-data-platform-deploy-this-scenario.yml)  ([#fb09637e3d](https://github.com/MicrosoftDocs/architecture-center/commit/fb09637e3d))
@@ -71,7 +89,7 @@ The following new and updated articles have recently been published in the Azure
 
 - [The journey to SaaS: Dynamics 365](./guide/saas/case-studies/dynamics-365-journey-saas.md)
 - [Real-time analytics on data with Azure Service Bus and Azure Data Explorer](./solution-ideas/articles/analytics-service-bus.yml)
-- [Virtualization of a Unisys ClearPath Forward OS 2200 enterprise server on Azure](./mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml)
+- [Unisys ClearPath Forward OS 2200 enterprise server virtualization on Azure](./mainframe/virtualization-of-unisys-clearpath-forward-os-2200-enterprise-server-on-azure.yml)
 - [Deploy OpenRadioss on an Azure virtual machine](./guide/hpc/openradioss.yml)
 - [Windows 365 Azure network connection](./guide/virtual-desktop/windows-365-azure-network-connection.yml)
 - [Automotive connected fleets](./industries/automotive/automotive-connected-fleets.yml)
@@ -84,19 +102,4 @@ The following new and updated articles have recently been published in the Azure
 - [Microsoft Entra security for AWS](./reference-architectures/aws/aws-azure-ad-security.yml)  ([#c00d96f670](https://github.com/MicrosoftDocs/architecture-center/commit/c00d96f670))
 - [Baseline architecture for an AKS cluster](./reference-architectures/containers/aks/baseline-aks.yml)  ([#c00d96f670](https://github.com/MicrosoftDocs/architecture-center/commit/c00d96f670))
 - [Azure VMware Solution networking](./solution-ideas/articles/azure-vmware-solution-foundation-networking.yml)  ([#bd323181bd](https://github.com/MicrosoftDocs/architecture-center/commit/bd323181bd))
-
-## September 2023
-
-### New articles
-
-- [Extend mainframes to digital channels by using standards-based REST APIs](./example-scenario/mainframe/extend-mainframes-to-digital-channels-by-using-standards-based-rest-apis.yml)
-- [Multitenancy and Azure OpenAI](./guide/multitenant/service/openai.md)
-- [Analyze call center recordings using text analytics for health and Azure OpenAI Service](./example-scenario/healthcare/analyze-recordings-text-analytics-azure-openai.yml)
-- [Hybrid Cross-Cluster Scaling with Azure Arc for the workloads deployed on Azure Stack HCI](./hybrid/hybrid-cross-cluster-scaling.yml)
-
-### Updated articles
-
-- [Azure Spring Apps baseline architecture](./web-apps/spring-apps/architectures/spring-apps-multi-zone.yml)  ([#296858b98e](https://github.com/MicrosoftDocs/architecture-center/commit/296858b98e))
-- [Integrate on-premises AD domains with Microsoft Entra ID](./reference-architectures/identity/azure-ad.yml)  ([#29ff11ff52](https://github.com/MicrosoftDocs/architecture-center/commit/29ff11ff52))
-- [Kubernetes monitoring and logging](./aws-professional/eks-to-aks/monitoring.yml)  ([#bf2b17b6cf](https://github.com/MicrosoftDocs/architecture-center/commit/bf2b17b6cf))
 

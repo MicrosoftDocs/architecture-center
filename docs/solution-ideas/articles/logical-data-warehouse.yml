@@ -5,7 +5,7 @@ metadata:
   description: See how a logical data warehouse uses Azure Synapse serverless SQL pools to query data lake and online transactional data without requiring data movement.
   author: jondobrzeniecki
   ms.author: jodobrze
-  ms.date: 11/07/2022
+  ms.date: 01/16/2024
   ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
