@@ -81,7 +81,7 @@ There are no direct tools from MLflow; however, the documentation and experiment
 Here are the deliverables in this stage:
 
 * Charter document: The charter document is a living document. You update the document throughout the project as you make new discoveries and as business requirements change. The key is to iterate upon this document, adding more detail, as you progress through the discovery process. Keep the customer and other stakeholders involved in making the changes and clearly communicate the reasons for the changes to them.
-* Data sources: Data source management can be [handled within Azure Machine Learning](/azure/machine-learning/concept-data?view=azureml-api-2).  This Azure technology is recommended for active and especially large projects because it integrates with MLflow.
+* Data sources: Data source management can be [handled within Azure Machine Learning](/azure/machine-learning/concept-data).  This Azure technology is recommended for active and especially large projects because it integrates with MLflow.
 * Data dictionaries: This document, one your team creates, provides descriptions of the data provided by the client. These descriptions include information about the schema (the data types and information on the validation rules, if any) and the entity-relation diagrams, if available.  Some or all of this information can be documented within a project notebook.
 
 ## Peer-Reviewed Literature
