@@ -59,7 +59,7 @@ In this stage, you develop a solution architecture of the data pipeline. You dev
 
 ## Integration with MLflow
 
-During the data understanding phase, different data preprocessing strategies and exploratory data analysis can be tracked and documented [using MLflow's experiment tracking](/azure/machine-learning/how-to-track-monitor-analyze-runs?view=azureml-api-2).
+During the data understanding phase, different data preprocessing strategies and exploratory data analysis can be tracked and documented [using MLflow's experiment tracking](/azure/machine-learning/how-to-track-monitor-analyze-runs).
 
 ## Artifacts
 The following are the deliverables in this stage:
