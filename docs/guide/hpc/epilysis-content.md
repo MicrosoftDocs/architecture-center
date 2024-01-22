@@ -108,10 +108,6 @@ The table illustrates that as the number of vCPUs used increases, the total elap
 | | 64 | 16 | 1177 | 5.14 |
 | | 64 | 20 | 1122 | 5.39 |
 
-The following chart shows the relative speed increase goes up as you increase the vCPUs count:
-
-:::image type="content" source="" alt-text="{alt-text}":::
-
 ## Azure cost
 
 The following table provides estimated running time that you can use to calculate Azure costs. To compute the cost, multiply the estimated time by the Azure VM hourly rate. For the hourly rates for Linux, see [Linux virtual machines pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux). Azure VM hourly rates are subject to change.
@@ -147,7 +143,7 @@ A validation study reveals that Eadsv5-series virtual machines with 20 vCPUs are
 
 ## Contributors
 
-_This article is maintained by Microsoft. It was originally written by the following contributors._
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 
@@ -161,7 +157,7 @@ Other contributors:
 - [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director Business Strategy
 - [Sachin Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) | Manager
 
-_To see non-public LinkedIn profiles, sign in to LinkedIn._
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
