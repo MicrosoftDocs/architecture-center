@@ -20,7 +20,7 @@ Before delving into details of the automated renewal process, let's provide a br
 
 *Download a [Visio file](./media/certlc.vsdx) of this architecture.*
 
-The Azure environment in question comprises the following Platform as a Service (PaaS) resources: a **Key Vault**, an **Event Grid System topic**, and an **Automation Account** that exposes a webhook targeted by the Event Grid. It is assumed that an existing Public Key Infrastructure (PKI) infrastructure, consisting of a Microsoft Enterprise Certification Authority joined to an Active Directory (AD) domain, is already in place for this scenario. Both the PKI and the AD can reside on Azure or on-premises, as well as the servers that need to be configured for certificate renewal. Subsequent sections will provide an in-depth explanation of the automated renewal process.
+The Azure environment in question comprises the following Platform as a Service (PaaS) resources: a **Key Vault**, an **Event Grid System topic**, and an **Automation Account** that exposes a webhook targeted by the Event Grid. It is assumed that an existing Public Key Infrastructure (PKI), consisting of a Microsoft Enterprise Certification Authority joined to an Active Directory (AD) domain, is already in place for this scenario. Both the PKI and the AD can reside on Azure or on-premises, as well as the servers that need to be configured for certificate renewal. Subsequent sections will provide an in-depth explanation of the automated renewal process.
 
 ### Workflow
 
