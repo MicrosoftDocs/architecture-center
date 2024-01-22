@@ -121,7 +121,7 @@ Also see [Use the Conditional Access auth context to perform step-up authenticat
 Principal authors:
 
 - [Caleb Baker](https://www.linkedin.com/in/baker-caleb) | Principal Product Manager - Identity Engineering
-- [Kunal Kodkani](https://www.linkedin.com/in/kunalkodkani) | Senior Program Manager - Cloud for Industry (FSI)
+- [Kunal Kodkani](https://www.linkedin.com/in/kunalkodkani) | Principal Program Manager - Cloud for Industry (FSI)
 - [Paresh Nhathalal](https://www.linkedin.com/in/paresh-nhathalal-72613b2) | Senior Customer Engineering Manager - Identity Engineering
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*

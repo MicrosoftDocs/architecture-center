@@ -1,6 +1,6 @@
 This article demonstrates how to create a search service that enables users to search for documents based on document content in addition to any metadata that's associated with the files.
 
-You can implement this service by using [multiple indexers](/azure/search/search-indexer-overview#indexer-scenarios-and-use-cases) in [Azure Cognitive Search](/azure/search/search-what-is-azure-search). 
+You can implement this service by using [multiple indexers](/azure/search/search-indexer-overview#indexer-scenarios-and-use-cases) in [Azure AI Search](/azure/search/search-what-is-azure-search). 
 
 This article uses an example workload to demonstrate how to create a single [search index](/azure/search/search-what-is-an-index) that's based on files in [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview). The file metadata is stored in [Azure Table Storage](/azure/storage/tables/table-storage-overview).
 
@@ -22,11 +22,11 @@ This article uses an example workload to demonstrate how to create a single [sea
 
 - [Blob Storage](https://azure.microsoft.com/products/storage/blobs/) provides cost-effective cloud storage for file data, including data in formats like PDF, HTML, and CSV, and in Microsoft Office files.
 - [Table Storage](https://azure.microsoft.com/products/storage/tables/) provides storage for nonrelational structured data. In this scenario, it's used to store the metadata for each document.
-- [Azure Cognitive Search](https://azure.microsoft.com/products/search/) is a fully managed search service that provides infrastructure, APIs, and tools for building a rich search experience.
+- [Azure AI Search](https://azure.microsoft.com/products/search/) is a fully managed search service that provides infrastructure, APIs, and tools for building a rich search experience.
 
 ### Alternatives
 
-This scenario uses [indexers in Azure Cognitive Search](/azure/search/search-indexer-overview) to automatically discover new content in supported data sources, like blob and table storage, and then add it to the search index. Alternatively, you can use the APIs provided by Azure Cognitive Search to [push data to the search index](/azure/search/search-what-is-data-import#pushing-data-to-an-index). If you do, however, you need to write code to push the data into the search index and also to parse and extract text from the binary documents that you want to search. The [Blob Storage indexer supports many document formats](/azure/search/search-howto-indexing-azure-blob-storage#supported-document-formats), which significantly simplifies the text extraction and indexing process.
+This scenario uses [indexers in Azure AI Search](/azure/search/search-indexer-overview) to automatically discover new content in supported data sources, like blob and table storage, and then add it to the search index. Alternatively, you can use the APIs provided by Azure AI Search to [push data to the search index](/azure/search/search-what-is-data-import#pushing-data-to-an-index). If you do, however, you need to write code to push the data into the search index and also to parse and extract text from the binary documents that you want to search. The [Blob Storage indexer supports many document formats](/azure/search/search-howto-indexing-azure-blob-storage#supported-document-formats), which significantly simplifies the text extraction and indexing process.
 
 Also, if you use indexers, you can optionally [enrich the data as part of an indexing pipeline](/azure/search/cognitive-search-concept-intro). For example, you can use Azure Cognitive Services to perform [optical character recognition (OCR)](/azure/search/cognitive-search-skill-ocr) or [visual analysis](/azure/search/cognitive-search-skill-image-analysis) of the images in documents, [detect the language](/azure/search/cognitive-search-skill-language-detection) of documents, or [translate](/azure/search/cognitive-search-skill-text-translation) documents. You can also define your own [custom skills](/azure/search/cognitive-search-create-custom-skill-example) to enrich the data in ways that are relevant to your business scenario.
 
@@ -38,9 +38,9 @@ This architecture uses blob and table storage because they're cost-effective and
 
 This solution enables users to search for documents based on both file content and additional metadata that's stored separately for each document. In addition to searching the text content of a document, a user might want to search for the document's author, the document type (like *paper* or *report*), or its business impact (*high*, *medium*, or *low*).
 
-[Azure Cognitive Search](/azure/search/search-what-is-azure-search) is a fully managed search service that can create [search indexes](/azure/search/search-what-is-an-index) that contain the information you want to allow users to search for.
+[Azure AI Search](/azure/search/search-what-is-azure-search) is a fully managed search service that can create [search indexes](/azure/search/search-what-is-an-index) that contain the information you want to allow users to search for.
 
-Because the files that are searched in this scenario are binary documents, you can store them in [Blob Storage](/azure/storage/blobs/storage-blobs-overview). If you do, you can use the built-in [Blob Storage indexer](/azure/search/search-howto-indexing-azure-blob-storage) in Azure Cognitive Search to automatically extract text from the files and add their content to the search index.
+Because the files that are searched in this scenario are binary documents, you can store them in [Blob Storage](/azure/storage/blobs/storage-blobs-overview). If you do, you can use the built-in [Blob Storage indexer](/azure/search/search-howto-indexing-azure-blob-storage) in Azure AI Search to automatically extract text from the files and add their content to the search index.
 
 ### Searching file metadata
 
@@ -73,7 +73,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures that your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-Azure Cognitive Search provides a [high SLA](https://go.microsoft.com/fwlink/?LinkId=716855) for *reads* (querying) if you have at least two [replicas](/azure/search/search-capacity-planning#concepts-search-units-replicas-partitions-shards). It provides a high SLA for *updates* (updating the search indexes) if you have at least three replicas. You should therefore provision at least two replicas if you want your users to be able to search reliably, and three if actual changes to the index also need to be high-availability operations. 
+Azure AI Search provides a [high SLA](https://go.microsoft.com/fwlink/?LinkId=716855) for *reads* (querying) if you have at least two [replicas](/azure/search/search-capacity-planning#concepts-search-units-replicas-partitions-shards). It provides a high SLA for *updates* (updating the search indexes) if you have at least three replicas. You should therefore provision at least two replicas if you want your users to be able to search reliably, and three if actual changes to the index also need to be high-availability operations. 
 
 [Azure Storage always stores multiple copies of your data](/azure/storage/common/storage-redundancy) to help protect it against planned and unplanned events. Azure Storage provides additional redundancy options for replicating data across regions. These safeguards apply to data in blob and table storage.
 
@@ -81,7 +81,7 @@ Azure Cognitive Search provides a [high SLA](https://go.microsoft.com/fwlink/?Li
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-Azure Cognitive Search provides [robust security controls](/azure/search/search-security-overview) that help you implement network security, authentication and authorization, data residency and protection, and administrative controls that help you maintain security, privacy, and compliance.
+Azure AI Search provides [robust security controls](/azure/search/search-security-overview) that help you implement network security, authentication and authorization, data residency and protection, and administrative controls that help you maintain security, privacy, and compliance.
 
 Whenever possible, use [Microsoft Entra authentication](/azure/search/search-security-rbac) to provide access to the search service itself, and connect your search service to other Azure resources (like blob and table storage in this scenario) by using a [managed identity](/azure/search/search-howto-managed-identities-data-sources).
 
@@ -93,11 +93,11 @@ Cost optimization is about reducing unnecessary expenses and improving operation
 
 For information about the costs of running this scenario, see this preconfigured [estimate in the Azure pricing calculator](https://azure.com/e/375d2b930db14fbe90537421331f41de). All the services described here are configured in this estimate. The estimate is for a workload that has a total document size of 20 GB in Blob Storage and 1 GB of metadata in Table Storage. Two search units are used to satisfy the SLA for read purposes, as described in the [reliability](#reliability) section of this article. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected usage.
 
-If you review the estimate, you can see that the cost of blob and table storage is relatively low. Most of the cost is incurred by Azure Cognitive Search, because it performs the actual indexing and compute for running search queries.
+If you review the estimate, you can see that the cost of blob and table storage is relatively low. Most of the cost is incurred by Azure AI Search, because it performs the actual indexing and compute for running search queries.
 
 ## Deploy this scenario
 
-To deploy this example workload, see [Indexing file contents and metadata in Azure Cognitive Search](https://github.com/Azure-Samples/azure-cognitive-search-blob-metadata). You can use this sample to:
+To deploy this example workload, see [Indexing file contents and metadata in Azure AI Search](https://github.com/Azure-Samples/azure-cognitive-search-blob-metadata). You can use this sample to:
 
 - Create the required Azure services.
 - Upload a few sample documents to Blob Storage.
@@ -121,9 +121,9 @@ Other contributor:
 
 ## Next steps
 
-- [Get started with Azure Cognitive Search](/azure/search/search-what-is-azure-search#how-to-get-started)
-- [Increase relevancy using semantic search in Azure Cognitive Search](/azure/search/semantic-search-overview)
-- [Security filters for trimming results in Azure Cognitive Search](/azure/search/search-security-trimming-for-azure-search)
+- [Get started with Azure AI Search](/azure/search/search-what-is-azure-search#how-to-get-started)
+- [Increase relevancy using semantic search in Azure AI Search](/azure/search/semantic-search-overview)
+- [Security filters for trimming results in Azure AI Search](/azure/search/search-security-trimming-for-azure-search)
 - [Tutorial: Index from multiple data sources using the .NET SDK](/azure/search/tutorial-multiple-data-sources)
 
 ## Related resources

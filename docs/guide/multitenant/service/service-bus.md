@@ -117,9 +117,6 @@ Partitioning is available when you deploy namespaces with specific SKUs. For mor
 
 See [Partitioned queues and topics](/azure/service-bus-messaging/service-bus-partitioning).
 
-> [!NOTE]
-> Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It isn't available for the Premium messaging SKU anymore, but any previously existing partitioned entities from when they were supported in Premium namespaces will continue to work as expected.
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
