@@ -48,7 +48,7 @@ The script downloads the CSR and submits it to the Certification Authority.
 1. **Certificate renewal:**
  The Certification Authority generate a new certificate based on the correct template and send it back to the script. This ensures that the renewed certificate aligns with the predefined security policies.
 
-1. **Certificate Import and Key Vault Update:**
+1. **Certificate Merging and Key Vault Update:**
 The script merges the renewed certificate back into the Key Vault, finalizing the update process. 
 
 1. **Monitoring and e-mail notification:**
