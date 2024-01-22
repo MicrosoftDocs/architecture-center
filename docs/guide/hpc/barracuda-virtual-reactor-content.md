@@ -49,7 +49,7 @@ To take advantage of the GPU capabilities of [ND_A100_v4](/azure/virtual-machine
 
 ## Virtual Reactor installation
 
-Before you install Virtual Reactor, you need to deploy and connect a Linux VM and install the required NVIDIA and AMD drivers. The Virtual Reactor 21.1.0 and 22.0.0 versions were tested on the following VMs.
+Before you install Virtual Reactor, you need to deploy and connect a Linux VM and install the required NVIDIA drivers. The Virtual Reactor 21.1.0 and 22.0.0 versions were tested on the following VMs.
 
 |VM|Virtual Reactor 21.1.0|Virtual Reactor 22.0.0|
 |-|-|-|

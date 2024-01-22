@@ -4,7 +4,7 @@ metadata:
   description: Find out how Barracuda Virtual Reactor computational fluid dynamics (CFD) software performs on a virtual machine.
   author: gauharjunnarkar
   ms.author: gajunnar
-  ms.date: 01/19/2024
+  ms.date: 01/23/2024
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
