@@ -130,7 +130,7 @@ Every organization requires secure and efficient management of their certificate
 
 Enterprises typically operate complex IT infrastructures involving multiple teams responsible for the certificate lifecycle. The manual nature of the certificate renewal process often introduces errors and consumes valuable time. 
 
-This solution addresses these challenges by automating the renewal of certificates issued by Microsoft Certificate Service (the CA that most customers use for various server applications such as web servers, SQL servers, and for encryption, non-repudiation, and signing purpose), ensuring timely updates and secure storage of certificates within Azure Key Vault. Its compatibility with Azure-based and on-premises servers enables flexible deployment.
+This solution addresses these challenges by automating the renewal of certificates issued by Microsoft Certificate Service (widely used for various server applications such as web servers, SQL servers, and for encryption, non-repudiation, and signing purpose), ensuring timely updates and secure storage of certificates within Azure Key Vault. Its compatibility with Azure-based and on-premises servers enables flexible deployment.
 
 ### Potential use cases
 
