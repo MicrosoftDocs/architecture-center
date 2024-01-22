@@ -32,13 +32,13 @@ Deploy EPILYSIS on Azure to get benefits like:
 
 ## Compute sizing and drivers
 
-The performance tests of EPILYSIS on Azure used an [HBv3-series](/azure/virtual-machines/hbv3-series) VM and Eadsv5-series VM running on Linux OS.
+The performance tests of EPILYSIS on Azure used an [HBv3-series](/azure/virtual-machines/hbv3-series) VM and Eadsv5-series VM running on a Linux operating system.
 
 - HBv3-series VMs are optimized for HPC applications like fluid dynamics, explicit and implicit finite element analysis, weather modeling, seismic processing, reservoir simulation, and RTL simulation.
 
 - Eadsv5-series VMs are optimized for memory-intensive enterprise applications, such as relational database servers and in-memory analytics workloads.
 
-The following table provides the configuration details of [HBv3-series](/azure/virtual-machines/hbv3-series) and [Eadsv5-series](/azure/virtual-machines/easv5-eadsv5-series) VMs:
+The following table provides the configuration details for [HBv3-series](/azure/virtual-machines/hbv3-series) and [Eadsv5-series](/azure/virtual-machines/easv5-eadsv5-series) VMs:
 
 | VM series | VM size | vCPU | Memory (GiB) | Temp storage (GiB) | Max data disk | Max NICs |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -56,31 +56,31 @@ Before you install EPILYSIS, you need to [deploy and connect a Linux VM](/azure/
 
 EPILYSIS version 23.1.1 was used for testing the 101_large_7million model.
 
-The following table provides details of the computing environment used for testing, including the operating system, processor, and MPI implementation.
+The following table provides details about the computing environment that was used for testing.
 
 | VM series | Operating system version | Operating System architecture | Processor | MPI |
 |:---:|:---:|:---:|:---:|:---:|
-| Eadsv5 | Linux CentOS-HPC-7.9 Gen2 | X86-64-Bit | AMD EPYC™ 7763v | Open MPI 4.1.1 |
-| HBv3 | Linux CentOS-HPC-7.9 Gen2 | X86-64-Bit | AMD EPYC™ 7V73X | Open MPI 4.1.1 |
+| Eadsv5 | Linux CentOS 7.9 HPC Gen2 | X86-64 | AMD EPYC 7763v | Open MPI 4.1.1 |
+| HBv3 | Linux CentOS 7.9 HPC Gen2 | X86-64 | AMD EPYC 7V73X | Open MPI 4.1.1 |
 
 >![Important]
->This document refers to a release version of Linux that is nearing or at the end of Life (EOL). Results are expected to be similar on newer Linux images that include the same drivers.
+>The version of Linux discussed in this article will be discontinued in 2024. Tests that are performed on newer Linux images that include the same drivers are expected to produce similar results.
 
-### Model details:
+### Model details
 
-For EPILYSIS solver validation, we used the 101_large_7million model. The model is set up for a linear static analysis (solution 101). A linear static analysis is an analysis where a linear relation holds between applied forces and displacements. The following image shows 101_large_7million model:
+The 101_large_7million model is used for EPILYSIS solver validation. This model is set up for a linear static analysis (solution 101). A *linear static analysis* is an analysis where a linear relation holds between applied forces and displacements. The following image shows the 101_large_7million model.
 
-![The image shows 101_large_7million.nas model](media/image2.png)
+:::image type="content" source="./media/epilysis/model-example.png" alt-text="Image that shows the shows 101_large_7million.nas model.":::
 
-The following table provides details about the model:
+The following table provides details about the model.
 
 |  Model name | Nodes | Shell elements | Solid elements |
 |:---:|:---:|:---:|:---:|
 | 101_large_7million.nas | 7678688 | 6341470 | 1295109 |
 
-### EPILYSIS performance results on HBv3-series VMs
+### EPILYSIS performance results on a HBv3-series VM
 
-The following table shows vCPUs used, the total elapsed time, and relative speed increase of each test. As the number of vCPUs increases, the total elapsed time decreases and the relative speed increase improves.
+The following table shows the details of each test on a HBv3-series VM. As the number of vCPUs increases, the total elapsed time decreases, and the relative speed increase improves.
 
 | VM size | Number of vCPUs available | Number of vCPUs used | Total elapsed time (seconds) | Relative speed increase |
 |:---:|:---:|:---:|:---:|:---:|
@@ -93,7 +93,7 @@ The following table shows vCPUs used, the total elapsed time, and relative speed
 
 The following chart shows the relative speed increase goes up as you increase the vCPUs. However, it begins to plateau at 16 vCPUs:
 
-:::image type="content" source="{source}" alt-text="{alt-text}":::
+:::image type="content" source="./media/epilysis/relative-speed-increase.png" alt-text="Graph that shows the relative speed increase.":::
 
 ### EPILYSIS performance results on Eadsv5-series VMs
 
@@ -110,7 +110,7 @@ The table illustrates that as the number of vCPUs used increases, the total elap
 
 The following chart shows the relative speed increase goes up as you increase the vCPUs count:
 
-:::image type="content" source="{source}" alt-text="{alt-text}":::
+:::image type="content" source="" alt-text="{alt-text}":::
 
 ## Azure cost
 
