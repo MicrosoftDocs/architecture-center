@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2024-01-17T21:51:48.402Z</updated>
+    <updated>2024-01-22T17:01:35.549Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
@@ -14,6 +14,30 @@
         <link href="https://learn.microsoft.com/azure/architecture/ai-ml/architecture/baseline-openai-e2e-chat"/>
         <updated>2024-01-17T20:01:10.000Z</updated>
         <summary type="html"><![CDATA[Learn about proven practices for building and deploying enterprise chat applications with OpenAI, Azure Machine Learning, and Azure App Services.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Virtual Machines baseline architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/virtual-machines/baseline</id>
+        <link href="https://learn.microsoft.com/azure/architecture/virtual-machines/baseline"/>
+        <updated>2024-01-18T04:38:46.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to set up an environment that's configured to run a workload on Azure Virtual Machines.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Virtual Machines baseline architecture in an Azure landing zone]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/virtual-machines/baseline-landing-zone</id>
+        <link href="https://learn.microsoft.com/azure/architecture/virtual-machines/baseline-landing-zone"/>
+        <updated>2024-01-18T04:38:46.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to build on the baseline architecture to address changes and expectations when you deploy it in an Azure landing zone.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SDWAN integration with Azure hub-and-spoke network topologies]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/networking/guide/sdwan-integration-in-hub-and-spoke-network-topologies</id>
+        <link href="https://learn.microsoft.com/azure/architecture/networking/guide/sdwan-integration-in-hub-and-spoke-network-topologies"/>
+        <updated>2024-01-17T22:54:22.000Z</updated>
+        <summary type="html"><![CDATA[Learn about architecture patterns for SDWAN integration with Azure hub-and-spoke network topologies, based on the Azure Well-Architected Framework's five pillars of architecture excellence.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -63,6 +87,22 @@
         <updated>2024-01-04T19:42:57.000Z</updated>
         <summary type="html"><![CDATA[Learn how Rock Flow Dynamics tNavigator software performs on an Azure virtual machine (VM), and learn how to run tNavigator on Azure.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Sandbox]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/azure-sandbox/azure-sandbox</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/azure-sandbox/azure-sandbox"/>
+        <updated>2024-01-19T23:29:32.000Z</updated>
+        <summary type="html"><![CDATA[Accelerate your Azure project with a fully functional sandbox environment that includes virtual networks, virtual machines, and databases.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Integrate data with Logic App and SQL Server]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/integration/logic-apps-data-integration</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/integration/logic-apps-data-integration"/>
+        <updated>2024-01-19T20:52:29.000Z</updated>
+        <summary type="html"><![CDATA[Automate data integration tasks by using Azure Logic Apps. Configure API calls to trigger tasks like storing data in an on-premises SQL Server database.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[AKS day-2 guide: Patch and upgrade guidance]]></title>
