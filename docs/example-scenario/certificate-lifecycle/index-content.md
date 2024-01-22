@@ -126,7 +126,7 @@ For this reason, Azure Automation Account was chosen as the preferred approach.
 
 ## Scenario details
 
-Every customer necessitates secure and efficient management of their certificate lifecycle. Failing to timely update a certificate can lead to service interruptions, incurring significant costs for the business.
+Every organization requires secure and efficient management of their certificate lifecycle. Failing to update a certificate before expiration can lead to service interruptions, incurring significant costs for the business.
 
 Enterprises typically operate complex IT infrastructures involving multiple teams responsible for the certificate lifecycle. The manual nature of the certificate renewal process often introduces errors and consumes valuable time. 
 
