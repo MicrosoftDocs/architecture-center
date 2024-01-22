@@ -5,7 +5,7 @@ metadata:
   description: Learn how to set up an environment that's configured to run a workload on Azure Virtual Machines.
   author: BryanLa
   ms.author: prwilk
-  ms.date: 01/09/2024
+  ms.date: 01/19/2024
   ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
