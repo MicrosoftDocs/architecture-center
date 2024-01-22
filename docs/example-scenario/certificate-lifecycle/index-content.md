@@ -20,7 +20,13 @@ Before delving into details of the automated renewal process, let's provide a br
 
 *Download a [Visio file](./media/certlc.vsdx) of this architecture.*
 
-The Azure environment in question comprises the following Platform as a Service (PaaS) resources: a **Key Vault**, an **Event Grid System topic**, and an **Automation Account** that exposes a webhook targeted by the Event Grid. It is assumed that an existing Public Key Infrastructure (PKI), consisting of a Microsoft Enterprise Certification Authority joined to an Active Directory (AD) domain, is already in place for this scenario. Both the PKI and the AD can reside on Azure or on-premises, as well as the servers that need to be configured for certificate renewal. Subsequent sections will provide an in-depth explanation of the automated renewal process.
+The Azure environment in question comprises the following Platform as a Service (PaaS) resources: a **Key Vault**, an **Event Grid System topic**, and an **Automation Account** that exposes a webhook targeted by the Event Grid. 
+
+It is assumed that an existing Public Key Infrastructure (PKI), consisting of a Microsoft Enterprise Certification Authority joined to an Active Directory (AD) domain, is already in place for this scenario. Both the PKI and the AD can reside on Azure or on-premises, as well as the servers that need to be configured for certificate renewal. 
+
+The virtual machines with certificates to monitor for renewal do not need to be joined to Active Directory (AD) or Microsoft Entra ID. The sole requirement is for the Certification Authority (CA) and the Hybrid worker (if located on a different virtual machine than the CA) to be joined to Active Directory.
+
+Subsequent sections will provide an in-depth explanation of the automated renewal process.
 
 ### Workflow
 
@@ -29,7 +35,10 @@ The following drawing shows the automated workflow for certificate renewal withi
 ![detailed workflow](./media/workflow.png)
 
 1. **Key Vault Configuration:**
-The initial phase of the renewal process entails storing the certificate object in the designated "Certificates" section of the Azure Key Vault blade. While not mandatory, for those interested in implementing email notifications, it's advisable to tag this certificate with the recipient's email address. This tagging ensures timely notifications upon the completion of the renewal procedure. If multiple recipients are necessary, their email addresses should be separated by a comma or semicolon. The suggested tag name for this purpose is '*Recipient*,' and its value should be the email address(es) of the designated administrator(s).
+The initial phase of the renewal process entails storing the certificate object in the designated "Certificates" section of the Azure Key Vault blade. While not mandatory, for those interested in implementing email notifications, it's advisable to tag this certificate with the recipient's email address. This tagging ensures timely notifications upon the completion of the renewal procedure. If multiple recipients are necessary, their email addresses should be separated by a comma or semicolon. The suggested tag name for this purpose is '*Recipient*,' and its value should be the email address(es) of the designated administrator(s). 
+
+> [!NOTE]
+> The utilization of tags, as opposed to [certificate notifications](https://learn.microsoft.com/azure/key-vault/certificates/overview-renew-certificate?tabs=azure-portal#get-notified-about-certificate-expiration), offers the advantage of being applied to a specific certificate with a designated recipient. Conversely, certificate notification applies indiscriminately to all certificates within the key vault, utilizing the same recipient for all.
 
 1. **Key Vault Extension Configuration:**
 The servers that need to utilize these certificates must be equipped with the Key Vault extension, a versatile tool compatible with *[Windows](https://learn.microsoft.com/azure/virtual-machines/extensions/key-vault-windows)* and *[Linux](https://learn.microsoft.com/azure/virtual-machines/extensions/key-vault-linux)*-based systems.  Azure-based (IaaS) servers and on-premises/other-clouds servers integrated through *[Azure ARC](https://learn.microsoft.com/azure/azure-arc/overview)* are supported. The Key Vault extension must be configured to periodically poll the Key Vault for any updated certificates. This polling interval is customizable, allowing flexibility to align with specific operational requirements.
@@ -39,14 +48,14 @@ As the certificate approaches its expiration, the Event Grid actively intercepts
 
 1. **Hybrid RunBook Worker Execution:**
     - The RunBook, executed within the Certification Authority server configured as a Hybrid RunBook Worker, takes as input the webhook body containing the name of the expiring certificate and the Key Vault hosting it. 
-    - Leveraging Azure connectivity, the script within the RunBook connects to Azure to retrieve the certificate's template name used during its generation.
+    - Leveraging Azure connectivity, the script within the RunBook connects to Azure to retrieve the certificate's template name used during its generation. In this context, the "certificate template" is the configuration component of the certification authority that defines the attributes and purpose of the certificates to be generated.
     - Subsequently, the script interfaces with the Key Vault, initiating a certificate renewal request. This request results in the generation of a Certificate Signing Request (CSR). The CSR is generated by Azure Keyvault itself, leveraging the same template used to generate the original certificate. This ensures that the renewed certificate aligns with the predefined security policies. For details about the security involved in the authentication and authorization process, refer to the [Security](#security) section.
 
 1. **RunBook starts the certification authority renewal process:**
 The script downloads the CSR and submits it to the Certification Authority.
 
 1. **Certificate renewal:**
- The Certification Authority generate a new certificate based on the correct template and send it back to the script. This ensures that the renewed certificate aligns with the predefined security policies.
+ The Certification Authority generate a new x509 certificate based on the correct template and send it back to the script. This ensures that the renewed certificate aligns with the predefined security policies.
 
 1. **Certificate Merging and Key Vault Update:**
 The script merges the renewed certificate back into the Key Vault, finalizing the update process. 
@@ -81,6 +90,8 @@ The Key Vault extension configuration parameters include:
 - **pollingIntervalInS:** The polling interval for the Key Vault extension to check for certificate updates. The default value is 3600 seconds (1 hour).
 - **authenticationSetting:** The authentication setting for the Key Vault extension. For Azure-based servers this setting can be omitted, meaning that the System Assigned Managed Identity (MI) of the VM is used against the Key Vault. For on-premises servers, specifying the setting `msiEndpoint = "http://localhost:40342/metadata/identity"` means the usage of the service principal associated with the computer object created during the ARC onboarding.
 
+> [!NOTE]
+> The key vault extension parameters should be specified only during the initial setup, and they will not undergo any changes throughout the renewal process.
 
 #### Automation Account
 The Automation Account orchestrates the certificate renewal process. It needs to be configured with a RunBook, and the PowerShell script for the RunBook can be found [here](https://github.com/Azure/certlc/blob/main/.runbook/runbook_v2a.ps1). 
